@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-26 13:05+0200\n"
+"PO-Revision-Date: 2015-07-27 09:03+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/hy/>\n"
@@ -528,7 +528,7 @@ msgstr "Ավելացնել նոր կետ"
 #: gis_data_editor.php:269
 #, php-format
 msgid "Linestring %d:"
-msgstr "%d հատվածը՝"
+msgstr "%d գծահատվածը՝"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
 msgid "Outer ring:"
@@ -550,7 +550,7 @@ msgstr "Ավելացնել ներքին ուրվագիծ"
 #: gis_data_editor.php:333
 #, php-format
 msgid "Polygon %d:"
-msgstr "%d բազմանկյուն՝"
+msgstr "%d բազմանկյունը՝"
 
 #: gis_data_editor.php:397
 msgid "Add a polygon"
@@ -651,7 +651,7 @@ msgstr ""
 #: import.php:468 import.php:529 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
-msgstr "Ֆայլը կարդալու սխալ։"
+msgstr "Չհաջողվեց կարդալ ֆայլը։"
 
 #: import.php:478 import.php:489 import.php:510 import.php:521
 #: libraries/File.class.php:578
@@ -711,6 +711,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Սակայն, վերջին մեկնարկման ժամանակ որևէ տվյալներ չեն վերլուծվել, ինչը "
+"սովորաբար նշանակում է, որ phpMyAdmin-ը չի կարողանա ավարտել այս ներմուծումը "
+"մինչև դուք չավելացնեք PHP-ի ժամանակի սահմանափակումը։"
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
@@ -765,7 +768,7 @@ msgstr "Տվյալների բազայի սպասարկիչը"
 
 #: index.php:278 libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Server:"
-msgstr "Սպասարկիչ՝"
+msgstr "Սպասարկիչը՝"
 
 #: index.php:282
 msgid "Server type:"
@@ -801,7 +804,7 @@ msgstr "Տվյալների բազայի սպասառուի տարբերակը՝"
 
 #: index.php:331
 msgid "PHP extension:"
-msgstr "PHP ընդարձակումը՝"
+msgstr "PHP ընդլայնումը՝"
 
 #: index.php:345
 #| msgid "Versions"
@@ -814,7 +817,7 @@ msgstr "Ցուցադրել PHP-ի տվյալները"
 
 #: index.php:379
 msgid "Version information:"
-msgstr "Տարբերակի վերաբերյալ տեղեկություններ՝"
+msgstr "Տարբերակի վերաբերյալ տեղեկությունները՝"
 
 #: index.php:388 libraries/Util.class.php:429 libraries/Util.class.php:490
 #: libraries/config/FormDisplay.tpl.php:148
@@ -851,6 +854,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
+"Դուք միացել եք որպես 'root' առանց գաղտնաբառի, ինչը համապատասխանում է MySQL-ի "
+"հաշվի լռելյայն արտոնությւոնների կայանքներին։ Տվյալ կայանքներով մենկնարկված "
+"MySQL սպասարկիչը պաշտպանված չէ ներխուժումներից, ուստի դուք պետք է շտկեք այս "
+"անվտանգություն խոցելիությունը՝ նշանակելով գաղտնաբառ 'root' օգտվողի համար։"
 
 #: index.php:464
 msgid ""
@@ -858,6 +865,9 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Ձեր PHP-ի կազմաձևի մեջ միացրած է mbstring.func_overload հարաչափը։ Այս "
+"դրույթը անհամատեղելի է phpMyAdmin-ի հետ և կարող է հանգեցնել որոշ տվյալների "
+"վնասմանը։"
 
 #: index.php:479
 msgid ""
@@ -865,6 +875,10 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"PHP-ի mbstring ընդլայնումը չի գտնվել և, դրա հետ մեկտեղ, ձեր համակարգում "
+"օգտագորժվում են բազմաբայթանի նշանները։ Առանց mbstring ընդլայնմանը phpMyAdmin-"
+"ը ի վիճակի չէ տրոհել տողերը ճիշտ կերպով, ինչը կարող է հանգեցնել անսպասելի "
+"արդյունքներին։"
 
 #: index.php:495
 msgid ""
@@ -873,12 +887,20 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Ձեր PHP-ի հարաչափի "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] արժեքը ավելի ցածր է, քան "
+"phpMyAdmin-ում սահմանված թխուկի վավերականությունը, այդ իսկ պատճառով, ձեր "
+"աշխատաշրջանը կարող է սպառվել ավելի շուտ, քան նշանակված է phpMyAdmin-ում։"
 
 #: index.php:508
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Աշխատաշրջանի թխուկի պահպանումը ավելի ցածր է քան phpMyAdmin-ում սահմանված "
+"թխուկի վավերականությւոնը, այդ իսկ պատճառով, ձեր աշխատաշրջանը սպառվելու է "
+"ավելի շուտ, քան նշանակված է phpMyAdmin-ում։"
 
 #: index.php:520
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -893,6 +915,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"Տեղակայման սցենարի կողմից օգտագործվող [code]config[/code] պանակը դեռ "
+"պահպանվում է ձեր phpMyAdmin պանակում։ Անպայման ջնջեք այն՝ phpMyAdmin-ը "
+"կարգավորելուց անմիջապես հետո, հակառակ դեպքում ձեր սպասարկիչը կարող է "
+"վտանգվել՝ կազմաձևի ֆայլը ոչ իրավազոր անձանց կողմից ներբեռնելու միջոցով։"
 
 #: index.php:542
 #, php-format
@@ -910,6 +936,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Կամ անցեք ցանկացած տվյալների բազայի 'Գործողություններ' ներդիրը՝ այտեղից "
+"կազմաձևելու համար։"
 
 #: index.php:597
 #, php-format
@@ -917,6 +945,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"Ձեր PHP-ի MySQL դարանի %s տարբերակը տարբերվում է ձեր սպասարկչում տեղակայված "
+"MySQL-ի %s տարբերակից։ Այն կարող է հանգեցնել անկանխատեսելի վարքագծին։"
 
 #: index.php:621
 #, php-format
@@ -924,6 +954,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"Սպասարկչում օգտագործվում է Suhosin պաշտպանիչ համակարգը։ Խնդիրների առաջացման "
+"դեպում դիմեք %sպաշտոնական ուղեցույցներին%s։"
 
 #: js/messages.php:36 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1000,7 +1032,7 @@ msgstr "Իսկապե՞ս եք ցանկանում ջնջել \"%s\" որոնու�
 #: js/messages.php:58
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Ձեզ մոտ առկա են չպահպանված փոփոխություններ։ Դուք վստա՞հ եք, որ ցանկանում եք "
+"Ձեզ մոտ առկա են չպահպանված փոփոխություններ։ Համոզվա՞ծ եք, որ ցանկանում եք "
 "լքել այս էջը։"
 
 #: js/messages.php:59
@@ -1009,7 +1041,7 @@ msgstr "Իսկապե՞ս եք ցանկանում հետարկել նշված օ�
 
 #: js/messages.php:60
 msgid "Do you really want to delete this central column?"
-msgstr ""
+msgstr "Իսկապե՞ս եք ցանկանում ջնջել այս կենտրոնական սյունակը։"
 
 #: js/messages.php:63
 msgid "Save & Close"
@@ -1209,19 +1241,19 @@ msgstr "Օգտագործված հիշողությունը"
 
 #: js/messages.php:131
 msgid "Total Swap"
-msgstr ""
+msgstr "Ընդամենը փոխանակման տարածության"
 
 #: js/messages.php:132
 msgid "Cached Swap"
-msgstr ""
+msgstr "Շտեմավորված փոխանակման տարածություն"
 
 #: js/messages.php:133
 msgid "Used Swap"
-msgstr ""
+msgstr "Օգտագործված փոխանակման տարածություն"
 
 #: js/messages.php:134
 msgid "Free Swap"
-msgstr ""
+msgstr "Ազատ փոխանակման տարածություն"
 
 #: js/messages.php:136
 msgid "Bytes sent"
@@ -1364,6 +1396,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log-ը միացրած է, սակայն սպասարկիչը գրանցում է միայն %d վայրկյանից "
+"երկար տևող հարցումները։ Ցանկալի է նշանակել long_query_time-ը 0-2 վայրկյան, "
+"ձեր համակարգից կախված։"
 
 #: js/messages.php:171
 #, php-format
@@ -1382,7 +1417,7 @@ msgstr ""
 #: js/messages.php:174
 #, php-format
 msgid "Set log_output to %s"
-msgstr ""
+msgstr "Նշանակել log_output-ը %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:176
@@ -1400,7 +1435,7 @@ msgstr "Կասեցնել %s"
 #: js/messages.php:180
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr ""
+msgstr "Նշանակել long_query_time-ը %d վայրկյան։"
 
 #: js/messages.php:182
 msgid ""
@@ -1475,6 +1510,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Քանի որ ընտրվել է ԶԵՏԵՂՄԱՆ հարցումների խմբավորումը, նույն աղյուսակի ԶԵՏԵՂՄԱՆ "
+"հարցումները նույնպես կխմբավորվեն, զետեղվող տվյալներից անկախ։"
 
 #: js/messages.php:204
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1568,6 +1605,10 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Գծապատկերի համար նոր տվյալների հայցման ժամանակ սպասարկիչը վերադարձրեց "
+"անվավեր պատասխան։ Ըստ երևույթի, սա տեղի է ունեցել ձեր ժամանակաշրջանի սպառման "
+"պատճառով։ Էջի վերբեռնումը և ձեր հավատարմագրերի կրկնակի մուտքագրումը կարող է "
+"օգնել։"
 
 #: js/messages.php:231
 msgid "Reload page"
@@ -1586,6 +1627,8 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"Չհաջողվեց կառուցել գծապատկերի ցանցավորումը՝ ներմուծված կազմաձևից։ Վերակայում "
+"լռելյայն կազմաձևին …"
 
 #: js/messages.php:239 libraries/Menu.class.php:344
 #: libraries/Menu.class.php:447 libraries/Menu.class.php:575
@@ -1664,7 +1707,7 @@ msgstr "Բեռնում …"
 
 #: js/messages.php:266
 msgid "Request Aborted!!"
-msgstr "Հարցումը կասեցվեց։"
+msgstr "Հայցը ընդհատվեց։"
 
 #: js/messages.php:267
 msgid "Processing Request"
@@ -1762,7 +1805,7 @@ msgstr "Ջնջում"
 
 #: js/messages.php:298
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Պահված գործառույթի սահմանումը պետք է պարունակի RETURN արտահայտությունը։"
 
 #: js/messages.php:301 libraries/rte/rte_routines.lib.php:811
 msgid "ENUM/SET editor"
@@ -1790,6 +1833,8 @@ msgstr "Ավելացնել %d արժեք"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
+"Նշում՝ եթե ֆայլը պարունակում է բազմակի աղյուսակներ, դրանք կհամակցվեն մեկի "
+"մեջ։"
 
 #: js/messages.php:311
 msgid "Hide query box"
@@ -1845,6 +1890,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Կենտրոնական ցանկում սյունակներ չկան։ Համոզվեք, որ %s տվյալների բազայի համար "
+"կենտրոնական սյունակների ցանկը պարունակում է սյունակներ, որոնք ընթացիկ "
+"աղյուսակում առկա չեն։"
 
 #: js/messages.php:323
 msgid "See more"
@@ -1859,6 +1907,8 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Այս գործողությունը կարող է փոխել որոշ սյունակների սահմանումները։<br/>Համոզվա՞"
+"ծ եք, որ ցանկանում եք շարունակել։"
 
 #: js/messages.php:326
 #| msgid "Column"
@@ -1904,13 +1954,15 @@ msgstr "Հաստատեք մասնակի կախվածությունները"
 
 #: js/messages.php:337
 msgid "Selected partial dependencies are as follows:"
-msgstr "Նշված մասնակի կախվածությունները հետևյալ են՝"
+msgstr "Ընտրած մասնակի կախվածությունները հետևյալ են՝"
 
 #: js/messages.php:338
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Նշում՝ a, b -> d,f ենթադրում է, որ a և b սյունակների համակցված արժեքները "
+"կարող են որոշել d և f սյունակների արժեքները։"
 
 #: js/messages.php:339
 msgid "No partial dependencies selected!"
@@ -1945,7 +1997,7 @@ msgstr "Կկատարվեն հետևյալ գործողությունները՝"
 #: js/messages.php:346
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "ՋՆՋԵԼ %s սյունակները %s աղյուսակից"
 
 #: js/messages.php:347
 msgid "Create the following table"
@@ -2033,10 +2085,12 @@ msgstr "Կտտացրեք 'Վերակայել չափը' կոճակը՝ սկզբն
 #: js/messages.php:381
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Կտտացրեք տվյալների կետը՝ տվյալների տողը դիտելու և հավանաբար խմբագրելու համար։"
 
 #: js/messages.php:383
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Գծագիրը կարող է չափափոխվել՝ այն ներքևի աջ անկյան երկայնքով քաշելու դեպքում։"
 
 #: js/messages.php:385
 msgid "Select two columns"
@@ -2078,11 +2132,11 @@ msgstr "Երկրաչափություն"
 
 #: js/messages.php:401
 msgid "Inner Ring"
-msgstr ""
+msgstr "Ներքին ուրվագիծ"
 
 #: js/messages.php:402
 msgid "Outer Ring"
-msgstr ""
+msgstr "Արտաքին ուրվագիծ"
 
 #: js/messages.php:405
 msgid "Shift + Click on function name to apply to all rows."
@@ -2101,14 +2155,16 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Ցուցադրում է, որ դուք կատարել եք փոփոխություններ այս էջում։ Դրանք չեղարկելու "
+"համար ձեզանից հաստատում կպահանջվի"
 
 #: js/messages.php:417
 msgid "Select referenced key"
-msgstr ""
+msgstr "Ընտրեք հղման բանալին"
 
 #: js/messages.php:418
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Ընտրեք արտաքին բանալին"
 
 #: js/messages.php:419
 msgid "Please select the primary key or a unique key!"
@@ -2124,7 +2180,7 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
-"Դուք չեք պահպանել դասավորության մեջ կատարած փոփոխությւոնները։ Առանց "
+"Դուք չեք պահպանել դասավորության մեջ կատարած փոփոխությունները։ Առանց "
 "պահպանման դրանք չեղակրվելու են։ Շարունակե՞լ։"
 
 #: js/messages.php:425
@@ -2192,6 +2248,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Դուք խմբագրել եք որոշ տվյալներ, և դրանք դեռ չեն պահպանվել։ Համոզվա՞ծ եք, որ "
+"ցանկանում եք լքել այս էջը՝ առանց տվյալների պահպանման։"
 
 #: js/messages.php:444
 msgid "Drag to reorder."
@@ -2284,6 +2342,8 @@ msgstr ""
 #: js/messages.php:472
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
+"Դուք կարող եք նաև խմբագրել տվյալների մեծ մասը<br />անմիջապես դրանց վրա "
+"կտտացնելով։"
 
 #: js/messages.php:477
 msgid "Go to link:"
@@ -2338,11 +2398,15 @@ msgstr "Ապակապել հիմնանակ փեղկից"
 #: js/messages.php:495
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Բոլոր տվյալների բազաներով զտման համար սեղմեք Enter՝ որոնման հարցումը "
+"մուտքագրելուց հետո"
 
 #: js/messages.php:496
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Տվյալների բազայում բոլոր %s-ներով զտելու համար սեղմեք Enter՝ որոնման "
+"հարցումը մուտքագրելուց հետո"
 
 #: js/messages.php:497
 #| msgid "Table"
@@ -2369,7 +2433,7 @@ msgstr "գործառույթների"
 
 #: js/messages.php:504
 msgid "The requested page was not found in the history, it may have expired."
-msgstr ""
+msgstr "Հարցված էջը չի գտնվել պատմության մեջ, հնարավոր է որ այն սպառվել է։"
 
 #: js/messages.php:507 setup/lib/index.lib.php:160
 #, php-format
@@ -2377,6 +2441,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Առկա է phpMyAdmin-ի ավելի նոր տարբերակը, և ձեզ խորհուրդ ենք տալիս արդիացնել "
+"այն։ Ամենավերջին տարբերակն է՝ %s, թողարկված՝ %s։"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:509
@@ -2405,6 +2471,8 @@ msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"Տեղի է ունեցել JavaScript-ի ճակատագրական սխալը։ Ցանկանու՞մ եք ուղարկել սխալի "
+"զեկույցը։"
 
 #: js/messages.php:520
 msgid "Change Report Settings"
@@ -2419,6 +2487,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"Ձեր արտահանումը թերի է՝ PHP-ի մակարդակում կատարման ժամանակի ցածր սահմանաչափի "
+"պատճառով։"
 
 #: js/messages.php:528
 #, php-format
@@ -2426,6 +2496,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Զգուշացում՝ այս էջում առկա ձևը պարունակում է %d դաշտից ավել։ Ուղարկելու "
+"ժամանակ որոշ դաշտերը կարող են անտեսվել՝ PHP-ի կազմաձևի max_input_vars արժեքի "
+"պատճառով։"
 
 #: js/messages.php:534 js/messages.php:546
 msgid "Some errors have been detected on the server!"
@@ -2443,10 +2516,11 @@ msgstr "Անտեսել բոլորը"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Ձեր կայանքներին համապատասխան դրանք այժմ ներառվում են, խնդրում ենք սպասել։"
 
 #: js/messages.php:555
 msgid "Execute this query again?"
-msgstr "Կատարել այս հարցումը և՞ս մեկ անգամ։"
+msgstr "Կատարե՞լ այս հարցումը ևս մեկ անգամ։"
 
 #: js/messages.php:556
 msgid "Do you really want to delete this bookmark?"
@@ -2741,21 +2815,25 @@ msgstr "Չհաջողվեց ձևավորել տողը՝ '%s' կանոնի համ�
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
+"Կանոնի անվավեր հայտարարություն %1$s տողում, սպասվում էր նախորդ կանոնի %2$s "
+"տողը։"
 
 #: libraries/Advisor.class.php:415
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr ""
+msgstr "Կանոնի անվավեր հայտարարություն %s տողում։"
 
 #: libraries/Advisor.class.php:423
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "Անսպասելի նշաններ %s տողում։"
 
 #: libraries/Advisor.class.php:438
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
+"Անսպասելի նշան %1$s տողում։ Սպասվում էր աղյուսակավորման նշանը, սակայն գտնվել "
+"է \"%2$s\"։"
 
 #: libraries/Advisor.class.php:475
 msgid "per second"
@@ -2783,7 +2861,7 @@ msgstr "Առկա կազմաձևի ֆայլը (%s) կարդացվող չէ։"
 #: libraries/Config.class.php:1196
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
-"Անվավեր արտոնություններ՝ կազմաձևի ֆայլում, այն չպետք է բոլորի կողմից գրվող "
+"Անվավեր արտոնություններ կազմաձևի ֆայլում։ Այն չպետք է բոլորի կողմից գրվող "
 "լինի։"
 
 #: libraries/Config.class.php:1781
@@ -3076,7 +3154,7 @@ msgstr "Ջնջել՝"
 #: libraries/DBQbe.class.php:1462
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL հարցում՝ <b>%s</b> տվյալների բազային՝"
+msgstr "<b>%s</b> տվյալների բազային SQL հարցում՝"
 
 #: libraries/DBQbe.class.php:1476 libraries/Util.class.php:1217
 msgid "Submit Query"
@@ -3112,6 +3190,8 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
+"Սպասարկիչի չի պատասխանում (կամ էլ սպասարկչի տեղային բնակը պատշաճ կազմաձևած "
+"չէ)։"
 
 #: libraries/DatabaseInterface.class.php:2205
 msgid "The server is not responding."
@@ -3119,7 +3199,7 @@ msgstr "Սպասարկիչը չի պատասխանում։"
 
 #: libraries/DatabaseInterface.class.php:2210
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Խնդրում ենք ստուգել տվյալների բազան պարունակող պանակի արտոնությունները։"
 
 #: libraries/DatabaseInterface.class.php:2220
 msgid "Details…"
@@ -3148,7 +3228,7 @@ msgstr "որպես կանոնավոր արտահայտություն"
 #: libraries/DbSearch.class.php:271
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "«<i>%s</i>» որոնման արդյունքները %s՝"
+msgstr "«<i>%s</i>» %s որոնման արդյունքները՝"
 
 #: libraries/DbSearch.class.php:298
 #, php-format
@@ -3184,7 +3264,7 @@ msgstr "Որոնումը տվյալների բազայում"
 
 #: libraries/DbSearch.class.php:392
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "Բառեր կամ արժեքներ՝ որոնելու համար (դերանշան՝ \"%\")՝"
 
 #: libraries/DbSearch.class.php:401 libraries/TableSearch.class.php:1351
 msgid "Find:"
@@ -3312,7 +3392,7 @@ msgstr "Ավարտել"
 
 #: libraries/DisplayResults.class.php:4135
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
+msgstr "Կարող է մոտավոր լինել։ Դիմեք [doc@faq3-11]FAQ 3.11[/doc]։"
 
 #: libraries/DisplayResults.class.php:4192 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
@@ -3354,7 +3434,7 @@ msgstr "Հարցումը տևեց %01.4f վայրկյան։"
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
-msgstr "Նշվածներով՝"
+msgstr "Ներառյալ նշվածները՝"
 
 #: libraries/DisplayResults.class.php:4729
 #: libraries/DisplayResults.class.php:4731 libraries/Util.class.php:4592
@@ -3461,7 +3541,7 @@ msgstr "Ֆայլի վերբեռման անհայտ սխալ։"
 
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr ""
+msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ, դիմեք [doc@faq1-11]FAQ 1.11[/doc]։"
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
@@ -3492,7 +3572,7 @@ msgstr ""
 #: libraries/Header.class.php:717
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
 msgid "Javascript must be enabled past this point!"
-msgstr ""
+msgstr "Javascript-ը պետք է միացրած լինի այս պահից սկսած։"
 
 #: libraries/Index.class.php:619
 msgid "No index defined!"
@@ -3523,7 +3603,7 @@ msgstr "Փաթեթավորված"
 
 #: libraries/Index.class.php:652 libraries/tracking.lib.php:967
 msgid "Cardinality"
-msgstr ""
+msgstr "Բազմության հզորություն"
 
 #: libraries/Index.class.php:653 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
@@ -3565,6 +3645,8 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"%1$s և %2$s ցուցակարգերը նույնն են, այդպես որ դրանցից մեկը հնարավոր է "
+"հեռացնել։"
 
 #: libraries/Menu.class.php:197 libraries/ServerStatusData.class.php:369
 #: libraries/config/messages.inc.php:782
@@ -3740,8 +3822,8 @@ msgstr "Սխալ"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ազդվել է %1$d տող։"
+msgstr[1] "ազդվել է %1$d տող։"
 
 #: libraries/Message.class.php:273
 #, php-format
@@ -3775,7 +3857,7 @@ msgstr "Չհաջողվեց պահպանել վերջին աղյուսակը։"
 
 #: libraries/RecentFavoriteTable.class.php:142
 msgid "Could not save favorite table!"
-msgstr "Չհաջողվեց պահպանել ընտրյալների աղյուսակը։"
+msgstr "Չհաջողվեց պահպանել ընտրյալ աղյուսակը։"
 
 #: libraries/RecentFavoriteTable.class.php:212
 #: libraries/structure.lib.php:2908
@@ -3815,7 +3897,7 @@ msgstr "Տրամադրեք անուն՝ էջանշված որոնման համա
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
-msgstr ""
+msgstr "Բացակայում են տեղեկություններ՝ էջանշված որոնումը պահպանելու համար։"
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -3823,28 +3905,28 @@ msgstr "Այս անունով միույթը արդեն իսկ առկա է։"
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Բացակայում են տեղեկություններ՝ որոնումը ջնջելու համար։"
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Բացակայում են տեղեկություններ՝ որոնումը բեռնելու համար։"
 
 #: libraries/SavedSearches.class.php:394
 msgid "Error while loading the search."
-msgstr ""
+msgstr "Սխալ որոնումը բեռնելու ժամանակ։"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status_processes.lib.php:97
 msgid "SQL query"
-msgstr ""
+msgstr "SQL հարցում"
 
 #: libraries/ServerStatusData.class.php:191
 msgid "Handler"
-msgstr ""
+msgstr "Բռնիչ"
 
 #: libraries/ServerStatusData.class.php:192
 msgid "Query cache"
-msgstr ""
+msgstr "Հարցումների շտեմ"
 
 #: libraries/ServerStatusData.class.php:193
 msgid "Threads"
@@ -3852,7 +3934,7 @@ msgstr "Հոսքեր"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Temporary data"
-msgstr ""
+msgstr "Ժամանակավոր տվյալներ"
 
 #: libraries/ServerStatusData.class.php:196
 msgid "Delayed inserts"
@@ -3860,15 +3942,15 @@ msgstr "Ուշացված զետեղումներ"
 
 #: libraries/ServerStatusData.class.php:197
 msgid "Key cache"
-msgstr ""
+msgstr "Բանալիների շտեմ"
 
 #: libraries/ServerStatusData.class.php:198
 msgid "Joins"
-msgstr ""
+msgstr "Միակցումներ"
 
 #: libraries/ServerStatusData.class.php:200
 msgid "Sorting"
-msgstr ""
+msgstr "Դասակարգում"
 
 #: libraries/ServerStatusData.class.php:201
 #: libraries/build_html_for_db.lib.php:28
@@ -3882,7 +3964,7 @@ msgstr "Աղյուսակներ"
 
 #: libraries/ServerStatusData.class.php:202
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "Գործարքների համակարգող"
 
 #: libraries/ServerStatusData.class.php:203
 #: libraries/server_bin_log.lib.php:53
@@ -3891,15 +3973,15 @@ msgstr "Ֆայլեր"
 
 #: libraries/ServerStatusData.class.php:214
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Փակել բոլոր աղյուսակները"
 
 #: libraries/ServerStatusData.class.php:220
 msgid "Show open tables"
-msgstr ""
+msgstr "Ցուցադրել բաց աղյուսակների ցանկը"
 
 #: libraries/ServerStatusData.class.php:229
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Ցուցադրել ենթարկվող խնամորդները"
 
 #: libraries/ServerStatusData.class.php:236
 #: libraries/replication_gui.lib.php:50
@@ -3908,7 +3990,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:239
 msgid "Show slave status"
-msgstr ""
+msgstr "Ցուցադրել ենթարկվող սպասարկչի կարգավիճակը"
 
 #: libraries/ServerStatusData.class.php:244
 msgid "Flush query cache"
@@ -3921,7 +4003,7 @@ msgstr "InnoDB կարգավիճակը"
 
 #: libraries/ServerStatusData.class.php:377
 msgid "Query statistics"
-msgstr ""
+msgstr "Հարցումների վիճակագրություն"
 
 #: libraries/ServerStatusData.class.php:381
 msgid "All status variables"
@@ -3939,25 +4021,27 @@ msgstr "Խորհրդատու"
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d վայրկյան"
+msgstr[1] "%d վայրկյան"
 
 #: libraries/ServerStatusData.class.php:438
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d րոպե"
+msgstr[1] "%d րոպե"
 
 #: libraries/StorageEngine.class.php:272
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
+"Այս պահպանման շարժիչի համար մանրակրկիտ կարգավիճակի տեղեկությունները "
+"բացակայում են։"
 
 #: libraries/StorageEngine.class.php:373 libraries/structure.lib.php:213
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s-ը հանդիսանում է MySQL սպասարկչի լռելյայն պահպանման շարժիչը։"
 
 #: libraries/StorageEngine.class.php:376
 #, php-format
@@ -3972,22 +4056,22 @@ msgstr "%s աղյուսակների տեսակը կասեցվել է այս MySQ
 #: libraries/StorageEngine.class.php:383
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "Այս MySQL սպասարկիչը չի աջակցում %s պահպանման շարժիչը։"
 
 #: libraries/Table.class.php:397
 #| msgid "Inside tables:"
 msgid "Unknown table status:"
-msgstr "Անհայտ աղյուսակի կարգավիճակ՝"
+msgstr "Աղյուսակի անհայտ կարգավիճակ՝"
 
 #: libraries/Table.class.php:777
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr ""
+msgstr "`%s` ելակետային տվյալների բազան չի գտնվել։"
 
 #: libraries/Table.class.php:785
 #, php-format
 msgid "Target database `%s` was not found!"
-msgstr ""
+msgstr "`%s` նպատակային տվյալների բազան չի գտնվել։"
 
 #: libraries/Table.class.php:1326
 #| msgid "Search in database"
@@ -4002,16 +4086,16 @@ msgstr "Անվավեր աղյուսակի անունը՝"
 #: libraries/Table.class.php:1375
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr ""
+msgstr "Չհաջողվեց վերանվանել աղյուսակը %1$s-ից %2$s։"
 
 #: libraries/Table.class.php:1394
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
-msgstr ""
+msgstr "%1$s աղյուսակը վերանվանվել է %2$s-ին։"
 
 #: libraries/Table.class.php:1558
 msgid "Could not save table UI preferences!"
-msgstr ""
+msgstr "Չհաջողվեց պահպանել աղյուսակի միջերեսի նախընտրանքները։"
 
 #: libraries/Table.class.php:1587
 #, php-format
@@ -4057,7 +4141,7 @@ msgstr "Աղյուսակում որոնում"
 
 #: libraries/TableSearch.class.php:212
 msgid "Zoom search"
-msgstr ""
+msgstr "Մոտեցնելով որոնում"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
 msgid "Find and replace"
@@ -4069,7 +4153,7 @@ msgstr "Խմբագրել/Զետեղել"
 
 #: libraries/TableSearch.class.php:795
 msgid "Select columns (at least one):"
-msgstr ""
+msgstr "Ընտրեք սյունակները (առնվազն մեկը)՝"
 
 #: libraries/TableSearch.class.php:815 libraries/insert_edit.lib.php:1170
 #: libraries/server_privileges.lib.php:470
@@ -4090,7 +4174,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:874
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Օգտագործեք այս սյունակը՝ ամեն կետը պիտակելու համար"
 
 #: libraries/TableSearch.class.php:897
 msgid "Maximum rows to plot"
@@ -4118,7 +4202,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:1283
 msgid "Reset zoom"
-msgstr ""
+msgstr "Վերակայել խոշորացումը"
 
 #: libraries/TableSearch.class.php:1353
 #| msgid "Replication"
@@ -4150,7 +4234,7 @@ msgstr "Փոխարինված տողը"
 
 #: libraries/TableSearch.class.php:1506
 msgid "Replace"
-msgstr ""
+msgstr "Փոխարինում"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -4416,7 +4500,7 @@ msgstr ""
 #: libraries/Types.class.php:691
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr ""
+msgstr "Տարածական"
 
 #: libraries/Types.class.php:768
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -4562,7 +4646,7 @@ msgstr "Կատարել"
 
 #: libraries/Util.class.php:3989
 msgid "Print"
-msgstr ""
+msgstr "Տպել"
 
 #: libraries/Util.class.php:4094 libraries/structure.lib.php:869
 #: libraries/structure.lib.php:1909 libraries/tbl_printview.lib.php:243
@@ -4789,7 +4873,7 @@ msgstr ""
 
 #: libraries/common.inc.php:1155
 msgid "possible exploit"
-msgstr ""
+msgstr "հնարավոր խոցելիություն"
 
 #: libraries/common.inc.php:1164
 msgid "numeric key detected"
@@ -4813,7 +4897,7 @@ msgstr "Երկուսն էլ"
 
 #: libraries/config.values.php:63
 msgid "Nowhere"
-msgstr ""
+msgstr "Ոչ մի տեղ"
 
 #: libraries/config.values.php:64
 msgid "Left"
@@ -4874,7 +4958,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:204
 #: libraries/plugins/export/ExportTexytext.class.php:68
 msgid "structure"
-msgstr ""
+msgstr "կառուցվածքը"
 
 #: libraries/config.values.php:159
 #: libraries/plugins/export/ExportHtmlword.class.php:70
@@ -4894,7 +4978,7 @@ msgstr "տվյալներ"
 #: libraries/plugins/export/ExportSql.class.php:206
 #: libraries/plugins/export/ExportTexytext.class.php:70
 msgid "structure and data"
-msgstr ""
+msgstr "կառուցվածքը և տվյալները"
 
 #: libraries/config.values.php:163
 msgid "Quick - display only the minimal options to configure"
@@ -4949,7 +5033,7 @@ msgstr ""
 #: libraries/config/Validator.class.php:621
 #, php-format
 msgid "Value must be equal or lower than %s!"
-msgstr ""
+msgstr "Արժեքը պետք է լինի %s-ին հավասար կամ ավելի փոքր։"
 
 #: libraries/config/FormDisplay.class.php:571
 #, php-format
@@ -4960,14 +5044,14 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:765
 #: libraries/config/FormDisplay.class.php:772
 msgid "unavailable"
-msgstr ""
+msgstr "անհասանելի է"
 
 #: libraries/config/FormDisplay.class.php:761
 #: libraries/config/FormDisplay.class.php:767
 #: libraries/config/FormDisplay.class.php:774
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" պահանջում է %s ընդլայնումը"
 
 #: libraries/config/FormDisplay.class.php:793
 #, php-format
@@ -4991,12 +5075,12 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:310
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Սահմանել արժեքը՝ %s"
 
 #: libraries/config/FormDisplay.tpl.php:315
 #: libraries/config/messages.inc.php:543
 msgid "Restore default value"
-msgstr ""
+msgstr "Վերականգնել լռելյայն արժեքը"
 
 #: libraries/config/FormDisplay.tpl.php:329
 msgid "Allow users to customize this value"
@@ -5382,11 +5466,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Կատարման առավելագույն ժամանակը"
 
 #: libraries/config/messages.inc.php:110 prefs_manage.php:316
 msgid "Save as file"
-msgstr ""
+msgstr "Պահպանել որպես ֆայլ"
 
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:332
 msgid "Character set of the file"
@@ -5465,7 +5549,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:127
 msgid "Table name template"
-msgstr ""
+msgstr "Աղյուսակի անվան ձևանմուշը"
 
 #: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:145
 #: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:188
@@ -5485,7 +5569,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:135 libraries/config/messages.inc.php:141
 msgid "Table caption"
-msgstr ""
+msgstr "Աղյուսակի վերնագիրը"
 
 #: libraries/config/messages.inc.php:136 libraries/config/messages.inc.php:143
 msgid "Continued table caption"
@@ -5513,7 +5597,7 @@ msgstr "Արտահանման եղանակ"
 
 #: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 msgid "Save on server"
-msgstr ""
+msgstr "Պահպանել սպասարկչում"
 
 #: libraries/config/messages.inc.php:156 libraries/config/messages.inc.php:159
 #: libraries/display_export.lib.php:403 libraries/display_export.lib.php:438
@@ -5536,12 +5620,12 @@ msgstr ""
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:360
 #: libraries/display_export.lib.php:299
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "SQL համատեղելիության եղանակ"
 
 #: libraries/config/messages.inc.php:166
 #: libraries/plugins/export/ExportSql.class.php:300
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>CREATE TABLE</code> հարաչափերը՝"
+msgstr "<code>CREATE TABLE</code>-ի հարաչափերը՝"
 
 #: libraries/config/messages.inc.php:167
 msgid "Creation/Update/Check dates"
@@ -5549,7 +5633,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:168
 msgid "Use delayed inserts"
-msgstr ""
+msgstr "Օգտագործել ուշացվող (DELAYED) զետեղումներ"
 
 #: libraries/config/messages.inc.php:169
 #: libraries/plugins/export/ExportSql.class.php:142
@@ -5572,15 +5656,15 @@ msgstr "Ավելացնել %s"
 
 #: libraries/config/messages.inc.php:178
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr ""
+msgstr "Օգտագործել տասնվեցերորդական ցուցադրումը BINARY-ի և BLOB-ի համար"
 
 #: libraries/config/messages.inc.php:180
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "Օգտագործել անտեսող (IGNORE) զետեղումներ"
 
 #: libraries/config/messages.inc.php:182
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Տվյալների զետեղման ժամանակ օգտագործել շարահյուսությունը"
 
 #: libraries/config/messages.inc.php:183
 #: libraries/plugins/export/ExportSql.class.php:419
@@ -5653,7 +5737,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:216
 msgid "Settings for phpMyAdmin developers."
-msgstr ""
+msgstr "Կայանքներ՝ phpMyAdmin-ի մշակողների համար։"
 
 #: libraries/config/messages.inc.php:217
 msgid "Edit mode"
@@ -5661,7 +5745,7 @@ msgstr "Խմբագրման եղանակ"
 
 #: libraries/config/messages.inc.php:218
 msgid "Customize edit mode."
-msgstr "Կարգավորել խմբագրման եղանակը"
+msgstr "Կարգավորեք խմբագրման եղանակը։"
 
 #: libraries/config/messages.inc.php:220
 msgid "Export defaults"
@@ -5733,7 +5817,7 @@ msgstr "Աղյուսակների ցանկի ցուցադրման կայանքն�
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:25
 msgid "Main panel"
-msgstr ""
+msgstr "Հիմնական փեղկը"
 
 #: libraries/config/messages.inc.php:242
 msgid "Microsoft Office"
@@ -5749,7 +5833,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:249
 msgid "Page titles"
-msgstr ""
+msgstr "Էջերի վերնագրեր"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
@@ -5767,7 +5851,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:257
 msgid "Security"
-msgstr ""
+msgstr "Անվտանգություն"
 
 #: libraries/config/messages.inc.php:259
 msgid ""
@@ -5789,7 +5873,7 @@ msgstr "Նույնացման կայանքները։"
 
 #: libraries/config/messages.inc.php:265
 msgid "Server configuration"
-msgstr ""
+msgstr "Սպասարկչի կազմաձևը"
 
 #: libraries/config/messages.inc.php:267
 msgid ""
@@ -5841,7 +5925,7 @@ msgstr "Կարգավորել հիմնական փեղկը"
 #: libraries/config/messages.inc.php:287 libraries/config/messages.inc.php:292
 #: setup/frames/menu.inc.php:23
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL հարցումներ"
 
 #: libraries/config/messages.inc.php:289
 msgid "SQL Query box"
@@ -5861,7 +5945,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Customize startup page."
-msgstr "Կարգավորել սկզբնական էջի տեսքը"
+msgstr "Կարգավորեք սկզբնական էջի տեսքը։"
 
 #: libraries/config/messages.inc.php:296
 msgid "Database structure"
@@ -5874,7 +5958,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:299 libraries/structure.lib.php:3284
 msgid "Table structure"
-msgstr ""
+msgstr "Աղյուսակի կառուցվածքը"
 
 #: libraries/config/messages.inc.php:301
 msgid "Settings for the table structure (list of columns)."
@@ -5900,7 +5984,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:308
 msgid "Text fields"
-msgstr ""
+msgstr "Գրվածքի դաշտեր"
 
 #: libraries/config/messages.inc.php:309
 msgid "Customize text input fields."
@@ -5916,7 +6000,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:312
 msgid "Warnings"
-msgstr ""
+msgstr "Զգուշացումներ"
 
 #: libraries/config/messages.inc.php:314
 msgid "Disable some of the warnings shown by phpMyAdmin."
@@ -6068,7 +6152,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:389
 msgid "Login cookie store"
-msgstr ""
+msgstr "Ժամանակաշրջանի թխուկի պահպանումը"
 
 #: libraries/config/messages.inc.php:391
 msgid "Define how long (in seconds) a login cookie is valid."
@@ -6076,7 +6160,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:392
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Ժամանակաշրջանի թխուկի վավերականությունը"
 
 #: libraries/config/messages.inc.php:394
 msgid "Double size of textarea for LONGTEXT columns."
@@ -6092,7 +6176,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:398
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Ցուցադրվող SQL-ի առավելագույն երկարությունը"
 
 #: libraries/config/messages.inc.php:399 libraries/config/messages.inc.php:418
 #: libraries/config/messages.inc.php:529
@@ -6105,7 +6189,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:402
 msgid "Maximum databases"
-msgstr ""
+msgstr "Տվյալների բազաների առավելագույն քանակը"
 
 #: libraries/config/messages.inc.php:404
 msgid ""
@@ -6115,7 +6199,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:407
 msgid "Maximum items on first level"
-msgstr ""
+msgstr "Առաջին աստիճանում տարրերի առավելագույն քանակը"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
@@ -6125,7 +6209,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:411
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Ճյուղում տարրերի առավելագույն քանակը"
 
 #: libraries/config/messages.inc.php:413
 msgid ""
@@ -6135,7 +6219,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:417
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Ցուցադրելու տողերի առավելագույն քանակը"
 
 #: libraries/config/messages.inc.php:419
 msgid "Maximum number of tables displayed in table list."
@@ -6143,7 +6227,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:420
 msgid "Maximum tables"
-msgstr ""
+msgstr "Աղյուսակների առավելագույն քանակը"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
@@ -6153,7 +6237,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:425
 msgid "Memory limit"
-msgstr ""
+msgstr "Հիշողության սահմանաչափը"
 
 #: libraries/config/messages.inc.php:426
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -6249,7 +6333,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:466
 msgid "Table tree separator"
-msgstr ""
+msgstr "Աղյուսակների ծառի սահմանիչը"
 
 #: libraries/config/messages.inc.php:467
 msgid "Maximum table tree depth"
@@ -6459,7 +6543,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:549
 msgid "Save directory"
-msgstr ""
+msgstr "Պահպանման պանակ"
 
 #: libraries/config/messages.inc.php:550
 msgid "Leave blank if not used."
@@ -6487,7 +6571,7 @@ msgstr "Թույլատրել root-ով մուտքը"
 
 #: libraries/config/messages.inc.php:556
 msgid "Session timezone"
-msgstr ""
+msgstr "Աշպատաշրջանի ժամային գոտին"
 
 #: libraries/config/messages.inc.php:557
 msgid ""
@@ -6512,7 +6596,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:566
 msgid "SweKey config file"
-msgstr ""
+msgstr "SweKey կազմաձևի ֆայլ"
 
 #: libraries/config/messages.inc.php:567
 msgid "Authentication method to use."
@@ -6627,7 +6711,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:612
 msgid "Server hostname"
-msgstr ""
+msgstr "Սպասարկչի խնամորդի անունը"
 
 #: libraries/config/messages.inc.php:613
 msgid "Logout URL"
@@ -6758,11 +6842,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:673
 msgid "Signon session name"
-msgstr ""
+msgstr "Signon-ի աշխատաշրջանի անունը"
 
 #: libraries/config/messages.inc.php:674
 msgid "Signon URL"
-msgstr ""
+msgstr "Signon-ի URL-ը"
 
 #: libraries/config/messages.inc.php:676
 msgid "Socket on which MySQL server is listening, leave empty for default."
@@ -6770,7 +6854,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:677
 msgid "Server socket"
-msgstr ""
+msgstr "Սպասարկչի բնակը"
 
 #: libraries/config/messages.inc.php:678
 msgid "Enable SSL for connection to MySQL server."
@@ -6846,7 +6930,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:711
 msgid "Statements to track"
-msgstr ""
+msgstr "Հետագծելու արտահայտությունները"
 
 #: libraries/config/messages.inc.php:713
 msgid ""
@@ -6876,7 +6960,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:724
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Օգտվողների նախընտրանքների պահպանման աղյուսակը"
 
 #: libraries/config/messages.inc.php:725
 msgid ""
@@ -6942,11 +7026,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:738
 msgid "Show password change form"
-msgstr ""
+msgstr "Ցուցադրել գաղտնաբառը փոխելու ձևը"
 
 #: libraries/config/messages.inc.php:739
 msgid "Show create database form"
-msgstr ""
+msgstr "Ցորցադրել տվյալների բազայի ստեղծման ձևը"
 
 #: libraries/config/messages.inc.php:740
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -6954,7 +7038,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:741
 msgid "Show Creation timestamp"
-msgstr ""
+msgstr "Ցուցադրել ստեղծման ժամանակը"
 
 #: libraries/config/messages.inc.php:742
 msgid ""
@@ -6963,7 +7047,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:743
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Ցուցադրել վերջին արդիացման ժամանակը"
 
 #: libraries/config/messages.inc.php:744
 msgid ""
@@ -6972,7 +7056,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:745
 msgid "Show Last check timestamp"
-msgstr ""
+msgstr "Ցուցադրել վերջին ստուգման ժամանակը"
 
 #: libraries/config/messages.inc.php:746
 msgid ""
@@ -6982,7 +7066,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:747
 msgid "Show field types"
-msgstr ""
+msgstr "Ցուցադրել դաշտերի տեսակները"
 
 #: libraries/config/messages.inc.php:748
 msgid "Display the function fields in edit/insert mode."
@@ -6990,7 +7074,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:749
 msgid "Show function fields"
-msgstr ""
+msgstr "Ցուցադրել գործառույթների դաշտերը"
 
 #: libraries/config/messages.inc.php:750
 msgid "Whether to show hint or not."
@@ -6998,7 +7082,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:751
 msgid "Show hint"
-msgstr ""
+msgstr "Ցուցադրել հուշակը"
 
 #: libraries/config/messages.inc.php:752
 msgid ""
@@ -7008,7 +7092,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:753
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Ցուցադրել phpinfo() հղումը"
 
 #: libraries/config/messages.inc.php:754
 msgid "Show detailed MySQL server information"
@@ -7021,7 +7105,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:756
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Ցուցադրել SQL հարցումները"
 
 #: libraries/config/messages.inc.php:757
 msgid ""
@@ -7038,7 +7122,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:760
 msgid "Show statistics"
-msgstr ""
+msgstr "Ցուցադրել վիճակագրությունը"
 
 #: libraries/config/messages.inc.php:761
 msgid ""
@@ -7055,7 +7139,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:768
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin-ի վերաբերյալ զգուշացում"
 
 #: libraries/config/messages.inc.php:769
 msgid ""
@@ -7076,7 +7160,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:774
 msgid "Textarea columns"
-msgstr ""
+msgstr "Գրվածքի դաշտի սյունակները"
 
 #: libraries/config/messages.inc.php:775
 msgid ""
@@ -7086,7 +7170,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:776
 msgid "Textarea rows"
-msgstr ""
+msgstr "Գրվածքի դաշտի տողերը"
 
 #: libraries/config/messages.inc.php:777
 msgid "Title of browser window when a database is selected."
@@ -7126,7 +7210,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:788
 msgid "Upload directory"
-msgstr ""
+msgstr "Ներմուծման պանակը"
 
 #: libraries/config/messages.inc.php:789
 msgid "Allow for searching inside the entire database."
@@ -7159,7 +7243,7 @@ msgstr ""
 #: setup/lib/index.lib.php:159 setup/lib/index.lib.php:167
 #: setup/lib/index.lib.php:174
 msgid "Version check"
-msgstr ""
+msgstr "Տարբերակի ստուգում"
 
 #: libraries/config/messages.inc.php:796
 msgid ""
@@ -7216,7 +7300,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:808
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "reCaptcha-ի գաղտնի բանալին"
 
 #: libraries/config/messages.inc.php:810
 msgid "Choose the default action when sending error reports."
@@ -7224,7 +7308,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:811
 msgid "Send error reports"
-msgstr ""
+msgstr "Ուղարկել սխալների զակույցները"
 
 #: libraries/config/messages.inc.php:813
 msgid ""
@@ -7250,7 +7334,7 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:50
 msgid "Signon authentication"
-msgstr ""
+msgstr "Signon-ով վավերացում"
 
 #: libraries/config/setup.forms.php:259
 #: libraries/config/user_preferences.forms.php:158
@@ -7320,7 +7404,7 @@ msgstr ""
 
 #: libraries/db_designer.lib.php:25
 msgid "Select page"
-msgstr ""
+msgstr "Ընտրեք էջը"
 
 #: libraries/db_designer.lib.php:55
 msgid "Page to open"
@@ -7454,7 +7538,7 @@ msgstr "Թաքցնել"
 
 #: libraries/db_designer.lib.php:526
 msgid "Number of tables:"
-msgstr ""
+msgstr "Աղյուսակների քանակը՝"
 
 #: libraries/db_designer.lib.php:874
 msgid "Delete relation"
@@ -7579,16 +7663,16 @@ msgstr ""
 
 #: libraries/display_export.lib.php:250
 msgid "Database(s):"
-msgstr "Տվյալների բազան(եր)՝"
+msgstr "Տվյալների բազան(երը)՝"
 
 #: libraries/display_export.lib.php:252
 msgid "Table(s):"
-msgstr ""
+msgstr "Աղյուսակ(ներ)ը՝"
 
 #: libraries/display_export.lib.php:272 libraries/display_import.lib.php:340
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
-msgstr "Ձևաչափ՝"
+msgstr "Ձևաչափը՝"
 
 #: libraries/display_export.lib.php:277
 msgid "Format-specific options:"
@@ -7655,7 +7739,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:526
 msgid "use this for future exports"
-msgstr ""
+msgstr "օգտագործել հետագա արտահանուների համար"
 
 #: libraries/display_export.lib.php:541 libraries/display_import.lib.php:179
 #: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:461
@@ -7676,7 +7760,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:627
 msgid "View output as text"
-msgstr ""
+msgstr "Ցուցադրել արտածումը գրվածքի տեսքով"
 
 #: libraries/display_export.lib.php:653 libraries/display_export.lib.php:757
 msgid "Rename exported databases/tables/columns"
@@ -7725,7 +7809,7 @@ msgstr "%1$s-ը %2$s ճյուղից"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "ճյուղ չկա"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
@@ -7774,7 +7858,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:222
 msgid "File to Import:"
-msgstr "Ներմուծելու ֆայլ՝"
+msgstr "Ներմուծելու ֆայլը՝"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
 msgid "You may also drag and drop a file on any page."
@@ -7825,7 +7909,7 @@ msgstr "%s %s-ից"
 
 #: libraries/display_import.lib.php:461
 msgid "Uploading your import file…"
-msgstr ""
+msgstr "Ներմուծման ֆայլի վերբեռնում …"
 
 #: libraries/display_import.lib.php:462
 #, php-format
@@ -7927,7 +8011,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Read requests"
-msgstr ""
+msgstr "Կարդալու հայցեր"
 
 #: libraries/engines/innodb.lib.php:258
 msgid "Write requests"
@@ -8193,7 +8277,7 @@ msgstr ""
 
 #: libraries/import.lib.php:265 libraries/sql.lib.php:1515
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[Տեղի է ունեցել ՀԵՏԴԱՐՁ]"
 
 #: libraries/import.lib.php:1255
 msgid ""
@@ -8231,7 +8315,7 @@ msgstr "Անցնել աղյուսակին՝ %s"
 #: libraries/import.lib.php:1304
 #, php-format
 msgid "Structure of %s"
-msgstr ""
+msgstr "%s-ի կառուցվածքը"
 
 #: libraries/import.lib.php:1322
 #, php-format
@@ -8289,7 +8373,7 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:1461
 msgid "Show insert query"
-msgstr ""
+msgstr "Ցուցադրել զետեղման հարցումը"
 
 #: libraries/insert_edit.lib.php:1481
 msgid "Go back to previous page"
@@ -8314,7 +8398,7 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:1925 libraries/sql.lib.php:1498
 msgid "Showing SQL query"
-msgstr ""
+msgstr "SQL հարցման ցուցադրում"
 
 #: libraries/insert_edit.lib.php:1950 libraries/sql.lib.php:1478
 #, php-format
@@ -8361,7 +8445,7 @@ msgstr "Կատարել"
 
 #: libraries/mult_submits.lib.php:380
 msgid "Add table prefix:"
-msgstr "Ավելացնել աղյուսակի նախածանցը՝"
+msgstr "Ավելացնել աղյուսակին նախածանցը՝"
 
 #: libraries/mult_submits.lib.php:383
 msgid "Add prefix"
@@ -8505,7 +8589,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:278
 msgid "Unicode"
-msgstr ""
+msgstr "Յունիկոդ"
 
 #: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:278
 #: libraries/mysql_charsets.lib.php:287 libraries/mysql_charsets.lib.php:294
@@ -8573,7 +8657,7 @@ msgstr "Գործառույթներ՝"
 
 #: libraries/navigation/Navigation.class.php:189
 msgid "Procedures:"
-msgstr ""
+msgstr "Ընթացակարգեր՝"
 
 #: libraries/navigation/Navigation.class.php:190
 #| msgid "Table"
@@ -8663,7 +8747,7 @@ msgstr "Սյունակներ"
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
 #| msgid "Database comment:"
@@ -8678,12 +8762,12 @@ msgstr "Ցուցադրել թաքնված տարրերը"
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:24
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
@@ -8695,7 +8779,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/navigation/Nodes/Node_Index.class.php:32
 #: libraries/structure.lib.php:1503 libraries/structure.lib.php:2238
@@ -8703,51 +8787,51 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:348
 #: libraries/tbl_printview.lib.php:315
 msgid "Index"
-msgstr ""
+msgstr "Ցուցակագիր"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
 msgid "Procedure"
-msgstr ""
+msgstr "Ընթացակարգ"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
 #: libraries/plugins/export/ExportSql.class.php:487
 #: libraries/plugins/export/ExportXml.class.php:115
 msgid "Procedures"
-msgstr ""
+msgstr "Ընթացակարգեր"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:39
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
 #: libraries/structure.lib.php:3108
 msgid "Views"
-msgstr ""
+msgstr "Ներկայացումներ"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:45
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
@@ -8807,7 +8891,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
-msgstr "Ավելացնել առաջնային բանալին առկա սյունակ(ներ)ի համար։"
+msgstr "Ավելացնել առաջնային բանալին առկա սյունակ(ներ)ի վրա։"
 
 #: libraries/normalization.lib.php:190
 msgid ""
@@ -9079,7 +9163,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:733
 msgid "Table options"
-msgstr ""
+msgstr "Աղյուսակի կայանքները"
 
 #: libraries/operations.lib.php:737
 msgid "Rename table to"
@@ -9099,11 +9183,11 @@ msgstr ""
 
 #: libraries/operations.lib.php:1013
 msgid "Switch to copied table"
-msgstr ""
+msgstr "Փոխարկվել կրկնապատկված աղյուսակին"
 
 #: libraries/operations.lib.php:1040
 msgid "Table maintenance"
-msgstr ""
+msgstr "Աղյուսակի սպասարկում"
 
 #: libraries/operations.lib.php:1078 libraries/structure.lib.php:330
 msgid "Check table"
@@ -9161,7 +9245,7 @@ msgstr "Բարելավվում"
 
 #: libraries/operations.lib.php:1255
 msgid "Rebuild"
-msgstr ""
+msgstr "Վերակառուցում"
 
 #: libraries/operations.lib.php:1256
 msgid "Repair"
@@ -9186,7 +9270,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1599
 msgid "Can't move table to same one!"
-msgstr "Հնարավոր չէ տեղաձոխել աղյուսակն իր մեջ։"
+msgstr "Հնարավոր չէ տեղափոխել աղյուսակն իր մեջ։"
 
 #: libraries/operations.lib.php:1601
 msgid "Can't copy table to same one!"
@@ -9195,12 +9279,12 @@ msgstr "Հնարավոր չէ կրկնապատկել աղյուսակն իր մ�
 #: libraries/operations.lib.php:1611
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr ""
+msgstr "%s աղյուսակը տեղափոխվել է %s։"
 
 #: libraries/operations.lib.php:1615
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr ""
+msgstr "%s աղյուսակը կրկնապատկվել է %s։"
 
 #: libraries/operations.lib.php:1635
 msgid "The table name is empty!"
@@ -9227,7 +9311,7 @@ msgstr ""
 
 #: libraries/plugins/SchemaPlugin.class.php:68
 msgid "Show color"
-msgstr ""
+msgstr "Ցուցադրման գույնը"
 
 #: libraries/plugins/SchemaPlugin.class.php:72
 msgid "Only show keys"
@@ -9261,7 +9345,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:164
 msgid "Retry to connect"
-msgstr ""
+msgstr "Կրկնել միանալու փորձը"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:146
 msgid "Your session has expired. Please log in again."
@@ -9282,7 +9366,7 @@ msgstr "Օգտանուն՝"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:205
 msgid "Server Choice:"
-msgstr ""
+msgstr "Սպասարկչի ընտրությունը՝"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:386
 msgid "Entered captcha is wrong, try again!"
@@ -9359,7 +9443,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportExcel.class.php:79
 msgid "Excel edition:"
-msgstr "Excel տարբերակը՝"
+msgstr "Excel-ի տարբերակը՝"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:81
 #: libraries/plugins/export/ExportLatex.class.php:157
@@ -9397,7 +9481,7 @@ msgstr "Սահմանում"
 #: libraries/plugins/export/ExportSql.class.php:1780
 #: libraries/plugins/export/ExportTexytext.class.php:492
 msgid "Table structure for table"
-msgstr ""
+msgstr "Աղյուսակի կառուցվածքը"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:564
 #: libraries/plugins/export/ExportOdt.class.php:695
@@ -9423,7 +9507,7 @@ msgstr "(շարունակական)"
 
 #: libraries/plugins/export/ExportLatex.class.php:45
 msgid "Structure of table @TABLE@"
-msgstr ""
+msgstr "@TABLE@ աղյուսակի կառուցվածքը"
 
 #: libraries/plugins/export/ExportLatex.class.php:116
 #: libraries/plugins/export/ExportOdt.class.php:96
@@ -9523,7 +9607,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportPdf.class.php:112
 msgid "Report title:"
-msgstr ""
+msgstr "Զեկույցի վերնագիրը՝"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -9595,7 +9679,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:385
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Տվյալների զետեղման ժամանակ օգտագործել շարահյուսությունը՝"
 
 #: libraries/plugins/export/ExportSql.class.php:393
 msgid ""
@@ -9772,7 +9856,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWiki-ի աղյուսակը"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:279
 #, php-format
@@ -9825,7 +9909,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportSql.class.php:169
 msgid "SQL compatibility mode:"
-msgstr ""
+msgstr "SQL համատեղելիության եղանակը՝"
 
 #: libraries/plugins/import/ImportSql.class.php:181
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -9874,7 +9958,7 @@ msgstr ""
 
 #: libraries/plugins/schema/SchemaPdf.class.php:89
 msgid "Show grid"
-msgstr ""
+msgstr "Ցուցադրել ցանցավորումը"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: libraries/structure.lib.php:410
@@ -9913,7 +9997,7 @@ msgstr ""
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:840
 msgid "Table of contents"
-msgstr ""
+msgstr "Բովանդակության աղյուսակը"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:971
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:994
@@ -10099,7 +10183,7 @@ msgstr "Ավելացվել է մերքին կապակցումը։"
 #: libraries/pmd_common.php:577
 #| msgid "Table %s has been emptied."
 msgid "Error: Internal relation could not be added!"
-msgstr "Սխալ՝ չհաջողվեց ավելացնել ներքին կապակցումը։"
+msgstr "Սխալ՝ հնարավոր չէ ավելացնել ներքին կապակցումը։"
 
 #: libraries/pmd_common.php:618
 #| msgid "Table %s has been emptied."
@@ -10113,7 +10197,7 @@ msgstr ""
 #: libraries/pmd_common.php:651
 #| msgid "Table %s has been emptied."
 msgid "Error: Internal relation could not be removed!"
-msgstr "Սխալ՝ չհաջողվեց ջնջել ներքին կապակցումը։"
+msgstr "Սխալ՝ հնարավոր չէ ջնջել ներքին կապակցումը։"
 
 #: libraries/pmd_common.php:655
 #| msgid "Table %s has been emptied."
@@ -10167,7 +10251,7 @@ msgstr "Էջանշված SQL հարցում"
 
 #: libraries/relation.lib.php:204
 msgid "SQL history"
-msgstr ""
+msgstr "SQL պատմություն"
 
 #: libraries/relation.lib.php:215
 msgid "Persistent recently used tables"
@@ -10184,7 +10268,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:259
 msgid "User preferences"
-msgstr ""
+msgstr "Օգտվողների նախընտրանքները"
 
 #: libraries/relation.lib.php:276
 msgid "Configurable menus"
@@ -10251,7 +10335,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Ցուցադրել միացրալ ենթարկվող սպասարկիչները"
 
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:690
 msgid "Add slave replication user"
@@ -10306,7 +10390,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Ենթարկվող SQL հոսքը մեկնարկված չէ։"
 
 #: libraries/replication_gui.lib.php:214
 msgid "Slave IO Thread not running!"
@@ -10335,7 +10419,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:243
 msgid "Reset slave"
-msgstr ""
+msgstr "Վերակայել ենթարկվող սպասարկիչը"
 
 #: libraries/replication_gui.lib.php:246
 msgid "Start SQL Thread only"
@@ -10343,7 +10427,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:249
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Կանգնեցնել միայն SQL հոսքը"
 
 #: libraries/replication_gui.lib.php:253
 msgid "Start IO Thread only"
@@ -10351,7 +10435,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:256
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "Կանգնեցնել միայն ներածման/արտածման հոսքը"
 
 #: libraries/replication_gui.lib.php:265 libraries/replication_gui.lib.php:391
 msgid "Change or reconfigure master server"
@@ -10366,7 +10450,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:297
 msgid "Error management:"
-msgstr "Սխալների կառավարում՝"
+msgstr "Սխալների կառավարումը՝"
 
 #: libraries/replication_gui.lib.php:300
 msgid "Skipping errors might lead into unsynchronized master and slave!"
@@ -10443,7 +10527,7 @@ msgstr "Փոփոխական"
 
 #: libraries/replication_gui.lib.php:608 libraries/server_bin_log.lib.php:131
 msgid "Server ID"
-msgstr ""
+msgstr "Սպասարկչի ID"
 
 #: libraries/replication_gui.lib.php:609 libraries/replication_gui.lib.php:698
 #: libraries/replication_gui.lib.php:842
@@ -10485,12 +10569,12 @@ msgstr "Ցանկացած օգտվող"
 #: libraries/replication_gui.lib.php:869
 #: libraries/server_privileges.lib.php:1620
 msgid "Use text field:"
-msgstr ""
+msgstr "Օգտագործել գրվածքի դաշտը՝"
 
 #: libraries/replication_gui.lib.php:830
 #: libraries/server_privileges.lib.php:1611
 msgid "Use Host Table"
-msgstr ""
+msgstr "Օգտագործել խնամորդի աղյուսակը"
 
 #: libraries/replication_gui.lib.php:846
 #: libraries/server_privileges.lib.php:1638
@@ -10542,7 +10626,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:981
 msgid "Unknown error"
-msgstr ""
+msgstr "Անհայտ սպալ"
 
 #: libraries/replication_gui.lib.php:991
 #, php-format
@@ -10626,7 +10710,7 @@ msgstr "Կատարել ամեն"
 #: libraries/rte/rte_events.lib.php:474
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr ""
+msgstr "Սկիզբ"
 
 #: libraries/rte/rte_events.lib.php:483
 msgctxt "End of recurring event"
@@ -10651,7 +10735,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide an event name!"
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք իրադարձության անունը։"
 
 #: libraries/rte/rte_events.lib.php:568
 msgid "You must provide a valid interval value for the event."
@@ -10663,11 +10747,11 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:588
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք իրադարձության վավերական տեսակը։"
 
 #: libraries/rte/rte_events.lib.php:612
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք իրադարձության սահմանումը։"
 
 #: libraries/rte/rte_export.lib.php:42 libraries/rte/rte_general.lib.php:72
 #: libraries/rte/rte_routines.lib.php:481
@@ -10717,12 +10801,12 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:345
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr ""
+msgstr "%1$s գործընթացը փոփոխվել է։"
 
 #: libraries/rte/rte_routines.lib.php:366
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr ""
+msgstr "%1$s գործընթացը ստեղծվել է։"
 
 #: libraries/rte/rte_routines.lib.php:451
 msgid "Edit routine"
@@ -10730,11 +10814,11 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:956
 msgid "Routine name"
-msgstr ""
+msgstr "Գործընթացի անունը"
 
 #: libraries/rte/rte_routines.lib.php:982
 msgid "Parameters"
-msgstr ""
+msgstr "Հարաչափեր"
 
 #: libraries/rte/rte_routines.lib.php:988
 msgid "Direction"
@@ -10762,19 +10846,19 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1058
 msgid "Is deterministic"
-msgstr ""
+msgstr "Կողմնորոշիչ է"
 
 #: libraries/rte/rte_routines.lib.php:1068
 msgid "Security type"
-msgstr ""
+msgstr "Անվտանգության տեսակը"
 
 #: libraries/rte/rte_routines.lib.php:1077
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL տվյալների մատչում"
 
 #: libraries/rte/rte_routines.lib.php:1146
 msgid "You must provide a routine name!"
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք գործընթացի անունը։"
 
 #: libraries/rte/rte_routines.lib.php:1180
 #, php-format
@@ -10798,7 +10882,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1308
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք գործընթացի սահմանումը։"
 
 #: libraries/rte/rte_routines.lib.php:1419
 #, php-format
@@ -10819,7 +10903,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1619
 #: libraries/rte/rte_routines.lib.php:1622
 msgid "Routine parameters"
-msgstr ""
+msgstr "Գործընթացի հարաչափերը"
 
 #: libraries/rte/rte_triggers.lib.php:103
 msgid "Sorry, we failed to restore the dropped trigger."
@@ -10850,7 +10934,7 @@ msgstr "Ժամանակ"
 
 #: libraries/rte/rte_triggers.lib.php:429
 msgid "You must provide a trigger name!"
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք ձգանի անունը։"
 
 #: libraries/rte/rte_triggers.lib.php:436
 msgid "You must provide a valid timing for the trigger!"
@@ -10862,11 +10946,11 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:451
 msgid "You must provide a valid table name!"
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք աղյուսակի վավերական անունը։"
 
 #: libraries/rte/rte_triggers.lib.php:457
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք ձգանի սահմանումը։"
 
 #: libraries/rte/rte_words.lib.php:27
 msgid "Add routine"
@@ -10879,7 +10963,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:30
 msgid "routine"
-msgstr ""
+msgstr "գործընթացը"
 
 #: libraries/rte/rte_words.lib.php:32
 msgid "You do not have the necessary privileges to create a routine"
@@ -10905,7 +10989,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:44
 msgid "trigger"
-msgstr ""
+msgstr "ձգան"
 
 #: libraries/rte/rte_words.lib.php:46
 msgid "You do not have the necessary privileges to create a trigger"
@@ -10960,7 +11044,7 @@ msgstr ""
 
 #: libraries/server_bin_log.lib.php:128
 msgid "Log name"
-msgstr ""
+msgstr "Մատյանի անունը"
 
 #: libraries/server_bin_log.lib.php:129
 msgid "Position"
@@ -10982,11 +11066,11 @@ msgstr ""
 #: libraries/server_bin_log.lib.php:187
 #: libraries/server_status_processes.lib.php:201
 msgid "Show Full Queries"
-msgstr ""
+msgstr "Ցուցադրել հարցումները ամբողջությամբ"
 
 #: libraries/server_common.lib.php:27
 msgid "Server variables and settings"
-msgstr ""
+msgstr "Սպասարկչի փոփոխականները և կայանքները"
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
@@ -11326,13 +11410,13 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1452
 #: libraries/server_privileges.lib.php:2743
 msgid "Login Information"
-msgstr ""
+msgstr "Հաշվի հավատարմագրերը"
 
 #: libraries/server_privileges.lib.php:1485
 #: libraries/server_privileges.lib.php:1673
 #: libraries/server_privileges.lib.php:3167
 msgid "Use text field"
-msgstr ""
+msgstr "Օգտագործել գրվածքի դաշտը"
 
 #: libraries/server_privileges.lib.php:1512
 msgid ""
@@ -11380,11 +11464,11 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2145
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr ""
+msgstr "Օգտվողներ՝ \"%s\" մատչման հնարավորությումբ"
 
 #: libraries/server_privileges.lib.php:2114
 msgid "User has been added."
-msgstr ""
+msgstr "Օգտվողը ավելացվեց։"
 
 #: libraries/server_privileges.lib.php:2256
 #: libraries/server_privileges.lib.php:4026
@@ -11392,7 +11476,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:73
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
-msgstr ""
+msgstr "Օգտվող"
 
 #: libraries/server_privileges.lib.php:2260
 #: libraries/server_privileges.lib.php:3044
@@ -11449,7 +11533,7 @@ msgstr "… պահել ավելի հինը։"
 
 #: libraries/server_privileges.lib.php:2723
 msgid "… delete the old one from the user tables."
-msgstr "… ջնջել ավելի հինը՝ օգտվողների աղհուսակներից"
+msgstr "… ջնջել օգտվողների աղյուսակներից ավելի հինը։"
 
 #: libraries/server_privileges.lib.php:2725
 msgid ""
@@ -11506,7 +11590,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3549
 msgid "Reloading the privileges"
-msgstr ""
+msgstr "Արտոնությունների վերաբեռնում"
 
 #: libraries/server_privileges.lib.php:3568
 msgid "The selected users have been deleted successfully."
@@ -11534,12 +11618,12 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4017
 #, php-format
 msgid "Privileges for %s"
-msgstr ""
+msgstr "Արտոնություններ %s-ի համար"
 
 #: libraries/server_privileges.lib.php:4067
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "Նոր"
 
 #: libraries/server_privileges.lib.php:4096
 msgid "Edit Privileges:"
@@ -11612,7 +11696,7 @@ msgstr "Ընդունված"
 
 #: libraries/server_status.lib.php:166
 msgid "Sent"
-msgstr ""
+msgstr "Ուղարկված է"
 
 #: libraries/server_status.lib.php:232
 msgid "max. concurrent connections"
@@ -11659,7 +11743,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:67
 msgid "Selected time range:"
-msgstr ""
+msgstr "Ընտրեք ժամանակահատվածը՝"
 
 #: libraries/server_status_monitor.lib.php:75
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -11675,7 +11759,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:89
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Արդյունքները խմբավորվում են ըստ հարցումների գրվածքի։"
 
 #: libraries/server_status_monitor.lib.php:93
 msgid "Query analyzer"
@@ -11740,7 +11824,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
-msgstr ""
+msgstr "Ընտրեք շարքերը"
 
 #: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
@@ -11772,11 +11856,11 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:233
 msgid "Series in Chart:"
-msgstr ""
+msgstr "Գծապատկերում շարքեր՝"
 
 #: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
-msgstr ""
+msgstr "Մեկնարկել ցուցարկիչը"
 
 #: libraries/server_status_monitor.lib.php:261
 msgid "Instructions/Setup"
@@ -11811,7 +11895,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
-msgstr ""
+msgstr "Վերակայել լռելյայն արժեքներին"
 
 #: libraries/server_status_processes.lib.php:24
 msgid ""
@@ -11857,7 +11941,7 @@ msgstr "վայրկյանում՝"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
-msgstr ""
+msgstr "Արտահայտություններ"
 
 #. l10n: # = Amount of queries
 #: libraries/server_status_queries.lib.php:96
@@ -11879,7 +11963,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:78
 msgid "Show unformatted values"
-msgstr ""
+msgstr "Ցուցադրել չկազմաձևած արժեքները"
 
 #: libraries/server_status_variables.lib.php:98
 msgid "Related links:"
@@ -12457,7 +12541,7 @@ msgstr ""
 #: libraries/server_user_groups.lib.php:23
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "'%s' օգտվողների խմբի օգտվողները"
 
 #: libraries/server_user_groups.lib.php:35
 msgid "No users were found belonging to this user group."
@@ -12499,7 +12583,7 @@ msgstr ""
 
 #: libraries/server_user_groups.lib.php:228
 msgid "User group menu assignments"
-msgstr ""
+msgstr "Օգտվողների խմբի ընտրացանկի վերագրումները"
 
 #: libraries/server_user_groups.lib.php:235
 msgid "Group name:"
@@ -12522,12 +12606,12 @@ msgstr "Աղյուսակի մակարդակի ներդիրներ"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Արժեքի սահմանունը ձախողվեց"
 
 #: libraries/server_variables.lib.php:192
 #: libraries/server_variables.lib.php:264
 msgid "Session value"
-msgstr ""
+msgstr "Աշխատաշրջանի արժեքը"
 
 #: libraries/server_variables.lib.php:192
 msgid "Global value"
@@ -12556,11 +12640,11 @@ msgstr "Կարգավիճակ"
 
 #: libraries/sql.lib.php:354
 msgid "Summary by state"
-msgstr ""
+msgstr "Ամփոփ ըստ կարգավիճակի"
 
 #: libraries/sql.lib.php:360
 msgid "Total Time"
-msgstr ""
+msgstr "Ընդհանուր տևողություն"
 
 #: libraries/sql.lib.php:362
 msgid "% Time"
@@ -12580,7 +12664,7 @@ msgstr "Էջանշել այս SQL հարցումը"
 
 #: libraries/sql.lib.php:642
 msgid "Label:"
-msgstr "Պիտակը՝"
+msgstr "Պիտակ՝"
 
 #: libraries/sql.lib.php:647 libraries/sql_query_form.lib.php:292
 msgid "Let every user access this bookmark"
@@ -12597,7 +12681,7 @@ msgstr ""
 
 #: libraries/sql.lib.php:1495
 msgid "Showing as PHP code"
-msgstr ""
+msgstr "PHP կոդի տեսքով ցուցադրում"
 
 #: libraries/sql.lib.php:1816
 msgid ""
@@ -12608,7 +12692,7 @@ msgstr ""
 #: libraries/sql.lib.php:1853
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr ""
+msgstr "Խնդիրներ՝ `%s` աղյուսակի ցուցակագրերի հետ"
 
 #: libraries/sql_query_form.lib.php:153
 #, php-format
@@ -12646,7 +12730,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:386
 msgid "View only"
-msgstr ""
+msgstr "Միայն դիտում"
 
 #: libraries/sqlparser.lib.php:122
 msgid ""
@@ -12702,15 +12786,15 @@ msgstr ""
 #: libraries/structure.lib.php:70 tbl_operations.php:355
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "%s աղյուսակը դատարկվել է։"
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
-msgstr ""
+msgstr "Հետագծումը միացրած է։"
 
 #: libraries/structure.lib.php:100
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Հետագծումը միացրած չէ։"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:373
 #: view_operations.php:119
@@ -12796,7 +12880,7 @@ msgstr "Փոխել"
 #: libraries/structure.lib.php:1510 libraries/structure.lib.php:2242
 #: libraries/structure.lib.php:2252
 msgid "Spatial"
-msgstr ""
+msgstr "Տարածական"
 
 #: libraries/structure.lib.php:1520 libraries/structure.lib.php:2244
 #: libraries/structure.lib.php:2254
@@ -12853,11 +12937,11 @@ msgstr "%s-ից հետո"
 
 #: libraries/structure.lib.php:1824
 msgid "Row statistics"
-msgstr ""
+msgstr "Տողի վիճակագրությունը"
 
 #: libraries/structure.lib.php:1829 libraries/tbl_printview.lib.php:186
 msgid "static"
-msgstr ""
+msgstr "կայուն"
 
 #: libraries/structure.lib.php:1831 libraries/tbl_printview.lib.php:188
 msgid "dynamic"
@@ -12869,7 +12953,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:1879 libraries/tbl_printview.lib.php:209
 msgid "Row length"
-msgstr ""
+msgstr "Տողի երկարությունը"
 
 #: libraries/structure.lib.php:1893 libraries/tbl_printview.lib.php:223
 msgid "Row size"
@@ -12912,7 +12996,7 @@ msgstr "Ավելացնել ամբողջ գրվածքով ցուցակագիր"
 
 #: libraries/structure.lib.php:2349
 msgid "Space usage"
-msgstr ""
+msgstr "Տարածության օգտագործում"
 
 #: libraries/structure.lib.php:2369 libraries/tbl_printview.lib.php:331
 msgid "Effective"
@@ -12922,11 +13006,11 @@ msgstr "Արդյունավետություն"
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr ""
+msgstr "%1$s աղյուսակը հաջողությամբ փոխվել է։"
 
 #: libraries/structure.lib.php:2621 libraries/tracking.lib.php:1085
 msgid "Query error"
-msgstr ""
+msgstr "Հարցման սխալ"
 
 #: libraries/structure.lib.php:2757
 msgid "The columns have been moved successfully."
@@ -12942,7 +13026,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:3049
 msgid "Showing create queries"
-msgstr ""
+msgstr "Ստեղծման հարցումների ցուցադրում"
 
 #: libraries/structure.lib.php:3289
 #| msgid "Replication"
@@ -12982,7 +13066,7 @@ msgstr ""
 #: libraries/tbl_chart.lib.php:58
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr ""
+msgstr "Ժամագիծ"
 
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
@@ -12999,7 +13083,7 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:133
 msgid "Series:"
-msgstr ""
+msgstr "Շարքեր՝"
 
 #: libraries/tbl_chart.lib.php:208
 msgid "X-Axis label:"
@@ -13042,7 +13126,7 @@ msgstr "Գծապատկերի վերնագիր"
 #: libraries/tbl_columns_definition_form.lib.php:73
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Համեմատումը՝"
+msgstr "Համադասում՝"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
 msgid "Storage Engine:"
@@ -13051,7 +13135,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:81
 #| msgid "Creation"
 msgid "Connection:"
-msgstr "Կապ՝"
+msgstr "Միացում՝"
 
 #: libraries/tbl_columns_definition_form.lib.php:129
 msgid "PARTITION definition:"
@@ -13059,7 +13143,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:181
 msgid "Table name"
-msgstr ""
+msgstr "Աղյուսակի անուն"
 
 #: libraries/tbl_columns_definition_form.lib.php:326
 msgid ""
@@ -13116,7 +13200,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:632
 msgid "Is a foreign key."
-msgstr ""
+msgstr "Սա՝ արտաքին բանալի է։"
 
 #: libraries/tbl_columns_definition_form.lib.php:659
 msgid "Pick from Central Columns"
@@ -13194,7 +13278,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:346
 msgid "Parser:"
-msgstr ""
+msgstr "Վերլուծող՝"
 
 #: libraries/tbl_indexes.lib.php:358
 msgid "Comment:"
@@ -13224,7 +13308,7 @@ msgstr "Ներքին կապակցումներ"
 
 #: libraries/tbl_relation.lib.php:233
 msgid "Internal relation"
-msgstr ""
+msgstr "Ներքին կապակցում"
 
 #: libraries/tbl_relation.lib.php:237
 msgid ""
@@ -13342,7 +13426,7 @@ msgstr "Ջնջել տարբերակը"
 
 #: libraries/tracking.lib.php:460
 msgid "Tracking statements"
-msgstr ""
+msgstr "Հետագծվող արտահայտությունները"
 
 #: libraries/tracking.lib.php:472
 msgid "Delete tracking data row from report"
@@ -13371,7 +13455,7 @@ msgstr ""
 
 #: libraries/tracking.lib.php:649
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL կատարում"
 
 #: libraries/tracking.lib.php:654
 #, php-format
@@ -13424,7 +13508,7 @@ msgstr ""
 #: libraries/tracking.lib.php:1165
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Հետագծման զեկույց `%s` աղյուսակի համար"
 
 #: libraries/tracking.lib.php:1197
 #, php-format
@@ -13439,7 +13523,7 @@ msgstr ""
 #: libraries/tracking.lib.php:1306
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr ""
+msgstr "%1$s տարբերակը %2$s-ից ջնջվել է։"
 
 #: libraries/tracking.lib.php:1337
 #, php-format
@@ -13463,7 +13547,7 @@ msgstr ""
 
 #: libraries/user_preferences.lib.php:130
 msgid "Could not save configuration"
-msgstr "Չհաջողվեց պահպանել կազմաձևի կայանքները։"
+msgstr "Չհաջողվեց պահպանել կազմաձևի կայանքները"
 
 #: libraries/user_preferences.lib.php:289
 msgid ""
@@ -13502,7 +13586,7 @@ msgstr ""
 
 #: prefs_manage.php:229 prefs_manage.php:258
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Պահպանված է՝ @DATE@-ում"
 
 #: prefs_manage.php:244
 msgid "Import from file"
@@ -13561,7 +13645,7 @@ msgstr ""
 
 #: server_privileges.php:141
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "Օգտանունը և խնամորդի անունը չեն փոխվել։"
 
 #: server_status_processes.php:36
 #, php-format
@@ -13686,11 +13770,11 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:49
 msgid "Warning"
-msgstr ""
+msgstr "Զգուշացում"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "Ուղարկված ձևը պարունակում է սխալներ"
 
 #: setup/lib/form_processing.lib.php:52
 msgid "Try to revert erroneous fields to their default values"
@@ -13702,7 +13786,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:61
 msgid "Show form"
-msgstr ""
+msgstr "Ցուցադրել ձևը"
 
 #: setup/lib/index.lib.php:119
 msgid ""
@@ -13753,7 +13837,7 @@ msgstr "'%s' տվյալների բազան գոյություն չունի։"
 #: tbl_create.php:43
 #, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "%s աղյուսակը արդեն սիկ առկա է։"
 
 #: tbl_export.php:28
 msgid "View dump (schema) of table"
@@ -13761,7 +13845,7 @@ msgstr ""
 
 #: tbl_get_field.php:32
 msgid "Invalid table name"
-msgstr ""
+msgstr "Անվավեր աղյուսակի անուն"
 
 #: tbl_replace.php:236
 #, php-format
@@ -13782,7 +13866,7 @@ msgstr "Ընտրած սյունակներ չկան։"
 #: tbl_tracking.php:33
 #, php-format
 msgid "Tracking of %s is activated."
-msgstr ""
+msgstr "%s-ի հետագծումը միացրած է։"
 
 #: tbl_tracking.php:102
 msgid "Tracking versions deleted successfully."
@@ -13826,7 +13910,7 @@ msgstr "Նկարագրություն"
 #: url.php:35
 #, php-format
 msgid "Taking you to %s."
-msgstr ""
+msgstr "Վերահասցեագրում %s-ին։"
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
@@ -13931,7 +14015,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
-msgstr ""
+msgstr "Երկար հարցումների կատարման ժամանակը"
 
 #: libraries/advisory_rules.txt:80
 msgid ""
@@ -13952,7 +14036,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Slow query logging"
-msgstr ""
+msgstr "Դանդաղ հարումների մատենագրում"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 msgid "The slow query log is disabled."
@@ -14085,7 +14169,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:153
 msgid "Query cache disabled"
-msgstr ""
+msgstr "Հարցումների շտեմումը անջատված է"
 
 #: libraries/advisory_rules.txt:156
 msgid "The query cache is not enabled."
@@ -14129,7 +14213,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:167
 #, php-format
 msgid "Query cache efficiency (%%)"
-msgstr ""
+msgstr "Հարցումների շտեմումի արդյունավետությունը (%%)"
 
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -14297,7 +14381,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:225
 msgid "Sort rows"
-msgstr ""
+msgstr "Դասակարգել տողերը"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
@@ -14825,7 +14909,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "InnoDB-ի մատյանի առավելագույն չափը"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
