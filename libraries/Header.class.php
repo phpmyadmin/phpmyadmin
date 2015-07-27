@@ -257,6 +257,7 @@ class PMA_Header
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'logged_in' => isset($GLOBALS['userlink']) ? true : false,
+            'PMA_VERSION' => PMA_VERSION
         );
         if (isset($GLOBALS['cfg']['Server'])
             && isset($GLOBALS['cfg']['Server']['auth_type'])
@@ -649,27 +650,28 @@ class PMA_Header
         $basedir    = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
         $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
+        $v          = self::getVersionParameter();
 
         if ($this->_isPrintView) {
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'print.css" />';
+                . $basedir . 'print.css?' . $v . '" />';
         } else {
             // load jQuery's CSS prior to our theme's CSS, to let the theme
             // override jQuery's CSS
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/jquery/jquery-ui-1.11.2.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/lib/codemirror.css" />';
+                . $basedir . 'js/codemirror/lib/codemirror.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/addon/hint/show-hint.css" />';
+                . $basedir . 'js/codemirror/addon/hint/show-hint.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/addon/lint/lint.css" />';
+                . $basedir . 'js/codemirror/addon/lint/lint.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php?'
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
             // load Print view's CSS last, so that it overrides all other CSS while 'printing'
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/css/printview.css" />';
+                . $theme_path . '/css/printview.css?' . $v . '" />';
         }
 
         return $retval;
@@ -776,6 +778,17 @@ class PMA_Header
             }
         }
         return $retval;
+    }
+
+    /**
+     * Returns the phpMyAdmin version to be appended to the url to avoid caching
+     * between versions
+     *
+     * @return string urlenocded pma version as a parameter
+     */
+    public static function getVersionParameter()
+    {
+        return "v=" . urlencode(PMA_VERSION);
     }
 }
 

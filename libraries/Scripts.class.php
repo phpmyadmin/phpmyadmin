@@ -53,15 +53,18 @@ class PMA_Scripts
         $first_dynamic_scripts = "";
         $dynamic_scripts = "";
         $scripts = array();
+        $separator = PMA_URL_getArgSeparator();
         foreach ($files as $value) {
             if (/*overload*/mb_strpos($value['filename'], "?") !== false) {
+                $file_name = $value['filename'] . $separator
+                    . PMA_Header::getVersionParameter();
                 if ($value['before_statics'] === true) {
                     $first_dynamic_scripts
                         .= "<script data-cfasync='false' type='text/javascript' src='js/"
-                        . $value['filename'] . "'></script>";
+                        . $file_name . "'></script>";
                 } else {
                     $dynamic_scripts .= "<script data-cfasync='false' type='text/javascript' src='js/"
-                        . $value['filename'] . "'></script>";
+                        . $file_name . "'></script>";
                 }
                 continue;
             }
@@ -81,8 +84,8 @@ class PMA_Scripts
                 $scripts[] = "scripts%5B%5D=" . $value['filename'];
             }
         }
-        $separator = PMA_URL_getArgSeparator();
-        $url = 'js/get_scripts.js.php?' . implode($separator, $scripts);
+        $url = 'js/get_scripts.js.php?' . implode($separator, $scripts)
+            . $separator . PMA_Header::getVersionParameter();
 
         $static_scripts = sprintf(
             '<script data-cfasync="false" type="text/javascript" src="%s"></script>',
