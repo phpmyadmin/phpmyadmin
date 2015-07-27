@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-27 09:03+0200\n"
+"PO-Revision-Date: 2015-07-27 10:59+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -12309,7 +12309,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
-msgstr "Ընտրեք շարքերը"
+msgstr "Ընտրեք շարքերը՝"
 
 #: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
@@ -14475,7 +14475,7 @@ msgstr ""
 
 #: templates/index_form.phtml:86
 msgid "Parser:"
-msgstr "Վերլուծող՝"
+msgstr "Վերլուծիչ՝"
 
 #: templates/index_form.phtml:102
 msgid "Comment:"
