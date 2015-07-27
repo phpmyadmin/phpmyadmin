@@ -75,7 +75,7 @@ class FormDisplay
 
     /**
      * Dictionary with user preferences keys
-     * @var array
+     * @var array|null
      */
     private $_userprefsKeys;
 
