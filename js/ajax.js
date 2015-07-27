@@ -571,6 +571,7 @@ var AJAX = {
                 }
             }
             request.push("call_done=1");
+            request.push("v=" + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
             // Download the composite js file, if necessary
             if (needRequest) {
                 this.appendScript("js/get_scripts.js.php?" + request.join("&"));

@@ -81,7 +81,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<script data-cfasync="false" type="text/javascript" '
             . 'src="js/get_scripts.js.php?'
-            . 'scripts%5B%5D=common.js"></script>',
+            . 'scripts%5B%5D=common.js&amp;v=' . PMA_VERSION . '"></script>',
             $this->_callPrivateFunction(
                 '_includeFiles',
                 array(
@@ -111,7 +111,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
         $this->assertRegExp(
             '@<script data-cfasync="false" type="text/javascript" '
             . 'src="js/get_scripts.js.php\\?'
-            . 'scripts%5B%5D=common.js"></script>'
+            . 'scripts%5B%5D=common.js&amp;v=' . PMA_VERSION . '"></script>'
             . '<script data-cfasync="false" type="text/'
             . 'javascript">// <!\\[CDATA\\[' . "\n"
             . 'AJAX.scriptHandler.add\\("common.js",1\\);' . "\n"
