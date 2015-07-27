@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-27 15:06+0200\n"
+"PO-Revision-Date: 2015-07-27 15:08+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -3532,6 +3532,7 @@ msgstr "Մանրամասները …"
 #: libraries/DatabaseInterface.class.php:2692
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
+"Չհաջողվեց միանալ որպես controluser, ինչպես այն սահմանված է կազմաձևի մեջ։"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:404
 msgid "at least one of the words"
