@@ -1429,8 +1429,7 @@ function PMA_getHtmlForLoginInformationFields(
     $mode = 'new',
     $username = null,
     $hostname = null
-)
-{
+) {
     list($username_length, $hostname_length) = PMA_getUsernameAndHostnameLength();
 
     if (isset($GLOBALS['username'])
@@ -1772,8 +1771,7 @@ function PMA_getCurrentAuthenticationPlugin(
     $mode = 'new',
     $username = null,
     $hostname = null
-)
-{
+) {
     /* Fallback (standard) value */
     $authentication_plugin = 'mysql_native_password';
 
