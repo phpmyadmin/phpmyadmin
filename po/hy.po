@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-27 09:03+0200\n"
+"PO-Revision-Date: 2015-07-27 15:08+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/hy/>\n"
@@ -1516,6 +1516,7 @@ msgstr ""
 #: js/messages.php:204
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Մատյանների տվյալները բեռնված են։ Այս ժամանակահատվածում կատարված հարցումները՝"
 
 #: js/messages.php:206
 msgid "Jump to Log table"
@@ -2168,7 +2169,7 @@ msgstr "Ընտրեք արտաքին բանալին"
 
 #: js/messages.php:419
 msgid "Please select the primary key or a unique key!"
-msgstr ""
+msgstr "Ընտրեք առաջնային բանալիի կամ յուրահատուկ բանալիի սյունակը։"
 
 #: js/messages.php:420 libraries/db_designer.lib.php:331
 #: libraries/db_designer.lib.php:334
@@ -3208,6 +3209,7 @@ msgstr "Մանրամասները …"
 #: libraries/DatabaseInterface.class.php:2443
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
+"Չհաջողվեց միանալ որպես controluser, ինչպես այն սահմանված է կազմաձևի մեջ։"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:404
 msgid "at least one of the words"
@@ -11824,7 +11826,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
-msgstr "Ընտրեք շարքերը"
+msgstr "Ընտրեք շարքերը՝"
 
 #: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
@@ -13278,7 +13280,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:346
 msgid "Parser:"
-msgstr "Վերլուծող՝"
+msgstr "Վերլուծիչ՝"
 
 #: libraries/tbl_indexes.lib.php:358
 msgid "Comment:"
