@@ -1425,7 +1425,11 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
  *
  * @return string $html_output  a HTML snippet
  */
-function PMA_getHtmlForLoginInformationFields($mode = 'new', $username = null, $hostname = null)
+function PMA_getHtmlForLoginInformationFields(
+    $mode = 'new',
+    $username = null,
+    $hostname = null
+)
 {
     list($username_length, $hostname_length) = PMA_getUsernameAndHostnameLength();
 
@@ -1687,8 +1691,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new', $username = null, $
         . '/>' . "\n"
         . '</div>' . "\n"
         . '<div class="item" id="authentication_plugin_div">'
-        . '<label for="select_authentication_plugin" >' . __('Authentication Plugin') . '</label>'
-        . '<span class="options">&nbsp;</span>' . "\n"
+        . '<label for="select_authentication_plugin" >' . __('Authentication Plugin')
+        . '</label><span class="options">&nbsp;</span>' . "\n"
         . '<select id="select_authentication_plugin" name="authentication_plugin">'
         . '<option value="mysql_native_password" '
         . ($orig_auth_plugin == 'mysql_native_password' ? 'selected ' : '')
@@ -1696,7 +1700,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new', $username = null, $
 
     // Since, 5.6.6 does not provide a syntax to alter
     // the authentication plugin used for a user,
-    // So for 5.6.6+ & prior to 5.7.6, display this option only while 'creating a new user'
+    // So for 5.6.6+ & prior to 5.7.6, display this option only while 'creating a
+    // new user'
     if (PMA_MYSQL_INT_VERSION >= 50706
         || ($mode == 'new' && PMA_MYSQL_INT_VERSION >= 50606)
     ) {
@@ -1712,8 +1717,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new', $username = null, $
         . PMA_Message::notice(
             __(
                 'This method requires using an \'<i>SSL connection</i>\' '
-                . 'or an \'<i>unencrypted connection that encrypts the password using RSA</i>\''
-                . '; while connecting to the server.'
+                . 'or an \'<i>unencrypted connection that encrypts the password '
+                . 'using RSA</i>\'; while connecting to the server.'
             )
             . PMA_Util::showMySQLDocu('sha256-authentication-plugin')
         )->getDisplay()
@@ -1763,7 +1768,11 @@ function PMA_getUsernameAndHostnameLength()
  *
  * @return string authentication plugin in use
  */
-function PMA_getCurrentAuthenticationPlugin($mode = 'new', $username = null, $hostname = null)
+function PMA_getCurrentAuthenticationPlugin(
+    $mode = 'new',
+    $username = null,
+    $hostname = null
+)
 {
     /* Fallback (standard) value */
     $authentication_plugin = 'mysql_native_password';
@@ -1879,7 +1888,9 @@ function PMA_updatePassword($err_url, $username, $hostname)
         } else {
             if (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old') {
                 $hashing_function = 'OLD_PASSWORD';
-            } elseif (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'sha256_password') {
+            } elseif (!empty($_REQUEST['pw_hash'])
+                && $_REQUEST['pw_hash'] == 'sha256_password'
+            ) {
                 $hashing_function = 'PASSWORD';
 
                 // Backup the old value, to be reset later
@@ -3905,94 +3916,102 @@ function PMA_addUser(
     $queries_for_display = null;
     $sql_query = null;
 
-    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
-        $sql_query = '';
-        if ($_POST['pred_username'] == 'any') {
-            $username = '';
-        }
-        switch ($_POST['pred_hostname']) {
-        case 'any':
-            $hostname = '%';
-            break;
-        case 'localhost':
-            $hostname = 'localhost';
-            break;
-        case 'hosttable':
-            $hostname = '';
-            break;
-        case 'thishost':
-            $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-            $hostname = /*overload*/mb_substr(
-                $_user_name,
-                (/*overload*/mb_strrpos($_user_name, '@') + 1)
-            );
-            unset($_user_name);
-            break;
-        }
-        $sql = "SELECT '1' FROM `mysql`.`user`"
-            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
-        if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
-            $message = PMA_Message::error(__('The user %s already exists!'));
-            $message->addParam(
-                '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
-            );
-            $_REQUEST['adduser'] = true;
-            $_add_user_error = true;
-        } else {
-            list(
-                $create_user_real, $create_user_show, $real_sql_query, $sql_query,
-                $password_set_real, $password_set_show
-            ) = PMA_getSqlQueriesForDisplayAndAddUser(
-                $username, $hostname, (isset ($password) ? $password : '')
-            );
-
-            if (empty($_REQUEST['change_copy'])) {
-                $_error = false;
-
-                if (isset($create_user_real)) {
-                    if (! $GLOBALS['dbi']->tryQuery($create_user_real)) {
-                        $_error = true;
-                    }
-                    if (isset($password_set_real) && ! empty($password_set_real)
-                        && isset($_REQUEST['authentication_plugin'])
-                    ) {
-                        PMA_setProperPasswordHashing(
-                            $_REQUEST['authentication_plugin']
-                        );
-                        if ($GLOBALS['dbi']->tryQuery($password_set_real)) {
-                            $sql_query .= $password_set_show;
-                        }
-
-                    }
-                    $sql_query = $create_user_show . $sql_query;
-                }
-
-                list($sql_query, $message) = PMA_addUserAndCreateDatabase(
-                    $_error, $real_sql_query, $sql_query, $username, $hostname,
-                    isset($dbname) ? $dbname : null
-                );
-                if (! empty($_REQUEST['userGroup']) && $is_menuwork) {
-                    PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
-                }
-
-            } else {
-                if (isset($create_user_real)) {
-                    $queries[] = $create_user_real;
-                }
-                $queries[] = $real_sql_query;
-                // we put the query containing the hidden password in
-                // $queries_for_display, at the same position occupied
-                // by the real query in $queries
-                $tmp_count = count($queries);
-                if (isset($create_user_real)) {
-                    $queries_for_display[$tmp_count - 2] = $create_user_show;
-                }
-                $queries_for_display[$tmp_count - 1] = $sql_query;
-            }
-            unset($real_sql_query);
-        }
+    if (!isset($_REQUEST['adduser_submit']) && !isset($_REQUEST['change_copy'])) {
+        return array(
+            $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+        );
     }
+
+    $sql_query = '';
+    if ($_POST['pred_username'] == 'any') {
+        $username = '';
+    }
+    switch ($_POST['pred_hostname']) {
+    case 'any':
+        $hostname = '%';
+        break;
+    case 'localhost':
+        $hostname = 'localhost';
+        break;
+    case 'hosttable':
+        $hostname = '';
+        break;
+    case 'thishost':
+        $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
+        $hostname = /*overload*/mb_substr(
+            $_user_name,
+            (/*overload*/mb_strrpos($_user_name, '@') + 1)
+        );
+        unset($_user_name);
+        break;
+    }
+    $sql = "SELECT '1' FROM `mysql`.`user`"
+        . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+        . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
+    if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
+        $message = PMA_Message::error(__('The user %s already exists!'));
+        $message->addParam(
+            '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
+        );
+        $_REQUEST['adduser'] = true;
+        $_add_user_error = true;
+
+        return array(
+            $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+        );
+    }
+
+    list(
+        $create_user_real, $create_user_show, $real_sql_query, $sql_query,
+        $password_set_real, $password_set_show
+    ) = PMA_getSqlQueriesForDisplayAndAddUser(
+        $username, $hostname, (isset($password) ? $password : '')
+    );
+
+    if (empty($_REQUEST['change_copy'])) {
+        $_error = false;
+
+        if (isset($create_user_real)) {
+            if (! $GLOBALS['dbi']->tryQuery($create_user_real)) {
+                $_error = true;
+            }
+            if (isset($password_set_real) && ! empty($password_set_real)
+                && isset($_REQUEST['authentication_plugin'])
+            ) {
+                PMA_setProperPasswordHashing(
+                    $_REQUEST['authentication_plugin']
+                );
+                if ($GLOBALS['dbi']->tryQuery($password_set_real)) {
+                    $sql_query .= $password_set_show;
+                }
+
+            }
+            $sql_query = $create_user_show . $sql_query;
+        }
+
+        list($sql_query, $message) = PMA_addUserAndCreateDatabase(
+            $_error, $real_sql_query, $sql_query, $username, $hostname,
+            isset($dbname) ? $dbname : null
+        );
+        if (! empty($_REQUEST['userGroup']) && $is_menuwork) {
+            PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
+        }
+
+    } else {
+        if (isset($create_user_real)) {
+            $queries[] = $create_user_real;
+        }
+        $queries[] = $real_sql_query;
+        // we put the query containing the hidden password in
+        // $queries_for_display, at the same position occupied
+        // by the real query in $queries
+        $tmp_count = count($queries);
+        if (isset($create_user_real)) {
+            $queries_for_display[$tmp_count - 2] = $create_user_show;
+        }
+        $queries_for_display[$tmp_count - 1] = $sql_query;
+    }
+    unset($real_sql_query);
 
     return array(
         $message, $queries, $queries_for_display, $sql_query, $_add_user_error
@@ -4824,22 +4843,30 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 && $_REQUEST['authentication_plugin']
             ) {
                 if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY \'***\'';
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY  \'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\' ';
+                    $create_user_show .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'] . ' BY \'***\'';
+                    $create_user_real .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin']
+                        . ' BY  \'' . PMA_Util::sqlAddSlashes($_POST['pma_pw'])
+                        . '\' ';
                 } else {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
+                    $create_user_show .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'];
+                    $create_user_real .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'];
 
-                    $password_set_real .= '\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\');';
+                    $password_set_real .= '\'' . PMA_Util::sqlAddSlashes(
+                        $_POST['pma_pw']
+                    ) . '\');';
                 }
             } else {
                 $sql_query .= ' IDENTIFIED BY \'***\'';
                 $real_sql_query .= ' IDENTIFIED BY  \''
                     . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\' ';
 
-                $password_set_real .= '\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\');';
+                $password_set_real .= '\'' . PMA_Util::sqlAddSlashes(
+                    $_POST['pma_pw']
+                ) . '\');';
             }
         }
     } else {
@@ -4848,22 +4875,29 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 && $_REQUEST['authentication_plugin']
             ) {
                 if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY \'***\'';
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY  \'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\' ';
+                    $create_user_show .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'] . ' BY \'***\'';
+                    $create_user_real .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin']
+                        . ' BY  \'' . PMA_Util::sqlAddSlashes($_POST['pma_pw'])
+                        . '\' ';
                 } else {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
+                    $create_user_show .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'];
+                    $create_user_real .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'];
 
-                    $password_set_real .= '\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\');';
+                    $password_set_real .= '\'' . PMA_Util::sqlAddSlashes(
+                        $_POST['pma_pw']
+                    ) . '\');';
                 }
             } else {
                 $sql_query .= ' IDENTIFIED BY \'***\'';
                 $real_sql_query .= ' IDENTIFIED BY  \''
                     . PMA_Util::sqlAddSlashes($password) . '\' ';
 
-                $password_set_real .= '\'' . PMA_Util::sqlAddSlashes($password) . '\');';
+                $password_set_real .= '\'' . PMA_Util::sqlAddSlashes($password)
+                    . '\');';
             }
         }
     }

@@ -84,11 +84,10 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     // See http://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-5.html
     if (PMA_MYSQL_INT_VERSION >= 50705) {
         $html .= '<tr class="vmiddle">'
-            . '<td>' . __('Password Hashing:')
-            . '</td>'
+            . '<td>' . __('Password Hashing:') . '</td>'
             . '<td>'
             . '<input type="radio" name="pw_hash" id="radio_pw_hash_mysql_native" '
-            . 'value="' . 'mysql_native_password"';
+            . 'value="mysql_native_password"';
         if ($default_auth_plugin == 'mysql_native_password') {
             $html .= '" checked="checked"';
         }
@@ -112,26 +111,20 @@ function PMA_getHtmlForChangePassword($username, $hostname)
             . '</tr>';
     } elseif (PMA_MYSQL_INT_VERSION >= 50606) {
         $html .= '<tr class="vmiddle" id="tr_element_before_generate_password">'
-            . '<td>' . __('Password Hashing:')
-            . '</td>'
+            . '<td>' . __('Password Hashing:') . '</td>'
             . '<td>'
             . '<input type="radio" name="pw_hash" id="radio_pw_hash_new" '
-            . 'value="' . $default_auth_plugin . '"'
-            . ' checked="checked" />'
-            . '<label for="radio_pw_hash_new">' . $default_auth_plugin
-            . '</label>'
+            . 'value="' . $default_auth_plugin . '" checked="checked" />'
+            . '<label for="radio_pw_hash_new">' . $default_auth_plugin . '</label>'
             . '</td>'
             . '</tr>';
     } else {
         $html .= '<tr class="vmiddle">'
-            . '<td>' . __('Password Hashing:')
-            . '</td>'
+            . '<td>' . __('Password Hashing:') . '</td>'
             . '<td>'
             . '<input type="radio" name="pw_hash" id="radio_pw_hash_new" '
-            . 'value="mysql_native_password"'
-            . ' checked="checked" />'
-            . '<label for="radio_pw_hash_new">' . 'mysql_native_password'
-            . '</label>'
+            . 'value="mysql_native_password" checked="checked" />'
+            . '<label for="radio_pw_hash_new">mysql_native_password</label>'
             . '</td>'
             . '</tr>'
             . '<tr id="tr_element_before_generate_password" >'
@@ -148,17 +141,18 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     $html .=  '</table>';
 
     $html .= '<div '
-    . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
-    . ' id="ssl_reqd_warning">'
-    . PMA_Message::notice(
-        __(
-            'This method requires using an \'<i>SSL connection</i>\' '
-            . 'or an \'<i>unencrypted connection that encrypts the password using RSA</i>\''
-            . '; while connecting to the server.'
+        . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
+        . ' id="ssl_reqd_warning">'
+        . PMA_Message::notice(
+            __(
+                'This method requires using an \'<i>SSL connection</i>\' '
+                . 'or an \'<i>unencrypted connection that encrypts the password '
+                . 'using RSA</i>\'; while connecting to the server.'
+            )
+            . PMA_Util::showMySQLDocu('sha256-authentication-plugin')
         )
-        . PMA_Util::showMySQLDocu('sha256-authentication-plugin')
-    )->getDisplay()
-    . '</div>';
+            ->getDisplay()
+        . '</div>';
 
     $html .= '</fieldset>'
         . '<fieldset id="fieldset_change_password_footer" class="tblFooters">'

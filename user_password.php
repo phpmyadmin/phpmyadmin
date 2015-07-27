@@ -154,8 +154,8 @@ function PMA_changePassword($password, $message, $change_password_message)
             );
         }
 
-        $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\' IDENTIFIED WITH '
-            . $orig_auth_plugin . ' BY '
+        $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
+            . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
             . (($password == '') ? '\'\'' : '\'***\'');
     } else {
         // For MySQL versions 5.6.6+,
