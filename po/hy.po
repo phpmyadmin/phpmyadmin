@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-27 10:59+0200\n"
+"PO-Revision-Date: 2015-07-27 15:06+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -1598,6 +1598,7 @@ msgstr ""
 #: js/messages.php:235
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Մատյանների տվյալները բեռնված են։ Այս ժամանակահատվածում կատարված հարցումները՝"
 
 #: js/messages.php:237
 msgid "Jump to Log table"
@@ -2290,7 +2291,7 @@ msgstr "Ընտրեք արտաքին բանալին"
 
 #: js/messages.php:456
 msgid "Please select the primary key or a unique key!"
-msgstr ""
+msgstr "Ընտրեք առաջնային բանալիի կամ յուրահատուկ բանալիի սյունակը։"
 
 #: js/messages.php:457 templates/designer/side_menu.phtml:91
 #: templates/designer/side_menu.phtml:94
@@ -3369,6 +3370,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Կատարել հարցումը՝  Enter սեղմելով, և զետեղել նոր տող՝ Shift + Enter սեղմելով։"
+" Այս հնարավորությունը մշտական դարձնելու համար՝ դիմեք կայանքներին։"
 
 #: libraries/Console.class.php:385
 #| msgid "Switch to copied database"
