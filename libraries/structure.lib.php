@@ -236,7 +236,10 @@ function PMA_getHtmlForStructureTableRow(
             $show_superscript = PMA_Util::showHint(
                 PMA_sanitize(
                     sprintf(
-                        __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
+                        __(
+                            'This view has at least this number of rows. Please ' .
+                            'refer to %sdocumentation%s.'
+                        ),
                         '[doc@cfg_MaxExactCountViews]', '[/doc]'
                     )
                 )

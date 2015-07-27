@@ -262,11 +262,14 @@ $response->addHTML('</div>');
 
 if (! $tbl_is_view && ! $db_is_system_schema) {
     $response->addHTML('<br />');
-    $response->addHTML(PMA\Template::get('structure/add_column')->render(
-        array(
-            'columns_list' => $columns_list
-        )
-    ));
+    $response->addHTML(
+        PMA\Template::get('structure/add_column')
+            ->render(
+                array(
+                    'columns_list' => $columns_list,
+                )
+            )
+    );
 }
 
 /**
