@@ -101,7 +101,7 @@ class Node
     public $classes = '';
 
     /**
-     * @var string Whether this node is a link for creating new objects
+     * @var bool Whether this node is a link for creating new objects
      */
     public $isNew = false;
 
