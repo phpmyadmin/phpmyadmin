@@ -134,6 +134,7 @@ class Token
     const FLAG_NUMBER_FLOAT             =  2;
     const FLAG_NUMBER_APPROXIMATE       =  4;
     const FLAG_NUMBER_NEGATIVE          =  8;
+    const FLAG_NUMBER_BINARY            = 16;
 
     // Strings related flags.
     const FLAG_STRING_SINGLE_QUOTES     =  1;
@@ -249,18 +250,20 @@ class Token
         case Token::TYPE_STRING:
             $quote = $this->token[0];
             $str = str_replace($quote . $quote, $quote, $this->token);
-            return mb_substr($str, 1, -1); // trims quotes
+            return mb_substr($str, 1, -1, 'UTF-8'); // trims quotes
         case Token::TYPE_SYMBOL:
             $str = $this->token;
             if ((isset($str[0])) && ($str[0] === '@')) {
-                $str = mb_substr($str, 1);
+                // `mb_strlen($str)` must be used instead of `null` because
+                // in PHP 5.3- the `null` parameter isn't handled correctly.
+                $str = mb_substr($str, 1, mb_strlen($str), 'UTF-8');
             }
             if ((isset($str[0])) && (($str[0] === '`')
                 || ($str[0] === '"') || ($str[0] === '\''))
             ) {
                 $quote = $str[0];
                 $str = str_replace($quote . $quote, $quote, $str);
-                $str = mb_substr($str, 1, -1);
+                $str = mb_substr($str, 1, -1, 'UTF-8');
             }
             return $str;
         }
