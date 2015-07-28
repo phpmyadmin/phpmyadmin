@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-27 14:47+0200\n"
+"PO-Revision-Date: 2015-07-28 13:36+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -13991,22 +13991,19 @@ msgid "Keyword \"TO\" was expected."
 msgstr "Le mot clé « TO » était attendu."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:129
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Le nombre de tables qui sont ouvertes."
+msgstr "Le nouveau nom de la table était attendu."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Le modèle a été supprimé."
+msgstr "Une opération de renommage était attendue."
 
 #: libraries/sql-parser/src/Lexer.php:252
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Caractères imprévus à la ligne %s."
+msgstr "Caractère imprévu."
 
 #: libraries/sql-parser/src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
