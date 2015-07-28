@@ -242,7 +242,9 @@ class PMA_Export_Relation_Schema
         $tables = array();
         $dbLength = mb_strlen($GLOBALS['db']);
         foreach ($_REQUEST['t_h'] as $key => $value) {
-            $tables[] = mb_substr($key, $dbLength + 1);
+            if ($value) {
+                $tables[] = mb_substr($key, $dbLength + 1);
+            }
         }
         return $tables;
     }
