@@ -88,9 +88,9 @@ phpMyAdmin - ChangeLog
 + issue #6102 Add SHA256 security password support
 
 4.4.13.0 (not yet released)
-- issue #1808 "Improve table structure" generates invalid SQL
-- bug         Once checked "Show only active" checkbox is always checked
-- issue #1813 Delete rows using "Check All" is broken
+- issue #1808  "Improve table structure" generates invalid SQL
+- bug          Once checked "Show only active" checkbox is always checked
+- issue #1813  Delete rows using "Check All" is broken
 - Fix PHP 7 possible binding ambiguity
 - issue #11326 Exported schema includes all the tables of the database
 
