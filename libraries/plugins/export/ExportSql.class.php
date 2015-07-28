@@ -1623,7 +1623,10 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Generating auto-increment-related query.
-                if ((!empty($auto_increment)) && ($update_indexes_increments)) {
+                if ((!empty($auto_increment))
+                    && ($update_indexes_increments)
+                    && ($statement->entityOptions->has('AUTO_INCREMENT') !== false)
+                ) {
                     $sql_auto_increments_query = $alter_header .
                         $crlf . '  MODIFY ' . implode(',' . $crlf . '  MODIFY ', $auto_increment) .
                         ', AUTO_INCREMENT=' . $statement->entityOptions->has('AUTO_INCREMENT')
