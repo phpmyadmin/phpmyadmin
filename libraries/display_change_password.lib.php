@@ -142,7 +142,7 @@ function PMA_getHtmlForChangePassword($username, $hostname)
 
     $html .= '<div '
         . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
-        . ' id="ssl_reqd_warning">'
+        . ' id="ssl_reqd_warning_cp">'
         . PMA_Message::notice(
             __(
                 'This method requires using an \'<i>SSL connection</i>\' '
