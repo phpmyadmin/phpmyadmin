@@ -356,7 +356,7 @@ function PMA_displayGroupHeader($header_text)
 
     $_FormDisplayGroup++;
     if (! $header_text) {
-        return;
+        return null;
     }
     $colspan = defined('PMA_SETUP')
         ? 3

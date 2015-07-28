@@ -363,7 +363,7 @@ class FormDisplay
      * @param array     &$js_default          array which stores JavaScript code
      *                                        to be displayed
      *
-     * @return string|void HTML for input field
+     * @return string HTML for input field
      */
     private function _displayFieldInput(
         Form $form, $field, $system_path, $work_path,
@@ -421,14 +421,16 @@ class FormDisplay
             // :group:end is changed to :group:end:{unique id} in Form class
             $htmlOutput = '';
             if (/*overload*/mb_substr($field, 7, 4) != 'end:') {
-                $htmlOutput .= PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
+                $htmlOutput .= PMA_displayGroupHeader(
+                    /*overload*/mb_substr($field, 7)
+                );
             } else {
                 PMA_displayGroupFooter();
             }
             return $htmlOutput;
         case 'NULL':
             trigger_error("Field $system_path has no type", E_USER_WARNING);
-            return;
+            return null;
         }
 
         // detect password fields
@@ -488,7 +490,7 @@ class FormDisplay
     {
         $this->_validate();
         if (count($this->_errors) == 0) {
-            return;
+            return null;
         }
 
         $htmlOutput = '';
