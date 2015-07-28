@@ -46,12 +46,12 @@ function PMA_getHtmlForMasterReplication()
         $html .= '<legend>' . __('Master replication') . '</legend>';
         $html .= __('This server is configured as master in a replication process.');
         $html .= '<ul>';
-        $html .= '  <li><a href="#" id="master_status_href">';
+        $html .= '  <li><a href="#master_status_href" id="master_status_href">';
         $html .= __('Show master status') . '</a>';
         $html .= PMA_getHtmlForReplicationStatusTable('master', true, false);
         $html .= '  </li>';
 
-        $html .= '  <li><a href="#" id="master_slaves_href">';
+        $html .= '  <li><a href="#master_slaves_href" id="master_slaves_href">';
         $html .= __('Show connected slaves') . '</a>';
         $html .= PMA_getHtmlForReplicationSlavesTable(true);
         $html .= '  </li>';
@@ -235,12 +235,12 @@ function PMA_getHtmlForSlaveConfiguration(
         );
         $html .= '<br />';
         $html .= '<ul>';
-        $html .= ' <li><a href="#" id="slave_status_href">';
+        $html .= ' <li><a href="#slave_status_href" id="slave_status_href">';
         $html .= __('See slave status table') . '</a>';
         $html .= PMA_getHtmlForReplicationStatusTable('slave', true, false);
         $html .= ' </li>';
 
-        $html .= ' <li><a href="#" id="slave_control_href">';
+        $html .= ' <li><a href="#slave_control_href" id="slave_control_href">';
         $html .= __('Control slave:') . '</a>';
         $html .= ' <div id="slave_control_gui" style="display: none">';
         $html .= '  <ul>';
@@ -303,7 +303,7 @@ function PMA_getHtmlForSlaveConfiguration(
  */
 function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
 {
-    $html  = '<a href="#" id="slave_errormanagement_href">';
+    $html  = '<a href="#slave_errormanagement_href" id="slave_errormanagement_href">';
     $html .= __('Error management:') . '</a>';
     $html .= ' <div id="slave_errormanagement_gui" style="display: none">';
     $html .= PMA_Message::error(
