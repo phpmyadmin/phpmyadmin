@@ -1898,7 +1898,6 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     }
     $query = array(
         $insert_command . 'INTO '
-        . PMA_Util::backquote($GLOBALS['db']) . '.'
         . PMA_Util::backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES ('
         . implode('), (', $value_sets) . ')'

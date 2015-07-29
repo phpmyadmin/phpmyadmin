@@ -3523,7 +3523,6 @@ class PMA_DisplayResults
             $lnk_goto = 'sql.php' . PMA_URL_getCommon($_url_params, 'text');
 
             $del_query = 'DELETE FROM '
-                . PMA_Util::backquote($this->__get('db')) . '.'
                 . PMA_Util::backquote($this->__get('table'))
                 . ' WHERE ' . $where_clause .
                 ($clause_is_unique ? '' : ' LIMIT 1');
@@ -3537,8 +3536,7 @@ class PMA_DisplayResults
                 );
             $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
 
-            $js_conf  = 'DELETE FROM ' . PMA_jsFormat($this->__get('db')) . '.'
-                . PMA_jsFormat($this->__get('table'))
+            $js_conf  = 'DELETE FROM ' . PMA_jsFormat($this->__get('table'))
                 . ' WHERE ' . PMA_jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 

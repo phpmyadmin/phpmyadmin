@@ -283,8 +283,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . PMA_Util::backquote($GLOBALS['db'])
-                . '.' . PMA_Util::backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
                 . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
