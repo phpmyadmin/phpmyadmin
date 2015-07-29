@@ -81,7 +81,7 @@ class UtfString implements \ArrayAccess
         // overloading is enabled.
         // https://php.net/manual/ro/mbstring.overload.php
         $this->byteLen = strlen($str);
-        $this->charLen = mb_strlen($str);
+        $this->charLen = mb_strlen($str, 'UTF-8');
     }
 
     /**

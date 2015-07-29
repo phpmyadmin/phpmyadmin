@@ -159,7 +159,7 @@ class DataType extends Component
             $tmp = '(' . implode(', ', $component->parameters) . ')';
         }
         return trim(
-            $component->name . ' ' . $tmp . ' '
+            $component->name . $tmp . ' '
             . OptionsArray::build($component->options)
         );
     }
