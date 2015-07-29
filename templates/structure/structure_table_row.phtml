@@ -135,19 +135,19 @@
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']): ?>
             <td class="value tbl_creation">
-                <?php $create_time ? PMA_Util::localisedDate(strtotime($create_time)) : '-'; ?>
+                <?php echo $create_time ? PMA_Util::localisedDate(strtotime($create_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']): ?>
             <td class="value tbl_last_update">
-                <?php $update_time ? PMA_Util::localisedDate(strtotime($update_time)) : '-'; ?>
+                <?php echo $update_time ? PMA_Util::localisedDate(strtotime($update_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureLastCheck']): ?>
             <td class="value tbl_last_check">
-                <?php $check_time ? PMA_Util::localisedDate(strtotime($check_time)) : '-'; ?>
+                <?php echo $check_time ? PMA_Util::localisedDate(strtotime($check_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 
