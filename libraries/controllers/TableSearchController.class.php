@@ -774,8 +774,7 @@ class TableSearchController extends TableController
             $toReplace = $this->_getRegexReplaceRows(
                 $columnIndex, $find, $replaceWith, $charSet
             );
-            $sql_query = "UPDATE " . PMA_Util::backquote($this->db)
-                . "." . PMA_Util::backquote($this->table)
+            $sql_query = "UPDATE " . PMA_Util::backquote($this->table)
                 . " SET " . PMA_Util::backquote($column) . " = CASE";
             if (is_array($toReplace)) {
                 foreach ($toReplace as $row) {
@@ -792,8 +791,7 @@ class TableSearchController extends TableController
             // binary collation to make sure that the comparison
             // is case sensitive
         } else {
-            $sql_query = "UPDATE " . PMA_Util::backquote($this->db)
-                . "." . PMA_Util::backquote($this->table)
+            $sql_query = "UPDATE " . PMA_Util::backquote($this->table)
                 . " SET " . PMA_Util::backquote($column) . " ="
                 . " REPLACE("
                 . PMA_Util::backquote($column) . ", '" . $find . "', '"
