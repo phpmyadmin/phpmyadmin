@@ -185,13 +185,8 @@ if (!defined('TESTSUITE')) {
     $type = $what;
 
     // Check export type
-    if (! isset($export_plugin)) {
+    if (empty($export_plugin)) {
         PMA_fatalError(__('Bad type!'));
-    }
-
-    // Avoid warning from PHP Analyzer
-    if (is_null($export_plugin)) {
-        $export_plugin = new stdClass();
     }
 
     /**

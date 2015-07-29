@@ -242,11 +242,11 @@ function PMA_getMemoryLimitForExport()
 /**
  * Return the filename and MIME type for export file
  *
- * @param string                $export_type       type of export
- * @param string                $remember_template whether to remember template
- * @param ExportPlugin|stdClass $export_plugin     the export plugin
- * @param string                $compression       compression asked
- * @param string                $filename_template the filename template
+ * @param string       $export_type       type of export
+ * @param string       $remember_template whether to remember template
+ * @param ExportPlugin $export_plugin     the export plugin
+ * @param string       $compression       compression asked
+ * @param string       $filename_template the filename template
  *
  * @return array the filename template and mime type
  */
