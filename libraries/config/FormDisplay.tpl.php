@@ -483,11 +483,9 @@ function PMA_displayJavascript($js_array)
 
     require_once './libraries/Template.class.php';
 
-    $htmlOutput = PMA\Template::get('javascript/display')->render(
+    return PMA\Template::get('javascript/display')->render(
         array('js_array' => $js_array,)
     );
-
-    return $htmlOutput;
 }
 
 /**
