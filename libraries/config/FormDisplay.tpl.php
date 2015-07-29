@@ -478,18 +478,14 @@ function PMA_addJsValidate($field_id, $validators, &$js_array)
 function PMA_displayJavascript($js_array)
 {
     if (empty($js_array)) {
-        return;
+        return null;
     }
-    $htmlOutput = '<script type="text/javascript">' . "\n"
-        . 'if (typeof configInlineParams === "undefined"'
-        . ' || !Array.isArray(configInlineParams)) configInlineParams = [];' . "\n"
-        . 'configInlineParams.push(function() {' . "\n"
-        . implode(";\n", $js_array) . ";\n"
-        . '});' . "\n"
-        . 'if (typeof configScriptLoaded !== "undefined"'
-        . ' && configInlineParams) loadInlineConfig();' . "\n"
-        . '</script>' . "\n";
-    return $htmlOutput;
+
+    require_once './libraries/Template.class.php';
+
+    return PMA\Template::get('javascript/display')->render(
+        array('js_array' => $js_array,)
+    );
 }
 
 /**

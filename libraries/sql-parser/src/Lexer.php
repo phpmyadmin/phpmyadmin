@@ -34,19 +34,17 @@ namespace SqlParser {
 
     if (!defined('USE_UTF_STRINGS')) {
 
+        // NOTE: In previous versions of PHP (5.5 and older) the default
+        // internal encoding is "ISO-8859-1".
+        // All `mb_` functions must specify the correct encoding, which is
+        // 'UTF-8' in order to work properly.
+
         /**
          * Forces usage of `UtfString` if the string is multibyte.
          * `UtfString` may be slower, but it gives better results.
          * @var bool
          */
         define('USE_UTF_STRINGS', true);
-    }
-
-    // Set internal character to UTF-8.
-    // In previous versions of PHP (5.5 and older) the default internal encoding is
-    // "ISO-8859-1".
-    if ((defined('USE_UTF_STRINGS')) && (USE_UTF_STRINGS)) {
-        mb_internal_encoding('UTF-8');
     }
 
     /**
@@ -192,7 +190,7 @@ namespace SqlParser {
             // For multi-byte strings, a new instance of `UtfString` is
             // initialized (only if `UtfString` usage is forced.
             if (!($str instanceof UtfString)) {
-                if ((USE_UTF_STRINGS) && ($len != mb_strlen($str))) {
+                if ((USE_UTF_STRINGS) && ($len !== mb_strlen($str, 'UTF-8'))) {
                     $str = new UtfString($str);
                 }
             }
@@ -559,26 +557,33 @@ namespace SqlParser {
             // Below are the states of the machines and the conditions to change
             // the state.
             //
-            //      1 ---------------------[ + or - ]---------------------> 1
-            //      1 --------------------[ 0x or 0X ]--------------------> 2
-            //      1 ---------------------[ 0 to 9 ]---------------------> 3
-            //      1 ------------------------[ . ]-----------------------> 4
+            //      1 --------------------[ + or - ]-------------------> 1
+            //      1 -------------------[ 0x or 0X ]------------------> 2
+            //      1 --------------------[ 0 to 9 ]-------------------> 3
+            //      1 -----------------------[ . ]---------------------> 4
+            //      1 -----------------------[ b ]---------------------> 7
             //
-            //      2 ---------------------[ 0 to F ]---------------------> 2
+            //      2 --------------------[ 0 to F ]-------------------> 2
             //
-            //      3 ---------------------[ 0 to 9 ]---------------------> 3
-            //      3 ------------------------[ . ]-----------------------> 4
-            //      3 ---------------------[ e or E ]---------------------> 5
+            //      3 --------------------[ 0 to 9 ]-------------------> 3
+            //      3 -----------------------[ . ]---------------------> 4
+            //      3 --------------------[ e or E ]-------------------> 5
             //
-            //      4 ---------------------[ 0 to 9 ]---------------------> 4
-            //      4 ---------------------[ e or E ]---------------------> 5
+            //      4 --------------------[ 0 to 9 ]-------------------> 4
+            //      4 --------------------[ e or E ]-------------------> 5
             //
-            //      5 ----------------[ + or - or 0 to 9 ]----------------> 6
+            //      5 ---------------[ + or - or 0 to 9 ]--------------> 6
+            //
+            //      7 -----------------------[ ' ]---------------------> 8
+            //
+            //      8 --------------------[ 0 or 1 ]-------------------> 8
+            //      8 -----------------------[ ' ]---------------------> 9
             //
             // State 1 may be reached by negative numbers.
             // State 2 is reached only by hex numbers.
             // State 4 is reached only by float numbers.
             // State 5 is reached only by numbers in approximate form.
+            // State 7 is reached only by numbers in bit representation.
             //
             // Valid final states are: 2, 3, 4 and 6. Any parsing that finished in a
             // state other than these is invalid.
@@ -590,8 +595,10 @@ namespace SqlParser {
                 if ($state === 1) {
                     if ($this->str[$this->last] === '-') {
                         $flags |= Token::FLAG_NUMBER_NEGATIVE;
-                    } elseif (($this->str[$this->last] === '0') && ($this->last + 1 < $this->len)
-                        && (($this->str[$this->last + 1] === 'x') || ($this->str[$this->last + 1] === 'X'))
+                    } elseif (($this->last + 1 < $this->len)
+                        && ($this->str[$this->last] === '0')
+                        && (($this->str[$this->last + 1] === 'x')
+                            || ($this->str[$this->last + 1] === 'X'))
                     ) {
                         $token .= $this->str[$this->last++];
                         $state = 2;
@@ -599,6 +606,8 @@ namespace SqlParser {
                         $state = 3;
                     } elseif ($this->str[$this->last] === '.') {
                         $state = 4;
+                    } elseif ($this->str[$this->last] === 'b') {
+                        $state = 7;
                     } elseif ($this->str[$this->last] !== '+') {
                         // `+` is a valid character in a number.
                         break;
@@ -642,10 +651,30 @@ namespace SqlParser {
                         // Just digits are valid characters.
                         break;
                     }
+                } elseif ($state === 7) {
+                    $flags |= Token::FLAG_NUMBER_BINARY;
+                    if ($this->str[$this->last] === '\'') {
+                        $state = 8;
+                    } else {
+                        break;
+                    }
+                } elseif ($state === 8) {
+                    if ($this->str[$this->last] === '\'') {
+                        $state = 9;
+                    } elseif (($this->str[$this->last] !== '0')
+                        && ($this->str[$this->last] !== '1')
+                    ) {
+                        break;
+                    }
+                } elseif ($state === 9) {
+                    break;
                 }
                 $token .= $this->str[$this->last];
             }
-            if (($state === 2) || ($state === 3) || (($token !== '.') && ($state === 4)) || ($state === 6)) {
+            if (($state === 2) || ($state === 3)
+                || (($token !== '.') && ($state === 4))
+                || ($state === 6) || ($state === 9)
+            ) {
                 --$this->last;
                 return new Token($token, Token::TYPE_NUMBER, $flags);
             }

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-28 13:36+0200\n"
+"PO-Revision-Date: 2015-07-29 11:49+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -14007,17 +14007,17 @@ msgstr "Caractère imprévu."
 
 #: libraries/sql-parser/src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Des espaces ou tabulations étaient attendus avant le délimiteur."
 
 #: libraries/sql-parser/src/Lexer.php:298
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Un délimiteur était attendu."
 
 #: libraries/sql-parser/src/Lexer.php:688
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "L'événement %1$s a été créé."
+msgstr "Un guillemet %1$s était attendu."
 
 #: libraries/sql-parser/src/Lexer.php:721
 #, fuzzy
