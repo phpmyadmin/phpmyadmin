@@ -5,12 +5,13 @@
  */
 
 var random_server_id = Math.floor(Math.random() * 10000000);
-var prefix = "server-id=" + random_server_id + "\n";
+var slave_prefix = "server-id=" + random_server_id + "\n";
+var master_prefix = slave_prefix + "log_bin=mysql-bin\nlog_error=mysql-bin.err\n";
 
 function update_config()
 {
     var is_master = $(this).hasClass('master');
-    var conf_prefix = prefix + (is_master ? "log_bin=mysql-bin\nlog_error=mysql-bin.err\n" : "");
+    var conf_prefix = is_master ? master_prefix : slave_prefix;
     var conf_ignore = is_master ? "binlog_ignore_db=" : "replicate_ignore_db=";
     var conf_do = is_master ? "binlog_do_db=" : "replicate_do_db=";
     var database_list = '';
@@ -47,9 +48,8 @@ AJAX.registerTeardown('replication.js', function () {
 });
 
 AJAX.registerOnload('replication.js', function () {
-    $('#rep').text(prefix);
     $('#db_type').change(update_config);
-    $('#db_select').change(update_config);
+    $('#db_select').change(update_config).trigger('change');
 
     $('#master_status_href').click(function () {
         $('#replication_master_section').toggle();
