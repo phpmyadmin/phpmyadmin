@@ -1,7 +1,7 @@
 <form method="post"
       action="tbl_find_replace.php"
       name="previewForm"
-      id="previewForm" class="ajax">
+      id="previewForm">
     <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
     <input type="hidden" name="replace" value="true" />
     <input type="hidden" name="columnIndex" value="<?php echo $columnIndex; ?>" />
