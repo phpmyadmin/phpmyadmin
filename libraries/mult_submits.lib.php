@@ -45,7 +45,7 @@ function PMA_getUrlParams(
     foreach ($selected as $sval) {
         if ($what == 'row_delete') {
             $_url_params['selected'][] = 'DELETE FROM '
-                . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
+                . PMA_Util::backquote($table)
                 . ' WHERE ' . urldecode($sval) . ' LIMIT 1;';
         } else {
             $_url_params['selected'][] = $sval;
@@ -552,8 +552,7 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
         switch ($what) {
         case 'row_delete':
             $full_query .= 'DELETE FROM '
-                . PMA_Util::backquote(htmlspecialchars($db))
-                . '.' . PMA_Util::backquote(htmlspecialchars($table))
+                . PMA_Util::backquote(htmlspecialchars($table))
                 // Do not append a "LIMIT 1" clause here
                 // (it's not binlog friendly).
                 // We don't need the clause because the calling panel permits

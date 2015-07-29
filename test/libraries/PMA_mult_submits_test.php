@@ -245,7 +245,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
             $_url_params['db']
         );
         $this->assertEquals(
-            array('DELETE FROM `PMA_db`.`PMA_table` WHERE table1 LIMIT 1;'),
+            array('DELETE FROM `PMA_table` WHERE table1 LIMIT 1;'),
             $_url_params['selected']
         );
         $this->assertEquals(

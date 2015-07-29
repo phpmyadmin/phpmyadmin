@@ -1977,12 +1977,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $value_sets = array(1, 2);
 
         $this->assertEquals(
-            array('INSERT IGNORE INTO `db`.`table` (a, b) VALUES (1), (2)'),
+            array('INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)'),
             PMA_buildSqlQuery(true, $query_fields, $value_sets)
         );
 
         $this->assertEquals(
-            array('INSERT INTO `db`.`table` (a, b) VALUES (1), (2)'),
+            array('INSERT INTO `table` (a, b) VALUES (1), (2)'),
             PMA_buildSqlQuery(false, $query_fields, $value_sets)
         );
     }
