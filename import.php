@@ -76,7 +76,6 @@ $post_params = array(
     'MAX_FILE_SIZE',
     'message_to_show',
     'noplugin',
-    'skip',
     'skip_queries',
     'local_import_file'
 );
@@ -611,9 +610,9 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
     }
 }
 
-// Something to skip?
-if (! $error && isset($skip)) {
-    $original_skip = $skip;
+// Something to skip? (because timeout has passed)
+if (! $error && isset($_POST['skip'])) {
+    $original_skip = $skip = $_POST['skip'];
     while ($skip > 0) {
         PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
         // Disable read progressivity, otherwise we eat all memory!
