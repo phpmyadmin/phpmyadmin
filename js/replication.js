@@ -5,12 +5,14 @@
  */
 
 var random_server_id = Math.floor(Math.random() * 10000000);
-var conf_prefix = "server-id=" + random_server_id + "\nlog_bin=mysql-bin\nlog_error=mysql-bin.err\n";
+var prefix = "server-id=" + random_server_id + "\n";
 
 function update_config()
 {
-    var conf_ignore = "binlog_ignore_db=";
-    var conf_do = "binlog_do_db=";
+    var is_master = $(this).hasClass('master');
+    var conf_prefix = prefix + (is_master ? "log_bin=mysql-bin\nlog_error=mysql-bin.err\n" : "");
+    var conf_ignore = is_master ? "binlog_ignore_db=" : "replicate_ignore_db=";
+    var conf_do = is_master ? "binlog_do_db=" : "replicate_do_db=";
     var database_list = '';
 
     if ($('#db_select option:selected').size() === 0) {
@@ -45,7 +47,7 @@ AJAX.registerTeardown('replication.js', function () {
 });
 
 AJAX.registerOnload('replication.js', function () {
-    $('#rep').text(conf_prefix);
+    $('#rep').text(prefix);
     $('#db_type').change(update_config);
     $('#db_select').change(update_config);
 
