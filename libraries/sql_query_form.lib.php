@@ -25,7 +25,7 @@ require_once './libraries/bookmark.lib.php'; // used for bookmarks
  *
  * @param boolean|string $query       query to display in the textarea
  *                                    or true to display last executed
- * @param boolean|string $display_tab sql|files|history|full|false
+ * @param boolean|string $display_tab sql|full|false
  *                                    what part to display
  *                                    false if not inside querywindow
  * @param string         $delimiter   delimiter
@@ -97,13 +97,8 @@ function PMA_getHtmlForSqlQueryForm(
         );
     }
 
-    // display uploads
-    if ($display_tab === 'files' && $GLOBALS['is_upload']) {
-        $html .= PMA_getHtmlForSqlQueryFormUpload();
-    }
-
     // Bookmark Support
-    if ($display_tab === 'full' || $display_tab === 'history') {
+    if ($display_tab === 'full') {
         $cfgBookmark = PMA_Bookmark_getParams();
         if ($cfgBookmark) {
             $html .= PMA_getHtmlForSqlQueryFormBookmark();
@@ -434,79 +429,6 @@ function PMA_getHtmlForSqlQueryFormBookmark()
         . __('Go') . '" />';
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
-
-    return $html;
-}
-
-/**
- * return HTML for Sql Query Form Upload
- *
- * @return string
- *
- * @usedby  PMA_getHtmlForSqlQueryForm()
- */
-function PMA_getHtmlForSqlQueryFormUpload()
-{
-    global $timeout_passed, $local_import_file;
-
-    $errors = array();
-
-    // we allow only SQL here
-    $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@';
-
-    if (!empty($GLOBALS['cfg']['UploadDir'])) {
-        $files = PMA_getFileSelectOptions(
-            PMA_Util::userDir($GLOBALS['cfg']['UploadDir']), $matcher,
-            (isset($timeout_passed) && $timeout_passed && isset($local_import_file))
-            ? $local_import_file
-            : ''
-        );
-    } else {
-        $files = '';
-    }
-
-    // start output
-    $html  = '<fieldset id="">';
-    $html .= '<legend>';
-    $html .= __('Browse your computer:') . '</legend>';
-    $html .= '<div class="formelement">';
-    $html .= '<input type="file" name="sql_file" class="textfield" /> ';
-    $html .= PMA_Util::getFormattedMaximumUploadSize($GLOBALS['max_upload_size']);
-    // some browsers should respect this :)
-    $html .= PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
-    $html .= '</div>';
-
-    if ($files === false) {
-        $errors[] = PMA_Message::error(
-            __('The directory you set for upload work cannot be reached.')
-        );
-    } elseif (!empty($files)) {
-        $html .= '<div class="formelement">';
-        $html .= '<strong>' . __('web server upload directory:') . '</strong>';
-        $html .= '<select size="1" name="sql_localfile">' . "\n";
-        $html .= '<option value="" selected="selected"></option>' . "\n";
-        $html .= $files;
-        $html .= '</select>' . "\n";
-        $html .= '</div>';
-    }
-
-    $html .= '<div class="clearfloat"></div>' . "\n";
-    $html .= '</fieldset>';
-
-    $html .= '<fieldset id="" class="tblFooters">';
-    $html .= __('Character set of the file:') . "\n";
-    $html .= PMA_generateCharsetDropdownBox(
-        PMA_CSDROPDOWN_CHARSET,
-        'charset_of_file', null, 'utf8', false
-    );
-    $html .= '<input type="submit" name="SQL" value="' . __('Go')
-        . '" />' . "\n";
-    $html .= '<div class="clearfloat"></div>' . "\n";
-    $html .= '</fieldset>';
-
-    foreach ($errors as $error) {
-        $html .= $error->getDisplay();
-    }
 
     return $html;
 }
