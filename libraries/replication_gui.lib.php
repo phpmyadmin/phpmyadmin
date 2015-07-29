@@ -87,7 +87,15 @@ function PMA_getHtmlForMasterConfiguration()
     $html  = '<fieldset>';
     $html .= '<legend>' . __('Master configuration') . '</legend>';
     $html .= __('This server is not configured as master server in a replication process.');
-    $html .= ' ' . PMA_getHtmlForDatabaseSelector('master') . ' ';
+    $html .= ' ' . PMA_getHtmlForDatabaseSelector(
+        'master',
+        PMA_Util::showMySQLDocu(
+            'replication-options-binary-log', false, 'option_mysqld_binlog-ignore-db'
+        ),
+        PMA_Util::showMySQLDocu(
+            'replication-options-binary-log', false, 'option_mysqld_binlog-do-db'
+        )
+    ) . ' ';
     $html .= __( 'Afterwards, you should see a message informing you, that this server'
         . ' <b>is</b> configured as master.');
     $html .= '</fieldset>';
@@ -102,21 +110,30 @@ function PMA_getHtmlForMasterConfiguration()
 }
 
 /**
- * Returns HTML for the database selector to do or ignore databases in replication
+ * Returns HTML for the database selector to include or ignore
+ * databases in replication
  *
- * @param string $class class denoting whether this is for master or slave
+ * @param string $class      class denoting whether this is for master or slave
+ * @param string $ignoreLink MySQL documentation link about ignoring
+ * @param string $doLInk     MySQL documentation link about including
  *
  * @return HTML for database selector
  */
-function PMA_getHtmlForDatabaseSelector($class)
+function PMA_getHtmlForDatabaseSelector($class, $ignoreLink, $doLink)
 {
-    $html = __(
-        'You can choose from either replicating '
-        . 'all databases and ignoring certain (useful if you want to replicate '
-        . 'majority of databases) or you can choose to ignore all databases by '
-        . 'default and allow only certain databases to be replicated. '
-        . 'Please select the mode:'
-    ) . '<br /><br />';
+    $html = sprintf(
+        __(
+            'You can choose from either replicating '
+            . 'all databases and ignoring certain%s (useful if you want to replicate '
+            . 'majority of databases) or you can choose to ignore all databases '
+            . 'by default and allow only certain databases to be replicated.%s'
+        ),
+        $ignoreLink,
+        $doLink
+    );
+    $html .= '<br>';
+    $html .= __('Please select the mode:');
+    $html .= '<br /><br />';
     $html .= '<select name="db_type" id="db_type" class="' . $class .'">';
     $html .= '<option value="all">' . __('Replicate all databases; Ignore:');
     $html .= '</option>';
@@ -403,7 +420,15 @@ function PMA_getHtmlForSlaveSetup()
 {
     $html  = '<fieldset>';
     $html .= '<legend>' . __('Slave configuration') . '</legend>';
-    $html .= PMA_getHtmlForDatabaseSelector('slave');
+    $html .= PMA_getHtmlForDatabaseSelector(
+        'slave',
+        PMA_Util::showMySQLDocu(
+            'replication-options-slave', false, 'option_mysqld_replicate-ignore-db'
+        ),
+        PMA_Util::showMySQLDocu(
+            'replication-options-slave', false, 'option_mysqld_replicate-do-db'
+        )
+    );
     $html .= '</fieldset>';
     $html .= '<form method="get" action="server_replication.php">';
     $html .= '<fieldset class="tblFooters">';
