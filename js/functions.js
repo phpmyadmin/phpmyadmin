@@ -634,10 +634,6 @@ function checkSqlQuery(theForm)
             theForm.elements.sql_file.value.replace(space_re, '') !== '') {
         return true;
     }
-    if (typeof(theForm.elements.sql_localfile) != 'undefined' &&
-            theForm.elements.sql_localfile.value.replace(space_re, '') !== '') {
-        return true;
-    }
     if (isEmpty && typeof(theForm.elements.id_bookmark) != 'undefined' &&
             (theForm.elements.id_bookmark.value !== null || theForm.elements.id_bookmark.value !== '') &&
             theForm.elements.id_bookmark.selectedIndex !== 0) {

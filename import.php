@@ -161,12 +161,6 @@ if (! empty($sql_query)) {
     }
 
     $sql_query = '';
-} elseif (! empty($sql_localfile)) {
-    // run SQL file on server
-    $local_import_file = $sql_localfile;
-    $import_type = 'queryfile';
-    $format = 'sql';
-    unset($sql_localfile);
 } elseif (! empty($sql_file)) {
     // run uploaded SQL file
     $import_file = $sql_file;
