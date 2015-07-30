@@ -28,7 +28,7 @@ AJAX.registerOnload('pmd/move.js', function () {
             if (! $.FullScreen.isFullScreen()) {
                 $('#page_content').removeClass('content_fullscreen')
                     .css({'width': 'auto', 'height': 'auto'});
-                var $img = $('#toggleFullscreen img');
+                var $img = $('#toggleFullscreen').find('img');
                 var $span = $img.siblings('span');
                 $span.text($span.data('enter'));
                 $img.attr('src', $img.data('enter'))
@@ -587,7 +587,7 @@ function Rect(x1, y1, w, h, color)
 function Toggle_fullscreen()
 {
     var value_sent = '';
-    var $img = $('#toggleFullscreen img');
+    var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
     if (! $.FullScreen.isFullScreen()) {
         $img.attr('src', $img.data('exit'))
