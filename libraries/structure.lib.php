@@ -828,6 +828,8 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
             / $showtable['Rows'],
             6, 1
         );
+    } else {
+        $avg_size = $avg_unit = '';
     }
 
     return PMA\Template::get('structure/display_table_stats')->render(
