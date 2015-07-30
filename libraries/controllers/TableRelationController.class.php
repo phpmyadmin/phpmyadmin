@@ -14,7 +14,6 @@ require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/index.lib.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/structure.lib.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/Util.class.php';
 

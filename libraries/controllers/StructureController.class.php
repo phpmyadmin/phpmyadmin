@@ -24,7 +24,6 @@ require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/util.lib.php';
 require_once 'libraries/controllers/Controller.class.php';
-require_once 'libraries/structure.lib.php';
 
 class StructureController extends Controller
 {
@@ -60,14 +59,26 @@ class StructureController extends Controller
      * @var array
      */
     protected $_tables;
+    
+    protected $_tbl_is_view;
 
     /**
      * @var boolean
      */
     protected $_is_show_stats;
+    
+    protected $_tbl_storage_engine;
+
+    protected $_table_info_num_rows;
+
+    protected $_tbl_collation;
+
+    protected $_showtable;
 
     public function __construct($type, $db, $table, $url_query, $num_tables,
-                                $pos, $db_is_system_schema, $total_num_tables, $tables, $is_show_stats
+                                $pos, $db_is_system_schema, $total_num_tables,
+                                $tables, $is_show_stats, $tbl_is_view, $tbl_storage_engine,
+                                $table_info_num_rows, $tbl_collation, $showtable
     ) {
         parent::__construct();
 
@@ -80,6 +91,12 @@ class StructureController extends Controller
         $this->_total_num_tables = $total_num_tables;
         $this->_tables = $tables;
         $this->_is_show_stats = $is_show_stats;
+        $this->_url_query = $url_query;
+        $this->_tbl_is_view = $tbl_is_view;
+        $this->_tbl_storage_engine = $tbl_storage_engine;
+        $this->_table_info_num_rows = $table_info_num_rows;
+        $this->_tbl_collation = $tbl_collation;
+        $this->_showtable = $showtable;
     }
 
     public function indexAction()
@@ -186,7 +203,7 @@ class StructureController extends Controller
 
             // tables form
             $this->response->addHTML(
-                'd method="post" action="db_structure.php" '
+                '<form method="post" action="db_structure.php" '
                 . 'name="tablesForm" id="tablesForm">'
             );
 
@@ -234,7 +251,7 @@ class StructureController extends Controller
 
                 list($current_table, $formatted_size, $unit, $formatted_overhead,
                     $overhead_unit, $overhead_size, $table_is_view, $sum_size)
-                    = PMA_getStuffForEngineTypeTable(
+                    = $this->getStuffForEngineTypeTable(
                     $current_table, $this->_db_is_system_schema,
                     $this->_is_show_stats, $sum_size, $overhead_size
                 );
@@ -267,7 +284,7 @@ class StructureController extends Controller
                 } // end if
 
                 $showtable = $this->dbi->getTable(
-                    $GLOBALS['db'], $current_table['TABLE_NAME']
+                    $this->_db, $current_table['TABLE_NAME']
                 )->sGetStatusInfo(null, true);
 
                 if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
@@ -440,13 +457,13 @@ class StructureController extends Controller
                     $nbServSlaveDoDb = count($GLOBALS['replication_info']['slave']['Do_DB']);
                     $nbServSlaveIgnoreDb = count($GLOBALS['replication_info']['slave']['Ignore_DB']);
                     $searchDoDBInTruename = array_search($truename, $GLOBALS['replication_info']['slave']['Do_DB']);
-                    $searchDoDBInDB = array_search($GLOBALS['db'], $GLOBALS['replication_info']['slave']['Do_DB']);
+                    $searchDoDBInDB = array_search($this->_db, $GLOBALS['replication_info']['slave']['Do_DB']);
 
                     $do = strlen($searchDoDBInTruename) > 0 || strlen($searchDoDBInDB) > 0 ||
                         ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1) ||
                         $this->hasTable($GLOBALS['replication_info']['slave']['Wild_Do_Table'], $truename);
 
-                    $searchDb = array_search($GLOBALS['db'], $GLOBALS['replication_info']['slave']['Ignore_DB']);
+                    $searchDb = array_search($this->_db, $GLOBALS['replication_info']['slave']['Ignore_DB']);
                     $searchTable = array_search($truename, $GLOBALS['replication_info']['slave']['Ignore_Table']);
                     $ignored = (strlen($searchTable) > 0) || strlen($searchDb) > 0 ||
                         $this->hasTable($GLOBALS['replication_info']['slave']['Wild_Ignore_Table'], $truename);
@@ -607,7 +624,6 @@ class StructureController extends Controller
              * Function implementations for this script
              */
             require_once 'libraries/check_user_privileges.lib.php';
-            require_once 'libraries/structure.lib.php';
             require_once 'libraries/index.lib.php';
             require_once 'libraries/sql.lib.php';
             require_once 'libraries/bookmark.lib.php';
@@ -711,8 +727,8 @@ class StructureController extends Controller
                 ->render(
                     array(
                         'url_params' => array(
-                            'db' => $GLOBALS['db'],
-                            'table' => $GLOBALS['table']
+                            'db' => $this->_db,
+                            'table' => $this->_table
                         ),
                         'engine' => $engine
                     )
@@ -754,11 +770,6 @@ class StructureController extends Controller
             $url_params['back'] = 'tbl_structure.php';
 
             /**
-             * Prepares the table structure display
-             */
-
-
-            /**
              * Gets tables information
              */
             require_once 'libraries/tbl_info.inc.php';
@@ -791,7 +802,7 @@ class StructureController extends Controller
             // and SHOW CREATE TABLE says NOT NULL (tested
             // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
-            $tableObj = new PMA_Table($this->_table, $this->_db);
+            $tableObj = new PMA_Table($this ->_table, $this->_db);
             $show_create_table = $tableObj->showCreate();
             $parser = new SqlParser\Parser($show_create_table);
 
@@ -803,7 +814,8 @@ class StructureController extends Controller
             $create_table_fields = SqlParser\Utils\Table::getFields($stmt);
 
             //display table structure
-            require_once 'libraries/display_structure.inc.php';
+            $this->response->addHTML($this->displayStructure($cfgRelation, $columns_with_unique_index,
+                $url_params, $primary, $fields, $columns_with_index, $create_table_fields));
 
             $this->response->addHTML('</div>');
         }
@@ -947,7 +959,7 @@ class StructureController extends Controller
         if (!isset($_REQUEST['real_row_count_all'])) {
             // Get the real row count for the table.
             $real_row_count = $this->dbi
-                ->getTable($GLOBALS['db'], $_REQUEST['table'])
+                ->getTable($this->_db, $_REQUEST['table'])
                 ->getRealRowCountTable();
             // Format the number.
             $real_row_count = PMA_Util::formatNumber($real_row_count, 0);
@@ -960,7 +972,7 @@ class StructureController extends Controller
         // Iterate over each table and fetch real row count.
         foreach ($GLOBALS['tables'] as $table) {
             $row_count = $this->dbi
-                ->getTable($GLOBALS['db'], $table['TABLE_NAME'])
+                ->getTable($this->_db, $table['TABLE_NAME'])
                 ->getRealRowCountTable();
             $real_row_count_all[] = array(
                 'table' => $table['TABLE_NAME'],
@@ -1028,7 +1040,7 @@ class StructureController extends Controller
             $data['Expression'] = '';
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
-                $table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+                $table = new PMA_Table($this->_table, $this->_db);
                 $expressions = $table->getColumnGenerationExpression($column);
                 $data['Expression'] = $expressions[$column];
             }
@@ -1515,7 +1527,7 @@ class StructureController extends Controller
     function hasTable($db, $truename)
     {
         foreach ($db as $db_table) {
-            if ($GLOBALS['db'] == PMA_extractDbOrTable($db_table) &&
+            if ($this->_db == PMA_extractDbOrTable($db_table) &&
                 preg_match("@^" . /*overload*/
                     mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@", $truename
                 )
@@ -1524,5 +1536,424 @@ class StructureController extends Controller
             }
         }
         return false;
+    }
+
+    /**
+     * Get the value set for ENGINE table,
+     *
+     * @param array $current_table current table
+     * @param boolean $db_is_system_schema whether db is information schema or not
+     * @param boolean $is_show_stats whether stats show or not
+     * @param double $sum_size total table size
+     * @param double $overhead_size overhead size
+     * @return array
+     * @internal param bool $table_is_view whether table is view or not
+     */
+    function getStuffForEngineTypeTable($current_table, $db_is_system_schema,
+                                            $is_show_stats, $sum_size, $overhead_size
+    ) {
+        $formatted_size = '-';
+        $unit = '';
+        $formatted_overhead = '';
+        $overhead_unit = '';
+        $table_is_view = false;
+
+        switch ( $current_table['ENGINE']) {
+            // MyISAM, ISAM or Heap table: Row count, data size and index size
+            // are accurate; data size is accurate for ARCHIVE
+            case 'MyISAM' :
+            case 'ISAM' :
+            case 'HEAP' :
+            case 'MEMORY' :
+            case 'ARCHIVE' :
+            case 'Aria' :
+            case 'Maria' :
+                list($current_table, $formatted_size, $unit, $formatted_overhead,
+                    $overhead_unit, $overhead_size, $sum_size) = $this->getValuesForAriaTable(
+                    $db_is_system_schema, $current_table, $is_show_stats,
+                    $sum_size, $overhead_size, $formatted_size, $unit,
+                    $formatted_overhead, $overhead_unit
+                );
+                break;
+            case 'InnoDB' :
+            case 'PBMS' :
+                // InnoDB table: Row count is not accurate but data and index sizes are.
+                // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
+                // so it may be unavailable
+                list($current_table, $formatted_size, $unit, $sum_size)
+                    = $this->getValuesForInnodbTable($current_table, $is_show_stats, $sum_size);
+                //$display_rows                   =  ' - ';
+                break;
+            // Mysql 5.0.x (and lower) uses MRG_MyISAM
+            // and MySQL 5.1.x (and higher) uses MRG_MYISAM
+            // Both are aliases for MERGE
+            case 'MRG_MyISAM' :
+            case 'MRG_MYISAM' :
+            case 'MERGE' :
+            case 'BerkeleyDB' :
+                // Merge or BerkleyDB table: Only row count is accurate.
+                if ($is_show_stats) {
+                    $formatted_size =  ' - ';
+                    $unit          =  '';
+                }
+                break;
+            // for a view, the ENGINE is sometimes reported as null,
+            // or on some servers it's reported as "SYSTEM VIEW"
+            case null :
+            case 'SYSTEM VIEW' :
+            case 'FunctionEngine' :
+                // possibly a view, do nothing
+                break;
+            default :
+                // Unknown table type.
+                if ($is_show_stats) {
+                    $formatted_size =  __('unknown');
+                    $unit          =  '';
+                }
+        } // end switch
+
+        if ($current_table['TABLE_TYPE'] == 'VIEW' || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW') {
+            // countRecords() takes care of $cfg['MaxExactCountViews']
+            $current_table['TABLE_ROWS'] = $GLOBALS['dbi']
+                ->getTable($this->_db, $current_table['TABLE_NAME'])
+                ->countRecords(true);
+            $table_is_view = true;
+        }
+
+        return array($current_table, $formatted_size, $unit, $formatted_overhead,
+            $overhead_unit, $overhead_size, $table_is_view, $sum_size
+        );
+    }
+
+    /**
+     * Get values for ARIA/MARIA tables
+     *
+     * @param boolean $db_is_system_schema whether db is information schema or not
+     * @param array   $current_table       current table
+     * @param boolean $is_show_stats       whether stats show or not
+     * @param double  $sum_size            sum size
+     * @param double  $overhead_size       overhead size
+     * @param number  $formatted_size      formatted size
+     * @param string  $unit                unit
+     * @param number  $formatted_overhead  overhead formatted
+     * @param string  $overhead_unit       overhead unit
+     *
+     * @return array
+     */
+    function getValuesForAriaTable(
+        $db_is_system_schema, $current_table, $is_show_stats,
+        $sum_size, $overhead_size, $formatted_size, $unit,
+        $formatted_overhead, $overhead_unit
+    ) {
+        if ($db_is_system_schema) {
+            $current_table['Rows'] = $GLOBALS['dbi']
+                ->getTable($this->_db, $current_table['Name'])
+                ->countRecords();
+        }
+
+        if ($is_show_stats) {
+            $tblsize = doubleval($current_table['Data_length'])
+                + doubleval($current_table['Index_length']);
+            $sum_size += $tblsize;
+            list($formatted_size, $unit) = PMA_Util::formatByteDown(
+                $tblsize, 3, ($tblsize > 0) ? 1 : 0
+            );
+            if (isset($current_table['Data_free']) && $current_table['Data_free'] > 0) {
+                // here, the value 4 as the second parameter
+                // would transform 6.1MiB into 6,224.6KiB
+                list($formatted_overhead, $overhead_unit)
+                    = PMA_Util::formatByteDown(
+                    $current_table['Data_free'], 4,
+                    (($current_table['Data_free'] > 0) ? 1 : 0)
+                );
+                $overhead_size += $current_table['Data_free'];
+            }
+        }
+        return array($current_table, $formatted_size, $unit, $formatted_overhead,
+            $overhead_unit, $overhead_size, $sum_size
+        );
+    }
+
+    /**
+     * Get values for InnoDB table
+     *
+     * @param array   $current_table current table
+     * @param boolean $is_show_stats whether stats show or not
+     * @param double  $sum_size      sum size
+     *
+     * @return array
+     */
+    function getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
+    {
+        $formatted_size = $unit = '';
+
+        if (($current_table['ENGINE'] == 'InnoDB'
+                && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+            || !isset($current_table['TABLE_ROWS'])
+        ) {
+            $current_table['COUNTED'] = true;
+            $current_table['TABLE_ROWS'] = $GLOBALS['dbi']
+                ->getTable($this->_db, $current_table['TABLE_NAME'])
+                ->countRecords(true);
+        } else {
+            $current_table['COUNTED'] = false;
+        }
+
+        // Drizzle doesn't provide data and index length, check for null
+        if ($is_show_stats && $current_table['Data_length'] !== null) {
+            $tblsize =  $current_table['Data_length'] + $current_table['Index_length'];
+            $sum_size += $tblsize;
+            list($formatted_size, $unit) = PMA_Util::formatByteDown(
+                $tblsize, 3, (($tblsize > 0) ? 1 : 0)
+            );
+        }
+
+        return array($current_table, $formatted_size, $unit, $sum_size);
+    }
+
+    /**
+     * Displays the table structure ('show table' works correct since 3.23.03)
+     *
+     */
+    function displayStructure($cfgRelation, $columns_with_unique_index,
+                              $url_params, $primary_index, $fields,
+                              $columns_with_index, $create_table_fields)
+    {
+        /* TABLE INFORMATION */
+        $HideStructureActions = '';
+        if ($GLOBALS['cfg']['HideStructureActions'] === true) {
+            $HideStructureActions .= ' HideStructureActions';
+        }
+        
+        // prepare comments
+        $comments_map = array();
+        $mime_map = array();
+        
+        if ($GLOBALS['cfg']['ShowPropertyComments']) {
+            include_once 'libraries/transformations.lib.php';
+            $comments_map = PMA_getComments($this->_db, $this->_table);
+            if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
+                $mime_map = PMA_getMIME($this->_db, $this->_table, true);
+            }
+        }
+        require_once 'libraries/central_columns.lib.php';
+        $central_list = PMA_getCentralColumnsFromTable($this->_db, $this->_table);
+        $columns_list = array();
+        
+        $titles = array(
+            'Change' => PMA_Util::getIcon('b_edit.png', __('Change')),
+            'Drop' => PMA_Util::getIcon('b_drop.png', __('Drop')),
+            'NoDrop' => PMA_Util::getIcon('b_drop.png', __('Drop')),
+            'Primary' => PMA_Util::getIcon('b_primary.png', __('Primary')),
+            'Index' => PMA_Util::getIcon('b_index.png', __('Index')),
+            'Unique' => PMA_Util::getIcon('b_unique.png', __('Unique')),
+            'Spatial' => PMA_Util::getIcon('b_spatial.png', __('Spatial')),
+            'IdxFulltext' => PMA_Util::getIcon('b_ftext.png', __('Fulltext')),
+            'NoPrimary' => PMA_Util::getIcon('bd_primary.png', __('Primary')),
+            'NoIndex' => PMA_Util::getIcon('bd_index.png', __('Index')),
+            'NoUnique' => PMA_Util::getIcon('bd_unique.png', __('Unique')),
+            'NoSpatial' => PMA_Util::getIcon('bd_spatial.png', __('Spatial')),
+            'NoIdxFulltext' => PMA_Util::getIcon('bd_ftext.png', __('Fulltext')),
+            'DistinctValues' => PMA_Util::getIcon('b_browse.png', __('Distinct values'))
+        );
+        
+        /**
+         * Work on the table
+         */
+        if ($this->_tbl_is_view) {
+            $item = $this->dbi->fetchSingleRow(sprintf(
+                "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`
+                    FROM `INFORMATION_SCHEMA`.`VIEWS`
+                    WHERE TABLE_SCHEMA='%s'
+                    AND TABLE_NAME='%s';",
+                PMA_Util::sqlAddSlashes($this->_db),
+                PMA_Util::sqlAddSlashes($this->_table)
+            ));
+
+            $createView = $this->dbi->getTable($this->_db, $this->_table)->showCreate();
+            // get algorithm from $createView of the form CREATE ALGORITHM=<ALGORITHM> DE...
+            $parts = explode(" ", substr($createView, 17));
+            $item['ALGORITHM'] = $parts[0];
+
+            $view = array(
+                'operation' => 'alter',
+                'definer' => $item['DEFINER'],
+                'sql_security' => $item['SECURITY_TYPE'],
+                'name' => $this->_table,
+                'as' => $item['VIEW_DEFINITION'],
+                'with' => $item['CHECK_OPTION'],
+                'algorithm' => $item['ALGORITHM'],
+            );
+
+            $edit_view_url = 'view_create.php' . PMA_URL_getCommon($url_params) . '&amp;' . implode(
+                    '&amp;',
+                    array_map(
+                        function ($key, $val) {
+                            return 'view[' . urlencode($key) . ']=' . urlencode($val);
+                        },
+                        array_keys($view), $view
+                    )
+                );
+        }
+
+        /**
+         * Displays indexes
+         */
+        if (! $this->_tbl_is_view
+            && ! $this->_db_is_system_schema
+            && 'ARCHIVE' !=  $this->_tbl_storage_engine
+        ) {
+            //return the list of index
+            $this->response->addJSON(
+                'indexes_list',
+                PMA_Index::getHtmlForIndexes($this->_table, $this->_db)
+            );
+        }
+
+        /**
+         * Displays Space usage and row statistics
+         */
+        // BEGIN - Calc Table Space
+        // Get valid statistics whatever is the table type
+        if ($GLOBALS['cfg']['ShowStats']) {
+            //get table stats in HTML format
+            $tablestats = $this->getTableStats(
+                $this->_showtable, $this->_table_info_num_rows, $this->_tbl_is_view,
+                $this->_db_is_system_schema, $this->_tbl_storage_engine,
+                $this->_url_query, $this->_tbl_collation
+            );
+            //returning the response in JSON format to be used by Ajax
+            $this->response->addJSON('tableStat', $tablestats);
+        }
+        // END - Calc Table Space
+
+        return Template::get('structure/display_structure')->render(
+            array(
+                'HideStructureActions' => $HideStructureActions,
+                'db' => $this->_db,
+                'table' => $this->_table,
+                'db_is_system_schema' => $this->_db_is_system_schema,
+                'tbl_is_view' => $this->_tbl_is_view,
+                'mime_map' => $mime_map,
+                'url_query' => $this->_url_query,
+                'titles' => $titles,
+                'tbl_storage_engine' => $this->_tbl_storage_engine,
+                'primary' => $primary_index,
+                'columns_with_unique_index' => $columns_with_unique_index,
+                'edit_view_url' => isset($edit_view_url) ? $edit_view_url : null,
+                'columns_list' => $columns_list,
+                'tablestats' => isset($tablestats) ? $tablestats : null,
+                'fields' => $fields,
+                'columns_with_index' => $columns_with_index,
+                'central_list' => $central_list,
+                'create_table_fields' => $create_table_fields
+            )
+        );
+    }
+
+    /**
+     * Get HTML snippet for display table statistics
+     *
+     * @param array   $showtable           full table status info
+     * @param integer $table_info_num_rows table info number of rows
+     * @param boolean $tbl_is_view         whether table is view or not
+     * @param boolean $db_is_system_schema whether db is information schema or not
+     * @param string  $tbl_storage_engine  table storage engine
+     * @param string  $url_query           url query
+     * @param string  $tbl_collation       table collation
+     *
+     * @return string $html_output
+     */
+    function getTableStats(
+        $showtable, $table_info_num_rows, $tbl_is_view,
+        $db_is_system_schema, $tbl_storage_engine,
+        $url_query, $tbl_collation
+    ) {
+        if (empty($showtable)) {
+            $showtable = $GLOBALS['dbi']->getTable(
+                $GLOBALS['db'], $GLOBALS['table']
+            )->sGetStatusInfo(null, true);
+        }
+
+        if (empty($showtable['Data_length'])) {
+            $showtable['Data_length'] = 0;
+        }
+        if (empty($showtable['Index_length'])) {
+            $showtable['Index_length'] = 0;
+        }
+
+        $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
+
+        // Gets some sizes
+
+        $table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $mergetable = $table->isMerge();
+
+        // this is to display for example 261.2 MiB instead of 268k KiB
+        $max_digits = 3;
+        $decimals = 1;
+        list($data_size, $data_unit) = PMA_Util::formatByteDown(
+            $showtable['Data_length'], $max_digits, $decimals
+        );
+        if ($mergetable == false) {
+            list($index_size, $index_unit) = PMA_Util::formatByteDown(
+                $showtable['Index_length'], $max_digits, $decimals
+            );
+        }
+        // InnoDB returns a huge value in Data_free, do not use it
+        if (! $is_innodb && isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
+            list($free_size, $free_unit) = PMA_Util::formatByteDown(
+                $showtable['Data_free'], $max_digits, $decimals
+            );
+            list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
+                $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'],
+                $max_digits, $decimals
+            );
+        } else {
+            list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
+                $showtable['Data_length'] + $showtable['Index_length'],
+                $max_digits, $decimals
+            );
+        }
+        list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
+            $showtable['Data_length'] + $showtable['Index_length'],
+            $max_digits, $decimals
+
+        );
+        if ($table_info_num_rows > 0) {
+            list($avg_size, $avg_unit) = PMA_Util::formatByteDown(
+                ($showtable['Data_length'] + $showtable['Index_length'])
+                / $showtable['Rows'],
+                6, 1
+            );
+        } else {
+            $avg_size = $avg_unit = '';
+        }
+
+        return Template::get('structure/display_table_stats')->render(
+            array(
+                'showtable' => $showtable,
+                'table_info_num_rows' => $table_info_num_rows,
+                'tbl_is_view' => $tbl_is_view,
+                'db_is_system_schema' => $db_is_system_schema,
+                'tbl_storage_engine' => $tbl_storage_engine,
+                'url_query' => $url_query,
+                'tbl_collation' => $tbl_collation,
+                'is_innodb' => $is_innodb,
+                'mergetable' => $mergetable,
+                'avg_size' => isset($avg_size) ? $avg_size : null,
+                'avg_unit' => isset($avg_unit) ? $avg_unit : null,
+                'data_size' => $data_size,
+                'data_unit' => $data_unit,
+                'index_size' => isset($index_size) ? $index_size : null,
+                'index_unit' => isset($index_unit) ? $index_unit : null,
+                'free_size' => isset($free_size) ? $free_size : null,
+                'free_unit' => isset($free_unit) ? $free_unit : null,
+                'effect_size' => $effect_size,
+                'effect_unit' => $effect_unit,
+                'tot_size' => $tot_size,
+                'tot_unit' => $tot_unit
+            )
+        );
     }
 }

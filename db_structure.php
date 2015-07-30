@@ -20,7 +20,8 @@ $container->alias(
     'StructureController', 'PMA\Controllers\StructureController'
 );
 
-global $db, $table, $pos, $db_is_system_schema, $total_num_tables, $tables, $num_tables;
+global $db, $table, $pos, $db_is_system_schema, $total_num_tables, $tables,
+       $num_tables, $tbl_is_view, $tbl_storage_engine, $table_info_num_rows, $tbl_collation, $showtable;
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(
     'db' => $db,
@@ -31,7 +32,12 @@ $dependency_definitions = array(
     'db_is_system_schema' => $db_is_system_schema,
     'num_tables' => $num_tables,
     'total_num_tables' => $total_num_tables,
-    'tables' => $tables
+    'tables' => $tables,
+    'tbl_is_view' => $tbl_is_view,
+    'tbl_storage_engine' => $tbl_storage_engine,
+    'table_info_num_rows' => $table_info_num_rows,
+    'tbl_collation' => $tbl_collation,
+    'showtable' => $showtable
 );
 
 /** @var Controllers\StructureController $controller */
