@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-29 11:49+0200\n"
+"PO-Revision-Date: 2015-07-30 13:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -14020,16 +14020,14 @@ msgid "Ending quote %1$s was expected."
 msgstr "Un guillemet %1$s était attendu."
 
 #: libraries/sql-parser/src/Lexer.php:721
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Modèle de nom de table"
+msgstr "Un nom de variable était attendu."
 
 #: libraries/sql-parser/src/Parser.php:355
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "en début de table"
+msgstr "Début d'énoncé non attendu."
 
 #: libraries/sql-parser/src/Parser.php:370
 msgid "Unrecognized statement type."
