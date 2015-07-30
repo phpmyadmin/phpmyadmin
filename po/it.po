@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-21 20:10+0200\n"
+"PO-Revision-Date: 2015-07-30 15:57+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3930,11 +3930,13 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Il Linting (controllo errori) è disabilitato per questa query perché eccede "
+"la lunghezza massima."
 
 #: libraries/Linter.class.php:147
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (vicino a <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:199 libraries/ServerStatusData.class.php:430
 #: libraries/config/messages.inc.php:823
@@ -13934,154 +13936,143 @@ msgid "This is a read-only variable and can not be edited"
 msgstr "Questa è una variabile a sola lettura e non può essere modificata"
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
-#, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Operazioni iconiche per le tabelle"
+msgstr "Operazione di modifica non riconosciuta."
 
 #: libraries/sql-parser/src/Components/Array2d.php:90
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Erano attesi %1$d valori, ma ne sono stati trovati %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:113
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Era attesa una parentesi aperta seguita da un insieme di valori."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:101
 #: libraries/sql-parser/src/Components/FieldDefinition.php:202
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Era attesa una parentesi aperta."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Era attesa una virgola o una parentesi chiusa"
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tipo dati non riconosciuto."
 
 #: libraries/sql-parser/src/Components/Expression.php:222
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Parentesi chiusa inattesa."
 
 #: libraries/sql-parser/src/Components/Expression.php:243
 #: libraries/sql-parser/src/Components/Expression.php:280
 #: libraries/sql-parser/src/Components/Expression.php:300
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Un alias è stato trovato precedentemente."
 
 #: libraries/sql-parser/src/Components/Expression.php:254
 msgid "Unexpected dot."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:324
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Nessuna tabella selezionata."
+msgstr "Era atteso un alias."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:93
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Nessuna versione selezionata."
+msgstr "Era attesa un'espressione."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:255
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Era attesa una parentesi chiusa."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Era atteso un offset."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Questa opzione è in conflitto con \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Il numero di tabelle che sono aperte."
+msgstr "Era atteso il vecchio nome della tabella."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:112
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Era attesa la parola chiave \"TO\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:129
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Il numero di tabelle che sono aperte."
+msgstr "Era atteso il nuovo nome della tabella."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Il template è stato eliminato."
+msgstr "Era attesa una operazione di rinomina."
 
 #: libraries/sql-parser/src/Lexer.php:252
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Carattere inatteso alla riga %s."
+msgstr "Carattere inatteso."
 
 #: libraries/sql-parser/src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Erano attesi uno o più spazi bianchi prima del delimitatore."
 
 #: libraries/sql-parser/src/Lexer.php:298
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Era atteso un delimitatore."
 
 #: libraries/sql-parser/src/Lexer.php:688
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "L'evento %1$s è stato creato."
+msgstr "Era atteso il fine quote %1$s."
 
 #: libraries/sql-parser/src/Lexer.php:721
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Modello per nomi delle tabelle"
+msgstr "Era atteso un nome di variabile."
 
 #: libraries/sql-parser/src/Parser.php:355
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "All'inizio della tabella"
+msgstr "Inizio di statement inatteso."
 
 #: libraries/sql-parser/src/Parser.php:370
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tipo statement non riconosciuto."
 
 #: libraries/sql-parser/src/Statement.php:201
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Carattere inatteso alla riga %s."
+msgstr "Token inatteso."
 
 #: libraries/sql-parser/src/Statement.php:251
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Parola chiave non riconosciuta."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Il numero di tabelle che sono aperte."
+msgstr "Era atteso il nome dell'entity."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
 msgid "At least one field definition was expected."
-msgstr ""
+msgstr "Era attesa almeno una definizione di campo."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Era attesa una parola chiave \"RETURNS\"."
 
 #: libraries/sql.lib.php:284
 msgid "Detailed profile"
@@ -14174,10 +14165,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Esegui la/e query SQL sul database %s"
 
 #: libraries/sql_query_form.lib.php:179
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Esegui la/e query SQL sul database %s"
+msgstr "Esegui la/e query SQL sulla tabella %s"
 
 #: libraries/sql_query_form.lib.php:255
 msgid "Get auto-saved query"
