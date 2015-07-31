@@ -2,18 +2,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-07-25 12:41+0200\n"
+"PO-Revision-Date: 2015-07-31 22:51+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:30
@@ -7529,7 +7529,6 @@ msgid "User preferences storage table"
 msgstr "Tabela za hranjenje uporabnikovih nastavitev"
 
 #: libraries/config/messages.inc.php:809
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -8141,6 +8140,8 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Ta metoda zahteva '<i>povezavo SSL</i>' ali '<i>nešifrirano povezavo, ki "
+"šifrira gesla z uporabo RSA</i>' pri povezovanju na strežnik."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -11291,7 +11292,6 @@ msgid "Master configuration"
 msgstr "Konfiguracija glavnega strežnika"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -12448,16 +12448,14 @@ msgid "Do not change the password"
 msgstr "Ne spreminjaj gesla"
 
 #: libraries/server_privileges.lib.php:1693
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Overovitev"
+msgstr "Vtičnik za overovitev"
 
 #: libraries/server_privileges.lib.php:1698
-#, fuzzy
 #| msgid "Generate password"
 msgid "mysql_native_password"
-msgstr "Ustvari geslo"
+msgstr "mysql_native_password"
 
 #: libraries/server_privileges.lib.php:1709
 #, fuzzy
@@ -12710,7 +12708,6 @@ msgstr ""
 "morate pred nadaljevanjem %sosvežiti privilegije%s."
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12726,7 +12723,8 @@ msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
 "jih uporablja strežnik, če so bile tabele ročno spremenjene. V tem primeru "
-"morate pred nadaljevanjem %sosvežiti privilegije%s."
+"morate pred nadaljevanjem osvežiti privilegije, vendar trenuno nimate "
+"privilegija RELOAD."
 
 #: libraries/server_privileges.lib.php:4513
 msgid "The selected user was not found in the privilege table."
@@ -13858,7 +13856,7 @@ msgstr "Spremenljivka je samo za branje in je ni mogoče urejati"
 #: libraries/sql-parser/src/Component.php:61
 #: libraries/sql-parser/src/Component.php:78
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Ni še implementirano."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
 msgid "Unrecognized alter operation."
@@ -13909,10 +13907,9 @@ msgid "An expression was expected."
 msgstr "Pričakovali smo izraz."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#, fuzzy
 #| msgid "A comma or a closing bracket was expected"
 msgid "A comma or a closing bracket was expected."
-msgstr "Pričakovali smo vejico ali zaklepaj"
+msgstr "Pričakovali smo vejico ali zaklepaj."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:262
 msgid "A closing bracket was expected."
@@ -13974,10 +13971,9 @@ msgid "Unrecognized statement type."
 msgstr "Neprepoznana vrsta stavka."
 
 #: libraries/sql-parser/src/Parser.php:461
-#, fuzzy
 #| msgid "An alias was previously found."
 msgid "No transaction was previously started."
-msgstr "Vzdevek smo našli že prej."
+msgstr "Začeli niste nobene transakcije."
 
 #: libraries/sql-parser/src/Statement.php:206
 msgid "Unexpected token."
@@ -13985,7 +13981,7 @@ msgstr "Nepričakovan žeton."
 
 #: libraries/sql-parser/src/Statement.php:248
 msgid "A new statement was found, but no delimiter between them."
-msgstr ""
+msgstr "Naleteli smo na nov stavek, vendar med stavkoma ni ločilnega znaka."
 
 #: libraries/sql-parser/src/Statement.php:269
 msgid "Unrecognized keyword."
