@@ -34,11 +34,18 @@ $cell_text = ($approx_rows)
 ?>
 <th class="value tbl_rows"><?php echo $cell_text; ?></th>
 <?php if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)): ?>
-    <?php $default_engine = $GLOBALS['dbi']->fetchValue(
-            'SHOW VARIABLES LIKE \'storage_engine\';',
-            0,
-            1
-        ); ?>
+    <?php
+        // MySQL <= 5.5.2
+        $default_engine = $GLOBALS['dbi']->fetchValue(
+            "SHOW VARIABLES LIKE 'storage_engine';", 0, 1
+        );
+        if (empty($default_engine)) {
+            // MySQL >= 5.5.3
+            $default_engine = $GLOBALS['dbi']->fetchValue(
+                "SHOW VARIABLES LIKE 'default_storage_engine';", 0, 1
+            );
+        }
+    ?>
     <th class="center">
         <dfn title="<?php printf(__('%s is the default storage engine on this MySQL server.'),
                 $default_engine); ?>"><?php echo $default_engine; ?></dfn>
