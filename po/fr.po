@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-30 13:52+0200\n"
+"PO-Revision-Date: 2015-07-31 12:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -14031,17 +14031,16 @@ msgstr "Début d'énoncé non attendu."
 
 #: libraries/sql-parser/src/Parser.php:370
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Type d'énoncé non reconnu."
 
 #: libraries/sql-parser/src/Statement.php:201
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Caractères imprévus à la ligne %s."
+msgstr "Jeton inattendu."
 
 #: libraries/sql-parser/src/Statement.php:251
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Mot clé non reconnu."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
 #, fuzzy
