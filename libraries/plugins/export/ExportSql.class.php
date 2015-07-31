@@ -887,48 +887,56 @@ class ExportSql extends ExportPlugin
             unset($GLOBALS['sql_constraints']);
         }
 
-        if (($GLOBALS['sql_structure_or_data'] == 'structure'
-            || $GLOBALS['sql_structure_or_data'] == 'structure_and_data')
-            && isset($GLOBALS['sql_procedure_function'])
-        ) {
-            $text = '';
-            $delimiter = '$$';
-
-            $event_names = $GLOBALS['dbi']->fetchResult(
-                'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
-                . ' EVENT_SCHEMA= \''
-                . PMA_Util::sqlAddSlashes($db, true)
-                . '\';'
-            );
-
-            if ($event_names) {
-                $text .= $crlf
-                  . 'DELIMITER ' . $delimiter . $crlf;
-
-                $text .=
-                    $this->_exportComment()
-                    . $this->_exportComment(__('Events'))
-                    . $this->_exportComment();
-
-                foreach ($event_names as $event_name) {
-                    if (! empty($GLOBALS['sql_drop_table'])) {
-                        $text .= 'DROP EVENT '
-                            . PMA_Util::backquote($event_name)
-                            . $delimiter . $crlf;
-                    }
-                    $text .= $GLOBALS['dbi']
-                        ->getDefinition($db, 'EVENT', $event_name)
-                        . $delimiter . $crlf . $crlf;
-                }
-
-                $text .= 'DELIMITER ;' . $crlf;
-            }
-
-            if (! empty($text)) {
-                $result = PMA_exportOutputHandler($text);
-            }
-        }
         return $result;
+    }
+
+    /**
+     * Exports events
+     *
+     * @param string $db      Database
+     * @param array  $aliases Aliases of db/table/columns
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportEvents($db, $aliases = array())
+    {
+        global $crlf;
+
+        $text = '';
+        $delimiter = '$$';
+
+        $event_names = $GLOBALS['dbi']->fetchResult(
+            "SELECT EVENT_NAME FROM information_schema.EVENTS WHERE"
+            . " EVENT_SCHEMA= '"  . PMA_Util::sqlAddSlashes($db, true) . "';"
+        );
+
+        if ($event_names) {
+            $text .= $crlf
+            . "DELIMITER " . $delimiter . $crlf;
+
+            $text .=
+                $this->_exportComment()
+                . $this->_exportComment(__('Events'))
+                . $this->_exportComment();
+
+            foreach ($event_names as $event_name) {
+                if (! empty($GLOBALS['sql_drop_table'])) {
+                    $text .= "DROP EVENT "
+                        . PMA_Util::backquote($event_name)
+                        . $delimiter . $crlf;
+                }
+                $text .= $GLOBALS['dbi']->getDefinition($db, 'EVENT', $event_name)
+                    . $delimiter . $crlf . $crlf;
+            }
+
+            $text .= "DELIMITER ;" . $crlf;
+        }
+
+        if (! empty($text)) {
+            return PMA_exportOutputHandler($text);
+        } else {
+            return false;
+        }
     }
 
     /**

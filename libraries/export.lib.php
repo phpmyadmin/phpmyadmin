@@ -662,6 +662,13 @@ function PMA_exportDatabase(
     if (! $export_plugin->exportDBFooter($db, $db_alias)) {
         return;
     }
+
+    if (($GLOBALS['sql_structure_or_data'] == 'structure'
+        || $GLOBALS['sql_structure_or_data'] == 'structure_and_data')
+        && isset($GLOBALS['sql_procedure_function'])
+    ) {
+        $export_plugin->exportEvents($db, $aliases);
+    }
 }
 
 /**
