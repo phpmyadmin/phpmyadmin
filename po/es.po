@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-07-31 19:31+0200\n"
+"PO-Revision-Date: 2015-07-31 19:42+0200\n"
 "Last-Translator: Franco <fulanodetal.github@openaliasbox.org>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
@@ -14085,119 +14085,110 @@ msgstr "Se esperaba un corchete de apertura seguido por un conjunto de valores."
 #: libraries/sql-parser/src/Components/ArrayObj.php:101
 #: libraries/sql-parser/src/Components/FieldDefinition.php:202
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Se esperaba un corchete de apertura."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Se esperaba una coma o un corchete de cierre"
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tipo de dato desconocido."
 
 #: libraries/sql-parser/src/Components/Expression.php:225
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Corchete de cierre inesperado."
 
 #: libraries/sql-parser/src/Components/Expression.php:246
 #: libraries/sql-parser/src/Components/Expression.php:283
 #: libraries/sql-parser/src/Components/Expression.php:303
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Se encontró anteriormente un alias."
 
 #: libraries/sql-parser/src/Components/Expression.php:257
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Punto inesperado."
 
 #: libraries/sql-parser/src/Components/Expression.php:327
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "No se han seleccionado tablas."
+msgstr "Se esperaba un alias."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:96
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "No se seleccionaron versiones."
+msgstr "Se esperaba una expresión."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#, fuzzy
 #| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "No se han seleccionado tablas."
+msgstr "Se esperaba una coma o un corchete de cierre."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:262
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Se esperaba un corchete de cierre."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Se espera un desplazamiento."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Esta opción tiene conflictos con \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "El número de tablas que están abiertas."
+msgstr "Se esperaba el nombre anterior de la tabla."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:112
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Se esperaba la palabra clave \"TO\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:129
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "El número de tablas que están abiertas."
+msgstr "Se esperaba el nuevo nombre de la tabla."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Plantilla borrada."
+msgstr "Se esperaba un cambio de nombre."
 
 #: libraries/sql-parser/src/Lexer.php:250
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Caracter inesperado en la línea %s."
+msgstr "Caracter inesperado."
 
 #: libraries/sql-parser/src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Espacio(s) en blanco esperado(s) antes de delimitador."
 
 #: libraries/sql-parser/src/Lexer.php:296
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Delimitador esperado."
 
 #: libraries/sql-parser/src/Lexer.php:717
 #, fuzzy, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "Se creó el evento %1$s."
+msgstr "Se esperaba terminar la cita %1$s."
 
 #: libraries/sql-parser/src/Lexer.php:750
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Nombre de la plantilla de la tabla"
+msgstr "Se esperaba el nombre de la variable."
 
 #: libraries/sql-parser/src/Parser.php:375
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "Al comienzo de la tabla"
+msgstr "Comienzo inesperado de declaración."
 
 #: libraries/sql-parser/src/Parser.php:390
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tipo de declaración desconocida."
 
 #: libraries/sql-parser/src/Parser.php:461
 msgid "No transaction was previously started."
