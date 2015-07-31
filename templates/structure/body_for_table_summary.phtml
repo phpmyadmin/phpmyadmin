@@ -50,7 +50,7 @@ $cell_text = ($approx_rows)
     </th>
 <?php endif; ?>
 <?php if ($is_show_stats): ?>
-    <?php 
+    <?php
         list($sum_formatted, $unit) = PMA_Util::formatByteDown(
             $sum_size, 3, 1
         );
@@ -58,7 +58,7 @@ $cell_text = ($approx_rows)
             = PMA_Util::formatByteDown($overhead_size, 3, 1);
     ?>
     <th class="value tbl_size"><?php echo $sum_formatted . ' ' . $unit; ?></th>
-    <th class="value tbl_overhead"><?php $overhead_formatted . ' ' . $overhead_unit; ?></th>
+    <th class="value tbl_overhead"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
 <?php endif; ?>
 <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
     <th></th>
