@@ -445,7 +445,7 @@ function PMA_saveObjectInBuffer($object_name, $append = false)
     global $dump_buffer_objects, $dump_buffer, $dump_buffer_len;
 
     if (! empty($dump_buffer)) {
-        if ($append) {
+        if ($append && isset($dump_buffer_objects[$object_name])) {
             $dump_buffer_objects[$object_name] .= $dump_buffer;
         } else {
             $dump_buffer_objects[$object_name] = $dump_buffer;
@@ -597,13 +597,6 @@ function PMA_exportDatabase(
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
 
-    if ($separate_files == 'database') {
-        if (! $export_plugin->exportHeader()) {
-            return;
-        }
-        PMA_saveObjectInBuffer('db');
-    }
-
     if (! $export_plugin->exportDBHeader($db, $db_alias)) {
         return;
     }
@@ -611,7 +604,7 @@ function PMA_exportDatabase(
         return;
     }
     if ($separate_files == 'database') {
-        PMA_saveObjectInBuffer('db', true);
+        PMA_saveObjectInBuffer('database', true);
     }
 
     if (($GLOBALS['sql_structure_or_data'] == 'structure'
@@ -700,7 +693,7 @@ function PMA_exportDatabase(
 
         // this buffer was filled, we save it and go to the next one
         if ($separate_files == 'database') {
-            PMA_saveObjectInBuffer('tbl_' . $table);
+            PMA_saveObjectInBuffer('table_' . $table);
         }
 
         // now export the triggers (needs to be done after the data because
@@ -718,7 +711,7 @@ function PMA_exportDatabase(
             }
 
             if ($separate_files == 'database') {
-                PMA_saveObjectInBuffer('tbl_' . $table, true);
+                PMA_saveObjectInBuffer('table_' . $table, true);
             }
         }
 
@@ -763,7 +756,7 @@ function PMA_exportDatabase(
         return;
     }
     if ($separate_files == 'database') {
-        PMA_saveObjectInBuffer('extra', true);
+        PMA_saveObjectInBuffer('extra');
     }
 
     if (($GLOBALS['sql_structure_or_data'] == 'structure'

@@ -398,12 +398,13 @@ if (!defined('TESTSUITE')) {
     // need exceptions here :-)
     do {
 
-        if ($separate_files != 'database') {
-            // Add possibly some comments to export
-            if (! $export_plugin->exportHeader()) {
-                break;
-            }
+        // Add possibly some comments to export
+        if (! $export_plugin->exportHeader()) {
+            break;
         }
+        // Re - initialize
+        $dump_buffer = '';
+        $dump_buffer_len = 0;
 
         // Will we need relation & co. setup?
         $do_relation = isset($GLOBALS[$what . '_relation']);
