@@ -68,7 +68,6 @@ if (isset($_REQUEST['console_bookmark_add'])) {
  * Sets globals from $_POST
  */
 $post_params = array(
-    'bkm_label',
     'charset_of_file',
     'format',
     'import_type',
@@ -675,7 +674,7 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
 } elseif ($bookmark_created) {
     $special_message = '[br]'  . sprintf(
         __('Bookmark %s has been created.'),
-        htmlspecialchars($bkm_label)
+        htmlspecialchars($_POST['bkm_label'])
     );
 } elseif ($finished && ! $error) {
     if ($import_type == 'query') {

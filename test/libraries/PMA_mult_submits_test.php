@@ -433,7 +433,6 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetQueryFromSelected()
     {
         $what = "drop_tbl";
-        $db = "PMA_db";
         $table = "PMA_table";
         $selected = array(
             "table1", "table2"
@@ -444,7 +443,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         list($full_query, $reload, $full_query_views)
             = PMA_getQueryFromSelected(
-                $what, $db, $table, $selected, $views
+                $what, $table, $selected, $views
             );
 
         //validate 1: $full_query
@@ -469,7 +468,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         list($full_query, $reload, $full_query_views)
             = PMA_getQueryFromSelected(
-                $what, $db, $table, $selected, $views
+                $what, $table, $selected, $views
             );
 
         //validate 1: $full_query
