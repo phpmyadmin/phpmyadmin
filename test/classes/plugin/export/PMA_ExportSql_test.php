@@ -887,11 +887,11 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportDBFooter
+     * Test for ExportSql::exportEvents
      *
      * @return void
      */
-    public function testExportDBFooterWithNewerMySQLVersion()
+    public function testExportEventsWithNewerMySQLVersion()
     {
         $restoreMySQLVersion = "PMANORESTORE";
 
@@ -905,7 +905,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         }
 
         $GLOBALS['crlf'] = "\n";
-        $GLOBALS['sql_constraints'] = "SqlConstraints";
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
@@ -935,7 +934,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBFooter('db')
+            $this->object->exportEvents('db', array())
         );
         $result = ob_get_clean();
 
@@ -956,11 +955,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             "f2event$$\n",
-            $result
-        );
-
-        $this->assertContains(
-            "SqlConstraints",
             $result
         );
 
