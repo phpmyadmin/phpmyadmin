@@ -45,7 +45,9 @@ $cell_text = ($approx_rows)
     </th>
     <th>
         <?php if (! empty($db_collation)): ?>
-            <dfn title="<?php echo PMA_getCollationDescr($db_collation) . ' (' . __('Default'). ')'; ?>"></dfn>
+            <dfn title="<?php echo PMA_getCollationDescr($db_collation) . ' (' . __('Default'). ')'; ?>">
+                <?php echo $db_collation; ?>
+            </dfn>
         <?php endif; ?>
     </th>
 <?php endif; ?>
