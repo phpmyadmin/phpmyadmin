@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-07-23 14:34+0200\n"
+"PO-Revision-Date: 2015-07-31 14:53+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7598,7 +7598,6 @@ msgid "User preferences storage table"
 msgstr "Tabella de immagazinage de preferentias de usator"
 
 #: libraries/config/messages.inc.php:809
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -7609,9 +7608,9 @@ msgid ""
 "    this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Ambe iste tabella e le tabella del gruppo de usator es requirite per "
-"habilitar le characteristica del menu configurabile, si\n"
-"on lassa un de lor vacue on dishabilitara iste characteristica, suggerite: "
-"[kbd]pma__users[/kbd]."
+"habilitar le characteristica del menu configurabile,\n"
+"si on lassa un de lor vacue on dishabilitara iste characteristica, suggerite:"
+" [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:813
 msgid "Users table"
@@ -12400,22 +12399,19 @@ msgid "Do not change the password"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1693
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Authentication"
+msgstr "Plugin de Authentication"
 
 #: libraries/server_privileges.lib.php:1698
-#, fuzzy
 #| msgid "Generate password"
 msgid "mysql_native_password"
-msgstr "Genera contrasigno"
+msgstr "contrasigno_native_de_mysql"
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
 #| msgid "Change password"
 msgid "sha256_password"
-msgstr "Modifica contrasigno"
+msgstr "contrasigno_sha256"
 
 #: libraries/server_privileges.lib.php:1926
 #, php-format
@@ -13678,10 +13674,9 @@ msgid "An expression was expected."
 msgstr "On expectava un expression."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#, fuzzy
 #| msgid "An alias was expected."
 msgid "A comma or a closing bracket was expected."
-msgstr "On expectava un alias."
+msgstr "On expectava un comma o un parentheses claudite."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:262
 msgid "A closing bracket was expected."
