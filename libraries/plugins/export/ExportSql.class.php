@@ -924,9 +924,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf;
 
-        $db_alias = $db;
-        $this->initAlias($aliases, $db_alias);
-
         $text = '';
         $delimiter = '$$';
 
@@ -937,13 +934,12 @@ class ExportSql extends ExportPlugin
 
         if ($event_names) {
             $text .= $crlf
-                . "DELIMITER " . $delimiter . $crlf;
+            . "DELIMITER " . $delimiter . $crlf;
 
             $text .=
                 $this->_exportComment()
                 . $this->_exportComment(__('Events'))
                 . $this->_exportComment();
-            $used_alias = false;
 
             foreach ($event_names as $event_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
@@ -951,28 +947,8 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::backquote($event_name)
                         . $delimiter . $crlf;
                 }
-                $create_query = $GLOBALS['dbi']->getDefinition(
-                    $db, 'EVENT', $event_name
-                );
-                $create_query = $this->replaceWithAliases(
-                    $create_query, $aliases, $db, '', $flag
-                );
-                // One warning per database
-                if ($flag) {
-                    $used_alias = true;
-                }
-                $text .= $create_query . $delimiter . $crlf . $crlf;;
-            }
-            if ($used_alias) {
-                $text .= $this->_exportComment(
-                    __(
-                        'It appears your database uses events;'
-                    )
-                )
-                . $this->_exportComment(
-                    __('alias export may not work reliably in all cases.')
-                )
-                . $this->_exportComment();
+                $text .= $GLOBALS['dbi']->getDefinition($db, 'EVENT', $event_name)
+                    . $delimiter . $crlf . $crlf;
             }
 
             $text .= "DELIMITER ;" . $crlf;
