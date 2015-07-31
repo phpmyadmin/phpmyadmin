@@ -9,9 +9,7 @@
 namespace SqlParser\Components;
 
 use SqlParser\Component;
-use SqlParser\Parser;
-use SqlParser\Token;
-use SqlParser\TokensList;
+use SqlParser\Statements\SelectStatement;
 
 /**
  * `UNION` keyword builder.

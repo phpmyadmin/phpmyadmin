@@ -251,22 +251,31 @@ namespace SqlParser {
                         $this->str[$this->last],
                         $this->last
                     );
-                } elseif (($token->type === Token::TYPE_SYMBOL)
+                } elseif (($lastToken !== null)
+                    && ($token->type === Token::TYPE_SYMBOL)
                     && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)
-                    && ($lastToken !== null)
+                    && (($lastToken->type === Token::TYPE_STRING)
+                    || (($lastToken->type === Token::TYPE_SYMBOL)
+                    && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK)))
                 ) {
                     // Handles ```... FROM 'user'@'%' ...```.
-                    if ((($lastToken->type === Token::TYPE_SYMBOL)
-                        && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK))
-                        || ($lastToken->type === Token::TYPE_STRING)
-                    ) {
-                        $lastToken->token .= $token->token;
-                        $lastToken->type = Token::TYPE_SYMBOL;
-                        $lastToken->flags = Token::FLAG_SYMBOL_USER;
-                        $lastToken->value .= '@' . $token->value;
-                        continue;
-                    }
+                    $lastToken->token .= $token->token;
+                    $lastToken->type = Token::TYPE_SYMBOL;
+                    $lastToken->flags = Token::FLAG_SYMBOL_USER;
+                    $lastToken->value .= '@' . $token->value;
+                    continue;
+                } elseif (($lastToken !== null)
+                    && ($token->type === Token::TYPE_KEYWORD)
+                    && ($lastToken->type === Token::TYPE_OPERATOR)
+                    && ($lastToken->value === '.')
+                ) {
+                    // Handles ```... tbl.FROM ...```. In this case, FROM is not
+                    // a reserved word.
+                    $token->type = Token::TYPE_NONE;
+                    $token->flags = 0;
+                    $token->value = $token->token;
                 }
+
                 $token->position = $lastIdx;
 
                 $list->tokens[$list->count++] = $token;
@@ -306,6 +315,16 @@ namespace SqlParser {
                     while ((++$this->last < $this->len) && (!Context::isWhitespace($this->str[$this->last]))) {
                         $this->delimiter .= $this->str[$this->last];
                     }
+
+                    if (empty($this->delimiter)) {
+                        $this->error(
+                            __('Expected delimiter.'),
+                            '',
+                            $this->last
+                        );
+                        $this->delimiter = ';';
+                    }
+
                     --$this->last;
 
                     // Saving the delimiter and its token.
@@ -598,7 +617,7 @@ namespace SqlParser {
                     } elseif (($this->last + 1 < $this->len)
                         && ($this->str[$this->last] === '0')
                         && (($this->str[$this->last + 1] === 'x')
-                            || ($this->str[$this->last + 1] === 'X'))
+                        || ($this->str[$this->last + 1] === 'X'))
                     ) {
                         $token .= $this->str[$this->last++];
                         $state = 2;
