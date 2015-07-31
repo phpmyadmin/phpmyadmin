@@ -529,14 +529,13 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
  * Get query string from Selected
  *
  * @param string $what     mult_submit type
- * @param string $db       database name
  * @param string $table    table name
  * @param array  $selected the selected columns
  * @param array  $views    table views
  *
  * @return array
  */
-function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
+function PMA_getQueryFromSelected($what, $table, $selected, $views)
 {
     $reload = false;
     $full_query_views = null;

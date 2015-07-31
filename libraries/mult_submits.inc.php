@@ -170,7 +170,7 @@ if (!empty($submit_mult) && !empty($what)) {
     // Builds the query
     list($full_query, $reload, $full_query_views)
         = PMA_getQueryFromSelected(
-            $what, $db, $table, $selected, $views
+            $what, $table, $selected, $views
         );
 
     // Displays the confirmation form
