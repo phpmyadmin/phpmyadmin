@@ -597,37 +597,27 @@ function PMA_exportDatabase(
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
 
-    // If single file, add DB header and Create but don't store in
-    // $dump_buffer_objects
-    if (! $separate_files == 'database') {
-        if (! $export_plugin->exportDBHeader($db, $db_alias)) {
+    if ($separate_files == 'database') {
+        if (! $export_plugin->exportHeader()) {
             return;
         }
-        if (! $export_plugin->exportDBCreate($db, $db_alias)) {
-            return;
-        }
+        PMA_saveObjectInBuffer('db');
     }
 
-    if (method_exists($export_plugin, 'exportRoutines')
-        && /*overload*/mb_strpos(
-            $GLOBALS['sql_structure_or_data'],
-            'structure'
-        ) !== false
+    if (! $export_plugin->exportDBHeader($db, $db_alias)) {
+        return;
+    }
+    if (! $export_plugin->exportDBCreate($db, $db_alias)) {
+        return;
+    }
+    if ($separate_files == 'database') {
+        PMA_saveObjectInBuffer('db', true);
+    }
+
+    if (($GLOBALS['sql_structure_or_data'] == 'structure'
+        || $GLOBALS['sql_structure_or_data'] == 'structure_and_data')
         && isset($GLOBALS['sql_procedure_function'])
     ) {
-        if ($separate_files == 'database') {
-            if (! $export_plugin->exportHeader()) {
-                return;
-            }
-            if (! $export_plugin->exportDBHeader($db, $db_alias)) {
-                return;
-            }
-            if (! $export_plugin->exportDBCreate($db, $db_alias)) {
-                return;
-            }
-            PMA_saveObjectInBuffer('db');
-        }
-
         $export_plugin->exportRoutines($db, $aliases);
 
         if ($separate_files == 'database') {
@@ -712,6 +702,7 @@ function PMA_exportDatabase(
         if ($separate_files == 'database') {
             PMA_saveObjectInBuffer('tbl_' . $table);
         }
+
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
         if (isset($GLOBALS['sql_create_trigger']) && ($whatStrucOrData == 'structure'
@@ -725,18 +716,12 @@ function PMA_exportDatabase(
             )) {
                 break;
             }
+
             if ($separate_files == 'database') {
-                PMA_saveObjectInBuffer('triggers', true);
+                PMA_saveObjectInBuffer('tbl_' . $table, true);
             }
         }
 
-    }
-
-    if ($separate_files == 'database') {
-        if (! $export_plugin->exportDBFooter($db)) {
-            return;
-        }
-        PMA_saveObjectInBuffer('extra', true);
     }
 
     if (isset($GLOBALS['sql_create_view'])) {
@@ -753,6 +738,7 @@ function PMA_exportDatabase(
                 )) {
                     break;
                 }
+
                 if ($separate_files == 'database') {
                     PMA_saveObjectInBuffer('view_' . $view);
                 }
@@ -761,28 +747,34 @@ function PMA_exportDatabase(
 
     }
 
-    if ($separate_files != 'database') {
-        // export metadata related to this db
-        if (isset($GLOBALS['sql_metadata'])) {
-            // Types of metadata to export.
-            // In the future these can be allowed to be selected by the user
-            $metadataTypes = PMA_getMetadataTypesToExport();
-            $export_plugin->exportMetadata($db, $tables, $metadataTypes);
+    // export metadata related to this db
+    if (isset($GLOBALS['sql_metadata'])) {
+        // Types of metadata to export.
+        // In the future these can be allowed to be selected by the user
+        $metadataTypes = PMA_getMetadataTypesToExport();
+        $export_plugin->exportMetadata($db, $tables, $metadataTypes);
+
+        if ($separate_files == 'database') {
+            PMA_saveObjectInBuffer('metadata');
         }
     }
 
-    if ($separate_files != 'database') {
-        if (! $export_plugin->exportDBFooter($db)) {
-            return;
-        }
+    if (! $export_plugin->exportDBFooter($db)) {
+        return;
+    }
+    if ($separate_files == 'database') {
+        PMA_saveObjectInBuffer('extra', true);
     }
 
-    if ($separate_files != 'database'
-        && ($GLOBALS['sql_structure_or_data'] == 'structure'
+    if (($GLOBALS['sql_structure_or_data'] == 'structure'
         || $GLOBALS['sql_structure_or_data'] == 'structure_and_data')
         && isset($GLOBALS['sql_procedure_function'])
     ) {
         $export_plugin->exportEvents($db, $aliases);
+
+        if ($separate_files == 'database') {
+            PMA_saveObjectInBuffer('events');
+        }
     }
 }
 
