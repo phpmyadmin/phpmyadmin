@@ -28,7 +28,7 @@ require_once 'libraries/Linter.class.php';
  *
  * @var string
  */
-$sql_query = $_REQUEST['sql_query'];
+$sql_query = !empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 
 // Disabling standard response.
 $response = PMA_Response::getInstance();
