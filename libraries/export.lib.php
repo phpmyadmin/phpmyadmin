@@ -777,7 +777,8 @@ function PMA_exportDatabase(
         }
     }
 
-    if (($GLOBALS['sql_structure_or_data'] == 'structure'
+    if ($separate_files != 'database'
+        && ($GLOBALS['sql_structure_or_data'] == 'structure'
         || $GLOBALS['sql_structure_or_data'] == 'structure_and_data')
         && isset($GLOBALS['sql_procedure_function'])
     ) {
