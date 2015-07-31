@@ -87,12 +87,12 @@ function PMA_getHtmlForMasterConfiguration()
     $html  = '<fieldset>';
     $html .= '<legend>' . __('Master configuration') . '</legend>';
     $html .= __(
-        'This server is not configured as master server in a '
+        'This server is not configured as a master server in a '
         . 'replication process. You can choose from either replicating '
-        . 'all databases and ignoring certain (useful if you want to replicate '
-        . 'majority of databases) or you can choose to ignore all databases by '
-        . 'default and allow only certain databases to be replicated. '
-        . 'Please select the mode:'
+        . 'all databases and ignoring some of them (useful if you want to '
+        . 'replicate a majority of the databases) or you can choose to ignore '
+        . 'all databases by default and allow only certain databases to be '
+        . 'replicated. Please select the mode:'
     ) . '<br /><br />';
 
     $html .= '<select name="db_type" id="db_type">';
