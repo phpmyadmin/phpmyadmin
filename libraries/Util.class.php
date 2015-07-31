@@ -147,7 +147,7 @@ class PMA_Util
             $button .= self::getImage($icon, $alternate);
         }
         if ($include_icon && $include_text) {
-            $button .= ' ';
+            $button .= '&nbsp;';
         }
         if ($include_text) {
             $button .= $alternate;
