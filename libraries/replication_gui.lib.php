@@ -86,16 +86,55 @@ function PMA_getHtmlForMasterConfiguration()
 {
     $html  = '<fieldset>';
     $html .= '<legend>' . __('Master configuration') . '</legend>';
-    $html .= __(
-        'This server is not configured as master server in a '
-        . 'replication process. You can choose from either replicating '
-        . 'all databases and ignoring certain (useful if you want to replicate '
-        . 'majority of databases) or you can choose to ignore all databases by '
-        . 'default and allow only certain databases to be replicated. '
-        . 'Please select the mode:'
-    ) . '<br /><br />';
+    $html .= __('This server is not configured as master server in a replication process.');
+    $html .= ' ' . PMA_getHtmlForDatabaseSelector(
+        'master',
+        PMA_Util::showMySQLDocu(
+            'replication-options-binary-log', false, 'option_mysqld_binlog-ignore-db'
+        ),
+        PMA_Util::showMySQLDocu(
+            'replication-options-binary-log', false, 'option_mysqld_binlog-do-db'
+        )
+    ) . ' ';
+    $html .= __( 'Afterwards, you should see a message informing you, that this server'
+        . ' <b>is</b> configured as master.');
+    $html .= '</fieldset>';
+    $html .= '<fieldset class="tblFooters">';
+    $html .= ' <form method="post" action="server_replication.php" >';
+    $html .= PMA_URL_getHiddenInputs();
+    $html .= '  <input type="submit" value="' . __('Go') . '" id="goButton" />';
+    $html .= ' </form>';
+    $html .= '</fieldset>';
 
-    $html .= '<select name="db_type" id="db_type">';
+    return $html;
+}
+
+/**
+ * Returns HTML for the database selector to include or ignore
+ * databases in replication
+ *
+ * @param string $class      class denoting whether this is for master or slave
+ * @param string $ignoreLink MySQL documentation link about ignoring
+ * @param string $doLInk     MySQL documentation link about including
+ *
+ * @return HTML for database selector
+ */
+function PMA_getHtmlForDatabaseSelector($class, $ignoreLink, $doLink)
+{
+    $html = sprintf(
+        __(
+            'You can choose from either replicating '
+            . 'all databases and ignoring certain%s (useful if you want to replicate '
+            . 'majority of databases) or you can choose to ignore all databases '
+            . 'by default and allow only certain databases to be replicated.%s'
+        ),
+        $ignoreLink,
+        $doLink
+    );
+    $html .= '<br>';
+    $html .= __('Please select the mode:');
+    $html .= '<br /><br />';
+    $html .= '<select name="db_type" id="db_type" class="' . $class .'">';
     $html .= '<option value="all">' . __('Replicate all databases; Ignore:');
     $html .= '</option>';
     $html .= '<option value="ign">' . __('Ignore all databases; Replicate:');
@@ -103,25 +142,14 @@ function PMA_getHtmlForMasterConfiguration()
     $html .= '</select>';
     $html .= '<br /><br />';
     $html .= __('Please select databases:') . '<br />';
-    $html .= PMA_getHtmlForReplicationDbMultibox();
+    $html .= PMA_getHtmlForReplicationDbMultibox($class);
     $html .= '<br /><br />';
     $html .= __(
         'Now, add the following lines at the end of [mysqld] section'
         . ' in your my.cnf and please restart the MySQL server afterwards.'
     ) . '<br />';
     $html .= '<pre id="rep"></pre>';
-    $html .= __(
-        'Once you restarted MySQL server, please click on Go button. '
-        . 'Afterwards, you should see a message informing you, that this server'
-        . ' <b>is</b> configured as master.'
-    );
-    $html .= '</fieldset>';
-    $html .= '<fieldset class="tblFooters">';
-    $html .= ' <form method="post" action="server_replication.php" >';
-    $html .= PMA_URL_getHiddenInputs('', '');
-    $html .= '  <input type="submit" value="' . __('Go') . '" id="goButton" />';
-    $html .= ' </form>';
-    $html .= '</fieldset>';
+    $html .= __('Once you restarted MySQL server, please click on Go button.');
 
     return $html;
 }
@@ -278,7 +306,7 @@ function PMA_getHtmlForSlaveConfiguration(
 
     } elseif (! isset($_REQUEST['sl_configure'])) {
         $_url_params = $GLOBALS['url_params'];
-        $_url_params['sl_configure'] = true;
+        $_url_params['sl_setup'] = true;
         $_url_params['repl_clear_scr'] = true;
 
         $html .= sprintf(
@@ -355,12 +383,14 @@ function PMA_getHtmlForNotServerReplication()
 /**
  * returns HTML code for selecting databases
  *
+ * @param string $class class attribute for the select
+ *
  * @return String HTML code
  */
-function PMA_getHtmlForReplicationDbMultibox()
+function PMA_getHtmlForReplicationDbMultibox($class)
 {
     $multi_values = '';
-    $multi_values .= '<select name="db_select[]" '
+    $multi_values .= '<select name="db_select[]" class="' . $class .'" '
         . 'size="6" multiple="multiple" id="db_select">';
 
     foreach ($GLOBALS['pma']->databases as $current_db) {
@@ -382,6 +412,37 @@ function PMA_getHtmlForReplicationDbMultibox()
 }
 
 /**
+ * returns HTML for slave replication configuration
+ *
+ * @return String HTML code
+ */
+function PMA_getHtmlForSlaveSetup()
+{
+    $html  = '<fieldset>';
+    $html .= '<legend>' . __('Slave configuration') . '</legend>';
+    $html .= PMA_getHtmlForDatabaseSelector(
+        'slave',
+        PMA_Util::showMySQLDocu(
+            'replication-options-slave', false, 'option_mysqld_replicate-ignore-db'
+        ),
+        PMA_Util::showMySQLDocu(
+            'replication-options-slave', false, 'option_mysqld_replicate-do-db'
+        )
+    );
+    $html .= '</fieldset>';
+    $html .= '<form method="get" action="server_replication.php">';
+    $html .= '<fieldset class="tblFooters">';
+    $html .= PMA_URL_getHiddenInputs();
+    $html .= '<input type="hidden" name="sl_configure" value="1" />';
+    $html .= '<input type="hidden" name="repl_clear_scr" value="1" />';
+    $html .= '<input type="submit" id="confslave_submit" value="' . __('Go') . '" />';
+    $html .= '</fieldset>';
+    $html .= '</form>';
+
+    return $html;
+}
+
+/**
  * returns HTML for changing master
  *
  * @param String $submitname - submit button name
@@ -399,12 +460,6 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
     $html .= ' <fieldset id="fieldset_add_user_login">';
     $html .= '  <legend>' . __('Slave configuration');
     $html .= ' - ' . __('Change or reconfigure master server') . '</legend>';
-    $html .= __(
-        'Make sure, you have unique server-id in your configuration file (my.cnf). '
-        . 'If not, please add the following line into [mysqld] section:'
-    );
-    $html .= '<br />';
-    $html .= '<pre>server-id=' . time() . '</pre>';
 
     $html .= PMA_getHtmlForAddUserInputDiv(
         array('text'=>__('User name:'), 'for'=>"text_username"),
