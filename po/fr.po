@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-31 12:25+0200\n"
+"PO-Revision-Date: 2015-07-31 12:28+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -3058,7 +3058,7 @@ msgstr "Règle invalide à la ligne %s."
 #: libraries/Advisor.class.php:423
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Caractères imprévus à la ligne %s."
+msgstr "Caractères inattendus à la ligne %s."
 
 #: libraries/Advisor.class.php:438
 #, php-format
@@ -14003,7 +14003,7 @@ msgstr "Une opération de renommage était attendue."
 #: libraries/sql-parser/src/Lexer.php:252
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Caractère imprévu."
+msgstr "Caractère inattendu."
 
 #: libraries/sql-parser/src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
@@ -14027,7 +14027,7 @@ msgstr "Un nom de variable était attendu."
 #: libraries/sql-parser/src/Parser.php:355
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "Début d'énoncé non attendu."
+msgstr "Début d'énoncé inattendu."
 
 #: libraries/sql-parser/src/Parser.php:370
 msgid "Unrecognized statement type."
