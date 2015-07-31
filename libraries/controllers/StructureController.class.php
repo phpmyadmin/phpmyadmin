@@ -43,7 +43,12 @@ class StructureController extends Controller
     protected $_table;
 
     /**
-     * @var string
+     * @var PMA_Table  The table object
+     */
+    protected $_table_obj;
+
+    /**
+     * @var string  The URL query string
      */
     protected $_url_query;
 
@@ -56,24 +61,25 @@ class StructureController extends Controller
     protected $_num_tables;
 
     /**
-     * @var array
+     * @var array   Tables in the database
      */
     protected $_tables;
-    
+
     protected $_tbl_is_view;
 
-    /**
-     * @var boolean
-     */
     protected $_is_show_stats;
-    
+
     protected $_tbl_storage_engine;
 
     protected $_table_info_num_rows;
 
     protected $_tbl_collation;
 
+    /**
+     * @var  Show table info
+     */
     protected $_showtable;
+
 
     public function __construct($type, $db, $table, $url_query, $num_tables,
                                 $pos, $db_is_system_schema, $total_num_tables,
@@ -97,6 +103,7 @@ class StructureController extends Controller
         $this->_table_info_num_rows = $table_info_num_rows;
         $this->_tbl_collation = $tbl_collation;
         $this->_showtable = $showtable;
+        $this->_table_obj = new PMA_Table($this->_table, $this->_db);
     }
 
     public function indexAction()
@@ -146,7 +153,7 @@ class StructureController extends Controller
                 && isset($_REQUEST['real_row_count'])
                 && $_REQUEST['real_row_count'] == true
             ) {
-                $this->handleRealRowCountRequest();
+                $this->handleRealRowCountRequestAction();
                 return;
             }
 
@@ -256,8 +263,7 @@ class StructureController extends Controller
                     $this->_is_show_stats, $sum_size, $overhead_size
                 );
 
-                $_table = new PMA_Table($current_table['TABLE_NAME'], $this->_db);
-                if (! $_table->isMerge()) {
+                if (! $this->dbi->getTable($this->_db, $current_table['TABLE_NAME'])->isMerge()) {
                     $sum_entries += $current_table['TABLE_ROWS'];
                 }
 
@@ -642,7 +648,7 @@ class StructureController extends Controller
                 && is_array($_REQUEST['move_columns'])
                 && $this->response->isAjax()
             ) {
-                $this->moveColumns($this->_db, $this->_table);
+                $this->moveColumns();
                 return;
             }
 
@@ -683,7 +689,7 @@ class StructureController extends Controller
              * A click on Change has been made for one column
              */
             if (isset($_REQUEST['change_column'])) {
-                $this->displayHtmlForColumnChange($this->_db, $this->_table, null, 'tbl_structure.php');
+                $this->displayHtmlForColumnChange(null, 'tbl_structure.php');
                 return;
             }
 
@@ -699,7 +705,7 @@ class StructureController extends Controller
                     if ($submit_mult == 'browse') {
                         // browsing the table displaying only selected columns
                         $this->displayTableBrowseForSelectedColumns(
-                            $this->_db, $this->_table, $GLOBALS['goto'], $GLOBALS['pmaThemeImage']
+                            $GLOBALS['goto'], $GLOBALS['pmaThemeImage']
                         );
                     } else {
                         // handle multiple field commands
@@ -722,7 +728,7 @@ class StructureController extends Controller
             }
 
             // display secondary level tabs if necessary
-            $engine = $this->dbi->getTable($this->_db, $this->_table)->sGetStatusInfo('ENGINE');
+            $engine = $this->_table_obj->sGetStatusInfo('ENGINE');
             $this->response->addHTML(Template::get('structure/secondary_tabs')
                 ->render(
                     array(
@@ -739,7 +745,7 @@ class StructureController extends Controller
              * Modifications have been submitted -> updates the table
              */
             if (isset($_REQUEST['do_save_data'])) {
-                $regenerate = $this->updateColumns($this->_db, $this->_table);
+                $regenerate = $this->updateColumns();
                 if ($regenerate) {
                     // This happens when updating failed
                     // @todo: do something appropriate
@@ -802,8 +808,7 @@ class StructureController extends Controller
             // and SHOW CREATE TABLE says NOT NULL (tested
             // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
-            $tableObj = new PMA_Table($this ->_table, $this->_db);
-            $show_create_table = $tableObj->showCreate();
+            $show_create_table = $this->_table_obj->showCreate();
             $parser = new SqlParser\Parser($show_create_table);
 
             /**
@@ -826,7 +831,7 @@ class StructureController extends Controller
      *
      * @return void
      */
-    function addRemoveFavoriteTables()
+    protected function addRemoveFavoriteTables()
     {
         $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
         if (isset($_REQUEST['favorite_tables'])) {
@@ -906,7 +911,7 @@ class StructureController extends Controller
      *
      * @return void
      */
-    function synchronizeFavoriteTables($fav_instance, $user, $favorite_tables)
+    protected function synchronizeFavoriteTables($fav_instance, $user, $favorite_tables)
     {
         $fav_instance_tables = $fav_instance->getTables();
 
@@ -937,7 +942,7 @@ class StructureController extends Controller
      *
      * @return true|false
      */
-    function checkFavoriteTable($current_table)
+    protected function checkFavoriteTable($current_table)
     {
         foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value) {
             if ($value['db'] == $this->_db && $value['table'] == $current_table) {
@@ -952,7 +957,7 @@ class StructureController extends Controller
      *
      * @return boolean true
      */
-    function handleRealRowCountRequest()
+    public function handleRealRowCountRequestAction()
     {
         $ajax_response = $this->response;
         // If there is a request to update all table's row count.
@@ -989,19 +994,16 @@ class StructureController extends Controller
     /**
      * Moves columns in the table's structure based on $_REQUEST
      *
-     * @param string $db    database name
-     * @param string $table table name
-     *
      * @return void
      */
-    function moveColumns($db, $table)
+    protected function moveColumns()
     {
-        $this->dbi->selectDb($db);
+        $this->dbi->selectDb($this->_db);
 
         /*
          * load the definitions for all columns
          */
-        $columns = $this->dbi->getColumnsFull($db, $table);
+        $columns = $this->dbi->getColumnsFull($this->_db, $this->_table);
         $column_names = array_keys($columns);
         $changes = array();
 
@@ -1040,8 +1042,7 @@ class StructureController extends Controller
             $data['Expression'] = '';
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
-                $table = new PMA_Table($this->_table, $this->_db);
-                $expressions = $table->getColumnGenerationExpression($column);
+                $expressions = $this->_table->getColumnGenerationExpression($column);
                 $data['Expression'] = $expressions[$column];
             }
 
@@ -1078,7 +1079,7 @@ class StructureController extends Controller
         // move columns
         $this->dbi->tryQuery(sprintf(
             'ALTER TABLE %s %s',
-            PMA_Util::backquote($table),
+            PMA_Util::backquote($this->_table),
             implode(', ', $changes)
         ));
         $tmp_error = $this->dbi->getError();
@@ -1097,15 +1098,13 @@ class StructureController extends Controller
     /**
      * Displays HTML for changing one or more columns
      *
-     * @param string $db       database name
-     * @param string $table    table name
      * @param array  $selected the selected columns
      * @param string $action   target script to call
      *
      * @return boolean $regenerate true if error occurred
      *
      */
-    function displayHtmlForColumnChange($db, $table, $selected, $action)
+    protected function displayHtmlForColumnChange($selected, $action)
     {
         // $selected comes from mult_submits.inc.php
         if (empty($selected)) {
@@ -1121,14 +1120,14 @@ class StructureController extends Controller
         $fields_meta = array();
         for ($i = 0; $i < $selected_cnt; $i++) {
             $fields_meta[] = $this->dbi->getColumns(
-                $db, $table, $selected[$i], true
+                $this->_db, $this->_table, $selected[$i], true
             );
         }
         $num_fields = count($fields_meta);
         // set these globals because tbl_columns_definition_form.inc.php
         // verifies them
         // @todo: refactor tbl_columns_definition_form.inc.php so that it uses
-        // function params
+        // protected function params
         $GLOBALS['action'] = $action;
         $GLOBALS['num_fields'] = $num_fields;
 
@@ -1144,7 +1143,7 @@ class StructureController extends Controller
      *
      * @return string
      */
-    function getMultipleFieldCommandType()
+    protected function getMultipleFieldCommandType()
     {
         $types = array(
             'change', 'drop', 'primary',
@@ -1173,16 +1172,12 @@ class StructureController extends Controller
     /**
      * Function to display table browse for selected columns
      *
-     * @param string $db            current database
-     * @param string $table         current table
      * @param string $goto          goto page url
      * @param string $pmaThemeImage URI of the pma theme image
      *
      * @return void
      */
-    function displayTableBrowseForSelectedColumns(
-        $db, $table, $goto, $pmaThemeImage
-    ) {
+    protected function displayTableBrowseForSelectedColumns($goto, $pmaThemeImage) {
         $GLOBALS['active_page'] = 'sql.php';
         $fields = array();
         foreach ($_REQUEST['selected_fld'] as $sval) {
@@ -1191,12 +1186,12 @@ class StructureController extends Controller
         $sql_query = sprintf(
             'SELECT %s FROM %s.%s',
             implode(', ', $fields),
-            PMA_Util::backquote($db),
-            PMA_Util::backquote($table)
+            PMA_Util::backquote($this->_db),
+            PMA_Util::backquote($this->_table)
         );
 
         // Parse and analyze the query
-        // @todo Refactor parse_analyze.inc to function
+        // @todo Refactor parse_analyze.inc to protected function
         include_once 'libraries/parse_analyze.inc.php';
 
         include_once 'libraries/sql.lib.php';
@@ -1205,8 +1200,8 @@ class StructureController extends Controller
             PMA_executeQueryAndGetQueryResponse(
                 isset($analyzed_sql_results) ? $analyzed_sql_results : '',
                 false, // is_gotofile
-                $db, // db
-                $table, // table
+                $this->_db, // db
+                $this->_table, // table
                 null, // find_real_end
                 null, // sql_query_for_bookmark
                 null, // extra_data
@@ -1228,23 +1223,19 @@ class StructureController extends Controller
     /**
      * Update the table's structure based on $_REQUEST
      *
-     * @param string $db    database name
-     * @param string $table table name
-     *
      * @return boolean $regenerate              true if error occurred
      *
      */
-    function updateColumns($db, $table)
+    protected function updateColumns()
     {
         $err_url = 'tbl_structure.php' . PMA_URL_getCommon(
                 array(
-                    'db' => $db, 'table' => $table
+                    'db' => $this->_db, 'table' => $this->_table
                 )
             );
         $regenerate = false;
         $field_cnt = count($_REQUEST['field_name']);
         $changes = array();
-        $pmatable = new PMA_Table($table, $db);
         $adjust_privileges = array();
 
         for ($i = 0; $i < $field_cnt; $i++) {
@@ -1267,13 +1258,13 @@ class StructureController extends Controller
                     );
 
                 // find the remembered sort expression
-                $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
+                $sorted_col = $this->_table_obj->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
                 // if the old column name is part of the remembered sort expression
                 if (/*overload*/mb_strpos($sorted_col,
                         PMA_Util::backquote($_REQUEST['field_orig'][$i])
                     ) !== false) {
                     // delete the whole remembered sort expression
-                    $pmatable->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
+                    $this->_table_obj->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
                 }
 
                 if (isset($_REQUEST['field_adjust_privileges'][$i])
@@ -1300,15 +1291,15 @@ class StructureController extends Controller
 
             // To allow replication, we first select the db to use
             // and then run queries on this db.
-            if (!$this->dbi->selectDb($db)) {
+            if (!$this->dbi->selectDb($this->_db)) {
                 PMA_Util::mysqlDie(
                     $this->dbi->getError(),
-                    'USE ' . PMA_Util::backquote($db) . ';',
+                    'USE ' . PMA_Util::backquote($this->_db) . ';',
                     false,
                     $err_url
                 );
             }
-            $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
+            $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($this->_table) . ' ';
             $sql_query .= implode(', ', $changes) . $key_query;
             $sql_query .= ';';
 
@@ -1325,7 +1316,7 @@ class StructureController extends Controller
                     && isset($_REQUEST['field_collation_orig'][$i])
                     && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
                 ) {
-                    $secondary_query = 'ALTER TABLE ' . PMA_Util::backquote($table)
+                    $secondary_query = 'ALTER TABLE ' . PMA_Util::backquote($this->_table)
                         . ' CHANGE ' . PMA_Util::backquote($_REQUEST['field_orig'][$i])
                         . ' ' . PMA_Util::backquote($_REQUEST['field_orig'][$i])
                         . ' BLOB;';
@@ -1341,7 +1332,7 @@ class StructureController extends Controller
 
             if ($result !== false) {
                 $changed_privileges = $this->adjustColumnPrivileges(
-                    $db, $table, $adjust_privileges
+                    $this->_db, $this->_table, $adjust_privileges
                 );
 
                 if ($changed_privileges) {
@@ -1356,7 +1347,7 @@ class StructureController extends Controller
                         __('Table %1$s has been altered successfully.')
                     );
                 }
-                $message->addParam($table);
+                $message->addParam($this->_table);
 
                 $this->response->addHTML(
                     PMA_Util::getMessage($message, $sql_query, 'success')
@@ -1388,7 +1379,7 @@ class StructureController extends Controller
                     }
                 }
 
-                $revert_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
+                $revert_query = 'ALTER TABLE ' . PMA_Util::backquote($this->_table) . ' ';
                 $revert_query .= implode(', ', $changes_revert) . '';
                 $revert_query .= ';';
 
@@ -1411,7 +1402,7 @@ class StructureController extends Controller
             foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
                 if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
                     PMA_REL_renameField(
-                        $db, $table, $fieldcontent,
+                        $this->_db, $this->_table, $fieldcontent,
                         $_REQUEST['field_name'][$fieldindex]
                     );
                 }
@@ -1427,7 +1418,7 @@ class StructureController extends Controller
                     )
                 ) {
                     PMA_setMIME(
-                        $db, $table, $_REQUEST['field_name'][$fieldindex],
+                        $this->_db, $this->_table, $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
                         $_REQUEST['field_transformation_options'][$fieldindex],
@@ -1443,13 +1434,11 @@ class StructureController extends Controller
     /**
      * Adjusts the Privileges for all the columns whose names have changed
      *
-     * @param string $db                database name
-     * @param string $table             table name
      * @param array  $adjust_privileges assoc array of old col names mapped to new cols
      *
      * @return boolean $changed  boolean whether atleast one column privileges adjusted
      */
-    function adjustColumnPrivileges($db, $table, $adjust_privileges)
+    protected function adjustColumnPrivileges($adjust_privileges)
     {
         $changed = false;
 
@@ -1468,7 +1457,7 @@ class StructureController extends Controller
                     AND Table_name = "%s"
                     AND Column_name = "%s";',
                     PMA_Util::backquote('columns_priv'),
-                    $newCol, $db, $table, $oldCol
+                    $newCol, $this->_db, $this->_table, $oldCol
                 ));
 
                 // i.e. if atleast one column privileges adjusted
@@ -1492,7 +1481,7 @@ class StructureController extends Controller
      * @return boolean $alterTableNeeded true if we need to generate ALTER TABLE
      *
      */
-    function columnNeedsAlterTable($i)
+    protected function columnNeedsAlterTable($i)
     {
         // these two fields are checkboxes so might not be part of the
         // request; therefore we define them to avoid notices below
@@ -1524,7 +1513,7 @@ class StructureController extends Controller
      * @param bool $truename
      * @return bool
      */
-    function hasTable($db, $truename)
+    protected function hasTable($db, $truename)
     {
         foreach ($db as $db_table) {
             if ($this->_db == PMA_extractDbOrTable($db_table) &&
@@ -1549,7 +1538,7 @@ class StructureController extends Controller
      * @return array
      * @internal param bool $table_is_view whether table is view or not
      */
-    function getStuffForEngineTypeTable($current_table, $db_is_system_schema,
+    protected function getStuffForEngineTypeTable($current_table, $db_is_system_schema,
                                             $is_show_stats, $sum_size, $overhead_size
     ) {
         $formatted_size = '-';
@@ -1640,7 +1629,7 @@ class StructureController extends Controller
      *
      * @return array
      */
-    function getValuesForAriaTable(
+    protected function getValuesForAriaTable(
         $db_is_system_schema, $current_table, $is_show_stats,
         $sum_size, $overhead_size, $formatted_size, $unit,
         $formatted_overhead, $overhead_unit
@@ -1683,7 +1672,7 @@ class StructureController extends Controller
      *
      * @return array
      */
-    function getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
+    protected function getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
     {
         $formatted_size = $unit = '';
 
@@ -1714,8 +1703,17 @@ class StructureController extends Controller
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
+     * @param $cfgRelation
+     * @param $columns_with_unique_index
+     * @param $url_params
+     * @param $primary_index
+     * @param $fields
+     * @param $columns_with_index
+     * @param $create_table_fields
+     *
+     * @return string
      */
-    function displayStructure($cfgRelation, $columns_with_unique_index,
+    protected function displayStructure($cfgRelation, $columns_with_unique_index,
                               $url_params, $primary_index, $fields,
                               $columns_with_index, $create_table_fields)
     {
@@ -1724,11 +1722,11 @@ class StructureController extends Controller
         if ($GLOBALS['cfg']['HideStructureActions'] === true) {
             $HideStructureActions .= ' HideStructureActions';
         }
-        
+
         // prepare comments
         $comments_map = array();
         $mime_map = array();
-        
+
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
             include_once 'libraries/transformations.lib.php';
             $comments_map = PMA_getComments($this->_db, $this->_table);
@@ -1739,7 +1737,7 @@ class StructureController extends Controller
         require_once 'libraries/central_columns.lib.php';
         $central_list = PMA_getCentralColumnsFromTable($this->_db, $this->_table);
         $columns_list = array();
-        
+
         $titles = array(
             'Change' => PMA_Util::getIcon('b_edit.png', __('Change')),
             'Drop' => PMA_Util::getIcon('b_drop.png', __('Drop')),
@@ -1756,7 +1754,7 @@ class StructureController extends Controller
             'NoIdxFulltext' => PMA_Util::getIcon('bd_ftext.png', __('Fulltext')),
             'DistinctValues' => PMA_Util::getIcon('b_browse.png', __('Distinct values'))
         );
-        
+
         /**
          * Work on the table
          */
@@ -1864,7 +1862,7 @@ class StructureController extends Controller
      *
      * @return string $html_output
      */
-    function getTableStats(
+    protected function getTableStats(
         $showtable, $table_info_num_rows, $tbl_is_view,
         $db_is_system_schema, $tbl_storage_engine,
         $url_query, $tbl_collation
@@ -1884,10 +1882,7 @@ class StructureController extends Controller
 
         $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
 
-        // Gets some sizes
-
-        $table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-        $mergetable = $table->isMerge();
+        $mergetable = $this->_table_obj->isMerge();
 
         // this is to display for example 261.2 MiB instead of 268k KiB
         $max_digits = 3;
