@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-07-23 22:37+0200\n"
+"PO-Revision-Date: 2015-08-01 12:26+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11316,7 +11316,6 @@ msgid "Master configuration"
 msgstr "Master yapılandırması"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11331,8 +11330,8 @@ msgid ""
 "databases to be replicated. Please select the mode:"
 msgstr ""
 "Bu sunucu, kopya etme işlemi sırasında master sunucu olarak yapılandırılmaz. "
-"Ya tüm veritabanlarının kopya etmeyi ve belirli olanı yok saymayı (eğer "
-"veritabanlarının çoğunluğunu kopya etmek isterseniz kullanışlıdır) "
+"Ya tüm veritabanlarının kopya etmeyi ve bazılarını yoksaymayı (eğer "
+"veritabanlarının çoğunluğunu kopya etmek isterseniz faydalıdır) "
 "seçebilirsiniz ya da varsayılan olarak tüm veritabanlarını yoksaymayı ve "
 "kopya etmek için sadece belirli veritabanlarına izin verebilirsiniz. Lütfen "
 "kipi seçin:"
@@ -12466,10 +12465,9 @@ msgid "Do not change the password"
 msgstr "Parolayı değiştirme"
 
 #: libraries/server_privileges.lib.php:1693
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Kimlik doğrulaması"
+msgstr "Kimlik Doğrulama Eklentisi"
 
 #: libraries/server_privileges.lib.php:1698
 #, fuzzy
@@ -12478,10 +12476,9 @@ msgid "mysql_native_password"
 msgstr "Parola üret"
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
 #| msgid "Change password"
 msgid "sha256_password"
-msgstr "Parola değiştir"
+msgstr "sha256_parola"
 
 #: libraries/server_privileges.lib.php:1926
 #, php-format
@@ -12724,7 +12721,6 @@ msgstr ""
 "önce %syetkileri yeniden yüklemeniz%s gerekir."
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12739,8 +12735,9 @@ msgid ""
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
-"sunucunun kullandığı yetkilerden farklı olabilir. Bu durumda devam etmeden "
-"önce %syetkileri yeniden yüklemeniz%s gerekir."
+"sunucunun kullandığı yetkilerden farklı olabilir. Bu durumda, yetkiler "
+"yeniden yüklenmek zorundadır ancak şu anda, yetkileri YENİDEN YÜKLEMENİZ "
+"gerekmez."
 
 #: libraries/server_privileges.lib.php:4513
 msgid "The selected user was not found in the privilege table."
@@ -13877,7 +13874,7 @@ msgstr "Bu, salt okunur bir değişkendir ve düzenlenemez"
 #: libraries/sql-parser/src/Component.php:61
 #: libraries/sql-parser/src/Component.php:78
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Henüz uygulanmadı."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
 msgid "Unrecognized alter operation."
@@ -13928,10 +13925,9 @@ msgid "An expression was expected."
 msgstr "Bir ifade beklendi."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#, fuzzy
 #| msgid "A comma or a closing bracket was expected"
 msgid "A comma or a closing bracket was expected."
-msgstr "Bir virgül ya da kapalı bir köşeli parantez beklendi"
+msgstr "Bir virgül ya da kapalı bir köşeli parantez beklendi."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:262
 msgid "A closing bracket was expected."
@@ -13993,10 +13989,9 @@ msgid "Unrecognized statement type."
 msgstr "Tanınmayan ifade türü."
 
 #: libraries/sql-parser/src/Parser.php:461
-#, fuzzy
 #| msgid "An alias was previously found."
 msgid "No transaction was previously started."
-msgstr "Bir kodadı daha önce bulundu."
+msgstr "Daha önce hiç işlem başlatılmadı."
 
 #: libraries/sql-parser/src/Statement.php:206
 msgid "Unexpected token."
@@ -14004,7 +13999,7 @@ msgstr "Beklenmedik belirteç."
 
 #: libraries/sql-parser/src/Statement.php:248
 msgid "A new statement was found, but no delimiter between them."
-msgstr ""
+msgstr "Yeni bir ifade bulundu, ancak aralarında hiç sınırlayıcı yok."
 
 #: libraries/sql-parser/src/Statement.php:269
 msgid "Unrecognized keyword."
