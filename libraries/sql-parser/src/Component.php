@@ -51,6 +51,8 @@ namespace SqlParser {
          * @param TokensList $list    The list of tokens that are being parsed.
          * @param array      $options Parameters for parsing.
          *
+         * @throws \Exception Not implemented yet.
+         *
          * @return mixed
          */
         public static function parse(
@@ -68,6 +70,8 @@ namespace SqlParser {
          * `static::parse`.
          *
          * @param mixed $component The component to be built.
+         *
+         * @throws \Exception Not implemented yet.
          *
          * @return string
          */

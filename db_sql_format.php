@@ -6,13 +6,15 @@
  * @package PhpMyAdmin
  */
 
+/**
+ * Loading common files. Used to check for authorization, localization and to
+ * load the parsing library.
+ */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/sql-formatter/lib/SqlFormatter.php';
 
-$query = isset($_POST['sql']) ? $_POST['sql'] : '';
+$query = !empty($_POST['sql']) ? $_POST['sql'] : '';
 
-SqlFormatter::$tab = "\t";
-$query = SqlFormatter::format($query, false);
+$query = SqlParser\Utils\Formatter::format($query);
 
 $response = PMA_Response::getInstance();
 $response->addJSON("sql", $query);

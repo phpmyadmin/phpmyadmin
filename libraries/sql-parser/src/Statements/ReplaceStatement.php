@@ -46,6 +46,22 @@ class ReplaceStatement extends Statement
     );
 
     /**
+     * The clauses of this statement, in order.
+     *
+     * @see Statement::$CLAUSES
+     *
+     * @var array
+     */
+    public static $CLAUSES = array(
+        'REPLACE'                       => array('REPLACE',     2),
+        // Used for options.
+        '_OPTIONS'                      => array('_OPTIONS',    1),
+        'INTO'                          => array('FROM',        3),
+        'VALUES'                        => array('VALUES',      1),
+        'SET'                           => array('PARTITION',   3),
+    );
+
+    /**
      * Tables used as target for this statement.
      *
      * @var IntoKeyword

@@ -209,7 +209,7 @@ class UtfString implements \ArrayAccess
     /**
      * Returns the contained string.
      *
-     * @return strin
+     * @return string
      */
     public function __toString()
     {

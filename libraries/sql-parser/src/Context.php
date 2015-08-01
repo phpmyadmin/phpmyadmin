@@ -416,6 +416,10 @@ abstract class Context
      */
     public static function load($context = '')
     {
+        /**
+         * @var Context $context
+         */
+
         if (empty($context)) {
             $context = self::$defaultContext;
         }
@@ -467,6 +471,7 @@ abstract class Context
                 );
                 continue;
             }
+
             // Last generated context was valid (did not throw any exceptions).
             // So we return it, to let the user know what context was loaded.
             return $context;
