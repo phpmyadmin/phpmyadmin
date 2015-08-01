@@ -123,7 +123,7 @@ function Show_new_page_tables(check)
         }
     }
     selected_page = -1;
-    $("#name-panel").find("#page_name").text(PMA_messages.strUntitled);
+    $("#page_name").text(PMA_messages.strUntitled);
     MarkUnsaved();
 }
 
