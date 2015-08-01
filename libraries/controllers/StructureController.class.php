@@ -208,17 +208,11 @@ class StructureController extends Controller
                 )
             );
 
-            // tables form
-            $this->response->addHTML(
-                '<form method="post" action="db_structure.php" '
-                . 'name="tablesForm" id="tablesForm">'
-            );
-
-            $this->response->addHTML(PMA_URL_getHiddenInputs($this->_db));
-
+            // table form
             $this->response->addHTML(
                 Template::get('structure/table_header')->render(
                     array(
+                        'db' => $this->_db,
                         'db_is_system_schema' => $this->_db_is_system_schema,
                         'replication' => $GLOBALS['replication_info']['slave']['status']
                     )

@@ -10,6 +10,8 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
     $action_colspan++;
 }
 ?>
+<form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
+<?php echo PMA_URL_getHiddenInputs($db); ?>
 <table class="data">
     <thead>
         <tr>
