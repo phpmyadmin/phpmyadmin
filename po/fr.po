@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-07-31 12:28+0200\n"
+"PO-Revision-Date: 2015-08-01 13:14+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7586,7 +7586,6 @@ msgid "User preferences storage table"
 msgstr "Table de stockage des préférences utilisateur"
 
 #: libraries/config/messages.inc.php:809
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -7597,8 +7596,8 @@ msgid ""
 "    this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Cette table et celle des groupes d'utilisateurs sont nécessaires afin "
-"d'activer les menus configurables; si vous laissez l'un ou d'autre vide, "
-"cette fonctionnalité sera désactivée, suggestion : [kbd]pma__users[/kbd]."
+"d'activer les menus configurables; si vous laissez l'un ou d'autre vide,\n"
+" cette fonctionnalité sera désactivée, suggestion : [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:813
 msgid "Users table"
@@ -8213,6 +8212,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Cette méthode nécessite l'utilisation d'une <i>connexion SSL</i> ou d'une <i>"
+"connexion non chiffrée qui crypte le mot de passe à l'aide de RSA</i> lors "
+"de la connexion au serveur."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -11411,7 +11413,6 @@ msgid "Master configuration"
 msgstr "Configuration du maître"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11429,7 +11430,7 @@ msgstr ""
 "réplication. Vous pouvez soit répliquer toutes les bases tout en ignorant "
 "certaines d'entre elles (utile si la majorité des bases doivent être "
 "répliquées) soit ignorer toutes les bases en demandant que certaines d'entre "
-"elles soient répliquées. Veuillez choisir le mode : "
+"elles soient répliquées. Veuillez choisir le mode :"
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
