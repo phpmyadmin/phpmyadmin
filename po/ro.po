@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-08-01 07:29+0200\n"
+"PO-Revision-Date: 2015-08-02 18:31+0200\n"
 "Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
 "Language-Team: Romanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ro/>\n"
@@ -720,7 +720,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nu se poate determina progresul încărcării."
 
 #: import_status.php:112 js/messages.php:378 libraries/Util.class.php:776
 #: libraries/export.lib.php:515
@@ -848,7 +848,6 @@ msgid "List of changes"
 msgstr "Lista modificărilor"
 
 #: index.php:451
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -860,11 +859,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Fișierul de configurare conține parametri (utilizator root fără parolă) ce "
-"corespund contului MySQL privilegiat implicit. Serverul MySQL rulează cu "
-"acest parametru implicit, este deschis la intruziune și trebuie să reparați "
-"neapărat această breșă de securitate stabilind o parolă pentru utilizatorul "
-"„root”."
+"Sînteți conectat ca utilizator root fără parolă, ceea ce corespunde contului "
+"MySQL privilegiat implicit. Serverul MySQL rulează cu acest parametru "
+"implicit, este deschis la intruziune și trebuie să închideți neapărat "
+"această breșă de securitate stabilind o parolă pentru utilizatorul „root”."
 
 #: index.php:468
 msgid ""
@@ -886,7 +884,6 @@ msgstr ""
 "șirurile de caractere corect, fapt ce poate duce la rezultate neașteptate."
 
 #: index.php:500
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -898,18 +895,21 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametrul PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] este mai mic decât "
-"validitatea unui cookie configurat în phpMyAdmin, iar pentru aceasta, "
-"sesiunea dumneavoastră va expira mai devreme decât este configurat în "
+"Parametrul PHP "
+"[a@http://php.net/manual/ro/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] este mai mic decât validitatea "
+"unui cookie configurat în phpMyAdmin, din această cauză sesiunea "
+"dumneavoastră ar putea expira mai devreme decât este configurat în "
 "phpMyAdmin."
 
 #: index.php:519
-#, fuzzy
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
-msgstr "vag"
+msgstr ""
+"Stocarea cookie-ului de conectare este mai scurtă decît perioada de "
+"validitate a cookie-urilor configurată in phpMyAdmim, din această cauză "
+"sesiunea dumneavoastră va expira înainte de cum este stabilit în phpMyAdmin."
 
 #: index.php:535
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -937,14 +937,15 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Configurarea pentru stocarea phpMyAdmin nu este complet configurată, astfel "
-"că unele caracteristici avansate au fost dezactivate. Pentru a afla de ce "
-"dați click  %shere%s. "
+"Stocarea configurarilor phpMyAdmin nu este complet configurată, astfel că "
+"unele caracteristici avansate au fost dezactivate.  %Află de ce%s. "
 
 #: index.php:571
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Sau, altfel, puteți accesa panoul 'Operațiuni' al oricărei baze de date si "
+"configura-o de acolo."
 
 #: index.php:620
 #, php-format
