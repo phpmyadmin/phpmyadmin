@@ -253,6 +253,7 @@ class ImportSql extends ImportPlugin
     {
         $this->_firstSearchChar = null;
         $firstSqlDelimiter = null;
+        $commentStartPosition = null;
         $matches = null;
 
         /* while not at end of line */
@@ -272,6 +273,14 @@ class ImportSql extends ImportPlugin
                         "\n",
                         $this->_delimiterPosition
                     );
+                    //Set _queryBeginPosition if comment is at the beginning of the query
+                    if ($commentStartPosition === 0) {
+                        if (false === $posClosingComment) {
+                            $this->_queryBeginPosition = $this->_stringFctToUse['strlen']($this->_data);
+                        } else {
+                            $this->_queryBeginPosition = $posClosingComment + 1;
+                        }
+                    }
                     if (false === $posClosingComment) {
                         return false;
                     }
@@ -279,6 +288,7 @@ class ImportSql extends ImportPlugin
                     $this->_delimiterPosition = $posClosingComment + 1;
                     $this->_isInComment = false;
                     $this->_openingComment = null;
+                    $commentStartPosition = null;
                 } elseif ('/*' === $this->_openingComment) {
                     //Search for closing comment
                     $posClosingComment = $this->_stringFctToUse['strpos'](
@@ -286,6 +296,14 @@ class ImportSql extends ImportPlugin
                         '*/',
                         $this->_delimiterPosition
                     );
+                    //Set _queryBeginPosition if comment is at the beginning of the query
+                    if ($commentStartPosition === 0) {
+                        if (false === $posClosingComment) {
+                            $this->_queryBeginPosition = $this->_stringFctToUse['strlen']($this->_data);
+                        } else {
+                            $this->_queryBeginPosition = $posClosingComment + 2;
+                        }
+                    }
                     if (false === $posClosingComment) {
                         return false;
                     }
@@ -293,6 +311,7 @@ class ImportSql extends ImportPlugin
                     $this->_delimiterPosition = $posClosingComment + 2;
                     $this->_isInComment = false;
                     $this->_openingComment = null;
+                    $commentStartPosition = null;
                 } else {
                     //We shouldn't be able to come here.
                     //throw new Exception('Unknown case.');
@@ -361,6 +380,7 @@ class ImportSql extends ImportPlugin
             if (in_array($specialChars, array('#', '-- ', '/*'))) {
                 $this->_isInComment = true;
                 $this->_openingComment = $specialChars;
+                $commentStartPosition = $this->_firstSearchChar;
                 //Move before comment opening.
                 $this->_delimiterPosition = $this->_firstSearchChar
                     + $this->_stringFctToUse['strlen']($specialChars);
