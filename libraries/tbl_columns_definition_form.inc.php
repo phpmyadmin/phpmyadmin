@@ -22,6 +22,8 @@ use PMA\Util;
 
 PMA_Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
 
+global $db, $table;
+
 /**
  * Initialize to avoid code execution path warnings
  */
