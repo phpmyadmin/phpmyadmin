@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-08-01 13:14+0200\n"
+"PO-Revision-Date: 2015-08-02 12:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -4103,7 +4103,7 @@ msgstr "Jeux de caractères"
 #: libraries/Menu.class.php:615 libraries/Util.class.php:4323
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:27
 msgid "Plugins"
-msgstr "Plug-ins"
+msgstr "Greffons"
 
 #: libraries/Menu.class.php:626 libraries/Util.class.php:4324
 msgid "Engines"
@@ -8245,7 +8245,9 @@ msgstr "Nombre de colonnes"
 
 #: libraries/display_export.inc.php:37
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Erreur lors du chargement des modules d'exportation !"
+msgstr ""
+"Erreur lors du chargement des greffons d'exportation, veuillez vérifier "
+"votre installation !"
 
 #: libraries/display_export.lib.php:175
 msgid "Exporting databases from the current server"
@@ -12225,7 +12227,7 @@ msgstr "Modules"
 
 #: libraries/server_plugins.lib.php:139
 msgid "Plugin"
-msgstr "Plug-in"
+msgstr "Greffon"
 
 #: libraries/server_plugins.lib.php:140 libraries/server_plugins.lib.php:196
 msgid "Module"
@@ -12582,22 +12584,19 @@ msgid "Do not change the password"
 msgstr "Conserver le mot de passe"
 
 #: libraries/server_privileges.lib.php:1693
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Type d'authentification"
+msgstr "Greffon d'authentification"
 
 #: libraries/server_privileges.lib.php:1698
-#, fuzzy
 #| msgid "Generate password"
 msgid "mysql_native_password"
-msgstr "Générer un mot de passe"
+msgstr "mot de passe natif MySQL"
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
 #| msgid "Change password"
 msgid "sha256_password"
-msgstr "Modifier le mot de passe"
+msgstr "Mot de passe sha256"
 
 #: libraries/server_privileges.lib.php:1926
 #, php-format
@@ -12844,7 +12843,6 @@ msgstr ""
 "devriez %srecharger les privilèges%s avant de continuer."
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12859,8 +12857,8 @@ msgid ""
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
-"effectifs, si des changements manuels ont été apportés. Dans ce cas, vous "
-"devriez %srecharger les privilèges%s avant de continuer."
+"effectifs, si des changements manuels ont été apportés. Dans ce cas, les "
+"privilèges doivent être rechargés mais il vous manque le privilège RELOAD."
 
 #: libraries/server_privileges.lib.php:4513
 msgid "The selected user was not found in the privilege table."
