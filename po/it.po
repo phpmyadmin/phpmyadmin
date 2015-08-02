@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-08-01 11:05+0200\n"
+"PO-Revision-Date: 2015-08-02 11:19+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -3834,7 +3834,7 @@ msgstr "Si é verificato un errore durante lo spostamento del file."
 
 #: libraries/File.class.php:487
 msgid "Cannot read (moved) upload file."
-msgstr "Impossibile leggere dal file (dopo lo spostamento) caricato."
+msgstr "Impossibile leggere il file caricato (spostato)."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -8223,6 +8223,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Questo metodo richiede l'uso di una '<i>connessione SSL</i>' o di una '<i>"
+"connessione non criptata che cifra la password con RSA</i>'; durante la "
+"connessione al server."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -11419,7 +11422,6 @@ msgid "Master configuration"
 msgstr "Configurazione del master"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11434,10 +11436,10 @@ msgid ""
 "databases to be replicated. Please select the mode:"
 msgstr ""
 "Questo server non é configurato come un master in un processo di "
-"replicazione. Puoi scegliere se vuoi replicare tutti i database e ignorare "
-"solo certi (utile se vuoi replicare la maggior parte dei database) o puoi "
+"replicazione. Puoi scegliere se vuoi replicare tutti i database e ignorarne "
+"solo alcuni (utile se vuoi replicare la maggior parte dei database) o puoi "
 "scegliere di ignorare tutti i database normalmente e consentire solo a certi "
-"database di essere replicati. Prego, scegli una modalitá:"
+"database di essere replicati. Prego, scegli una modalità:"
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
@@ -12585,22 +12587,19 @@ msgid "Do not change the password"
 msgstr "Non cambiare la password"
 
 #: libraries/server_privileges.lib.php:1693
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Autenticazione"
+msgstr "Plugin di Autenticazione"
 
 #: libraries/server_privileges.lib.php:1698
-#, fuzzy
 #| msgid "Generate password"
 msgid "mysql_native_password"
-msgstr "Genera password"
+msgstr "mysql_native_password"
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
 #| msgid "Change password"
 msgid "sha256_password"
-msgstr "Cambia password"
+msgstr "sha256_password"
 
 #: libraries/server_privileges.lib.php:1926
 #, php-format
@@ -12847,7 +12846,6 @@ msgstr ""
 "questo caso, Si dovrebbero %srinfrescare i privilegi%s prima di continuare."
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12863,7 +12861,8 @@ msgstr ""
 "N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella "
 "dei privilegi di MySQL. Il contenuto di questa tabella può differire dai "
 "privilegi usati dal server se sono stati fatti cambiamenti manuali. In "
-"questo caso, Si dovrebbero %srinfrescare i privilegi%s prima di continuare."
+"questo caso, si devono ricaricare i privilegi ma al momento non disponi del "
+"privilegio RELOAD."
 
 #: libraries/server_privileges.lib.php:4513
 msgid "The selected user was not found in the privilege table."
@@ -14024,7 +14023,7 @@ msgstr "Questa è una variabile a sola lettura e non può essere modificata"
 #: libraries/sql-parser/src/Component.php:61
 #: libraries/sql-parser/src/Component.php:78
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Non ancora implementato."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
 msgid "Unrecognized alter operation."
@@ -14064,7 +14063,7 @@ msgstr "Un alias è stato trovato precedentemente."
 
 #: libraries/sql-parser/src/Components/Expression.php:257
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Segno di punteggiatura \"punto\" inatteso."
 
 #: libraries/sql-parser/src/Components/Expression.php:327
 msgid "An alias was expected."
@@ -14075,10 +14074,9 @@ msgid "An expression was expected."
 msgstr "Era attesa un'espressione."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#, fuzzy
 #| msgid "A comma or a closing bracket was expected"
 msgid "A comma or a closing bracket was expected."
-msgstr "Era attesa una virgola o una parentesi chiusa"
+msgstr "Era attesa una virgola o una parentesi chiusa."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:262
 msgid "A closing bracket was expected."
@@ -14140,10 +14138,9 @@ msgid "Unrecognized statement type."
 msgstr "Tipo statement non riconosciuto."
 
 #: libraries/sql-parser/src/Parser.php:461
-#, fuzzy
 #| msgid "An alias was previously found."
 msgid "No transaction was previously started."
-msgstr "Un alias è stato trovato precedentemente."
+msgstr "Non è stata iniziata alcuna transazione in precedenza."
 
 #: libraries/sql-parser/src/Statement.php:206
 msgid "Unexpected token."
@@ -14151,7 +14148,7 @@ msgstr "Token inatteso."
 
 #: libraries/sql-parser/src/Statement.php:248
 msgid "A new statement was found, but no delimiter between them."
-msgstr ""
+msgstr "E' stato trovato un nuovo statement, ma non ci sono delimitatori."
 
 #: libraries/sql-parser/src/Statement.php:269
 msgid "Unrecognized keyword."
