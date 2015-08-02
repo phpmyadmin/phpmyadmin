@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-07-20 09:30+0200\n"
+"PO-Revision-Date: 2015-08-02 12:14+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3930,7 +3930,7 @@ msgstr ""
 #: libraries/Linter.class.php:147
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (<code>%2$s</code> közelében)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:430
 #: libraries/config/messages.inc.php:930
@@ -7544,7 +7544,6 @@ msgid "User preferences storage table"
 msgstr "Felhasználók beállításainak tárolótáblája"
 
 #: libraries/config/messages.inc.php:809
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -7556,7 +7555,8 @@ msgid ""
 msgstr ""
 "Ez a tábla és a felhasználói csoportok tábla is szükséges a beállítható "
 "menük szolgáltatás engedélyezéséhez. Az egyikük üresen hagyása le fogja "
-"tiltani ezt a szolgáltatást, ajánlott: [kbd]pma__users[/kbd]."
+"tiltani\n"
+"   ezt a szolgáltatást, ajánlott: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:813
 msgid "Users table"
@@ -11349,7 +11349,6 @@ msgid "Master configuration"
 msgstr "Mester konfiguráció"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11363,7 +11362,7 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Ez a kiszolgáló a többszörözési folyamatban nem a fő kiszolgálóként van "
+"Ez a kiszolgáló a többszörözési folyamatban nem fő kiszolgálóként van "
 "beállítva. Választhatja az összes adatbázis többszörözését és egyesek "
 "figyelmen kívül hagyását (hasznos, ha szeretné többszörözni az adatbázis "
 "javát), vagy figyelmen kívül hagyhatja az adatbázisokat alapértelmezésként, "
@@ -12496,41 +12495,36 @@ msgstr ""
 "gépnévvel."
 
 #: libraries/server_privileges.lib.php:1510
-#, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
-msgstr "Felhasználónév:"
+msgstr "Gépnév:"
 
 #: libraries/server_privileges.lib.php:1515
 #: libraries/server_privileges.lib.php:1617
 #: libraries/server_privileges.lib.php:2371
 #: libraries/server_privileges.lib.php:3333
-#, fuzzy
 #| msgid "Log name"
 msgid "Host name"
-msgstr "Napló neve"
+msgstr "Gépnév"
 
 #: libraries/server_privileges.lib.php:1657
 msgid "Do not change the password"
 msgstr "Nincs jelszó megváltoztatás"
 
 #: libraries/server_privileges.lib.php:1693
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Hitelesítés típusa"
+msgstr "Hitelesítés bővítmény"
 
 #: libraries/server_privileges.lib.php:1698
-#, fuzzy
 #| msgid "Generate password"
 msgid "mysql_native_password"
-msgstr "Jelszó generálása"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
 #| msgid "Change password"
 msgid "sha256_password"
-msgstr "Jelszó megváltoztatása"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:1926
 #, php-format
@@ -12775,7 +12769,6 @@ msgstr ""
 "%stöltse be újra a jogokat%s a folytatás előtt."
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12789,9 +12782,9 @@ msgid ""
 "privilege."
 msgstr ""
 "Megjegyzés: a phpMyAdmin a felhasználók jogait közvetlenül a MySQL "
-"privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver által "
-"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
-"%stöltse be újra a jogokat%s a folytatás előtt."
+"privilégium táblákból veszi. Ezen táblák tartalma eltérhet a kiszolgáló "
+"által használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben a "
+"jogokat újra kell tölteni, de jelenleg nincs RELOAD joga."
 
 #: libraries/server_privileges.lib.php:4513
 msgid "The selected user was not found in the privilege table."
@@ -13933,18 +13926,17 @@ msgstr "Ez egy csak olvasható változó és nem szerkeszthető"
 #: libraries/sql-parser/src/Component.php:61
 #: libraries/sql-parser/src/Component.php:78
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Még nincs megvalósítva."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
-#, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Ikonos táblaműveletek"
+msgstr "Felismerhetetlen módosítás művelet."
 
 #: libraries/sql-parser/src/Components/Array2d.php:90
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d értékek voltak elvárva, de %2$d található."
 
 #: libraries/sql-parser/src/Components/Array2d.php:113
 msgid "An opening bracket followed by a set of values was expected."
@@ -13961,21 +13953,21 @@ msgstr ""
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Felismerhetetlen adattípus."
 
 #: libraries/sql-parser/src/Components/Expression.php:225
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Váratlan lezáró zárójel."
 
 #: libraries/sql-parser/src/Components/Expression.php:246
 #: libraries/sql-parser/src/Components/Expression.php:283
 #: libraries/sql-parser/src/Components/Expression.php:303
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Egy álnév korábban már megtalálva."
 
 #: libraries/sql-parser/src/Components/Expression.php:257
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Váratlan pont."
 
 #: libraries/sql-parser/src/Components/Expression.php:327
 #, fuzzy
@@ -14007,7 +13999,7 @@ msgstr ""
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Ez a lehetőség ütközik ezzel: „%1$s”."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
 #, fuzzy
@@ -14032,10 +14024,9 @@ msgid "A rename operation was expected."
 msgstr "A sablon törölve lett."
 
 #: libraries/sql-parser/src/Lexer.php:250
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Nem várt karakterek a(z) %s sorban."
+msgstr "Váratlan karakter."
 
 #: libraries/sql-parser/src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
@@ -14065,25 +14056,24 @@ msgstr "a tábla elejénél"
 
 #: libraries/sql-parser/src/Parser.php:390
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Felismerhetetlen utasítástípus."
 
 #: libraries/sql-parser/src/Parser.php:461
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Nem volt korábban elindított tranzakció."
 
 #: libraries/sql-parser/src/Statement.php:206
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Nem várt karakterek a(z) %s sorban."
+msgstr "Váratlan jelsor."
 
 #: libraries/sql-parser/src/Statement.php:248
 msgid "A new statement was found, but no delimiter between them."
-msgstr ""
+msgstr "Egy új utasítás található, de nincs elválasztó köztük."
 
 #: libraries/sql-parser/src/Statement.php:269
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Felismerhetetlen kulcsszó."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
 #, fuzzy
@@ -14194,10 +14184,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "SQL lekérdezés(ek) futtatása a(z) %s adatbázison"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "SQL lekérdezés(ek) futtatása a(z) %s adatbázison"
+msgstr "SQL lekérdezés(ek) futtatása a(z) %s táblán"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
