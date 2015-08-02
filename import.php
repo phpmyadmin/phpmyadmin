@@ -638,7 +638,7 @@ if (! $error) {
         // Do the real import
         try {
             $default_fk_check = PMA_Util::handleDisableFKCheckInit();
-            $import_plugin->doImport();
+            $import_plugin->doImport($sql_data);
             PMA_Util::handleDisableFKCheckCleanup($default_fk_check);
         } catch (Exception $e) {
             PMA_Util::handleDisableFKCheckCleanup($default_fk_check);
