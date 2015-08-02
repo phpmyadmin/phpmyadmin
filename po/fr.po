@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-09 11:39+0200\n"
+"PO-Revision-Date: 2015-08-02 12:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/fr/>\n"
@@ -2811,7 +2811,7 @@ msgstr "Règle invalide à la ligne %s."
 #: libraries/Advisor.class.php:423
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Caractères imprévus à la ligne %s."
+msgstr "Caractères inattendus à la ligne %s."
 
 #: libraries/Advisor.class.php:438
 #, php-format
@@ -3772,7 +3772,7 @@ msgstr "Jeux de caractères"
 #: libraries/Menu.class.php:608 libraries/Util.class.php:4160
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
-msgstr "Plug-ins"
+msgstr "Greffons"
 
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4161
 msgid "Engines"
@@ -7955,7 +7955,9 @@ msgstr "Nombre de colonnes"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Erreur lors du chargement des modules d'exportation !"
+msgstr ""
+"Erreur lors du chargement des greffons d'exportation, veuillez vérifier "
+"votre installation !"
 
 #: libraries/display_export.lib.php:169
 msgid "Exporting databases from the current server"
@@ -11708,7 +11710,7 @@ msgstr "Début"
 
 #: libraries/server_plugins.lib.php:77
 msgid "Plugin"
-msgstr "Plug-in"
+msgstr "Greffon"
 
 #: libraries/server_plugins.lib.php:78 libraries/server_plugins.lib.php:134
 msgid "Module"

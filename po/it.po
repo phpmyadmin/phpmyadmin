@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-14 15:53+0200\n"
+"PO-Revision-Date: 2015-08-02 11:11+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -3516,7 +3516,7 @@ msgstr "Si é verificato un errore durante lo spostamento del file."
 
 #: libraries/File.class.php:487
 msgid "Cannot read (moved) upload file."
-msgstr "Impossibile leggere dal file (dopo lo spostamento) caricato."
+msgstr "Impossibile leggere il file caricato (spostato)."
 
 #: libraries/Footer.class.php:74
 #, php-format
