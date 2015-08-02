@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-07-20 21:04+0200\n"
+"PO-Revision-Date: 2015-08-02 14:45+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3936,11 +3936,13 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Linting is uitgeschakeld voor deze query omdat  het de maximum lengte "
+"overschrijdt."
 
 #: libraries/Linter.class.php:147
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (nabij <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:430
 #: libraries/config/messages.inc.php:930
@@ -7577,7 +7579,6 @@ msgid "User preferences storage table"
 msgstr "Opslagtabel voor gebruikersvoorkeuren"
 
 #: libraries/config/messages.inc.php:809
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -7587,10 +7588,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable\n"
 "    this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Zowel deze tabel als de gebruikersgroepen tabel (user groups) zijn "
-"noodzakelijk om de configureerbare menu's optie te activeren; als u een van "
-"beide leeg laat wordt deze functie uitgeschakeld, suggestie: "
-"[kbd]pma__users[/kbd]."
+"Zowel deze tabel als de gebruikersgroepen tabel zijn noodzakelijk om de "
+"optie configureren menu's te activeren; als u een van beide leeg laat wordt "
+"deze functie uitgeschakeld, suggestie: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:813
 msgid "Users table"
@@ -8203,6 +8203,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Deze methode vereist een '<i>SSL verbinding</i>' of een <i>niet-SSL "
+"verbinding die het wachtwoord versleuteld met RSA</i>'; wanneer verbinding "
+"wordt gemaakt met de server."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -11392,7 +11395,6 @@ msgid "Master configuration"
 msgstr "Masterinstellingen"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11408,8 +11410,9 @@ msgid ""
 msgstr ""
 "Deze server is niet ingesteld als master in een replicatieproces. U kunt "
 "kiezen om alle databases te repliceren en enkele te negeren (handig indien u "
-"de meerderheid van uw databases wil repliceren) of u kiest ervoor om alleen "
-"enkele geselecteerde databases te repliceren:"
+"de meerderheid van uw databases wil repliceren) of u kiest er voor om "
+"standaard alle databases te negeren en alleen enkele geselecteerde databases "
+"te repliceren. Maak a.u.b. uw keuze:"
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
@@ -12557,22 +12560,19 @@ msgid "Do not change the password"
 msgstr "Wijzig het wachtwoord niet"
 
 #: libraries/server_privileges.lib.php:1693
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Authenticatie"
+msgstr "Authenticatie Plugin"
 
 #: libraries/server_privileges.lib.php:1698
-#, fuzzy
 #| msgid "Generate password"
 msgid "mysql_native_password"
-msgstr "Wachtwoord genereren"
+msgstr "mysql_wachtwoord"
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
 #| msgid "Change password"
 msgid "sha256_password"
-msgstr "Wachtwoord wijzigen"
+msgstr "sha256_wachtwoord"
 
 #: libraries/server_privileges.lib.php:1926
 #, php-format
@@ -12822,7 +12822,6 @@ msgstr ""
 "gaat."
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12835,11 +12834,11 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL-"
-"privilegestabel. De inhoud van deze tabel kan verschillen met de rechten van "
-"de server als er handmatig aanpassingen zijn aangebracht. Mocht dit het "
-"geval zijn dan moet men %sde rechtentabel vernieuwen%s voordat men verder "
-"gaat."
+"Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL "
+"gebruikersrechtentabel. De inhoud van deze tabel kan verschillen met de "
+"rechten van de server als er handmatig aanpassingen zijn aangebracht. Mocht "
+"dit het geval zijn dan moet de gebruikersrechten opnieuw geladen worden, "
+"maar op dit moment heeft u niet het RELOAD gebruikersrecht."
 
 #: libraries/server_privileges.lib.php:4513
 msgid "The selected user was not found in the privilege table."
@@ -13996,171 +13995,160 @@ msgstr "Dit is een alleen-lezen variabele en kan niet worden gewijzigd"
 #: libraries/sql-parser/src/Component.php:61
 #: libraries/sql-parser/src/Component.php:78
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Nog niet geïmplementeerd."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
-#, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Iconen gebruiken bij tabelbewerkingen"
+msgstr "Onbekende bewerking."
 
 #: libraries/sql-parser/src/Components/Array2d.php:90
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d waarden werden verwacht, maar %2$d gevonden."
 
 #: libraries/sql-parser/src/Components/Array2d.php:113
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Een openingshaakje gevolgd door een set met waardes werd verwacht."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:101
 #: libraries/sql-parser/src/Components/FieldDefinition.php:202
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Een openingshaakje werd verwacht."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Een komma  of een sluitingshaakje werd verwacht"
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Onbekend gegevenstype."
 
 #: libraries/sql-parser/src/Components/Expression.php:225
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Onverwacht sluitingshaakje."
 
 #: libraries/sql-parser/src/Components/Expression.php:246
 #: libraries/sql-parser/src/Components/Expression.php:283
 #: libraries/sql-parser/src/Components/Expression.php:303
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Een alias was eerder al gevonden."
 
 #: libraries/sql-parser/src/Components/Expression.php:257
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Onverwachte punt."
 
 #: libraries/sql-parser/src/Components/Expression.php:327
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Er zijn geen tabellen geselecteerd."
+msgstr "Een alias werd verwacht."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:96
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Geen versies geselecteerd."
+msgstr "Een expressie werd verwacht."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#, fuzzy
 #| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Er zijn geen tabellen geselecteerd."
+msgstr "Een komma of een sluitingshaakje werd verwacht."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:262
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Een sluitingshaakje werd verwacht."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Een offset werd verwacht."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Deze optie conflicteert met \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Het totaal aantal open tabellen."
+msgstr "De oude naam van de tabel werd verwacht."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:112
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Sleutelwoord \"TO\" werd verwacht."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:129
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Het totaal aantal open tabellen."
+msgstr "De nieuwe naam van de tabel werd verwacht."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Template werd verwijderd."
+msgstr "Een hernoem bewerking werd verwacht."
 
 #: libraries/sql-parser/src/Lexer.php:250
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Onverwachte tekens op lijn %s."
+msgstr "Onverwachte letter."
 
 #: libraries/sql-parser/src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Spatie(s) werd(en) verwacht voor het scheidingsteken."
 
 #: libraries/sql-parser/src/Lexer.php:296
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Scheidingsteken verwacht."
 
 #: libraries/sql-parser/src/Lexer.php:717
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "Gebeurtenis %1$s werd aangemaakt."
+msgstr "Eindquote %1$s werd verwacht."
 
 #: libraries/sql-parser/src/Lexer.php:750
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Tabelnaam-template"
+msgstr "Naam van variabele  werd verwacht."
 
 #: libraries/sql-parser/src/Parser.php:375
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "bij begin van de tabel"
+msgstr "Onverwacht begin van opdracht."
 
 #: libraries/sql-parser/src/Parser.php:390
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Opdracht type niet herkent."
 
 #: libraries/sql-parser/src/Parser.php:461
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Er is geen transactie gestart."
 
 #: libraries/sql-parser/src/Statement.php:206
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Onverwachte tekens op lijn %s."
+msgstr "Onverwacht token."
 
 #: libraries/sql-parser/src/Statement.php:248
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
+"Een nieuwe opdracht werd gevonden, maar zonder scheidingsteken er tussen."
 
 #: libraries/sql-parser/src/Statement.php:269
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Sleutelwoord niet herkent."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Het totaal aantal open tabellen."
+msgstr "De naam van de entiteit werd verwacht."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
 msgid "At least one field definition was expected."
-msgstr ""
+msgstr "Er werd minimaal één velddefinitie verwacht."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Een \"RETURNS\" sleutelwoord werd verwacht."
 
 #: libraries/sql.lib.php:224
 msgid "Detailed profile"
@@ -14255,10 +14243,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Voer SQL-query/query's uit op database %s"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Voer SQL-query/query's uit op database %s"
+msgstr "Voer SQL-query/query's uit op tabel %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
