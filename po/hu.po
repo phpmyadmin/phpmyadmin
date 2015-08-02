@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-08-02 12:14+0200\n"
+"PO-Revision-Date: 2015-08-02 12:15+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
@@ -14895,7 +14895,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualitás"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
