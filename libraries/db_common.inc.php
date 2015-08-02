@@ -16,6 +16,8 @@ require_once './libraries/bookmark.lib.php';
 
 PMA_Util::checkParameters(array('db'));
 
+global $cfg;
+
 $is_show_stats = $cfg['ShowStats'];
 
 $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);

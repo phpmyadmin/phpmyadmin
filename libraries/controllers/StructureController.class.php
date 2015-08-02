@@ -129,7 +129,7 @@ class StructureController extends Controller
                 || isset($_POST['mult_btn'])
             ) {
                 $action = 'db_structure.php';
-                $err_url = 'db_structure.php' . PMA_URL_getCommon(array('db' => $$this->_db));
+                $err_url = 'db_structure.php' . PMA_URL_getCommon(array('db' => $this->_db));
 
                 // see bug #2794840; in this case, code path is:
                 // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
