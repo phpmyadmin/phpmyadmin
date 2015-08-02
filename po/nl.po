@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-08-02 14:45+0200\n"
+"PO-Revision-Date: 2015-08-02 14:50+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -3827,7 +3827,7 @@ msgstr "Fout bij het verplaatsen van het geüploade bestand."
 
 #: libraries/File.class.php:487
 msgid "Cannot read (moved) upload file."
-msgstr "Het geüploade bestand kan niet gelezen (verplaatst) worden."
+msgstr "Het (verplaatste) geüploade bestand kan niet gelezen worden."
 
 #: libraries/Footer.class.php:74
 #, php-format
