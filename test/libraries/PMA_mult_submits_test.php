@@ -340,6 +340,8 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetDataForSubmitMult()
     {
+        $this->markTestIncomplete('Not Implemented Yet!');
+        /* todo: now this test to be moved to new StructureController
         $submit_mult = "index";
         $db = "PMA_db";
         $table = "PMA_table";
@@ -422,7 +424,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             null,
             $centralColsError
-        );
+        );*/
     }
 
     /**
