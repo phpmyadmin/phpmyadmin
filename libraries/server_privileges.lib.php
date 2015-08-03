@@ -1695,7 +1695,7 @@ function PMA_getHtmlForLoginInformationFields(
         . '<select id="select_authentication_plugin" name="authentication_plugin">'
         . '<option value="mysql_native_password" '
         . ($orig_auth_plugin == 'mysql_native_password' ? 'selected ' : '')
-        . '>' . __('mysql_native_password') . '</option>';
+        . '>' . __('MySQL native password') . '</option>';
 
     // Since, 5.6.6 does not provide a syntax to alter
     // the authentication plugin used for a user,
