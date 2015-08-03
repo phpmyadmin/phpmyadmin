@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-08-03 09:51+0200\n"
-"PO-Revision-Date: 2015-08-03 22:59+0200\n"
+"PO-Revision-Date: 2015-08-03 23:39+0200\n"
 "Last-Translator: Guilherme Seibt <gui@webseibt.net>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -3682,7 +3682,7 @@ msgstr "Chave de relação"
 
 #: libraries/DisplayResults.class.php:1744
 msgid "Relational display column"
-msgstr "Exibir coluna relacional"
+msgstr "Coluna de exibição relacional"
 
 #: libraries/DisplayResults.class.php:1757
 msgid "Show binary contents"
@@ -6094,7 +6094,7 @@ msgstr "Adicionar %s"
 
 #: libraries/config/messages.inc.php:207
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Usar hexadecimal para BLOB"
+msgstr "Usar hexadecimal para BINARY e BLOB"
 
 #: libraries/config/messages.inc.php:209
 msgid "Use ignore inserts"
@@ -6301,9 +6301,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Especifique o texto da barra de título do navegador. Veja a "
-"[doc@cfg_TitleTable]documentação[/doc] para strings mágicas que podem ser "
-"usadas para conseguir valores especiais."
+"Especifica o texto da barra de título do browser. Veja a "
+"[doc@faq6-27]documentação[/doc] para strings mágicas que podem ser usadas "
+"para conseguir valores especiais."
 
 #: libraries/config/messages.inc.php:290
 msgid "Security"
@@ -6821,8 +6821,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Agrupa itens na árvore de navegação (determinado pelo divisor definido nos "
-"Bancos de Dados e Tabelas abaixo)."
+"Agrupa itens na árvore de navegação (determinado pelo divisor definido na "
+"guia Banco de Dados e Tabelas acima)."
 
 #: libraries/config/messages.inc.php:505
 msgid "Group items in the tree"
@@ -7468,8 +7468,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Deixe em branco se não houver tabela(s) favorita(s) \"persistente\" através "
-"de sessões, sugerido: [kbd]pma__favorite[/kbd]."
+"Deixe em branco para nenhuma das tabelas \"persistentes\" favoritas ao longo "
+"das sessões, sugerimos: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:740
 msgid "Favorites table"
@@ -7852,7 +7852,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:891
 msgid "Skip locked tables"
-msgstr "Exibir tabelas bloqueadas"
+msgstr "Saltar tabelas bloqueadas"
 
 #: libraries/config/messages.inc.php:897
 #, fuzzy
@@ -10842,8 +10842,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
-"Atualizar dados quando chaves duplicadas forem encontrados na importação ("
-"adicionar ON UPDATE DUPLICATE KEY)"
+"Atualiza os dados quando chaves duplicadas forem encontradas na importação ("
+"adicione ON UPDATE DUPLICATE KEY)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -15524,7 +15524,7 @@ msgstr "Melhorar a estrutura da tabela"
 
 #: templates/structure/optional_action_links.phtml:30
 msgid "Track view"
-msgstr "Monitorar visão"
+msgstr "Ver Rastrear"
 
 #: templates/structure/row_stats_table.phtml:3
 msgid "Row statistics"
@@ -17105,8 +17105,8 @@ msgstr ""
 "consumo. Tenha cuidado, pois ao atribuir valores muito altos, seu sistema "
 "começará a fazer swap (aproveitamento de espaço em disco para função de "
 "memória), o que diminuirá o desempenho significativamente. Veja também <a "
-"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">este artigo</a> para eventuais dúvidas."
+"href=\"http://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">este artigo</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
