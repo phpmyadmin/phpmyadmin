@@ -106,7 +106,8 @@ function PMA_getHtmlForChangePassword($username, $hostname)
             $html .= '" checked="checked"';
         }
         $html .= ' />'
-            . '<label for="radio_pw_hash_sha256">' . 'sha256_password'
+            . '<label for="radio_pw_hash_sha256">'
+            . __('SHA256 password')
             . '</label>'
             . '</td>'
             . '</tr>';

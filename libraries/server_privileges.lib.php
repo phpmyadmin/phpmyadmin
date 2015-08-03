@@ -1706,7 +1706,7 @@ function PMA_getHtmlForLoginInformationFields(
     ) {
         $html_output .= '<option value="sha256_password" '
         . ($orig_auth_plugin == 'sha256_password' ? ' selected ' : '')
-        . ' >' . __('sha256_password') . '</option>';
+        . ' >' . __('SHA256 password') . '</option>';
     }
 
     $html_output .= '</select>'
