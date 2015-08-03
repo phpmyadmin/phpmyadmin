@@ -1741,7 +1741,7 @@ class PMA_DisplayResults
             $options_html .= '<div class="formelement">';
             $choices = array(
                 'K'   => __('Relational key'),
-                'D'   => __('Relational display column')
+                'D'   => __('Display column for relations')
             );
 
             $options_html .= PMA_Util::getRadioFields(
