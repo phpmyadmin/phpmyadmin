@@ -765,7 +765,12 @@ class StructureController extends Controller
             /**
              * Runs common work
              */
-            $this->_url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
+            // set db, table references, for require_once that follows
+            // got to be eliminated in long run
+            $db = &$this->_db;
+            $table = &$this->_table;
+            require_once 'libraries/tbl_common.inc.php';
+            $this->_url_query = $url_query . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
             $url_params['goto'] = 'tbl_structure.php';
             $url_params['back'] = 'tbl_structure.php';
 
