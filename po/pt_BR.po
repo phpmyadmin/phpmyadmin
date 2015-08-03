@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-08-03 23:04+0200\n"
-"Last-Translator: Guilherme Seibt <gui@webseibt.net>\n"
+"PO-Revision-Date: 2015-08-03 23:10+0200\n"
+"Last-Translator: Guilherme Souza Silva <g.szsilva@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5786,7 +5786,7 @@ msgstr "Adicionar %s"
 
 #: libraries/config/messages.inc.php:178
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Usar hexadecimal para BLOB"
+msgstr "Usar hexadecimal para BINARY e BLOB"
 
 #: libraries/config/messages.inc.php:180
 msgid "Use ignore inserts"
@@ -5971,9 +5971,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Especifique o texto da barra de título do navegador. Veja a "
-"[doc@cfg_TitleTable]documentação[/doc] para strings mágicas que podem ser "
-"usadas para conseguir valores especiais."
+"Especifica o texto da barra de título do browser. Veja a "
+"[doc@faq6-27]documentação[/doc] para strings mágicas que podem ser usadas "
+"para conseguir valores especiais."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
@@ -6497,8 +6497,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Agrupa itens na árvore de navegação (determinado pelo divisor definido nos "
-"Bancos de Dados e Tabelas abaixo)."
+"Agrupa itens na árvore de navegação (determinado pelo divisor definido na "
+"guia Banco de Dados e Tabelas acima)."
 
 #: libraries/config/messages.inc.php:460
 msgid "Group items in the tree"
