@@ -714,7 +714,7 @@ class StructureController extends Controller
                         );
                         //update the existing variables
                         // todo: refactor mult_submits.inc.php such as
-                        // below global sets are not needed anymore
+                        // below globals are not needed anymore
                         if (isset($what_ret)) {
                             $GLOBALS['what'] = $what_ret;
                             global $what;
@@ -738,7 +738,7 @@ class StructureController extends Controller
                         if (empty($message)) {
                             $message = PMA_Message::success();
                         }
-                        $this->response->addHTML($message);
+                        $this->response->addHTML(PMA_Util::getMessage($message, $sql_query));
                     }
                 } else {
                     $this->response->isSuccess(false);
@@ -778,6 +778,13 @@ class StructureController extends Controller
              * Adding indexes
              */
             if (isset($_REQUEST['add_key'])) {
+                //todo: set some variables for sql.php include, to be eliminated
+                //after refactoring sql.php
+                $db = $this->_db;
+                $table = $this->_table;
+                $cfg = $GLOBALS['cfg'];
+                $is_superuser = $GLOBALS['dbi']->isSuperuser();
+                $pmaThemeImage = $GLOBALS['pmaThemeImage'];
                 include 'sql.php';
                 $GLOBALS['reload'] = true;
             }
@@ -1894,7 +1901,7 @@ class StructureController extends Controller
     ) {
         if (empty($showtable)) {
             $showtable = $this->dbi->getTable(
-                $GLOBALS['db'], $GLOBALS['table']
+                $this->_db, $this->_table
             )->sGetStatusInfo(null, true);
         }
 
