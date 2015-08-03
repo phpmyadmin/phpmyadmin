@@ -31,7 +31,6 @@ class SystemDatabase
      *
      * @param \PMA_DatabaseInterface $dbi Database interface for the system database
      *
-     * @return SystemDatabase
      */
     function __construct(\PMA_DatabaseInterface $dbi)
     {
