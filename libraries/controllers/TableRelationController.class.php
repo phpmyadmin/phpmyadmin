@@ -14,7 +14,6 @@ require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/index.lib.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/structure.lib.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/Util.class.php';
 
@@ -157,8 +156,17 @@ class TableRelationController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $GLOBALS['dbi']->getTable($this->db, $this->table)->sGetStatusInfo('ENGINE');
-        $this->response->addHTML(PMA_getStructureSecondaryTabs($engine));
+        $engine = $this->dbi->getTable($this->db, $this->table)->sGetStatusInfo('ENGINE');
+        $this->response->addHTML(Template::get('structure/secondary_tabs')
+            ->render(
+                array(
+                    'url_params' => array(
+                        'db' => $GLOBALS['db'],
+                        'table' => $GLOBALS['table']
+                    ),
+                    'engine' => $engine
+                )
+            ));
         $this->response->addHTML('<div id="structure_content">');
 
         /**

@@ -8,7 +8,12 @@
     </label>
 </th>
 <td <?php echo $type_nowrap; ?>>
-    <bdo dir="ltr" lang="en"><?php echo $extracted_columnspec['displayed_type'] . $type_mime; ?></bdo>
+    <bdo dir="ltr" lang="en"><?php echo $extracted_columnspec['displayed_type']; ?>
+        <?php if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfgRelation']['mimework']
+                    && $GLOBALS['cfg']['BrowseMIME'] && isset($mime_map[$row['Field']]['mimetype'])): ?>
+    <br />MIME: <?php echo strtolower(str_replace('_', '/', $mime_map[$row['Field']]['mimetype'])); ?>
+        <?php endif; ?>
+    </bdo>
 </td>
 <td>
 <?php if (! empty($field_charset)): ?>

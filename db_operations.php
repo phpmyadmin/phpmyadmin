@@ -17,6 +17,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
+require_once 'libraries/display_create_table.lib.php';
 
 /**
  * functions implementation for this script
@@ -232,11 +233,7 @@ if (!$is_information_schema) {
     }
 
     $response->addHTML('<div class="operations_half_width">');
-    ob_start();
-    include 'libraries/display_create_table.lib.php';
-    $content = ob_get_contents();
-    ob_end_clean();
-    $response->addHTML($content);
+    $response->addHTML(PMA_getHtmlForCreateTable($db));
     $response->addHTML('</div>');
 
     /**
