@@ -4,12 +4,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-31 07:06-0400\n"
-"PO-Revision-Date: 2015-07-30 15:45+0200\n"
+"PO-Revision-Date: 2015-08-03 09:43+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7461,7 +7461,6 @@ msgid "User preferences storage table"
 msgstr "Kasutaja eelistusi säilitav tabel"
 
 #: libraries/config/messages.inc.php:809
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -7472,8 +7471,8 @@ msgid ""
 "    this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Kohandatavate menüüde funktsionaalsuse kasutamiseks on vajalikud nii see "
-"tabel kui ka kasutajate gruppide tabel. Jättes ühe neist tühjaks, keelad "
-"menüüde kohandamise; soovitatav: [kbd]pma__users[/kbd]."
+"tabel kui ka kasutajate gruppide tabel. Jättes neist ühe tühjaks,\n"
+"    keelad menüüde kohandamise; soovitatav: [kbd]pma__users[/kbd].."
 
 #: libraries/config/messages.inc.php:813
 msgid "Users table"
@@ -11203,7 +11202,6 @@ msgid "Master configuration"
 msgstr "Ülema seadistus"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11217,10 +11215,10 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"See server ei ole paljundamisel seatud ülemaks. Sa saad valida, kas "
-"paljundad kõik andmebaasid ja ignoreerid mõningaid (kasulik, kui soovid "
-"paljundada enamus andmebaase) või ignoreerid vaikimisi kõiki andmebaase ja "
-"lubad paljundada ainult mõningaid andmebaase. Palun vali meetod:"
+"See server ei ole häälestatud paljundamise ülemserveriks. Sa saad valida, "
+"kas paljundad kõik andmebaasid ja ignoreerid mõningaid (kasulik, kui soovid "
+"paljundada enamuse andmebaasidest) või ignoreerid vaikimisi kõiki andmebaase "
+"ja lubad paljundada ainult mõningaid andmebaase. Palun vali meetod:"
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
@@ -12345,22 +12343,19 @@ msgid "Do not change the password"
 msgstr "Ära muuda parooli"
 
 #: libraries/server_privileges.lib.php:1693
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Autentimine"
+msgstr "Autentimise pistik"
 
 #: libraries/server_privileges.lib.php:1698
-#, fuzzy
 #| msgid "Generate password"
 msgid "mysql_native_password"
-msgstr "Genereeri parool"
+msgstr "mysql_native_password"
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
 #| msgid "Change password"
 msgid "sha256_password"
-msgstr "Muuda parooli"
+msgstr "sha256_password"
 
 #: libraries/server_privileges.lib.php:1926
 #, php-format
@@ -12600,7 +12595,6 @@ msgstr ""
 "muudetud. Sellisel juhul peaksid enne jätkamist %sõigused uuesti laadima%s."
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12615,7 +12609,8 @@ msgid ""
 msgstr ""
 "Märkus: phpMyAdmin võtab kasutajate õigused otse MySQL'i õiguste tabelist. "
 "Tabelite sisu võib erineda sellest, mida server kasutab, kui neid on käsitsi "
-"muudetud. Sellisel juhul peaksid enne jätkamist %sõigused uuesti laadima%s."
+"muudetud. Sellisel juhul peab õigused uuesti laadima, kuid hetkel puudub sul "
+"uuesti laadimise õigus."
 
 #: libraries/server_privileges.lib.php:4513
 msgid "The selected user was not found in the privilege table."
@@ -13787,10 +13782,9 @@ msgid "An expression was expected."
 msgstr "Oodati avaldist."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#, fuzzy
 #| msgid "An alias was expected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Oodati aliast."
+msgstr "Oodati koma või lõpetavat sulgu."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:262
 msgid "A closing bracket was expected."
