@@ -705,15 +705,40 @@ class StructureController extends Controller
                         // handle multiple field commands
                         // handle confirmation of deleting multiple columns
                         $action = 'tbl_structure.php';
+                        $GLOBALS['selected'] = $_REQUEST['selected_fld'];
+                        list(
+                            $what_ret, $query_type_ret, $is_unset_submit_mult, $mult_btn_ret,
+                            $centralColsError
+                        ) = $this->getDataForSubmitMult(
+                            $submit_mult, $_REQUEST['selected_fld'], $action
+                        );
+                        //update the existing variables
+                        // todo: refactor mult_submits.inc.php such as
+                        // below global sets are not needed anymore
+                        if (isset($what_ret)) {
+                            $GLOBALS['what'] = $what_ret;
+                            global $what;
+                        }
+                        if (isset($query_type_ret)) {
+                            $GLOBALS['query_type'] = $query_type_ret;
+                            global $query_type;
+                        }
+                        if ($is_unset_submit_mult) {
+                            unset($submit_mult);
+                        }
+                        if (isset($mult_btn_ret)) {
+                            $GLOBALS['mult_btn'] = $mult_btn_ret;
+                            global $mult_btn;
+                        }
                         include 'libraries/mult_submits.inc.php';
                         /**
                          * if $submit_mult == 'change', execution will have stopped
                          * at this point
                          */
-
                         if (empty($message)) {
                             $message = PMA_Message::success();
                         }
+                        $this->response->addHTML($message);
                     }
                 } else {
                     $this->response->isSuccess(false);
@@ -1191,6 +1216,7 @@ class StructureController extends Controller
 
         // Parse and analyze the query
         // @todo Refactor parse_analyze.inc to protected function
+        $db = &$this->_db;
         include_once 'libraries/parse_analyze.inc.php';
 
         include_once 'libraries/sql.lib.php';
@@ -1602,7 +1628,7 @@ class StructureController extends Controller
 
         if ($current_table['TABLE_TYPE'] == 'VIEW' || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW') {
             // countRecords() takes care of $cfg['MaxExactCountViews']
-            $current_table['TABLE_ROWS'] = $GLOBALS['dbi']
+            $current_table['TABLE_ROWS'] = $this->dbi
                 ->getTable($this->_db, $current_table['TABLE_NAME'])
                 ->countRecords(true);
             $table_is_view = true;
@@ -1634,7 +1660,7 @@ class StructureController extends Controller
         $formatted_overhead, $overhead_unit
     ) {
         if ($db_is_system_schema) {
-            $current_table['Rows'] = $GLOBALS['dbi']
+            $current_table['Rows'] = $this->dbi
                 ->getTable($this->_db, $current_table['Name'])
                 ->countRecords();
         }
@@ -1680,7 +1706,7 @@ class StructureController extends Controller
             || !isset($current_table['TABLE_ROWS'])
         ) {
             $current_table['COUNTED'] = true;
-            $current_table['TABLE_ROWS'] = $GLOBALS['dbi']
+            $current_table['TABLE_ROWS'] = $this->dbi
                 ->getTable($this->_db, $current_table['TABLE_NAME'])
                 ->countRecords(true);
         } else {
@@ -1867,7 +1893,7 @@ class StructureController extends Controller
         $url_query, $tbl_collation
     ) {
         if (empty($showtable)) {
-            $showtable = $GLOBALS['dbi']->getTable(
+            $showtable = $this->dbi->getTable(
                 $GLOBALS['db'], $GLOBALS['table']
             )->sGetStatusInfo(null, true);
         }
@@ -1948,6 +1974,105 @@ class StructureController extends Controller
                 'tot_size' => $tot_size,
                 'tot_unit' => $tot_unit
             )
+        );
+    }
+
+    /**
+     * Gets table primary key
+     *
+     * @return string
+     */
+    protected function getKeyForTablePrimary()
+    {
+        $this->dbi->selectDb($this->_db);
+        $result = $this->dbi->query(
+            'SHOW KEYS FROM ' . PMA_Util::backquote($this->_table) . ';'
+        );
+        $primary = '';
+        while ($row = $this->dbi->fetchAssoc($result)) {
+            // Backups the list of primary keys
+            if ($row['Key_name'] == 'PRIMARY') {
+                $primary .= $row['Column_name'] . ', ';
+            }
+        } // end while
+        $this->dbi->freeResult($result);
+
+        return $primary;
+    }
+
+    /**
+     * Get List of information for Submit Mult
+     *
+     * @param string $submit_mult mult_submit type
+     * @param array  $selected    the selected columns
+     * @param string $action      action type
+     *
+     * @return array
+     */
+    protected function getDataForSubmitMult($submit_mult, $selected, $action)
+    {
+        $what = null;
+        $query_type = null;
+        $is_unset_submit_mult = false;
+        $mult_btn = null;
+        $centralColsError = null;
+        switch ($submit_mult) {
+        case 'drop':
+            $what     = 'drop_fld';
+            break;
+        case 'primary':
+            // Gets table primary key
+            $primary = $this->getKeyForTablePrimary();
+            if (empty($primary)) {
+                // no primary key, so we can safely create new
+                $is_unset_submit_mult = true;
+                $query_type = 'primary_fld';
+                $mult_btn   = __('Yes');
+            } else {
+                // primary key exists, so lets as user
+                $what = 'primary_fld';
+            }
+            break;
+        case 'index':
+            $is_unset_submit_mult = true;
+            $query_type = 'index_fld';
+            $mult_btn   = __('Yes');
+            break;
+        case 'unique':
+            $is_unset_submit_mult = true;
+            $query_type = 'unique_fld';
+            $mult_btn   = __('Yes');
+            break;
+        case 'spatial':
+            $is_unset_submit_mult = true;
+            $query_type = 'spatial_fld';
+            $mult_btn   = __('Yes');
+            break;
+        case 'ftext':
+            $is_unset_submit_mult = true;
+            $query_type = 'fulltext_fld';
+            $mult_btn   = __('Yes');
+            break;
+        case 'add_to_central_columns':
+            include_once 'libraries/central_columns.lib.php';
+            $centralColsError = PMA_syncUniqueColumns($selected, false);
+            break;
+        case 'remove_from_central_columns':
+            include_once 'libraries/central_columns.lib.php';
+            $centralColsError = PMA_deleteColumnsFromList($selected, false);
+            break;
+        case 'change':
+            $this->displayHtmlForColumnChange($selected, $action);
+            // execution stops here but PMA_Response correctly finishes
+            // the rendering
+            exit;
+        case 'browse':
+            // this should already be handled by tbl_structure.php
+        }
+
+        return array(
+            $what, $query_type, $is_unset_submit_mult, $mult_btn,
+            $centralColsError
         );
     }
 }

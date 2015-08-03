@@ -116,28 +116,7 @@ if (! empty($submit_mult)
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
         // coming from table structure view - do something with
         // selected columns
-        $selected = $selected_fld;
-        list(
-                $what_ret, $query_type_ret, $is_unset_submit_mult, $mult_btn_ret,
-                $centralColsError
-                )
-                    = PMA_getDataForSubmitMult(
-                        $submit_mult, $GLOBALS['db'], $table,
-                        $selected, $action
-                    );
-        //update the existing variables
-        if (isset($what_ret)) {
-            $what = $what_ret;
-        }
-        if (isset($query_type_ret)) {
-            $query_type = $query_type_ret;
-        }
-        if ($is_unset_submit_mult) {
-            unset($submit_mult);
-        }
-        if (isset($mult_btn_ret)) {
-            $mult_btn = $mult_btn_ret;
-        }
+        // handled in StructrueController
     } else {
         // coming from browsing - do something with selected rows
         $what = 'row_delete';

@@ -300,32 +300,6 @@ function PMA_getQueryStrFromSelected(
 }
 
 /**
- * Gets table primary key
- *
- * @param string $db    name of db
- * @param string $table name of table
- *
- * @return string
- */
-function PMA_getKeyForTablePrimary($db, $table)
-{
-    $GLOBALS['dbi']->selectDb($db);
-    $result = $GLOBALS['dbi']->query(
-        'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
-    );
-    $primary = '';
-    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-        // Backups the list of primary keys
-        if ($row['Key_name'] == 'PRIMARY') {
-            $primary .= $row['Column_name'] . ', ';
-        }
-    } // end while
-    $GLOBALS['dbi']->freeResult($result);
-
-    return $primary;
-}
-
-/**
  * Gets HTML for replace_prefix_tbl or copy_tbl_change_prefix
  *
  * @param string $what        mult_submit type
@@ -445,84 +419,6 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
     $html .= '</form>';
 
     return $html;
-}
-
-/**
- * Get List of information for Submit Mult
- *
- * @param string $submit_mult mult_submit type
- * @param string $db          database name
- * @param string $table       table name
- * @param array  $selected    the selected columns
- * @param string $action      action type
- *
- * @return array
- */
-function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
-{
-    $what = null;
-    $query_type = null;
-    $is_unset_submit_mult = false;
-    $mult_btn = null;
-    $centralColsError = null;
-    switch ($submit_mult) {
-    case 'drop':
-        $what     = 'drop_fld';
-        break;
-    case 'primary':
-        // Gets table primary key
-        $primary = PMA_getKeyForTablePrimary($db, $table);
-        if (empty($primary)) {
-            // no primary key, so we can safely create new
-            $is_unset_submit_mult = true;
-            $query_type = 'primary_fld';
-            $mult_btn   = __('Yes');
-        } else {
-            // primary key exists, so lets as user
-            $what = 'primary_fld';
-        }
-        break;
-    case 'index':
-        $is_unset_submit_mult = true;
-        $query_type = 'index_fld';
-        $mult_btn   = __('Yes');
-        break;
-    case 'unique':
-        $is_unset_submit_mult = true;
-        $query_type = 'unique_fld';
-        $mult_btn   = __('Yes');
-        break;
-    case 'spatial':
-        $is_unset_submit_mult = true;
-        $query_type = 'spatial_fld';
-        $mult_btn   = __('Yes');
-        break;
-    case 'ftext':
-        $is_unset_submit_mult = true;
-        $query_type = 'fulltext_fld';
-        $mult_btn   = __('Yes');
-        break;
-    case 'add_to_central_columns':
-        include_once 'libraries/central_columns.lib.php';
-        $centralColsError = PMA_syncUniqueColumns($selected, false);
-        break;
-    case 'remove_from_central_columns':
-        include_once 'libraries/central_columns.lib.php';
-        $centralColsError = PMA_deleteColumnsFromList($selected, false);
-        break;
-    case 'change':
-        PMA_displayHtmlForColumnChange($db, $table, $selected, $action);
-        // execution stops here but PMA_Response correctly finishes
-        // the rendering
-        exit;
-    case 'browse':
-        // this should already be handled by tbl_structure.php
-    }
-
-    return array(
-        $what, $query_type, $is_unset_submit_mult, $mult_btn,
-        $centralColsError
-            );
 }
 
 /**
