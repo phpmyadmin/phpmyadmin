@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-07-31 07:06-0400\n"
+"POT-Creation-Date: 2015-08-03 09:51+0200\n"
 "PO-Revision-Date: 2014-12-18 09:39+0200\n"
 "Last-Translator: HM <goodlinuxuser@chmail.ir>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -139,7 +139,7 @@ msgstr "تهی"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:883
 #: templates/columns_definitions/table_fields_definitions.phtml:25
-#: templates/structure/body_for_table_summary.phtml:48
+#: templates/structure/body_for_table_summary.phtml:55
 #: templates/structure/table_structure_header.phtml:10
 msgid "Default"
 msgstr "پيش‌ فرض"
@@ -572,7 +572,7 @@ msgstr "اضافه کردن هندسه"
 #: gis_data_editor.php:409 js/messages.php:292
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1801
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:160
+#: libraries/display_change_password.lib.php:161
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:392 libraries/index.lib.php:44
@@ -640,7 +640,7 @@ msgstr ""
 msgid "Incomplete params"
 msgstr "تمام وروديها"
 
-#: import.php:181
+#: import.php:180
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -649,29 +649,29 @@ msgstr ""
 "احتمالاً شما سعی کرده اید یک فایل حجیم را آپلود کنید. لطفاً برای یافتن راه حلی "
 "برای این محدودیت به  %sdocumentation%s مراجعه کنید."
 
-#: import.php:359 import.php:674
+#: import.php:358 import.php:673
 msgid "Showing bookmark"
 msgstr "نمایش تاریخچه"
 
-#: import.php:374 import.php:670
+#: import.php:373 import.php:669
 msgid "The bookmark has been deleted."
 msgstr "تاریخچه  حذف شد ."
 
-#: import.php:471
+#: import.php:470
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:487 import.php:564 libraries/File.class.php:418
+#: import.php:486 import.php:563 libraries/File.class.php:418
 #: libraries/File.class.php:512
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "امکان خواندن فایل وجود ندارد"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:497 import.php:512 import.php:537 import.php:552
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -681,7 +681,7 @@ msgstr ""
 "فایلی که می خواهید بارگذاری کنید با فرمت (%s) فشرده سازی شده است که پیاده "
 "سازی نشده یا در تنظیمات برنامه، غیر فعال شده است."
 
-#: import.php:571
+#: import.php:570
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -691,7 +691,7 @@ msgstr ""
 "حداکثر اندازه ای که در تنظیمات PHP مشخص شده، بیشتر است [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: import.php:594
+#: import.php:593
 #, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
@@ -700,21 +700,21 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "نمی توان کاراکترها را بدون داشتن مرجع  آنها تبدیل کرد"
 
-#: import.php:635 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.inc.php:33
 msgid "Could not load import plugins, please check your installation!"
 msgstr "خطا در بارگزاری افزونه ها, لطفا مراحل نصب را چک کنید"
 
-#: import.php:677 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
 #, fuzzy, php-format
 msgid "Bookmark %s has been created."
 msgstr "تاریخچه ایجاد شده است"
 
-#: import.php:686
+#: import.php:685
 #, fuzzy, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "وارد کردن اطلاعات با موفقیت به پایان رسید ,فرآیند اجرا شد ."
 
-#: import.php:714
+#: import.php:713
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -726,7 +726,7 @@ msgstr ""
 "زمان انتظار اسکریپت به پایان رسیده، اگر مایلید عملیات را به پایان برسانید، "
 "همان فایل را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه پیدا کنید."
 
-#: import.php:724
+#: import.php:723
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -2037,8 +2037,8 @@ msgid "%d is not valid row number."
 msgstr "%d شماره ردیف معتبر نمی باشد."
 
 #: js/messages.php:352
-#: libraries/controllers/TableSearchController.class.php:441
-#: libraries/controllers/TableSearchController.class.php:918
+#: libraries/controllers/TableSearchController.class.php:439
+#: libraries/controllers/TableSearchController.class.php:916
 #: libraries/sql.lib.php:186 tbl_change.php:155
 msgid "Browse foreign values"
 msgstr ""
@@ -3950,7 +3950,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4332 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:249
-#: libraries/controllers/TableSearchController.class.php:657
+#: libraries/controllers/TableSearchController.class.php:655
 #: libraries/rte/rte_routines.lib.php:1332 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:227 tbl_row_action.php:129 view_operations.php:62
 #, fuzzy
@@ -4092,8 +4092,10 @@ msgid "Error while moving uploaded file."
 msgstr "خطا در موقع جابجا کردن فایل آپلود شده."
 
 #: libraries/File.class.php:487
-msgid "Cannot read (moved) upload file."
-msgstr ""
+#, fuzzy
+#| msgid "File was not an uploaded file."
+msgid "Cannot read moved uploaded file."
+msgstr "فایل آپلود شده نبود."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -4599,7 +4601,7 @@ msgid ""
 msgstr ""
 
 #: libraries/StorageEngine.class.php:373
-#: templates/structure/body_for_table_summary.phtml:43
+#: templates/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "در این پایگاه داده(mysql) موتور پیش فرض ذخیره سازی %s میباشد ."
@@ -8256,19 +8258,19 @@ msgstr ""
 msgid "Internal relations were successfully updated."
 msgstr "ارتباط داخلی افزوده شد"
 
-#: libraries/controllers/TableSearchController.class.php:842
+#: libraries/controllers/TableSearchController.class.php:840
 #, fuzzy
 #| msgid "Search"
 msgid "Table search"
 msgstr "جستجو"
 
-#: libraries/controllers/TableSearchController.class.php:849
+#: libraries/controllers/TableSearchController.class.php:847
 #, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "زوم جستجو"
 
-#: libraries/controllers/TableSearchController.class.php:854
+#: libraries/controllers/TableSearchController.class.php:852
 #: templates/table/selection_form.phtml:59
 #, fuzzy
 #| msgid "Hide search criteria"
@@ -8336,18 +8338,25 @@ msgid "Re-type:"
 msgstr "دوباره نوشتن"
 
 #: libraries/display_change_password.lib.php:87
-#: libraries/display_change_password.lib.php:114
-#: libraries/display_change_password.lib.php:123
+#: libraries/display_change_password.lib.php:115
+#: libraries/display_change_password.lib.php:124
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
 msgstr "رمزگذاری پسورد"
 
-#: libraries/display_change_password.lib.php:135
+#: libraries/display_change_password.lib.php:96
+#: libraries/server_privileges.lib.php:1698
+#, fuzzy
+#| msgid "Generate password"
+msgid "MySQL native password"
+msgstr "تغيير اسم رمز"
+
+#: libraries/display_change_password.lib.php:136
 msgid "MySQL 4.0 compatible"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:148
+#: libraries/display_change_password.lib.php:149
 #: libraries/server_privileges.lib.php:1718
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -12737,12 +12746,6 @@ msgstr "عدم تغيير اسم رمز"
 msgid "Authentication Plugin"
 msgstr "ورود"
 
-#: libraries/server_privileges.lib.php:1698
-#, fuzzy
-#| msgid "Generate password"
-msgid "mysql_native_password"
-msgstr "تغيير اسم رمز"
-
 #: libraries/server_privileges.lib.php:1709
 #, fuzzy
 #| msgid "Change password"
@@ -14039,8 +14042,8 @@ msgstr ""
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: libraries/sql-parser/src/Component.php:61
-#: libraries/sql-parser/src/Component.php:78
+#: libraries/sql-parser/src/Component.php:63
+#: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
 msgstr ""
 
@@ -14138,46 +14141,51 @@ msgstr "سطر حذف گرديد"
 msgid "Unexpected character."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:278
+#: libraries/sql-parser/src/Lexer.php:287
 msgid "Expected whitespace(s) before delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:296
+#: libraries/sql-parser/src/Lexer.php:305
+#: libraries/sql-parser/src/Lexer.php:321
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:717
+#: libraries/sql-parser/src/Lexer.php:736
 #, fuzzy, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "جدول %s حذف گرديد"
 
-#: libraries/sql-parser/src/Lexer.php:750
+#: libraries/sql-parser/src/Lexer.php:769
 msgid "Variable name was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:375
+#: libraries/sql-parser/src/Parser.php:380
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
 msgstr "در ابتداي جدول"
 
-#: libraries/sql-parser/src/Parser.php:390
+#: libraries/sql-parser/src/Parser.php:399
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:461
+#: libraries/sql-parser/src/Parser.php:479
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:206
+#: libraries/sql-parser/src/Statement.php:203
 msgid "Unexpected token."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:238
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:265
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:269
+#: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
 msgstr ""
 

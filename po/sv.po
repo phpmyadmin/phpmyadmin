@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-07-31 07:06-0400\n"
+"POT-Creation-Date: 2015-08-03 09:51+0200\n"
 "PO-Revision-Date: 2014-12-29 15:37+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -137,7 +137,7 @@ msgstr "Null"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:883
 #: templates/columns_definitions/table_fields_definitions.phtml:25
-#: templates/structure/body_for_table_summary.phtml:48
+#: templates/structure/body_for_table_summary.phtml:55
 #: templates/structure/table_structure_header.phtml:10
 msgid "Default"
 msgstr "Standardvärde"
@@ -566,7 +566,7 @@ msgstr "Addera geometri"
 #: gis_data_editor.php:409 js/messages.php:292
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1801
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:160
+#: libraries/display_change_password.lib.php:161
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:392 libraries/index.lib.php:44
@@ -630,7 +630,7 @@ msgstr ""
 msgid "Incomplete params"
 msgstr "kompletta infogningar"
 
-#: import.php:181
+#: import.php:180
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -639,15 +639,15 @@ msgstr ""
 "Du försökte ladda upp en fil som är för stor. Se %sdocumentation%s för att "
 "gå runt denna begränsning."
 
-#: import.php:359 import.php:674
+#: import.php:358 import.php:673
 msgid "Showing bookmark"
 msgstr "Visar bokmärke"
 
-#: import.php:374 import.php:670
+#: import.php:373 import.php:669
 msgid "The bookmark has been deleted."
 msgstr "Bokmärket har tagits bort."
 
-#: import.php:471
+#: import.php:470
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -656,12 +656,12 @@ msgstr ""
 "Skickad fil kan inte flyttas eftersom servern har open_basedir aktiverat "
 "utan åtkomst till katalogen %s (för temporära filer)."
 
-#: import.php:487 import.php:564 libraries/File.class.php:418
+#: import.php:486 import.php:563 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Filen kunde inte läsas!"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:497 import.php:512 import.php:537 import.php:552
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -671,7 +671,7 @@ msgstr ""
 "Du försökte ladda en fil med en komprimering (%s) som inte stöds. Antingen "
 "är detta inte implementerat, eller inaktiverat i din konfiguration."
 
-#: import.php:571
+#: import.php:570
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -681,29 +681,29 @@ msgstr ""
 "översteg filens storlek den maximalt tillåtna storleken i din PHP-"
 "konfiguration. Se [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:594
+#: import.php:593
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Kan inte konvertera filens teckenuppsättning utan teckenuppsättningens "
 "omvandlingsbibliotek!"
 
-#: import.php:635 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.inc.php:33
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
-#: import.php:677 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
 
-#: import.php:686
+#: import.php:685
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importen har slutförts korrekt, %d frågor utförda."
 
-#: import.php:714
+#: import.php:713
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -715,7 +715,7 @@ msgstr ""
 "Skriptets tidsbegränsning har överskridits. Om du vill slutföra importen, "
 "importera samma fil igen så kommer importen att återupptas."
 
-#: import.php:724
+#: import.php:723
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -2022,8 +2022,8 @@ msgid "%d is not valid row number."
 msgstr "%d är inte ett giltigt radnummer."
 
 #: js/messages.php:352
-#: libraries/controllers/TableSearchController.class.php:441
-#: libraries/controllers/TableSearchController.class.php:918
+#: libraries/controllers/TableSearchController.class.php:439
+#: libraries/controllers/TableSearchController.class.php:916
 #: libraries/sql.lib.php:186 tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Bläddra bland främmande värden"
@@ -3880,7 +3880,7 @@ msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4332 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:249
-#: libraries/controllers/TableSearchController.class.php:657
+#: libraries/controllers/TableSearchController.class.php:655
 #: libraries/rte/rte_routines.lib.php:1332 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:227 tbl_row_action.php:129 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
@@ -4014,7 +4014,9 @@ msgid "Error while moving uploaded file."
 msgstr "Fel vid flytt av uppladdad fil."
 
 #: libraries/File.class.php:487
-msgid "Cannot read (moved) upload file."
+#, fuzzy
+#| msgid "Cannot read (moved) upload file."
+msgid "Cannot read moved uploaded file."
 msgstr "Kan inte läsa (flyttad) uppladdad fil."
 
 #: libraries/Footer.class.php:74
@@ -4499,7 +4501,7 @@ msgstr ""
 "lagringsmotor."
 
 #: libraries/StorageEngine.class.php:373
-#: templates/structure/body_for_table_summary.phtml:43
+#: templates/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s är standardmotorn för denna MySQL-server."
@@ -8350,19 +8352,19 @@ msgstr "Tråden %s dödades med framgång."
 msgid "Internal relations were successfully updated."
 msgstr "Intern relation har lagts till."
 
-#: libraries/controllers/TableSearchController.class.php:842
+#: libraries/controllers/TableSearchController.class.php:840
 #, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Tabellsök"
 
-#: libraries/controllers/TableSearchController.class.php:849
+#: libraries/controllers/TableSearchController.class.php:847
 #, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Zoom sökning"
 
-#: libraries/controllers/TableSearchController.class.php:854
+#: libraries/controllers/TableSearchController.class.php:852
 #: templates/table/selection_form.phtml:59
 #, fuzzy
 #| msgid "Find and Replace"
@@ -8431,16 +8433,23 @@ msgid "Re-type:"
 msgstr "Skriv igen:"
 
 #: libraries/display_change_password.lib.php:87
-#: libraries/display_change_password.lib.php:114
-#: libraries/display_change_password.lib.php:123
+#: libraries/display_change_password.lib.php:115
+#: libraries/display_change_password.lib.php:124
 msgid "Password Hashing:"
 msgstr "Hashning av lösenord:"
 
-#: libraries/display_change_password.lib.php:135
+#: libraries/display_change_password.lib.php:96
+#: libraries/server_privileges.lib.php:1698
+#, fuzzy
+#| msgid "Generate password"
+msgid "MySQL native password"
+msgstr "Skapa lösenord"
+
+#: libraries/display_change_password.lib.php:136
 msgid "MySQL 4.0 compatible"
 msgstr "Kompatibel med MySQL 4.0"
 
-#: libraries/display_change_password.lib.php:148
+#: libraries/display_change_password.lib.php:149
 #: libraries/server_privileges.lib.php:1718
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -12851,12 +12860,6 @@ msgstr "Ändra inte lösenordet"
 msgid "Authentication Plugin"
 msgstr "Verifiering"
 
-#: libraries/server_privileges.lib.php:1698
-#, fuzzy
-#| msgid "Generate password"
-msgid "mysql_native_password"
-msgstr "Skapa lösenord"
-
 #: libraries/server_privileges.lib.php:1709
 #, fuzzy
 #| msgid "Change password"
@@ -14268,8 +14271,8 @@ msgstr "Globalt värde"
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: libraries/sql-parser/src/Component.php:61
-#: libraries/sql-parser/src/Component.php:78
+#: libraries/sql-parser/src/Component.php:63
+#: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
 msgstr ""
 
@@ -14375,51 +14378,56 @@ msgstr "Raden har raderats."
 msgid "Unexpected character."
 msgstr "Oväntade tecken på rad %s."
 
-#: libraries/sql-parser/src/Lexer.php:278
+#: libraries/sql-parser/src/Lexer.php:287
 msgid "Expected whitespace(s) before delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:296
+#: libraries/sql-parser/src/Lexer.php:305
+#: libraries/sql-parser/src/Lexer.php:321
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:717
+#: libraries/sql-parser/src/Lexer.php:736
 #, fuzzy, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "Händelsen %1$s har skapats."
 
-#: libraries/sql-parser/src/Lexer.php:750
+#: libraries/sql-parser/src/Lexer.php:769
 #, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
 msgstr "Mall för tabellnamn"
 
-#: libraries/sql-parser/src/Parser.php:375
+#: libraries/sql-parser/src/Parser.php:380
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
 msgstr "I början av tabellen"
 
-#: libraries/sql-parser/src/Parser.php:390
+#: libraries/sql-parser/src/Parser.php:399
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:461
+#: libraries/sql-parser/src/Parser.php:479
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:206
+#: libraries/sql-parser/src/Statement.php:203
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
 msgstr "Oväntade tecken på rad %s."
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:238
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:265
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:269
+#: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
 msgstr ""
 

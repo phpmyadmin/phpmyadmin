@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-07-31 07:06-0400\n"
+"POT-Creation-Date: 2015-08-03 09:51+0200\n"
 "PO-Revision-Date: 2015-07-27 15:08+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -141,7 +141,7 @@ msgstr "Null"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:883
 #: templates/columns_definitions/table_fields_definitions.phtml:25
-#: templates/structure/body_for_table_summary.phtml:48
+#: templates/structure/body_for_table_summary.phtml:55
 #: templates/structure/table_structure_header.phtml:10
 msgid "Default"
 msgstr "Լռելյան"
@@ -562,7 +562,7 @@ msgstr "Ավելացնել երկրաչափություն"
 #: gis_data_editor.php:409 js/messages.php:292
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1801
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:160
+#: libraries/display_change_password.lib.php:161
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:392 libraries/index.lib.php:44
@@ -622,7 +622,7 @@ msgstr "Ձախողվեց"
 msgid "Incomplete params"
 msgstr "Թերի հարաչափեր"
 
-#: import.php:181
+#: import.php:180
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -631,15 +631,15 @@ msgstr ""
 "Ըստ երևույթի դուք փորձեցիք վերբեռնել չափազանց մեծ ֆայլ։ Դիմեք "
 "%sուղեցույցներին%s՝ այս սահմանափակումը շրջանցելու համար։"
 
-#: import.php:359 import.php:674
+#: import.php:358 import.php:673
 msgid "Showing bookmark"
 msgstr "Էջանիշի ցուցադրում"
 
-#: import.php:374 import.php:670
+#: import.php:373 import.php:669
 msgid "The bookmark has been deleted."
 msgstr "Էջանիշը ջնջվեց։"
 
-#: import.php:471
+#: import.php:470
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -648,12 +648,12 @@ msgstr ""
 "Հնարավոր չէ տեղափոխել վերբեռնված ֆայլը, քանի որ սպասարկչում open_basedir "
 "հարաչափը միացրած է առանց %s ժամանակավոր պանակի մատչման արտոնությանը։"
 
-#: import.php:487 import.php:564 libraries/File.class.php:418
+#: import.php:486 import.php:563 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Չհաջողվեց կարդալ ֆայլը։"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:497 import.php:512 import.php:537 import.php:552
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -663,7 +663,7 @@ msgstr ""
 "Դուք փորձեցիք բեռնել չաջակցվող սեղմումով (%s) ֆայլ։ Այս եղանակի աջակցումը "
 "կամ չի կիչառվում, կամ էլ կասեցված է ձեր կազմաձևի մեջ։"
 
-#: import.php:571
+#: import.php:570
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -673,30 +673,30 @@ msgstr ""
 "ֆայլի չափը գերազանցում է ձեր PHP կազմաձևում առավելագույն թույլատրելի չափը։ "
 "Դիմեք [doc@faq1-16]FAQ 1.16[/doc]։"
 
-#: import.php:594
+#: import.php:593
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Հնարավոր չէ կատարել ֆայլի կոդավորման էջի փոխարկումը առանց կոդավորման էջերի "
 "փոխարկման դարանի։"
 
-#: import.php:635 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.inc.php:33
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Չհաջողվեց բեռնել ներմուծման հանգույցները։ Խնդրում ենք ստուգել ձեր տեղակայման "
 "ամբողջականությունը։"
 
-#: import.php:677 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s էջանիշը ստեղծվեց։"
 
-#: import.php:686
+#: import.php:685
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Ներմուծումը հաջողությամբ ավարտվեց, կատարվել է %d հարցում։"
 
-#: import.php:714
+#: import.php:713
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -705,7 +705,7 @@ msgstr ""
 "Սցենարի կատարման ժամանակի սահմանաչափը սպառվել է։ Ներմուծումը ավարտելու համար "
 "խնդրում ենք %sկրկին ուղարկեք նույն ֆայլը%s, և ներմուծումը կշարունակվի։"
 
-#: import.php:724
+#: import.php:723
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1968,8 +1968,8 @@ msgid "%d is not valid row number."
 msgstr "%d չի հանդիսանում վավերական տողի համարը։"
 
 #: js/messages.php:352
-#: libraries/controllers/TableSearchController.class.php:441
-#: libraries/controllers/TableSearchController.class.php:918
+#: libraries/controllers/TableSearchController.class.php:439
+#: libraries/controllers/TableSearchController.class.php:916
 #: libraries/sql.lib.php:186 tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Արտաքին արժեքների զննում"
@@ -3678,7 +3678,7 @@ msgstr "Կարող է մոտավոր լինել։ Դիմեք [doc@faq3-11]FAQ 3.
 
 #: libraries/DisplayResults.class.php:4332 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:249
-#: libraries/controllers/TableSearchController.class.php:657
+#: libraries/controllers/TableSearchController.class.php:655
 #: libraries/rte/rte_routines.lib.php:1332 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:227 tbl_row_action.php:129 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
@@ -3811,8 +3811,10 @@ msgid "Error while moving uploaded file."
 msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ։"
 
 #: libraries/File.class.php:487
-msgid "Cannot read (moved) upload file."
-msgstr ""
+#, fuzzy
+#| msgid "File was not an uploaded file."
+msgid "Cannot read moved uploaded file."
+msgstr "Ֆայլը՝ վերբեռնված ֆայլ չէր։"
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -4292,7 +4294,7 @@ msgstr ""
 "բացակայում են։"
 
 #: libraries/StorageEngine.class.php:373
-#: templates/structure/body_for_table_summary.phtml:43
+#: templates/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s-ը հանդիսանում է MySQL սպասարկչի լռելյայն պահպանման շարժիչը։"
@@ -7688,15 +7690,15 @@ msgstr ""
 msgid "Internal relations were successfully updated."
 msgstr "Ներքին կապակցումները հաջողությամբ արդիացվեցին։"
 
-#: libraries/controllers/TableSearchController.class.php:842
+#: libraries/controllers/TableSearchController.class.php:840
 msgid "Table search"
 msgstr "Աղյուսակում որոնում"
 
-#: libraries/controllers/TableSearchController.class.php:849
+#: libraries/controllers/TableSearchController.class.php:847
 msgid "Zoom search"
 msgstr "Մոտեցնելով որոնում"
 
-#: libraries/controllers/TableSearchController.class.php:854
+#: libraries/controllers/TableSearchController.class.php:852
 #: templates/table/selection_form.phtml:59
 msgid "Find and replace"
 msgstr "Գտնել և փոխարինել"
@@ -7758,16 +7760,23 @@ msgid "Re-type:"
 msgstr ""
 
 #: libraries/display_change_password.lib.php:87
-#: libraries/display_change_password.lib.php:114
-#: libraries/display_change_password.lib.php:123
+#: libraries/display_change_password.lib.php:115
+#: libraries/display_change_password.lib.php:124
 msgid "Password Hashing:"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:135
+#: libraries/display_change_password.lib.php:96
+#: libraries/server_privileges.lib.php:1698
+#, fuzzy
+#| msgid "Generate password"
+msgid "MySQL native password"
+msgstr "Ստեղծել գաղտնաբառը"
+
+#: libraries/display_change_password.lib.php:136
 msgid "MySQL 4.0 compatible"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:148
+#: libraries/display_change_password.lib.php:149
 #: libraries/server_privileges.lib.php:1718
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -11790,12 +11799,6 @@ msgstr ""
 msgid "Authentication Plugin"
 msgstr "Նույնացում"
 
-#: libraries/server_privileges.lib.php:1698
-#, fuzzy
-#| msgid "Generate password"
-msgid "mysql_native_password"
-msgstr "Ստեղծել գաղտնաբառը"
-
 #: libraries/server_privileges.lib.php:1709
 #, fuzzy
 #| msgid "Change password"
@@ -13009,8 +13012,8 @@ msgstr ""
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: libraries/sql-parser/src/Component.php:61
-#: libraries/sql-parser/src/Component.php:78
+#: libraries/sql-parser/src/Component.php:63
+#: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
 msgstr ""
 
@@ -13102,44 +13105,49 @@ msgstr "Սպասվում էր վերանվանման գործողություն�
 msgid "Unexpected character."
 msgstr "Անսպասելի նշան։"
 
-#: libraries/sql-parser/src/Lexer.php:278
+#: libraries/sql-parser/src/Lexer.php:287
 msgid "Expected whitespace(s) before delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:296
+#: libraries/sql-parser/src/Lexer.php:305
+#: libraries/sql-parser/src/Lexer.php:321
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:717
+#: libraries/sql-parser/src/Lexer.php:736
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:750
+#: libraries/sql-parser/src/Lexer.php:769
 msgid "Variable name was expected."
 msgstr "Սպասվում էր փոփոխականի անունը։"
 
-#: libraries/sql-parser/src/Parser.php:375
+#: libraries/sql-parser/src/Parser.php:380
 msgid "Unexpected beginning of statement."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:390
+#: libraries/sql-parser/src/Parser.php:399
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:461
+#: libraries/sql-parser/src/Parser.php:479
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:206
+#: libraries/sql-parser/src/Statement.php:203
 msgid "Unexpected token."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:238
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:265
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:269
+#: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
 msgstr ""
 

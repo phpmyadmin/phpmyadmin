@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-07-31 07:06-0400\n"
+"POT-Creation-Date: 2015-08-03 09:51+0200\n"
 "PO-Revision-Date: 2015-03-02 19:02+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -138,7 +138,7 @@ msgstr "வெற்று"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:883
 #: templates/columns_definitions/table_fields_definitions.phtml:25
-#: templates/structure/body_for_table_summary.phtml:48
+#: templates/structure/body_for_table_summary.phtml:55
 #: templates/structure/table_structure_header.phtml:10
 msgid "Default"
 msgstr "இயல்நிலை"
@@ -563,7 +563,7 @@ msgstr "வரையமைப்பை சேர்க்க"
 #: gis_data_editor.php:409 js/messages.php:292
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1801
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:160
+#: libraries/display_change_password.lib.php:161
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:392 libraries/index.lib.php:44
@@ -623,7 +623,7 @@ msgstr "தோல்வியடைந்தது"
 msgid "Incomplete params"
 msgstr "முழுமையடையா மதிப்புருபுகள்"
 
-#: import.php:181
+#: import.php:180
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -632,15 +632,15 @@ msgstr ""
 "நீங்கள் பதிவேற்ற முயன்ற கோப்பு மிகப்பெரியதாக இருக்கலாம். இவ்வரம்பின் மாற்ற தயவுசெய்து %s "
 "ஆவணஉரையை %s பார்வையிடவும்."
 
-#: import.php:359 import.php:674
+#: import.php:358 import.php:673
 msgid "Showing bookmark"
 msgstr "புத்தகக்குறி காட்டப்படுகிறது"
 
-#: import.php:374 import.php:670
+#: import.php:373 import.php:669
 msgid "The bookmark has been deleted."
 msgstr "புத்தகக்குறி அழிக்கப்பட்டது."
 
-#: import.php:471
+#: import.php:470
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -649,12 +649,12 @@ msgstr ""
 "பதிவேற்றிய கோப்பை நகர்த்தமுடியவில்லை, ஏனெனில் வழங்கியில் %s அடைவை (தற்காலிக "
 "கோப்புகளுக்காக) அணுகமுடியா நிலையில் open_basedir இயலசெய்யப்பட்டுள்ளது."
 
-#: import.php:487 import.php:564 libraries/File.class.php:418
+#: import.php:486 import.php:563 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "கோப்பை வாசிக்க இயலவில்லை!"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:497 import.php:512 import.php:537 import.php:552
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -664,7 +664,7 @@ msgstr ""
 "நீங்கள் நினைவேற்ற முயன்ற கோப்பு ஆதரவற்ற சுருக்கமுறைமை (%s) கொண்டது. அதற்கான ஆதரவு "
 "நடைமுறைப்படுத்தப்படாமலிருக்கலாம் அல்லது உள்ளமைப்பால் முடக்கப்பட்டிருக்கலாம்."
 
-#: import.php:571
+#: import.php:570
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -674,27 +674,27 @@ msgstr ""
 "கோப்பின் அளவு PHP உள்ளமைப்பின் கோப்பு பதிவேற்ற மீயளவு இசைவு வரம்பை கடந்திருக்கும். "
 "[doc@faq1-16] FAQ 1.16 [/doc]யினை காண்க."
 
-#: import.php:594
+#: import.php:593
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "கோப்பின் எழுத்துக்கணத்தை எழுத்துக்கண உருத்திரிபு நூல்கோவை இல்லாமல் மாற்றமுடியாது!"
 
-#: import.php:635 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.inc.php:33
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "தரவிறக்க செருகுநிரல்களை நினைவேற்ற இயலவில்லை, தயவுசெய்து உங்கள் நிறுவலை சரிபார்க்கவும்!"
 
-#: import.php:677 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
 
-#: import.php:686
+#: import.php:685
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "தரவிறக்கம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
 
-#: import.php:714
+#: import.php:713
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -706,7 +706,7 @@ msgstr ""
 "செயல்நிரலுக்கான செயலாக்க நேரம் கடந்தது, தரவிறக்க செயல்பாட்டை மீளேற்றி முடிக்க "
 "அதேகோப்பினை மீண்டும் அனுப்புக."
 
-#: import.php:724
+#: import.php:723
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1976,8 +1976,8 @@ msgid "%d is not valid row number."
 msgstr "%d என்பது சரியான நிரைவரிசை எண் அல்ல."
 
 #: js/messages.php:352
-#: libraries/controllers/TableSearchController.class.php:441
-#: libraries/controllers/TableSearchController.class.php:918
+#: libraries/controllers/TableSearchController.class.php:439
+#: libraries/controllers/TableSearchController.class.php:916
 #: libraries/sql.lib.php:186 tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "அயல் குறியெண் மதிப்புகளை உலவு"
@@ -3734,7 +3734,7 @@ msgstr "அண்ணளவாக இருக்கலாம்.[doc@faq3-11]FAQ
 
 #: libraries/DisplayResults.class.php:4332 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:249
-#: libraries/controllers/TableSearchController.class.php:657
+#: libraries/controllers/TableSearchController.class.php:655
 #: libraries/rte/rte_routines.lib.php:1332 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:227 tbl_row_action.php:129 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
@@ -3864,7 +3864,7 @@ msgid "Error while moving uploaded file."
 msgstr ""
 
 #: libraries/File.class.php:487
-msgid "Cannot read (moved) upload file."
+msgid "Cannot read moved uploaded file."
 msgstr ""
 
 #: libraries/Footer.class.php:74
@@ -4343,7 +4343,7 @@ msgid ""
 msgstr ""
 
 #: libraries/StorageEngine.class.php:373
-#: templates/structure/body_for_table_summary.phtml:43
+#: templates/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
@@ -7811,19 +7811,19 @@ msgstr ""
 msgid "Internal relations were successfully updated."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
-#: libraries/controllers/TableSearchController.class.php:842
+#: libraries/controllers/TableSearchController.class.php:840
 #, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "அட்டவணை தேடல்"
 
-#: libraries/controllers/TableSearchController.class.php:849
+#: libraries/controllers/TableSearchController.class.php:847
 #, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "அணுக்க தேடல்"
 
-#: libraries/controllers/TableSearchController.class.php:854
+#: libraries/controllers/TableSearchController.class.php:852
 #: templates/table/selection_form.phtml:59
 #, fuzzy
 #| msgid "Hide find and replace criteria"
@@ -7889,16 +7889,23 @@ msgid "Re-type:"
 msgstr "மீண்டும் உள்ளிடு:"
 
 #: libraries/display_change_password.lib.php:87
-#: libraries/display_change_password.lib.php:114
-#: libraries/display_change_password.lib.php:123
+#: libraries/display_change_password.lib.php:115
+#: libraries/display_change_password.lib.php:124
 msgid "Password Hashing:"
 msgstr "கடவுச்சொல் கூளமாக்கள்:"
 
-#: libraries/display_change_password.lib.php:135
+#: libraries/display_change_password.lib.php:96
+#: libraries/server_privileges.lib.php:1698
+#, fuzzy
+#| msgid "Generate password"
+msgid "MySQL native password"
+msgstr "கடவுச்சொல்லை இயற்று"
+
+#: libraries/display_change_password.lib.php:136
 msgid "MySQL 4.0 compatible"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:148
+#: libraries/display_change_password.lib.php:149
 #: libraries/server_privileges.lib.php:1718
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -11999,12 +12006,6 @@ msgstr ""
 msgid "Authentication Plugin"
 msgstr "உறுதிப்படுத்தல்"
 
-#: libraries/server_privileges.lib.php:1698
-#, fuzzy
-#| msgid "Generate password"
-msgid "mysql_native_password"
-msgstr "கடவுச்சொல்லை இயற்று"
-
 #: libraries/server_privileges.lib.php:1709
 #, fuzzy
 #| msgid "Change password"
@@ -13236,8 +13237,8 @@ msgstr "முழுதளாவிய மதிப்பு"
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: libraries/sql-parser/src/Component.php:61
-#: libraries/sql-parser/src/Component.php:78
+#: libraries/sql-parser/src/Component.php:63
+#: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
 msgstr ""
 
@@ -13337,48 +13338,53 @@ msgstr "இந்நிரைவரிசை அழிக்கப்பட்�
 msgid "Unexpected character."
 msgstr "%sம் வரியில் எதிர்பாராத எழுத்துக்கள் உள்ளன."
 
-#: libraries/sql-parser/src/Lexer.php:278
+#: libraries/sql-parser/src/Lexer.php:287
 msgid "Expected whitespace(s) before delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:296
+#: libraries/sql-parser/src/Lexer.php:305
+#: libraries/sql-parser/src/Lexer.php:321
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:717
+#: libraries/sql-parser/src/Lexer.php:736
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:750
+#: libraries/sql-parser/src/Lexer.php:769
 msgid "Variable name was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:375
+#: libraries/sql-parser/src/Parser.php:380
 #, fuzzy
 #| msgid "Rate of table open"
 msgid "Unexpected beginning of statement."
 msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
 
-#: libraries/sql-parser/src/Parser.php:390
+#: libraries/sql-parser/src/Parser.php:399
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:461
+#: libraries/sql-parser/src/Parser.php:479
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:206
+#: libraries/sql-parser/src/Statement.php:203
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
 msgstr "%sம் வரியில் எதிர்பாராத எழுத்துக்கள் உள்ளன."
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:238
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:265
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:269
+#: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
 msgstr ""
 

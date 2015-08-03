@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-07-31 07:06-0400\n"
+"POT-Creation-Date: 2015-08-03 09:51+0200\n"
 "PO-Revision-Date: 2015-04-04 18:47+0200\n"
 "Last-Translator: Latvian TV <dnighttv@gmail.com>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -137,7 +137,7 @@ msgstr "Nulle"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:883
 #: templates/columns_definitions/table_fields_definitions.phtml:25
-#: templates/structure/body_for_table_summary.phtml:48
+#: templates/structure/body_for_table_summary.phtml:55
 #: templates/structure/table_structure_header.phtml:10
 msgid "Default"
 msgstr "Noklusēts"
@@ -569,7 +569,7 @@ msgstr "Pievienot jaunu ģeometriju"
 #: gis_data_editor.php:409 js/messages.php:292
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1801
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:160
+#: libraries/display_change_password.lib.php:161
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:392 libraries/index.lib.php:44
@@ -629,7 +629,7 @@ msgstr "Kļūda"
 msgid "Incomplete params"
 msgstr "Nepabeigti parametri"
 
-#: import.php:181
+#: import.php:180
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -638,15 +638,15 @@ msgstr ""
 "Visticamāk Jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Skaties "
 "%sdocumentation%s, lai atrastu risinājumu šai problēmai."
 
-#: import.php:359 import.php:674
+#: import.php:358 import.php:673
 msgid "Showing bookmark"
 msgstr "Rāda grāmatzīmi"
 
-#: import.php:374 import.php:670
+#: import.php:373 import.php:669
 msgid "The bookmark has been deleted."
 msgstr "Ieraksts tika dzēsts."
 
-#: import.php:471
+#: import.php:470
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -655,12 +655,12 @@ msgstr ""
 "Augšupielādētais fails nevar tikt pārvietots, tāpēc, ka serverim ir ieslēgts "
 "open_basedir bez pieejas %s mapei(priekš īslaicīgiem(temporary) failiem)."
 
-#: import.php:487 import.php:564 libraries/File.class.php:418
+#: import.php:486 import.php:563 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Nevar nolasīt failu!"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:497 import.php:512 import.php:537 import.php:552
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -670,7 +670,7 @@ msgstr ""
 "Jūs mēģinājāt augšupielādēt failu ar neatbalstītu kompresijas tipu (%s). Vai "
 "nu šis tips nav atbalstīts vai ir izslēgts konfigurācijā."
 
-#: import.php:571
+#: import.php:570
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -680,27 +680,27 @@ msgstr ""
 "vai arī faila izmērs pārsniedza maksimālo izmēru, ko pieļauj jūsu PHP "
 "configurācija. Skatīt [doc@faq1-16]FAQ[/doc]."
 
-#: import.php:594
+#: import.php:593
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Nevar pārveidot faila rakstzīmju kodējumu bez pārveidošanas bibliotēkas!"
 
-#: import.php:635 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.inc.php:33
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudi savu instalāciju!"
 
-#: import.php:677 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Grāmatzīme %s ir izveidota."
 
-#: import.php:686
+#: import.php:685
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importēšana veiksmīga, %d pieprasījumi izpildīti."
 
-#: import.php:714
+#: import.php:713
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -712,7 +712,7 @@ msgstr ""
 "Ir iestājies skripta noilgums, ja jūs vēlaties beigt importu, tad atkal "
 "izvēlieties to pašu failu un importēšana turpināsies."
 
-#: import.php:724
+#: import.php:723
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1984,8 +1984,8 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: js/messages.php:352
-#: libraries/controllers/TableSearchController.class.php:441
-#: libraries/controllers/TableSearchController.class.php:918
+#: libraries/controllers/TableSearchController.class.php:439
+#: libraries/controllers/TableSearchController.class.php:916
 #: libraries/sql.lib.php:186 tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Pārlūkot ārējās vērtības"
@@ -3949,7 +3949,7 @@ msgstr "Var būt aptuvens skaits. Skatīt [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4332 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:249
-#: libraries/controllers/TableSearchController.class.php:657
+#: libraries/controllers/TableSearchController.class.php:655
 #: libraries/rte/rte_routines.lib.php:1332 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:227 tbl_row_action.php:129 view_operations.php:62
 #, fuzzy
@@ -4091,7 +4091,7 @@ msgid "Error while moving uploaded file."
 msgstr ""
 
 #: libraries/File.class.php:487
-msgid "Cannot read (moved) upload file."
+msgid "Cannot read moved uploaded file."
 msgstr ""
 
 #: libraries/Footer.class.php:74
@@ -4608,7 +4608,7 @@ msgid ""
 msgstr ""
 
 #: libraries/StorageEngine.class.php:373
-#: templates/structure/body_for_table_summary.phtml:43
+#: templates/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
@@ -8277,19 +8277,19 @@ msgstr "Process %s tika veiksmīgi nogalināts."
 msgid "Internal relations were successfully updated."
 msgstr "Iekšējās relācijas"
 
-#: libraries/controllers/TableSearchController.class.php:842
+#: libraries/controllers/TableSearchController.class.php:840
 #, fuzzy
 #| msgid "Search"
 msgid "Table search"
 msgstr "Meklēt"
 
-#: libraries/controllers/TableSearchController.class.php:849
+#: libraries/controllers/TableSearchController.class.php:847
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom search"
 msgstr "Meklēt"
 
-#: libraries/controllers/TableSearchController.class.php:854
+#: libraries/controllers/TableSearchController.class.php:852
 #: templates/table/selection_form.phtml:59
 #, fuzzy
 #| msgid "Hide search criteria"
@@ -8357,20 +8357,27 @@ msgid "Re-type:"
 msgstr "Atkārtojiet"
 
 #: libraries/display_change_password.lib.php:87
-#: libraries/display_change_password.lib.php:114
-#: libraries/display_change_password.lib.php:123
+#: libraries/display_change_password.lib.php:115
+#: libraries/display_change_password.lib.php:124
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
 msgstr "Paroles jaukšana"
 
-#: libraries/display_change_password.lib.php:135
+#: libraries/display_change_password.lib.php:96
+#: libraries/server_privileges.lib.php:1698
+#, fuzzy
+#| msgid "Change password"
+msgid "MySQL native password"
+msgstr "Mainīt paroli"
+
+#: libraries/display_change_password.lib.php:136
 #, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 savietojams"
 
-#: libraries/display_change_password.lib.php:148
+#: libraries/display_change_password.lib.php:149
 #: libraries/server_privileges.lib.php:1718
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -12886,12 +12893,6 @@ msgstr "Nemainīt paroli"
 msgid "Authentication Plugin"
 msgstr "Dokumentācija"
 
-#: libraries/server_privileges.lib.php:1698
-#, fuzzy
-#| msgid "Change password"
-msgid "mysql_native_password"
-msgstr "Mainīt paroli"
-
 #: libraries/server_privileges.lib.php:1709
 #, fuzzy
 #| msgid "Change password"
@@ -14216,8 +14217,8 @@ msgstr "Globālā vērtība"
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: libraries/sql-parser/src/Component.php:61
-#: libraries/sql-parser/src/Component.php:78
+#: libraries/sql-parser/src/Component.php:63
+#: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
 msgstr ""
 
@@ -14315,47 +14316,52 @@ msgstr "Ieraksts tika dzēsts"
 msgid "Unexpected character."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:278
+#: libraries/sql-parser/src/Lexer.php:287
 msgid "Expected whitespace(s) before delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:296
+#: libraries/sql-parser/src/Lexer.php:305
+#: libraries/sql-parser/src/Lexer.php:321
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:717
+#: libraries/sql-parser/src/Lexer.php:736
 #, fuzzy, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Tabula %s tika izdzēsta"
 
-#: libraries/sql-parser/src/Lexer.php:750
+#: libraries/sql-parser/src/Lexer.php:769
 #, fuzzy
 msgid "Variable name was expected."
 msgstr "Faila nosaukuma šablons"
 
-#: libraries/sql-parser/src/Parser.php:375
+#: libraries/sql-parser/src/Parser.php:380
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
 msgstr "Tabulas sākumā"
 
-#: libraries/sql-parser/src/Parser.php:390
+#: libraries/sql-parser/src/Parser.php:399
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:461
+#: libraries/sql-parser/src/Parser.php:479
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:206
+#: libraries/sql-parser/src/Statement.php:203
 msgid "Unexpected token."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:238
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:265
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:269
+#: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
 msgstr ""
 

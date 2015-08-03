@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-31 07:06-0400\n"
+"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"POT-Creation-Date: 2015-08-03 09:51+0200\n"
 "PO-Revision-Date: 2015-07-31 14:53+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,7 +141,7 @@ msgstr "Null"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:883
 #: templates/columns_definitions/table_fields_definitions.phtml:25
-#: templates/structure/body_for_table_summary.phtml:48
+#: templates/structure/body_for_table_summary.phtml:55
 #: templates/structure/table_structure_header.phtml:10
 msgid "Default"
 msgstr "Predefinite"
@@ -564,7 +564,7 @@ msgstr "Adde un geometria"
 #: gis_data_editor.php:409 js/messages.php:292
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1801
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:160
+#: libraries/display_change_password.lib.php:161
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:392 libraries/index.lib.php:44
@@ -624,7 +624,7 @@ msgstr "Fallite"
 msgid "Incomplete params"
 msgstr "Parametros incomplete"
 
-#: import.php:181
+#: import.php:180
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -633,15 +633,15 @@ msgstr ""
 "Probabilemente tu es essayante incargar un file troppo grande. Pro favor tu "
 "refere al %sdocumentation%s pro eluder iste limite."
 
-#: import.php:359 import.php:674
+#: import.php:358 import.php:673
 msgid "Showing bookmark"
 msgstr "Monstrante marcator de libro"
 
-#: import.php:374 import.php:670
+#: import.php:373 import.php:669
 msgid "The bookmark has been deleted."
 msgstr "Le marcator de libro ha essite delite."
 
-#: import.php:471
+#: import.php:470
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -650,12 +650,12 @@ msgstr ""
 "File incargate non pote esser movite, proque le servitor ha habilitate "
 "open_base_dir sin accesso al directorio %s (pro files temporanee)."
 
-#: import.php:487 import.php:564 libraries/File.class.php:418
+#: import.php:486 import.php:563 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Le file non pote esser legite!"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:497 import.php:512 import.php:537 import.php:552
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -666,7 +666,7 @@ msgstr ""
 "supportate. Le supporto pro iste typo de compression poterea ancora non "
 "esser actuate o esser dishabilitate in tu configuration."
 
-#: import.php:571
+#: import.php:570
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -676,30 +676,30 @@ msgstr ""
 "file, o il ha superate le grandor maxime permittite per tu configuration de "
 "PHP pro incargar un file. Tu vide  [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:594
+#: import.php:593
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Il non es possibile converter le insimul de characteres del file sin un "
 "biblioteca de conversion de insimul de characteres!"
 
-#: import.php:635 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.inc.php:33
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Il non es possibile cargar plugins de importar, pro favor tu verifica tu "
 "installation!"
 
-#: import.php:677 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Marcator de libro %s create."
 
-#: import.php:686
+#: import.php:685
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importation executate con successo, %d demandas executate."
 
-#: import.php:714
+#: import.php:713
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -708,7 +708,7 @@ msgstr ""
 "Tempore limite excedite, si tu vole terminar le importation, pro favor %stu "
 "invia de nove le mesme file%s e le processo initiara de nove."
 
-#: import.php:724
+#: import.php:723
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1977,8 +1977,8 @@ msgid "%d is not valid row number."
 msgstr "%d non es un valide numero de rangos."
 
 #: js/messages.php:352
-#: libraries/controllers/TableSearchController.class.php:441
-#: libraries/controllers/TableSearchController.class.php:918
+#: libraries/controllers/TableSearchController.class.php:439
+#: libraries/controllers/TableSearchController.class.php:916
 #: libraries/sql.lib.php:186 tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Naviga inter valores externe"
@@ -3704,7 +3704,7 @@ msgstr "Il pote esser approximate. Vide[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4332 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:249
-#: libraries/controllers/TableSearchController.class.php:657
+#: libraries/controllers/TableSearchController.class.php:655
 #: libraries/rte/rte_routines.lib.php:1332 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:227 tbl_row_action.php:129 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
@@ -3839,7 +3839,9 @@ msgid "Error while moving uploaded file."
 msgstr "Error quando on moveva le file incargate."
 
 #: libraries/File.class.php:487
-msgid "Cannot read (moved) upload file."
+#, fuzzy
+#| msgid "Cannot read (moved) upload file."
+msgid "Cannot read moved uploaded file."
 msgstr "Il non pote leger le file incargate (postea que on moveva lo)."
 
 #: libraries/Footer.class.php:74
@@ -4321,7 +4323,7 @@ msgstr ""
 "immagazinage."
 
 #: libraries/StorageEngine.class.php:373
-#: templates/structure/body_for_table_summary.phtml:43
+#: templates/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s es le motor predefinite de immagazinage sur iste servitor MySQL."
@@ -7598,10 +7600,6 @@ msgid "User preferences storage table"
 msgstr "Tabella de immagazinage de preferentias de usator"
 
 #: libraries/config/messages.inc.php:809
-#| msgid ""
-#| "Both this table and the user groups table are required to enable the "
-#| "configurable menus feature; leaving either one of them blank will disable "
-#| "this feature, suggested: [kbd]pma__users[/kbd]."
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable\n"
@@ -7609,8 +7607,8 @@ msgid ""
 msgstr ""
 "Ambe iste tabella e le tabella del gruppo de usator es requirite per "
 "habilitar le characteristica del menu configurabile,\n"
-"si on lassa un de lor vacue on dishabilitara iste characteristica, suggerite:"
-" [kbd]pma__users[/kbd]."
+"si on lassa un de lor vacue on dishabilitara iste characteristica, "
+"suggerite: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:813
 msgid "Users table"
@@ -8134,15 +8132,15 @@ msgstr ""
 msgid "Internal relations were successfully updated."
 msgstr "Relationes interne ha essite actualisate on successo."
 
-#: libraries/controllers/TableSearchController.class.php:842
+#: libraries/controllers/TableSearchController.class.php:840
 msgid "Table search"
 msgstr "Cerca de tabella"
 
-#: libraries/controllers/TableSearchController.class.php:849
+#: libraries/controllers/TableSearchController.class.php:847
 msgid "Zoom search"
 msgstr "Cerca de zoom"
 
-#: libraries/controllers/TableSearchController.class.php:854
+#: libraries/controllers/TableSearchController.class.php:852
 #: templates/table/selection_form.phtml:59
 msgid "Find and replace"
 msgstr "Trova e reimplacia"
@@ -8209,16 +8207,23 @@ msgid "Re-type:"
 msgstr "Re-typa:"
 
 #: libraries/display_change_password.lib.php:87
-#: libraries/display_change_password.lib.php:114
-#: libraries/display_change_password.lib.php:123
+#: libraries/display_change_password.lib.php:115
+#: libraries/display_change_password.lib.php:124
 msgid "Password Hashing:"
 msgstr "Hachage de contrasigno:"
 
-#: libraries/display_change_password.lib.php:135
+#: libraries/display_change_password.lib.php:96
+#: libraries/server_privileges.lib.php:1698
+#, fuzzy
+#| msgid "mysql_native_password"
+msgid "MySQL native password"
+msgstr "contrasigno_native_de_mysql"
+
+#: libraries/display_change_password.lib.php:136
 msgid "MySQL 4.0 compatible"
 msgstr "Compatibile con MySQL 4.0"
 
-#: libraries/display_change_password.lib.php:148
+#: libraries/display_change_password.lib.php:149
 #: libraries/server_privileges.lib.php:1718
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -12399,17 +12404,10 @@ msgid "Do not change the password"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1693
-#| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "Plugin de Authentication"
 
-#: libraries/server_privileges.lib.php:1698
-#| msgid "Generate password"
-msgid "mysql_native_password"
-msgstr "contrasigno_native_de_mysql"
-
 #: libraries/server_privileges.lib.php:1709
-#| msgid "Change password"
 msgid "sha256_password"
 msgstr "contrasigno_sha256"
 
@@ -13620,8 +13618,8 @@ msgstr ""
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: libraries/sql-parser/src/Component.php:61
-#: libraries/sql-parser/src/Component.php:78
+#: libraries/sql-parser/src/Component.php:63
+#: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
 msgstr ""
 
@@ -13674,7 +13672,6 @@ msgid "An expression was expected."
 msgstr "On expectava un expression."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#| msgid "An alias was expected."
 msgid "A comma or a closing bracket was expected."
 msgstr "On expectava un comma o un parentheses claudite."
 
@@ -13712,44 +13709,49 @@ msgstr "On expectava un operation de renominar.."
 msgid "Unexpected character."
 msgstr "Un  character non expectate."
 
-#: libraries/sql-parser/src/Lexer.php:278
+#: libraries/sql-parser/src/Lexer.php:287
 msgid "Expected whitespace(s) before delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:296
+#: libraries/sql-parser/src/Lexer.php:305
+#: libraries/sql-parser/src/Lexer.php:321
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:717
+#: libraries/sql-parser/src/Lexer.php:736
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:750
+#: libraries/sql-parser/src/Lexer.php:769
 msgid "Variable name was expected."
 msgstr "On expectava un nomine de variabile."
 
-#: libraries/sql-parser/src/Parser.php:375
+#: libraries/sql-parser/src/Parser.php:380
 msgid "Unexpected beginning of statement."
 msgstr "Un initio de instruction non expectate."
 
-#: libraries/sql-parser/src/Parser.php:390
+#: libraries/sql-parser/src/Parser.php:399
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:461
+#: libraries/sql-parser/src/Parser.php:479
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:206
+#: libraries/sql-parser/src/Statement.php:203
 msgid "Unexpected token."
 msgstr "Un indicio non expectate."
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:238
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:265
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:269
+#: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
 msgstr ""
 

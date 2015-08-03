@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-31 07:06-0400\n"
+"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"POT-Creation-Date: 2015-08-03 09:51+0200\n"
 "PO-Revision-Date: 2015-08-02 14:50+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,7 +137,7 @@ msgstr "Leeg"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:883
 #: templates/columns_definitions/table_fields_definitions.phtml:25
-#: templates/structure/body_for_table_summary.phtml:48
+#: templates/structure/body_for_table_summary.phtml:55
 #: templates/structure/table_structure_header.phtml:10
 msgid "Default"
 msgstr "Standaardwaarde"
@@ -559,7 +559,7 @@ msgstr "Geometrie toevoegen"
 #: gis_data_editor.php:409 js/messages.php:292
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1801
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:160
+#: libraries/display_change_password.lib.php:161
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:392 libraries/index.lib.php:44
@@ -619,7 +619,7 @@ msgstr "Mislukt"
 msgid "Incomplete params"
 msgstr "Onvolledige parameters"
 
-#: import.php:181
+#: import.php:180
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -628,15 +628,15 @@ msgstr ""
 "U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie "
 "%sdocumentatie%s om deze limiet te omzeilen."
 
-#: import.php:359 import.php:674
+#: import.php:358 import.php:673
 msgid "Showing bookmark"
 msgstr "Bladwijzer tonen"
 
-#: import.php:374 import.php:670
+#: import.php:373 import.php:669
 msgid "The bookmark has been deleted."
 msgstr "De bladwijzer is verwijderd."
 
-#: import.php:471
+#: import.php:470
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -646,12 +646,12 @@ msgstr ""
 "'open_basedir' ingeschakeld is zonder toegang tot de map %s (voor tijdelijke "
 "bestanden)."
 
-#: import.php:487 import.php:564 libraries/File.class.php:418
+#: import.php:486 import.php:563 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Bestand kon niet worden gelezen!"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:497 import.php:512 import.php:537 import.php:552
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -662,7 +662,7 @@ msgstr ""
 "uploaden. De ondersteuning is niet geïmplementeerd of uitgeschakeld in de "
 "configuratie."
 
-#: import.php:571
+#: import.php:570
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -673,29 +673,29 @@ msgstr ""
 "bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: import.php:594
+#: import.php:593
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "De karakterset van het bestand kan niet geconverteerd worden zonder de "
 "'character set conversion'-bibliotheek!"
 
-#: import.php:635 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.inc.php:33
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "De importeer-plugins konden niet worden geladen, controleer de installatie!"
 
-#: import.php:677 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
 
-#: import.php:686
+#: import.php:685
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Het importeren is geslaagd, %d query's uitgevoerd."
 
-#: import.php:714
+#: import.php:713
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -704,7 +704,7 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, als u het importeren wilt afmaken, "
 "%sresubmit dezelfde file%s opnieuw en de import zal hervat worden."
 
-#: import.php:724
+#: import.php:723
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1975,8 +1975,8 @@ msgid "%d is not valid row number."
 msgstr "%d is geen geldig rijnummer."
 
 #: js/messages.php:352
-#: libraries/controllers/TableSearchController.class.php:441
-#: libraries/controllers/TableSearchController.class.php:918
+#: libraries/controllers/TableSearchController.class.php:439
+#: libraries/controllers/TableSearchController.class.php:916
 #: libraries/sql.lib.php:186 tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Bekijk vreemde waarden"
@@ -3690,7 +3690,7 @@ msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4332 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:249
-#: libraries/controllers/TableSearchController.class.php:657
+#: libraries/controllers/TableSearchController.class.php:655
 #: libraries/rte/rte_routines.lib.php:1332 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:227 tbl_row_action.php:129 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
@@ -3826,7 +3826,9 @@ msgid "Error while moving uploaded file."
 msgstr "Fout bij het verplaatsen van het geüploade bestand."
 
 #: libraries/File.class.php:487
-msgid "Cannot read (moved) upload file."
+#, fuzzy
+#| msgid "Cannot read (moved) upload file."
+msgid "Cannot read moved uploaded file."
 msgstr "Het (verplaatste) geüploade bestand kan niet gelezen worden."
 
 #: libraries/Footer.class.php:74
@@ -4309,7 +4311,7 @@ msgstr ""
 "engine."
 
 #: libraries/StorageEngine.class.php:373
-#: templates/structure/body_for_table_summary.phtml:43
+#: templates/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s is de standaard storage engine op deze MySQL-server."
@@ -7579,10 +7581,6 @@ msgid "User preferences storage table"
 msgstr "Opslagtabel voor gebruikersvoorkeuren"
 
 #: libraries/config/messages.inc.php:809
-#| msgid ""
-#| "Both this table and the user groups table are required to enable the "
-#| "configurable menus feature; leaving either one of them blank will disable "
-#| "this feature, suggested: [kbd]pma__users[/kbd]."
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable\n"
@@ -8112,15 +8110,15 @@ msgstr "De weergavekolom is succesvol bijgewerkt."
 msgid "Internal relations were successfully updated."
 msgstr "Interne relaties werden succesvol bijgewerkt."
 
-#: libraries/controllers/TableSearchController.class.php:842
+#: libraries/controllers/TableSearchController.class.php:840
 msgid "Table search"
 msgstr "Tabel zoeken"
 
-#: libraries/controllers/TableSearchController.class.php:849
+#: libraries/controllers/TableSearchController.class.php:847
 msgid "Zoom search"
 msgstr "Zoeken door in te zoomen"
 
-#: libraries/controllers/TableSearchController.class.php:854
+#: libraries/controllers/TableSearchController.class.php:852
 #: templates/table/selection_form.phtml:59
 msgid "Find and replace"
 msgstr "Zoek en vervang"
@@ -8186,17 +8184,24 @@ msgid "Re-type:"
 msgstr "Tik opnieuw in:"
 
 #: libraries/display_change_password.lib.php:87
-#: libraries/display_change_password.lib.php:114
-#: libraries/display_change_password.lib.php:123
+#: libraries/display_change_password.lib.php:115
+#: libraries/display_change_password.lib.php:124
 msgid "Password Hashing:"
 msgstr "Wachtwoord-hashing:"
 
+#: libraries/display_change_password.lib.php:96
+#: libraries/server_privileges.lib.php:1698
+#, fuzzy
+#| msgid "mysql_native_password"
+msgid "MySQL native password"
+msgstr "mysql_wachtwoord"
+
 # Kan ook vertaald worden als "werkt met …"
-#: libraries/display_change_password.lib.php:135
+#: libraries/display_change_password.lib.php:136
 msgid "MySQL 4.0 compatible"
 msgstr "Compatibel met MySQL&nbsp;4.0"
 
-#: libraries/display_change_password.lib.php:148
+#: libraries/display_change_password.lib.php:149
 #: libraries/server_privileges.lib.php:1718
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -11395,12 +11400,6 @@ msgid "Master configuration"
 msgstr "Masterinstellingen"
 
 #: libraries/replication_gui.lib.php:90
-#| msgid ""
-#| "This server is not configured as master server in a replication process. "
-#| "You can choose from either replicating all databases and ignoring certain "
-#| "(useful if you want to replicate majority of databases) or you can choose "
-#| "to ignore all databases by default and allow only certain databases to be "
-#| "replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a master server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -12560,17 +12559,10 @@ msgid "Do not change the password"
 msgstr "Wijzig het wachtwoord niet"
 
 #: libraries/server_privileges.lib.php:1693
-#| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "Authenticatie Plugin"
 
-#: libraries/server_privileges.lib.php:1698
-#| msgid "Generate password"
-msgid "mysql_native_password"
-msgstr "mysql_wachtwoord"
-
 #: libraries/server_privileges.lib.php:1709
-#| msgid "Change password"
 msgid "sha256_password"
 msgstr "sha256_wachtwoord"
 
@@ -12822,11 +12814,6 @@ msgstr ""
 "gaat."
 
 #: libraries/server_privileges.lib.php:4463
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13992,13 +13979,12 @@ msgstr "Globale waarde"
 msgid "This is a read-only variable and can not be edited"
 msgstr "Dit is een alleen-lezen variabele en kan niet worden gewijzigd"
 
-#: libraries/sql-parser/src/Component.php:61
-#: libraries/sql-parser/src/Component.php:78
+#: libraries/sql-parser/src/Component.php:63
+#: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
 msgstr "Nog niet geïmplementeerd."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
 msgstr "Onbekende bewerking."
 
@@ -14039,17 +14025,14 @@ msgid "Unexpected dot."
 msgstr "Onverwachte punt."
 
 #: libraries/sql-parser/src/Components/Expression.php:327
-#| msgid "No tables selected."
 msgid "An alias was expected."
 msgstr "Een alias werd verwacht."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:96
-#| msgid "No versions selected."
 msgid "An expression was expected."
 msgstr "Een expressie werd verwacht."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
 msgstr "Een komma of een sluitingshaakje werd verwacht."
 
@@ -14068,7 +14051,6 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Deze optie conflicteert met \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
 msgstr "De oude naam van de tabel werd verwacht."
 
@@ -14077,68 +14059,67 @@ msgid "Keyword \"TO\" was expected."
 msgstr "Sleutelwoord \"TO\" werd verwacht."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:129
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
 msgstr "De nieuwe naam van de tabel werd verwacht."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#| msgid "Template was deleted."
 msgid "A rename operation was expected."
 msgstr "Een hernoem bewerking werd verwacht."
 
 #: libraries/sql-parser/src/Lexer.php:250
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
 msgstr "Onverwachte letter."
 
-#: libraries/sql-parser/src/Lexer.php:278
+#: libraries/sql-parser/src/Lexer.php:287
 msgid "Expected whitespace(s) before delimiter."
 msgstr "Spatie(s) werd(en) verwacht voor het scheidingsteken."
 
-#: libraries/sql-parser/src/Lexer.php:296
+#: libraries/sql-parser/src/Lexer.php:305
+#: libraries/sql-parser/src/Lexer.php:321
 msgid "Expected delimiter."
 msgstr "Scheidingsteken verwacht."
 
-#: libraries/sql-parser/src/Lexer.php:717
+#: libraries/sql-parser/src/Lexer.php:736
 #, php-format
-#| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "Eindquote %1$s werd verwacht."
 
-#: libraries/sql-parser/src/Lexer.php:750
-#| msgid "Table name template"
+#: libraries/sql-parser/src/Lexer.php:769
 msgid "Variable name was expected."
 msgstr "Naam van variabele  werd verwacht."
 
-#: libraries/sql-parser/src/Parser.php:375
-#| msgid "at beginning of table"
+#: libraries/sql-parser/src/Parser.php:380
 msgid "Unexpected beginning of statement."
 msgstr "Onverwacht begin van opdracht."
 
-#: libraries/sql-parser/src/Parser.php:390
+#: libraries/sql-parser/src/Parser.php:399
 msgid "Unrecognized statement type."
 msgstr "Opdracht type niet herkent."
 
-#: libraries/sql-parser/src/Parser.php:461
+#: libraries/sql-parser/src/Parser.php:479
 msgid "No transaction was previously started."
 msgstr "Er is geen transactie gestart."
 
-#: libraries/sql-parser/src/Statement.php:206
-#| msgid "Unexpected characters on line %s."
+#: libraries/sql-parser/src/Statement.php:203
 msgid "Unexpected token."
 msgstr "Onverwacht token."
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:238
+#, fuzzy
+#| msgid "No transaction was previously started."
+msgid "This type of clause was previously parsed."
+msgstr "Er is geen transactie gestart."
+
+#: libraries/sql-parser/src/Statement.php:265
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
 "Een nieuwe opdracht werd gevonden, maar zonder scheidingsteken er tussen."
 
-#: libraries/sql-parser/src/Statement.php:269
+#: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
 msgstr "Sleutelwoord niet herkent."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
 msgstr "De naam van de entiteit werd verwacht."
 
@@ -14244,7 +14225,6 @@ msgstr "Voer SQL-query/query's uit op database %s"
 
 #: libraries/sql_query_form.lib.php:174
 #, php-format
-#| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Voer SQL-query/query's uit op tabel %s"
 
