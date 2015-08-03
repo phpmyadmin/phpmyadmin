@@ -92,7 +92,8 @@ function PMA_getHtmlForChangePassword($username, $hostname)
             $html .= '" checked="checked"';
         }
         $html .= ' />'
-            . '<label for="radio_pw_hash_mysql_native">' . 'mysql_native_password'
+            . '<label for="radio_pw_hash_mysql_native">'
+            . __('MySQL native password')
             . '</label>'
             . '</td>'
             . '</tr>'
