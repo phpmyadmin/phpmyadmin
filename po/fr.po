@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-08-03 09:51+0200\n"
-"PO-Revision-Date: 2015-08-03 12:48+0200\n"
+"PO-Revision-Date: 2015-08-04 12:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -14106,24 +14106,23 @@ msgid "Unrecognized statement type."
 msgstr "Type d'énoncé non reconnu."
 
 #: libraries/sql-parser/src/Parser.php:479
-#, fuzzy
 #| msgid "An alias was previously found."
 msgid "No transaction was previously started."
-msgstr "Un alias a été constaté précédemment."
+msgstr "Aucune transaction n'a été précédemment démarrée."
 
 #: libraries/sql-parser/src/Statement.php:203
 msgid "Unexpected token."
 msgstr "Jeton inattendu."
 
 #: libraries/sql-parser/src/Statement.php:238
-#, fuzzy
 #| msgid "An alias was previously found."
 msgid "This type of clause was previously parsed."
-msgstr "Un alias a été constaté précédemment."
+msgstr "Ce type de clause a été analysé précédemment."
 
 #: libraries/sql-parser/src/Statement.php:265
 msgid "A new statement was found, but no delimiter between them."
 msgstr ""
+"Un nouvel énoncé a été trouvé, mais pas de délimiteur avec le précédent."
 
 #: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
