@@ -101,18 +101,18 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
     $is_create_tbl = true
 ) {
     // no suffix is needed if request is a table creation
-    $sql_suffix = " ";
+    $sql_suffix = ' ';
     if ($is_create_tbl) {
         return $sql_suffix;
     }
 
-    if ($_REQUEST['field_where'] == 'last') {
+    if ((string) $_REQUEST['field_where'] === 'last') {
         return $sql_suffix;
     }
 
     // Only the first field can be added somewhere other than at the end
-    if ($current_field_num == 0) {
-        if ($_REQUEST['field_where'] == 'first') {
+    if ((int) $current_field_num === 0) {
+        if ((string) $_REQUEST['field_where'] === 'first') {
             $sql_suffix .= ' FIRST';
         } else {
             $sql_suffix .= ' AFTER '
