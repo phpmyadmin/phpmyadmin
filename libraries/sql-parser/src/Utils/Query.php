@@ -587,6 +587,10 @@ class Query
         for ($i = $statement->first; $i <= $statement->last; ++$i) {
             $token = $list->tokens[$i];
 
+            if ($token->type === Token::TYPE_COMMENT) {
+                continue;
+            }
+
             if ($token->type === Token::TYPE_OPERATOR) {
                 if ($token->value === '(') {
                     ++$brackets;
@@ -707,5 +711,64 @@ class Query
         $ret .= static::getClause($statement, $list, $ops[$count - 1][0], 1);
 
         return $ret;
+    }
+
+    /**
+     * Gets the first full statement in the query.
+     *
+     * @param string $query     The query to be analyzed.
+     * @param string $delimiter The delimiter to be used.
+     *
+     * @return array                Array containing the first full query, the
+     *                              remaining part of the query and the last
+     *                              delimiter.
+     */
+    public static function getFirstStatement($query, $delimiter = null)
+    {
+        $lexer = new Lexer($query, false, $delimiter);
+        $list = $lexer->list;
+
+        /**
+         * Whether a full statement was found.
+         * @var bool
+         */
+        $fullStatement = false;
+
+        /**
+         * The first full statement.
+         * @var string
+         */
+        $statement = '';
+
+        for ($list->idx = 0; $list->idx < $list->count; ++$list->idx) {
+            $token = $list->tokens[$list->idx];
+
+            if ($token->type === Token::TYPE_COMMENT) {
+                continue;
+            }
+
+            $statement .= $token->token;
+
+            if (($token->type === Token::TYPE_DELIMITER) && (!empty($token->value))) {
+                $delimiter = $token->value;
+                $fullStatement = true;
+                break;
+            }
+        }
+
+        // No statement was found so we return the entire query as being the
+        // remaining part.
+        if (!$fullStatement) {
+            return array(null, $query, $delimiter);
+        }
+
+        // At least one query was found so we have to build the rest of the
+        // remaining query.
+        $query = '';
+        for (++$list->idx; $list->idx < $list->count; ++$list->idx) {
+            $query .= $list->tokens[$list->idx]->value;
+        }
+
+        return array(trim($statement), $query, $delimiter);
     }
 }

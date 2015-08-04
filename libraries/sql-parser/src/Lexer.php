@@ -63,37 +63,38 @@ namespace SqlParser {
     {
 
         /**
-     * A list of methods that are used in lexing the SQL query.
-     *
-     * @var array
-     */
+         * A list of methods that are used in lexing the SQL query.
+         *
+         * @var array
+         */
         public static $PARSER_METHODS = array(
 
-        // It is best to put the parsers in order of their complexity
-        // (ascending) and their occurrence rate (descending).
-        //
-        // Conflicts:
-        //
-        // 1. `parseDelimiter` and `parseUnknown`, `parseKeyword`, `parseNumber`
-        // They fight over delimiter. The delimiter may be a keyword, a number
-        // or almost any character which makes the delimiter one of the first
-        // tokens that must be parsed.
-        //
-        // 1. `parseNumber` and `parseOperator`
-        // They fight over `+` and `-`.
-        //
-        // 2. `parseComment` and `parseOperator`
-        // They fight over `/` (as in ```/*comment*/``` or ```a / b```)
-        //
-        // 3. `parseBool` and `parseKeyword`
-        // They fight over `TRUE` and `FALSE`.
-        //
-        // 4. `parseKeyword` and `parseUnknown`
-        // They fight over words. `parseUnknown` does not know about keywords.
+            // It is best to put the parsers in order of their complexity
+            // (ascending) and their occurrence rate (descending).
+            //
+            // Conflicts:
+            //
+            // 1. `parseDelimiter`, `parseUnknown`, `parseKeyword`, `parseNumber`
+            // They fight over delimiter. The delimiter may be a keyword, a
+            // number or almost any character which makes the delimiter one of
+            // the first tokens that must be parsed.
+            //
+            // 1. `parseNumber` and `parseOperator`
+            // They fight over `+` and `-`.
+            //
+            // 2. `parseComment` and `parseOperator`
+            // They fight over `/` (as in ```/*comment*/``` or ```a / b```)
+            //
+            // 3. `parseBool` and `parseKeyword`
+            // They fight over `TRUE` and `FALSE`.
+            //
+            // 4. `parseKeyword` and `parseUnknown`
+            // They fight over words. `parseUnknown` does not know about
+            // keywords.
 
-        'parseDelimiter', 'parseWhitespace', 'parseNumber', 'parseComment',
-        'parseOperator', 'parseBool', 'parseString', 'parseSymbol',
-        'parseKeyword', 'parseUnknown'
+            'parseDelimiter', 'parseWhitespace', 'parseNumber',
+            'parseComment', 'parseOperator', 'parseBool', 'parseString',
+            'parseSymbol', 'parseKeyword', 'parseUnknown'
         );
 
         /**
@@ -149,7 +150,7 @@ namespace SqlParser {
          *
          * @var string
          */
-        public $delimiter = ';';
+        public $delimiter;
 
         /**
          * The length of the delimiter.
@@ -160,7 +161,7 @@ namespace SqlParser {
          *
          * @var int
          */
-        public $delimiterLen = 1;
+        public $delimiterLen;
 
         /**
          * List of errors that occurred during lexing.
@@ -178,10 +179,12 @@ namespace SqlParser {
         /**
          * Constructor.
          *
-         * @param string|UtfString $str    The query to be lexed.
-         * @param bool             $strict Whether strict mode should be enabled or not.
+         * @param string|UtfString $str       The query to be lexed.
+         * @param bool             $strict    Whether strict mode should be
+         *                                    enabled or not.
+         * @param string           $delimiter The delimiter to be used.
          */
-        public function __construct($str, $strict = false)
+        public function __construct($str, $strict = false, $delimiter = null)
         {
             // `strlen` is used instead of `mb_strlen` because the lexer needs to
             // parse each byte of the input.
@@ -201,9 +204,22 @@ namespace SqlParser {
             $this->strict = $strict;
 
             // Setting the delimiter.
-            $this->delimiter = static::$DEFAULT_DELIMITER;
+            $this->setDelimiter(
+                !empty($delimiter) ? $delimiter : static::$DEFAULT_DELIMITER
+            );
 
             $this->lex();
+        }
+
+        /**
+         * Sets the delimiter.
+         *
+         * @param string $delimiter The new delimiter.
+         */
+        public function setDelimiter($delimiter)
+        {
+            $this->delimiter = $delimiter;
+            $this->delimiterLen = strlen($delimiter);
         }
 
         /**
@@ -521,9 +537,9 @@ namespace SqlParser {
                         while ((++$this->last < $this->len) && ($this->str[$this->last] !== "\n")) {
                             $token .= $this->str[$this->last];
                         }
-                        if ($this->last < $this->len) {
-                            $token .= $this->str[$this->last];
-                        }
+
+                        // Adding the line ending.
+                        $token .= "\n";
                     }
                     return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_SQL);
                 }
