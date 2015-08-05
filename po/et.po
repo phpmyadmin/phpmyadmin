@@ -4,12 +4,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-05 10:49+0200\n"
-"PO-Revision-Date: 2015-08-05 10:50+0200\n"
+"PO-Revision-Date: 2015-08-05 11:03+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12658,6 +12658,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Kasutaja konto, mis lubab suvalisel kohaliku masina kasutajal ühenduda, on "
+"olemas. See takistab teistel kasutajatel ühendumast, kui nende konto hosti "
+"pool lubab ühenduda suvalisest (%) masinast."
 
 #: libraries/server_privileges.lib.php:4444
 #, php-format
@@ -13798,12 +13801,12 @@ msgstr "Globaalne väärtus"
 
 #: libraries/server_variables.lib.php:242
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Selle muutuja väärtus on ainult lugemiseks"
 
 #: libraries/sql-parser/src/Component.php:63
 #: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Hetkel veel rakendamata."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
 msgid "Unrecognized alter operation."
@@ -13812,38 +13815,38 @@ msgstr "Tundmatu ALTER operatsioon."
 #: libraries/sql-parser/src/Components/Array2d.php:90
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Oodati %1$d väärtust, kuid leiti %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:113
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Oodati avanevat sulgu, millele järgnevad väärtused."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:101
 #: libraries/sql-parser/src/Components/FieldDefinition.php:202
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Oodati avanevat sulgu."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Oodati koma või lõpetavat sulgu"
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tundmatu andmetüüp."
 
 #: libraries/sql-parser/src/Components/Expression.php:225
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Ootamatu lõpetav sulg."
 
 #: libraries/sql-parser/src/Components/Expression.php:246
 #: libraries/sql-parser/src/Components/Expression.php:283
 #: libraries/sql-parser/src/Components/Expression.php:303
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Eelnevalt leiti alias."
 
 #: libraries/sql-parser/src/Components/Expression.php:257
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Ootamatu punkt."
 
 #: libraries/sql-parser/src/Components/Expression.php:327
 msgid "An alias was expected."
@@ -13859,12 +13862,12 @@ msgstr "Oodati koma või lõpetavat sulgu."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:262
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Oodati lõpetavat sulgu."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Oodati nihet."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
