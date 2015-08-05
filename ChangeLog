@@ -94,6 +94,7 @@ phpMyAdmin - ChangeLog
 - Fix PHP 7 possible binding ambiguity
 - issue #11326 Exported schema includes all the tables of the database
 - issue #11339 Results not displayed if query ends in delimiter and comment
+- issue #11320 Live edit of data fields is not working always
 
 4.4.12.0 (2015-07-20)
 - bug       Saved chart image does not have a proper name or an extension
