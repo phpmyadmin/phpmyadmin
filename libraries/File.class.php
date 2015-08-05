@@ -484,7 +484,7 @@ class PMA_File
         $this->isTemp(true);
 
         if (! $this->isReadable()) {
-            $this->_error_message = __('Cannot read moved uploaded file.');
+            $this->_error_message = __('Cannot read uploaded file.');
             return false;
         }
 
