@@ -262,7 +262,7 @@ abstract class Statement
                     // this statement it means it is a new statement, but no
                     // delimiter was found between them.
                     $parser->error(
-                        __('A new statement was found, but no delimiter between them.'),
+                        __('A new statement was found, but no delimiter between it and the previous one.'),
                         $token
                     );
                     break;

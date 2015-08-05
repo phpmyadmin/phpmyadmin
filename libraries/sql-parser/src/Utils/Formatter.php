@@ -277,7 +277,7 @@ class Formatter
             if ($prev !== null) {
 
                 // Checking if a new clause started.
-                if (static::isClause($prev)) {
+                if (static::isClause($prev) !== false) {
                     $lastClause = $prev->value;
                     $formattedOptions = false;
                 }
