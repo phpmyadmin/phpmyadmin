@@ -2948,28 +2948,28 @@ $cfg['DefaultQueryDatabase'] = '';
 $cfg['SQLQuery'] = array();
 
 /**
- * Edit link to change a query
+ * Display an "Edit" link on the results page to change a query
  *
  * @global boolean $cfg['SQLQuery']['Edit']
  */
 $cfg['SQLQuery']['Edit'] = true;
 
 /**
- * EXPLAIN on SELECT queries
+ * Display an "Explain SQL" link on the results page
  *
  * @global boolean $cfg['SQLQuery']['Explain']
  */
 $cfg['SQLQuery']['Explain'] = true;
 
 /**
- * Wrap a query in PHP
+ * Display a "Create PHP Code" link on the results page to wrap a query in PHP
  *
  * @global boolean $cfg['SQLQuery']['ShowAsPHP']
  */
 $cfg['SQLQuery']['ShowAsPHP'] = true;
 
 /**
- * Refresh the results page
+ * Display a "Refresh" link on the results page
  *
  * @global boolean $cfg['SQLQuery']['Refresh']
  */
