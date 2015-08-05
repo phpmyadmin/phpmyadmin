@@ -179,7 +179,9 @@ class AlterOperation extends Component
                     } elseif ($token->value === ')') {
                         --$brackets;
                     } elseif ($token->value === ',') {
-                        break;
+                        if ($brackets === 0) {
+                            break;
+                        }
                     }
                 }
                 $ret->unknown[] = $token;

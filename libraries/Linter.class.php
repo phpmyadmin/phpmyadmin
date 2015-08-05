@@ -26,20 +26,32 @@ class PMA_Linter
      */
     public static function getLines($str)
     {
-        $lines = array(0);
+        if ((!($str instanceof UtfString))
+            && (defined('USE_UTF_STRINGS')) && (USE_UTF_STRINGS)
+        ) {
+            // If the lexer uses UtfString for processing then the position will
+            // represent the position of the character and not the position of
+            // the byte.
+            $str = new SqlParser\UtfString($str);
+        }
 
         // The reason for using the '8bit' parameter is that the length
         // required is the length in bytes, not characters.
         //
         // Given the following string: `????+`, where `?` represents a
         // multi-byte character (lets assume that every `?` is a 2-byte
-        // character) and `+` is a newline, the first value of `$i` is `0` and
-        // the last one is `4` (because there are 5 characters). Bytes `$str[0]`
-        // and `$str[1]` are the first character, `$str[2]` and `$str[3]` are
-        // the second one and `$str[4]` is going to be the first byte of the
-        // third character. The fourth and the last one (which is actually a new
-        // line) aren't going to be processed at all.
-        for ($i = 0, $len = /*overload*/mb_strlen($str, '8bit'); $i < $len; ++$i) {
+        // character) and `+` is a newline, the first value of `$i` is `0`
+        // and the last one is `4` (because there are 5 characters). Bytes
+        // `$str[0]` and `$str[1]` are the first character, `$str[2]` and
+        // `$str[3]` are the second one and `$str[4]` is going to be the
+        // first byte of the third character. The fourth and the last one
+        // (which is actually a new line) aren't going to be processed at
+        // all.
+        $len = ($str instanceof SqlParser\UtfString) ?
+            $str->length() : mb_strlen($len, '8bit');
+
+        $lines = array(0);
+        for ($i = 0; $i < $len; ++$i) {
             if ($str[$i] === "\n") {
                 $lines[] = $i + 1;
             }
