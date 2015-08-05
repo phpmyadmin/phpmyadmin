@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-08-03 16:51+0200\n"
+"PO-Revision-Date: 2015-08-05 12:38+0200\n"
 "Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
 "Language-Team: Romanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ro/>\n"
@@ -14345,10 +14345,9 @@ msgid "Improve table structure"
 msgstr "Propune structura de tabele"
 
 #: libraries/structure.lib.php:1663
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Monitorizează tabel"
+msgstr "Vedere de monitorizare"
 
 #: libraries/structure.lib.php:1704
 #: libraries/tbl_columns_definition_form.lib.php:189
