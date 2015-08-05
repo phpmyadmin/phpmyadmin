@@ -82,9 +82,9 @@ Installing on Windows
 
 The easiest way to get phpMyAdmin on Windows is using third party products
 which include phpMyAdmin together with a database and web server such as
-`XAMPP <http://www.apachefriends.org/en/xampp.html>`_.
+`XAMPP <http://www.apachefriends.org/en/xampp.html>`_, `VertrigoServ <http://www.vertrigo.sourceforge.net>`_ or `WAMP Server <http://wampserver.com>`_.
 
-You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
+You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_Apache-MySQL-PHP_packages>`_.
 
 
 .. _quick_install:
