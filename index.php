@@ -15,6 +15,7 @@ require_once 'libraries/common.inc.php';
  * display Git revision if requested
  */
 require_once 'libraries/display_git_revision.lib.php';
+require_once 'libraries/Template.class.php';
 
 /**
  * pass variables to child pages
@@ -187,7 +188,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             if ($cfg['ShowChgPassword']) {
                 $conditional_class = 'ajax';
                 PMA_printListItem(
-                    PMA_Util::getImage('s_passwd.png') . " " . __('Change password'),
+                    PMA_Util::getImage('s_passwd.png') . "&nbsp;" . __('Change password'),
                     'li_change_password',
                     'user_password.php' . $common_url_query,
                     null,
@@ -202,7 +203,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . PMA_Util::getImage('s_asci.png') . " "
+           . '                ' . PMA_Util::getImage('s_asci.png') . "&nbsp;"
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_Util::showMySQLDocu('Charset-connection')
@@ -255,7 +256,7 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     PMA_printListItem(
-        PMA_Util::getImage('b_tblops.png') . " " . __('More settings'),
+        PMA_Util::getImage('b_tblops.png') . "&nbsp;" . __('More settings'),
         'li_user_preferences',
         'prefs_manage.php' . $common_url_query,
         null,
@@ -698,32 +699,19 @@ function PMA_printListItem($name, $listId = null, $url = null,
     $mysql_help_page = null, $target = null, $a_id = null, $class = null,
     $a_class = null
 ) {
-    echo '<li id="' . $listId . '"';
-    if (null !== $class) {
-        echo ' class="' . $class . '"';
-    }
-    echo '>';
-    if (null !== $url) {
-        echo '<a href="' . $url . '"';
-        if (null !== $target) {
-            echo ' target="' . $target . '"';
-        }
-        if (null !== $a_id) {
-            echo ' id="' . $a_id . '"';
-        }
-        if (null !== $a_class) {
-            echo ' class="' . $a_class . '"';
-        }
-        echo '>';
-    }
-
-    echo $name;
-
-    if (null !== $url) {
-        echo '</a>' . "\n";
-    }
-    if (null !== $mysql_help_page) {
-        echo PMA_Util::showMySQLDocu($mysql_help_page);
-    }
-    echo '</li>';
+    echo PMA\Template::get('list/item')
+        ->render(
+            array(
+                'content' => $name,
+                'id' => $listId,
+                'class' => $class,
+                'url' => array(
+                    'href' => $url,
+                    'target' => $target,
+                    'id' => $a_id,
+                    'class' => $a_class,
+                ),
+                'mysql_help_page' => $mysql_help_page,
+            )
+        );
 }

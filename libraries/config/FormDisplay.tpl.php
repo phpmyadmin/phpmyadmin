@@ -50,12 +50,23 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
  */
 function PMA_displayTabsTop($tabs)
 {
-    $htmlOutput = '<ul class="tabs">';
+    $items = array();
     foreach ($tabs as $tab_id => $tab_name) {
-        $htmlOutput .= '<li><a href="#' . $tab_id . '">'
-            . htmlspecialchars($tab_name) . '</a></li>';
+        $items[] = array(
+            'content' => htmlspecialchars($tab_name),
+            'url' => array(
+                'href' => '#' . $tab_id,
+            ),
+        );
     }
-    $htmlOutput .= '</ul>';
+
+    include_once './libraries/Template.class.php';
+    $htmlOutput = PMA\Template::get('list/unordered')->render(
+        array(
+            'class' => 'tabs',
+            'items' => $items,
+        )
+    );
     $htmlOutput .= '<br clear="right" />';
     $htmlOutput .= '<div class="tabs_contents">';
     return $htmlOutput;

@@ -345,35 +345,30 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 
             $retval .= '<p>' . __('Quick steps to setup advanced features:')
                 . '</p>';
-            $retval .= '<ul>';
-            $retval .= '<li>';
-            $retval .= sprintf(
+
+            $items = array();
+            $items[] = sprintf(
                 __(
                     'Create the needed tables with the '
                     . '<code>%screate_tables.sql</code>.'
                 ),
                 htmlspecialchars(SQL_DIR)
-            );
-            $retval .= ' ' . PMA_Util::showDocu('setup', 'linked-tables');
-            $retval .= '</li>';
-            $retval .= '<li>';
-            $retval .= __('Create a pma user and give access to these tables.');
-            $retval .= ' ' . PMA_Util::showDocu('config', 'cfg_Servers_controluser');
-            $retval .= '</li>';
-            $retval .= '<li>';
-            $retval .= __(
+            ) . ' ' . PMA_Util::showDocu('setup', 'linked-tables');
+            $items[] = __('Create a pma user and give access to these tables.') . ' '
+                . PMA_Util::showDocu('config', 'cfg_Servers_controluser');
+            $items[] = __(
                 'Enable advanced features in configuration file '
                 . '(<code>config.inc.php</code>), for example by '
                 . 'starting from <code>config.sample.inc.php</code>.'
-            );
-            $retval .= ' ' . PMA_Util::showDocu('setup', 'quick-install');
-            $retval .= '</li>';
-            $retval .= '<li>';
-            $retval .= __(
+            ) . ' ' . PMA_Util::showDocu('setup', 'quick-install');
+            $items[] = __(
                 'Re-login to phpMyAdmin to load the updated configuration file.'
             );
-            $retval .= '</li>';
-            $retval .= '</ul>';
+
+            include_once './libraries/Template.class.php';
+            $retval .= PMA\Template::get('list/unordered')->render(
+                array('items' => $items,)
+            );
         }
     }
 

@@ -358,13 +358,24 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
             . 'heavy traffic between the web server and the MySQL server.'
         )
     )->getDisplay();
-    $html  = $html . $notice;
-    $html .= '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-    $html .= '<a href="server_databases.php' . $url_query . '&amp;dbstats=1"'
-        . ' title="' . __('Enable Statistics') . '">' . "\n"
-        . '            ' . __('Enable Statistics');
-    $html .= '</a></strong><br />' . "\n";
-    $html .= '</li>' . "\n" . '</ul>' . "\n";
+    $html .= $notice;
+
+    $items = array();
+    $items[] = array(
+        'content' => '<strong>' . "\n"
+            . __('Enable Statistics')
+            . '</strong><br />' . "\n",
+        'class' => 'li_switch_dbstats',
+        'url' => array(
+            'href' => 'server_databases.php' . $url_query . '&amp;dbstats=1',
+            'title' => __('Enable Statistics')
+        ),
+    );
+
+    include_once './libraries/Template.class.php';
+    $html .= PMA\Template::get('list/unordered')->render(
+        array('items' => $items,)
+    );
 
     return $html;
 }
