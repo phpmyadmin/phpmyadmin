@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-05 10:49+0200\n"
-"PO-Revision-Date: 2015-08-05 10:36+0200\n"
+"PO-Revision-Date: 2015-08-05 10:50+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -8154,10 +8154,9 @@ msgstr "Parooli räsimine:"
 
 #: libraries/display_change_password.lib.php:96
 #: libraries/server_privileges.lib.php:1698
-#, fuzzy
 #| msgid "mysql_native_password"
 msgid "MySQL native password"
-msgstr "mysql_native_password"
+msgstr "MySQL salasõna"
 
 #: libraries/display_change_password.lib.php:110
 #: libraries/server_privileges.lib.php:1709
@@ -8177,6 +8176,8 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"See meetod nõuab, et servieriga luuakse kas '<i>SSL ühendus</i>' või '<i>"
+"turvamata ühendus, mis krüpteerib salasõna RSA algorimiga</i>'."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -11820,6 +11821,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Sul puuduvad selle operatsiooni teostamiseks õigused. Täpsemalt vaata palun "
+"dokumentatsioonist"
 
 #: libraries/rte/rte_routines.lib.php:935
 msgid "Security type"
