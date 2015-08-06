@@ -182,7 +182,6 @@ class ExportJson extends ExportPlugin
             $columns[$i] = stripslashes($col_as);
         }
 
-        $buffer = '';
         $record_cnt = 0;
         while ($record = $GLOBALS['dbi']->fetchRow($result)) {
 
