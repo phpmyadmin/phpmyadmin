@@ -915,7 +915,7 @@ class ExportSql extends ExportPlugin
     /**
      * Exports events
      *
-     * @param string $db      Database
+     * @param string $db Database
      *
      * @return bool Whether it succeeded
      */
