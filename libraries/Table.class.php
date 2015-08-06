@@ -2358,12 +2358,14 @@ class PMA_Table
     function getRealRowCountTable()
     {
         // SQL query to get row count for a table.
-        $result = $this->_dbi->fetchSingleRow(sprintf(
-            'SELECT COUNT(*) AS %s FROM %s.%s',
-            PMA_Util::backquote('row_count'),
-            PMA_Util::backquote($this->_db_name),
-            PMA_Util::backquote($$this->_name)
-        ));
+        $result = $this->_dbi->fetchSingleRow(
+            sprintf(
+                'SELECT COUNT(*) AS %s FROM %s.%s',
+                PMA_Util::backquote('row_count'),
+                PMA_Util::backquote($this->_db_name),
+                PMA_Util::backquote($$this->_name)
+            )
+        );
         return $result['row_count'];
     }
 

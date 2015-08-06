@@ -744,8 +744,8 @@ class StructureController extends Controller
 
             // display secondary level tabs if necessary
             $engine = $this->_table_obj->sGetStatusInfo('ENGINE');
-            $this->response->addHTML(Template::get('structure/secondary_tabs')
-                ->render(
+            $this->response->addHTML(
+                Template::get('structure/secondary_tabs')->render(
                     array(
                         'url_params' => array(
                             'db' => $this->_db,
@@ -1079,22 +1079,22 @@ class StructureController extends Controller
             }
 
             $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
-                    $column,
-                    $column,
-                    /*overload*/mb_strtoupper($extracted_columnspec['type']),
-                    $extracted_columnspec['spec_in_brackets'],
-                    $extracted_columnspec['attribute'],
-                    isset($data['Collation']) ? $data['Collation'] : '',
-                    $data['Null'] === 'YES' ? 'NULL' : 'NOT NULL',
-                    $default_type,
-                    $current_timestamp ? '' : $data['Default'],
-                    isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
-                    isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
-                        ? $data['COLUMN_COMMENT'] : false,
-                    $data['Virtuality'],
-                    $data['Expression'],
-                    $i === 0 ? '-first' : $column_names[$i - 1]
-                );
+                $column,
+                $column,
+                /*overload*/mb_strtoupper($extracted_columnspec['type']),
+                $extracted_columnspec['spec_in_brackets'],
+                $extracted_columnspec['attribute'],
+                isset($data['Collation']) ? $data['Collation'] : '',
+                $data['Null'] === 'YES' ? 'NULL' : 'NOT NULL',
+                $default_type,
+                $current_timestamp ? '' : $data['Default'],
+                isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
+                isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
+                ? $data['COLUMN_COMMENT'] : false,
+                $data['Virtuality'],
+                $data['Expression'],
+                $i === 0 ? '-first' : $column_names[$i - 1]
+            );
             // update current column_names array, first delete old position
             for ($j = 0, $ll = count($column_names); $j < $ll; $j++) {
                 if ($column_names[$j] == $column) {
@@ -1109,11 +1109,13 @@ class StructureController extends Controller
             return;
         }
         // move columns
-        $this->dbi->tryQuery(sprintf(
-            'ALTER TABLE %s %s',
-            PMA_Util::backquote($this->_table),
-            implode(', ', $changes)
-        ));
+        $this->dbi->tryQuery(
+            sprintf(
+                'ALTER TABLE %s %s',
+                PMA_Util::backquote($this->_table),
+                implode(', ', $changes)
+            )
+        );
         $tmp_error = $this->dbi->getError();
         if ($tmp_error) {
             $this->response->isSuccess(false);
@@ -1262,10 +1264,10 @@ class StructureController extends Controller
     protected function updateColumns()
     {
         $err_url = 'tbl_structure.php' . PMA_URL_getCommon(
-                array(
-                    'db' => $this->_db, 'table' => $this->_table
-                )
-            );
+            array(
+                'db' => $this->_db, 'table' => $this->_table
+            )
+        );
         $regenerate = false;
         $field_cnt = count($_REQUEST['field_name']);
         $changes = array();
@@ -1274,21 +1276,21 @@ class StructureController extends Controller
         for ($i = 0; $i < $field_cnt; $i++) {
             if ($this->columnNeedsAlterTable($i)) {
                 $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
-                        Util\get($_REQUEST, "field_orig.${i}", ''),
-                        $_REQUEST['field_name'][$i],
-                        $_REQUEST['field_type'][$i],
-                        $_REQUEST['field_length'][$i],
-                        $_REQUEST['field_attribute'][$i],
-                        Util\get($_REQUEST, "field_collation.${i}", ''),
-                        Util\get($_REQUEST, "field_null.${i}", 'NOT NULL'),
-                        $_REQUEST['field_default_type'][$i],
-                        $_REQUEST['field_default_value'][$i],
-                        Util\get($_REQUEST, "field_extra.${i}", false),
-                        Util\get($_REQUEST, "field_comments.${i}", ''),
-                        Util\get($_REQUEST, "field_virtuality.${i}", ''),
-                        Util\get($_REQUEST, "field_expression.${i}", ''),
-                        Util\get($_REQUEST, "field_move_to.${i}", '')
-                    );
+                    Util\get($_REQUEST, "field_orig.${i}", ''),
+                    $_REQUEST['field_name'][$i],
+                    $_REQUEST['field_type'][$i],
+                    $_REQUEST['field_length'][$i],
+                    $_REQUEST['field_attribute'][$i],
+                    Util\get($_REQUEST, "field_collation.${i}", ''),
+                    Util\get($_REQUEST, "field_null.${i}", 'NOT NULL'),
+                    $_REQUEST['field_default_type'][$i],
+                    $_REQUEST['field_default_value'][$i],
+                    Util\get($_REQUEST, "field_extra.${i}", false),
+                    Util\get($_REQUEST, "field_comments.${i}", ''),
+                    Util\get($_REQUEST, "field_virtuality.${i}", ''),
+                    Util\get($_REQUEST, "field_expression.${i}", ''),
+                    Util\get($_REQUEST, "field_move_to.${i}", '')
+                );
 
                 // find the remembered sort expression
                 $sorted_col = $this->_table_obj->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
@@ -1396,19 +1398,19 @@ class StructureController extends Controller
                 for ($i = 0; $i < $field_cnt; $i++) {
                     if ($changedToBlob[$i]) {
                         $changes_revert[] = 'CHANGE ' . PMA_Table::generateAlter(
-                                Util\get($_REQUEST, "field_orig.${i}", ''),
-                                $_REQUEST['field_name'][$i],
-                                $_REQUEST['field_type_orig'][$i],
-                                $_REQUEST['field_length_orig'][$i],
-                                $_REQUEST['field_attribute_orig'][$i],
-                                Util\get($_REQUEST, "field_collation_orig.${i}", ''),
-                                Util\get($_REQUEST, "field_null_orig.${i}", 'NOT NULL'),
-                                $_REQUEST['field_default_type_orig'][$i],
-                                $_REQUEST['field_default_value_orig'][$i],
-                                Util\get($_REQUEST, "field_extra_orig.${i}", false),
-                                Util\get($_REQUEST, "field_comments_orig.${i}", ''),
-                                Util\get($_REQUEST, "field_move_to_orig.${i}", '')
-                            );
+                            Util\get($_REQUEST, "field_orig.${i}", ''),
+                            $_REQUEST['field_name'][$i],
+                            $_REQUEST['field_type_orig'][$i],
+                            $_REQUEST['field_length_orig'][$i],
+                            $_REQUEST['field_attribute_orig'][$i],
+                            Util\get($_REQUEST, "field_collation_orig.${i}", ''),
+                            Util\get($_REQUEST, "field_null_orig.${i}", 'NOT NULL'),
+                            $_REQUEST['field_default_type_orig'][$i],
+                            $_REQUEST['field_default_value_orig'][$i],
+                            Util\get($_REQUEST, "field_extra_orig.${i}", false),
+                            Util\get($_REQUEST, "field_comments_orig.${i}", ''),
+                            Util\get($_REQUEST, "field_move_to_orig.${i}", '')
+                        );
                     }
                 }
 
@@ -1484,14 +1486,16 @@ class StructureController extends Controller
             // For Column specific privileges
             foreach ($adjust_privileges as $oldCol => $newCol) {
 
-                $this->dbi->query(sprintf(
-                    'UPDATE %s SET Column_name = "%s"
-                    WHERE Db = "%s"
-                    AND Table_name = "%s"
-                    AND Column_name = "%s";',
-                    PMA_Util::backquote('columns_priv'),
-                    $newCol, $this->_db, $this->_table, $oldCol
-                ));
+                $this->dbi->query(
+                    sprintf(
+                        'UPDATE %s SET Column_name = "%s"
+                        WHERE Db = "%s"
+                        AND Table_name = "%s"
+                        AND Column_name = "%s";',
+                        PMA_Util::backquote('columns_priv'),
+                        $newCol, $this->_db, $this->_table, $oldCol
+                    )
+                );
 
                 // i.e. if atleast one column privileges adjusted
                 $changed = true;
@@ -1549,10 +1553,8 @@ class StructureController extends Controller
     protected function hasTable($db, $truename)
     {
         foreach ($db as $db_table) {
-            if ($this->_db == PMA_extractDbOrTable($db_table) &&
-                preg_match("@^" . /*overload*/
-                    mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@", $truename
-                )
+            if ($this->_db == PMA_extractDbOrTable($db_table)
+                && preg_match("@^" . /*overload*/ mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@", $truename)
             ) {
                 return true;
             }
@@ -1591,11 +1593,12 @@ class StructureController extends Controller
             case 'Aria' :
             case 'Maria' :
                 list($current_table, $formatted_size, $unit, $formatted_overhead,
-                    $overhead_unit, $overhead_size, $sum_size) = $this->getValuesForAriaTable(
-                    $db_is_system_schema, $current_table, $is_show_stats,
-                    $sum_size, $overhead_size, $formatted_size, $unit,
-                    $formatted_overhead, $overhead_unit
-                );
+                    $overhead_unit, $overhead_size, $sum_size)
+                    = $this->getValuesForAriaTable(
+                        $db_is_system_schema, $current_table, $is_show_stats,
+                        $sum_size, $overhead_size, $formatted_size, $unit,
+                        $formatted_overhead, $overhead_unit
+                    );
                 break;
             case 'InnoDB' :
             case 'PBMS' :
@@ -1685,9 +1688,9 @@ class StructureController extends Controller
                 // would transform 6.1MiB into 6,224.6KiB
                 list($formatted_overhead, $overhead_unit)
                     = PMA_Util::formatByteDown(
-                    $current_table['Data_free'], 4,
-                    (($current_table['Data_free'] > 0) ? 1 : 0)
-                );
+                        $current_table['Data_free'], 4,
+                        (($current_table['Data_free'] > 0) ? 1 : 0)
+                    );
                 $overhead_size += $current_table['Data_free'];
             }
         }
@@ -1792,14 +1795,16 @@ class StructureController extends Controller
          * Work on the table
          */
         if ($this->_tbl_is_view) {
-            $item = $this->dbi->fetchSingleRow(sprintf(
-                "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`
+            $item = $this->dbi->fetchSingleRow(
+                sprintf(
+                    "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`
                     FROM `INFORMATION_SCHEMA`.`VIEWS`
                     WHERE TABLE_SCHEMA='%s'
                     AND TABLE_NAME='%s';",
-                PMA_Util::sqlAddSlashes($this->_db),
-                PMA_Util::sqlAddSlashes($this->_table)
-            ));
+                    PMA_Util::sqlAddSlashes($this->_db),
+                    PMA_Util::sqlAddSlashes($this->_table)
+                )
+            );
 
             $createView = $this->dbi->getTable($this->_db, $this->_table)->showCreate();
             // get algorithm from $createView of the form CREATE ALGORITHM=<ALGORITHM> DE...
@@ -1816,7 +1821,9 @@ class StructureController extends Controller
                 'algorithm' => $item['ALGORITHM'],
             );
 
-            $edit_view_url = 'view_create.php' . PMA_URL_getCommon($url_params) . '&amp;' . implode(
+            $edit_view_url = 'view_create.php'
+                . PMA_URL_getCommon($url_params) . '&amp;'
+                . implode(
                     '&amp;',
                     array_map(
                         function ($key, $val) {
@@ -1946,7 +1953,6 @@ class StructureController extends Controller
         list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
             $showtable['Data_length'] + $showtable['Index_length'],
             $max_digits, $decimals
-
         );
         if ($table_info_num_rows > 0) {
             list($avg_size, $avg_unit) = PMA_Util::formatByteDown(
