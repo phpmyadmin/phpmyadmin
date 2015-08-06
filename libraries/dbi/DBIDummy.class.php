@@ -610,6 +610,11 @@ $GLOBALS['dummy_queries'] = array(
     array(
         'query' => 'SHOW VARIABLES like \'default_authentication_plugin\'',
         'result' => array(array('Variable_name' => 'mysql_native_password'))
+    ),
+    array(
+        'query' => "SELECT TABLE_NAME FROM information_schema.VIEWS WHERE "
+            . "TABLE_SCHEMA = 'db' AND TABLE_NAME = 'table'",
+        'result' => array()
     )
 );
 /**
