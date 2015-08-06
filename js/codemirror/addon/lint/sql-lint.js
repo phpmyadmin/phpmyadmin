@@ -32,6 +32,7 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
         data: {
             sql_query: text,
             token: PMA_commonParams.get('token'),
+            server: PMA_commonParams.get('server')
         },
         success: handleResponse
     });
