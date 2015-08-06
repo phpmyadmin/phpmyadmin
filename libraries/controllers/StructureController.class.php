@@ -51,40 +51,76 @@ class StructureController extends Controller
      * @var string  The URL query string
      */
     protected $_url_query;
-
+    /**
+     * @var int Current position in the list
+     */
     protected $_pos;
-
+    /**
+     * @var bool DB is information_schema
+     */
     protected $_db_is_system_schema;
-
+    /**
+     * @var int Number of tables
+     */
     protected $_total_num_tables;
-
+    /**
+     * @var int Number of tables
+     */
     protected $_num_tables;
 
     /**
      * @var array   Tables in the database
      */
     protected $_tables;
-
+    /**
+     * @var bool Table is a view
+     */
     protected $_tbl_is_view;
-
+    /**
+     * @var bool whether stats show or not
+     */
     protected $_is_show_stats;
-
+    /**
+     * @var string Table storage engine
+     */
     protected $_tbl_storage_engine;
-
+    /**
+     * @var int Number of rows
+     */
     protected $_table_info_num_rows;
-
+    /**
+     * @var string Table collation
+     */
     protected $_tbl_collation;
 
     /**
-     * @var  Show table info
+     * @var array Show table info
      */
     protected $_showtable;
 
-
-    public function __construct($type, $db, $table, $url_query, $num_tables,
-                                $pos, $db_is_system_schema, $total_num_tables,
-                                $tables, $is_show_stats, $tbl_is_view, $tbl_storage_engine,
-                                $table_info_num_rows, $tbl_collation, $showtable
+    /**
+     * StructureController constructor
+     *
+     * @param string $type                Indicate the db_structure or tbl_structure
+     * @param string $db                  DB name
+     * @param string $table               Table name
+     * @param string $url_query           URL query
+     * @param int    $num_tables          Number of tables
+     * @param int    $pos                 Current position in the list
+     * @param bool   $db_is_system_schema DB is information_schema
+     * @param int    $total_num_tables    Number of tables
+     * @param array  $tables              Tables in the DB
+     * @param bool   $is_show_stats       Whether stats show or not
+     * @param bool   $tbl_is_view         Table is a view
+     * @param string $tbl_storage_engine  Table storage engine
+     * @param int    $table_info_num_rows Number of rows
+     * @param string $tbl_collation       Table collation
+     * @param array  $showtable           Show table info
+     */
+    public function __construct(
+        $type, $db, $table, $url_query, $num_tables, $pos, $db_is_system_schema,
+        $total_num_tables, $tables, $is_show_stats, $tbl_is_view,
+        $tbl_storage_engine, $table_info_num_rows, $tbl_collation, $showtable
     ) {
         parent::__construct();
 
@@ -1211,7 +1247,8 @@ class StructureController extends Controller
      *
      * @return void
      */
-    protected function displayTableBrowseForSelectedColumns($goto, $pmaThemeImage) {
+    protected function displayTableBrowseForSelectedColumns($goto, $pmaThemeImage)
+    {
         $GLOBALS['active_page'] = 'sql.php';
         $fields = array();
         foreach ($_REQUEST['selected_fld'] as $sval) {
@@ -1295,9 +1332,10 @@ class StructureController extends Controller
                 // find the remembered sort expression
                 $sorted_col = $this->_table_obj->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
                 // if the old column name is part of the remembered sort expression
-                if (/*overload*/mb_strpos($sorted_col,
-                        PMA_Util::backquote($_REQUEST['field_orig'][$i])
-                    ) !== false) {
+                if (/*overload*/mb_strpos(
+                    $sorted_col,
+                    PMA_Util::backquote($_REQUEST['field_orig'][$i])
+                ) !== false) {
                     // delete the whole remembered sort expression
                     $this->_table_obj->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
                 }
@@ -1477,9 +1515,9 @@ class StructureController extends Controller
     {
         $changed = false;
 
-        if ((!defined('PMA_DRIZZLE') || !PMA_DRIZZLE) &&
-            Util\get($GLOBALS, 'col_priv', false) &&
-            Util\get($GLOBALS, 'flush_priv', false)
+        if ((!defined('PMA_DRIZZLE') || !PMA_DRIZZLE)
+            && Util\get($GLOBALS, 'col_priv', false)
+            && Util\get($GLOBALS, 'flush_priv', false)
         ) {
             $this->dbi->selectDb('mysql');
 
@@ -1573,8 +1611,9 @@ class StructureController extends Controller
      * @return array
      * @internal param bool $table_is_view whether table is view or not
      */
-    protected function getStuffForEngineTypeTable($current_table, $db_is_system_schema,
-                                            $is_show_stats, $sum_size, $overhead_size
+    protected function getStuffForEngineTypeTable(
+        $current_table, $db_is_system_schema, $is_show_stats, $sum_size,
+        $overhead_size
     ) {
         $formatted_size = '-';
         $unit = '';
@@ -1583,58 +1622,58 @@ class StructureController extends Controller
         $table_is_view = false;
 
         switch ( $current_table['ENGINE']) {
-            // MyISAM, ISAM or Heap table: Row count, data size and index size
-            // are accurate; data size is accurate for ARCHIVE
-            case 'MyISAM' :
-            case 'ISAM' :
-            case 'HEAP' :
-            case 'MEMORY' :
-            case 'ARCHIVE' :
-            case 'Aria' :
-            case 'Maria' :
-                list($current_table, $formatted_size, $unit, $formatted_overhead,
-                    $overhead_unit, $overhead_size, $sum_size)
-                    = $this->getValuesForAriaTable(
-                        $db_is_system_schema, $current_table, $is_show_stats,
-                        $sum_size, $overhead_size, $formatted_size, $unit,
-                        $formatted_overhead, $overhead_unit
-                    );
-                break;
-            case 'InnoDB' :
-            case 'PBMS' :
-                // InnoDB table: Row count is not accurate but data and index sizes are.
-                // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
-                // so it may be unavailable
-                list($current_table, $formatted_size, $unit, $sum_size)
-                    = $this->getValuesForInnodbTable($current_table, $is_show_stats, $sum_size);
-                //$display_rows                   =  ' - ';
-                break;
-            // Mysql 5.0.x (and lower) uses MRG_MyISAM
-            // and MySQL 5.1.x (and higher) uses MRG_MYISAM
-            // Both are aliases for MERGE
-            case 'MRG_MyISAM' :
-            case 'MRG_MYISAM' :
-            case 'MERGE' :
-            case 'BerkeleyDB' :
-                // Merge or BerkleyDB table: Only row count is accurate.
-                if ($is_show_stats) {
-                    $formatted_size =  ' - ';
-                    $unit          =  '';
-                }
-                break;
-            // for a view, the ENGINE is sometimes reported as null,
-            // or on some servers it's reported as "SYSTEM VIEW"
-            case null :
-            case 'SYSTEM VIEW' :
-            case 'FunctionEngine' :
-                // possibly a view, do nothing
-                break;
-            default :
-                // Unknown table type.
-                if ($is_show_stats) {
-                    $formatted_size =  __('unknown');
-                    $unit          =  '';
-                }
+        // MyISAM, ISAM or Heap table: Row count, data size and index size
+        // are accurate; data size is accurate for ARCHIVE
+        case 'MyISAM' :
+        case 'ISAM' :
+        case 'HEAP' :
+        case 'MEMORY' :
+        case 'ARCHIVE' :
+        case 'Aria' :
+        case 'Maria' :
+            list($current_table, $formatted_size, $unit, $formatted_overhead,
+                $overhead_unit, $overhead_size, $sum_size)
+                = $this->getValuesForAriaTable(
+                    $db_is_system_schema, $current_table, $is_show_stats,
+                    $sum_size, $overhead_size, $formatted_size, $unit,
+                    $formatted_overhead, $overhead_unit
+                );
+            break;
+        case 'InnoDB' :
+        case 'PBMS' :
+            // InnoDB table: Row count is not accurate but data and index sizes are.
+            // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
+            // so it may be unavailable
+            list($current_table, $formatted_size, $unit, $sum_size)
+                = $this->getValuesForInnodbTable($current_table, $is_show_stats, $sum_size);
+            //$display_rows                   =  ' - ';
+            break;
+        // Mysql 5.0.x (and lower) uses MRG_MyISAM
+        // and MySQL 5.1.x (and higher) uses MRG_MYISAM
+        // Both are aliases for MERGE
+        case 'MRG_MyISAM' :
+        case 'MRG_MYISAM' :
+        case 'MERGE' :
+        case 'BerkeleyDB' :
+            // Merge or BerkleyDB table: Only row count is accurate.
+            if ($is_show_stats) {
+                $formatted_size =  ' - ';
+                $unit          =  '';
+            }
+            break;
+        // for a view, the ENGINE is sometimes reported as null,
+        // or on some servers it's reported as "SYSTEM VIEW"
+        case null :
+        case 'SYSTEM VIEW' :
+        case 'FunctionEngine' :
+            // possibly a view, do nothing
+            break;
+        default :
+            // Unknown table type.
+            if ($is_show_stats) {
+                $formatted_size =  __('unknown');
+                $unit          =  '';
+            }
         } // end switch
 
         if ($current_table['TABLE_TYPE'] == 'VIEW' || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW') {
@@ -1683,7 +1722,9 @@ class StructureController extends Controller
             list($formatted_size, $unit) = PMA_Util::formatByteDown(
                 $tblsize, 3, ($tblsize > 0) ? 1 : 0
             );
-            if (isset($current_table['Data_free']) && $current_table['Data_free'] > 0) {
+            if (isset($current_table['Data_free'])
+                && $current_table['Data_free'] > 0
+            ) {
                 // here, the value 4 as the second parameter
                 // would transform 6.1MiB into 6,224.6KiB
                 list($formatted_overhead, $overhead_unit)
@@ -1749,10 +1790,10 @@ class StructureController extends Controller
      *
      * @return string
      */
-    protected function displayStructure($cfgRelation, $columns_with_unique_index,
-                              $url_params, $primary_index, $fields,
-                              $columns_with_index, $create_table_fields)
-    {
+    protected function displayStructure(
+        $cfgRelation, $columns_with_unique_index, $url_params, $primary_index,
+        $fields, $columns_with_index, $create_table_fields
+    ) {
         /* TABLE INFORMATION */
         $HideStructureActions = '';
         if ($GLOBALS['cfg']['HideStructureActions'] === true) {
