@@ -86,6 +86,7 @@ phpMyAdmin - ChangeLog
 - issue #11322 Missing null checkbox when grid editing a null cell
 + Upgrade TCPDF to version 6.2.9
 + issue #6102 Add SHA256 security password support
+- issue #10250 Displayed git revision info is not set
 
 4.4.13.0 (not yet released)
 - issue #1808  "Improve table structure" generates invalid SQL
