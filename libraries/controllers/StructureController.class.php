@@ -117,11 +117,11 @@ class StructureController extends Controller
             }
 
             $this->response->getHeader()->getScripts()->addFiles(
-              array(
-                  'db_structure.js',
-                  'tbl_change.js',
-                  'jquery/jquery-ui-timepicker-addon.js'
-              )
+                array(
+                    'db_structure.js',
+                    'tbl_change.js',
+                    'jquery/jquery-ui-timepicker-addon.js'
+                )
             );
 
             // Drops/deletes/etc. multiple tables if required
@@ -253,9 +253,9 @@ class StructureController extends Controller
                 list($current_table, $formatted_size, $unit, $formatted_overhead,
                     $overhead_unit, $overhead_size, $table_is_view, $sum_size)
                     = $this->getStuffForEngineTypeTable(
-                    $current_table, $this->_db_is_system_schema,
-                    $this->_is_show_stats, $sum_size, $overhead_size
-                );
+                        $current_table, $this->_db_is_system_schema,
+                        $this->_is_show_stats, $sum_size, $overhead_size
+                    );
 
                 if (! $this->dbi->getTable($this->_db, $current_table['TABLE_NAME'])->isMerge()) {
                     $sum_entries += $current_table['TABLE_ROWS'];
@@ -310,23 +310,19 @@ class StructureController extends Controller
                     }
                 }
 
-                $alias = str_replace(
-                    ' ', '&nbsp;', htmlspecialchars(
-                        (!empty($tooltip_aliasname) &&
-                            isset($tooltip_aliasname[$current_table['TABLE_NAME']])) ?
-                            $tooltip_aliasname[$current_table['TABLE_NAME']] :
-                            $current_table['TABLE_NAME']
-                    )
+                $alias = htmlspecialchars(
+                    (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$current_table['TABLE_NAME']]))
+                    ? $tooltip_aliasname[$current_table['TABLE_NAME']]
+                    : $current_table['TABLE_NAME']
                 );
+                $alias = str_replace(' ', '&nbsp;', $alias);
 
-                $truename = str_replace(
-                    ' ', '&nbsp;', htmlspecialchars(
-                        (!empty($tooltip_truename) &&
-                            isset($tooltip_truename[$current_table['TABLE_NAME']])) ?
-                            $tooltip_truename[$current_table['TABLE_NAME']] :
-                            $current_table['TABLE_NAME']
-                    )
+                $truename = htmlspecialchars(
+                    (!empty($tooltip_truename) && isset($tooltip_truename[$current_table['TABLE_NAME']]))
+                    ? $tooltip_truename[$current_table['TABLE_NAME']]
+                    : $current_table['TABLE_NAME']
                 );
+                $truename = str_replace(' ', '&nbsp;', $truename);
 
                 $i++;
 
@@ -629,10 +625,10 @@ class StructureController extends Controller
             require_once 'libraries/bookmark.lib.php';
 
             $this->response->getHeader()->getScripts()->addFiles(
-              array(
-                  'tbl_structure.js',
-                  'indexes.js'
-              )
+                array(
+                    'tbl_structure.js',
+                    'indexes.js'
+                )
             );
 
             /**
@@ -757,7 +753,8 @@ class StructureController extends Controller
                         ),
                         'engine' => $engine
                     )
-                ));
+                )
+            );
             $this->response->addHTML('<div id="structure_content">');
 
             /**
@@ -819,8 +816,8 @@ class StructureController extends Controller
             $columns_with_index = $this->dbi
                 ->getTable($this->_db, $this->_table)
                 ->getColumnsWithIndex(
-                PMA_Index::UNIQUE | PMA_Index::INDEX | PMA_Index::SPATIAL | PMA_Index::FULLTEXT
-            );
+                    PMA_Index::UNIQUE | PMA_Index::INDEX | PMA_Index::SPATIAL | PMA_Index::FULLTEXT
+                );
             $columns_with_unique_index = $this->dbi
                 ->getTable($this->_db, $this->_table)
                 ->getColumnsWithIndex(PMA_Index::UNIQUE);
@@ -850,8 +847,12 @@ class StructureController extends Controller
             $create_table_fields = SqlParser\Utils\Table::getFields($stmt);
 
             //display table structure
-            $this->response->addHTML($this->displayStructure($cfgRelation, $columns_with_unique_index,
-                $url_params, $primary, $fields, $columns_with_index, $create_table_fields));
+            $this->response->addHTML(
+                $this->displayStructure(
+                    $cfgRelation, $columns_with_unique_index, $url_params, $primary,
+                    $fields, $columns_with_index, $create_table_fields
+                )
+            );
 
             $this->response->addHTML('</div>');
         }
