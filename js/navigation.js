@@ -772,7 +772,7 @@ function PMA_showCurrentNavigation() {
                         .children('div:first')
                         .children('a.expander');
                     if (! $expander.hasClass('loaded')) {
-                    	loadAndShowTableOrView($expander, $containers[index], itemName);
+                        loadAndShowTableOrView($expander, $containers[index], itemName);
                     }
                 });
             // else if no subContainers
@@ -781,7 +781,7 @@ function PMA_showCurrentNavigation() {
                     .children('div:first')
                     .children('a.expander');
                 if (! $expander.hasClass('loaded')) {
-                	loadAndShowTableOrView($expander, $dbItem, itemName);
+                    loadAndShowTableOrView($expander, $dbItem, itemName);
                 }
             }
         }
