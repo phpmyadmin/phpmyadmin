@@ -2372,7 +2372,7 @@ class PMA_Table
     /**
      * Get columns with indexes
      *
-     * @param int    $types types bitmask
+     * @param int $types types bitmask
      *
      * @return array an array of columns
      */
