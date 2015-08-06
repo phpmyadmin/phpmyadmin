@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-05 10:49+0200\n"
-"PO-Revision-Date: 2015-08-05 12:40+0200\n"
+"PO-Revision-Date: 2015-08-06 13:13+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -14206,18 +14206,17 @@ msgid "Unrecognized keyword."
 msgstr "Mot clé non reconnu."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Le nombre de tables qui sont ouvertes."
+msgstr "Le nom de l'entité était attendu."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
 msgid "At least one field definition was expected."
-msgstr ""
+msgstr "La définition d'au moins un champ était attendue."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Le mot clé « RETURNS » était attendu."
 
 #: libraries/sql.lib.php:224
 msgid "Detailed profile"
