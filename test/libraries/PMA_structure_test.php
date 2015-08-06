@@ -182,30 +182,32 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetTableDropQueryAndMessage()
     {
         $this->markTestIncomplete('Not Implemented Yet!');
-//        $current_table = array(
-//            'TABLE_ROWS' => 3,
-//            'TABLE_NAME' => 'name1',
-//            'ENGINE' => 'ENGINE1',
-//        );
-//        $table_is_view = false;
-//
-//        list($drop_query, $drop_message) = PMA_getTableDropQueryAndMessage(
-//            $table_is_view, $current_table
-//        );
-//
-//        //$drop_query
-//        $ret = "DROP TABLE `name1`";
-//        $this->assertEquals(
-//            $ret,
-//            $drop_query
-//        );
-//
-//        //$drop_message
-//        $ret = "Table name1 has been dropped.";
-//        $this->assertEquals(
-//            $ret,
-//            $drop_message
-//        );
+        /*
+        $current_table = array(
+            'TABLE_ROWS' => 3,
+            'TABLE_NAME' => 'name1',
+            'ENGINE' => 'ENGINE1',
+        );
+        $table_is_view = false;
+
+        list($drop_query, $drop_message) = PMA_getTableDropQueryAndMessage(
+            $table_is_view, $current_table
+        );
+
+        //$drop_query
+        $ret = "DROP TABLE `name1`";
+        $this->assertEquals(
+            $ret,
+            $drop_query
+        );
+
+        //$drop_message
+        $ret = "Table name1 has been dropped.";
+        $this->assertEquals(
+            $ret,
+            $drop_message
+        );
+        */
     }
 
     /**
