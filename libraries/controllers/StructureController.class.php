@@ -42,73 +42,73 @@ class StructureController extends Controller
     /**
      * @var string  Indicate the db_structure or tbl_structure
      */
-    protected $_type;
+    protected $type;
 
     /**
      * @var string  The database name
      */
-    protected $_db;
+    protected $db;
 
     /**
      * @var string  The table name
      */
-    protected $_table;
+    protected $table;
 
     /**
      * @var PMA_Table  The table object
      */
-    protected $_table_obj;
+    protected $table_obj;
 
     /**
      * @var string  The URL query string
      */
-    protected $_url_query;
+    protected $url_query;
     /**
      * @var int Current position in the list
      */
-    protected $_pos;
+    protected $pos;
     /**
      * @var bool DB is information_schema
      */
-    protected $_db_is_system_schema;
+    protected $db_is_system_schema;
     /**
      * @var int Number of tables
      */
-    protected $_total_num_tables;
+    protected $total_num_tables;
     /**
      * @var int Number of tables
      */
-    protected $_num_tables;
+    protected $num_tables;
 
     /**
      * @var array   Tables in the database
      */
-    protected $_tables;
+    protected $tables;
     /**
      * @var bool Table is a view
      */
-    protected $_tbl_is_view;
+    protected $tbl_is_view;
     /**
      * @var bool whether stats show or not
      */
-    protected $_is_show_stats;
+    protected $is_show_stats;
     /**
      * @var string Table storage engine
      */
-    protected $_tbl_storage_engine;
+    protected $tbl_storage_engine;
     /**
      * @var int Number of rows
      */
-    protected $_table_info_num_rows;
+    protected $table_info_num_rows;
     /**
      * @var string Table collation
      */
-    protected $_tbl_collation;
+    protected $tbl_collation;
 
     /**
      * @var array Show table info
      */
-    protected $_showtable;
+    protected $showtable;
 
     /**
      * StructureController constructor
@@ -136,22 +136,22 @@ class StructureController extends Controller
     ) {
         parent::__construct();
 
-        $this->_type = $type;
-        $this->_db = $db;
-        $this->_table = $table;
-        $this->_num_tables = $num_tables;
-        $this->_pos = $pos;
-        $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_total_num_tables = $total_num_tables;
-        $this->_tables = $tables;
-        $this->_is_show_stats = $is_show_stats;
-        $this->_url_query = $url_query;
-        $this->_tbl_is_view = $tbl_is_view;
-        $this->_tbl_storage_engine = $tbl_storage_engine;
-        $this->_table_info_num_rows = $table_info_num_rows;
-        $this->_tbl_collation = $tbl_collation;
-        $this->_showtable = $showtable;
-        $this->_table_obj = new PMA_Table($this->_table, $this->_db);
+        $this->type = $type;
+        $this->db = $db;
+        $this->table = $table;
+        $this->num_tables = $num_tables;
+        $this->pos = $pos;
+        $this->db_is_system_schema = $db_is_system_schema;
+        $this->total_num_tables = $total_num_tables;
+        $this->tables = $tables;
+        $this->is_show_stats = $is_show_stats;
+        $this->url_query = $url_query;
+        $this->tbl_is_view = $tbl_is_view;
+        $this->tbl_storage_engine = $tbl_storage_engine;
+        $this->table_info_num_rows = $table_info_num_rows;
+        $this->tbl_collation = $tbl_collation;
+        $this->showtable = $showtable;
+        $this->table_obj = new PMA_Table($this->table, $this->db);
     }
 
     /**
@@ -162,7 +162,7 @@ class StructureController extends Controller
     public function indexAction()
     {
         // Database structure
-        if ($this->_type == 'db') {
+        if ($this->type == 'db') {
             // Add/Remove favorite tables using Ajax request.
             if ($GLOBALS['is_ajax_request'] && !empty($_REQUEST['favorite_table'])) {
                 $this->addRemoveFavoriteTables();
@@ -183,7 +183,7 @@ class StructureController extends Controller
             ) {
                 $action = 'db_structure.php';
                 $err_url = 'db_structure.php' . PMA_URL_getCommon(
-                    array('db' => $this->_db)
+                    array('db' => $this->db)
                 );
 
                 // see bug #2794840; in this case, code path is:
@@ -198,7 +198,7 @@ class StructureController extends Controller
                 }
             }
 
-            $this->_url_query .= '&amp;goto=db_structure.php';
+            $this->url_query .= '&amp;goto=db_structure.php';
 
             // Gets the database structure
             $sub_part = '_structure';
@@ -220,18 +220,18 @@ class StructureController extends Controller
 
             PMA_PageSettings::showGroup('DbStructure');
 
-            $db_collation = PMA_getDbCollation($this->_db);
+            $db_collation = PMA_getDbCollation($this->db);
 
             $titles = PMA_Util::buildActionTitles();
 
             // 1. No tables
 
-            if ($this->_num_tables == 0) {
+            if ($this->num_tables == 0) {
                 $this->response->addHTML(
                     PMA_message::notice(__('No tables found in database.'))
                 );
                 if (empty($db_is_system_schema)) {
-                    $this->response->addHTML(PMA_getHtmlForCreateTable($this->_db));
+                    $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
                 }
                 return;
             }
@@ -244,8 +244,8 @@ class StructureController extends Controller
              */
             $this->response->addHTML('<div id="tableslistcontainer">');
             $_url_params = array(
-                'pos' => $this->_pos,
-                'db'  => $this->_db);
+                'pos' => $this->pos,
+                'db'  => $this->db);
 
             // Add the sort options if they exists
             if (isset($_REQUEST['sort'])) {
@@ -258,7 +258,7 @@ class StructureController extends Controller
 
             $this->response->addHTML(
                 PMA_Util::getListNavigator(
-                    $this->_total_num_tables, $this->_pos, $_url_params,
+                    $this->total_num_tables, $this->pos, $_url_params,
                     'db_structure.php',
                     'frame_content', $GLOBALS['cfg']['MaxTableList']
                 )
@@ -269,8 +269,8 @@ class StructureController extends Controller
                 Template::get('structure/table_header')
                     ->render(
                         array(
-                            'db'                  => $this->_db,
-                            'db_is_system_schema' => $this->_db_is_system_schema,
+                            'db'                  => $this->db,
+                            'db_is_system_schema' => $this->db_is_system_schema,
                             'replication'         => $GLOBALS['replication_info']['slave']['status'],
                         )
                     )
@@ -282,7 +282,7 @@ class StructureController extends Controller
             $update_time_all = '';
             $check_time_all = '';
             $num_columns = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
-                ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns'])
+                ? ceil($this->num_tables / $GLOBALS['cfg']['PropertiesNumColumns'])
                 + 1
                 : 0;
             $row_count      = 0;
@@ -294,7 +294,7 @@ class StructureController extends Controller
             $overall_approx_rows = false;
             // Instance of PMA_RecentFavoriteTable class.
             $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
-            foreach ($this->_tables as $keyname => $current_table) {
+            foreach ($this->tables as $keyname => $current_table) {
                 // Get valid statistics whatever is the table type
 
                 $drop_query = '';
@@ -305,17 +305,17 @@ class StructureController extends Controller
                 $table_is_view = false;
                 $table_encoded = urlencode($current_table['TABLE_NAME']);
                 // Sets parameters for links
-                $tbl_url_query = $this->_url_query . '&amp;table=' . $table_encoded;
+                $tbl_url_query = $this->url_query . '&amp;table=' . $table_encoded;
                 // do not list the previous table's size info for a view
 
                 list($current_table, $formatted_size, $unit, $formatted_overhead,
                     $overhead_unit, $overhead_size, $table_is_view, $sum_size)
                         = $this->getStuffForEngineTypeTable(
-                            $current_table, $this->_db_is_system_schema,
-                            $this->_is_show_stats, $sum_size, $overhead_size
+                            $current_table, $this->db_is_system_schema,
+                            $this->is_show_stats, $sum_size, $overhead_size
                         );
 
-                if (!$this->dbi->getTable($this->_db, $current_table['TABLE_NAME'])->isMerge()) {
+                if (!$this->dbi->getTable($this->db, $current_table['TABLE_NAME'])->isMerge()) {
                     $sum_entries += $current_table['TABLE_ROWS'];
                 }
 
@@ -327,7 +327,7 @@ class StructureController extends Controller
                     $collation = '---';
                 }
 
-                if ($this->_is_show_stats) {
+                if ($this->is_show_stats) {
                     if ($formatted_overhead != '') {
                         $overhead = '<a href="tbl_structure.php'
                             . $tbl_url_query . '#showusage">'
@@ -342,7 +342,7 @@ class StructureController extends Controller
                 } // end if
 
                 $showtable = $this->dbi->getTable(
-                    $this->_db, $current_table['TABLE_NAME']
+                    $this->db, $current_table['TABLE_NAME']
                 )->sGetStatusInfo(null, true);
 
                 if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
@@ -448,7 +448,7 @@ class StructureController extends Controller
                     );
 
                 $empty_table = '';
-                if (!$this->_db_is_system_schema) {
+                if (!$this->db_is_system_schema) {
                     $empty_table = '&nbsp;';
                     if (!$table_is_view) {
                         $empty_table = Template::get('structure/empty_table')
@@ -503,7 +503,7 @@ class StructureController extends Controller
                         $tracking_icon = Template::get('structure/tracking_icon')
                             ->render(
                                 array(
-                                    'url_query' => $this->_url_query,
+                                    'url_query' => $this->url_query,
                                     'truename' => $truename,
                                     'is_tracked' => $is_tracked
                                 )
@@ -512,7 +512,7 @@ class StructureController extends Controller
                 }
 
                 if ($num_columns > 0
-                    && $this->_num_tables > $num_columns
+                    && $this->num_tables > $num_columns
                     && ($row_count % $num_columns) == 0
                 ) {
                     $row_count = 1;
@@ -549,7 +549,7 @@ class StructureController extends Controller
                         $truename, $GLOBALS['replication_info']['slave']['Do_DB']
                     );
                     $searchDoDBInDB = array_search(
-                        $this->_db, $GLOBALS['replication_info']['slave']['Do_DB']
+                        $this->db, $GLOBALS['replication_info']['slave']['Do_DB']
                     );
 
                     $do = strlen($searchDoDBInTruename) > 0
@@ -563,7 +563,7 @@ class StructureController extends Controller
                         );
 
                     $searchDb = array_search(
-                        $this->_db,
+                        $this->db,
                         $GLOBALS['replication_info']['slave']['Ignore_DB']
                     );
                     $searchTable = array_search(
@@ -586,7 +586,7 @@ class StructureController extends Controller
                     if ($already_favorite) {
                         // If already in favorite list, remove it.
                         $favorite_table = $_REQUEST['favorite_table'];
-                        $fav_instance->remove($this->_db, $favorite_table);
+                        $fav_instance->remove($this->db, $favorite_table);
                     }
                 }
 
@@ -594,7 +594,7 @@ class StructureController extends Controller
                     if (!$already_favorite) {
                         // Otherwise add to favorite list.
                         $favorite_table = $_REQUEST['favorite_table'];
-                        $fav_instance->add($this->_db, $favorite_table);
+                        $fav_instance->add($this->db, $favorite_table);
                     }
                 } // Handle favorite table list. ----ENDS----
 
@@ -640,7 +640,7 @@ class StructureController extends Controller
                     Template::get('structure/structure_table_row')
                         ->render(
                             array(
-                                'db'                    => $this->_db,
+                                'db'                    => $this->db,
                                 'curr'                  => $i,
                                 'odd_row'               => $odd_row,
                                 'table_is_view'         => $table_is_view,
@@ -651,7 +651,7 @@ class StructureController extends Controller
                                 'browse_table'          => $browse_table,
                                 'tbl_url_query'         => $tbl_url_query,
                                 'search_table'          => $search_table,
-                                'db_is_system_schema'   => $this->_db_is_system_schema,
+                                'db_is_system_schema'   => $this->db_is_system_schema,
                                 'titles'                => $titles,
                                 'empty_table'           => $empty_table,
                                 'drop_query'            => $drop_query,
@@ -666,7 +666,7 @@ class StructureController extends Controller
                                     ? $update_time : '',
                                 'check_time'            => isset($check_time)
                                     ? $check_time : '',
-                                'is_show_stats'         => $this->_is_show_stats,
+                                'is_show_stats'         => $this->is_show_stats,
                                 'ignored'               => $ignored,
                                 'do'                    => $do,
                                 'colspan_for_structure' => $GLOBALS['colspan_for_structure'],
@@ -688,12 +688,12 @@ class StructureController extends Controller
             $this->response->addHTML(
                 Template::get('structure/body_for_table_summary')->render(
                     array(
-                        'num_tables' => $this->_num_tables,
+                        'num_tables' => $this->num_tables,
                         'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
-                        'db_is_system_schema' => $this->_db_is_system_schema,
+                        'db_is_system_schema' => $this->db_is_system_schema,
                         'sum_entries' => $sum_entries,
                         'db_collation' => $db_collation,
-                        'is_show_stats' => $this->_is_show_stats,
+                        'is_show_stats' => $this->is_show_stats,
                         'sum_size' => $sum_size,
                         'overhead_size' => $overhead_size,
                         'create_time_all' => $create_time_all,
@@ -711,7 +711,7 @@ class StructureController extends Controller
                         'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
                         'text_dir' => $GLOBALS['text_dir'],
                         'overhead_check' => $overhead_check,
-                        'db_is_system_schema' => $this->_db_is_system_schema,
+                        'db_is_system_schema' => $this->db_is_system_schema,
                         'hidden_fields' => $hidden_fields
                     )
                 )
@@ -721,7 +721,7 @@ class StructureController extends Controller
             // display again the table list navigator
             $this->response->addHTML(
                 PMA_Util::getListNavigator(
-                    $this->_total_num_tables, $this->_pos, $_url_params,
+                    $this->total_num_tables, $this->pos, $_url_params,
                     'db_structure.php', 'frame_content',
                     $GLOBALS['cfg']['MaxTableList']
                 )
@@ -736,15 +736,15 @@ class StructureController extends Controller
             /* Printable view of a table */
             $this->response->addHTML(
                 Template::get('structure/print_view_data_dictionary_link')->render(
-                    array('url_query' => $this->_url_query)
+                    array('url_query' => $this->url_query)
                 )
             );
 
             if (empty($db_is_system_schema)) {
-                $this->response->addHTML(PMA_getHtmlForCreateTable($this->_db));
+                $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
             }
 
-        } elseif ($this->_type == 'table') { // Table structure
+        } elseif ($this->type == 'table') { // Table structure
             PMA_PageSettings::showGroup('TableStructure');
 
             /**
@@ -785,8 +785,8 @@ class StructureController extends Controller
                             $reserved_keywords_names[] = trim($column);
                         }
                     }
-                    if (SqlParser\Context::isKeyword(trim($this->_table), true)) {
-                        $reserved_keywords_names[] = trim($this->_table);
+                    if (SqlParser\Context::isKeyword(trim($this->table), true)) {
+                        $reserved_keywords_names[] = trim($this->table);
                     }
                     if (count($reserved_keywords_names) == 0) {
                         $this->response->isSuccess(false);
@@ -877,13 +877,13 @@ class StructureController extends Controller
             }
 
             // display secondary level tabs if necessary
-            $engine = $this->_table_obj->sGetStatusInfo('ENGINE');
+            $engine = $this->table_obj->sGetStatusInfo('ENGINE');
             $this->response->addHTML(
                 Template::get('structure/secondary_tabs')->render(
                     array(
                         'url_params' => array(
-                            'db' => $this->_db,
-                            'table' => $this->_table
+                            'db' => $this->db,
+                            'table' => $this->table
                         ),
                         'engine' => $engine
                     )
@@ -911,8 +911,8 @@ class StructureController extends Controller
             if (isset($_REQUEST['add_key'])) {
                 //todo: set some variables for sql.php include, to be eliminated
                 //after refactoring sql.php
-                $db = $this->_db;
-                $table = $this->_table;
+                $db = $this->db;
+                $table = $this->table;
                 $cfg = $GLOBALS['cfg'];
                 $is_superuser = $GLOBALS['dbi']->isSuperuser();
                 $pmaThemeImage = $GLOBALS['pmaThemeImage'];
@@ -930,10 +930,10 @@ class StructureController extends Controller
              */
             // set db, table references, for require_once that follows
             // got to be eliminated in long run
-            $db = &$this->_db;
-            $table = &$this->_table;
+            $db = &$this->db;
+            $table = &$this->table;
             require_once 'libraries/tbl_common.inc.php';
-            $this->_url_query = $url_query
+            $this->url_query = $url_query
                 . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
             $url_params['goto'] = 'tbl_structure.php';
             $url_params['back'] = 'tbl_structure.php';
@@ -947,20 +947,20 @@ class StructureController extends Controller
 
             // 2. Gets table keys and retains them
             // @todo should be: $server->db($db)->table($table)->primary()
-            $primary = PMA_Index::getPrimary($this->_table, $this->_db);
+            $primary = PMA_Index::getPrimary($this->table, $this->db);
             $columns_with_index = $this->dbi
-                ->getTable($this->_db, $this->_table)
+                ->getTable($this->db, $this->table)
                 ->getColumnsWithIndex(
                     PMA_Index::UNIQUE | PMA_Index::INDEX | PMA_Index::SPATIAL
                     | PMA_Index::FULLTEXT
                 );
             $columns_with_unique_index = $this->dbi
-                ->getTable($this->_db, $this->_table)
+                ->getTable($this->db, $this->table)
                 ->getColumnsWithIndex(PMA_Index::UNIQUE);
 
             // 3. Get fields
             $fields = (array)$this->dbi->getColumns(
-                $this->_db, $this->_table, null, true
+                $this->db, $this->table, null, true
             );
 
             // Get more complete field information
@@ -974,7 +974,7 @@ class StructureController extends Controller
             // and SHOW CREATE TABLE says NOT NULL (tested
             // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
-            $show_create_table = $this->_table_obj->showCreate();
+            $show_create_table = $this->table_obj->showCreate();
             $parser = new SqlParser\Parser($show_create_table);
 
             /**
@@ -1025,7 +1025,7 @@ class StructureController extends Controller
         if (isset($_REQUEST['remove_favorite'])) {
             if ($already_favorite) {
                 // If already in favorite list, remove it.
-                $fav_instance->remove($this->_db, $favorite_table);
+                $fav_instance->remove($this->db, $favorite_table);
             }
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (!$already_favorite) {
@@ -1033,7 +1033,7 @@ class StructureController extends Controller
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.
-                    $fav_instance->add($this->_db, $favorite_table);
+                    $fav_instance->add($this->db, $favorite_table);
                 }
             }
         }
@@ -1060,7 +1060,7 @@ class StructureController extends Controller
                 'anchor' => Template::get('structure/favorite_anchor')
                     ->render(
                         array(
-                            'db' => $this->_db,
+                            'db' => $this->db,
                             'current_table' => array(
                                 'TABLE_NAME' => $favorite_table
                             ),
@@ -1120,7 +1120,7 @@ class StructureController extends Controller
         foreach (
             $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value
         ) {
-            if ($value['db'] == $this->_db && $value['table'] == $current_table) {
+            if ($value['db'] == $this->db && $value['table'] == $current_table) {
                 return true;
             }
         }
@@ -1139,7 +1139,7 @@ class StructureController extends Controller
         if (!isset($_REQUEST['real_row_count_all'])) {
             // Get the real row count for the table.
             $real_row_count = $this->dbi
-                ->getTable($this->_db, $_REQUEST['table'])
+                ->getTable($this->db, $_REQUEST['table'])
                 ->getRealRowCountTable();
             // Format the number.
             $real_row_count = PMA_Util::formatNumber($real_row_count, 0);
@@ -1152,7 +1152,7 @@ class StructureController extends Controller
         // Iterate over each table and fetch real row count.
         foreach ($GLOBALS['tables'] as $table) {
             $row_count = $this->dbi
-                ->getTable($this->_db, $table['TABLE_NAME'])
+                ->getTable($this->db, $table['TABLE_NAME'])
                 ->getRealRowCountTable();
             $real_row_count_all[] = array(
                 'table' => $table['TABLE_NAME'],
@@ -1173,12 +1173,12 @@ class StructureController extends Controller
      */
     protected function moveColumns()
     {
-        $this->dbi->selectDb($this->_db);
+        $this->dbi->selectDb($this->db);
 
         /*
          * load the definitions for all columns
          */
-        $columns = $this->dbi->getColumnsFull($this->_db, $this->_table);
+        $columns = $this->dbi->getColumnsFull($this->db, $this->table);
         $column_names = array_keys($columns);
         $changes = array();
 
@@ -1220,7 +1220,7 @@ class StructureController extends Controller
             $data['Expression'] = '';
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
-                $expressions = $this->_table->getColumnGenerationExpression($column);
+                $expressions = $this->table->getColumnGenerationExpression($column);
                 $data['Expression'] = $expressions[$column];
             }
 
@@ -1259,7 +1259,7 @@ class StructureController extends Controller
         $this->dbi->tryQuery(
             sprintf(
                 'ALTER TABLE %s %s',
-                PMA_Util::backquote($this->_table),
+                PMA_Util::backquote($this->table),
                 implode(', ', $changes)
             )
         );
@@ -1301,7 +1301,7 @@ class StructureController extends Controller
         $fields_meta = array();
         for ($i = 0; $i < $selected_cnt; $i++) {
             $fields_meta[] = $this->dbi->getColumns(
-                $this->_db, $this->_table, $selected[$i], true
+                $this->db, $this->table, $selected[$i], true
             );
         }
         $num_fields = count($fields_meta);
@@ -1370,13 +1370,13 @@ class StructureController extends Controller
         $sql_query = sprintf(
             'SELECT %s FROM %s.%s',
             implode(', ', $fields),
-            PMA_Util::backquote($this->_db),
-            PMA_Util::backquote($this->_table)
+            PMA_Util::backquote($this->db),
+            PMA_Util::backquote($this->table)
         );
 
         // Parse and analyze the query
         // @todo Refactor parse_analyze.inc to protected function
-        $db = &$this->_db;
+        $db = &$this->db;
         include_once 'libraries/parse_analyze.inc.php';
 
         include_once 'libraries/sql.lib.php';
@@ -1385,8 +1385,8 @@ class StructureController extends Controller
             PMA_executeQueryAndGetQueryResponse(
                 isset($analyzed_sql_results) ? $analyzed_sql_results : '',
                 false, // is_gotofile
-                $this->_db, // db
-                $this->_table, // table
+                $this->db, // db
+                $this->table, // table
                 null, // find_real_end
                 null, // sql_query_for_bookmark
                 null, // extra_data
@@ -1415,7 +1415,7 @@ class StructureController extends Controller
     {
         $err_url = 'tbl_structure.php' . PMA_URL_getCommon(
             array(
-                'db' => $this->_db, 'table' => $this->_table
+                'db' => $this->db, 'table' => $this->table
             )
         );
         $regenerate = false;
@@ -1446,7 +1446,7 @@ class StructureController extends Controller
             );
 
             // find the remembered sort expression
-            $sorted_col = $this->_table_obj->getUiProp(
+            $sorted_col = $this->table_obj->getUiProp(
                 PMA_Table::PROP_SORTED_COLUMN
             );
             // if the old column name is part of the remembered sort expression
@@ -1455,7 +1455,7 @@ class StructureController extends Controller
                 PMA_Util::backquote($_REQUEST['field_orig'][$i])
             ) !== false) {
                 // delete the whole remembered sort expression
-                $this->_table_obj->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
+                $this->table_obj->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
             }
 
             if (isset($_REQUEST['field_adjust_privileges'][$i])
@@ -1481,15 +1481,15 @@ class StructureController extends Controller
 
             // To allow replication, we first select the db to use
             // and then run queries on this db.
-            if (!$this->dbi->selectDb($this->_db)) {
+            if (!$this->dbi->selectDb($this->db)) {
                 PMA_Util::mysqlDie(
                     $this->dbi->getError(),
-                    'USE ' . PMA_Util::backquote($this->_db) . ';',
+                    'USE ' . PMA_Util::backquote($this->db) . ';',
                     false,
                     $err_url
                 );
             }
-            $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($this->_table) . ' ';
+            $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($this->table) . ' ';
             $sql_query .= implode(', ', $changes) . $key_query;
             $sql_query .= ';';
 
@@ -1507,7 +1507,7 @@ class StructureController extends Controller
                     && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
                 ) {
                     $secondary_query = 'ALTER TABLE ' . PMA_Util::backquote(
-                        $this->_table
+                        $this->table
                     )
                     . ' CHANGE ' . PMA_Util::backquote(
                         $_REQUEST['field_orig'][$i]
@@ -1526,7 +1526,7 @@ class StructureController extends Controller
 
             if ($result !== false) {
                 $changed_privileges = $this->adjustColumnPrivileges(
-                    $this->_db, $this->_table, $adjust_privileges
+                    $this->db, $this->table, $adjust_privileges
                 );
 
                 if ($changed_privileges) {
@@ -1541,7 +1541,7 @@ class StructureController extends Controller
                         __('Table %1$s has been altered successfully.')
                     );
                 }
-                $message->addParam($this->_table);
+                $message->addParam($this->table);
 
                 $this->response->addHTML(
                     PMA_Util::getMessage($message, $sql_query, 'success')
@@ -1573,7 +1573,7 @@ class StructureController extends Controller
                     }
                 }
 
-                $revert_query = 'ALTER TABLE ' . PMA_Util::backquote($this->_table)
+                $revert_query = 'ALTER TABLE ' . PMA_Util::backquote($this->table)
                     . ' ';
                 $revert_query .= implode(', ', $changes_revert) . '';
                 $revert_query .= ';';
@@ -1597,7 +1597,7 @@ class StructureController extends Controller
             foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
                 if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
                     PMA_REL_renameField(
-                        $this->_db, $this->_table, $fieldcontent,
+                        $this->db, $this->table, $fieldcontent,
                         $_REQUEST['field_name'][$fieldindex]
                     );
                 }
@@ -1616,7 +1616,7 @@ class StructureController extends Controller
                     )
                 ) {
                     PMA_setMIME(
-                        $this->_db, $this->_table,
+                        $this->db, $this->table,
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
@@ -1659,7 +1659,7 @@ class StructureController extends Controller
                         AND Table_name = "%s"
                         AND Column_name = "%s";',
                         PMA_Util::backquote('columns_priv'),
-                        $newCol, $this->_db, $this->_table, $oldCol
+                        $newCol, $this->db, $this->table, $oldCol
                     )
                 );
 
@@ -1720,7 +1720,7 @@ class StructureController extends Controller
     protected function hasTable($db, $truename)
     {
         foreach ($db as $db_table) {
-            if ($this->_db == PMA_extractDbOrTable($db_table)
+            if ($this->db == PMA_extractDbOrTable($db_table)
                 && preg_match("@^" . /*overload*/ mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@", $truename)
             ) {
                 return true;
@@ -1813,7 +1813,7 @@ class StructureController extends Controller
         ) {
             // countRecords() takes care of $cfg['MaxExactCountViews']
             $current_table['TABLE_ROWS'] = $this->dbi
-                ->getTable($this->_db, $current_table['TABLE_NAME'])
+                ->getTable($this->db, $current_table['TABLE_NAME'])
                 ->countRecords(true);
             $table_is_view = true;
         }
@@ -1845,7 +1845,7 @@ class StructureController extends Controller
     ) {
         if ($db_is_system_schema) {
             $current_table['Rows'] = $this->dbi
-                ->getTable($this->_db, $current_table['Name'])
+                ->getTable($this->db, $current_table['Name'])
                 ->countRecords();
         }
 
@@ -1896,7 +1896,7 @@ class StructureController extends Controller
         ) {
             $current_table['COUNTED'] = true;
             $current_table['TABLE_ROWS'] = $this->dbi
-                ->getTable($this->_db, $current_table['TABLE_NAME'])
+                ->getTable($this->db, $current_table['TABLE_NAME'])
                 ->countRecords(true);
         } else {
             $current_table['COUNTED'] = false;
@@ -1944,13 +1944,13 @@ class StructureController extends Controller
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
             include_once 'libraries/transformations.lib.php';
-            $comments_map = PMA_getComments($this->_db, $this->_table);
+            $comments_map = PMA_getComments($this->db, $this->table);
             if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-                $mime_map = PMA_getMIME($this->_db, $this->_table, true);
+                $mime_map = PMA_getMIME($this->db, $this->table, true);
             }
         }
         require_once 'libraries/central_columns.lib.php';
-        $central_list = PMA_getCentralColumnsFromTable($this->_db, $this->_table);
+        $central_list = PMA_getCentralColumnsFromTable($this->db, $this->table);
         $columns_list = array();
 
         $titles = array(
@@ -1973,19 +1973,19 @@ class StructureController extends Controller
         /**
          * Work on the table
          */
-        if ($this->_tbl_is_view) {
+        if ($this->tbl_is_view) {
             $item = $this->dbi->fetchSingleRow(
                 sprintf(
                     "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`
                     FROM `INFORMATION_SCHEMA`.`VIEWS`
                     WHERE TABLE_SCHEMA='%s'
                     AND TABLE_NAME='%s';",
-                    PMA_Util::sqlAddSlashes($this->_db),
-                    PMA_Util::sqlAddSlashes($this->_table)
+                    PMA_Util::sqlAddSlashes($this->db),
+                    PMA_Util::sqlAddSlashes($this->table)
                 )
             );
 
-            $createView = $this->dbi->getTable($this->_db, $this->_table)->showCreate();
+            $createView = $this->dbi->getTable($this->db, $this->table)->showCreate();
             // get algorithm from $createView of the form CREATE ALGORITHM=<ALGORITHM> DE...
             $parts = explode(" ", substr($createView, 17));
             $item['ALGORITHM'] = $parts[0];
@@ -1994,7 +1994,7 @@ class StructureController extends Controller
                 'operation' => 'alter',
                 'definer' => $item['DEFINER'],
                 'sql_security' => $item['SECURITY_TYPE'],
-                'name' => $this->_table,
+                'name' => $this->table,
                 'as' => $item['VIEW_DEFINITION'],
                 'with' => $item['CHECK_OPTION'],
                 'algorithm' => $item['ALGORITHM'],
@@ -2016,14 +2016,14 @@ class StructureController extends Controller
         /**
          * Displays indexes
          */
-        if (! $this->_tbl_is_view
-            && ! $this->_db_is_system_schema
-            && 'ARCHIVE' !=  $this->_tbl_storage_engine
+        if (! $this->tbl_is_view
+            && ! $this->db_is_system_schema
+            && 'ARCHIVE' !=  $this->tbl_storage_engine
         ) {
             //return the list of index
             $this->response->addJSON(
                 'indexes_list',
-                PMA_Index::getHtmlForIndexes($this->_table, $this->_db)
+                PMA_Index::getHtmlForIndexes($this->table, $this->db)
             );
         }
 
@@ -2035,9 +2035,9 @@ class StructureController extends Controller
         if ($GLOBALS['cfg']['ShowStats']) {
             //get table stats in HTML format
             $tablestats = $this->getTableStats(
-                $this->_showtable, $this->_table_info_num_rows, $this->_tbl_is_view,
-                $this->_db_is_system_schema, $this->_tbl_storage_engine,
-                $this->_url_query, $this->_tbl_collation
+                $this->showtable, $this->table_info_num_rows, $this->tbl_is_view,
+                $this->db_is_system_schema, $this->tbl_storage_engine,
+                $this->url_query, $this->tbl_collation
             );
             //returning the response in JSON format to be used by Ajax
             $this->response->addJSON('tableStat', $tablestats);
@@ -2047,14 +2047,14 @@ class StructureController extends Controller
         return Template::get('structure/display_structure')->render(
             array(
                 'HideStructureActions' => $HideStructureActions,
-                'db' => $this->_db,
-                'table' => $this->_table,
-                'db_is_system_schema' => $this->_db_is_system_schema,
-                'tbl_is_view' => $this->_tbl_is_view,
+                'db' => $this->db,
+                'table' => $this->table,
+                'db_is_system_schema' => $this->db_is_system_schema,
+                'tbl_is_view' => $this->tbl_is_view,
                 'mime_map' => $mime_map,
-                'url_query' => $this->_url_query,
+                'url_query' => $this->url_query,
                 'titles' => $titles,
-                'tbl_storage_engine' => $this->_tbl_storage_engine,
+                'tbl_storage_engine' => $this->tbl_storage_engine,
                 'primary' => $primary_index,
                 'columns_with_unique_index' => $columns_with_unique_index,
                 'edit_view_url' => isset($edit_view_url) ? $edit_view_url : null,
@@ -2088,7 +2088,7 @@ class StructureController extends Controller
     ) {
         if (empty($showtable)) {
             $showtable = $this->dbi->getTable(
-                $this->_db, $this->_table
+                $this->db, $this->table
             )->sGetStatusInfo(null, true);
         }
 
@@ -2101,7 +2101,7 @@ class StructureController extends Controller
 
         $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
 
-        $mergetable = $this->_table_obj->isMerge();
+        $mergetable = $this->table_obj->isMerge();
 
         // this is to display for example 261.2 MiB instead of 268k KiB
         $max_digits = 3;
@@ -2177,9 +2177,9 @@ class StructureController extends Controller
      */
     protected function getKeyForTablePrimary()
     {
-        $this->dbi->selectDb($this->_db);
+        $this->dbi->selectDb($this->db);
         $result = $this->dbi->query(
-            'SHOW KEYS FROM ' . PMA_Util::backquote($this->_table) . ';'
+            'SHOW KEYS FROM ' . PMA_Util::backquote($this->table) . ';'
         );
         $primary = '';
         while ($row = $this->dbi->fetchAssoc($result)) {
