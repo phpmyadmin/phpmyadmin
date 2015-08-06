@@ -763,7 +763,7 @@ function PMA_exportDatabase(
         || $GLOBALS['sql_structure_or_data'] == 'structure_and_data')
         && isset($GLOBALS['sql_procedure_function'])
     ) {
-        $export_plugin->exportEvents($db, $aliases);
+        $export_plugin->exportEvents($db);
 
         if ($separate_files == 'database') {
             PMA_saveObjectInBuffer('events');

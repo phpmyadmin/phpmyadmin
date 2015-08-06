@@ -916,11 +916,10 @@ class ExportSql extends ExportPlugin
      * Exports events
      *
      * @param string $db      Database
-     * @param array  $aliases Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
-    public function exportEvents($db, $aliases = array())
+    public function exportEvents($db)
     {
         global $crlf;
 

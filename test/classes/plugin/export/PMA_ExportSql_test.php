@@ -939,7 +939,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportEvents('db', array())
+            $this->object->exportEvents('db')
         );
         $result = ob_get_clean();
 
