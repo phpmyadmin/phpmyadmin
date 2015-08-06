@@ -99,7 +99,7 @@ var PMA_console = {
             var tempConfig = JSON.parse($.cookie('pma_console_config'));
             if (tempConfig) {
                 if (tempConfig.alwaysExpand === true) {
-                    $('#pma_console_options').find('input[name=always_expand]').prop('checked', true);
+                    $('#pma_console_options input[name=always_expand]').prop('checked', true);
                 }
                 if (tempConfig.startHistory === true) {
                     $('#pma_console_options').find('input[name=start_history]').prop('checked', true);
@@ -179,7 +179,7 @@ var PMA_console = {
             });
 
             $('#pma_console_options').find('.button.default').click(function() {
-                $('#pma_console_options').find('input[name=always_expand]').prop('checked', false);
+                $('#pma_console_options input[name=always_expand]').prop('checked', false);
                 $('#pma_console_options').find('input[name=start_history]').prop('checked', false);
                 $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
                 $('#pma_console_options').find('input[name=enter_executes]').prop('checked', false);
@@ -414,7 +414,7 @@ var PMA_console = {
      */
     updateConfig: function() {
         PMA_console.config = {
-            alwaysExpand: $('#pma_console_options').find('input[name=always_expand]').prop('checked'),
+            alwaysExpand: $('#pma_console_options input[name=always_expand]').prop('checked'),
             startHistory: $('#pma_console_options').find('input[name=start_history]').prop('checked'),
             currentQuery: $('#pma_console_options').find('input[name=current_query]').prop('checked'),
             enterExecutes: $('#pma_console_options').find('input[name=enter_executes]').prop('checked'),

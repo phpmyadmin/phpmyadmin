@@ -297,13 +297,13 @@ abstract class Context
         $len = strlen($str);
         if ($str[0] === '#') {
             return Token::FLAG_COMMENT_BASH;
-        } elseif (($len > 1) && ((($str[0] === '/') && ($str[1] === '*'))
-            || (($str[0] === '*') && ($str[1] === '/')))
-        ) {
+        } elseif (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
+            return (($len > 2) && ($str[2] == '!')) ?
+                Token::FLAG_COMMENT_MYSQL_CMD : Token::FLAG_COMMENT_C;
+        } elseif (($len > 1) && ($str[0] === '*') && ($str[1] === '/')) {
             return Token::FLAG_COMMENT_C;
         } elseif (($len > 2) && ($str[0] === '-')
-            && ($str[1] === '-') && ($str[2] !== "\n")
-            && (static::isWhitespace($str[2]))
+            && ($str[1] === '-') && (static::isWhitespace($str[2]))
         ) {
             return Token::FLAG_COMMENT_SQL;
         }
@@ -467,6 +467,7 @@ abstract class Context
                 );
                 continue;
             }
+
             // Last generated context was valid (did not throw any exceptions).
             // So we return it, to let the user know what context was loaded.
             return $context;

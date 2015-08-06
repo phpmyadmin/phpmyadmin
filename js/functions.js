@@ -4744,9 +4744,9 @@ AJAX.registerOnload('functions.js', function(){
      */
     $(document).on("change", 'input[type=radio][name="pw_hash"]', function() {
         if (this.value === 'sha256_password') {
-            $('#ssl_reqd_warning').show();
+            $('#ssl_reqd_warning_cp').show();
         } else {
-            $('#ssl_reqd_warning').hide();
+            $('#ssl_reqd_warning_cp').hide();
         }
     });
 });

@@ -10,9 +10,7 @@ namespace SqlParser\Statements;
 
 use SqlParser\Parser;
 use SqlParser\Statement;
-use SqlParser\Token;
 use SqlParser\TokensList;
-use SqlParser\Components\Expression;
 use SqlParser\Components\OptionsArray;
 
 /**
@@ -51,7 +49,7 @@ class TransactionStatement extends Statement
     /**
      * The list of statements in this transaction.
      *
-     * @var Statements[]
+     * @var Statement[]
      */
     public $statements;
 
@@ -110,6 +108,9 @@ class TransactionStatement extends Statement
         $ret = OptionsArray::build($this->options);
         if ($this->type === TransactionStatement::TYPE_BEGIN) {
             foreach ($this->statements as $statement) {
+                /**
+                 * @var SelectStatement $statement
+                 */
                 $ret .= ';' . $statement->build();
             }
             $ret .= ';' . $this->end->build();

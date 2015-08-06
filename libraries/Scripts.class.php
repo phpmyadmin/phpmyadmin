@@ -97,7 +97,6 @@ class PMA_Scripts
     /**
      * Generates new PMA_Scripts objects
      *
-     * @return PMA_Scripts object
      */
     public function __construct()
     {

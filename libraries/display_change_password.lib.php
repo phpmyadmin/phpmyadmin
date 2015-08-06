@@ -92,7 +92,8 @@ function PMA_getHtmlForChangePassword($username, $hostname)
             $html .= '" checked="checked"';
         }
         $html .= ' />'
-            . '<label for="radio_pw_hash_mysql_native">' . 'mysql_native_password'
+            . '<label for="radio_pw_hash_mysql_native">'
+            . __('MySQL native password')
             . '</label>'
             . '</td>'
             . '</tr>'
@@ -105,7 +106,8 @@ function PMA_getHtmlForChangePassword($username, $hostname)
             $html .= '" checked="checked"';
         }
         $html .= ' />'
-            . '<label for="radio_pw_hash_sha256">' . 'sha256_password'
+            . '<label for="radio_pw_hash_sha256">'
+            . __('SHA256 password')
             . '</label>'
             . '</td>'
             . '</tr>';
@@ -142,7 +144,7 @@ function PMA_getHtmlForChangePassword($username, $hostname)
 
     $html .= '<div '
         . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
-        . ' id="ssl_reqd_warning">'
+        . ' id="ssl_reqd_warning_cp">'
         . PMA_Message::notice(
             __(
                 'This method requires using an \'<i>SSL connection</i>\' '

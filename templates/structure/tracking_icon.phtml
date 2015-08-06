@@ -1,0 +1,11 @@
+<a href="tbl_tracking.php<?php echo $url_query; ?>&amp;table=<?php echo $truename; ?>">
+    <?php if ($is_tracked): ?>
+        <?php echo PMA_Util::getImage(
+            'eye.png', __('Tracking is active.')
+        ); ?>
+    <?php else: ?>
+        <?php echo PMA_Util::getImage(
+            'eye_grey.png', __('Tracking is not active.')
+        ); ?>
+    <?php endif; ?>
+</a>

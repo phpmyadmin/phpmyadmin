@@ -383,7 +383,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
 function PMA_getHtmlForSqlQueryFormBookmark()
 {
     $bookmark_list = PMA_Bookmark_getList($GLOBALS['db']);
-    if (! $bookmark_list || count($bookmark_list) < 1) {
+    if (empty($bookmark_list) || count($bookmark_list) < 1) {
         return null;
     }
 

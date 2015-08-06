@@ -8,9 +8,9 @@
         <?php if ($showtable['Row_format'] == 'Fixed'): ?>
             <td class="value"><?php echo __('static'); ?></td>
         <?php elseif ($showtable['Row_format'] == 'Dynamic'): ?>
-            <td class="value"><?php echo __('dynamic'); ?></td> 
+            <td class="value"><?php echo __('dynamic'); ?></td>
         <?php else: ?>
-            <td class="value"><?php echo $showtable['Row_format']; ?></td> 
+            <td class="value"><?php echo $showtable['Row_format']; ?></td>
         <?php endif; ?>
         </tr>
     <?php endif; ?>
@@ -19,7 +19,7 @@
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Options'); ?></th>
         <?php if ($showtable['Create_options'] == 'partitioned'): ?>
-            <td class="value"><?php echo __('partitioned'); ?></td> 
+            <td class="value"><?php echo __('partitioned'); ?></td>
         <?php else: ?>
             <td class="value"><?php echo $showtable['Create_options']; ?></td>
         <?php endif; ?>

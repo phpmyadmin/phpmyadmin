@@ -12,6 +12,7 @@
 require_once 'libraries/common.inc.php';
 
 require_once './libraries/tracking.lib.php';
+require_once 'libraries/display_create_table.lib.php';
 
 //Get some js files needed for Ajax requests
 $response = PMA_Response::getInstance();
@@ -89,7 +90,7 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
     echo '<p>' . __('No tables found in database.') . '</p>' . "\n";
 
     if (empty($db_is_system_schema)) {
-        include 'libraries/display_create_table.lib.php';
+        echo PMA_getHtmlForCreateTable($db);
     }
     exit;
 }

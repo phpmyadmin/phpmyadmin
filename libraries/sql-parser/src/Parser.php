@@ -51,7 +51,12 @@ namespace SqlParser {
          */
         public static $STATEMENT_PARSERS = array(
 
+            // MySQL Utility Statements
             'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
+            'DESCRIBE'          => 'SqlParser\\Statements\\ExplainStatement',
+            'HELP'              => '',
+            'USE'               => '',
+            'STATUS'            => '',
 
             // Table Maintenance Statements
             // https://dev.mysql.com/doc/refman/5.7/en/table-maintenance-sql.html
@@ -65,7 +70,7 @@ namespace SqlParser {
 
             // Database Administration Statements
             // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-server-administration.html
-            'SET'               => '',
+            'SET'               => 'SqlParser\\Statements\\SetStatement',
             'SHOW'              => 'SqlParser\\Statements\\ShowStatement',
 
             // Data Definition Statements.
@@ -327,7 +332,7 @@ namespace SqlParser {
 
             /**
              * Last transaction.
-             * @var TransactionStatement
+             * @var TransactionStatement $lastTransaction
              */
             $lastTransaction = null;
 
@@ -386,10 +391,15 @@ namespace SqlParser {
 
                 // Checking if it is a known statement that can be parsed.
                 if (empty(static::$STATEMENT_PARSERS[$token->value])) {
-                    $this->error(
-                        __('Unrecognized statement type.'),
-                        $token
-                    );
+                    if (!isset(static::$STATEMENT_PARSERS[$token->value])) {
+                        // A statement is considered recognized if the parser
+                        // is aware that it is a statement, but it does not have
+                        // a parser for it yet.
+                        $this->error(
+                            __('Unrecognized statement type.'),
+                            $token
+                        );
+                    }
                     // Skipping to the end of this statement.
                     $list->getNextOfType(Token::TYPE_DELIMITER);
                     //
@@ -425,6 +435,10 @@ namespace SqlParser {
                     && ($lastStatement instanceof SelectStatement)
                     && ($statement instanceof SelectStatement)
                 ) {
+                    /**
+                     * This SELECT statement.
+                     * @var SelectStatement $statement
+                     */
 
                     /**
                      * Last SELECT statement.
@@ -449,6 +463,10 @@ namespace SqlParser {
 
                 // Handles transactions.
                 if ($statement instanceof TransactionStatement) {
+
+                    /**
+                     * @var TransactionStatement $statement
+                     */
                     if ($statement->type === TransactionStatement::TYPE_BEGIN) {
                         $lastTransaction = $statement;
                         $this->statements[] = $statement;

@@ -337,6 +337,7 @@ class PMA_ExportPdf extends PMA_PDF
         $row = 0;
         $tmpheight = array();
         $maxpage = $this->page;
+        $data = array();
 
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
 
@@ -541,6 +542,7 @@ class PMA_ExportPdf extends PMA_PDF
         $row = 0;
         $tmpheight = array();
         $maxpage = $this->page;
+        $data = array();
 
         // fun begin
         foreach ($columns as $column) {

@@ -2349,4 +2349,40 @@ class PMA_Table
             0, 1
         );
     }
+
+    /**
+     * Returns the real row count for a table
+     *
+     * @return number
+     */
+    function getRealRowCountTable()
+    {
+        // SQL query to get row count for a table.
+        $result = $this->_dbi->fetchSingleRow(sprintf(
+            'SELECT COUNT(*) AS %s FROM %s.%s',
+            PMA_Util::backquote('row_count'),
+            PMA_Util::backquote($this->_db_name),
+            PMA_Util::backquote($$this->_name)
+        ));
+        return $result['row_count'];
+    }
+
+    /**
+     * Get columns with indexes
+     *
+     * @param int    $types types bitmask
+     *
+     * @return array an array of columns
+     */
+    function getColumnsWithIndex($types)
+    {
+        $columns_with_index = array();
+        foreach (PMA_Index::getFromTableByChoice($this->_name, $this->_db_name, $types) as $index) {
+            $columns = $index->getColumns();
+            foreach ($columns as $column_name => $dummy) {
+                $columns_with_index[] = $column_name;
+            }
+        }
+        return $columns_with_index;
+    }
 }

@@ -124,7 +124,7 @@ abstract class Statement
 
             /**
              * The builder (parser) of this clause.
-             * @var string $class
+             * @var Component $class
              */
             $class = Parser::$KEYWORD_PARSERS[$name]['class'];
 
@@ -165,14 +165,11 @@ abstract class Statement
     public function parse(Parser $parser, TokensList $list)
     {
         /**
-         * Whether the beginning of this statement was previously parsed.
-         *
-         * This is used to delimit statements that don't use the usual
-         * delimiters.
-         *
-         * @var bool
+         * Array containing all list of clauses parsed.
+         * This is used to check for duplicates.
+         * @var array
          */
-        $parsedBeginning = false;
+        $parsedClauses = array();
 
         // This may be corrected by the parser.
         $this->first = $list->idx;
@@ -216,7 +213,7 @@ abstract class Statement
 
             /**
              * The name of the class that is used for parsing.
-             * @var string $class
+             * @var Component $class
              */
             $class = null;
 
@@ -232,6 +229,20 @@ abstract class Statement
              */
             $options = array();
 
+            // Looking for duplicated clauses.
+            if ((!empty(Parser::$KEYWORD_PARSERS[$token->value]))
+                || (!empty(Parser::$STATEMENT_PARSERS[$token->value]))
+            ) {
+                if (!empty($parsedClauses[$token->value])) {
+                    $parser->error(
+                        __('This type of clause was previously parsed.'), $token
+                    );
+                    break;
+                }
+                $parsedClauses[$token->value] = true;
+            }
+
+            // Checking if this is the beginning of a clause.
             if (!empty(Parser::$KEYWORD_PARSERS[$token->value])) {
                 $class = Parser::$KEYWORD_PARSERS[$token->value]['class'];
                 $field = Parser::$KEYWORD_PARSERS[$token->value]['field'];
@@ -240,17 +251,22 @@ abstract class Statement
                 }
             }
 
+            // Checking if this is the beginning of the statement.
             if (!empty(Parser::$STATEMENT_PARSERS[$token->value])) {
-                if ($parsedBeginning) {
-                    // New statement has started. We let the parser construct a
-                    // new statement and parse that one
+                if ((!empty(static::$CLAUSES)) // Undefined for some statements.
+                    && (empty(static::$CLAUSES[$token->value]))
+                ) {
+                    // Some keywords (e.g. `SET`) may be the beginning of a
+                    // statement and a clause.
+                    // If such keyword was found and it cannot be a clause of
+                    // this statement it means it is a new statement, but no
+                    // delimiter was found between them.
                     $parser->error(
-                        __('A new statement was found, but no delimiter between them.'),
+                        __('A new statement was found, but no delimiter between it and the previous one.'),
                         $token
                     );
                     break;
                 }
-                $parsedBeginning = true;
                 if (!$parsedOptions) {
                     if (empty(static::$OPTIONS[$token->value])) {
                         // Skipping keyword because if it is not a option.
