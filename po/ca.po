@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-05 10:49+0200\n"
-"PO-Revision-Date: 2015-07-26 18:46+0200\n"
-"Last-Translator: josep constanti <jconstanti@yahoo.es>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"PO-Revision-Date: 2015-08-06 11:31+0200\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3640,10 +3640,9 @@ msgid "Relational key"
 msgstr "Clau relacional"
 
 #: libraries/DisplayResults.class.php:1744
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Mostra les relacions de claus externes"
+msgstr "Mostra columna per a relacions"
 
 #: libraries/DisplayResults.class.php:1757
 msgid "Show binary contents"
@@ -3816,10 +3815,9 @@ msgid "Error while moving uploaded file."
 msgstr "Error moven l'arxiu pujat."
 
 #: libraries/File.class.php:487
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "No es pot llegir l'arxiu pujat (i mogut)."
+msgstr "No es pot llegir l'arxiu pujat."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -5670,10 +5668,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Activar SQL Validator"
+msgstr "Activar linter"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5968,10 +5965,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Sobreescriu arxiu(s) existent(s)"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Exportar encapçalats de taules"
+msgstr "Exportar com a arxius separats"
 
 #: libraries/config/messages.inc.php:185
 msgid "Remember file name template"
@@ -6093,10 +6089,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:241
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Comprovació de clau externa:"
+msgstr "Comprovacions de claus externes"
 
 #: libraries/config/messages.inc.php:242
 msgid "Browse mode"
@@ -6191,16 +6186,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Personalitzar l'aspecte del panell de navegació."
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Panell de navegació"
+msgstr "Arbre de navegació"
 
 #: libraries/config/messages.inc.php:271
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Configurar el panell de navegació"
+msgstr "Configurar l'arbre de navegació."
 
 #: libraries/config/messages.inc.php:272 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6805,25 +6798,21 @@ msgid "Enable navigation tree expansion"
 msgstr "Qctiva l'expansió de l'arbre de navegació"
 
 #: libraries/config/messages.inc.php:521
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Mostra/Amaga la llista de taules"
+msgstr "Mostra les taules en arbre"
 
 #: libraries/config/messages.inc.php:523
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr ""
-"Quan s'ofereix la possibilitat d'expandir l'arbre al panell de navegació."
+msgstr "Quan mostrar les taules sota la base de dades en arbre"
 
 #: libraries/config/messages.inc.php:524
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Mostra versions"
+msgstr "Mostra vistes en arbre"
 
 #: libraries/config/messages.inc.php:526
 #, fuzzy
