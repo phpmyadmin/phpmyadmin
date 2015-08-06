@@ -1,4 +1,11 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Holds the PMA\StructureController
+ *
+ * @package PMA
+ */
 
 namespace PMA\Controllers;
 
@@ -25,6 +32,11 @@ require_once 'libraries/Template.class.php';
 require_once 'libraries/util.lib.php';
 require_once 'libraries/controllers/Controller.class.php';
 
+/**
+ * Handles structure logic
+ *
+ * @package PhpMyAdmin
+ */
 class StructureController extends Controller
 {
     /**
@@ -142,12 +154,17 @@ class StructureController extends Controller
         $this->_table_obj = new PMA_Table($this->_table, $this->_db);
     }
 
+    /**
+     * Index action
+     *
+     * @return void
+     */
     public function indexAction()
     {
         // Database structure
         if ($this->_type == 'db') {
             // Add/Remove favorite tables using Ajax request.
-            if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
+            if ($GLOBALS['is_ajax_request'] && !empty($_REQUEST['favorite_table'])) {
                 $this->addRemoveFavoriteTables();
                 return;
             }
@@ -165,7 +182,9 @@ class StructureController extends Controller
                 || isset($_POST['mult_btn'])
             ) {
                 $action = 'db_structure.php';
-                $err_url = 'db_structure.php' . PMA_URL_getCommon(array('db' => $this->_db));
+                $err_url = 'db_structure.php' . PMA_URL_getCommon(
+                    array('db' => $this->_db)
+                );
 
                 // see bug #2794840; in this case, code path is:
                 // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
@@ -239,20 +258,22 @@ class StructureController extends Controller
 
             $this->response->addHTML(
                 PMA_Util::getListNavigator(
-                    $this->_total_num_tables, $this->_pos, $_url_params, 'db_structure.php',
+                    $this->_total_num_tables, $this->_pos, $_url_params,
+                    'db_structure.php',
                     'frame_content', $GLOBALS['cfg']['MaxTableList']
                 )
             );
 
             // table form
             $this->response->addHTML(
-                Template::get('structure/table_header')->render(
-                    array(
-                        'db' => $this->_db,
-                        'db_is_system_schema' => $this->_db_is_system_schema,
-                        'replication' => $GLOBALS['replication_info']['slave']['status']
+                Template::get('structure/table_header')
+                    ->render(
+                        array(
+                            'db'                  => $this->_db,
+                            'db_is_system_schema' => $this->_db_is_system_schema,
+                            'replication'         => $GLOBALS['replication_info']['slave']['status'],
+                        )
                     )
-                )
             );
 
             $i = $sum_entries = 0;
@@ -260,8 +281,9 @@ class StructureController extends Controller
             $create_time_all = '';
             $update_time_all = '';
             $check_time_all = '';
-            $num_columns    = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
-                ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
+            $num_columns = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
+                ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns'])
+                + 1
                 : 0;
             $row_count      = 0;
             $sum_size       = (double) 0;
@@ -288,12 +310,12 @@ class StructureController extends Controller
 
                 list($current_table, $formatted_size, $unit, $formatted_overhead,
                     $overhead_unit, $overhead_size, $table_is_view, $sum_size)
-                    = $this->getStuffForEngineTypeTable(
-                        $current_table, $this->_db_is_system_schema,
-                        $this->_is_show_stats, $sum_size, $overhead_size
-                    );
+                        = $this->getStuffForEngineTypeTable(
+                            $current_table, $this->_db_is_system_schema,
+                            $this->_is_show_stats, $sum_size, $overhead_size
+                        );
 
-                if (! $this->dbi->getTable($this->_db, $current_table['TABLE_NAME'])->isMerge()) {
+                if (!$this->dbi->getTable($this->_db, $current_table['TABLE_NAME'])->isMerge()) {
                     $sum_entries += $current_table['TABLE_ROWS'];
                 }
 
@@ -324,37 +346,53 @@ class StructureController extends Controller
                 )->sGetStatusInfo(null, true);
 
                 if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-                    $create_time = isset($showtable['Create_time']) ? $showtable['Create_time'] : '';
-                    if ($create_time && (!$create_time_all || $create_time < $create_time_all)) {
+                    $create_time = isset($showtable['Create_time'])
+                        ? $showtable['Create_time'] : '';
+                    if ($create_time
+                        && (!$create_time_all
+                        || $create_time < $create_time_all)
+                    ) {
                         $create_time_all = $create_time;
                     }
                 }
 
                 if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-                    // $showtable might already be set from ShowDbStructureCreation, see above
-                    $update_time = isset($showtable['Update_time']) ? $showtable['Update_time'] : '';
-                    if ($update_time && (!$update_time_all || $update_time < $update_time_all)) {
+                    // $showtable might already be set from ShowDbStructureCreation,
+                    // see above
+                    $update_time = isset($showtable['Update_time'])
+                        ? $showtable['Update_time'] : '';
+                    if ($update_time
+                        && (!$update_time_all
+                        || $update_time < $update_time_all)
+                    ) {
                         $update_time_all = $update_time;
                     }
                 }
 
                 if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-                    // $showtable might already be set from ShowDbStructureCreation, see above
-                    $check_time = isset($showtable['Check_time']) ? $showtable['Check_time'] : '';
-                    if ($check_time && (!$check_time_all || $check_time < $check_time_all)) {
+                    // $showtable might already be set from ShowDbStructureCreation,
+                    // see above
+                    $check_time = isset($showtable['Check_time'])
+                        ? $showtable['Check_time'] : '';
+                    if ($check_time
+                        && (!$check_time_all
+                        || $check_time < $check_time_all)
+                    ) {
                         $check_time_all = $check_time;
                     }
                 }
 
                 $alias = htmlspecialchars(
-                    (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$current_table['TABLE_NAME']]))
+                    (!empty($tooltip_aliasname)
+                        && isset($tooltip_aliasname[$current_table['TABLE_NAME']]))
                     ? $tooltip_aliasname[$current_table['TABLE_NAME']]
                     : $current_table['TABLE_NAME']
                 );
                 $alias = str_replace(' ', '&nbsp;', $alias);
 
                 $truename = htmlspecialchars(
-                    (!empty($tooltip_truename) && isset($tooltip_truename[$current_table['TABLE_NAME']]))
+                    (!empty($tooltip_truename)
+                        && isset($tooltip_truename[$current_table['TABLE_NAME']]))
                     ? $tooltip_truename[$current_table['TABLE_NAME']]
                     : $current_table['TABLE_NAME']
                 );
@@ -384,7 +422,8 @@ class StructureController extends Controller
                     ->render(
                         array(
                             'tbl_url_query' => $tbl_url_query,
-                            'title' => $may_have_rows ? $titles['Browse'] : $titles['NoBrowse']
+                            'title'         => $may_have_rows ? $titles['Browse']
+                                : $titles['NoBrowse'],
                         )
                     );
 
@@ -392,7 +431,8 @@ class StructureController extends Controller
                     ->render(
                         array(
                             'tbl_url_query' => $tbl_url_query,
-                            'title' => $may_have_rows ? $titles['Search'] : $titles['NoSearch']
+                            'title'         => $may_have_rows ? $titles['Search']
+                                : $titles['NoSearch'],
                         )
                     );
 
@@ -400,8 +440,10 @@ class StructureController extends Controller
                     ->render(
                         array(
                             'tbl_url_query' => $tbl_url_query,
-                            'title' => htmlspecialchars($current_table['TABLE_COMMENT']),
-                            'truename' => $truename
+                            'title'         => htmlspecialchars(
+                                $current_table['TABLE_COMMENT']
+                            ),
+                            'truename'      => $truename,
                         )
                     );
 
@@ -414,21 +456,27 @@ class StructureController extends Controller
                                 array(
                                     'tbl_url_query' => $tbl_url_query,
                                     'sql_query' => urlencode(
-                                        'TRUNCATE ' . PMA_Util::backquote($current_table['TABLE_NAME'])
+                                        'TRUNCATE ' . PMA_Util::backquote(
+                                            $current_table['TABLE_NAME']
+                                        )
                                     ),
                                     'message_to_show' => urlencode(
                                         sprintf(
                                             __('Table %s has been emptied.'),
-                                            htmlspecialchars($current_table['TABLE_NAME'])
+                                            htmlspecialchars(
+                                                $current_table['TABLE_NAME']
+                                            )
                                         )
                                     ),
-                                    'title' => $may_have_rows ? $titles['Empty'] : $titles['NoEmpty']
+                                    'title' => $may_have_rows ? $titles['Empty']
+                                        : $titles['NoEmpty'],
                                 )
                             );
                     }
                     $drop_query = sprintf(
                         'DROP %s %s',
-                        ($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW' : 'TABLE',
+                        ($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW'
+                        : 'TABLE',
                         PMA_Util::backquote(
                             $current_table['TABLE_NAME']
                         )
@@ -447,7 +495,11 @@ class StructureController extends Controller
                 $tracking_icon = '';
                 if (PMA_Tracker::isActive()) {
                     $is_tracked = PMA_Tracker::isTracked($GLOBALS["db"], $truename);
-                    if ($is_tracked || PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
+                    if ($is_tracked
+                        || PMA_Tracker::getVersion(
+                            $GLOBALS["db"], $truename
+                        ) > 0
+                    ) {
                         $tracking_icon = Template::get('structure/tracking_icon')
                             ->render(
                                 array(
@@ -481,28 +533,54 @@ class StructureController extends Controller
                 }
 
                 $do = $ignored = false;
-                $server_slave_status = $GLOBALS['replication_info']['slave']['status'];
+                $server_slave_status
+                    = $GLOBALS['replication_info']['slave']['status'];
                 include_once 'libraries/replication.inc.php';
 
                 if ($server_slave_status) {
 
-                    $nbServSlaveDoDb = count($GLOBALS['replication_info']['slave']['Do_DB']);
-                    $nbServSlaveIgnoreDb = count($GLOBALS['replication_info']['slave']['Ignore_DB']);
-                    $searchDoDBInTruename = array_search($truename, $GLOBALS['replication_info']['slave']['Do_DB']);
-                    $searchDoDBInDB = array_search($this->_db, $GLOBALS['replication_info']['slave']['Do_DB']);
+                    $nbServSlaveDoDb = count(
+                        $GLOBALS['replication_info']['slave']['Do_DB']
+                    );
+                    $nbServSlaveIgnoreDb = count(
+                        $GLOBALS['replication_info']['slave']['Ignore_DB']
+                    );
+                    $searchDoDBInTruename = array_search(
+                        $truename, $GLOBALS['replication_info']['slave']['Do_DB']
+                    );
+                    $searchDoDBInDB = array_search(
+                        $this->_db, $GLOBALS['replication_info']['slave']['Do_DB']
+                    );
 
-                    $do = strlen($searchDoDBInTruename) > 0 || strlen($searchDoDBInDB) > 0 ||
-                        ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1) ||
-                        $this->hasTable($GLOBALS['replication_info']['slave']['Wild_Do_Table'], $truename);
+                    $do = strlen($searchDoDBInTruename) > 0
+                        || strlen(
+                            $searchDoDBInDB
+                        ) > 0
+                        || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
+                        || $this->hasTable(
+                            $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
+                            $truename
+                        );
 
-                    $searchDb = array_search($this->_db, $GLOBALS['replication_info']['slave']['Ignore_DB']);
-                    $searchTable = array_search($truename, $GLOBALS['replication_info']['slave']['Ignore_Table']);
-                    $ignored = (strlen($searchTable) > 0) || strlen($searchDb) > 0 ||
-                        $this->hasTable($GLOBALS['replication_info']['slave']['Wild_Ignore_Table'], $truename);
+                    $searchDb = array_search(
+                        $this->_db,
+                        $GLOBALS['replication_info']['slave']['Ignore_DB']
+                    );
+                    $searchTable = array_search(
+                        $truename,
+                        $GLOBALS['replication_info']['slave']['Ignore_Table']
+                    );
+                    $ignored = (strlen($searchTable) > 0) || strlen($searchDb) > 0
+                        || $this->hasTable(
+                            $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'],
+                            $truename
+                        );
                 }
 
                 // Handle favorite table list. ----START----
-                $already_favorite = $this->checkFavoriteTable($current_table['TABLE_NAME']);
+                $already_favorite = $this->checkFavoriteTable(
+                    $current_table['TABLE_NAME']
+                );
 
                 if (isset($_REQUEST['remove_favorite'])) {
                     if ($already_favorite) {
@@ -528,18 +606,29 @@ class StructureController extends Controller
                 //  so ensure that we'll display "in use" below for a table
                 //  that needs to be repaired
                 $approx_rows = false;
-                if (isset($current_table['TABLE_ROWS']) && ($current_table['ENGINE'] != null || $table_is_view)) {
+                if (isset($current_table['TABLE_ROWS'])
+                    && ($current_table['ENGINE'] != null || $table_is_view)
+                ) {
                     // InnoDB table: we did not get an accurate row count
-                    $approx_rows = !$table_is_view && $current_table['ENGINE'] == 'InnoDB' && !$current_table['COUNTED'];
+                    $approx_rows = !$table_is_view
+                        && $current_table['ENGINE'] == 'InnoDB'
+                        && !$current_table['COUNTED'];
 
-                    // Drizzle views use FunctionEngine, and the only place where they are
-                    // available are I_S and D_D schemas, where we do exact counting
-                    if ($table_is_view && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews'] && $current_table['ENGINE'] != 'FunctionEngine') {
+                    // Drizzle views use FunctionEngine, and the only place where
+                    // they are available are I_S and D_D schemas, where we do exact
+                    // counting
+                    if ($table_is_view
+                        && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+                        && $current_table['ENGINE'] != 'FunctionEngine'
+                    ) {
                         $approx_rows = true;
                         $show_superscript = PMA_Util::showHint(
                             PMA_sanitize(
                                 sprintf(
-                                    __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
+                                    __(
+                                        'This view has at least this number of '
+                                        . 'rows. Please refer to %sdocumentation%s.'
+                                    ),
                                     '[doc@cfg_MaxExactCountViews]', '[/doc]'
                                 )
                             )
@@ -551,36 +640,41 @@ class StructureController extends Controller
                     Template::get('structure/structure_table_row')
                         ->render(
                             array(
-                                'db' => $this->_db,
-                                'curr' => $i,
-                                'odd_row' => $odd_row,
-                                'table_is_view' => $table_is_view,
-                                'current_table' => $current_table,
-                                'browse_table_label' => $browse_table_label,
-                                'tracking_icon' => $tracking_icon,
-                                'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
-                                'browse_table' => $browse_table,
-                                'tbl_url_query' => $tbl_url_query,
-                                'search_table' => $search_table,
-                                'db_is_system_schema' => $this->_db_is_system_schema,
-                                'titles' => $titles,
-                                'empty_table' => $empty_table,
-                                'drop_query' => $drop_query,
-                                'drop_message' => $drop_message,
-                                'collation' => $collation,
-                                'formatted_size' => $formatted_size,
-                                'unit' => $unit,
-                                'overhead' => $overhead,
-                                'create_time' => isset ($create_time) ? $create_time : '',
-                                'update_time' => isset ($update_time) ? $update_time : '',
-                                'check_time' => isset ($check_time) ? $check_time : '',
-                                'is_show_stats' => $this->_is_show_stats,
-                                'ignored' => $ignored,
-                                'do' => $do,
+                                'db'                    => $this->_db,
+                                'curr'                  => $i,
+                                'odd_row'               => $odd_row,
+                                'table_is_view'         => $table_is_view,
+                                'current_table'         => $current_table,
+                                'browse_table_label'    => $browse_table_label,
+                                'tracking_icon'         => $tracking_icon,
+                                'server_slave_status'   => $GLOBALS['replication_info']['slave']['status'],
+                                'browse_table'          => $browse_table,
+                                'tbl_url_query'         => $tbl_url_query,
+                                'search_table'          => $search_table,
+                                'db_is_system_schema'   => $this->_db_is_system_schema,
+                                'titles'                => $titles,
+                                'empty_table'           => $empty_table,
+                                'drop_query'            => $drop_query,
+                                'drop_message'          => $drop_message,
+                                'collation'             => $collation,
+                                'formatted_size'        => $formatted_size,
+                                'unit'                  => $unit,
+                                'overhead'              => $overhead,
+                                'create_time'           => isset($create_time)
+                                    ? $create_time : '',
+                                'update_time'           => isset($update_time)
+                                    ? $update_time : '',
+                                'check_time'            => isset($check_time)
+                                    ? $check_time : '',
+                                'is_show_stats'         => $this->_is_show_stats,
+                                'ignored'               => $ignored,
+                                'do'                    => $do,
                                 'colspan_for_structure' => $GLOBALS['colspan_for_structure'],
-                                'approx_rows' => $approx_rows,
-                                'show_superscript' => $show_superscript,
-                                'already_favorite' => $this->checkFavoriteTable($current_table['TABLE_NAME'])
+                                'approx_rows'           => $approx_rows,
+                                'show_superscript'      => $show_superscript,
+                                'already_favorite'      => $this->checkFavoriteTable(
+                                    $current_table['TABLE_NAME']
+                                ),
                             )
                         )
                 );
@@ -627,8 +721,9 @@ class StructureController extends Controller
             // display again the table list navigator
             $this->response->addHTML(
                 PMA_Util::getListNavigator(
-                    $this->_total_num_tables, $this->_pos, $_url_params, 'db_structure.php',
-                    'frame_content', $GLOBALS['cfg']['MaxTableList']
+                    $this->_total_num_tables, $this->_pos, $_url_params,
+                    'db_structure.php', 'frame_content',
+                    $GLOBALS['cfg']['MaxTableList']
                 )
             );
 
@@ -739,11 +834,12 @@ class StructureController extends Controller
                         $action = 'tbl_structure.php';
                         $GLOBALS['selected'] = $_REQUEST['selected_fld'];
                         list(
-                            $what_ret, $query_type_ret, $is_unset_submit_mult, $mult_btn_ret,
-                            $centralColsError
-                        ) = $this->getDataForSubmitMult(
-                            $submit_mult, $_REQUEST['selected_fld'], $action
-                        );
+                            $what_ret, $query_type_ret, $is_unset_submit_mult,
+                            $mult_btn_ret, $centralColsError
+                            )
+                                = $this->getDataForSubmitMult(
+                                    $submit_mult, $_REQUEST['selected_fld'], $action
+                                );
                         //update the existing variables
                         // todo: refactor mult_submits.inc.php such as
                         // below globals are not needed anymore
@@ -770,7 +866,9 @@ class StructureController extends Controller
                         if (empty($message)) {
                             $message = PMA_Message::success();
                         }
-                        $this->response->addHTML(PMA_Util::getMessage($message, $sql_query));
+                        $this->response->addHTML(
+                            PMA_Util::getMessage($message, $sql_query)
+                        );
                     }
                 } else {
                     $this->response->isSuccess(false);
@@ -835,7 +933,8 @@ class StructureController extends Controller
             $db = &$this->_db;
             $table = &$this->_table;
             require_once 'libraries/tbl_common.inc.php';
-            $this->_url_query = $url_query . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
+            $this->_url_query = $url_query
+                . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
             $url_params['goto'] = 'tbl_structure.php';
             $url_params['back'] = 'tbl_structure.php';
 
@@ -852,14 +951,17 @@ class StructureController extends Controller
             $columns_with_index = $this->dbi
                 ->getTable($this->_db, $this->_table)
                 ->getColumnsWithIndex(
-                    PMA_Index::UNIQUE | PMA_Index::INDEX | PMA_Index::SPATIAL | PMA_Index::FULLTEXT
+                    PMA_Index::UNIQUE | PMA_Index::INDEX | PMA_Index::SPATIAL
+                    | PMA_Index::FULLTEXT
                 );
             $columns_with_unique_index = $this->dbi
                 ->getTable($this->_db, $this->_table)
                 ->getColumnsWithIndex(PMA_Index::UNIQUE);
 
             // 3. Get fields
-            $fields = (array) $this->dbi->getColumns($this->_db, $this->_table, null, true);
+            $fields = (array)$this->dbi->getColumns(
+                $this->_db, $this->_table, null, true
+            );
 
             // Get more complete field information
             // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
@@ -979,8 +1081,11 @@ class StructureController extends Controller
      *
      * @return void
      */
-    protected function synchronizeFavoriteTables($fav_instance, $user, $favorite_tables)
-    {
+    protected function synchronizeFavoriteTables(
+        $fav_instance,
+        $user,
+        $favorite_tables
+    ) {
         $fav_instance_tables = $fav_instance->getTables();
 
         if (empty($fav_instance_tables)
@@ -1012,7 +1117,9 @@ class StructureController extends Controller
      */
     protected function checkFavoriteTable($current_table)
     {
-        foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value) {
+        foreach (
+            $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value
+        ) {
             if ($value['db'] == $this->_db && $value['table'] == $current_table) {
                 return true;
             }
@@ -1086,12 +1193,15 @@ class StructureController extends Controller
             // it is not, let's move it to index $i
             $data = $columns[$column];
             $extracted_columnspec = PMA_Util::extractColumnSpec($data['Type']);
-            if (isset($data['Extra']) && $data['Extra'] == 'on update CURRENT_TIMESTAMP') {
+            if (isset($data['Extra'])
+                && $data['Extra'] == 'on update CURRENT_TIMESTAMP'
+            ) {
                 $extracted_columnspec['attribute'] = $data['Extra'];
                 unset($data['Extra']);
             }
-            $current_timestamp = ($data['Type'] == 'timestamp' || $data['Type'] == 'datetime') &&
-                $data['Default'] == 'CURRENT_TIMESTAMP';
+            $current_timestamp = ($data['Type'] == 'timestamp'
+                    || $data['Type'] == 'datetime')
+                && $data['Default'] == 'CURRENT_TIMESTAMP';
 
             if ($data['Null'] === 'YES' && $data['Default'] === null) {
                 $default_type = 'NULL';
@@ -1124,7 +1234,8 @@ class StructureController extends Controller
                 $data['Null'] === 'YES' ? 'NULL' : 'NOT NULL',
                 $default_type,
                 $current_timestamp ? '' : $data['Default'],
-                isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
+                isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra']
+                : false,
                 isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
                 ? $data['COLUMN_COMMENT'] : false,
                 $data['Virtuality'],
@@ -1229,7 +1340,9 @@ class StructureController extends Controller
 
         if (isset($_REQUEST['submit_mult'])) {
             return $_REQUEST['submit_mult'];
-        } elseif (isset($_REQUEST['mult_btn']) && $_REQUEST['mult_btn'] == __('Yes')) {
+        } elseif (isset($_REQUEST['mult_btn'])
+            && $_REQUEST['mult_btn'] == __('Yes')
+        ) {
             if (isset($_REQUEST['selected'])) {
                 $_REQUEST['selected_fld'] = $_REQUEST['selected'];
             }
@@ -1311,42 +1424,46 @@ class StructureController extends Controller
         $adjust_privileges = array();
 
         for ($i = 0; $i < $field_cnt; $i++) {
-            if ($this->columnNeedsAlterTable($i)) {
-                $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
-                    Util\get($_REQUEST, "field_orig.${i}", ''),
-                    $_REQUEST['field_name'][$i],
-                    $_REQUEST['field_type'][$i],
-                    $_REQUEST['field_length'][$i],
-                    $_REQUEST['field_attribute'][$i],
-                    Util\get($_REQUEST, "field_collation.${i}", ''),
-                    Util\get($_REQUEST, "field_null.${i}", 'NOT NULL'),
-                    $_REQUEST['field_default_type'][$i],
-                    $_REQUEST['field_default_value'][$i],
-                    Util\get($_REQUEST, "field_extra.${i}", false),
-                    Util\get($_REQUEST, "field_comments.${i}", ''),
-                    Util\get($_REQUEST, "field_virtuality.${i}", ''),
-                    Util\get($_REQUEST, "field_expression.${i}", ''),
-                    Util\get($_REQUEST, "field_move_to.${i}", '')
-                );
+            if (!$this->columnNeedsAlterTable($i)) {
+                continue;
+            }
 
-                // find the remembered sort expression
-                $sorted_col = $this->_table_obj->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
-                // if the old column name is part of the remembered sort expression
-                if (/*overload*/mb_strpos(
-                    $sorted_col,
-                    PMA_Util::backquote($_REQUEST['field_orig'][$i])
-                ) !== false) {
-                    // delete the whole remembered sort expression
-                    $this->_table_obj->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
-                }
+            $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
+                Util\get($_REQUEST, "field_orig.${i}", ''),
+                $_REQUEST['field_name'][$i],
+                $_REQUEST['field_type'][$i],
+                $_REQUEST['field_length'][$i],
+                $_REQUEST['field_attribute'][$i],
+                Util\get($_REQUEST, "field_collation.${i}", ''),
+                Util\get($_REQUEST, "field_null.${i}", 'NOT NULL'),
+                $_REQUEST['field_default_type'][$i],
+                $_REQUEST['field_default_value'][$i],
+                Util\get($_REQUEST, "field_extra.${i}", false),
+                Util\get($_REQUEST, "field_comments.${i}", ''),
+                Util\get($_REQUEST, "field_virtuality.${i}", ''),
+                Util\get($_REQUEST, "field_expression.${i}", ''),
+                Util\get($_REQUEST, "field_move_to.${i}", '')
+            );
 
-                if (isset($_REQUEST['field_adjust_privileges'][$i])
-                    && ! empty($_REQUEST['field_adjust_privileges'][$i])
-                    && $_REQUEST['field_orig'][$i] != $_REQUEST['field_name'][$i]
-                ) {
-                    $adjust_privileges[$_REQUEST['field_orig'][$i]]
-                        = $_REQUEST['field_name'][$i];
-                }
+            // find the remembered sort expression
+            $sorted_col = $this->_table_obj->getUiProp(
+                PMA_Table::PROP_SORTED_COLUMN
+            );
+            // if the old column name is part of the remembered sort expression
+            if (/*overload*/mb_strpos(
+                $sorted_col,
+                PMA_Util::backquote($_REQUEST['field_orig'][$i])
+            ) !== false) {
+                // delete the whole remembered sort expression
+                $this->_table_obj->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
+            }
+
+            if (isset($_REQUEST['field_adjust_privileges'][$i])
+                && ! empty($_REQUEST['field_adjust_privileges'][$i])
+                && $_REQUEST['field_orig'][$i] != $_REQUEST['field_name'][$i]
+            ) {
+                $adjust_privileges[$_REQUEST['field_orig'][$i]]
+                    = $_REQUEST['field_name'][$i];
             }
         } // end for
 
@@ -1389,10 +1506,14 @@ class StructureController extends Controller
                     && isset($_REQUEST['field_collation_orig'][$i])
                     && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
                 ) {
-                    $secondary_query = 'ALTER TABLE ' . PMA_Util::backquote($this->_table)
-                        . ' CHANGE ' . PMA_Util::backquote($_REQUEST['field_orig'][$i])
-                        . ' ' . PMA_Util::backquote($_REQUEST['field_orig'][$i])
-                        . ' BLOB;';
+                    $secondary_query = 'ALTER TABLE ' . PMA_Util::backquote(
+                        $this->_table
+                    )
+                    . ' CHANGE ' . PMA_Util::backquote(
+                        $_REQUEST['field_orig'][$i]
+                    )
+                    . ' ' . PMA_Util::backquote($_REQUEST['field_orig'][$i])
+                    . ' BLOB;';
                     $this->dbi->query($secondary_query);
                     $changedToBlob[$i] = true;
                 } else {
@@ -1452,7 +1573,8 @@ class StructureController extends Controller
                     }
                 }
 
-                $revert_query = 'ALTER TABLE ' . PMA_Util::backquote($this->_table) . ' ';
+                $revert_query = 'ALTER TABLE ' . PMA_Util::backquote($this->_table)
+                    . ' ';
                 $revert_query .= implode(', ', $changes_revert) . '';
                 $revert_query .= ';';
 
@@ -1483,7 +1605,10 @@ class StructureController extends Controller
         }
 
         // update mime types
-        if (isset($_REQUEST['field_mimetype']) && is_array($_REQUEST['field_mimetype']) && $GLOBALS['cfg']['BrowseMIME']) {
+        if (isset($_REQUEST['field_mimetype'])
+            && is_array($_REQUEST['field_mimetype'])
+            && $GLOBALS['cfg']['BrowseMIME']
+        ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && /*overload*/mb_strlen(
@@ -1491,7 +1616,8 @@ class StructureController extends Controller
                     )
                 ) {
                     PMA_setMIME(
-                        $this->_db, $this->_table, $_REQUEST['field_name'][$fieldindex],
+                        $this->_db, $this->_table,
+                        $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
                         $_REQUEST['field_transformation_options'][$fieldindex],
@@ -1507,9 +1633,11 @@ class StructureController extends Controller
     /**
      * Adjusts the Privileges for all the columns whose names have changed
      *
-     * @param array  $adjust_privileges assoc array of old col names mapped to new cols
+     * @param array $adjust_privileges assoc array of old col names mapped to new
+     *                                 cols
      *
-     * @return boolean $changed  boolean whether atleast one column privileges adjusted
+     * @return boolean $changed  boolean whether at least one column privileges
+     * adjusted
      */
     protected function adjustColumnPrivileges($adjust_privileges)
     {
@@ -1585,7 +1713,8 @@ class StructureController extends Controller
      * Find table with truename
      *
      * @param array $db
-     * @param bool $truename
+     * @param bool  $truename
+     *
      * @return bool
      */
     protected function hasTable($db, $truename)
@@ -1603,11 +1732,12 @@ class StructureController extends Controller
     /**
      * Get the value set for ENGINE table,
      *
-     * @param array $current_table current table
+     * @param array   $current_table       current table
      * @param boolean $db_is_system_schema whether db is information schema or not
-     * @param boolean $is_show_stats whether stats show or not
-     * @param double $sum_size total table size
-     * @param double $overhead_size overhead size
+     * @param boolean $is_show_stats       whether stats show or not
+     * @param double  $sum_size            total table size
+     * @param double  $overhead_size       overhead size
+     *
      * @return array
      * @internal param bool $table_is_view whether table is view or not
      */
@@ -1633,11 +1763,11 @@ class StructureController extends Controller
         case 'Maria' :
             list($current_table, $formatted_size, $unit, $formatted_overhead,
                 $overhead_unit, $overhead_size, $sum_size)
-                = $this->getValuesForAriaTable(
-                    $db_is_system_schema, $current_table, $is_show_stats,
-                    $sum_size, $overhead_size, $formatted_size, $unit,
-                    $formatted_overhead, $overhead_unit
-                );
+                    = $this->getValuesForAriaTable(
+                        $db_is_system_schema, $current_table, $is_show_stats,
+                        $sum_size, $overhead_size, $formatted_size, $unit,
+                        $formatted_overhead, $overhead_unit
+                    );
             break;
         case 'InnoDB' :
         case 'PBMS' :
@@ -1645,7 +1775,9 @@ class StructureController extends Controller
             // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
             // so it may be unavailable
             list($current_table, $formatted_size, $unit, $sum_size)
-                = $this->getValuesForInnodbTable($current_table, $is_show_stats, $sum_size);
+                = $this->getValuesForInnodbTable(
+                    $current_table, $is_show_stats, $sum_size
+                );
             //$display_rows                   =  ' - ';
             break;
         // Mysql 5.0.x (and lower) uses MRG_MyISAM
@@ -1676,7 +1808,9 @@ class StructureController extends Controller
             }
         } // end switch
 
-        if ($current_table['TABLE_TYPE'] == 'VIEW' || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW') {
+        if ($current_table['TABLE_TYPE'] == 'VIEW'
+            || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW'
+        ) {
             // countRecords() takes care of $cfg['MaxExactCountViews']
             $current_table['TABLE_ROWS'] = $this->dbi
                 ->getTable($this->_db, $current_table['TABLE_NAME'])
@@ -1749,12 +1883,15 @@ class StructureController extends Controller
      *
      * @return array
      */
-    protected function getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
-    {
+    protected function getValuesForInnodbTable(
+        $current_table,
+        $is_show_stats,
+        $sum_size
+    ) {
         $formatted_size = $unit = '';
 
         if (($current_table['ENGINE'] == 'InnoDB'
-                && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+            && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
             || !isset($current_table['TABLE_ROWS'])
         ) {
             $current_table['COUNTED'] = true;
@@ -1767,7 +1904,8 @@ class StructureController extends Controller
 
         // Drizzle doesn't provide data and index length, check for null
         if ($is_show_stats && $current_table['Data_length'] !== null) {
-            $tblsize =  $current_table['Data_length'] + $current_table['Index_length'];
+            $tblsize = $current_table['Data_length']
+                + $current_table['Index_length'];
             $sum_size += $tblsize;
             list($formatted_size, $unit) = PMA_Util::formatByteDown(
                 $tblsize, 3, (($tblsize > 0) ? 1 : 0)
