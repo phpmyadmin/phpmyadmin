@@ -959,7 +959,7 @@ function PMA_getHtmlForRenameTable()
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_privileges_table_options">'
-            . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+            . __('Adjust Privileges') . '&nbsp;' . PMA_Util::showDocu('faq', 'faq6-39')
             . '</label>';
     }
 
@@ -1058,7 +1058,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     //Storage engine
     $html_output .= '<tr><td class="vmiddle">' . __('Storage Engine')
-        . PMA_Util::showMySQLDocu('Storage_engines')
+        . '&nbsp;' . PMA_Util::showMySQLDocu('Storage_engines')
         . '</td>'
         . '<td>'
         . PMA_StorageEngine::getHtmlSelect(
