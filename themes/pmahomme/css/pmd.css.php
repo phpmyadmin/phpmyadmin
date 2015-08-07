@@ -387,7 +387,7 @@ a.M_butt:hover {
 
 #layer_menu_sizer {
     background-image: url(<?php echo $resizeImg; ?>);
-    cursor: e-resize;
+    cursor: ew-resize;
 }
 
 #layer_menu_sizer .icon {
