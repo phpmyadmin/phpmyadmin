@@ -71,7 +71,7 @@
               --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
-              --exclude libraries/plugins/auth/recaptchalib.php
+              --exclude libraries/plugins/auth/recaptcha/recaptchalib.php
               --exclude libraries/plugins/auth/swekey/swekey.php
               --exclude libraries/sql-parser
               ${source}" />
@@ -89,7 +89,7 @@
               --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
-              --exclude libraries/plugins/auth/recaptchalib.php
+              --exclude libraries/plugins/auth/recaptcha/recaptchalib.php
               --exclude libraries/plugins/auth/swekey/swekey.php
               --exclude libraries/sql-parser
               ${source}" />
