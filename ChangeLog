@@ -88,7 +88,9 @@ phpMyAdmin - ChangeLog
 + issue #6102 Add SHA256 security password support
 - issue #10250 Displayed git revision info is not set
 
-4.4.13.0 (not yet released)
+4.4.14.0 (not yet released)
+
+4.4.13.0 (2015-08-07)
 - issue #1808  "Improve table structure" generates invalid SQL
 - issue        Once checked "Show only active" checkbox is always checked
 - issue #1813  Delete rows using "Check All" is broken

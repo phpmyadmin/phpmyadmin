@@ -309,9 +309,9 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 7. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones and set it to the default one
+ 7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version and open a new one for the next minor release
 
- 8. tweet from @phpmya a link to the release notes (see item 5 above); your account should be added to TweetDeck to ease this posting
+ 8. if a maintenance version was released, delete the branch corresponding to the previous one; for example git push origin --delete MAINT_4_4_12
 
  9. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
