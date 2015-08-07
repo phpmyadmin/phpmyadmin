@@ -221,7 +221,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= '<label for="checkbox_auto_increment">'
         . __('Add AUTO_INCREMENT value') . '</label><br />';
     $html_output .= '<input type="checkbox" name="add_constraints" value="1"'
-        . 'id="checkbox_constraints" />';
+        . 'id="checkbox_constraints" checked="checked"/>';
     $html_output .= '<label for="checkbox_constraints">'
         . __('Add constraints') . '</label><br />';
     $html_output .= '<br />';
@@ -1289,7 +1289,7 @@ function PMA_getHtmlForCopytable()
     // foreign keys
     if (PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
         $html_output .= '<input type="checkbox" name="add_constraints" '
-            . 'value="1" id="checkbox_constraints" />';
+            . 'value="1" id="checkbox_constraints" checked="checked"/>';
         $html_output .= '<label for="checkbox_constraints">'
             . __('Add constraints') . '</label><br />';
     } // endif
