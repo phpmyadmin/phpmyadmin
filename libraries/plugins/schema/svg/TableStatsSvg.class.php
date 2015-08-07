@@ -143,7 +143,7 @@ class Table_Stats_Svg extends TableStats
         );
         $this->diagram->printElement(
             'text', $this->x + 5, $this->y+ 14, $this->width, $this->heightCell,
-            $this->getTitle(), 'fill:#fff;' 
+            $this->getTitle(), 'fill:#fff;'
         );
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;

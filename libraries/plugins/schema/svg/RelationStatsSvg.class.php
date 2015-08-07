@@ -63,7 +63,7 @@ class Relation_Stats_Svg extends RelationStats
                 '#cb0',
                 '#0b0',
                 '#0bf',
-                '#b0b' 
+                '#b0b'
             );
             shuffle($listOfColors);
             $color =  $listOfColors[0];

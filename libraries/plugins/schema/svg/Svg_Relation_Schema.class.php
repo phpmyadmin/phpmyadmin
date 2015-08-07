@@ -143,18 +143,18 @@ class PMA_SVG extends XMLWriter
     public function startSvgDoc($width,$height,$x = 0, $y = 0)
     {
         $this->startElement('svg');
-		
-		if(!is_int($width))
-			$width = intval($width);
-		
-		if(!is_int($height))
-			$height = intval($height);
-		
-		if($x != 0 || $y != 0) 
-		{
-			$this->writeAttribute('viewBox', "$x $y $width $height");
-		}
-		
+        
+        if(!is_int($width))
+            $width = intval($width);
+        
+        if(!is_int($height))
+            $height = intval($height);
+        
+        if($x != 0 || $y != 0)
+        {
+            $this->writeAttribute('viewBox', "$x $y $width $height");
+        }
+        
         $this->writeAttribute('width', ($width - $x) . 'px');
         $this->writeAttribute('height',($height - $y) . 'px');
         $this->writeAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -346,10 +346,10 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
             }
             $this->_setMinMax($this->_tables[$table]);
         }
-		
-		$border = 15;
-		$this->diagram->startSvgDoc($this->_xMax + $border, $this->_yMax + $border, $this->_xMin - $border, $this->_yMin - $border);
-		
+        
+        $border = 15;
+        $this->diagram->startSvgDoc($this->_xMax + $border, $this->_yMax + $border, $this->_xMin - $border, $this->_yMin - $border);
+        
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
