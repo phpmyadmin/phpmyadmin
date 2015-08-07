@@ -139,18 +139,18 @@ class Table_Stats_Svg extends TableStats
     {
         $this->diagram->printElement(
             'rect', $this->x, $this->y, $this->width,
-            $this->heightCell, null, 'fill:red;stroke:black;'
+            $this->heightCell, null, 'fill:#007;stroke:black;'
         );
         $this->diagram->printElement(
             'text', $this->x + 5, $this->y+ 14, $this->width, $this->heightCell,
-            $this->getTitle(), 'fill:none;stroke:black;'
+            $this->getTitle(), 'fill:#fff;' 
         );
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
             $fillColor    = 'none';
             if ($showColor) {
                 if (in_array($field, $this->primary)) {
-                    $fillColor = '#0c0';
+                    $fillColor = '#aea';
                 }
                 if ($field == $this->displayfield) {
                     $fillColor = 'none';
@@ -162,7 +162,7 @@ class Table_Stats_Svg extends TableStats
             );
             $this->diagram->printElement(
                 'text', $this->x + 5, $this->y + 14 + $this->currentCell,
-                $this->width, $this->heightCell, $field, 'fill:none;stroke:black;'
+                $this->width, $this->heightCell, $field, 'fill:black;'
             );
         }
     }

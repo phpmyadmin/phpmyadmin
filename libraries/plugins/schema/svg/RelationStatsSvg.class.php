@@ -57,59 +57,59 @@ class Relation_Stats_Svg extends RelationStats
     {
         if ($showColor) {
             $listOfColors = array(
-                'red',
-                'grey',
-                'black',
-                'yellow',
-                'green',
-                'cyan',
-                '    orange'
+                '#c00',
+                '#bbb',
+                '#333',
+                '#cb0',
+                '#0b0',
+                '#0bf',
+                '#b0b' 
             );
             shuffle($listOfColors);
             $color =  $listOfColors[0];
         } else {
-            $color = 'black';
+            $color = '#333';
         }
 
         $this->diagram->printElementLine(
             'line', $this->xSrc, $this->ySrc,
             $this->xSrc + $this->srcDir * $this->wTick, $this->ySrc,
-            'fill:' . $color . ';stroke:black;stroke-width:2;'
+            'stroke:' . $color . ';stroke-width:1;'
         );
         $this->diagram->printElementLine(
             'line', $this->xDest + $this->destDir * $this->wTick,
             $this->yDest, $this->xDest, $this->yDest,
-            'fill:' . $color . ';stroke:black;stroke-width:2;'
+            'stroke:' . $color . ';stroke-width:1;'
         );
         $this->diagram->printElementLine(
             'line', $this->xSrc + $this->srcDir * $this->wTick, $this->ySrc,
             $this->xDest + $this->destDir * $this->wTick, $this->yDest,
-            'fill:' . $color . ';stroke:' . $color . ';stroke-width:1;'
+            'stroke:' . $color . ';stroke-width:1;'
         );
         $root2 = 2 * sqrt(2);
         $this->diagram->printElementLine(
             'line', $this->xSrc + $this->srcDir * $this->wTick * 0.75, $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc + $this->wTick / $root2,
-            'fill:' . $color . ';stroke:black;stroke-width:2;'
+            'stroke:' . $color . ';stroke-width:2;'
         );
         $this->diagram->printElementLine(
             'line', $this->xSrc + $this->srcDir * $this->wTick * 0.75, $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc - $this->wTick / $root2,
-            'fill:' . $color . ';stroke:black;stroke-width:2;'
+            'stroke:' . $color . ';stroke-width:2;'
         );
         $this->diagram->printElementLine(
             'line', $this->xDest + $this->destDir * $this->wTick / 2, $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest + $this->wTick / $root2,
-            'fill:' . $color . ';stroke:black;stroke-width:2;'
+            'stroke:' . $color . ';stroke-width:2;'
         );
         $this->diagram->printElementLine(
             'line', $this->xDest + $this->destDir * $this->wTick / 2, $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest - $this->wTick / $root2,
-            'fill:' . $color . ';stroke:black;stroke-width:2;'
+            'stroke:' . $color . ';stroke-width:2;'
         );
     }
 }

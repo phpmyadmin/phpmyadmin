@@ -140,11 +140,23 @@ class PMA_SVG extends XMLWriter
      *
      * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
      */
-    public function startSvgDoc($width,$height)
+    public function startSvgDoc($width,$height,$x = 0, $y = 0)
     {
         $this->startElement('svg');
-        $this->writeAttribute('width', $width);
-        $this->writeAttribute('height', $height);
+		
+		if(!is_int($width))
+			$width = intval($width);
+		
+		if(!is_int($height))
+			$height = intval($height);
+		
+		if($x != 0 || $y != 0) 
+		{
+			$this->writeAttribute('viewBox', "$x $y $width $height");
+		}
+		
+        $this->writeAttribute('width', ($width - $x) . 'px');
+        $this->writeAttribute('height',($height - $y) . 'px');
         $this->writeAttribute('xmlns', 'http://www.w3.org/2000/svg');
         $this->writeAttribute('version', '1.1');
     }
@@ -314,7 +326,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $this->diagram->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->diagram->setFont('Arial');
         $this->diagram->setFontSize('16px');
-        $this->diagram->startSvgDoc('1000px', '1000px');
+
 
         $alltables = $this->getTablesFromRequest();
 
@@ -330,10 +342,14 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
             }
 
             if ($this->sameWide) {
-                $this->_tables[$table]->width = $this->_tablewidth;
+                $this->_tables[$table]->width = &$this->_tablewidth;
             }
             $this->_setMinMax($this->_tables[$table]);
         }
+		
+		$border = 15;
+		$this->diagram->startSvgDoc($this->_xMax + $border, $this->_yMax + $border, $this->_xMin - $border, $this->_yMin - $border);
+		
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
