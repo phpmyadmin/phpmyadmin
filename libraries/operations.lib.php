@@ -75,8 +75,8 @@ function PMA_getHtmlForRenameDatabase($db)
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
-        . 'maxlength="64" size="30" class="textfield" value="" '
-        . 'required="required" />';
+        . 'maxlength="64" size="30" class="textfield" required="required" '
+        . 'value="' . htmlspecialchars($db). '"/>';
 
     if (! PMA_DRIZZLE) {
         if (isset($GLOBALS['db_priv']) && $GLOBALS['db_priv']
@@ -201,7 +201,8 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= __('Copy database to')
         . '</legend>'
         . '<input type="text" maxlength="64" name="newname" size="30" '
-        . 'class="textfield" value="" required="required" /><br />'
+        . 'class="textfield" value="' . htmlspecialchars($db). '" '
+        . 'required="required" /><br />'
         . PMA_Util::getRadioFields(
             'what', $choices, 'data', true
         );
