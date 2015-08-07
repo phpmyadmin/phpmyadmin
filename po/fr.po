@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-05 10:49+0200\n"
-"PO-Revision-Date: 2015-08-06 13:13+0200\n"
+"PO-Revision-Date: 2015-08-07 13:35+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -14311,10 +14311,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Exécuter une ou des requêtes SQL sur la base %s"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Exécuter une ou des requêtes SQL sur la base %s"
+msgstr "Exécuter une ou des requêtes SQL sur la table %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
