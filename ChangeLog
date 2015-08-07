@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue #11339 Results not displayed if query ends in delimiter and comment
 - issue #11320 Live edit of data fields is not working always
 - issue        Table list in navigation collapses when entering into a table in another page
+- issue #11364 JS error while trying to auto navigate to db structure page when db creation has failed
 
 4.4.12.0 (2015-07-20)
 - bug       Saved chart image does not have a proper name or an extension
