@@ -187,7 +187,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
 
         //validate 3: PMA_getHtmlForServerStateConnections
         $this->assertContains(
-            '<th colspan="2">Connections</th>',
+            '<th>Connections</th>',
             $html
         );
         $this->assertContains(
