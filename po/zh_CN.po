@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-04-21 08:43+0200\n"
-"Last-Translator: fundawang <fundawang@gmail.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-4/zh_CN/>\n"
+"PO-Revision-Date: 2015-07-26 09:31+0200\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -253,13 +253,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "已将数据库 %1$s 复制至 %2$s。"
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "phpMyAdmin 高级功能尚未激活。请点击%s这里%s查看原因。"
+msgstr "phpMyAdmin 高级功能尚未激活。%s查看原因%s。"
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:784
@@ -335,17 +335,16 @@ msgid "Tracking data deleted successfully."
 msgstr "追踪数据定义删除成功"
 
 #: db_tracking.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "已创建版本 %1$s，%2$s 的追踪已启用。"
+msgstr "已为选中的表创建版本 %1$s，对于它们的追踪已启用。"
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "没有已选择的数据库。"
+msgstr "没有已选择的表。"
 
 #: db_tracking.php:114
 msgid "Tracked tables"
@@ -390,10 +389,9 @@ msgid "Show"
 msgstr "显示"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "正在删除追踪数据"
+msgstr "删除追踪数据"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -594,20 +592,18 @@ msgid ""
 msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“值”中。"
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "访问被拒绝！"
+msgstr "成功"
 
 #: import.php:58 js/messages.php:460
 msgid "Failed"
-msgstr ""
+msgstr "失败"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "完整插入"
+msgstr "不完整的参数"
 
 #: import.php:164
 #, php-format

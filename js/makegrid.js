@@ -791,7 +791,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             $checkbox.prop('checked', false);
                         });
                     } else {
-                        $(g.cEdit).on('keypress change', '.edit_box', function (e) {
+                        $(g.cEdit).on('keypress change paste', '.edit_box', function (e) {
                             $checkbox.prop('checked', false);
                         });
                         // Capture ctrl+v (on IE and Chrome)

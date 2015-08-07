@@ -110,6 +110,19 @@ abstract class ExportPlugin
     }
 
     /**
+     * Exports events
+     *
+     * @param string $db      Database
+     * @param array  $aliases Aliases of db/table/columns
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportEvents($db, $aliases = array())
+    {
+        ;
+    }
+
+    /**
      * Outputs table's structure
      *
      * @param string $db          database name

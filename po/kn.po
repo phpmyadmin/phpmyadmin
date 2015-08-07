@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-09 08:27+0200\n"
+"PO-Revision-Date: 2015-07-24 13:05+0200\n"
 "Last-Translator: Shameem Ahmed A Mulla <shameem.sam@gmail.com>\n"
 "Language-Team: Kannada "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/kn/>\n"
@@ -250,18 +250,18 @@ msgstr "ಡೇಟಾಬೇಸ್ ಹೆಸರು ಖಾಲಿಇದೆ!"
 #: db_operations.php:132
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ %1$s %2$s ಎಂದು ಮರುನಾಮಕರಣ ಮಾಡಲಾಯಿತು."
 
 #: db_operations.php:138
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ %1$s %2$s ಎಂದು ನಕಲು ಮಾಡಲಾಗಿದೆ."
 
 #: db_operations.php:259
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
+msgstr "PhpMyAdmin ಸಂರಚನಾ ಸಂಗ್ರಹ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ. %sಏಕೆ ತಿಳಿದುಕೊಳ್ಳಿ%s."
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:784
@@ -274,99 +274,100 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4131 libraries/structure.lib.php:825
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:593
 msgid "Table"
-msgstr ""
+msgstr "ಟೇಬಲ್"
 
 #: db_printview.php:49 libraries/build_html_for_db.lib.php:33
 #: libraries/import.lib.php:193 libraries/structure.lib.php:836
 #: libraries/structure.lib.php:1862 libraries/structure.lib.php:2063
 #: libraries/tbl_printview.lib.php:198
 msgid "Rows"
-msgstr ""
+msgstr "ಸಾಲುಗಳು"
 
 #: db_printview.php:52 libraries/structure.lib.php:858
 #: libraries/tbl_indexes.lib.php:378
 msgid "Size"
-msgstr ""
+msgstr "ಆಕಾರ"
 
 #: db_printview.php:99 libraries/plugins/export/ExportSql.class.php:1221
 #: libraries/structure.lib.php:796
 msgid "in use"
-msgstr ""
+msgstr "ಬಳಕೆಯಲ್ಲಿ"
 
 #: db_printview.php:120 libraries/plugins/export/ExportSql.class.php:1147
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:948
 msgid "Creation:"
-msgstr ""
+msgstr "ಸೃಷ್ಟಿ:"
 
 #: db_printview.php:127 libraries/plugins/export/ExportSql.class.php:1160
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:953
 msgid "Last update:"
-msgstr ""
+msgstr "ಕೊನೆಯ ನವೀಕರಣ:"
 
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1173
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:958
 msgid "Last check:"
-msgstr ""
+msgstr "ಕೊನೆಯ ಪರಿಶೀಲನೆ:"
 
 #: db_printview.php:146 libraries/structure.lib.php:169
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s ಕೋಷ್ಟಕ"
+msgstr[1] "%s ಕೋಷ್ಟಕಗಳು"
 
 #: db_qbe.php:103
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "ನೀವು ಪ್ರದರ್ಶಿಸಲು ಕನಿಷ್ಠ ಒಂದು ಸ್ತಂಭ ಆರಿಸಬೇಕಾಗುತ್ತದೆ!"
 
 #: db_qbe.php:120
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "%sನೋಟದ ದೃಷ್ಟಿಯ ನಿರ್ಮಾಣಕಾರ%s ಗೆ ಬದಲಾಯಿಸಲು"
 
 #: db_search.php:30 libraries/plugins/AuthenticationPlugin.class.php:70
 #: libraries/plugins/auth/AuthenticationConfig.class.php:103
 #: libraries/plugins/auth/AuthenticationConfig.class.php:118
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Access denied!"
-msgstr ""
+msgstr "ಪ್ರವೇಶವನ್ನು ನಿರಾಕರಿಸಲಾಗಿದೆ!"
 
 #: db_tracking.php:39 db_tracking.php:64
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "ಜಾಡೀಕರಣ ಡೇಟಾ ಯಶಸ್ವಿಯಾಗಿ ಅಳಿಸಲಾಗಿದೆ."
 
 #: db_tracking.php:48
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"ಆವೃತ್ತಿ %1$s ಆಯ್ಕೆ ಕೋಷ್ಟಕಗಳು ಸ್ಥಾಪಿಸಲಾಯಿತು, ಜಾಡೀಕರಣ ಅವರಿಗೆ ಸಕ್ರಿಯವಾಗಿದೆ."
 
 #: db_tracking.php:79
 msgid "No tables selected."
-msgstr ""
+msgstr "ಯಾವುದೇ ಕೋಷ್ಟಕಗಳು ಆಯ್ಕೆ ಮಾಡಲಿಲ್ಲ."
 
 #: db_tracking.php:114
 msgid "Tracked tables"
-msgstr ""
+msgstr "ಕಂಡುಬರುವ ಕೋಷ್ಟಕಗಳು"
 
 #: db_tracking.php:126
 msgid "Last version"
-msgstr ""
+msgstr "ಕೊನೆಯ ಆವೃತ್ತಿ"
 
 #: db_tracking.php:127 libraries/tracking.lib.php:276
 msgid "Created"
-msgstr ""
+msgstr "ರಚಿಸಲಾಗಿದೆ"
 
 #: db_tracking.php:128 libraries/tracking.lib.php:277
 msgid "Updated"
-msgstr ""
+msgstr "ನವೀಕರಿಸಲಾಗಿದೆ"
 
 #: db_tracking.php:129 js/messages.php:212 libraries/Menu.class.php:545
 #: libraries/Util.class.php:4151 libraries/rte/rte_events.lib.php:404
 #: libraries/rte/rte_list.lib.php:78
 #: libraries/server_status_processes.lib.php:93 libraries/tracking.lib.php:278
 msgid "Status"
-msgstr ""
+msgstr "ಸ್ಥಿತಿ"
 
 #: db_tracking.php:130 db_tracking.php:288 libraries/Index.class.php:645
 #: libraries/central_columns.lib.php:645 libraries/rte/rte_list.lib.php:53
@@ -380,93 +381,100 @@ msgstr ""
 #: libraries/structure.lib.php:1312 libraries/tracking.lib.php:279
 #: libraries/tracking.lib.php:792
 msgid "Action"
-msgstr ""
+msgstr "ಕ್ರಿಯೆ"
 
 #: db_tracking.php:131 libraries/navigation/Navigation.class.php:213
 #: libraries/tracking.lib.php:280 tbl_change.php:158
 msgid "Show"
-msgstr ""
+msgstr "ತೋರಿಸು"
 
 #: db_tracking.php:139 db_tracking.php:231
 msgid "Delete tracking"
-msgstr ""
+msgstr "ಜಾಡೀಕರಣ ಅಳಿಸು"
 
 #: db_tracking.php:140
 msgid "Versions"
-msgstr ""
+msgstr "ಆವೃತ್ತಿಗಳು"
 
 #: db_tracking.php:141 libraries/tracking.lib.php:288
 #: libraries/tracking.lib.php:456
 msgid "Tracking report"
-msgstr ""
+msgstr "ಜಾಡೀಕರಣದ ವರದಿ"
 
 #: db_tracking.php:142 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:826
 msgid "Structure snapshot"
-msgstr ""
+msgstr "ರಚನೆಯ ಭಾವಚಿತ್ರ"
 
 #: db_tracking.php:184 libraries/tracking.lib.php:418
 #: libraries/tracking.lib.php:1436
 msgid "not active"
-msgstr ""
+msgstr "ಸಕ್ರಿಯವಾಗಿಲ್ಲ"
 
 #: db_tracking.php:189 libraries/tracking.lib.php:416
 #: libraries/tracking.lib.php:1434
 msgid "active"
-msgstr ""
+msgstr "ಸಕ್ರಿಯ"
 
 #: db_tracking.php:277
 msgid "Untracked tables"
-msgstr ""
+msgstr "ಜಾಡೀಕರಣ ಮಾಡಲಾರದ ಕೋಷ್ಟಕಗಳು"
 
 #: db_tracking.php:303 db_tracking.php:334 libraries/structure.lib.php:1649
 msgid "Track table"
-msgstr ""
+msgstr "ಕೋಷ್ಟಕಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ"
 
 #: db_tracking.php:347
 msgid "Database Log"
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ ದಾಖಲೆ"
 
 #: error_report.php:68
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"ಒಂದು ದೋಷವನ್ನು ಪತ್ತೆ ಮಾಡಲಾಗಿದೆ ಮತ್ತು ದೋಷ ವರದಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನಿಮ್ಮ "
+"ಸೆಟ್ಟಿಂಗ್ಗಳನ್ನು ಆಧರಿಸಿ ಸಲ್ಲಿಸಲಾಗಿದೆ."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "ಈ ವರದಿಯನ್ನು ಸಲ್ಲಿಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"ಒಂದು ದೋಷವನ್ನು ಪತ್ತೆ ಮಾಡಲಾಗಿದೆ ಮತ್ತು ದೋಷ ವರದಿಯನ್ನು ರಚಿಸಲಾಗಿದೆ ಆದರೆ "
+"ಕಳುಹಿಸುವುದು ವಿಫಲವಾಯಿತು."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"ನೀವು ಯಾವುದೇ ಸಮಸ್ಯೆಗಳನ್ನು ಅನುಭವಿಸಿದಲ್ಲಿ ಕೈಯಾರೆ ಒಂದು ದೋಷ ವರದಿಯನ್ನು "
+"ಸಲ್ಲಿಸಿ."
 
 #: error_report.php:85
+#, fuzzy
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "ನೀವು ಪುಟವನ್ನು ರೀಫ್ರೆಶ್ ಮಾಡಲು ಬಯಸಬಹುದು."
 
 #: export.php:182 schema_export.php:71
 msgid "Bad type!"
-msgstr ""
+msgstr "ಕಳಪೆ ಪ್ರಕಾರದ!"
 
 #: export.php:263
 msgid "Bad parameters!"
-msgstr ""
+msgstr "ಕಳಪೆ ನಿಯತಾಂಕಗಳು!"
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr ""
+msgstr "ಅಮಾನ್ಯವಾದ ರಫ್ತಿನ ರೀತಿ"
 
 #: gis_data_editor.php:118
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" ಕಾಲಮ್ ಮೌಲ್ಯ"
 
 #: gis_data_editor.php:146 libraries/tbl_gis_visualization.lib.php:165
 msgid "Use OpenStreetMaps as Base Layer"

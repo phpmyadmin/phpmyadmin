@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-06-16 07:14+0200\n"
+"PO-Revision-Date: 2015-07-26 08:27+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-4/sk/"
-">\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -700,7 +700,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nemôžem načítať priebeh importu."
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -10552,17 +10552,18 @@ msgid "no description"
 msgstr "bez popisu"
 
 #: libraries/relation.lib.php:1975
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
+msgstr ""
+"%sCreate%s miesto uloženia phpMyAdmin konfigurácie v aktuálnej databáze."
 
 #: libraries/relation.lib.php:1982
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
+msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfigurácie."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -12947,22 +12948,19 @@ msgid "User groups"
 msgstr "Užívateľské skupiny"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Verzia serveru"
+msgstr "Záložky pre prácu so serverom"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Databázový server"
+msgstr "Záložky pre prácu s databázou"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table removal"
 msgid "Table level tabs"
-msgstr "Názov tabuľky"
+msgstr "Záložky pre prácu s tabuľkami"
 
 #: libraries/server_user_groups.lib.php:110
 msgid "View users"
@@ -12987,22 +12985,19 @@ msgid "Group name:"
 msgstr "Názov skupiny:"
 
 #: libraries/server_user_groups.lib.php:272
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Verzia serveru"
+msgstr "Záložky pre prácu so serverom"
 
 #: libraries/server_user_groups.lib.php:275
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Databázový server"
+msgstr "Záložky pre prácu s databázou"
 
 #: libraries/server_user_groups.lib.php:278
-#, fuzzy
 #| msgid "Table removal"
 msgid "Table-level tabs"
-msgstr "Názov tabuľky"
+msgstr "Záložky pre prácu s tabuľkami"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
@@ -13325,10 +13320,9 @@ msgid "Improve table structure"
 msgstr "Zlepšiť štruktúry tabuľky"
 
 #: libraries/structure.lib.php:1663
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Sledovať tabuľku"
+msgstr "Sledovať pohľad"
 
 #: libraries/structure.lib.php:1704
 #: libraries/tbl_columns_definition_form.lib.php:189
@@ -13440,10 +13434,9 @@ msgid "Showing create queries"
 msgstr "Zobrazovanie SQL dopytov pre vytvorenie"
 
 #: libraries/structure.lib.php:3289
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Zobraziť prepojenia"
+msgstr "Zobrazenie relácii"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13597,16 +13590,14 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:376
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Transformácia pri prehliadaní"
+msgstr "Transformácia pri zobrazení"
 
 #: libraries/tbl_columns_definition_form.lib.php:378
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Transformácia pri prehliadaní"
+msgstr "Možnosti transformácie pri zobrazení"
 
 #: libraries/tbl_columns_definition_form.lib.php:381
 #: transformation_overview.php:42
@@ -13703,10 +13694,9 @@ msgid "Index type:"
 msgstr "Typ indexu&nbsp;:"
 
 #: libraries/tbl_indexes.lib.php:346
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Užívateľ:"
+msgstr "Syntaktický analyzátor:"
 
 #: libraries/tbl_indexes.lib.php:358
 msgid "Comment:"
@@ -13785,10 +13775,9 @@ msgid "Choose column to display:"
 msgstr "Zvoľte, ktoré polia zobraziť:"
 
 #: libraries/tbl_relation.lib.php:829
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Vlákno %s bol úspešne zabité."
+msgstr "Zobrazený stĺpec bol aktualizovný."
 
 #: libraries/tbl_relation.lib.php:913
 msgid "Internal relations were successfully updated."
@@ -14319,10 +14308,9 @@ msgid "Available MIME types"
 msgstr "Dostupné MIME typy"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Dostupné transformácie"
+msgstr "Dostupné transformácie pre zobrazenie"
 
 #: transformation_overview.php:38
 msgid "Available input transformations"

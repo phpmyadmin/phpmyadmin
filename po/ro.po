@@ -2,19 +2,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-05-29 12:40+0200\n"
-"Last-Translator: Costel Cocerhan <costa1988sv@gmail.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-4/"
-"ro/>\n"
+"PO-Revision-Date: 2015-08-05 12:38+0200\n"
+"Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
+"Language-Team: Romanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -694,6 +694,9 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"Timpul de rulare alocat scriptului a expirat; dacă doritți să terminați "
+"încărcarea, %s vă rog să re-trimiteți același fișier %s și încărcarea va "
+"continua de unde s-a întrerupt."
 
 #: import.php:675
 msgid ""
@@ -706,7 +709,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nu se poate determina progresul încărcării."
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -834,7 +837,6 @@ msgid "List of changes"
 msgstr "Lista modificărilor"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -846,11 +848,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Fișierul de configurare conține parametri (utilizator root fără parolă) ce "
-"corespund contului MySQL privilegiat implicit. Serverul MySQL rulează cu "
-"acest parametru implicit, este deschis la intruziune și trebuie să reparați "
-"neapărat această breșă de securitate stabilind o parolă pentru utilizatorul "
-"„root”."
+"Sînteți conectat ca utilizator root fără parolă, ceea ce corespunde contului "
+"MySQL privilegiat implicit. Serverul MySQL rulează cu acest parametru "
+"implicit, este deschis la intruziune și trebuie să închideți neapărat "
+"această breșă de securitate stabilind o parolă pentru utilizatorul „root”."
 
 #: index.php:464
 msgid ""
@@ -872,7 +873,6 @@ msgstr ""
 "șirurile de caractere corect, fapt ce poate duce la rezultate neașteptate."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -884,18 +884,21 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametrul PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] este mai mic decât "
-"validitatea unui cookie configurat în phpMyAdmin, iar pentru aceasta, "
-"sesiunea dumneavoastră va expira mai devreme decât este configurat în "
+"Parametrul PHP "
+"[a@http://php.net/manual/ro/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] este mai mic decât validitatea "
+"unui cookie configurat în phpMyAdmin, din această cauză sesiunea "
+"dumneavoastră ar putea expira mai devreme decât este configurat în "
 "phpMyAdmin."
 
 #: index.php:508
-#, fuzzy
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
-msgstr "vag"
+msgstr ""
+"Stocarea cookie-ului de conectare este mai scurtă decît perioada de "
+"validitate a cookie-urilor configurată in phpMyAdmim, din această cauză "
+"sesiunea dumneavoastră va expira înainte de cum este stabilit în phpMyAdmin."
 
 #: index.php:520
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -923,14 +926,15 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Configurarea pentru stocarea phpMyAdmin nu este complet configurată, astfel "
-"că unele caracteristici avansate au fost dezactivate. Pentru a afla de ce "
-"dați click  %shere%s. "
+"Stocarea configurarilor phpMyAdmin nu este complet configurată, astfel că "
+"unele caracteristici avansate au fost dezactivate.  %Află de ce%s. "
 
 #: index.php:549
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Sau, altfel, puteți accesa panoul 'Operațiuni' al oricărei baze de date si "
+"configura-o de acolo."
 
 #: index.php:597
 #, php-format
@@ -986,7 +990,7 @@ msgstr "Șterge datele de urmărire pentru acest tabel"
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Șterge datele de urmărire pentru acest tabel"
+msgstr "Șterge datele de urmărire pentru aceste tabele"
 
 #: js/messages.php:49
 #, fuzzy
@@ -14341,10 +14345,9 @@ msgid "Improve table structure"
 msgstr "Propune structura de tabele"
 
 #: libraries/structure.lib.php:1663
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Monitorizează tabel"
+msgstr "Vedere de monitorizare"
 
 #: libraries/structure.lib.php:1704
 #: libraries/tbl_columns_definition_form.lib.php:189

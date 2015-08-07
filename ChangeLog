@@ -1,6 +1,17 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.13.0 (2015-08-07)
+- issue #1808  "Improve table structure" generates invalid SQL
+- issue        Once checked "Show only active" checkbox is always checked
+- issue #1813  Delete rows using "Check All" is broken
+- issue        Fix PHP 7 possible binding ambiguity
+- issue #11326 Exported schema includes all the tables of the database
+- issue #11339 Results not displayed if query ends in delimiter and comment
+- issue #11320 Live edit of data fields is not working always
+- issue        Table list in navigation collapses when entering into a table in another page
+- issue #11364 JS error while trying to auto navigate to db structure page when db creation has failed
+
 4.4.12.0 (2015-07-20)
 - bug       Saved chart image does not have a proper name or an extension
 - bug #4976 Timepicker CSS issues in Original theme
@@ -210,7 +221,7 @@ phpMyAdmin - ChangeLog
 + rfe       Change tracking activation status from db level tracking page
 + rfe #1207 Export users associated with a specific schema/database
 + rfe #1575 "Disable database expansion" : unclear directive name and
-explanation 
+explanation
 + rfe #1607 Tool tip for lock icon when making changes to a page
 + rfe #1327 Hide 'Add user' link if user does not have privileges
 + rfe #501  Support for SSL GRANT option
@@ -301,7 +312,7 @@ explanation
 - bug #4717 Database navigation menu broken when resolution/screen is changing
 - bug #4727 Collation column missing in database list when DisableIS is true
 - bug       Undefined index central_columnswork
-- bug       Undefined index favorite_tables 
+- bug       Undefined index favorite_tables
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
