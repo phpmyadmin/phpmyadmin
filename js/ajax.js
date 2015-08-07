@@ -413,6 +413,9 @@ var AJAX = {
                     }
                     $('#selflink').find('> a').attr('href', data._selflink);
                 }
+                if (data._params) {
+                    PMA_commonParams.setAll(data._params);
+                }
                 if (data._scripts) {
                     AJAX.scriptHandler.load(data._scripts);
                 }
@@ -426,9 +429,6 @@ var AJAX = {
                             AJAX.source.attr('rel')
                         );
                     }
-                }
-                if (data._params) {
-                    PMA_commonParams.setAll(data._params);
                 }
                 if (data._displayMessage) {
                     $('#page_content').prepend(data._displayMessage);
@@ -514,6 +514,11 @@ var AJAX = {
          */
         _scripts: [],
         /**
+         * @var string _scriptsVersion version of phpMyAdmin from which the
+         *                             scripts have been loaded
+         */
+        _scriptsVersion: null,
+        /**
          * @var array _scriptsToBeLoaded The list of files that
          *                               need to be downloaded
          */
@@ -550,6 +555,14 @@ var AJAX = {
          */
         load: function (files, callback) {
             var self = this;
+            // Clear loaded scripts if they are from another version of phpMyAdmin.
+            // Depends on common params being set before loading scripts in responseHandler
+            if (self._scriptsVersion == null) {
+            	self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
+            } else if (self._scriptsVersion != PMA_commonParams.get('PMA_VERSION')) {
+            	self._scripts = [];
+            	self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
+            }
             self._scriptsToBeLoaded = [];
             self._scriptsToBeFired = [];
             for (var i in files) {
