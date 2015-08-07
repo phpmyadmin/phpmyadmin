@@ -130,7 +130,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
     $retval  = '<table id="serverstatustraffic" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
-    $retval .= '<th colspan="2">';
+    $retval .= '<th>';
     $retval .= __('Traffic') . '&nbsp;';
     $retval .=  PMA_Util::showHint(
         __(
@@ -139,6 +139,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
         )
     );
     $retval .= '</th>';
+    $retval .= '<th>#</th>';
     $retval .= '<th>&oslash; ' . __('per hour') . '</th>';
     $retval .= '</tr>';
     $retval .= '</thead>';
@@ -222,7 +223,8 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     $retval  = '<table id="serverstatusconnections" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
-    $retval .= '<th colspan="2">' . __('Connections') . '</th>';
+    $retval .= '<th>' . __('Connections') . '</th>';
+    $retval .= '<th>#</th>';
     $retval .= '<th>&oslash; ' . __('per hour') . '</th>';
     $retval .= '<th>%</th>';
     $retval .= '</tr>';
