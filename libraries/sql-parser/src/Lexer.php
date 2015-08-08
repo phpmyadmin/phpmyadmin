@@ -515,15 +515,39 @@ namespace SqlParser {
                 $token .= $this->str[$this->last];
                 if (Context::isComment($token)) {
                     $flags = Token::FLAG_COMMENT_C;
-                    if (($this->last + 1 < $this->len) && ($this->str[$this->last + 1] === '!')) {
-                        // It is a MySQL-specific command.
-                        $flags |= Token::FLAG_COMMENT_MYSQL_CMD;
+
+                    // This comment already ended. It may be a part of a
+                    // previous MySQL specific command.
+                    if ($token === '*/') {
+                        return new Token($token, Token::TYPE_COMMENT, $flags);
                     }
+
+                    // Checking if this is a MySQL-specific command.
+                    if (($this->last + 1 < $this->len) && ($this->str[$this->last + 1] === '!')) {
+                        $flags |= Token::FLAG_COMMENT_MYSQL_CMD;
+                        $token .= $this->str[++$this->last];
+
+                        while ((++$this->last < $this->len)
+                            && ('0' <= $this->str[$this->last])
+                            && ($this->str[$this->last] <= '9')
+                        ) {
+                            $token .= $this->str[$this->last];
+                        }
+                        --$this->last;
+
+                        // We split this comment and parse only its beginning
+                        // here.
+                        return new Token($token, Token::TYPE_COMMENT, $flags);
+                    }
+
+                    // Parsing the comment.
                     while ((++$this->last < $this->len)
                         && (($this->str[$this->last - 1] !== '*') || ($this->str[$this->last] !== '/'))
                     ) {
                         $token .= $this->str[$this->last];
                     }
+
+                    // Adding the ending.
                     if ($this->last < $this->len) {
                         $token .= $this->str[$this->last];
                     }

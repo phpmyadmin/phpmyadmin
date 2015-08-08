@@ -743,9 +743,7 @@ class Query
         for ($list->idx = 0; $list->idx < $list->count; ++$list->idx) {
             $token = $list->tokens[$list->idx];
 
-            if (($token->type === Token::TYPE_COMMENT)
-                && (!($token->flags & Token::FLAG_COMMENT_MYSQL_CMD))
-            ) {
+            if ($token->type === Token::TYPE_COMMENT) {
                 continue;
             }
 
