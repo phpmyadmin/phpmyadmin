@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Parses a reference to a field.
+ * Parses an alter operation.
  *
  * @package    SqlParser
  * @subpackage Components
@@ -14,7 +14,7 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * Parses a reference to a field.
+ * Parses an alter operation.
  *
  * @category   Components
  * @package    SqlParser
@@ -178,10 +178,8 @@ class AlterOperation extends Component
                         ++$brackets;
                     } elseif ($token->value === ')') {
                         --$brackets;
-                    } elseif ($token->value === ',') {
-                        if ($brackets === 0) {
-                            break;
-                        }
+                    } elseif (($token->value === ',') && ($brackets === 0)) {
+                        break;
                     }
                 }
                 $ret->unknown[] = $token;

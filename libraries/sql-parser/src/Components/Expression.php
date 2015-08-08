@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Parses a reference to a field.
+ * Parses a reference to an expression (column, table or database name, function
+ * call, mathematical expression, etc.).
  *
  * @package    SqlParser
  * @subpackage Components
@@ -15,7 +16,8 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * Parses a reference to a field.
+ * Parses a reference to an expression (column, table or database name, function
+ * call, mathematical expression, etc.).
  *
  * @category   Components
  * @package    SqlParser

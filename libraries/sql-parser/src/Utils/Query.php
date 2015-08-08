@@ -449,40 +449,40 @@ class Query
      */
     public static function getTables($statement)
     {
-        $fields = array();
+        $expressions = array();
 
         if (($statement instanceof InsertStatement)
             || ($statement instanceof ReplaceStatement)
         ) {
-            $fields = array($statement->into->dest);
+            $expressions = array($statement->into->dest);
         } elseif ($statement instanceof UpdateStatement) {
-            $fields = $statement->tables;
+            $expressions = $statement->tables;
         } elseif (($statement instanceof SelectStatement)
             || ($statement instanceof DeleteStatement)
         ) {
-            $fields = $statement->from;
+            $expressions = $statement->from;
         } elseif (($statement instanceof AlterStatement)
             || ($statement instanceof TruncateStatement)
         ) {
-            $fields = array($statement->table);
+            $expressions = array($statement->table);
         } elseif ($statement instanceof DropStatement) {
             if (!$statement->options->has('TABLE')) {
                 // No tables are dropped.
                 return array();
             }
-            $fields = $statement->fields;
+            $expressions = $statement->fields;
         } elseif ($statement instanceof RenameStatement) {
             foreach ($statement->renames as $rename) {
-                $fields[] = $rename->old;
+                $expressions[] = $rename->old;
             }
         }
 
         $ret = array();
-        foreach ($fields as $field) {
-            if (!empty($field->table)) {
-                $field->expr = null; // Force rebuild.
-                $field->alias = null; // Aliases are not required.
-                $ret[] = Expression::build($field);
+        foreach ($expressions as $expr) {
+            if (!empty($expr->table)) {
+                $expr->expr = null; // Force rebuild.
+                $expr->alias = null; // Aliases are not required.
+                $ret[] = Expression::build($expr);
             }
         }
         return $ret;
