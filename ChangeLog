@@ -2,90 +2,90 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.5.0.0 (not yet released)
-+ rfe       Pagination for GIS visualization
-+ rfe #1570 Usability improvements for console
-+ rfe #1614 Access to Add columns text-box and Go button when creating table
-+ rfe #1306 Add lock tables, disable keys options
-+ rfe #1609 Additional page locking
-+ rfe #1620 Support MySQL 5.7 syntax for password change
-+ rfe #1626 Display/edit index name
-+ rfe #1625 Toggle autocomplete of table and column names
-+ rfe #933  Manage multiple variable in bookmarked query
-+ rfe #947  Show edit/delete also when there is calculated column
-+ rfe #1619 Show databases as list instead of as dropdown when no database is selected
-+ rfe       Optional dark theme for the console
-+ rfe #354  PDF schema sort options
-+ rfe #844  Structure in PDF export
-+ rfe #1635 Have ZeroConf create phpmyadmin DB if possible
-+ rfe #763  Warning before silent data conversion/truncation
-+ rfe #1650 Support a default page in designer
-+ rfe #1651 Allow copying mutiple rows
-+ rfe #1643 No SQL query for loading data
-+ rfe #1653 New data validation feature and datetime type
-+ rfe #1632 Importing and exporting pMA meta-data
-+ rfe #1639 Add grouping to stored procedures in the navigation tree
-+ rfe #1655 Support IPv6 browser transformation
-+ rfe       Option groups for 'With selected' dropdown in database structure page
-+ rfe #1661 Support checksum table
-+ rfe #1380 Support for Paramaters with raw SQL
-+ rfe #1146 Show original size of truncated columns
-+ rfe #1413 Explain analyzer
-+ rfe #1485 Add "Drop partition" option to partition tools
-+ rfe #1668 Procedures window shift-click should select multiple rows
-+ rfe #1669 Designer: "Sticky" menu option
-+ rfe #1671 Directly show table comments in structure view
-+ rfe #1559 Page-related settings
-+ rfe #657  Alter privileges when renaming or copying a database
-- bug #4910 Slowness due to large number of routines
-- bug #4913 GROUP_CONCAT shown as GROUPBY_CONCAT in CodeMirror autocomplete
-+ rfe #1242 Work with --skip-grant-tables
-- bug #4922 "Sort by key" drop-down value is lost
-+ rfe #1673 Browse: improve display of right-aligned data
-- bug #4921 Textarea rows settings ignored Features > Text fields
-+ rfe #1672 MIME types should be lower case
-- bug #4872 Drop table doesn't remove the table name from navigation bar
-+ rfe #1675 MySQL and MariaDB functions INET6_ATON and INET6_NTOA
-- bug       Link to get real row counts of all the views in a db, at once
-- bug #4932 Drizzle version numbers
-+ rfe #701  Rewrite print view using CSS; fixes print view failures on multi-query statements
-+ rfe #1677 Support spatial indexes in table create form
-+ rfe #1359 Use CTRL or ALT plus arrow keys for navigation in grid editor
-+ rfe       Remove support for Shift + Click on function name to apply to all rows in insert/edit page
-+ rfe #1634 Don't group tables in tree if the result has only one group
-- bug #4946 When hide table structure actions is false, action should be in a row
-+ rfe #726  Batch changing the collation of each column in a table
-- bug #4510 QBE generates wrong query
-+ rfe #1594 Use plain English descriptors instead of script names for icon link destinations
-+ rfe #1541 Disable foreign key checks for some operations
-- bug #4957 "With selected" links doesn't work in table browse
-- bug #4795 Query builder: missing joint for the intermediary table
-+ rfe #1551 Integrate SQL debugging into console
-- bug #4963 Improve/restore non-unique index row editing
-- bug #4966 MySQL errors are not shown when DebugSQL is enabled
-+ rfe #342  One file per table and one file per database export option
-+ rfe #1060 Designer settings should be part of saved state
-+ rfe #1557 Option to remove functions, procedures, etc., from navigation tree
-+ rfe #689  Column privileges and update
-+ rfe #1531 Cant use external config file
-+ rfe #1552 CSV import: Allow "Columns escaped with" to be optional
-+ rfe #1561 Being able to use multiple servers at the same time when using cookie auth
-+ rfe #1603 select structure or data for each table when exporting
-- bug #4916 Autocomplete completes the original table name when joining multiple aliased tables
-+ rfe       Remove configuration storage data related to a user upon deleting the user
-+ rfe #1685 Improved processlist for mariadb
-+ rfe #1686 Warn about "Any user" potential problem
-+ rfe #1683 Hide/diable edit links for read-only variables
-+ rfe #1680 Human readable/writable URLs (html5 api)
-+ rfe       Support virtual columns in MySQL 5.7.5+
-+ rfe #1517 Support for virtual/persistent columns in MariaDB
-- bug #4984 Undefined <feature>work upon upgrade to new version
++ rfe          Pagination for GIS visualization
++ issue #6207  Usability improvements for console
++ issue #6310  Access to Add columns text-box and Go button when creating table
++ issue #6007  Add lock tables, disable keys options
++ issue #6306  Additional page locking
++ issue #6314  Support MySQL 5.7 syntax for password change
++ issue #6319  Display/edit index name
++ issue #6318  Toggle autocomplete of table and column names
++ issue #5633  Manage multiple variable in bookmarked query
++ issue #5642  Show edit/delete also when there is calculated column
++ issue #6313  Show databases as list instead of as dropdown when no database is selected
++ rfe          Optional dark theme for the console
++ issue #5053  PDF schema sort options
++ issue #5543  Structure in PDF export
++ issue #6327  Have ZeroConf create phpmyadmin DB if possible
++ issue #5462  Warning before silent data conversion/truncation
++ issue #6338  Support a default page in designer
++ issue #6339  Allow copying mutiple rows
++ issue #6334  No SQL query for loading data
++ issue #6341  New data validation feature and datetime type
++ issue #6324  Importing and exporting pMA meta-data
++ issue #6330  Add grouping to stored procedures in the navigation tree
++ issue #6275  Support IPv6 browser transformation
++ rfe          Option groups for 'With selected' dropdown in database structure page
++ issue #6347  Support checksum table
++ issue #6088  Support for Paramaters with raw SQL
++ issue #5844  Show original size of truncated columns
++ issue #6114  Explain analyzer
++ issue #6186  Add "Drop partition" option to partition tools
++ issue #6354  Procedures window shift-click should select multiple rows
++ issue #6355  Designer: "Sticky" menu option
++ issue #6357  Directly show table comments in structure view
++ issue #6259  Page-related settings
++ issue #5356  Alter privileges when renaming or copying a database
+- issue #11256 Slowness due to large number of routines
+- issue #11258 GROUP_CONCAT shown as GROUPBY_CONCAT in CodeMirror autocomplete
++ issue #5946  Work with --skip-grant-tables
+- issue #11266 "Sort by key" drop-down value is lost
++ issue #6287  Browse: improve display of right-aligned data
+- issue #11265 Textarea rows settings ignored Features > Text fields
++ issue #6358  MIME types should be lower case
+- issue #11226 Drop table doesn't remove the table name from navigation bar
++ issue #6360  MySQL and MariaDB functions INET6_ATON and INET6_NTOA
+- bug          Link to get real row counts of all the views in a db, at once
+- issue #11275 Drizzle version numbers
++ issue #5400  Rewrite print view using CSS; fixes print view failures on multi-query statements
++ issue #6362  Support spatial indexes in table create form
++ issue #6068  Use CTRL or ALT plus arrow keys for navigation in grid editor
++ rfe          Remove support for Shift + Click on function name to apply to all rows in insert/edit page
++ issue #6326  Don't group tables in tree if the result has only one group
+- issue #11287 When hide table structure actions is false, action should be in a row
++ issue #5425  Batch changing the collation of each column in a table
+- issue #10918 QBE generates wrong query
++ issue #6292  Use plain English descriptors instead of script names for icon link destinations
++ issue #6239  Disable foreign key checks for some operations
+- issue #11296 "With selected" links doesn't work in table browse
+- issue #11166 Query builder: missing joint for the intermediary table
++ issue #6251  Integrate SQL debugging into console
+- issue #11061 Improve/restore non-unique index row editing
+- issue #11301 MySQL errors are not shown when DebugSQL is enabled
++ issue #5037  One file per table and one file per database export option
++ issue #5759  Designer settings should be part of saved state
++ issue #6257  Option to remove functions, procedures, etc., from navigation tree
++ issue #5388  Column privileges and update
++ issue #6231  Cant use external config file
++ issue #6252  CSV import: Allow "Columns escaped with" to be optional
++ issue #6262  Being able to use multiple servers at the same time when using cookie auth
++ issue #6301  select structure or data for each table when exporting
+- issue #11261 Autocomplete completes the original table name when joining multiple aliased tables
++ rfe          Remove configuration storage data related to a user upon deleting the user
++ issue #6298  Improved processlist for mariadb
++ issue #6300  Warn about "Any user" potential problem
++ issue #6368  Hide/disable edit links for read-only variables
++ issue #6365  Human readable/writable URLs (html5 api)
++ rfe          Support virtual columns in MySQL 5.7.5+
++ issue #6215  Support for virtual/persistent columns in MariaDB
+- issue #11314 Undefined <feature>work upon upgrade to new version
 - issue #1817  Creating configuration storage tables fail in MySQL 5.7
 - issue #6118  Parser does not handle nested selects
 - issue #5437  Support SELECT ... FROM DUAL
 - issue #4962  Support UNION
 - issue #11322 Missing null checkbox when grid editing a null cell
-+ Upgrade TCPDF to version 6.2.9
-+ issue #6102 Add SHA256 security password support
++              Upgrade TCPDF to version 6.2.9
++ issue #6102  Add SHA256 security password support
 - issue #10250 Displayed git revision info is not set
 
 4.4.14.0 (not yet released)
