@@ -56,6 +56,15 @@ case 'edit':
 }
 
 if (!empty($submit_mult)) {
+
+    if (! isset($_REQUEST['rows_to_delete'])
+        || ! is_array($_REQUEST['rows_to_delete'])
+    ) {
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', __('No row selected.'));
+    }
+
     switch($submit_mult) {
     case 'row_edit':
         // As we got the rows to be edited from the
