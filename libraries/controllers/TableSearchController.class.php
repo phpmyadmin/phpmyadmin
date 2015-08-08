@@ -13,8 +13,6 @@ use PMA\Controllers\TableController;
 use PMA_DatabaseInterface;
 use PMA_Util;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/sql.lib.php';

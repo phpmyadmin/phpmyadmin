@@ -9,9 +9,11 @@
 /*
  * Include to test.
  */
+use PMA\Controllers\Table\TableSearchController;
+use PMA\DI\Container;
+
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/DatabaseInterface.class.php';
-//require_once 'libraries/TableSearch.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
@@ -21,13 +23,15 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/di/Container.class.php';
+require_once 'libraries/controllers/TableSearchController.class.php';
 
 /**
  * Tests for PMA_TableSearch
  *
  * @package PhpMyAdmin-test
  */
-class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
+class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -41,7 +45,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         /**
          * SET these to avoid undefined index error
          */
-        /*$_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
         $_POST['zoom_submit'] = 'zoom';
 
         $GLOBALS['server'] = 1;
@@ -96,8 +100,12 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($show_create_table));
 
-        $GLOBALS['dbi'] = $dbi;*/
-        // @todo: Replace this test with TableSearchController test
+        $GLOBALS['dbi'] = $dbi;
+
+        $container = Container::getDefaultContainer();
+        $container->set('db', 'PMA');
+        $container->set('table', 'PMA_BookMark');
+        $container->set('dbi', $GLOBALS['dbi']);
     }
 
     /**
@@ -109,27 +117,6 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
     protected function tearDown()
     {
 
-    }
-
-    /**
-     * Test for __construct
-     *
-     * @return void
-     * @group medium
-     */
-    public function testConstruct()
-    {
-        /*$tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "normal");
-        $columNames = $tableSearch->getColumnNames();
-        $this->assertEquals(
-            'Field1',
-            $columNames[0]
-        );
-        $this->assertEquals(
-            'Field2',
-            $columNames[1]
-        );*/
-        // @todo: Replace this test with TableSearchController test
     }
 
     /**
@@ -239,7 +226,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
      */
     public function testReplace()
     {
-        /*$tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $tableSearch = new TableSearchController("zoom", null);
         $columnIndex = 0;
         $find = "Field";
         $replaceWith = "Column";
@@ -250,14 +237,13 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         );
 
         $sql_query = $GLOBALS['sql_query'];
-        $result = "UPDATE `PMA`.`PMA_BookMark` SET `Field1` = "
+        $result = "UPDATE `PMA_BookMark` SET `Field1` = "
             . "REPLACE(`Field1`, 'Field', 'Column') "
             . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
         $this->assertEquals(
             $result,
             $sql_query
-        );*/
-        // @todo: Replace this test with TableSearchController test
+        );
     }
 
     /**
@@ -361,18 +347,21 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testBuildSqlQueryw()
+    public function testBuildSqlQuery()
     {
-        /*$_POST['distinct'] = true;
+        $_POST['distinct'] = true;
         $_POST['zoom_submit'] = true;
         $_POST['table'] = "PMA";
         $_POST['orderByColumn'] = "name";
         $_POST['order'] = "asc";
         $_POST['customWhereClause'] = "name='pma'";
 
-        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $class = new ReflectionClass('PMA\Controllers\Table\TableSearchController');
+        $method = $class->getMethod('_buildSqlQuery');
+        $method->setAccessible(true);
+        $tableSearch = new TableSearchController("zoom", null);
 
-        $sql = $tableSearch->buildSqlQuery();
+        $sql = $method->invoke($tableSearch);
         $result = "SELECT DISTINCT *  FROM `PMA` WHERE name='pma' "
             . "ORDER BY `name` asc";
 
@@ -382,7 +371,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         );
 
         unset($_POST['customWhereClause']);
-        $sql = $tableSearch->buildSqlQuery();
+        $sql = $method->invoke($tableSearch);
         $result = "SELECT DISTINCT *  FROM `PMA` ORDER BY `name` asc";
         $this->assertEquals(
             $result,
@@ -435,7 +424,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             "BETWEEN"
         );
 
-        $sql = $tableSearch->buildSqlQuery();
+        $sql = $method->invoke($tableSearch);
         $result = "SELECT DISTINCT *  FROM `PMA` WHERE `name` != 'value1'"
             . " AND `id` > value2 AND `index` IS NULL AND `index2` LIKE '%value4%'"
             . " AND `index3` REGEXP ^value5$ AND `index4` IN (value6) AND `index5`"
@@ -443,7 +432,6 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $result,
             $sql
-        );*/
-        // @todo: Replace this test with TableSearchController test
+        );
     }
 }

@@ -754,6 +754,36 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getColumnsMeta
+     *
+     * @return void
+     */
+    public function testGetColumnsMeta()
+    {
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with("SELECT * FROM `db`.`table` LIMIT 1")
+            ->will($this->returnValue('v1'));
+
+        $dbi->expects($this->once())
+            ->method('getFieldsMeta')
+            ->with("v1")
+            ->will($this->returnValue('movecols'));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $tableObj = new PMA_Table('table', 'db');
+
+        $this->assertEquals(
+            $tableObj->getColumnsMeta(),
+            'movecols'
+        );
+    }
 
     /**
      * Test for getColumns
