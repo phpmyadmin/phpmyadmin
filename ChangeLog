@@ -90,6 +90,9 @@ phpMyAdmin - ChangeLog
 
 4.4.14.0 (not yet released)
 
+4.4.13.1 (2015-08-08)
+- issue #11368 SQL error when importing phpMyAdmin dump file
+
 4.4.13.0 (2015-08-07)
 - issue #1808  "Improve table structure" generates invalid SQL
 - issue        Once checked "Show only active" checkbox is always checked
