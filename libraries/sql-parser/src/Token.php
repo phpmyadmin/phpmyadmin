@@ -55,7 +55,7 @@ class Token
 
     /**
      * Spaces, tabs, new lines, etc.
-    *
+     *
      * @var int
      */
     const TYPE_WHITESPACE               =  3;

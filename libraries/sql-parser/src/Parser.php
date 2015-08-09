@@ -303,8 +303,8 @@ namespace SqlParser {
         /**
          * Constructor.
          *
-         * @param mixed $list   The list of tokens to be parsed.
-         * @param bool  $strict Whether strict mode should be enabled or not.
+         * @param string|UtfString|TokensList $list   The list of tokens to be parsed.
+         * @param bool             $strict Whether strict mode should be enabled or not.
          */
         public function __construct($list = null, $strict = false)
         {
@@ -375,6 +375,7 @@ namespace SqlParser {
                 ) {
                     // Skipping to the end of this statement.
                     $list->getNextOfType(Token::TYPE_DELIMITER);
+                    $prevLastIdx = $list->idx;
                     continue;
                 }
 
@@ -412,7 +413,6 @@ namespace SqlParser {
                     }
                     // Skipping to the end of this statement.
                     $list->getNextOfType(Token::TYPE_DELIMITER);
-                    //
                     $prevLastIdx = $list->idx;
                     continue;
                 }

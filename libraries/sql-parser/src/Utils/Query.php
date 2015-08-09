@@ -51,7 +51,7 @@ class Query
      * @var array
      */
     public static $FUNCTIONS = array(
-        'SUM','AVG','STD','STDDEV','MIN','MAX','BIT_OR','BIT_AND'
+        'SUM', 'AVG', 'STD', 'STDDEV', 'MIN', 'MAX', 'BIT_OR', 'BIT_AND'
     );
 
     /**
@@ -572,10 +572,10 @@ class Query
         } elseif (is_string($type)) {
             if ($clauses[$type] > $clauseIdx) {
                 $firstClauseIdx = $clauseIdx + 1;
-                $lastClauseIdx = $clauses[$type] - 1    ;
+                $lastClauseIdx = $clauses[$type] - 1;
             } else {
                 $firstClauseIdx = $clauses[$type] + 1;
-                $lastClauseIdx = $clauseIdx - 1 ;
+                $lastClauseIdx = $clauseIdx - 1;
             }
         }
 
