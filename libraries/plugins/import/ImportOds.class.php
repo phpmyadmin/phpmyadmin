@@ -197,7 +197,10 @@ class ImportOds extends ImportPlugin
                     continue;
                 }
                 /* Iterate over columns */
+                $cellCount = count($row);
+                $a = 0;
                 foreach ($row as $cell) {
+                    $a++;
                     $text = $cell->children('text', true);
                     $cell_attrs = $cell->attributes('office', true);
 
@@ -218,6 +221,11 @@ class ImportOds extends ImportPlugin
 
                             ++$col_count;
                         }
+                        continue;
+                    }
+
+                    // skip empty repeats in the last row
+                    if ($a == $cellCount) {
                         continue;
                     }
 

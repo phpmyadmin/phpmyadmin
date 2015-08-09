@@ -96,7 +96,8 @@ if ($showtable) {
     foreach ($create_options as $each_create_option) {
         $each_create_option = explode('=', $each_create_option);
         if (isset($each_create_option[1])) {
-            $$each_create_option[0]    = $each_create_option[1];
+            // ensure there is no ambiguity for PHP 5 and 7
+            ${$each_create_option[0]} = $each_create_option[1];
         }
     }
     // we need explicit DEFAULT value here (different from '0')

@@ -643,8 +643,8 @@ if (file_exists('libraries/language_stats.inc.php')) {
     ) {
         trigger_error(
             'You are using an incomplete translation, please help to make it '
-            . 'better by [a@https://www.phpmyadmin.net/contribute/'
-            . '#translate@_blank]contributing[/a].',
+            . 'better by [a@https://www.phpmyadmin.net/translate/'
+            . '@_blank]contributing[/a].',
             E_USER_NOTICE
         );
     }

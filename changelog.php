@@ -91,6 +91,10 @@ $replaces = array(
     '/(?<!bug|RFE|patch) #?([0-9]{6,})/i'
     => '<a href="' . $tracker_url . '">bug #\\1</a>',
 
+    // GitHub issues
+    '/issue\s*#?([0-9]{4,5}) /i'
+    => '<a href="' . $github_url . 'issues/\\1">issue #\\1</a> ',
+
     // transitioned SF.net project bug/rfe/patch links
     // by the time we reach 6-digit numbers, we can probably retire the above links
     '/patch\s*#?([0-9]{4,5}) /i'

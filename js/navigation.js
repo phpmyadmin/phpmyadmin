@@ -768,16 +768,18 @@ function PMA_showCurrentNavigation() {
                     $expander = $containers[index]
                         .children('div:first')
                         .children('a.expander');
-                    collapseTreeNode($expander);
-                    loadAndShowTableOrView($expander, $containers[index], itemName);
+                    if (! $expander.hasClass('loaded')) {
+                    	loadAndShowTableOrView($expander, $containers[index], itemName);
+                    }
                 });
             // else if no subContainers
             } else {
                 $expander = $dbItem
                     .children('div:first')
                     .children('a.expander');
-                collapseTreeNode($expander);
-                loadAndShowTableOrView($expander, $dbItem, itemName);
+                if (! $expander.hasClass('loaded')) {
+                	loadAndShowTableOrView($expander, $dbItem, itemName);
+                }
             }
         }
     }

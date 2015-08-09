@@ -312,10 +312,11 @@ function PMA_getHtmlForChartAreaDiv()
 {
     $htmlString = '<p style="clear:both;">&nbsp;</p>'
         . '<div id="resizer" style="width:600px; height:400px;">'
-        . '<div id="saveChart"'
-        . ' style="position: absolute; right: 10px;'
+        . '<div style="position: absolute; right: 10px;'
         . ' top: 10px; cursor: pointer; z-index: 1000;">'
+        . '<a class="disableAjax" id="saveChart" href="#" download="chart.png">'
         . PMA_Util::getImage('b_saveimage', __('Save chart as image'))
+        . '</a>'
         . '</div>'
         . '<div id="querychart">'
         . '</div>'

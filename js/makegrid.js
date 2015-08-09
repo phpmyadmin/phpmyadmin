@@ -791,7 +791,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             $checkbox.prop('checked', false);
                         });
                     } else {
-                        $(g.cEdit).on('keypress change', '.edit_box', function (e) {
+                        $(g.cEdit).on('keypress change paste', '.edit_box', function (e) {
                             $checkbox.prop('checked', false);
                         });
                         // Capture ctrl+v (on IE and Chrome)
@@ -979,21 +979,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             if (typeof data !== 'undefined' && data.success === true) {
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
-                                $editArea.append('<textarea></textarea>');
-                                $editArea.find('textarea').val(data.value);
-                                $editArea
-                                    .on('keyup', 'textarea', function (e) {
-                                        $(g.cEdit).find('.edit_box').val($(this).val());
-                                    });
-                                $(g.cEdit).on('keyup', '.edit_box', function (e) {
-                                    $editArea.find('textarea').val($(this).val());
-                                });
-                                $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                             } else {
                                 PMA_ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()
-                        $editArea.show();
                     }
                     g.isEditCellTextEditable = true;
                 } else if ($td.is('.timefield, .datefield, .datetimefield, .timestampfield')) {
