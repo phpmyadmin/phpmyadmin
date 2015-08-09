@@ -26,11 +26,11 @@ class OrderKeyword extends Component
 {
 
     /**
-     * The field that is used for ordering.
+     * The expression that is used for ordering.
      *
      * @var Expression
      */
-    public $field;
+    public $expr;
 
     /**
      * The order type.
@@ -42,12 +42,12 @@ class OrderKeyword extends Component
     /**
      * Constructor.
      *
-     * @param Expression $field The field that we are sorting by.
-     * @param string     $type  The sorting type.
+     * @param Expression $expr The expression that we are sorting by.
+     * @param string     $type The sorting type.
      */
-    public function __construct($field = null, $type = 'ASC')
+    public function __construct($expr = null, $type = 'ASC')
     {
-        $this->field = $field;
+        $this->expr = $expr;
         $this->type = $type;
     }
 
@@ -69,7 +69,7 @@ class OrderKeyword extends Component
          *
          * Below are the states of the parser.
          *
-         *      0 ----------------------[ field ]----------------------> 1
+         *      0 --------------------[ expression ]-------------------> 1
          *
          *      1 ------------------------[ , ]------------------------> 0
          *      1 -------------------[ ASC / DESC ]--------------------> 1
@@ -96,13 +96,13 @@ class OrderKeyword extends Component
             }
 
             if ($state === 0) {
-                $expr->field = Expression::parse($parser, $list);
+                $expr->expr = Expression::parse($parser, $list);
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_KEYWORD) && (($token->value === 'ASC') || ($token->value === 'DESC'))) {
                     $expr->type = $token->value;
                 } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
-                    if (!empty($expr->field)) {
+                    if (!empty($expr->expr)) {
                         $ret[] = $expr;
                     }
                     $expr = new OrderKeyword();
@@ -115,7 +115,7 @@ class OrderKeyword extends Component
         }
 
         // Last iteration was not processed.
-        if (!empty($expr->field)) {
+        if (!empty($expr->expr)) {
             $ret[] = $expr;
         }
 
@@ -137,7 +137,7 @@ class OrderKeyword extends Component
             }
             return implode(", ", $ret);
         } else {
-            return Expression::build($component->field) . ' ' . $component->type;
+            return Expression::build($component->expr) . ' ' . $component->type;
         }
     }
 }

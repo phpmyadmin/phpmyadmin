@@ -4288,8 +4288,8 @@ class PMA_DisplayResults
 
         if (!empty($statement->order)) {
             foreach ($statement->order as $o) {
-                $sort_expression[] = $o->field->expr . ' ' . $o->type;
-                $sort_expression_nodirection[] = $o->field->expr;
+                $sort_expression[] = $o->expr->expr . ' ' . $o->type;
+                $sort_expression_nodirection[] = $o->expr->expr;
                 $sort_direction[] = $o->type;
             }
         } else {

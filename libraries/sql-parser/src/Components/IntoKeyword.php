@@ -44,7 +44,7 @@ class IntoKeyword extends Component
      *
      * @var array
      */
-    public $fields;
+    public $columns;
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -114,7 +114,7 @@ class IntoKeyword extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $ret->fields = ArrayObj::parse($parser, $list)->values;
+                    $ret->columns = ArrayObj::parse($parser, $list)->values;
                     ++$list->idx;
                 }
                 break;

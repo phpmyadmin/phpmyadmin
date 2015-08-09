@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Parses the definition of a field.
+ * Parses the create definition of a column or a key.
  *
  * Used for parsing `CREATE TABLE` statement.
  *
@@ -17,7 +17,7 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * Parses the definition of a field.
+ * Parses the create definition of a column or a key.
  *
  * Used for parsing `CREATE TABLE` statement.
  *
@@ -27,7 +27,7 @@ use SqlParser\TokensList;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class FieldDefinition extends Component
+class CreateDefinition extends Component
 {
 
     /**
@@ -145,13 +145,13 @@ class FieldDefinition extends Component
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return FieldDefinition[]
+     * @return CreateDefinition[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = array();
 
-        $expr = new FieldDefinition();
+        $expr = new CreateDefinition();
 
         /**
          * The state of the parser.
@@ -234,7 +234,7 @@ class FieldDefinition extends Component
                 if ((!empty($expr->type)) || (!empty($expr->key))) {
                     $ret[] = $expr;
                 }
-                $expr = new FieldDefinition();
+                $expr = new CreateDefinition();
                 if ($token->value === ',') {
                     $state = 1;
                 } elseif ($token->value === ')') {
@@ -269,7 +269,7 @@ class FieldDefinition extends Component
     }
 
     /**
-     * @param FieldDefinition|FieldDefinition[] $component The component to be built.
+     * @param CreateDefinition|CreateDefinition[] $component The component to be built.
      *
      * @return string
      */

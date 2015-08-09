@@ -14,7 +14,7 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 use SqlParser\Components\ArrayObj;
 use SqlParser\Components\DataType;
-use SqlParser\Components\FieldDefinition;
+use SqlParser\Components\CreateDefinition;
 use SqlParser\Components\Expression;
 use SqlParser\Components\OptionsArray;
 use SqlParser\Components\ParameterDefinition;
@@ -164,12 +164,12 @@ class CreateStatement extends Statement
     public $entityOptions;
 
     /**
-     * If `CREATE TABLE`, a list of fields in the new table.
+     * If `CREATE TABLE`, a list of columns and keys.
      * If `CREATE VIEW`, a list of columns.
      *
      * Used by `CREATE TABLE` and `CREATE VIEW`.
      *
-     * @var FieldDefinition[]|ArrayObj
+     * @var CreateDefinition[]|ArrayObj
      */
     public $fields;
 
@@ -218,7 +218,7 @@ class CreateStatement extends Statement
         $fields = '';
         if (!empty($this->fields)) {
             if (is_array($this->fields)) {
-                $fields = FieldDefinition::build($this->fields) . ' ';
+                $fields = CreateDefinition::build($this->fields) . ' ';
             } elseif ($this->fields instanceof ArrayObj) {
                 $fields = ArrayObj::build($this->fields);
             }
@@ -304,10 +304,10 @@ class CreateStatement extends Statement
                 static::$DB_OPTIONS
             );
         } elseif ($this->options->has('TABLE')) {
-            $this->fields = FieldDefinition::parse($parser, $list);
+            $this->fields = CreateDefinition::parse($parser, $list);
             if (empty($this->fields)) {
                 $parser->error(
-                    __('At least one field definition was expected.'),
+                    __('At least one column definition was expected.'),
                     $list->tokens[$list->idx]
                 );
             }

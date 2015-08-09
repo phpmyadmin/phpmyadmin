@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Parses a a list of fields delimited by a single comma.
+ * Parses a a list of expression delimited by a comma.
  *
  * @package    SqlParser
  * @subpackage Components
@@ -14,7 +14,7 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * Parses a a list of fields delimited by a single comma.
+ * Parses a a list of expression delimited by a comma.
  *
  * @category   Keywords
  * @package    SqlParser
