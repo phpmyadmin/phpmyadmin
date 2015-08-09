@@ -9,18 +9,23 @@
 
 namespace PMA;
 
+use PMA_Response;
+
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableStructureController.class.php';
+require_once 'libraries/Response.class.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\TableStructureController');
 $container->alias(
     'TableStructureController', 'PMA\Controllers\TableStructureController'
 );
+$container->set('PMA_Response', PMA_Response::getInstance());
+$container->alias('response', 'PMA_Response');
 
 global $db, $table, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine,
     $table_info_num_rows, $tbl_collation, $showtable;
