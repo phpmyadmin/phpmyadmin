@@ -1712,8 +1712,8 @@ class StructureController extends Controller
     /**
      * Find table with truename
      *
-     * @param array $db
-     * @param bool  $truename
+     * @param array $db       DB to look into
+     * @param bool  $truename Table name
      *
      * @return bool
      */
@@ -1918,13 +1918,13 @@ class StructureController extends Controller
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param $cfgRelation
-     * @param $columns_with_unique_index
-     * @param $url_params
-     * @param $primary_index
-     * @param $fields
-     * @param $columns_with_index
-     * @param $create_table_fields
+     * @param array $cfgRelation current relation parameters
+     * @param array $columns_with_unique_index Columns with unique index
+     * @param mixed $url_params Contains an associative array with url params
+     * @param PMA_Index|false $primary_index primary index or false if no one exists
+     * @param array $fields Fields
+     * @param array $columns_with_index Columns with index
+     * @param array $create_table_fields Fields of the table.
      *
      * @return string
      */
