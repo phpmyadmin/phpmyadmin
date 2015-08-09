@@ -283,7 +283,7 @@ class DatabaseStructureController extends DatabaseController
 
             $showtable = $this->dbi->getTable(
                 $this->db, $current_table['TABLE_NAME']
-            )->sGetStatusInfo(null, true);
+            )->getStatusInfo(null, true);
 
             if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
                 $create_time = isset($showtable['Create_time'])

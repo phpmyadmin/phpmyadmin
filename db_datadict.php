@@ -68,7 +68,7 @@ foreach ($tables as $table) {
      * Gets table information
      */
     $show_comment = $GLOBALS['dbi']->getTable($db, $table)
-        ->sGetStatusInfo('TABLE_COMMENT');
+        ->getStatusInfo('TABLE_COMMENT');
 
     /**
      * Gets table keys and retains them

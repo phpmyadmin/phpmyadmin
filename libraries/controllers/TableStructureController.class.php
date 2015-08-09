@@ -243,7 +243,7 @@ class TableStructureController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->table_obj->sGetStatusInfo('ENGINE');
+        $engine = $this->table_obj->getStatusInfo('ENGINE');
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
@@ -1059,7 +1059,7 @@ class TableStructureController extends TableController
         if (empty($this->_showtable)) {
             $this->_showtable = $this->dbi->getTable(
                 $this->db, $this->table
-            )->sGetStatusInfo(null, true);
+            )->getStatusInfo(null, true);
         }
 
         if (empty($this->_showtable['Data_length'])) {

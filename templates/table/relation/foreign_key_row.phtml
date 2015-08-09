@@ -58,7 +58,7 @@ if ($foreign_db) {
             $engine = $GLOBALS['dbi']->getTable(
                 $foreign_db,
                 $row[0]
-            )->sGetStatusInfo('Engine');
+            )->getStatusInfo('Engine');
             if (isset($engine)
                 && /*overload*/mb_strtoupper($engine) == $tbl_storage_engine
             ) {

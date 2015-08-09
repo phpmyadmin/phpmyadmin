@@ -157,7 +157,8 @@ class TableRelationController extends TableController
 
         // display secondary level tabs if necessary
         $engine = $this->dbi->getTable($this->db, $this->table)
-            ->sGetStatusInfo('ENGINE');
+            ->getStatusInfo('ENGINE');
+
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
@@ -369,7 +370,7 @@ class TableRelationController extends TableController
                             $GLOBALS['dbi']->getTable(
                                 $_REQUEST['foreignDb'],
                                 $row[0]
-                            )->sGetStatusInfo('Engine')
+                            )->getStatusInfo('Engine')
                         );
                     if (isset($engine) && $engine == $this->tbl_storage_engine) {
                         $tables[] = htmlspecialchars($row[0]);

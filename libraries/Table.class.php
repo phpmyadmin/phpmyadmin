@@ -172,7 +172,7 @@ class PMA_Table
         if ($this->_dbi->getCachedTableContent("${db}.${table}") != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
-            $type = $this->sGetStatusInfo('TABLE_TYPE');
+            $type = $this->getStatusInfo('TABLE_TYPE');
             return $type == 'VIEW' || $type == 'SYSTEM VIEW';
         }
 
@@ -272,7 +272,7 @@ class PMA_Table
         $engine = null;
         // if called static, with parameters
         if (! empty($this->_db_name) && ! empty($this->_name)) {
-            $engine = $this->sGetStatusInfo('ENGINE', null, true);
+            $engine = $this->getStatusInfo('ENGINE', null, true);
         }
 
         // did we get engine?
@@ -300,7 +300,7 @@ class PMA_Table
      *
      * @return mixed
      */
-    public function sGetStatusInfo(
+    public function getStatusInfo(
         $info = null,
         $force_read = false,
         $disable_error = false
@@ -1637,7 +1637,7 @@ class PMA_Table
                 && isset($this->uiprefs[$property])
             ) {
                 // check if the table has not been modified
-                if ($this->sGetStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
+                if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
                 } else {
                     // remove the property, since the table has been modified
@@ -1678,7 +1678,7 @@ class PMA_Table
             && ($property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB)
         ) {
-            $curr_create_time = $this->sGetStatusInfo('CREATE_TIME');
+            $curr_create_time = $this->getStatusInfo('CREATE_TIME');
             if (isset($table_create_time)
                 && $table_create_time == $curr_create_time
             ) {
