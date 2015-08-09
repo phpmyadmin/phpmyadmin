@@ -350,6 +350,7 @@ function PMA_RTN_handleEditor()
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
+                $response = PMA_Response::getInstance();
                 $response->isSuccess(false);
                 $response->addJSON('message', $message);
                 exit;
