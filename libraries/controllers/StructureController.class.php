@@ -1918,13 +1918,15 @@ class StructureController extends Controller
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param array $cfgRelation current relation parameters
-     * @param array $columns_with_unique_index Columns with unique index
-     * @param mixed $url_params Contains an associative array with url params
-     * @param PMA_Index|false $primary_index primary index or false if no one exists
-     * @param array $fields Fields
-     * @param array $columns_with_index Columns with index
-     * @param array $create_table_fields Fields of the table.
+     * @param array           $cfgRelation               current relation parameters
+     * @param array           $columns_with_unique_index Columns with unique index
+     * @param mixed           $url_params                Contains an associative
+     *                                                   array with url params
+     * @param PMA_Index|false $primary_index             primary index or false if
+     *                                                   no one exists
+     * @param array           $fields                    Fields
+     * @param array           $columns_with_index        Columns with index
+     * @param array           $create_table_fields       Fields of the table.
      *
      * @return string
      */
