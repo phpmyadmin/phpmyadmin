@@ -22,6 +22,9 @@
         <testsuite name="Engines">
             <directory suffix="_test.php">test/engines</directory>
         </testsuite>
+        <testsuite name="Templates">
+            <directory suffix="_test.php">test/templates</directory>
+        </testsuite>
         <testsuite name="Unit">
             <file>test/Environment_test.php</file>
             <directory suffix="_test.php">test/libraries/core</directory>
