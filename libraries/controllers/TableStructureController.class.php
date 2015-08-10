@@ -22,7 +22,6 @@ require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
-require_once 'libraries/display_create_table.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/controllers/TableController.class.php';
