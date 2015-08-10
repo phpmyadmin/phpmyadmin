@@ -14,27 +14,22 @@ require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/StructureController.class.php';
+require_once 'libraries/controllers/TableStructureController.class.php';
 
 $container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\StructureController');
+$container->factory('PMA\Controllers\TableStructureController');
 $container->alias(
-    'StructureController', 'PMA\Controllers\StructureController'
+    'TableStructureController', 'PMA\Controllers\TableStructureController'
 );
 
-global $db, $table, $pos, $db_is_system_schema, $total_num_tables, $tables,
-       $num_tables, $tbl_is_view, $tbl_storage_engine, $table_info_num_rows, $tbl_collation, $showtable;
+global $db, $table, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine,
+    $table_info_num_rows, $tbl_collation, $showtable;
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(
     'db' => $db,
     'table' => $table,
-    'type' => 'table',
     'url_query' => &$GLOBALS['url_query'],
-    'pos' => $pos,
     'db_is_system_schema' => $db_is_system_schema,
-    'num_tables' => $num_tables,
-    'total_num_tables' => $total_num_tables,
-    'tables' => $tables,
     'tbl_is_view' => $tbl_is_view,
     'tbl_storage_engine' => $tbl_storage_engine,
     'table_info_num_rows' => $table_info_num_rows,
@@ -42,6 +37,6 @@ $dependency_definitions = array(
     'showtable' => $showtable
 );
 
-/** @var Controllers\StructureController $controller */
-$controller = $container->get('StructureController', $dependency_definitions);
+/** @var Controllers\TableStructureController $controller */
+$controller = $container->get('TableStructureController', $dependency_definitions);
 $controller->indexAction();
