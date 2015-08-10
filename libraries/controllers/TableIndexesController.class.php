@@ -116,7 +116,7 @@ class TableIndexesController extends TableController
         $this->response->getHeader()->getScripts()->addFile('indexes.js');
 
         $this->response->addHTML(
-            Template::get('index_form')->render(
+            Template::get('table/index_form')->render(
                 array(
                     'fields' => $fields,
                     'index' => $this->index,
