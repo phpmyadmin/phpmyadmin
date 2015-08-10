@@ -862,7 +862,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         . '<span>' . htmlspecialchars($row['col_name']) . '</span>'
         . '<input name="orig_col_name" type="hidden" '
         . 'value="' . htmlspecialchars($row['col_name']) . '">'
-        . PMA\Template::get('table/columns_definitions/column_name')
+        . PMA\Template::get('columns_definitions/column_name')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -880,7 +880,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
     $tableHtml .=
         '<td name = "col_type" class="nowrap"><span>'
         . htmlspecialchars($row['col_type']) . '</span>'
-        . PMA\Template::get('table/columns_definitions/column_type')
+        . PMA\Template::get('columns_definitions/column_type')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -895,7 +895,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         '<td class="nowrap" name="col_length">'
         . '<span>' . ($row['col_length']?htmlspecialchars($row['col_length']):"")
         . '</span>'
-        . PMA\Template::get('table/columns_definitions/column_length')->render(
+        . PMA\Template::get('columns_definitions/column_length')->render(
             array(
                 'columnNumber' => $row_num,
                 'ci' => 2,
@@ -923,7 +923,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         '<td class="nowrap" name="col_default"><span>' . (isset($row['col_default'])
             ? htmlspecialchars($row['col_default']) : 'None')
         . '</span>'
-        . PMA\Template::get('table/columns_definitions/column_default')
+        . PMA\Template::get('columns_definitions/column_default')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -949,7 +949,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         ($row['col_attribute']
             ? htmlspecialchars($row['col_attribute']) : "" )
         . '</span>'
-        . PMA\Template::get('table/columns_definitions/column_attribute')
+        . PMA\Template::get('columns_definitions/column_attribute')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -965,7 +965,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         '<td class="nowrap" name="col_isNull">'
         . '<span>' . ($row['col_isNull'] ? __('Yes') : __('No'))
         . '</span>'
-        . PMA\Template::get('table/columns_definitions/column_null')
+        . PMA\Template::get('columns_definitions/column_null')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -981,7 +981,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
     $tableHtml .=
         '<td class="nowrap" name="col_extra"><span>'
         . htmlspecialchars($row['col_extra']) . '</span>'
-        . PMA\Template::get('table/columns_definitions/column_extra')->render(
+        . PMA\Template::get('columns_definitions/column_extra')->render(
             array(
                 'columnNumber' => $row_num,
                 'ci' => 7,
@@ -1012,7 +1012,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
         . 'value="' . htmlspecialchars($row['col_name']) . '">'
         . '<td name="col_name" class="nowrap">'
-        . PMA\Template::get('table/columns_definitions/column_name')
+        . PMA\Template::get('columns_definitions/column_name')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -1029,7 +1029,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         . '</td>';
     $tableHtml .=
         '<td name = "col_type" class="nowrap">'
-        . PMA\Template::get('table/columns_definitions/column_type')
+        . PMA\Template::get('columns_definitions/column_type')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -1042,7 +1042,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_length">'
-        . PMA\Template::get('table/columns_definitions/column_length')->render(
+        . PMA\Template::get('columns_definitions/column_length')->render(
             array(
                 'columnNumber' => $row_num,
                 'ci' => 2,
@@ -1067,7 +1067,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
     }
     $tableHtml .=
         '<td class="nowrap" name="col_default">'
-        . PMA\Template::get('table/columns_definitions/column_default')
+        . PMA\Template::get('columns_definitions/column_default')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -1087,7 +1087,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_attribute">'
-        . PMA\Template::get('table/columns_definitions/column_attribute')
+        . PMA\Template::get('columns_definitions/column_attribute')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -1103,7 +1103,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_isNull">'
-        . PMA\Template::get('table/columns_definitions/column_null')
+        . PMA\Template::get('columns_definitions/column_null')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -1118,7 +1118,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
 
     $tableHtml .=
         '<td class="nowrap" name="col_extra">'
-        . PMA\Template::get('table/columns_definitions/column_extra')->render(
+        . PMA\Template::get('columns_definitions/column_extra')->render(
             array(
                 'columnNumber' => $row_num,
                 'ci' => 7,
@@ -1270,7 +1270,7 @@ function PMA_getHTMLforAddNewColumn($db)
     $addNewColumn .= '<tr>'
         . '<td></td>'
         . '<td name="col_name" class="nowrap">'
-        . PMA\Template::get('table/columns_definitions/column_name')
+        . PMA\Template::get('columns_definitions/column_name')
             ->render(
                 array(
                 'columnNumber' => 0,
@@ -1284,7 +1284,7 @@ function PMA_getHTMLforAddNewColumn($db)
             )
         . '</td>'
         . '<td name = "col_type" class="nowrap">'
-        . PMA\Template::get('table/columns_definitions/column_type')
+        . PMA\Template::get('columns_definitions/column_type')
             ->render(
                 array(
                 'columnNumber' => 0,
@@ -1296,7 +1296,7 @@ function PMA_getHTMLforAddNewColumn($db)
             )
         . '</td>'
         . '<td class="nowrap" name="col_length">'
-        . PMA\Template::get('table/columns_definitions/column_length')->render(
+        . PMA\Template::get('columns_definitions/column_length')->render(
             array(
                 'columnNumber' => 0,
                 'ci' => 2,
@@ -1307,7 +1307,7 @@ function PMA_getHTMLforAddNewColumn($db)
         )
         . '</td>'
         . '<td class="nowrap" name="col_default">'
-        . PMA\Template::get('table/columns_definitions/column_default')
+        . PMA\Template::get('columns_definitions/column_default')
             ->render(
                 array(
                 'columnNumber' => 0,
@@ -1325,7 +1325,7 @@ function PMA_getHTMLforAddNewColumn($db)
         )
         . '</td>'
         . '<td class="nowrap" name="col_attribute">'
-        . PMA\Template::get('table/columns_definitions/column_attribute')
+        . PMA\Template::get('columns_definitions/column_attribute')
             ->render(
                 array(
                 'columnNumber' => 0,
@@ -1338,7 +1338,7 @@ function PMA_getHTMLforAddNewColumn($db)
             )
         . '</td>'
         . '<td class="nowrap" name="col_isNull">'
-        . PMA\Template::get('table/columns_definitions/column_null')
+        . PMA\Template::get('columns_definitions/column_null')
             ->render(
                 array(
                 'columnNumber' => 0,
@@ -1349,7 +1349,7 @@ function PMA_getHTMLforAddNewColumn($db)
             )
         . '</td>'
         . '<td class="nowrap" name="col_extra">'
-        . PMA\Template::get('table/columns_definitions/column_extra')->render(
+        . PMA\Template::get('columns_definitions/column_extra')->render(
             array(
                 'columnNumber' => 0,
                 'ci' => 7,

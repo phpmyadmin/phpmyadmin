@@ -64,7 +64,7 @@
     <?php endif; ?>
     <?php if (is_array($content_cells)): ?>
         <?php echo PMA\Template::get(
-            'table/columns_definitions/table_fields_definitions'
+            'columns_definitions/table_fields_definitions'
         )->render(array(
             'is_backup' => $is_backup,
             'fields_meta' => $fields_meta,

@@ -125,7 +125,7 @@
     <?php foreach($content_cells as $content_row): ?>
         <tr class="<?php echo ($odd_row ? 'odd' : 'even'); ?>">
             <?php $odd_row = !$odd_row; ?>
-            <?php echo PMA\Template::get('table/columns_definitions/column_attributes')
+            <?php echo PMA\Template::get('columns_definitions/column_attributes')
                 ->render($content_row); ?>
         </tr>
     <?php endforeach; ?>
