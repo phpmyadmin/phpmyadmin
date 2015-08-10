@@ -78,7 +78,7 @@ class PMA_NavigationHeader
     {
         // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
         if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
-            return Template::get('logo')
+            return Template::get('navigation/logo')
                 ->render(array('displayLogo' => false));
         }
 
@@ -92,7 +92,7 @@ class PMA_NavigationHeader
         }
 
         if (!$GLOBALS['cfg']['NavigationLogoLink']) {
-            return Template::get('logo')
+            return Template::get('navigation/logo')
                 ->render(
                     array(
                         'displayLogo' => true,
@@ -130,7 +130,7 @@ class PMA_NavigationHeader
             }
         }
 
-        return Template::get('logo')
+        return Template::get('navigation/logo')
             ->render(
                 array(
                     'displayLogo' => true,

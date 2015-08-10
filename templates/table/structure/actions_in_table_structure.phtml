@@ -1,7 +1,7 @@
 <td class="print_ignore"><ul class="table-structure-actions resizable-menu">
     <!-- Add primary -->
     <?php
-        echo PMA\Template::get('structure/action_row_in_structure_table')->render(
+        echo PMA\Template::get('table/structure/action_row_in_structure_table')->render(
             array(
                 'type' => $type,
                 'tbl_storage_engine' => $tbl_storage_engine,
@@ -21,7 +21,7 @@
     ?>
     <!-- Add unique -->
     <?php
-        echo PMA\Template::get('structure/action_row_in_structure_table')->render(
+        echo PMA\Template::get('table/structure/action_row_in_structure_table')->render(
             array(
                 'type' => $type,
                 'tbl_storage_engine' => $tbl_storage_engine,
@@ -41,7 +41,7 @@
     ?>
     <!-- Add index -->
     <?php
-        echo PMA\Template::get('structure/action_row_in_structure_table')->render(
+        echo PMA\Template::get('table/structure/action_row_in_structure_table')->render(
             array(
                 'type' => $type,
                 'tbl_storage_engine' => $tbl_storage_engine,
@@ -66,7 +66,7 @@
                 'geometry', 'point', 'linestring', 'polygon', 'multipoint',
                 'multilinestring', 'multipolygon', 'geomtrycollection'
             );
-            echo PMA\Template::get('structure/action_row_in_structure_table')->render(
+            echo PMA\Template::get('table/structure/action_row_in_structure_table')->render(
                 array(
                     'type' => $type,
                     'tbl_storage_engine' => $tbl_storage_engine,

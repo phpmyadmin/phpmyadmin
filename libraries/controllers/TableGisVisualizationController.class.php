@@ -190,7 +190,7 @@ class TableGisVisualizationController extends TableController
             . '&saveToFile=true';
         $svgSupport = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
             ? false : true;
-        $html = Template::get('gis_visualization/gis_visualization')->render(
+        $html = Template::get('table/gis_visualization/gis_visualization')->render(
             array(
                 'url_params' => $this->url_params,
                 'downloadUrl' => $downloadUrl,

@@ -22,7 +22,7 @@
     ?>
     <?php if ($GLOBALS['cfg']['NumFavoriteTables'] > 0): ?>
         <td class="center print_ignore">
-            <?php echo PMA\Template::get('structure/favorite_anchor')->render(
+            <?php echo PMA\Template::get('database/structure/favorite_anchor')->render(
                 array(
                     'db' => $db,
                     'current_table' => $current_table,
