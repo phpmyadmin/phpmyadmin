@@ -1024,11 +1024,7 @@ class TableStructureController extends TableController
         // Get valid statistics whatever is the table type
         if ($GLOBALS['cfg']['ShowStats']) {
             //get table stats in HTML format
-            $tablestats = $this->getTableStats(
-                $this->_showtable, $this->_table_info_num_rows, $this->_tbl_is_view,
-                $this->_db_is_system_schema, $this->_tbl_storage_engine,
-                $this->_url_query, $this->_tbl_collation
-            );
+            $tablestats = $this->getTableStats();
             //returning the response in JSON format to be used by Ajax
             $this->response->addJSON('tableStat', $tablestats);
         }
@@ -1061,35 +1057,24 @@ class TableStructureController extends TableController
     /**
      * Get HTML snippet for display table statistics
      *
-     * @param array   $showtable           full table status info
-     * @param integer $table_info_num_rows table info number of rows
-     * @param boolean $tbl_is_view         whether table is view or not
-     * @param boolean $db_is_system_schema whether db is information schema or not
-     * @param string  $tbl_storage_engine  table storage engine
-     * @param string  $url_query           url query
-     * @param string  $tbl_collation       table collation
-     *
      * @return string $html_output
      */
-    protected function getTableStats(
-        $showtable, $table_info_num_rows, $tbl_is_view,
-        $db_is_system_schema, $tbl_storage_engine,
-        $url_query, $tbl_collation
-    ) {
-        if (empty($showtable)) {
-            $showtable = $this->dbi->getTable(
+    protected function getTableStats() {
+        if (empty($this->_showtable)) {
+            $this->_showtable = $this->dbi->getTable(
                 $this->db, $this->table
             )->sGetStatusInfo(null, true);
         }
 
-        if (empty($showtable['Data_length'])) {
-            $showtable['Data_length'] = 0;
+        if (empty($this->_showtable['Data_length'])) {
+            $this->_showtable['Data_length'] = 0;
         }
-        if (empty($showtable['Index_length'])) {
-            $showtable['Index_length'] = 0;
+        if (empty($this->_showtable['Index_length'])) {
+            $this->_showtable['Index_length'] = 0;
         }
 
-        $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
+        $is_innodb = (isset($this->_showtable['Type'])
+            && $this->_showtable['Type'] == 'InnoDB');
 
         $mergetable = $this->table_obj->isMerge();
 
@@ -1097,37 +1082,44 @@ class TableStructureController extends TableController
         $max_digits = 3;
         $decimals = 1;
         list($data_size, $data_unit) = PMA_Util::formatByteDown(
-            $showtable['Data_length'], $max_digits, $decimals
+            $this->_showtable['Data_length'], $max_digits, $decimals
         );
         if ($mergetable == false) {
             list($index_size, $index_unit) = PMA_Util::formatByteDown(
-                $showtable['Index_length'], $max_digits, $decimals
+                $this->_showtable['Index_length'], $max_digits, $decimals
             );
         }
         // InnoDB returns a huge value in Data_free, do not use it
-        if (! $is_innodb && isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
+        if (! $is_innodb && isset($this->_showtable['Data_free'])
+            && $this->_showtable['Data_free'] > 0
+        ) {
             list($free_size, $free_unit) = PMA_Util::formatByteDown(
-                $showtable['Data_free'], $max_digits, $decimals
+                $this->_showtable['Data_free'], $max_digits, $decimals
             );
             list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
-                $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'],
+                $this->_showtable['Data_length']
+                + $this->_showtable['Index_length']
+                - $this->_showtable['Data_free'],
                 $max_digits, $decimals
             );
         } else {
             list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
-                $showtable['Data_length'] + $showtable['Index_length'],
+                $this->_showtable['Data_length']
+                + $this->_showtable['Index_length'],
                 $max_digits, $decimals
             );
         }
         list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
-            $showtable['Data_length'] + $showtable['Index_length'],
+            $this->_showtable['Data_length'] + $this->_showtable['Index_length'],
             $max_digits, $decimals
         );
-        if ($table_info_num_rows > 0) {
+        if ($this->_table_info_num_rows > 0) {
             list($avg_size, $avg_unit) = PMA_Util::formatByteDown(
-                ($showtable['Data_length'] + $showtable['Index_length'])
-                / $showtable['Rows'],
-                6, 1
+                ($this->_showtable['Data_length']
+                + $this->_showtable['Index_length'])
+                / $this->_showtable['Rows'],
+                6,
+                1
             );
         } else {
             $avg_size = $avg_unit = '';
@@ -1135,13 +1127,13 @@ class TableStructureController extends TableController
 
         return Template::get('structure/display_table_stats')->render(
             array(
-                'showtable' => $showtable,
-                'table_info_num_rows' => $table_info_num_rows,
-                'tbl_is_view' => $tbl_is_view,
-                'db_is_system_schema' => $db_is_system_schema,
-                'tbl_storage_engine' => $tbl_storage_engine,
-                'url_query' => $url_query,
-                'tbl_collation' => $tbl_collation,
+                'showtable' => $this->_showtable,
+                'table_info_num_rows' => $this->_table_info_num_rows,
+                'tbl_is_view' => $this->_tbl_is_view,
+                'db_is_system_schema' => $this->_db_is_system_schema,
+                'tbl_storage_engine' => $this->_tbl_storage_engine,
+                'url_query' => $this->_url_query,
+                'tbl_collation' => $this->_tbl_collation,
                 'is_innodb' => $is_innodb,
                 'mergetable' => $mergetable,
                 'avg_size' => isset($avg_size) ? $avg_size : null,
