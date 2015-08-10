@@ -43,7 +43,7 @@ require_once 'libraries/Template.class.php';
  */
 function PMA_getHtmlForCreateTable($db)
 {
-    return PMA\Template::get('table/create_table')->render(
+    return PMA\Template::get('database/create_table')->render(
         array('db' => $db)
     );
 }
