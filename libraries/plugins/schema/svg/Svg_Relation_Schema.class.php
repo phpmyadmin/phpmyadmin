@@ -347,7 +347,12 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         }
 
         $border = 15;
-        $this->diagram->startSvgDoc($this->_xMax + $border, $this->_yMax + $border, $this->_xMin - $border, $this->_yMin - $border);
+        $this->diagram->startSvgDoc(
+            $this->_xMax + $border,
+            $this->_yMax + $border,
+            $this->_xMin - $border,
+            $this->_yMin - $border
+        );
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
@@ -366,9 +371,13 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($master_field != 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->_addRelation(
-                            $one_table, $this->diagram->getFont(), $this->diagram->getFontSize(),
-                            $master_field, $rel['foreign_table'],
-                            $rel['foreign_field'], $this->tableDimension
+                            $one_table,
+                            $this->diagram->getFont(),
+                            $this->diagram->getFontSize(),
+                            $master_field,
+                            $rel['foreign_table'],
+                            $rel['foreign_field'],
+                            $this->tableDimension
                         );
                     }
                     continue;
