@@ -187,7 +187,7 @@ class TableSearchController extends TableController
 
             // Show secondary level of tabs
             $this->response->addHTML(
-                Template::get('table/secondary_tabs')
+                Template::get('secondary_tabs')
                     ->render(
                         array(
                             'url_params' => array(
@@ -336,7 +336,7 @@ class TableSearchController extends TableController
 
             // Displays the zoom search form
             $this->response->addHTML(
-                Template::get('table/secondary_tabs')
+                Template::get('secondary_tabs')
                     ->render(
                         array(
                             'url_params' => array(
@@ -578,7 +578,7 @@ class TableSearchController extends TableController
         );
         // Displays the table search form
         $this->response->addHTML(
-            Template::get('table/secondary_tabs')
+            Template::get('secondary_tabs')
                 ->render(
                     array(
                         'url_params' => array(
