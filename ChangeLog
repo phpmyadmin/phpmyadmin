@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.4.14.0 (not yet released)
 - issue #11367 Export after search, missing WHERE clause
+- issue #11380 Incomplete message after import
 
 4.4.13.1 (2015-08-08)
 - issue #11368 SQL error when importing phpMyAdmin dump file
