@@ -1757,21 +1757,27 @@ class PMA_Util
         }
 
         //Set the id for the tab, if set in the params
-        $id_string = ( empty($tab['id']) ? '' : ' id="' . $tab['id'] . '" ' );
-        $out = '<li' . ($tab['class'] == 'active' ? ' class="active"' : '') . '>';
+        $tabId = (empty($tab['id']) ? null : $tab['id']);
 
-        if (! empty($tab['link'])) {
-            $out .= '<a class="tab' . htmlentities($tab['class']) . '"'
-                . $id_string
-                . ' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
-                . $tab['text'] . '</a>';
+        $item = array();
+        if (!empty($tab['link'])) {
+            $item = array(
+                'content' => $tab['text'],
+                'url' => array(
+                    'href' => empty($tab['link']) ? null : $tab['link'],
+                    'id' => $tabId,
+                    'class' => 'tab' . htmlentities($tab['class']),
+                ),
+            );
         } else {
-            $out .= '<span class="tab' . htmlentities($tab['class']) . '"'
-                . $id_string . '>' . $tab['text'] . '</span>';
+            $item['content'] = '<span class="tab' . htmlentities($tab['class']) . '"'
+                . $tabId . '>' . $tab['text'] . '</span>';
         }
 
-        $out .= '</li>';
-        return $out;
+        $item['class'] = $tab['class'] == 'active' ? 'active' : '';
+
+        return Template::get('list/item')
+            ->render($item);
     } // end of the 'getHtmlTab()' function
 
     /**
