@@ -87,6 +87,7 @@ phpMyAdmin - ChangeLog
 +              Upgrade TCPDF to version 6.2.9
 + issue #6102  Add SHA256 security password support
 - issue #10250 Displayed git revision info is not set
++              Improved schema SVG export
 
 4.4.14.0 (not yet released)
 - issue #11367 Export after search, missing WHERE clause
