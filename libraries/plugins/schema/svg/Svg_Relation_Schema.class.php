@@ -140,22 +140,23 @@ class PMA_SVG extends XMLWriter
      *
      * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
      */
-    public function startSvgDoc($width,$height,$x = 0, $y = 0)
+    public function startSvgDoc($width, $height, $x = 0, $y = 0)
     {
         $this->startElement('svg');
 
-        if(!is_int($width))
+        if (!is_int($width)) {
             $width = intval($width);
+        }
 
-        if(!is_int($height))
+        if (!is_int($height)) {
             $height = intval($height);
+        }
 
-        if($x != 0 || $y != 0)
-        {
+        if ($x != 0 || $y != 0) {
             $this->writeAttribute('viewBox', "$x $y $width $height");
         }
         $this->writeAttribute('width', ($width - $x) . 'px');
-        $this->writeAttribute('height',($height - $y) . 'px');
+        $this->writeAttribute('height', ($height - $y) . 'px');
         $this->writeAttribute('xmlns', 'http://www.w3.org/2000/svg');
         $this->writeAttribute('version', '1.1');
     }
@@ -325,7 +326,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $this->diagram->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->diagram->setFont('Arial');
         $this->diagram->setFontSize('16px');
-
 
         $alltables = $this->getTablesFromRequest();
 

@@ -1058,7 +1058,8 @@ class TableStructureController extends TableController
      *
      * @return string $html_output
      */
-    protected function getTableStats() {
+    protected function getTableStats()
+    {
         if (empty($this->_showtable)) {
             $this->_showtable = $this->dbi->getTable(
                 $this->db, $this->table

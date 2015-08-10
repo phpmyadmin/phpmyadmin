@@ -292,8 +292,8 @@ function PMA_RTN_backupPrivileges()
 
     if (!(isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
         && isset($GLOBALS['flush_priv'])
-        && $GLOBALS['flush_priv']
-    )) {
+        && $GLOBALS['flush_priv'])
+    ) {
         return array();
     }
 
@@ -306,12 +306,12 @@ function PMA_RTN_backupPrivileges()
     }
 
     $privilegesBackupQuery = 'SELECT * FROM ' . PMA_Util::backquote(
-            'mysql'
-        )
-        . '.' . PMA_Util::backquote('procs_priv')
-        . ' where Routine_name = "' . $_REQUEST['item_original_name']
-        . '" AND Routine_type = "' . $_REQUEST['item_original_type']
-        . '";';
+        'mysql'
+    )
+    . '.' . PMA_Util::backquote('procs_priv')
+    . ' where Routine_name = "' . $_REQUEST['item_original_name']
+    . '" AND Routine_type = "' . $_REQUEST['item_original_type']
+    . '";';
 
     $privilegesBackup = $GLOBALS['dbi']->fetchResult(
         $privilegesBackupQuery,
@@ -342,11 +342,11 @@ function PMA_RTN_createRoutine(
     $result = $GLOBALS['dbi']->tryQuery($routine_query);
     if (!$result) {
         $errors[] = sprintf(
-                __('The following query has failed: "%s"'),
-                htmlspecialchars($routine_query)
-            )
-            . '<br />'
-            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+            __('The following query has failed: "%s"'),
+            htmlspecialchars($routine_query)
+        )
+        . '<br />'
+        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
         // We dropped the old routine,
         // but were unable to create the new one
         // Try to restore the backup query
