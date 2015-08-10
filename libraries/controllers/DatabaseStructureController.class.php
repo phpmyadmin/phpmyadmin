@@ -239,8 +239,7 @@ class DatabaseStructureController extends DatabaseController
             list($current_table, $formatted_size, $unit, $formatted_overhead,
                 $overhead_unit, $overhead_size, $table_is_view, $sum_size)
                     = $this->getStuffForEngineTypeTable(
-                        $current_table, $this->_db_is_system_schema,
-                        $this->_is_show_stats, $sum_size, $overhead_size
+                        $current_table, $sum_size, $overhead_size
                     );
 
             if (!$this->dbi->getTable($this->db, $current_table['TABLE_NAME'])->isMerge()) {
@@ -867,8 +866,6 @@ class DatabaseStructureController extends DatabaseController
      * Get the value set for ENGINE table,
      *
      * @param array   $current_table       current table
-     * @param boolean $db_is_system_schema whether db is information schema or not
-     * @param boolean $is_show_stats       whether stats show or not
      * @param double  $sum_size            total table size
      * @param double  $overhead_size       overhead size
      *
@@ -876,8 +873,7 @@ class DatabaseStructureController extends DatabaseController
      * @internal param bool $table_is_view whether table is view or not
      */
     protected function getStuffForEngineTypeTable(
-        $current_table, $db_is_system_schema, $is_show_stats, $sum_size,
-        $overhead_size
+        $current_table, $sum_size, $overhead_size
     ) {
         $formatted_size = '-';
         $unit = '';
@@ -898,9 +894,8 @@ class DatabaseStructureController extends DatabaseController
             list($current_table, $formatted_size, $unit, $formatted_overhead,
                 $overhead_unit, $overhead_size, $sum_size)
                     = $this->getValuesForAriaTable(
-                        $db_is_system_schema, $current_table, $is_show_stats,
-                        $sum_size, $overhead_size, $formatted_size, $unit,
-                        $formatted_overhead, $overhead_unit
+                        $current_table, $sum_size, $overhead_size,
+                        $formatted_size, $unit, $formatted_overhead, $overhead_unit
                     );
             break;
         case 'InnoDB' :
@@ -910,7 +905,7 @@ class DatabaseStructureController extends DatabaseController
             // so it may be unavailable
             list($current_table, $formatted_size, $unit, $sum_size)
                 = $this->getValuesForInnodbTable(
-                    $current_table, $is_show_stats, $sum_size
+                    $current_table, $sum_size
                 );
             //$display_rows                   =  ' - ';
             break;
@@ -922,7 +917,7 @@ class DatabaseStructureController extends DatabaseController
         case 'MERGE' :
         case 'BerkeleyDB' :
             // Merge or BerkleyDB table: Only row count is accurate.
-            if ($is_show_stats) {
+            if ($this->_is_show_stats) {
                 $formatted_size =  ' - ';
                 $unit          =  '';
             }
@@ -936,7 +931,7 @@ class DatabaseStructureController extends DatabaseController
             break;
         default :
             // Unknown table type.
-            if ($is_show_stats) {
+            if ($this->_is_show_stats) {
                 $formatted_size =  __('unknown');
                 $unit          =  '';
             }
@@ -960,9 +955,7 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get values for ARIA/MARIA tables
      *
-     * @param boolean $db_is_system_schema whether db is information schema or not
      * @param array   $current_table       current table
-     * @param boolean $is_show_stats       whether stats show or not
      * @param double  $sum_size            sum size
      * @param double  $overhead_size       overhead size
      * @param number  $formatted_size      formatted size
@@ -973,17 +966,16 @@ class DatabaseStructureController extends DatabaseController
      * @return array
      */
     protected function getValuesForAriaTable(
-        $db_is_system_schema, $current_table, $is_show_stats,
-        $sum_size, $overhead_size, $formatted_size, $unit,
+        $current_table, $sum_size, $overhead_size, $formatted_size, $unit,
         $formatted_overhead, $overhead_unit
     ) {
-        if ($db_is_system_schema) {
+        if ($this->_db_is_system_schema) {
             $current_table['Rows'] = $this->dbi
                 ->getTable($this->db, $current_table['Name'])
                 ->countRecords();
         }
 
-        if ($is_show_stats) {
+        if ($this->_is_show_stats) {
             $tblsize = doubleval($current_table['Data_length'])
                 + doubleval($current_table['Index_length']);
             $sum_size += $tblsize;
@@ -1012,15 +1004,12 @@ class DatabaseStructureController extends DatabaseController
      * Get values for InnoDB table
      *
      * @param array   $current_table current table
-     * @param boolean $is_show_stats whether stats show or not
      * @param double  $sum_size      sum size
      *
      * @return array
      */
     protected function getValuesForInnodbTable(
-        $current_table,
-        $is_show_stats,
-        $sum_size
+        $current_table, $sum_size
     ) {
         $formatted_size = $unit = '';
 
@@ -1037,7 +1026,7 @@ class DatabaseStructureController extends DatabaseController
         }
 
         // Drizzle doesn't provide data and index length, check for null
-        if ($is_show_stats && $current_table['Data_length'] !== null) {
+        if ($this->_is_show_stats && $current_table['Data_length'] !== null) {
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
