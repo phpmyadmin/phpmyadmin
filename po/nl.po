@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-02 14:50+0200\n"
+"PO-Revision-Date: 2015-08-10 14:38+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-4/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-4/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13512,10 +13512,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Voer SQL-query/query's uit op database %s"
 
 #: libraries/sql_query_form.lib.php:192
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Voer SQL-query/query's uit op database %s"
+msgstr "Voer SQL query/query's uit op tabel %s"
 
 #: libraries/sql_query_form.lib.php:241
 msgid "Get auto-saved query"
@@ -14716,10 +14716,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
 
 #: tbl_row_action.php:65
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Geen versies geselecteerd."
+msgstr "Geen rij geselecteerd."
 
 #: tbl_structure.php:63
 #, php-format
