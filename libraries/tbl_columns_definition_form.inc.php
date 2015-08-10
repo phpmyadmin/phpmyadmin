@@ -401,7 +401,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
-$html = PMA\Template::get('columns_definitions/column_definitions_form')->render(
+$html = PMA\Template::get('table/columns_definitions/column_definitions_form')->render(
     array(
         'is_backup' => $is_backup,
         'fields_meta' => isset($fields_meta) ? $fields_meta : null,

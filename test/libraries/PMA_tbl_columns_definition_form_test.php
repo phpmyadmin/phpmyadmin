@@ -676,7 +676,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     {
         /**
          * @todo Find out a better method to test for HTML
-         * Template: columns_definitions/column_length
+         * Template: table/columns_definitions/column_length
          *
          * $this->assertContains(
          *     '<input id="field_2_2" type="text" name="field_length[2]" size="10" '

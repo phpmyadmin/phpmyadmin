@@ -105,7 +105,7 @@ function PMA_getHtmlForCreateNewColumn(
         );
     }
 
-    return PMA\Template::get('columns_definitions/table_fields_definitions')
+    return PMA\Template::get('table/columns_definitions/table_fields_definitions')
         ->render(
             array(
             'is_backup' => true,
