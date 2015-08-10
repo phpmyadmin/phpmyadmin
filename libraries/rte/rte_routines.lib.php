@@ -132,13 +132,20 @@ function PMA_RTN_handleEditor()
                         . '<br />'
                         . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                     } else {
-                        list($errors, $message, $sql_query) = PMA_RTN_createRoutine(
+                        list($newErrors, $message) = PMA_RTN_createRoutine(
                             $routine_query,
-                            $errors,
                             $create_routine,
-                            $privilegesBackup,
-                            $drop_routine
+                            $privilegesBackup
                         );
+                        if (empty($newErrors)) {
+                            $sql_query = $drop_routine . $sql_query;
+                        } else {
+                            $errors = array_merge($errors, $newErrors);
+                        }
+                        unset($newErrors);
+                        if (null === $message) {
+                            unset($message);
+                        }
                     }
                 }
             } else {
@@ -324,23 +331,20 @@ function PMA_RTN_backupPrivileges()
 /**
  * Create the routine
  *
- * @param string $routine_query Query to create routine
- * @param array $errors Errors
- * @param string $create_routine Query to restore routine
- * @param $privilegesBackup
- * @param $drop_routine
+ * @param string $routine_query    Query to create routine
+ * @param string $create_routine   Query to restore routine
+ * @param array  $privilegesBackup Privileges backup
  *
  * @return array
  */
 function PMA_RTN_createRoutine(
     $routine_query,
-    $errors,
     $create_routine,
-    $privilegesBackup,
-    $drop_routine
+    $privilegesBackup
 ) {
     $result = $GLOBALS['dbi']->tryQuery($routine_query);
     if (!$result) {
+        $errors = array();
         $errors[] = sprintf(
             __('The following query has failed: "%s"'),
             htmlspecialchars($routine_query)
@@ -361,7 +365,7 @@ function PMA_RTN_createRoutine(
             $errors
         );
 
-        return array($errors, $message, $sql_query);
+        return array($errors, null);
     }
 
     // Default value
@@ -393,19 +397,20 @@ function PMA_RTN_createRoutine(
     }
 
     $message = PMA_RTN_flushPrivileges($resultAdjust);
-    $sql_query = $drop_routine . $routine_query;
 
-    return array($errors, $message, $sql_query);
+    return array(array(), $message);
 }
 
 /**
- * @param $resultAdjust
+ * Flush privileges and get message
+ *
+ * @param bool $flushPrivileges Flush privileges
  *
  * @return PMA_Message
  */
-function PMA_RTN_flushPrivileges($resultAdjust)
+function PMA_RTN_flushPrivileges($flushPrivileges)
 {
-    if ($resultAdjust) {
+    if ($flushPrivileges) {
         // Flush the Privileges
         $flushPrivQuery = 'FLUSH PRIVILEGES;';
         $GLOBALS['dbi']->query($flushPrivQuery);
