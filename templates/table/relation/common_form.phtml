@@ -17,7 +17,7 @@
                     </th>
                     <?php $odd_row = true; ?>
                     <?php for ($i = 0; $i < $saved_row_cnt; $i++): ?>
-                        <?php echo PMA\Template::get('tbl_relation/internal_relational_row')->render(
+                        <?php echo PMA\Template::get('table/relation/internal_relational_row')->render(
                             array(
                                 'save_row' => $save_row,
                                 'i' => $i,
@@ -51,7 +51,7 @@
                 </tr>
                 <?php $odd_row = true; $i = 0; ?>
                 <?php foreach ($existrel_foreign as $key => $one_key): ?>
-                    <?php echo PMA\Template::get('tbl_relation/foreign_key_row')->render(
+                    <?php echo PMA\Template::get('table/relation/foreign_key_row')->render(
                         array(
                             'one_key' => $one_key,
                             'odd_row' => $odd_row,
@@ -64,7 +64,7 @@
                     );
                     $odd_row = ! $odd_row;?>
                 <?php endforeach; ?>
-                <?php echo PMA\Template::get('tbl_relation/foreign_key_row')->render(
+                <?php echo PMA\Template::get('table/relation/foreign_key_row')->render(
                     array(
                         'one_key' => array(),
                         'odd_row' => $odd_row,

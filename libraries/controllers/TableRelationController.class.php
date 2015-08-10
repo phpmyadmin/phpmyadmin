@@ -180,7 +180,7 @@ class TableRelationController extends TableController
 
         // common form
         $this->response->addHTML(
-            Template::get('tbl_relation/common_form')->render(
+            Template::get('table/relation/common_form')->render(
                 array(
                     'db' => $this->db,
                     'table' => $this->table,
