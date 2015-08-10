@@ -266,7 +266,7 @@ class StructureController extends Controller
 
             // table form
             $this->response->addHTML(
-                Template::get('structure/table_header')
+                Template::get('database/structure/table_header')
                     ->render(
                         array(
                             'db'                  => $this->_db,
@@ -418,7 +418,7 @@ class StructureController extends Controller
                  */
                 $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
 
-                $browse_table = Template::get('structure/browse_table')
+                $browse_table = Template::get('database/structure/browse_table')
                     ->render(
                         array(
                             'tbl_url_query' => $tbl_url_query,
@@ -427,7 +427,7 @@ class StructureController extends Controller
                         )
                     );
 
-                $search_table = Template::get('structure/search_table')
+                $search_table = Template::get('database/structure/search_table')
                     ->render(
                         array(
                             'tbl_url_query' => $tbl_url_query,
@@ -436,7 +436,7 @@ class StructureController extends Controller
                         )
                     );
 
-                $browse_table_label = Template::get('structure/browse_table_label')
+                $browse_table_label = Template::get('database/structure/browse_table_label')
                     ->render(
                         array(
                             'tbl_url_query' => $tbl_url_query,
@@ -451,7 +451,7 @@ class StructureController extends Controller
                 if (!$this->_db_is_system_schema) {
                     $empty_table = '&nbsp;';
                     if (!$table_is_view) {
-                        $empty_table = Template::get('structure/empty_table')
+                        $empty_table = Template::get('database/structure/empty_table')
                             ->render(
                                 array(
                                     'tbl_url_query' => $tbl_url_query,
@@ -500,7 +500,7 @@ class StructureController extends Controller
                             $GLOBALS["db"], $truename
                         ) > 0
                     ) {
-                        $tracking_icon = Template::get('structure/tracking_icon')
+                        $tracking_icon = Template::get('database/structure/tracking_icon')
                             ->render(
                                 array(
                                     'url_query' => $this->_url_query,
@@ -523,7 +523,7 @@ class StructureController extends Controller
                     );
 
                     $this->response->addHTML(
-                        Template::get('structure/table_header')->render(
+                        Template::get('database/structure/table_header')->render(
                             array(
                                 'db_is_system_schema' => false,
                                 'replication' => $GLOBALS['replication_info']['slave']['status']
@@ -637,7 +637,7 @@ class StructureController extends Controller
                 }
 
                 $this->response->addHTML(
-                    Template::get('structure/structure_table_row')
+                    Template::get('database/structure/structure_table_row')
                         ->render(
                             array(
                                 'db'                    => $this->_db,
@@ -686,7 +686,7 @@ class StructureController extends Controller
             // Show Summary
             $this->response->addHTML('</tbody>');
             $this->response->addHTML(
-                Template::get('structure/body_for_table_summary')->render(
+                Template::get('database/structure/body_for_table_summary')->render(
                     array(
                         'num_tables' => $this->_num_tables,
                         'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
@@ -706,7 +706,7 @@ class StructureController extends Controller
             $this->response->addHTML('</table>');
             //check all
             $this->response->addHTML(
-                Template::get('structure/check_all_tables')->render(
+                Template::get('database/structure/check_all_tables')->render(
                     array(
                         'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
                         'text_dir' => $GLOBALS['text_dir'],
@@ -735,7 +735,7 @@ class StructureController extends Controller
             /* DATABASE WORK */
             /* Printable view of a table */
             $this->response->addHTML(
-                Template::get('structure/print_view_data_dictionary_link')->render(
+                Template::get('database/structure/print_view_data_dictionary_link')->render(
                     array('url_query' => $this->_url_query)
                 )
             );
@@ -879,7 +879,7 @@ class StructureController extends Controller
             // display secondary level tabs if necessary
             $engine = $this->_table_obj->sGetStatusInfo('ENGINE');
             $this->response->addHTML(
-                Template::get('structure/secondary_tabs')->render(
+                Template::get('table/secondary_tabs')->render(
                     array(
                         'url_params' => array(
                             'db' => $this->_db,
@@ -1057,7 +1057,7 @@ class StructureController extends Controller
                 'user' => $user,
                 'favorite_tables' => json_encode($favorite_tables),
                 'list' => $fav_instance->getHtmlList(),
-                'anchor' => Template::get('structure/favorite_anchor')
+                'anchor' => Template::get('database/structure/favorite_anchor')
                     ->render(
                         array(
                             'db' => $this->_db,
@@ -2046,7 +2046,7 @@ class StructureController extends Controller
         }
         // END - Calc Table Space
 
-        return Template::get('structure/display_structure')->render(
+        return Template::get('table/structure/display_structure')->render(
             array(
                 'HideStructureActions' => $HideStructureActions,
                 'db' => $this->_db,
@@ -2145,7 +2145,7 @@ class StructureController extends Controller
             $avg_size = $avg_unit = '';
         }
 
-        return Template::get('structure/display_table_stats')->render(
+        return Template::get('table/structure/display_table_stats')->render(
             array(
                 'showtable' => $showtable,
                 'table_info_num_rows' => $table_info_num_rows,
