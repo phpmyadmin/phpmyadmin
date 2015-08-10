@@ -244,7 +244,7 @@ class TableStructureController extends TableController
         // display secondary level tabs if necessary
         $engine = $this->table_obj->sGetStatusInfo('ENGINE');
         $this->response->addHTML(
-            Template::get('structure/secondary_tabs')->render(
+            Template::get('table/secondary_tabs')->render(
                 array(
                     'url_params' => array(
                         'db' => $this->db,
@@ -1030,7 +1030,7 @@ class TableStructureController extends TableController
         }
         // END - Calc Table Space
 
-        return Template::get('structure/display_structure')->render(
+        return Template::get('table/structure/display_structure')->render(
             array(
                 'HideStructureActions' => $HideStructureActions,
                 'db' => $this->db,
@@ -1125,7 +1125,7 @@ class TableStructureController extends TableController
             $avg_size = $avg_unit = '';
         }
 
-        return Template::get('structure/display_table_stats')->render(
+        return Template::get('table/structure/display_table_stats')->render(
             array(
                 'showtable' => $this->_showtable,
                 'table_info_num_rows' => $this->_table_info_num_rows,

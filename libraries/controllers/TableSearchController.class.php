@@ -187,7 +187,7 @@ class TableSearchController extends TableController
 
             // Show secondary level of tabs
             $this->response->addHTML(
-                Template::get('table/secondary_tabs')
+                Template::get('secondary_tabs')
                     ->render(
                         array(
                             'url_params' => array(
@@ -214,7 +214,7 @@ class TableSearchController extends TableController
             $err_url = $goto . '?' . PMA_URL_getCommon($params);
             // Displays the find and replace form
             $this->response->addHTML(
-                Template::get('table/selection_form')
+                Template::get('table/search/selection_form')
                     ->render(
                         array(
                             'searchType'       => $this->_searchType,
@@ -336,7 +336,7 @@ class TableSearchController extends TableController
 
             // Displays the zoom search form
             $this->response->addHTML(
-                Template::get('table/secondary_tabs')
+                Template::get('secondary_tabs')
                     ->render(
                         array(
                             'url_params' => array(
@@ -348,7 +348,7 @@ class TableSearchController extends TableController
                     )
             );
             $this->response->addHTML(
-                Template::get('table/selection_form')
+                Template::get('table/search/selection_form')
                     ->render(
                         array(
                             'searchType'       => $this->_searchType,
@@ -440,7 +440,7 @@ class TableSearchController extends TableController
             )
         );
         $this->response->addHTML(
-            Template::get('table/zoom_result_form')
+            Template::get('table/search/zoom_result_form')
                 ->render(
                     array(
                         '_db'              => $this->db,
@@ -578,7 +578,7 @@ class TableSearchController extends TableController
         );
         // Displays the table search form
         $this->response->addHTML(
-            Template::get('table/secondary_tabs')
+            Template::get('secondary_tabs')
                 ->render(
                     array(
                         'url_params' => array(
@@ -590,7 +590,7 @@ class TableSearchController extends TableController
                 )
         );
         $this->response->addHTML(
-            Template::get('table/selection_form')
+            Template::get('table/search/selection_form')
                 ->render(
                     array(
                         'searchType'       => $this->_searchType,
@@ -698,7 +698,7 @@ class TableSearchController extends TableController
             $result = $this->dbi->fetchResult($sql_query, 0);
         }
 
-        return Template::get('table/replace_preview')->render(
+        return Template::get('table/search/replace_preview')->render(
             array(
                 'db' => $this->db,
                 'table' => $this->table,
@@ -920,7 +920,7 @@ class TableSearchController extends TableController
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $func = Template::get('table/column_comparison_operators')->render(
+        $func = Template::get('table/search/column_comparison_operators')->render(
             array(
                 'search_index' => $search_index,
                 'columnTypes' => $this->_columnTypes,
@@ -933,7 +933,7 @@ class TableSearchController extends TableController
         $foreignData = PMA_getForeignData(
             $this->_foreigners, $this->_columnNames[$column_index], false, '', ''
         );
-        $value = Template::get('table/input_box')->render(
+        $value = Template::get('table/search/input_box')->render(
             array(
                 'str' => '',
                 'column_type' => (string) $type,

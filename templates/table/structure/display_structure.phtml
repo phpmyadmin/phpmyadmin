@@ -11,7 +11,7 @@
     <?php endif; ?>
     <table id="tablestructure" class="data topmargin">
         <!-- table header -->
-        <?php echo PMA\Template::get('structure/table_structure_header')->render(
+        <?php echo PMA\Template::get('table/structure/table_structure_header')->render(
             array(
                 'db_is_system_schema' => $db_is_system_schema,
                 'tbl_is_view' => $tbl_is_view
@@ -82,7 +82,7 @@
             ?>
         <tr class="<?php echo ($odd_row ? 'odd': 'even'); ?>">
             <?php $odd_row = !$odd_row; ?>
-            <?php echo PMA\Template::get('structure/table_structure_row')->render(
+            <?php echo PMA\Template::get('table/structure/table_structure_row')->render(
                 array(
                     'row' => $row,
                     'rownum' => $rownum,
@@ -100,7 +100,7 @@
                 )
             ); ?>
             <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
-                <?php echo PMA\Template::get('structure/actions_in_table_structure')->render(
+                <?php echo PMA\Template::get('table/structure/actions_in_table_structure')->render(
                     array(
                         'extracted_columnspec' => $extracted_columnspec,
                         'type' => (!empty($extracted_columnspec['print_type'])) ? $extracted_columnspec['print_type'] : ' ',
@@ -120,7 +120,7 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <?php echo PMA\Template::get('structure/check_all_table_column')->render(
+    <?php echo PMA\Template::get('table/structure/check_all_table_column')->render(
         array(
             'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
@@ -131,7 +131,7 @@
     ); ?>
 </form>
 <hr class="print_ignore"/>
-<?php echo PMA\Template::get('structure/move_columns_dialog')->render(); ?>
+<?php echo PMA\Template::get('table/structure/move_columns_dialog')->render(); ?>
 <!--Work on the table-->
 <div id="structure-action-links">
     <?php if ($tbl_is_view): ?>
@@ -140,7 +140,7 @@
             PMA_Util::getIcon('b_edit.png', __('Edit view'), true)
         ); ?>
     <?php endif; ?>
-    <?php echo PMA\Template::get('structure/optional_action_links')->render(
+    <?php echo PMA\Template::get('table/structure/optional_action_links')->render(
         array(
             'url_query' => $url_query,
             'tbl_is_view' => $tbl_is_view,
@@ -150,7 +150,7 @@
 </div>
 <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
     <br />
-    <?php echo PMA\Template::get('structure/add_column')->render(
+    <?php echo PMA\Template::get('table/structure/add_column')->render(
         array('columns_list' => $columns_list)
     ); ?>
 <?php endif; ?>

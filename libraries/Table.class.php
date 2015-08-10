@@ -2363,7 +2363,7 @@ class PMA_Table
                 'SELECT COUNT(*) AS %s FROM %s.%s',
                 PMA_Util::backquote('row_count'),
                 PMA_Util::backquote($this->_db_name),
-                PMA_Util::backquote($$this->_name)
+                PMA_Util::backquote($this->_name)
             )
         );
         return $result['row_count'];
