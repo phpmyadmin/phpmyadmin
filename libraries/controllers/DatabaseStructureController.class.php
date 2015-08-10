@@ -243,7 +243,9 @@ class DatabaseStructureController extends DatabaseController
                         $current_table, $sum_size, $overhead_size
                     );
 
-            if (!$this->dbi->getTable($this->db, $current_table['TABLE_NAME'])->isMerge()) {
+            $curTable = $this->dbi
+                ->getTable($this->db, $current_table['TABLE_NAME']);
+            if (!$curTable->isMerge()) {
                 $sum_entries += $current_table['TABLE_ROWS'];
             }
 
@@ -364,7 +366,9 @@ class DatabaseStructureController extends DatabaseController
                     )
                 );
 
-            $browse_table_label = Template::get('database/structure/browse_table_label')
+            $browse_table_label = Template::get(
+                'database/structure/browse_table_label'
+            )
                 ->render(
                     array(
                         'tbl_url_query' => $tbl_url_query,
@@ -428,12 +432,14 @@ class DatabaseStructureController extends DatabaseController
                         $GLOBALS["db"], $truename
                     ) > 0
                 ) {
-                    $tracking_icon = Template::get('database/structure/tracking_icon')
+                    $tracking_icon = Template::get(
+                        'database/structure/tracking_icon'
+                    )
                         ->render(
                             array(
                                 'url_query' => $this->_url_query,
                                 'truename' => $truename,
-                                'is_tracked' => $is_tracked
+                                'is_tracked' => $is_tracked,
                             )
                         );
                 }
@@ -663,9 +669,8 @@ class DatabaseStructureController extends DatabaseController
         /* DATABASE WORK */
         /* Printable view of a table */
         $this->response->addHTML(
-            Template::get('database/structure/print_view_data_dictionary_link')->render(
-                array('url_query' => $this->_url_query)
-            )
+            Template::get('database/structure/print_view_data_dictionary_link')
+                ->render(array('url_query' => $this->_url_query))
         );
 
         if (empty($db_is_system_schema)) {
@@ -706,7 +711,8 @@ class DatabaseStructureController extends DatabaseController
             }
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (!$already_favorite) {
-                if (count($fav_instance->getTables()) == $GLOBALS['cfg']['NumFavoriteTables']) {
+                $nbTables = count($fav_instance->getTables());
+                if ($nbTables == $GLOBALS['cfg']['NumFavoriteTables']) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.
@@ -855,7 +861,11 @@ class DatabaseStructureController extends DatabaseController
     {
         foreach ($db as $db_table) {
             if ($this->db == PMA_extractDbOrTable($db_table)
-                && preg_match("@^" . /*overload*/ mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@", $truename)
+                && preg_match(
+                    "@^" . /*overload*/
+                    mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@",
+                    $truename
+                )
             ) {
                 return true;
             }
@@ -866,9 +876,9 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get the value set for ENGINE table,
      *
-     * @param array   $current_table       current table
-     * @param double  $sum_size            total table size
-     * @param double  $overhead_size       overhead size
+     * @param array  $current_table current table
+     * @param double $sum_size      total table size
+     * @param double $overhead_size overhead size
      *
      * @return array
      * @internal param bool $table_is_view whether table is view or not

@@ -156,7 +156,8 @@ class TableRelationController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->dbi->getTable($this->db, $this->table)->sGetStatusInfo('ENGINE');
+        $engine = $this->dbi->getTable($this->db, $this->table)
+            ->sGetStatusInfo('ENGINE');
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
@@ -274,8 +275,12 @@ class TableRelationController extends TableController
             : null;
 
         if ($this->upd_query->updateInternalRelations(
-            $multi_edit_columns_name, $_POST['destination_db'], $_POST['destination_table'],
-            $_POST['destination_column'], $this->cfgRelation, isset($this->existrel) ? $this->existrel : null
+            $multi_edit_columns_name,
+            $_POST['destination_db'],
+            $_POST['destination_table'],
+            $_POST['destination_column'],
+            $this->cfgRelation,
+            isset($this->existrel) ? $this->existrel : null
         )
         ) {
             $this->response->addHTML(
