@@ -302,8 +302,9 @@ class TableRelationController extends TableController
     {
         $foreignTable = $_REQUEST['foreignTable'];
         $table_obj = new PMA_Table($foreignTable, $_REQUEST['foreignDb']);
-        // Since views do not have keys defined on them provide the full list of columns
-        if ($GLOBALS['dbi']->getTable($_REQUEST['foreignDb'], $foreignTable)->isView()) {
+        // Since views do not have keys defined on them provide the full list of
+        // columns
+        if ($table_obj->isView()) {
             $columnList = $table_obj->getColumns(false, false);
         } else {
             $columnList = $table_obj->getIndexedColumns(false, false);
