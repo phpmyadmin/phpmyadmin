@@ -534,6 +534,7 @@ AJAX.registerOnload('normalization.js', function() {
                         "db": PMA_commonParams.get('db'),
                         "table": PMA_commonParams.get('table'),
                         "dropped_column": selectedCol,
+                        "purge" : 1,
                         "sql_query": 'ALTER TABLE `' + PMA_commonParams.get('table') + '` DROP `' + selectedCol + '`;',
                         "is_js_confirmed": 1
                     },

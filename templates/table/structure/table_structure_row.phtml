@@ -43,7 +43,7 @@
     <td class="drop center print_ignore">
         <a class="drop_column_anchor ajax" href="sql.php<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($table)
-                . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo $field_encoded; ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped.'), htmlspecialchars($row['Field']))) ?>" >
+                . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo $field_encoded; ?>&amp;purge=1&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped.'), htmlspecialchars($row['Field']))) ?>" >
             <?php echo $titles['Drop']; ?>
         </a>
     </td>

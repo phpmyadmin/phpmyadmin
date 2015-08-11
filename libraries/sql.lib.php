@@ -1030,22 +1030,18 @@ function PMA_cleanupRelations($db, $table, $column, $purge)
     include_once 'libraries/relation_cleanup.lib.php';
 
     if (isset($purge) && $purge == 1) {
-        if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
-            PMA_relationsCleanupTable($db, $table);
-        } elseif (/*overload*/mb_strlen($db)) {
-            PMA_relationsCleanupDatabase($db);
+        if (/*overload*/mb_strlen($db)) {
+            if (/*overload*/mb_strlen($table)) {
+                if (isset($column) && /*overload*/mb_strlen($column)) {
+                    PMA_relationsCleanupColumn($db, $table, $column);
+                } else {
+                    PMA_relationsCleanupTable($db, $table);
+                }
+            } else {
+                PMA_relationsCleanupDatabase($db);
+            }
         }
     }
-
-    if (isset($column)
-        && /*overload*/mb_strlen($db)
-        && /*overload*/mb_strlen($table)
-        && /*overload*/mb_strlen($column)
-    ) {
-        PMA_relationsCleanupColumn($db, $table, $column);
-    }
-
-    return $extra_data;
 }
 
 /**
@@ -1206,7 +1202,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
             $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
         );
 
-        $extra_data = PMA_cleanupRelations(
+        PMA_cleanupRelations(
             isset($db) ? $db : '',
             isset($table) ? $table : '',
             isset($_REQUEST['dropped_column']) ? $_REQUEST['dropped_column'] : null,
