@@ -1011,20 +1011,6 @@ class TableStructureController extends TableController
         }
 
         /**
-         * Displays indexes
-         */
-        if (! $this->_tbl_is_view
-            && ! $this->_db_is_system_schema
-            && 'ARCHIVE' !=  $this->_tbl_storage_engine
-        ) {
-            //return the list of index
-            $this->response->addJSON(
-                'indexes_list',
-                PMA_Index::getHtmlForIndexes($this->table, $this->db)
-            );
-        }
-
-        /**
          * Displays Space usage and row statistics
          */
         // BEGIN - Calc Table Space

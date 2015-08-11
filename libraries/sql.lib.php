@@ -1210,16 +1210,12 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         );
 
         $extra_data = PMA_cleanupRelations(
-            isset($db) ? $db : '', isset($table) ? $table : '',
+            isset($db) ? $db : '',
+            isset($table) ? $table : '',
             isset($_REQUEST['dropped_column']) ? $_REQUEST['dropped_column'] : null,
             isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null,
             isset($extra_data) ? $extra_data : null
         );
-
-        // Update Indexes list.
-        if (isset($_REQUEST['index_change'])) {
-            $extra_data['indexes_list'] = PMA_Index::getHtmlForIndexes($table, $db);
-        }
     }
 
     return array($result, $num_rows, $unlim_num_rows,
