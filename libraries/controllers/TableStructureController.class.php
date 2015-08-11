@@ -15,6 +15,7 @@ use PMA_Table;
 use PMA_Message;
 use PMA_PageSettings;
 use PMA_Util;
+use PMA\Util;
 use SqlParser;
 
 require_once 'libraries/common.inc.php';
@@ -24,6 +25,7 @@ require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Template.class.php';
+require_once 'libraries/util.lib.php';
 require_once 'libraries/controllers/TableController.class.php';
 
 /**
