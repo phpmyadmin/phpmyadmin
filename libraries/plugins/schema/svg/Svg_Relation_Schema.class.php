@@ -135,6 +135,8 @@ class PMA_SVG extends XMLWriter
      *
      * @param integer $width  total width of the Svg document
      * @param integer $height total height of the Svg document
+     * @param integer $x      min-x of the view box
+     * @param integer $y      min-y of the view box
      *
      * @return void
      *
