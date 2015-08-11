@@ -365,8 +365,8 @@ class Formatter
                 } else {
                     // If the line ended there is no point in adding whitespaces.
                     // Also, some tokens do not have spaces before or after them.
-                    if (!((($prev->type === Token::TYPE_OPERATOR) && (($prev->value === '.') || ($prev->value === '(')))
-                        // No space after . (
+                    if (!((($prev->type === Token::TYPE_OPERATOR) && (($prev->value === '.') || ($prev->value === '(') || ($prev->value === '!')))
+                        // No space after . ( !
                         || (($curr->type === Token::TYPE_OPERATOR) && (($curr->value === '.') || ($curr->value === ',') || ($curr->value === '(') || ($curr->value === ')')))
                         // No space before . , )
                         || (($curr->type === Token::TYPE_DELIMITER)) && (mb_strlen($curr->value, 'UTF-8') < 2))
