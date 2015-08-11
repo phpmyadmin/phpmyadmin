@@ -368,6 +368,16 @@ namespace SqlParser {
                  */
                 $token = $list->tokens[$list->idx];
 
+                // `DELIMITER` is not an actual statement and it requires
+                // special handling.
+                if (($token->type === Token::TYPE_NONE)
+                    && (strtoupper($token->token) === 'DELIMITER')
+                ) {
+                    // Skipping to the end of this statement.
+                    $list->getNextOfType(Token::TYPE_DELIMITER);
+                    continue;
+                }
+
                 // Statements can start with keywords only.
                 // Comments, whitespaces, etc. are ignored.
                 if ($token->type !== Token::TYPE_KEYWORD) {

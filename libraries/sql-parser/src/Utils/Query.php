@@ -36,7 +36,7 @@ use SqlParser\Statements\UpdateStatement;
 /**
  * Statement utilities.
  *
- * @category   Routines
+ * @category   Statement
  * @package    SqlParser
  * @subpackage Utils
  * @author     Dan Ungureanu <udan1107@gmail.com>
