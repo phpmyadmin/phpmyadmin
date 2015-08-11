@@ -1018,15 +1018,14 @@ function PMA_hasCurrentDbChanged($db)
 /**
  * If a table, database or column gets dropped, clean comments.
  *
- * @param String $db             current database
- * @param String $table          current table
- * @param String $dropped_column dropped column if any
- * @param bool   $purge          whether purge set or not
- * @param array  $extra_data     extra data
+ * @param String $db     current database
+ * @param String $table  current table
+ * @param String $column current column
+ * @param bool   $purge  whether purge set or not
  *
  * @return array $extra_data
  */
-function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
+function PMA_cleanupRelations($db, $table, $column, $purge)
 {
     include_once 'libraries/relation_cleanup.lib.php';
 
@@ -1038,14 +1037,12 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
         }
     }
 
-    if (isset($dropped_column)
-        && !empty($dropped_column)
+    if (isset($column)
         && /*overload*/mb_strlen($db)
         && /*overload*/mb_strlen($table)
+        && /*overload*/mb_strlen($column)
     ) {
-        PMA_relationsCleanupColumn($db, $table, $dropped_column);
-        // to refresh the list of indexes (Ajax mode)
-        $extra_data['indexes_list'] = PMA_Index::getHtmlForIndexes($table, $db);
+        PMA_relationsCleanupColumn($db, $table, $column);
     }
 
     return $extra_data;
@@ -1213,9 +1210,16 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
             isset($db) ? $db : '',
             isset($table) ? $table : '',
             isset($_REQUEST['dropped_column']) ? $_REQUEST['dropped_column'] : null,
-            isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null,
-            isset($extra_data) ? $extra_data : null
+            isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null
         );
+
+        if (isset($_REQUEST['dropped_column'])
+            && /*overload*/mb_strlen($db)
+            && /*overload*/mb_strlen($table)
+        ) {
+            // to refresh the list of indexes (Ajax mode)
+            $extra_data['indexes_list'] = PMA_Index::getHtmlForIndexes($table, $db);
+        }
     }
 
     return array($result, $num_rows, $unlim_num_rows,
