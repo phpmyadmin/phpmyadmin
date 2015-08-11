@@ -866,9 +866,9 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get the value set for ENGINE table,
      *
-     * @param array   $current_table       current table
-     * @param double  $sum_size            total table size
-     * @param double  $overhead_size       overhead size
+     * @param array  $current_table current table
+     * @param double $sum_size      total table size
+     * @param double $overhead_size overhead size
      *
      * @return array
      * @internal param bool $table_is_view whether table is view or not
@@ -956,13 +956,13 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get values for ARIA/MARIA tables
      *
-     * @param array   $current_table       current table
-     * @param double  $sum_size            sum size
-     * @param double  $overhead_size       overhead size
-     * @param number  $formatted_size      formatted size
-     * @param string  $unit                unit
-     * @param number  $formatted_overhead  overhead formatted
-     * @param string  $overhead_unit       overhead unit
+     * @param array  $current_table      current table
+     * @param double $sum_size           sum size
+     * @param double $overhead_size      overhead size
+     * @param number $formatted_size     formatted size
+     * @param string $unit               unit
+     * @param number $formatted_overhead overhead formatted
+     * @param string $overhead_unit      overhead unit
      *
      * @return array
      */
@@ -1004,8 +1004,8 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get values for InnoDB table
      *
-     * @param array   $current_table current table
-     * @param double  $sum_size      sum size
+     * @param array  $current_table current table
+     * @param double $sum_size      sum size
      *
      * @return array
      */
