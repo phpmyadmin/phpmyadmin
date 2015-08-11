@@ -31,7 +31,7 @@ class BufferedQuery
     // Constants that describe the current status of the parser.
     const STATUS_STRING_SINGLE_QUOTES   = 1;
     const STATUS_STRING_DOUBLE_QUOTES   = 2;
-    const STATUS_STRING_BACKTICK = 3;
+    const STATUS_STRING_BACKTICK        = 3;
     const STATUS_COMMENT_BASH           = 4;
     const STATUS_COMMENT_C              = 5;
     const STATUS_COMMENT_SQL            = 6;
@@ -113,7 +113,7 @@ class BufferedQuery
             $options
         );
 
-        $this->query = '';
+        $this->query = $query;
         $this->setDelimiter($this->options['delimiter']);
     }
 
@@ -180,7 +180,7 @@ class BufferedQuery
          */
         $loopLen = $end ? $len : $len - 16;
 
-        for (; $i < $loopLen; ++$i)  {
+        for (; $i < $loopLen; ++$i) {
 
             /*
              * Handling special parses statuses.
@@ -268,7 +268,8 @@ class BufferedQuery
              *
              * This optimization makes the code about 3 times faster.
              */
-            if ((($this->query[$i] === 'D') || ($this->query[$i] === 'd'))
+            if (($i + 9 < $len)
+                && (($this->query[$i    ] === 'D') || ($this->query[$i    ] === 'd'))
                 && (($this->query[$i + 1] === 'E') || ($this->query[$i + 1] === 'e'))
                 && (($this->query[$i + 2] === 'L') || ($this->query[$i + 2] === 'l'))
                 && (($this->query[$i + 3] === 'I') || ($this->query[$i + 3] === 'i'))
@@ -277,6 +278,7 @@ class BufferedQuery
                 && (($this->query[$i + 6] === 'T') || ($this->query[$i + 6] === 't'))
                 && (($this->query[$i + 7] === 'E') || ($this->query[$i + 7] === 'e'))
                 && (($this->query[$i + 8] === 'R') || ($this->query[$i + 8] === 'r'))
+                && (Context::isWhitespace($this->query[$i + 9]))
             ) {
 
                 // Saving the current index to be able to revert any parsing
@@ -289,13 +291,6 @@ class BufferedQuery
                     ++$i;
                 }
 
-                // Checking if any whitespace was found between keyword
-                // `DELIMITER` and the actual delimiter.
-                if ($iBak + 9 === $i) {
-                    $i = $iBak;
-                    return false;
-                }
-
                 // Parsing the delimiter.
                 $delimiter = '';
                 while (($i < $len) && (!Context::isWhitespace($this->query[$i]))) {
@@ -303,8 +298,9 @@ class BufferedQuery
                 }
 
                 // Checking if the delimiter definition ended.
-                if ((($i < $len) && (Context::isWhitespace($this->query[$i])))
-                    || (($i === $len) && ($end))
+                if (($delimiter != '')
+                    && ((($i < $len) && (Context::isWhitespace($this->query[$i])))
+                    || (($i === $len) && ($end)))
                 ) {
 
                     // Saving the delimiter.
@@ -380,11 +376,19 @@ class BufferedQuery
         if (($end) && ($i === $len)) {
             // If the end of the buffer was reached, the buffer is emptied and
             // the current statement that was extracted is returned.
+            $ret = $this->current;
+
+            // Emptying the buffer.
             $this->query = '';
             $i = 0;
-            return trim($this->current);
+
+            // Resetting the current statement.
+            $this->current = '';
+
+            // Returning the statement.
+            return trim($ret);
         }
 
-        return false;
+        return '';
     }
 }

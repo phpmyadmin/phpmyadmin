@@ -98,7 +98,7 @@ class ImportSql_Test extends PHPUnit_Framework_TestCase
 
         //asset that all sql are executed
         $this->assertContains(
-            'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";',
+            'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"',
             $sql_query
         );
         $this->assertContains(

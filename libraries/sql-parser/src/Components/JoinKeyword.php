@@ -71,7 +71,7 @@ class JoinKeyword extends Component
     {
         $ret = array();
 
-        $expr = new JoinKeyword();;
+        $expr = new JoinKeyword();
 
         /**
          * The state of the parser.
