@@ -826,7 +826,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="fieldsb" value=""',
+            '<input type="radio" name="fieldsb"',
             $result
         );
 
@@ -837,11 +837,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="hidden" name="fields_typeb" value="enum"',
-            $result
-        );
-
-        $this->assertContains(
-            '<input type="hidden" name="fieldsb" value="" />',
             $result
         );
 
