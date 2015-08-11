@@ -28,8 +28,9 @@
         "squizlabs/php_codesniffer": "2.*"
     },
     "repositories": [
-    {
-        "type": "composer",
-        "url": "https://www.phpmyadmin.net"
-    }
+        {
+            "type": "composer",
+            "url": "https://www.phpmyadmin.net"
+        }
+    ]
 }
