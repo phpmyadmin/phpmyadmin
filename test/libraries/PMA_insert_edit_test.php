@@ -816,6 +816,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $extracted_columnspec = $column = array();
         $extracted_columnspec['enum_set_values'] = array();
         $column['Type'] = 'abababababababababab';
+        $column['values'] = array(
+            array(
+                'html' => 'foo',
+                'plain' => 'data'
+            )
+        );
         $result = PMA_getPmaTypeEnum(
             $column, 'a', 'b', $extracted_columnspec, 'd', 2, 0, 1, 'foobar'
         );
