@@ -1029,17 +1029,15 @@ function PMA_cleanupRelations($db, $table, $column, $purge)
 {
     include_once 'libraries/relation_cleanup.lib.php';
 
-    if (isset($purge) && $purge == 1) {
-        if (/*overload*/mb_strlen($db)) {
-            if (/*overload*/mb_strlen($table)) {
-                if (isset($column) && /*overload*/mb_strlen($column)) {
-                    PMA_relationsCleanupColumn($db, $table, $column);
-                } else {
-                    PMA_relationsCleanupTable($db, $table);
-                }
+    if (! empty($purge) && /*overload*/mb_strlen($db)) {
+        if (/*overload*/mb_strlen($table)) {
+            if (isset($column) && /*overload*/mb_strlen($column)) {
+                PMA_relationsCleanupColumn($db, $table, $column);
             } else {
-                PMA_relationsCleanupDatabase($db);
+                PMA_relationsCleanupTable($db, $table);
             }
+        } else {
+            PMA_relationsCleanupDatabase($db);
         }
     }
 }
