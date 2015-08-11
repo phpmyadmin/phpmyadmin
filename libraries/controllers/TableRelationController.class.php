@@ -156,7 +156,8 @@ class TableRelationController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->dbi->getTable($this->db, $this->table)->sGetStatusInfo('ENGINE');
+        $engine = $this->dbi->getTable($this->db, $this->table)
+            ->sGetStatusInfo('ENGINE');
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
@@ -274,8 +275,12 @@ class TableRelationController extends TableController
             : null;
 
         if ($this->upd_query->updateInternalRelations(
-            $multi_edit_columns_name, $_POST['destination_db'], $_POST['destination_table'],
-            $_POST['destination_column'], $this->cfgRelation, isset($this->existrel) ? $this->existrel : null
+            $multi_edit_columns_name,
+            $_POST['destination_db'],
+            $_POST['destination_table'],
+            $_POST['destination_column'],
+            $this->cfgRelation,
+            isset($this->existrel) ? $this->existrel : null
         )
         ) {
             $this->response->addHTML(
@@ -297,8 +302,9 @@ class TableRelationController extends TableController
     {
         $foreignTable = $_REQUEST['foreignTable'];
         $table_obj = new PMA_Table($foreignTable, $_REQUEST['foreignDb']);
-        // Since views do not have keys defined on them provide the full list of columns
-        if ($GLOBALS['dbi']->getTable($_REQUEST['foreignDb'], $foreignTable)->isView()) {
+        // Since views do not have keys defined on them provide the full list of
+        // columns
+        if ($table_obj->isView()) {
             $columnList = $table_obj->getColumns(false, false);
         } else {
             $columnList = $table_obj->getIndexedColumns(false, false);

@@ -140,22 +140,23 @@ class PMA_SVG extends XMLWriter
      *
      * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
      */
-    public function startSvgDoc($width,$height,$x = 0, $y = 0)
+    public function startSvgDoc($width, $height, $x = 0, $y = 0)
     {
         $this->startElement('svg');
 
-        if(!is_int($width))
+        if (!is_int($width)) {
             $width = intval($width);
+        }
 
-        if(!is_int($height))
+        if (!is_int($height)) {
             $height = intval($height);
+        }
 
-        if($x != 0 || $y != 0)
-        {
+        if ($x != 0 || $y != 0) {
             $this->writeAttribute('viewBox', "$x $y $width $height");
         }
         $this->writeAttribute('width', ($width - $x) . 'px');
-        $this->writeAttribute('height',($height - $y) . 'px');
+        $this->writeAttribute('height', ($height - $y) . 'px');
         $this->writeAttribute('xmlns', 'http://www.w3.org/2000/svg');
         $this->writeAttribute('version', '1.1');
     }
@@ -326,7 +327,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $this->diagram->setFont('Arial');
         $this->diagram->setFontSize('16px');
 
-
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
@@ -347,7 +347,12 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         }
 
         $border = 15;
-        $this->diagram->startSvgDoc($this->_xMax + $border, $this->_yMax + $border, $this->_xMin - $border, $this->_yMin - $border);
+        $this->diagram->startSvgDoc(
+            $this->_xMax + $border,
+            $this->_yMax + $border,
+            $this->_xMin - $border,
+            $this->_yMin - $border
+        );
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
@@ -366,9 +371,13 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($master_field != 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->_addRelation(
-                            $one_table, $this->diagram->getFont(), $this->diagram->getFontSize(),
-                            $master_field, $rel['foreign_table'],
-                            $rel['foreign_field'], $this->tableDimension
+                            $one_table,
+                            $this->diagram->getFont(),
+                            $this->diagram->getFontSize(),
+                            $master_field,
+                            $rel['foreign_table'],
+                            $rel['foreign_field'],
+                            $this->tableDimension
                         );
                     }
                     continue;

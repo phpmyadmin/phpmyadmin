@@ -114,10 +114,10 @@ class TableStructureController extends TableController
         /**
          * Function implementations for this script
          */
-        require_once 'libraries/check_user_privileges.lib.php';
-        require_once 'libraries/index.lib.php';
-        require_once 'libraries/sql.lib.php';
-        require_once 'libraries/bookmark.lib.php';
+        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/index.lib.php';
+        include_once 'libraries/sql.lib.php';
+        include_once 'libraries/bookmark.lib.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             array(
@@ -296,7 +296,7 @@ class TableStructureController extends TableController
         // got to be eliminated in long run
         $db = &$this->db;
         $table = &$this->table;
-        require_once 'libraries/tbl_common.inc.php';
+        include_once 'libraries/tbl_common.inc.php';
         $this->_url_query = $url_query
             . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
         $url_params['goto'] = 'tbl_structure.php';
@@ -305,9 +305,9 @@ class TableStructureController extends TableController
         /**
          * Gets tables information
          */
-        require_once 'libraries/tbl_info.inc.php';
+        include_once 'libraries/tbl_info.inc.php';
 
-        require_once 'libraries/Index.class.php';
+        include_once 'libraries/Index.class.php';
 
         // 2. Gets table keys and retains them
         // @todo should be: $server->db($db)->table($table)->primary()
@@ -938,7 +938,7 @@ class TableStructureController extends TableController
                 $mime_map = PMA_getMIME($this->db, $this->table, true);
             }
         }
-        require_once 'libraries/central_columns.lib.php';
+        include_once 'libraries/central_columns.lib.php';
         $central_list = PMA_getCentralColumnsFromTable($this->db, $this->table);
         $columns_list = array();
 
@@ -956,7 +956,10 @@ class TableStructureController extends TableController
             'NoUnique' => PMA_Util::getIcon('bd_unique.png', __('Unique')),
             'NoSpatial' => PMA_Util::getIcon('bd_spatial.png', __('Spatial')),
             'NoIdxFulltext' => PMA_Util::getIcon('bd_ftext.png', __('Fulltext')),
-            'DistinctValues' => PMA_Util::getIcon('b_browse.png', __('Distinct values'))
+            'DistinctValues' => PMA_Util::getIcon(
+                'b_browse.png',
+                __('Distinct values')
+            ),
         );
 
         /**
@@ -965,7 +968,8 @@ class TableStructureController extends TableController
         if ($this->_tbl_is_view) {
             $item = $this->dbi->fetchSingleRow(
                 sprintf(
-                    "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`
+                    "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,
+                      `SECURITY_TYPE`
                     FROM `INFORMATION_SCHEMA`.`VIEWS`
                     WHERE TABLE_SCHEMA='%s'
                     AND TABLE_NAME='%s';",
@@ -974,8 +978,10 @@ class TableStructureController extends TableController
                 )
             );
 
-            $createView = $this->dbi->getTable($this->db, $this->table)->showCreate();
-            // get algorithm from $createView of the form CREATE ALGORITHM=<ALGORITHM> DE...
+            $createView = $this->dbi->getTable($this->db, $this->table)
+                ->showCreate();
+            // get algorithm from $createView of the form
+            // CREATE ALGORITHM=<ALGORITHM> DE...
             $parts = explode(" ", substr($createView, 17));
             $item['ALGORITHM'] = $parts[0];
 
@@ -995,7 +1001,9 @@ class TableStructureController extends TableController
                     '&amp;',
                     array_map(
                         function ($key, $val) {
-                            return 'view[' . urlencode($key) . ']=' . urlencode($val);
+                            return 'view[' . urlencode($key) . ']=' . urlencode(
+                                $val
+                            );
                         },
                         array_keys($view), $view
                     )
@@ -1058,7 +1066,8 @@ class TableStructureController extends TableController
      *
      * @return string $html_output
      */
-    protected function getTableStats() {
+    protected function getTableStats()
+    {
         if (empty($this->_showtable)) {
             $this->_showtable = $this->dbi->getTable(
                 $this->db, $this->table

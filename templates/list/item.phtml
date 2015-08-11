@@ -1,0 +1,49 @@
+<?php
+/**
+ * Display item of a list.
+ *
+ * $content - mandatory string - Content to display
+ * $id - optional string - Contains the id of li tag
+ * $class - optional string - Contains the class name(s) of li tag
+ * $mysql_help_page - optional string - Related help page
+ * $url - optional array: - href - optional string - Destination page or anchor
+ *                        - target - optional string - Target of link
+ *                        - class - optional string - Class of link
+ *                        - title - optional string - Title of link
+ */
+?>
+<li<?php
+echo !empty($id) ? ' id="' . $id . '"' : null;
+echo !empty($class) ? ' class="' . $class . '"' : null;
+?>>
+    <?php
+    if (!empty($url) && is_array($url)) : ?>
+        <a<?php echo !empty($url['href']) ? ' href="' . $url['href'] . '"' : null ?>"
+        <?php
+        echo !empty($url['target'])
+            ? ' target="' . $url['target'] . '"'
+            : null;
+        ?>
+        <?php echo !empty($url['id']) ? ' id="' . $url['id'] . '"' : null; ?>
+        <?php
+        echo !empty($url['class'])
+            ? ' class="' . $url['class'] . '"'
+            : null;
+        ?>
+        <?php
+        echo !empty($url['title'])
+            ? ' title="' . $url['title'] . '"'
+            : null;
+        ?>>
+        <?php
+    endif;
+    echo $content;
+    if (!empty($url) && is_array($url)) : ?>
+        </a>
+    <?php
+    endif;
+    if (!empty($mysql_help_page)) :
+        echo PMA_Util::showMySQLDocu($mysql_help_page);
+    endif;
+    ?>
+</li>

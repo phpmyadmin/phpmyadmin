@@ -24,6 +24,7 @@
     "require-dev": {
         "satooshi/php-coveralls": ">=0.6",
         "phpunit/phpunit": ">=3.7",
-        "phpunit/phpunit-selenium": ">=1.2"
+        "phpunit/phpunit-selenium": ">=1.2",
+        "squizlabs/php_codesniffer": "2.*"
     }
 }

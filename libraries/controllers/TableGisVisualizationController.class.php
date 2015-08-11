@@ -124,7 +124,9 @@ class TableGisVisualizationController extends TableController
             $this->visualizationSettings = $_REQUEST['visualizationSettings'];
         }
 
-        if (! isset($this->visualizationSettings['labelColumn']) && isset($labelCandidates[0])) {
+        if (!isset($this->visualizationSettings['labelColumn'])
+            && isset($labelCandidates[0])
+        ) {
             $this->visualizationSettings['labelColumn'] = '';
         }
 
@@ -134,7 +136,8 @@ class TableGisVisualizationController extends TableController
         }
 
         // Convert geometric columns from bytes to text.
-        $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
+        $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos']
+            : $_SESSION['tmpval']['pos'];
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
         } else {
@@ -186,8 +189,9 @@ class TableGisVisualizationController extends TableController
          * Displays the page
          */
         $this->url_params['sql_query'] = $this->sql_query;
-        $downloadUrl = 'tbl_gis_visualization.php' . PMA_URL_getCommon($this->url_params)
-            . '&saveToFile=true';
+        $downloadUrl = 'tbl_gis_visualization.php' . PMA_URL_getCommon(
+            $this->url_params
+        ) . '&saveToFile=true';
         $svgSupport = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
             ? false : true;
         $html = Template::get('table/gis_visualization/gis_visualization')->render(
@@ -198,7 +202,9 @@ class TableGisVisualizationController extends TableController
                 'spatialCandidates' => $spatialCandidates,
                 'visualizationSettings' => $this->visualizationSettings,
                 'sql_query' => $this->sql_query,
-                'visualization' => $this->visualization->toImage($svgSupport ? 'svg' : 'png'),
+                'visualization' => $this->visualization->toImage(
+                    $svgSupport ? 'svg' : 'png'
+                ),
                 'svgSupport' => $svgSupport,
                 'drawOl' => $this->visualization->asOl()
             )
