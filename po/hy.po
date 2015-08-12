@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:53-0400\n"
-"PO-Revision-Date: 2015-08-03 20:10+0200\n"
+"PO-Revision-Date: 2015-08-12 13:07+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -857,7 +857,7 @@ msgid ""
 "by setting a password for user 'root'."
 msgstr ""
 "Դուք միացել եք որպես 'root' առանց գաղտնաբառի, ինչը համապատասխանում է MySQL-ի "
-"հաշվի լռելյայն արտոնությւոնների կայանքներին։ Տվյալ կայանքներով մենկնարկված "
+"հաշվի լռելյայն արտոնությունների կայանքներին։ Տվյալ կայանքներով մենկնարկված "
 "MySQL սպասարկիչը պաշտպանված չէ ներխուժումներից, ուստի դուք պետք է շտկեք այս "
 "անվտանգություն խոցելիությունը՝ նշանակելով գաղտնաբառ 'root' օգտվողի համար։"
 
@@ -900,7 +900,7 @@ msgid ""
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Աշխատաշրջանի թխուկի պահպանումը ավելի ցածր է քան phpMyAdmin-ում սահմանված "
-"թխուկի վավերականությւոնը, այդ իսկ պատճառով, ձեր աշխատաշրջանը սպառվելու է "
+"թխուկի վավերականությունը, այդ իսկ պատճառով, ձեր աշխատաշրջանը սպառվելու է "
 "ավելի շուտ, քան նշանակված է phpMyAdmin-ում։"
 
 #: index.php:535
@@ -3647,10 +3647,9 @@ msgid "Relational key"
 msgstr "Կապակցող բանալի"
 
 #: libraries/DisplayResults.class.php:1744
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display column for relations"
-msgstr "Սյունակների մեկնաբանությւոնների ցուցադրումը"
+msgstr "Սյունակների մեկնաբանությունների ցուցադրումը"
 
 #: libraries/DisplayResults.class.php:1757
 msgid "Show binary contents"
@@ -3823,10 +3822,9 @@ msgid "Error while moving uploaded file."
 msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ։"
 
 #: libraries/File.class.php:487
-#, fuzzy
 #| msgid "File was not an uploaded file."
 msgid "Cannot read uploaded file."
-msgstr "Ֆայլը՝ վերբեռնված ֆայլ չէր։"
+msgstr "Չհաջողվեց կարդալ վերբեռնված ֆայլը։"
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -4081,7 +4079,7 @@ msgstr "Երկուական մատյան"
 #: templates/structure/body_for_table_summary.phtml:10
 #: templates/structure/table_header.phtml:27
 msgid "Replication"
-msgstr "Վերարադրում"
+msgstr "Կրկնապատկում"
 
 #: libraries/Menu.class.php:606 libraries/ServerStatusData.class.php:193
 #: libraries/Util.class.php:4321 libraries/config.values.php:105
@@ -4114,15 +4112,15 @@ msgstr[1] "ազդվել է %1$d տող։"
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d տող ջնջվեց."
-msgstr[1] "%1$d տող ջնջվեց."
+msgstr[0] "%1$d տող ջնջվեց։"
+msgstr[1] "%1$d տող ջնջվեց։"
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d տող զետեղվեց."
-msgstr[1] "%1$d տող զետեղվեց."
+msgstr[0] "%1$d տող զետեղվեց։"
+msgstr[1] "%1$d տող զետեղվեց։"
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2521
 #: libraries/browse_foreigners.lib.php:327
@@ -4159,7 +4157,7 @@ msgstr "Ընտրյալ աղյուսակներ չկան։"
 
 #: libraries/RecentFavoriteTable.class.php:250
 msgid "Recent tables"
-msgstr "Վերջերս օգտագործված այուսակները"
+msgstr "Վերջին աղյուսակները"
 
 #: libraries/RecentFavoriteTable.class.php:252
 msgid "Recent"
@@ -6636,7 +6634,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:540
 msgid "Recently used tables"
-msgstr "Վերջերս օգտագործված այուսակները"
+msgstr "Վերջերս օգտագործված աղյուսակները"
 
 #: libraries/config/messages.inc.php:542
 msgid "These are Edit, Copy and Delete links."
@@ -7706,8 +7704,8 @@ msgstr "%s աղյուսակը ջնջվեց։"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "'%s' անունը ամրագրված է MySQL-ի կողմից օգտագործման համար։"
+msgstr[1] "'%s' անունները ամրագրված են MySQL-ի կողմից օգտագործման համար։"
 
 #: libraries/controllers/StructureController.class.php:875
 msgid "No column selected."
@@ -7882,10 +7880,9 @@ msgstr "MySQL-ի սկզբնական գաղտնաբառը"
 
 #: libraries/display_change_password.lib.php:110
 #: libraries/server_privileges.lib.php:1706
-#, fuzzy
 #| msgid "sha256_password"
 msgid "SHA256 password"
-msgstr "sha256_password"
+msgstr "SHA256 գաղտնաբառը"
 
 #: libraries/display_change_password.lib.php:137
 msgid "MySQL 4.0 compatible"
@@ -9037,8 +9034,8 @@ msgstr ""
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "գտնվել է %s արդյունք"
+msgstr[1] "գտնվել է %s արդյունք"
 
 #: libraries/navigation/NavigationTree.class.php:1331
 msgid "Filter databases by name or regex"
@@ -9674,7 +9671,7 @@ msgstr ""
 #: libraries/plugins/AuthenticationPlugin.class.php:82
 #: libraries/plugins/AuthenticationPlugin.class.php:84
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "Հնարավոր չէ կապ հաստատել MySQL սպասարկչի հետ"
 
 #: libraries/plugins/SchemaPlugin.class.php:68
 msgid "Show color"
@@ -10659,7 +10656,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:174
 msgid "Displaying Column Comments"
-msgstr "Սյունակների մեկնաբանությւոնների ցուցադրումը"
+msgstr "Սյունակների մեկնաբանությունների ցուցադրումը"
 
 #: libraries/relation.lib.php:180
 msgid "Browser transformation"
@@ -11340,7 +11337,8 @@ msgstr ""
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] ""
+msgstr[0] "Ընթացակարգի վերջին արտահայտությունով ընդգրկվել է %d տող։"
+msgstr[1] "Ընթացակարգի վերջին արտահայտությունով ընդգրկվել է %d տող։"
 
 #: libraries/rte/rte_routines.lib.php:1398
 #: libraries/rte/rte_routines.lib.php:1406
@@ -11547,8 +11545,8 @@ msgstr "Միացնել վիճակագրումը"
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d տվյալների բազա հաջողությամբ ջնջվեց։"
+msgstr[1] "%1$d տվյալների բազա հաջողությամբ ջնջվեցին։"
 
 #: libraries/server_plugins.lib.php:31
 msgid "Modules"
@@ -13829,10 +13827,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:70
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Ընտրած տարբերակներ չկան։"
+msgstr "Ընտրած տողեր չկան։"
 
 #: tbl_tracking.php:33
 #, php-format
