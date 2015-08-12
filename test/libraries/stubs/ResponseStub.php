@@ -46,12 +46,24 @@ class PMA_Response
     protected $json;
 
     /**
+     * Whether there were any errors during the processing of the request
+     * Only used for ajax responses
+     *
+     * @access private
+     * @var bool
+     */
+    protected $_isSuccess;
+
+    /**
      * Creates a new class instance
      */
     public function __construct()
     {
+        $this->_isSuccess = true;
         $this->htmlString = '';
         $this->json = array();
+
+        $GLOBALS['lang'] = 'en';
         $this->header = new PMA_Header();
     }
 
@@ -130,5 +142,40 @@ class PMA_Response
     public function getHeader()
     {
         return $this->header;
+    }
+
+    /**
+     * Set the status of an ajax response,
+     * whether it is a success or an error
+     *
+     * @param bool $state Whether the request was successfully processed
+     *
+     * @return void
+     */
+    public function isSuccess($state)
+    {
+        $this->_isSuccess = $state;
+    }
+
+    /**
+     * Get the status of an ajax response.
+     *
+     * @return bool
+     */
+    public function getSuccessSate()
+    {
+        return $this->_isSuccess;
+    }
+
+    /**
+     * This function is used to clear all data to this
+     * stub after any operations.
+     *
+     */
+    public function clear()
+    {
+        $this->_isSuccess = true;
+        $this->json = array();
+        $this->htmlString = '';
     }
 }

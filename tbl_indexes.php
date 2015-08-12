@@ -11,6 +11,7 @@ namespace PMA;
 use PMA_Index;
 use PMA_Response;
 
+require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableIndexesController.class.php';
 require_once 'libraries/Response.class.php';

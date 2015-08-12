@@ -901,6 +901,30 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests for getSqlQueryForIndexCreateOrEdit() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetSqlQueryForIndexCreateOrEdit()
+    {
+        $db = "pma_db";
+        $table = "pma_table";
+        $index = new PMA_Index();
+        $error = false;
+
+        $_REQUEST['old_index'] = "PRIMARY";
+
+        $table = new PMA_Table($table, $db);
+        $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
+
+        $this->assertEquals(
+            "ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;",
+            $sql
+        );
+    }
+
+    /**
      * Test for getColumns
      *
      * @return void
