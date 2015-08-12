@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - issue #11380 Incomplete message after import
 - issue        Incorrect scalar type declaration (reported under PHP 7)
 - issue #11389 ReCaptcha produces deprecated messages under PHP 7
+- issue #11387 phpseclib < 2.0 produces deprecated messages on PHP 7
 
 4.4.13.1 (2015-08-08)
 - issue #11368 SQL error when importing phpMyAdmin dump file
