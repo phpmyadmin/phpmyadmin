@@ -26,5 +26,11 @@
         "phpunit/phpunit": ">=3.7",
         "phpunit/phpunit-selenium": ">=1.2",
         "squizlabs/php_codesniffer": "2.*"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://www.phpmyadmin.net"
+        }
+    ]
 }

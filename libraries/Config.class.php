@@ -1371,8 +1371,10 @@ class PMA_Config
             // Add hostname
             $pma_absolute_uri .= $url['host'];
             // Add port, if it not the default one
+            // (or 80 for https which is most likely a bug)
             if (! empty($url['port'])
                 && (($url['scheme'] == 'http' && $url['port'] != 80)
+                || ($url['scheme'] == 'https' && $url['port'] != 80)
                 || ($url['scheme'] == 'https' && $url['port'] != 443))
             ) {
                 $pma_absolute_uri .= ':' . $url['port'];

@@ -55,10 +55,10 @@ class OptionsArray extends Component
     {
         $ret = new OptionsArray();
 
-         /**
-          * The ID that will be assigned to duplicate options.
-          * @var int $lastAssignedId
-          */
+        /**
+         * The ID that will be assigned to duplicate options.
+         * @var int $lastAssignedId
+         */
         $lastAssignedId = count($options) + 1;
 
         /**

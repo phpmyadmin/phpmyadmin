@@ -1908,7 +1908,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
  * @param string     $disp_message           display message
  * @param string     $query_type             query type
  * @param string     $sql_query              sql query
- * @param array      $selectedTables         array of table names selected from the
+ * @param array|null $selectedTables         array of table names selected from the
  *                                           database structure page, for an action
  *                                           like check table, optimize table,
  *                                           analyze table or repair table
@@ -1966,7 +1966,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
  * @param string     $disp_message           display message
  * @param string     $query_type             query type
  * @param string     $sql_query              sql query
- * @param array      $selectedTables         array of table names selected from the
+ * @param array|null $selectedTables         array of table names selected from the
  *                                           database structure page, for an action
  *                                           like check table, optimize table,
  *                                           analyze table or repair table

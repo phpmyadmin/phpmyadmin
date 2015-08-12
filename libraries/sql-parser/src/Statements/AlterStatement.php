@@ -131,7 +131,7 @@ class AlterStatement extends Statement
             $tmp[] = $altered::build($altered);
         }
 
-        return 'ALTER ' .  OptionsArray::build($this->options)
+        return 'ALTER ' . OptionsArray::build($this->options)
             . ' TABLE ' . Expression::build($this->table)
             . ' ' . implode(', ', $tmp);
     }

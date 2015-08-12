@@ -303,8 +303,8 @@ namespace SqlParser {
         /**
          * Constructor.
          *
-         * @param mixed $list   The list of tokens to be parsed.
-         * @param bool  $strict Whether strict mode should be enabled or not.
+         * @param string|UtfString|TokensList $list   The list of tokens to be parsed.
+         * @param bool             $strict Whether strict mode should be enabled or not.
          */
         public function __construct($list = null, $strict = false)
         {
@@ -368,6 +368,17 @@ namespace SqlParser {
                  */
                 $token = $list->tokens[$list->idx];
 
+                // `DELIMITER` is not an actual statement and it requires
+                // special handling.
+                if (($token->type === Token::TYPE_NONE)
+                    && (strtoupper($token->token) === 'DELIMITER')
+                ) {
+                    // Skipping to the end of this statement.
+                    $list->getNextOfType(Token::TYPE_DELIMITER);
+                    $prevLastIdx = $list->idx;
+                    continue;
+                }
+
                 // Statements can start with keywords only.
                 // Comments, whitespaces, etc. are ignored.
                 if ($token->type !== Token::TYPE_KEYWORD) {
@@ -402,7 +413,6 @@ namespace SqlParser {
                     }
                     // Skipping to the end of this statement.
                     $list->getNextOfType(Token::TYPE_DELIMITER);
-                    //
                     $prevLastIdx = $list->idx;
                     continue;
                 }

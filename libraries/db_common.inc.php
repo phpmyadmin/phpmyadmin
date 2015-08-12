@@ -17,6 +17,7 @@ require_once './libraries/bookmark.lib.php';
 PMA_Util::checkParameters(array('db'));
 
 global $cfg;
+global $db;
 
 $is_show_stats = $cfg['ShowStats'];
 
