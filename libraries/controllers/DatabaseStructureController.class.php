@@ -497,9 +497,7 @@ class DatabaseStructureController extends DatabaseController
                 );
 
                 $do = strlen($searchDoDBInTruename) > 0
-                    || strlen(
-                        $searchDoDBInDB
-                    ) > 0
+                    || strlen($searchDoDBInDB) > 0
                     || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
                     || $this->hasTable(
                         $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
