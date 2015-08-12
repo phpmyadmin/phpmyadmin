@@ -370,19 +370,19 @@ class AuthenticationCookie extends AuthenticationPlugin
             ) {
                 if (! empty($_POST["g-recaptcha-response"])) {
 
-                    include_once 'libraries/plugins/auth/recaptcha/recaptchalib.php';
-                    $reCaptcha = new ReCaptcha(
+                    include_once 'libraries/plugins/auth/recaptcha/autoload.php';
+                    $reCaptcha = new \ReCaptcha\ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey']
                     );
 
                     // verify captcha status.
-                    $resp = $reCaptcha->verifyResponse(
-                        $_SERVER["REMOTE_ADDR"],
-                        $_POST["g-recaptcha-response"]
+                    $resp = $reCaptcha->verify(
+                        $_POST["g-recaptcha-response"],
+                        $_SERVER["REMOTE_ADDR"]
                     );
 
                     // Check if the captcha entered is valid, if not stop the login.
-                    if ($resp == null || ! $resp->success) {
+                    if ($resp == null || ! $resp->isSuccess()) {
                         $conn_error = __('Entered captcha is wrong, try again!');
                         $_SESSION['last_valid_captcha'] = false;
                         return false;
