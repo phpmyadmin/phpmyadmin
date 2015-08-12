@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-08 13:53-0400\n"
+"POT-Creation-Date: 2015-08-12 08:10-0400\n"
 "PO-Revision-Date: 2014-12-29 15:37+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -53,7 +53,7 @@ msgid "Table comments:"
 msgstr "Tabellkommentarer:"
 
 #: db_datadict.php:104 libraries/Index.class.php:699
-#: libraries/insert_edit.lib.php:1567
+#: libraries/insert_edit.lib.php:1565
 #: libraries/navigation/Nodes/Node_Column.class.php:30
 #: libraries/plugins/export/ExportHtmlword.class.php:280
 #: libraries/plugins/export/ExportHtmlword.class.php:375
@@ -67,13 +67,14 @@ msgstr "Tabellkommentarer:"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1023
 #: libraries/tracking.lib.php:879 libraries/tracking.lib.php:975
 #: templates/columns_definitions/column_name.phtml:18
-#: templates/index_form.phtml:124 templates/table/table_header.phtml:6
-#: templates/table/zoom_result_form.phtml:33
-#: templates/tbl_relation/common_form.phtml:10
-#: templates/tbl_relation/common_form.phtml:43
-#: templates/tbl_relation/foreign_key_row.phtml:194
-#: templates/tbl_relation/foreign_key_row.phtml:206
-#: templates/tbl_relation/internal_relational_row.phtml:71
+#: templates/table/index_form.phtml:124
+#: templates/table/relation/common_form.phtml:10
+#: templates/table/relation/common_form.phtml:43
+#: templates/table/relation/foreign_key_row.phtml:194
+#: templates/table/relation/foreign_key_row.phtml:206
+#: templates/table/relation/internal_relational_row.phtml:71
+#: templates/table/search/table_header.phtml:6
+#: templates/table/search/zoom_result_form.phtml:33
 msgid "Column"
 msgstr "Kolumn"
 
@@ -91,21 +92,21 @@ msgstr "Kolumn"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1001
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1024
 #: libraries/rte/rte_list.lib.php:75 libraries/rte/rte_list.lib.php:103
-#: libraries/rte/rte_routines.lib.php:802
-#: libraries/rte/rte_routines.lib.php:831
-#: libraries/rte/rte_routines.lib.php:1493
+#: libraries/rte/rte_routines.lib.php:893
+#: libraries/rte/rte_routines.lib.php:922
+#: libraries/rte/rte_routines.lib.php:1584
 #: libraries/server_privileges.lib.php:2369 libraries/tracking.lib.php:880
 #: libraries/tracking.lib.php:972
 #: templates/columns_definitions/table_fields_definitions.phtml:11
-#: templates/structure/table_header.phtml:48
-#: templates/structure/table_structure_header.phtml:6
-#: templates/table/table_header.phtml:7
+#: templates/database/structure/table_header.phtml:48
+#: templates/table/search/table_header.phtml:7
+#: templates/table/structure/table_structure_header.phtml:6
 msgid "Type"
 msgstr "Typ"
 
 #: db_datadict.php:106 libraries/Index.class.php:702
 #: libraries/central_columns.lib.php:708
-#: libraries/central_columns.lib.php:1382 libraries/insert_edit.lib.php:1576
+#: libraries/central_columns.lib.php:1382 libraries/insert_edit.lib.php:1574
 #: libraries/plugins/export/ExportHtmlword.class.php:286
 #: libraries/plugins/export/ExportHtmlword.class.php:381
 #: libraries/plugins/export/ExportLatex.class.php:509
@@ -118,8 +119,8 @@ msgstr "Typ"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1026
 #: libraries/tracking.lib.php:882 libraries/tracking.lib.php:978
 #: templates/columns_definitions/table_fields_definitions.phtml:39
-#: templates/structure/table_structure_header.phtml:9
-#: templates/table/zoom_result_form.phtml:34
+#: templates/table/search/zoom_result_form.phtml:34
+#: templates/table/structure/table_structure_header.phtml:9
 msgid "Null"
 msgstr "Null"
 
@@ -137,8 +138,8 @@ msgstr "Null"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:883
 #: templates/columns_definitions/table_fields_definitions.phtml:25
-#: templates/structure/body_for_table_summary.phtml:55
-#: templates/structure/table_structure_header.phtml:10
+#: templates/database/structure/body_for_table_summary.phtml:55
+#: templates/table/structure/table_structure_header.phtml:10
 msgid "Default"
 msgstr "Standardvärde"
 
@@ -166,19 +167,19 @@ msgid "Comments"
 msgstr "Kommentarer"
 
 #: db_datadict.php:146
-#: libraries/controllers/StructureController.class.php:1960
-#: libraries/controllers/StructureController.class.php:1965
+#: libraries/controllers/TableStructureController.class.php:951
+#: libraries/controllers/TableStructureController.class.php:956
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
-#: templates/structure/check_all_table_column.phtml:22
-#: templates/structure/display_structure.phtml:74
+#: templates/table/structure/check_all_table_column.phtml:22
+#: templates/table/structure/display_structure.phtml:74
 msgid "Primary"
 msgstr "Primär"
 
 #: db_datadict.php:156 js/messages.php:317 libraries/Index.class.php:567
 #: libraries/Index.class.php:606 libraries/Index.class.php:1018
 #: libraries/central_columns.lib.php:966
-#: libraries/config/FormDisplay.tpl.php:261 libraries/mult_submits.lib.php:403
+#: libraries/config/FormDisplay.tpl.php:272 libraries/mult_submits.lib.php:403
 #: libraries/mult_submits.lib.php:417
 #: libraries/plugins/export/ExportHtmlword.class.php:630
 #: libraries/plugins/export/ExportLatex.class.php:589
@@ -194,20 +195,20 @@ msgstr "Primär"
 #: libraries/server_privileges.lib.php:3473 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1010 libraries/tracking.lib.php:1015
 #: prefs_manage.php:140 templates/prefs_autoload.phtml:15
-#: templates/structure/table_structure_row.phtml:24
+#: templates/table/structure/table_structure_row.phtml:24
 msgid "No"
 msgstr "Nej"
 
 #: db_datadict.php:156 js/messages.php:443 libraries/Index.class.php:568
 #: libraries/Index.class.php:605 libraries/Index.class.php:1018
 #: libraries/central_columns.lib.php:966
-#: libraries/config/FormDisplay.tpl.php:261
-#: libraries/controllers/StructureController.class.php:1344
-#: libraries/controllers/StructureController.class.php:2223
-#: libraries/controllers/StructureController.class.php:2232
-#: libraries/controllers/StructureController.class.php:2237
-#: libraries/controllers/StructureController.class.php:2242
-#: libraries/controllers/StructureController.class.php:2247
+#: libraries/config/FormDisplay.tpl.php:272
+#: libraries/controllers/TableStructureController.class.php:539
+#: libraries/controllers/TableStructureController.class.php:1201
+#: libraries/controllers/TableStructureController.class.php:1210
+#: libraries/controllers/TableStructureController.class.php:1215
+#: libraries/controllers/TableStructureController.class.php:1220
+#: libraries/controllers/TableStructureController.class.php:1225
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:178
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -216,8 +217,8 @@ msgstr "Nej"
 #: libraries/plugins/export/ExportOdt.class.php:756
 #: libraries/plugins/export/ExportTexytext.class.php:567
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1077
-#: libraries/server_databases.lib.php:464
-#: libraries/server_databases.lib.php:474
+#: libraries/server_databases.lib.php:475
+#: libraries/server_databases.lib.php:485
 #: libraries/server_privileges.lib.php:2546
 #: libraries/server_privileges.lib.php:2727
 #: libraries/server_privileges.lib.php:2748
@@ -227,7 +228,7 @@ msgstr "Nej"
 #: libraries/server_privileges.lib.php:3473 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1008 libraries/tracking.lib.php:1013
 #: prefs_manage.php:138 templates/prefs_autoload.phtml:14
-#: templates/structure/table_structure_row.phtml:24
+#: templates/table/structure/table_structure_row.phtml:24
 msgid "Yes"
 msgstr "Ja"
 
@@ -237,7 +238,7 @@ msgstr "Visa dump (schema) av databasen"
 
 #: db_export.php:37 db_tracking.php:90 export.php:382
 #: libraries/DBQbe.class.php:326
-#: libraries/controllers/StructureController.class.php:231
+#: libraries/controllers/DatabaseStructureController.class.php:170
 #: libraries/navigation/NavigationTree.class.php:897
 msgid "No tables found in database."
 msgstr "Inga tabeller funna i databasen."
@@ -248,14 +249,14 @@ msgstr "Inga tabeller funna i databasen."
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: templates/structure/show_create.phtml:18
+#: templates/database/structure/show_create.phtml:18
 msgid "Tables"
 msgstr "Tabeller"
 
 #: db_export.php:52 libraries/Menu.class.php:317 libraries/Menu.class.php:425
-#: libraries/Util.class.php:3333 libraries/Util.class.php:3343
-#: libraries/Util.class.php:3349 libraries/Util.class.php:3629
-#: libraries/Util.class.php:4327 libraries/Util.class.php:4344
+#: libraries/Util.class.php:3339 libraries/Util.class.php:3349
+#: libraries/Util.class.php:3355 libraries/Util.class.php:3635
+#: libraries/Util.class.php:4333 libraries/Util.class.php:4350
 #: libraries/central_columns.lib.php:728 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:323
@@ -269,7 +270,7 @@ msgstr "Tabeller"
 #: libraries/navigation/Nodes/Node_Table.class.php:283
 #: libraries/server_privileges.lib.php:1141 libraries/tracking.lib.php:874
 #: templates/columns_definitions/table_fields_definitions.phtml:3
-#: templates/designer/table_list.phtml:28
+#: templates/database/designer/table_list.phtml:28
 msgid "Structure"
 msgstr "Struktur"
 
@@ -281,7 +282,7 @@ msgstr "Struktur"
 #: libraries/config/user_preferences.forms.php:292
 #: libraries/config/user_preferences.forms.php:297
 #: libraries/server_privileges.lib.php:1140
-#: templates/structure/display_table_stats.phtml:12
+#: templates/table/structure/display_table_stats.phtml:12
 msgid "Data"
 msgstr "Data"
 
@@ -362,10 +363,10 @@ msgstr "Spårade tabeller"
 #: libraries/server_privileges.lib.php:2908
 #: libraries/server_privileges.lib.php:3145
 #: libraries/server_privileges.lib.php:3156
-#: libraries/server_privileges.lib.php:4346
-#: templates/structure/table_header.phtml:21
-#: templates/tbl_relation/foreign_key_row.phtml:176
-#: templates/tbl_relation/internal_relational_row.phtml:63
+#: libraries/server_privileges.lib.php:4372
+#: templates/database/structure/table_header.phtml:21
+#: templates/table/relation/foreign_key_row.phtml:176
+#: templates/table/relation/internal_relational_row.phtml:63
 msgid "Table"
 msgstr "Tabell"
 
@@ -382,7 +383,7 @@ msgid "Updated"
 msgstr "Uppdaterad"
 
 #: db_tracking.php:130 js/messages.php:243 libraries/Menu.class.php:552
-#: libraries/Util.class.php:4314 libraries/config.values.php:104
+#: libraries/Util.class.php:4320 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:279
 msgid "Status"
@@ -391,14 +392,15 @@ msgstr "Status"
 #: db_tracking.php:131 db_tracking.php:290 libraries/Index.class.php:693
 #: libraries/central_columns.lib.php:687 libraries/rte/rte_list.lib.php:74
 #: libraries/rte/rte_list.lib.php:89 libraries/rte/rte_list.lib.php:102
-#: libraries/server_databases.lib.php:398
+#: libraries/server_databases.lib.php:409
 #: libraries/server_privileges.lib.php:2372
 #: libraries/server_privileges.lib.php:3166
 #: libraries/server_privileges.lib.php:3342
 #: libraries/server_user_groups.lib.php:82
 #: libraries/server_variables.lib.php:189 libraries/tracking.lib.php:280
-#: libraries/tracking.lib.php:793 templates/structure/table_header.phtml:30
-#: templates/structure/table_structure_header.phtml:23
+#: libraries/tracking.lib.php:793
+#: templates/database/structure/table_header.phtml:30
+#: templates/table/structure/table_structure_header.phtml:23
 msgid "Action"
 msgstr "Åtgärd"
 
@@ -442,7 +444,7 @@ msgid "Untracked tables"
 msgstr "Ej spårade tabeller"
 
 #: db_tracking.php:305 db_tracking.php:336
-#: templates/structure/optional_action_links.phtml:17
+#: templates/table/structure/optional_action_links.phtml:17
 msgid "Track table"
 msgstr "Spåra tabell"
 
@@ -495,7 +497,7 @@ msgid "Value for the column \"%s\""
 msgstr "Värde för kolumn \"%s\""
 
 #: gis_data_editor.php:146
-#: templates/gis_visualization/gis_visualization.phtml:37
+#: templates/table/gis_visualization/gis_visualization.phtml:37
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Använd OpenStreetMaps som baslager"
 
@@ -575,35 +577,35 @@ msgstr "Addera geometri"
 #: libraries/display_change_password.lib.php:162
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:392 libraries/index.lib.php:44
-#: libraries/insert_edit.lib.php:1546 libraries/insert_edit.lib.php:1583
+#: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
 #: libraries/normalization.lib.php:165 libraries/normalization.lib.php:821
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
 #: libraries/operations.lib.php:263 libraries/operations.lib.php:306
 #: libraries/operations.lib.php:801 libraries/operations.lib.php:874
 #: libraries/operations.lib.php:923 libraries/operations.lib.php:1337
 #: libraries/operations.lib.php:1658
-#: libraries/plugins/auth/AuthenticationCookie.class.php:244
+#: libraries/plugins/auth/AuthenticationCookie.class.php:232
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:161
 #: libraries/replication_gui.lib.php:324 libraries/replication_gui.lib.php:461
 #: libraries/replication_gui.lib.php:906 libraries/rte/rte_events.lib.php:509
-#: libraries/rte/rte_routines.lib.php:969
-#: libraries/rte/rte_routines.lib.php:1581
+#: libraries/rte/rte_routines.lib.php:1060
+#: libraries/rte/rte_routines.lib.php:1672
 #: libraries/rte/rte_triggers.lib.php:396 libraries/server_bin_log.lib.php:61
 #: libraries/server_privileges.lib.php:705
 #: libraries/server_privileges.lib.php:2106
 #: libraries/server_privileges.lib.php:2872
 #: libraries/server_privileges.lib.php:3553
-#: libraries/server_privileges.lib.php:4627
+#: libraries/server_privileges.lib.php:4653
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:429
 #: libraries/tracking.lib.php:533 libraries/tracking.lib.php:653
 #: prefs_manage.php:277 prefs_manage.php:355
 #: templates/columns_definitions/column_definitions_form.phtml:59
-#: templates/header_location.phtml:17 templates/index_form.phtml:238
+#: templates/database/create_table.phtml:21 templates/header_location.phtml:28
 #: templates/startAndNumberOfRowsPanel.phtml:14
-#: templates/structure/add_column.phtml:25
-#: templates/table/create_table.phtml:21
-#: templates/table/selection_form.phtml:75 view_create.php:275
+#: templates/table/index_form.phtml:238
+#: templates/table/search/selection_form.phtml:75
+#: templates/table/structure/add_column.phtml:25 view_create.php:275
 #: view_operations.php:106
 msgid "Go"
 msgstr "Kör"
@@ -699,7 +701,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
-#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1466
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1460
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
@@ -741,11 +743,11 @@ msgstr ""
 msgid "Back"
 msgstr "Föregående"
 
-#: index.php:148 libraries/Footer.class.php:70
+#: index.php:149 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "Demoserver för phpMyAdmin"
 
-#: index.php:152
+#: index.php:153
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -756,112 +758,112 @@ msgstr ""
 "användarna root, debian-sys-maint och pma. Mer information finns tillgänglig "
 "på %s."
 
-#: index.php:162
+#: index.php:163
 msgid "General Settings"
 msgstr "Allmänna inställningar"
 
-#: index.php:190 libraries/display_change_password.lib.php:50
+#: index.php:191 libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:247
 msgid "Change password"
 msgstr "Byt lösenord"
 
-#: index.php:206
+#: index.php:207
 msgid "Server connection collation"
 msgstr "Serveranslutning kollationering"
 
-#: index.php:228
+#: index.php:229
 msgid "Appearance Settings"
 msgstr "Inställningar för utseende"
 
-#: index.php:258 prefs_manage.php:285
+#: index.php:259 prefs_manage.php:285
 msgid "More settings"
 msgstr "Fler inställningar"
 
-#: index.php:279
+#: index.php:280
 msgid "Database server"
 msgstr "Databas-server"
 
-#: index.php:282 libraries/plugins/auth/AuthenticationCookie.class.php:181
+#: index.php:283 libraries/plugins/auth/AuthenticationCookie.class.php:169
 msgid "Server:"
 msgstr "Server:"
 
-#: index.php:286
+#: index.php:287
 msgid "Server type:"
 msgstr "Servertyp:"
 
-#: index.php:290 libraries/plugins/export/ExportLatex.class.php:212
+#: index.php:291 libraries/plugins/export/ExportLatex.class.php:212
 #: libraries/plugins/export/ExportSql.class.php:687
 #: libraries/plugins/export/ExportXml.class.php:189
 msgid "Server version:"
 msgstr "Serverversion:"
 
-#: index.php:296
+#: index.php:297
 msgid "Protocol version:"
 msgstr "Protokollversion:"
 
-#: index.php:300
+#: index.php:301
 msgid "User:"
 msgstr "Användare:"
 
-#: index.php:305
+#: index.php:306
 msgid "Server charset:"
 msgstr "Serverns teckenuppsättning:"
 
-#: index.php:320
+#: index.php:321
 msgid "Web server"
 msgstr "Webbserver"
 
-#: index.php:331
+#: index.php:332
 msgid "Database client version:"
 msgstr "Databasens klientversion:"
 
-#: index.php:335
+#: index.php:336
 msgid "PHP extension:"
 msgstr "PHP-tillägg:"
 
-#: index.php:349
+#: index.php:350
 #, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP-version:"
 
-#: index.php:360
+#: index.php:361
 msgid "Show PHP information"
 msgstr "Visa PHP-information"
 
-#: index.php:383
+#: index.php:384
 msgid "Version information:"
 msgstr "Versionsinformation:"
 
-#: index.php:392 libraries/Util.class.php:432 libraries/Util.class.php:495
-#: libraries/config/FormDisplay.tpl.php:151
+#: index.php:393 libraries/Util.class.php:432 libraries/Util.class.php:495
+#: libraries/config/FormDisplay.tpl.php:162
 #: libraries/display_export.lib.php:577 libraries/engines/pbxt.lib.php:162
 #: libraries/navigation/NavigationHeader.class.php:196
 #: libraries/server_variables.lib.php:160
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: index.php:399
+#: index.php:400
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:408
+#: index.php:409
 msgid "Official Homepage"
 msgstr "phpMyAdmin:s officiella hemsida"
 
-#: index.php:415
+#: index.php:416
 msgid "Contribute"
 msgstr "Bidra"
 
-#: index.php:422
+#: index.php:423
 msgid "Get support"
 msgstr "Få support"
 
-#: index.php:429
+#: index.php:430
 msgid "List of changes"
 msgstr "Lista över ändringar"
 
-#: index.php:451
+#: index.php:452
 #, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
@@ -879,7 +881,7 @@ msgstr ""
 "denna standard, är öppen för intrång, och du bör verkligen fixa detta "
 "säkerhetshål genom att ange ett lösenord för användare 'root'."
 
-#: index.php:468
+#: index.php:469
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -889,7 +891,7 @@ msgstr ""
 "alternativ är inkompatibelt med phpMyAdmin och kan leda till att data kan "
 "skadas!"
 
-#: index.php:483
+#: index.php:484
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -899,7 +901,7 @@ msgstr ""
 "flerbitars teckenuppsättning. phpMyAdmin kan inte dela upp strängar korrekt "
 "utan tillägget mbstring, vilket kan resultera i oväntade resultat."
 
-#: index.php:500
+#: index.php:501
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
@@ -917,7 +919,7 @@ msgstr ""
 "giltighet konfigurerad i phpMyAdmin. På grund av detta kommer din inloggning "
 "upphöra tidigare än vad som är konfigurerat i phpMyAdmin."
 
-#: index.php:519
+#: index.php:520
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -926,11 +928,11 @@ msgstr ""
 "grund av detta kommer dina inloggningsuppgifter upphöra att gälla tidigare "
 "än konfigurerat i phpMyAdmin."
 
-#: index.php:535
+#: index.php:536
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Konfigurationsfilen behöver nu ett hemligt lösenord (blowfish_secret)."
 
-#: index.php:548
+#: index.php:549
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -942,7 +944,7 @@ msgstr ""
 "den när phpMyAdmin har konfigurerats. I annat fall kan din servers säkerhet "
 "hotas av obehöriga som laddar ner din konfiguration."
 
-#: index.php:564
+#: index.php:565
 #, fuzzy, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
@@ -954,12 +956,12 @@ msgstr ""
 "phpMyAdmin-konfigurationen är inte fullständigt konfigurerad, vissa utökade "
 "funktioner har inaktiverats. För att ta reda på varför klicka%shär%s."
 
-#: index.php:571
+#: index.php:572
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: index.php:620
+#: index.php:621
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -968,7 +970,7 @@ msgstr ""
 "Din PHP MySQL bibliotekversion %s skiljer sig från din MySQL server version "
 "%s. Detta kan orsaka oförutsägbara beteenden."
 
-#: index.php:648
+#: index.php:649
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1133,8 +1135,8 @@ msgstr ""
 msgid "Save & Close"
 msgstr "Spara som fil"
 
-#: js/messages.php:89 libraries/config/FormDisplay.tpl.php:404
-#: libraries/insert_edit.lib.php:1550 prefs_manage.php:361
+#: js/messages.php:89 libraries/config/FormDisplay.tpl.php:415
+#: libraries/insert_edit.lib.php:1548 prefs_manage.php:361
 #: prefs_manage.php:372
 msgid "Reset"
 msgstr "Återställ"
@@ -1169,7 +1171,7 @@ msgstr "Addera index"
 msgid "Edit Index"
 msgstr "Redigera index"
 
-#: js/messages.php:99 templates/index_form.phtml:232
+#: js/messages.php:99 templates/table/index_form.phtml:232
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Lägg till %s kolumn(er) till index"
@@ -1198,13 +1200,14 @@ msgstr "Kolumner omges av:"
 msgid "Please select column(s) for the index."
 msgstr "Lägg till %s kolumn(er) till index"
 
-#: js/messages.php:106 templates/structure/add_column.phtml:1
+#: js/messages.php:106 templates/table/structure/add_column.phtml:1
 msgid "You have to add at least one column."
 msgstr "Du måste lägga till åtminstone en kolumn."
 
-#: js/messages.php:109 libraries/insert_edit.lib.php:1548
+#: js/messages.php:109 libraries/insert_edit.lib.php:1546
 #: templates/columns_definitions/column_definitions_form.phtml:162
-#: templates/index_form.phtml:237 templates/tbl_relation/common_form.phtml:106
+#: templates/table/index_form.phtml:237
+#: templates/table/relation/common_form.phtml:106
 msgid "Preview SQL"
 msgstr ""
 
@@ -1225,7 +1228,7 @@ msgid "SQL query:"
 msgstr "SQL-fråga:"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:118 templates/tbl_chart.phtml:109
+#: js/messages.php:118 templates/table/chart/tbl_chart.phtml:109
 msgid "Y Values"
 msgstr "Y-värden"
 
@@ -1386,7 +1389,7 @@ msgstr "Antal bitar som skickats"
 msgid "Bytes received"
 msgstr "Antal mottagna bital"
 
-#: js/messages.php:169 libraries/server_status.lib.php:226
+#: js/messages.php:169 libraries/server_status.lib.php:235
 msgid "Connections"
 msgstr "Anslutningar"
 
@@ -1443,12 +1446,12 @@ msgstr "%d tabell(er)"
 msgid "Questions"
 msgstr "Frågor"
 
-#: js/messages.php:184 libraries/server_status.lib.php:134
+#: js/messages.php:184 libraries/server_status.lib.php:143
 msgid "Traffic"
 msgstr "Trafik"
 
 #: js/messages.php:185 libraries/Menu.class.php:586
-#: libraries/Util.class.php:4318 libraries/server_status_monitor.lib.php:257
+#: libraries/Util.class.php:4324 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Inställningar"
 
@@ -1468,8 +1471,9 @@ msgstr "Lägg till minst en variabel till serien!"
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:308
 #: templates/columns_definitions/transformation.phtml:4
-#: templates/designer/options_panel.phtml:178
-#: templates/table/options_zoom.phtml:12 templates/table/rows_zoom.phtml:26
+#: templates/database/designer/options_panel.phtml:178
+#: templates/table/search/options_zoom.phtml:12
+#: templates/table/search/rows_zoom.phtml:26
 msgid "None"
 msgstr "Inget"
 
@@ -1755,8 +1759,8 @@ msgstr ""
 
 #: js/messages.php:270 libraries/Menu.class.php:352
 #: libraries/Menu.class.php:455 libraries/Menu.class.php:582
-#: libraries/Util.class.php:4317 libraries/Util.class.php:4332
-#: libraries/Util.class.php:4349 libraries/config/messages.inc.php:258
+#: libraries/Util.class.php:4323 libraries/Util.class.php:4338
+#: libraries/Util.class.php:4355 libraries/config/messages.inc.php:258
 #: libraries/display_import.lib.php:105
 #: libraries/server_status_monitor.lib.php:318 prefs_manage.php:238
 #: setup/frames/menu.inc.php:26
@@ -1816,13 +1820,13 @@ msgid "Formatting SQL..."
 msgstr ""
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
-#: templates/designer/aggregate_query_panel.phtml:63
-#: templates/designer/delete_relation_panel.phtml:28
-#: templates/designer/having_query_panel.phtml:117
-#: templates/designer/new_relation_panel.phtml:88
-#: templates/designer/options_panel.phtml:253
-#: templates/designer/rename_to_panel.phtml:45
-#: templates/designer/where_query_panel.phtml:83
+#: templates/database/designer/aggregate_query_panel.phtml:63
+#: templates/database/designer/delete_relation_panel.phtml:28
+#: templates/database/designer/having_query_panel.phtml:117
+#: templates/database/designer/new_relation_panel.phtml:88
+#: templates/database/designer/options_panel.phtml:253
+#: templates/database/designer/rename_to_panel.phtml:45
+#: templates/database/designer/where_query_panel.phtml:83
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -1832,7 +1836,7 @@ msgstr "Avbryt"
 msgid "Page-related settings"
 msgstr "Ändra inställningar"
 
-#: js/messages.php:297 libraries/config/FormDisplay.tpl.php:402
+#: js/messages.php:297 libraries/config/FormDisplay.tpl.php:413
 msgid "Apply"
 msgstr "Verkställ"
 
@@ -1869,8 +1873,8 @@ msgstr "Felkod: %s"
 msgid "Error text: %s"
 msgstr "Felmeddelande: %s"
 
-#: js/messages.php:307 libraries/db_common.inc.php:68
-#: libraries/db_table_exists.lib.php:30 libraries/server_databases.lib.php:450
+#: js/messages.php:307 libraries/db_common.inc.php:69
+#: libraries/db_table_exists.lib.php:30 libraries/server_databases.lib.php:461
 msgid "No databases selected."
 msgstr "Inga databaser markerade."
 
@@ -1882,12 +1886,13 @@ msgstr "Tar bort kolumn"
 msgid "Adding Primary Key"
 msgstr "Lägger till primär nyckel"
 
-#: js/messages.php:310 templates/designer/aggregate_query_panel.phtml:59
-#: templates/designer/having_query_panel.phtml:113
-#: templates/designer/new_relation_panel.phtml:87
-#: templates/designer/options_panel.phtml:252
-#: templates/designer/rename_to_panel.phtml:41
-#: templates/designer/where_query_panel.phtml:82
+#: js/messages.php:310
+#: templates/database/designer/aggregate_query_panel.phtml:59
+#: templates/database/designer/having_query_panel.phtml:113
+#: templates/database/designer/new_relation_panel.phtml:87
+#: templates/database/designer/options_panel.phtml:252
+#: templates/database/designer/rename_to_panel.phtml:41
+#: templates/database/designer/where_query_panel.phtml:82
 msgid "OK"
 msgstr "OK"
 
@@ -1907,7 +1912,7 @@ msgstr "Kopierar databas"
 msgid "Changing Charset"
 msgstr "Ändrar teckenuppsättning"
 
-#: js/messages.php:320 libraries/Util.class.php:3217
+#: js/messages.php:320 libraries/Util.class.php:3223
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -1947,20 +1952,21 @@ msgstr ""
 #: js/messages.php:334 libraries/DisplayResults.class.php:4834
 #: libraries/DisplayResults.class.php:5092 libraries/Menu.class.php:344
 #: libraries/Menu.class.php:446 libraries/Menu.class.php:578
-#: libraries/Util.class.php:3636 libraries/Util.class.php:3637
-#: libraries/Util.class.php:4316 libraries/Util.class.php:4331
-#: libraries/Util.class.php:4348 libraries/config/messages.inc.php:252
+#: libraries/Util.class.php:3642 libraries/Util.class.php:3643
+#: libraries/Util.class.php:4322 libraries/Util.class.php:4337
+#: libraries/Util.class.php:4354 libraries/config/messages.inc.php:252
 #: libraries/display_export.lib.php:173 libraries/rte/rte_list.lib.php:146
 #: libraries/server_privileges.lib.php:2211
 #: libraries/server_privileges.lib.php:2290
 #: libraries/server_privileges.lib.php:2632
 #: libraries/server_privileges.lib.php:3356
 #: libraries/server_status_monitor.lib.php:322 prefs_manage.php:303
-#: setup/frames/menu.inc.php:27 templates/structure/check_all_tables.phtml:11
+#: setup/frames/menu.inc.php:27
+#: templates/database/structure/check_all_tables.phtml:11
 msgid "Export"
 msgstr "Exportera"
 
-#: js/messages.php:337 libraries/rte/rte_routines.lib.php:652
+#: js/messages.php:337 libraries/rte/rte_routines.lib.php:743
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET editor"
 
@@ -1999,7 +2005,7 @@ msgstr "Visa frågerutan"
 #: libraries/Console.class.php:214 libraries/DisplayResults.class.php:3474
 #: libraries/DisplayResults.class.php:4818 libraries/Index.class.php:723
 #: libraries/Util.class.php:706 libraries/Util.class.php:1202
-#: libraries/Util.class.php:3634 libraries/Util.class.php:3635
+#: libraries/Util.class.php:3640 libraries/Util.class.php:3641
 #: libraries/central_columns.lib.php:851
 #: libraries/central_columns.lib.php:1193
 #: libraries/config/messages.inc.php:892
@@ -2017,7 +2023,7 @@ msgstr "Redigera"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:416 libraries/tracking.lib.php:477
 #: setup/frames/index.inc.php:183 setup/frames/index.inc.php:291
-#: templates/designer/delete_relation_panel.phtml:27
+#: templates/database/designer/delete_relation_panel.phtml:27
 msgid "Delete"
 msgstr "Radera"
 
@@ -2197,11 +2203,11 @@ msgid "No dependencies selected!"
 msgstr "Inga databaser markerade."
 
 #: js/messages.php:394 libraries/central_columns.lib.php:1214
-#: libraries/insert_edit.lib.php:1458 libraries/server_variables.lib.php:155
+#: libraries/insert_edit.lib.php:1456 libraries/server_variables.lib.php:155
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:279
 #: templates/columns_definitions/column_definitions_form.phtml:165
-#: templates/gis_visualization/gis_visualization.phtml:48
-#: templates/tbl_relation/common_form.phtml:107
+#: templates/table/gis_visualization/gis_visualization.phtml:48
+#: templates/table/relation/common_form.phtml:107
 msgid "Save"
 msgstr "Spara"
 
@@ -2289,8 +2295,8 @@ msgid "Data point content"
 msgstr "Innehåll för datapunkt"
 
 #: js/messages.php:430 js/messages.php:562 js/messages.php:579
-#: libraries/Error_Handler.class.php:344 libraries/insert_edit.lib.php:2573
-#: templates/index_form.phtml:154 templates/index_form.phtml:194
+#: libraries/Error_Handler.class.php:344 libraries/insert_edit.lib.php:2571
+#: templates/table/index_form.phtml:154 templates/table/index_form.phtml:194
 msgid "Ignore"
 msgstr "Ignorera"
 
@@ -2349,8 +2355,8 @@ msgstr "Välj främmande nyckel"
 msgid "Please select the primary key or a unique key!"
 msgstr "Välj den primära nyckeln eller en unik nyckel!"
 
-#: js/messages.php:457 templates/designer/side_menu.phtml:91
-#: templates/designer/side_menu.phtml:94
+#: js/messages.php:457 templates/database/designer/side_menu.phtml:91
+#: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "Välj kolumn att visa"
 
@@ -2366,22 +2372,22 @@ msgstr ""
 msgid "Page name"
 msgstr "Sidnamn"
 
-#: js/messages.php:463 templates/designer/side_menu.phtml:56
-#: templates/designer/side_menu.phtml:59
+#: js/messages.php:463 templates/database/designer/side_menu.phtml:56
+#: templates/database/designer/side_menu.phtml:59
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page"
 msgstr "Välj sida"
 
-#: js/messages.php:464 templates/designer/side_menu.phtml:63
-#: templates/designer/side_menu.phtml:66
+#: js/messages.php:464 templates/database/designer/side_menu.phtml:63
+#: templates/database/designer/side_menu.phtml:66
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
 msgstr "Välj sida"
 
-#: js/messages.php:465 templates/designer/side_menu.phtml:49
-#: templates/designer/side_menu.phtml:52
+#: js/messages.php:465 templates/database/designer/side_menu.phtml:49
+#: templates/database/designer/side_menu.phtml:52
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2393,7 +2399,7 @@ msgstr "Fria sidor"
 msgid "Delete page"
 msgstr "Välj sida"
 
-#: js/messages.php:467 templates/designer/side_menu.phtml:10
+#: js/messages.php:467 templates/database/designer/side_menu.phtml:10
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
@@ -2521,7 +2527,7 @@ msgstr "Ursprunglig sträng"
 msgid "cancel"
 msgstr "Avbryt"
 
-#: js/messages.php:499 libraries/server_status.lib.php:271
+#: js/messages.php:499 libraries/server_status.lib.php:280
 msgid "Aborted"
 msgstr "Avbrutna"
 
@@ -3146,7 +3152,7 @@ msgstr "Var vänlig ange ett giltigt nummer!"
 
 #: js/messages.php:793 libraries/Message.class.php:199
 #: libraries/Util.class.php:654 libraries/core.lib.php:245
-#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1172
+#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1170
 #: tbl_operations.php:229 view_operations.php:63
 msgid "Error"
 msgstr "Fel"
@@ -3207,8 +3213,8 @@ msgstr "per sekund"
 msgid "per minute"
 msgstr "per minut"
 
-#: libraries/Advisor.class.php:481 libraries/server_status.lib.php:143
-#: libraries/server_status.lib.php:228
+#: libraries/Advisor.class.php:481 libraries/server_status.lib.php:152
+#: libraries/server_status.lib.php:237
 #: libraries/server_status_queries.lib.php:98
 msgid "per hour"
 msgstr "per timme"
@@ -3227,7 +3233,7 @@ msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Fel behörigheter på konfigurationsfilen, bör inte vara \"world\" skrivbar!"
 
-#: libraries/Config.class.php:1799
+#: libraries/Config.class.php:1801
 msgid "Font size"
 msgstr "Teckenstorlek"
 
@@ -3259,10 +3265,10 @@ msgstr "underfråga"
 #: libraries/server_privileges.lib.php:2890
 #: libraries/server_privileges.lib.php:3144
 #: libraries/server_privileges.lib.php:3156
-#: libraries/server_privileges.lib.php:4332
+#: libraries/server_privileges.lib.php:4358
 #: libraries/server_status_processes.lib.php:80
-#: templates/tbl_relation/foreign_key_row.phtml:165
-#: templates/tbl_relation/internal_relational_row.phtml:55
+#: templates/table/relation/foreign_key_row.phtml:165
+#: templates/table/relation/internal_relational_row.phtml:55
 msgid "Database"
 msgstr "Databas"
 
@@ -3373,11 +3379,11 @@ msgstr "SQL-historik"
 #: libraries/plugins/import/ImportMediawiki.class.php:60
 #: libraries/plugins/import/ImportOds.class.php:59
 #: libraries/plugins/import/ImportShp.class.php:57
-#: libraries/plugins/import/ImportSql.class.php:148
+#: libraries/plugins/import/ImportSql.class.php:51
 #: libraries/plugins/import/ImportXml.class.php:58
-#: libraries/rte/rte_routines.lib.php:833 templates/index_form.phtml:49
-#: templates/structure/row_stats_table.phtml:20
-#: templates/table/options.phtml:2
+#: libraries/rte/rte_routines.lib.php:924 templates/table/index_form.phtml:49
+#: templates/table/search/options.phtml:2
+#: templates/table/structure/row_stats_table.phtml:20
 msgid "Options"
 msgstr "Alternativ"
 
@@ -3422,7 +3428,8 @@ msgstr "Fallande"
 msgid "Order:"
 msgstr "Ordning"
 
-#: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
+#: libraries/Console.class.php:289
+#: templates/table/search/replace_preview.phtml:17
 msgid "Count"
 msgstr "Räkna"
 
@@ -3547,9 +3554,9 @@ msgstr "Byt till kopierad tabell"
 #: libraries/operations.lib.php:794 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:191
-#: templates/structure/sortable_header.phtml:21
-#: templates/structure/sortable_header.phtml:38
-#: templates/table/options.phtml:68
+#: templates/database/structure/sortable_header.phtml:21
+#: templates/database/structure/sortable_header.phtml:38
+#: templates/table/search/options.phtml:68
 msgid "Ascending"
 msgstr "Stigande"
 
@@ -3559,13 +3566,14 @@ msgstr "Stigande"
 #: libraries/operations.lib.php:797 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:188
-#: templates/structure/sortable_header.phtml:26
-#: templates/structure/sortable_header.phtml:43
-#: templates/table/options.phtml:69
+#: templates/database/structure/sortable_header.phtml:26
+#: templates/database/structure/sortable_header.phtml:43
+#: templates/table/search/options.phtml:69
 msgid "Descending"
 msgstr "Fallande"
 
-#: libraries/DBQbe.class.php:467 templates/table/search_and_replace.phtml:6
+#: libraries/DBQbe.class.php:467
+#: templates/table/search/search_and_replace.phtml:6
 msgid "Column:"
 msgstr "Kolumn:"
 
@@ -3725,12 +3733,12 @@ msgstr[0] "%1$s träff i <strong>%2$s</strong>"
 msgstr[1] "%1$s träffar i <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:311
-#: libraries/Util.class.php:3337 libraries/Util.class.php:3347
-#: libraries/Util.class.php:3623 libraries/Util.class.php:3624
-#: libraries/Util.class.php:4343 libraries/config.values.php:43
+#: libraries/Util.class.php:3343 libraries/Util.class.php:3353
+#: libraries/Util.class.php:3629 libraries/Util.class.php:3630
+#: libraries/Util.class.php:4349 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:119
 #: libraries/navigation/Nodes/Node_Table.class.php:295
-#: templates/structure/check_all_table_column.phtml:5
+#: templates/table/structure/check_all_table_column.phtml:5
 msgid "Browse"
 msgstr "Bläddra"
 
@@ -3747,7 +3755,8 @@ msgstr "Sök i databas"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Ord eller värden att söka efter (jokertecken: \"%\"):"
 
-#: libraries/DbSearch.class.php:401 templates/table/search_and_replace.phtml:1
+#: libraries/DbSearch.class.php:401
+#: templates/table/search/search_and_replace.phtml:1
 msgid "Find:"
 msgstr "Hitta:"
 
@@ -3793,28 +3802,28 @@ msgstr "Filter"
 msgid "Search this table"
 msgstr "Sök i denna tabell"
 
-#: libraries/DisplayResults.class.php:974 libraries/Util.class.php:2532
-#: libraries/Util.class.php:2535
+#: libraries/DisplayResults.class.php:974 libraries/Util.class.php:2538
+#: libraries/Util.class.php:2541
 msgctxt "First page"
 msgid "Begin"
 msgstr "Starta"
 
-#: libraries/DisplayResults.class.php:977 libraries/Util.class.php:2533
-#: libraries/Util.class.php:2536 libraries/server_bin_log.lib.php:170
+#: libraries/DisplayResults.class.php:977 libraries/Util.class.php:2539
+#: libraries/Util.class.php:2542 libraries/server_bin_log.lib.php:170
 #: libraries/server_bin_log.lib.php:172
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Föregående"
 
-#: libraries/DisplayResults.class.php:1043 libraries/Util.class.php:2564
-#: libraries/Util.class.php:2574 libraries/server_bin_log.lib.php:204
+#: libraries/DisplayResults.class.php:1043 libraries/Util.class.php:2570
+#: libraries/Util.class.php:2580 libraries/server_bin_log.lib.php:204
 #: libraries/server_bin_log.lib.php:206
 msgctxt "Next page"
 msgid "Next"
 msgstr "Nästa"
 
-#: libraries/DisplayResults.class.php:1073 libraries/Util.class.php:2565
-#: libraries/Util.class.php:2575
+#: libraries/DisplayResults.class.php:1073 libraries/Util.class.php:2571
+#: libraries/Util.class.php:2581
 msgctxt "Last page"
 msgid "End"
 msgstr "Slut"
@@ -3889,15 +3898,15 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4332 libraries/Message.class.php:180
-#: libraries/controllers/TableRelationController.class.php:258
+#: libraries/controllers/TableRelationController.class.php:259
 #: libraries/controllers/TableSearchController.class.php:655
-#: libraries/rte/rte_routines.lib.php:1332 libraries/sql_query_form.lib.php:89
+#: libraries/rte/rte_routines.lib.php:1423 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:227 tbl_row_action.php:138 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-fråga utfördes korrekt."
 
 #: libraries/DisplayResults.class.php:4660
-#: libraries/controllers/StructureController.class.php:629
+#: libraries/controllers/DatabaseStructureController.class.php:564
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3919,33 +3928,33 @@ msgstr "%1$d totalt, %2$d i fråga"
 msgid "%d total"
 msgstr "%d totalt"
 
-#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1318
+#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1312
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Frågan tog %01.4f sekunder."
 
 #: libraries/DisplayResults.class.php:4807
-#: libraries/DisplayResults.class.php:4814 libraries/Util.class.php:4767
-#: libraries/Util.class.php:4773 libraries/mult_submits.inc.php:50
-#: templates/structure/check_all_tables.phtml:2
-#: templates/structure/check_all_tables.phtml:9
+#: libraries/DisplayResults.class.php:4814 libraries/Util.class.php:4773
+#: libraries/Util.class.php:4779 libraries/mult_submits.inc.php:50
+#: templates/database/structure/check_all_tables.phtml:2
+#: templates/database/structure/check_all_tables.phtml:9
 msgid "With selected:"
 msgstr "Med markerade:"
 
 #: libraries/DisplayResults.class.php:4811
-#: libraries/DisplayResults.class.php:4813 libraries/Util.class.php:4769
-#: libraries/Util.class.php:4770 libraries/server_privileges.lib.php:1174
+#: libraries/DisplayResults.class.php:4813 libraries/Util.class.php:4775
+#: libraries/Util.class.php:4776 libraries/server_privileges.lib.php:1174
 #: libraries/server_privileges.lib.php:1175
 #: libraries/server_privileges.lib.php:1387
 #: libraries/server_user_groups.lib.php:231
-#: templates/structure/check_all_tables.phtml:3
-#: templates/structure/check_all_tables.phtml:4
+#: templates/database/structure/check_all_tables.phtml:3
+#: templates/database/structure/check_all_tables.phtml:4
 msgid "Check All"
 msgstr "Markera alla"
 
 #: libraries/DisplayResults.class.php:4985 libraries/Header.class.php:383
-#: templates/structure/optional_action_links.phtml:1
-#: templates/structure/print_view_data_dictionary_link.phtml:3
+#: templates/database/structure/print_view_data_dictionary_link.phtml:3
+#: templates/table/structure/optional_action_links.phtml:1
 msgid "Print view"
 msgstr "Utskriftsvänlig visning"
 
@@ -3953,7 +3962,8 @@ msgstr "Utskriftsvänlig visning"
 msgid "Query results operations"
 msgstr "Operationer för frågeresultat"
 
-#: libraries/DisplayResults.class.php:5105 templates/tbl_chart.phtml:12
+#: libraries/DisplayResults.class.php:5105
+#: templates/table/chart/tbl_chart.phtml:12
 msgid "Display chart"
 msgstr "Visa diagram"
 
@@ -4049,7 +4059,7 @@ msgid "Click on the bar to scroll to top of page"
 msgstr "Klicka på bommen för att förflytta dig till toppen av sidan"
 
 #: libraries/Header.class.php:749
-#: libraries/plugins/auth/AuthenticationCookie.class.php:152
+#: libraries/plugins/auth/AuthenticationCookie.class.php:140
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript måste vara aktiverat efter detta!"
 
@@ -4071,11 +4081,11 @@ msgid "Keyname"
 msgstr "Nyckelnamn"
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/StructureController.class.php:1962
-#: libraries/controllers/StructureController.class.php:1967
+#: libraries/controllers/TableStructureController.class.php:953
+#: libraries/controllers/TableStructureController.class.php:958
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
-#: templates/structure/check_all_table_column.phtml:26
+#: templates/table/structure/check_all_table_column.phtml:26
 msgid "Unique"
 msgstr "Unik"
 
@@ -4094,16 +4104,17 @@ msgstr "Kardinalitet"
 #: libraries/server_collations.lib.php:35 libraries/tracking.lib.php:881
 #: libraries/tracking.lib.php:977
 #: templates/columns_definitions/table_fields_definitions.phtml:33
-#: templates/structure/row_stats_table.phtml:31
-#: templates/structure/table_header.phtml:55
-#: templates/structure/table_structure_header.phtml:7
-#: templates/table/table_header.phtml:8
+#: templates/database/structure/table_header.phtml:55
+#: templates/table/search/table_header.phtml:8
+#: templates/table/structure/row_stats_table.phtml:31
+#: templates/table/structure/table_structure_header.phtml:7
 msgid "Collation"
 msgstr "Kollationering"
 
 #: libraries/Index.class.php:703 libraries/rte/rte_events.lib.php:496
-#: libraries/rte/rte_routines.lib.php:956 libraries/tracking.lib.php:885
-#: libraries/tracking.lib.php:979 templates/structure/table_header.phtml:84
+#: libraries/rte/rte_routines.lib.php:1047 libraries/tracking.lib.php:885
+#: libraries/tracking.lib.php:979
+#: templates/database/structure/table_header.phtml:84
 msgid "Comment"
 msgstr "Kommentar"
 
@@ -4116,15 +4127,15 @@ msgstr "Den primära nyckeln har tagits bort."
 msgid "Index %s has been dropped."
 msgstr "Index %s har tagits bort."
 
-#: libraries/Index.class.php:757 libraries/Util.class.php:3630
-#: libraries/Util.class.php:3631
-#: libraries/controllers/StructureController.class.php:1958
-#: libraries/controllers/StructureController.class.php:1959
+#: libraries/Index.class.php:757 libraries/Util.class.php:3636
+#: libraries/Util.class.php:3637
+#: libraries/controllers/TableStructureController.class.php:949
+#: libraries/controllers/TableStructureController.class.php:950
 #: libraries/operations.lib.php:1607 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
-#: templates/structure/check_all_table_column.phtml:15
-#: templates/structure/check_all_tables.phtml:16
-#: templates/tbl_relation/foreign_key_row.phtml:93
+#: templates/database/structure/check_all_tables.phtml:16
+#: templates/table/relation/foreign_key_row.phtml:93
+#: templates/table/structure/check_all_table_column.phtml:15
 msgid "Drop"
 msgstr "Radera"
 
@@ -4155,16 +4166,16 @@ msgstr "Server"
 #: libraries/Menu.class.php:248
 #: libraries/navigation/Nodes/Node_View.class.php:32
 #: libraries/tbl_info.inc.php:63
-#: templates/structure/structure_table_row.phtml:97
-#: templates/structure/structure_table_row.phtml:159
+#: templates/database/structure/structure_table_row.phtml:97
+#: templates/database/structure/structure_table_row.phtml:159
 msgid "View"
 msgstr "Vy"
 
 #: libraries/Menu.class.php:325 libraries/Menu.class.php:429
-#: libraries/Menu.class.php:548 libraries/Util.class.php:3334
-#: libraries/Util.class.php:3344 libraries/Util.class.php:3350
-#: libraries/Util.class.php:4313 libraries/Util.class.php:4328
-#: libraries/Util.class.php:4345 libraries/config.values.php:40
+#: libraries/Menu.class.php:548 libraries/Util.class.php:3340
+#: libraries/Util.class.php:3350 libraries/Util.class.php:3356
+#: libraries/Util.class.php:4319 libraries/Util.class.php:4334
+#: libraries/Util.class.php:4351 libraries/config.values.php:40
 #: libraries/config.values.php:48 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/messages.inc.php:321
 #: libraries/navigation/Nodes/Node_Table.class.php:292
@@ -4172,19 +4183,19 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:328 libraries/Menu.class.php:432
-#: libraries/Util.class.php:3335 libraries/Util.class.php:3345
-#: libraries/Util.class.php:3351 libraries/Util.class.php:3625
-#: libraries/Util.class.php:3626 libraries/Util.class.php:4329
-#: libraries/Util.class.php:4346 libraries/config.values.php:41
+#: libraries/Util.class.php:3341 libraries/Util.class.php:3351
+#: libraries/Util.class.php:3357 libraries/Util.class.php:3631
+#: libraries/Util.class.php:3632 libraries/Util.class.php:4335
+#: libraries/Util.class.php:4352 libraries/config.values.php:41
 #: libraries/config.values.php:49 libraries/config.values.php:111
 #: libraries/config.values.php:117
 #: libraries/navigation/Nodes/Node_Table.class.php:286
 msgid "Search"
 msgstr "Sök"
 
-#: libraries/Menu.class.php:338 libraries/Util.class.php:3336
-#: libraries/Util.class.php:3346 libraries/Util.class.php:3627
-#: libraries/Util.class.php:3628 libraries/Util.class.php:4347
+#: libraries/Menu.class.php:338 libraries/Util.class.php:3342
+#: libraries/Util.class.php:3352 libraries/Util.class.php:3633
+#: libraries/Util.class.php:3634 libraries/Util.class.php:4353
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:118
 #: libraries/navigation/Nodes/Node_Table.class.php:289
@@ -4193,30 +4204,30 @@ msgid "Insert"
 msgstr "Lägg till"
 
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:467
-#: libraries/Util.class.php:4334 libraries/Util.class.php:4350
+#: libraries/Util.class.php:4340 libraries/Util.class.php:4356
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
 #: libraries/server_privileges.lib.php:2370
 #: libraries/server_privileges.lib.php:3158
-#: libraries/server_privileges.lib.php:4221
+#: libraries/server_privileges.lib.php:4247
 msgid "Privileges"
 msgstr "Privilegier"
 
 #: libraries/Menu.class.php:371 libraries/Menu.class.php:379
-#: libraries/Menu.class.php:459 libraries/Util.class.php:3338
-#: libraries/Util.class.php:3352 libraries/Util.class.php:4333
-#: libraries/Util.class.php:4351 libraries/config.values.php:112
+#: libraries/Menu.class.php:459 libraries/Util.class.php:3344
+#: libraries/Util.class.php:3358 libraries/Util.class.php:4339
+#: libraries/Util.class.php:4357 libraries/config.values.php:112
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Operationer"
 
 #: libraries/Menu.class.php:384 libraries/Menu.class.php:492
-#: libraries/Util.class.php:4338 libraries/Util.class.php:4352
+#: libraries/Util.class.php:4344 libraries/Util.class.php:4358
 #: libraries/relation.lib.php:255
 msgid "Tracking"
 msgstr "Spårning"
 
 #: libraries/Menu.class.php:397 libraries/Menu.class.php:486
-#: libraries/Util.class.php:4337 libraries/Util.class.php:4353
+#: libraries/Util.class.php:4343 libraries/Util.class.php:4359
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:24
 #: libraries/plugins/export/ExportHtmlword.class.php:557
 #: libraries/plugins/export/ExportOdt.class.php:685
@@ -4233,16 +4244,16 @@ msgstr "Trigger"
 msgid "Database seems to be empty!"
 msgstr "Databasen verkar vara tom!"
 
-#: libraries/Menu.class.php:439 libraries/Util.class.php:4330
+#: libraries/Menu.class.php:439 libraries/Util.class.php:4336
 msgid "Query"
 msgstr "Fråga"
 
-#: libraries/Menu.class.php:472 libraries/Util.class.php:4335
+#: libraries/Menu.class.php:472 libraries/Util.class.php:4341
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Rutiner"
 
-#: libraries/Menu.class.php:479 libraries/Util.class.php:4336
+#: libraries/Menu.class.php:479 libraries/Util.class.php:4342
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:940
 #: libraries/plugins/export/ExportXml.class.php:107
@@ -4250,22 +4261,22 @@ msgstr "Rutiner"
 msgid "Events"
 msgstr "Händelser"
 
-#: libraries/Menu.class.php:498 libraries/Util.class.php:4339
+#: libraries/Menu.class.php:498 libraries/Util.class.php:4345
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/Menu.class.php:507 libraries/Util.class.php:4340
-#: templates/structure/check_all_tables.phtml:35
+#: libraries/Menu.class.php:507 libraries/Util.class.php:4346
+#: templates/database/structure/check_all_tables.phtml:35
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
 msgstr "Textarea kolumner"
 
-#: libraries/Menu.class.php:544 libraries/Util.class.php:4312
+#: libraries/Menu.class.php:544 libraries/Util.class.php:4318
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:266
 #: libraries/config/messages.inc.php:341
 #: libraries/navigation/NavigationTree.class.php:1239
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4332
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4358
 msgid "Databases"
 msgstr "Databaser"
 
@@ -4276,34 +4287,34 @@ msgid "User accounts"
 msgstr "Användargrupper"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:121
-#: libraries/Util.class.php:4319 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4325 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Binär logg"
 
 #: libraries/Menu.class.php:601 libraries/ServerStatusData.class.php:126
-#: libraries/Util.class.php:4320 libraries/server_common.lib.php:42
-#: templates/structure/body_for_table_summary.phtml:10
-#: templates/structure/table_header.phtml:27
+#: libraries/Util.class.php:4326 libraries/server_common.lib.php:42
+#: templates/database/structure/body_for_table_summary.phtml:10
+#: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replikering"
 
 #: libraries/Menu.class.php:606 libraries/ServerStatusData.class.php:193
-#: libraries/Util.class.php:4321 libraries/config.values.php:105
+#: libraries/Util.class.php:4327 libraries/config.values.php:105
 #: libraries/server_engines.lib.php:108 libraries/server_engines.lib.php:112
 #: libraries/sql_query_form.lib.php:421
 msgid "Variables"
 msgstr "Variabler"
 
-#: libraries/Menu.class.php:610 libraries/Util.class.php:4322
+#: libraries/Menu.class.php:610 libraries/Util.class.php:4328
 msgid "Charsets"
 msgstr "Teckenuppsättningar"
 
-#: libraries/Menu.class.php:615 libraries/Util.class.php:4323
+#: libraries/Menu.class.php:615 libraries/Util.class.php:4329
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:27
 msgid "Plugins"
 msgstr "Insticksprogram"
 
-#: libraries/Menu.class.php:626 libraries/Util.class.php:4324
+#: libraries/Menu.class.php:626 libraries/Util.class.php:4330
 msgid "Engines"
 msgstr "Motorer"
 
@@ -4328,7 +4339,7 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rad infogad."
 msgstr[1] "%1$d rader infogade."
 
-#: libraries/PDF.class.php:70 libraries/Util.class.php:2521
+#: libraries/PDF.class.php:70 libraries/Util.class.php:2527
 #: libraries/browse_foreigners.lib.php:327
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:865
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:890
@@ -4349,7 +4360,7 @@ msgid "Could not save favorite table!"
 msgstr "Kunde inte spara favorittabell!"
 
 #: libraries/RecentFavoriteTable.class.php:212
-#: templates/structure/favorite_anchor.phtml:12
+#: templates/database/structure/favorite_anchor.phtml:12
 msgid "Remove from Favorites"
 msgstr "Ta bort från favoriter"
 
@@ -4516,7 +4527,7 @@ msgstr ""
 "lagringsmotor."
 
 #: libraries/StorageEngine.class.php:373
-#: templates/structure/body_for_table_summary.phtml:50
+#: templates/database/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s är standardmotorn för denna MySQL-server."
@@ -4995,10 +5006,10 @@ msgstr ""
 
 #: libraries/Util.class.php:726 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
-#: libraries/rte/rte_general.lib.php:36 libraries/rte/rte_routines.lib.php:153
-#: libraries/rte/rte_routines.lib.php:162
-#: libraries/rte/rte_routines.lib.php:235
-#: libraries/rte/rte_routines.lib.php:1366
+#: libraries/rte/rte_general.lib.php:36 libraries/rte/rte_routines.lib.php:223
+#: libraries/rte/rte_routines.lib.php:250
+#: libraries/rte/rte_routines.lib.php:372
+#: libraries/rte/rte_routines.lib.php:1457
 #: libraries/rte/rte_triggers.lib.php:86 libraries/rte/rte_triggers.lib.php:95
 #: libraries/rte/rte_triggers.lib.php:127
 msgid "MySQL said: "
@@ -5044,75 +5055,78 @@ msgstr "Sön"
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y kl %H:%M"
 
-#: libraries/Util.class.php:2019
+#: libraries/Util.class.php:2025
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dagar, %s timmar, %s minuter och %s sekunder"
 
-#: libraries/Util.class.php:2112
+#: libraries/Util.class.php:2118
 msgid "Missing parameter:"
 msgstr "Saknade parametrar:"
 
-#: libraries/Util.class.php:2645
+#: libraries/Util.class.php:2651
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "Hoppa till databas \"%s\"."
 
-#: libraries/Util.class.php:2670
+#: libraries/Util.class.php:2676
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten för %s påverkas av en känd bugg, se %s"
 
-#: libraries/Util.class.php:2881
+#: libraries/Util.class.php:2887
 msgid "Click to toggle"
 msgstr "Klicka för att växla"
 
-#: libraries/Util.class.php:3542 prefs_manage.php:248
+#: libraries/Util.class.php:3548 prefs_manage.php:248
 msgid "Browse your computer:"
 msgstr "Gå igenom din dator:"
 
-#: libraries/Util.class.php:3567
+#: libraries/Util.class.php:3573
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Välj från webbserverns uppladdningskatalog <b>%s</b>:"
 
-#: libraries/Util.class.php:3596 libraries/insert_edit.lib.php:1173
+#: libraries/Util.class.php:3602 libraries/insert_edit.lib.php:1171
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du ställt in för uppladdning kan inte nås."
 
-#: libraries/Util.class.php:3607
+#: libraries/Util.class.php:3613
 msgid "There are no files to upload!"
 msgstr "Det finns inga filer att ladda upp!"
 
-#: libraries/Util.class.php:3632 libraries/Util.class.php:3633
-#: templates/structure/check_all_tables.phtml:15
+#: libraries/Util.class.php:3638 libraries/Util.class.php:3639
+#: templates/database/structure/check_all_tables.phtml:15
 msgid "Empty"
 msgstr "Töm"
 
-#: libraries/Util.class.php:3638 libraries/Util.class.php:3639
+#: libraries/Util.class.php:3644 libraries/Util.class.php:3645
 msgid "Execute"
 msgstr "Utför"
 
-#: libraries/Util.class.php:4152
+#: libraries/Util.class.php:4158
 msgid "Print"
 msgstr "Skriv ut"
 
-#: libraries/Util.class.php:4257 templates/structure/row_stats_table.phtml:80
-#: templates/structure/table_header.phtml:95
+#: libraries/Util.class.php:4263
+#: templates/database/structure/table_header.phtml:95
+#: templates/table/structure/row_stats_table.phtml:80
 msgid "Creation"
 msgstr "Skapande"
 
-#: libraries/Util.class.php:4263 templates/structure/row_stats_table.phtml:87
-#: templates/structure/table_header.phtml:106
+#: libraries/Util.class.php:4269
+#: templates/database/structure/table_header.phtml:106
+#: templates/table/structure/row_stats_table.phtml:87
 msgid "Last update"
 msgstr "Senaste uppdatering"
 
-#: libraries/Util.class.php:4269 templates/structure/row_stats_table.phtml:94
-#: templates/structure/table_header.phtml:117
+#: libraries/Util.class.php:4275
+#: templates/database/structure/table_header.phtml:117
+#: templates/table/structure/row_stats_table.phtml:94
 msgid "Last check"
 msgstr "Senaste kontroll"
 
-#: libraries/Util.class.php:4315
+#: libraries/Util.class.php:4321
 msgid "Users"
 msgstr "Användare"
 
@@ -5133,16 +5147,16 @@ msgid "Use this value"
 msgstr "Använd detta värde"
 
 #: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:193
-#: templates/structure/actions_in_table_structure.phtml:113
-#: templates/structure/row_stats_table.phtml:42
-#: templates/structure/table_header.phtml:36
+#: templates/database/structure/table_header.phtml:36
+#: templates/table/structure/actions_in_table_structure.phtml:113
+#: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
 msgstr "Rader"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
-#: libraries/server_databases.lib.php:173 libraries/server_status.lib.php:186
-#: libraries/server_status.lib.php:298
-#: templates/structure/display_table_stats.phtml:40
+#: libraries/server_databases.lib.php:173 libraries/server_status.lib.php:195
+#: libraries/server_status.lib.php:307
+#: templates/table/structure/display_table_stats.phtml:40
 msgid "Total"
 msgstr "Totalt"
 
@@ -5151,10 +5165,12 @@ msgid "Jump to database"
 msgstr "Gå till databas"
 
 #: libraries/build_html_for_db.lib.php:146
+#: templates/database/structure/structure_table_row.phtml:15
 msgid "Not replicated"
 msgstr "Inte replikerad"
 
 #: libraries/build_html_for_db.lib.php:158
+#: templates/database/structure/structure_table_row.phtml:16
 msgid "Replicated"
 msgstr "Replikerad"
 
@@ -5207,17 +5223,17 @@ msgstr ""
 #: libraries/plugins/export/ExportTexytext.class.php:425
 #: libraries/plugins/export/PMA_ExportPdf.class.php:307
 #: libraries/rte/rte_list.lib.php:73 libraries/rte/rte_list.lib.php:85
-#: libraries/rte/rte_list.lib.php:100 libraries/rte/rte_routines.lib.php:830
-#: libraries/rte/rte_routines.lib.php:1492 setup/frames/index.inc.php:162
+#: libraries/rte/rte_list.lib.php:100 libraries/rte/rte_routines.lib.php:921
+#: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:162
 #: templates/columns_definitions/table_fields_definitions.phtml:8
-#: templates/structure/table_structure_header.phtml:5
-#: templates/table/create_table.phtml:11
+#: templates/database/create_table.phtml:11
+#: templates/table/structure/table_structure_header.phtml:5
 msgid "Name"
 msgstr "Namn"
 
 #: libraries/central_columns.lib.php:699
 #: libraries/central_columns.lib.php:1381
-#: libraries/rte/rte_routines.lib.php:832
+#: libraries/rte/rte_routines.lib.php:923
 #: templates/columns_definitions/table_fields_definitions.phtml:14
 msgid "Length/Values"
 msgstr "Längd/Värden"
@@ -5240,7 +5256,7 @@ msgid "Select a table"
 msgstr "Välj tabeller"
 
 #: libraries/central_columns.lib.php:804
-#: templates/structure/add_column.phtml:4
+#: templates/table/structure/add_column.phtml:4
 msgid "Add column"
 msgstr "Lägg till kolumn"
 
@@ -5258,7 +5274,7 @@ msgstr "Lägg till kolumn"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1002
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1025
 #: templates/columns_definitions/table_fields_definitions.phtml:36
-#: templates/structure/table_structure_header.phtml:8
+#: templates/table/structure/table_structure_header.phtml:8
 msgid "Attributes"
 msgstr "Attribut"
 
@@ -5371,7 +5387,7 @@ msgid "Double click"
 msgstr "Dubbelklicka"
 
 #: libraries/config.values.php:95 libraries/config.values.php:124
-#: libraries/config/FormDisplay.tpl.php:221 libraries/relation.lib.php:97
+#: libraries/config/FormDisplay.tpl.php:232 libraries/relation.lib.php:97
 #: libraries/relation.lib.php:105
 msgid "Disabled"
 msgstr "Inaktiverad"
@@ -5551,23 +5567,23 @@ msgstr "Komprimerad export fungerar inte på grund av saknad funktion %s."
 msgid "maximum %s"
 msgstr "maximum %s"
 
-#: libraries/config/FormDisplay.tpl.php:219
+#: libraries/config/FormDisplay.tpl.php:230
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Denna inställning är inaktiverad, den kommer inte tillämpas på din "
 "konfiguration."
 
-#: libraries/config/FormDisplay.tpl.php:313
+#: libraries/config/FormDisplay.tpl.php:324
 #, php-format
 msgid "Set value: %s"
 msgstr "Ange värde: %s"
 
-#: libraries/config/FormDisplay.tpl.php:318
+#: libraries/config/FormDisplay.tpl.php:329
 #: libraries/config/messages.inc.php:610
 msgid "Restore default value"
 msgstr "Återställ standardvärde"
 
-#: libraries/config/FormDisplay.tpl.php:332
+#: libraries/config/FormDisplay.tpl.php:343
 msgid "Allow users to customize this value"
 msgstr "Tillåt användare att anpassa detta värde"
 
@@ -6066,7 +6082,7 @@ msgstr "Filens teckenuppsättning"
 
 #: libraries/config/messages.inc.php:136 libraries/config/messages.inc.php:152
 #: libraries/sql_query_form.lib.php:247
-#: templates/structure/row_stats_table.phtml:7
+#: templates/table/structure/row_stats_table.phtml:7
 msgid "Format"
 msgstr "Format"
 
@@ -6590,7 +6606,7 @@ msgstr "Välj vilka detaljer som ska visas i databasstrukturen (tabellista)."
 
 #: libraries/config/messages.inc.php:332
 #: libraries/plugins/export/ExportPdf.class.php:279
-#: templates/structure/secondary_tabs.phtml:8
+#: templates/table/secondary_tabs.phtml:8
 msgid "Table structure"
 msgstr "Tabellstruktur"
 
@@ -8336,102 +8352,32 @@ msgstr "Microsoft Word 2000"
 msgid "OpenDocument Text"
 msgstr "OpenDocument-text"
 
-#: libraries/controllers/StructureController.class.php:465
+#: libraries/controllers/DatabaseStructureController.class.php:405
 #: tbl_operations.php:382
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabellen %s har tömts."
 
-#: libraries/controllers/StructureController.class.php:486
+#: libraries/controllers/DatabaseStructureController.class.php:426
 #: tbl_operations.php:400 view_operations.php:119
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Vyn %s har tagits bort."
 
-#: libraries/controllers/StructureController.class.php:487
+#: libraries/controllers/DatabaseStructureController.class.php:427
 #: tbl_operations.php:401
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabellen %s har tagits bort."
 
-#: libraries/controllers/StructureController.class.php:797
-#, fuzzy, php-format
-#| msgid "The column name '%s' is a MySQL reserved keyword."
-msgid "The name '%s' is a MySQL reserved keyword."
-msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
-msgstr[1] "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
-
-#: libraries/controllers/StructureController.class.php:875
-msgid "No column selected."
-msgstr "Ingen kolumn vald."
-
-#: libraries/controllers/StructureController.class.php:1049
+#: libraries/controllers/DatabaseStructureController.class.php:733
 msgid "Favorite List is full!"
 msgstr "Favoritlistan är full!"
 
-#: libraries/controllers/StructureController.class.php:1272
-msgid "The columns have been moved successfully."
-msgstr "Kolumnerna har flyttats framgångsrikt."
-
-#: libraries/controllers/StructureController.class.php:1535
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
-msgid ""
-"Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabellen %1$s har ändrats."
-
-#: libraries/controllers/StructureController.class.php:1541
-#: libraries/controllers/TableIndexesController.class.php:161
-#: tbl_addfield.php:92
-#, php-format
-msgid "Table %1$s has been altered successfully."
-msgstr "Tabellen %1$s har ändrats."
-
-#: libraries/controllers/StructureController.class.php:1588
-#: libraries/tracking.lib.php:1094
-msgid "Query error"
-msgstr "Sökningsfel"
-
-#: libraries/controllers/StructureController.class.php:1806
+#: libraries/controllers/DatabaseStructureController.class.php:947
 #: libraries/mysql_charsets.lib.php:366 libraries/mysql_charsets.lib.php:373
 msgid "unknown"
 msgstr "okänd"
-
-#: libraries/controllers/StructureController.class.php:1957
-#: templates/structure/check_all_table_column.phtml:11
-msgid "Change"
-msgstr "Ändra"
-
-#: libraries/controllers/StructureController.class.php:1961
-#: libraries/controllers/StructureController.class.php:1966
-#: libraries/navigation/Nodes/Node_Index.class.php:30
-#: libraries/tracking.lib.php:926
-#: templates/columns_definitions/column_indexes.phtml:16
-#: templates/columns_definitions/table_fields_definitions.phtml:57
-#: templates/structure/check_all_table_column.phtml:30
-#: templates/structure/display_structure.phtml:79
-#: templates/structure/display_table_stats.phtml:19
-msgid "Index"
-msgstr "Index"
-
-#: libraries/controllers/StructureController.class.php:1963
-#: libraries/controllers/StructureController.class.php:1968
-#: templates/columns_definitions/column_indexes.phtml:27
-#: templates/structure/check_all_table_column.phtml:37
-msgid "Spatial"
-msgstr "Spatial"
-
-#: libraries/controllers/StructureController.class.php:1964
-#: libraries/controllers/StructureController.class.php:1969
-#: templates/columns_definitions/column_indexes.phtml:22
-#: templates/structure/check_all_table_column.phtml:47
-msgid "Fulltext"
-msgstr "Fulltext"
-
-#: libraries/controllers/StructureController.class.php:1970
-msgid "Distinct values"
-msgstr "Distinkta värden"
 
 #: libraries/controllers/TableChartController.class.php:82
 #: libraries/controllers/TableGisVisualizationController.class.php:101
@@ -8446,13 +8392,20 @@ msgstr "Det finns inga numeriska kolumner att plotta i tabellen."
 msgid "No data to display"
 msgstr "Ingen data att visa"
 
-#: libraries/controllers/TableRelationController.class.php:217
+#: libraries/controllers/TableIndexesController.class.php:161
+#: libraries/controllers/TableStructureController.class.php:736
+#: tbl_addfield.php:92
+#, php-format
+msgid "Table %1$s has been altered successfully."
+msgstr "Tabellen %1$s har ändrats."
+
+#: libraries/controllers/TableRelationController.class.php:218
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Tråden %s dödades med framgång."
 
-#: libraries/controllers/TableRelationController.class.php:283
+#: libraries/controllers/TableRelationController.class.php:288
 #, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
@@ -8471,11 +8424,74 @@ msgid "Zoom search"
 msgstr "Zoom sökning"
 
 #: libraries/controllers/TableSearchController.class.php:852
-#: templates/table/selection_form.phtml:59
+#: templates/table/search/selection_form.phtml:59
 #, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Sök och ersätt"
+
+#: libraries/controllers/TableStructureController.class.php:163
+#, fuzzy, php-format
+#| msgid "The column name '%s' is a MySQL reserved keyword."
+msgid "The name '%s' is a MySQL reserved keyword."
+msgid_plural "The names '%s' are MySQL reserved keywords."
+msgstr[0] "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
+msgstr[1] "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
+
+#: libraries/controllers/TableStructureController.class.php:241
+msgid "No column selected."
+msgstr "Ingen kolumn vald."
+
+#: libraries/controllers/TableStructureController.class.php:467
+msgid "The columns have been moved successfully."
+msgstr "Kolumnerna har flyttats framgångsrikt."
+
+#: libraries/controllers/TableStructureController.class.php:730
+#, fuzzy, php-format
+#| msgid "Table %1$s has been altered successfully."
+msgid ""
+"Table %1$s has been altered successfully. Privileges have been adjusted."
+msgstr "Tabellen %1$s har ändrats."
+
+#: libraries/controllers/TableStructureController.class.php:783
+#: libraries/tracking.lib.php:1094
+msgid "Query error"
+msgstr "Sökningsfel"
+
+#: libraries/controllers/TableStructureController.class.php:948
+#: templates/table/structure/check_all_table_column.phtml:11
+msgid "Change"
+msgstr "Ändra"
+
+#: libraries/controllers/TableStructureController.class.php:952
+#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/navigation/Nodes/Node_Index.class.php:30
+#: libraries/tracking.lib.php:926
+#: templates/columns_definitions/column_indexes.phtml:16
+#: templates/columns_definitions/table_fields_definitions.phtml:57
+#: templates/table/structure/check_all_table_column.phtml:30
+#: templates/table/structure/display_structure.phtml:79
+#: templates/table/structure/display_table_stats.phtml:19
+msgid "Index"
+msgstr "Index"
+
+#: libraries/controllers/TableStructureController.class.php:954
+#: libraries/controllers/TableStructureController.class.php:959
+#: templates/columns_definitions/column_indexes.phtml:27
+#: templates/table/structure/check_all_table_column.phtml:37
+msgid "Spatial"
+msgstr "Spatial"
+
+#: libraries/controllers/TableStructureController.class.php:955
+#: libraries/controllers/TableStructureController.class.php:960
+#: templates/columns_definitions/column_indexes.phtml:22
+#: templates/table/structure/check_all_table_column.phtml:47
+msgid "Fulltext"
+msgstr "Fulltext"
+
+#: libraries/controllers/TableStructureController.class.php:963
+msgid "Distinct values"
+msgstr "Distinkta värden"
 
 #: libraries/core.lib.php:306
 #, php-format
@@ -8526,7 +8542,7 @@ msgid "No Password"
 msgstr "Inget lösenord"
 
 #: libraries/display_change_password.lib.php:68
-#: libraries/plugins/auth/AuthenticationCookie.class.php:199
+#: libraries/plugins/auth/AuthenticationCookie.class.php:187
 #: libraries/replication_gui.lib.php:422 libraries/replication_gui.lib.php:862
 #: libraries/server_privileges.lib.php:1640
 msgid "Password:"
@@ -9349,12 +9365,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump har sparats till filen %s."
 
 #: libraries/import.lib.php:202 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1353 libraries/sql.lib.php:1312
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
-#: libraries/import.lib.php:265 libraries/sql.lib.php:1326
+#: libraries/import.lib.php:265 libraries/sql.lib.php:1320
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9420,14 +9436,14 @@ msgstr "Skapa ett index för &nbsp;%s&nbsp;kolumn(er)"
 
 #: libraries/insert_edit.lib.php:233
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:48
-#: templates/designer/table_list.phtml:40
+#: templates/database/designer/table_list.phtml:40
 msgid "Hide"
 msgstr "Dölj"
 
 #: libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_Function.class.php:32
-#: libraries/rte/rte_routines.lib.php:1495
-#: templates/table/table_header.phtml:4
+#: libraries/rte/rte_routines.lib.php:1586
+#: templates/table/search/table_header.phtml:4
 msgid "Function"
 msgstr "Funktion"
 
@@ -9440,84 +9456,85 @@ msgstr "Binär"
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "På grund av sin längd,<br /> är denna kolumn kanske inte redigerbar."
 
-#: libraries/insert_edit.lib.php:1050
+#: libraries/insert_edit.lib.php:1048
 msgid "Binary - do not edit"
 msgstr "Binär - ändra inte"
 
-#: libraries/insert_edit.lib.php:1176 libraries/server_privileges.lib.php:470
-#: templates/table/options.phtml:36
+#: libraries/insert_edit.lib.php:1174 libraries/server_privileges.lib.php:470
+#: templates/table/search/options.phtml:36
 msgid "Or"
 msgstr "Eller"
 
-#: libraries/insert_edit.lib.php:1177
+#: libraries/insert_edit.lib.php:1175
 msgid "web server upload directory:"
 msgstr "Uppladdningskatalog på webbserver:"
 
-#: libraries/insert_edit.lib.php:1348 templates/table/input_box.phtml:49
+#: libraries/insert_edit.lib.php:1346
+#: templates/table/search/input_box.phtml:49
 msgid "Edit/Insert"
 msgstr "Redigera / Infoga"
 
-#: libraries/insert_edit.lib.php:1398
+#: libraries/insert_edit.lib.php:1396
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Fortsätt inmatning med %s rader"
 
-#: libraries/insert_edit.lib.php:1428
+#: libraries/insert_edit.lib.php:1426
 msgid "and then"
 msgstr "och sedan"
 
-#: libraries/insert_edit.lib.php:1461
+#: libraries/insert_edit.lib.php:1459
 msgid "Insert as new row"
 msgstr "Lägg till som ny rad"
 
-#: libraries/insert_edit.lib.php:1464
+#: libraries/insert_edit.lib.php:1462
 msgid "Insert as new row and ignore errors"
 msgstr "Infoga som ny rad och ignorera fel"
 
-#: libraries/insert_edit.lib.php:1467
+#: libraries/insert_edit.lib.php:1465
 msgid "Show insert query"
 msgstr "Visa insert-fråga"
 
-#: libraries/insert_edit.lib.php:1487
+#: libraries/insert_edit.lib.php:1485
 msgid "Go back to previous page"
 msgstr "Gå tillbaka till föregående sida"
 
-#: libraries/insert_edit.lib.php:1490
+#: libraries/insert_edit.lib.php:1488
 msgid "Insert another new row"
 msgstr "Lägg till ytterligare en ny rad"
 
-#: libraries/insert_edit.lib.php:1495
+#: libraries/insert_edit.lib.php:1493
 msgid "Go back to this page"
 msgstr "Gå tillbaka till denna sida"
 
-#: libraries/insert_edit.lib.php:1518
+#: libraries/insert_edit.lib.php:1516
 msgid "Edit next row"
 msgstr "Ändra nästa rad"
 
-#: libraries/insert_edit.lib.php:1540
+#: libraries/insert_edit.lib.php:1538
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Använd TAB-tangenten för att flytta från värde till värde, eller CTRL+pil "
 "för att flytta vart som helst"
 
-#: libraries/insert_edit.lib.php:1577 libraries/replication_gui.lib.php:542
-#: libraries/rte/rte_routines.lib.php:1497
+#: libraries/insert_edit.lib.php:1575 libraries/replication_gui.lib.php:542
+#: libraries/rte/rte_routines.lib.php:1588
 #: libraries/server_status_variables.lib.php:220
-#: templates/designer/having_query_panel.phtml:100
-#: templates/designer/options_panel.phtml:73
-#: templates/designer/options_panel.phtml:239
-#: templates/designer/where_query_panel.phtml:69
-#: templates/table/table_header.phtml:10
-#: templates/table/zoom_result_form.phtml:35
+#: templates/database/designer/having_query_panel.phtml:100
+#: templates/database/designer/options_panel.phtml:73
+#: templates/database/designer/options_panel.phtml:239
+#: templates/database/designer/where_query_panel.phtml:69
+#: templates/table/search/table_header.phtml:10
+#: templates/table/search/zoom_result_form.phtml:35
 msgid "Value"
 msgstr "Värde"
 
-#: libraries/insert_edit.lib.php:1937 libraries/sql.lib.php:1309
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1303
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: libraries/insert_edit.lib.php:1962 libraries/sql.lib.php:1287
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1281
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"
@@ -9936,7 +9953,7 @@ msgstr "Ny"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: templates/structure/show_create.phtml:30
+#: templates/database/structure/show_create.phtml:30
 msgid "Views"
 msgstr "Vy"
 
@@ -10247,7 +10264,7 @@ msgstr "Du har inte tillräcklig behörighet för att vara här nu!"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:249
 #: libraries/operations.lib.php:869 libraries/operations.lib.php:963
-#: libraries/operations.lib.php:1317 libraries/rte/rte_routines.lib.php:907
+#: libraries/operations.lib.php:1317 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 #, fuzzy
 #| msgid "Edit Privileges"
@@ -10339,22 +10356,22 @@ msgid "Switch to copied table"
 msgstr "Byt till kopierad tabell"
 
 #: libraries/operations.lib.php:1360
-#: templates/structure/check_all_tables.phtml:18
+#: templates/database/structure/check_all_tables.phtml:18
 msgid "Table maintenance"
 msgstr "Tabellunderhåll"
 
 #: libraries/operations.lib.php:1398
-#: templates/structure/check_all_tables.phtml:19
+#: templates/database/structure/check_all_tables.phtml:19
 msgid "Analyze table"
 msgstr "Analysera tabell"
 
 #: libraries/operations.lib.php:1413
-#: templates/structure/check_all_tables.phtml:20
+#: templates/database/structure/check_all_tables.phtml:20
 msgid "Check table"
 msgstr "Kontrollera tabell"
 
 #: libraries/operations.lib.php:1428
-#: templates/structure/check_all_tables.phtml:22
+#: templates/database/structure/check_all_tables.phtml:22
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
@@ -10374,18 +10391,19 @@ msgid "Flush the table (FLUSH)"
 msgstr "Rensa tabellen (flush)"
 
 #: libraries/operations.lib.php:1477
-#: templates/structure/check_all_tables.phtml:23
-#: templates/structure/display_table_stats.phtml:56
+#: templates/database/structure/check_all_tables.phtml:23
+#: templates/table/structure/display_table_stats.phtml:56
 msgid "Optimize table"
 msgstr "Optimera tabell"
 
 #: libraries/operations.lib.php:1492
-#: templates/structure/check_all_tables.phtml:24
+#: templates/database/structure/check_all_tables.phtml:24
 msgid "Repair table"
 msgstr "Reparera tabell"
 
 #: libraries/operations.lib.php:1538
-#: templates/structure/check_all_tables.phtml:14 view_operations.php:127
+#: templates/database/structure/check_all_tables.phtml:14
+#: view_operations.php:127
 msgid "Delete data or table"
 msgstr "Ta bort data eller tabell"
 
@@ -10512,7 +10530,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Kan ej skapa förbindelse: ogiltiga inställningar."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:108
-#: libraries/plugins/auth/AuthenticationCookie.class.php:134
+#: libraries/plugins/auth/AuthenticationCookie.class.php:122
 #: libraries/plugins/auth/AuthenticationHttp.class.php:96
 #, php-format
 msgid "Welcome to %s"
@@ -10543,36 +10561,36 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Försök ansluta igen"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:146
+#: libraries/plugins/auth/AuthenticationCookie.class.php:134
 msgid "Your session has expired. Please log in again."
 msgstr "Din session har gått ut. Vänligen logga in igen."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:170
+#: libraries/plugins/auth/AuthenticationCookie.class.php:158
 msgid "Log in"
 msgstr "Logga in"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#: libraries/plugins/auth/AuthenticationCookie.class.php:188
+#: libraries/plugins/auth/AuthenticationCookie.class.php:166
+#: libraries/plugins/auth/AuthenticationCookie.class.php:176
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Du kan ange värdnamn/IP-adress och port separerade med mellanslag."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:193
+#: libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Username:"
 msgstr "Användarnamn:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:205
+#: libraries/plugins/auth/AuthenticationCookie.class.php:193
 msgid "Server Choice:"
 msgstr "Serverval:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:386
+#: libraries/plugins/auth/AuthenticationCookie.class.php:374
 msgid "Entered captcha is wrong, try again!"
 msgstr "Angivet captcha är fel, försök igen!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:396
+#: libraries/plugins/auth/AuthenticationCookie.class.php:384
 msgid "Please enter correct captcha!"
 msgstr "Ange korrekt captcha!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:423
+#: libraries/plugins/auth/AuthenticationCookie.class.php:411
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10670,7 +10688,7 @@ msgstr "Händelse"
 #: libraries/plugins/export/ExportOdt.class.php:593
 #: libraries/plugins/export/ExportTexytext.class.php:428
 #: libraries/plugins/export/PMA_ExportPdf.class.php:313
-#: libraries/rte/rte_events.lib.php:480 libraries/rte/rte_routines.lib.php:893
+#: libraries/rte/rte_events.lib.php:480 libraries/rte/rte_routines.lib.php:984
 #: libraries/rte/rte_triggers.lib.php:377
 msgid "Definition"
 msgstr "Definition"
@@ -11004,7 +11022,7 @@ msgid "Last check:"
 msgstr "Senaste kontroll:"
 
 #: libraries/plugins/export/ExportSql.class.php:1399
-#: templates/structure/structure_table_row.phtml:183
+#: templates/database/structure/structure_table_row.phtml:183
 msgid "in use"
 msgstr "används"
 
@@ -11198,19 +11216,13 @@ msgstr "MySQL Spatial Extension stöder inte ESRI-typen \"%s\"."
 msgid "The imported file does not contain any data!"
 msgstr "Den importerade filen innehåller inte några data!"
 
-#: libraries/plugins/import/ImportSql.class.php:169
+#: libraries/plugins/import/ImportSql.class.php:72
 msgid "SQL compatibility mode:"
 msgstr "SQL kompatibilitetsläge:"
 
-#: libraries/plugins/import/ImportSql.class.php:181
+#: libraries/plugins/import/ImportSql.class.php:84
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Använd inte <code>AUTO_INCREMENT</code> för nollvärden"
-
-#: libraries/plugins/import/ImportSql.class.php:195
-#, fuzzy
-#| msgid "Read misses"
-msgid "Read as multibytes"
-msgstr "Läsmissar"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -11254,7 +11266,7 @@ msgid "Show grid"
 msgstr "Visa rutnät"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
-#: templates/structure/print_view_data_dictionary_link.phtml:6
+#: templates/database/structure/print_view_data_dictionary_link.phtml:6
 msgid "Data Dictionary"
 msgstr "Datalexikon"
 
@@ -11285,7 +11297,7 @@ msgid "The %s table doesn't exist!"
 msgstr "Tabellen %s existerar inte!"
 
 #: libraries/plugins/schema/eps/Eps_Relation_Schema.class.php:321
-#: libraries/plugins/schema/svg/Svg_Relation_Schema.class.php:309
+#: libraries/plugins/schema/svg/Svg_Relation_Schema.class.php:323
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "Schema för databasen %s - Sida %s"
@@ -11314,7 +11326,7 @@ msgstr "Innehållsförteckning"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1005
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1028
 #: libraries/tracking.lib.php:884
-#: templates/structure/table_structure_header.phtml:11
+#: templates/table/structure/table_structure_header.phtml:11
 msgid "Extra"
 msgstr "Extra"
 
@@ -11720,11 +11732,11 @@ msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr ""
 "Skapa de nödvändiga tabellerna med <code>examples/create_tables.sql</code>."
 
-#: libraries/relation.lib.php:360
+#: libraries/relation.lib.php:357
 msgid "Create a pma user and give access to these tables."
 msgstr "Skapa en PMA användare och ge tillgång till dessa tabeller."
 
-#: libraries/relation.lib.php:365
+#: libraries/relation.lib.php:360
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -11733,24 +11745,24 @@ msgstr ""
 "code>), till exempel genom att starta från <code>config.sample.inc.php</"
 "code>."
 
-#: libraries/relation.lib.php:373
+#: libraries/relation.lib.php:365
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Logga in igen till phpMyAdmin för att ladda den uppdaterade "
 "konfigurationsfilen."
 
-#: libraries/relation.lib.php:1612
+#: libraries/relation.lib.php:1607
 msgid "no description"
 msgstr "ingen beskrivning"
 
-#: libraries/relation.lib.php:1811
+#: libraries/relation.lib.php:1806
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1928
+#: libraries/relation.lib.php:1923
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -11758,21 +11770,21 @@ msgid ""
 "configuration storage there."
 msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
 
-#: libraries/relation.lib.php:1936
+#: libraries/relation.lib.php:1931
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
 
-#: libraries/relation.lib.php:1944
+#: libraries/relation.lib.php:1939
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:343
-#: libraries/server_databases.lib.php:387
+#: libraries/server_databases.lib.php:398
 msgid "Master replication"
 msgstr "Master-replikering"
 
@@ -11844,7 +11856,7 @@ msgstr ""
 "som master."
 
 #: libraries/replication_gui.lib.php:141
-#: libraries/server_databases.lib.php:389
+#: libraries/server_databases.lib.php:400
 msgid "Slave replication"
 msgstr "Slav-replikering"
 
@@ -12118,10 +12130,10 @@ msgid "Master server changed successfully to %s."
 msgstr "Huvudservern har ändrats till %s."
 
 #: libraries/rte/rte_events.lib.php:106 libraries/rte/rte_events.lib.php:115
-#: libraries/rte/rte_events.lib.php:146 libraries/rte/rte_routines.lib.php:149
-#: libraries/rte/rte_routines.lib.php:158
-#: libraries/rte/rte_routines.lib.php:231
-#: libraries/rte/rte_routines.lib.php:1362
+#: libraries/rte/rte_events.lib.php:146 libraries/rte/rte_routines.lib.php:219
+#: libraries/rte/rte_routines.lib.php:246
+#: libraries/rte/rte_routines.lib.php:368
+#: libraries/rte/rte_routines.lib.php:1453
 #: libraries/rte/rte_triggers.lib.php:82 libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:123
 #, php-format
@@ -12142,7 +12154,7 @@ msgstr "Händelsen %1$s har ändrats."
 msgid "Event %1$s has been created."
 msgstr "Händelsen %1$s har skapats."
 
-#: libraries/rte/rte_events.lib.php:167 libraries/rte/rte_routines.lib.php:251
+#: libraries/rte/rte_events.lib.php:167 libraries/rte/rte_routines.lib.php:266
 #: libraries/rte/rte_triggers.lib.php:144
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Ett eller flera fel har inträffat under hanteringen av din begäran:"
@@ -12151,7 +12163,7 @@ msgstr "Ett eller flera fel har inträffat under hanteringen av din begäran:"
 msgid "Edit event"
 msgstr "Redigera händelse"
 
-#: libraries/rte/rte_events.lib.php:384 libraries/rte/rte_routines.lib.php:794
+#: libraries/rte/rte_events.lib.php:384 libraries/rte/rte_routines.lib.php:885
 #: libraries/rte/rte_triggers.lib.php:323 view_create.php:180
 msgid "Details"
 msgstr "Detaljer"
@@ -12164,7 +12176,7 @@ msgstr "Händelsenamn"
 msgid "Event type"
 msgstr "Händelsetyp"
 
-#: libraries/rte/rte_events.lib.php:430 libraries/rte/rte_routines.lib.php:817
+#: libraries/rte/rte_events.lib.php:430 libraries/rte/rte_routines.lib.php:908
 #, php-format
 msgid "Change to %s"
 msgstr "Ändra till %s"
@@ -12191,12 +12203,14 @@ msgstr "Slut"
 msgid "On completion preserve"
 msgstr "Vid avslut, bevara"
 
-#: libraries/rte/rte_events.lib.php:491 libraries/rte/rte_routines.lib.php:930
+#: libraries/rte/rte_events.lib.php:491
+#: libraries/rte/rte_routines.lib.php:1021
 #: libraries/rte/rte_triggers.lib.php:383 view_create.php:209
 msgid "Definer"
 msgstr "Definierare"
 
-#: libraries/rte/rte_events.lib.php:535 libraries/rte/rte_routines.lib.php:997
+#: libraries/rte/rte_events.lib.php:535
+#: libraries/rte/rte_routines.lib.php:1088
 #: libraries/rte/rte_triggers.lib.php:422
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Definieraren måste vara i formatet: \"användarnamn@hostname\"!"
@@ -12222,9 +12236,9 @@ msgid "You must provide an event definition."
 msgstr "Du måste ange en händelsedefinition."
 
 #: libraries/rte/rte_export.lib.php:43 libraries/rte/rte_general.lib.php:72
-#: libraries/rte/rte_routines.lib.php:345
-#: libraries/rte/rte_routines.lib.php:1198
-#: libraries/rte/rte_routines.lib.php:1411
+#: libraries/rte/rte_routines.lib.php:153
+#: libraries/rte/rte_routines.lib.php:1289
+#: libraries/rte/rte_routines.lib.php:1502
 msgid "Error in processing request:"
 msgstr "Fel i processbegäran:"
 
@@ -12260,97 +12274,97 @@ msgstr ""
 "misslyckas!![/strong] Använd den förbättrade \"mysqli\" utvidgningen för att "
 "undvika eventuella problem."
 
-#: libraries/rte/rte_routines.lib.php:110
-#: libraries/rte/rte_routines.lib.php:1006
+#: libraries/rte/rte_routines.lib.php:123
+msgid "Edit routine"
+msgstr "Redigera rutin"
+
+#: libraries/rte/rte_routines.lib.php:200
+#: libraries/rte/rte_routines.lib.php:1097
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Ogiltig rutintyp: \"%s\""
 
-#: libraries/rte/rte_routines.lib.php:170
+#: libraries/rte/rte_routines.lib.php:253
+#, php-format
+msgid "Routine %1$s has been created."
+msgstr "Rutinen %1$s har skapats."
+
+#: libraries/rte/rte_routines.lib.php:380
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Tyvärr, vi lyckades inte återställa den slängda rutinen."
 
-#: libraries/rte/rte_routines.lib.php:211
+#: libraries/rte/rte_routines.lib.php:439
 #, fuzzy, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Rutinen %1$s har modifierats."
 
-#: libraries/rte/rte_routines.lib.php:216
+#: libraries/rte/rte_routines.lib.php:444
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Rutinen %1$s har modifierats."
 
-#: libraries/rte/rte_routines.lib.php:238
-#, php-format
-msgid "Routine %1$s has been created."
-msgstr "Rutinen %1$s har skapats."
-
-#: libraries/rte/rte_routines.lib.php:315
-msgid "Edit routine"
-msgstr "Redigera rutin"
-
-#: libraries/rte/rte_routines.lib.php:797
+#: libraries/rte/rte_routines.lib.php:888
 msgid "Routine name"
 msgstr "Rutinnamn"
 
-#: libraries/rte/rte_routines.lib.php:823
+#: libraries/rte/rte_routines.lib.php:914
 msgid "Parameters"
 msgstr "Parametrar"
 
-#: libraries/rte/rte_routines.lib.php:829
+#: libraries/rte/rte_routines.lib.php:920
 msgid "Direction"
 msgstr "Riktning"
 
-#: libraries/rte/rte_routines.lib.php:847
+#: libraries/rte/rte_routines.lib.php:938
 msgid "Add parameter"
 msgstr "Lägg till parameter"
 
-#: libraries/rte/rte_routines.lib.php:851
+#: libraries/rte/rte_routines.lib.php:942
 msgid "Remove last parameter"
 msgstr "Ta bort senaste parametern"
 
-#: libraries/rte/rte_routines.lib.php:856
+#: libraries/rte/rte_routines.lib.php:947
 msgid "Return type"
 msgstr "Returtyp"
 
-#: libraries/rte/rte_routines.lib.php:862
+#: libraries/rte/rte_routines.lib.php:953
 msgid "Return length/values"
 msgstr "Returnera längd/värden"
 
-#: libraries/rte/rte_routines.lib.php:868
+#: libraries/rte/rte_routines.lib.php:959
 msgid "Return options"
 msgstr "Return alternativ"
 
-#: libraries/rte/rte_routines.lib.php:899
+#: libraries/rte/rte_routines.lib.php:990
 msgid "Is deterministic"
 msgstr "Är deterministisk"
 
-#: libraries/rte/rte_routines.lib.php:920
+#: libraries/rte/rte_routines.lib.php:1011
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:935
+#: libraries/rte/rte_routines.lib.php:1026
 msgid "Security type"
 msgstr "Säkerhetstyp"
 
-#: libraries/rte/rte_routines.lib.php:944
+#: libraries/rte/rte_routines.lib.php:1035
 msgid "SQL data access"
 msgstr "SQL dataaccess"
 
-#: libraries/rte/rte_routines.lib.php:1013
+#: libraries/rte/rte_routines.lib.php:1104
 msgid "You must provide a routine name!"
 msgstr "Du måste ange ett rutinnamn!"
 
-#: libraries/rte/rte_routines.lib.php:1047
+#: libraries/rte/rte_routines.lib.php:1138
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Ogiltig riktning \"%s\" angiven för parameter."
 
-#: libraries/rte/rte_routines.lib.php:1069
-#: libraries/rte/rte_routines.lib.php:1131
+#: libraries/rte/rte_routines.lib.php:1160
+#: libraries/rte/rte_routines.lib.php:1222
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -12358,37 +12372,37 @@ msgstr ""
 "Du måste ange längd/värden för rutinparametrar av typen ENUM, SET, VARCHAR "
 "och VARBINARY."
 
-#: libraries/rte/rte_routines.lib.php:1095
+#: libraries/rte/rte_routines.lib.php:1186
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
 
-#: libraries/rte/rte_routines.lib.php:1114
+#: libraries/rte/rte_routines.lib.php:1205
 msgid "You must provide a valid return type for the routine."
 msgstr "Du måste ange en giltig returtyp för händelsen."
 
-#: libraries/rte/rte_routines.lib.php:1174
+#: libraries/rte/rte_routines.lib.php:1265
 msgid "You must provide a routine definition."
 msgstr "Du måste ange en rutindefinition."
 
-#: libraries/rte/rte_routines.lib.php:1285
+#: libraries/rte/rte_routines.lib.php:1376
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Exekveringsresultat av rutin %s"
 
-#: libraries/rte/rte_routines.lib.php:1340
+#: libraries/rte/rte_routines.lib.php:1431
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d rad berörs av det sista uttrycket inom proceduren."
 msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren."
 
-#: libraries/rte/rte_routines.lib.php:1398
-#: libraries/rte/rte_routines.lib.php:1406
+#: libraries/rte/rte_routines.lib.php:1489
+#: libraries/rte/rte_routines.lib.php:1497
 msgid "Execute routine"
 msgstr "Utför rutin"
 
-#: libraries/rte/rte_routines.lib.php:1485
-#: libraries/rte/rte_routines.lib.php:1488
+#: libraries/rte/rte_routines.lib.php:1576
+#: libraries/rte/rte_routines.lib.php:1579
 msgid "Routine parameters"
 msgstr "Rutinparametrar"
 
@@ -12542,7 +12556,7 @@ msgid "Original position"
 msgstr "Ursprunglig position"
 
 #: libraries/server_bin_log.lib.php:133
-#: templates/structure/display_table_stats.phtml:4
+#: templates/table/structure/display_table_stats.phtml:4
 msgid "Information"
 msgstr "Information"
 
@@ -12580,12 +12594,12 @@ msgstr ""
 "Anm: Att aktivera databas-statistik här kan orsaka tung trafik mellan "
 "webbservern och MySQL-servern."
 
-#: libraries/server_databases.lib.php:364
-#: libraries/server_databases.lib.php:365
+#: libraries/server_databases.lib.php:366
+#: libraries/server_databases.lib.php:371
 msgid "Enable Statistics"
 msgstr "Aktivera Statistik"
 
-#: libraries/server_databases.lib.php:481
+#: libraries/server_databases.lib.php:492
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -12960,7 +12974,7 @@ msgid "You have revoked the privileges for %s."
 msgstr "Du har upphävt privilegierna för %s."
 
 #: libraries/server_privileges.lib.php:2059
-#: libraries/server_privileges.lib.php:4290
+#: libraries/server_privileges.lib.php:4316
 #, fuzzy
 #| msgid "Add user group"
 msgid "Add user account"
@@ -13139,59 +13153,59 @@ msgstr "Tar bort %s"
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegierna har laddats om."
 
-#: libraries/server_privileges.lib.php:3994
+#: libraries/server_privileges.lib.php:4003
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Användaren %s finns redan!"
 
-#: libraries/server_privileges.lib.php:4232
+#: libraries/server_privileges.lib.php:4258
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegier för %s"
 
-#: libraries/server_privileges.lib.php:4241
+#: libraries/server_privileges.lib.php:4267
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "Användare"
 
-#: libraries/server_privileges.lib.php:4282
+#: libraries/server_privileges.lib.php:4308
 msgctxt "Create new user"
 msgid "New"
 msgstr "Ny"
 
-#: libraries/server_privileges.lib.php:4311
+#: libraries/server_privileges.lib.php:4337
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "Ändra privilegier:"
 
-#: libraries/server_privileges.lib.php:4312
+#: libraries/server_privileges.lib.php:4338
 #, fuzzy
 #| msgid "User group"
 msgid "User account"
 msgstr "Användargrupp"
 
-#: libraries/server_privileges.lib.php:4371
+#: libraries/server_privileges.lib.php:4397
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4391 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4417 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "Användaröversikt"
 
-#: libraries/server_privileges.lib.php:4459
+#: libraries/server_privileges.lib.php:4485
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4500
+#: libraries/server_privileges.lib.php:4526
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -13204,7 +13218,7 @@ msgstr ""
 "behörigheter servern använder, om manuella ändringar har gjorts. Är så "
 "fallet bör du %sladda om behörigheterna%s innan du fortsätter."
 
-#: libraries/server_privileges.lib.php:4519
+#: libraries/server_privileges.lib.php:4545
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13223,25 +13237,25 @@ msgstr ""
 "behörigheter servern använder, om manuella ändringar har gjorts. Är så "
 "fallet bör du %sladda om behörigheterna%s innan du fortsätter."
 
-#: libraries/server_privileges.lib.php:4569
+#: libraries/server_privileges.lib.php:4595
 msgid "The selected user was not found in the privilege table."
 msgstr "Den valda användaren kunde inte hittas i privilegietabellen."
 
-#: libraries/server_privileges.lib.php:4801
+#: libraries/server_privileges.lib.php:4827
 msgid "You have added a new user."
 msgstr "Du har lagt till en ny användare."
 
-#: libraries/server_status.lib.php:53
+#: libraries/server_status.lib.php:60
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "Nätverkstrafik sedan start: %s"
 
-#: libraries/server_status.lib.php:66
+#: libraries/server_status.lib.php:73
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Denna MySQL-servern har varit igång i %1$s. Den startade den %2$s."
 
-#: libraries/server_status.lib.php:80
+#: libraries/server_status.lib.php:94
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -13249,22 +13263,22 @@ msgstr ""
 "Denna MySQL-server fungerar som <b>master</b> och <b>slave</b> i en "
 "<b>replikerings</b>-process."
 
-#: libraries/server_status.lib.php:85
+#: libraries/server_status.lib.php:99
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Denna MySQL-server arbetar som <b>master</b> i en <b>replikerings</b>-"
 "process."
 
-#: libraries/server_status.lib.php:90
+#: libraries/server_status.lib.php:104
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Denna MySQL-server arbetar som <b>slave</b> i en <b>replikerings</b>-process."
 
-#: libraries/server_status.lib.php:106
+#: libraries/server_status.lib.php:116
 msgid "Replication status"
 msgstr "Replikeringsstatus"
 
-#: libraries/server_status.lib.php:137
+#: libraries/server_status.lib.php:146
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -13272,21 +13286,21 @@ msgstr ""
 "På en upptagen server kan byte-räknare spåra ur, så statistiken som "
 "rapporteras av MySQL-servern kan vara fel."
 
-#: libraries/server_status.lib.php:148
+#: libraries/server_status.lib.php:157
 msgid "Received"
 msgstr "Mottagna"
 
-#: libraries/server_status.lib.php:167
+#: libraries/server_status.lib.php:176
 msgid "Sent"
 msgstr "Skickade"
 
-#: libraries/server_status.lib.php:234
+#: libraries/server_status.lib.php:243
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "max. samtidiga förbindelser"
 
-#: libraries/server_status.lib.php:244
+#: libraries/server_status.lib.php:253
 msgid "Failed attempts"
 msgstr "Misslyckade försök"
 
@@ -14359,7 +14373,7 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/AlterOperation.php:193
+#: libraries/sql-parser/src/Components/AlterOperation.php:191
 #, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
@@ -14375,7 +14389,7 @@ msgid "An opening bracket followed by a set of values was expected."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:101
-#: libraries/sql-parser/src/Components/FieldDefinition.php:202
+#: libraries/sql-parser/src/Components/CreateDefinition.php:202
 msgid "An opening bracket was expected."
 msgstr ""
 
@@ -14383,25 +14397,35 @@ msgstr ""
 msgid "A comma or a closing bracket was expected"
 msgstr ""
 
+#: libraries/sql-parser/src/Components/CreateDefinition.php:246
+#, fuzzy
+#| msgid "No databases selected."
+msgid "A comma or a closing bracket was expected."
+msgstr "Inga databaser markerade."
+
+#: libraries/sql-parser/src/Components/CreateDefinition.php:262
+msgid "A closing bracket was expected."
+msgstr ""
+
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:225
+#: libraries/sql-parser/src/Components/Expression.php:227
 msgid "Unexpected closing bracket."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:246
-#: libraries/sql-parser/src/Components/Expression.php:283
-#: libraries/sql-parser/src/Components/Expression.php:303
+#: libraries/sql-parser/src/Components/Expression.php:248
+#: libraries/sql-parser/src/Components/Expression.php:285
+#: libraries/sql-parser/src/Components/Expression.php:305
 msgid "An alias was previously found."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:257
+#: libraries/sql-parser/src/Components/Expression.php:259
 msgid "Unexpected dot."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:327
+#: libraries/sql-parser/src/Components/Expression.php:329
 #, fuzzy
 #| msgid "No databases selected."
 msgid "An alias was expected."
@@ -14412,16 +14436,6 @@ msgstr "Inga databaser markerade."
 #| msgid "No rows selected"
 msgid "An expression was expected."
 msgstr "Inga rader valda"
-
-#: libraries/sql-parser/src/Components/FieldDefinition.php:246
-#, fuzzy
-#| msgid "No databases selected."
-msgid "A comma or a closing bracket was expected."
-msgstr "Inga databaser markerade."
-
-#: libraries/sql-parser/src/Components/FieldDefinition.php:262
-msgid "A closing bracket was expected."
-msgstr ""
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
@@ -14470,29 +14484,29 @@ msgstr ""
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:753
+#: libraries/sql-parser/src/Lexer.php:777
 #, fuzzy, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "Händelsen %1$s har skapats."
 
-#: libraries/sql-parser/src/Lexer.php:789
+#: libraries/sql-parser/src/Lexer.php:813
 #, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
 msgstr "Mall för tabellnamn"
 
-#: libraries/sql-parser/src/Parser.php:380
+#: libraries/sql-parser/src/Parser.php:391
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
 msgstr "I början av tabellen"
 
-#: libraries/sql-parser/src/Parser.php:399
+#: libraries/sql-parser/src/Parser.php:410
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:479
+#: libraries/sql-parser/src/Parser.php:489
 msgid "No transaction was previously started."
 msgstr ""
 
@@ -14522,8 +14536,10 @@ msgid "The name of the entity was expected."
 msgstr "Antalet tabeller som är öppna."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
-msgid "At least one field definition was expected."
-msgstr ""
+#, fuzzy
+#| msgid "The row has been deleted."
+msgid "At least one column definition was expected."
+msgstr "Raden har raderats."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
@@ -14582,11 +14598,11 @@ msgstr "Bokmärke ej skapat!"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 
-#: libraries/sql.lib.php:1306
+#: libraries/sql.lib.php:1300
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: libraries/sql.lib.php:1638
+#: libraries/sql.lib.php:1632
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14599,7 +14615,7 @@ msgstr ""
 "rutnätsredigera, kryssruta, redigera, kopiera och radera är inte "
 "tillgängliga."
 
-#: libraries/sql.lib.php:1649
+#: libraries/sql.lib.php:1643
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14612,7 +14628,7 @@ msgstr ""
 "rutnätsredigera, kryssruta, redigera, kopiera och radera är inte "
 "tillgängliga."
 
-#: libraries/sql.lib.php:1688
+#: libraries/sql.lib.php:1682
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problem med index för tabell `%s`"
@@ -14774,7 +14790,7 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Version %s ögonblicksbild (SQL-kod)"
 
 #: libraries/tracking.lib.php:947
-#: templates/structure/table_structure_row.phtml:33
+#: templates/table/structure/table_structure_row.phtml:33
 msgctxt "None for default"
 msgid "None"
 msgstr "Inget"
@@ -14829,15 +14845,15 @@ msgstr "Skapa version %1$s av %2$s"
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Version %1$s är skapad, spårning för %2$s är aktiv."
 
-#: libraries/user_preferences.inc.php:29
+#: libraries/user_preferences.inc.php:30
 msgid "Manage your settings"
 msgstr "Hantera dina inställningar"
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:307
+#: libraries/user_preferences.inc.php:54 prefs_manage.php:307
 msgid "Configuration has been saved."
 msgstr "Konfigurationen har sparats."
 
-#: libraries/user_preferences.inc.php:66
+#: libraries/user_preferences.inc.php:74
 #, php-format
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
@@ -15242,7 +15258,7 @@ msgid "first"
 msgstr "först"
 
 #: templates/columns_definitions/move_column.phtml:12
-#: templates/structure/add_column.phtml:21
+#: templates/table/structure/add_column.phtml:21
 #, php-format
 msgid "after %s"
 msgstr "efter %s"
@@ -15319,218 +15335,323 @@ msgstr "Webbläsaromvandling"
 msgid "Input transformation options"
 msgstr "Omvandlingsparametrar"
 
-#: templates/designer/aggregate_query_panel.phtml:22
-#: templates/designer/options_panel.phtml:100
+#: templates/database/create_table.phtml:7
+#: templates/database/designer/side_menu.phtml:77
+#: templates/database/designer/side_menu.phtml:80
+msgid "Create table"
+msgstr "Skapa tabell"
+
+#: templates/database/create_table.phtml:15
+msgid "Number of columns"
+msgstr "Antal kolumner"
+
+#: templates/database/designer/aggregate_query_panel.phtml:22
+#: templates/database/designer/options_panel.phtml:100
 msgid "Aggregate"
 msgstr "Aggregera"
 
-#: templates/designer/aggregate_query_panel.phtml:30
-#: templates/designer/having_query_panel.phtml:30
-#: templates/designer/having_query_panel.phtml:61
-#: templates/designer/options_panel.phtml:106
-#: templates/designer/options_panel.phtml:170
-#: templates/designer/where_query_panel.phtml:30
-#: templates/table/table_header.phtml:9
+#: templates/database/designer/aggregate_query_panel.phtml:30
+#: templates/database/designer/having_query_panel.phtml:30
+#: templates/database/designer/having_query_panel.phtml:61
+#: templates/database/designer/options_panel.phtml:106
+#: templates/database/designer/options_panel.phtml:170
+#: templates/database/designer/where_query_panel.phtml:30
+#: templates/table/search/table_header.phtml:9
 msgid "Operator"
 msgstr "Aktör"
 
-#: templates/designer/database_tables.phtml:29
+#: templates/database/designer/database_tables.phtml:29
 msgid "Toggle"
 msgstr ""
 
-#: templates/designer/database_tables.phtml:40
+#: templates/database/designer/database_tables.phtml:40
 #, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
 msgstr "Tabellstruktur"
 
-#: templates/designer/delete_relation_panel.phtml:21
+#: templates/database/designer/delete_relation_panel.phtml:21
 msgid "Delete relation"
 msgstr "Ta bort relation"
 
-#: templates/designer/edit_delete_pages.phtml:7
+#: templates/database/designer/edit_delete_pages.phtml:7
 #, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
 msgstr "Sidtitlar"
 
-#: templates/designer/edit_delete_pages.phtml:7
+#: templates/database/designer/edit_delete_pages.phtml:7
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
 msgstr "Relation borttagen"
 
-#: templates/designer/having_query_panel.phtml:90
-#: templates/designer/options_panel.phtml:63
-#: templates/designer/options_panel.phtml:229
-#: templates/designer/where_query_panel.phtml:59
+#: templates/database/designer/having_query_panel.phtml:90
+#: templates/database/designer/options_panel.phtml:63
+#: templates/database/designer/options_panel.phtml:229
+#: templates/database/designer/where_query_panel.phtml:59
 msgid "Except"
 msgstr "Förutom"
 
-#: templates/designer/having_query_panel.phtml:102
-#: templates/designer/options_panel.phtml:75
-#: templates/designer/options_panel.phtml:241
-#: templates/designer/where_query_panel.phtml:71
+#: templates/database/designer/having_query_panel.phtml:102
+#: templates/database/designer/options_panel.phtml:75
+#: templates/database/designer/options_panel.phtml:241
+#: templates/database/designer/where_query_panel.phtml:71
 msgid "subquery"
 msgstr "underfråga"
 
-#: templates/designer/new_relation_panel.phtml:22
-#: templates/designer/side_menu.phtml:84 templates/designer/side_menu.phtml:87
+#: templates/database/designer/new_relation_panel.phtml:22
+#: templates/database/designer/side_menu.phtml:84
+#: templates/database/designer/side_menu.phtml:87
 msgid "Create relation"
 msgstr "Skapa relation"
 
-#: templates/designer/options_panel.phtml:34
-#: templates/designer/options_panel.phtml:200
+#: templates/database/designer/options_panel.phtml:34
+#: templates/database/designer/options_panel.phtml:200
 msgid "Relation operator"
 msgstr "Relationsoperator"
 
-#: templates/designer/options_panel.phtml:85
-#: templates/designer/rename_to_panel.phtml:23
+#: templates/database/designer/options_panel.phtml:85
+#: templates/database/designer/rename_to_panel.phtml:23
 msgid "Rename to"
 msgstr "Byt namn till"
 
-#: templates/designer/options_panel.phtml:91
-#: templates/designer/rename_to_panel.phtml:31
+#: templates/database/designer/options_panel.phtml:91
+#: templates/database/designer/rename_to_panel.phtml:31
 msgid "New name"
 msgstr "Nytt namn"
 
-#: templates/designer/page_save_as.phtml:4
+#: templates/database/designer/page_save_as.phtml:4
 #, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
 msgstr "Exportera till vald sida."
 
-#: templates/designer/page_save_as.phtml:5
+#: templates/database/designer/page_save_as.phtml:5
 #, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
 msgstr "Skapa en sida och exportera till den."
 
-#: templates/designer/page_save_as.phtml:26
+#: templates/database/designer/page_save_as.phtml:26
 #, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
 msgstr "Nytt sidnamn: "
 
-#: templates/designer/page_selector.phtml:2
+#: templates/database/designer/page_selector.phtml:2
 msgid "Select page"
 msgstr "Välj sida"
 
-#: templates/designer/query_details.phtml:10
+#: templates/database/designer/query_details.phtml:10
 msgid "Active options"
 msgstr "Aktiva alternativ"
 
-#: templates/designer/schema_export.phtml:4
+#: templates/database/designer/schema_export.phtml:4
 msgid "Select Export Relational Type"
 msgstr "Välj Exportera Relationell Typ"
 
-#: templates/designer/side_menu.phtml:19 templates/designer/side_menu.phtml:25
+#: templates/database/designer/side_menu.phtml:19
+#: templates/database/designer/side_menu.phtml:25
 #, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
 msgstr "Visar tabeller:"
 
-#: templates/designer/side_menu.phtml:29 templates/designer/side_menu.phtml:35
-#: templates/designer/side_menu.phtml:36
+#: templates/database/designer/side_menu.phtml:29
+#: templates/database/designer/side_menu.phtml:35
+#: templates/database/designer/side_menu.phtml:36
 msgid "View in fullscreen"
 msgstr "Visa i helskärmsläge"
 
-#: templates/designer/side_menu.phtml:34
+#: templates/database/designer/side_menu.phtml:34
 msgid "Exit fullscreen"
 msgstr "Avsluta helskärmsläge"
 
-#: templates/designer/side_menu.phtml:41 templates/designer/side_menu.phtml:45
+#: templates/database/designer/side_menu.phtml:41
+#: templates/database/designer/side_menu.phtml:45
 #, fuzzy
 #| msgid "New name"
 msgid "New page"
 msgstr "Nytt namn"
 
-#: templates/designer/side_menu.phtml:70 templates/designer/side_menu.phtml:73
+#: templates/database/designer/side_menu.phtml:70
+#: templates/database/designer/side_menu.phtml:73
 #, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
 msgstr "Välj sida"
 
-#: templates/designer/side_menu.phtml:77 templates/designer/side_menu.phtml:80
-#: templates/table/create_table.phtml:7
-msgid "Create table"
-msgstr "Skapa tabell"
-
-#: templates/designer/side_menu.phtml:98
-#: templates/designer/side_menu.phtml:101
+#: templates/database/designer/side_menu.phtml:98
+#: templates/database/designer/side_menu.phtml:101
 msgid "Reload"
 msgstr "Uppdatera"
 
-#: templates/designer/side_menu.phtml:107
-#: templates/designer/side_menu.phtml:110
+#: templates/database/designer/side_menu.phtml:107
+#: templates/database/designer/side_menu.phtml:110
 msgid "Help"
 msgstr "Hjälp"
 
-#: templates/designer/side_menu.phtml:115
-#: templates/designer/side_menu.phtml:118
+#: templates/database/designer/side_menu.phtml:115
+#: templates/database/designer/side_menu.phtml:118
 msgid "Angular links"
 msgstr "Vinklade länkar"
 
-#: templates/designer/side_menu.phtml:115
-#: templates/designer/side_menu.phtml:118
+#: templates/database/designer/side_menu.phtml:115
+#: templates/database/designer/side_menu.phtml:118
 msgid "Direct links"
 msgstr "Direkta länkar"
 
-#: templates/designer/side_menu.phtml:122
-#: templates/designer/side_menu.phtml:124
+#: templates/database/designer/side_menu.phtml:122
+#: templates/database/designer/side_menu.phtml:124
 msgid "Snap to grid"
 msgstr "Fäst vid rutnät"
 
-#: templates/designer/side_menu.phtml:128
-#: templates/designer/side_menu.phtml:134
+#: templates/database/designer/side_menu.phtml:128
+#: templates/database/designer/side_menu.phtml:134
 msgid "Small/Big All"
 msgstr "Små/Stora Alla"
 
-#: templates/designer/side_menu.phtml:138
-#: templates/designer/side_menu.phtml:141
+#: templates/database/designer/side_menu.phtml:138
+#: templates/database/designer/side_menu.phtml:141
 msgid "Toggle small/big"
 msgstr "Växla liten/stor"
 
-#: templates/designer/side_menu.phtml:145
-#: templates/designer/side_menu.phtml:148
+#: templates/database/designer/side_menu.phtml:145
+#: templates/database/designer/side_menu.phtml:148
 msgid "Toggle relation lines"
 msgstr "Växla mellan relaterade linjer"
 
-#: templates/designer/side_menu.phtml:153
-#: templates/designer/side_menu.phtml:156
+#: templates/database/designer/side_menu.phtml:153
+#: templates/database/designer/side_menu.phtml:156
 #, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
 msgstr "Exportera allt"
 
-#: templates/designer/side_menu.phtml:165
-#: templates/designer/side_menu.phtml:168
+#: templates/database/designer/side_menu.phtml:165
+#: templates/database/designer/side_menu.phtml:168
 msgid "Build Query"
 msgstr "Bygg sökfråga"
 
-#: templates/designer/side_menu.phtml:173
-#: templates/designer/side_menu.phtml:177
+#: templates/database/designer/side_menu.phtml:173
+#: templates/database/designer/side_menu.phtml:177
 msgid "Move Menu"
 msgstr "Flytta meny"
 
-#: templates/designer/side_menu.phtml:181
-#: templates/designer/side_menu.phtml:186
+#: templates/database/designer/side_menu.phtml:181
+#: templates/database/designer/side_menu.phtml:186
 #, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
 msgstr "Förkortade texter"
 
-#: templates/designer/table_list.phtml:4
+#: templates/database/designer/table_list.phtml:4
 msgid "Hide/Show all"
 msgstr "Dölj/Visa alla"
 
-#: templates/designer/table_list.phtml:14
+#: templates/database/designer/table_list.phtml:14
 msgid "Hide/Show Tables with no relation"
 msgstr "Dölj/visa tabeller utan relationer"
 
-#: templates/designer/table_list.phtml:59
+#: templates/database/designer/table_list.phtml:59
 msgid "Number of tables:"
 msgstr "Antal tabeller:"
+
+#: templates/database/structure/body_for_table_summary.phtml:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabell"
+msgstr[1] "%s tabeller"
+
+#: templates/database/structure/body_for_table_summary.phtml:17
+msgid "Sum"
+msgstr "Summa"
+
+#: templates/database/structure/check_all_tables.phtml:6
+msgid "Check tables having overhead"
+msgstr "Kontrollera tabeller med overhead"
+
+#: templates/database/structure/check_all_tables.phtml:10
+#, fuzzy
+#| msgid "Show color"
+msgid "Show create"
+msgstr "Visa färg"
+
+#: templates/database/structure/check_all_tables.phtml:27
+#, fuzzy
+#| msgid "Add prefix"
+msgid "Prefix"
+msgstr "Lägg till prefix"
+
+#: templates/database/structure/check_all_tables.phtml:28
+msgid "Add prefix to table"
+msgstr "Lägg till prefix till tabellen"
+
+#: templates/database/structure/check_all_tables.phtml:29
+msgid "Replace table prefix"
+msgstr "Ersätt tabellprefix"
+
+#: templates/database/structure/check_all_tables.phtml:30
+msgid "Copy table with prefix"
+msgstr "Kopiera tabell med prefix"
+
+#: templates/database/structure/check_all_tables.phtml:36
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "Kolumner för CHAR textfält"
+
+#: templates/database/structure/check_all_tables.phtml:37
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.phtml:38
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Make consistent with central list"
+msgstr "Kolumner för CHAR textfält"
+
+#: templates/database/structure/favorite_anchor.phtml:12
+msgid "Add to Favorites"
+msgstr "Lägg till i favoriter"
+
+#: templates/database/structure/show_create.phtml:2
+#, fuzzy
+#| msgid "Show SQL queries"
+msgid "Showing create queries"
+msgstr "Visa SQL-frågor"
+
+#: templates/database/structure/sortable_header.phtml:13
+msgid "Sort"
+msgstr "Sortera"
+
+#: templates/database/structure/table_header.phtml:42
+#, fuzzy
+#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]."
+
+#: templates/database/structure/table_header.phtml:66
+#: templates/table/index_form.phtml:127
+msgid "Size"
+msgstr "Storlek"
+
+#: templates/database/structure/table_header.phtml:74
+#: templates/table/structure/display_table_stats.phtml:27
+msgid "Overhead"
+msgstr "Outnyttjat"
+
+#: templates/database/structure/tracking_icon.phtml:4
+msgid "Tracking is active."
+msgstr "Spårning är aktiv."
+
+#: templates/database/structure/tracking_icon.phtml:8
+msgid "Tracking is not active."
+msgstr "Spårning är inaktiv."
 
 #: templates/error/report_form.phtml:7
 msgid ""
@@ -15550,66 +15671,6 @@ msgstr "Du kan undersöka data i felrapporten:"
 msgid "Please explain the steps that lead to the error:"
 msgstr "Var god förklara stegen som leder till felet:"
 
-#: templates/gis_visualization/gis_visualization.phtml:3
-msgid "Display GIS Visualization"
-msgstr "Visa GIS-visualisering"
-
-#: templates/gis_visualization/gis_visualization.phtml:8
-msgid "Label column"
-msgstr "Etikett kolumn"
-
-#: templates/gis_visualization/gis_visualization.phtml:11
-msgid "-- None --"
-msgstr "-- Inget --"
-
-#: templates/gis_visualization/gis_visualization.phtml:19
-msgid "Spatial column"
-msgstr "Spatial kolumn"
-
-#: templates/index_form.phtml:16
-msgid "Index name:"
-msgstr "Indexnamn:"
-
-#: templates/index_form.phtml:19
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-"\"PRIMARY\" <b>måste</b> vara namnet på och <b>endast på</b> en primärnyckel!"
-
-#: templates/index_form.phtml:40
-#, fuzzy
-#| msgid "Index cache size"
-msgid "Index choice:"
-msgstr "Cachestorlek för index"
-
-#: templates/index_form.phtml:57
-msgid "Key block size:"
-msgstr ""
-
-#: templates/index_form.phtml:74
-msgid "Index type:"
-msgstr "Indextyp:"
-
-#: templates/index_form.phtml:86
-#, fuzzy
-#| msgid "User:"
-msgid "Parser:"
-msgstr "Användare:"
-
-#: templates/index_form.phtml:102
-msgid "Comment:"
-msgstr "Kommentar:"
-
-#: templates/index_form.phtml:127 templates/structure/table_header.phtml:66
-msgid "Size"
-msgstr "Storlek"
-
-#: templates/index_form.phtml:149 templates/index_form.phtml:190
-#, fuzzy
-#| msgid "Drag to reorder."
-msgid "Drag to reorder"
-msgstr "Dra för att ändra ordning."
-
 #: templates/prefs_autoload.phtml:9
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
@@ -15622,388 +15683,161 @@ msgstr ""
 msgid "Start row:"
 msgstr "Startrad:"
 
-#: templates/structure/actions_in_table_structure.phtml:14
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "En primär nyckel har lagts till för %s."
-
-#: templates/structure/actions_in_table_structure.phtml:34
-#: templates/structure/actions_in_table_structure.phtml:54
-#: templates/structure/actions_in_table_structure.phtml:79
-#: templates/structure/actions_in_table_structure.phtml:101
-#, php-format
-msgid "An index has been added on %s."
-msgstr "Ett index har lagts till för %s."
-
-#: templates/structure/actions_in_table_structure.phtml:130
-#: templates/structure/check_all_table_column.phtml:59
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Remove from central columns"
-msgstr "Radera kolumn(er)"
-
-#: templates/structure/actions_in_table_structure.phtml:138
-#: templates/structure/check_all_table_column.phtml:55
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add to central columns"
-msgstr "Kolumner för CHAR textfält"
-
-#: templates/structure/add_column.phtml:7
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Lägg till %s fält"
-
-#: templates/structure/add_column.phtml:12
-#, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "I början av tabellen"
-
-#: templates/structure/body_for_table_summary.phtml:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tabell"
-msgstr[1] "%s tabeller"
-
-#: templates/structure/body_for_table_summary.phtml:17
-msgid "Sum"
-msgstr "Summa"
-
-#: templates/structure/check_all_tables.phtml:6
-msgid "Check tables having overhead"
-msgstr "Kontrollera tabeller med overhead"
-
-#: templates/structure/check_all_tables.phtml:10
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "Visa färg"
-
-#: templates/structure/check_all_tables.phtml:27
-#, fuzzy
-#| msgid "Add prefix"
-msgid "Prefix"
-msgstr "Lägg till prefix"
-
-#: templates/structure/check_all_tables.phtml:28
-msgid "Add prefix to table"
-msgstr "Lägg till prefix till tabellen"
-
-#: templates/structure/check_all_tables.phtml:29
-msgid "Replace table prefix"
-msgstr "Ersätt tabellprefix"
-
-#: templates/structure/check_all_tables.phtml:30
-msgid "Copy table with prefix"
-msgstr "Kopiera tabell med prefix"
-
-#: templates/structure/check_all_tables.phtml:36
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add columns to central list"
-msgstr "Kolumner för CHAR textfält"
-
-#: templates/structure/check_all_tables.phtml:37
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/structure/check_all_tables.phtml:38
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Make consistent with central list"
-msgstr "Kolumner för CHAR textfält"
-
-#: templates/structure/display_structure.phtml:140 view_create.php:181
-msgid "Edit view"
-msgstr "Redigera vy"
-
-#: templates/structure/display_table_stats.phtml:9
-msgid "Space usage"
-msgstr "Använt utrymme"
-
-#: templates/structure/display_table_stats.phtml:27
-#: templates/structure/table_header.phtml:74
-msgid "Overhead"
-msgstr "Outnyttjat"
-
-#: templates/structure/display_table_stats.phtml:32
-msgid "Effective"
-msgstr "Effektiv"
-
-#: templates/structure/favorite_anchor.phtml:12
-msgid "Add to Favorites"
-msgstr "Lägg till i favoriter"
-
-#: templates/structure/move_columns_dialog.phtml:1
-#: templates/structure/optional_action_links.phtml:21
-msgid "Move columns"
-msgstr "Flytta kolumner"
-
-#: templates/structure/move_columns_dialog.phtml:2
-msgid "Move the columns by dragging them up and down."
-msgstr "Flytta kolumner genom att dra dem uppåt och nedåt."
-
-#: templates/structure/optional_action_links.phtml:9
-msgid "Propose table structure"
-msgstr "Föreslå tabellstruktur"
-
-#: templates/structure/optional_action_links.phtml:24
-#, fuzzy
-#| msgid "Propose table structure"
-msgid "Improve table structure"
-msgstr "Föreslå tabellstruktur"
-
-#: templates/structure/optional_action_links.phtml:30
-#, fuzzy
-#| msgid "Track table"
-msgid "Track view"
-msgstr "Spåra tabell"
-
-#: templates/structure/row_stats_table.phtml:3
-msgid "Row statistics"
-msgstr "Radstatistik"
-
-#: templates/structure/row_stats_table.phtml:9
-msgid "static"
-msgstr "statisk"
-
-#: templates/structure/row_stats_table.phtml:11
-msgid "dynamic"
-msgstr "dynamisk"
-
-#: templates/structure/row_stats_table.phtml:22
-msgid "partitioned"
-msgstr "partitionerad"
-
-#: templates/structure/row_stats_table.phtml:54
-msgid "Row length"
-msgstr "Radlängd"
-
-#: templates/structure/row_stats_table.phtml:66
-msgid "Row size"
-msgstr "Radstorlek"
-
-#: templates/structure/row_stats_table.phtml:73
-msgid "Next autoindex"
-msgstr "Nästa autoindex"
-
-#: templates/structure/secondary_tabs.phtml:14
-#, fuzzy
-#| msgid "Relation view"
-msgid "Relation view"
-msgstr "Visa relationer"
-
-#: templates/structure/show_create.phtml:2
-#, fuzzy
-#| msgid "Show SQL queries"
-msgid "Showing create queries"
-msgstr "Visa SQL-frågor"
-
-#: templates/structure/sortable_header.phtml:13
-msgid "Sort"
-msgstr "Sortera"
-
-#: templates/structure/table_header.phtml:42
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]."
-
-#: templates/structure/table_structure_row.phtml:46
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Kolumnen %s har tagits bort."
-
-#: templates/structure/tracking_icon.phtml:4
-msgid "Tracking is active."
-msgstr "Spårning är aktiv."
-
-#: templates/structure/tracking_icon.phtml:8
-msgid "Tracking is not active."
-msgstr "Spårning är inaktiv."
-
-#: templates/table/create_table.phtml:15
-msgid "Number of columns"
-msgstr "Antal kolumner"
-
-#: templates/table/options.phtml:8
-msgid "Select columns (at least one):"
-msgstr "Markera kolumner (minst en):"
-
-#: templates/table/options.phtml:37
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Lägg till sökvillkor (uttryck i \"where\"-sats):"
-
-#: templates/table/options.phtml:45
-msgid "Number of rows per page"
-msgstr "Antal rader per sida"
-
-#: templates/table/options.phtml:56
-msgid "Display order:"
-msgstr "Visningsordning:"
-
-#: templates/table/options_zoom.phtml:6
-msgid "Use this column to label each point"
-msgstr "Använd denna kolumn för att markera varje punkt"
-
-#: templates/table/options_zoom.phtml:35
-msgid "Maximum rows to plot"
-msgstr "Maximalt antal rader att visa"
-
-#: templates/table/replace_preview.phtml:13
-msgid "Find and replace - preview"
-msgstr "Sök och ersätt - förhandsgranskning"
-
-#: templates/table/replace_preview.phtml:18
-msgid "Original string"
-msgstr "Ursprunglig sträng"
-
-#: templates/table/replace_preview.phtml:19
-msgid "Replaced string"
-msgstr "Ersatt sträng"
-
-#: templates/table/replace_preview.phtml:40
-msgid "Replace"
-msgstr "Ersatt"
-
-#: templates/table/rows_zoom.phtml:16
-msgid "Additional search criteria"
-msgstr "Ytterligare sökkriterier"
-
-#: templates/table/search_and_replace.phtml:3
-msgid "Replace with:"
-msgstr "Ersätt med:"
-
-#: templates/table/search_and_replace.phtml:22
-#, fuzzy
-#| msgid "as regular expression"
-msgid "Use regular expression"
-msgstr "som reguljärt uttryck"
-
-#: templates/table/selection_form.phtml:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Utför en \"Query By Example\" (jokertecken: \"%\") för två olika kolumner"
-
-#: templates/table/selection_form.phtml:34
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Utför en \"Query By Example\" (jokertecken: \"%\")"
-
-#: templates/table/zoom_result_form.phtml:7
-msgid "Browse/Edit the points"
-msgstr "Bläddra / Redigera punkter"
-
-#: templates/table/zoom_result_form.phtml:15
-msgid "How to use"
-msgstr "Hur du använder"
-
-#: templates/table/zoom_result_form.phtml:23
-msgid "Reset zoom"
-msgstr "Återställ zoom"
-
-#: templates/tbl_chart.phtml:17
+#: templates/table/chart/tbl_chart.phtml:17
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Stapel"
 
-#: templates/tbl_chart.phtml:21
+#: templates/table/chart/tbl_chart.phtml:21
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolumn"
 
-#: templates/tbl_chart.phtml:25
+#: templates/table/chart/tbl_chart.phtml:25
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Linjediagram"
 
-#: templates/tbl_chart.phtml:29
+#: templates/table/chart/tbl_chart.phtml:29
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
 
-#: templates/tbl_chart.phtml:33
+#: templates/table/chart/tbl_chart.phtml:33
 msgctxt "Chart type"
 msgid "Area"
 msgstr "Ytdiagram"
 
-#: templates/tbl_chart.phtml:37
+#: templates/table/chart/tbl_chart.phtml:37
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Cirkeldiagram"
 
-#: templates/tbl_chart.phtml:41
+#: templates/table/chart/tbl_chart.phtml:41
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Tidslinje"
 
-#: templates/tbl_chart.phtml:45
+#: templates/table/chart/tbl_chart.phtml:45
 msgctxt "Chart type"
 msgid "Scatter"
 msgstr "Sambandsdiagram"
 
-#: templates/tbl_chart.phtml:50
+#: templates/table/chart/tbl_chart.phtml:50
 msgid "Stacked"
 msgstr "Staplade"
 
-#: templates/tbl_chart.phtml:53
+#: templates/table/chart/tbl_chart.phtml:53
 msgid "Chart title"
 msgstr "Diagramtitel"
 
-#: templates/tbl_chart.phtml:57
+#: templates/table/chart/tbl_chart.phtml:57
 msgid "X-Axis:"
 msgstr "X-axel:"
 
-#: templates/tbl_chart.phtml:72
+#: templates/table/chart/tbl_chart.phtml:72
 msgid "Series:"
 msgstr "Serie:"
 
-#: templates/tbl_chart.phtml:102
+#: templates/table/chart/tbl_chart.phtml:102
 msgid "X-Axis label:"
 msgstr "X-axel etikett:"
 
-#: templates/tbl_chart.phtml:104
+#: templates/table/chart/tbl_chart.phtml:104
 msgid "X Values"
 msgstr "X-värden"
 
-#: templates/tbl_chart.phtml:107
+#: templates/table/chart/tbl_chart.phtml:107
 msgid "Y-Axis label:"
 msgstr "Y-axel etikett:"
 
-#: templates/tbl_chart.phtml:115
+#: templates/table/chart/tbl_chart.phtml:115
 msgid "Series names are in a column"
 msgstr ""
 
-#: templates/tbl_chart.phtml:118
+#: templates/table/chart/tbl_chart.phtml:118
 #, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
 msgstr "Inuti kolumnen:"
 
-#: templates/tbl_chart.phtml:130
+#: templates/table/chart/tbl_chart.phtml:130
 #, fuzzy
 #| msgid "Values for column %s"
 msgid "Value Column:"
 msgstr "Värden för kolumn %s"
 
-#: templates/tbl_chart.phtml:150
+#: templates/table/chart/tbl_chart.phtml:150
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
 msgstr "Spara som fil"
 
-#: templates/tbl_relation/common_form.phtml:7
+#: templates/table/gis_visualization/gis_visualization.phtml:3
+msgid "Display GIS Visualization"
+msgstr "Visa GIS-visualisering"
+
+#: templates/table/gis_visualization/gis_visualization.phtml:8
+msgid "Label column"
+msgstr "Etikett kolumn"
+
+#: templates/table/gis_visualization/gis_visualization.phtml:11
+msgid "-- None --"
+msgstr "-- Inget --"
+
+#: templates/table/gis_visualization/gis_visualization.phtml:19
+msgid "Spatial column"
+msgstr "Spatial kolumn"
+
+#: templates/table/index_form.phtml:16
+msgid "Index name:"
+msgstr "Indexnamn:"
+
+#: templates/table/index_form.phtml:19
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+"\"PRIMARY\" <b>måste</b> vara namnet på och <b>endast på</b> en primärnyckel!"
+
+#: templates/table/index_form.phtml:40
+#, fuzzy
+#| msgid "Index cache size"
+msgid "Index choice:"
+msgstr "Cachestorlek för index"
+
+#: templates/table/index_form.phtml:57
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.phtml:74
+msgid "Index type:"
+msgstr "Indextyp:"
+
+#: templates/table/index_form.phtml:86
+#, fuzzy
+#| msgid "User:"
+msgid "Parser:"
+msgstr "Användare:"
+
+#: templates/table/index_form.phtml:102
+msgid "Comment:"
+msgstr "Kommentar:"
+
+#: templates/table/index_form.phtml:149 templates/table/index_form.phtml:190
+#, fuzzy
+#| msgid "Drag to reorder."
+msgid "Drag to reorder"
+msgstr "Dra för att ändra ordning."
+
+#: templates/table/relation/common_form.phtml:7
 msgid "Internal relations"
 msgstr "Interna relationer"
 
-#: templates/tbl_relation/common_form.phtml:11
+#: templates/table/relation/common_form.phtml:11
 msgid "Internal relation"
 msgstr "Intern relation"
 
-#: templates/tbl_relation/common_form.phtml:14
+#: templates/table/relation/common_form.phtml:14
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -16011,58 +15845,247 @@ msgstr ""
 "En intern relation är inte nödvändig när en motsvarande FOREIGN KEY relation "
 "finns."
 
-#: templates/tbl_relation/common_form.phtml:37
+#: templates/table/relation/common_form.phtml:37
 #, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
 msgstr "Begränsning av främmande nyckel"
 
-#: templates/tbl_relation/common_form.phtml:40
+#: templates/table/relation/common_form.phtml:40
 #, fuzzy
 #| msgid "Action"
 msgid "Actions"
 msgstr "Åtgärd"
 
-#: templates/tbl_relation/common_form.phtml:41
+#: templates/table/relation/common_form.phtml:41
 #, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
 msgstr "Restriktioner för tabell"
 
-#: templates/tbl_relation/common_form.phtml:44
+#: templates/table/relation/common_form.phtml:44
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 
-#: templates/tbl_relation/common_form.phtml:49
+#: templates/table/relation/common_form.phtml:49
 msgid "Foreign key constraint"
 msgstr "Begränsning av främmande nyckel"
 
-#: templates/tbl_relation/common_form.phtml:81
+#: templates/table/relation/common_form.phtml:81
 #, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "Lägg till restriktioner"
 
-#: templates/tbl_relation/common_form.phtml:91
+#: templates/table/relation/common_form.phtml:91
 msgid "Choose column to display:"
 msgstr "Välj kolumn att visa:"
 
-#: templates/tbl_relation/foreign_key_row.phtml:13
+#: templates/table/relation/foreign_key_row.phtml:13
 #, fuzzy, php-format
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "Begränsning av främmande nyckel"
 
-#: templates/tbl_relation/foreign_key_row.phtml:102
+#: templates/table/relation/foreign_key_row.phtml:102
 msgid "Constraint name"
 msgstr "Begränsningsnamn"
 
-#: templates/tbl_relation/foreign_key_row.phtml:157
+#: templates/table/relation/foreign_key_row.phtml:157
 #, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
 msgstr "Lägg till kolumn"
+
+#: templates/table/search/options.phtml:8
+msgid "Select columns (at least one):"
+msgstr "Markera kolumner (minst en):"
+
+#: templates/table/search/options.phtml:37
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Lägg till sökvillkor (uttryck i \"where\"-sats):"
+
+#: templates/table/search/options.phtml:45
+msgid "Number of rows per page"
+msgstr "Antal rader per sida"
+
+#: templates/table/search/options.phtml:56
+msgid "Display order:"
+msgstr "Visningsordning:"
+
+#: templates/table/search/options_zoom.phtml:6
+msgid "Use this column to label each point"
+msgstr "Använd denna kolumn för att markera varje punkt"
+
+#: templates/table/search/options_zoom.phtml:35
+msgid "Maximum rows to plot"
+msgstr "Maximalt antal rader att visa"
+
+#: templates/table/search/replace_preview.phtml:13
+msgid "Find and replace - preview"
+msgstr "Sök och ersätt - förhandsgranskning"
+
+#: templates/table/search/replace_preview.phtml:18
+msgid "Original string"
+msgstr "Ursprunglig sträng"
+
+#: templates/table/search/replace_preview.phtml:19
+msgid "Replaced string"
+msgstr "Ersatt sträng"
+
+#: templates/table/search/replace_preview.phtml:40
+msgid "Replace"
+msgstr "Ersatt"
+
+#: templates/table/search/rows_zoom.phtml:16
+msgid "Additional search criteria"
+msgstr "Ytterligare sökkriterier"
+
+#: templates/table/search/search_and_replace.phtml:3
+msgid "Replace with:"
+msgstr "Ersätt med:"
+
+#: templates/table/search/search_and_replace.phtml:22
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "som reguljärt uttryck"
+
+#: templates/table/search/selection_form.phtml:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+"Utför en \"Query By Example\" (jokertecken: \"%\") för två olika kolumner"
+
+#: templates/table/search/selection_form.phtml:34
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Utför en \"Query By Example\" (jokertecken: \"%\")"
+
+#: templates/table/search/zoom_result_form.phtml:7
+msgid "Browse/Edit the points"
+msgstr "Bläddra / Redigera punkter"
+
+#: templates/table/search/zoom_result_form.phtml:15
+msgid "How to use"
+msgstr "Hur du använder"
+
+#: templates/table/search/zoom_result_form.phtml:23
+msgid "Reset zoom"
+msgstr "Återställ zoom"
+
+#: templates/table/secondary_tabs.phtml:14
+#, fuzzy
+#| msgid "Relation view"
+msgid "Relation view"
+msgstr "Visa relationer"
+
+#: templates/table/structure/actions_in_table_structure.phtml:14
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "En primär nyckel har lagts till för %s."
+
+#: templates/table/structure/actions_in_table_structure.phtml:34
+#: templates/table/structure/actions_in_table_structure.phtml:54
+#: templates/table/structure/actions_in_table_structure.phtml:79
+#: templates/table/structure/actions_in_table_structure.phtml:101
+#, php-format
+msgid "An index has been added on %s."
+msgstr "Ett index har lagts till för %s."
+
+#: templates/table/structure/actions_in_table_structure.phtml:130
+#: templates/table/structure/check_all_table_column.phtml:59
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Remove from central columns"
+msgstr "Radera kolumn(er)"
+
+#: templates/table/structure/actions_in_table_structure.phtml:138
+#: templates/table/structure/check_all_table_column.phtml:55
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add to central columns"
+msgstr "Kolumner för CHAR textfält"
+
+#: templates/table/structure/add_column.phtml:7
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Lägg till %s fält"
+
+#: templates/table/structure/add_column.phtml:12
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "I början av tabellen"
+
+#: templates/table/structure/display_structure.phtml:140 view_create.php:181
+msgid "Edit view"
+msgstr "Redigera vy"
+
+#: templates/table/structure/display_table_stats.phtml:9
+msgid "Space usage"
+msgstr "Använt utrymme"
+
+#: templates/table/structure/display_table_stats.phtml:32
+msgid "Effective"
+msgstr "Effektiv"
+
+#: templates/table/structure/move_columns_dialog.phtml:1
+#: templates/table/structure/optional_action_links.phtml:21
+msgid "Move columns"
+msgstr "Flytta kolumner"
+
+#: templates/table/structure/move_columns_dialog.phtml:2
+msgid "Move the columns by dragging them up and down."
+msgstr "Flytta kolumner genom att dra dem uppåt och nedåt."
+
+#: templates/table/structure/optional_action_links.phtml:9
+msgid "Propose table structure"
+msgstr "Föreslå tabellstruktur"
+
+#: templates/table/structure/optional_action_links.phtml:24
+#, fuzzy
+#| msgid "Propose table structure"
+msgid "Improve table structure"
+msgstr "Föreslå tabellstruktur"
+
+#: templates/table/structure/optional_action_links.phtml:30
+#, fuzzy
+#| msgid "Track table"
+msgid "Track view"
+msgstr "Spåra tabell"
+
+#: templates/table/structure/row_stats_table.phtml:3
+msgid "Row statistics"
+msgstr "Radstatistik"
+
+#: templates/table/structure/row_stats_table.phtml:9
+msgid "static"
+msgstr "statisk"
+
+#: templates/table/structure/row_stats_table.phtml:11
+msgid "dynamic"
+msgstr "dynamisk"
+
+#: templates/table/structure/row_stats_table.phtml:22
+msgid "partitioned"
+msgstr "partitionerad"
+
+#: templates/table/structure/row_stats_table.phtml:54
+msgid "Row length"
+msgstr "Radlängd"
+
+#: templates/table/structure/row_stats_table.phtml:66
+msgid "Row size"
+msgstr "Radstorlek"
+
+#: templates/table/structure/row_stats_table.phtml:73
+msgid "Next autoindex"
+msgstr "Nästa autoindex"
+
+#: templates/table/structure/table_structure_row.phtml:46
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "Kolumnen %s har tagits bort."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
@@ -17398,6 +17421,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert är satt till 0"
+
+#, fuzzy
+#~| msgid "Read misses"
+#~ msgid "Read as multibytes"
+#~ msgstr "Läsmissar"
 
 #~ msgid "Relational display column"
 #~ msgstr "Kolumn för besläktad nyckel"
