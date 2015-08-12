@@ -479,8 +479,6 @@ class DatabaseStructureController extends DatabaseController
             $do = $ignored = false;
             if ($GLOBALS['replication_info']['slave']['status']) {
 
-                include_once 'libraries/replication.inc.php';
-
                 $nbServSlaveDoDb = count(
                     $GLOBALS['replication_info']['slave']['Do_DB']
                 );
