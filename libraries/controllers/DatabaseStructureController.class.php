@@ -198,8 +198,7 @@ class DatabaseStructureController extends DatabaseController
         $this->response->addHTML(
             PMA_Util::getListNavigator(
                 $this->_total_num_tables, $this->_pos, $_url_params,
-                'db_structure.php',
-                'frame_content', $GLOBALS['cfg']['MaxTableList']
+                'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']
             )
         );
 
@@ -221,8 +220,7 @@ class DatabaseStructureController extends DatabaseController
         $update_time_all = '';
         $check_time_all = '';
         $num_columns = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
-            ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns'])
-            + 1
+            ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
             : 0;
         $row_count      = 0;
         $sum_size       = (double) 0;
@@ -438,9 +436,7 @@ class DatabaseStructureController extends DatabaseController
             if (PMA_Tracker::isActive()) {
                 $is_tracked = PMA_Tracker::isTracked($GLOBALS["db"], $truename);
                 if ($is_tracked
-                    || PMA_Tracker::getVersion(
-                        $GLOBALS["db"], $truename
-                    ) > 0
+                    || PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0
                 ) {
                     $tracking_icon = Template::get(
                         'database/structure/tracking_icon'
@@ -508,7 +504,8 @@ class DatabaseStructureController extends DatabaseController
                     $truename,
                     $GLOBALS['replication_info']['slave']['Ignore_Table']
                 );
-                $ignored = (strlen($searchTable) > 0) || strlen($searchDb) > 0
+                $ignored = strlen($searchTable) > 0
+                    || strlen($searchDb) > 0
                     || $this->hasTable(
                         $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'],
                         $truename
