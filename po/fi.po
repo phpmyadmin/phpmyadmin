@@ -2,18 +2,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-01-18 15:39+0200\n"
-"Last-Translator: Juha <jremes@outlook.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"PO-Revision-Date: 2015-08-12 17:17+0200\n"
+"Last-Translator: Lari Oesch <lari@oesch.me>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -677,7 +677,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Tuonti onnistui, %d kyselyä suoritettu."
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -685,8 +685,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Skriptin suoritus aikakatkaistiin. Jos haluat suorittaa tuonnin loppuun, "
-"lähetä sama tiedosto uudestaan, ja tuonti jatkuu."
+"Skriptin suoritus aikakatkaistiin. Jos haluat suorittaa tuonnin loppuun, %"
+"slähetä sama tiedosto uudestaan%s, ja tuonti jatkuu."
 
 #: import.php:675
 msgid ""
@@ -699,7 +699,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Tuonnin tilaa ei voitu ladata."
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -787,10 +787,9 @@ msgid "PHP extension:"
 msgstr "PHP-laajennus:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "PHP:n versio"
+msgstr "PHP:n versio:"
 
 #: index.php:356
 msgid "Show PHP information"
@@ -829,7 +828,6 @@ msgid "List of changes"
 msgstr "Muutoslista"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -841,8 +839,8 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Asetustiedostossa on MySQL-palvelimen oletuskäyttäjään viittavia asetuksia "
-"(root ilman salasanaa). Tällaisin asetuksin MySQL-palvelin on altis "
+"Asetustiedostossa on MySQL-palvelimen oletuskäyttäjään viittavia asetuksia ("
+"root ilman salasanaa). Tällaisin asetuksin MySQL-palvelin on altis "
 "hyökkäyksille, joten tämä tietoturvariski on syytä korjata pikimmiten, "
 "asettamalla root-käyttäjälle salasana."
 
@@ -1099,7 +1097,7 @@ msgstr "Sinun tulee lisätä vähintään yksi sarake."
 #: libraries/tbl_columns_definition_form.lib.php:161
 #: libraries/tbl_indexes.lib.php:472 libraries/tbl_relation.lib.php:653
 msgid "Preview SQL"
-msgstr "Esikatsele SQL."
+msgstr "Esikatsele SQL"
 
 #: js/messages.php:87
 msgid "Simulate query"
@@ -9169,7 +9167,7 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Sarkaimella voi siirtyä arvosta seuraavaan, Ctrl- ja nuolinäppäimillä pystyy "
-"siirtymään minne suuntaan tahansa."
+"siirtymään minne suuntaan tahansa"
 
 #: libraries/insert_edit.lib.php:1925 libraries/sql.lib.php:1498
 msgid "Showing SQL query"
@@ -11428,7 +11426,8 @@ msgstr ""
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
-"Palvelin on määritetty kahdennustoiminnon alipalvelimeksi. Mitä haluat tehdä?"
+"Palvelin on määritetty kahdennustoiminnon alipalvelimeksi. Valitse "
+"suoritettava toiminto:"
 
 #: libraries/replication_gui.lib.php:229
 msgid "See slave status table"
@@ -14861,7 +14860,8 @@ msgstr "Indeksin nimi:"
 #: libraries/tbl_indexes.lib.php:287
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" saa olla <b>vain ja ainoastaan</b> perusavaimen nimenä!"
+msgstr ""
+"\"PRIMARY\" saa olla <b>vain</b> ja <b>ainoastaan</b> perusavaimen nimenä!"
 
 #: libraries/tbl_indexes.lib.php:305
 #, fuzzy
@@ -15473,7 +15473,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:135
 msgid "Got invalid version string from server"
-msgstr "Palvelimelta saatiin virheellinen versiomerkkijono."
+msgstr "Palvelimelta saatiin virheellinen versiomerkkijono"
 
 #: setup/lib/index.lib.php:148
 msgid "Unparsable version string"
@@ -15493,7 +15493,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:175
 msgid "No newer stable version is available"
-msgstr "Saatavilla ei ole uudempaa vakaata versiota."
+msgstr "Saatavilla ei ole uudempaa vakaata versiota"
 
 #: setup/validate.php:24
 #, fuzzy
