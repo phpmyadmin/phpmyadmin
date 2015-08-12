@@ -29,18 +29,6 @@ if (! empty($_REQUEST['target'])) {
 require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 
 /**
- * phpseclib
- */
-if (! function_exists('openssl_encrypt')
-    || ! function_exists('openssl_decrypt')
-    || ! function_exists('openssl_random_pseudo_bytes')
-    || PHP_VERSION_ID < 50304
-) {
-    include PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-    include PHPSECLIB_INC_DIR . '/Crypt/Random.php';
-}
-
-/**
  * Handles the cookie authentication method
  *
  * @package PhpMyAdmin-Authentication
@@ -721,7 +709,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     private function _getSessionEncryptionSecret()
     {
         if (empty($_SESSION['encryption_key'])) {
-            if ($this->_useOpenSSL()) {
+            if (self::useOpenSSL()) {
                 $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(256);
             } else {
                 $_SESSION['encryption_key'] = crypt_random_string(256);
@@ -735,7 +723,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return boolean
      */
-    private function _useOpenSSL()
+    public static function useOpenSSL()
     {
         return (
             function_exists('openssl_encrypt')
@@ -756,7 +744,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function cookieEncrypt($data, $secret)
     {
-        if ($this->_useOpenSSL()) {
+        if (self::useOpenSSL()) {
             return openssl_encrypt(
                 $data,
                 'AES-128-CBC',
@@ -790,7 +778,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $this->createIV();
         }
 
-        if ($this->_useOpenSSL()) {
+        if (self::useOpenSSL()) {
             return openssl_decrypt(
                 $encdata,
                 'AES-128-CBC',
@@ -813,7 +801,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function getIVSize()
     {
-        if ($this->_useOpenSSL()) {
+        if (self::useOpenSSL()) {
             return openssl_cipher_iv_length('AES-128-CBC');
         }
         $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
@@ -830,7 +818,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function createIV()
     {
-        if ($this->_useOpenSSL()) {
+        if (self::useOpenSSL()) {
             $this->_cookie_iv = openssl_random_pseudo_bytes(
                 $this->getIVSize()
             );
@@ -868,4 +856,12 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         $this->storePasswordCookie($password);
     }
+}
+
+/**
+ * phpseclib
+ */
+if (! AuthenticationCookie::useOpenSSL()) {
+    include PHPSECLIB_INC_DIR . '/Crypt/AES.php';
+    include PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 }
