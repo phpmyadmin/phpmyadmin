@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-12 08:10-0400\n"
-"PO-Revision-Date: 2015-07-31 19:42+0200\n"
+"PO-Revision-Date: 2015-08-12 23:27+0200\n"
 "Last-Translator: Franco <fulanodetal.github@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3676,10 +3676,9 @@ msgid "Relational key"
 msgstr "Clave relacional"
 
 #: libraries/DisplayResults.class.php:1744
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Mostrar relaciones de clave foránea"
+msgstr "Mostrar columna de relaciones"
 
 #: libraries/DisplayResults.class.php:1757
 msgid "Show binary contents"
@@ -3857,10 +3856,9 @@ msgid "Error while moving uploaded file."
 msgstr "Error al mover el archivo subido."
 
 #: libraries/File.class.php:487
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "No se puede leer el archivo subido (y movido)."
+msgstr "No se pudo leer el archivo subido."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -8238,13 +8236,12 @@ msgid "The columns have been moved successfully."
 msgstr "Las columnas fueron movidas exitosamente."
 
 #: libraries/controllers/TableStructureController.class.php:730
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
-"Los cambios en la Tabla %1$s se hicieron exitosamente. Los privilegios se "
-"ajustaron."
+"La Tabla %1$s fue modificada exitosamente. Los privilegios se ajustaron."
 
 #: libraries/controllers/TableStructureController.class.php:783
 #: libraries/tracking.lib.php:1094
@@ -8352,17 +8349,15 @@ msgstr "Hashing de la contraseña:"
 
 #: libraries/display_change_password.lib.php:96
 #: libraries/server_privileges.lib.php:1700
-#, fuzzy
 #| msgid "Generate password"
 msgid "MySQL native password"
-msgstr "Generar contraseña"
+msgstr "Contraseña MySQL nativa"
 
 #: libraries/display_change_password.lib.php:110
 #: libraries/server_privileges.lib.php:1706
-#, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password"
-msgstr "Cambio de contraseña"
+msgstr "Contraseña SHA256"
 
 #: libraries/display_change_password.lib.php:137
 msgid "MySQL 4.0 compatible"
@@ -14267,44 +14262,42 @@ msgstr "Tipo de declaración desconocida."
 
 #: libraries/sql-parser/src/Parser.php:489
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Ninguna operación se inició anteriormente."
 
 #: libraries/sql-parser/src/Statement.php:203
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Caracter inesperado en la línea %s."
+msgstr "Símbolo (token) inesperado."
 
 #: libraries/sql-parser/src/Statement.php:238
-#, fuzzy
 #| msgid "An alias was previously found."
 msgid "This type of clause was previously parsed."
-msgstr "Se encontró anteriormente un alias."
+msgstr "Este tipo de cláusula se analizó previamente."
 
 #: libraries/sql-parser/src/Statement.php:265
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Se encontró una nueva declaración, pero no hay delimitador entre éste y el "
+"anterior."
 
 #: libraries/sql-parser/src/Statement.php:285
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Palabra clave no reconocida."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "El número de tablas que están abiertas."
+msgstr "Se esperaba el nombre de la entidad."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
-#, fuzzy
 #| msgid "A rename operation was expected."
 msgid "At least one column definition was expected."
-msgstr "Se esperaba un cambio de nombre."
+msgstr "Se esperaba la definición de al menos una columna."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Se esperaba una palabra \"RETURNS\"."
 
 #: libraries/sql.lib.php:224
 msgid "Detailed profile"
@@ -14374,7 +14367,7 @@ msgstr ""
 "los enlaces de copiado, eliminación y edición no están disponibles. %s"
 
 #: libraries/sql.lib.php:1643
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -14383,7 +14376,8 @@ msgid ""
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 "La selección actual no contiene una columna única. La edición de la grilla y "
-"los enlaces de copiado, eliminación y edición no están disponibles."
+"los enlaces de edición, copiado y eliminación pueden resultar en un "
+"comportamiento indeseado. %s"
 
 #: libraries/sql.lib.php:1682
 #, php-format
@@ -14401,10 +14395,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Ejecutar la(s) consulta(s) SQL en la base de datos %s"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Ejecutar la(s) consulta(s) SQL en la base de datos %s"
+msgstr "Ejecutar la(s) consulta(s) SQL en la tabla %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
@@ -14931,10 +14925,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Fila: %1$s, Columna: %2$s, Error: %3$s"
 
 #: tbl_row_action.php:70
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "No se seleccionaron versiones."
+msgstr "No se seleccionó la fila."
 
 #: tbl_tracking.php:33
 #, php-format
@@ -15002,10 +14995,9 @@ msgid "Pick from Central Columns"
 msgstr "Seleccionar desde las columnas centrales"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
-#, fuzzy
 #| msgid "Compression"
 msgid "Expression"
-msgstr "Compresión"
+msgstr "Expresión"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -15039,7 +15031,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualidad"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
@@ -15107,7 +15099,6 @@ msgid "Operator"
 msgstr "Operador"
 
 #: templates/database/designer/database_tables.phtml:29
-#, fuzzy
 msgid "Toggle"
 msgstr "Conmutador"
 
@@ -15481,7 +15472,7 @@ msgstr "Columna de series:"
 
 #: templates/table/chart/tbl_chart.phtml:130
 msgid "Value Column:"
-msgstr "Columna de valor:"
+msgstr "Valor de columna:"
 
 #: templates/table/chart/tbl_chart.phtml:150
 msgid "Save chart as image"
