@@ -131,6 +131,16 @@ class DatabaseStructureController extends DatabaseController
 
         // Gets the database structure
         $sub_part = '_structure';
+        require 'libraries/db_info.inc.php';
+        $this->_tables = $tables;
+        // updating $tables seems enough for #11376, but updating other
+        // variables too in case they may cause some other problem.
+        // TODO: remove all this after refactoring db_info.inc.php
+        $this->_num_tables = $num_tables;
+        $this->_pos = $pos;
+        $this->_db_is_system_schema = $db_is_system_schema;
+        $this->_total_num_tables = $total_num_tables;
+        $this->_is_show_stats = $is_show_stats;
 
         // If there is an Ajax request for real row count of a table.
         if ($GLOBALS['is_ajax_request']
