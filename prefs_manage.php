@@ -33,7 +33,7 @@ if (isset($_POST['submit_export'])
     $settings = PMA_loadUserprefs();
     echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
-} else if (isset($_POST['submit_get_json'])) {
+} else if (isset($_REQUEST['submit_get_json'])) {
     $settings = PMA_loadUserprefs();
     $response = PMA_Response::getInstance();
     $response->addJSON('prefs', json_encode($settings['config_data']));

@@ -123,7 +123,7 @@ function loadTemplate(id)
     };
 
     PMA_ajaxShowMessage();
-    $.post('tbl_export.php', params, function (response) {
+    $.get('tbl_export.php', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
             var options = $.parseJSON(response.data);

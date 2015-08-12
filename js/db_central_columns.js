@@ -203,7 +203,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         };
         $('#column-select').html('<option value="">' + PMA_messages.strLoading + '</option>');
         if (selectvalue !== "") {
-            $.post(href, params, function (data) {
+            $.get(href, params, function (data) {
                 $('#column-select').empty().append(default_column_select);
                 $('#column-select').append(data.message);
             });

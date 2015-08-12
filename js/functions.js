@@ -1073,6 +1073,9 @@ function insertQuery(queryType)
                 'sql': codemirror_editor.getValue()
             };
             $.ajax({
+                // Even though formatting SQL does not change any server side
+                // resources, GET requests might not be suitable here due to url
+                // length limits
                 type: 'POST',
                 url: href,
                 data: params,
@@ -1886,7 +1889,7 @@ function codemirrorAutocompleteOnInputRead(instance) {
             };
 
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: href,
                 data: params,
                 success: function (data) {
@@ -2335,9 +2338,15 @@ function PMA_previewSQL($form)
 function PMA_checkReservedWordColumns($form) {
     var is_confirmed = true;
     $.ajax({
-        type: 'POST',
-        url: "tbl_structure.php",
-        data: $form.serialize() + '&reserved_word_check=1',
+        type: 'GET',
+        url: "tbl_structure.php?" + $form.find('input[name^="field_name"]').serialize(),
+        data: {
+            ajax_request: true,
+            token: $form.find('input[name="token"]').val(),
+            server: $form.find('input[name="server"]').val(),
+            db: $form.find('input[name="db"]').val(),
+            reserved_word_check: 1
+        },
         success: function (data) {
             if (typeof data.success != 'undefined' && data.success === true) {
                 is_confirmed = confirm(data.message);
@@ -3353,7 +3362,7 @@ AJAX.registerOnload('functions.js', function () {
         if (! (db + '_' + table in central_column_list)) {
             central_column_list.push(db + '_' + table);
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: href,
                 data: params,
                 success: function (data) {

@@ -1455,7 +1455,7 @@ PMA_fastFilter.filter.prototype.request = function () {
     }
     self.xhr = $.ajax({
         url: url,
-        type: 'post',
+        type: 'GET',
         dataType: 'json',
         data: params,
         complete: function (jqXHR, status) {
