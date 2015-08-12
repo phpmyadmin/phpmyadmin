@@ -12,8 +12,8 @@
     </th>
     <?php if ($server_slave_status): ?>
         <td class="center">
-            <?php echo ($ignored ? PMA_Util::getImage('s_cancel.png', 'NOT REPLICATED') : ''); ?>
-            <?php echo ($do ? PMA_Util::getImage('s_success.png', 'REPLICATED') : ''); ?>
+            <?php echo ($ignored ? PMA_Util::getImage('s_cancel.png', __('Not replicated')) : ''); ?>
+            <?php echo ($do ? PMA_Util::getImage('s_success.png', __('Replicated')) : ''); ?>
         </td>
     <?php endif; ?>
 
