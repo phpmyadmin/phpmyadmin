@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-12 08:10-0400\n"
-"PO-Revision-Date: 2015-08-13 11:20+0200\n"
+"PO-Revision-Date: 2015-08-13 12:14+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -6656,7 +6656,7 @@ msgstr "Խմբագրման, կրկնապատկման և ջնջման հղում�
 
 #: libraries/config/messages.inc.php:543
 msgid "Where to show the table row links"
-msgstr "Որտե՞ղ ցուցադրել աղյուսակի տողերի հղումները։"
+msgstr "Որտե՞ղ ցուցադրել աղյուսակի տողերի հղումները"
 
 #: libraries/config/messages.inc.php:545
 msgid "Whether to show row links even in the absence of a unique key."
@@ -8800,7 +8800,7 @@ msgstr "Ավելացնել նախածանց"
 
 #: libraries/mult_submits.lib.php:399
 msgid "Do you really want to execute the following query?"
-msgstr ""
+msgstr "Իսկապե՞ս եք ցանկանում կատարել այս հարցումը։"
 
 #: libraries/mysql_charsets.lib.php:45
 msgid "Charset"
@@ -14286,7 +14286,7 @@ msgstr ""
 
 #: templates/startAndNumberOfRowsPanel.phtml:3
 msgid "Start row:"
-msgstr "Սկզբի տողը՝"
+msgstr "Սկզբնական տողը՝"
 
 #: templates/table/chart/tbl_chart.phtml:17
 msgctxt "Chart type"
