@@ -10,11 +10,11 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * base Partition Class
+ * Represents a sub partition of a table
  *
  * @package PhpMyAdmin
  */
-class PMA_Partition
+class PMA_SubPartition
 {
     /**
      * @var string the database
@@ -29,7 +29,7 @@ class PMA_Partition
      */
     protected $name;
     /**
-     * @var int ordinal
+     * @var integer ordinal
      */
     protected $ordinal;
     /**
@@ -41,72 +41,191 @@ class PMA_Partition
      */
     protected $expression;
     /**
-     * @var string partition description
-     */
-    protected $description;
-    /**
      * @var integer no of table rows in the parition
      */
     protected $rows;
     /**
-     * @var PMA_Partition[] sub partitions
+     * @var integer data length
      */
-    protected $subPartitions = array();
+    protected $dataLength;
+    /**
+     * @var integer index length
+     */
+    protected $indexLength;
 
     /**
      * Constructs a partition
      *
-     * @param string $db         database name
-     * @param string $table      table name
-     * @param string $name       parition name
-     * @param int    $ordinal    ordinal
-     * @param string $method     partition method
-     * @param string $expression partition expression
+     * @param array $row fetched row from information_schema.PARTITIONS
      */
-    public function __construct($db, $table, $name, $ordinal, $method, $expression)
+    public function __construct($row)
     {
-        $this->db = $db;
-        $this->table = $table;
-        $this->name = $name;
-        $this->ordinal = $ordinal;
-        $this->method = $method;
-        $this->expression = $expression;
+        $this->db = $row['TABLE_SCHEMA'];
+        $this->table = $row['TABLE_NAME'];
+        $this->loadData($row);
     }
 
     /**
-     * Sets the partition description
+     * Loads data from the fetched row from information_schema.PARTITIONS
      *
-     * @param string $description parition description
+     * @param array $row fetched row
      *
      * @return void
      */
-    public function setDescription($description)
+    protected function loadData($row)
     {
-        $this->description = $description;
+        $this->name = $row['SUBPARTITION_NAME'];
+        $this->ordinal = $row['SUBPARTITION_ORDINAL_POSITION'];
+        $this->method = $row['SUBPARTITION_METHOD'];
+        $this->expression = $row['SUBPARTITION_EXPRESSION'];
+        $this->loadCommonData($row);
     }
 
     /**
-     * Sets the number of rows in the parition
+     * Loads some data that is common to both partitions and sub partitions
      *
-     * @param integer $rows number of rows
+     * @param array $row fetched row
      *
      * @return void
      */
-    public function setRows($rows)
+    protected function loadCommonData($row)
     {
-        $this->rows = $rows;
+        $this->rows = $row['TABLE_ROWS'];
+        $this->dataLength = $row['DATA_LENGTH'];
+        $this->indexLength = $row['INDEX_LENGTH'];
+    }
+
+    /**
+     * Returns the number of data rows
+     *
+     * @return integer number of rows
+     */
+    public function getRows()
+    {
+        return $this->rows;
+    }
+
+    /**
+     * Returns the data length
+     *
+     * @return integer data length
+     */
+    public function getDataLength()
+    {
+        return $this->dataLength;
+    }
+
+    /**
+     * Returns the index length
+     *
+     * @return integer index length
+     */
+    public function getIndexLength()
+    {
+        return $this->indexLength;
+    }
+}
+
+/**
+ * base Partition Class
+ *
+ * @package PhpMyAdmin
+ */
+class PMA_Partition extends PMA_SubPartition
+{
+    /**
+     * @var string partition description
+     */
+    protected $description;
+    /**
+     * @var PMA_SubPartition[] sub partitions
+     */
+    protected $subPartitions = array();
+
+    /**
+     * Loads data from the fetched row from information_schema.PARTITIONS
+     *
+     * @param array $row fetched row
+     *
+     * @return void
+     */
+    protected function loadData($row)
+    {
+        $this->name = $row['PARTITION_NAME'];
+        $this->ordinal = $row['PARTITION_ORDINAL_POSITION'];
+        $this->method = $row['PARTITION_METHOD'];
+        $this->expression = $row['PARTITION_EXPRESSION'];
+        $this->description = $row['PARTITION_DESCRIPTION'];
+        // no sub partitions, load all data to this object
+        if (empty($row['SUBPARTITION_NAME'])) {
+            $this->loadCommonData($row);
+        }
     }
 
     /**
      * Add a sub parition
      *
-     * @param PMA_Partition $parition
+     * @param PMA_SubPartition $parition
      *
      * @return void
      */
-    public function addSubPartition(PMA_Partition $parition)
+    public function addSubPartition(PMA_SubPartition $parition)
     {
         $this->subPartitions[] = $parition;
+    }
+
+    /**
+     * Returns the number of data rows
+     *
+     * @return integer number of rows
+     */
+    public function getRows()
+    {
+        if (empty($this->subPartitions)) {
+            return $this->rows;
+        } else {
+            $rows = 0;
+            foreach ($this->subPartitions as $subPartition) {
+                $rows += $subPartition->rows;
+            }
+            return $rows;
+        }
+    }
+
+    /**
+     * Returns the total data length
+     *
+     * @return integer data length
+     */
+    public function getDataLength()
+    {
+        if (empty($this->subPartitions)) {
+            return $this->dataLength;
+        } else {
+            $dataLength = 0;
+            foreach ($this->subPartitions as $subPartition) {
+                $dataLength += $subPartition->dataLength;
+            }
+            return $dataLength;
+        }
+    }
+
+    /**
+     * Returns the tatal index length
+     *
+     * @return integer index length
+     */
+    public function getIndexLength()
+    {
+        if (empty($this->subPartitions)) {
+            return $this->indexLength;
+        } else {
+            $indexLength = 0;
+            foreach ($this->subPartitions as $subPartition) {
+                $indexLength += $subPartition->indexLength;
+            }
+            return $indexLength;
+        }
     }
 
     /**
@@ -129,38 +248,18 @@ class PMA_Partition
             if ($result) {
                 $partitionMap = array();
                 foreach ($result as $row) {
-
                     if (isset($partitionMap[$row['PARTITION_NAME']])) {
-                        $tempPartition = $partitionMap[$row['PARTITION_NAME']];
+                        $partition = $partitionMap[$row['PARTITION_NAME']];
                     } else {
-                        $tempPartition = new PMA_Partition(
-                            $db,
-                            $table,
-                            $row['PARTITION_NAME'],
-                            $row['PARTITION_ORDINAL_POSITION'],
-                            $row['PARTITION_METHOD'],
-                            $row['PARTITION_EXPRESSION']
-                        );
-                        $tempPartition->setDescription($row['PARTITION_DESCRIPTION']);
-                        $partitionMap[$row['PARTITION_NAME']] = $tempPartition;
+                        $partition = new PMA_Partition($row);
+                        $partitionMap[$row['PARTITION_NAME']] = $partition;
                     }
 
                     if (! empty($row['SUBPARTITION_NAME'])) {
-                        $parentPartition = $tempPartition;
-                        $partition = new PMA_Partition(
-                            $db,
-                            $table,
-                            $row['SUBPARTITION_NAME'],
-                            $row['SUBPARTITION_ORDINAL_POSITION'],
-                            $row['SUBPARTITION_METHOD'],
-                            $row['SUBPARTITION_EXPRESSION']
-                        );
+                        $parentPartition = $partition;
+                        $partition = new PMA_SubPartition($row);
                         $parentPartition->addSubPartition($parition);
-                    } else {
-                        $partition = $tempPartition;
                     }
-
-                    $partition->setRows($row['TABLE_ROWS']);
                 }
                 return array_values($partitionMap);
             }
