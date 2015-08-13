@@ -36,12 +36,8 @@ if (isset($_REQUEST['dialog'])) {
 if (isset($_REQUEST['operation'])) {
 
     if ($_REQUEST['operation'] == 'deletePage') {
-        $result = PMA_deletePage($_REQUEST['selected_page']);
-        if ($result) {
-            $response->isSuccess(true);
-        } else {
-            $response->isSuccess(false);
-        }
+        $success = PMA_deletePage($_REQUEST['selected_page']);
+        $response->isSuccess($success);
     } elseif ($_REQUEST['operation'] == 'savePage') {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
@@ -49,11 +45,8 @@ if (isset($_REQUEST['operation'])) {
             $page = PMA_createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
             $response->addJSON('id', $page);
         }
-        if (PMA_saveTablePositions($page)) {
-            $response->isSuccess(true);
-        } else {
-            $response->isSuccess(false);
-        }
+        $success = PMA_saveTablePositions($page);
+        $response->isSuccess($success);
     } elseif ($_REQUEST['operation'] == 'setDisplayField') {
         PMA_saveDisplayField(
             $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['field']

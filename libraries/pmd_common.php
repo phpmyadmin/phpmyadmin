@@ -474,7 +474,7 @@ function PMA_saveTablePositions($pg)
         }
     }
 
-    return $res;
+    return (boolean) $res;
 }
 
 /**
