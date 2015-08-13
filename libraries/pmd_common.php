@@ -442,7 +442,7 @@ function PMA_saveTablePositions($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
-        return null;
+        return false;
     }
 
     $query =  "DELETE FROM " . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
