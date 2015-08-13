@@ -98,7 +98,9 @@ if (isset($_REQUEST['operation'])) {
                 . '` WHERE ' . PMA_Util::backquote('username') . ' = "'
                 . $cfgDesigner['user'] . '"';
 
-            $orig_data = $GLOBALS['dbi']->fetchSingleRow($orig_data_query);
+            $orig_data = $GLOBALS['dbi']->fetchSingleRow(
+                $orig_data_query, $GLOBALS['controllink']
+            );
 
             $success = false;
 
@@ -116,7 +118,7 @@ if (isset($_REQUEST['operation'])) {
                     . $orig_data . '\' WHERE ' . PMA_Util::backquote('username')
                     . ' = "' . $cfgDesigner['user'] . '";';
 
-                $success = $GLOBALS['dbi']->query($save_query);
+                $success = PMA_queryAsControlUser($save_query);
             } else {
                 $save_data = array($_REQUEST['index'] => $_REQUEST['value']);
 
@@ -126,7 +128,7 @@ if (isset($_REQUEST['operation'])) {
                     . '", \''
                     . PMA_Util::sqlAddSlashes(json_encode($save_data)) . '\');';
 
-                $success = $GLOBALS['dbi']->query($query);
+                $success = PMA_queryAsControlUser($query);
             }
 
             $response->isSuccess($success);
