@@ -700,3 +700,67 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
 
     return array(true, __('Internal relation has been removed.'));
 }
+
+/**
+ * Save value for a designer setting
+ *
+ * @param string $index setting
+ * @param string $value value
+ *
+ * @return bool whether the operation succeeded
+ */
+function PMA_saveDesignerSetting($index, $value)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    $cfgDesigner = array(
+        'user'  => $GLOBALS['cfg']['Server']['user'],
+        'db'    => $cfgRelation['db'],
+        'table' => $cfgRelation['designer_settings']
+    );
+
+    $success = true;
+    if (! empty($cfgDesigner['user'])
+        && ! empty($cfgDesigner['db'])
+        && ! empty($cfgDesigner['table'])
+        && $GLOBALS['cfgRelation']['designersettingswork']
+    ) {
+        $orig_data_query = 'SELECT ' . PMA_Util::backquote('settings_data')
+            . ' FROM `' . $cfgDesigner['db'] . '`.`' . $cfgDesigner['table']
+            . '` WHERE ' . PMA_Util::backquote('username') . ' = "'
+            . $cfgDesigner['user'] . '"';
+
+        $orig_data = $GLOBALS['dbi']->fetchSingleRow(
+            $orig_data_query, $GLOBALS['controllink']
+        );
+
+        $success = false;
+        if (isset($orig_data)
+            && ! empty($orig_data)
+            && $orig_data
+        ) {
+            $orig_data = json_decode($orig_data['settings_data'], true);
+            $orig_data[$index] = $value;
+            $orig_data = json_encode($orig_data);
+
+            $save_query = 'UPDATE `' . $cfgDesigner['db'] . '`.`'
+                . $cfgDesigner['table'] . '` SET '
+                . PMA_Util::backquote('settings_data') . ' = \''
+                . $orig_data . '\' WHERE ' . PMA_Util::backquote('username')
+                . ' = "' . $cfgDesigner['user'] . '";';
+
+            $success = PMA_queryAsControlUser($save_query);
+        } else {
+            $save_data = array($index => $value);
+
+            $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
+                . '.' . PMA_Util::backquote($cfgDesigner['table'])
+                . ' VALUES("' . PMA_Util::sqlAddSlashes($cfgDesigner['user'])
+                . '", \''
+                . PMA_Util::sqlAddSlashes(json_encode($save_data)) . '\');';
+
+            $success = PMA_queryAsControlUser($query);
+        }
+    }
+
+    return $success;
+}
