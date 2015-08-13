@@ -104,9 +104,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         // USE query changes the database, son need to track
         // while running multiple queries
         $is_use_query
-            = (/*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false)
-                ? true
-                : false;
+            = /*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false;
 
         $max_sql_len = max(
             $max_sql_len,
