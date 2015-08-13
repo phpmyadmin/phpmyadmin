@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-12 08:10-0400\n"
+"POT-Creation-Date: 2015-08-13 13:52-0400\n"
 "PO-Revision-Date: 2015-08-06 11:31+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -264,7 +264,7 @@ msgstr "Taules"
 #: libraries/config/user_preferences.forms.php:221
 #: libraries/config/user_preferences.forms.php:261
 #: libraries/config/user_preferences.forms.php:287
-#: libraries/import.lib.php:1294
+#: libraries/import.lib.php:1292
 #: libraries/navigation/Nodes/Node_Column.class.php:40
 #: libraries/navigation/Nodes/Node_Database.class.php:51
 #: libraries/navigation/Nodes/Node_Table.class.php:283
@@ -577,7 +577,7 @@ msgstr "Afegir geometria"
 #: libraries/operations.lib.php:801 libraries/operations.lib.php:874
 #: libraries/operations.lib.php:923 libraries/operations.lib.php:1337
 #: libraries/operations.lib.php:1658
-#: libraries/plugins/auth/AuthenticationCookie.class.php:232
+#: libraries/plugins/auth/AuthenticationCookie.class.php:248
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:161
 #: libraries/replication_gui.lib.php:324 libraries/replication_gui.lib.php:461
 #: libraries/replication_gui.lib.php:906 libraries/rte/rte_events.lib.php:509
@@ -685,7 +685,7 @@ msgstr ""
 "No es pot convertir el joc de caracters de l'arxiu sense la biblioteca "
 "corresponent!"
 
-#: import.php:634 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.lib.php:651
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "No es poden carregar les extensions d'importació, comprova l'instal.lació!"
@@ -770,7 +770,7 @@ msgstr "Més paràmetres"
 msgid "Database server"
 msgstr "Servidor de base de dades"
 
-#: index.php:283 libraries/plugins/auth/AuthenticationCookie.class.php:169
+#: index.php:283 libraries/plugins/auth/AuthenticationCookie.class.php:185
 msgid "Server:"
 msgstr "Servidor:"
 
@@ -956,7 +956,7 @@ msgstr ""
 "Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation%s "
 "per a possibles assumptes."
 
-#: js/messages.php:38 libraries/import.lib.php:125 sql.php:160
+#: js/messages.php:38 libraries/import.lib.php:123 sql.php:160
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Instrucció \"DROP DATABASE\" desactivada."
 
@@ -1403,7 +1403,7 @@ msgstr "Afegeix al menys una variable a les series!"
 
 #: js/messages.php:189 libraries/DisplayResults.class.php:1493
 #: libraries/config.values.php:69 libraries/display_export.lib.php:694
-#: libraries/plugins/export/ExportSql.class.php:2006
+#: libraries/plugins/export/ExportSql.class.php:2068
 #: libraries/plugins/schema/SchemaPdf.class.php:102
 #: libraries/server_privileges.lib.php:3047
 #: libraries/server_status_monitor.lib.php:236
@@ -3006,7 +3006,7 @@ msgstr "Entra valor HEX correcte"
 
 #: js/messages.php:793 libraries/Message.class.php:199
 #: libraries/Util.class.php:654 libraries/core.lib.php:245
-#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1170
+#: libraries/import.lib.php:181 libraries/insert_edit.lib.php:1170
 #: tbl_operations.php:229 view_operations.php:63
 msgid "Error"
 msgstr "Error"
@@ -3193,8 +3193,8 @@ msgid "History"
 msgstr "Historial"
 
 #: libraries/Console.class.php:240 libraries/Console.class.php:366
-#: libraries/DisplayResults.class.php:1720 libraries/import.lib.php:1261
-#: libraries/import.lib.php:1294
+#: libraries/DisplayResults.class.php:1720 libraries/import.lib.php:1259
+#: libraries/import.lib.php:1292
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -3846,7 +3846,7 @@ msgid "Click on the bar to scroll to top of page"
 msgstr "Feu clic a la barra per desplaçar-se al principi d'aquesta pàgina"
 
 #: libraries/Header.class.php:749
-#: libraries/plugins/auth/AuthenticationCookie.class.php:140
+#: libraries/plugins/auth/AuthenticationCookie.class.php:156
 msgid "Javascript must be enabled past this point!"
 msgstr "A partir d'aquest punt és necessari tenir el javascript activat!"
 
@@ -4019,7 +4019,7 @@ msgstr "Seguiment"
 #: libraries/plugins/export/ExportHtmlword.class.php:557
 #: libraries/plugins/export/ExportOdt.class.php:685
 #: libraries/plugins/export/ExportPdf.class.php:282
-#: libraries/plugins/export/ExportSql.class.php:1881
+#: libraries/plugins/export/ExportSql.class.php:1943
 #: libraries/plugins/export/ExportTexytext.class.php:503
 #: libraries/plugins/export/ExportXml.class.php:125
 #: libraries/rte/rte_words.lib.php:50
@@ -4933,7 +4933,7 @@ msgstr "Descripció"
 msgid "Use this value"
 msgstr "Fes servir aquest valor"
 
-#: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:193
+#: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:191
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:113
 #: templates/table/structure/row_stats_table.phtml:42
@@ -8264,7 +8264,7 @@ msgid "No Password"
 msgstr "Sense contrasenya"
 
 #: libraries/display_change_password.lib.php:68
-#: libraries/plugins/auth/AuthenticationCookie.class.php:187
+#: libraries/plugins/auth/AuthenticationCookie.class.php:203
 #: libraries/replication_gui.lib.php:422 libraries/replication_gui.lib.php:862
 #: libraries/server_privileges.lib.php:1640
 msgid "Password:"
@@ -9079,66 +9079,66 @@ msgstr "El servidor web no té permisos per a desar l'arxiu %s."
 msgid "Dump has been saved to file %s."
 msgstr "El bolcat s'ha desat amb el nom d'arxiu %s."
 
-#: libraries/import.lib.php:202 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha retornat un conjunt buit (p.e. cap fila)."
 
-#: libraries/import.lib.php:265 libraries/sql.lib.php:1320
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1320
 msgid "[ROLLBACK occurred.]"
 msgstr "[S'ha produït un ROLLBACK.]"
 
-#: libraries/import.lib.php:1255
+#: libraries/import.lib.php:1253
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Les següents estructures han estat creades o bé alterades. Aquí pots:"
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1254
 msgid "View a structure's contents by clicking on its name."
 msgstr "Veure el contingut d'una estructura prement sobre el seu nom."
 
-#: libraries/import.lib.php:1257
+#: libraries/import.lib.php:1255
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Canviar qualsevol dels seus ajustaments fent clic al corresponents enllaç "
 "\"Opcions\"."
 
-#: libraries/import.lib.php:1258
+#: libraries/import.lib.php:1256
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Editar estructura seguint l'enllaç \"Estructura\"."
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1262
 #, php-format
 msgid "Go to database: %s"
 msgstr "Anar a la base de dades %s"
 
-#: libraries/import.lib.php:1270 libraries/import.lib.php:1312
+#: libraries/import.lib.php:1268 libraries/import.lib.php:1310
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Editar configuració de %s"
 
-#: libraries/import.lib.php:1297
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to table: %s"
 msgstr "Anar a la taula: %s"
 
-#: libraries/import.lib.php:1305
+#: libraries/import.lib.php:1303
 #, php-format
 msgid "Structure of %s"
 msgstr "Estructura de %s"
 
-#: libraries/import.lib.php:1323
+#: libraries/import.lib.php:1321
 #, php-format
 msgid "Go to view: %s"
 msgstr "Anar a la vista: %s"
 
-#: libraries/import.lib.php:1383
+#: libraries/import.lib.php:1381
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Només es poden simular consultes UPDATE i DELETE sobre una sola taula."
 
-#: libraries/import.lib.php:1606
+#: libraries/import.lib.php:1604
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10273,7 +10273,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "No puc connectar: paràmetres incorrectes."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:108
-#: libraries/plugins/auth/AuthenticationCookie.class.php:122
+#: libraries/plugins/auth/AuthenticationCookie.class.php:138
 #: libraries/plugins/auth/AuthenticationHttp.class.php:96
 #, php-format
 msgid "Welcome to %s"
@@ -10304,36 +10304,36 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Reintentar connexió"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:134
+#: libraries/plugins/auth/AuthenticationCookie.class.php:150
 msgid "Your session has expired. Please log in again."
 msgstr "La seva sessió ha caducat. Si us plau, accedeixi de nou."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:158
+#: libraries/plugins/auth/AuthenticationCookie.class.php:174
 msgid "Log in"
 msgstr "Identificació"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:166
-#: libraries/plugins/auth/AuthenticationCookie.class.php:176
+#: libraries/plugins/auth/AuthenticationCookie.class.php:182
+#: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Pots entrar un nom d'amfitrió/adreça IP i port separat per espai."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:181
+#: libraries/plugins/auth/AuthenticationCookie.class.php:197
 msgid "Username:"
 msgstr "Nom d'usuari:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:193
+#: libraries/plugins/auth/AuthenticationCookie.class.php:209
 msgid "Server Choice:"
 msgstr "Elecció de Servidor:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:374
+#: libraries/plugins/auth/AuthenticationCookie.class.php:390
 msgid "Entered captcha is wrong, try again!"
 msgstr "El captcha entrat és incorrecte, intenta de nou!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:384
+#: libraries/plugins/auth/AuthenticationCookie.class.php:400
 msgid "Please enter correct captcha!"
 msgstr "Entra el captcha correcte!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:411
+#: libraries/plugins/auth/AuthenticationCookie.class.php:427
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "No tens permés connectar amb aquest servidor MySQL!"
 
@@ -10412,7 +10412,7 @@ msgstr "Opcions de bolcat de dades"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:201
 #: libraries/plugins/export/ExportOdt.class.php:256
-#: libraries/plugins/export/ExportSql.class.php:2162
+#: libraries/plugins/export/ExportSql.class.php:2224
 #: libraries/plugins/export/ExportTexytext.class.php:183
 msgid "Dumping data for table"
 msgstr "Bolcant dades de la taula"
@@ -10436,21 +10436,21 @@ msgstr "Definició"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:544
 #: libraries/plugins/export/ExportOdt.class.php:671
-#: libraries/plugins/export/ExportSql.class.php:1862
+#: libraries/plugins/export/ExportSql.class.php:1924
 #: libraries/plugins/export/ExportTexytext.class.php:492
 msgid "Table structure for table"
 msgstr "Estructura de la taula"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:564
 #: libraries/plugins/export/ExportOdt.class.php:695
-#: libraries/plugins/export/ExportSql.class.php:1917
+#: libraries/plugins/export/ExportSql.class.php:1979
 #: libraries/plugins/export/ExportTexytext.class.php:508
 msgid "Structure for view"
 msgstr "Estructura per a vista"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:573
 #: libraries/plugins/export/ExportOdt.class.php:707
-#: libraries/plugins/export/ExportSql.class.php:1953
+#: libraries/plugins/export/ExportSql.class.php:2015
 #: libraries/plugins/export/ExportTexytext.class.php:515
 msgid "Stand-in structure for view"
 msgstr "Estructura de suport per a vistes"
@@ -10541,7 +10541,7 @@ msgid "Database:"
 msgstr "Base de dades:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
-#: libraries/plugins/export/ExportSql.class.php:2006
+#: libraries/plugins/export/ExportSql.class.php:2068
 msgid "Data:"
 msgstr "Dades:"
 
@@ -10632,7 +10632,7 @@ msgid "Data creation options"
 msgstr "Opcions de creació de dades"
 
 #: libraries/plugins/export/ExportSql.class.php:342
-#: libraries/plugins/export/ExportSql.class.php:2108
+#: libraries/plugins/export/ExportSql.class.php:2170
 msgid "Truncate table before insert"
 msgstr "Truncar taula abans d'inserir"
 
@@ -10715,8 +10715,8 @@ msgstr "Sembla que la teva base de dades fa servir procediments;"
 
 #: libraries/plugins/export/ExportSql.class.php:521
 #: libraries/plugins/export/ExportSql.class.php:557
-#: libraries/plugins/export/ExportSql.class.php:1447
-#: libraries/plugins/export/ExportSql.class.php:1906
+#: libraries/plugins/export/ExportSql.class.php:1509
+#: libraries/plugins/export/ExportSql.class.php:1968
 msgid "alias export may not work reliably in all cases."
 msgstr "exportar els àlies podria no funcionar correctament en tots els casos."
 
@@ -10730,77 +10730,77 @@ msgstr "Sembla que la teva base de dades fa servir funcions;"
 msgid "Metadata"
 msgstr "Metadades per a %s"
 
-#: libraries/plugins/export/ExportSql.class.php:1062
+#: libraries/plugins/export/ExportSql.class.php:1061
 #, php-format
 msgid "Metadata for %s"
 msgstr "Metadades per a %s"
 
-#: libraries/plugins/export/ExportSql.class.php:1325
+#: libraries/plugins/export/ExportSql.class.php:1387
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
 msgid "Creation:"
 msgstr "Creació:"
 
-#: libraries/plugins/export/ExportSql.class.php:1338
+#: libraries/plugins/export/ExportSql.class.php:1400
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:981
 msgid "Last update:"
 msgstr "Darrera actualització:"
 
-#: libraries/plugins/export/ExportSql.class.php:1351
+#: libraries/plugins/export/ExportSql.class.php:1413
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:988
 msgid "Last check:"
 msgstr "Darrera comprovació:"
 
-#: libraries/plugins/export/ExportSql.class.php:1399
+#: libraries/plugins/export/ExportSql.class.php:1461
 #: templates/database/structure/structure_table_row.phtml:183
 msgid "in use"
 msgstr "en ús"
 
-#: libraries/plugins/export/ExportSql.class.php:1444
+#: libraries/plugins/export/ExportSql.class.php:1506
 msgid "It appears your database uses views;"
 msgstr "Sembla que la teva base de dades fa servir vistes;"
 
-#: libraries/plugins/export/ExportSql.class.php:1594
+#: libraries/plugins/export/ExportSql.class.php:1656
 msgid "Constraints for dumped tables"
 msgstr "Restriccions per taules bolcades"
 
-#: libraries/plugins/export/ExportSql.class.php:1595
+#: libraries/plugins/export/ExportSql.class.php:1657
 msgid "Constraints for table"
 msgstr "Restriccions per la taula"
 
-#: libraries/plugins/export/ExportSql.class.php:1620
+#: libraries/plugins/export/ExportSql.class.php:1682
 msgid "Indexes for dumped tables"
 msgstr "Indexos per taules bolcades"
 
-#: libraries/plugins/export/ExportSql.class.php:1621
+#: libraries/plugins/export/ExportSql.class.php:1683
 msgid "Indexes for table"
 msgstr "Index de la taula"
 
-#: libraries/plugins/export/ExportSql.class.php:1644
+#: libraries/plugins/export/ExportSql.class.php:1706
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT per les taules bolcades"
 
-#: libraries/plugins/export/ExportSql.class.php:1645
+#: libraries/plugins/export/ExportSql.class.php:1707
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT per la taula"
 
-#: libraries/plugins/export/ExportSql.class.php:1715
+#: libraries/plugins/export/ExportSql.class.php:1777
 msgid "MIME TYPES FOR TABLE"
 msgstr "TIPUS MIME PER LA TAULA"
 
-#: libraries/plugins/export/ExportSql.class.php:1740
+#: libraries/plugins/export/ExportSql.class.php:1802
 msgid "RELATIONS FOR TABLE"
 msgstr "RELACIONS DE LA TAULA"
 
-#: libraries/plugins/export/ExportSql.class.php:1903
+#: libraries/plugins/export/ExportSql.class.php:1965
 msgid "It appears your table uses triggers;"
 msgstr "Sembla que la teva base de dades fa servir disparadors (-triggers-);"
 
-#: libraries/plugins/export/ExportSql.class.php:1935
+#: libraries/plugins/export/ExportSql.class.php:1997
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Estructura per a vista %s exportada com a taula"
 
-#: libraries/plugins/export/ExportSql.class.php:2024
+#: libraries/plugins/export/ExportSql.class.php:2086
 msgid "Error reading data:"
 msgstr "Error llegint dades:"
 

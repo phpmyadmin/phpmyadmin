@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-12 08:10-0400\n"
+"POT-Creation-Date: 2015-08-13 13:52-0400\n"
 "PO-Revision-Date: 2014-03-28 11:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -268,7 +268,7 @@ msgstr "Tabel"
 #: libraries/config/user_preferences.forms.php:221
 #: libraries/config/user_preferences.forms.php:261
 #: libraries/config/user_preferences.forms.php:287
-#: libraries/import.lib.php:1294
+#: libraries/import.lib.php:1292
 #: libraries/navigation/Nodes/Node_Column.class.php:40
 #: libraries/navigation/Nodes/Node_Database.class.php:51
 #: libraries/navigation/Nodes/Node_Table.class.php:283
@@ -594,7 +594,7 @@ msgstr "Voeg geometrie by"
 #: libraries/operations.lib.php:801 libraries/operations.lib.php:874
 #: libraries/operations.lib.php:923 libraries/operations.lib.php:1337
 #: libraries/operations.lib.php:1658
-#: libraries/plugins/auth/AuthenticationCookie.class.php:232
+#: libraries/plugins/auth/AuthenticationCookie.class.php:248
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:161
 #: libraries/replication_gui.lib.php:324 libraries/replication_gui.lib.php:461
 #: libraries/replication_gui.lib.php:906 libraries/rte/rte_events.lib.php:509
@@ -706,7 +706,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
-#: import.php:634 libraries/display_import.inc.php:33
+#: import.php:634 libraries/display_import.lib.php:651
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
@@ -788,7 +788,7 @@ msgstr "Algemene verwantskap funksies"
 msgid "Database server"
 msgstr "databasisse"
 
-#: index.php:283 libraries/plugins/auth/AuthenticationCookie.class.php:169
+#: index.php:283 libraries/plugins/auth/AuthenticationCookie.class.php:185
 msgid "Server:"
 msgstr ""
 
@@ -961,7 +961,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:38 libraries/import.lib.php:125 sql.php:160
+#: js/messages.php:38 libraries/import.lib.php:123 sql.php:160
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" stellings word nie toegelaat nie."
 
@@ -1466,7 +1466,7 @@ msgstr ""
 
 #: js/messages.php:189 libraries/DisplayResults.class.php:1493
 #: libraries/config.values.php:69 libraries/display_export.lib.php:694
-#: libraries/plugins/export/ExportSql.class.php:2006
+#: libraries/plugins/export/ExportSql.class.php:2068
 #: libraries/plugins/schema/SchemaPdf.class.php:102
 #: libraries/server_privileges.lib.php:3047
 #: libraries/server_status_monitor.lib.php:236
@@ -3198,7 +3198,7 @@ msgstr ""
 
 #: js/messages.php:793 libraries/Message.class.php:199
 #: libraries/Util.class.php:654 libraries/core.lib.php:245
-#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1170
+#: libraries/import.lib.php:181 libraries/insert_edit.lib.php:1170
 #: tbl_operations.php:229 view_operations.php:63
 msgid "Error"
 msgstr "Fout"
@@ -3394,8 +3394,8 @@ msgid "History"
 msgstr "Ignoreer SQL Validasie"
 
 #: libraries/Console.class.php:240 libraries/Console.class.php:366
-#: libraries/DisplayResults.class.php:1720 libraries/import.lib.php:1261
-#: libraries/import.lib.php:1294
+#: libraries/DisplayResults.class.php:1720 libraries/import.lib.php:1259
+#: libraries/import.lib.php:1292
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -4139,7 +4139,7 @@ msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
 #: libraries/Header.class.php:749
-#: libraries/plugins/auth/AuthenticationCookie.class.php:140
+#: libraries/plugins/auth/AuthenticationCookie.class.php:156
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
@@ -4313,7 +4313,7 @@ msgstr ""
 #: libraries/plugins/export/ExportHtmlword.class.php:557
 #: libraries/plugins/export/ExportOdt.class.php:685
 #: libraries/plugins/export/ExportPdf.class.php:282
-#: libraries/plugins/export/ExportSql.class.php:1881
+#: libraries/plugins/export/ExportSql.class.php:1943
 #: libraries/plugins/export/ExportTexytext.class.php:503
 #: libraries/plugins/export/ExportXml.class.php:125
 #: libraries/rte/rte_words.lib.php:50
@@ -5197,7 +5197,7 @@ msgstr "geen Beskrywing"
 msgid "Use this value"
 msgstr ""
 
-#: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:193
+#: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:191
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:113
 #: templates/table/structure/row_stats_table.phtml:42
@@ -8404,7 +8404,7 @@ msgid "No Password"
 msgstr "Geen Wagwoord"
 
 #: libraries/display_change_password.lib.php:68
-#: libraries/plugins/auth/AuthenticationCookie.class.php:187
+#: libraries/plugins/auth/AuthenticationCookie.class.php:203
 #: libraries/replication_gui.lib.php:422 libraries/replication_gui.lib.php:862
 #: libraries/server_privileges.lib.php:1640
 msgid "Password:"
@@ -9192,65 +9192,65 @@ msgstr "Die web stelsel het nie magtigng om die leer %s te stoor nie."
 msgid "Dump has been saved to file %s."
 msgstr ""
 
-#: libraries/import.lib.php:202 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL het niks teruggegee nie (dus nul rye)."
 
-#: libraries/import.lib.php:265 libraries/sql.lib.php:1320
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1320
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/import.lib.php:1255
+#: libraries/import.lib.php:1253
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1254
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/import.lib.php:1257
+#: libraries/import.lib.php:1255
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1258
+#: libraries/import.lib.php:1256
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1262
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "Geen databasisse"
 
-#: libraries/import.lib.php:1270 libraries/import.lib.php:1312
+#: libraries/import.lib.php:1268 libraries/import.lib.php:1310
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/import.lib.php:1297
+#: libraries/import.lib.php:1295
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "Geen databasisse"
 
-#: libraries/import.lib.php:1305
+#: libraries/import.lib.php:1303
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Slegs struktuur"
 
-#: libraries/import.lib.php:1323
+#: libraries/import.lib.php:1321
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/import.lib.php:1383
+#: libraries/import.lib.php:1381
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1606
+#: libraries/import.lib.php:1604
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10380,7 +10380,7 @@ msgid "Cannot connect: invalid settings."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:108
-#: libraries/plugins/auth/AuthenticationCookie.class.php:122
+#: libraries/plugins/auth/AuthenticationCookie.class.php:138
 #: libraries/plugins/auth/AuthenticationHttp.class.php:96
 #, php-format
 msgid "Welcome to %s"
@@ -10405,38 +10405,38 @@ msgstr ""
 msgid "Retry to connect"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:134
+#: libraries/plugins/auth/AuthenticationCookie.class.php:150
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:158
+#: libraries/plugins/auth/AuthenticationCookie.class.php:174
 msgid "Log in"
 msgstr "Teken aan"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:166
-#: libraries/plugins/auth/AuthenticationCookie.class.php:176
+#: libraries/plugins/auth/AuthenticationCookie.class.php:182
+#: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:181
+#: libraries/plugins/auth/AuthenticationCookie.class.php:197
 msgid "Username:"
 msgstr "Gebruiker Naam:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:193
+#: libraries/plugins/auth/AuthenticationCookie.class.php:209
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
 msgstr "Bediener Keuse"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:374
+#: libraries/plugins/auth/AuthenticationCookie.class.php:390
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:384
+#: libraries/plugins/auth/AuthenticationCookie.class.php:400
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:411
+#: libraries/plugins/auth/AuthenticationCookie.class.php:427
 #, fuzzy
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Limits the number of new connections the user may open per hour."
@@ -10525,7 +10525,7 @@ msgstr "Databasis statistieke"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:201
 #: libraries/plugins/export/ExportOdt.class.php:256
-#: libraries/plugins/export/ExportSql.class.php:2162
+#: libraries/plugins/export/ExportSql.class.php:2224
 #: libraries/plugins/export/ExportTexytext.class.php:183
 msgid "Dumping data for table"
 msgstr "Stort data vir tabel"
@@ -10550,14 +10550,14 @@ msgstr "geen Beskrywing"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:544
 #: libraries/plugins/export/ExportOdt.class.php:671
-#: libraries/plugins/export/ExportSql.class.php:1862
+#: libraries/plugins/export/ExportSql.class.php:1924
 #: libraries/plugins/export/ExportTexytext.class.php:492
 msgid "Table structure for table"
 msgstr "Tabel struktuur vir tabel"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:564
 #: libraries/plugins/export/ExportOdt.class.php:695
-#: libraries/plugins/export/ExportSql.class.php:1917
+#: libraries/plugins/export/ExportSql.class.php:1979
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #, fuzzy
 msgid "Structure for view"
@@ -10565,7 +10565,7 @@ msgstr "Slegs struktuur"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:573
 #: libraries/plugins/export/ExportOdt.class.php:707
-#: libraries/plugins/export/ExportSql.class.php:1953
+#: libraries/plugins/export/ExportSql.class.php:2015
 #: libraries/plugins/export/ExportTexytext.class.php:515
 msgid "Stand-in structure for view"
 msgstr ""
@@ -10675,7 +10675,7 @@ msgid "Database:"
 msgstr "Databasis"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
-#: libraries/plugins/export/ExportSql.class.php:2006
+#: libraries/plugins/export/ExportSql.class.php:2068
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -10776,7 +10776,7 @@ msgid "Data creation options"
 msgstr "Databasis statistieke"
 
 #: libraries/plugins/export/ExportSql.class.php:342
-#: libraries/plugins/export/ExportSql.class.php:2108
+#: libraries/plugins/export/ExportSql.class.php:2170
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -10845,8 +10845,8 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:521
 #: libraries/plugins/export/ExportSql.class.php:557
-#: libraries/plugins/export/ExportSql.class.php:1447
-#: libraries/plugins/export/ExportSql.class.php:1906
+#: libraries/plugins/export/ExportSql.class.php:1509
+#: libraries/plugins/export/ExportSql.class.php:1968
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
@@ -10860,81 +10860,81 @@ msgstr ""
 msgid "Metadata"
 msgstr "Export"
 
-#: libraries/plugins/export/ExportSql.class.php:1062
+#: libraries/plugins/export/ExportSql.class.php:1061
 #, php-format
 msgid "Metadata for %s"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1325
+#: libraries/plugins/export/ExportSql.class.php:1387
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
 msgid "Creation:"
 msgstr "Skepping:"
 
-#: libraries/plugins/export/ExportSql.class.php:1338
+#: libraries/plugins/export/ExportSql.class.php:1400
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:981
 msgid "Last update:"
 msgstr "Vorige opdatering:"
 
-#: libraries/plugins/export/ExportSql.class.php:1351
+#: libraries/plugins/export/ExportSql.class.php:1413
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:988
 msgid "Last check:"
 msgstr "Vorige inspeksie:"
 
-#: libraries/plugins/export/ExportSql.class.php:1399
+#: libraries/plugins/export/ExportSql.class.php:1461
 #: templates/database/structure/structure_table_row.phtml:183
 msgid "in use"
 msgstr "in gebruik"
 
-#: libraries/plugins/export/ExportSql.class.php:1444
+#: libraries/plugins/export/ExportSql.class.php:1506
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1594
+#: libraries/plugins/export/ExportSql.class.php:1656
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1595
+#: libraries/plugins/export/ExportSql.class.php:1657
 msgid "Constraints for table"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1620
+#: libraries/plugins/export/ExportSql.class.php:1682
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for dumped tables"
 msgstr "Binne tabel(le):"
 
-#: libraries/plugins/export/ExportSql.class.php:1621
+#: libraries/plugins/export/ExportSql.class.php:1683
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for table"
 msgstr "Binne tabel(le):"
 
-#: libraries/plugins/export/ExportSql.class.php:1644
+#: libraries/plugins/export/ExportSql.class.php:1706
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1645
+#: libraries/plugins/export/ExportSql.class.php:1707
 msgid "AUTO_INCREMENT for table"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1715
+#: libraries/plugins/export/ExportSql.class.php:1777
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1740
+#: libraries/plugins/export/ExportSql.class.php:1802
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1903
+#: libraries/plugins/export/ExportSql.class.php:1965
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1935
+#: libraries/plugins/export/ExportSql.class.php:1997
 #, fuzzy, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Slegs struktuur"
 
-#: libraries/plugins/export/ExportSql.class.php:2024
+#: libraries/plugins/export/ExportSql.class.php:2086
 msgid "Error reading data:"
 msgstr ""
 
