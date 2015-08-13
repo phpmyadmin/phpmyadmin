@@ -719,44 +719,38 @@ function PMA_saveDesignerSetting($index, $value)
     );
 
     $success = true;
-    if (! empty($cfgDesigner['user'])
-        && ! empty($cfgDesigner['db'])
-        && ! empty($cfgDesigner['table'])
-        && $GLOBALS['cfgRelation']['designersettingswork']
-    ) {
-        $orig_data_query = 'SELECT ' . PMA_Util::backquote('settings_data')
-            . ' FROM `' . $cfgDesigner['db'] . '`.`' . $cfgDesigner['table']
-            . '` WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $cfgDesigner['user'] . '"';
+    if ($GLOBALS['cfgRelation']['designersettingswork']) {
+
+        $orig_data_query = "SELECT settings_data"
+            . " FROM " . PMA_Util::backquote($cfgDesigner['db'])
+            . "." . PMA_Util::backquote($cfgDesigner['table'])
+            . " WHERE username = '"
+            . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . "';";
 
         $orig_data = $GLOBALS['dbi']->fetchSingleRow(
             $orig_data_query, $GLOBALS['controllink']
         );
 
-        $success = false;
-        if (isset($orig_data)
-            && ! empty($orig_data)
-            && $orig_data
-        ) {
+        if (! empty($orig_data)) {
             $orig_data = json_decode($orig_data['settings_data'], true);
             $orig_data[$index] = $value;
             $orig_data = json_encode($orig_data);
 
-            $save_query = 'UPDATE `' . $cfgDesigner['db'] . '`.`'
-                . $cfgDesigner['table'] . '` SET '
-                . PMA_Util::backquote('settings_data') . ' = \''
-                . $orig_data . '\' WHERE ' . PMA_Util::backquote('username')
-                . ' = "' . $cfgDesigner['user'] . '";';
+            $save_query = "UPDATE " . PMA_Util::backquote($cfgDesigner['db'])
+                . "." . PMA_Util::backquote($cfgDesigner['table'])
+                . " SET settings_data = '" . $orig_data . "'"
+                . " WHERE username = '"
+                . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . "';";
 
             $success = PMA_queryAsControlUser($save_query);
         } else {
             $save_data = array($index => $value);
 
-            $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
-                . '.' . PMA_Util::backquote($cfgDesigner['table'])
-                . ' VALUES("' . PMA_Util::sqlAddSlashes($cfgDesigner['user'])
-                . '", \''
-                . PMA_Util::sqlAddSlashes(json_encode($save_data)) . '\');';
+            $query = "INSERT INTO " . PMA_Util::backquote($cfgDesigner['db'])
+                . "." . PMA_Util::backquote($cfgDesigner['table'])
+                . " (username, settings_data)"
+                . " VALUES('" . $cfgDesigner['user'] . "',"
+                . " '" . json_encode($save_data) . "');";
 
             $success = PMA_queryAsControlUser($query);
         }
