@@ -168,7 +168,9 @@ $partition_names = PMA_Partition::getPartitionNames($db, $table);
 if (! is_null($partition_names[0])) {
     echo PMA\Template::get('table/structure/display_partitions')->render(
         array(
-            'partitions' => PMA_Partition::getParititions($db, $table)
+            'table' => $table,
+            'url_query'  => $url_query,
+            'partitions' => PMA_Partition::getParititions($db, $table),
         )
     );
 }

@@ -276,7 +276,9 @@ class TableStructureController extends TableController
         /**
          * Adding indexes
          */
-        if (isset($_REQUEST['add_key'])) {
+        if (isset($_REQUEST['add_key'])
+            || isset($_REQUEST['partition_maintenance'])
+        ) {
             //todo: set some variables for sql.php include, to be eliminated
             //after refactoring sql.php
             $db = $this->db;

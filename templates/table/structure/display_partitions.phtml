@@ -11,11 +11,22 @@
                     <th><?php echo __('Rows'); ?></th>
                     <th><?php echo __('Data length'); ?></th>
                     <th><?php echo __('Index length'); ?></th>
-                    <th><?php echo __('Action'); ?></th>
+                    <th colspan="7"><?php echo __('Action'); ?></th>
                 </tr>
             </thead>
             <tbody>
             <?php $odd = true; ?>
+            <?php
+                $titles = array(
+                    'ANALYZE' => PMA_Util::getIcon('b_empty.png', __('Analyze')),
+                    'CHECK' => PMA_Util::getIcon('eye.png', __('Check')),
+                    'OPTIMIZE' => PMA_Util::getIcon('normalize.png', __('Optimize')),
+                    'REBUILD' => PMA_Util::getIcon('b_empty.png', __('Rebuild')),
+                    'REPAIR' => PMA_Util::getIcon('b_tblops.png', __('Repair')),
+                    'TRUNCATE' => PMA_Util::getIcon('b_empty.png', __('Truncate')),
+                    'DROP' => PMA_Util::getIcon('b_drop.png', __('Drop'))
+                );
+            ?>
             <?php foreach ($partitions as $partition): ?>
                 <tr class="noclick <?php echo $odd ? 'odd' : 'even' ?>">
                     <?php if ($partition->hasSubParitions()): ?>
@@ -42,7 +53,16 @@
                         <span><?php echo $value; ?></span>
                         <span class="unit"><?php echo $unit; ?></span>
                     </td>
-                    <td></td>
+                    <?php foreach ($titles as $operation => $title): ?>
+                        <td>
+                            <a href="tbl_structure.php<?php echo $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?php echo urlencode(
+                                "ALTER TABLE " . PMA_Util::backquote($table) . $operation . " PARTITION " . $partition->getName()
+                            ) ?>">
+                                <?php echo $title; ?>
+                            </a>
+                        </td>
+                    <?php endforeach; ?>
+
                     <?php if ($partition->hasSubParitions()): ?>
                         <?php foreach ($partition->getSubParitions() as $subParition): ?>
                             <tr class="noclick <?php echo $odd ? 'odd' : 'even' ?>">
@@ -66,7 +86,7 @@
                                     <span><?php echo $value; ?></span>
                                     <span class="unit"><?php echo $unit; ?></span>
                                 </td>
-                                <td></td>
+                                <td colspan="7"></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
