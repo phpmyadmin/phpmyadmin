@@ -1036,8 +1036,7 @@ class ExportSql extends ExportPlugin
             $types = array(
                 'bookmark' => 'dbase',
                 'relation' => 'master_db',
-                //'pdf_pages' => 'db_name',
-                //'table_coords' => 'db_name',
+                'pdf_pages' => 'db_name',
                 'savedsearches' => 'db_name',
                 'central_columns' => 'db_name',
             );
@@ -1070,6 +1069,69 @@ class ExportSql extends ExportPlugin
 
         foreach ($types as $type => $dbNameColumn) {
             if (in_array($type, $metadataTypes) && isset($cfgRelation[$type])) {
+
+                // special case, designer pages and their coordinates
+                if ($type == 'pdf_pages') {
+
+                    $sql_query = "SELECT `page_nr`, `page_descr` FROM "
+                        . PMA_Util::backquote($cfgRelation['db'])
+                        . "." . PMA_Util::backquote($cfgRelation[$type])
+                        . " WHERE " . PMA_Util::backquote($dbNameColumn)
+                        . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
+
+                    $result = $GLOBALS['dbi']->fetchResult(
+                        $sql_query, 'page_nr', 'page_descr'
+                    );
+
+                    foreach ($result as $page => $name) {
+                        // insert row for pdf_page
+                        $sql_query_row = "SELECT `db_name`, `page_descr` FROM "
+                            . PMA_Util::backquote($cfgRelation['db'])
+                            . "." . PMA_Util::backquote($cfgRelation[$type])
+                            . " WHERE " . PMA_Util::backquote($dbNameColumn)
+                            . " = '" . PMA_Util::sqlAddSlashes($db) . "'"
+                            . " AND `page_nr` = '" . $page . "'";
+
+                        if (! $this->exportData(
+                            $cfgRelation['db'],
+                            $cfgRelation[$type],
+                            $GLOBALS['crlf'],
+                            '',
+                            $sql_query_row,
+                            $aliases
+                        )) {
+                            return false;
+                        }
+
+                        $lastPage = $GLOBALS['crlf']
+                            . "SET @LAST_PAGE = LAST_INSERT_ID();"
+                            . $GLOBALS['crlf'] ;
+                        if (! PMA_exportOutputHandler($lastPage)) {
+                            return false;
+                        }
+
+                        $sql_query_coords = "SELECT `db_name`, `table_name`, "
+                            . "'@LAST_PAGE' AS `pdf_page_number`, `x`, `y` FROM "
+                            . PMA_Util::backquote($cfgRelation['db'])
+                            . "." . PMA_Util::backquote($cfgRelation['table_coords'])
+                            . " WHERE `pdf_page_number` = '" . $page . "'";
+
+                        $GLOBALS['exporting_metadata'] = true;
+                        if (! $this->exportData(
+                            $cfgRelation['db'],
+                            $cfgRelation['table_coords'],
+                            $GLOBALS['crlf'],
+                            '',
+                            $sql_query_coords,
+                            $aliases
+                        )) {
+                            $GLOBALS['exporting_metadata'] = false;
+                            return false;
+                        }
+                        $GLOBALS['exporting_metadata'] = false;
+                    }
+                    continue;
+                }
 
                 // remove auto_incrementing id field for some tables
                 if ($type == 'bookmark') {
@@ -2224,6 +2286,10 @@ class ExportSql extends ExportPlugin
                         )
                     )
                         . "'";
+                } elseif (! empty($GLOBALS['exporting_metadata'])
+                    && $row[$j] == '@LAST_PAGE'
+                ) {
+                    $values[] = '@LAST_PAGE';
                 } else {
                     // something else -> treat as a string
                     $values[] = '\''

@@ -89,6 +89,7 @@ phpMyAdmin - ChangeLog
 - issue #10250 Displayed git revision info is not set
 +              Improved schema SVG export
 - issue #10726 Do not try to set port 80 for https requests
++ issue #11394 Export/import Designer view
 
 4.4.14.0 (not yet released)
 - issue #11367 Export after search, missing WHERE clause
