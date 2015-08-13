@@ -96,6 +96,26 @@ class PMA_SubPartition
     }
 
     /**
+     * Return the parition name
+     *
+     * @return string partition name
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Return the ordinal of the parition
+     *
+     * @return number the ordinal
+     */
+    public function getOrdinal()
+    {
+        return $this->ordinal;
+    }
+
+    /**
      * Returns the number of data rows
      *
      * @return integer number of rows
@@ -175,6 +195,16 @@ class PMA_Partition extends PMA_SubPartition
     }
 
     /**
+     * Whether there are sub partitions
+     *
+     * @return boolean
+     */
+    public function hasSubParitions()
+    {
+        return ! empty($this->subPartitions);
+    }
+
+    /**
      * Returns the number of data rows
      *
      * @return integer number of rows
@@ -229,6 +259,16 @@ class PMA_Partition extends PMA_SubPartition
     }
 
     /**
+     * Returns the list of sub partitions
+     *
+     * @return PMA_SubPartition[]
+     */
+    public function getSubParitions()
+    {
+        return $this->subPartitions;
+    }
+
+    /**
      * Returns array of partitions for a specific db/table
      *
      * @param string $db    database name
@@ -258,7 +298,7 @@ class PMA_Partition extends PMA_SubPartition
                     if (! empty($row['SUBPARTITION_NAME'])) {
                         $parentPartition = $partition;
                         $partition = new PMA_SubPartition($row);
-                        $parentPartition->addSubPartition($parition);
+                        $parentPartition->addSubPartition($partition);
                     }
                 }
                 return array_values($partitionMap);
