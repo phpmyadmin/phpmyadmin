@@ -445,18 +445,18 @@ function PMA_saveTablePositions($pg)
         return null;
     }
 
-    $queury =  "DELETE FROM " . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+    $query =  "DELETE FROM " . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
         . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
         . " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "'"
         . " AND `pdf_page_number` = '" . PMA_Util::sqlAddSlashes($pg) . "'";
 
-    $res = PMA_queryAsControlUser($queury, true, PMA_DatabaseInterface::QUERY_STORE);
+    $res = PMA_queryAsControlUser($query, true, PMA_DatabaseInterface::QUERY_STORE);
 
     if ($res) {
         foreach ($_REQUEST['t_h'] as $key => $value) {
             list($DB, $TAB) = explode(".", $key);
             if ($value) {
-                $queury = "INSERT INTO "
+                $query = "INSERT INTO "
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                     . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
@@ -468,7 +468,7 @@ function PMA_saveTablePositions($pg)
                     . "'" . PMA_Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . "')";
 
                 $res = PMA_queryAsControlUser(
-                    $queury,  true, PMA_DatabaseInterface::QUERY_STORE
+                    $query,  true, PMA_DatabaseInterface::QUERY_STORE
                 );
             }
         }
