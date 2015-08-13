@@ -618,3 +618,62 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     return $html;
 }
 
+/**
+ * Gets HTML to display import dialogs
+ *
+ * @param String $import_type     Import type: server|database|table
+ * @param String $db              Selected DB
+ * @param String $table           Selected Table
+ * @param int    $max_upload_size Max upload size
+ *
+ * @return string $html
+ */
+function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
+{
+    global $SESSION_KEY;
+    require_once './libraries/file_listing.lib.php';
+    require_once './libraries/plugin_interface.lib.php';
+    // this one generates also some globals
+    require_once './libraries/display_import_ajax.lib.php';
+
+    /* Scan for plugins */
+    /* @var $import_list ImportPlugin[] */
+    $import_list = PMA_getPlugins(
+        "import",
+        'libraries/plugins/import/',
+        $import_type
+    );
+
+    /* Fail if we didn't find any plugin */
+    if (empty($import_list)) {
+        PMA_Message::error(
+            __(
+                'Could not load import plugins, please check your installation!'
+            )
+        )->display();
+        exit;
+    }
+
+    if (PMA_isValid($_REQUEST['offset'], 'numeric')) {
+        $offset = $_REQUEST['offset'];
+    }
+    if (isset($_REQUEST['timeout_passed'])) {
+        $timeout_passed = $_REQUEST['timeout_passed'];
+    }
+    if (isset($_REQUEST['local_import_file'])) {
+        $local_import_file = $_REQUEST['local_import_file'];
+    }
+
+    $timeout_passed_str = isset($timeout_passed)? $timeout_passed : null;
+    $offset_str = isset($offset)? $offset : null;
+    return PMA_getHtmlForImport(
+        $upload_id,
+        $import_type,
+        $db,
+        $table,
+        $max_upload_size,
+        $import_list,
+        $timeout_passed_str,
+        $offset_str
+    );
+}
