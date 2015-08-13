@@ -740,6 +740,10 @@ function PMA_exportDatabase(
 
     }
 
+    if (! $export_plugin->exportDBFooter($db)) {
+        return;
+    }
+
     // export metadata related to this db
     if (isset($GLOBALS['sql_metadata'])) {
         // Types of metadata to export.
@@ -752,9 +756,6 @@ function PMA_exportDatabase(
         }
     }
 
-    if (! $export_plugin->exportDBFooter($db)) {
-        return;
-    }
     if ($separate_files == 'database') {
         PMA_saveObjectInBuffer('extra');
     }
