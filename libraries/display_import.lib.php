@@ -631,10 +631,10 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
 function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
 {
     global $SESSION_KEY;
-    require_once './libraries/file_listing.lib.php';
-    require_once './libraries/plugin_interface.lib.php';
+    include_once './libraries/file_listing.lib.php';
+    include_once './libraries/plugin_interface.lib.php';
     // this one generates also some globals
-    require_once './libraries/display_import_ajax.lib.php';
+    include_once './libraries/display_import_ajax.lib.php';
 
     /* Scan for plugins */
     /* @var $import_list ImportPlugin[] */
