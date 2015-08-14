@@ -3,25 +3,14 @@
         <legend><?php echo __('Partitions')
             . PMA_Util::showMySQLDocu('partitioning'); ?>
         </legend>
-        <?php
-            $firstPartition = $partitions[0];
-            $hasSubPartitions = $firstPartition->hasSubPartitions();
-            $hasDescription = ! empty($firstPartition->getDescription());
-        ?>
         <p>
             <?php echo __('Partitioned by:');?>
-            <code><?php echo $firstPartition->getMethod()
-                . '(' . $firstPartition->getExpression() . ' )'; ?></code>
+            <code><?php echo $partitionMethod . '(' . $partitionExpression . ' )'; ?></code>
         </p>
         <?php if ($hasSubPartitions): ?>
-            <?php
-                $subParitions = $firstPartition->getSubPartitions();
-                $fristSubParition = $subParitions[0];
-            ?>
             <p>
                 <?php echo __('Sub partitioned by:'); ?>
-                <code><?php echo $fristSubParition->getMethod()
-                    . '(' . $fristSubParition->getExpression() . ' )'; ?></code>
+                <code><?php echo $subPartitionMethod . '(' . $subPartitionExpression . ' )'; ?></code>
             <p>
         <?php endif; ?>
         <table>
@@ -40,17 +29,6 @@
             </thead>
             <tbody>
             <?php $odd = true; ?>
-            <?php
-                $titles = array(
-                    'ANALYZE' => PMA_Util::getIcon('b_empty.png', __('Analyze')),
-                    'CHECK' => PMA_Util::getIcon('eye.png', __('Check')),
-                    'OPTIMIZE' => PMA_Util::getIcon('normalize.png', __('Optimize')),
-                    'REBUILD' => PMA_Util::getIcon('b_empty.png', __('Rebuild')),
-                    'REPAIR' => PMA_Util::getIcon('b_tblops.png', __('Repair')),
-                    'TRUNCATE' => PMA_Util::getIcon('b_empty.png', __('Truncate')),
-                    'DROP' => PMA_Util::getIcon('b_drop.png', __('Drop'))
-                );
-            ?>
             <?php foreach ($partitions as $partition): ?>
                 <tr class="noclick <?php echo $odd ? 'odd' : 'even'; echo $hasSubPartitions ? ' marked' : '';?>">
                     <?php if ($hasSubPartitions): ?>
@@ -83,16 +61,16 @@
                         <span><?php echo $value; ?></span>
                         <span class="unit"><?php echo $unit; ?></span>
                     </td>
-                    <?php foreach ($titles as $operation => $title): ?>
+                    <?php foreach ($actionIcons as $action => $icon): ?>
                         <td>
                             <a  href="tbl_structure.php<?php echo $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?php echo urlencode(
-                                    "ALTER TABLE " . PMA_Util::backquote($table) . $operation . " PARTITION " . $partition->getName()
+                                    "ALTER TABLE " . PMA_Util::backquote($table) . $action . " PARTITION " . $partition->getName()
                                 ) ?>"
-                                id="partition_action_<?php echo $operation; ?>"
-                                name="partition_action_<?php echo $operation; ?>"
+                                id="partition_action_<?php echo $action; ?>"
+                                name="partition_action_<?php echo $action; ?>"
                                 class="ajax"
                             >
-                                <?php echo $title; ?>
+                                <?php echo $icon; ?>
                             </a>
                         </td>
                     <?php endforeach; ?>
