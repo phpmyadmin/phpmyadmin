@@ -210,12 +210,15 @@ function PMA_getHtmlForImportCharset()
 /**
  * Prints Html For Display Import options : file property
  *
- * @param int            $max_upload_size Max upload size
- * @param ImportPlugin[] $import_list     import list
+ * @param int            $max_upload_size   Max upload size
+ * @param ImportPlugin[] $import_list       import list
+ * @param String         $local_import_file from upload directory
  *
  * @return string
  */
-function PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list)
+function PMA_getHtmlForImportOptionsFile(
+    $max_upload_size, $import_list, $local_import_file
+)
 {
     global $cfg;
     $html  = '    <div class="importoptions">';
@@ -235,7 +238,7 @@ function PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list)
         $html .= '               <input type="radio" name="file_location" '
             . 'id="radio_local_import_file"';
         if (! empty($GLOBALS['timeout_passed'])
-            && ! empty($GLOBALS['local_import_file'])
+            && ! empty($local_import_file)
         ) {
             $html .= ' checked="checked"';
         }
@@ -398,20 +401,21 @@ function PMA_getHtmlForImportOptionsSubmit()
 /**
  * Prints Html For Display Import
  *
- * @param int            $upload_id       The selected upload id
- * @param String         $import_type     Import type: server, database, table
- * @param String         $db              Selected DB
- * @param String         $table           Selected Table
- * @param int            $max_upload_size Max upload size
- * @param ImportPlugin[] $import_list     Import list
- * @param String         $timeout_passed  Timeout passed
- * @param String         $offset          Timeout offset
+ * @param int            $upload_id         The selected upload id
+ * @param String         $import_type       Import type: server, database, table
+ * @param String         $db                Selected DB
+ * @param String         $table             Selected Table
+ * @param int            $max_upload_size   Max upload size
+ * @param ImportPlugin[] $import_list       Import list
+ * @param String         $timeout_passed    Timeout passed
+ * @param String         $offset            Timeout offset
+ * @param String         $local_import_file from upload directory
  *
  * @return string
  */
 function PMA_getHtmlForImport(
     $upload_id, $import_type, $db, $table,
-    $max_upload_size, $import_list, $timeout_passed, $offset
+    $max_upload_size, $import_list, $timeout_passed, $offset, $local_import_file
 ) {
     global $SESSION_KEY;
     $html  = '';
@@ -440,7 +444,9 @@ function PMA_getHtmlForImport(
 
     $html .= PMA_getHtmlForImportOptions($import_type, $db, $table);
 
-    $html .= PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list);
+    $html .= PMA_getHtmlForImportOptionsFile(
+        $max_upload_size, $import_list, $local_import_file
+    );
 
     $html .= PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset);
 
@@ -660,6 +666,8 @@ function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
     if (isset($_REQUEST['timeout_passed'])) {
         $timeout_passed = $_REQUEST['timeout_passed'];
     }
+
+    $local_import_file = '';
     if (isset($_REQUEST['local_import_file'])) {
         $local_import_file = $_REQUEST['local_import_file'];
     }
@@ -674,6 +682,7 @@ function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
         $max_upload_size,
         $import_list,
         $timeout_passed_str,
-        $offset_str
+        $offset_str,
+        $local_import_file
     );
 }
