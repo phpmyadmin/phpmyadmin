@@ -40,8 +40,14 @@
                     <th><?php echo htmlspecialchars($partition->getName()); ?></th>
                     <?php if ($hasDescription): ?>
                         <td>
-                            <code><?php echo htmlspecialchars($partition->getExpression()
-                                . ' < ' . $partition->getDescription()); ?></code>
+                            <code>
+                                <?php
+                                echo htmlspecialchars($partition->getExpression())
+                                    . ($partition->getMethod() == 'LIST' ? ' IN (' : ' < ')
+                                    . htmlspecialchars($partition->getDescription())
+                                    . ($partition->getMethod() == 'LIST' ? ')' : '');
+                                ?>
+                            </code>
                         </td>
                     <?php endif; ?>
                     <td class="value"><?php echo $partition->getRows(); ?></td>
