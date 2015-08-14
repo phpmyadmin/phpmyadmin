@@ -56,9 +56,13 @@
                     </td>
                     <?php foreach ($titles as $operation => $title): ?>
                         <td>
-                            <a href="tbl_structure.php<?php echo $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?php echo urlencode(
-                                "ALTER TABLE " . PMA_Util::backquote($table) . $operation . " PARTITION " . $partition->getName()
-                            ) ?>">
+                            <a  href="tbl_structure.php<?php echo $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?php echo urlencode(
+                                    "ALTER TABLE " . PMA_Util::backquote($table) . $operation . " PARTITION " . $partition->getName()
+                                ) ?>"
+                                id="partition_action_<?php echo $operation; ?>"
+                                name="partition_action_<?php echo $operation; ?>"
+                                class="ajax"
+                            >
                                 <?php echo $title; ?>
                             </a>
                         </td>
