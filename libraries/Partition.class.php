@@ -116,6 +116,26 @@ class PMA_SubPartition
     }
 
     /**
+     * Returns the partition method
+     *
+     * @return string partition method
+     */
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
+    /**
+     * Returns the partition expression
+     *
+     * @return string partition expression
+     */
+    public function getExpression()
+    {
+        return $this->expression;
+    }
+
+    /**
      * Returns the number of data rows
      *
      * @return integer number of rows
@@ -180,6 +200,16 @@ class PMA_Partition extends PMA_SubPartition
         if (empty($row['SUBPARTITION_NAME'])) {
             $this->loadCommonData($row);
         }
+    }
+
+    /**
+     * Returns the partiotion description
+     *
+     * @return string partition description
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**
@@ -263,7 +293,7 @@ class PMA_Partition extends PMA_SubPartition
      *
      * @return PMA_SubPartition[]
      */
-    public function getSubParitions()
+    public function getSubPartitions()
     {
         return $this->subPartitions;
     }
