@@ -28,8 +28,9 @@
                 );
             ?>
             <?php foreach ($partitions as $partition): ?>
-                <tr class="noclick <?php echo $odd ? 'odd' : 'even' ?>">
-                    <?php if ($partition->hasSubParitions()): ?>
+                <?php $hasSubPartitions = $partition->hasSubPartitions(); ?>
+                <tr class="noclick <?php echo $odd ? 'odd' : 'even'; echo $hasSubPartitions ? ' marked' : '';?>">
+                    <?php if ($hasSubPartitions): ?>
                         <td><?php echo $partition->getOrdinal(); ?></td>
                         <td></td>
                     <?php else: ?>
@@ -63,7 +64,7 @@
                         </td>
                     <?php endforeach; ?>
 
-                    <?php if ($partition->hasSubParitions()): ?>
+                    <?php if ($hasSubPartitions): ?>
                         <?php foreach ($partition->getSubParitions() as $subParition): ?>
                             <tr class="noclick <?php echo $odd ? 'odd' : 'even' ?>">
                                 <td></td>

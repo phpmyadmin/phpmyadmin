@@ -199,7 +199,7 @@ class PMA_Partition extends PMA_SubPartition
      *
      * @return boolean
      */
-    public function hasSubParitions()
+    public function hasSubPartitions()
     {
         return ! empty($this->subPartitions);
     }
