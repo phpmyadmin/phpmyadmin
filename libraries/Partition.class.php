@@ -41,7 +41,7 @@ class PMA_SubPartition
      */
     protected $expression;
     /**
-     * @var integer no of table rows in the parition
+     * @var integer no of table rows in the partition
      */
     protected $rows;
     /**
@@ -96,7 +96,7 @@ class PMA_SubPartition
     }
 
     /**
-     * Return the parition name
+     * Return the partition name
      *
      * @return string partition name
      */
@@ -106,7 +106,7 @@ class PMA_SubPartition
     }
 
     /**
-     * Return the ordinal of the parition
+     * Return the ordinal of the partition
      *
      * @return number the ordinal
      */
@@ -213,15 +213,15 @@ class PMA_Partition extends PMA_SubPartition
     }
 
     /**
-     * Add a sub parition
+     * Add a sub partition
      *
-     * @param PMA_SubPartition $parition
+     * @param PMA_SubPartition $partition
      *
      * @return void
      */
-    public function addSubPartition(PMA_SubPartition $parition)
+    public function addSubPartition(PMA_SubPartition $partition)
     {
-        $this->subPartitions[] = $parition;
+        $this->subPartitions[] = $partition;
     }
 
     /**

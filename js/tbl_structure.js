@@ -435,7 +435,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     });
 
     /**
-     * Handles clicks on Action links in parition table
+     * Handles clicks on Action links in partition table
      */
     $(document).on('click', 'a[name^=partition_action].ajax', function (e) {
         e.preventDefault();
