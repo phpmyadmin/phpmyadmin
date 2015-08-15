@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-13 13:52-0400\n"
+"POT-Creation-Date: 2015-08-15 07:04-0400\n"
 "PO-Revision-Date: 2015-06-17 06:05+0200\n"
 "Last-Translator: Tommy Surbakti <tommy@surbakti.net>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -168,8 +168,8 @@ msgid "Comments"
 msgstr "Komentar"
 
 #: db_datadict.php:146
-#: libraries/controllers/TableStructureController.class.php:951
-#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:955
+#: libraries/controllers/TableStructureController.class.php:960
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -204,12 +204,12 @@ msgstr "Tidak"
 #: libraries/Index.class.php:605 libraries/Index.class.php:1018
 #: libraries/central_columns.lib.php:966
 #: libraries/config/FormDisplay.tpl.php:272
-#: libraries/controllers/TableStructureController.class.php:539
-#: libraries/controllers/TableStructureController.class.php:1201
-#: libraries/controllers/TableStructureController.class.php:1210
-#: libraries/controllers/TableStructureController.class.php:1215
-#: libraries/controllers/TableStructureController.class.php:1220
-#: libraries/controllers/TableStructureController.class.php:1225
+#: libraries/controllers/TableStructureController.class.php:543
+#: libraries/controllers/TableStructureController.class.php:1205
+#: libraries/controllers/TableStructureController.class.php:1214
+#: libraries/controllers/TableStructureController.class.php:1219
+#: libraries/controllers/TableStructureController.class.php:1224
+#: libraries/controllers/TableStructureController.class.php:1229
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:178
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -394,6 +394,7 @@ msgstr "Status"
 #: libraries/server_variables.lib.php:189 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793
 #: templates/database/structure/table_header.phtml:30
+#: templates/table/structure/display_partitions.phtml:27
 #: templates/table/structure/table_structure_header.phtml:23
 msgid "Action"
 msgstr "Tindakan"
@@ -570,7 +571,7 @@ msgstr "Tambahkan geometri"
 #: libraries/browse_foreigners.lib.php:142
 #: libraries/display_change_password.lib.php:162
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
-#: libraries/display_import.lib.php:392 libraries/index.lib.php:44
+#: libraries/display_import.lib.php:395 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
 #: libraries/normalization.lib.php:165 libraries/normalization.lib.php:821
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
@@ -686,11 +687,11 @@ msgstr ""
 "Tidak dapat mengkonfersi set karakter berkas tanpa set karakter pustaka "
 "konfersi!"
 
-#: import.php:634 libraries/display_import.lib.php:651
+#: import.php:634 libraries/display_import.lib.php:657
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin import, harap periksa instalasi Anda!"
 
-#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1460
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1462
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bookmark %s telah dibuat."
@@ -3779,7 +3780,7 @@ msgstr "total %1$d, %2$d dalam kueri"
 msgid "%d total"
 msgstr "total %d"
 
-#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1312
+#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1314
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pencarian dilakukan dalam %01.4f detik."
@@ -3930,8 +3931,8 @@ msgid "Keyname"
 msgstr "Nama kunci"
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/TableStructureController.class.php:953
-#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:962
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -3978,13 +3979,14 @@ msgstr "Indeks %s telah dihapus."
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3636
 #: libraries/Util.class.php:3637
-#: libraries/controllers/TableStructureController.class.php:949
-#: libraries/controllers/TableStructureController.class.php:950
+#: libraries/controllers/TableStructureController.class.php:953
+#: libraries/controllers/TableStructureController.class.php:954
 #: libraries/operations.lib.php:1607 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
 #: templates/database/structure/check_all_tables.phtml:16
 #: templates/table/relation/foreign_key_row.phtml:93
 #: templates/table/structure/check_all_table_column.phtml:15
+#: templates/table/structure/display_structure.phtml:185
 msgid "Drop"
 msgstr "Hapus"
 
@@ -4998,6 +5000,7 @@ msgstr "Gunakan nilai ini"
 #: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:191
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:113
+#: templates/table/structure/display_partitions.phtml:24
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
 msgstr "Baris"
@@ -5080,6 +5083,7 @@ msgstr "TIDAK"
 #: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:162
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
+#: templates/table/structure/display_partitions.phtml:20
 #: templates/table/structure/table_structure_header.phtml:5
 msgid "Name"
 msgstr "Nama"
@@ -8398,7 +8402,7 @@ msgid "No data to display"
 msgstr "Tidak ada data"
 
 #: libraries/controllers/TableIndexesController.class.php:161
-#: libraries/controllers/TableStructureController.class.php:736
+#: libraries/controllers/TableStructureController.class.php:740
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8429,41 +8433,41 @@ msgstr "Perbesar pencarian"
 msgid "Find and replace"
 msgstr "Cari dan Gantikan"
 
-#: libraries/controllers/TableStructureController.class.php:163
+#: libraries/controllers/TableStructureController.class.php:165
 #, fuzzy, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "Nama kolom '%s' adalah kata kunci pesanan MySQL."
 
-#: libraries/controllers/TableStructureController.class.php:241
+#: libraries/controllers/TableStructureController.class.php:243
 msgid "No column selected."
 msgstr "Tidak ada kolom yang dipilih."
 
-#: libraries/controllers/TableStructureController.class.php:467
+#: libraries/controllers/TableStructureController.class.php:471
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Sukses menghapus pengguna yang dipilih."
 
-#: libraries/controllers/TableStructureController.class.php:730
+#: libraries/controllers/TableStructureController.class.php:734
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabel %1$s berhasil diubah."
 
-#: libraries/controllers/TableStructureController.class.php:783
+#: libraries/controllers/TableStructureController.class.php:787
 #: libraries/tracking.lib.php:1094
 msgid "Query error"
 msgstr "Galat kueri"
 
-#: libraries/controllers/TableStructureController.class.php:948
+#: libraries/controllers/TableStructureController.class.php:952
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "Ubah"
 
-#: libraries/controllers/TableStructureController.class.php:952
-#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:961
 #: libraries/navigation/Nodes/Node_Index.class.php:30
 #: libraries/tracking.lib.php:926
 #: templates/columns_definitions/column_indexes.phtml:16
@@ -8474,21 +8478,21 @@ msgstr "Ubah"
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/controllers/TableStructureController.class.php:954
-#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:963
 #: templates/columns_definitions/column_indexes.phtml:27
 #: templates/table/structure/check_all_table_column.phtml:37
 msgid "Spatial"
 msgstr "Spasial"
 
-#: libraries/controllers/TableStructureController.class.php:955
-#: libraries/controllers/TableStructureController.class.php:960
+#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:964
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:47
 msgid "Fulltext"
 msgstr "Teks penuh"
 
-#: libraries/controllers/TableStructureController.class.php:963
+#: libraries/controllers/TableStructureController.class.php:967
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
@@ -8688,7 +8692,7 @@ msgstr "Basis Data:"
 msgid "Table(s):"
 msgstr "Tabel:"
 
-#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:357
+#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:360
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Format:"
@@ -8705,7 +8709,7 @@ msgstr ""
 "Gulir ke bawah untuk mengisi pilihan untuk format yang dipilih dan "
 "mengabaikan pilihan untuk format lain."
 
-#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:374
+#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:377
 msgid "Encoding Conversion:"
 msgstr "Konversi Pengodean:"
 
@@ -8906,24 +8910,24 @@ msgstr ""
 "Nama berkas terkompresi harus diakhir dengan <b>.[format].[kompresi]</b>. "
 "Contoh: <b>.sql.zip</b>"
 
-#: libraries/display_import.lib.php:222
+#: libraries/display_import.lib.php:225
 msgid "File to Import:"
 msgstr "Berkas untuk Diimpor:"
 
-#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
+#: libraries/display_import.lib.php:235 libraries/display_import.lib.php:252
 #, fuzzy
 msgid "You may also drag and drop a file on any page."
 msgstr "Anda juga dapat drag dan drop file pada halaman manapun."
 
-#: libraries/display_import.lib.php:252
+#: libraries/display_import.lib.php:255
 msgid "File uploads are not allowed on this server."
 msgstr "Pengunggahan berkas tidak diizinkan di server ini."
 
-#: libraries/display_import.lib.php:276
+#: libraries/display_import.lib.php:279
 msgid "Partial Import:"
 msgstr "Impor Parsial:"
 
-#: libraries/display_import.lib.php:283
+#: libraries/display_import.lib.php:286
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -8931,7 +8935,7 @@ msgstr ""
 "Proses impor sebelumnya kehabisan waktu, setelah mengirimkan kembali akan "
 "dilanjutkan dari posisi %d."
 
-#: libraries/display_import.lib.php:297
+#: libraries/display_import.lib.php:300
 #, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
@@ -8946,7 +8950,7 @@ msgstr ""
 "PHP. <i>(Ini mungkin cara terbaik untuk mengimpor berkas besar, meskipun "
 "dapat memotong transaksi.)</i>"
 
-#: libraries/display_import.lib.php:307
+#: libraries/display_import.lib.php:310
 #, fuzzy
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
@@ -8955,17 +8959,17 @@ msgstr ""
 "Loncat nomor ini query (untuk SQL) atau garis (untuk format lain), mulai "
 "dari yang pertama:"
 
-#: libraries/display_import.lib.php:338
+#: libraries/display_import.lib.php:341
 #, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
 msgstr "Opsi"
 
-#: libraries/display_import.lib.php:363
+#: libraries/display_import.lib.php:366
 msgid "Format-Specific Options:"
 msgstr "Opsi Format Khusus:"
 
-#: libraries/display_import.lib.php:473
+#: libraries/display_import.lib.php:479
 #, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
@@ -8976,31 +8980,31 @@ msgstr ""
 "atau ini adalah bug yang dikenal dalam webkit berbasis (Safari, Google "
 "Chrome, Arora dll) browser."
 
-#: libraries/display_import.lib.php:479
+#: libraries/display_import.lib.php:485
 #, php-format
 msgid "%s of %s"
 msgstr "%s dari %s"
 
-#: libraries/display_import.lib.php:480
+#: libraries/display_import.lib.php:486
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
 msgstr "Format berkas impor"
 
-#: libraries/display_import.lib.php:481
+#: libraries/display_import.lib.php:487
 #, php-format
 msgid "%s/sec."
 msgstr "%s/detik."
 
-#: libraries/display_import.lib.php:482
+#: libraries/display_import.lib.php:488
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Sekitar %MIN menit. %SEC detik. lagi."
 
-#: libraries/display_import.lib.php:483
+#: libraries/display_import.lib.php:489
 msgid "About %SEC sec. remaining."
 msgstr "Sekitar %SEC detik. lagi."
 
-#: libraries/display_import.lib.php:485
+#: libraries/display_import.lib.php:491
 #, fuzzy
 msgid "The file is being processed, please be patient."
 msgstr "File tersebut sedang diproses, harap bersabar."
@@ -9397,12 +9401,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump (Skema) disimpan pada berkas %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1308
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 
-#: libraries/import.lib.php:263 libraries/sql.lib.php:1320
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1322
 #, fuzzy
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK occurred.]"
@@ -9577,11 +9581,11 @@ msgstr ""
 msgid "Value"
 msgstr "Nilai"
 
-#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1303
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1305
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1281
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1283
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -9968,7 +9972,7 @@ msgstr "Baru"
 msgid "Database operations"
 msgstr "Opsi ekspor basis data"
 
-#: libraries/navigation/Nodes/Node_Database.class.php:658
+#: libraries/navigation/Nodes/Node_Database.class.php:661
 #, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
@@ -10583,26 +10587,32 @@ msgid "Delete the table (DROP)"
 msgstr "Hapus tabel (DROP)"
 
 #: libraries/operations.lib.php:1594
+#: templates/table/structure/display_structure.phtml:179
 msgid "Analyze"
 msgstr "Analisis"
 
 #: libraries/operations.lib.php:1595
+#: templates/table/structure/display_structure.phtml:180
 msgid "Check"
 msgstr "Periksa"
 
 #: libraries/operations.lib.php:1596
+#: templates/table/structure/display_structure.phtml:181
 msgid "Optimize"
 msgstr "Optimalkan"
 
 #: libraries/operations.lib.php:1597
+#: templates/table/structure/display_structure.phtml:182
 msgid "Rebuild"
 msgstr "Bangun ulang"
 
 #: libraries/operations.lib.php:1598
+#: templates/table/structure/display_structure.phtml:183
 msgid "Repair"
 msgstr "Perbaiki"
 
 #: libraries/operations.lib.php:1599
+#: templates/table/structure/display_structure.phtml:184
 msgid "Truncate"
 msgstr ""
 
@@ -15051,11 +15061,11 @@ msgstr "Markah %s dibuat"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Menggunakan markah \"%s\" sebagai kueri penjelajahan bawaan."
 
-#: libraries/sql.lib.php:1300
+#: libraries/sql.lib.php:1302
 msgid "Showing as PHP code"
 msgstr "Tampilkan sebagai kode PHP"
 
-#: libraries/sql.lib.php:1632
+#: libraries/sql.lib.php:1634
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -15068,7 +15078,7 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: libraries/sql.lib.php:1643
+#: libraries/sql.lib.php:1645
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -15081,7 +15091,7 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: libraries/sql.lib.php:1682
+#: libraries/sql.lib.php:1684
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Ditemukan masalah dengan indeks dalam tabel `%s`"
@@ -15739,6 +15749,7 @@ msgid "Pick from Central Columns"
 msgstr "Hapus kolom"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
+#: templates/table/structure/display_partitions.phtml:22
 #, fuzzy
 #| msgid "Compression"
 msgid "Expression"
@@ -16545,6 +16556,36 @@ msgstr "Tambahkan %s kolom"
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "Pada Awal Tabel"
+
+#: templates/table/structure/display_partitions.phtml:3
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "Partisi %s"
+
+#: templates/table/structure/display_partitions.phtml:7
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "dipartisi"
+
+#: templates/table/structure/display_partitions.phtml:12
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "dipartisi"
+
+#: templates/table/structure/display_partitions.phtml:25
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Panjang baris"
+
+#: templates/table/structure/display_partitions.phtml:26
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Panjang baris"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"

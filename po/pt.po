@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-13 13:52-0400\n"
+"POT-Creation-Date: 2015-08-15 07:04-0400\n"
 "PO-Revision-Date: 2015-06-11 18:18+0200\n"
 "Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -167,8 +167,8 @@ msgid "Comments"
 msgstr "Comentários"
 
 #: db_datadict.php:146
-#: libraries/controllers/TableStructureController.class.php:951
-#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:955
+#: libraries/controllers/TableStructureController.class.php:960
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -203,12 +203,12 @@ msgstr "Não"
 #: libraries/Index.class.php:605 libraries/Index.class.php:1018
 #: libraries/central_columns.lib.php:966
 #: libraries/config/FormDisplay.tpl.php:272
-#: libraries/controllers/TableStructureController.class.php:539
-#: libraries/controllers/TableStructureController.class.php:1201
-#: libraries/controllers/TableStructureController.class.php:1210
-#: libraries/controllers/TableStructureController.class.php:1215
-#: libraries/controllers/TableStructureController.class.php:1220
-#: libraries/controllers/TableStructureController.class.php:1225
+#: libraries/controllers/TableStructureController.class.php:543
+#: libraries/controllers/TableStructureController.class.php:1205
+#: libraries/controllers/TableStructureController.class.php:1214
+#: libraries/controllers/TableStructureController.class.php:1219
+#: libraries/controllers/TableStructureController.class.php:1224
+#: libraries/controllers/TableStructureController.class.php:1229
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:178
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -395,6 +395,7 @@ msgstr "Estado"
 #: libraries/server_variables.lib.php:189 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793
 #: templates/database/structure/table_header.phtml:30
+#: templates/table/structure/display_partitions.phtml:27
 #: templates/table/structure/table_structure_header.phtml:23
 msgid "Action"
 msgstr "Acções"
@@ -572,7 +573,7 @@ msgstr "Adicionar geometria"
 #: libraries/browse_foreigners.lib.php:142
 #: libraries/display_change_password.lib.php:162
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
-#: libraries/display_import.lib.php:392 libraries/index.lib.php:44
+#: libraries/display_import.lib.php:395 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
 #: libraries/normalization.lib.php:165 libraries/normalization.lib.php:821
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
@@ -689,13 +690,13 @@ msgstr ""
 "Impossível converter o conjunto de caracteres do ficheiro sem a biblioteca "
 "de conversão de caracteres!"
 
-#: import.php:634 libraries/display_import.lib.php:651
+#: import.php:634 libraries/display_import.lib.php:657
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Não foi possível carregar os import plugins, por favor verifique a sua "
 "instalação!"
 
-#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1460
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1462
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Marcador %s foi criado."
@@ -3831,7 +3832,7 @@ msgstr "%1$d no total, %2$d na consulta"
 msgid "%d total"
 msgstr "%d total"
 
-#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1312
+#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1314
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A consulta demorou %01.4f segundos."
@@ -3983,8 +3984,8 @@ msgid "Keyname"
 msgstr "Nome da chave"
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/TableStructureController.class.php:953
-#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:962
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -4031,13 +4032,14 @@ msgstr "O Índice %s foi eliminado."
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3636
 #: libraries/Util.class.php:3637
-#: libraries/controllers/TableStructureController.class.php:949
-#: libraries/controllers/TableStructureController.class.php:950
+#: libraries/controllers/TableStructureController.class.php:953
+#: libraries/controllers/TableStructureController.class.php:954
 #: libraries/operations.lib.php:1607 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
 #: templates/database/structure/check_all_tables.phtml:16
 #: templates/table/relation/foreign_key_row.phtml:93
 #: templates/table/structure/check_all_table_column.phtml:15
+#: templates/table/structure/display_structure.phtml:185
 msgid "Drop"
 msgstr "Elimina"
 
@@ -5056,6 +5058,7 @@ msgstr "Utilizar este valor"
 #: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:191
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:113
+#: templates/table/structure/display_partitions.phtml:24
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
 msgstr "Registos"
@@ -5138,6 +5141,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:162
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
+#: templates/table/structure/display_partitions.phtml:20
 #: templates/table/structure/table_structure_header.phtml:5
 msgid "Name"
 msgstr "Nome"
@@ -8350,7 +8354,7 @@ msgid "No data to display"
 msgstr "Dados não encontrados."
 
 #: libraries/controllers/TableIndexesController.class.php:161
-#: libraries/controllers/TableStructureController.class.php:736
+#: libraries/controllers/TableStructureController.class.php:740
 #: tbl_addfield.php:92
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8385,43 +8389,43 @@ msgstr "Pesquisa Avançada"
 msgid "Find and replace"
 msgstr "Localizar e substituir"
 
-#: libraries/controllers/TableStructureController.class.php:163
+#: libraries/controllers/TableStructureController.class.php:165
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/controllers/TableStructureController.class.php:241
+#: libraries/controllers/TableStructureController.class.php:243
 msgid "No column selected."
 msgstr "Nenhuma coluna seleccionada."
 
-#: libraries/controllers/TableStructureController.class.php:467
+#: libraries/controllers/TableStructureController.class.php:471
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Os utilizadores selecionado foram apagados com sucesso."
 
-#: libraries/controllers/TableStructureController.class.php:730
+#: libraries/controllers/TableStructureController.class.php:734
 #, fuzzy, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Os utilizadores selecionado foram apagados com sucesso."
 
-#: libraries/controllers/TableStructureController.class.php:783
+#: libraries/controllers/TableStructureController.class.php:787
 #: libraries/tracking.lib.php:1094
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
 msgstr "Tipo de Query"
 
-#: libraries/controllers/TableStructureController.class.php:948
+#: libraries/controllers/TableStructureController.class.php:952
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "Muda"
 
-#: libraries/controllers/TableStructureController.class.php:952
-#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:961
 #: libraries/navigation/Nodes/Node_Index.class.php:30
 #: libraries/tracking.lib.php:926
 #: templates/columns_definitions/column_indexes.phtml:16
@@ -8432,21 +8436,21 @@ msgstr "Muda"
 msgid "Index"
 msgstr "Índice"
 
-#: libraries/controllers/TableStructureController.class.php:954
-#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:963
 #: templates/columns_definitions/column_indexes.phtml:27
 #: templates/table/structure/check_all_table_column.phtml:37
 msgid "Spatial"
 msgstr ""
 
-#: libraries/controllers/TableStructureController.class.php:955
-#: libraries/controllers/TableStructureController.class.php:960
+#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:964
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:47
 msgid "Fulltext"
 msgstr "Texto Completo"
 
-#: libraries/controllers/TableStructureController.class.php:963
+#: libraries/controllers/TableStructureController.class.php:967
 #, fuzzy
 #| msgid "Session value"
 msgid "Distinct values"
@@ -8651,7 +8655,7 @@ msgstr "Base(s) de Dados:"
 msgid "Table(s):"
 msgstr "Tabela(s):"
 
-#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:357
+#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:360
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Formato:"
@@ -8668,7 +8672,7 @@ msgstr ""
 "Desloque-se para baixo para preencher as opções do formato seleccionado e "
 "ignore as opções para outros formatos."
 
-#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:374
+#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:377
 msgid "Encoding Conversion:"
 msgstr "Conversão de codificação:"
 
@@ -8864,23 +8868,23 @@ msgstr ""
 "O nome de um ficheiro comprimido tem que acabar em <b>.[format]."
 "[compression]</b>. Exemplo: <b>.sql.zip</b>"
 
-#: libraries/display_import.lib.php:222
+#: libraries/display_import.lib.php:225
 msgid "File to Import:"
 msgstr "Ficheiro para importar:"
 
-#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
+#: libraries/display_import.lib.php:235 libraries/display_import.lib.php:252
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: libraries/display_import.lib.php:252
+#: libraries/display_import.lib.php:255
 msgid "File uploads are not allowed on this server."
 msgstr "Os ficheiros carregados não são permitidos neste servidor."
 
-#: libraries/display_import.lib.php:276
+#: libraries/display_import.lib.php:279
 msgid "Partial Import:"
 msgstr "Importação parcial:"
 
-#: libraries/display_import.lib.php:283
+#: libraries/display_import.lib.php:286
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -8888,7 +8892,7 @@ msgstr ""
 "A importação anterior demorou demasiado tempo, ao voltar a submeter vai "
 "continuar da posição %d."
 
-#: libraries/display_import.lib.php:297
+#: libraries/display_import.lib.php:300
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
@@ -8898,7 +8902,7 @@ msgstr ""
 "próximo do limite de tempo do PHP. <i>(Esta é uma boa forma de importar "
 "ficheiros grandes, contudo pode interromper transações.)</i>"
 
-#: libraries/display_import.lib.php:307
+#: libraries/display_import.lib.php:310
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
@@ -8906,17 +8910,17 @@ msgstr ""
 "Ignorar este número de consultas (no caso de SQL) ou linhas (no caso de "
 "outros formatos), começando da primeira:"
 
-#: libraries/display_import.lib.php:338
+#: libraries/display_import.lib.php:341
 #, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
 msgstr "Opções"
 
-#: libraries/display_import.lib.php:363
+#: libraries/display_import.lib.php:366
 msgid "Format-Specific Options:"
 msgstr "Opções específicas do formato:"
 
-#: libraries/display_import.lib.php:473
+#: libraries/display_import.lib.php:479
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -8925,29 +8929,29 @@ msgstr ""
 "O ficheiro que está a ser carregado é provavelmente maior que o tamanho "
 "máximo permitido ou pode ser um erro do browser."
 
-#: libraries/display_import.lib.php:479
+#: libraries/display_import.lib.php:485
 #, php-format
 msgid "%s of %s"
 msgstr "%s de %s"
 
-#: libraries/display_import.lib.php:480
+#: libraries/display_import.lib.php:486
 msgid "Uploading your import file…"
 msgstr "Carregando o seu arquivo importado…"
 
-#: libraries/display_import.lib.php:481
+#: libraries/display_import.lib.php:487
 #, php-format
 msgid "%s/sec."
 msgstr "%s/seg."
 
-#: libraries/display_import.lib.php:482
+#: libraries/display_import.lib.php:488
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Faltam cerca de %MIN min. %SEC seg."
 
-#: libraries/display_import.lib.php:483
+#: libraries/display_import.lib.php:489
 msgid "About %SEC sec. remaining."
 msgstr "Faltam cerca de %SEC seg."
 
-#: libraries/display_import.lib.php:485
+#: libraries/display_import.lib.php:491
 msgid "The file is being processed, please be patient."
 msgstr "O ficheiro está a ser processado, por favor aguarde."
 
@@ -9292,12 +9296,12 @@ msgid "Dump has been saved to file %s."
 msgstr "O Dump foi gravado para o ficheiro %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1308
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL não retornou nenhum registo."
 
-#: libraries/import.lib.php:263 libraries/sql.lib.php:1320
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1322
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9460,12 +9464,12 @@ msgstr ""
 msgid "Value"
 msgstr "Valor"
 
-#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1303
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1305
 #, fuzzy
 msgid "Showing SQL query"
 msgstr "Mostrar queries completos"
 
-#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1281
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1283
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -9853,7 +9857,7 @@ msgstr ""
 msgid "Database operations"
 msgstr "Opções de exportação da Base de Dados"
 
-#: libraries/navigation/Nodes/Node_Database.class.php:658
+#: libraries/navigation/Nodes/Node_Database.class.php:661
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden items"
@@ -10386,28 +10390,34 @@ msgid "Delete the table (DROP)"
 msgstr "Sem bases de dados"
 
 #: libraries/operations.lib.php:1594
+#: templates/table/structure/display_structure.phtml:179
 msgid "Analyze"
 msgstr ""
 
 #: libraries/operations.lib.php:1595
+#: templates/table/structure/display_structure.phtml:180
 #, fuzzy
 msgid "Check"
 msgstr "Checo"
 
 #: libraries/operations.lib.php:1596
+#: templates/table/structure/display_structure.phtml:181
 msgid "Optimize"
 msgstr ""
 
 #: libraries/operations.lib.php:1597
+#: templates/table/structure/display_structure.phtml:182
 msgid "Rebuild"
 msgstr ""
 
 #: libraries/operations.lib.php:1598
+#: templates/table/structure/display_structure.phtml:183
 #, fuzzy
 msgid "Repair"
 msgstr "Reparar tabela"
 
 #: libraries/operations.lib.php:1599
+#: templates/table/structure/display_structure.phtml:184
 msgid "Truncate"
 msgstr ""
 
@@ -14530,11 +14540,11 @@ msgstr "Marcador %s criado"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1300
+#: libraries/sql.lib.php:1302
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/sql.lib.php:1632
+#: libraries/sql.lib.php:1634
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -14547,7 +14557,7 @@ msgstr ""
 "edição da tabela, checkbox, Editar, Copiar e Eliminar links podem não "
 "funcionar depois de guardar."
 
-#: libraries/sql.lib.php:1643
+#: libraries/sql.lib.php:1645
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -14560,7 +14570,7 @@ msgstr ""
 "edição da tabela, checkbox, Editar, Copiar e Eliminar links podem não "
 "funcionar depois de guardar."
 
-#: libraries/sql.lib.php:1682
+#: libraries/sql.lib.php:1684
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -15200,6 +15210,7 @@ msgid "Pick from Central Columns"
 msgstr "Remover dos Favoritos"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
+#: templates/table/structure/display_partitions.phtml:22
 #, fuzzy
 #| msgid "Compression"
 msgid "Expression"
@@ -16011,6 +16022,30 @@ msgstr "Adiciona novo campo"
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "No Início da Tabela"
+
+#: templates/table/structure/display_partitions.phtml:3
+#, fuzzy
+#| msgid "Position"
+msgid "Partitions"
+msgstr "Posição"
+
+#: templates/table/structure/display_partitions.phtml:7
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.phtml:12
+msgid "Sub partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.phtml:25
+#, fuzzy
+msgid "Data length"
+msgstr "Comprimento de linha"
+
+#: templates/table/structure/display_partitions.phtml:26
+#, fuzzy
+msgid "Index length"
+msgstr "Comprimento de linha"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 #, fuzzy

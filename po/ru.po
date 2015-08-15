@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-13 13:52-0400\n"
+"POT-Creation-Date: 2015-08-15 07:04-0400\n"
 "PO-Revision-Date: 2015-07-25 20:50+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -168,8 +168,8 @@ msgid "Comments"
 msgstr "Комментарии"
 
 #: db_datadict.php:146
-#: libraries/controllers/TableStructureController.class.php:951
-#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:955
+#: libraries/controllers/TableStructureController.class.php:960
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -204,12 +204,12 @@ msgstr "Нет"
 #: libraries/Index.class.php:605 libraries/Index.class.php:1018
 #: libraries/central_columns.lib.php:966
 #: libraries/config/FormDisplay.tpl.php:272
-#: libraries/controllers/TableStructureController.class.php:539
-#: libraries/controllers/TableStructureController.class.php:1201
-#: libraries/controllers/TableStructureController.class.php:1210
-#: libraries/controllers/TableStructureController.class.php:1215
-#: libraries/controllers/TableStructureController.class.php:1220
-#: libraries/controllers/TableStructureController.class.php:1225
+#: libraries/controllers/TableStructureController.class.php:543
+#: libraries/controllers/TableStructureController.class.php:1205
+#: libraries/controllers/TableStructureController.class.php:1214
+#: libraries/controllers/TableStructureController.class.php:1219
+#: libraries/controllers/TableStructureController.class.php:1224
+#: libraries/controllers/TableStructureController.class.php:1229
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:178
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -391,6 +391,7 @@ msgstr "Состояние"
 #: libraries/server_variables.lib.php:189 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793
 #: templates/database/structure/table_header.phtml:30
+#: templates/table/structure/display_partitions.phtml:27
 #: templates/table/structure/table_structure_header.phtml:23
 msgid "Action"
 msgstr "Действие"
@@ -564,7 +565,7 @@ msgstr "Добавить геометрию"
 #: libraries/browse_foreigners.lib.php:142
 #: libraries/display_change_password.lib.php:162
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
-#: libraries/display_import.lib.php:392 libraries/index.lib.php:44
+#: libraries/display_import.lib.php:395 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
 #: libraries/normalization.lib.php:165 libraries/normalization.lib.php:821
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
@@ -678,11 +679,11 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "Без необходимой библиотеки невозможна конвертация кодировки файла!"
 
-#: import.php:634 libraries/display_import.lib.php:651
+#: import.php:634 libraries/display_import.lib.php:657
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Не удалось загрузить модули импорта. Пожалуйста, проверьте установку!"
 
-#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1460
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1462
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладка %s создана."
@@ -3722,7 +3723,7 @@ msgstr "%1$d всего, %2$d в запросе"
 msgid "%d total"
 msgstr "%d всего"
 
-#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1312
+#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1314
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запрос занял %01.4f сек."
@@ -3878,8 +3879,8 @@ msgid "Keyname"
 msgstr "Имя индекса"
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/TableStructureController.class.php:953
-#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:962
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -3926,13 +3927,14 @@ msgstr "Индекс %s был удален."
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3636
 #: libraries/Util.class.php:3637
-#: libraries/controllers/TableStructureController.class.php:949
-#: libraries/controllers/TableStructureController.class.php:950
+#: libraries/controllers/TableStructureController.class.php:953
+#: libraries/controllers/TableStructureController.class.php:954
 #: libraries/operations.lib.php:1607 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
 #: templates/database/structure/check_all_tables.phtml:16
 #: templates/table/relation/foreign_key_row.phtml:93
 #: templates/table/structure/check_all_table_column.phtml:15
+#: templates/table/structure/display_structure.phtml:185
 msgid "Drop"
 msgstr "Удалить"
 
@@ -4947,6 +4949,7 @@ msgstr "Использовать это значение"
 #: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:191
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:113
+#: templates/table/structure/display_partitions.phtml:24
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
 msgstr "Строки"
@@ -5028,6 +5031,7 @@ msgstr "НЕТ"
 #: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:162
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
+#: templates/table/structure/display_partitions.phtml:20
 #: templates/table/structure/table_structure_header.phtml:5
 msgid "Name"
 msgstr "Имя"
@@ -8121,7 +8125,7 @@ msgid "No data to display"
 msgstr "Данные не найдены"
 
 #: libraries/controllers/TableIndexesController.class.php:161
-#: libraries/controllers/TableStructureController.class.php:736
+#: libraries/controllers/TableStructureController.class.php:740
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8148,7 +8152,7 @@ msgstr "Поиск с приближением"
 msgid "Find and replace"
 msgstr "Найти и заменить"
 
-#: libraries/controllers/TableStructureController.class.php:163
+#: libraries/controllers/TableStructureController.class.php:165
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8156,33 +8160,33 @@ msgstr[0] "Имя '%s' является зарезервированным сл�
 msgstr[1] "Имена '%s' являются зарезервированными словами MySQL."
 msgstr[2] "Имена '%s' являются зарезервированными словами MySQL."
 
-#: libraries/controllers/TableStructureController.class.php:241
+#: libraries/controllers/TableStructureController.class.php:243
 msgid "No column selected."
 msgstr "Не выбран столбец."
 
-#: libraries/controllers/TableStructureController.class.php:467
+#: libraries/controllers/TableStructureController.class.php:471
 msgid "The columns have been moved successfully."
 msgstr "Поля были успешно перемещены."
 
-#: libraries/controllers/TableStructureController.class.php:730
+#: libraries/controllers/TableStructureController.class.php:734
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Таблица %1$s была успешно изменена."
 
-#: libraries/controllers/TableStructureController.class.php:783
+#: libraries/controllers/TableStructureController.class.php:787
 #: libraries/tracking.lib.php:1094
 msgid "Query error"
 msgstr "Ошибка запроса"
 
-#: libraries/controllers/TableStructureController.class.php:948
+#: libraries/controllers/TableStructureController.class.php:952
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "Изменить"
 
-#: libraries/controllers/TableStructureController.class.php:952
-#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:961
 #: libraries/navigation/Nodes/Node_Index.class.php:30
 #: libraries/tracking.lib.php:926
 #: templates/columns_definitions/column_indexes.phtml:16
@@ -8193,21 +8197,21 @@ msgstr "Изменить"
 msgid "Index"
 msgstr "Индекс"
 
-#: libraries/controllers/TableStructureController.class.php:954
-#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:963
 #: templates/columns_definitions/column_indexes.phtml:27
 #: templates/table/structure/check_all_table_column.phtml:37
 msgid "Spatial"
 msgstr "Пространственный"
 
-#: libraries/controllers/TableStructureController.class.php:955
-#: libraries/controllers/TableStructureController.class.php:960
+#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:964
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:47
 msgid "Fulltext"
 msgstr "Полнотекстовый"
 
-#: libraries/controllers/TableStructureController.class.php:963
+#: libraries/controllers/TableStructureController.class.php:967
 msgid "Distinct values"
 msgstr "Уникальные значения"
 
@@ -8389,7 +8393,7 @@ msgstr "База(ы) данных:"
 msgid "Table(s):"
 msgstr "Таблица(ы):"
 
-#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:357
+#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:360
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Формат:"
@@ -8406,7 +8410,7 @@ msgstr ""
 "Заполните параметры для выбранного формата и игнорируйте параметры остальных "
 "форматов."
 
-#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:374
+#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:377
 msgid "Encoding Conversion:"
 msgstr "Изменение кодировки:"
 
@@ -8588,23 +8592,23 @@ msgstr ""
 "Имя сжатого файла должно заканчиваться в виде <b>.[формат].[сжатие]</b>. "
 "Пример: <b>.sql.zip</b>"
 
-#: libraries/display_import.lib.php:222
+#: libraries/display_import.lib.php:225
 msgid "File to Import:"
 msgstr "Импортируемый файл:"
 
-#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
+#: libraries/display_import.lib.php:235 libraries/display_import.lib.php:252
 msgid "You may also drag and drop a file on any page."
 msgstr "Вы также можете просто перетащить файл на любой странице."
 
-#: libraries/display_import.lib.php:252
+#: libraries/display_import.lib.php:255
 msgid "File uploads are not allowed on this server."
 msgstr "Загрузка файлов на сервер, невозможна."
 
-#: libraries/display_import.lib.php:276
+#: libraries/display_import.lib.php:279
 msgid "Partial Import:"
 msgstr "Частичный импорт:"
 
-#: libraries/display_import.lib.php:283
+#: libraries/display_import.lib.php:286
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -8612,7 +8616,7 @@ msgstr ""
 "Процесс импорта был прерван из-за приближения временного лимита, после "
 "перезапуска импорт будет продолжен с позиции %d."
 
-#: libraries/display_import.lib.php:297
+#: libraries/display_import.lib.php:300
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
@@ -8622,7 +8626,7 @@ msgstr ""
 "лимита. <i>(Может быть использовано при импорте файлов большого размера, "
 "однако при этом вероятны проблемы с транзакциями.)</i>"
 
-#: libraries/display_import.lib.php:307
+#: libraries/display_import.lib.php:310
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
@@ -8630,15 +8634,15 @@ msgstr ""
 "Пропустить указанное число запросов (для SQL) или строк (для других "
 "форматов), начиная со следующего:"
 
-#: libraries/display_import.lib.php:338
+#: libraries/display_import.lib.php:341
 msgid "Other Options:"
 msgstr "Прочие параметры:"
 
-#: libraries/display_import.lib.php:363
+#: libraries/display_import.lib.php:366
 msgid "Format-Specific Options:"
 msgstr "Параметры формата:"
 
-#: libraries/display_import.lib.php:473
+#: libraries/display_import.lib.php:479
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -8648,29 +8652,29 @@ msgstr ""
 "либо ошибка связана с использованием веб-ориентированных браузеров (Safari, "
 "Google Chrome, Arora и др.)."
 
-#: libraries/display_import.lib.php:479
+#: libraries/display_import.lib.php:485
 #, php-format
 msgid "%s of %s"
 msgstr "%s из %s"
 
-#: libraries/display_import.lib.php:480
+#: libraries/display_import.lib.php:486
 msgid "Uploading your import file…"
 msgstr "Загрузка файла импорта…"
 
-#: libraries/display_import.lib.php:481
+#: libraries/display_import.lib.php:487
 #, php-format
 msgid "%s/sec."
 msgstr "%s/сек."
 
-#: libraries/display_import.lib.php:482
+#: libraries/display_import.lib.php:488
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Осталось около %MIN мин. %SEC сек."
 
-#: libraries/display_import.lib.php:483
+#: libraries/display_import.lib.php:489
 msgid "About %SEC sec. remaining."
 msgstr "Осталось около %SEC сек."
 
-#: libraries/display_import.lib.php:485
+#: libraries/display_import.lib.php:491
 msgid "The file is being processed, please be patient."
 msgstr "Пожалуйста, подождите, файл находится в обработке."
 
@@ -9054,12 +9058,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1308
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
 
-#: libraries/import.lib.php:263 libraries/sql.lib.php:1320
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1322
 msgid "[ROLLBACK occurred.]"
 msgstr "[Произошел откат.]"
 
@@ -9220,11 +9224,11 @@ msgstr ""
 msgid "Value"
 msgstr "Значение"
 
-#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1303
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1305
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1281
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1283
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
@@ -9571,7 +9575,7 @@ msgstr "Новое"
 msgid "Database operations"
 msgstr "Операции с базой данных"
 
-#: libraries/navigation/Nodes/Node_Database.class.php:658
+#: libraries/navigation/Nodes/Node_Database.class.php:661
 msgid "Show hidden items"
 msgstr "Показать скрытые пункты"
 
@@ -10116,26 +10120,32 @@ msgid "Delete the table (DROP)"
 msgstr "Удалить таблицу (DROP)"
 
 #: libraries/operations.lib.php:1594
+#: templates/table/structure/display_structure.phtml:179
 msgid "Analyze"
 msgstr "Анализ"
 
 #: libraries/operations.lib.php:1595
+#: templates/table/structure/display_structure.phtml:180
 msgid "Check"
 msgstr "Проверка"
 
 #: libraries/operations.lib.php:1596
+#: templates/table/structure/display_structure.phtml:181
 msgid "Optimize"
 msgstr "Оптимизация"
 
 #: libraries/operations.lib.php:1597
+#: templates/table/structure/display_structure.phtml:182
 msgid "Rebuild"
 msgstr "Перестройка"
 
 #: libraries/operations.lib.php:1598
+#: templates/table/structure/display_structure.phtml:183
 msgid "Repair"
 msgstr "Исправление"
 
 #: libraries/operations.lib.php:1599
+#: templates/table/structure/display_structure.phtml:184
 msgid "Truncate"
 msgstr ""
 
@@ -14208,11 +14218,11 @@ msgstr "Закладка не создана!"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Для обзора данных использован запрос из закладки \"%s\"."
 
-#: libraries/sql.lib.php:1300
+#: libraries/sql.lib.php:1302
 msgid "Showing as PHP code"
 msgstr "Отображает как PHP-код"
 
-#: libraries/sql.lib.php:1632
+#: libraries/sql.lib.php:1634
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14221,7 +14231,7 @@ msgstr ""
 "Данное выделение не содержит уникального столбца. Изменение сетки, "
 "выставление галочки, редактирование, копирование и удаление невозможно. %s"
 
-#: libraries/sql.lib.php:1643
+#: libraries/sql.lib.php:1645
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -14231,7 +14241,7 @@ msgstr ""
 "редактирование, копирование и удаление могут привести к нежелательному "
 "поведению. %s"
 
-#: libraries/sql.lib.php:1682
+#: libraries/sql.lib.php:1684
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблемы с индексами таблицы `%s`"
@@ -14846,6 +14856,7 @@ msgid "Pick from Central Columns"
 msgstr "Выбрать из центральных столбцов"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
+#: templates/table/structure/display_partitions.phtml:22
 msgid "Expression"
 msgstr "Выражение"
 
@@ -15543,6 +15554,36 @@ msgstr "Добавить %s поле(я)"
 #: templates/table/structure/add_column.phtml:12
 msgid "at beginning of table"
 msgstr "в начале таблицы"
+
+#: templates/table/structure/display_partitions.phtml:3
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "Раздел %s"
+
+#: templates/table/structure/display_partitions.phtml:7
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "разделён"
+
+#: templates/table/structure/display_partitions.phtml:12
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "разделён"
+
+#: templates/table/structure/display_partitions.phtml:25
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Длина строки"
+
+#: templates/table/structure/display_partitions.phtml:26
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Длина строки"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"

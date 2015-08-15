@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-13 13:52-0400\n"
+"POT-Creation-Date: 2015-08-15 07:04-0400\n"
 "PO-Revision-Date: 2015-08-02 12:15+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -167,8 +167,8 @@ msgid "Comments"
 msgstr "Megjegyzések"
 
 #: db_datadict.php:146
-#: libraries/controllers/TableStructureController.class.php:951
-#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:955
+#: libraries/controllers/TableStructureController.class.php:960
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -203,12 +203,12 @@ msgstr "Nem"
 #: libraries/Index.class.php:605 libraries/Index.class.php:1018
 #: libraries/central_columns.lib.php:966
 #: libraries/config/FormDisplay.tpl.php:272
-#: libraries/controllers/TableStructureController.class.php:539
-#: libraries/controllers/TableStructureController.class.php:1201
-#: libraries/controllers/TableStructureController.class.php:1210
-#: libraries/controllers/TableStructureController.class.php:1215
-#: libraries/controllers/TableStructureController.class.php:1220
-#: libraries/controllers/TableStructureController.class.php:1225
+#: libraries/controllers/TableStructureController.class.php:543
+#: libraries/controllers/TableStructureController.class.php:1205
+#: libraries/controllers/TableStructureController.class.php:1214
+#: libraries/controllers/TableStructureController.class.php:1219
+#: libraries/controllers/TableStructureController.class.php:1224
+#: libraries/controllers/TableStructureController.class.php:1229
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:178
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -391,6 +391,7 @@ msgstr "Állapot"
 #: libraries/server_variables.lib.php:189 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793
 #: templates/database/structure/table_header.phtml:30
+#: templates/table/structure/display_partitions.phtml:27
 #: templates/table/structure/table_structure_header.phtml:23
 msgid "Action"
 msgstr "Művelet"
@@ -564,7 +565,7 @@ msgstr "Geometria hozzáadása"
 #: libraries/browse_foreigners.lib.php:142
 #: libraries/display_change_password.lib.php:162
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
-#: libraries/display_import.lib.php:392 libraries/index.lib.php:44
+#: libraries/display_import.lib.php:395 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
 #: libraries/normalization.lib.php:165 libraries/normalization.lib.php:821
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
@@ -681,13 +682,13 @@ msgstr ""
 "Nem alakítható át a fájl karakterkészlete a karakterkészlet átalakító "
 "könyvtár nélkül!"
 
-#: import.php:634 libraries/display_import.lib.php:651
+#: import.php:634 libraries/display_import.lib.php:657
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nem lehetett betölteni az importáló beépülő modulokat. Kérjük, ellenőrizze a "
 "telepítését!"
 
-#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1460
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1462
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "A(z) %s könyvjelző létrejött."
@@ -3729,7 +3730,7 @@ msgstr "%1$d összesen, %2$d a lekérdezésben"
 msgid "%d total"
 msgstr "összesen %d"
 
-#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1312
+#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1314
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A lekérdezés %01.4f másodpercig tartott."
@@ -3883,8 +3884,8 @@ msgid "Keyname"
 msgstr "Kulcsnév"
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/TableStructureController.class.php:953
-#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:962
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -3931,13 +3932,14 @@ msgstr "A(z) %s index eldobása megtörtént."
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3636
 #: libraries/Util.class.php:3637
-#: libraries/controllers/TableStructureController.class.php:949
-#: libraries/controllers/TableStructureController.class.php:950
+#: libraries/controllers/TableStructureController.class.php:953
+#: libraries/controllers/TableStructureController.class.php:954
 #: libraries/operations.lib.php:1607 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
 #: templates/database/structure/check_all_tables.phtml:16
 #: templates/table/relation/foreign_key_row.phtml:93
 #: templates/table/structure/check_all_table_column.phtml:15
+#: templates/table/structure/display_structure.phtml:185
 msgid "Drop"
 msgstr "Eldobás"
 
@@ -4940,6 +4942,7 @@ msgstr "Ezen érték használata"
 #: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:191
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:113
+#: templates/table/structure/display_partitions.phtml:24
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
 msgstr "Sorok"
@@ -5023,6 +5026,7 @@ msgstr "NEM"
 #: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:162
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
+#: templates/table/structure/display_partitions.phtml:20
 #: templates/table/structure/table_structure_header.phtml:5
 msgid "Name"
 msgstr "Név"
@@ -8122,7 +8126,7 @@ msgid "No data to display"
 msgstr "Nincs megjelenítendő adat"
 
 #: libraries/controllers/TableIndexesController.class.php:161
-#: libraries/controllers/TableStructureController.class.php:736
+#: libraries/controllers/TableStructureController.class.php:740
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8149,22 +8153,22 @@ msgstr "Lépcsőzetes keresés"
 msgid "Find and replace"
 msgstr "Keresés és csere"
 
-#: libraries/controllers/TableStructureController.class.php:163
+#: libraries/controllers/TableStructureController.class.php:165
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "A(z) „%s” név a MySQL számára fenntartott kulcsszó."
 msgstr[1] "A(z) „%s” nevek a MySQL számára fenntartott kulcsszavak."
 
-#: libraries/controllers/TableStructureController.class.php:241
+#: libraries/controllers/TableStructureController.class.php:243
 msgid "No column selected."
 msgstr "Nem jelölt ki sort."
 
-#: libraries/controllers/TableStructureController.class.php:467
+#: libraries/controllers/TableStructureController.class.php:471
 msgid "The columns have been moved successfully."
 msgstr "Az oszlop mozgatása sikeresen megtörtént."
 
-#: libraries/controllers/TableStructureController.class.php:730
+#: libraries/controllers/TableStructureController.class.php:734
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -8172,18 +8176,18 @@ msgstr ""
 "A(z) %1$s tábla sikeresen módosítva lett. A jogosultságok módosítása "
 "megtörtént."
 
-#: libraries/controllers/TableStructureController.class.php:783
+#: libraries/controllers/TableStructureController.class.php:787
 #: libraries/tracking.lib.php:1094
 msgid "Query error"
 msgstr "Lekérdezési hiba"
 
-#: libraries/controllers/TableStructureController.class.php:948
+#: libraries/controllers/TableStructureController.class.php:952
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "Módosítás"
 
-#: libraries/controllers/TableStructureController.class.php:952
-#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:961
 #: libraries/navigation/Nodes/Node_Index.class.php:30
 #: libraries/tracking.lib.php:926
 #: templates/columns_definitions/column_indexes.phtml:16
@@ -8194,21 +8198,21 @@ msgstr "Módosítás"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/controllers/TableStructureController.class.php:954
-#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:963
 #: templates/columns_definitions/column_indexes.phtml:27
 #: templates/table/structure/check_all_table_column.phtml:37
 msgid "Spatial"
 msgstr "Térbeli"
 
-#: libraries/controllers/TableStructureController.class.php:955
-#: libraries/controllers/TableStructureController.class.php:960
+#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:964
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:47
 msgid "Fulltext"
 msgstr "Teljes szöveg"
 
-#: libraries/controllers/TableStructureController.class.php:963
+#: libraries/controllers/TableStructureController.class.php:967
 msgid "Distinct values"
 msgstr "Különböző értékek"
 
@@ -8388,7 +8392,7 @@ msgstr "Adatbázis(ok):"
 msgid "Table(s):"
 msgstr "Táblá(k):"
 
-#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:357
+#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:360
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Formátum:"
@@ -8405,7 +8409,7 @@ msgstr ""
 "Görgessen lefelé, hogy kitöltse a kijelölt formátumhoz tartozó beállításokat "
 "és hogy figyelmen kívül hagyja a más formátumokhoz tartozó beállításokat."
 
-#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:374
+#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:377
 msgid "Encoding Conversion:"
 msgstr "Karakterkódolás-átalakítás:"
 
@@ -8589,23 +8593,23 @@ msgstr ""
 "A tömörített fájl nevének <b>.[formátum].[tömörítés]</b> végződésűnek kell "
 "lennie. Például: <b>.sql.zip</b>"
 
-#: libraries/display_import.lib.php:222
+#: libraries/display_import.lib.php:225
 msgid "File to Import:"
 msgstr "Az importálandó fájl:"
 
-#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
+#: libraries/display_import.lib.php:235 libraries/display_import.lib.php:252
 msgid "You may also drag and drop a file on any page."
 msgstr "Továbbá behúzhat és beejthet egy fájlt bármely oldalra."
 
-#: libraries/display_import.lib.php:252
+#: libraries/display_import.lib.php:255
 msgid "File uploads are not allowed on this server."
 msgstr "A fájlfeltöltések nem engedélyezettek ezen a kiszolgálón."
 
-#: libraries/display_import.lib.php:276
+#: libraries/display_import.lib.php:279
 msgid "Partial Import:"
 msgstr "Részleges importálás:"
 
-#: libraries/display_import.lib.php:283
+#: libraries/display_import.lib.php:286
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -8613,7 +8617,7 @@ msgstr ""
 "Az előző importálás időtúllépés miatt leállt, újraküldés után a(z) %d "
 "pozíciótól folytatódik."
 
-#: libraries/display_import.lib.php:297
+#: libraries/display_import.lib.php:300
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
@@ -8623,7 +8627,7 @@ msgstr ""
 "közel van a PHP időkorlát leteltéhez. <i>(Nagy fájlok importálásakor jól "
 "jöhet, azonban meg tudja szakítani a tranzakciót.)</i>"
 
-#: libraries/display_import.lib.php:307
+#: libraries/display_import.lib.php:310
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
@@ -8631,15 +8635,15 @@ msgstr ""
 "Ennyi számú lekérdezés (SQL esetén) vagy sor (más formátumoknál) kihagyása "
 "az elsőtől kezdve:"
 
-#: libraries/display_import.lib.php:338
+#: libraries/display_import.lib.php:341
 msgid "Other Options:"
 msgstr "Egyéb beállítások:"
 
-#: libraries/display_import.lib.php:363
+#: libraries/display_import.lib.php:366
 msgid "Format-Specific Options:"
 msgstr "Formátum specifikus beállítások:"
 
-#: libraries/display_import.lib.php:473
+#: libraries/display_import.lib.php:479
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -8649,29 +8653,29 @@ msgstr ""
 "olyan hiba, amely a WebKit-alapú (Safari, Google Chrome, Arora stb.) "
 "böngészők esetében fordul elő."
 
-#: libraries/display_import.lib.php:479
+#: libraries/display_import.lib.php:485
 #, php-format
 msgid "%s of %s"
 msgstr "%s %s-ból/ből"
 
-#: libraries/display_import.lib.php:480
+#: libraries/display_import.lib.php:486
 msgid "Uploading your import file…"
 msgstr "Az importfájl feltöltése…"
 
-#: libraries/display_import.lib.php:481
+#: libraries/display_import.lib.php:487
 #, php-format
 msgid "%s/sec."
 msgstr "%s/sec."
 
-#: libraries/display_import.lib.php:482
+#: libraries/display_import.lib.php:488
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Kb. %MIN perc %SEC másodperc maradt még."
 
-#: libraries/display_import.lib.php:483
+#: libraries/display_import.lib.php:489
 msgid "About %SEC sec. remaining."
 msgstr "Kb. %SEC másodperc maradt még."
 
-#: libraries/display_import.lib.php:485
+#: libraries/display_import.lib.php:491
 msgid "The file is being processed, please be patient."
 msgstr "Fájl feldolgozása folyamatban, kis türelmet kérünk."
 
@@ -9053,12 +9057,12 @@ msgid "Dump has been saved to file %s."
 msgstr "A kiíratás mentése a(z) %s fájlba megtörtént."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1308
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "A MySQL üres eredményhalmazt adott vissza (pl. nulla sorok)."
 
-#: libraries/import.lib.php:263 libraries/sql.lib.php:1320
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1322
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK történt.]"
 
@@ -9222,11 +9226,11 @@ msgstr ""
 msgid "Value"
 msgstr "Érték"
 
-#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1303
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1305
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1281
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1283
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
@@ -9575,7 +9579,7 @@ msgstr "új"
 msgid "Database operations"
 msgstr "Adatbázis műveletek"
 
-#: libraries/navigation/Nodes/Node_Database.class.php:658
+#: libraries/navigation/Nodes/Node_Database.class.php:661
 msgid "Show hidden items"
 msgstr "Rejtett elemek megjelenítése"
 
@@ -10124,26 +10128,32 @@ msgid "Delete the table (DROP)"
 msgstr "Tábla törlése (DROP)"
 
 #: libraries/operations.lib.php:1594
+#: templates/table/structure/display_structure.phtml:179
 msgid "Analyze"
 msgstr "Elemzés"
 
 #: libraries/operations.lib.php:1595
+#: templates/table/structure/display_structure.phtml:180
 msgid "Check"
 msgstr "Ellenőrzés"
 
 #: libraries/operations.lib.php:1596
+#: templates/table/structure/display_structure.phtml:181
 msgid "Optimize"
 msgstr "Optimalizálás"
 
 #: libraries/operations.lib.php:1597
+#: templates/table/structure/display_structure.phtml:182
 msgid "Rebuild"
 msgstr "Újraépítés"
 
 #: libraries/operations.lib.php:1598
+#: templates/table/structure/display_structure.phtml:183
 msgid "Repair"
 msgstr "Javítás"
 
 #: libraries/operations.lib.php:1599
+#: templates/table/structure/display_structure.phtml:184
 msgid "Truncate"
 msgstr "Kiürítés"
 
@@ -14240,11 +14250,11 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "A(z) „%s” könyvjelző használata alapértelmezett tallózás lekérdezésként."
 
-#: libraries/sql.lib.php:1300
+#: libraries/sql.lib.php:1302
 msgid "Showing as PHP code"
 msgstr "Megjelenítés PHP kódként"
 
-#: libraries/sql.lib.php:1632
+#: libraries/sql.lib.php:1634
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14253,7 +14263,7 @@ msgstr ""
 "A jelenlegi kijelölés nem tartalmaz egyedi oszlopot. A Rács szerkesztése, "
 "jelölőnégyzet, Szerkesztés, Másolás és Törlés funkciók nem érhetők el. %s"
 
-#: libraries/sql.lib.php:1643
+#: libraries/sql.lib.php:1645
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -14263,7 +14273,7 @@ msgstr ""
 "Szerkesztés, Másolás és Törlés funkciók nem kívánatos viselkedést "
 "eredményezhetnek. %s"
 
-#: libraries/sql.lib.php:1682
+#: libraries/sql.lib.php:1684
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Probléma a(z) `%s` tábla indexeivel"
@@ -14872,6 +14882,7 @@ msgid "Pick from Central Columns"
 msgstr "Válasszon a központi oszlopokból"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
+#: templates/table/structure/display_partitions.phtml:22
 msgid "Expression"
 msgstr "Kifejezés"
 
@@ -15570,6 +15581,36 @@ msgstr "%s oszlop hozzáadása"
 #: templates/table/structure/add_column.phtml:12
 msgid "at beginning of table"
 msgstr "a tábla elejénél"
+
+#: templates/table/structure/display_partitions.phtml:3
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "%s partíció"
+
+#: templates/table/structure/display_partitions.phtml:7
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "particionált"
+
+#: templates/table/structure/display_partitions.phtml:12
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "particionált"
+
+#: templates/table/structure/display_partitions.phtml:25
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Sor hossza"
+
+#: templates/table/structure/display_partitions.phtml:26
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Sor hossza"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"

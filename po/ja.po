@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-13 13:52-0400\n"
+"POT-Creation-Date: 2015-08-15 07:04-0400\n"
 "PO-Revision-Date: 2015-03-28 04:08+0200\n"
 "Last-Translator: Hiroshi Chiyokawa <hiroshi.chiyokawa@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -167,8 +167,8 @@ msgid "Comments"
 msgstr "コメント"
 
 #: db_datadict.php:146
-#: libraries/controllers/TableStructureController.class.php:951
-#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:955
+#: libraries/controllers/TableStructureController.class.php:960
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -203,12 +203,12 @@ msgstr "いいえ"
 #: libraries/Index.class.php:605 libraries/Index.class.php:1018
 #: libraries/central_columns.lib.php:966
 #: libraries/config/FormDisplay.tpl.php:272
-#: libraries/controllers/TableStructureController.class.php:539
-#: libraries/controllers/TableStructureController.class.php:1201
-#: libraries/controllers/TableStructureController.class.php:1210
-#: libraries/controllers/TableStructureController.class.php:1215
-#: libraries/controllers/TableStructureController.class.php:1220
-#: libraries/controllers/TableStructureController.class.php:1225
+#: libraries/controllers/TableStructureController.class.php:543
+#: libraries/controllers/TableStructureController.class.php:1205
+#: libraries/controllers/TableStructureController.class.php:1214
+#: libraries/controllers/TableStructureController.class.php:1219
+#: libraries/controllers/TableStructureController.class.php:1224
+#: libraries/controllers/TableStructureController.class.php:1229
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:178
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -393,6 +393,7 @@ msgstr "状態"
 #: libraries/server_variables.lib.php:189 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793
 #: templates/database/structure/table_header.phtml:30
+#: templates/table/structure/display_partitions.phtml:27
 #: templates/table/structure/table_structure_header.phtml:23
 msgid "Action"
 msgstr "操作"
@@ -568,7 +569,7 @@ msgstr "幾何データを追加する"
 #: libraries/browse_foreigners.lib.php:142
 #: libraries/display_change_password.lib.php:162
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
-#: libraries/display_import.lib.php:392 libraries/index.lib.php:44
+#: libraries/display_import.lib.php:395 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
 #: libraries/normalization.lib.php:165 libraries/normalization.lib.php:821
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
@@ -684,13 +685,13 @@ msgid ""
 msgstr ""
 "文字セット変換ライブラリがないので、ファイルの文字セットが変換できません!"
 
-#: import.php:634 libraries/display_import.lib.php:651
+#: import.php:634 libraries/display_import.lib.php:657
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
 "ください！"
 
-#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1460
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1462
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
@@ -3921,7 +3922,7 @@ msgstr ""
 msgid "%d total"
 msgstr "合計"
 
-#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1312
+#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1314
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -4088,8 +4089,8 @@ msgid "Keyname"
 msgstr "キー名"
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/TableStructureController.class.php:953
-#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:962
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -4136,13 +4137,14 @@ msgstr "インデックス %s を削除しました。"
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3636
 #: libraries/Util.class.php:3637
-#: libraries/controllers/TableStructureController.class.php:949
-#: libraries/controllers/TableStructureController.class.php:950
+#: libraries/controllers/TableStructureController.class.php:953
+#: libraries/controllers/TableStructureController.class.php:954
 #: libraries/operations.lib.php:1607 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
 #: templates/database/structure/check_all_tables.phtml:16
 #: templates/table/relation/foreign_key_row.phtml:93
 #: templates/table/structure/check_all_table_column.phtml:15
+#: templates/table/structure/display_structure.phtml:185
 msgid "Drop"
 msgstr "削除"
 
@@ -5176,6 +5178,7 @@ msgstr "この値を利用する"
 #: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:191
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:113
+#: templates/table/structure/display_partitions.phtml:24
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
 msgstr "行"
@@ -5258,6 +5261,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:162
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
+#: templates/table/structure/display_partitions.phtml:20
 #: templates/table/structure/table_structure_header.phtml:5
 msgid "Name"
 msgstr "名前"
@@ -8874,7 +8878,7 @@ msgid "No data to display"
 msgstr "データが存在しません"
 
 #: libraries/controllers/TableIndexesController.class.php:161
-#: libraries/controllers/TableStructureController.class.php:736
+#: libraries/controllers/TableStructureController.class.php:740
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8911,39 +8915,39 @@ msgstr "検索プロット"
 msgid "Find and replace"
 msgstr "検索と置換の条件を隠す"
 
-#: libraries/controllers/TableStructureController.class.php:163
+#: libraries/controllers/TableStructureController.class.php:165
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 
-#: libraries/controllers/TableStructureController.class.php:241
+#: libraries/controllers/TableStructureController.class.php:243
 msgid "No column selected."
 msgstr "カラムが選択されていません。"
 
-#: libraries/controllers/TableStructureController.class.php:467
+#: libraries/controllers/TableStructureController.class.php:471
 msgid "The columns have been moved successfully."
 msgstr "カラムは正常に移動されました。"
 
-#: libraries/controllers/TableStructureController.class.php:730
+#: libraries/controllers/TableStructureController.class.php:734
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "テーブル %1$s は正常に変更されました。"
 
-#: libraries/controllers/TableStructureController.class.php:783
+#: libraries/controllers/TableStructureController.class.php:787
 #: libraries/tracking.lib.php:1094
 msgid "Query error"
 msgstr "クエリエラー"
 
-#: libraries/controllers/TableStructureController.class.php:948
+#: libraries/controllers/TableStructureController.class.php:952
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "変更"
 
-#: libraries/controllers/TableStructureController.class.php:952
-#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:961
 #: libraries/navigation/Nodes/Node_Index.class.php:30
 #: libraries/tracking.lib.php:926
 #: templates/columns_definitions/column_indexes.phtml:16
@@ -8954,21 +8958,21 @@ msgstr "変更"
 msgid "Index"
 msgstr "インデックス"
 
-#: libraries/controllers/TableStructureController.class.php:954
-#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:963
 #: templates/columns_definitions/column_indexes.phtml:27
 #: templates/table/structure/check_all_table_column.phtml:37
 msgid "Spatial"
 msgstr "空間"
 
-#: libraries/controllers/TableStructureController.class.php:955
-#: libraries/controllers/TableStructureController.class.php:960
+#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:964
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:47
 msgid "Fulltext"
 msgstr "全文"
 
-#: libraries/controllers/TableStructureController.class.php:963
+#: libraries/controllers/TableStructureController.class.php:967
 msgid "Distinct values"
 msgstr "件数集計"
 
@@ -9173,7 +9177,7 @@ msgstr "データベース:"
 msgid "Table(s):"
 msgstr "テーブル:"
 
-#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:357
+#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:360
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "フォーマット:"
@@ -9190,7 +9194,7 @@ msgstr ""
 "下にスクロールして選択したフォーマットのオプションで必要事項を記入し、他の"
 "フォーマットのオプションは無視してください。"
 
-#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:374
+#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:377
 msgid "Encoding Conversion:"
 msgstr "エンコーディングへの変換:"
 
@@ -9392,23 +9396,23 @@ msgstr ""
 "圧縮ファイルの名前は<b>.[フォーマット].[圧縮形式]</b>で終わっていること。例："
 "<b>.sql.zip</b>"
 
-#: libraries/display_import.lib.php:222
+#: libraries/display_import.lib.php:225
 msgid "File to Import:"
 msgstr "インポートするファイル:"
 
-#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
+#: libraries/display_import.lib.php:235 libraries/display_import.lib.php:252
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: libraries/display_import.lib.php:252
+#: libraries/display_import.lib.php:255
 msgid "File uploads are not allowed on this server."
 msgstr "このサーバではファイルのアップロードはできません。"
 
-#: libraries/display_import.lib.php:276
+#: libraries/display_import.lib.php:279
 msgid "Partial Import:"
 msgstr "部分インポート:"
 
-#: libraries/display_import.lib.php:283
+#: libraries/display_import.lib.php:286
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -9416,7 +9420,7 @@ msgstr ""
 "直前のインポートはタイムアウトしました。再送信すると位置 %d から再開されま"
 "す。"
 
-#: libraries/display_import.lib.php:297
+#: libraries/display_import.lib.php:300
 #, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
@@ -9431,23 +9435,23 @@ msgstr ""
 "<i>(大きなファイルをインポートする場合には便利ですが、トランザクションが壊れ"
 "ることもあります)</i>"
 
-#: libraries/display_import.lib.php:307
+#: libraries/display_import.lib.php:310
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
 
-#: libraries/display_import.lib.php:338
+#: libraries/display_import.lib.php:341
 #, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
 msgstr "オプション"
 
-#: libraries/display_import.lib.php:363
+#: libraries/display_import.lib.php:366
 msgid "Format-Specific Options:"
 msgstr "フォーマット特有のオプション:"
 
-#: libraries/display_import.lib.php:473
+#: libraries/display_import.lib.php:479
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -9457,31 +9461,31 @@ msgstr ""
 "は、WebKit がベースのブラウザ (Safari、Google Chrome、Arora など) の既知のバ"
 "グです。"
 
-#: libraries/display_import.lib.php:479
+#: libraries/display_import.lib.php:485
 #, php-format
 msgid "%s of %s"
 msgstr ""
 
-#: libraries/display_import.lib.php:480
+#: libraries/display_import.lib.php:486
 #, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "インポートファイルをアップロードしています…"
 
-#: libraries/display_import.lib.php:481
+#: libraries/display_import.lib.php:487
 #, php-format
 msgid "%s/sec."
 msgstr ""
 
-#: libraries/display_import.lib.php:482
+#: libraries/display_import.lib.php:488
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: libraries/display_import.lib.php:483
+#: libraries/display_import.lib.php:489
 msgid "About %SEC sec. remaining."
 msgstr ""
 
-#: libraries/display_import.lib.php:485
+#: libraries/display_import.lib.php:491
 msgid "The file is being processed, please be patient."
 msgstr "ファイルが処理されています。しばらくお待ちください。"
 
@@ -9858,12 +9862,12 @@ msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました。"
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1308
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
-#: libraries/import.lib.php:263 libraries/sql.lib.php:1320
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1322
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10034,11 +10038,11 @@ msgstr ""
 msgid "Value"
 msgstr "値"
 
-#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1303
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1305
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1281
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1283
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -10417,7 +10421,7 @@ msgstr "新規作成"
 msgid "Database operations"
 msgstr "データベースエクスポートオプション"
 
-#: libraries/navigation/Nodes/Node_Database.class.php:658
+#: libraries/navigation/Nodes/Node_Database.class.php:661
 #, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
@@ -10965,26 +10969,32 @@ msgid "Delete the table (DROP)"
 msgstr "テーブルを削除する (DROP)"
 
 #: libraries/operations.lib.php:1594
+#: templates/table/structure/display_structure.phtml:179
 msgid "Analyze"
 msgstr "分析"
 
 #: libraries/operations.lib.php:1595
+#: templates/table/structure/display_structure.phtml:180
 msgid "Check"
 msgstr "確認"
 
 #: libraries/operations.lib.php:1596
+#: templates/table/structure/display_structure.phtml:181
 msgid "Optimize"
 msgstr "最適化"
 
 #: libraries/operations.lib.php:1597
+#: templates/table/structure/display_structure.phtml:182
 msgid "Rebuild"
 msgstr "再構築"
 
 #: libraries/operations.lib.php:1598
+#: templates/table/structure/display_structure.phtml:183
 msgid "Repair"
 msgstr "修復"
 
 #: libraries/operations.lib.php:1599
+#: templates/table/structure/display_structure.phtml:184
 msgid "Truncate"
 msgstr ""
 
@@ -15269,11 +15279,11 @@ msgstr "ブックマーク %s を作成しました"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: libraries/sql.lib.php:1300
+#: libraries/sql.lib.php:1302
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: libraries/sql.lib.php:1632
+#: libraries/sql.lib.php:1634
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -15286,7 +15296,7 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: libraries/sql.lib.php:1643
+#: libraries/sql.lib.php:1645
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -15299,7 +15309,7 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: libraries/sql.lib.php:1682
+#: libraries/sql.lib.php:1684
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "テーブル `%s` のインデックスに問題があります"
@@ -15942,6 +15952,7 @@ msgid "Pick from Central Columns"
 msgstr "カラムの削除"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
+#: templates/table/structure/display_partitions.phtml:22
 #, fuzzy
 #| msgid "Compression"
 msgid "Expression"
@@ -16726,6 +16737,36 @@ msgstr "%s 個のカラムを追加する"
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "テーブルの先頭"
+
+#: templates/table/structure/display_partitions.phtml:3
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "パーティション %s"
+
+#: templates/table/structure/display_partitions.phtml:7
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "パーティション有り"
+
+#: templates/table/structure/display_partitions.phtml:12
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "パーティション有り"
+
+#: templates/table/structure/display_partitions.phtml:25
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "行の長さ"
+
+#: templates/table/structure/display_partitions.phtml:26
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "行の長さ"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"

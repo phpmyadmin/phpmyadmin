@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-13 13:52-0400\n"
+"POT-Creation-Date: 2015-08-15 07:04-0400\n"
 "PO-Revision-Date: 2014-03-27 15:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -169,8 +169,8 @@ msgid "Comments"
 msgstr "კომენტარები"
 
 #: db_datadict.php:146
-#: libraries/controllers/TableStructureController.class.php:951
-#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:955
+#: libraries/controllers/TableStructureController.class.php:960
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -205,12 +205,12 @@ msgstr "არა"
 #: libraries/Index.class.php:605 libraries/Index.class.php:1018
 #: libraries/central_columns.lib.php:966
 #: libraries/config/FormDisplay.tpl.php:272
-#: libraries/controllers/TableStructureController.class.php:539
-#: libraries/controllers/TableStructureController.class.php:1201
-#: libraries/controllers/TableStructureController.class.php:1210
-#: libraries/controllers/TableStructureController.class.php:1215
-#: libraries/controllers/TableStructureController.class.php:1220
-#: libraries/controllers/TableStructureController.class.php:1225
+#: libraries/controllers/TableStructureController.class.php:543
+#: libraries/controllers/TableStructureController.class.php:1205
+#: libraries/controllers/TableStructureController.class.php:1214
+#: libraries/controllers/TableStructureController.class.php:1219
+#: libraries/controllers/TableStructureController.class.php:1224
+#: libraries/controllers/TableStructureController.class.php:1229
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:178
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -403,6 +403,7 @@ msgstr "სტატუსი"
 #: libraries/server_variables.lib.php:189 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793
 #: templates/database/structure/table_header.phtml:30
+#: templates/table/structure/display_partitions.phtml:27
 #: templates/table/structure/table_structure_header.phtml:23
 msgid "Action"
 msgstr "მოქმედება"
@@ -580,7 +581,7 @@ msgstr "გეომეტრიის დამატება"
 #: libraries/browse_foreigners.lib.php:142
 #: libraries/display_change_password.lib.php:162
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
-#: libraries/display_import.lib.php:392 libraries/index.lib.php:44
+#: libraries/display_import.lib.php:395 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
 #: libraries/normalization.lib.php:165 libraries/normalization.lib.php:821
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
@@ -689,11 +690,11 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
-#: import.php:634 libraries/display_import.lib.php:651
+#: import.php:634 libraries/display_import.lib.php:657
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
-#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1460
+#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1462
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Bookmark %s has been created."
@@ -4145,7 +4146,7 @@ msgstr ""
 msgid "%d total"
 msgstr "სულ"
 
-#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1312
+#: libraries/DisplayResults.class.php:4705 libraries/sql.lib.php:1314
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -4304,8 +4305,8 @@ msgid "Keyname"
 msgstr ""
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/TableStructureController.class.php:953
-#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:962
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -4352,13 +4353,14 @@ msgstr ""
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3636
 #: libraries/Util.class.php:3637
-#: libraries/controllers/TableStructureController.class.php:949
-#: libraries/controllers/TableStructureController.class.php:950
+#: libraries/controllers/TableStructureController.class.php:953
+#: libraries/controllers/TableStructureController.class.php:954
 #: libraries/operations.lib.php:1607 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
 #: templates/database/structure/check_all_tables.phtml:16
 #: templates/table/relation/foreign_key_row.phtml:93
 #: templates/table/structure/check_all_table_column.phtml:15
+#: templates/table/structure/display_structure.phtml:185
 msgid "Drop"
 msgstr ""
 
@@ -5357,6 +5359,7 @@ msgstr "გამოიყენეთ ეს ველი"
 #: libraries/build_html_for_db.lib.php:33 libraries/import.lib.php:191
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:113
+#: templates/table/structure/display_partitions.phtml:24
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
 msgstr "სტრიქონები"
@@ -5443,6 +5446,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:162
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
+#: templates/table/structure/display_partitions.phtml:20
 #: templates/table/structure/table_structure_header.phtml:5
 msgid "Name"
 msgstr "სახელი"
@@ -8751,7 +8755,7 @@ msgid "No data to display"
 msgstr "მონაცემთა ბაზები არაა"
 
 #: libraries/controllers/TableIndexesController.class.php:161
-#: libraries/controllers/TableStructureController.class.php:736
+#: libraries/controllers/TableStructureController.class.php:740
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8786,43 +8790,43 @@ msgstr "ძებნა"
 msgid "Find and replace"
 msgstr "SQL Query box"
 
-#: libraries/controllers/TableStructureController.class.php:163
+#: libraries/controllers/TableStructureController.class.php:165
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 
-#: libraries/controllers/TableStructureController.class.php:241
+#: libraries/controllers/TableStructureController.class.php:243
 msgid "No column selected."
 msgstr ""
 
-#: libraries/controllers/TableStructureController.class.php:467
+#: libraries/controllers/TableStructureController.class.php:471
 #, fuzzy
 #| msgid "%s databases have been dropped successfully."
 msgid "The columns have been moved successfully."
 msgstr "%s databases have been dropped successfully."
 
-#: libraries/controllers/TableStructureController.class.php:730
+#: libraries/controllers/TableStructureController.class.php:734
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Table %s has been dropped"
 
-#: libraries/controllers/TableStructureController.class.php:783
+#: libraries/controllers/TableStructureController.class.php:787
 #: libraries/tracking.lib.php:1094
 #, fuzzy
 #| msgid "Ignore errors"
 msgid "Query error"
 msgstr "შეცდომების იგნორირება"
 
-#: libraries/controllers/TableStructureController.class.php:948
+#: libraries/controllers/TableStructureController.class.php:952
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "შეცვლა"
 
-#: libraries/controllers/TableStructureController.class.php:952
-#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:961
 #: libraries/navigation/Nodes/Node_Index.class.php:30
 #: libraries/tracking.lib.php:926
 #: templates/columns_definitions/column_indexes.phtml:16
@@ -8833,21 +8837,21 @@ msgstr "შეცვლა"
 msgid "Index"
 msgstr "ინდექსი"
 
-#: libraries/controllers/TableStructureController.class.php:954
-#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:963
 #: templates/columns_definitions/column_indexes.phtml:27
 #: templates/table/structure/check_all_table_column.phtml:37
 msgid "Spatial"
 msgstr ""
 
-#: libraries/controllers/TableStructureController.class.php:955
-#: libraries/controllers/TableStructureController.class.php:960
+#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:964
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:47
 msgid "Fulltext"
 msgstr "Fulltext"
 
-#: libraries/controllers/TableStructureController.class.php:963
+#: libraries/controllers/TableStructureController.class.php:967
 #, fuzzy
 #| msgid "Session value"
 msgid "Distinct values"
@@ -9061,7 +9065,7 @@ msgstr "მონაცემთა ბაზები"
 msgid "Table(s):"
 msgstr "ცხრილები"
 
-#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:357
+#: libraries/display_export.lib.php:360 libraries/display_import.lib.php:360
 #: libraries/plugins/export/ExportCodegen.class.php:107
 #, fuzzy
 #| msgid "Format"
@@ -9080,7 +9084,7 @@ msgid ""
 "options for other formats."
 msgstr ""
 
-#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:374
+#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:377
 #, fuzzy
 #| msgid "Recoding engine"
 msgid "Encoding Conversion:"
@@ -9297,33 +9301,33 @@ msgid ""
 "Example: <b>.sql.zip</b>"
 msgstr ""
 
-#: libraries/display_import.lib.php:222
+#: libraries/display_import.lib.php:225
 #, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
 msgstr "შემოსატანი ფაილი"
 
-#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
+#: libraries/display_import.lib.php:235 libraries/display_import.lib.php:252
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: libraries/display_import.lib.php:252
+#: libraries/display_import.lib.php:255
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/display_import.lib.php:276
+#: libraries/display_import.lib.php:279
 #, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "Partial import"
 
-#: libraries/display_import.lib.php:283
+#: libraries/display_import.lib.php:286
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: libraries/display_import.lib.php:297
+#: libraries/display_import.lib.php:300
 #, fuzzy
 #| msgid ""
 #| "ow the interruption of an import in case the script detects it is se to "
@@ -9338,54 +9342,54 @@ msgstr ""
 "to the PHP timeout limit. This might be a good way to import large files, "
 "however it can break transactions."
 
-#: libraries/display_import.lib.php:307
+#: libraries/display_import.lib.php:310
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
 
-#: libraries/display_import.lib.php:338
+#: libraries/display_import.lib.php:341
 #, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
 msgstr "პარამეტრები"
 
-#: libraries/display_import.lib.php:363
+#: libraries/display_import.lib.php:366
 msgid "Format-Specific Options:"
 msgstr ""
 
-#: libraries/display_import.lib.php:473
+#: libraries/display_import.lib.php:479
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
 
-#: libraries/display_import.lib.php:479
+#: libraries/display_import.lib.php:485
 #, php-format
 msgid "%s of %s"
 msgstr ""
 
-#: libraries/display_import.lib.php:480
+#: libraries/display_import.lib.php:486
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
 msgstr "შემოტანილი ფაილების ფორმატი"
 
-#: libraries/display_import.lib.php:481
+#: libraries/display_import.lib.php:487
 #, php-format
 msgid "%s/sec."
 msgstr ""
 
-#: libraries/display_import.lib.php:482
+#: libraries/display_import.lib.php:488
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: libraries/display_import.lib.php:483
+#: libraries/display_import.lib.php:489
 msgid "About %SEC sec. remaining."
 msgstr ""
 
-#: libraries/display_import.lib.php:485
+#: libraries/display_import.lib.php:491
 msgid "The file is being processed, please be patient."
 msgstr ""
 
@@ -9718,12 +9722,12 @@ msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1308
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/import.lib.php:263 libraries/sql.lib.php:1320
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1322
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9891,11 +9895,11 @@ msgstr ""
 msgid "Value"
 msgstr "მნიშვნელობა"
 
-#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1303
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1305
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1281
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1283
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ჩამატებული სტრიქონის id: %1$d"
@@ -10281,7 +10285,7 @@ msgstr ""
 msgid "Database operations"
 msgstr "მონაცემთა ბაზის ექსპორტის პარამეტრები"
 
-#: libraries/navigation/Nodes/Node_Database.class.php:658
+#: libraries/navigation/Nodes/Node_Database.class.php:661
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden items"
@@ -10815,26 +10819,32 @@ msgid "Delete the table (DROP)"
 msgstr "მაგიდების წაშლა (DROP)"
 
 #: libraries/operations.lib.php:1594
+#: templates/table/structure/display_structure.phtml:179
 msgid "Analyze"
 msgstr ""
 
 #: libraries/operations.lib.php:1595
+#: templates/table/structure/display_structure.phtml:180
 msgid "Check"
 msgstr "შემოწმება"
 
 #: libraries/operations.lib.php:1596
+#: templates/table/structure/display_structure.phtml:181
 msgid "Optimize"
 msgstr "ოპტიმიზება"
 
 #: libraries/operations.lib.php:1597
+#: templates/table/structure/display_structure.phtml:182
 msgid "Rebuild"
 msgstr ""
 
 #: libraries/operations.lib.php:1598
+#: templates/table/structure/display_structure.phtml:183
 msgid "Repair"
 msgstr "აღდგენა"
 
 #: libraries/operations.lib.php:1599
+#: templates/table/structure/display_structure.phtml:184
 msgid "Truncate"
 msgstr ""
 
@@ -15027,25 +15037,25 @@ msgstr "ცხრილის ჩანიშვნა"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1300
+#: libraries/sql.lib.php:1302
 msgid "Showing as PHP code"
 msgstr "PHP კოდის სახით ჩვენება"
 
-#: libraries/sql.lib.php:1632
+#: libraries/sql.lib.php:1634
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/sql.lib.php:1643
+#: libraries/sql.lib.php:1645
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
-#: libraries/sql.lib.php:1682
+#: libraries/sql.lib.php:1684
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -15691,6 +15701,7 @@ msgid "Pick from Central Columns"
 msgstr "Rename database to"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
+#: templates/table/structure/display_partitions.phtml:22
 #, fuzzy
 #| msgid "Compression"
 msgid "Expression"
@@ -16538,6 +16549,36 @@ msgstr "%s ველის დამატება"
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "ცხრილის დასაწყისში"
+
+#: templates/table/structure/display_partitions.phtml:3
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "დანაყოფი %s"
+
+#: templates/table/structure/display_partitions.phtml:7
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "დაყოფილი"
+
+#: templates/table/structure/display_partitions.phtml:12
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "დაყოფილი"
+
+#: templates/table/structure/display_partitions.phtml:25
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "სტრიქონის სიგრძე"
+
+#: templates/table/structure/display_partitions.phtml:26
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "სტრიქონის სიგრძე"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 #, fuzzy
