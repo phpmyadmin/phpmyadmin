@@ -275,69 +275,9 @@ foreach ($table_list as $key => $value) {
 
 // If untracked tables exist
 if (count($my_tables) > 0) {
-    ?>
-    <h3><?php echo __('Untracked tables');?></h3>
-    <form method="post" action="db_tracking.php" name="untrackedForm"
-        id="untrackedForm" class="ajax">
-    <?php
-    echo PMA_URL_getHiddenInputs($GLOBALS['db'])
-    ?>
-    <table id="noversions" class="data">
-    <thead>
-    <tr>
-        <th></th>
-        <th style="width: 300px"><?php echo __('Table');?></th>
-        <th><?php echo __('Action');?></th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php
-    // Print out list of untracked tables
-
-    $style = 'odd';
-
-    foreach ($my_tables as $key => $tablename) {
-        $checkbox_id = "selected_tbl_"
-            . htmlspecialchars($tablename);
-        if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
-            $my_link = '<a href="tbl_tracking.php' . $url_query
-                . '&amp;table=' . htmlspecialchars($tablename) . '">';
-            $my_link .= PMA_Util::getIcon('eye.png', __('Track table'));
-            $my_link .= '</a>';
-            ?>
-            <tr class="<?php echo $style;?>">
-            <td class="center">
-                <input type="checkbox" name="selected_tbl[]"
-                    class="checkall" id="<?php echo $checkbox_id;?>"
-                    value="<?php echo htmlspecialchars($tablename);?>"/>
-            </td>
-            <th>
-                <label for="<?php echo $checkbox_id;?>">
-                    <?php echo htmlspecialchars($tablename);?>
-                </label>
-            </th>
-            <td><?php echo $my_link;?></td>
-            </tr>
-            <?php
-            if ($style == 'even') {
-                $style = 'odd';
-            } else {
-                $style = 'even';
-            }
-        }
-    }
-    ?>
-    </tbody>
-    </table>
-    <?php
-    echo PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "untrackedForm");
-    echo PMA_Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_track',
-        __('Track table'), 'eye.png', 'track'
+    PMA_displayUntrackedTables(
+        $GLOBALS['db'], $my_tables, $url_query, $pmaThemeImage, $text_dir
     );
-    ?>
-    </form>
-    <?php
 }
 // If available print out database log
 if (count($data['ddlog']) > 0) {
