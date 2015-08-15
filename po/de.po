@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-10 00:17+0200\n"
-"Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
+"PO-Revision-Date: 2015-08-15 16:10+0200\n"
+"Last-Translator: Phillip Rohmberger <rohmberger@hotmail.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/de/>\n"
 "Language: de\n"
@@ -14782,7 +14782,7 @@ msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
 #: tbl_row_action.php:65
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Keine Zeilen ausgewählt."
+msgstr "Keine Reihe ausgewählt."
 
 #: tbl_structure.php:63
 #, php-format
