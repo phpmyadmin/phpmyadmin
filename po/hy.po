@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-15 07:04-0400\n"
-"PO-Revision-Date: 2015-08-14 16:57+0200\n"
+"PO-Revision-Date: 2015-08-15 19:59+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4737,7 +4737,7 @@ msgstr ""
 
 #: libraries/Types.class.php:949
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Թվարկում, ընտրությունը կատարվում է սահմանված արժեքների մեջից"
 
 #: libraries/Util.class.php:257
 #, php-format
@@ -4766,7 +4766,7 @@ msgstr "MySQL-ի պատասխանը՝ "
 
 #: libraries/Util.class.php:1166 libraries/config/messages.inc.php:893
 msgid "Explain SQL"
-msgstr ""
+msgstr "SQL-ի վերլուծում"
 
 #: libraries/Util.class.php:1176
 msgid "Skip Explain SQL"
@@ -4788,7 +4788,7 @@ msgstr "Ստեղծել PHP կոդը"
 #: libraries/Util.class.php:1287
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr ""
+msgstr "Ներտող խմբագրում"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1629
@@ -4836,7 +4836,7 @@ msgstr ""
 
 #: libraries/Util.class.php:3602 libraries/insert_edit.lib.php:1171
 msgid "The directory you set for upload work cannot be reached."
-msgstr ""
+msgstr "Վերբեռնումների համար նախատեսված պանակը անհասանելի է։"
 
 #: libraries/Util.class.php:3613
 msgid "There are no files to upload!"
@@ -4915,17 +4915,17 @@ msgstr "Զանցել տվյալների բազային"
 #: libraries/build_html_for_db.lib.php:146
 #: templates/database/structure/structure_table_row.phtml:15
 msgid "Not replicated"
-msgstr ""
+msgstr "Չի կրկնապատկվել"
 
 #: libraries/build_html_for_db.lib.php:158
 #: templates/database/structure/structure_table_row.phtml:16
 msgid "Replicated"
-msgstr ""
+msgstr "Կրկնապատկվեց"
 
 #: libraries/build_html_for_db.lib.php:176
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr ""
+msgstr "Ստուգել արտոնությունները \"%s\" տվյալների բազայի համար։"
 
 #: libraries/build_html_for_db.lib.php:181
 msgid "Check Privileges"
@@ -4941,6 +4941,8 @@ msgstr ""
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
+"Չհաջողվեց ավելացնել %1$s, քանի որ դրանք արդեն իսկ գոյություն ունեն "
+"կենտրոնական ցանկում։"
 
 #: libraries/central_columns.lib.php:298
 msgid "Could not add columns!"
@@ -4951,6 +4953,8 @@ msgstr "Չհաջողվեց ավելացնել սյունակներ։"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Չհաջողվեց ջնջել %1$s սյունակ(ներ)ը, քանի որ սյունակների կենտրոնական ցանկում "
+"դրանք գոյություն չունեն։"
 
 #: libraries/central_columns.lib.php:385
 msgid "Could not remove columns!"
@@ -5076,11 +5080,11 @@ msgstr ""
 
 #: libraries/common.inc.php:1151
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Սխալ՝ հետքանշիչի անհամապատասխանություն"
 
 #: libraries/common.inc.php:1183
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "GLOBALS վրագրելու փորձ"
 
 #: libraries/common.inc.php:1190
 msgid "possible exploit"
@@ -5088,7 +5092,7 @@ msgstr "հնարավոր խոցելիություն"
 
 #: libraries/common.inc.php:1199
 msgid "numeric key detected"
-msgstr ""
+msgstr "բացահայտվել է թվային ստեղն"
 
 #: libraries/config.values.php:56 libraries/config.values.php:76
 #: libraries/config.values.php:88
@@ -5133,7 +5137,7 @@ msgstr "Կասեցված"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "բանալի"
 
 #: libraries/config.values.php:99
 msgid "display column"
@@ -5161,7 +5165,7 @@ msgstr "Միշտ ուղարկել սխալների զեկույցները"
 
 #: libraries/config.values.php:129
 msgid "Never send error reports"
-msgstr ""
+msgstr "Ընդհանրապես չուղարկել սխալների զեկույցները"
 
 #: libraries/config.values.php:132
 msgid "Server default"
@@ -5317,18 +5321,21 @@ msgstr "Թույլատրել օգտվողներին՝ փոփոխել այս ար
 #: libraries/config/ServerConfigChecks.class.php:168
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
+"Դուք պետք է օգտագործեք SSL միացումները, եթե դրանք աջակցվում են ձեր ՏԲ-ի "
+"սպասարկչի կողմից։"
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Դուք թույլատրում եք սպասարկչին միանալը առանց գաղտնաբառի։"
 
 #: libraries/config/ServerConfigChecks.class.php:343
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "Ծածկագրման բանալին շատ կարճ է, այն պետք է պարունակի առնվազն 8 նշան։"
 
 #: libraries/config/ServerConfigChecks.class.php:350
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
+"Բանալին պետք է պարունակի՝ գրանշաններ, թվանշաններ [em]և[/em] հատուկ նշաններ։"
 
 #: libraries/config/ServerConfigChecks.class.php:371
 #, php-format
@@ -5609,7 +5616,7 @@ msgstr "Ներածման դաշտի առավելագույն չափը"
 
 #: libraries/config/messages.inc.php:79
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr ""
+msgstr "CHAR/VARCHAR ներածման դաշտերի սյունակների քանակը։"
 
 #: libraries/config/messages.inc.php:81
 msgid "CHAR textarea columns"
@@ -5617,7 +5624,7 @@ msgstr "CHAR-ի գրվածքի դաշտի լայնությունը"
 
 #: libraries/config/messages.inc.php:82
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr ""
+msgstr "CHAR/VARCHAR ներածման դաշտերի տողերի քանակը։"
 
 #: libraries/config/messages.inc.php:83
 msgid "CHAR textarea rows"
@@ -5647,6 +5654,8 @@ msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
+"Արդյո՞ք զգուշացումները (\"Իսկապե՞ս եք ցանկանում…\") պետք է ցուցադրվեն՝ "
+"տվյալների կորսուստը նախատեսող դեպքերում։"
 
 #: libraries/config/messages.inc.php:95
 msgid "Confirm DROP queries"
@@ -5659,27 +5668,27 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
-msgstr ""
+msgstr "Տվյալների բազան մտնելու ժամանակ ցուցադրելու ներդիրը։"
 
 #: libraries/config/messages.inc.php:102
 msgid "Default database tab"
-msgstr ""
+msgstr "Տվյալների բազայի լռելյայն ներդիրը"
 
 #: libraries/config/messages.inc.php:104
 msgid "Tab that is displayed when entering a server."
-msgstr ""
+msgstr "Սպասարկիչը մտնելու ժամանակ ցուցադրելու ներդիրը։"
 
 #: libraries/config/messages.inc.php:106
 msgid "Default server tab"
-msgstr ""
+msgstr "Սպասարկչի լռելյայն ներդիրը"
 
 #: libraries/config/messages.inc.php:107
 msgid "Tab that is displayed when entering a table."
-msgstr ""
+msgstr "Աղյուսակը մտնելու ժամանակ ցուցադրելու ներդիրը։"
 
 #: libraries/config/messages.inc.php:108
 msgid "Default table tab"
-msgstr ""
+msgstr "Աղյուսակի լռելյայն ներդիրը"
 
 #: libraries/config/messages.inc.php:110
 msgid "Autocomplete of the table and column names in the SQL queries."
@@ -14629,10 +14638,9 @@ msgid "at beginning of table"
 msgstr "աղյուսակի սկզբում"
 
 #: templates/table/structure/display_partitions.phtml:3
-#, fuzzy
 #| msgid "Position"
 msgid "Partitions"
-msgstr "Դիրք"
+msgstr "Մասնաբաժիններ"
 
 #: templates/table/structure/display_partitions.phtml:7
 msgid "Partitioned by:"
@@ -14643,16 +14651,14 @@ msgid "Sub partitioned by:"
 msgstr ""
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Row length"
 msgid "Data length"
-msgstr "Տողի երկարությունը"
+msgstr "Տվյալների երկարությունը"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "Տողի երկարությունը"
+msgstr "Ցուցակագրի երկարությունը"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
