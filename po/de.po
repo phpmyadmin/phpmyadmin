@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-15 07:04-0400\n"
-"PO-Revision-Date: 2015-07-27 03:36+0200\n"
-"Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2015-08-15 16:19+0200\n"
+"Last-Translator: Phillip Rohmberger <rohmberger@hotmail.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3695,7 +3695,7 @@ msgstr "Relationaler Schlüssel"
 #, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Fremdschlüssel-Beziehungen anzeigen"
+msgstr "Anzeigespalte für Beziehungen"
 
 #: libraries/DisplayResults.class.php:1757
 msgid "Show binary contents"
@@ -3877,10 +3877,9 @@ msgid "Error while moving uploaded file."
 msgstr "Fehler beim Verschieben der hochgeladenen Datei."
 
 #: libraries/File.class.php:487
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Die hochgeladene (verschobene) Datei kann nicht gelesen werden."
+msgstr "Die hochgeladene Datei kann nicht gelesen werden."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -7646,7 +7645,6 @@ msgid "User preferences storage table"
 msgstr "Tabelle für Benutzereinstellungen"
 
 #: libraries/config/messages.inc.php:809
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -7656,7 +7654,7 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable\n"
 "    this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Sowohl diese Tabelle als auch die Nutzergruppentabelle sind nötig um "
+"Sowohl diese Tabelle als auch die Nutzergruppentabelle sind nötig, um "
 "konfigurierbare Menüs zu nutzen; wenn eines von beiden leer gelassen wird "
 "wird dieses Feature deaktiviert, Vorschlag: [kbd]pma__users[/kbd]."
 
@@ -8368,7 +8366,7 @@ msgstr "Passwort generieren"
 #, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password"
-msgstr "Passwort ändern"
+msgstr "SHA256 Passwort"
 
 #: libraries/display_change_password.lib.php:137
 msgid "MySQL 4.0 compatible"
@@ -8381,6 +8379,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Diese Methode erfordert die Verwendung einer <i>SSL-Verbindung</i> oder "
+"einer <i>unverschlüsselte Verbindung, die das Kennwort mit RSA "
+"verschlüsselt</i> '; beim Verbinden mit dem Server."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -12746,10 +12747,9 @@ msgstr "Passwort nicht verändert"
 
 #: libraries/server_privileges.lib.php:1694
 #: libraries/server_privileges.lib.php:1697
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Authentifizierung"
+msgstr "Authentifizierungs Plugin"
 
 #: libraries/server_privileges.lib.php:1923
 #, php-format
@@ -14214,10 +14214,9 @@ msgid "A comma or a closing bracket was expected"
 msgstr "Ein Komma oder eine schließende Klammer wurde erwartet"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:246
-#, fuzzy
 #| msgid "A comma or a closing bracket was expected"
 msgid "A comma or a closing bracket was expected."
-msgstr "Ein Komma oder eine schließende Klammer wurde erwartet"
+msgstr "Ein Komma oder eine schließende Klammer wird erwartet."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:262
 msgid "A closing bracket was expected."
@@ -14335,7 +14334,6 @@ msgid "The name of the entity was expected."
 msgstr "Der Name der Entität wurde erwartet."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
-#, fuzzy
 #| msgid "At least one field definition was expected."
 msgid "At least one column definition was expected."
 msgstr "Mindestens eine Felddefinition wurde erwartet."
@@ -14962,10 +14960,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
 
 #: tbl_row_action.php:70
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Keine Versionen ausgewählt."
+msgstr "Keine Reihe ausgewählt."
 
 #: tbl_tracking.php:33
 #, php-format
@@ -15732,16 +15729,14 @@ msgid "at beginning of table"
 msgstr "am Tabellenanfang"
 
 #: templates/table/structure/display_partitions.phtml:3
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Partition %s"
+msgstr "Partitionen"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "partitioniert"
+msgstr "partitioniert von:"
 
 #: templates/table/structure/display_partitions.phtml:12
 #, fuzzy
@@ -15750,16 +15745,14 @@ msgid "Sub partitioned by:"
 msgstr "partitioniert"
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Row length"
 msgid "Data length"
-msgstr "Zeilenlänge"
+msgstr "Datenlänge"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "Zeilenlänge"
+msgstr "Indexlänge"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
