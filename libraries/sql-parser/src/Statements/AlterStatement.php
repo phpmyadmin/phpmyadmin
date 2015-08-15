@@ -89,13 +89,15 @@ class AlterStatement extends Statement
          *
          *      1 -------------------------[ , ]-----------------------> 0
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

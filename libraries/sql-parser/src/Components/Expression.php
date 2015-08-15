@@ -122,24 +122,28 @@ class Expression extends Component
 
         /**
          * Whether current tokens make an expression or a table reference.
+         *
          * @var bool $isExpr
          */
         $isExpr = false;
 
         /**
          * Whether a period was previously found.
+         *
          * @var bool $dot
          */
         $dot = false;
 
         /**
          * Whether an alias is expected. Is 2 if `AS` keyword was found.
+         *
          * @var int $alias
          */
         $alias = 0;
 
         /**
          * Counts brackets.
+         *
          * @var int $brackets
          */
         $brackets = 0;
@@ -150,13 +154,16 @@ class Expression extends Component
          *     string, if function was previously found;
          *     true, if opening bracket was previously found;
          *     null, in any other case.
+         *
          * @var string|bool $prev
          */
         $prev = null;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

@@ -450,6 +450,7 @@ abstract class Context
         /**
          * The number of replaces done by `preg_replace`.
          * This actually represents whether a new context was generated or not.
+         *
          * @var int $count
          */
         $count = 0;

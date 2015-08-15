@@ -73,15 +73,17 @@ class ParameterDefinition extends Component
          *      2 -------------------[ data type ]--------------------> 3
          *
          *      3 ------------------------[ , ]-----------------------> 1
-         *      3 ------------------------[ ) ]-----------------------> -1
+         *      3 ------------------------[ ) ]-----------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

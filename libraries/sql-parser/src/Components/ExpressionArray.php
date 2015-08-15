@@ -44,15 +44,17 @@ class ExpressionArray extends Component
          *      0 ----------------------[ array ]---------------------> 1
          *
          *      1 ------------------------[ , ]------------------------> 0
-         *      1 -----------------------[ else ]----------------------> -1
+         *      1 -----------------------[ else ]----------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

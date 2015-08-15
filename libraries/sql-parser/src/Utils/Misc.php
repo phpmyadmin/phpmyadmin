@@ -47,7 +47,8 @@ class Misc
         /**
          * Expressions that may contain aliases.
          * These are extracted from `FROM` and `JOIN` keywords.
-         * @var Expression[]
+         *
+         * @var Expression[] $expressions
          */
         $expressions = $statement->from;
 

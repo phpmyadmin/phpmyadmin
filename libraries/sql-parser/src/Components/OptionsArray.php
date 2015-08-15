@@ -57,24 +57,28 @@ class OptionsArray extends Component
 
         /**
          * The ID that will be assigned to duplicate options.
+         *
          * @var int $lastAssignedId
          */
         $lastAssignedId = count($options) + 1;
 
         /**
          * The option that was processed last time.
+         *
          * @var array $lastOption
          */
         $lastOption = null;
 
         /**
          * The index of the option that was processed last time.
+         *
          * @var int $lastOptionId
          */
         $lastOptionId = 0;
 
         /**
          * Counts brackets.
+         *
          * @var int $brackets
          */
         $brackets = 0;
@@ -90,13 +94,15 @@ class OptionsArray extends Component
          *
          *      2 ----------------------[ value ]----------------------> 0
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

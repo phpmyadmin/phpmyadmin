@@ -113,153 +113,158 @@ namespace SqlParser {
          */
         public static $KEYWORD_PARSERS = array(
 
-            // This is not a proper keyword and was added here to help the builder.
-            '_OPTIONS'      => array(
-                'class'     => 'SqlParser\\Components\\OptionsArray',
-                'field'     => 'options',
+            // This is not a proper keyword and was added here to help the
+            // formatter.
+            'PARTITION BY'          => array(),
+            'SUBPARTITION BY'       => array(),
+
+            // This is not a proper keyword and was added here to help the
+            // builder.
+            '_OPTIONS'              => array(
+                'class'             => 'SqlParser\\Components\\OptionsArray',
+                'field'             => 'options',
+            ),
+            'UNION'                 => array(
+                'class'             => 'SqlParser\\Components\\UnionKeyword',
+                'field'             => 'union',
             ),
 
-            // This is used only for building.
-            'UNION'         => array(
-                'class'     => 'SqlParser\\Components\\UnionKeyword',
-                'field'     => 'union',
+            // Actual clause parsers.
+            'ALTER'                 => array(
+                'class'             => 'SqlParser\\Components\\Expression',
+                'field'             => 'table',
+                'options'           => array('skipColumn' => true),
             ),
-
-            'ALTER'         => array(
-                'class'     => 'SqlParser\\Components\\Expression',
-                'field'     => 'table',
-                'options'   => array('skipColumn' => true),
+            'ANALYZE'               => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'tables',
+                'options'           => array('skipColumn' => true),
             ),
-            'ANALYZE'       => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'tables',
-                'options'   => array('skipColumn' => true),
+            'BACKUP'                => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'tables',
+                'options'           => array('skipColumn' => true),
             ),
-            'BACKUP'        => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'tables',
-                'options'   => array('skipColumn' => true),
+            'CALL'                  => array(
+                'class'             => 'SqlParser\\Components\\FunctionCall',
+                'field'             => 'call',
             ),
-            'CALL'          => array(
-                'class'     => 'SqlParser\\Components\\FunctionCall',
-                'field'     => 'call',
+            'CHECK'                 => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'tables',
+                'options'           => array('skipColumn' => true),
             ),
-            'CHECK'         => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'tables',
-                'options'   => array('skipColumn' => true),
+            'CHECKSUM'              => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'tables',
+                'options'           => array('skipColumn' => true),
             ),
-            'CHECKSUM'      => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'tables',
-                'options'   => array('skipColumn' => true),
+            'DROP'                  => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'fields',
+                'options'           => array('skipColumn' => true),
             ),
-            'DROP'          => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'fields',
-                'options'   => array('skipColumn' => true),
+            'FROM'                  => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'from',
+                'options'           => array('skipColumn' => true),
             ),
-            'FROM'          => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'from',
-                'options'   => array('skipColumn' => true),
+            'GROUP BY'              => array(
+                'class'             => 'SqlParser\\Components\\OrderKeyword',
+                'field'             => 'group',
             ),
-            'GROUP BY'      => array(
-                'class'     => 'SqlParser\\Components\\OrderKeyword',
-                'field'     => 'group',
+            'HAVING'                => array(
+                'class'             => 'SqlParser\\Components\\Condition',
+                'field'             => 'having',
             ),
-            'HAVING'        => array(
-                'class'     => 'SqlParser\\Components\\Condition',
-                'field'     => 'having',
+            'INTO'                  => array(
+                'class'             => 'SqlParser\\Components\\IntoKeyword',
+                'field'             => 'into',
             ),
-            'INTO'          => array(
-                'class'     => 'SqlParser\\Components\\IntoKeyword',
-                'field'     => 'into',
+            'JOIN'                  => array(
+                'class'             => 'SqlParser\\Components\\JoinKeyword',
+                'field'             => 'join',
             ),
-            'JOIN'          => array(
-                'class'     => 'SqlParser\\Components\\JoinKeyword',
-                'field'     => 'join',
+            'LEFT JOIN'             => array(
+                'class'             => 'SqlParser\\Components\\JoinKeyword',
+                'field'             => 'join',
             ),
-            'LEFT JOIN'     => array(
-                'class'     => 'SqlParser\\Components\\JoinKeyword',
-                'field'     => 'join',
+            'RIGHT JOIN'            => array(
+                'class'             => 'SqlParser\\Components\\JoinKeyword',
+                'field'             => 'join',
             ),
-            'RIGHT JOIN'    => array(
-                'class'     => 'SqlParser\\Components\\JoinKeyword',
-                'field'     => 'join',
+            'INNER JOIN'            => array(
+                'class'             => 'SqlParser\\Components\\JoinKeyword',
+                'field'             => 'join',
             ),
-            'INNER JOIN'    => array(
-                'class'     => 'SqlParser\\Components\\JoinKeyword',
-                'field'     => 'join',
+            'FULL JOIN'             => array(
+                'class'             => 'SqlParser\\Components\\JoinKeyword',
+                'field'             => 'join',
             ),
-            'FULL JOIN'     => array(
-                'class'     => 'SqlParser\\Components\\JoinKeyword',
-                'field'     => 'join',
+            'LIMIT'                 => array(
+                'class'             => 'SqlParser\\Components\\Limit',
+                'field'             => 'limit',
             ),
-            'LIMIT'         => array(
-                'class'     => 'SqlParser\\Components\\Limit',
-                'field'     => 'limit',
+            'OPTIMIZE'              => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'tables',
+                'options'           => array('skipColumn' => true),
             ),
-            'OPTIMIZE'      => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'tables',
-                'options'   => array('skipColumn' => true),
+            'ORDER BY'              => array(
+                'class'             => 'SqlParser\\Components\\OrderKeyword',
+                'field'             => 'order',
             ),
-            'ORDER BY'      => array(
-                'class'     => 'SqlParser\\Components\\OrderKeyword',
-                'field'     => 'order',
+            'PARTITION'             => array(
+                'class'             => 'SqlParser\\Components\\ArrayObj',
+                'field'             => 'partition',
             ),
-            'PARTITION'     => array(
-                'class'     => 'SqlParser\\Components\\ArrayObj',
-                'field'     => 'partition',
+            'PROCEDURE'             => array(
+                'class'             => 'SqlParser\\Components\\FunctionCall',
+                'field'             => 'procedure',
             ),
-            'PROCEDURE'     => array(
-                'class'     => 'SqlParser\\Components\\FunctionCall',
-                'field'     => 'procedure',
+            'RENAME'                => array(
+                'class'             => 'SqlParser\\Components\\RenameOperation',
+                'field'             => 'renames',
             ),
-            'RENAME'        => array(
-                'class'     => 'SqlParser\\Components\\RenameOperation',
-                'field'     => 'renames',
+            'REPAIR'                => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'tables',
+                'options'           => array('skipColumn' => true),
             ),
-            'REPAIR'        => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'tables',
-                'options'   => array('skipColumn' => true),
+            'RESTORE'               => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'tables',
+                'options'           => array('skipColumn' => true),
             ),
-            'RESTORE'       => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'tables',
-                'options'   => array('skipColumn' => true),
+            'SET'                   => array(
+                'class'             => 'SqlParser\\Components\\SetOperation',
+                'field'             => 'set',
             ),
-            'SET'           => array(
-                'class'     => 'SqlParser\\Components\\SetOperation',
-                'field'     => 'set',
+            'SELECT'                => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'expr',
             ),
-            'SELECT'        => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'expr',
+            'TRUNCATE'              => array(
+                'class'             => 'SqlParser\\Components\\Expression',
+                'field'             => 'table',
+                'options'           => array('skipColumn' => true),
             ),
-            'TRUNCATE'      => array(
-                'class'     => 'SqlParser\\Components\\Expression',
-                'field'     => 'table',
-                'options'   => array('skipColumn' => true),
+            'UPDATE'                => array(
+                'class'             => 'SqlParser\\Components\\ExpressionArray',
+                'field'             => 'tables',
+                'options'           => array('skipColumn' => true),
             ),
-            'UPDATE'        => array(
-                'class'     => 'SqlParser\\Components\\ExpressionArray',
-                'field'     => 'tables',
-                'options'   => array('skipColumn' => true),
+            'VALUE'                 => array(
+                'class'             => 'SqlParser\\Components\\Array2d',
+                'field'             => 'values',
             ),
-            'VALUE'         => array(
-                'class'     => 'SqlParser\\Components\\Array2d',
-                'field'     => 'values',
+            'VALUES'                => array(
+                'class'             => 'SqlParser\\Components\\Array2d',
+                'field'             => 'values',
             ),
-            'VALUES'        => array(
-                'class'     => 'SqlParser\\Components\\Array2d',
-                'field'     => 'values',
-            ),
-            'WHERE'         => array(
-                'class'     => 'SqlParser\\Components\\Condition',
-                'field'     => 'where',
+            'WHERE'                 => array(
+                'class'             => 'SqlParser\\Components\\Condition',
+                'field'             => 'where',
             ),
 
         );
@@ -304,7 +309,7 @@ namespace SqlParser {
          * Constructor.
          *
          * @param string|UtfString|TokensList $list   The list of tokens to be parsed.
-         * @param bool             $strict Whether strict mode should be enabled or not.
+         * @param bool                        $strict Whether strict mode should be enabled or not.
          */
         public function __construct($list = null, $strict = false)
         {
@@ -332,30 +337,35 @@ namespace SqlParser {
 
             /**
              * Last transaction.
+             *
              * @var TransactionStatement $lastTransaction
              */
             $lastTransaction = null;
 
             /**
              * Last parsed statement.
+             *
              * @var Statement $lastStatement
              */
             $lastStatement = null;
 
             /**
              * Whether a union is parsed or not.
+             *
              * @var bool $inUnion
              */
             $inUnion = false;
 
             /**
              * The index of the last token from the last statement.
+             *
              * @var int $prevLastIdx
              */
             $prevLastIdx = -1;
 
             /**
              * The list of tokens.
+             *
              * @var TokensList $list
              */
             $list = &$this->list;
@@ -364,6 +374,7 @@ namespace SqlParser {
 
                 /**
                  * Token parsed at this moment.
+                 *
                  * @var Token $token
                  */
                 $token = $list->tokens[$list->idx];
@@ -419,12 +430,14 @@ namespace SqlParser {
 
                 /**
                  * The name of the class that is used for parsing.
+                 *
                  * @var string $class
                  */
                 $class = static::$STATEMENT_PARSERS[$token->value];
 
                 /**
                  * Processed statement.
+                 *
                  * @var Statement $statement
                  */
                 $statement = new $class($this, $this->list);
@@ -445,13 +458,16 @@ namespace SqlParser {
                     && ($lastStatement instanceof SelectStatement)
                     && ($statement instanceof SelectStatement)
                 ) {
+
                     /**
                      * This SELECT statement.
+                     *
                      * @var SelectStatement $statement
                      */
 
                     /**
                      * Last SELECT statement.
+                     *
                      * @var SelectStatement $lastStatement
                      */
                     $lastStatement->union[] = $statement;
