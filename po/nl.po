@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-15 07:04-0400\n"
-"PO-Revision-Date: 2015-08-10 14:38+0200\n"
+"PO-Revision-Date: 2015-08-15 17:24+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14225,10 +14225,9 @@ msgid "The name of the entity was expected."
 msgstr "De naam van de entiteit werd verwacht."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
-#, fuzzy
 #| msgid "At least one field definition was expected."
 msgid "At least one column definition was expected."
-msgstr "Er werd minimaal één velddefinitie verwacht."
+msgstr "Er werd minimaal één kolomdefinitie verwacht."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
@@ -15629,34 +15628,29 @@ msgid "at beginning of table"
 msgstr "bij begin van de tabel"
 
 #: templates/table/structure/display_partitions.phtml:3
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Partitie %s"
+msgstr "Partities %s"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "gepartitioneerd"
+msgstr "Gepartitioneerd op:"
 
 #: templates/table/structure/display_partitions.phtml:12
-#, fuzzy
 #| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "gepartitioneerd"
+msgstr "Onderverdeling op:"
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Row length"
 msgid "Data length"
-msgstr "Lengte van de rij"
+msgstr "Lengte van de data"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "Lengte van de rij"
+msgstr "Lengte van de index"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
