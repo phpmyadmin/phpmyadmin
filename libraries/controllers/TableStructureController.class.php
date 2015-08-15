@@ -11,6 +11,7 @@ namespace PMA\Controllers;
 
 use PMA\Template;
 use PMA_Index;
+use PMA_Partition;
 use PMA_Table;
 use PMA_Message;
 use PMA_PageSettings;
@@ -21,6 +22,7 @@ use SqlParser;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/Index.class.php';
+require_once 'libraries/Partition.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/transformations.lib.php';
@@ -274,7 +276,9 @@ class TableStructureController extends TableController
         /**
          * Adding indexes
          */
-        if (isset($_REQUEST['add_key'])) {
+        if (isset($_REQUEST['add_key'])
+            || isset($_REQUEST['partition_maintenance'])
+        ) {
             //todo: set some variables for sql.php include, to be eliminated
             //after refactoring sql.php
             $db = $this->db;

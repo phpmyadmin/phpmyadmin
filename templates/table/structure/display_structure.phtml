@@ -154,11 +154,54 @@
         array('columns_list' => $columns_list)
     ); ?>
 <?php endif; ?>
+
 <!--Displays indexes-->
 <?php if (! $tbl_is_view
     && ! $db_is_system_schema && 'ARCHIVE' !=  $tbl_storage_engine): ?>
     <?php echo PMA_getHtmlForDisplayIndexes(); ?>
 <?php endif; ?>
+
+<!--Display partition details-->
+<?php
+$partition_names = PMA_Partition::getPartitionNames($db, $table);
+// detect partitioning
+if (! is_null($partition_names[0])) {
+
+    $partitions = PMA_Partition::getParititions($db, $table);
+    $firstPartition = $partitions[0];
+    $subParitions = $firstPartition->getSubPartitions();
+    $hasSubPartitions = $firstPartition->hasSubPartitions();
+    if ($hasSubPartitions) {
+        $firstSubPartition = $subParitions[0];
+    }
+
+    $actionIcons = array(
+        'ANALYZE' => PMA_Util::getIcon('b_search.png', __('Analyze')),
+        'CHECK' => PMA_Util::getIcon('eye.png', __('Check')),
+        'OPTIMIZE' => PMA_Util::getIcon('normalize.png', __('Optimize')),
+        'REBUILD' => PMA_Util::getIcon('s_tbl.png', __('Rebuild')),
+        'REPAIR' => PMA_Util::getIcon('b_tblops.png', __('Repair')),
+        'TRUNCATE' => PMA_Util::getIcon('b_empty.png', __('Truncate')),
+        'DROP' => PMA_Util::getIcon('b_drop.png', __('Drop'))
+    );
+
+    echo PMA\Template::get('table/structure/display_partitions')->render(
+        array(
+            'table' => $table,
+            'url_query'  => $url_query,
+            'partitions' => $partitions,
+            'partitionMethod' => $firstPartition->getMethod(),
+            'partitionExpression' => $firstPartition->getExpression(),
+            'hasDescription' => ! empty($firstPartition->getDescription()),
+            'hasSubPartitions' => $hasSubPartitions,
+            'subPartitionMethod' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
+            'subPartitionExpression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
+            'actionIcons' => $actionIcons,
+        )
+    );
+}
+?>
+
 <!--Displays Space usage and row statistics-->
 <?php if ($GLOBALS['cfg']['ShowStats']): ?>
     <?php echo $tablestats;  ?>
