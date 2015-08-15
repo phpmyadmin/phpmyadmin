@@ -218,8 +218,7 @@ function PMA_getHtmlForImportCharset()
  */
 function PMA_getHtmlForImportOptionsFile(
     $max_upload_size, $import_list, $local_import_file
-)
-{
+) {
     global $cfg;
     $html  = '    <div class="importoptions">';
     $html .= '         <h3>'  . __('File to Import:') . '</h3>';
