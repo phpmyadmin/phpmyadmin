@@ -307,7 +307,7 @@ class PMA_Partition extends PMA_SubPartition
      * @access  public
      * @return PMA_Partition[]
      */
-    static public function getParititions($db, $table)
+    static public function getPartitions($db, $table)
     {
         if (PMA_Partition::havePartitioning()) {
             $result = $GLOBALS['dbi']->fetchResult(

@@ -167,7 +167,7 @@ $partition_names = PMA_Partition::getPartitionNames($db, $table);
 // detect partitioning
 if (! is_null($partition_names[0])) {
 
-    $partitions = PMA_Partition::getParititions($db, $table);
+    $partitions = PMA_Partition::getPartitions($db, $table);
     $firstPartition = $partitions[0];
     $subParitions = $firstPartition->getSubPartitions();
     $hasSubPartitions = $firstPartition->hasSubPartitions();
