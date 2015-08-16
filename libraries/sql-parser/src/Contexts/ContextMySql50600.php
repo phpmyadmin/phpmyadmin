@@ -3,6 +3,8 @@
 /**
  * Context for MySQL 5.6.
  *
+ * This file was auto-generated.
+ *
  * @package    SqlParser
  * @subpackage Contexts
  * @link       https://dev.mysql.com/doc/refman/5.6/en/keywords.html

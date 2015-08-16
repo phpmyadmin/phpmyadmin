@@ -138,12 +138,12 @@ class IntoKeyword extends Component
      */
     public static function build($component)
     {
-        if ($component->type === 'OUTFILE') {
-            return 'OUTFILE "' . $component->dest . '"';
-        } else {
+        if ($component->dest instanceof Expression) {
             $columns = !empty($component->columns) ?
                 '(' . implode(', ', $component->columns) . ')' : '';
             return Expression::build($component->dest) . $columns;
+        } else {
+            return 'OUTFILE "' . $component->dest . '"';
         }
     }
 }
