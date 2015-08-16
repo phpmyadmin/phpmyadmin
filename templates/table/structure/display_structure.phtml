@@ -185,6 +185,10 @@ if (! is_null($partition_names[0])) {
         'DROP' => PMA_Util::getIcon('b_drop.png', __('Drop'))
     );
 
+    echo PMA_Util::getDivForSliderEffect(
+        'partitions', __('Partitions')
+    );
+
     echo PMA\Template::get('table/structure/display_partitions')->render(
         array(
             'table' => $table,
@@ -199,8 +203,10 @@ if (! is_null($partition_names[0])) {
             'actionIcons' => $actionIcons,
         )
     );
-}
 ?>
+<!-- For closing Slider effect div-->
+</div>
+<?php } ?>
 
 <!--Displays Space usage and row statistics-->
 <?php if ($GLOBALS['cfg']['ShowStats']): ?>
