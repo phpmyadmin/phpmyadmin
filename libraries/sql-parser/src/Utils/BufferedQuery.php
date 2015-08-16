@@ -91,14 +91,17 @@ class BufferedQuery
         // Merges specified options with defaults.
         $this->options = array_merge(
             array(
+
                 /**
                  * The starting delimiter.
+                 *
                  * @var string
                  */
                 'delimiter' => ';',
 
                 /**
                  * Whether `DELIMITER` statements should be parsed.
+                 *
                  * @var bool
                  */
                 'parse_delimiter' => false,
@@ -106,6 +109,7 @@ class BufferedQuery
                 /**
                  * Whether a delimiter should be added at the end of the
                  * statement.
+                 *
                  * @var bool
                  */
                 'add_delimiter' => false,
@@ -156,6 +160,7 @@ class BufferedQuery
 
         /**
          * The length of the buffer.
+         *
          * @var int $len
          */
         $len = strlen($this->query);

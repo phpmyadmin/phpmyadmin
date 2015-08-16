@@ -38,7 +38,8 @@ class Array2d extends Component
 
         /**
          * The number of values in each set.
-         * @var int
+         *
+         * @var int $count
          */
         $count = -1;
 
@@ -47,18 +48,20 @@ class Array2d extends Component
          *
          * Below are the states of the parser.
          *
-         *      0 ----------------------[ array ]---------------------> 1
+         *      0 ----------------------[ array ]----------------------> 1
          *
          *      1 ------------------------[ , ]------------------------> 0
-         *      1 -----------------------[ else ]----------------------> -1
+         *      1 -----------------------[ else ]----------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -117,5 +120,15 @@ class Array2d extends Component
 
         --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param ArrayObj[] $component The component to be built.
+     *
+     * @return string
+     */
+    public static function build($component)
+    {
+        return ArrayObj::build($component);
     }
 }

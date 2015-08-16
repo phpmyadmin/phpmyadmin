@@ -157,6 +157,7 @@ class Token
     const FLAG_SYMBOL_VARIABLE          =  1;
     const FLAG_SYMBOL_BACKTICK          =  2;
     const FLAG_SYMBOL_USER              =  4;
+    const FLAG_SYMBOL_SYSTEM            =  8;
 
     /**
      * The token it its raw string representation.
@@ -256,7 +257,12 @@ class Token
             if ((isset($str[0])) && ($str[0] === '@')) {
                 // `mb_strlen($str)` must be used instead of `null` because
                 // in PHP 5.3- the `null` parameter isn't handled correctly.
-                $str = mb_substr($str, 1, mb_strlen($str), 'UTF-8');
+                $str = mb_substr(
+                    $str,
+                    ((!empty($str[1])) && ($str[1] === '@')) ? 2 : 1,
+                    mb_strlen($str),
+                    'UTF-8'
+                );
             }
             if ((isset($str[0])) && (($str[0] === '`')
                 || ($str[0] === '"') || ($str[0] === '\''))
