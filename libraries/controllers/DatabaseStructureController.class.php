@@ -16,7 +16,6 @@ use PMA_Message;
 use PMA_PageSettings;
 use PMA_Util;
 
-require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/display_create_table.lib.php';
@@ -94,7 +93,7 @@ class DatabaseStructureController extends DatabaseController
     {
         // Add/Remove favorite tables using Ajax request.
         if ($GLOBALS['is_ajax_request'] && !empty($_REQUEST['favorite_table'])) {
-            $this->addRemoveFavoriteTables();
+            $this->addRemoveFavoriteTablesAction();
             return;
         }
 
@@ -693,7 +692,7 @@ class DatabaseStructureController extends DatabaseController
      *
      * @return void
      */
-    protected function addRemoveFavoriteTables()
+    public function addRemoveFavoriteTablesAction()
     {
         $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
         if (isset($_REQUEST['favorite_tables'])) {
@@ -829,7 +828,7 @@ class DatabaseStructureController extends DatabaseController
         }
         $favorite_tables[$user] = $fav_instance->getTables();
 
-        $$this->response->addJSON(
+        $this->response->addJSON(
             array(
                 'favorite_tables' => json_encode($favorite_tables),
                 'list' => $fav_instance->getHtmlList()
@@ -862,8 +861,8 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Find table with truename
      *
-     * @param array $db       DB to look into
-     * @param bool  $truename Table name
+     * @param array   $db       DB to look into
+     * @param string  $truename Table name
      *
      * @return bool
      */

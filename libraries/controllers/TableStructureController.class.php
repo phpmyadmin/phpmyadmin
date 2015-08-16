@@ -18,8 +18,6 @@ use PMA_Util;
 use PMA\Util;
 use SqlParser;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
@@ -101,7 +99,7 @@ class TableStructureController extends TableController
         $this->_table_info_num_rows = $table_info_num_rows;
         $this->_tbl_collation = $tbl_collation;
         $this->_showtable = $showtable;
-        $this->table_obj = new PMA_Table($this->table, $this->db);
+        $this->table_obj = $this->dbi->getTable($this->db, $this->table);
     }
 
     /**
