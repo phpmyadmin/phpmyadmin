@@ -56,11 +56,11 @@ class ArrayObj extends Component
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return ArrayObj
+     * @return mixed
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new ArrayObj();
+        $ret = empty($options['type']) ? new ArrayObj() : array();
 
         /**
          * The state of the parser.
@@ -72,15 +72,17 @@ class ArrayObj extends Component
          *      1 ------------------[ array element ]-----------------> 2
          *
          *      2 ------------------------[ , ]-----------------------> 1
-         *      2 ------------------------[ ) ]-----------------------> -1
+         *      2 ------------------------[ ) ]-----------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -109,8 +111,16 @@ class ArrayObj extends Component
                     // Empty array.
                     break;
                 }
-                $ret->values[] = $token->value;
-                $ret->raw[] = $token->token;
+                if (empty($options['type'])) {
+                    $ret->values[] = $token->value;
+                    $ret->raw[] = $token->token;
+                } else {
+                    $ret[] = $options['type']::parse(
+                        $parser,
+                        $list,
+                        empty($options['typeOptions']) ? array() : $options['typeOptions']
+                    );
+                }
                 $state = 2;
             } elseif ($state === 2) {
                 if (($token->type !== Token::TYPE_OPERATOR) || (($token->value !== ',') && ($token->value !== ')'))) {
@@ -133,20 +143,28 @@ class ArrayObj extends Component
     }
 
     /**
-     * @param ArrayObj $component The component to be built.
+     * @param ArrayObj|ArrayObj[] $component The component to be built.
      *
      * @return string
      */
     public static function build($component)
     {
-        $values = array();
-        if (!empty($component->raw)) {
-            $values = $component->raw;
-        } else {
-            foreach ($component->values as $value) {
-                $values[] = $value;
+        if (is_array($component)) {
+            $values = array();
+            foreach ($component as $c) {
+                $values[] = static::build($c);
             }
+            return implode(', ', $values);
+        } else {
+            $values = array();
+            if (!empty($component->raw)) {
+                $values = $component->raw;
+            } else {
+                foreach ($component->values as $value) {
+                    $values[] = $value;
+                }
+            }
+            return '(' . implode(', ', $values) . ')';
         }
-        return '(' . implode(', ', $values) . ')';
     }
 }

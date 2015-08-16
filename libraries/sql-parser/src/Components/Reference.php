@@ -92,15 +92,17 @@ class Reference extends Component
          *
          *      1 ---------------------[ columns ]--------------------> 2
          *
-         *      2 ---------------------[ options ]--------------------> -1
+         *      2 ---------------------[ options ]--------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

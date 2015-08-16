@@ -510,6 +510,7 @@ class Query
 
         /**
          * The index of the current clause.
+         *
          * @var int $currIdx
          */
         $currIdx = 0;
@@ -517,18 +518,21 @@ class Query
         /**
          * The count of brackets.
          * We keep track of them so we won't insert the clause in a subquery.
+         *
          * @var int $brackets
          */
         $brackets = 0;
 
         /**
          * The string to be returned.
+         *
          * @var string $ret
          */
         $ret = '';
 
         /**
          * The clauses of this type of statement and their index.
+         *
          * @var array $clauses
          */
         $clauses = array_flip(array_keys($statement::$CLAUSES));
@@ -543,18 +547,21 @@ class Query
 
         /**
          * Lexer used for lexing the clause.
+         *
          * @var Lexer $lexer
          */
         $lexer = new Lexer($clause);
 
         /**
          * The type of this clause.
+         *
          * @var string $clauseType
          */
         $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD)->value;
 
         /**
          * The index of this clause.
+         *
          * @var int $clauseIdx
          */
         $clauseIdx = $clauses[$clauseType];
@@ -680,6 +687,7 @@ class Query
 
         /**
          * Value to be returned.
+         *
          * @var string $ret
          */
         $ret = '';
@@ -730,13 +738,15 @@ class Query
 
         /**
          * Whether a full statement was found.
-         * @var bool
+         *
+         * @var bool $fullStatement
          */
         $fullStatement = false;
 
         /**
          * The first full statement.
-         * @var string
+         *
+         * @var string $statement
          */
         $statement = '';
 

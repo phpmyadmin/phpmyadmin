@@ -95,6 +95,7 @@ class Condition extends Component
 
         /**
          * Counts brackets.
+         *
          * @var int $brackets
          */
         $brackets = 0;
@@ -104,7 +105,8 @@ class Condition extends Component
          * It is required to keep track of them because their structure contains
          * the keyword `AND`, which is also an operator that delimits
          * expressions.
-         * @var bool
+         *
+         * @var bool $betweenBefore
          */
         $betweenBefore = false;
 
@@ -112,6 +114,7 @@ class Condition extends Component
 
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

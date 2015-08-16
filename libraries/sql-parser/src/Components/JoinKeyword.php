@@ -86,7 +86,7 @@ class JoinKeyword extends Component
          *
          *      3 --------------------[ conditions ]-------------------> 0
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
@@ -98,8 +98,10 @@ class JoinKeyword extends Component
         }
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
