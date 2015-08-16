@@ -1449,16 +1449,16 @@ function PMA_getVersionStatus($version)
 /**
  * Display untracked tables
  *
- * @param string $db            current database
- * @param array  $my_tables     untracked tables
- * @param string $url_query     url query string
- * @param string $pmaThemeImage path to theme's image folder
- * @param string $text_dir      text direction
+ * @param string $db               current database
+ * @param array  $untracked_tables untracked tables
+ * @param string $url_query        url query string
+ * @param string $pmaThemeImage    path to theme's image folder
+ * @param string $text_dir         text direction
  *
  * @return void
  */
 function PMA_displayUntrackedTables(
-    $db, $my_tables, $url_query, $pmaThemeImage, $text_dir
+    $db, $untracked_tables, $url_query, $pmaThemeImage, $text_dir
 ) {
     ?>
     <h3><?php echo __('Untracked tables');?></h3>
@@ -1480,7 +1480,7 @@ function PMA_displayUntrackedTables(
 
     // Print out list of untracked tables
     $style = 'odd';
-    foreach ($my_tables as $key => $tablename) {
+    foreach ($untracked_tables as $key => $tablename) {
         $style = PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style);
     }
     ?>
@@ -1538,4 +1538,49 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
         }
     }
     return $style;
+}
+
+/**
+ * Get untracked tables
+ *
+ * @param string $db current database
+ *
+ * @return array $untracked_tables
+ */
+function PMA_getUntrackedTables($db)
+{
+    $untracked_tables = array();
+    $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+
+    // Get list of tables
+    $table_list = PMA_Util::getTableList($db);
+
+    // For each table try to get the tracking version
+    foreach ($table_list as $key => $value) {
+        // If $value is a table group.
+        if (array_key_exists(('is' . $sep . 'group'), $value)
+            && $value['is' . $sep . 'group']
+        ) {
+            foreach ($value as $temp_table) {
+                // If $temp_table is a table with the value for 'Name' is set,
+                // rather than a property of the table group.
+                if (is_array($temp_table)
+                    && array_key_exists('Name', $temp_table)
+                ) {
+                    $tracking_version = PMA_Tracker::getVersion(
+                        $db,
+                        $temp_table['Name']
+                    );
+                    if ($tracking_version == -1) {
+                        $untracked_tables[] = $temp_table['Name'];
+                    }
+                }
+            }
+        } else { // If $value is a table.
+            if (PMA_Tracker::getVersion($db, $value['Name']) == -1) {
+                $untracked_tables[] = $value['Name'];
+            }
+        }
+    }
+    return $untracked_tables;
 }

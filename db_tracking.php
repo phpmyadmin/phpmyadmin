@@ -238,45 +238,12 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     <?php
 }
 
-$sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-
-// Get list of tables
-$table_list = PMA_Util::getTableList($GLOBALS['db']);
-
-$my_tables = array();
-
-// For each table try to get the tracking version
-foreach ($table_list as $key => $value) {
-    // If $value is a table group.
-    if (array_key_exists(('is' . $sep . 'group'), $value)
-        && $value['is' . $sep . 'group']
-    ) {
-        foreach ($value as $temp_table) {
-            // If $temp_table is a table with the value for 'Name' is set,
-            // rather than a property of the table group.
-            if (is_array($temp_table)
-                && array_key_exists('Name', $temp_table)
-            ) {
-                $tracking_version = PMA_Tracker::getVersion(
-                    $GLOBALS['db'],
-                    $temp_table['Name']
-                );
-                if ($tracking_version == -1) {
-                    $my_tables[] = $temp_table['Name'];
-                }
-            }
-        }
-    } else { // If $value is a table.
-        if (PMA_Tracker::getVersion($GLOBALS['db'], $value['Name']) == -1) {
-            $my_tables[] = $value['Name'];
-        }
-    }
-}
+$untracked_tables = PMA_getUntrackedTables($GLOBALS['db']);
 
 // If untracked tables exist
-if (count($my_tables) > 0) {
+if (count($untracked_tables) > 0) {
     PMA_displayUntrackedTables(
-        $GLOBALS['db'], $my_tables, $url_query, $pmaThemeImage, $text_dir
+        $GLOBALS['db'], $untracked_tables, $url_query, $pmaThemeImage, $text_dir
     );
 }
 // If available print out database log
