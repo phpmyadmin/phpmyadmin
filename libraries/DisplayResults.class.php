@@ -3730,7 +3730,7 @@ class PMA_DisplayResults
     /**
      * Prepare data cell for numeric type fields
      *
-     * @param string        $column                the relevant column in data row
+     * @param string        $column                the column's value
      * @param string        $class                 the html class for column
      * @param boolean       $condition_field       the column should highlighted
      *                                             or not
