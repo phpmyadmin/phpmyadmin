@@ -25,7 +25,9 @@
                     <th><?php echo __('Data length'); ?></th>
                     <th><?php echo __('Index length'); ?></th>
                     <th><?php echo __('Comment'); ?></th>
-                    <th colspan="7"><?php echo __('Action'); ?></th>
+                    <th colspan="<?php echo $rangeOrList ? '7' : '6'; ?>">
+                        <?php echo __('Action'); ?>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -110,7 +112,7 @@
                                     <span class="unit"><?php echo $unit; ?></span>
                                 </td>
                                 <td><?php echo $subParition->getComment(); ?></td>
-                                <td colspan="7"></td>
+                                <td colspan="<?php echo $rangeOrList ? '7' : '6'; ?>"></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

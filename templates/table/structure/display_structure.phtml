@@ -169,6 +169,8 @@ if (! is_null($partition_names[0])) {
 
     $partitions = PMA_Partition::getPartitions($db, $table);
     $firstPartition = $partitions[0];
+    $rangeOrList = $firstPartition->getMethod() == 'RANGE'
+        || $firstPartition->getMethod() == 'LIST';
     $subParitions = $firstPartition->getSubPartitions();
     $hasSubPartitions = $firstPartition->hasSubPartitions();
     if ($hasSubPartitions) {
@@ -182,8 +184,10 @@ if (! is_null($partition_names[0])) {
         'REBUILD' => PMA_Util::getIcon('s_tbl.png', __('Rebuild')),
         'REPAIR' => PMA_Util::getIcon('b_tblops.png', __('Repair')),
         'TRUNCATE' => PMA_Util::getIcon('b_empty.png', __('Truncate')),
-        'DROP' => PMA_Util::getIcon('b_drop.png', __('Drop'))
     );
+    if ($rangeOrList) {
+        $actionIcons['DROP'] = PMA_Util::getIcon('b_drop.png', __('Drop'));
+    }
 
     echo PMA_Util::getDivForSliderEffect(
         'partitions', __('Partitions')
@@ -201,6 +205,7 @@ if (! is_null($partition_names[0])) {
             'subPartitionMethod' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
             'subPartitionExpression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
             'actionIcons' => $actionIcons,
+            'rangeOrList' => $rangeOrList,
         )
     );
 ?>
