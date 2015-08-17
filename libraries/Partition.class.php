@@ -66,7 +66,6 @@ class PMA_SubPartition
     {
         $this->db = $row['TABLE_SCHEMA'];
         $this->table = $row['TABLE_NAME'];
-        $this->comment = $row['PARTITION_COMMENT'];
         $this->loadData($row);
     }
 
@@ -98,6 +97,7 @@ class PMA_SubPartition
         $this->rows = $row['TABLE_ROWS'];
         $this->dataLength = $row['DATA_LENGTH'];
         $this->indexLength = $row['INDEX_LENGTH'];
+        $this->comment = $row['PARTITION_COMMENT'];
     }
 
     /**
