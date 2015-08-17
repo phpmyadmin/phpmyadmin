@@ -52,6 +52,10 @@ class PMA_SubPartition
      * @var integer index length
      */
     protected $indexLength;
+    /**
+     * @var string partition comment
+     */
+    protected $comment;
 
     /**
      * Constructs a partition
@@ -62,6 +66,7 @@ class PMA_SubPartition
     {
         $this->db = $row['TABLE_SCHEMA'];
         $this->table = $row['TABLE_NAME'];
+        $this->comment = $row['PARTITION_COMMENT'];
         $this->loadData($row);
     }
 
@@ -163,6 +168,16 @@ class PMA_SubPartition
     public function getIndexLength()
     {
         return $this->indexLength;
+    }
+
+    /**
+     * Returns the partition comment
+     *
+     * @return string partition comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }
 
