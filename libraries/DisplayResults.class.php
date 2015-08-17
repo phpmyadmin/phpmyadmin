@@ -3161,7 +3161,9 @@ class PMA_DisplayResults
 
             $display_params = $this->__get('display_params');
 
-            if ($meta->numeric == 1) {
+            // in some situations (issue 11406), numeric returns 1
+            // even for a string type
+            if ($meta->numeric == 1 && $meta->type != 'string') {
                 // n u m e r i c
 
                 $display_params['data'][$row_no][$i]
