@@ -71,7 +71,7 @@ class PartitionDefinition extends Component
     /**
      * The expression used to defined this partition.
      *
-     * @var Expression
+     * @var Expression|string
      */
     public $expr;
 
