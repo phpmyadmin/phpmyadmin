@@ -719,7 +719,7 @@ class TableStructureController extends TableController
 
             if ($result !== false) {
                 $changed_privileges = $this->adjustColumnPrivileges(
-                    $this->db, $this->table, $adjust_privileges
+                    $adjust_privileges
                 );
 
                 if ($changed_privileges) {
