@@ -290,7 +290,7 @@ class CreateDefinition extends Component
                 $tmp .= 'CONSTRAINT ';
             }
 
-            if (!empty($component->name)) {
+            if (isset($component->name) && strlen($component->name)) {
                 $tmp .= Context::escape($component->name) . ' ';
             }
 
