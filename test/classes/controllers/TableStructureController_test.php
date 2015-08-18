@@ -186,7 +186,39 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
             false,
             $method->invokeArgs($ctrl, array(null))
         );
+    }
 
+    /**
+     * Tests for adjustColumnPrivileges()
+     * For the Drizzle environment
+     *
+     * @return void
+     * @test
+     */
+    public function testAdjustColumnPrivilegesDrizzle()
+    {
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped("Cannot redefine PMA_DRIZZLE constant");
+        }
+
+        $class = new ReflectionClass('\PMA\Controllers\TableStructureController');
+        $method = $class->getMethod('adjustColumnPrivileges');
+        $method->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $GLOBALS['dbi']);
+        $container->factory('PMA\Controllers\TableStructureController');
+        $container->alias(
+            'TableStructureController', 'PMA\Controllers\TableStructureController'
+        );
+        $ctrl = $container->get('TableStructureController');
+
+        $this->assertEquals(
+            false,
+            $method->invokeArgs($ctrl, array(null))
+        );
+
+        runkit_constant_redefine('PMA_DRIZZLE', false);
         $adjust_privileges = array(
             'col1' => 'col2'
         );

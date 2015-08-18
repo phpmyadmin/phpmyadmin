@@ -265,9 +265,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $statusInfo = array(
-            'Engine' => 'InnoDB'
-        );
+        $statusInfo = 'InnoDB';
         $tableMock->expects($this->any())->method('getStatusInfo')
             ->will($this->returnValue($statusInfo));
 
