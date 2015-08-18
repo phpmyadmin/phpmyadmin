@@ -1584,3 +1584,158 @@ function PMA_getUntrackedTables($db)
     }
     return $untracked_tables;
 }
+
+/**
+ * Display tracked tables
+ *
+ * @param string   $db                current database
+ * @param resource $all_tables_result result set of tracked tables
+ * @param string   $url_query         url query string
+ * @param string   $pmaThemeImage     path to theme's image folder
+ * @param string   $text_dir          text direction
+ * @param array    $cfgRelation       configuration storage info
+ *
+ * @return void
+ */
+function PMA_displayTrackedTables(
+    $db, $all_tables_result, $url_query, $pmaThemeImage, $text_dir, $cfgRelation
+) {
+    ?>
+    <div id="tracked_tables">
+    <h3><?php echo __('Tracked tables');?></h3>
+
+    <form method="post" action="db_tracking.php" name="trackedForm"
+        id="trackedForm" class="ajax">
+    <?php
+    echo PMA_URL_getHiddenInputs($db)
+    ?>
+    <table id="versions" class="data">
+    <thead>
+    <tr>
+        <th></th>
+        <th><?php echo __('Table');?></th>
+        <th><?php echo __('Last version');?></th>
+        <th><?php echo __('Created');?></th>
+        <th><?php echo __('Updated');?></th>
+        <th><?php echo __('Status');?></th>
+        <th><?php echo __('Action');?></th>
+        <th><?php echo __('Show');?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+
+    // Print out information about versions
+
+    $delete = PMA_Util::getIcon('b_drop.png', __('Delete tracking'));
+    $versions = PMA_Util::getIcon('b_versions.png', __('Versions'));
+    $report = PMA_Util::getIcon('b_report.png', __('Tracking report'));
+    $structure = PMA_Util::getIcon('b_props.png', __('Structure snapshot'));
+
+    $style = 'odd';
+    while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
+        list($table_name, $version_number) = $one_result;
+        $table_query = ' SELECT * FROM ' .
+             PMA_Util::backquote($cfgRelation['db']) . '.' .
+             PMA_Util::backquote($cfgRelation['tracking']) .
+             ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($_REQUEST['db'])
+             . '\' AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table_name)
+             . '\' AND `version` = \'' . $version_number . '\'';
+
+        $table_result = PMA_queryAsControlUser($table_query);
+        $version_data = $GLOBALS['dbi']->fetchArray($table_result);
+
+        $tbl_link = 'tbl_tracking.php' . $url_query . '&amp;table='
+            . htmlspecialchars($version_data['table_name']);
+        $delete_link = 'db_tracking.php' . $url_query . '&amp;table='
+            . htmlspecialchars($version_data['table_name'])
+            . '&amp;delete_tracking=true&amp';
+        $checkbox_id = "selected_tbl_"
+            . htmlspecialchars($version_data['table_name']);
+        ?>
+        <tr class="<?php echo $style;?>">
+            <td class="center">
+                <input type="checkbox" name="selected_tbl[]"
+                class="checkall" id="<?php echo $checkbox_id;?>"
+                value="<?php echo htmlspecialchars($version_data['table_name']);?>"/>
+            </td>
+            <th>
+                <label for="<?php echo $checkbox_id;?>">
+                    <?php echo htmlspecialchars($version_data['table_name']);?>
+                </label>
+            </th>
+            <td class="right"><?php echo $version_data['version'];?></td>
+            <td><?php echo $version_data['date_created'];?></td>
+            <td><?php echo $version_data['date_updated'];?></td>
+            <td>
+            <?php
+            PMA_displayStatusButton($version_data, $tbl_link);
+            ?>
+            </td>
+            <td>
+            <a class="delete_tracking_anchor ajax"
+               href="<?php echo $delete_link;?>" >
+            <?php echo $delete; ?></a>
+        <?php
+        echo '</td>'
+            . '<td>'
+            . '<a href="' . $tbl_link . '">' . $versions . '</a>'
+            . '&nbsp;&nbsp;'
+            . '<a href="' . $tbl_link . '&amp;report=true&amp;version='
+            . $version_data['version'] . '">' . $report . '</a>'
+            . '&nbsp;&nbsp;'
+            . '<a href="' . $tbl_link . '&amp;snapshot=true&amp;version='
+            . $version_data['version'] . '">' . $structure . '</a>'
+            . '</td>'
+            . '</tr>';
+        if ($style == 'even') {
+            $style = 'odd';
+        } else {
+            $style = 'even';
+        }
+    }
+    ?>
+    </tbody>
+    </table>
+    <?php
+    echo PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "trackedForm");
+    echo PMA_Util::getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_delete_tracking',
+        __('Delete tracking'), 'b_drop.png', 'delete_tracking'
+    );
+    ?>
+    </form>
+    </div>
+    <?php
+}
+
+/**
+ * Display tracking status button
+ *
+ * @param array  $version_data data about tracking versions
+ * @param string $tbl_link     link for tbl_tracking.php
+ *
+ * @return void
+ */
+function PMA_displayStatusButton($version_data, $tbl_link)
+{
+    $state = PMA_getVersionStatus($version_data);
+    $options = array(
+        0 => array(
+            'label' => __('not active'),
+            'value' => 'deactivate_now',
+            'selected' => ($state != 'active')
+        ),
+        1 => array(
+            'label' => __('active'),
+            'value' => 'activate_now',
+            'selected' => ($state == 'active')
+        )
+    );
+    echo PMA_Util::toggleButton(
+        $tbl_link . '&amp;version=' . $version_data['version'],
+        'toggle_activation',
+        $options,
+        null
+    );
+}
