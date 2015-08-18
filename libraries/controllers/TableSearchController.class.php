@@ -948,7 +948,7 @@ class TableSearchController extends TableController
                 'criteriaValues' => $entered_value,
                 'db' => $this->db,
                 'titles' => $titles,
-                'in_fbs' => false
+                'in_fbs' => true
             )
         );
         return array(
@@ -1081,7 +1081,7 @@ class TableSearchController extends TableController
             // create gis data from the criteria input
             $gis_data = PMA_Util::createGISData($criteriaValues);
             $where = $geom_func . '(' . PMA_Util::backquote($names)
-                . ',' . $gis_data . ')';
+                . ', ' . $gis_data . ')';
             return $where;
         }
 
