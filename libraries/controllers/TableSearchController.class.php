@@ -1075,14 +1075,9 @@ class TableSearchController extends TableController
 
         // Get details about the geometry functions
         $geom_funcs = PMA_Util::getGISFunctions($types, true, false);
-        // New output type is the output type of the function being applied
-        $types = $geom_funcs[$geom_func]['type'];
 
-        // If the function takes a single parameter
-        if ($geom_funcs[$geom_func]['params'] == 1) {
-            $backquoted_name = $geom_func . '(' . PMA_Util::backquote($names) . ')';
-        } else {
-            // If the function takes two parameters
+        // If the function takes multiple parameters
+        if ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
             $gis_data = PMA_Util::createGISData($criteriaValues);
             $where = $geom_func . '(' . PMA_Util::backquote($names)
@@ -1090,18 +1085,27 @@ class TableSearchController extends TableController
             return $where;
         }
 
+        // New output type is the output type of the function being applied
+        $type = $geom_funcs[$geom_func]['type'];
+        $geom_function_applied = $geom_func
+            . '(' . PMA_Util::backquote($names) . ')';
+
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
         if (isset($geom_unary_functions[$geom_func])
             && trim($criteriaValues) == ''
         ) {
-            $where = $backquoted_name;
+            $where = $geom_function_applied;
 
-        } elseif (in_array($types, PMA_Util::getGISDatatypes())
+        } elseif (in_array($type, PMA_Util::getGISDatatypes())
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
             $gis_data = PMA_Util::createGISData($criteriaValues);
-            $where = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
+            $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
+
+        } elseif (/*overload*/mb_strlen($criteriaValues) > 0) {
+            $where = $geom_function_applied . " "
+                . $func_type . " '" . $criteriaValues . "'";
         }
         return $where;
     }
