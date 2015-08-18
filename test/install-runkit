@@ -4,6 +4,7 @@ if [ $TRAVIS_PHP_VERSION = "nightly" -o $TRAVIS_PHP_VERSION = "4.3" -o $TRAVIS_P
     exit 0
 fi
 
+
 set -e
 
 git clone --depth=1 git://github.com/zenovich/runkit.git
