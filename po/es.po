@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-15 07:04-0400\n"
-"PO-Revision-Date: 2015-08-12 23:27+0200\n"
+"PO-Revision-Date: 2015-08-17 20:41+0200\n"
 "Last-Translator: Franco <fulanodetal.github@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5749,10 +5749,9 @@ msgstr ""
 "CodeMirror esté habilitado."
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Habilitar linter"
+msgstr "Habilitar Linter"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -14248,7 +14247,7 @@ msgid "Expected delimiter."
 msgstr "Delimitador esperado."
 
 #: libraries/sql-parser/src/Lexer.php:777
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "Se esperaba terminar la cita %1$s."
@@ -15695,34 +15694,29 @@ msgid "at beginning of table"
 msgstr "Al comienzo de la tabla"
 
 #: templates/table/structure/display_partitions.phtml:3
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Partición %s"
+msgstr "Particiones"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "particionado"
+msgstr "Dividido por:"
 
 #: templates/table/structure/display_partitions.phtml:12
-#, fuzzy
 #| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "particionado"
+msgstr "Sub dividido por:"
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Row length"
 msgid "Data length"
-msgstr "Longitud de la fila"
+msgstr "Longitud de los datos"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "Longitud de la fila"
+msgstr "Longitud del índice"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
