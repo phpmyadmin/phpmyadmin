@@ -4,7 +4,8 @@
         <a href="sql.php<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=' . <?php echo urlencode(
                     'SELECT * FROM ' . PMA_Util::backquote($GLOBALS['table'])
                     . ' PROCEDURE ANALYSE()'
-                ); ?>"><?php echo PMA_Util::getIcon(
+                ); ?>" style="margin-right: 0;">
+                <?php echo PMA_Util::getIcon(
                     'b_tblanalyse.png',
                     __('Propose table structure'),
                     true
