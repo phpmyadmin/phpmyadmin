@@ -976,6 +976,7 @@ class TableSearchController extends TableController
         // return
         if (! isset($_POST['criteriaValues'])
             && ! isset($_POST['criteriaColumnOperators'])
+            && ! isset($_POST['geom_func'])
         ) {
             return '';
         }
@@ -988,8 +989,8 @@ class TableSearchController extends TableController
         )) {
 
             $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
-            $tmp_geom_func = isset($geom_func[$column_index])
-                ? $geom_func[$column_index] : null;
+            $tmp_geom_func = isset($_POST['geom_func'][$column_index])
+                ? $_POST['geom_func'][$column_index] : null;
 
             $whereClause = $this->_getWhereClause(
                 $_POST['criteriaValues'][$column_index],
@@ -1121,7 +1122,7 @@ class TableSearchController extends TableController
         $func_type, $unaryFlag, $geom_func = null
     ) {
         // If geometry function is set
-        if ($geom_func != null && trim($geom_func) != '') {
+        if (! empty($geom_func)) {
             return $this->_getGeomWhereClause(
                 $criteriaValues, $names, $func_type, $types, $geom_func
             );
