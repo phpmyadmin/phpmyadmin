@@ -10,9 +10,10 @@ for (
         <?php $odd_row = !$odd_row; ?>
         <!-- If 'Function' column is present -->
         <?php if ($geomColumnFlag): ?>
-            <?php echo PMA\Template::get('geom_func')
+            <?php echo PMA\Template::get('table/search/geom_func')
                 ->render(array(
-                    'column_index' => $column_index
+                    'column_index' => $column_index,
+                    'columnTypes' => $columnTypes,
                 )); ?>
         <?php endif; ?>
         <!-- Displays column's name, type, collation and value -->
