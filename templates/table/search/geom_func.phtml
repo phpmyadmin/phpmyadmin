@@ -8,14 +8,14 @@
     /**
      * if a geometry column is present
      */
-    if (in_array($this->_columnTypes[$column_index], $geom_types)): ?>
+    if (in_array($columnTypes[$column_index], $geom_types)): ?>
         <select class="geom_func"
                 name="geom_func[<?php echo $column_index; ?>]">
 
             <?php
             // get the relevant list of GIS functions
             $funcs = PMA_Util::getGISFunctions(
-                $this->_columnTypes[$column_index], true, true
+                $columnTypes[$column_index], true, true
             );
             ?>
 
