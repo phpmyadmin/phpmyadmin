@@ -1,8 +1,9 @@
 #!/bin/bash
 
-if [ $TRAVIS_PHP_VERSION = "nightly" ] ; then
+if [ $TRAVIS_PHP_VERSION = "nightly" -o $TRAVIS_PHP_VERSION = "4.3" -o $TRAVIS_PHP_VERSION = "7.0" ] ; then
     exit 0
 fi
+
 
 set -e
 
