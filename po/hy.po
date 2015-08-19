@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-19 14:53+0200\n"
+"PO-Revision-Date: 2015-08-19 16:48+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/hy/>\n"
@@ -5966,11 +5966,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 msgid "Tabs"
-msgstr ""
+msgstr "Ներդիրներ"
 
 #: libraries/config/messages.inc.php:303
 msgid "Choose how you want tabs to work."
-msgstr ""
+msgstr "Կազմաձևեք ներդիրների աշխատանքը։"
 
 #: libraries/config/messages.inc.php:304
 msgid "Display relational schema"
@@ -6039,13 +6039,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:331
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Մասնակի ներմուծում՝ թույլատրել խզումները"
 
 #: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:347
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:73
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Չընդհատել INSERT-ը կատարելուց առաջացած սխալների պատճառով"
 
 #: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:349
 msgid "Add ON DUPLICATE KEY UPDATE"
@@ -6054,6 +6054,7 @@ msgstr "Ավելացնել ON DUPLICATE KEY UPDATE"
 #: libraries/config/messages.inc.php:338 libraries/config/messages.inc.php:350
 msgid "Update data when duplicate keys found on import"
 msgstr ""
+"Արդիացնել տվյալները, եթե ներմուծման ժամանակ հայտնաբերվեն կրկնվող բանալիներ"
 
 #: libraries/config/messages.inc.php:341
 msgid ""
@@ -6063,12 +6064,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:344
 msgid "Format of imported file"
-msgstr ""
+msgstr "Ներմուծվող ֆայլի ձևաչափը"
 
 #: libraries/config/messages.inc.php:348
 #: libraries/plugins/import/ImportLdi.class.php:78
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "Օգտագործել LOCAL հիմնաբառը"
 
 #: libraries/config/messages.inc.php:352 libraries/config/messages.inc.php:363
 #: libraries/config/messages.inc.php:364
@@ -6087,18 +6088,19 @@ msgstr ""
 #: libraries/config/messages.inc.php:357
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
+"Ներմուծել տոկոսները՝ ճշգրիտ տասնորդականների տեսքով (12.00%-ից դարձնելով .12)"
 
 #: libraries/config/messages.inc.php:358
 msgid "Number of queries to skip from start."
-msgstr ""
+msgstr "Սկզբից բաց թողնելու հարցումների քանակը։"
 
 #: libraries/config/messages.inc.php:359
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Մասնակի ներմուծում՝ զանցել հարցումները"
 
 #: libraries/config/messages.inc.php:362
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Չօգտագործել AUTO_INCREMENT-ը՝ զրոյական արժեքների դեպքում"
 
 #: libraries/config/messages.inc.php:365
 msgid "Initial state for sliders"
@@ -6110,7 +6112,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:367
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Զետեղվող տողերի քանակը"
 
 #: libraries/config/messages.inc.php:369
 msgid ""
@@ -6223,7 +6225,7 @@ msgstr "Ցուցադրելու տողերի առավելագույն քանակ�
 
 #: libraries/config/messages.inc.php:419
 msgid "Maximum number of tables displayed in table list."
-msgstr ""
+msgstr "Աղյուսակների ցանկում ցուցադրվող աղյուսակների առավելագույն քանակը։"
 
 #: libraries/config/messages.inc.php:420
 msgid "Maximum tables"
@@ -6241,7 +6243,7 @@ msgstr "Հիշողության սահմանաչափը"
 
 #: libraries/config/messages.inc.php:426
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "Նավարկման փեղկում փոխարինում է ՏԲ-ների ծառը ընտրիչով"
 
 #: libraries/config/messages.inc.php:428
 msgid "Show databases navigation as tree"
@@ -6250,6 +6252,8 @@ msgstr "Ցուցադրել տվյալների բազայի նավարկումը 
 #: libraries/config/messages.inc.php:430
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Համակցել հիմնական փեղկի հետ՝ գունանշելով ընթացիկ տվյալների բազան կան "
+"աղյուսակը։"
 
 #: libraries/config/messages.inc.php:432
 msgid "Show logo in navigation panel."
@@ -6261,7 +6265,7 @@ msgstr "Ցուցադրել լոգոն"
 
 #: libraries/config/messages.inc.php:435
 msgid "URL where logo in the navigation panel will point to."
-msgstr ""
+msgstr "Նավարկման փեղկի լոգոյի հղման URL-ը։"
 
 #: libraries/config/messages.inc.php:436
 msgid "Logo link URL"
@@ -6275,7 +6279,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:441
 msgid "Logo link target"
-msgstr ""
+msgstr "Լոգոյի հղման նպատակը"
 
 #: libraries/config/messages.inc.php:443
 msgid "Display server choice at the top of the navigation panel."
@@ -6287,11 +6291,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:445
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Արագ մատչման պատկերակի նպատակը"
 
 #: libraries/config/messages.inc.php:447
 msgid "Target for second quick access icon"
-msgstr ""
+msgstr "Արագ մատչման երկրորդ պատկերակի նպատակը"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
@@ -6315,7 +6319,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:460
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Խմբավորել տարրերը ծառում"
 
 #: libraries/config/messages.inc.php:462
 msgid "String that separates databases into different tree levels."
@@ -6323,7 +6327,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:463
 msgid "Database tree separator"
-msgstr ""
+msgstr "Տվյալների բազաների ծառի սահմանիչը"
 
 #: libraries/config/messages.inc.php:465
 msgid "String that separates tables into different tree levels."
@@ -6385,7 +6389,7 @@ msgstr "Բնական դասակարգում"
 #: libraries/config/messages.inc.php:486 libraries/config/messages.inc.php:517
 #: libraries/config/messages.inc.php:519
 msgid "Use only icons, only text or both."
-msgstr ""
+msgstr "Օգտագործել միայն պատկերակները, միայն գրվածքը, կամ երկուսը միասին։"
 
 #: libraries/config/messages.inc.php:487
 msgid "Table navigation bar"
@@ -6411,7 +6415,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:497
 msgid "Use persistent connections to MySQL databases."
-msgstr ""
+msgstr "Օգտագործել մշտական միացումները MySQL տվյալների բազաներին։"
 
 #: libraries/config/messages.inc.php:498
 msgid "Persistent connections"
@@ -6458,11 +6462,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:521
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr ""
+msgstr "Արգելել BLOB և BINARY տեսակների սյունակներում փոփոխումները։"
 
 #: libraries/config/messages.inc.php:522
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Պաշտպանել երկուական սյունակները"
 
 #: libraries/config/messages.inc.php:524
 msgid ""
@@ -6477,15 +6481,16 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:530
 msgid "How many queries are kept in history."
-msgstr ""
+msgstr "Պատմության մեջ պահվող հարցումների քանակը։"
 
 #: libraries/config/messages.inc.php:531
 msgid "Query history length"
-msgstr ""
+msgstr "Հարցումների պատմության երկարությունը"
 
 #: libraries/config/messages.inc.php:533
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
+"Ընտրեք գործառույթներ՝ կոդավորումը փոխարկելու ժամանակ օգտագործելու համար։"
 
 #: libraries/config/messages.inc.php:534
 msgid "Recoding engine"
@@ -6609,7 +6614,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:573
 msgid "Bookmark table"
-msgstr "Էջանիշերի աղյուսակ"
+msgstr "Էջանշել աղյուսակը"
 
 #: libraries/config/messages.inc.php:575
 msgid ""
@@ -6619,11 +6624,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:578
 msgid "Column information table"
-msgstr ""
+msgstr "Սյունակների վերաբերյալ տեղեկությունների աղյուսակը"
 
 #: libraries/config/messages.inc.php:579
 msgid "Compress connection to MySQL server."
-msgstr ""
+msgstr "Սեղմել տվյալները՝ MySQL սպասարկչին փոխարինելու ժամանակ։"
 
 #: libraries/config/messages.inc.php:580
 msgid "Compress connection"
@@ -6631,7 +6636,7 @@ msgstr "Սեղմել միացումը"
 
 #: libraries/config/messages.inc.php:582
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
-msgstr ""
+msgstr "Սպասարկչի հետ միանալու տեսակը։ Թողեք [kbd]tcp[/kbd], եթե վստահ չեք։"
 
 #: libraries/config/messages.inc.php:583
 msgid "Connection type"
@@ -6903,6 +6908,8 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"Արդյո՞ք մատյանում առաջին տողով պետք է ավելացվի DROP TABLE IF EXISTS "
+"արտահայտությունը՝  աղյուսակը ստեղծելու ժամանակ։"
 
 #: libraries/config/messages.inc.php:703
 msgid "Add DROP TABLE"
@@ -6913,6 +6920,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"Արդյո՞ք մատյանում առաջին տողով պետք է ավելացվի  DROP VIEW IF EXISTS "
+"արտահայտությունը՝  ներկայացումը ստեղծելու ժամանակ։"
 
 #: libraries/config/messages.inc.php:708
 msgid "Add DROP VIEW"
@@ -6934,7 +6943,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:716
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "SQL հարցումների հետագծման աղյուսակը"
 
 #: libraries/config/messages.inc.php:718
 msgid ""
@@ -7134,7 +7143,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:768
 msgid "Suhosin warning"
-msgstr "Suhosin-ի վերաբերյալ զգուշացում"
+msgstr "Suhosin-ի վերաբերյալ զգուշացումը"
 
 #: libraries/config/messages.inc.php:769
 msgid ""
@@ -7145,7 +7154,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:771
 msgid "Login cookie validity warning"
-msgstr ""
+msgstr "Թխուկի վավերացման վերաբերյալ զգուշացումը"
 
 #: libraries/config/messages.inc.php:773
 msgid ""
@@ -8382,6 +8391,8 @@ msgstr "Խմբագրել հաջորդ տողը"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
+"Օգտագործեք TAB ստեղնը՝ արշեքների դաշտերի միջև տեղափոխվելու, կամ CTRL+սլաքեր՝ "
+"ցանկացած տեղ տեղափոխվելու համար"
 
 #: libraries/insert_edit.lib.php:1925 libraries/sql.lib.php:1498
 msgid "Showing SQL query"
@@ -8405,7 +8416,7 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:301
 msgid "Success!"
-msgstr "Հաջողում։"
+msgstr "Հաջողում"
 
 #: libraries/mult_submits.lib.php:338
 msgid "Replace table prefix:"
@@ -10671,7 +10682,7 @@ msgstr "Վերջ"
 
 #: libraries/rte/rte_events.lib.php:497
 msgid "On completion preserve"
-msgstr ""
+msgstr "Վերջացնելուց պահպանել"
 
 #: libraries/rte/rte_events.lib.php:502
 #: libraries/rte/rte_routines.lib.php:1063
@@ -10695,7 +10706,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:584
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "Դուք պետք է տրամադրեք իրադարձության համար վավերական կատարելու ժամանակը։"
 
 #: libraries/rte/rte_events.lib.php:588
 msgid "You must provide a valid type for the event."
@@ -10710,7 +10721,7 @@ msgstr "Դուք պետք է տրամադրեք իրադարձության սա�
 #: libraries/rte/rte_routines.lib.php:1332
 #: libraries/rte/rte_routines.lib.php:1545
 msgid "Error in processing request:"
-msgstr ""
+msgstr "Հարցումը կատարելու սխալ՝"
 
 #: libraries/rte/rte_footer.lib.php:94
 msgid "OFF"
@@ -10951,7 +10962,7 @@ msgstr ""
 #: libraries/rte/rte_words.lib.php:48
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr ""
+msgstr "%2$s տվյալների բազայում %1$s անունով ձգանը չի գտնվել"
 
 #: libraries/rte/rte_words.lib.php:49
 msgid "There are no triggers to display."
@@ -10972,12 +10983,12 @@ msgstr "իրադարձություն"
 
 #: libraries/rte/rte_words.lib.php:60
 msgid "You do not have the necessary privileges to create an event"
-msgstr ""
+msgstr "Դուք չունեք իրադարձություն ստեղծելու համար անհրաժեշտ արտոնությունները"
 
 #: libraries/rte/rte_words.lib.php:62
 #, php-format
 msgid "No event with name %1$s found in database %2$s"
-msgstr ""
+msgstr "%2$s տվյալների բազայում %1$s անունով իրադարձությունը չի գտնվել"
 
 #: libraries/rte/rte_words.lib.php:63
 msgid "There are no events to display."
@@ -11190,12 +11201,12 @@ msgstr "Թույլատրում է ժամանակավոր աղյուսակներ�
 #: libraries/server_privileges.lib.php:365
 #: libraries/server_privileges.lib.php:1367 server_privileges.php:76
 msgid "Allows locking tables for the current thread."
-msgstr ""
+msgstr "Թույլատրում է աղյուսակների կողպումը՝ տվյալ հոսքի համար։"
 
 #: libraries/server_privileges.lib.php:370
 #: libraries/server_privileges.lib.php:1380 server_privileges.php:98
 msgid "Needed for the replication slaves."
-msgstr ""
+msgstr "Անհրաժեշտ է ենթարկվող սպասարկիչներին՝ կրկնապատկման ժամանակ։"
 
 #: libraries/server_privileges.lib.php:375
 #: libraries/server_privileges.lib.php:1376 server_privileges.php:96
@@ -11238,7 +11249,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:422
 #: libraries/server_privileges.lib.php:1384 server_privileges.php:63
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "Թույլատրում է օգտվողների հաշիվների ստեղծումը, ջնջումը և անվանափոխումը։"
 
 #: libraries/server_privileges.lib.php:427
 #: libraries/server_privileges.lib.php:1290 server_privileges.php:69
@@ -11261,7 +11272,7 @@ msgstr "Օգտվողների խումբ"
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
 msgid "Requires SSL-encrypted connections."
-msgstr ""
+msgstr "Պահանջում է SSL ծածկագրմամբ միացումը։"
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
@@ -11288,16 +11299,20 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
-msgstr ""
+msgstr "Պաշարների օգտագործման սահմանափակումները"
 
 #: libraries/server_privileges.lib.php:869
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
+"Նշում՝ այս կայանքների համար 0 (զրոյի) նշանակումը հանում է բոլոր "
+"սահմանափակումները։"
 
 #: libraries/server_privileges.lib.php:876
 #: libraries/server_privileges.lib.php:887 server_privileges.php:81
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
+"Սահմանափակում է օգտվողից սպասարկչին մեկ ժամվա ընթացքում ուղարկվող "
+"հարցումների առավելագույն քանակը։"
 
 #: libraries/server_privileges.lib.php:896
 #: libraries/server_privileges.lib.php:907 server_privileges.php:84
@@ -11389,7 +11404,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1862
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr ""
+msgstr "Դուք չեղարկեցիք արտոնությունները %s-ի համար։"
 
 #: libraries/server_privileges.lib.php:1952
 #: libraries/server_privileges.lib.php:4075
@@ -11402,11 +11417,13 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1965
 msgid "Create database with same name and grant all privileges."
-msgstr ""
+msgstr "Ստեղծել տվյալների բազան նույն անունով և շնորհել բոլոր արտոնությունները։"
 
 #: libraries/server_privileges.lib.php:1971
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
+"Շնորհել բոլոր արտոնությունները դերանշանին համապատասխանող օգտանուններին ("
+"օգտանուն\\_%)։"
 
 #: libraries/server_privileges.lib.php:1980
 #, php-format
@@ -11439,7 +11456,7 @@ msgstr "Շնորհել"
 
 #: libraries/server_privileges.lib.php:2275
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Օգտնողներին դիտելու համար արտոնությունները բավարար չեն։"
 
 #: libraries/server_privileges.lib.php:2295
 #: libraries/server_privileges.lib.php:3672
@@ -11649,7 +11666,7 @@ msgstr "Ընդունված"
 
 #: libraries/server_status.lib.php:166
 msgid "Sent"
-msgstr "Ուղարկված է"
+msgstr "Ուղարկված"
 
 #: libraries/server_status.lib.php:232
 msgid "max. concurrent connections"
@@ -11661,7 +11678,7 @@ msgstr "Ձախողված փորձեր"
 
 #: libraries/server_status_advisor.lib.php:23
 msgid "Instructions"
-msgstr ""
+msgstr "Հրահանգներ"
 
 #: libraries/server_status_advisor.lib.php:29
 msgid ""
@@ -11692,7 +11709,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:66
 msgid "Log statistics"
-msgstr ""
+msgstr "Վիճակագրություն"
 
 #: libraries/server_status_monitor.lib.php:67
 msgid "Selected time range:"
@@ -11700,7 +11717,7 @@ msgstr "Ընտրեք ժամանակահատվածը՝"
 
 #: libraries/server_status_monitor.lib.php:75
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Կատարել միայն SELECT,INSERT,UPDATE և DELETE արտահայտությունները"
 
 #: libraries/server_status_monitor.lib.php:81
 msgid "Remove variable data in INSERT statements for better grouping"
@@ -11720,7 +11737,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:110
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "Ցուցարկման հրահանգներ"
 
 #: libraries/server_status_monitor.lib.php:112
 msgid ""
@@ -13983,7 +14000,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries նշված է որպես 'OFF'"
+msgstr "log_slow_queries նշված է 'OFF'"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -13993,7 +14010,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr ""
+msgstr "slow_query_log նշված է 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -14118,7 +14135,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size նշված է 0 կամ query_cache_type նշված է 'OFF'"
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
@@ -14279,7 +14296,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit նշված է 1 մեբիԲայթ"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
@@ -14653,7 +14670,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
-msgstr "Հոսքի շտեմը նժված է որպես 0"
+msgstr "Հոսքի շտեմը նշված է 0"
 
 #: libraries/advisory_rules.txt:369
 #, php-format
@@ -14709,7 +14726,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:388
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr ""
+msgstr "slow_launch_time նշված է %s"
 
 #: libraries/advisory_rules.txt:392
 msgid "Percentage of used connections"
@@ -14807,7 +14824,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb նշված է 'value'"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
@@ -14901,11 +14918,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
-msgstr "MyISAM-ի միաժամանակ զետեղումներ"
+msgstr "MyISAM-ի համատեղ զետեղումները"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "Միացրեք {concurrent_insert}-ը, նշանակելով 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -14916,7 +14933,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert նշված է 0"
 
 #, fuzzy
 #~| msgid "Database comment:"
