@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-15 07:04-0400\n"
-"PO-Revision-Date: 2015-08-12 21:31+0200\n"
+"PO-Revision-Date: 2015-08-19 13:01+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15662,34 +15662,29 @@ msgid "at beginning of table"
 msgstr "στην αρχή του πίνακα"
 
 #: templates/table/structure/display_partitions.phtml:3
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Κατάτμηση %s"
+msgstr "Κατατμήσεις"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "κατατμήθηκε"
+msgstr "Κατατμήθηκε κατά:"
 
 #: templates/table/structure/display_partitions.phtml:12
-#, fuzzy
 #| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "κατατμήθηκε"
+msgstr "Υπό κατατμήθηκε κατά:"
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Row length"
 msgid "Data length"
-msgstr "Μέγεθος γραμμής"
+msgstr "Μέγεθος δεδομένων"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "Μέγεθος γραμμής"
+msgstr "Μέγεθος ευρετηρίου"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
