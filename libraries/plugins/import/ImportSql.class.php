@@ -136,7 +136,7 @@ class ImportSql extends ImportPlugin
             if (empty($statement)) {
 
                 // Importing new data.
-                $newData = PMA_importGetNextChunk(200);
+                $newData = PMA_importGetNextChunk();
 
                 // Subtract data we didn't handle yet and stop processing.
                 if ($newData === false) {
