@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-15 07:04-0400\n"
-"PO-Revision-Date: 2015-08-19 13:14+0200\n"
+"PO-Revision-Date: 2015-08-19 14:53+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -6077,7 +6077,7 @@ msgstr "Ընդհանուր"
 
 #: libraries/config/messages.inc.php:257
 msgid "Set some commonly used options."
-msgstr ""
+msgstr "Կազմաձևել հաճախակի օգտագործվող կայանքները։"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import defaults"
@@ -6085,7 +6085,7 @@ msgstr "Ներմուծման լռելյայն կայանքներ"
 
 #: libraries/config/messages.inc.php:260
 msgid "Customize default common import options."
-msgstr ""
+msgstr "Կազմաձևել լռելյայն ներմուծման կայանքները։"
 
 #: libraries/config/messages.inc.php:261
 msgid "Import / export"
@@ -6093,11 +6093,11 @@ msgstr "Ներմուծում / արտահանում"
 
 #: libraries/config/messages.inc.php:263
 msgid "Set import and export directories and compression options."
-msgstr ""
+msgstr "Նշանակել ներմուծման և արտահանման պանակները և սեղման կայանքները։"
 
 #: libraries/config/messages.inc.php:264
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:267
 msgid "Databases display options."
@@ -6109,7 +6109,7 @@ msgstr "Նավարկման փեղկ"
 
 #: libraries/config/messages.inc.php:269
 msgid "Customize appearance of the navigation panel."
-msgstr ""
+msgstr "Կազմաձևել նավարկման փեղկի արտաքին տեսքը։"
 
 #: libraries/config/messages.inc.php:270
 msgid "Navigation tree"
@@ -6117,12 +6117,12 @@ msgstr "Նավարկման ծառ"
 
 #: libraries/config/messages.inc.php:271
 msgid "Customize the navigation tree."
-msgstr "Ընտելացնել նավարկման ծառը։"
+msgstr "Կազմաձևել նավարկման ծառը։"
 
 #: libraries/config/messages.inc.php:272 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
 msgid "Servers"
-msgstr "Սրասարկիչներ"
+msgstr "Սպասարկիչներ"
 
 #: libraries/config/messages.inc.php:273
 msgid "Servers display options."
@@ -6138,11 +6138,11 @@ msgstr "Հիմնական փեղկը"
 
 #: libraries/config/messages.inc.php:277
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:281
 msgid "Other core settings"
-msgstr ""
+msgstr "Հենքի այլ կայանքներ"
 
 #: libraries/config/messages.inc.php:283
 msgid "Settings that didn't fit anywhere else."
@@ -6167,6 +6167,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
+"Ի նկատի ունեցեք, որ phpMyAdmin-ը՝ ընդամենը օգտվողի միջերես է, և դրա "
+"կայանքները չեն սահմանափակում MySQL-ի հատկությունները։"
 
 #: libraries/config/messages.inc.php:295
 msgid "Basic settings"
@@ -6192,7 +6194,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:303
 msgid "Enter server connection parameters."
-msgstr ""
+msgstr "Մուտքագրեք սպասարկչի հետ կապ հաստատելու հարաչափերը։"
 
 #: libraries/config/messages.inc.php:304
 msgid "Configuration storage"
