@@ -419,7 +419,7 @@ class ImportSql extends ImportPlugin
 
         while (!$error && !$timeout_passed) {
             if (false === $delimiterFound) {
-                $newData = PMA_importGetNextChunk(200);
+                $newData = PMA_importGetNextChunk();
                 if ($newData === false) {
                     // subtract data we didn't handle yet and stop processing
                     $GLOBALS['offset'] -= $this->_dataLength;
