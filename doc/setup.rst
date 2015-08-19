@@ -253,9 +253,16 @@ Verifying phpMyAdmin releases
 +++++++++++++++++++++++++++++
 
 Since July 2015 all phpMyAdmin releases are cryptographically signed by the
-releasing developer. You should verify that the signature matches the archive
-you have downloaded. This way you can be sure that you are using the same code
-that was released.
+releasing developer, who is currently Marc Delisle. His key id is
+0x81AF644A, his PGP fingerprint is:
+
+.. code-block:: console
+
+    436F F188 4B1A 0C3F DCBF 0D79 FEFC 65D1 81AF 644A
+
+and you can get more identification information from `https://keybase.io/lem9 <https://keybase.io/lem9>`_.  You should verify that the signature matches
+the archive you have downloaded. This way you can be sure that you are using
+the same code that was released.
 
 Each archive is accompanied with ``.asc`` files which contains the PGP signature
 for it. Once you have both of them in the same folder, you can verify the signature:
