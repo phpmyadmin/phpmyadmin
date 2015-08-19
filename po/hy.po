@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-19 13:14+0200\n"
+"PO-Revision-Date: 2015-08-19 14:53+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/hy/>\n"
@@ -5766,7 +5766,7 @@ msgstr "Ընդհանուր"
 
 #: libraries/config/messages.inc.php:224
 msgid "Set some commonly used options."
-msgstr ""
+msgstr "Կազմաձևել հաճախակի օգտագործվող կայանքները։"
 
 #: libraries/config/messages.inc.php:226
 msgid "Import defaults"
@@ -5774,7 +5774,7 @@ msgstr "Ներմուծման լռելյայն կայանքներ"
 
 #: libraries/config/messages.inc.php:227
 msgid "Customize default common import options."
-msgstr ""
+msgstr "Կազմաձևել լռելյայն ներմուծման կայանքները։"
 
 #: libraries/config/messages.inc.php:228
 msgid "Import / export"
@@ -5782,11 +5782,11 @@ msgstr "Ներմուծում / արտահանում"
 
 #: libraries/config/messages.inc.php:230
 msgid "Set import and export directories and compression options."
-msgstr ""
+msgstr "Նշանակել ներմուծման և արտահանման պանակները և սեղման կայանքները։"
 
 #: libraries/config/messages.inc.php:231
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:234
 msgid "Databases display options."
@@ -5798,12 +5798,12 @@ msgstr "Նավարկման փեղկ"
 
 #: libraries/config/messages.inc.php:236
 msgid "Customize appearance of the navigation panel."
-msgstr ""
+msgstr "Կազմաձևել նավարկման փեղկի արտաքին տեսքը։"
 
 #: libraries/config/messages.inc.php:237 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:144
 msgid "Servers"
-msgstr "Սրասարկիչներ"
+msgstr "Սպասարկիչներ"
 
 #: libraries/config/messages.inc.php:238
 msgid "Servers display options."
@@ -5819,11 +5819,11 @@ msgstr "Հիմնական փեղկը"
 
 #: libraries/config/messages.inc.php:242
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:246
 msgid "Other core settings"
-msgstr ""
+msgstr "Հենքի այլ կայանքներ"
 
 #: libraries/config/messages.inc.php:248
 msgid "Settings that didn't fit anywhere else."
@@ -5856,6 +5856,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
+"Ի նկատի ունեցեք, որ phpMyAdmin-ը՝ ընդամենը օգտվողի միջերես է, և դրա "
+"կայանքները չեն սահմանափակում MySQL-ի հատկությունները։"
 
 #: libraries/config/messages.inc.php:262
 msgid "Basic settings"
@@ -5881,7 +5883,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:270
 msgid "Enter server connection parameters."
-msgstr ""
+msgstr "Մուտքագրեք սպասարկչի հետ կապ հաստատելու հարաչափերը։"
 
 #: libraries/config/messages.inc.php:271
 msgid "Configuration storage"
