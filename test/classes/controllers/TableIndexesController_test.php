@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/tbl_indexes.lib.php
+ * Tests for libraries/controllers/TableIndexesController.class.php
  *
  * @package PhpMyAdmin-test
  */

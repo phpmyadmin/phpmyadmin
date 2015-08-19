@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/Partition.class.php';
+
 /**
  * Get HTML output for database comment
  *

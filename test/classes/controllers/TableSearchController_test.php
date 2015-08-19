@@ -12,17 +12,12 @@
 use PMA\Controllers\Table\TableSearchController;
 use PMA\DI\Container;
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Util.class.php';
-require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Types.class.php';
-require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
+require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableSearchController.class.php';
 
@@ -33,6 +28,10 @@ require_once 'libraries/controllers/TableSearchController.class.php';
  */
 class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var PMA\Test\Stubs\PMA_Response
+     */
+    private $response;
 
     /**
      * Setup function for test cases
@@ -102,10 +101,14 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
+        $this->response = new PMA\Test\Stubs\PMA_Response();
+
         $container = Container::getDefaultContainer();
         $container->set('db', 'PMA');
         $container->set('table', 'PMA_BookMark');
         $container->set('dbi', $GLOBALS['dbi']);
+        $container->set('response', $this->response);
+        $container->set('searchType', 'replace');
     }
 
     /**
@@ -236,6 +239,153 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $result,
             $sql
+        );
+    }
+
+    /**
+     * Tests for getColumnMinMax()
+     *
+     * @return void
+     * @test
+     */
+    public function testGetColumnMinMax()
+    {
+        $GLOBALS['dbi']->expects($this->any())->method('fetchSingleRow')
+            ->will($this->returnArgument(0));
+
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $GLOBALS['dbi']);
+        $container->factory('PMA\Controllers\Table\TableSearchController');
+        $container->alias(
+            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+        );
+        $ctrl = $container->get('TableSearchController');
+
+        $result = $ctrl->getColumnMinMax('column');
+        $expected = 'SELECT MIN(`column`) AS `min`, '
+            . 'MAX(`column`) AS `max` '
+            . 'FROM `PMA`.`PMA_BookMark`';
+        $this->assertEquals(
+            $expected,
+            $result
+        );
+    }
+
+    /**
+     * Tests for _generateWhereClause()
+     *
+     * @return void
+     * @test
+     */
+    public function testGenerateWhereClause()
+    {
+        $types = $this->getMockBuilder('PMA_Types')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $types->expects($this->any())->method('isUnaryOperator')
+            ->will($this->returnValue(false));
+        $GLOBALS['PMA_Types'] = $types;
+
+        $class = new ReflectionClass('\PMA\Controllers\Table\TableSearchController');
+        $method = $class->getMethod('_generateWhereClause');
+        $method->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->factory('\PMA\Controllers\Table\TableSearchController');
+        $container->alias(
+            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+        );
+        $ctrl = $container->get('TableSearchController');
+
+        $_POST['customWhereClause'] = '`table` = \'PMA_BookMark\'';
+        $result = $method->invoke($ctrl);
+        $this->assertEquals(
+            ' WHERE `table` = \'PMA_BookMark\'',
+            $result
+        );
+
+        unset($_POST['customWhereClause']);
+        $this->assertEquals(
+            '',
+            $method->invoke($ctrl)
+        );
+
+        $_POST['criteriaColumnNames'] = array(
+            'b', 'a'
+        );
+        $_POST['criteriaColumnOperators'] = array(
+            '<=', '='
+        );
+        $_POST['criteriaValues'] = array(
+            '10', '2'
+        );
+        $_POST['criteriaColumnTypes'] = array(
+            'int(11)', 'int(11)'
+        );
+        $result = $method->invoke($ctrl);
+        $this->assertEquals(
+            ' WHERE `b` <= 10 AND `a` = 2',
+            $result
+        );
+    }
+
+    /**
+     * Tests for getDataRowAction()
+     *
+     * @return void
+     * @test
+     */
+    public function testGetDataRowAction()
+    {
+        $meta_one = new stdClass();
+        $meta_one->type = 'int';
+        $meta_one->length = 11;
+        $meta_two = new stdClass();
+        $meta_two->length = 11;
+        $meta_two->type = 'int';
+        $fields_meta = array(
+            $meta_one, $meta_two
+        );
+        $GLOBALS['dbi']->expects($this->any())->method('getFieldsMeta')
+            ->will($this->returnValue($fields_meta));
+
+        $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
+            ->will($this->returnCallback(
+                function () {
+                    static $count = 0;
+                    if ($count == 0) {
+                        $count++;
+                        return array(
+                            'col1' => 1,
+                            'col2' => 2
+                        );
+                    } else {
+                        return null;
+                    }
+                }
+            ));
+
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $GLOBALS['dbi']);
+        $container->factory('\PMA\Controllers\Table\TableSearchController');
+        $container->alias(
+            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+        );
+        $ctrl = $container->get('TableSearchController');
+
+        $_REQUEST['db'] = 'PMA';
+        $_REQUEST['table'] = 'PMA_BookMark';
+        $_REQUEST['where_clause'] = '`col1` = 1';
+        $expected = array(
+            'col1' => 1,
+            'col2' => 2
+        );
+        $ctrl->getDataRowAction();
+
+        $json = $this->response->getJSONResult();
+        $this->assertEquals(
+            $expected,
+            $json['row_info']
         );
     }
 }

@@ -282,4 +282,112 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
             $_REQUEST['selected_fld']
         );
     }
+
+    /**
+     * Test for getDataForSubmitMult()
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetDataForSubmitMult()
+    {
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('query')
+            ->will($this->returnValue(true));
+
+        $class = new ReflectionClass('PMA\Controllers\TableStructureController');
+        $method = $class->getMethod('getDataForSubmitMult');
+        $method->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $dbi);
+        $container->factory('PMA\Controllers\TableStructureController');
+        $container->alias(
+            'TableStructureController', 'PMA\Controllers\TableStructureController'
+        );
+        $ctrl = $container->get('TableStructureController');
+
+        $submit_mult = "index";
+        $db = "PMA_db";
+        $table = "PMA_table";
+        $selected = array(
+            "table1", "table2"
+        );
+        $action = 'db_delete_row';
+
+        list(
+            $what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError
+        )
+            = $method->invokeArgs($ctrl, array($submit_mult, $db, $table, $selected, $action));
+
+        //validate 1: $what
+        $this->assertEquals(
+            null,
+            $what
+        );
+
+        //validate 2: $query_type
+        $this->assertEquals(
+            'index_fld',
+            $query_type
+        );
+
+        //validate 3: $is_unset_submit_mult
+        $this->assertEquals(
+            true,
+            $is_unset_submit_mult
+        );
+
+        //validate 4:
+        $this->assertEquals(
+            __('Yes'),
+            $mult_btn
+        );
+
+        //validate 5: $centralColsError
+        $this->assertEquals(
+            null,
+            $centralColsError
+        );
+
+        $submit_mult = "unique";
+
+        list(
+            $what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError
+        )
+            = $method->invokeArgs($ctrl, array($submit_mult, $db, $table, $selected, $action));
+
+        //validate 1: $what
+        $this->assertEquals(
+            null,
+            $what
+        );
+
+        //validate 2: $query_type
+        $this->assertEquals(
+            'unique_fld',
+            $query_type
+        );
+
+        //validate 3: $is_unset_submit_mult
+        $this->assertEquals(
+            true,
+            $is_unset_submit_mult
+        );
+
+        //validate 4: $mult_btn
+        $this->assertEquals(
+            __('Yes'),
+            $mult_btn
+        );
+
+        //validate 5: $centralColsError
+        $this->assertEquals(
+            null,
+            $centralColsError
+        );
+    }
 }

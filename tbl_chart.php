@@ -10,6 +10,7 @@ namespace PMA;
 
 use PMA_Response;
 
+require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/Response.class.php';
 require_once 'libraries/controllers/TableChartController.class.php';
