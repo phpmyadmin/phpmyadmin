@@ -4234,7 +4234,7 @@ class PMA_Util
      *
      * @return resource curl_handle with updated options
      */
-    public static function configureCurl(resource $curl_handle)
+    public static function configureCurl($curl_handle)
     {
         if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
             curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);

@@ -1504,7 +1504,9 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
             );
         }
 
-        if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
+        if ((! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM')
+            || PMA_MYSQL_INT_VERSION >= 50705
+        ) {
             $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_spatial',
                 __('Spatial'), 'b_spatial.png', 'spatial'
@@ -2128,8 +2130,9 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         $html_output .= PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
             'spatial nowrap',
-            (! in_array($type, $spatial_types)
-                || 'MYISAM' != $tbl_storage_engine
+            ! (in_array($type, $spatial_types)
+                && ('MYISAM' == $tbl_storage_engine
+                || PMA_MYSQL_INT_VERSION >= 50705)
             ),
             false, $url_query, $primary, 'ADD SPATIAL',
             __('An index has been added on %s.'), 'Spatial',

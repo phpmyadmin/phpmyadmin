@@ -644,7 +644,7 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
         if ($import_notice) {
             $message->addString($import_notice);
         }
-        if (isset($local_import_file)) {
+        if (! empty($local_import_file)) {
             $message->addString('(' . htmlspecialchars($local_import_file) . ')');
         } else {
             $message->addString(
