@@ -268,7 +268,6 @@ class ExportSql extends ExportPlugin
                 $leaf->setText(
                     sprintf(__('Add %s statement'), '<code>CREATE TABLE</code>')
                 );
-                $subgroup->addProperty($leaf);
 
                 $subgroup_create_table = new OptionsPropertySubgroup();
                 $subgroup_create_table->setSubgroupHeader($leaf);
@@ -1688,7 +1687,8 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Generating auto-increment-related query.
-                if ((!empty($auto_increment))
+                if ((isset($GLOBALS['sql_auto_increment']))
+                    && (! empty($auto_increment))
                     && ($update_indexes_increments)
                     && ($statement->entityOptions->has('AUTO_INCREMENT') !== false)
                 ) {
