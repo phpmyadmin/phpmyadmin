@@ -282,7 +282,7 @@ class CreateDefinition extends Component
             foreach ($component as $c) {
                 $ret[] = static::build($c);
             }
-            return "(\n" . implode(",\n", $ret) . "\n)";
+            return "(\n  " . implode(",\n  ", $ret) . "\n)";
         } else {
             $tmp = '';
 

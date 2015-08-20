@@ -163,7 +163,7 @@ class Key extends Component
         if (!empty($component->name)) {
             $ret .= Context::escape($component->name) . ' ';
         }
-        $ret .= '(' . implode(', ', Context::escape($component->columns)) . ')';
+        $ret .= '(' . implode(',', Context::escape($component->columns)) . ')';
         $ret .= OptionsArray::build($component->options);
         return trim($ret);
     }
