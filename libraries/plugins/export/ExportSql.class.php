@@ -262,25 +262,27 @@ class ExportSql extends ExportPlugin
                 $leaf->setText(sprintf(__('Add %s statement'), $drop_clause));
                 $subgroup->addProperty($leaf);
 
+                $subgroup_create_table = new OptionsPropertySubgroup();
+
                 // Add table structure option
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('create_table');
                 $leaf->setText(
                     sprintf(__('Add %s statement'), '<code>CREATE TABLE</code>')
                 );
-
-                $subgroup_create_table = new OptionsPropertySubgroup();
                 $subgroup_create_table->setSubgroupHeader($leaf);
+
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('if_not_exists');
                 $leaf->setText('<code>IF NOT EXISTS</code>');
                 $subgroup_create_table->addProperty($leaf);
+
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('auto_increment');
                 $leaf->setText(sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>'));
                 $subgroup_create_table->addProperty($leaf);
+
                 $subgroup->addProperty($subgroup_create_table);
-                $structureOptions->addProperty($subgroup);
 
                 // Add view option
                 $leaf = new BoolPropertyItem();
@@ -310,6 +312,8 @@ class ExportSql extends ExportPlugin
                     sprintf(__('Add %s statement'), '<code>CREATE TRIGGER</code>')
                 );
                 $subgroup->addProperty($leaf);
+
+                $structureOptions->addProperty($subgroup);
 
                 $leaf = new BoolPropertyItem();
                 $leaf->setName("backquotes");
