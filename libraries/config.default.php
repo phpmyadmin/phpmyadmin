@@ -2087,13 +2087,6 @@ $cfg['Export']['sql_mime'] = false;
 $cfg['Export']['sql_header_comment'] = '';
 
 /**
- *
- *
- * @global boolean $cfg['Export']['sql_create_table_statements']
- */
-$cfg['Export']['sql_create_table_statements'] = true;
-
-/**
  * Whether to use complete inserts, extended inserts, both, or neither
  *
  * @global string $cfg['Export']['sql_insert_syntax']

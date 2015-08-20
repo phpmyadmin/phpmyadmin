@@ -270,6 +270,19 @@ class ExportSql extends ExportPlugin
                 );
                 $subgroup->addProperty($leaf);
 
+                $subgroup_create_table = new OptionsPropertySubgroup();
+                $subgroup_create_table->setSubgroupHeader($leaf);
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('if_not_exists');
+                $leaf->setText('<code>IF NOT EXISTS</code>');
+                $subgroup_create_table->addProperty($leaf);
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('auto_increment');
+                $leaf->setText('<code>AUTO_INCREMENT</code>');
+                $subgroup_create_table->addProperty($leaf);
+                $subgroup->addProperty($subgroup_create_table);
+                $structureOptions->addProperty($subgroup);
+
                 // Add view option
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('create_view');
@@ -298,23 +311,6 @@ class ExportSql extends ExportPlugin
                     sprintf(__('Add %s statement'), '<code>CREATE TRIGGER</code>')
                 );
                 $subgroup->addProperty($leaf);
-
-                // begin CREATE TABLE statements
-                $subgroup_create_table = new OptionsPropertySubgroup();
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('create_table_statements');
-                $leaf->setText(__('<code>CREATE TABLE</code> options:'));
-                $subgroup_create_table->setSubgroupHeader($leaf);
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('if_not_exists');
-                $leaf->setText('<code>IF NOT EXISTS</code>');
-                $subgroup_create_table->addProperty($leaf);
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('auto_increment');
-                $leaf->setText('<code>AUTO_INCREMENT</code>');
-                $subgroup_create_table->addProperty($leaf);
-                $subgroup->addProperty($subgroup_create_table);
-                $structureOptions->addProperty($subgroup);
 
                 $leaf = new BoolPropertyItem();
                 $leaf->setName("backquotes");

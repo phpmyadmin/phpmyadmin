@@ -539,19 +539,6 @@ function toggle_table_select(row) {
 }
 
 AJAX.registerOnload('export.js', function () {
-    /**
-     * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
-     */
-    var $create = $("#checkbox_sql_create_table_statements");
-    var $create_options = $("#ul_create_table_statements input");
-    $create.change(function () {
-        $create_options.prop('checked', $(this).prop("checked"));
-    });
-    $create_options.change(function () {
-        if ($create_options.is(":checked")) {
-            $create.prop('checked', true);
-        }
-    });
 
     /**
      * Disables the view output as text option if the output must be saved as a file

@@ -187,8 +187,6 @@ $strConfigExport_sql_auto_increment_name = __('Add AUTO_INCREMENT value');
 $strConfigExport_sql_backquotes_name
     = __('Enclose table and column names with backquotes');
 $strConfigExport_sql_compatibility_name = __('SQL compatibility mode');
-$strConfigExport_sql_create_table_statements_name
-    = __('<code>CREATE TABLE</code> options:');
 $strConfigExport_sql_dates_name = __('Creation/Update/Check dates');
 $strConfigExport_sql_delayed_name = __('Use delayed inserts');
 $strConfigExport_sql_disable_fk_name = __('Disable foreign key checks');
