@@ -239,8 +239,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
         );
         if (in_array($columnMeta['Extra'], $virtual)) {
-            $table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-            $expressions = $table->getColumnGenerationExpression(
+            $tableObj = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $expressions = $tableObj->getColumnGenerationExpression(
                 $columnMeta['Field']
             );
             $columnMeta['Expression'] = $expressions[$columnMeta['Field']];

@@ -850,10 +850,9 @@ function PMA_exportTable(
     // If this is an export of a single view, we have to export data;
     // for example, a PDF report
     // if it is a merge table, no data is exported
-    $table = new PMA_Table($table, $db);
     if (($whatStrucOrData == 'data'
         || $whatStrucOrData == 'structure_and_data')
-        && ! $table->isMerge()
+        && ! $GLOBALS['dbi']->getTable($db, $table)->isMerge()
     ) {
         if (! empty($sql_query)) {
             // only preg_replace if needed

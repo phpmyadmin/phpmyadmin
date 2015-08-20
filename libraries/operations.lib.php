@@ -467,8 +467,7 @@ function PMA_copyTables($tables_full, $move, $db)
 
         // do not copy the data from a Merge table
         // note: on the calling FORM, 'data' means 'structure and data'
-        $table = new PMA_Table($each_table, $db);
-        if ($table->isMerge()) {
+        if ($GLOBALS['dbi']->getTable($db, $each_table)->isMerge()) {
             if ($this_what == 'data') {
                 $this_what = 'structure';
             }
