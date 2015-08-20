@@ -277,7 +277,7 @@ class ExportSql extends ExportPlugin
                 $subgroup_create_table->addProperty($leaf);
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('auto_increment');
-                $leaf->setText('<code>AUTO_INCREMENT</code>');
+                $leaf->setText(sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>'));
                 $subgroup_create_table->addProperty($leaf);
                 $subgroup->addProperty($subgroup_create_table);
                 $structureOptions->addProperty($subgroup);
