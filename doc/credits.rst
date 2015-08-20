@@ -402,6 +402,18 @@ Credits, in chronological order
 
   * Export with table/column name changes
 
+* Dan Ungureanu (Google Summer of Code 2015)
+
+  * New parser and analyzer
+
+* Nisarg Jhaveri (Google Summer of Code 2015)
+
+  * Page-related settings
+
+  * SQL debugging integration to the Console
+
+  * Other UI improvements
+
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
 2.1.0:
