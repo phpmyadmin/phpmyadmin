@@ -193,6 +193,8 @@ if (! is_null($partition_names[0])) {
         'partitions', __('Partitions')
     );
 
+    $tmp_partition_description = $firstPartition->getDescription();
+
     echo PMA\Template::get('table/structure/display_partitions')->render(
         array(
             'table' => $table,
@@ -200,7 +202,7 @@ if (! is_null($partition_names[0])) {
             'partitions' => $partitions,
             'partitionMethod' => $firstPartition->getMethod(),
             'partitionExpression' => $firstPartition->getExpression(),
-            'hasDescription' => ! empty($firstPartition->getDescription()),
+            'hasDescription' => ! empty($tmp_partition_description),
             'hasSubPartitions' => $hasSubPartitions,
             'subPartitionMethod' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
             'subPartitionExpression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
