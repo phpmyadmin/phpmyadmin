@@ -288,30 +288,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             $leaf
         );
 
-        $leaf = array_shift($leaves);
-        $this->assertInstanceOf(
-            'BoolPropertyItem',
-            $leaf
-        );
-
-        $leaf = array_shift($leaves);
-        $this->assertInstanceOf(
-            'BoolPropertyItem',
-            $leaf
-        );
-
-        $leaf = array_shift($leaves);
-        $this->assertInstanceOf(
-            'BoolPropertyItem',
-            $leaf
-        );
-
-        $leaf = array_shift($leaves);
-        $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
-            $leaf
-        );
-
         $this->assertCount(
             2,
             $leaf->getProperties()
@@ -322,8 +298,25 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             $leaf->getSubgroupHeader()
         );
 
-        $property = array_shift($properties);
+        $leaf = array_shift($leaves);
+        $this->assertInstanceOf(
+            'BoolPropertyItem',
+            $leaf
+        );
 
+        $leaf = array_shift($leaves);
+        $this->assertInstanceOf(
+            'BoolPropertyItem',
+            $leaf
+        );
+
+        $leaf = array_shift($leaves);
+        $this->assertInstanceOf(
+            'BoolPropertyItem',
+            $leaf
+        );
+
+        $property = array_shift($properties);
         $this->assertInstanceOf(
             'BoolPropertyItem',
             $property
