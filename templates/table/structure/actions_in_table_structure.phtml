@@ -71,7 +71,7 @@
                     'type' => $type,
                     'tbl_storage_engine' => $tbl_storage_engine,
                     'class' => 'spatial nowrap',
-                    'hasField' => (! in_array($type, $spatial_types) || 'MYISAM' != $tbl_storage_engine),
+                    'hasField' => ! (in_array($type, $spatial_types) && ('MYISAM' == $tbl_storage_engine || PMA_MYSQL_INT_VERSION >= 50705)),
                     'hasLinkClass' => false,
                     'url_query' => $url_query,
                     'primary' => $primary,

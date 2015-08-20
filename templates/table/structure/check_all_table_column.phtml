@@ -31,7 +31,7 @@
                 );
             ?>
 
-            <?php if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM'): ?>
+            <?php if (! empty($tbl_storage_engine && $tbl_storage_engine == 'MYISAM') || PMA_MYSQL_INT_VERSION >= 50705): ?>
                 <?php echo PMA_Util::getButtonOrImage(
                     'submit_mult', 'mult_submit', 'submit_mult_spatial',
                     __('Spatial'), 'b_spatial.png', 'spatial'
