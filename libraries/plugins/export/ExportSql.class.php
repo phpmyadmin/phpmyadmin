@@ -274,7 +274,7 @@ class ExportSql extends ExportPlugin
 
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('if_not_exists');
-                $leaf->setText('<code>IF NOT EXISTS</code>');
+                $leaf->setText('<code>IF NOT EXISTS</code> ' . __('(less efficient)'));
                 $subgroup_create_table->addProperty($leaf);
 
                 $leaf = new BoolPropertyItem();
@@ -1607,23 +1607,27 @@ class ExportSql extends ExportPlugin
                         // constraints).
                         if ($field->key->type === 'FULLTEXT KEY') {
                             $indexes_fulltext[] = $field->build($field);
-                        } else {
+                            unset($statement->fields[$key]);
+                        } else if (empty($GLOBALS['sql_if_not_exists'])) {
                             $indexes[] = $field->build($field);
+                            unset($statement->fields[$key]);
                         }
-                        unset($statement->fields[$key]);
                     }
 
                     // Creating the parts that drop foreign keys.
                     if (!empty($field->key)) {
                         if ($field->key->type === 'FOREIGN KEY') {
                             $dropped[] = 'FOREIGN KEY ' . SqlParser\Context::escape($field->name);
+                            unset($statement->fields[$key]);
                         }
-                        unset($statement->fields[$key]);
                     }
 
                     // Dropping AUTO_INCREMENT.
                     if (!empty($field->options)) {
-                        if ($field->options->has('AUTO_INCREMENT')) {
+                        if ($field->options->has('AUTO_INCREMENT')
+                            && empty($GLOBALS['sql_if_not_exists'])
+                        ) {
+
                             $auto_increment[] = $field::build($field);
                             $field->options->remove('AUTO_INCREMENT');
                         }
@@ -1712,7 +1716,9 @@ class ExportSql extends ExportPlugin
 
                 // Removing the `AUTO_INCREMENT` attribute from the `CREATE TABLE`
                 // too.
-                if (!empty($statement->entityOptions)) {
+                if (!empty($statement->entityOptions)
+                    && empty($GLOBALS['sql_if_not_exists'])
+                ) {
                     $statement->entityOptions->remove('AUTO_INCREMENT');
                 }
 
