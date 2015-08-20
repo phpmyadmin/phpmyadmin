@@ -284,7 +284,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'OptionsPropertySubgroup',
             $leaf
         );
 
