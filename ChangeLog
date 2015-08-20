@@ -93,7 +93,9 @@ phpMyAdmin - ChangeLog
 +              Partition support in table Structure
 + issue #11414 Unclear export options / organization / hierarchy
 
-4.4.14.0 (not yet released)
+4.4.15.0 (not yet released)
+
+4.4.14.0 (2015-08-20)
 - issue #11367 Export after search, missing WHERE clause
 - issue #11380 Incomplete message after import
 - issue        Incorrect scalar type declaration (reported under PHP 7)
