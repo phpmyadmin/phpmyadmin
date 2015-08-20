@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue #11404 "Switch to copied table" doesn't work
 - issue #11406 Missing quotes after calling "distinct values"
 - issue #11386 Cannot import database with long data in one column
+- issue #11410 SPATIAL index option is not clickable
 
 4.4.13.1 (2015-08-08)
 - issue #11368 SQL error when importing phpMyAdmin dump file
