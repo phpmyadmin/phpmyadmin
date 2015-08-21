@@ -2296,10 +2296,10 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
-            "`p` TINYINT(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
-            "`xyz` VARCHAR(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
-            "`pphymdain` VARCHAR(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
-            "CONSTRAINT `fk_om_dept` FOREIGN KEY (`p`) REFERENCES `dept_master` (`baz`)\n" .
+            "  `p` tinyint(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
+            "  `xyz` varchar(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
+            "  `pphymdain` varchar(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
+            "  CONSTRAINT `fk_om_dept` FOREIGN KEY (`p`) REFERENCES `dept_master` (`baz`)\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
             $result
         );
@@ -2308,10 +2308,10 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS foo (\n" .
-            "`baz` TINYINT(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
-            "`xyz` VARCHAR(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
-            "`pqr` VARCHAR(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
-            "CONSTRAINT `fk_om_dept` FOREIGN KEY (`baz`) REFERENCES `dept_master` (`baz`)\n" .
+            "  `baz` tinyint(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
+            "  `xyz` varchar(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
+            "  `pqr` varchar(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
+            "  CONSTRAINT `fk_om_dept` FOREIGN KEY (`baz`) REFERENCES `dept_master` (`baz`)\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
             $result
         );
