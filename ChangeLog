@@ -92,6 +92,7 @@ phpMyAdmin - ChangeLog
 + issue #11394 Export/import Designer view
 +              Partition support in table Structure
 + issue #11414 Unclear export options / organization / hierarchy
+               Set minimum required PHP version to 5.5 (older versions are EOL)
 
 4.4.15.0 (not yet released)
 

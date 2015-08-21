@@ -385,8 +385,7 @@ MMCache but upgrading MMCache to version 2.3.21 solves the problem.
 
 Yes.
 
-Since release 4.1 phpMyAdmin supports only PHP 5.3 and newer. For PHP 5.2 you
-can use 4.0.x releases.
+Since release 4.5, phpMyAdmin supports only PHP 5.5 and newer. Since release 4.1 phpMyAdmin supports only PHP 5.3 and newer. For PHP 5.2 you can use 4.0.x releases.
 
 .. _faq1_32:
 
