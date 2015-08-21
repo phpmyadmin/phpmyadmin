@@ -272,17 +272,14 @@ class CreateDefinition extends Component
 
     /**
      * @param CreateDefinition|CreateDefinition[] $component The component to be built.
+     * @param array                               $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         if (is_array($component)) {
-            $ret = array();
-            foreach ($component as $c) {
-                $ret[] = static::build($c);
-            }
-            return "(\n  " . implode(",\n  ", $ret) . "\n)";
+            return "(\n  " . implode(",\n  ", $component) . "\n)";
         } else {
             $tmp = '';
 
@@ -290,23 +287,26 @@ class CreateDefinition extends Component
                 $tmp .= 'CONSTRAINT ';
             }
 
-            if (isset($component->name) && strlen($component->name)) {
+            if ((isset($component->name)) && ($component->name !== '')) {
                 $tmp .= Context::escape($component->name) . ' ';
             }
 
             if (!empty($component->type)) {
-                $tmp .= DataType::build($component->type) . ' ';
+                $tmp .= DataType::build(
+                    $component->type,
+                    array('lowercase' => true)
+                ) . ' ';
             }
 
             if (!empty($component->key)) {
-                $tmp .= Key::build($component->key) . ' ';
+                $tmp .= $component->key . ' ';
             }
 
             if (!empty($component->references)) {
-                $tmp .= 'REFERENCES ' . Reference::build($component->references) . ' ';
+                $tmp .= 'REFERENCES ' . $component->references . ' ';
             }
 
-            $tmp .= OptionsArray::build($component->options);
+            $tmp .= $component->options;
 
             return trim($tmp);
         }

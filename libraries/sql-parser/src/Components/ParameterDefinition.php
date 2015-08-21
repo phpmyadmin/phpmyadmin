@@ -130,7 +130,7 @@ class ParameterDefinition extends Component
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->name)) {
+        if ((isset($expr->name)) && ($expr->name !== '')) {
             $ret[] = $expr;
         }
 
@@ -140,23 +140,23 @@ class ParameterDefinition extends Component
 
     /**
      * @param ParameterDefinition[] $component The component to be built.
+     * @param array                 $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
-        $ret = array();
-        foreach ($component as $c) {
+        if (is_array($component)) {
+            return '(' . implode(', ', $component) . ')';
+        } else {
             $tmp = '';
-            if (!empty($c->inOut)) {
-                $tmp .= $c->inOut . ' ';
+            if (!empty($component->inOut)) {
+                $tmp .= $component->inOut . ' ';
             }
 
-            $ret[] = trim(
-                $tmp . Context::escape($c->name) . ' ' .
-                DataType::build($c->type)
+            return trim(
+                $tmp . Context::escape($component->name) . ' ' . $component->type
             );
         }
-        return '(' . implode(', ', $ret) . ')';
     }
 }

@@ -60,11 +60,12 @@ class Misc
         }
 
         foreach ($expressions as $expr) {
-            if (empty($expr->table)) {
+            if ((!isset($expr->table)) || ($expr->table === '')) {
                 continue;
             }
 
-            $thisDb = empty($expr->database) ? $database : $expr->database;
+            $thisDb = ((isset($expr->database)) && ($expr->database !== '')) ?
+                $expr->database : $database;
 
             if (!isset($retval[$thisDb])) {
                 $retval[$thisDb] = array(
@@ -75,7 +76,8 @@ class Misc
 
             if (!isset($retval[$thisDb]['tables'][$expr->table])) {
                 $retval[$thisDb]['tables'][$expr->table] = array(
-                    'alias' => empty($expr->alias) ? null : $expr->alias,
+                    'alias' => ((isset($expr->alias)) && ($expr->alias !== '')) ?
+                        $expr->alias : null,
                     'columns' => array(),
                 );
             }
@@ -87,20 +89,23 @@ class Misc
         }
 
         foreach ($statement->expr as $expr) {
-            if ((empty($expr->column)) || (empty($expr->alias))) {
+            if ((!isset($expr->column)) || ($expr->column === '')
+                || (!isset($expr->alias)) || ($expr->alias === '')
+            ) {
                 continue;
             }
 
-            $thisDb = empty($expr->database) ? $database : $expr->database;
+            $thisDb = ((isset($expr->database)) && ($expr->database !== '')) ?
+                $expr->database : $database;
 
-            if (empty($expr->table)) {
-                foreach ($retval[$thisDb]['tables'] as &$table) {
-                    $table['columns'][$expr->column] = $expr->alias;
-                }
-            } else {
+            if ((isset($expr->table)) && ($expr->table !== '')) {
                 $thisTable = isset($tables[$thisDb][$expr->table]) ?
                     $tables[$thisDb][$expr->table] : $expr->table;
                 $retval[$thisDb]['tables'][$thisTable]['columns'][$expr->column] = $expr->alias;
+            } else {
+                foreach ($retval[$thisDb]['tables'] as &$table) {
+                    $table['columns'][$expr->column] = $expr->alias;
+                }
             }
         }
 

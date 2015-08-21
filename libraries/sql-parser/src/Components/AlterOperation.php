@@ -202,7 +202,6 @@ class AlterOperation extends Component
                 __('Unrecognized alter operation.'),
                 $list->tokens[$list->idx]
             );
-            return null;
         }
 
         --$list->idx;
@@ -211,14 +210,15 @@ class AlterOperation extends Component
 
     /**
      * @param AlterOperation $component The component to be built.
+     * @param array          $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
-        $ret = OptionsArray::build($component->options) . ' ';
-        if (!empty($component->field)) {
-            $ret .= Expression::build($component->field) . ' ';
+        $ret = $component->options . ' ';
+        if ((isset($component->field)) && ($component->field !== '')) {
+            $ret .= $component->field . ' ';
         }
         $ret .= TokensList::build($component->unknown);
         return $ret;
