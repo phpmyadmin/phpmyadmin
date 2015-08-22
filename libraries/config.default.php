@@ -1965,7 +1965,7 @@ $cfg['Export']['sql_drop_table'] = false;
  * of VIEWs and the stand-in table
  * @global boolean $cfg['Export']['sql_if_not_exists']
  */
-$cfg['Export']['sql_if_not_exists'] = true;
+$cfg['Export']['sql_if_not_exists'] = false;
 
 /**
  *
@@ -3142,5 +3142,3 @@ $cfg['MysqlMinVersion'] = array(
     'internal' => 50500,
     'human' => '5.5.0'
 );
-
-
