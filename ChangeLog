@@ -93,6 +93,7 @@ phpMyAdmin - ChangeLog
 +              Partition support in table Structure
 + issue #11414 Unclear export options / organization / hierarchy
                Set minimum required PHP version to 5.5 (older versions are EOL)
+- issue #11407 ALTER TABLE failing on import when table exists
 
 4.4.15.0 (not yet released)
 
