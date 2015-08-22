@@ -274,7 +274,7 @@ class ExportSql extends ExportPlugin
 
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('if_not_exists');
-                $leaf->setText('<code>IF NOT EXISTS</code> ' . __('(less efficient)'));
+                $leaf->setText('<code>IF NOT EXISTS</code> ' . __('(less efficient as indexes will be generated during table creation)'));
                 $subgroup_create_table->addProperty($leaf);
 
                 $leaf = new BoolPropertyItem();
