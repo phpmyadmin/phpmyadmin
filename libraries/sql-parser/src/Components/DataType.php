@@ -151,18 +151,20 @@ class DataType extends Component
 
     /**
      * @param DataType $component The component to be built.
+     * @param array    $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
-        $tmp = '';
+        $name = (empty($options['lowercase'])) ?
+            $component->name : strtolower($component->name);
+
+        $parameters = '';
         if (!empty($component->parameters)) {
-            $tmp = '(' . implode(',', $component->parameters) . ')';
+            $parameters = '(' . implode(',', $component->parameters) . ')';
         }
-        return trim(
-            strtolower($component->name) . $tmp . ' '
-            . OptionsArray::build($component->options)
-        );
+
+        return trim($name . $parameters . ' ' . $component->options);
     }
 }

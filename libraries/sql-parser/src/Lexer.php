@@ -331,7 +331,7 @@ namespace SqlParser {
                     $pos = $this->last + 1;
 
                     // Parsing the delimiter.
-                    $this->delimiter = '';
+                    $this->delimiter = null;
                     while ((++$this->last < $this->len) && (!Context::isWhitespace($this->str[$this->last]))) {
                         $this->delimiter .= $this->str[$this->last];
                     }

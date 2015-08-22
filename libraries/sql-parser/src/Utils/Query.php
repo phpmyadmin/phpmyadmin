@@ -372,7 +372,7 @@ class Query
     {
         $parser = new Parser($query);
 
-        if (!isset($parser->statements[0])) {
+        if (empty($parser->statements[0])) {
             return array();
         }
 
@@ -390,10 +390,12 @@ class Query
             // Finding tables' aliases and their associated real names.
             $tableAliases = array();
             foreach ($statement->from as $expr) {
-                if ((!empty($expr->table)) && (!empty($expr->alias))) {
+                if ((isset($expr->table)) && ($expr->table !== '')
+                    && (isset($expr->alias)) && ($expr->alias !== '')
+                ) {
                     $tableAliases[$expr->alias] = array(
                         $expr->table,
-                        !empty($expr->database) ? $expr->database : null
+                        isset($expr->database) ? $expr->database : null
                     );
                 }
             }
@@ -402,14 +404,15 @@ class Query
             // Sometimes, this is not possible because the tables aren't defined
             // explicitly (e.g. SELECT * FROM film, SELECT film_id FROM film).
             foreach ($statement->expr as $expr) {
-                if (!empty($expr->table)) {
-                    if (empty($tableAliases[$expr->table])) {
+                if ((isset($expr->table)) && ($expr->table !== '')) {
+                    if (isset($tableAliases[$expr->table])) {
+                        $arr = $tableAliases[$expr->table];
+                    } else {
                         $arr = array(
                             $expr->table,
-                            !empty($expr->database) ? $expr->database : null
+                            ((isset($expr->database)) && ($expr->database !== '')) ?
+                                $expr->database : null
                         );
-                    } else {
-                        $arr = $tableAliases[$expr->table];
                     }
                     if (!in_array($arr, $ret['select_tables'])) {
                         $ret['select_tables'][] = $arr;
@@ -424,10 +427,11 @@ class Query
             // extracted from the FROM clause.
             if (empty($ret['select_tables'])) {
                 foreach ($statement->from as $expr) {
-                    if (!empty($expr->table)) {
+                    if ((isset($expr->table)) && ($expr->table !== '')) {
                         $arr = array(
                             $expr->table,
-                            !empty($expr->database) ? $expr->database : null
+                            ((isset($expr->database)) && ($expr->database !== '')) ?
+                                $expr->database : null
                         );
                         if (!in_array($arr, $ret['select_tables'])) {
                             $ret['select_tables'][] = $arr;
@@ -607,7 +611,7 @@ class Query
             }
 
             if ($brackets == 0) {
-                // Checking if we changed sections.
+                // Checking if the section was changed.
                 if (($token->type === Token::TYPE_KEYWORD)
                     && (isset($clauses[$token->value]))
                     && ($clauses[$token->value] >= $currIdx)

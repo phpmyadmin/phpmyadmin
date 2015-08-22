@@ -197,15 +197,16 @@ class Condition extends Component
 
     /**
      * @param Condition[] $component The component to be built.
+     * @param array       $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
-        $ret = array();
-        foreach ($component as $c) {
-            $ret[] = $c->expr;
+        if (is_array($component)) {
+            return implode(' ', $component);
+        } else {
+            return $component->expr;
         }
-        return implode(' ', $ret);
     }
 }

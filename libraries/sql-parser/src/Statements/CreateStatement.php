@@ -343,7 +343,7 @@ class CreateStatement extends Statement
             )
         );
 
-        if (empty($this->name)) {
+        if ((!isset($this->name)) || ($this->name === '')) {
             $parser->error(
                 __('The name of the entity was expected.'),
                 $list->tokens[$list->idx]

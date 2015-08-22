@@ -70,12 +70,13 @@ namespace SqlParser {
          * `static::parse`.
          *
          * @param mixed $component The component to be built.
+         * @param array $options   Parameters for building.
          *
          * @throws \Exception Not implemented yet.
          *
          * @return string
          */
-        public static function build($component)
+        public static function build($component, array $options = array())
         {
             // This method should be abstract, but it can't be both static and
             // abstract.

@@ -162,20 +162,16 @@ class RenameOperation extends Component
 
     /**
      * @param RenameOperation $component The component to be built.
+     * @param array           $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         if (is_array($component)) {
-            $values = array();
-            foreach ($component as $c) {
-                $values[] = static::build($c);
-            }
-            return implode(', ', $values);
+            return implode(', ', $component);
         } else {
-            return Expression::build($component->old) . ' TO '
-                . Expression::build($component->new);
+            return $component->old . ' TO ' . $component->new;
         }
     }
 }

@@ -80,7 +80,7 @@ class Formatter
                  *
                  * @var string
                  */
-                'indentation' => "    ",
+                'indentation' => "  ",
 
                 /**
                  * Whether comments should be removed or not.

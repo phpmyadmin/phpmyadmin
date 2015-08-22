@@ -151,15 +151,16 @@ class JoinKeyword extends Component
 
     /**
      * @param JoinKeyword[] $component The component to be built.
+     * @param array         $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         $ret = array();
         foreach ($component as $c) {
-            $ret[] = (($c->type === 'JOIN') ? 'JOIN ' : ($c->type . ' JOIN ')) .
-                Expression::build($c->expr) . ' ON ' . Condition::build($c->on);
+            $ret[] = (($c->type === 'JOIN') ? 'JOIN ' : ($c->type . ' JOIN '))
+               . $c->expr . ' ON ' . Condition::build($c->on);
         }
         return implode(' ', $ret);
     }

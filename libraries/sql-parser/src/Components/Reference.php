@@ -137,15 +137,16 @@ class Reference extends Component
 
     /**
      * @param Reference $component The component to be built.
+     * @param array     $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         return trim(
             Context::escape($component->table)
             . ' (' . implode(', ', Context::escape($component->columns)) . ') '
-            . OptionsArray::build($component->options)
+            . $component->options
         );
     }
 }
