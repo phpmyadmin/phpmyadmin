@@ -16,6 +16,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 global $cfg;
+global $db;
 
 /**
  * limits for table list

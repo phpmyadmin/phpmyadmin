@@ -442,21 +442,21 @@ function PMA_saveTablePositions($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
-        return null;
+        return false;
     }
 
-    $queury =  "DELETE FROM " . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+    $query =  "DELETE FROM " . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
         . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
         . " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "'"
         . " AND `pdf_page_number` = '" . PMA_Util::sqlAddSlashes($pg) . "'";
 
-    $res = PMA_queryAsControlUser($queury, true, PMA_DatabaseInterface::QUERY_STORE);
+    $res = PMA_queryAsControlUser($query, true, PMA_DatabaseInterface::QUERY_STORE);
 
     if ($res) {
         foreach ($_REQUEST['t_h'] as $key => $value) {
             list($DB, $TAB) = explode(".", $key);
             if ($value) {
-                $queury = "INSERT INTO "
+                $query = "INSERT INTO "
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                     . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
@@ -468,13 +468,13 @@ function PMA_saveTablePositions($pg)
                     . "'" . PMA_Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . "')";
 
                 $res = PMA_queryAsControlUser(
-                    $queury,  true, PMA_DatabaseInterface::QUERY_STORE
+                    $query,  true, PMA_DatabaseInterface::QUERY_STORE
                 );
             }
         }
     }
 
-    return $res;
+    return (boolean) $res;
 }
 
 /**
@@ -699,4 +699,62 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
     }
 
     return array(true, __('Internal relation has been removed.'));
+}
+
+/**
+ * Save value for a designer setting
+ *
+ * @param string $index setting
+ * @param string $value value
+ *
+ * @return bool whether the operation succeeded
+ */
+function PMA_saveDesignerSetting($index, $value)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    $cfgDesigner = array(
+        'user'  => $GLOBALS['cfg']['Server']['user'],
+        'db'    => $cfgRelation['db'],
+        'table' => $cfgRelation['designer_settings']
+    );
+
+    $success = true;
+    if ($GLOBALS['cfgRelation']['designersettingswork']) {
+
+        $orig_data_query = "SELECT settings_data"
+            . " FROM " . PMA_Util::backquote($cfgDesigner['db'])
+            . "." . PMA_Util::backquote($cfgDesigner['table'])
+            . " WHERE username = '"
+            . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . "';";
+
+        $orig_data = $GLOBALS['dbi']->fetchSingleRow(
+            $orig_data_query, $GLOBALS['controllink']
+        );
+
+        if (! empty($orig_data)) {
+            $orig_data = json_decode($orig_data['settings_data'], true);
+            $orig_data[$index] = $value;
+            $orig_data = json_encode($orig_data);
+
+            $save_query = "UPDATE " . PMA_Util::backquote($cfgDesigner['db'])
+                . "." . PMA_Util::backquote($cfgDesigner['table'])
+                . " SET settings_data = '" . $orig_data . "'"
+                . " WHERE username = '"
+                . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . "';";
+
+            $success = PMA_queryAsControlUser($save_query);
+        } else {
+            $save_data = array($index => $value);
+
+            $query = "INSERT INTO " . PMA_Util::backquote($cfgDesigner['db'])
+                . "." . PMA_Util::backquote($cfgDesigner['table'])
+                . " (username, settings_data)"
+                . " VALUES('" . $cfgDesigner['user'] . "',"
+                . " '" . json_encode($save_data) . "');";
+
+            $success = PMA_queryAsControlUser($query);
+        }
+    }
+
+    return $success;
 }

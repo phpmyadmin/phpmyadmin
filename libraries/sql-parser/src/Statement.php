@@ -103,6 +103,7 @@ abstract class Statement
     {
         /**
          * Query to be returned.
+         *
          * @var string $query
          */
         $query = '';
@@ -111,12 +112,14 @@ abstract class Statement
 
             /**
              * The name of the clause.
+             *
              * @var string $name
              */
             $name = $clause[0];
 
             /**
              * The type of the clause.
+             *
              * @see self::$CLAUSES
              * @var int $type
              */
@@ -124,6 +127,7 @@ abstract class Statement
 
             /**
              * The builder (parser) of this clause.
+             *
              * @var Component $class
              */
             $class = Parser::$KEYWORD_PARSERS[$name]['class'];
@@ -131,6 +135,7 @@ abstract class Statement
             /**
              * The name of the field that is used as source for the builder.
              * Same field is used to store the result of parsing.
+             *
              * @var string $field
              */
             $field = Parser::$KEYWORD_PARSERS[$name]['field'];
@@ -167,7 +172,8 @@ abstract class Statement
         /**
          * Array containing all list of clauses parsed.
          * This is used to check for duplicates.
-         * @var array
+         *
+         * @var array $parsedClauses
          */
         $parsedClauses = array();
 
@@ -178,13 +184,16 @@ abstract class Statement
          * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
          * default.
+         *
          * @var bool $parsedOptions
          */
         $parsedOptions = empty(static::$OPTIONS);
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -213,18 +222,21 @@ abstract class Statement
 
             /**
              * The name of the class that is used for parsing.
+             *
              * @var Component $class
              */
             $class = null;
 
             /**
              * The name of the field where the result of the parsing is stored.
+             *
              * @var string $field
              */
             $field = null;
 
             /**
              * Parser's options.
+             *
              * @var array $options
              */
             $options = array();

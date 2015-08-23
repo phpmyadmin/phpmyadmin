@@ -36,7 +36,7 @@ use SqlParser\Statements\UpdateStatement;
 /**
  * Statement utilities.
  *
- * @category   Routines
+ * @category   Statement
  * @package    SqlParser
  * @subpackage Utils
  * @author     Dan Ungureanu <udan1107@gmail.com>
@@ -51,7 +51,7 @@ class Query
      * @var array
      */
     public static $FUNCTIONS = array(
-        'SUM','AVG','STD','STDDEV','MIN','MAX','BIT_OR','BIT_AND'
+        'SUM', 'AVG', 'STD', 'STDDEV', 'MIN', 'MAX', 'BIT_OR', 'BIT_AND'
     );
 
     /**
@@ -372,7 +372,7 @@ class Query
     {
         $parser = new Parser($query);
 
-        if (!isset($parser->statements[0])) {
+        if (empty($parser->statements[0])) {
             return array();
         }
 
@@ -390,10 +390,12 @@ class Query
             // Finding tables' aliases and their associated real names.
             $tableAliases = array();
             foreach ($statement->from as $expr) {
-                if ((!empty($expr->table)) && (!empty($expr->alias))) {
+                if ((isset($expr->table)) && ($expr->table !== '')
+                    && (isset($expr->alias)) && ($expr->alias !== '')
+                ) {
                     $tableAliases[$expr->alias] = array(
                         $expr->table,
-                        !empty($expr->database) ? $expr->database : null
+                        isset($expr->database) ? $expr->database : null
                     );
                 }
             }
@@ -402,14 +404,15 @@ class Query
             // Sometimes, this is not possible because the tables aren't defined
             // explicitly (e.g. SELECT * FROM film, SELECT film_id FROM film).
             foreach ($statement->expr as $expr) {
-                if (!empty($expr->table)) {
-                    if (empty($tableAliases[$expr->table])) {
+                if ((isset($expr->table)) && ($expr->table !== '')) {
+                    if (isset($tableAliases[$expr->table])) {
+                        $arr = $tableAliases[$expr->table];
+                    } else {
                         $arr = array(
                             $expr->table,
-                            !empty($expr->database) ? $expr->database : null
+                            ((isset($expr->database)) && ($expr->database !== '')) ?
+                                $expr->database : null
                         );
-                    } else {
-                        $arr = $tableAliases[$expr->table];
                     }
                     if (!in_array($arr, $ret['select_tables'])) {
                         $ret['select_tables'][] = $arr;
@@ -424,10 +427,11 @@ class Query
             // extracted from the FROM clause.
             if (empty($ret['select_tables'])) {
                 foreach ($statement->from as $expr) {
-                    if (!empty($expr->table)) {
+                    if ((isset($expr->table)) && ($expr->table !== '')) {
                         $arr = array(
                             $expr->table,
-                            !empty($expr->database) ? $expr->database : null
+                            ((isset($expr->database)) && ($expr->database !== '')) ?
+                                $expr->database : null
                         );
                         if (!in_array($arr, $ret['select_tables'])) {
                             $ret['select_tables'][] = $arr;
@@ -510,6 +514,7 @@ class Query
 
         /**
          * The index of the current clause.
+         *
          * @var int $currIdx
          */
         $currIdx = 0;
@@ -517,18 +522,21 @@ class Query
         /**
          * The count of brackets.
          * We keep track of them so we won't insert the clause in a subquery.
+         *
          * @var int $brackets
          */
         $brackets = 0;
 
         /**
          * The string to be returned.
+         *
          * @var string $ret
          */
         $ret = '';
 
         /**
          * The clauses of this type of statement and their index.
+         *
          * @var array $clauses
          */
         $clauses = array_flip(array_keys($statement::$CLAUSES));
@@ -543,18 +551,21 @@ class Query
 
         /**
          * Lexer used for lexing the clause.
+         *
          * @var Lexer $lexer
          */
         $lexer = new Lexer($clause);
 
         /**
          * The type of this clause.
+         *
          * @var string $clauseType
          */
         $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD)->value;
 
         /**
          * The index of this clause.
+         *
          * @var int $clauseIdx
          */
         $clauseIdx = $clauses[$clauseType];
@@ -572,10 +583,10 @@ class Query
         } elseif (is_string($type)) {
             if ($clauses[$type] > $clauseIdx) {
                 $firstClauseIdx = $clauseIdx + 1;
-                $lastClauseIdx = $clauses[$type] - 1    ;
+                $lastClauseIdx = $clauses[$type] - 1;
             } else {
                 $firstClauseIdx = $clauses[$type] + 1;
-                $lastClauseIdx = $clauseIdx - 1 ;
+                $lastClauseIdx = $clauseIdx - 1;
             }
         }
 
@@ -600,7 +611,7 @@ class Query
             }
 
             if ($brackets == 0) {
-                // Checking if we changed sections.
+                // Checking if the section was changed.
                 if (($token->type === Token::TYPE_KEYWORD)
                     && (isset($clauses[$token->value]))
                     && ($clauses[$token->value] >= $currIdx)
@@ -680,6 +691,7 @@ class Query
 
         /**
          * Value to be returned.
+         *
          * @var string $ret
          */
         $ret = '';
@@ -730,13 +742,15 @@ class Query
 
         /**
          * Whether a full statement was found.
-         * @var bool
+         *
+         * @var bool $fullStatement
          */
         $fullStatement = false;
 
         /**
          * The first full statement.
-         * @var string
+         *
+         * @var string $statement
          */
         $statement = '';
 

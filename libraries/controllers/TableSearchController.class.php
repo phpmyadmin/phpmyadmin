@@ -187,7 +187,7 @@ class TableSearchController extends TableController
 
             // Show secondary level of tabs
             $this->response->addHTML(
-                Template::get('table/secondary_tabs')
+                Template::get('secondary_tabs')
                     ->render(
                         array(
                             'url_params' => array(
@@ -214,7 +214,7 @@ class TableSearchController extends TableController
             $err_url = $goto . '?' . PMA_URL_getCommon($params);
             // Displays the find and replace form
             $this->response->addHTML(
-                Template::get('table/selection_form')
+                Template::get('table/search/selection_form')
                     ->render(
                         array(
                             'searchType'       => $this->_searchType,
@@ -336,7 +336,7 @@ class TableSearchController extends TableController
 
             // Displays the zoom search form
             $this->response->addHTML(
-                Template::get('table/secondary_tabs')
+                Template::get('secondary_tabs')
                     ->render(
                         array(
                             'url_params' => array(
@@ -348,7 +348,7 @@ class TableSearchController extends TableController
                     )
             );
             $this->response->addHTML(
-                Template::get('table/selection_form')
+                Template::get('table/search/selection_form')
                     ->render(
                         array(
                             'searchType'       => $this->_searchType,
@@ -440,7 +440,7 @@ class TableSearchController extends TableController
             )
         );
         $this->response->addHTML(
-            Template::get('table/zoom_result_form')
+            Template::get('table/search/zoom_result_form')
                 ->render(
                     array(
                         '_db'              => $this->db,
@@ -578,7 +578,7 @@ class TableSearchController extends TableController
         );
         // Displays the table search form
         $this->response->addHTML(
-            Template::get('table/secondary_tabs')
+            Template::get('secondary_tabs')
                 ->render(
                     array(
                         'url_params' => array(
@@ -590,7 +590,7 @@ class TableSearchController extends TableController
                 )
         );
         $this->response->addHTML(
-            Template::get('table/selection_form')
+            Template::get('table/search/selection_form')
                 ->render(
                     array(
                         'searchType'       => $this->_searchType,
@@ -698,7 +698,7 @@ class TableSearchController extends TableController
             $result = $this->dbi->fetchResult($sql_query, 0);
         }
 
-        return Template::get('table/replace_preview')->render(
+        return Template::get('table/search/replace_preview')->render(
             array(
                 'db' => $this->db,
                 'table' => $this->table,
@@ -920,7 +920,7 @@ class TableSearchController extends TableController
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $func = Template::get('table/column_comparison_operators')->render(
+        $func = Template::get('table/search/column_comparison_operators')->render(
             array(
                 'search_index' => $search_index,
                 'columnTypes' => $this->_columnTypes,
@@ -933,7 +933,7 @@ class TableSearchController extends TableController
         $foreignData = PMA_getForeignData(
             $this->_foreigners, $this->_columnNames[$column_index], false, '', ''
         );
-        $value = Template::get('table/input_box')->render(
+        $value = Template::get('table/search/input_box')->render(
             array(
                 'str' => '',
                 'column_type' => (string) $type,
@@ -948,7 +948,7 @@ class TableSearchController extends TableController
                 'criteriaValues' => $entered_value,
                 'db' => $this->db,
                 'titles' => $titles,
-                'in_fbs' => false
+                'in_fbs' => true
             )
         );
         return array(
@@ -976,6 +976,7 @@ class TableSearchController extends TableController
         // return
         if (! isset($_POST['criteriaValues'])
             && ! isset($_POST['criteriaColumnOperators'])
+            && ! isset($_POST['geom_func'])
         ) {
             return '';
         }
@@ -988,8 +989,8 @@ class TableSearchController extends TableController
         )) {
 
             $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
-            $tmp_geom_func = isset($geom_func[$column_index])
-                ? $geom_func[$column_index] : null;
+            $tmp_geom_func = isset($_POST['geom_func'][$column_index])
+                ? $_POST['geom_func'][$column_index] : null;
 
             $whereClause = $this->_getWhereClause(
                 $_POST['criteriaValues'][$column_index],
@@ -1074,33 +1075,37 @@ class TableSearchController extends TableController
 
         // Get details about the geometry functions
         $geom_funcs = PMA_Util::getGISFunctions($types, true, false);
-        // New output type is the output type of the function being applied
-        $types = $geom_funcs[$geom_func]['type'];
 
-        // If the function takes a single parameter
-        if ($geom_funcs[$geom_func]['params'] == 1) {
-            $backquoted_name = $geom_func . '(' . PMA_Util::backquote($names) . ')';
-        } else {
-            // If the function takes two parameters
+        // If the function takes multiple parameters
+        if ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
             $gis_data = PMA_Util::createGISData($criteriaValues);
             $where = $geom_func . '(' . PMA_Util::backquote($names)
-                . ',' . $gis_data . ')';
+                . ', ' . $gis_data . ')';
             return $where;
         }
+
+        // New output type is the output type of the function being applied
+        $type = $geom_funcs[$geom_func]['type'];
+        $geom_function_applied = $geom_func
+            . '(' . PMA_Util::backquote($names) . ')';
 
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
         if (isset($geom_unary_functions[$geom_func])
             && trim($criteriaValues) == ''
         ) {
-            $where = $backquoted_name;
+            $where = $geom_function_applied;
 
-        } elseif (in_array($types, PMA_Util::getGISDatatypes())
+        } elseif (in_array($type, PMA_Util::getGISDatatypes())
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
             $gis_data = PMA_Util::createGISData($criteriaValues);
-            $where = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
+            $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
+
+        } elseif (/*overload*/mb_strlen($criteriaValues) > 0) {
+            $where = $geom_function_applied . " "
+                . $func_type . " '" . $criteriaValues . "'";
         }
         return $where;
     }
@@ -1121,7 +1126,7 @@ class TableSearchController extends TableController
         $func_type, $unaryFlag, $geom_func = null
     ) {
         // If geometry function is set
-        if ($geom_func != null && trim($geom_func) != '') {
+        if (! empty($geom_func)) {
             return $this->_getGeomWhereClause(
                 $criteriaValues, $names, $func_type, $types, $geom_func
             );

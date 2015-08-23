@@ -162,7 +162,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
-    var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" +
+    var $this_input = $(":input[name^='fields[multi_edit][" + multi_edit + "][" +
         urlField + "]']");
     // the function drop-down that corresponds to this input field
     var $this_function = $("select[name='funcs[multi_edit][" + multi_edit + "][" +
@@ -170,12 +170,6 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var function_selected = false;
     if (typeof $this_function.val() !== 'undefined' && $this_function.val().length > 0) {
         function_selected = true;
-    }
-
-    // check if it is textarea rather than input
-    if ($this_input.length === 0) {
-        $this_input = $("textarea[name='fields[multi_edit][" + multi_edit + "][" +
-            urlField + "]']");
     }
 
     //To generate the textbox that can take the salt

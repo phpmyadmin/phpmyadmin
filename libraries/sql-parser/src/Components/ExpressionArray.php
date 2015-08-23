@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Parses a a list of expression delimited by a comma.
+ * Parses a a list of expressions delimited by a comma.
  *
  * @package    SqlParser
  * @subpackage Components
@@ -14,7 +14,7 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * Parses a a list of expression delimited by a comma.
+ * Parses a a list of expressions delimited by a comma.
  *
  * @category   Keywords
  * @package    SqlParser
@@ -44,15 +44,17 @@ class ExpressionArray extends Component
          *      0 ----------------------[ array ]---------------------> 1
          *
          *      1 ------------------------[ , ]------------------------> 0
-         *      1 -----------------------[ else ]----------------------> -1
+         *      1 -----------------------[ else ]----------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -104,10 +106,11 @@ class ExpressionArray extends Component
 
     /**
      * @param Expression[] $component The component to be built.
+     * @param array        $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         $ret = array();
         foreach ($component as $frag) {

@@ -1018,37 +1018,28 @@ function PMA_hasCurrentDbChanged($db)
 /**
  * If a table, database or column gets dropped, clean comments.
  *
- * @param String $db             current database
- * @param String $table          current table
- * @param String $dropped_column dropped column if any
- * @param bool   $purge          whether purge set or not
- * @param array  $extra_data     extra data
+ * @param String $db     current database
+ * @param String $table  current table
+ * @param String $column current column
+ * @param bool   $purge  whether purge set or not
  *
  * @return array $extra_data
  */
-function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
+function PMA_cleanupRelations($db, $table, $column, $purge)
 {
     include_once 'libraries/relation_cleanup.lib.php';
 
-    if (isset($purge) && $purge == 1) {
-        if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
-            PMA_relationsCleanupTable($db, $table);
-        } elseif (/*overload*/mb_strlen($db)) {
+    if (! empty($purge) && /*overload*/mb_strlen($db)) {
+        if (/*overload*/mb_strlen($table)) {
+            if (isset($column) && /*overload*/mb_strlen($column)) {
+                PMA_relationsCleanupColumn($db, $table, $column);
+            } else {
+                PMA_relationsCleanupTable($db, $table);
+            }
+        } else {
             PMA_relationsCleanupDatabase($db);
         }
     }
-
-    if (isset($dropped_column)
-        && !empty($dropped_column)
-        && /*overload*/mb_strlen($db)
-        && /*overload*/mb_strlen($table)
-    ) {
-        PMA_relationsCleanupColumn($db, $table, $dropped_column);
-        // to refresh the list of indexes (Ajax mode)
-        $extra_data['indexes_list'] = PMA_Index::getHtmlForIndexes($table, $db);
-    }
-
-    return $extra_data;
 }
 
 /**
@@ -1209,15 +1200,18 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
             $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
         );
 
-        $extra_data = PMA_cleanupRelations(
-            isset($db) ? $db : '', isset($table) ? $table : '',
+        PMA_cleanupRelations(
+            isset($db) ? $db : '',
+            isset($table) ? $table : '',
             isset($_REQUEST['dropped_column']) ? $_REQUEST['dropped_column'] : null,
-            isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null,
-            isset($extra_data) ? $extra_data : null
+            isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null
         );
 
-        // Update Indexes list.
-        if (isset($_REQUEST['index_change'])) {
+        if (isset($_REQUEST['dropped_column'])
+            && /*overload*/mb_strlen($db)
+            && /*overload*/mb_strlen($table)
+        ) {
+            // to refresh the list of indexes (Ajax mode)
             $extra_data['indexes_list'] = PMA_Index::getHtmlForIndexes($table, $db);
         }
     }
@@ -1240,7 +1234,9 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
     include_once 'libraries/transformations.lib.php';
     $statement = $analyzed_sql_results['statement'];
     if ($statement instanceof SqlParser\Statements\AlterStatement) {
-        if ($statement->altered[0]->options->has('DROP')) {
+        if (!empty($statement->altered[0])
+            && $statement->altered[0]->options->has('DROP')
+        ) {
             if (!empty($statement->altered[0]->field->column)) {
                 PMA_clearTransformations(
                     $db,
@@ -1914,7 +1910,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
  * @param string     $disp_message           display message
  * @param string     $query_type             query type
  * @param string     $sql_query              sql query
- * @param array      $selectedTables         array of table names selected from the
+ * @param array|null $selectedTables         array of table names selected from the
  *                                           database structure page, for an action
  *                                           like check table, optimize table,
  *                                           analyze table or repair table
@@ -1972,7 +1968,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
  * @param string     $disp_message           display message
  * @param string     $query_type             query type
  * @param string     $sql_query              sql query
- * @param array      $selectedTables         array of table names selected from the
+ * @param array|null $selectedTables         array of table names selected from the
  *                                           database structure page, for an action
  *                                           like check table, optimize table,
  *                                           analyze table or repair table

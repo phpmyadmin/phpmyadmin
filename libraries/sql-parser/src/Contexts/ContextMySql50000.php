@@ -3,6 +3,8 @@
 /**
  * Context for MySQL 5.
  *
+ * This file was auto-generated.
+ *
  * @package    SqlParser
  * @subpackage Contexts
  * @link       https://dev.mysql.com/doc/refman/5.0/en/keywords.html
@@ -54,9 +56,8 @@ class ContextMySql50000 extends Context
         'EVENTS' => 1, 'FAULTS' => 1, 'FIELDS' => 1, 'GLOBAL' => 1, 'GRANTS' => 1,
         'IMPORT' => 1, 'INNODB' => 1, 'ISSUER' => 1, 'LEAVES' => 1, 'MASTER' => 1,
         'MEDIUM' => 1, 'MEMORY' => 1, 'MODIFY' => 1, 'OFFSET' => 1, 'RELOAD' => 1,
-        'REPAIR' => 1, 'RESUME' => 1, 'ROLLUP' => 1, 'SERIAL' => 1, 'SIGNED' => 1,
-        'SIMPLE' => 1, 'SOUNDS' => 1, 'SOURCE' => 1, 'STATUS' => 1, 'STRING' => 1,
-        'TABLES' => 1,
+        'REPAIR' => 1, 'RESUME' => 1, 'ROLLUP' => 1, 'SIGNED' => 1, 'SIMPLE' => 1,
+        'SOUNDS' => 1, 'SOURCE' => 1, 'STATUS' => 1, 'STRING' => 1, 'TABLES' => 1,
         'AGAINST' => 1, 'CHANGED' => 1, 'COLUMNS' => 1, 'COMMENT' => 1, 'COMPACT' => 1,
         'CONTEXT' => 1, 'DEFINER' => 1, 'DISABLE' => 1, 'DISCARD' => 1, 'DYNAMIC' => 1,
         'ENGINES' => 1, 'EXECUTE' => 1, 'HANDLER' => 1, 'INDEXES' => 1, 'INVOKER' => 1,
@@ -77,8 +78,8 @@ class ContextMySql50000 extends Context
         'VARIABLES' => 1,
         'BERKELEYDB' => 1, 'COMPRESSED' => 1, 'CONCURRENT' => 1, 'CONNECTION' => 1,
         'CONSISTENT' => 1, 'DEALLOCATE' => 1, 'IDENTIFIED' => 1, 'MASTER_SSL' => 1,
-        'NDBCLUSTER' => 1, 'PERSISTENT' => 1, 'PRIVILEGES' => 1, 'REPEATABLE' => 1,
-        'ROW_FORMAT' => 1, 'SQL_THREAD' => 1, 'TABLESPACE' => 1,
+        'NDBCLUSTER' => 1, 'PARTITIONS' => 1, 'PERSISTENT' => 1, 'PRIVILEGES' => 1,
+        'REPEATABLE' => 1, 'ROW_FORMAT' => 1, 'SQL_THREAD' => 1, 'TABLESPACE' => 1,
         'FRAC_SECOND' => 1, 'MASTER_HOST' => 1, 'MASTER_PORT' => 1, 'MASTER_USER' => 1,
         'PROCESSLIST' => 1, 'RAID_CHUNKS' => 1, 'REPLICATION' => 1, 'SQL_TSI_DAY' => 1,
         'TRANSACTION' => 1, 'UNCOMMITTED' => 1,
@@ -86,7 +87,7 @@ class ContextMySql50000 extends Context
         'SQL_NO_CACHE' => 1, 'SQL_TSI_HOUR' => 1, 'SQL_TSI_WEEK' => 1,
         'SQL_TSI_YEAR' => 1,
         'INSERT_METHOD' => 1, 'MASTER_SSL_CA' => 1, 'RELAY_LOG_POS' => 1,
-        'SQL_TSI_MONTH' => 1,
+        'SQL_TSI_MONTH' => 1, 'SUBPARTITIONS' => 1,
         'AUTO_INCREMENT' => 1, 'AVG_ROW_LENGTH' => 1, 'MASTER_LOG_POS' => 1,
         'MASTER_SSL_KEY' => 1, 'RAID_CHUNKSIZE' => 1, 'RELAY_LOG_FILE' => 1,
         'SQL_TSI_MINUTE' => 1, 'SQL_TSI_SECOND' => 1, 'USER_RESOURCES' => 1,
@@ -145,12 +146,16 @@ class ContextMySql50000 extends Context
 
         'GROUP BY' => 7, 'NOT NULL' => 7, 'ORDER BY' => 7, 'SET NULL' => 7,
         'AND CHAIN' => 7, 'FULL JOIN' => 7, 'IF EXISTS' => 7, 'LEFT JOIN' => 7,
-        'NO ACTION' => 7, 'ON DELETE' => 7, 'ON UPDATE' => 7,
-        'INNER JOIN' => 7, 'NO RELEASE' => 7, 'OR REPLACE' => 7, 'RIGHT JOIN' => 7,
-        'AND NO CHAIN' => 7, 'FOR EACH ROW' => 7, 'SQL SECURITY' => 7,
+        'LESS THAN' => 7, 'NO ACTION' => 7, 'ON DELETE' => 7, 'ON UPDATE' => 7,
+        'INNER JOIN' => 7, 'LINEAR KEY' => 7, 'NO RELEASE' => 7, 'OR REPLACE' => 7,
+        'RIGHT JOIN' => 7,
+        'LINEAR HASH' => 7,
+        'AND NO CHAIN' => 7, 'FOR EACH ROW' => 7, 'PARTITION BY' => 7,
+        'SQL SECURITY' => 7,
         'CHARACTER SET' => 7, 'IF NOT EXISTS' => 7,
         'DATA DIRECTORY' => 7,
         'DEFAULT CHARSET' => 7, 'DEFAULT COLLATE' => 7, 'INDEX DIRECTORY' => 7,
+        'SUBPARTITION BY' => 7,
         'GENERATED ALWAYS' => 7,
         'START TRANSACTION' => 7,
         'SELECT TRANSACTION' => 7,
@@ -160,6 +165,7 @@ class ContextMySql50000 extends Context
         'XML' => 9,
         'ENUM' => 9, 'TEXT' => 9,
         'ARRAY' => 9,
+        'SERIAL' => 9,
         'BOOLEAN' => 9,
         'DATETIME' => 9, 'MULTISET' => 9,
 

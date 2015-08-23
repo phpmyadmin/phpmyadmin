@@ -71,7 +71,7 @@ class JoinKeyword extends Component
     {
         $ret = array();
 
-        $expr = new JoinKeyword();;
+        $expr = new JoinKeyword();
 
         /**
          * The state of the parser.
@@ -86,7 +86,7 @@ class JoinKeyword extends Component
          *
          *      3 --------------------[ conditions ]-------------------> 0
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
@@ -98,8 +98,10 @@ class JoinKeyword extends Component
         }
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -149,15 +151,16 @@ class JoinKeyword extends Component
 
     /**
      * @param JoinKeyword[] $component The component to be built.
+     * @param array         $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         $ret = array();
         foreach ($component as $c) {
-            $ret[] = (($c->type === 'JOIN') ? 'JOIN ' : ($c->type . ' JOIN ')) .
-                Expression::build($c->expr) . ' ON ' . Condition::build($c->on);
+            $ret[] = (($c->type === 'JOIN') ? 'JOIN ' : ($c->type . ' JOIN '))
+               . $c->expr . ' ON ' . Condition::build($c->on);
         }
         return implode(' ', $ret);
     }

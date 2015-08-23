@@ -1,0 +1,50 @@
+<td class="center print_ignore">
+    <input type="checkbox" class="checkall" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>"/>
+</td>
+<td class="right"><?php echo $rownum; ?></td>
+<th class="nowrap">
+    <label for="checkbox_row_<?php echo $rownum; ?>">
+        <?php echo preg_replace('/[\x00-\x1F]/', '&#x2051;', $displayed_field_name); ?>
+    </label>
+</th>
+<td <?php echo $type_nowrap; ?>>
+    <bdo dir="ltr" lang="en"><?php echo $extracted_columnspec['displayed_type']; ?>
+        <?php if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfgRelation']['mimework']
+                    && $GLOBALS['cfg']['BrowseMIME'] && isset($mime_map[$row['Field']]['mimetype'])): ?>
+    <br />MIME: <?php echo strtolower(str_replace('_', '/', $mime_map[$row['Field']]['mimetype'])); ?>
+        <?php endif; ?>
+    </bdo>
+</td>
+<td>
+<?php if (! empty($field_charset)): ?>
+    <dfn title="<?php echo PMA_getCollationDescr($field_charset); ?>"><?php echo $field_charset; ?></dfn>
+<?php endif; ?>
+</td>
+<td class="column_attribute nowrap"><?php echo $attribute; ?></td>
+<td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
+<td class="nowrap">
+    <?php if (isset($row['Default'])): ?>
+        <?php if ($extracted_columnspec['type'] == 'bit'): ?>
+            <?php echo PMA_Util::convertBitDefaultValue($row['Default']); ?>
+        <?php else: ?>
+            <?php echo $row['Default']; ?>
+        <?php endif;?>
+    <?php else: ?>
+        <i><?php echo _pgettext('None for default', 'None'); ?></i>
+    <?php endif; ?>
+</td>
+<td class="nowrap"><?php echo /*overload*/mb_strtoupper($row['Extra']); ?></td>
+<?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
+    <td class="edit center print_ignore">
+        <a class="change_column_anchor ajax" href="tbl_structure.php<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>&amp;change_column=1">
+            <?php echo $titles['Change']; ?>
+        </a>
+    </td>
+    <td class="drop center print_ignore">
+        <a class="drop_column_anchor ajax" href="sql.php<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode(
+                'ALTER TABLE ' . PMA_Util::backquote($table)
+                . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo $field_encoded; ?>&amp;purge=1&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped.'), htmlspecialchars($row['Field']))) ?>" >
+            <?php echo $titles['Drop']; ?>
+        </a>
+    </td>
+<?php endif; ?>

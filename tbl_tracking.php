@@ -192,8 +192,8 @@ if ($last_version > 0) {
     );
 }
 
-$table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-$type = $table->isView() ? 'view' : 'table';
+$type = $GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])
+    ->isView() ? 'view' : 'table';
 $html .= PMA_getHtmlForDataDefinitionAndManipulationStatements(
     'tbl_tracking.php' . $url_query,
     $last_version,

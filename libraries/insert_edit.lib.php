@@ -814,8 +814,6 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
     $column_enum_values = $column['values'];
     $html_output .= '<input type="hidden" name="fields_type'
         . $column_name_appendix . '" value="enum" />';
-    $html_output .= '<input type="hidden" name="fields'
-        . $column_name_appendix . '" value="" />';
     $html_output .= "\n" . '            ' . $backup_field . "\n";
     if (/*overload*/mb_strlen($column['Type']) > 20) {
         $html_output .= PMA_getDropDownDependingOnLength(

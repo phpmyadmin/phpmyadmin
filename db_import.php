@@ -22,5 +22,10 @@ $scripts->addFile('import.js');
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';
 
-$import_type = 'database';
-require 'libraries/display_import.inc.php';
+require 'libraries/display_import.lib.php';
+$response = PMA_Response::getInstance();
+$response->addHTML(
+    PMA_getImportDisplay(
+        'database', $db, $table, $max_upload_size
+    )
+);

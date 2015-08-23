@@ -87,9 +87,26 @@ phpMyAdmin - ChangeLog
 +              Upgrade TCPDF to version 6.2.9
 + issue #6102  Add SHA256 security password support
 - issue #10250 Displayed git revision info is not set
++              Improved schema SVG export
+- issue #10726 Do not try to set port 80 for https requests
++ issue #11394 Export/import Designer view
++              Partition support in table Structure
++ issue #11414 Unclear export options / organization / hierarchy
+               Set minimum required PHP version to 5.5 (older versions are EOL)
+- issue #11407 ALTER TABLE failing on import when table exists
 
-4.4.14.0 (not yet released)
+4.4.15.0 (not yet released)
+
+4.4.14.0 (2015-08-20)
 - issue #11367 Export after search, missing WHERE clause
+- issue #11380 Incomplete message after import
+- issue        Incorrect scalar type declaration (reported under PHP 7)
+- issue #11389 ReCaptcha produces deprecated messages under PHP 7
+- issue #11387 phpseclib < 2.0 produces deprecated messages on PHP 7
+- issue #11404 "Switch to copied table" doesn't work
+- issue #11406 Missing quotes after calling "distinct values"
+- issue #11386 Cannot import database with long data in one column
+- issue #11410 SPATIAL index option is not clickable
 
 4.4.13.1 (2015-08-08)
 - issue #11368 SQL error when importing phpMyAdmin dump file

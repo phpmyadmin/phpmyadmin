@@ -1,0 +1,34 @@
+<a href="#" id="printView"><?php echo PMA_Util::getIcon('b_print.png', __('Print view'), true); ?></a>
+<?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
+    <?php if (!PMA_DRIZZLE): ?>
+        <a href="sql.php<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=' . <?php echo urlencode(
+                    'SELECT * FROM ' . PMA_Util::backquote($GLOBALS['table'])
+                    . ' PROCEDURE ANALYSE()'
+                ); ?>" style="margin-right: 0;">
+                <?php echo PMA_Util::getIcon(
+                    'b_tblanalyse.png',
+                    __('Propose table structure'),
+                    true
+                ); ?>
+        </a>
+        <?php echo PMA_Util::showMySQLDocu('procedure_analyse'); ?>
+    <?php endif; ?>
+    <?php if (PMA_Tracker::isActive()): ?>
+        <a href="tbl_tracking.php<?php echo $url_query; ?>">
+            <?php echo PMA_Util::getIcon('eye.png', __('Track table'), true); ?>
+        </a>
+    <?php endif; ?>
+    <a href="#" id="move_columns_anchor">
+        <?php echo PMA_Util::getIcon('b_move.png', __('Move columns'), true); ?>
+    </a>
+    <a href="normalization.php<?php echo $url_query; ?>">
+        <?php echo PMA_Util::getIcon('normalize.png', __('Improve table structure'), true); ?>
+    </a>
+<?php endif; ?>
+<?php if ($tbl_is_view && ! $db_is_system_schema): ?>
+    <?php if (PMA_Tracker::isActive()): ?>
+        <a href="tbl_tracking.php<?php echo $url_query; ?>">
+            <?php echo PMA_Util::getIcon('eye.png', __('Track view'), true); ?>
+        </a>
+    <?php endif; ?>
+<?php endif; ?>

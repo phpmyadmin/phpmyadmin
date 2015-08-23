@@ -92,15 +92,17 @@ class Reference extends Component
          *
          *      1 ---------------------[ columns ]--------------------> 2
          *
-         *      2 ---------------------[ options ]--------------------> -1
+         *      2 ---------------------[ options ]--------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -135,15 +137,16 @@ class Reference extends Component
 
     /**
      * @param Reference $component The component to be built.
+     * @param array     $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         return trim(
             Context::escape($component->table)
             . ' (' . implode(', ', Context::escape($component->columns)) . ') '
-            . OptionsArray::build($component->options)
+            . $component->options
         );
     }
 }

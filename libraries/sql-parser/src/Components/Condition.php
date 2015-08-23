@@ -95,6 +95,7 @@ class Condition extends Component
 
         /**
          * Counts brackets.
+         *
          * @var int $brackets
          */
         $brackets = 0;
@@ -104,7 +105,8 @@ class Condition extends Component
          * It is required to keep track of them because their structure contains
          * the keyword `AND`, which is also an operator that delimits
          * expressions.
-         * @var bool
+         *
+         * @var bool $betweenBefore
          */
         $betweenBefore = false;
 
@@ -112,6 +114,7 @@ class Condition extends Component
 
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -194,15 +197,16 @@ class Condition extends Component
 
     /**
      * @param Condition[] $component The component to be built.
+     * @param array       $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
-        $ret = array();
-        foreach ($component as $c) {
-            $ret[] = $c->expr;
+        if (is_array($component)) {
+            return implode(' ', $component);
+        } else {
+            return $component->expr;
         }
-        return implode(' ', $ret);
     }
 }

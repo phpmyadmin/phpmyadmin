@@ -65,17 +65,19 @@ class IntoKeyword extends Component
          *      0 -----------------------[ name ]----------------------> 1
          *      0 ---------------------[ OUTFILE ]---------------------> 2
          *
-         *      1 ------------------------[ ( ]------------------------> -1
+         *      1 ------------------------[ ( ]------------------------> (END)
          *
          *      2 ---------------------[ filename ]--------------------> 1
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -127,5 +129,22 @@ class IntoKeyword extends Component
 
         --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param IntoKeyword $component The component to be built.
+     * @param array       $options   Parameters for building.
+     *
+     * @return string
+     */
+    public static function build($component, array $options = array())
+    {
+        if ($component->dest instanceof Expression) {
+            $columns = !empty($component->columns) ?
+                '(' . implode(', ', $component->columns) . ')' : '';
+            return $component->dest . $columns;
+        } else {
+            return 'OUTFILE "' . $component->dest . '"';
+        }
     }
 }

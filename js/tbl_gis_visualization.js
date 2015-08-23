@@ -14,8 +14,8 @@ var defaultX = 0;
 var defaultY = 0;
 
 // Variables
-var x;
-var y;
+var x = 0;
+var y = 0;
 var scale = 1;
 
 var svg;

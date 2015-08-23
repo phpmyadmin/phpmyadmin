@@ -55,26 +55,30 @@ class OptionsArray extends Component
     {
         $ret = new OptionsArray();
 
-         /**
-          * The ID that will be assigned to duplicate options.
-          * @var int $lastAssignedId
-          */
+        /**
+         * The ID that will be assigned to duplicate options.
+         *
+         * @var int $lastAssignedId
+         */
         $lastAssignedId = count($options) + 1;
 
         /**
          * The option that was processed last time.
+         *
          * @var array $lastOption
          */
         $lastOption = null;
 
         /**
          * The index of the option that was processed last time.
+         *
          * @var int $lastOptionId
          */
         $lastOptionId = 0;
 
         /**
          * Counts brackets.
+         *
          * @var int $brackets
          */
         $brackets = 0;
@@ -90,13 +94,15 @@ class OptionsArray extends Component
          *
          *      2 ----------------------[ value ]----------------------> 0
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -245,14 +251,16 @@ class OptionsArray extends Component
 
     /**
      * @param OptionsArray $component The component to be built.
+     * @param array        $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
-        if ((empty($component)) || (!is_array($component->options))) {
+        if (empty($component->options)) {
             return '';
         }
+
         $options = array();
         foreach ($component->options as $option) {
             if (!is_array($option)) {
@@ -260,9 +268,7 @@ class OptionsArray extends Component
             } else {
                 $options[] = $option['name']
                     . (!empty($option['equals']) ? '=' : ' ')
-                    . (!empty($option['expr']) ? ((string) $option['expr']) : $option['value']);
-                // If `$option['expr']` happens to be a component, the magic
-                // method will build it automatically.
+                    . (!empty($option['expr']) ? $option['expr'] : $option['value']);
             }
         }
         return implode(' ', $options);

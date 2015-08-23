@@ -639,6 +639,10 @@ $GLOBALS['dummy_queries'] = array(
     array(
         'query' => "SHOW TABLE STATUS FROM `db` WHERE `Name` LIKE 'table%'",
         'result' => array()
+    ),
+    array(
+        'query' => "SHOW VARIABLES LIKE 'have_partitioning'",
+        'result' => array()
     )
 );
 /**

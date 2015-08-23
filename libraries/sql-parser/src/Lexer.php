@@ -42,6 +42,7 @@ namespace SqlParser {
         /**
          * Forces usage of `UtfString` if the string is multibyte.
          * `UtfString` may be slower, but it gives better results.
+         *
          * @var bool
          */
         define('USE_UTF_STRINGS', true);
@@ -242,13 +243,16 @@ namespace SqlParser {
 
             /**
              * Last processed token.
+             *
              * @var Token $lastToken
              */
             $lastToken = null;
 
             for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
+
                 /**
                  * The new token.
+                 *
                  * @var Token $token
                  */
                 $token = null;
@@ -327,7 +331,7 @@ namespace SqlParser {
                     $pos = $this->last + 1;
 
                     // Parsing the delimiter.
-                    $this->delimiter = '';
+                    $this->delimiter = null;
                     while ((++$this->last < $this->len) && (!Context::isWhitespace($this->str[$this->last]))) {
                         $this->delimiter .= $this->str[$this->last];
                     }
@@ -392,23 +396,27 @@ namespace SqlParser {
 
             /**
              * Value to be returned.
+             *
              * @var Token $ret
              */
             $ret = null;
 
             /**
              * The value of `$this->last` where `$token` ends in `$this->str`.
+             *
              * @var int $iEnd
              */
             $iEnd = $this->last;
 
             /**
              * Whether last parsed character is a whitespace.
+             *
              * @var bool $lastSpace
              */
             $lastSpace = false;
 
             for ($j = 1; $j < Context::KEYWORD_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
+
                 // Composed keywords shouldn't have more than one whitespace between
                 // keywords.
                 if (Context::isWhitespace($this->str[$this->last])) {
@@ -426,6 +434,7 @@ namespace SqlParser {
                     if (($flags = Context::isKeyword($token))) {
                         $ret = new Token($token, Token::TYPE_KEYWORD, $flags);
                         $iEnd = $this->last;
+
                         // We don't break so we find longest keyword.
                         // For example, `OR` and `ORDER` have a common prefix `OR`.
                         // If we stopped at `OR`, the parsing would be invalid.
@@ -448,12 +457,14 @@ namespace SqlParser {
 
             /**
              * Value to be returned.
+             *
              * @var Token $ret
              */
             $ret = null;
 
             /**
              * The value of `$this->last` where `$token` ends in `$this->str`.
+             *
              * @var int $iEnd
              */
             $iEnd = $this->last;
@@ -506,7 +517,7 @@ namespace SqlParser {
                 while ((++$this->last < $this->len) && ($this->str[$this->last] !== "\n")) {
                     $token .= $this->str[$this->last];
                 }
-                $token .= "\n";  // Adding the line ending.
+                $token .= "\n"; // Adding the line ending.
                 return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_BASH);
             }
 
@@ -799,7 +810,11 @@ namespace SqlParser {
             }
 
             if ($flags & Token::FLAG_SYMBOL_VARIABLE) {
-                ++$this->last;
+                if ($this->str[++$this->last] === '@') {
+                    // This is a system variable (e.g. `@@hostname`).
+                    $token .= $this->str[$this->last++];
+                    $flags |= Token::FLAG_SYMBOL_SYSTEM;
+                }
             } else {
                 $token = '';
             }

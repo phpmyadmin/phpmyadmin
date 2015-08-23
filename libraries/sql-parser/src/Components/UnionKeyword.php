@@ -25,15 +25,12 @@ class UnionKeyword extends Component
 
     /**
      * @param SelectStatement[] $component The component to be built.
+     * @param array             $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
-        $ret = array();
-        foreach ($component as $c) {
-            $ret[] = $c->build();
-        }
-        return implode(" UNION ", $ret);
+        return implode(' UNION ', $component);
     }
 }

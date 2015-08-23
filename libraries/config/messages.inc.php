@@ -187,8 +187,6 @@ $strConfigExport_sql_auto_increment_name = __('Add AUTO_INCREMENT value');
 $strConfigExport_sql_backquotes_name
     = __('Enclose table and column names with backquotes');
 $strConfigExport_sql_compatibility_name = __('SQL compatibility mode');
-$strConfigExport_sql_create_table_statements_name
-    = __('<code>CREATE TABLE</code> options:');
 $strConfigExport_sql_dates_name = __('Creation/Update/Check dates');
 $strConfigExport_sql_delayed_name = __('Use delayed inserts');
 $strConfigExport_sql_disable_fk_name = __('Disable foreign key checks');
@@ -205,7 +203,10 @@ $strConfigExport_sql_create_view_name = sprintf(__('Add %s'), 'CREATE VIEW');
 $strConfigExport_sql_create_trigger_name
     = sprintf(__('Add %s'), 'CREATE TRIGGER');
 $strConfigExport_sql_hex_for_binary_name = __('Use hexadecimal for BINARY & BLOB');
-$strConfigExport_sql_if_not_exists_name = sprintf(__('Add %s'), 'IF NOT EXISTS');
+$strConfigExport_sql_if_not_exists_name = __(
+    'Add IF NOT EXISTS (less efficient as indexes will be generated during'
+    . ' table creation)'
+);
 $strConfigExport_sql_ignore_name = __('Use ignore inserts');
 $strConfigExport_sql_include_comments_name = __('Comments');
 $strConfigExport_sql_insert_syntax_name = __('Syntax to use when inserting data');
@@ -1000,4 +1001,3 @@ $strConfigZeroConf_desc = __(
     . 'configuration storage tables automatically.'
 );
 $strConfigZeroConf_name = __('Enable Zero Configuration mode');
-

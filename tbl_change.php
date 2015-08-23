@@ -202,8 +202,6 @@ foreach ($rows as $row_id => $current_row) {
 $scripts->addFiles($GLOBALS['plugin_scripts']);
 unset($unsaved_values, $checked, $repopulate, $GLOBALS['plugin_scripts']);
 
-$html_output .= PMA_getHtmlForGisEditor();
-
 if (! isset($after_insert)) {
     $after_insert = 'back';
 }
@@ -221,6 +219,8 @@ if ($biggest_max_file_size > 0) {
         ) . "\n";
 }
 $html_output .= '</form>';
+
+$html_output .= PMA_getHtmlForGisEditor();
 // end Insert/Edit form
 
 if ($insert_mode) {

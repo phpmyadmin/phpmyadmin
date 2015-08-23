@@ -382,6 +382,9 @@ class Node_Database extends Node
     {
         $db = $this->real_name;
         $cfgRelation = PMA_getRelationsParam();
+        if (empty($cfgRelation['navigationhiding'])) {
+            return array();
+        }
         $navTable = PMA_Util::backquote($cfgRelation['db'])
             . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
         $sqlQuery = "SELECT `item_name` FROM " . $navTable

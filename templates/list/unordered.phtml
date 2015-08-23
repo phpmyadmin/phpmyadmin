@@ -1,0 +1,29 @@
+<?php
+/**
+ * Display unordered list.
+ *
+ * $class - optional string - Contains the class name(s) of ul tag
+ * $id - optional string - Contains the id of ul tag
+ * $item - mandatory string|array - If string, this is the content
+ *                                - Else, see templates/list/item.phtml
+ * $content - mandatory string - Content to display if $item is empty
+ */
+?>
+<ul<?php
+echo !empty($class) ? ' class="' . $class . '"' : null;
+echo !empty($id) ? ' id="' . $id . '"' : null;
+?>>
+    <?php
+    if (!empty($items)) :
+        foreach ($items as $item) :
+            if (!is_array($item)) {
+                $item = array('content' => $item);
+            }
+            echo PMA\Template::get('list/item')
+                ->render($item);
+        endforeach;
+    elseif (!empty($content)) :
+        echo $content;
+    endif;
+    ?>
+</ul>

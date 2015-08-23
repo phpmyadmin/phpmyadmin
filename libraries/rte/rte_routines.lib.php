@@ -90,199 +90,7 @@ function PMA_RTN_handleEditor()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $errors;
 
-    if (! empty($_REQUEST['editor_process_add'])
-        || ! empty($_REQUEST['editor_process_edit'])
-    ) {
-        /**
-         * Handle a request to create/edit a routine
-         */
-        $sql_query = '';
-        $routine_query = PMA_RTN_getQueryFromRequest();
-        if (! count($errors)) { // set by PMA_RTN_getQueryFromRequest()
-            // Execute the created query
-            if (! empty($_REQUEST['editor_process_edit'])) {
-                $isProcOrFunc = in_array(
-                    $_REQUEST['item_original_type'],
-                    array('PROCEDURE', 'FUNCTION')
-                );
-                if (!$isProcOrFunc) {
-                    $errors[] = sprintf(
-                        __('Invalid routine type: "%s"'),
-                        htmlspecialchars($_REQUEST['item_original_type'])
-                    );
-                } else {
-                    // Backup the old routine, in case something goes wrong
-                    $create_routine = $GLOBALS['dbi']->getDefinition(
-                        $db, $_REQUEST['item_original_type'],
-                        $_REQUEST['item_original_name']
-                    );
-
-                    if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
-                        if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-                            && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
-                        ) {
-                            // Backup the Old Privileges before dropping
-                            // if $_REQUEST['item_adjust_privileges'] set
-                            $privilegesBackup = array();
-                            if (isset($_REQUEST['item_adjust_privileges'])
-                                && ! empty($_REQUEST['item_adjust_privileges'])
-                            ) {
-                                $privilegesBackupQuery = 'SELECT * FROM ' . PMA_Util::backquote('mysql')
-                                    . '.' . PMA_Util::backquote('procs_priv')
-                                    . ' where Routine_name = "' . $_REQUEST['item_original_name']
-                                    . '" AND Routine_type = "' . $_REQUEST['item_original_type']
-                                    . '";';
-
-                                $privilegesBackup = $GLOBALS['dbi']->fetchResult(
-                                    $privilegesBackupQuery, 0
-                                );
-                            }
-                        }
-                    }
-
-                    $drop_routine = "DROP {$_REQUEST['item_original_type']} "
-                        . PMA_Util::backquote($_REQUEST['item_original_name'])
-                        . ";\n";
-                    $result = $GLOBALS['dbi']->tryQuery($drop_routine);
-                    if (! $result) {
-                        $errors[] = sprintf(
-                            __('The following query has failed: "%s"'),
-                            htmlspecialchars($drop_routine)
-                        )
-                        . '<br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
-                    } else {
-                        $result = $GLOBALS['dbi']->tryQuery($routine_query);
-                        if (! $result) {
-                            $errors[] = sprintf(
-                                __('The following query has failed: "%s"'),
-                                htmlspecialchars($routine_query)
-                            )
-                            . '<br />'
-                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
-                            // We dropped the old routine,
-                            // but were unable to create the new one
-                            // Try to restore the backup query
-                            $result = $GLOBALS['dbi']->tryQuery($create_routine);
-                            $errors = checkResult(
-                                $result,
-                                __(
-                                    'Sorry, we failed to restore'
-                                    . ' the dropped routine.'
-                                ),
-                                $create_routine,
-                                $errors
-                            );
-                        } else {
-                            // Default value
-                            $resultAdjust = false;
-
-                            if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
-                                if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-                                    && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
-                                ) {
-                                    // Insert all the previous privileges
-                                    // but with the new name and the new type
-                                    foreach ($privilegesBackup as $priv) {
-                                        $adjustProcPrivilege = 'INSERT INTO '
-                                            . PMA_Util::backquote('mysql') . '.'
-                                            . PMA_Util::backquote('procs_priv')
-                                            . ' VALUES("' . $priv[0] . '", "'
-                                            . $priv[1] . '", "' . $priv[2] . '", "'
-                                            . $_REQUEST['item_name'] . '", "'
-                                            . $_REQUEST['item_type'] . '", "'
-                                            . $priv[5] . '", "'
-                                            . $priv[6] . '", "'
-                                            . $priv[7] . '");';
-                                        $resultAdjust = $GLOBALS['dbi']->query(
-                                            $adjustProcPrivilege
-                                        );
-                                    }
-                                }
-                            }
-
-                            if ($resultAdjust) {
-                                // Flush the Privileges
-                                $flushPrivQuery = 'FLUSH PRIVILEGES;';
-                                $GLOBALS['dbi']->query($flushPrivQuery);
-
-                                $message = PMA_Message::success(
-                                    __(
-                                        'Routine %1$s has been modified. Privileges have been adjusted.'
-                                    )
-                                );
-                            } else {
-                                $message = PMA_Message::success(
-                                    __('Routine %1$s has been modified.')
-                                );
-                            }
-                            $message->addParam(
-                                PMA_Util::backquote($_REQUEST['item_name'])
-                            );
-                            $sql_query = $drop_routine . $routine_query;
-                        }
-                    }
-                }
-            } else {
-                // 'Add a new routine' mode
-                $result = $GLOBALS['dbi']->tryQuery($routine_query);
-                if (! $result) {
-                    $errors[] = sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($routine_query)
-                    )
-                    . '<br /><br />'
-                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
-                } else {
-                    $message = PMA_Message::success(
-                        __('Routine %1$s has been created.')
-                    );
-                    $message->addParam(
-                        PMA_Util::backquote($_REQUEST['item_name'])
-                    );
-                    $sql_query = $routine_query;
-                }
-            }
-        }
-
-        if (count($errors)) {
-            $message = PMA_Message::error(
-                __(
-                    'One or more errors have occurred while'
-                    . ' processing your request:'
-                )
-            );
-            $message->addString('<ul>');
-            foreach ($errors as $string) {
-                $message->addString('<li>' . $string . '</li>');
-            }
-            $message->addString('</ul>');
-        }
-
-        $output = PMA_Util::getMessage($message, $sql_query);
-        if ($GLOBALS['is_ajax_request']) {
-            $response = PMA_Response::getInstance();
-            if ($message->isSuccess()) {
-                $routines = $GLOBALS['dbi']->getRoutines(
-                    $db, $_REQUEST['item_type'], $_REQUEST['item_name']
-                );
-                $routine = $routines[0];
-                $response->addJSON(
-                    'name',
-                    htmlspecialchars(
-                        /*overload*/mb_strtoupper($_REQUEST['item_name'])
-                    )
-                );
-                $response->addJSON('new_row', PMA_RTN_getRowForList($routine));
-                $response->addJSON('insert', ! empty($routine));
-                $response->addJSON('message', $output);
-            } else {
-                $response->isSuccess(false);
-                $response->addJSON('message', $output);
-            }
-            exit;
-        }
-    }
+    $errors = PMA_RTN_handleRequestCreateOrEdit($errors, $db);
 
     /**
      * Display a form used to add/edit a routine, if necessary
@@ -359,6 +167,288 @@ function PMA_RTN_handleEditor()
             }
         }
     }
+}
+
+/**
+ * Handle request to create or edit a routine
+ *
+ * @param array  $errors Errors
+ * @param string $db     DB name
+ *
+ * @return array
+ */
+function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
+{
+    if (empty($_REQUEST['editor_process_add'])
+        && empty($_REQUEST['editor_process_edit'])
+    ) {
+        return $errors;
+    }
+
+    $sql_query = '';
+    $routine_query = PMA_RTN_getQueryFromRequest();
+    if (!count($errors)) { // set by PMA_RTN_getQueryFromRequest()
+        // Execute the created query
+        if (!empty($_REQUEST['editor_process_edit'])) {
+            $isProcOrFunc = in_array(
+                $_REQUEST['item_original_type'],
+                array('PROCEDURE', 'FUNCTION')
+            );
+
+            if (!$isProcOrFunc) {
+                $errors[] = sprintf(
+                    __('Invalid routine type: "%s"'),
+                    htmlspecialchars($_REQUEST['item_original_type'])
+                );
+            } else {
+                // Backup the old routine, in case something goes wrong
+                $create_routine = $GLOBALS['dbi']->getDefinition(
+                    $db,
+                    $_REQUEST['item_original_type'],
+                    $_REQUEST['item_original_name']
+                );
+
+                $privilegesBackup = PMA_RTN_backupPrivileges();
+
+                $drop_routine = "DROP {$_REQUEST['item_original_type']} "
+                    . PMA_Util::backquote($_REQUEST['item_original_name'])
+                    . ";\n";
+                $result = $GLOBALS['dbi']->tryQuery($drop_routine);
+                if (!$result) {
+                    $errors[] = sprintf(
+                        __('The following query has failed: "%s"'),
+                        htmlspecialchars($drop_routine)
+                    )
+                    . '<br />'
+                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                } else {
+                    list($newErrors, $message) = PMA_RTN_createRoutine(
+                        $routine_query,
+                        $create_routine,
+                        $privilegesBackup
+                    );
+                    if (empty($newErrors)) {
+                        $sql_query = $drop_routine . $sql_query;
+                    } else {
+                        $errors = array_merge($errors, $newErrors);
+                    }
+                    unset($newErrors);
+                    if (null === $message) {
+                        unset($message);
+                    }
+                }
+            }
+        } else {
+            // 'Add a new routine' mode
+            $result = $GLOBALS['dbi']->tryQuery($routine_query);
+            if (!$result) {
+                $errors[] = sprintf(
+                    __('The following query has failed: "%s"'),
+                    htmlspecialchars($routine_query)
+                )
+                . '<br /><br />'
+                . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+            } else {
+                $message = PMA_Message::success(
+                    __('Routine %1$s has been created.')
+                );
+                $message->addParam(
+                    PMA_Util::backquote($_REQUEST['item_name'])
+                );
+                $sql_query = $routine_query;
+            }
+        }
+    }
+
+    if (count($errors)) {
+        $message = PMA_Message::error(
+            __(
+                'One or more errors have occurred while'
+                . ' processing your request:'
+            )
+        );
+        $message->addString('<ul>');
+        foreach ($errors as $string) {
+            $message->addString('<li>' . $string . '</li>');
+        }
+        $message->addString('</ul>');
+    }
+
+    $output = PMA_Util::getMessage($message, $sql_query);
+    if (!$GLOBALS['is_ajax_request']) {
+        return $errors;
+    }
+
+    $response = PMA_Response::getInstance();
+    if (!$message->isSuccess()) {
+        $response->isSuccess(false);
+        $response->addJSON('message', $output);
+        exit;
+    }
+
+    $routines = $GLOBALS['dbi']->getRoutines(
+        $db,
+        $_REQUEST['item_type'],
+        $_REQUEST['item_name']
+    );
+    $routine = $routines[0];
+    $response->addJSON(
+        'name',
+        htmlspecialchars(
+            /*overload*/
+            mb_strtoupper($_REQUEST['item_name'])
+        )
+    );
+    $response->addJSON('new_row', PMA_RTN_getRowForList($routine));
+    $response->addJSON('insert', !empty($routine));
+    $response->addJSON('message', $output);
+    exit;
+}
+
+/**
+ * Backup the privileges
+ *
+ * @return array
+ */
+function PMA_RTN_backupPrivileges()
+{
+    if (defined('PMA_DRIZZLE') && PMA_DRIZZLE) {
+        return array();
+    }
+
+    if (!(isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
+        && isset($GLOBALS['flush_priv'])
+        && $GLOBALS['flush_priv'])
+    ) {
+        return array();
+    }
+
+    // Backup the Old Privileges before dropping
+    // if $_REQUEST['item_adjust_privileges'] set
+    if (!isset($_REQUEST['item_adjust_privileges'])
+        || empty($_REQUEST['item_adjust_privileges'])
+    ) {
+        return array();
+    }
+
+    $privilegesBackupQuery = 'SELECT * FROM ' . PMA_Util::backquote(
+        'mysql'
+    )
+    . '.' . PMA_Util::backquote('procs_priv')
+    . ' where Routine_name = "' . $_REQUEST['item_original_name']
+    . '" AND Routine_type = "' . $_REQUEST['item_original_type']
+    . '";';
+
+    $privilegesBackup = $GLOBALS['dbi']->fetchResult(
+        $privilegesBackupQuery,
+        0
+    );
+
+    return $privilegesBackup;
+}
+
+/**
+ * Create the routine
+ *
+ * @param string $routine_query    Query to create routine
+ * @param string $create_routine   Query to restore routine
+ * @param array  $privilegesBackup Privileges backup
+ *
+ * @return array
+ */
+function PMA_RTN_createRoutine(
+    $routine_query,
+    $create_routine,
+    $privilegesBackup
+) {
+    $result = $GLOBALS['dbi']->tryQuery($routine_query);
+    if (!$result) {
+        $errors = array();
+        $errors[] = sprintf(
+            __('The following query has failed: "%s"'),
+            htmlspecialchars($routine_query)
+        )
+        . '<br />'
+        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+        // We dropped the old routine,
+        // but were unable to create the new one
+        // Try to restore the backup query
+        $result = $GLOBALS['dbi']->tryQuery($create_routine);
+        $errors = checkResult(
+            $result,
+            __(
+                'Sorry, we failed to restore'
+                . ' the dropped routine.'
+            ),
+            $create_routine,
+            $errors
+        );
+
+        return array($errors, null);
+    }
+
+    // Default value
+    $resultAdjust = false;
+
+    if (!defined('PMA_DRIZZLE') || !PMA_DRIZZLE) {
+        if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
+            && isset($GLOBALS['flush_priv'])
+            && $GLOBALS['flush_priv']
+        ) {
+            // Insert all the previous privileges
+            // but with the new name and the new type
+            foreach ($privilegesBackup as $priv) {
+                $adjustProcPrivilege = 'INSERT INTO '
+                    . PMA_Util::backquote('mysql') . '.'
+                    . PMA_Util::backquote('procs_priv')
+                    . ' VALUES("' . $priv[0] . '", "'
+                    . $priv[1] . '", "' . $priv[2] . '", "'
+                    . $_REQUEST['item_name'] . '", "'
+                    . $_REQUEST['item_type'] . '", "'
+                    . $priv[5] . '", "'
+                    . $priv[6] . '", "'
+                    . $priv[7] . '");';
+                $resultAdjust = $GLOBALS['dbi']->query(
+                    $adjustProcPrivilege
+                );
+            }
+        }
+    }
+
+    $message = PMA_RTN_flushPrivileges($resultAdjust);
+
+    return array(array(), $message);
+}
+
+/**
+ * Flush privileges and get message
+ *
+ * @param bool $flushPrivileges Flush privileges
+ *
+ * @return PMA_Message
+ */
+function PMA_RTN_flushPrivileges($flushPrivileges)
+{
+    if ($flushPrivileges) {
+        // Flush the Privileges
+        $flushPrivQuery = 'FLUSH PRIVILEGES;';
+        $GLOBALS['dbi']->query($flushPrivQuery);
+
+        $message = PMA_Message::success(
+            __(
+                'Routine %1$s has been modified. Privileges have been adjusted.'
+            )
+        );
+    } else {
+        $message = PMA_Message::success(
+            __('Routine %1$s has been modified.')
+        );
+    }
+    $message->addParam(
+        PMA_Util::backquote($_REQUEST['item_name'])
+    );
+
+    return $message;
 } // end PMA_RTN_handleEditor()
 
 /**

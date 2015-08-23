@@ -1,0 +1,39 @@
+<!-- Displays 'Function' column if it is present -->
+<td>
+    <?php
+    $geom_types = PMA_Util::getGISDatatypes();
+    ?>
+
+    <?php
+    /**
+     * if a geometry column is present
+     */
+    if (in_array($columnTypes[$column_index], $geom_types)): ?>
+        <select class="geom_func"
+                name="geom_func[<?php echo $column_index; ?>]">
+
+            <?php
+            // get the relevant list of GIS functions
+            $funcs = PMA_Util::getGISFunctions(
+                $columnTypes[$column_index], true, true
+            );
+            ?>
+
+            <?php
+            /**
+            * For each function in the list of functions,
+            * add an option to select list
+            */
+            foreach ($funcs as $func_name => $func): ?>
+                <?php $name = htmlspecialchars(
+                    isset($func['display']) ? $func['display'] : $func_name
+                ); ?>
+                <option value="<?php echo $name; ?>">
+                    <?php echo $name; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    <?php else: ?>
+        &nbsp;
+    <?php endif; ?>
+</td>

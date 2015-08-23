@@ -114,7 +114,6 @@ if (!defined('TESTSUITE')) {
             'sql_create_database',
             'sql_drop_table',
             'sql_procedure_function',
-            'sql_create_table_statements',
             'sql_create_table',
             'sql_create_view',
             'sql_create_trigger',

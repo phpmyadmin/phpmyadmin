@@ -166,7 +166,7 @@ class TableChartController extends TableController
          * Displays the page
          */
         $this->response->addHTML(
-            Template::get('tbl_chart')->render(
+            Template::get('table/chart/tbl_chart')->render(
                 array(
                     'url_query' => $this->url_query,
                     'url_params' => $url_params,

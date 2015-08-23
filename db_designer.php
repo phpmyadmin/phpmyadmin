@@ -36,12 +36,8 @@ if (isset($_REQUEST['dialog'])) {
 if (isset($_REQUEST['operation'])) {
 
     if ($_REQUEST['operation'] == 'deletePage') {
-        $result = PMA_deletePage($_REQUEST['selected_page']);
-        if ($result) {
-            $response->isSuccess(true);
-        } else {
-            $response->isSuccess(false);
-        }
+        $success = PMA_deletePage($_REQUEST['selected_page']);
+        $response->isSuccess($success);
     } elseif ($_REQUEST['operation'] == 'savePage') {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
@@ -49,11 +45,8 @@ if (isset($_REQUEST['operation'])) {
             $page = PMA_createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
             $response->addJSON('id', $page);
         }
-        if (PMA_saveTablePositions($page)) {
-            $response->isSuccess(true);
-        } else {
-            $response->isSuccess(false);
-        }
+        $success = PMA_saveTablePositions($page);
+        $response->isSuccess($success);
     } elseif ($_REQUEST['operation'] == 'setDisplayField') {
         PMA_saveDisplayField(
             $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['field']
@@ -81,56 +74,8 @@ if (isset($_REQUEST['operation'])) {
         $response->isSuccess($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'save_setting_value') {
-        $cfgRelation = PMA_getRelationsParam();
-
-        $cfgDesigner = array(
-            'user'  => $GLOBALS['cfg']['Server']['user'],
-            'db'    => $cfgRelation['db'],
-            'table' => $cfgRelation['designer_settings']
-        );
-        if (! empty($cfgDesigner['user'])
-            && ! empty($cfgDesigner['db'])
-            && ! empty($cfgDesigner['table'])
-            && $GLOBALS['cfgRelation']['designersettingswork']
-        ) {
-            $orig_data_query = 'SELECT ' . PMA_Util::backquote('settings_data')
-                . ' FROM `' . $cfgDesigner['db'] . '`.`' . $cfgDesigner['table']
-                . '` WHERE ' . PMA_Util::backquote('username') . ' = "'
-                . $cfgDesigner['user'] . '"';
-
-            $orig_data = $GLOBALS['dbi']->fetchSingleRow($orig_data_query);
-
-            $success = false;
-
-            if (isset($orig_data)
-                && ! empty($orig_data)
-                && $orig_data
-            ) {
-                $orig_data = json_decode($orig_data['settings_data'], true);
-                $orig_data[$_REQUEST['index']] = $_REQUEST['value'];
-                $orig_data = json_encode($orig_data);
-
-                $save_query = 'UPDATE `' . $cfgDesigner['db'] . '`.`'
-                    . $cfgDesigner['table'] . '` SET '
-                    . PMA_Util::backquote('settings_data') . ' = \''
-                    . $orig_data . '\' WHERE ' . PMA_Util::backquote('username')
-                    . ' = "' . $cfgDesigner['user'] . '";';
-
-                $success = $GLOBALS['dbi']->query($save_query);
-            } else {
-                $save_data = array($_REQUEST['index'] => $_REQUEST['value']);
-
-                $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
-                    . '.' . PMA_Util::backquote($cfgDesigner['table'])
-                    . ' VALUES("' . PMA_Util::sqlAddSlashes($cfgDesigner['user'])
-                    . '", \''
-                    . PMA_Util::sqlAddSlashes(json_encode($save_data)) . '\');';
-
-                $success = $GLOBALS['dbi']->query($query);
-            }
-
-            $response->isSuccess($success);
-        }
+        $success = PMA_saveDesignerSetting($_REQUEST['index'], $_REQUEST['value']);
+        $response->isSuccess($success);
     }
 
     return;

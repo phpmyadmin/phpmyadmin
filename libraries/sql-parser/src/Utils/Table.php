@@ -13,7 +13,7 @@ use SqlParser\Statements\CreateStatement;
 /**
  * Table utilities.
  *
- * @category   Tables
+ * @category   Statement
  * @package    SqlParser
  * @subpackage Utils
  * @author     Dan Ungureanu <udan1107@gmail.com>

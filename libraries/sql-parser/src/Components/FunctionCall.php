@@ -73,15 +73,17 @@ class FunctionCall extends Component
          *
          *      0 ----------------------[ name ]-----------------------> 1
          *
-         *      1 --------------------[ parameters ]-------------------> -1
+         *      1 --------------------[ parameters ]-------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];
@@ -113,11 +115,12 @@ class FunctionCall extends Component
 
     /**
      * @param FunctionCall $component The component to be built.
+     * @param array        $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
-        return $component->name . ArrayObj::build($component->parameters);
+        return $component->name . $component->parameters;
     }
 }

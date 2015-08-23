@@ -41,8 +41,12 @@ class Formatter
      */
     public static $INLINE_CLAUSES = array(
         'CREATE'                        => true,
-        'PROCEDURE'                     => true,
         'LIMIT'                         => true,
+        'PARTITION BY'                  => true,
+        'PARTITION'                     => true,
+        'PROCEDURE'                     => true,
+        'SUBPARTITION BY'               => true,
+        'VALUES'                        => true,
     );
 
     /**
@@ -58,6 +62,7 @@ class Formatter
 
                 /**
                  * The format of the result.
+                 *
                  * @var string The type ('text', 'cli' or 'html')
                  */
                 'type' => php_sapi_name() == 'cli' ? 'cli' : 'text',
@@ -65,24 +70,28 @@ class Formatter
                 /**
                  * The line ending used.
                  * By default, for text this is "\n" and for HTML this is "<br/>".
+                 *
                  * @var string
                  */
                 'line_ending' => $this->options['type'] == 'html' ? '<br/>' : "\n",
 
                 /**
                  * The string used for indentation.
+                 *
                  * @var string
                  */
-                'indentation' => "    ",
+                'indentation' => "  ",
 
                 /**
                  * Whether comments should be removed or not.
+                 *
                  * @var bool
                  */
                 'remove_comments' => false,
 
                 /**
                  * Whether each clause should be on a new line.
+                 *
                  * @var bool
                  */
                 'clause_newline' => true,
@@ -90,12 +99,14 @@ class Formatter
                 /**
                  * Whether each part should be on a new line.
                  * Parts are delimited by brackets and commas.
+                 *
                  * @var bool
                  */
                 'parts_newline' => true,
 
                 /**
                  * Whether each part of each clause should be indented.
+                 *
                  * @var bool
                  */
                 'indent_parts' => true,
@@ -103,6 +114,7 @@ class Formatter
                 /**
                  * The styles used for HTML formatting.
                  * array($type, $flags, $span, $callback)
+                 *
                  * @var array[]
                  */
                 'formats' => array(
@@ -176,24 +188,28 @@ class Formatter
 
         /**
          * The query to be returned.
+         *
          * @var string $ret
          */
         $ret = '';
 
         /**
          * The indentation level.
+         *
          * @var int $indent
          */
         $indent = 0;
 
         /**
          * Whether the line ended.
+         *
          * @var bool $lineEnded
          */
         $lineEnded = false;
 
         /**
          * The name of the last clause.
+         *
          * @var string $lastClause
          */
         $lastClause = '';
@@ -201,6 +217,7 @@ class Formatter
         /**
          * A stack that keeps track of the indentation level every time a new
          * block is found.
+         *
          * @var array $blocksIndentation
          */
         $blocksIndentation = array();
@@ -208,18 +225,21 @@ class Formatter
         /**
          * A stack that keeps track of the line endings every time a new block
          * is found.
+         *
          * @var array $blocksLineEndings
          */
         $blocksLineEndings = array();
 
         /**
          * Whether clause's options were formatted.
+         *
          * @var bool $formattedOptions
          */
         $formattedOptions = false;
 
         /**
          * Previously parsed token.
+         *
          * @var Token $prev
          */
         $prev = null;
@@ -227,6 +247,7 @@ class Formatter
         /**
          * Comments are being formatted separately to maintain the whitespaces
          * before and after them.
+         *
          * @var string $comment
          */
         $comment = '';
@@ -239,6 +260,7 @@ class Formatter
 
             /**
              * Token parsed at this moment.
+             *
              * @var Token $curr
              */
             $curr = $list->tokens[$list->idx];
@@ -368,7 +390,7 @@ class Formatter
                     if (!((($prev->type === Token::TYPE_OPERATOR) && (($prev->value === '.') || ($prev->value === '(')))
                         // No space after . (
                         || (($curr->type === Token::TYPE_OPERATOR) && (($curr->value === '.') || ($curr->value === ',') || ($curr->value === '(') || ($curr->value === ')')))
-                        // No space before . , )
+                        // No space before . , ( )
                         || (($curr->type === Token::TYPE_DELIMITER)) && (mb_strlen($curr->value, 'UTF-8') < 2))
                         // A space after delimiters that are longer than 2 characters.
                         || ($prev->value === 'DELIMITER')
@@ -461,13 +483,15 @@ class Formatter
          * This counter starts at one because by the time this function called,
          * the list already advanced one position and the opening bracket was
          * already parsed.
-         * @var int
+         *
+         * @var int $count
          */
         $count = 1;
 
         /**
          * The length of this group.
-         * @var int
+         *
+         * @var int $length
          */
         $length = 0;
 

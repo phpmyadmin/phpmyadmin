@@ -1,0 +1,77 @@
+<?php
+$myfield = $save_row[$i]['Field'];
+// Use an md5 as array index to avoid having special characters
+// in the name attribute (see bug #1746964 )
+$myfield_md5 = md5($myfield);
+$myfield_html = htmlspecialchars($myfield);
+
+$foreign_table = false;
+$foreign_column = false;
+
+// database dropdown
+if (isset($existrel[$myfield])) {
+    $foreign_db = $existrel[$myfield]['foreign_db'];
+} else {
+    $foreign_db = $db;
+}
+
+// table dropdown
+$tables = array();
+if ($foreign_db) {
+    if (isset($existrel[$myfield])) {
+        $foreign_table = $existrel[$myfield]['foreign_table'];
+    }
+    $tables_rs = $GLOBALS['dbi']->query(
+        'SHOW TABLES FROM ' . PMA_Util::backquote($foreign_db),
+        null,
+        PMA_DatabaseInterface::QUERY_STORE
+    );
+    while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
+        $tables[] = $row[0];
+    }
+}
+
+// column dropdown
+$columns = array();
+if ($foreign_db && $foreign_table) {
+    if (isset($existrel[$myfield])) {
+        $foreign_column = $existrel[$myfield]['foreign_field'];
+    }
+    $table_obj = new PMA_Table($foreign_table, $foreign_db);
+    $columns = $table_obj->getUniqueColumns(false, false);
+}
+?>
+<tr class="<?php echo ($odd_row ? 'odd' : 'even'); ?>">
+    <td class="vmiddle">
+        <strong><?php echo $myfield_html; ?></strong>
+        <input type="hidden" name="fields_name[<?php echo $myfield_md5; ?>]"
+               value="<?php echo $myfield_html; ?>"/>
+    </td>
+
+    <td>
+        <?php echo PMA\Template::get('table/relation/relational_dropdown')->render(
+            array(
+                'name' => 'destination_db[' . $myfield_md5 . ']',
+                'title' => __('Database'),
+                'values' => $GLOBALS['pma']->databases,
+                'foreign' => $foreign_db
+            )
+        ); ?>
+        <?php echo PMA\Template::get('table/relation/relational_dropdown')->render(
+            array(
+                'name' => 'destination_table[' . $myfield_md5 . ']',
+                'title' => __('Table'),
+                'values' => $tables,
+                'foreign' => $foreign_table
+            )
+        ); ?>
+        <?php echo PMA\Template::get('table/relation/relational_dropdown')->render(
+            array(
+                'name' => 'destination_column[' . $myfield_md5 . ']',
+                'title' => __('Column'),
+                'values' => $columns,
+                'foreign' => $foreign_column
+            )
+        ); ?>
+    </td>
+</tr>

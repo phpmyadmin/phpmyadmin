@@ -4036,7 +4036,7 @@ function PMA_init_slider()
         var $wrapper = $('<div>', {'class': 'slide-wrapper'});
         $wrapper.toggle($this.is(':visible'));
         $('<a>', {href: '#' + this.id, "class": 'ajax'})
-            .text(this.title)
+            .text($this.attr('title'))
             .prepend($('<span>'))
             .insertBefore($this)
             .click(function () {
@@ -4053,6 +4053,7 @@ function PMA_init_slider()
                 return false;
             });
         $this.wrap($wrapper);
+        $this.removeAttr('title');
         PMA_set_status_label($this);
         $this.data('slider_init_done', 1);
     });
