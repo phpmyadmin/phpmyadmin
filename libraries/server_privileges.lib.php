@@ -1700,7 +1700,9 @@ function PMA_getHtmlForLoginInformationFields(
         . '>' . __('MySQL native password') . '</option>';
 
     // sha256 auth plugin exists only for 5.6.6+
-    if (PMA_MYSQL_INT_VERSION >= 50606) {
+    if (PMA_Util::getServerType() == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50606
+    ) {
         $html_output .= '<option value="sha256_password" '
         . ($orig_auth_plugin == 'sha256_password' ? ' selected ' : '')
         . ' >' . __('SHA256 password') . '</option>';
@@ -5016,7 +5018,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $sql_query = '';
     }
 
-    if (PMA_MYSQL_INT_VERSION >= 50700) {
+    if (PMA_Util::getServerType() == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50700
+    ) {
         $password_set_real = null;
         $password_set_show = null;
     } else {
