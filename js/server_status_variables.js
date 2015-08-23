@@ -38,8 +38,8 @@ AJAX.registerOnload('server_status_variables.js', function () {
     $('#dontFormat').change(function () {
         // Hiding the table while changing values speeds up the process a lot
         $('#serverstatusvariables').hide();
-        $('#serverstatusvariables td.value span.original').toggle(this.checked);
-        $('#serverstatusvariables td.value span.formatted').toggle(! this.checked);
+        $('#serverstatusvariables').find('td.value span.original').toggle(this.checked);
+        $('#serverstatusvariables').find('td.value span.formatted').toggle(! this.checked);
         $('#serverstatusvariables').show();
     }).trigger('change');
 
@@ -64,7 +64,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
         }
 
         if (section.length > 1) {
-            $('#linkSuggestions span').each(function () {
+            $('#linkSuggestions').find('span').each(function () {
                 if ($(this).attr('class').indexOf('status_' + section) != -1) {
                     useful_links++;
                     $(this).css('display', '');
@@ -81,7 +81,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
         }
 
         odd_row = false;
-        $('#serverstatusvariables th.name').each(function () {
+        $('#serverstatusvariables').find('th.name').each(function () {
             if ((textFilter === null || textFilter.exec($(this).text())) &&
                 (! alertFilter || $(this).next().find('span.attention').length > 0) &&
                 (categoryFilter.length === 0 || $(this).parent().hasClass('s_' + categoryFilter))

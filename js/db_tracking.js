@@ -12,8 +12,9 @@ AJAX.registerTeardown('db_tracking.js', function () {
  */
 AJAX.registerOnload('db_tracking.js', function () {
 
-    $('#versions tr:first th').append($('<div class="sorticon"></div>'));
-    $('#versions').tablesorter({
+    var $versions = $('#versions');
+    $versions.find('tr:first th').append($('<div class="sorticon"></div>'));
+    $versions.tablesorter({
         sortList: [[1, 0]],
         headers: {
             0: {sorter: false},
@@ -24,8 +25,9 @@ AJAX.registerOnload('db_tracking.js', function () {
         }
     });
 
-    $('#noversions tr:first th').append($('<div class="sorticon"></div>'));
-    $('#noversions').tablesorter({
+    var $noVersions = $('#noversions');
+    $noVersions.find('tr:first th').append($('<div class="sorticon"></div>'));
+    $noVersions.tablesorter({
         sortList: [[1, 0]],
         headers: {
             0: {sorter: false},
@@ -33,10 +35,12 @@ AJAX.registerOnload('db_tracking.js', function () {
         }
     });
 
+    var $body = $('body');
+
     /**
      * Handles multi submit for tracked tables
      */
-    $('body').on('click', '#trackedForm.ajax button[name="submit_mult"], #trackedForm.ajax input[name="submit_mult"]', function (e) {
+    $body.on('click', '#trackedForm.ajax button[name="submit_mult"], #trackedForm.ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
@@ -59,7 +63,7 @@ AJAX.registerOnload('db_tracking.js', function () {
     /**
      * Handles multi submit for untracked tables
      */
-    $('body').on('click', '#untrackedForm.ajax button[name="submit_mult"], #untrackedForm.ajax input[name="submit_mult"]', function (e) {
+    $body.on('click', '#untrackedForm.ajax button[name="submit_mult"], #untrackedForm.ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
@@ -72,7 +76,7 @@ AJAX.registerOnload('db_tracking.js', function () {
     /**
      * Ajax Event handler for 'Delete tracking'
      */
-    $('body').on('click', 'a.delete_tracking_anchor.ajax', function (e) {
+    $body.on('click', 'a.delete_tracking_anchor.ajax', function (e) {
         e.preventDefault();
         var $anchor = $(this);
         var question = PMA_messages.strDeleteTrackingData;

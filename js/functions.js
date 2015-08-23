@@ -371,8 +371,9 @@ function PMA_current_version(data)
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
         }
-        $('#li_pma_version span.latest').remove();
-        $('#li_pma_version').append(version_information_message);
+        var $liPmaVersion = $('#li_pma_version');
+        $liPmaVersion.find('span.latest').remove();
+        $liPmaVersion.append(version_information_message);
     }
 }
 
@@ -756,9 +757,10 @@ function checkTableEditForm(theForm, fieldsCnt)
     }
 
     // at least this section is under jQuery
-    if ($("input.textfield[name='table']").val() === "") {
+    var $input = $("input.textfield[name='table']");
+    if ($input.val() === "") {
         alert(PMA_messages.strFormEmpty);
-        $("input.textfield[name='table']").focus();
+        $input.focus();
         return false;
     }
 
@@ -1038,8 +1040,9 @@ function PMA_handleSimulateQueryButton()
         query = $('#sqlquery').val();
     }
 
+    var $simulateDml = $('#simulate_dml');
     if (update_re.test(query) || delete_re.test(query)) {
-        if (! $('#simulate_dml').length) {
+        if (! $simulateDml.length) {
             $('#button_submit_query')
             .before('<input type="button" id="simulate_dml"' +
                 'tabindex="199" value="' +
@@ -1047,8 +1050,8 @@ function PMA_handleSimulateQueryButton()
                 '" />');
         }
     } else {
-        if ($('#simulate_dml').length) {
-            $('#simulate_dml').remove();
+        if ($simulateDml.length) {
+            $simulateDml.remove();
         }
     }
 }
@@ -1260,8 +1263,9 @@ function refreshLayout()
     var $elm = $('#pdflayout');
     var orientation = $('#orientation_opt').val();
     var paper = 'A4';
-    if ($('#paper_opt').length == 1) {
-        paper = $('#paper_opt').val();
+    var $paperOpt = $('#paper_opt');
+    if ($paperOpt.length == 1) {
+        paper = $paperOpt.val();
     }
     var posa = 'y';
     var posb = 'x';
@@ -1833,8 +1837,9 @@ AJAX.registerOnload('functions.js', function () {
     });
 
     $(document).on('click', "input#sql_query_edit_discard", function () {
-        $('div#inline_editor_outer').siblings('code.sql').show();
-        $('div#inline_editor_outer').remove();
+        var $divEditor = $('div#inline_editor_outer');
+        $divEditor.siblings('code.sql').show();
+        $divEditor.remove();
     });
 
     $('input.sqlbutton').click(function (evt) {
@@ -1845,9 +1850,10 @@ AJAX.registerOnload('functions.js', function () {
 
     $(document).on('change', '#parameterized', updateQueryParameters);
 
-    if ($('#input_username')) {
-        if ($('#input_username').val() === '') {
-            $('#input_username').focus();
+    var $inputUsername = $('#input_username');
+    if ($inputUsername) {
+        if ($inputUsername.val() === '') {
+            $inputUsername.focus();
         } else {
             $('#input_password').focus();
         }
@@ -2777,8 +2783,9 @@ AJAX.registerOnload('functions.js', function () {
                          .html('');
                         PMA_ajaxShowMessage(data.message);
                         // Only if the create table dialog (distinct panel) exists
-                        if ($("#create_table_dialog").length > 0) {
-                            $("#create_table_dialog").dialog("close").remove();
+                        var $createTableDialog = $("#create_table_dialog");
+                        if ($createTableDialog.length > 0) {
+                            $createTableDialog.dialog("close").remove();
                         }
                         $('#tableslistcontainer').before(data.formatted_sql);
 
@@ -2867,8 +2874,9 @@ AJAX.registerOnload('functions.js', function () {
         //User wants to add more fields to the table
         $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=1", function (data) {
             if (typeof data !== 'undefined' && data.success) {
-                $("#page_content").html(data.message);
-                PMA_highlightSQL($('#page_content'));
+                var $pageContent = $("#page_content");
+                $pageContent.html(data.message);
+                PMA_highlightSQL($pageContent);
                 PMA_verifyColumnsProperties();
                 PMA_hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
                 PMA_ajaxRemoveMessage($msgbox);
@@ -2892,9 +2900,9 @@ AJAX.registerOnload('functions.js', function () {
         if (this.checked) {
             var col = /\d/.exec($(this).attr('name'));
             col = col[0];
-            var index_val = $('select[name="field_key['+col+']"]').val();
-            if (index_val === 'none_'+col) {
-                $('select[name="field_key['+col+']"]').val('primary_'+col).change();
+            var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
+            if ($selectFieldKey.val() === 'none_'+col) {
+                $selectFieldKey.val('primary_'+col).change();
             }
         }
     });
@@ -2994,16 +3002,17 @@ AJAX.registerOnload('functions.js', function () {
             $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
 
             $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw=' + this_value, function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    $("#page_content").prepend(data.message);
-                    PMA_highlightSQL($('#page_content'));
-                    $("#change_password_dialog").hide().remove();
-                    $("#edit_user_dialog").dialog("close").remove();
-                    PMA_ajaxRemoveMessage($msgbox);
-                }
-                else {
+                if (typeof data === 'undefined' || data.success !== true) {
                     PMA_ajaxShowMessage(data.error, false);
+                    return;
                 }
+
+                var $pageContent = $("#page_content");
+                $pageContent.prepend(data.message);
+                PMA_highlightSQL($pageContent);
+                $("#change_password_dialog").hide().remove();
+                $("#edit_user_dialog").dialog("close").remove();
+                PMA_ajaxRemoveMessage($msgbox);
             }); // end $.post()
         };
 
@@ -3011,37 +3020,38 @@ AJAX.registerOnload('functions.js', function () {
             $(this).dialog('close');
         };
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
-            if (typeof data !== 'undefined' && data.success) {
-                $('<div id="change_password_dialog"></div>')
+            if (typeof data === 'undefined' || !data.success) {
+                PMA_ajaxShowMessage(data.error, false);
+                return;
+            }
+
+            $('<div id="change_password_dialog"></div>')
                 .dialog({
                     title: PMA_messages.strChangePassword,
                     width: 600,
                     close: function (ev, ui) {
                         $(this).remove();
                     },
-                    buttons : button_options,
+                    buttons: button_options,
                     modal: true
                 })
                 .append(data.message);
-                // for this dialog, we remove the fieldset wrapping due to double headings
-                $("fieldset#fieldset_change_password")
+            // for this dialog, we remove the fieldset wrapping due to double headings
+            $("fieldset#fieldset_change_password")
                 .find("legend").remove().end()
                 .find("table.noclick").unwrap().addClass("some-margin")
                 .find("input#text_pma_pw").focus();
-                displayPasswordGenerateButton();
-                $('#fieldset_change_password_footer').hide();
-                PMA_ajaxRemoveMessage($msgbox);
-                $('#change_password_form').bind('submit', function (e) {
-                    e.preventDefault();
-                    $(this)
-                        .closest('.ui-dialog')
-                        .find('.ui-dialog-buttonpane .ui-button')
-                        .first()
-                        .click();
-                });
-            } else {
-                PMA_ajaxShowMessage(data.error, false);
-            }
+            displayPasswordGenerateButton();
+            $('#fieldset_change_password_footer').hide();
+            PMA_ajaxRemoveMessage($msgbox);
+            $('#change_password_form').bind('submit', function (e) {
+                e.preventDefault();
+                $(this)
+                    .closest('.ui-dialog')
+                    .find('.ui-dialog-buttonpane .ui-button')
+                    .first()
+                    .click();
+            });
         }); // end $.get()
     }); // end handler for change password anchor
 }); // end $() for Change Password
@@ -3133,25 +3143,28 @@ function autoPopulate(input_id, offset)
     $('#' + input_id + '1').val(central_column_list[db + '_' + table][offset].col_name);
     var col_type = central_column_list[db + '_' + table][offset].col_type.toUpperCase();
     $('#' + input_id + '2').val(col_type);
-    $('#' + input_id + '3').val(central_column_list[db + '_' + table][offset].col_length);
+    var $input3 = $('#' + input_id + '3');
+    $input3.val(central_column_list[db + '_' + table][offset].col_length);
     if(col_type === 'ENUM' || col_type === 'SET') {
-        $('#' + input_id + '3').next().show();
+        $input3.next().show();
     } else {
-        $('#' + input_id + '3').next().hide();
+        $input3.next().hide();
     }
     var col_default = central_column_list[db + '_' + table][offset].col_default.toUpperCase();
+    var $input4 = $('#' + input_id + '4');
     if (col_default !== '' && col_default !== 'NULL' && col_default !== 'CURRENT_TIMESTAMP') {
-        $('#' + input_id + '4').val("USER_DEFINED");
-        $('#' + input_id + '4').next().next().show();
-        $('#' + input_id + '4').next().next().val(central_column_list[db + '_' + table][offset].col_default);
+        $input4.val("USER_DEFINED");
+        $input4.next().next().show();
+        $input4.next().next().val(central_column_list[db + '_' + table][offset].col_default);
     } else {
-        $('#' + input_id + '4').val(central_column_list[db + '_' + table][offset].col_default);
-        $('#' + input_id + '4').next().next().hide();
+        $input4.val(central_column_list[db + '_' + table][offset].col_default);
+        $input4.next().next().hide();
     }
     $('#' + input_id + '5').val(central_column_list[db + '_' + table][offset].col_collation);
-    $('#' + input_id + '6').val(central_column_list[db + '_' + table][offset].col_attribute);
+    var $input6 = $('#' + input_id + '6');
+    $input6.val(central_column_list[db + '_' + table][offset].col_attribute);
     if(central_column_list[db + '_' + table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
-        $('#' + input_id + '6').val(central_column_list[db + '_' + table][offset].col_extra);
+        $input6.val(central_column_list[db + '_' + table][offset].col_extra);
     }
     if(central_column_list[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
         $('#' + input_id + '9').prop("checked",true).change();
@@ -3557,11 +3570,12 @@ AJAX.registerOnload('functions.js', function () {
         };
 
         while (rows_to_add--) {
-            var $newrow = $('#index_columns')
+            var $indexColumns = $('#index_columns');
+            var $newrow = $indexColumns
                 .find('tbody > tr:first')
                 .clone()
                 .appendTo(
-                    $('#index_columns').find('tbody')
+                    $indexColumns.find('tbody')
                 );
             $newrow.find(':input').each(tempEmptyVal);
             // focus index size input on column picked
@@ -3573,8 +3587,9 @@ AJAX.registerOnload('functions.js', function () {
 function indexEditorDialog(url, title, callback_success, callback_failure)
 {
     /*Remove the hidden dialogs if there are*/
-    if ($('#edit_index_dialog').length !== 0) {
-        $('#edit_index_dialog').remove();
+    var $editIndexDialog = $('#edit_index_dialog');
+    if ($editIndexDialog.length !== 0) {
+        $editIndexDialog.remove();
     }
     var $div = $('<div id="edit_index_dialog"></div>');
 
@@ -3592,13 +3607,15 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function (data) {
-            if ($(".sqlqueryresults").length !== 0) {
-                $(".sqlqueryresults").remove();
+            var $sqlqueryresults = $(".sqlqueryresults");
+            if ($sqlqueryresults.length !== 0) {
+                $sqlqueryresults.remove();
             }
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
-                if ($('.result_query').length) {
-                    $('.result_query').remove();
+                var $resultQuery = $('.result_query');
+                if ($resultQuery.length) {
+                    $resultQuery.remove();
                 }
                 if (data.sql_query) {
                     $('<div class="result_query"></div>')
@@ -3607,15 +3624,16 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                     PMA_highlightSQL($('#page_content'));
                 }
                 $(".result_query .notice").remove();
-                $(".result_query").prepend(data.message);
+                $resultQuery.prepend(data.message);
                 /*Reload the field form*/
                 $("#table_index").remove();
                 $("<div id='temp_div'><div>")
                     .append(data.index_table)
                     .find("#table_index")
                     .insertAfter("#index_header");
-                if ($("#edit_index_dialog").length > 0) {
-                    $("#edit_index_dialog").dialog("close");
+                var $editIndexDialog = $("#edit_index_dialog");
+                if ($editIndexDialog.length > 0) {
+                    $editIndexDialog.dialog("close");
                 }
                 $('div.no_indexes_defined').hide();
                 if (callback_success) {
@@ -3676,12 +3694,13 @@ function showIndexEditDialog($outer)
 {
     checkIndexType();
     checkIndexName("index_frm");
-    $('#index_columns td').each(function () {
+    var $indexColumns = $('#index_columns');
+    $indexColumns.find('td').each(function () {
         $(this).css("width", $(this).width() + 'px');
     });
-    $('#index_columns tbody').sortable({
+    $indexColumns.find('tbody').sortable({
         axis: 'y',
-        containment: $("#index_columns tbody"),
+        containment: $indexColumns.find("tbody"),
         tolerance: 'pointer'
     });
     PMA_showHints($outer);
@@ -3974,9 +3993,10 @@ AJAX.registerOnload('functions.js', function () {
         }
     });
 
-    if ($('#update_recent_tables').length) {
+    var $updateRecentTables = $('#update_recent_tables');
+    if ($updateRecentTables.length) {
         $.get(
-            $('#update_recent_tables').attr('href'),
+            $updateRecentTables.attr('href'),
             {no_debug: true},
             function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -4675,13 +4695,15 @@ function PMA_ignorePhpErrors(clearPrevErrors){
     // send AJAX request to error_report.php with send_error_report=0, exception_type=php & token.
     // It clears the prev_errors stored in session.
     if(clearPrevErrors){
-        $('#pma_report_errors_form input[name="send_error_report"]').val(0); // change send_error_report to '0'
-        $('#pma_report_errors_form').submit();
+        var $pmaReportErrorsForm = $('#pma_report_errors_form');
+        $pmaReportErrorsForm.find('input[name="send_error_report"]').val(0); // change send_error_report to '0'
+        $pmaReportErrorsForm.submit();
     }
 
     // remove displayed errors
-    $('#pma_errors').fadeOut( "slow");
-    $('#pma_errors').remove();
+    var $pmaErrors = $('#pma_errors');
+    $pmaErrors.fadeOut( "slow");
+    $pmaErrors.remove();
 }
 
 /**

@@ -104,7 +104,7 @@ function loadSVG() {
  */
 function addZoomPanControllers() {
     var $placeholder = $('#placeholder');
-    if ($("#placeholder svg").length > 0) {
+    if ($("#placeholder").find("svg").length > 0) {
         var pmaThemeImage = $('#pmaThemeImage').val();
         // add panning arrows
         $('<img class="button" id="left_arrow" src="' + pmaThemeImage + 'west-mini.png">').appendTo($placeholder);
@@ -272,8 +272,9 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         //zoom in
         scale *= zoomFactor;
 
-        width = $('#placeholder svg').attr('width');
-        height = $('#placeholder svg').attr('height');
+        var $placeholder = $('#placeholder').find('svg');
+        width = $placeholder.attr('width');
+        height = $placeholder.attr('height');
         // zooming in keeping the center unmoved.
         x = width / 2 - (width / 2 - x) * zoomFactor;
         y = height / 2 - (height / 2 - y) * zoomFactor;
@@ -293,8 +294,9 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         //zoom out
         scale /= zoomFactor;
 
-        width = $('#placeholder svg').attr('width');
-        height = $('#placeholder svg').attr('height');
+        var $placeholder = $('#placeholder').find('svg');
+        width = $placeholder.attr('width');
+        height = $placeholder.attr('height');
         // zooming out keeping the center unmoved.
         x = width / 2 - (width / 2 - x) / zoomFactor;
         y = height / 2 - (height / 2 - y) / zoomFactor;
