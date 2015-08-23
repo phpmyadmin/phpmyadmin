@@ -230,7 +230,7 @@ class PMA_Partition extends PMA_SubPartition
     /**
      * Add a sub partition
      *
-     * @param PMA_SubPartition $partition
+     * @param PMA_SubPartition $partition Sub partition
      *
      * @return void
      */

@@ -101,7 +101,7 @@ class ImportSql extends ImportPlugin
         $this->properties = $importPluginProperties;
     }
 
-    /*
+    /**
      * Handles the whole import logic
      *
      * @param array &$sql_data 2-element array with sql data
