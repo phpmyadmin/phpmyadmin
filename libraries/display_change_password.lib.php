@@ -82,7 +82,9 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     );
 
     // See http://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-5.html
-    if (PMA_MYSQL_INT_VERSION >= 50705) {
+    if (PMA_Util::getServerType() == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50705
+    ) {
         $html .= '<tr class="vmiddle">'
             . '<td>' . __('Password Hashing:') . '</td>'
             . '<td>'
@@ -111,7 +113,9 @@ function PMA_getHtmlForChangePassword($username, $hostname)
             . '</label>'
             . '</td>'
             . '</tr>';
-    } elseif (PMA_MYSQL_INT_VERSION >= 50606) {
+    } elseif (PMA_Util::getServerType() == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50606
+    ) {
         $html .= '<tr class="vmiddle" id="tr_element_before_generate_password">'
             . '<td>' . __('Password Hashing:') . '</td>'
             . '<td>'
