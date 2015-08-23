@@ -65,7 +65,7 @@ class PMA_Linter
      * @param array $lines The starting position of each line.
      * @param int   $pos   The absolute position
      *
-     * @return void
+     * @return array
      */
     public static function findLineNumberAndColumn($lines, $pos)
     {
@@ -84,7 +84,7 @@ class PMA_Linter
      *
      * @param string $query The query to be checked.
      *
-     * @return void
+     * @return array
      */
     public static function lint($query)
     {

@@ -2284,7 +2284,8 @@ class PMA_Table
      *
      * @param string $column name of the column
      *
-     * @return array associative array of column name and their expressions
+     * @return array|boolean associative array of column name and their expressions
+     *                       or false on failure
      */
     public function getColumnGenerationExpression($column = null)
     {
@@ -2312,12 +2313,12 @@ class PMA_Table
 
         $createTable = $this->showCreate();
         if (!$createTable) {
-            return;
+            return false;
         }
 
         $parser = new SqlParser\Parser($createTable);
         /**
-         * @var CreateStatement $stmt
+         * @var SqlParser\Statements\CreateStatement $stmt
         */
         $stmt = $parser->statements[0];
         $fields = SqlParser\Utils\Table::getFields($stmt);
