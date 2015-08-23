@@ -641,7 +641,7 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array()
     ),
     array(
-        'query' => "SHOW VARIABLES LIKE 'have_partitioning'",
+        'query' => "SHOW VARIABLES LIKE 'have_partitioning';",
         'result' => array()
     )
 );
