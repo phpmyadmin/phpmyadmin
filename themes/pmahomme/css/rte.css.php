@@ -38,8 +38,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     -webkit-box-sizing: border-box;
 }
 
-.rte-table input[type=checkbox],
-.rte-table input[type=radio] {
+.rte_table input[type=checkbox],
+.rte_table input[type=radio] {
     width: auto;
     margin-right: 6px;
 }
