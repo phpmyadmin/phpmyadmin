@@ -1373,7 +1373,7 @@ table#chartGrid div.monitorChart {
 div.tabLinks {
     margin-left: 0.3em;
     float: <?php echo $left; ?>;
-    padding: 5px 0px;
+    padding: 5px 0;
 }
 
 div.tabLinks a, div.tabLinks label {
@@ -1381,7 +1381,7 @@ div.tabLinks a, div.tabLinks label {
 }
 
 div.tabLinks .icon {
-    margin: -0.2em 0.3em 0px 0px;
+    margin: -0.2em 0.3em 0 0;
 }
 
 .popupContent {
@@ -2942,7 +2942,7 @@ body .ui-widget {
 
 /* over-riding jqplot-yaxis class */
 .jqplot-yaxis {
-    left:0px !important;
+    left:0 !important;
     min-width:25px;
     width:auto;
 }
@@ -3365,8 +3365,8 @@ html.ie7 #pma_console .query_input {
 .pma_drop_handler {
     display: none;
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
     height: 100%;
@@ -3380,7 +3380,7 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status {
     display: none;
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     right: 25px;
     width: 400px;
     border: 1px solid #999;
@@ -3429,13 +3429,13 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status h2 .minimize {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 .pma_sql_import_status h2 .close {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
     display: none;
 }
 
@@ -3463,7 +3463,7 @@ html.ie7 #pma_console .query_input {
     background: white;
     min-height: 300px;
     z-index: 800;
-    -webkit-box-shadow: 0px 0px 15px #999;
+    -webkit-box-shadow: 0 0 15px #999;
     border-radius: 10px;
     cursor: move;
 }
@@ -3471,7 +3471,7 @@ html.ie7 #pma_console .query_input {
 .pma_drop_result h2 .close {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 .dependencies_box {
