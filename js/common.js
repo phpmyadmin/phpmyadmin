@@ -350,7 +350,7 @@ PMA_DROP_IMPORT = {
     _dragleave: function (event) {
         event.stopPropagation();
         event.preventDefault();
-        var $pma_drop_handler = $(".pma_drop_handler")
+        var $pma_drop_handler = $(".pma_drop_handler");
         $pma_drop_handler.clearQueue().stop();
         $pma_drop_handler.fadeOut();
         $pma_drop_handler.html(PMA_messages.dropImportDropFiles);
@@ -424,7 +424,7 @@ PMA_DROP_IMPORT = {
                 var ext  = (PMA_DROP_IMPORT._getExtension(files[i].name));
                 var hash = AJAX.hash(++PMA_DROP_IMPORT.uploadCount);
 
-                var $pma_sql_import_status_div = $(".pma_sql_import_status div")
+                var $pma_sql_import_status_div = $(".pma_sql_import_status div");
                 $pma_sql_import_status_div.append('<li data-hash="' +hash +'">' +
                     ((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ') +
                     escapeHtml(files[i].name) + '<span class="filesize" data-filename="' +
