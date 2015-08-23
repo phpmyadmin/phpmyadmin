@@ -1981,7 +1981,7 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
 /**
  * Get REQUIRE cluase
  *
- * @return stirng REQUIRE clause
+ * @return string REQUIRE clause
  */
 function PMA_getRequireClause()
 {
@@ -4902,70 +4902,94 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
  */
 function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 {
-    $create_user_real = 'CREATE USER \''
-        . PMA_Util::sqlAddSlashes($username) . '\'@\''
-        . PMA_Util::sqlAddSlashes($hostname) . '\'';
+    $slashedUsername = PMA_Util::sqlAddSlashes($username);
+    $slashedHostname = PMA_Util::sqlAddSlashes($hostname);
 
-    $password_set_real = 'SET PASSWORD FOR \''
-        . PMA_Util::sqlAddSlashes($username) . '\'@\''
-        . PMA_Util::sqlAddSlashes($hostname) . '\' = '
-        . ' PASSWORD(\'';
+    $create_user_stmt = sprintf(
+        'CREATE USER \'%s\'@\'%s\'',
+        $slashedUsername,
+        $slashedHostname
+    );
+    $create_user_real = $create_user_show = $create_user_stmt;
 
-    $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
-        . PMA_Util::sqlAddSlashes($username) . '\'@\''
-        . PMA_Util::sqlAddSlashes($hostname) . '\'';
+    $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = PASSWORD(\'%s\')';
+    $password_set_show = sprintf(
+        $password_set_stmt,
+        $slashedUsername,
+        $slashedHostname,
+        '***'
+    );
+    $password_set_real = null;
 
-    $create_user_show = $create_user_real;
-    $password_set_show = $password_set_real . '***\')';
-    $sql_query = $real_sql_query;
+    $sql_query_stmt = sprintf(
+        'GRANT %s ON *.* TO \'%s\'@\'%s\'',
+        join(', ', PMA_extractPrivInfo()),
+        $slashedUsername,
+        $slashedHostname
+    );
+    $real_sql_query = $sql_query = $sql_query_stmt;
 
+    //@todo Following blocks should be delegated to another function and factorized.
+    //There are too much duplication here.
     if ($_POST['pred_password'] != 'none' && $_POST['pred_password'] != 'keep') {
-        if (isset($create_user_real)) {
-            if (isset($_REQUEST['authentication_plugin'])
-                && $_REQUEST['authentication_plugin']
-            ) {
-                if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY \'***\'';
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY  \'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\' ';
-                } else {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
-
-                    $password_set_real .= PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')';
-                }
+        $slashedPassword = PMA_Util::sqlAddSlashes($_POST['pma_pw']);
+        if (isset($_REQUEST['authentication_plugin'])
+            && $_REQUEST['authentication_plugin']
+        ) {
+            if (PMA_MYSQL_INT_VERSION >= 50700) {
+                $create_user_stmt = $create_user_stmt . ' IDENTIFIED WITH '
+                    . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
+                $create_user_show = sprintf($create_user_stmt, '***');
+                $create_user_real = sprintf(
+                    $create_user_stmt,
+                    $slashedPassword
+                );
             } else {
-                $sql_query .= ' IDENTIFIED BY \'***\'';
-                $real_sql_query .= ' IDENTIFIED BY  \''
-                    . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\' ';
-
-                $password_set_real .= PMA_Util::sqlAddSlashes(
-                    $_POST['pma_pw']
-                ) . '\')';
+                $create_user_stmt .= ' IDENTIFIED WITH '
+                    . $_REQUEST['authentication_plugin'];
+                $create_user_show = $create_user_real = $create_user_stmt;
             }
+        } else {
+            $sql_query_stmt .= ' IDENTIFIED BY \'%s\' ';
+            $sql_query = sprintf($sql_query_stmt, '***');
+            $real_sql_query = sprintf($sql_query_stmt, $slashedPassword);
         }
+        $password_set_real = sprintf(
+            $password_set_stmt,
+            $slashedUsername,
+            $slashedHostname,
+            $slashedPassword
+        );
     } else {
+        $slashedPassword = PMA_Util::sqlAddSlashes($password);
         if ($_POST['pred_password'] == 'keep' && ! empty($password)) {
             if (isset($_REQUEST['authentication_plugin'])
                 && $_REQUEST['authentication_plugin']
             ) {
                 if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY \'***\'';
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY  \'' . PMA_Util::sqlAddSlashes($password) . '\' ';
+                    $create_user_stmt = $create_user_stmt . ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
+                    $create_user_show = sprintf($create_user_stmt, '***');
+                    $create_user_real = sprintf(
+                        $create_user_stmt,
+                        $slashedPassword
+                    );
                 } else {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
-
-                    $password_set_real .= PMA_Util::sqlAddSlashes($password) . '\')';
+                    $create_user_stmt .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'];
+                    $create_user_show = $create_user_real = $create_user_stmt;
                 }
-            } else {
-                $sql_query .= ' IDENTIFIED BY \'***\'';
-                $real_sql_query .= ' IDENTIFIED BY  \''
-                    . PMA_Util::sqlAddSlashes($password) . '\' ';
 
+                $password_set_real = sprintf(
+                    $password_set_stmt,
+                    $slashedUsername,
+                    $slashedHostname,
+                    $slashedPassword
+                );
+            } else {
+                $sql_query_stmt .= ' IDENTIFIED BY \'%s\' ';
+                $sql_query = sprintf($sql_query_stmt, '***');
+                $real_sql_query = sprintf($sql_query_stmt, $slashedPassword);
                 $password_set_real = null;
             }
         } elseif ($_POST['pred_password'] == 'keep' && empty($password)) {
@@ -4973,20 +4997,28 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 && $_REQUEST['authentication_plugin']
             ) {
                 if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY \'***\'';
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin']
-                        . ' BY  \'\' ';
+                    $create_user_stmt = $create_user_stmt . ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
+                    $create_user_show = sprintf($create_user_stmt, '***');
+                    $create_user_real = sprintf(
+                        $create_user_stmt,
+                        null
+                    );
                 } else {
-                    $create_user_show .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
-                    $create_user_real .= ' IDENTIFIED WITH ' . $_REQUEST['authentication_plugin'];
-
-                    $password_set_real .= '\')';
+                    $create_user_stmt .= ' IDENTIFIED WITH '
+                        . $_REQUEST['authentication_plugin'];
+                    $create_user_show = $create_user_real = $create_user_stmt;
                 }
+                $password_set_real = sprintf(
+                    $password_set_stmt,
+                    $slashedUsername,
+                    $slashedHostname,
+                    null
+                );
             } else {
-                $sql_query .= ' IDENTIFIED BY \'***\'';
-                $real_sql_query .= ' IDENTIFIED BY  \'\' ';
-
+                $sql_query_stmt .= ' IDENTIFIED BY \'%s\' ';
+                $sql_query = sprintf($sql_query_stmt, '***');
+                $real_sql_query = sprintf($sql_query_stmt, null);
                 $password_set_real = null;
             }
         }
