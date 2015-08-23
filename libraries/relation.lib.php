@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  * @param boolean $show_error whether to display SQL error messages or not
  * @param int     $options    query options
  *
- * @return integer   the result set, or false if no result set
+ * @return resource|boolean the result set, or false if no result set
  *
  * @access  public
  *
