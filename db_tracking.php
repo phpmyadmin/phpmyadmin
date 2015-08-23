@@ -109,7 +109,7 @@ $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
 $all_tables_result = PMA_queryAsControlUser($all_tables_query);
 
 // If a HEAD version exists
-if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
+if (is_object($all_tables_result) && $GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     PMA_displayTrackedTables(
         $GLOBALS['db'], $all_tables_result, $url_query, $pmaThemeImage,
         $text_dir, $cfgRelation

@@ -1588,12 +1588,12 @@ function PMA_getUntrackedTables($db)
 /**
  * Display tracked tables
  *
- * @param string   $db                current database
- * @param resource $all_tables_result result set of tracked tables
- * @param string   $url_query         url query string
- * @param string   $pmaThemeImage     path to theme's image folder
- * @param string   $text_dir          text direction
- * @param array    $cfgRelation       configuration storage info
+ * @param string $db                current database
+ * @param object $all_tables_result result set of tracked tables
+ * @param string $url_query         url query string
+ * @param string $pmaThemeImage     path to theme's image folder
+ * @param string $text_dir          text direction
+ * @param array  $cfgRelation       configuration storage info
  *
  * @return void
  */
