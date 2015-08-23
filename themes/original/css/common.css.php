@@ -1044,7 +1044,7 @@ table#chartGrid div.monitorChart {
 div.tabLinks {
     margin-left: 0.3em;
     float: <?php echo $left; ?>;
-    padding: 5px 0px;
+    padding: 5px 0;
 }
 
 div.tabLinks a, div.tabLinks label {
@@ -1052,7 +1052,7 @@ div.tabLinks a, div.tabLinks label {
 }
 
 div.tabLinks .icon {
-    margin: -0.2em 0.3em 0px 0px;
+    margin: -0.2em 0.3em 0 0;
 }
 
 .popupContent {
@@ -1229,7 +1229,7 @@ div#queryboxcontainer div#bookmarkoptions {
 }
 
 #maincontainer li {
-    margin:  0.2em 0em;
+    margin:  0.2em 0;
 }
 
 #full_name_layer {
@@ -2409,45 +2409,39 @@ according to css rules*/
 
 
 .jqplot-xaxis-tick {
-    top: 0px;
+    top: 0;
     /* initial position untill tick is drawn in proper place */
     left: 15px;
-/*    padding-top: 10px;*/
     vertical-align: top;
 }
 
 .jqplot-x2axis-tick {
-    bottom: 0px;
+    bottom: 0;
     /* initial position untill tick is drawn in proper place */
     left: 15px;
-/*    padding-bottom: 10px;*/
     vertical-align: bottom;
 }
 
 .jqplot-yaxis-tick {
-    right: 0px;
+    right: 0;
     /* initial position untill tick is drawn in proper place */
     top: 15px;
-/*    padding-right: 10px;*/
     text-align: right;
 }
 
 .jqplot-yaxis-tick.jqplot-breakTick {
     right: -20px;
-    margin-right: 0px;
+    margin-right: 0;
     padding:1px 5px 1px 5px;
-/*  background-color: white;*/
     z-index: 2;
     font-size: 1.5em;
 }
 
 .jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick,
 .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick {
-    left: 0px;
-    /* initial position untill tick is drawn in proper place */
+    left: 0;
+    /* initial position until tick is drawn in proper place */
     top: 15px;
-/*    padding-left: 10px;*/
-/*    padding-right: 15px;*/
     text-align: left;
 }
 
@@ -2547,8 +2541,8 @@ div.jqplot-table-legend-swatch-outline {
 }
 
 div.jqplot-table-legend-swatch {
-    width:0px;
-    height:0px;
+    width:0;
+    height:0;
     border-top-width: 5px;
     border-bottom-width: 5px;
     border-left-width: 6px;
@@ -2560,8 +2554,8 @@ div.jqplot-table-legend-swatch {
 }
 
 .jqplot-title {
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     padding-bottom: 0.5em;
     font-size: 1.2em;
 }
@@ -3052,8 +3046,8 @@ html.ie7 #pma_console .query_input {
 .pma_drop_handler {
     display: none;
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
     height: 100%;
@@ -3067,7 +3061,7 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status {
     display: none;
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     right: 25px;
     width: 400px;
     border: 1px solid #999;
@@ -3116,13 +3110,13 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status h2 .minimize {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 .pma_sql_import_status h2 .close {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
     display: none;
 }
 
@@ -3150,7 +3144,7 @@ html.ie7 #pma_console .query_input {
     background: white;
     min-height: 300px;
     z-index: 800;
-    -webkit-box-shadow: 0px 0px 15px #999;
+    -webkit-box-shadow: 0 0 15px #999;
     border-radius: 10px;
     cursor: move;
 }
@@ -3158,7 +3152,7 @@ html.ie7 #pma_console .query_input {
 .pma_drop_result h2 .close {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 #composite_index_list {
