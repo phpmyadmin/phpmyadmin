@@ -138,7 +138,9 @@ function PMA_getImage(image, alternate, attributes) {
         if (i == 'src') {
             // do not allow to override the 'src' attribute
             continue;
-        } else if (i == 'class') {
+        }
+
+        if (i == 'class') {
             retval.attr(i, retval.attr('class') + ' ' + attributes[i]);
         } else {
             retval.attr(i, attributes[i]);
