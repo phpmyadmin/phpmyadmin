@@ -424,7 +424,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $properties = $properties[0]->getProperties();
 
         $this->assertCount(
-            6,
+            5,
             $properties
         );
 
