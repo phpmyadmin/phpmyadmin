@@ -272,6 +272,7 @@ function PMA_getCollationDescr($collation)
     case 'vietnamese':
         $descr = __('Vietnamese');
         break;
+    /** @noinspection PhpMissingBreakStatementInspection */
     case 'bin':
         $is_bin = true;
         // no break; statement here, continuing with 'general' section:
