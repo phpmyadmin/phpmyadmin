@@ -700,9 +700,9 @@ class PMA_NavigationTree
                     }
                 }
                 //Bug #4375: Check if prefix is the name of a DB, to create a group.
-                foreach ($node->children as $child) {
-                    if (array_key_exists($child->name, $prefixes)) {
-                        $prefixes[$child->name]++;
+                foreach ($node->children as $otherChild) {
+                    if (array_key_exists($otherChild->name, $prefixes)) {
+                        $prefixes[$otherChild->name]++;
                     }
                 }
             }
