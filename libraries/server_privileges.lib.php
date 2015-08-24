@@ -3082,7 +3082,7 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 : __('No'))
             . '</td>' . "\n"
             . '<td>';
-        if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
+        if (!empty($row['Table_privs']) || !empty($row['Column_priv'])) {
             $html_output .= __('Yes');
         } else {
             $html_output .= __('No');
@@ -4022,7 +4022,7 @@ function PMA_addUser(
         $create_user_real, $create_user_show, $real_sql_query, $sql_query,
         $password_set_real, $password_set_show
     ) = PMA_getSqlQueriesForDisplayAndAddUser(
-        $username, $hostname, (isset ($password) ? $password : '')
+        $username, $hostname, (isset($password) ? $password : '')
     );
 
     if (empty($_REQUEST['change_copy'])) {
@@ -4132,10 +4132,10 @@ function PMA_getDataForDBInfo()
     $tablename = null;
     $dbname_is_wildcard = null;
 
-    if (isset ($_REQUEST['username'])) {
+    if (isset($_REQUEST['username'])) {
         $username = $_REQUEST['username'];
     }
-    if (isset ($_REQUEST['hostname'])) {
+    if (isset($_REQUEST['hostname'])) {
         $hostname = $_REQUEST['hostname'];
     }
     /**
@@ -4526,8 +4526,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
                 $flushnote = new PMA_Message(
                     __(
                         'Note: phpMyAdmin gets the users\' privileges directly '
-                        . 'from MySQL\'s privilege tables. The content of these tables '
-                        . 'may differ from the privileges the server uses, '
+                        . 'from MySQL\'s privilege tables. The content of these '
+                        . 'tables may differ from the privileges the server uses, '
                         . 'if they have been changed manually. In this case, '
                         . 'you should %sreload the privileges%s before you continue.'
                     ),
@@ -4545,11 +4545,11 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
                 $flushnote = new PMA_Message(
                     __(
                         'Note: phpMyAdmin gets the users\' privileges directly '
-                        . 'from MySQL\'s privilege tables. The content of these tables '
-                        . 'may differ from the privileges the server uses, '
+                        . 'from MySQL\'s privilege tables. The content of these '
+                        . 'tables may differ from the privileges the server uses, '
                         . 'if they have been changed manually. In this case, '
-                        . 'the privileges have to be reloaded but currently, you don\'t have '
-                        . 'the RELOAD privilege.'
+                        . 'the privileges have to be reloaded but currently, you '
+                        . 'don\'t have the RELOAD privilege.'
                     )
                     . PMA_Util::showMySQLDocu(
                         'privileges-provided',

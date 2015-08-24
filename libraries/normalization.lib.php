@@ -804,7 +804,8 @@ function PMA_getHtmlForNormalizetable()
     $html_output .= '<fieldset>';
     $html_output .= '<legend>'
         . __('Improve table structure (Normalization):') . '</legend>';
-    $html_output .= '<h3>' . __('Select up to what step you want to normalize') . '</h3>';
+    $html_output .= '<h3>' . __('Select up to what step you want to normalize')
+        . '</h3>';
     $choices = array(
             '1nf' => __('First step of normalization (1NF)'),
             '2nf'      => __('Second step of normalization (1NF+2NF)'),

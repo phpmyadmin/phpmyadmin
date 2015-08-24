@@ -496,7 +496,9 @@ class PMA_Table
         $table = $this->_name;
 
         if ($this->_dbi->getCachedTableContent("${db}.${table}.ExactRows") != null) {
-            $row_count = $this->_dbi->getCachedTableContent("${db}.${table}.ExactRows");
+            $row_count = $this->_dbi->getCachedTableContent(
+                "${db}.${table}.ExactRows"
+            );
             return $row_count;
         }
         $row_count = false;
@@ -507,11 +509,16 @@ class PMA_Table
             ) {
                 $tmp_tables = $this->_dbi->getTablesFull($db, $table);
                 if (isset($tmp_tables[$table])) {
-                    $this->_dbi->cacheTableContent("${db}.${table}", $tmp_tables[$table]);
+                    $this->_dbi->cacheTableContent(
+                        "${db}.${table}",
+                        $tmp_tables[$table]
+                    );
                 }
             }
             if ($this->_dbi->getCachedTableContent("${db}.${table}.Rows") != null) {
-                $row_count = $this->_dbi->getCachedTableContent("${db}.${table}.Rows");
+                $row_count = $this->_dbi->getCachedTableContent(
+                    "${db}.${table}.Rows"
+                );
             } else {
                 $row_count = false;
             }
@@ -2380,7 +2387,13 @@ class PMA_Table
     function getColumnsWithIndex($types)
     {
         $columns_with_index = array();
-        foreach (PMA_Index::getFromTableByChoice($this->_name, $this->_db_name, $types) as $index) {
+        foreach (
+            PMA_Index::getFromTableByChoice(
+                $this->_name,
+                $this->_db_name,
+                $types
+            ) as $index
+        ) {
             $columns = $index->getColumns();
             foreach ($columns as $column_name => $dummy) {
                 $columns_with_index[] = $column_name;

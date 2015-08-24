@@ -85,7 +85,9 @@ class PMA_PageSettings
 
         // Process form
         $error = null;
-        if (isset($_POST['submit_save']) && $_POST['submit_save'] == $formGroupName) {
+        if (isset($_POST['submit_save'])
+            && $_POST['submit_save'] == $formGroupName
+        ) {
             $this->_processPageSettings($form_display, $cf, $error);
         }
 

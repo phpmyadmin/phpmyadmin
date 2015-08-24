@@ -60,11 +60,12 @@ class PMA_Scripts
                     . PMA_Header::getVersionParameter();
                 if ($value['before_statics'] === true) {
                     $first_dynamic_scripts
-                        .= "<script data-cfasync='false' type='text/javascript' src='js/"
-                        . $file_name . "'></script>";
+                        .= "<script data-cfasync='false' type='text/javascript' "
+                        . "src='js/" . $file_name . "'></script>";
                 } else {
-                    $dynamic_scripts .= "<script data-cfasync='false' type='text/javascript' src='js/"
-                        . $file_name . "'></script>";
+                    $dynamic_scripts .= "<script data-cfasync='false' "
+                        . "type='text/javascript' src='js/" . $file_name
+                        . "'></script>";
                 }
                 continue;
             }

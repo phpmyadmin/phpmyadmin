@@ -833,7 +833,9 @@ class FormDisplay
                 'BZipDump' => array('bzopen', 'bzcompress'));
             if (!function_exists($funcs[$system_path][0])) {
                 $comment = sprintf(
-                    __('Compressed import will not work due to missing function %s.'),
+                    __(
+                        'Compressed import will not work due to missing function %s.'
+                    ),
                     $funcs[$system_path][0]
                 );
             }

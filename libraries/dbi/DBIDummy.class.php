@@ -527,7 +527,8 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => "SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS` "
+        'query' => "SELECT `PARTITION_METHOD` "
+            . "FROM `information_schema`.`PARTITIONS` "
             . "WHERE `TABLE_SCHEMA` = 'db' AND `TABLE_NAME` = 'table'",
         'result' => array()
     ),
@@ -545,7 +546,8 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => "SHOW FULL TABLES FROM `default` WHERE `Table_type`!='BASE TABLE'",
+        'query' => "SHOW FULL TABLES FROM `default` "
+            . "WHERE `Table_type`!='BASE TABLE'",
         'result' => array()
     ),
     array(

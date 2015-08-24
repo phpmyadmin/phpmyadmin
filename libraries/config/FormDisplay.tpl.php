@@ -214,7 +214,8 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
 
     $htmlOutput = '<tr' . $tr_class . '>';
     $htmlOutput .= '<th>';
-    $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . $name . '</label>';
+    $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . $name
+        . '</label>';
 
     if (! empty($opts['doc'])) {
         $htmlOutput .= '<span class="doc">';
@@ -297,9 +298,8 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         $htmlOutput .= '</select>';
         break;
     case 'list':
-        $htmlOutput .= '<textarea cols="40" rows="5" ' . $name_id . $field_class . '>'
-            . htmlspecialchars(implode("\n", $value))
-            . '</textarea>';
+        $htmlOutput .= '<textarea cols="40" rows="5" ' . $name_id . $field_class
+            . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
         break;
     }
     if (isset($opts['comment']) && $opts['comment']) {
@@ -341,7 +341,8 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     if ($is_setup_script && isset($opts['userprefs_allow'])) {
         $htmlOutput .= '<td class="userprefs-allow" title="' .
             __('Allow users to customize this value') . '">';
-        $htmlOutput .= '<input type="checkbox" name="' . $path . '-userprefs-allow" ';
+        $htmlOutput .= '<input type="checkbox" name="' . $path
+            . '-userprefs-allow" ';
         if ($opts['userprefs_allow']) {
             $htmlOutput .= 'checked="checked"';
         };
@@ -372,7 +373,8 @@ function PMA_displayGroupHeader($header_text)
     $colspan = defined('PMA_SETUP')
         ? 3
         : 2;
-    $htmlOutput = '<tr class="group-header group-header-' . $_FormDisplayGroup . '">';
+    $htmlOutput = '<tr class="group-header group-header-' . $_FormDisplayGroup
+        . '">';
     $htmlOutput .= '<th colspan="' . $colspan . '">';
     $htmlOutput .= $header_text;
     $htmlOutput .= '</th>';
