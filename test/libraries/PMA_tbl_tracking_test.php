@@ -123,7 +123,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForDataDefinitionAndManipulationStatements()
     {
         $url_query = "url_query";
-        $last_version = "10";
+        $last_version = 10;
         $html = PMA_getHtmlForDataDefinitionAndManipulationStatements(
             $url_query, $last_version, $GLOBALS['db'], array($GLOBALS['table'])
         );
