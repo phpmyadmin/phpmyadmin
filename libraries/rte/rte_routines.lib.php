@@ -105,6 +105,11 @@ function PMA_RTN_parseOneParameter($value)
                     4 => '');
     $parsed_param = PMA_SQP_parse($value);
     $pos = 0;
+    while ($pos < $parsed_param['len']
+        && $parsed_param[$pos]['type'] == 'white_newline'
+    ) {
+        $pos++;
+    }
     if (in_array(
         /*overload*/mb_strtoupper($parsed_param[$pos]['data']),
         $param_directions
