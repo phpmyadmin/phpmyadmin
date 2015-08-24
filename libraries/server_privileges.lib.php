@@ -4937,7 +4937,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
             && $_REQUEST['authentication_plugin']
         ) {
             if (PMA_MYSQL_INT_VERSION >= 50700) {
-                $create_user_stmt = $create_user_stmt . ' IDENTIFIED WITH '
+                $create_user_stmt .= ' IDENTIFIED WITH '
                     . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
                 $create_user_show = sprintf($create_user_stmt, '***');
                 $create_user_real = sprintf(
@@ -4967,7 +4967,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 && $_REQUEST['authentication_plugin']
             ) {
                 if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_stmt = $create_user_stmt . ' IDENTIFIED WITH '
+                    $create_user_stmt .= ' IDENTIFIED WITH '
                         . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
                     $create_user_show = sprintf($create_user_stmt, '***');
                     $create_user_real = sprintf(
@@ -4997,7 +4997,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 && $_REQUEST['authentication_plugin']
             ) {
                 if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_stmt = $create_user_stmt . ' IDENTIFIED WITH '
+                    $create_user_stmt .= ' IDENTIFIED WITH '
                         . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
                     $create_user_show = sprintf($create_user_stmt, '***');
                     $create_user_real = sprintf(
