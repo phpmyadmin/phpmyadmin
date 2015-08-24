@@ -752,7 +752,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns result data from $result
      *
-     * @param object $result result  MySQL result
+     * @param object $result MySQL result
      *
      * @return array
      */

@@ -219,7 +219,7 @@ abstract class ExportPlugin
     /**
      * Gets the export specific format plugin properties
      *
-     * @return array
+     * @return ExportPluginProperties
      */
     public function getProperties()
     {

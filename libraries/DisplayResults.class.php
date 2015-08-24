@@ -1410,9 +1410,10 @@ class PMA_DisplayResults
     /**
      * Prepare sort by key dropdown - html code segment
      *
-     * @param array  $indexes            the indexes of the table for sort criteria
-     * @param string $sort_expression    the sort expression
-     * @param string $unsorted_sql_query the unsorted sql query
+     * @param PMA_Index[] $indexes            the indexes of the table for sort
+     *                                        criteria
+     * @param string      $sort_expression    the sort expression
+     * @param string      $unsorted_sql_query the unsorted sql query
      *
      * @return  string  $drop_down_html         html content
      *

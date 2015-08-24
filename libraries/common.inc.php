@@ -868,6 +868,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
         // todo: add plugin manager
         $plugin_manager = null;
+        /** @var AuthenticationPlugin $auth_plugin */
         $auth_plugin = new $auth_class($plugin_manager);
 
         if (! $auth_plugin->authCheck()) {
@@ -985,6 +986,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Connects to the server (validates user's login)
+        /** @var PMA_DatabaseInterface $userlink */
         $userlink = $GLOBALS['dbi']->connect(
             $cfg['Server']['user'], $cfg['Server']['password'], false
         );
