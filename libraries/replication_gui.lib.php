@@ -303,7 +303,8 @@ function PMA_getHtmlForSlaveConfiguration(
  */
 function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
 {
-    $html  = '<a href="#slave_errormanagement_href" id="slave_errormanagement_href">';
+    $html  = '<a href="#slave_errormanagement_href" '
+        . 'id="slave_errormanagement_href">';
     $html .= __('Error management:') . '</a>';
     $html .= ' <div id="slave_errormanagement_gui" style="display: none">';
     $html .= PMA_Message::error(

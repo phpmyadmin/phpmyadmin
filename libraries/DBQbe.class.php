@@ -1367,7 +1367,10 @@ class PMA_DbQbe
 
         list($candidate_columns, $needsort)
             = $this->_getLeftJoinColumnCandidatesBest(
-                $search_tables, $where_clause_columns, $unique_columns, $index_columns
+                $search_tables,
+                $where_clause_columns,
+                $unique_columns,
+                $index_columns
             );
 
         // If we came up with $unique_columns (very good) or $index_columns (still
@@ -1805,7 +1808,8 @@ class PMA_DbQbe
      */
     public function getSelectionForm()
     {
-        $html_output = '<form action="db_qbe.php" method="post" id="formQBE" class="lock-page">';
+        $html_output = '<form action="db_qbe.php" method="post" id="formQBE" '
+            . 'class="lock-page">';
         $html_output .= '<fieldset>';
 
         if ($GLOBALS['cfgRelation']['savedsearcheswork']) {

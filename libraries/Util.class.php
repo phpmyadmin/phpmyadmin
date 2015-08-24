@@ -659,7 +659,8 @@ class PMA_Util
 
             // Static analysis errors.
             if (!empty($errors)) {
-                $error_msg .= '<p><strong>' . __('Static analysis:') . '</strong></p>';
+                $error_msg .= '<p><strong>' . __('Static analysis:')
+                    . '</strong></p>';
                 $error_msg .= '<p>' . sprintf(
                     __('%d errors were found during analysis.'), count($errors)
                 ) . '</p>';
@@ -942,7 +943,9 @@ class PMA_Util
         }
 
         if (! $do_it) {
-            if (!(SqlParser\Context::isKeyword($a_name) & SqlParser\Token::FLAG_KEYWORD_RESERVED)) {
+            if (!(SqlParser\Context::isKeyword($a_name)
+                & SqlParser\Token::FLAG_KEYWORD_RESERVED)
+            ) {
                 return $a_name;
             }
         }
@@ -1305,7 +1308,8 @@ class PMA_Util
     } // end of the 'getMessage()' function
 
     /**
-     * Execute an EXPLAIN query and formats results similar to MySQL command line utility.
+     * Execute an EXPLAIN query and formats results similar to MySQL command line
+     * utility.
      *
      * @param string $sqlQuery EXPLAIN query
      *
@@ -1553,11 +1557,14 @@ class PMA_Util
             );
         } else {
             //number_format is not multibyte safe, str_replace is safe
-            $localizedValue = self::localizeNumber(number_format($value, $digits_right));
+            $localizedValue = self::localizeNumber(
+                number_format($value, $digits_right)
+            );
         }
 
         if ($originalValue != 0 && floatval($value) == 0) {
-            return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right))) . ' ' . $unit;
+            return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right)))
+            . ' ' . $unit;
         }
 
         return $sign . $localizedValue . ' ' . $unit;
@@ -1873,13 +1880,15 @@ class PMA_Util
             if ($suhosin_get_MaxValueLength) {
                 $query_parts = self::splitURLQuery($url);
                 foreach ($query_parts as $query_pair) {
-                    if (strpos($query_pair, '=') !== false) {
-                        list(, $eachval) = explode('=', $query_pair);
-                        if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
-                        ) {
-                            $in_suhosin_limits = false;
-                            break;
-                        }
+                    if (strpos($query_pair, '=') === false) {
+                        continue;
+                    }
+
+                    list(, $eachval) = explode('=', $query_pair);
+                    if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
+                    ) {
+                        $in_suhosin_limits = false;
+                        break;
                     }
                 }
             }
@@ -3220,7 +3229,8 @@ class PMA_Util
         $html .= '<input type="checkbox" name="fk_checks"'
             . ' id="fk_checks" value="1"'
             . ($checked ? ' checked="checked"' : '') . '/>';
-        $html .= '<label for="fk_checks">' . __('Enable foreign key checks') . '</label>';
+        $html .= '<label for="fk_checks">' . __('Enable foreign key checks')
+            . '</label>';
         return $html;
     }
 
@@ -3231,7 +3241,8 @@ class PMA_Util
      */
     public static function handleDisableFKCheckInit()
     {
-        $default_fk_check_value = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
+        $default_fk_check_value
+            = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
         if (isset($_REQUEST['fk_checks'])) {
             if (empty($_REQUEST['fk_checks'])) {
                 // Disable foreign key checks
@@ -3609,7 +3620,7 @@ class PMA_Util
                 . '        <option value="">&nbsp;</option>' . "\n"
                 . $files
                 . '    </select>' . "\n";
-        } elseif (empty ($files)) {
+        } elseif (empty($files)) {
             $block_html .= '<i>' . __('There are no files to upload!') . '</i>';
         }
 

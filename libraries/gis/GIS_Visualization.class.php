@@ -128,7 +128,8 @@ class PMA_GIS_Visualization
      * @param array   $options   Users specified options
      * @param integer $row       number of rows
      * @param integer $pos       start position
-     * @param array   $data      raw data. If set, parameters other than $options will be ignored
+     * @param array   $data      raw data. If set, parameters other than $options
+     *                           will be ignored
      *
      * @access public
      */
@@ -169,13 +170,17 @@ class PMA_GIS_Visualization
         $modified_query = 'SELECT ';
         // If label column is chosen add it to the query
         if (! empty($this->_userSpecifiedSettings['labelColumn'])) {
-            $modified_query .= PMA_Util::backquote($this->_userSpecifiedSettings['labelColumn'])
-                . ', ';
+            $modified_query .= PMA_Util::backquote(
+                $this->_userSpecifiedSettings['labelColumn']
+            )
+            . ', ';
         }
         // Wrap the spatial column with 'ASTEXT()' function and add it
         $modified_query .= 'ASTEXT('
             . PMA_Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
-            . ') AS ' . PMA_Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
+            . ') AS ' . PMA_Util::backquote(
+                $this->_userSpecifiedSettings['spatialColumn']
+            )
             . ', ';
 
         // Get the SRID

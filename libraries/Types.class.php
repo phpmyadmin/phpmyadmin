@@ -340,12 +340,14 @@ class PMA_Types_MySQL extends PMA_Types
         case 'BIGINT':
             return __(
                 'An 8-byte integer, signed range is -9,223,372,036,854,775,808 ' .
-                'to 9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615'
+                'to 9,223,372,036,854,775,807, unsigned range is 0 to ' .
+                '18,446,744,073,709,551,615'
             );
         case 'DECIMAL':
             return __(
                 'A fixed-point number (M, D) - the maximum number of digits (M) ' .
-                'is 65 (default 10), the maximum number of decimals (D) is 30 (default 0)'
+                'is 65 (default 10), the maximum number of decimals (D) is 30 ' .
+                '(default 0)'
             );
         case 'FLOAT':
             return __(
