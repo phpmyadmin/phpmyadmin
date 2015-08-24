@@ -943,8 +943,7 @@ class PMA_Util
         }
 
         if (! $do_it) {
-            if (!(SqlParser\Context::isKeyword($a_name)
-                & SqlParser\Token::FLAG_KEYWORD_RESERVED)
+            if (!(SqlParser\Context::isKeyword($a_name) & SqlParser\Token::FLAG_KEYWORD_RESERVED)
             ) {
                 return $a_name;
             }

@@ -312,7 +312,8 @@ class PMA_Response
                     $hashes = explode('-', $_REQUEST['menuHashes']);
                 }
                 if (! in_array($menuHash, $hashes)) {
-                    $this->addJSON('_menu',
+                    $this->addJSON(
+                        '_menu',
                         $this->getHeader()
                             ->getMenu()
                             ->getDisplay()
