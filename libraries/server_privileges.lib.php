@@ -2644,7 +2644,7 @@ function PMA_getUserLink(
  *
  * @param string $username User name
  *
- * @return HTML code with link
+ * @return string HTML code with link
  */
 function PMA_getUserGroupEditLink($username)
 {

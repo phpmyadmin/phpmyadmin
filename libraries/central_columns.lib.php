@@ -602,7 +602,7 @@ function PMA_updateMultipleColumn()
  * @param int    $pos        offset of first result with complete result set
  * @param string $db         current database
  *
- * @return html for table navigation in Central columns page
+ * @return string html for table navigation in Central columns page
  */
 function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
 {
@@ -677,7 +677,7 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
  * @param string  $title       title of the 'th' elements
  * @param integer $actionCount number of actions
  *
- * @return html for table header in central columns view/edit page
+ * @return string html for table header in central columns view/edit page
  */
 function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
 {
@@ -739,7 +739,7 @@ function PMA_getCentralColumnsEditTableHeader($header_cells)
  *
  * @param string $db current database
  *
- * @return html dropdown for selecting table
+ * @return string html dropdown for selecting table
  */
 function PMA_getHTMLforTableDropdown($db)
 {
@@ -763,7 +763,7 @@ function PMA_getHTMLforTableDropdown($db)
  * @param string $db           current database to which selected table belongs
  * @param string $selected_tbl selected table
  *
- * @return html to select column
+ * @return string html to select column
  */
 function PMA_getHTMLforColumnDropdown($db, $selected_tbl)
 {
@@ -790,7 +790,7 @@ function PMA_getHTMLforColumnDropdown($db, $selected_tbl)
  * @param int    $pos        offset of first result with complete result set
  * @param string $db         current database
  *
- * @return html to add a column in the central list
+ * @return string html to add a column in the central list
  */
 function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
 {
@@ -832,7 +832,7 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
  * @param int     $row_num position the row in the table
  * @param string  $db      current database
  *
- * @return html of a particular row in the central columns table.
+ * @return string html of a particular row in the central columns table.
  */
 function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
 {
@@ -1004,7 +1004,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
  * @param boolean $odd_row set true if the row is at odd number position
  * @param int     $row_num position the row in the table
  *
- * @return html of a particular row in the central columns table.
+ * @return string html of a particular row in the central columns table.
  */
 function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
 {
@@ -1138,7 +1138,8 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
  * @param string $db    selected database
  * @param string $table current table name
  *
- * @return encoded list of columns present in central list for the given database
+ * @return string encoded list of columns present in central list for the given
+ *                database
  */
 function PMA_getCentralColumnsListRaw($db, $table)
 {
@@ -1205,7 +1206,7 @@ function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
  * function generate and return the table footer for
  * multiple edit central columns page
  *
- * @return html for table footer in central columns multi edit page
+ * @return string html for table footer in central columns multi edit page
  */
 function PMA_getCentralColumnsEditTableFooter()
 {
@@ -1253,7 +1254,8 @@ function PMA_handleColumnExtra(&$columns_list)
  *
  * @param string $db current database
  *
- * @return html of the form to let user add a new user defined column to the list
+ * @return string html of the form to let user add a new user defined column to the
+ *                list
  */
 function PMA_getHTMLforAddNewColumn($db)
 {

@@ -23,7 +23,7 @@ require_once 'libraries/Template.class.php';
  *                                |Date and time using the _pgettext() format
  * @param string $listType        type of list to build, supported dropdown|checkbox
  *
- * @return HTML for list of columns in form of given list types
+ * @return string HTML for list of columns in form of given list types
  */
 function PMA_getHtmlForColumnsList(
     $db, $table, $colTypeCategory='all', $listType='dropdown'
@@ -72,7 +72,7 @@ function PMA_getHtmlForColumnsList(
  * @param string  $table      current table
  * @param array   $columnMeta array containing default values for the fields
  *
- * @return HTML
+ * @return string HTML
  */
 function PMA_getHtmlForCreateNewColumn(
     $num_fields, $db, $table, $columnMeta=array()
@@ -123,7 +123,7 @@ function PMA_getHtmlForCreateNewColumn(
  * @param string $normalizedTo up to which step normalization will go,
  * possible values 1nf|2nf|3nf
  *
- * @return HTML for step 1.1
+ * @return string HTML for step 1.1
  */
 function PMA_getHtmlFor1NFStep1($db, $table, $normalizedTo)
 {
@@ -176,7 +176,7 @@ function PMA_getHtmlFor1NFStep1($db, $table, $normalizedTo)
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for step 1.2
+ * @return string HTML contents for step 1.2
  */
 function PMA_getHtmlContentsFor1NFStep2($db, $table)
 {
@@ -226,7 +226,7 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for step 1.4
+ * @return string HTML contents for step 1.4
  */
 function PMA_getHtmlContentsFor1NFStep4($db, $table)
 {
@@ -264,7 +264,7 @@ function PMA_getHtmlContentsFor1NFStep4($db, $table)
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for step 1.3
+ * @return string HTML contents for step 1.3
  */
 function PMA_getHtmlContentsFor1NFStep3($db, $table)
 {
@@ -311,7 +311,7 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for 2NF step 2.1
+ * @return string HTML contents for 2NF step 2.1
  */
 function PMA_getHtmlFor2NFstep1($db, $table)
 {
@@ -402,7 +402,7 @@ function PMA_getHtmlFor2NFstep1($db, $table)
  * @param array  $partialDependencies array containing all the dependencies
  * @param string $table               current table
  *
- * @return HTML
+ * @return string HTML
  */
 function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
 {
@@ -791,7 +791,7 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
 /**
  * get html for options to normalize table
  *
- * @return HTML
+ * @return string HTML
  */
 function PMA_getHtmlForNormalizetable()
 {
@@ -833,7 +833,7 @@ function PMA_getHtmlForNormalizetable()
  * @param string $table current table
  * @param string $db    current database
  *
- * @return HTML containing the list of all the possible partial dependencies
+ * @return string HTML containing the list of all the possible partial dependencies
  */
 function PMA_findPartialDependencies($table, $db)
 {
