@@ -788,7 +788,10 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function cookieDecrypt($encdata, $secret)
     {
         if (is_null($this->_cookie_iv)) {
-            $this->_cookie_iv = base64_decode($_COOKIE['pma_iv-' . $GLOBALS['server']], true);
+            $this->_cookie_iv = base64_decode(
+                $_COOKIE['pma_iv-' . $GLOBALS['server']],
+                true
+            );
         }
         if (strlen($this->_cookie_iv) < $this->getIVSize()) {
                 $this->createIV();

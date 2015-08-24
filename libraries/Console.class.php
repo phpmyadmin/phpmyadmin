@@ -310,12 +310,16 @@ class PMA_Console
             $output .= '</div>'; // Content
             $output .= '<div class="templates">'
                 . '<div class="debug_query action_content">'
-                    . '<span class="action collapse">' . __('Collapse') . '</span> '
-                    . '<span class="action expand">' . __('Expand') . '</span> '
-                    . '<span class="action dbg_show_trace">' . __('Show trace') . '</span> '
-                    . '<span class="action dbg_hide_trace">' . __('Hide trace') . '</span> '
-                    . '<span class="text count hide">' . __('Count:') . ' <span></span></span>'
-                    . '<span class="text time">' . __('Time taken:') . ' <span></span></span>'
+                . '<span class="action collapse">' . __('Collapse') . '</span> '
+                . '<span class="action expand">' . __('Expand') . '</span> '
+                . '<span class="action dbg_show_trace">' . __('Show trace')
+                . '</span> '
+                . '<span class="action dbg_hide_trace">' . __('Hide trace')
+                . '</span> '
+                . '<span class="text count hide">' . __('Count:')
+                . ' <span></span></span>'
+                . '<span class="text time">' . __('Time taken:')
+                . ' <span></span></span>'
                 . '</div>'
                 . '</div>'; // Template
             $output .= '</div>'; // Debug SQL card
@@ -378,8 +382,8 @@ class PMA_Console
                     .  __('Show current browsing query') . '</label><br>'
                     .  '<label><input type="checkbox" name="enter_executes">'
                     .  __(
-                        'Execute queries on Enter and insert new line with Shift + Enter. '
-                        . 'To make this permanent, view settings.'
+                        'Execute queries on Enter and insert new line with Shift + '
+                        . 'Enter. To make this permanent, view settings.'
                     ) . '</label><br>'
                     .  '<label><input type="checkbox" name="dark_theme">'
                     .  __('Switch to dark theme') . '</label><br>'

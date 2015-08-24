@@ -167,7 +167,9 @@ $cfg_db['Export']['_sod_select'] = array(
 $cfg_db['Export']['method'] = array(
     'quick'          => __('Quick - display only the minimal options to configure'),
     'custom'         => __('Custom - display all possible options to configure'),
-    'custom-no-form' => __('Custom - like above, but without the quick/custom choice')
+    'custom-no-form' => __(
+        'Custom - like above, but without the quick/custom choice'
+    ),
 );
 $cfg_db['Export']['format'] = array(
     'codegen', 'csv', 'excel', 'htmlexcel','htmlword', 'latex', 'ods',

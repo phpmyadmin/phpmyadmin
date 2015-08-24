@@ -274,12 +274,19 @@ class ExportSql extends ExportPlugin
 
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('if_not_exists');
-                $leaf->setText('<code>IF NOT EXISTS</code> ' . __('(less efficient as indexes will be generated during table creation)'));
+                $leaf->setText(
+                    '<code>IF NOT EXISTS</code> ' . __(
+                        '(less efficient as indexes will be generated during table '
+                        . 'creation)'
+                    )
+                );
                 $subgroup_create_table->addProperty($leaf);
 
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('auto_increment');
-                $leaf->setText(sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>'));
+                $leaf->setText(
+                    sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>')
+                );
                 $subgroup_create_table->addProperty($leaf);
 
                 $subgroup->addProperty($subgroup_create_table);
@@ -1045,11 +1052,12 @@ class ExportSql extends ExportPlugin
         foreach ($targetNames as $type => $targetName) {
             if ($type == 'phpmyadmin') {
                 $aliases[$cfgRelation['db']] = $targetName;
-            } else {
-                if (isset($cfgRelation[$type])) {
-                    $aliases[$cfgRelation['db']]['tables'][$cfgRelation[$type]]['alias']
-                        = $targetName;
-                }
+                continue;
+            }
+
+            if (isset($cfgRelation[$type])) {
+                $aliases[$cfgRelation['db']]['tables'][$cfgRelation[$type]]['alias']
+                    = $targetName;
             }
         }
 
@@ -1423,7 +1431,9 @@ class ExportSql extends ExportPlugin
         $schema_create .= $new_crlf;
 
         // no need to generate a DROP VIEW here, it was done earlier
-        if (! empty($sql_drop_table) && ! $GLOBALS['dbi']->getTable($db, $table)->isView()) {
+        if (!empty($sql_drop_table)
+            && !$GLOBALS['dbi']->getTable($db, $table)->isView()
+        ) {
             $schema_create .= 'DROP TABLE IF EXISTS '
                 . PMA_Util::backquote($table_alias, $sql_backquotes) . ';'
                 . $crlf;
@@ -1617,7 +1627,9 @@ class ExportSql extends ExportPlugin
                     // Creating the parts that drop foreign keys.
                     if (!empty($field->key)) {
                         if ($field->key->type === 'FOREIGN KEY') {
-                            $dropped[] = 'FOREIGN KEY ' . SqlParser\Context::escape($field->name);
+                            $dropped[] = 'FOREIGN KEY ' . SqlParser\Context::escape(
+                                $field->name
+                            );
                             unset($statement->fields[$key]);
                         }
                     }
@@ -1651,9 +1663,9 @@ class ExportSql extends ExportPlugin
 
                 // Generating constraints-related query.
                 if (!empty($constraints)) {
-                    $sql_constraints_query = $alter_header .
-                        $crlf . '  ADD ' . implode(',' . $crlf . '  ADD ', $constraints) .
-                        $alter_footer;
+                    $sql_constraints_query = $alter_header . $crlf . '  ADD '
+                        . implode(',' . $crlf . '  ADD ', $constraints)
+                        . $alter_footer;
 
                     $sql_constraints = $this->generateComment(
                         $crlf, $sql_constraints, __('Constraints for dumped tables'),
@@ -1665,9 +1677,9 @@ class ExportSql extends ExportPlugin
                 $sql_indexes_query = '';
 
                 if (!empty($indexes)) {
-                    $sql_indexes_query .= $alter_header .
-                        $crlf . '  ADD ' . implode(',' . $crlf . '  ADD ', $indexes) .
-                        $alter_footer;
+                    $sql_indexes_query .= $alter_header . $crlf . '  ADD '
+                        . implode(',' . $crlf . '  ADD ', $indexes)
+                        . $alter_footer;
                 }
 
                 if (!empty($indexes_fulltext)) {
@@ -1689,9 +1701,9 @@ class ExportSql extends ExportPlugin
 
                 // Generating drop foreign keys-related query.
                 if (!empty($dropped)) {
-                    $sql_drop_foreign_keys = $alter_header .
-                        $crlf . '  DROP ' . implode(',' . $crlf . '  DROP ', $dropped) .
-                        $alter_footer;
+                    $sql_drop_foreign_keys = $alter_header . $crlf . '  DROP '
+                        . implode(',' . $crlf . '  DROP ', $dropped)
+                        . $alter_footer;
                 }
 
                 // Generating auto-increment-related query.
@@ -1699,8 +1711,8 @@ class ExportSql extends ExportPlugin
                     && ($update_indexes_increments)
                     && ($statement->entityOptions->has('AUTO_INCREMENT') !== false)
                 ) {
-                    $sql_auto_increments_query = $alter_header .
-                        $crlf . '  MODIFY ' . implode(',' . $crlf . '  MODIFY ', $auto_increment);
+                    $sql_auto_increments_query = $alter_header . $crlf . '  MODIFY '
+                        . implode(',' . $crlf . '  MODIFY ', $auto_increment);
                     if (isset($GLOBALS['sql_auto_increment'])) {
                         $sql_auto_increments_query .= ', AUTO_INCREMENT='
                             . $statement->entityOptions->has('AUTO_INCREMENT');
@@ -2621,7 +2633,8 @@ class ExportSql extends ExportPlugin
                     $ref_table = $field->references->table;
                     // Replacing table.
                     if (!empty($aliases[$old_database]['tables'][$ref_table]['alias'])) {
-                        $field->references->table = $aliases[$old_database]['tables'][$ref_table]['alias'];
+                        $field->references->table
+                            = $aliases[$old_database]['tables'][$ref_table]['alias'];
                         $flag = true;
                     }
                     // Replacing column names.
@@ -2648,7 +2661,8 @@ class ExportSql extends ExportPlugin
             $old_table = $statement->table->table;
 
             if (!empty($aliases[$old_database]['tables'][$old_table]['alias'])) {
-                $statement->table->table = $aliases[$old_database]['tables'][$old_table]['alias'];
+                $statement->table->table
+                    = $aliases[$old_database]['tables'][$old_table]['alias'];
                 $statement->table->expr = null; // Force rebuild.
                 $flag = true;
             }

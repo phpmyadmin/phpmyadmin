@@ -496,7 +496,10 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
             $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
         }
         if (isset($_REQUEST['table_structure'])) {
-            $_REQUEST['table_structure'] = implode(",", $_REQUEST['table_structure']);
+            $_REQUEST['table_structure'] = implode(
+                ",",
+                $_REQUEST['table_structure']
+            );
         } else if (empty($_REQUEST['structure_or_data_forced'])) {
             $_REQUEST['table_structure'] = '';
         }

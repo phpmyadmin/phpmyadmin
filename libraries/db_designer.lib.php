@@ -157,7 +157,8 @@ function PMA_getHtmlForJSFields(
  *
  * @param boolean $visualBuilder whether this is visual query builder
  * @param string  $selected_page name of the selected page
- * @param array   $params_array  array with class name for various buttons on side menu
+ * @param array   $params_array  array with class name for various buttons on side
+ *                               menu
  *
  * @return string html
  */
@@ -186,7 +187,8 @@ function PMA_getSideMenuParamsArray()
 
     if ($GLOBALS['cfgRelation']['designersettingswork']) {
 
-        $query = 'SELECT `settings_data` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        $query = 'SELECT `settings_data` FROM '
+            . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings'])
             . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '";';

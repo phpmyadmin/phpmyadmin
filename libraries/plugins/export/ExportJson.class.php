@@ -67,7 +67,9 @@ class ExportJson extends ExportPlugin
         if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
             $leaf = new BoolPropertyItem();
             $leaf->setName('pretty_print');
-            $leaf->setText(__('Output pretty-printed JSON (Use human-readable formatting)'));
+            $leaf->setText(
+                __('Output pretty-printed JSON (Use human-readable formatting)')
+            );
             $generalOptions->addProperty($leaf);
         }
 
@@ -206,7 +208,9 @@ class ExportJson extends ExportPlugin
                 $data[$columns[$i]] = $record[$i];
             }
 
-            if (isset($GLOBALS['json_pretty_print']) && $GLOBALS['json_pretty_print']) {
+            if (isset($GLOBALS['json_pretty_print'])
+                && $GLOBALS['json_pretty_print']
+            ) {
                 $encoded = json_encode($data, JSON_PRETTY_PRINT);
             } else {
                 $encoded = json_encode($data);

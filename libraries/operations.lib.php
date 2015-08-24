@@ -85,12 +85,11 @@ function PMA_getHtmlForRenameDatabase($db)
             && isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
             && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
         ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-                . 'id="checkbox_adjust_privileges" checked="checked" />';
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
         } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-                . 'id="checkbox_adjust_privileges" '
-                . 'title="' . __(
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_adjust_privileges" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
@@ -234,12 +233,11 @@ function PMA_getHtmlForCopyDatabase($db)
             && isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
             && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
         ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-                . 'id="checkbox_privileges" checked="checked" />';
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_privileges" checked="checked" />';
         } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-                . 'id="checkbox_privileges"'
-                . 'title="' . __(
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_privileges" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
@@ -652,16 +650,16 @@ function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
             $old_privs_db = $GLOBALS['dbi']->fetchResult($query_db_specific_old, 0);
 
             foreach ($old_privs_db as $old_priv) {
-                $newDb_db_privs_query = 'INSERT INTO '
-                    . PMA_Util::backquote('db') . ' VALUES("'
-                    . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
-                    . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
-                    . $old_priv[6] . '", "' . $old_priv[7] . '", "' . $old_priv[8] . '", "'
-                    . $old_priv[9] . '", "' . $old_priv[10] . '", "' . $old_priv[11] . '", "'
-                    . $old_priv[12] . '", "' . $old_priv[13] . '", "' . $old_priv[14] . '", "'
-                    . $old_priv[15] . '", "' . $old_priv[16] . '", "' . $old_priv[17] . '", "'
-                    . $old_priv[18] . '", "' . $old_priv[19] . '", "' . $old_priv[20] . '", "'
-                    . $old_priv[21] . '");';
+                $newDb_db_privs_query = 'INSERT INTO ' . PMA_Util::backquote('db')
+                    . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+                    . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+                    . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
+                    . $old_priv[7] . '", "' . $old_priv[8] . '", "' . $old_priv[9]
+                    . '", "' . $old_priv[10] . '", "' . $old_priv[11] . '", "'
+                    . $old_priv[12] . '", "' . $old_priv[13] . '", "' . $old_priv[14]
+                    . '", "' . $old_priv[15] . '", "' . $old_priv[16] . '", "'
+                    . $old_priv[17] . '", "' . $old_priv[18] . '", "' . $old_priv[19]
+                    . '", "' . $old_priv[20] . '", "' . $old_priv[21] . '");';
 
                 $GLOBALS['dbi']->query($newDb_db_privs_query);
             }
@@ -671,14 +669,18 @@ function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
                 . PMA_Util::backquote('tables_priv') . ' WHERE '
                 . 'Db = "' . $oldDb . '";';
 
-            $old_privs_table = $GLOBALS['dbi']->fetchResult($query_table_specific_old, 0);
+            $old_privs_table = $GLOBALS['dbi']->fetchResult(
+                $query_table_specific_old,
+                0
+            );
 
             foreach ($old_privs_table as $old_priv) {
-                $newDb_table_privs_query = 'INSERT INTO '
-                    . PMA_Util::backquote('tables_priv') . ' VALUES("'
-                    . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
-                    . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
-                    . $old_priv[6] . '", "' . $old_priv[7] . '");';
+                $newDb_table_privs_query = 'INSERT INTO ' . PMA_Util::backquote(
+                    'tables_priv'
+                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+                . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+                . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
+                . $old_priv[7] . '");';
 
                 $GLOBALS['dbi']->query($newDb_table_privs_query);
             }
@@ -688,14 +690,17 @@ function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
                 . PMA_Util::backquote('columns_priv') . ' WHERE '
                 . 'Db = "' . $oldDb . '";';
 
-            $old_privs_col = $GLOBALS['dbi']->fetchResult($query_col_specific_old, 0);
+            $old_privs_col = $GLOBALS['dbi']->fetchResult(
+                $query_col_specific_old,
+                0
+            );
 
             foreach ($old_privs_col as $old_priv) {
-                $newDb_col_privs_query = 'INSERT INTO '
-                    . PMA_Util::backquote('columns_priv') . ' VALUES("'
-                    . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
-                    . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
-                    . $old_priv[6] . '");';
+                $newDb_col_privs_query = 'INSERT INTO ' . PMA_Util::backquote(
+                    'columns_priv'
+                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+                . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+                . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '");';
 
                 $GLOBALS['dbi']->query($newDb_col_privs_query);
             }
@@ -705,14 +710,18 @@ function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
                 . PMA_Util::backquote('procs_priv') . ' WHERE '
                 . 'Db = "' . $oldDb . '";';
 
-            $old_privs_proc = $GLOBALS['dbi']->fetchResult($query_proc_specific_old, 0);
+            $old_privs_proc = $GLOBALS['dbi']->fetchResult(
+                $query_proc_specific_old,
+                0
+            );
 
             foreach ($old_privs_proc as $old_priv) {
-                $newDb_proc_privs_query = 'INSERT INTO '
-                    . PMA_Util::backquote('procs_priv') . ' VALUES("'
-                    . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
-                    . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
-                    . $old_priv[6] . '", "' . $old_priv[7] . '");';
+                $newDb_proc_privs_query = 'INSERT INTO ' . PMA_Util::backquote(
+                    'procs_priv'
+                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+                . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+                . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
+                . $old_priv[7] . '");';
 
                 $GLOBALS['dbi']->query($newDb_proc_privs_query);
             }
@@ -853,12 +862,12 @@ function PMA_getHtmlForMoveTable()
             && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
             && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
         ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1" '
-                . 'id="checkbox_privileges_tables_move" checked="checked" />';
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_privileges_tables_move" '
+                . 'checked="checked" />';
         } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1" '
-                . 'id="checkbox_privileges_tables_move"'
-                . 'title="' . __(
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_privileges_tables_move" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
@@ -947,20 +956,20 @@ function PMA_getHtmlForRenameTable()
             && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
             && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
         ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1" '
-                . 'id="checkbox_privileges_table_options" checked="checked" />';
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_privileges_table_options" '
+                . 'checked="checked" />';
         } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1" '
-                . 'id="checkbox_privileges_table_options" '
-                . 'title="' . __(
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_privileges_table_options" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_privileges_table_options">'
-            . __('Adjust Privileges') . '&nbsp;' . PMA_Util::showDocu('faq', 'faq6-39')
-            . '</label>';
+            . __('Adjust Privileges') . '&nbsp;'
+            . PMA_Util::showDocu('faq', 'faq6-39') . '</label>';
     }
 
     $html_output .= '</td></tr>';
@@ -1301,12 +1310,11 @@ function PMA_getHtmlForCopytable()
             && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
             && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
         ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-                . 'id="checkbox_adjust_privileges" checked="checked" />';
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
         } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-                . 'id="checkbox_adjust_privileges" '
-                . 'title="' . __(
+            $html_output .= '<input type="checkbox" name="adjust_privileges" '
+                . 'value="1" id="checkbox_adjust_privileges" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
@@ -1546,7 +1554,7 @@ function PMA_getHtmlForDeleteDataOrTable(
             'truncate_tbl_anchor'
         );
     }
-    if (!empty ($dropTableUrlParams)) {
+    if (!empty($dropTableUrlParams)) {
         $html_output .= PMA_getDeleteDataOrTablelink(
             $dropTableUrlParams,
             'DROP_TABLE',
@@ -1958,13 +1966,15 @@ function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newT
             // For table specific privileges
             $query_table_specific = 'UPDATE ' . PMA_Util::backquote('tables_priv')
                 . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
-                . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+                . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable
+                . '";';
             $GLOBALS['dbi']->query($query_table_specific);
 
             // For column specific privileges
             $query_col_specific = 'UPDATE ' . PMA_Util::backquote('columns_priv')
                 . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
-                . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+                . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable
+                . '";';
             $GLOBALS['dbi']->query($query_col_specific);
 
             // Finally FLUSH the new privileges
@@ -1998,14 +2008,17 @@ function PMA_AdjustPrivileges_copyTable($oldDb, $oldTable, $newDb, $newTable)
                 . PMA_Util::backquote('tables_priv') . ' where '
                 . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
 
-            $old_privs_table = $GLOBALS['dbi']->fetchResult($query_table_specific_old, 0);
+            $old_privs_table = $GLOBALS['dbi']->fetchResult(
+                $query_table_specific_old,
+                0
+            );
 
             foreach ($old_privs_table as $old_priv) {
                 $newDb_table_privs_query = 'INSERT INTO '
                     . PMA_Util::backquote('tables_priv') . ' VALUES("'
                     . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
-                    . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
-                    . $old_priv[6] . '", "' . $old_priv[7] . '");';
+                    . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
+                    . '", "' . $old_priv[6] . '", "' . $old_priv[7] . '");';
 
                 $GLOBALS['dbi']->query($newDb_table_privs_query);
             }
@@ -2015,14 +2028,17 @@ function PMA_AdjustPrivileges_copyTable($oldDb, $oldTable, $newDb, $newTable)
                 . PMA_Util::backquote('columns_priv') . ' WHERE '
                 . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
 
-            $old_privs_col = $GLOBALS['dbi']->fetchResult($query_col_specific_old, 0);
+            $old_privs_col = $GLOBALS['dbi']->fetchResult(
+                $query_col_specific_old,
+                0
+            );
 
             foreach ($old_privs_col as $old_priv) {
                 $newDb_col_privs_query = 'INSERT INTO '
                     . PMA_Util::backquote('columns_priv') . ' VALUES("'
                     . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
-                    . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
-                    . $old_priv[6] . '");';
+                    . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
+                    . '", "' . $old_priv[6] . '");';
 
                 $GLOBALS['dbi']->query($newDb_col_privs_query);
             }
@@ -2112,11 +2128,17 @@ function PMA_moveOrCopyTable($db, $table)
 
                 if (isset($_REQUEST['submit_move'])) {
                     $message = PMA_Message::success(
-                        __('Table %s has been moved to %s. Privileges have been adjusted.')
+                        __(
+                            'Table %s has been moved to %s. Privileges have been '
+                            . 'adjusted.'
+                        )
                     );
                 } else {
                     $message = PMA_Message::success(
-                        __('Table %s has been copied to %s. Privileges have been adjusted.')
+                        __(
+                            'Table %s has been copied to %s. Privileges have been '
+                            . 'adjusted.'
+                        )
                     );
                 }
 

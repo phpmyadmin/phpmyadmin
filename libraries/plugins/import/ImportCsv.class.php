@@ -535,7 +535,8 @@ class ImportCsv extends AbstractImportCsv
                             $sql .= " ON DUPLICATE KEY UPDATE ";
                             foreach ($fields as $field) {
                                 $fieldName = PMA_Util::backquote($field['Field']);
-                                $sql .= $fieldName . " = VALUES(" . $fieldName . "), ";
+                                $sql .= $fieldName . " = VALUES(" . $fieldName
+                                    . "), ";
                             }
                             $sql = rtrim($sql, ', ');
                         }
