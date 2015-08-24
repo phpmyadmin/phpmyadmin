@@ -689,7 +689,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertEquals(
             "CREATE USER ''@'localhost';GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
-            . "SET PASSWORD FOR ''@'localhost' = PASSWORD('***');"
+            //. "SET PASSWORD FOR ''@'localhost' = PASSWORD('***');"
             . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
             $sql_query
         );
