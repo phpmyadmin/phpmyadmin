@@ -92,7 +92,10 @@ class PMA_Linter
         if (/*overload*/mb_strlen($query) > 10000) {
             return array(
                 array(
-                    'message' => __('Linting is disabled for this query because it exceeds the maximum length.'),
+                    'message' => __(
+                        'Linting is disabled for this query because it exceeds the '
+                        . 'maximum length.'
+                    ),
                     'fromLine' => 0,
                     'fromColumn' => 0,
                     'toLine' => 0,

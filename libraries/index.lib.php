@@ -29,8 +29,8 @@ function PMA_getHtmlForDisplayIndexes()
         'indexes', __('Indexes')
     );
     $html_output .= PMA_Index::getHtmlForIndexes($GLOBALS['table'], $GLOBALS['db']);
-    $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: left;">'
-        . '<form action="tbl_indexes.php" method="post">';
+    $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
+        . 'left;"><form action="tbl_indexes.php" method="post">';
     $html_output .= PMA_URL_getHiddenInputs(
         $GLOBALS['db'], $GLOBALS['table']
     );

@@ -410,7 +410,9 @@ class PMA_Header
                     $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
                     if ($GLOBALS['cfg']['LintEnable']) {
                         $this->_scripts->addFile('codemirror/addon/lint/lint.js');
-                        $this->_scripts->addFile('codemirror/addon/lint/sql-lint.js');
+                        $this->_scripts->addFile(
+                            'codemirror/addon/lint/sql-lint.js'
+                        );
                     }
                 }
                 $this->_scripts->addCode(

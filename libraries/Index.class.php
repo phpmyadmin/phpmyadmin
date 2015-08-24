@@ -870,7 +870,10 @@ class PMA_Index
                 // so it makes no sense to have this two equal indexes
 
                 $message = PMA_Message::notice(
-                    __('The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.')
+                    __(
+                        'The indexes %1$s and %2$s seem to be equal and one of them '
+                        . 'could possibly be removed.'
+                    )
                 );
                 $message->addParam($each_index->getName());
                 $message->addParam($while_index->getName());

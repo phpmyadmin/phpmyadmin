@@ -87,12 +87,13 @@ if (! empty($submit_mult)
             exit;
             break;
         case 'show_create':
-            $show_create = PMA\Template::get('database/structure/show_create')->render(
-                array(
-                    'db' => $GLOBALS['db'],
-                    'db_objects' => $selected
-                )
-            );
+            $show_create = PMA\Template::get('database/structure/show_create')
+                ->render(
+                    array(
+                        'db'         => $GLOBALS['db'],
+                        'db_objects' => $selected,
+                    )
+                );
             // Send response to client.
             $response = PMA_Response::getInstance();
             $response->addJSON('message', $show_create);
@@ -167,11 +168,15 @@ if (!empty($submit_mult) && !empty($what)) {
     $response = PMA_Response::getInstance();
 
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
-        $response->addHTML(PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params));
+        $response->addHTML(
+            PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
+        );
     } elseif ($what == 'add_prefix_tbl') {
         $response->addHTML(PMA_getHtmlForAddPrefixTable($action, $_url_params));
     } else {
-        $response->addHTML(PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query));
+        $response->addHTML(
+            PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
+        );
     }
     exit;
 

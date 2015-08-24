@@ -1007,7 +1007,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                 . " COLLATE " . $collation . ";";
         } else {
             $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_Util::backquote($db_name)
-                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation . ";";
+                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation
+                . ";";
         }
     }
 
@@ -1250,10 +1251,17 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     $db_ops_url = 'db_operations.php' . PMA_URL_getCommon($params);
 
     $message = '<br /><br />';
-    $message .= '<strong>' . __('The following structures have either been created or altered. Here you can:') . '</strong><br />';
-    $message .= '<ul><li>' . __("View a structure's contents by clicking on its name.") . '</li>';
-    $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link.') . '</li>';
-    $message .= '<li>' . __('Edit structure by following the "Structure" link.') . '</li>';
+    $message .= '<strong>' . __(
+        'The following structures have either been created or altered. Here you can:'
+    ) . '</strong><br />';
+    $message .= '<ul><li>' . __(
+        "View a structure's contents by clicking on its name."
+    ) . '</li>';
+    $message .= '<li>' . __(
+        'Change any of its settings by clicking the corresponding "Options" link.'
+    ) . '</li>';
+    $message .= '<li>' . __('Edit structure by following the "Structure" link.')
+        . '</li>';
     $message .= sprintf(
         '<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'
         . __('Options') . '</a>)</li>',
@@ -1289,7 +1297,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
         $_table = new PMA_Table($tables[$i][TBL_NAME], $db_name);
         if (! $_table->isView()) {
             $message .= sprintf(
-                '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Structure') . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
+                '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
+                    'Structure'
+                ) . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                 $tbl_url,
                 sprintf(
                     __('Go to table: %s'),
