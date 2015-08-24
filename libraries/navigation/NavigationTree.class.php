@@ -728,6 +728,7 @@ class PMA_NavigationTree
             }
         }
         if (count($prefixes)) {
+            /** @var Node[] $groups */
             $groups = array();
             foreach ($prefixes as $key => $value) {
 

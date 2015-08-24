@@ -62,8 +62,8 @@ class Node
     public $parent;
 
     /**
-     * @var array An array of Node objects that are
-     *            direct children of this node
+     * @var Node[] An array of Node objects that are
+     *             direct children of this node
      */
     public $children = array();
 

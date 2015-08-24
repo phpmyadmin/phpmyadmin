@@ -247,6 +247,7 @@ class ExportCodegen extends ExportPlugin
             )
         );
         if ($result) {
+            /** @var TableProperty[] $tableProperties */
             $tableProperties = array();
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);

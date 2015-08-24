@@ -1606,6 +1606,7 @@ class ExportSql extends ExportPlugin
                 // If the field is used in any of the arrays above, it is removed
                 // from the original definition.
                 // Also, AUTO_INCREMENT attribute is removed.
+                /** @var SqlParser\Components\CreateDefinition $field */
                 foreach ($statement->fields as $key => $field) {
 
                     if ($field->isConstraint) {

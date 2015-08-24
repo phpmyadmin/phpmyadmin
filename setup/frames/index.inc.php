@@ -22,6 +22,7 @@ require_once './setup/lib/index.lib.php';
 $all_languages = PMA_langList();
 uasort($all_languages, 'PMA_languageCmp');
 
+/** @var ConfigFile $cf */
 $cf = $GLOBALS['ConfigFile'];
 $separator = PMA_URL_getArgSeparator('html');
 

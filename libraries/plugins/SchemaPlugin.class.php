@@ -30,7 +30,7 @@ abstract class SchemaPlugin
     /**
      * Gets the export specific format plugin properties
      *
-     * @return array
+     * @return SchemaPluginProperties
      */
     public function getProperties()
     {

@@ -1223,6 +1223,7 @@ function PMA_getPossibleRowFormat()
         )
     );
 
+    /** @var PMA_StorageEngine_Innodb $innodbEnginePlugin */
     $innodbEnginePlugin = PMA_StorageEngine::getEngine('innodb');
     $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
     if (!empty($innodbPluginVersion)) {

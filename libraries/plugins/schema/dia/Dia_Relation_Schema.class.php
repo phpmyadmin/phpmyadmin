@@ -202,9 +202,11 @@ class PMA_DIA extends XMLWriter
 class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
 {
     /**
-     * Defines properties
+     * @var Table_Stats_Dia[]|Table_Stats_Eps[]|Table_Stats_Pdf[]|Table_Stats_Svg[]
      */
     private $_tables = array();
+
+    /** @var Relation_Stats_Dia[] Relations */
     private $_relations = array();
     private $_topMargin = 2.8222000598907471;
     private $_bottomMargin = 2.8222000598907471;

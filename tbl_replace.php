@@ -218,6 +218,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 $classname = PMA_getTransformationClassName(
                     $mime_map[$column_name]['input_transformation']
                 );
+                /** @var IOTransformationsPlugin $transformation_plugin */
                 $transformation_plugin = new $classname();
                 $transformation_options = PMA_Transformation_getOptions(
                     $mime_map[$column_name]['input_transformation_options']

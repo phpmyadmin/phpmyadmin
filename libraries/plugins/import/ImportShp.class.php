@@ -208,6 +208,7 @@ class ImportShp extends ImportPlugin
 
         if (isset($gis_type)) {
             include_once './libraries/gis/GIS_Factory.class.php';
+            /** @var PMA_GIS_Multilinestring|PMA_GIS_Multipoint|PMA_GIS_Point|PMA_GIS_Polygon $gis_obj */
             $gis_obj =  PMA_GIS_Factory::factory($gis_type);
         } else {
             $gis_obj = null;

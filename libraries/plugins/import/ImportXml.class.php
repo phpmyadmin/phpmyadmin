@@ -193,12 +193,15 @@ class ImportXml extends ImportPlugin
         if (isset($namespaces['pma'])) {
             /**
              * Get structures for all tables
+             * @var SimpleXMLElement $struct
              */
             $struct = $xml->children($namespaces['pma']);
 
             $create = array();
 
+            /** @var SimpleXMLElement $val1 */
             foreach ($struct as $val1) {
+                /** @var SimpleXMLElement $val2 */
                 foreach ($val1 as $val2) {
                     // Need to select the correct database for the creation of
                     // tables, views, triggers, etc.

@@ -163,6 +163,7 @@ class ImportOds extends ImportPlugin
             );
             $GLOBALS['error'] = true;
         } else {
+            /** @var SimpleXMLElement $root */
             $root = $xml->children('office', true)->{'body'}->{'spreadsheet'};
             if (empty($root)) {
                 $sheets = array();
@@ -187,10 +188,12 @@ class ImportOds extends ImportPlugin
         $rows = array();
 
         /* Iterate over tables */
+        /** @var SimpleXMLElement $sheet */
         foreach ($sheets as $sheet) {
             $col_names_in_first_row = isset($_REQUEST['ods_col_names']);
 
             /* Iterate over rows */
+            /** @var SimpleXMLElement $row */
             foreach ($sheet as $row) {
                 $type = $row->getName();
                 if (strcmp('table-row', $type)) {
@@ -199,6 +202,7 @@ class ImportOds extends ImportPlugin
                 /* Iterate over columns */
                 $cellCount = count($row);
                 $a = 0;
+                /** @var SimpleXMLElement $cell */
                 foreach ($row as $cell) {
                     $a++;
                     $text = $cell->children('text', true);

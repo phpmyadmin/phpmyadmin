@@ -2115,6 +2115,7 @@ function PMA_transformEditedValues($db, $table,
         $transform_options['wrapper_link']
             = PMA_URL_getCommon($_url_params);
         $class_name = PMA_getTransformationClassName($file);
+        /** @var TransformationsPlugin $transformation_plugin */
         $transformation_plugin = new $class_name();
 
         foreach ($edited_values as $cell_index => $curr_cell_edited_values) {

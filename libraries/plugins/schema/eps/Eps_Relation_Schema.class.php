@@ -293,7 +293,12 @@ class PMA_EPS
  */
 class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 {
+    /**
+     * @var Table_Stats_Dia[]|Table_Stats_Eps[]|Table_Stats_Pdf[]|Table_Stats_Svg[]
+     */
     private $_tables = array();
+
+    /** @var Relation_Stats_Dia[] Relations */
     private $_relations = array();
 
     /**

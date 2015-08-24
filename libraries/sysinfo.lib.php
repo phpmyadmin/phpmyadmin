@@ -50,6 +50,7 @@ function PMA_getSysInfo()
 
     if (in_array($php_os, $supported)) {
         $class_name = 'PMA_SysInfo' . $php_os;
+        /** @var PMA_SysInfo $ret */
         $ret = new $class_name();
         if ($ret->supported()) {
             return $ret;

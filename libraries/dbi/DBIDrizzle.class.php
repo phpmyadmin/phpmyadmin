@@ -153,7 +153,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      * selects given database
      *
      * @param string         $dbname database name to select
-     * @param PMA_DrizzleCom $link   connection object
+     * @param PMA_DrizzleCon $link   connection object
      *
      * @return bool
      */
