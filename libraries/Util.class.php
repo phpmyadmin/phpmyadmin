@@ -4782,8 +4782,8 @@ class PMA_Util
             . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
             . 'width="38" height="22" alt="' . __('With selected:') . '" />';
         $html .= '<input type="checkbox" id="' . $formName . '_checkall" '
-            . 'class="checkall_box" title="' . __('Check All') . '" />'
-            . '<label for="' . $formName . '_checkall">' . __('Check All')
+            . 'class="checkall_box" title="' . __('Check all') . '" />'
+            . '<label for="' . $formName . '_checkall">' . __('Check all')
             . '</label>';
         $html .= '<i style="margin-left: 2em">'
             . __('With selected:') . '</i>';

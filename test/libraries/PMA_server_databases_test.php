@@ -188,7 +188,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
 
         //validate 6: PMA_getHtmlForTableFooterButtons
         $this->assertContains(
-            'Check All',
+            'Check all',
             $html
         );
 
