@@ -25,7 +25,7 @@ function checkIndexType()
     /**
      * @var Object Table header for the size column.
      */
-    var $size_header = $('#index_columns thead tr th:nth-child(2)');
+    var $size_header = $('#index_columns').find('thead tr th:nth-child(2)');
     /**
      * @var Object Inputs to specify the columns for the index.
      */
@@ -37,7 +37,7 @@ function checkIndexType()
     /**
      * @var Object Footer containg the controllers to add more columns
      */
-    var $add_more = $('#index_frm .add_more');
+    var $add_more = $('#index_frm').find('.add_more');
 
     if ($select_index_choice.val() == 'SPATIAL') {
         // Disable and hide the size column
@@ -169,7 +169,7 @@ function PMA_addColumnToIndex(source_array, array_index, index_choice, col_index
     var parser = $('input[name="index[Parser]"]').val();
     var index_type = $('select[name="index[Index_type]"]').val();
     var columns = [];
-    $('#index_columns tbody').find('tr').each(function () {
+    $('#index_columns').find('tbody').find('tr').each(function () {
         // Get columns in particular order.
         var col_index = $(this).find('select[name="index[columns][names][]"]').val();
         var size = $(this).find('input[name="index[columns][sub_parts][]"]').val();
@@ -365,12 +365,12 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
                     checkIndexName("index_frm");
                     PMA_showHints($div);
                     PMA_init_slider();
-                    $('#index_columns td').each(function () {
+                    $('#index_columns').find('td').each(function () {
                         $(this).css("width", $(this).width() + 'px');
                     });
-                    $('#index_columns tbody').sortable({
+                    $('#index_columns').find('tbody').sortable({
                         axis: 'y',
-                        containment: $("#index_columns tbody"),
+                        containment: $("#index_columns").find("tbody"),
                         tolerance: 'pointer'
                     });
                     // We dont need the slider at this moment.

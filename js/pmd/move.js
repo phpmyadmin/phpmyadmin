@@ -785,7 +785,7 @@ function Edit_pages()
 
                 if (! pmd_tables_enabled) {
                     Create_page_list(db, function (options) {
-                        $("#page_edit_dialog #selected_page").append(options);
+                        $("#selected_page").append(options);
                     });
                 }
                 $('<div id="page_edit_dialog"></div>')
@@ -865,7 +865,7 @@ function Delete_pages()
 
             if (! pmd_tables_enabled) {
                 Create_page_list(db, function (options) {
-                    $("#page_delete_dialog #selected_page").append(options);
+                    $("#selected_page").append(options);
                 });
             }
 
@@ -964,7 +964,7 @@ function Save_as()
 
             if (! pmd_tables_enabled) {
                 Create_page_list(db, function (options) {
-                    $("#page_save_as_dialog #selected_page").append(options);
+                    $("#selected_page").append(options);
                 });
             }
 
@@ -1631,11 +1631,11 @@ function Side_menu_right(id_this)
 }
 //------------------------------------------------------------------------------
 function Show_text () {
-    $('#side_menu .hidable').show();
+    $('#side_menu').find('.hidable').show();
 }
 function Hide_text () {
     if (!always_show_text) {
-        $('#side_menu .hidable').hide();
+        $('#side_menu').find('.hidable').hide();
     }
 }
 function Pin_text () {
@@ -1914,7 +1914,7 @@ AJAX.registerTeardown('pmd/move.js', function () {
     $("#key_HS").unbind('click');
     $('.scroll_tab_struct').unbind('click');
     $('.scroll_tab_checkbox').unbind('click');
-    $('#id_scroll_tab tr').off('click', '.pmd_Tabs2,.pmd_Tabs');
+    $('#id_scroll_tab').find('tr').off('click', '.pmd_Tabs2,.pmd_Tabs');
     $('.pmd_tab').off('click', '.select_all_1');
     $('.pmd_tab').off('click', '.small_tab,.small_tab2');
     $('.pmd_tab').off('click', '.small_tab_pref_1');
@@ -2036,7 +2036,7 @@ AJAX.registerOnload('pmd/move.js', function () {
     $('.scroll_tab_checkbox').click(function() {
         VisibleTab(this,$(this).val());
     });
-    $('#id_scroll_tab tr').on('click', '.pmd_Tabs2,.pmd_Tabs', function() {
+    $('#id_scroll_tab').find('tr').on('click', '.pmd_Tabs2,.pmd_Tabs', function() {
         Select_tab($(this).attr('pmd_url_table_name'));
     });
     $('.pmd_tab').on('click', '.select_all_1', function() {

@@ -46,18 +46,18 @@ function goTo3NFStep1(newTables)
             "tables": newTables,
             "step": '3.1'
         }, function(data) {
-            $("#page_content h3").html(PMA_messages.str3NFNormalization);
-            $("#mainContent legend").html(data.legendText);
-            $("#mainContent h4").html(data.headText);
-            $("#mainContent p").html(data.subText);
-            $("#mainContent #extra").html(data.extra);
-            $("#extra form").each(function() {
+            $("#page_content").find("h3").html(PMA_messages.str3NFNormalization);
+            $("#mainContent").find("legend").html(data.legendText);
+            $("#mainContent").find("h4").html(data.headText);
+            $("#mainContent").find("p").html(data.subText);
+            $("#mainContent").find("#extra").html(data.extra);
+            $("#extra").find("form").each(function() {
                 var form_id = $(this).attr('id');
                 var colname = $(this).data('colname');
                 $("#" + form_id + " input[value='" + colname + "']").next().remove();
                 $("#" + form_id + " input[value='" + colname + "']").remove();
             });
-            $("#mainContent #newCols").html('');
+            $("#mainContent").find("#newCols").html('');
             $('.tblFooters').html('');
             if (data.subText !== "") {
                 $('.tblFooters').html('<input type="button" onClick="processDependencies(\'\', true);" value="' + PMA_messages.strDone + '"/>');

@@ -119,7 +119,7 @@ function collapseTreeNode($expandElem) {
  */
 function traverseNavigationForPaths() {
     var params = {
-        pos: $('#pma_navigation_tree div.dbselector select').val()
+        pos: $('#pma_navigation_tree').find('div.dbselector select').val()
     };
     if ($('#navi_db_select').length) {
         return params;
@@ -201,7 +201,7 @@ $(function () {
         // reload icon object
         var $icon = $(this).find('img');
         // source of the hidden throbber icon
-        var icon_throbber_src = $('#pma_navigation .throbber').attr('src');
+        var icon_throbber_src = $('#pma_navigation').find('.throbber').attr('src');
         // source of the reload icon
         var icon_reload_src = $icon.attr('src');
         // replace the source of the reload icon with the one for throbber
@@ -227,7 +227,7 @@ $(function () {
      */
     $(document).on('click', '#pma_navigation_collapse', function (event) {
         event.preventDefault();
-        $('#pma_navigation_tree a.expander').each(function() {
+        $('#pma_navigation_tree').find('a.expander').each(function() {
             var $icon = $(this).find('img');
             if ($icon.is('.ic_b_minus')) {
                 $(this).click();
@@ -579,7 +579,7 @@ function expandTreeNode($expandElem, callback) {
         }
         $children.promise().done(navTreeStateUpdate);
     } else {
-        var $throbber = $('#pma_navigation .throbber')
+        var $throbber = $('#pma_navigation').find('.throbber')
             .first()
             .clone()
             .css({visibility: 'visible', display: 'block'})
@@ -649,7 +649,7 @@ function PMA_showCurrentNavigation() {
         .removeClass('selected');
     if (db) {
         var $dbItem = findLoadedItem(
-            $('#pma_navigation_tree > div'), db, 'database', !table
+            $('#pma_navigation_tree').find('> div'), db, 'database', !table
         );
         if ($('#navi_db_select').length &&
             $('option:selected', $('#navi_db_select')).length
@@ -658,7 +658,7 @@ function PMA_showCurrentNavigation() {
                 return;
             }
             // If loaded database in navigation is not same as current one
-            if ( $('#pma_navigation_tree_content span.loaded_db:first').text()
+            if ($('#pma_navigation_tree_content').find('span.loaded_db:first').text()
                 !== $('#navi_db_select').val()
             ) {
                 loadChildNodes(false, $('option:selected', $('#navi_db_select')), function (data) {
@@ -906,16 +906,19 @@ function PMA_reloadNavigation(callback, paths) {
 }
 
 function PMA_selectCurrentDb() {
-    if ($('#navi_db_select').length) {
-        if (PMA_commonParams.get('db')) { // db selected
-            $('#navi_db_select').show();
-        }
-        $('#navi_db_select').val(PMA_commonParams.get('db'));
-        if ($('#navi_db_select').val() !== PMA_commonParams.get('db')) {
-            return false;
-        }
-        return true;
+    var $naviDbSelect = $('#navi_db_select');
+
+    if (!$naviDbSelect.length) {
+        return false;
     }
+
+    if (PMA_commonParams.get('db')) { // db selected
+        $naviDbSelect.show();
+    }
+
+    $naviDbSelect.val(PMA_commonParams.get('db'));
+    return $naviDbSelect.val() === PMA_commonParams.get('db');
+
 }
 
 /**
