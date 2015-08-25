@@ -926,7 +926,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets table information
              */
-            $showtable    = $GLOBALS['dbi']->getTable($this->db, $table)->sGetStatusInfo();
+            $showtable    = $GLOBALS['dbi']->getTable($this->db, $table)->getStatusInfo();
             $show_comment = isset($showtable['Comment'])
                 ? $showtable['Comment']
                 : '';

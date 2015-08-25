@@ -592,13 +592,92 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for isMerge
+     * Test for isMerge -- when there's no ENGINE info cached
      *
      * @return void
      */
-    public function testIsMerge()
+    public function testIsMergeCase1()
     {
-        $this->markTestIncomplete('Not yet implemented!');
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $this->assertEquals(
+            '',
+            $tableObj->isMerge()
+        );
+
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValue(array('table_name' => "PMA_BookMark")));
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $this->assertEquals(
+            false,
+            $tableObj->isMerge()
+        );
+    }
+
+    /**
+     * Test for isMerge -- when ENGINE info is MERGE
+     *
+     * @return void
+     */
+    public function testIsMergeCase2()
+    {
+        $map = array(
+            array('PMA.PMA_BookMark', null, array('ENGINE' => "MERGE")),
+            array('PMA.PMA_BookMark.ENGINE', null, "MERGE")
+        );
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValueMap($map));
+
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $this->assertEquals(
+            true,
+            $tableObj->isMerge()
+        );
+    }
+
+    /**
+     * Test for isMerge -- when ENGINE info is MRG_MYISAM
+     *
+     * @return void
+     */
+    public function testIsMergeCase3()
+    {
+        $map = array(
+            array('PMA.PMA_BookMark', null, array('ENGINE' => "MRG_MYISAM")),
+            array('PMA.PMA_BookMark.ENGINE', null, "MRG_MYISAM")
+        );
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValueMap($map));
+
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $this->assertEquals(
+            true,
+            $tableObj->isMerge()
+        );
+    }
+
+    /**
+     * Test for isMerge -- when ENGINE info is ISDB
+     *
+     * @return void
+     */
+    public function testIsMergeCase4()
+    {
+        $map = array(
+            array('PMA.PMA_BookMark', null, array('ENGINE' => "ISDB")),
+            array('PMA.PMA_BookMark.ENGINE', null, "ISDB")
+        );
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValueMap($map));
+
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $this->assertEquals(
+            false,
+            $tableObj->isMerge()
+        );
     }
 
     /**
@@ -754,6 +833,96 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getColumnsMeta
+     *
+     * @return void
+     */
+    public function testGetColumnsMeta()
+    {
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with("SELECT * FROM `db`.`table` LIMIT 1")
+            ->will($this->returnValue('v1'));
+
+        $dbi->expects($this->once())
+            ->method('getFieldsMeta')
+            ->with("v1")
+            ->will($this->returnValue('movecols'));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $tableObj = new PMA_Table('table', 'db');
+
+        $this->assertEquals(
+            $tableObj->getColumnsMeta(),
+            'movecols'
+        );
+    }
+
+    /**
+     * Tests for _getSQLToCreateForeignKey() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetSQLToCreateForeignKey()
+    {
+        $table = "PMA_table";
+        $field = array("PMA_field1", "PMA_field2");
+        $foreignDb = "foreignDb";
+        $foreignTable = "foreignTable";
+        $foreignField = array("foreignField1", "foreignField2");
+
+        $class = new ReflectionClass('PMA_Table');
+        $method = $class->getMethod('_getSQLToCreateForeignKey');
+        $method->setAccessible(true);
+        $tableObj = new PMA_Table('PMA_table', 'db');
+
+        $sql = $method->invokeArgs($tableObj, array(
+                $table,
+                $field,
+                $foreignDb,
+                $foreignTable,
+                $foreignField
+            )
+        );
+        $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
+            . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
+            . '`foreignDb`.`foreignTable`(`foreignField1`, `foreignField2`);';
+        $this->assertEquals(
+            $sql_excepted,
+            $sql
+        );
+    }
+
+    /**
+     * Tests for getSqlQueryForIndexCreateOrEdit() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetSqlQueryForIndexCreateOrEdit()
+    {
+        $db = "pma_db";
+        $table = "pma_table";
+        $index = new PMA_Index();
+        $error = false;
+
+        $_REQUEST['old_index'] = "PRIMARY";
+
+        $table = new PMA_Table($table, $db);
+        $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
+
+        $this->assertEquals(
+            "ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;",
+            $sql
+        );
+    }
 
     /**
      * Test for getColumns
@@ -799,7 +968,24 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testCountRecords()
     {
-        $this->markTestIncomplete('Not yet implemented!');
+        $map = array(
+            array('PMA.PMA_BookMark', null, array('Comment' => "Comment222", 'TABLE_TYPE' => "VIEW")),
+            array('PMA.PMA_BookMark.TABLE_TYPE', null, 'VIEW')
+        );
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValueMap($map));
+
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        $tableObj = new PMA_Table($table, $db);
+
+        $return = $tableObj->countRecords(true);
+        $expect = 20;
+        $this->assertEquals(
+            $expect,
+            $return
+        );
     }
 
     /**

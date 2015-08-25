@@ -8,7 +8,6 @@
 
 namespace PMA\Controllers\Table;
 
-require_once 'libraries/common.inc.php';
 require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/index.lib.php';
@@ -157,7 +156,8 @@ class TableRelationController extends TableController
 
         // display secondary level tabs if necessary
         $engine = $this->dbi->getTable($this->db, $this->table)
-            ->sGetStatusInfo('ENGINE');
+            ->getStatusInfo('ENGINE');
+
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
@@ -301,7 +301,7 @@ class TableRelationController extends TableController
     public function getDropdownValueForTableAction()
     {
         $foreignTable = $_REQUEST['foreignTable'];
-        $table_obj = new PMA_Table($foreignTable, $_REQUEST['foreignDb']);
+        $table_obj = $this->dbi->getTable($_REQUEST['foreignDb'], $foreignTable);
         // Since views do not have keys defined on them provide the full list of
         // columns
         if ($table_obj->isView()) {
@@ -369,7 +369,7 @@ class TableRelationController extends TableController
                             $GLOBALS['dbi']->getTable(
                                 $_REQUEST['foreignDb'],
                                 $row[0]
-                            )->sGetStatusInfo('Engine')
+                            )->getStatusInfo('Engine')
                         );
                     if (isset($engine) && $engine == $this->tbl_storage_engine) {
                         $tables[] = htmlspecialchars($row[0]);

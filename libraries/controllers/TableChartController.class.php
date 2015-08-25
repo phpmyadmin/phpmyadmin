@@ -15,7 +15,6 @@ use PMA_Message;
 use PMA\Template;
 use PMA\Controllers\TableController;
 
-require_once 'libraries/common.inc.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/Template.class.php';
