@@ -128,7 +128,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetKeyForTablePrimaryTwo()
     {
-        a$GLOBALS['dbi']->expects($this->any())
+        $GLOBALS['dbi']->expects($this->any())
             ->method('fetchAssoc')
             ->will(
                 $this->returnCallback(
