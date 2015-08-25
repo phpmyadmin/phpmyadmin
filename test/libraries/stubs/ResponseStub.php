@@ -3,9 +3,9 @@
 /**
  * Fake response stub for testing purposes
  *
- * It will concatenate HTML and JSON for given calls to addHTML and addJSON respectively,
- * what make it easy to determine whether the output is correct in test suite. Feel free to
- * modify for any future test needs.
+ * It will concatenate HTML and JSON for given calls to addHTML and addJSON
+ * respectively, what make it easy to determine whether the output is correct in test
+ * suite. Feel free to modify for any future test needs.
  *
  * @package    PhpMyAdmin
  * @subpackage Stubs
@@ -18,6 +18,11 @@ use PMA_Message;
 require_once 'libraries/Response.class.php';
 require_once 'libraries/Header.class.php';
 
+/**
+ * Class PMA_Response
+ *
+ * @package PMA\Test\Stubs
+ */
 class PMA_Response
 {
     /**
@@ -171,6 +176,7 @@ class PMA_Response
      * This function is used to clear all data to this
      * stub after any operations.
      *
+     * @return void
      */
     public function clear()
     {

@@ -250,7 +250,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('insertId')
             ->will($this->returnValue(10));
 
-        $value = array("key1" => "value1");
         $dbi->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(false));
 
@@ -258,7 +257,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($value));
 
-        $value = array("value1", "value2");
         $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue(false));
 
@@ -883,7 +881,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $method->setAccessible(true);
         $tableObj = new PMA_Table('PMA_table', 'db');
 
-        $sql = $method->invokeArgs($tableObj, array(
+        $sql = $method->invokeArgs(
+            $tableObj, array(
                 $table,
                 $field,
                 $foreignDb,
@@ -969,8 +968,12 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     public function testCountRecords()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('Comment' => "Comment222", 'TABLE_TYPE' => "VIEW")),
-            array('PMA.PMA_BookMark.TABLE_TYPE', null, 'VIEW')
+            array(
+                'PMA.PMA_BookMark',
+                null,
+                array('Comment' => "Comment222", 'TABLE_TYPE' => "VIEW"),
+            ),
+            array('PMA.PMA_BookMark.TABLE_TYPE', null, 'VIEW'),
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')

@@ -350,20 +350,23 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($fields_meta));
 
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
-            ->will($this->returnCallback(
-                function () {
-                    static $count = 0;
-                    if ($count == 0) {
-                        $count++;
-                        return array(
-                            'col1' => 1,
-                            'col2' => 2
-                        );
-                    } else {
-                        return null;
+            ->will(
+                $this->returnCallback(
+                    function () {
+                        static $count = 0;
+                        if ($count == 0) {
+                            $count++;
+
+                            return array(
+                                'col1' => 1,
+                                'col2' => 2,
+                            );
+                        } else {
+                            return null;
+                        }
                     }
-                }
-            ));
+                )
+            );
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);

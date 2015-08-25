@@ -114,8 +114,10 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $method->setAccessible(true);
         // Showing statistics
         $is_show_stats = true;
-        $ctrl = new DatabaseStructureController(null, null, null, null,
-            null, null, $is_show_stats);
+        $ctrl = new DatabaseStructureController(
+            null, null, null, null,
+            null, null, $is_show_stats
+        );
 
         $GLOBALS['cfg']['MaxExactCount'] = 10;
         $current_table = array(
@@ -125,7 +127,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
             'Index_length' => 0,
             'TABLE_NAME' => 'table'
         );
-        list($current_table, $formatted_size, $unit, $sum_size)
+        list($current_table,,, $sum_size)
             = $method->invokeArgs($ctrl, array($current_table, 10));
 
         $this->assertEquals(
@@ -142,7 +144,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         );
 
         $current_table['ENGINE'] = 'MYISAM';
-        list($current_table, $formatted_size, $unit, $sum_size)
+        list($current_table,,, $sum_size)
             = $method->invokeArgs($ctrl, array($current_table, 10));
 
         $this->assertEquals(
@@ -155,11 +157,13 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         );
         // Not showing statistics
         $is_show_stats = false;
-        $ctrl = new DatabaseStructureController(null, null, null, null,
-            null, null, $is_show_stats);
+        $ctrl = new DatabaseStructureController(
+            null, null, null, null,
+            null, null, $is_show_stats
+        );
 
         $current_table['ENGINE'] = 'InnoDB';
-        list($current_table, $formatted_size, $unit, $sum_size)
+        list($current_table,,, $sum_size)
             = $method->invokeArgs($ctrl, array($current_table, 10));
         $this->assertEquals(
             true,
@@ -171,7 +175,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         );
 
         $current_table['ENGINE'] = 'MYISAM';
-        list($current_table, $formatted_size, $unit, $sum_size)
+        list($current_table,,, $sum_size)
             = $method->invokeArgs($ctrl, array($current_table, 10));
         $this->assertEquals(
             false,
@@ -197,21 +201,19 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
 
         $db_is_system_schema = true;
         $is_show_stats = true;
-        $ctrl = new DatabaseStructureController(null, null, null, $db_is_system_schema,
-            null, null, $is_show_stats);
+        $ctrl = new DatabaseStructureController(
+            null, null, null, $db_is_system_schema,
+            null, null, $is_show_stats
+        );
 
         $current_table = array(
-            'Data_length' => 16384,
+            'Data_length'  => 16384,
             'Index_length' => 0,
-            'Name' => 'table',
-            'Data_free' => 300
+            'Name'         => 'table',
+            'Data_free'    => 300,
         );
-        list($current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $sum_size
-        ) = $method->invokeArgs($ctrl, array(
-            $current_table, 0, 0, 0, 0,
-            0, 0
-        ));
+        list($current_table,,,,, $overhead_size, $sum_size)
+            = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0,));
         $this->assertEquals(
             6,
             $current_table['Rows']
@@ -226,44 +228,26 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         );
 
         unset($current_table['Data_free']);
-        list($current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $sum_size
-            ) = $method->invokeArgs($ctrl, array(
-            $current_table, 0, 0, 0, 0,
-            0, 0
-        ));
-        $this->assertEquals(
-            0,
-            $overhead_size
-        );
+        list($current_table,,,,, $overhead_size,)
+            = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0,));
+        $this->assertEquals(0, $overhead_size);
 
         $is_show_stats = false;
-        $ctrl = new DatabaseStructureController(null, null, null, $db_is_system_schema,
-            null, null, $is_show_stats);
-        list($current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $sum_size
-            ) = $method->invokeArgs($ctrl, array(
-            $current_table, 0, 0, 0, 0,
-            0, 0
-        ));
-        $this->assertEquals(
-            0,
-            $sum_size
+        $ctrl = new DatabaseStructureController(
+            null, null, null, $db_is_system_schema,
+            null, null, $is_show_stats
         );
+        list($current_table,,,,,, $sum_size)
+            = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0));
+        $this->assertEquals(0, $sum_size);
 
         $db_is_system_schema = false;
-        $ctrl = new DatabaseStructureController(null, null, null, $db_is_system_schema,
-            null, null, $is_show_stats);
-        list($current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $sum_size
-            ) = $method->invokeArgs($ctrl, array(
-            $current_table, 0, 0, 0, 0,
-            0, 0
-        ));
-        $this->assertArrayNotHasKey(
-            'Row',
-            $current_table
+        $ctrl = new DatabaseStructureController(
+            null, null, null, $db_is_system_schema, null, null, $is_show_stats
         );
+        list($current_table,,,,,,)
+            = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0,));
+        $this->assertArrayNotHasKey('Row', $current_table);
     }
 
     /**
@@ -278,8 +262,15 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $method = $class->getMethod('hasTable');
         $method->setAccessible(true);
 
-        $ctrl = new DatabaseStructureController(null, null, null, null,
-            null, null, null);
+        $ctrl = new DatabaseStructureController(
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
 
         // When parameter $db is empty
         $this->assertEquals(
@@ -318,8 +309,15 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
-        $ctrl = new DatabaseStructureController(null, null, null, null,
-            null, null, null);
+        $ctrl = new DatabaseStructureController(
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
 
         $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] = array(
             array('db' => 'db', 'table' => 'table')
@@ -349,19 +347,23 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
             ->getMock();
         $fav_instance->expects($this->at(1))->method('getTables')
             ->will($this->returnValue(array()));
-        $fav_instance->expects($this->at(2))->method('getTables')
-            ->will($this->returnValue(
-                array(
-                    array('db' => 'db', 'table' => 'table')
+        $fav_instance->expects($this->at(2))
+            ->method('getTables')
+            ->will(
+                $this->returnValue(
+                    array(
+                        array('db' => 'db', 'table' => 'table'),
+                    )
                 )
-            ));
+            );
 
         $class = new ReflectionClass('PMA\Controllers\DatabaseStructureController');
         $method = $class->getMethod('synchronizeFavoriteTables');
         $method->setAccessible(true);
 
-        $ctrl = new DatabaseStructureController(null, null, null, null,
-            null, null, null);
+        $ctrl = new DatabaseStructureController(
+            null, null, null, null, null, null, null
+        );
 
         // The user hash for test
         $user = 'abcdefg';
@@ -386,8 +388,15 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
     {
         $_REQUEST['table'] = 'table';
 
-        $ctrl = new DatabaseStructureController(null, null, null, null,
-            null, null, null);
+        $ctrl = new DatabaseStructureController(
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
 
         $ctrl->handleRealRowCountRequestAction();
         $json = $this->response->getJSONResult();

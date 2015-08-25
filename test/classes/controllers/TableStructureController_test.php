@@ -128,21 +128,25 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetKeyForTablePrimaryTwo()
     {
-        $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
-            ->will($this->returnCallback(
-                function () {
-                    static $callCount = 0;
-                    if ($callCount == 0) {
-                        $callCount++;
-                        return array(
-                            'Key_name' => 'PRIMARY',
-                            'Column_name' => 'column'
-                        );
-                    } else {
-                        return null;
+        a$GLOBALS['dbi']->expects($this->any())
+            ->method('fetchAssoc')
+            ->will(
+                $this->returnCallback(
+                    function () {
+                        static $callCount = 0;
+                        if ($callCount == 0) {
+                            $callCount++;
+
+                            return array(
+                                'Key_name'    => 'PRIMARY',
+                                'Column_name' => 'column',
+                            );
+                        } else {
+                            return null;
+                        }
                     }
-                }
-            ));
+                )
+            );
 
         $class = new ReflectionClass('\PMA\Controllers\TableStructureController');
         $method = $class->getMethod('getKeyForTablePrimary');
@@ -318,10 +322,11 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
         );
         $action = 'db_delete_row';
 
-        list(
-            $what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError
-        )
-            = $method->invokeArgs($ctrl, array($submit_mult, $db, $table, $selected, $action));
+        list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
+            = $method->invokeArgs(
+                $ctrl,
+                array($submit_mult, $db, $table, $selected, $action)
+            );
 
         //validate 1: $what
         $this->assertEquals(
@@ -355,10 +360,11 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
 
         $submit_mult = "unique";
 
-        list(
-            $what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError
-        )
-            = $method->invokeArgs($ctrl, array($submit_mult, $db, $table, $selected, $action));
+        list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
+            = $method->invokeArgs(
+                $ctrl,
+                array($submit_mult, $db, $table, $selected, $action)
+            );
 
         //validate 1: $what
         $this->assertEquals(

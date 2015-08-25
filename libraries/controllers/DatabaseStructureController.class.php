@@ -852,8 +852,8 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Find table with truename
      *
-     * @param array   $db       DB to look into
-     * @param string  $truename Table name
+     * @param array  $db       DB to look into
+     * @param string $truename Table name
      *
      * @return bool
      */

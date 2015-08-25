@@ -1606,55 +1606,58 @@ class PMA_Table
         if (! isset($this->uiprefs)) {
             $this->loadUiPrefs();
         }
+
         // do checking based on property
         if ($property == self::PROP_SORTED_COLUMN) {
-            if (isset($this->uiprefs[$property])) {
-                if (! isset($_REQUEST['discard_remembered_sort'])) {
-                    // check if the column name exists in this table
-                    $tmp = explode(' ', $this->uiprefs[$property]);
-                    $colname = $tmp[0];
-                    //remove backquoting from colname
-                    $colname = str_replace('`', '', $colname);
-                    //get the available column name without backquoting
-                    $avail_columns = $this->getColumns(false);
+            if (!isset($this->uiprefs[$property])) {
+                return false;
+            }
 
-                    foreach ($avail_columns as $each_col) {
-                        // check if $each_col ends with $colname
-                        if (substr_compare(
-                            $each_col,
-                            $colname,
-                            /*overload*/mb_strlen($each_col)
-                            - /*overload*/mb_strlen($colname)
-                        ) === 0
-                        ) {
-                            return $this->uiprefs[$property];
-                        }
+            if (!isset($_REQUEST['discard_remembered_sort'])) {
+                // check if the column name exists in this table
+                $tmp = explode(' ', $this->uiprefs[$property]);
+                $colname = $tmp[0];
+                //remove backquoting from colname
+                $colname = str_replace('`', '', $colname);
+                //get the available column name without backquoting
+                $avail_columns = $this->getColumns(false);
+
+                foreach ($avail_columns as $each_col) {
+                    // check if $each_col ends with $colname
+                    if (substr_compare(
+                        $each_col,
+                        $colname,
+                        /*overload*/mb_strlen($each_col)
+                        - /*overload*/mb_strlen($colname)
+                    ) === 0
+                    ) {
+                        return $this->uiprefs[$property];
                     }
                 }
-                // remove the property, since it no longer exists in database
-                $this->removeUiProp(self::PROP_SORTED_COLUMN);
-                return false;
-            } else {
-                return false;
             }
-        } elseif ($property == self::PROP_COLUMN_ORDER
+            // remove the property, since it no longer exists in database
+            $this->removeUiProp(self::PROP_SORTED_COLUMN);
+            return false;
+        }
+
+        if ($property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB
         ) {
-            if (! $this->isView()
-                && isset($this->uiprefs[$property])
-            ) {
-                // check if the table has not been modified
-                if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
-                    return $this->uiprefs[$property];
-                } else {
-                    // remove the property, since the table has been modified
-                    $this->removeUiProp(self::PROP_COLUMN_ORDER);
-                    return false;
-                }
-            } else {
+            if ($this->isView() || !isset($this->uiprefs[$property])) {
                 return false;
             }
+
+            // check if the table has not been modified
+            if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']
+            ) {
+                return $this->uiprefs[$property];
+            }
+
+            // remove the property, since the table has been modified
+            $this->removeUiProp(self::PROP_COLUMN_ORDER);
+            return false;
         }
+
         // default behaviour for other property:
         return isset($this->uiprefs[$property]) ? $this->uiprefs[$property] : false;
     }

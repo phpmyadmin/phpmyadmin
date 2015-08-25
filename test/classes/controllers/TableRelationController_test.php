@@ -40,8 +40,6 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-
-
         $GLOBALS['server'] = 0;
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['ShowHint'] = true;
@@ -100,7 +98,8 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PMA\Controllers\Table\TableRelationController');
         $container->alias(
-            'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
+            'TableRelationController',
+            'PMA\Controllers\Table\TableRelationController'
         );
         /**
          * @var PMA\Controllers\Table\TableRelationController
@@ -145,7 +144,8 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PMA\Controllers\Table\TableRelationController');
         $container->alias(
-            'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
+            'TableRelationController',
+            'PMA\Controllers\Table\TableRelationController'
         );
         $ctrl = $container->get('TableRelationController');
 
@@ -167,31 +167,31 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetDropdownValueForDbActionOne()
     {
-        $GLOBALS['dbi']->expects($this->any())->method('fetchArray')
-            ->will($this->returnCallback(
-                function () {
-                    static $count = 0;
-                    if ($count == 0) {
-                        $count++;
-                        return array(
-                            'Engine' => 'InnoDB',
-                            'Name' => 'table'
-                        );
-                    } else {
+        $GLOBALS['dbi']->expects($this->any())
+t            ->method('fetchArray')
+            ->will(
+                $this->returnCallback(
+                    function () {
+                        static $count = 0;
+                        if ($count == 0) {
+                            $count++;
+                            return array('Engine' => 'InnoDB', 'Name'   => 'table',);
+                        }
                         return null;
                     }
-                }
-            ));
+                )
+            );
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PMA\Controllers\Table\TableRelationController');
         $container->alias(
-            'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
+            'TableRelationController',
+            'PMA\Controllers\Table\TableRelationController'
         );
-        $ctrl = $container->get('TableRelationController', array(
-                'tbl_storage_engine' => 'INNODB'
-            )
+        $ctrl = $container->get(
+            'TableRelationController',
+            array('tbl_storage_engine' => 'INNODB')
         );
 
         $_REQUEST['foreign'] = 'true';
@@ -213,28 +213,31 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetDropdownValueForDbActionTwo()
     {
-        $GLOBALS['dbi']->expects($this->any())->method('fetchArray')
-            ->will($this->returnCallback(
-                function () {
-                    static $count = 0;
-                    if ($count == 0) {
-                        $count++;
-                        return array('table');
-                    } else {
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('fetchArray')
+            ->will(
+                $this->returnCallback(
+                    function () {
+                        static $count = 0;
+                        if ($count == 0) {
+                            $count++;
+                            return array('table');
+                        }
                         return null;
                     }
-                }
-            ));
+                )
+            );
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PMA\Controllers\Table\TableRelationController');
         $container->alias(
-            'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
+            'TableRelationController',
+            'PMA\Controllers\Table\TableRelationController'
         );
-        $ctrl = $container->get('TableRelationController', array(
-                'tbl_storage_engine' => 'INNODB'
-            )
+        $ctrl = $container->get(
+            'TableRelationController',
+            array('tbl_storage_engine' => 'INNODB',)
         );
 
         $_REQUEST['foreign'] = 'false';
@@ -272,26 +275,30 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($tableMock));
         $GLOBALS['dbi']->expects($this->any())->method('fetchArray')
-            ->will($this->returnCallback(
-                function () {
-                    static $count = 0;
-                    if ($count == 0) {
-                        $count++;
-                        return array('table');
-                    } else {
+            ->will(
+                $this->returnCallback(
+                    function () {
+                        static $count = 0;
+                        if ($count == 0) {
+                            $count++;
+                            return array('table');
+                        }
                         return null;
                     }
-                }
-            ));
+                )
+            );
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PMA\Controllers\Table\TableRelationController');
         $container->alias(
-            'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
+            'TableRelationController',
+            'PMA\Controllers\Table\TableRelationController'
         );
-        $ctrl = $container->get('TableRelationController', array(
-                'tbl_storage_engine' => 'INNODB'
+        $ctrl = $container->get(
+            'TableRelationController',
+            array(
+                'tbl_storage_engine' => 'INNODB',
             )
         );
 
