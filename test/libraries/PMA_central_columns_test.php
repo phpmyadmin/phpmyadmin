@@ -497,16 +497,6 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHTMLforCentralColumnsTableRow
-     *
-     * @return void
-     */
-    public function testPMAGetHTMLforCentralColumnsTableRow()
-    {
-        // @todo Find a better way to test page
-    }
-
-    /**
      * Test for PMA_getCentralColumnsListRaw
      *
      * @return void

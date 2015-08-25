@@ -1678,7 +1678,7 @@ class PMA_DisplayResults
             $data_html .= '<input class="table_create_time" type="hidden" value="'
                 . $GLOBALS['dbi']->getTable(
                     $this->__get('db'), $this->__get('table')
-                )->sGetStatusInfo('Create_time')
+                )->getStatusInfo('Create_time')
                 . '" />';
         }
 

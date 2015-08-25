@@ -13,8 +13,6 @@ use PMA\Controllers\TableController;
 use PMA_DatabaseInterface;
 use PMA_Util;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/sql.lib.php';
@@ -173,6 +171,10 @@ class TableSearchController extends TableController
      */
     public function indexAction()
     {
+        $_REQUEST['db'] = 'TEST';
+        $_REQUEST['table'] = 'fuck2';
+        $_REQUEST['where_clause'] = '`c` = 2';
+        $this->getDataRowAction();
         switch ($this->_searchType) {
         case 'replace':
             if (isset($_POST['find'])) {

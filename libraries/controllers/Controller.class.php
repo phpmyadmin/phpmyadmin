@@ -16,7 +16,6 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Response.class.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/database_interface.inc.php';
 
@@ -51,6 +50,6 @@ abstract class Controller
         $container = Container::getDefaultContainer();
         $this->container = $container;
         $this->dbi = $this->container->get('dbi');
-        $this->response = PMA_Response::getInstance();
+        $this->response = $this->container->get('response');
     }
 }

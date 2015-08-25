@@ -16,7 +16,6 @@ use PMA_Response;
 use PMA\Template;
 use PMA_Util;
 
-require_once 'libraries/common.inc.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/Util.class.php';
@@ -144,7 +143,7 @@ class TableIndexesController extends TableController
         // If there is a request for SQL previewing.
         if (isset($_REQUEST['preview_sql'])) {
 
-            PMA_Response::getInstance()->addJSON(
+            $this->response->addJSON(
                 'sql_data',
                 Template::get('preview_sql')
                     ->render(
@@ -161,11 +160,10 @@ class TableIndexesController extends TableController
                     __('Table %1$s has been altered successfully.')
                 );
                 $message->addParam($this->table);
-                $response = PMA_Response::getInstance();
-                $response->addJSON(
+                $this->response->addJSON(
                     'message', PMA_Util::getMessage($message, $sql_query, 'success')
                 );
-                $response->addJSON(
+                $this->response->addJSON(
                     'index_table',
                     PMA_Index::getHtmlForIndexes(
                         $this->table, $this->db
@@ -175,9 +173,8 @@ class TableIndexesController extends TableController
                 include 'tbl_structure.php';
             }
         } else {
-            $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
-            $response->addJSON('message', $error);
+            $this->response->isSuccess(false);
+            $this->response->addJSON('message', $error);
         }
     }
 }

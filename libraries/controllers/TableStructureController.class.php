@@ -19,8 +19,6 @@ use PMA_Util;
 use PMA\Util;
 use SqlParser;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/Partition.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
@@ -103,7 +101,7 @@ class TableStructureController extends TableController
         $this->_table_info_num_rows = $table_info_num_rows;
         $this->_tbl_collation = $tbl_collation;
         $this->_showtable = $showtable;
-        $this->table_obj = new PMA_Table($this->table, $this->db);
+        $this->table_obj = $this->dbi->getTable($this->db, $this->table);
     }
 
     /**
@@ -245,7 +243,7 @@ class TableStructureController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->table_obj->sGetStatusInfo('ENGINE');
+        $engine = $this->table_obj->getStatusInfo('ENGINE');
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
@@ -725,7 +723,7 @@ class TableStructureController extends TableController
 
             if ($result !== false) {
                 $changed_privileges = $this->adjustColumnPrivileges(
-                    $this->db, $this->table, $adjust_privileges
+                    $adjust_privileges
                 );
 
                 if ($changed_privileges) {
@@ -1063,7 +1061,7 @@ class TableStructureController extends TableController
         if (empty($this->_showtable)) {
             $this->_showtable = $this->dbi->getTable(
                 $this->db, $this->table
-            )->sGetStatusInfo(null, true);
+            )->getStatusInfo(null, true);
         }
 
         if (empty($this->_showtable['Data_length'])) {
