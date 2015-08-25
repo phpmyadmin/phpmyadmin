@@ -26,6 +26,9 @@ var svg;
 function zoomAndPan()
 {
     var g = svg.getElementById('groupPanel');
+    if (!g) {
+        return;
+    }
 
     g.setAttribute('transform', 'translate(' + x + ', ' + y + ') scale(' + scale + ')');
     var id;
