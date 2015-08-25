@@ -9,7 +9,7 @@
 /*
  * Needed for backquote()
  */
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 
 /*
  * Needed by PMA_TRI_getQueryFromRequest()

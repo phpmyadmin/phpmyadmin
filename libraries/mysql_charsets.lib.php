@@ -118,10 +118,10 @@ function PMA_getDbCollation($db)
         // this is slow with thousands of databases
         $sql = PMA_DRIZZLE
             ? 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS'
-            . ' WHERE SCHEMA_NAME = \'' . PMA_Util::sqlAddSlashes($db)
+            . ' WHERE SCHEMA_NAME = \'' . PMA\libraries\Util::sqlAddSlashes($db)
             . '\' LIMIT 1'
             : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
-            . ' WHERE SCHEMA_NAME = \'' . PMA_Util::sqlAddSlashes($db)
+            . ' WHERE SCHEMA_NAME = \'' . PMA\libraries\Util::sqlAddSlashes($db)
             . '\' LIMIT 1';
         return $GLOBALS['dbi']->fetchValue($sql);
     } else {

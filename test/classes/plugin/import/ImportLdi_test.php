@@ -15,8 +15,8 @@ $GLOBALS['plugin_param'] = "table";
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
@@ -75,7 +75,7 @@ class ImportLdi_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = "phpmyadmintest";
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

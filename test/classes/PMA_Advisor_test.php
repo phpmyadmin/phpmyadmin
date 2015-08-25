@@ -9,12 +9,15 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Advisor.class.php';
+require_once 'libraries/Advisor.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
+
+use PMA\libraries\Advisor;
+use PMA\libraries\PMA_Theme;
 
 /**
  * Tests behaviour of PMA_Advisor class

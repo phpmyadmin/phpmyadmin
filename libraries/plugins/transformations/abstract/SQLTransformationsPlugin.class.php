@@ -44,7 +44,7 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
         // see PMA_highlightSQL()
-        $result = PMA_Util::formatSql($buffer);
+        $result = PMA\libraries\Util::formatSql($buffer);
         return $result;
     }
 

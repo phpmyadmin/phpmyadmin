@@ -1,10 +1,12 @@
 <?php
+use PMA\libraries\PMA_Table;
+
 $js_msg = '';
 $this_params = null;
 if (isset($one_key['constraint'])) {
-    $drop_fk_query = 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
+    $drop_fk_query = 'ALTER TABLE ' . PMA\libraries\Util::backquote($GLOBALS['table'])
         . ' DROP FOREIGN KEY '
-        . PMA_Util::backquote($one_key['constraint']) . ';';
+        . PMA\libraries\Util::backquote($one_key['constraint']) . ';';
     $this_params = $GLOBALS['url_params'];
     $this_params['goto'] = 'tbl_relation.php';
     $this_params['back'] = 'tbl_relation.php';
@@ -50,9 +52,9 @@ if ($foreign_db) {
     // 'SHOW TABLES' and manualy retrieve table engine values.
     if (PMA_DRIZZLE) {
         $tables_rs = $GLOBALS['dbi']->query(
-            'SHOW TABLES FROM ' . PMA_Util::backquote($foreign_db),
+            'SHOW TABLES FROM ' . PMA\libraries\Util::backquote($foreign_db),
             null,
-            PMA_DatabaseInterface::QUERY_STORE
+            PMA\libraries\DatabaseInterface::QUERY_STORE
         );
         while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
             $engine = $GLOBALS['dbi']->getTable(
@@ -67,9 +69,9 @@ if ($foreign_db) {
         }
     } else {
         $tables_rs = $GLOBALS['dbi']->query(
-            'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($foreign_db),
+            'SHOW TABLE STATUS FROM ' . PMA\libraries\Util::backquote($foreign_db),
             null,
-            PMA_DatabaseInterface::QUERY_STORE
+            PMA\libraries\DatabaseInterface::QUERY_STORE
         );
         while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
             if (isset($row[1])
@@ -90,7 +92,7 @@ if ($foreign_db) {
                    value="<?php echo $js_msg; ?>" />
             <a class="drop_foreign_key_anchor ajax"
                href="sql.php<?php echo PMA_URL_getCommon($this_params); ?>" >
-                <?php echo PMA_Util::getIcon('b_drop.png', __('Drop')); ?>
+                <?php echo PMA\libraries\Util::getIcon('b_drop.png', __('Drop')); ?>
             </a>
         <?php endif; ?>
     </td>
@@ -104,7 +106,7 @@ if ($foreign_db) {
         </span>
         <div class="floatleft">
             <span class="formelement">
-                <?php echo PMA\Template::get('table/relation/dropdown_generate')->render(
+                <?php echo PMA\libraries\Template::get('table/relation/dropdown_generate')->render(
                     array(
                         'dropdown_question' => 'ON DELETE',
                         'select_name' => 'on_delete[' . $i . ']',
@@ -114,7 +116,7 @@ if ($foreign_db) {
                 ); ?>
             </span>
             <span class="formelement">
-                <?php echo PMA\Template::get('table/relation/dropdown_generate')->render(
+                <?php echo PMA\libraries\Template::get('table/relation/dropdown_generate')->render(
                     array(
                         'dropdown_question' => 'ON UPDATE',
                         'select_name' => 'on_update[' . $i . ']',
@@ -129,7 +131,7 @@ if ($foreign_db) {
         <?php if (isset($one_key['index_list'])): ?>
             <?php foreach ($one_key['index_list'] as $key => $column): ?>
                 <span class="formelement clearfloat">
-                    <?php echo PMA\Template::get('table/relation/dropdown_generate')->render(
+                    <?php echo PMA\libraries\Template::get('table/relation/dropdown_generate')->render(
                         array(
                             'dropdown_question' => '',
                             'select_name' => 'foreign_key_fields_name[' . $i . '][]',
@@ -141,7 +143,7 @@ if ($foreign_db) {
             <?php endforeach; ?>
         <?php else: ?>
             <span class="formelement clearfloat">
-                <?php echo PMA\Template::get('table/relation/dropdown_generate')->render(
+                <?php echo PMA\libraries\Template::get('table/relation/dropdown_generate')->render(
                     array(
                         'dropdown_question' => '',
                         'select_name' => 'foreign_key_fields_name[' . $i . '][]',
@@ -159,7 +161,7 @@ if ($foreign_db) {
     </td>
     <td>
         <span class="formelement clearfloat">
-            <?php echo PMA\Template::get('table/relation/relational_dropdown')->render(
+            <?php echo PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
                 array(
                     'name' => 'destination_foreign_db[' . $i . ']',
                     'title' => __('Database'),
@@ -170,7 +172,7 @@ if ($foreign_db) {
     </td>
     <td>
         <span class="formelement clearfloat">
-            <?php echo PMA\Template::get('table/relation/relational_dropdown')->render(
+            <?php echo PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
                 array(
                     'name' => 'destination_foreign_table[' . $i . ']',
                     'title' => __('Table'),
@@ -188,7 +190,7 @@ if ($foreign_db) {
                 $columns = $table_obj->getUniqueColumns(false, false);
                 ?>
                 <span class="formelement clearfloat">
-                    <?php echo PMA\Template::get('table/relation/relational_dropdown')->render(
+                    <?php echo PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
                         array(
                             'name' => 'destination_foreign_column[' . $i . '][]',
                             'title' => __('Column'),
@@ -200,7 +202,7 @@ if ($foreign_db) {
             <?php endforeach; ?>
         <?php else: ?>
             <span class="formelement clearfloat">
-                <?php echo PMA\Template::get('table/relation/relational_dropdown')->render(
+                <?php echo PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
                     array(
                         'name' => 'destination_foreign_column[' . $i . '][]',
                         'title' => __('Column'),

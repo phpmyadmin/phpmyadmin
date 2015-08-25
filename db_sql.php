@@ -17,7 +17,7 @@ PMA_PageSettings::showGroup('Sql_queries');
 /**
  * Runs common work
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('functions.js');

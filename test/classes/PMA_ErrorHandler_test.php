@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Error_Handler
+ * Tests for ErrorHandler
  *
  * @package PhpMyAdmin-test
  */
@@ -9,17 +9,19 @@
  * Include to test.
  */
 
-require_once 'libraries/Error_Handler.class.php';
+use PMA\libraries\PMA_Theme;
+
+require_once 'libraries/ErrorHandler.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 
 /**
- * Test for PMA_Error_Handler class.
+ * Test for PMA\libraries\ErrorHandler class.
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
+class PMA_ErrorHandler_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -35,7 +37,7 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Error_Handler();
+        $this->object = new PMA\libraries\ErrorHandler();
 
         $GLOBALS['pmaThemeImage'] = 'image';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
@@ -64,7 +66,7 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA_Error_Handler');
+        $class = new ReflectionClass('PMA\libraries\ErrorHandler');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -186,8 +188,8 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
     {
 
         $err = array();
-        $err[] = new PMA_Error('256', 'Compile Error', 'error.txt', 15);
-        $errHandler = $this->getMock('PMA_Error_Handler');
+        $err[] = new PMA\libraries\Error('256', 'Compile Error', 'error.txt', 15);
+        $errHandler = $this->getMock('PMA\libraries\ErrorHandler');
         $errHandler->expects($this->any())
             ->method('getErrors')
             ->will($this->returnValue($err));
@@ -207,8 +209,8 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
     {
 
         $err = array();
-        $err[] = new PMA_Error('256', 'Compile Error', 'error.txt', 15);
-        $errHandler = $this->getMock('PMA_Error_Handler');
+        $err[] = new PMA\libraries\Error('256', 'Compile Error', 'error.txt', 15);
+        $errHandler = $this->getMock('PMA\libraries\ErrorHandler');
         $errHandler->expects($this->any())
             ->method('countErrors', 'getErrors')
             ->will($this->returnValue(1, $err));

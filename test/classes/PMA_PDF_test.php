@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA_PDF class
+ * tests for PDF class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,14 +9,16 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/PDF.class.php';
+use PMA\libraries\PDF;
+
+require_once 'libraries/Util.php';
+require_once 'libraries/PDF.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 
 /**
- * tests for PMA_PDF class
+ * tests for PDF class
  *
  * @package PhpMyAdmin-test
  */
@@ -29,44 +31,44 @@ class PMA_PDF_Test extends PHPUnit_Framework_TestCase
      */
     public function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
     }
 
     /**
-     * Test for PMA_PDF::getPDFData
+     * Test for PDF::getPDFData
      *
      * @group large
      * @return void
      */
     public function testBasic()
     {
-        $arr = new PMA_PDF();
+        $arr = new PDF();
         $this->assertContains('PDF', $arr->getPDFData());
     }
 
     /**
-     * Test for PMA_PDF::getPDFData
+     * Test for PDF::getPDFData
      *
      * @group large
      * @return void
      */
     public function testAlias()
     {
-        $arr = new PMA_PDF();
+        $arr = new PDF();
         $arr->SetAlias('{00}', '32');
         $this->assertContains('PDF', $arr->getPDFData());
     }
 
     /**
-     * Test for PMA_PDF::getPDFData
+     * Test for PDF::getPDFData
      *
      * @group large
      * @return void
      */
     public function testDocument()
     {
-        $pdf = new PMA_PDF();
+        $pdf = new PDF();
         $pdf->SetTitle('Title');
         $pdf->Open();
         $pdf->SetAutoPageBreak('auto');

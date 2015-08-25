@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
  */
+use PMA\libraries\Response;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -27,7 +29,7 @@ class Text_Plain_Json extends TransformationsPlugin
     public function __construct()
     {
         if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
-            $response = PMA_Response::getInstance();
+            $response = PMA\libraries\Response::getInstance();
             $scripts = $response->getHeader()->getScripts();
             $scripts->addFile('codemirror/lib/codemirror.js');
             $scripts->addFile('codemirror/mode/javascript/javascript.js');

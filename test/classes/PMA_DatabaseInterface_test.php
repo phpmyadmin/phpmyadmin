@@ -10,7 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/dbi/DBIDummy.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/SystemDatabase.class.php';
 
 /**
@@ -57,7 +57,7 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $this->_dbi = new PMA_DatabaseInterface($extension);
+        $this->_dbi = new PMA\libraries\DatabaseInterface($extension);
     }
 
     /**

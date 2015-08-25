@@ -25,8 +25,8 @@ $container->factory('PMA\Controllers\Table\TableSearchController');
 $container->alias(
     'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
 );
-$container->set('PMA_Response', PMA_Response::getInstance());
-$container->alias('response', 'PMA_Response');
+$container->set('PMA\libraries\Response', PMA\libraries\Response::getInstance());
+$container->alias('response', 'PMA\libraries\Response');
 
 $dependency_definitions = array(
     'searchType' => 'replace',

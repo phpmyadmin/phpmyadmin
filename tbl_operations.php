@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Partition;
+use PMA\libraries\PMA_String;
+use PMA\libraries\PMA_Table;
 
 /**
  *
@@ -22,7 +25,7 @@ $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 /**
  * Load JavaScript files
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('functions.js');
@@ -49,7 +52,7 @@ require_once 'libraries/StorageEngine.class.php';
 /**
  * Class for partition management
  */
-require_once 'libraries/Partition.class.php';
+require_once 'libraries/Partition.php';
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
@@ -171,7 +174,7 @@ if (isset($_REQUEST['submitoptions'])) {
 
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE '
-            . PMA_Util::backquote($GLOBALS['table']);
+            . PMA\libraries\Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
         $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
@@ -223,31 +226,31 @@ if (isset($result) && empty($message_to_show)) {
     $_type = 'success';
     if (empty($_message)) {
         $_message = $result
-            ? PMA_Message::success(
+            ? PMA\libraries\Message::success(
                 __('Your SQL query has been executed successfully.')
             )
-            : PMA_Message::error(__('Error'));
+            : PMA\libraries\Message::error(__('Error'));
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
 
         if (isset($GLOBALS['ajax_request'])
             && $GLOBALS['ajax_request'] == true
         ) {
-            $response = PMA_Response::getInstance();
+            $response = PMA\libraries\Response::getInstance();
             $response->isSuccess($_message->isSuccess());
             $response->addJSON('message', $_message);
             $response->addJSON(
-                'sql_query', PMA_Util::getMessage(null, $sql_query)
+                'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
             );
             exit;
         }
     }
     if (! empty($warning_messages)) {
-        $_message = new PMA_Message;
+        $_message = new PMA\libraries\Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
         if ($GLOBALS['ajax_request'] == true) {
-            $response = PMA_Response::getInstance();
+            $response = PMA\libraries\Response::getInstance();
             $response->isSuccess(false);
             $response->addJSON('message', $_message);
             exit;
@@ -256,7 +259,7 @@ if (isset($result) && empty($message_to_show)) {
     }
 
     $response->addHTML(
-        PMA_Util::getMessage($_message, $sql_query, $_type)
+        PMA\libraries\Util::getMessage($_message, $sql_query, $_type)
     );
     unset($_message, $_type);
 }
@@ -283,8 +286,8 @@ $hideOrderTable = false;
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
 if ($tbl_storage_engine == 'INNODB') {
-    include_once 'libraries/Index.class.php';
-    $indexes = PMA_Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    include_once 'libraries/Index.php';
+    $indexes = PMA\libraries\Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
     foreach ($indexes as $name => $idx) {
         if ($name == 'PRIMARY') {
             $hideOrderTable = true;
@@ -371,7 +374,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         && ! (isset($db_is_system_schema) && $db_is_system_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
-            . PMA_Util::backquote($GLOBALS['table']);
+            . PMA\libraries\Util::backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
             array(
@@ -387,7 +390,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     }
     if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         $this_sql_query = 'DROP TABLE '
-            . PMA_Util::backquote($GLOBALS['table']);
+            . PMA\libraries\Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
             array(
@@ -416,8 +419,8 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     );
 }
 
-if (PMA_Partition::havePartitioning()) {
-    $partition_names = PMA_Partition::getPartitionNames($db, $table);
+if (Partition::havePartitioning()) {
+    $partition_names = Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition
     if (! is_null($partition_names[0])) {
         $response->addHTML(

@@ -9,13 +9,15 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_Theme;
+
 $GLOBALS['server'] = 1;
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Types.class.php';
@@ -99,7 +101,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
 
         // mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -269,11 +271,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         // when column does not exist in the central column list
         $this->assertInstanceOf(
-            'PMA_Message', PMA_deleteColumnsFromList(array('column1'), false)
+            'Message', PMA_deleteColumnsFromList(array('column1'), false)
         );
 
         $this->assertInstanceOf(
-            'PMA_Message', PMA_deleteColumnsFromList(array('PMA_table'))
+            'Message', PMA_deleteColumnsFromList(array('PMA_table'))
         );
     }
 
@@ -468,7 +470,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             $result_1
         );
         $this->assertContains(
-            PMA_Util::pageselector(
+            PMA\libraries\Util::pageselector(
                 'pos', 10, 2, 3
             ),
             $result_1
@@ -578,7 +580,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMAConfigErrorMessage()
     {
         $this->assertInstanceOf(
-            'PMA_Message',
+            'Message',
             PMA_configErrorMessage()
         );
     }

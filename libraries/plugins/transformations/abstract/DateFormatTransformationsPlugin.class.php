@@ -132,7 +132,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             $timestamp -= $options[0] * 60 * 60;
             $source = $buffer;
             if ($options[2] == 'local') {
-                $text = PMA_Util::localisedDate(
+                $text = PMA\libraries\Util::localisedDate(
                     $timestamp,
                     $options[1]
                 );

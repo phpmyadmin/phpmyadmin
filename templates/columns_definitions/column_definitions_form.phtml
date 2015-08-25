@@ -1,3 +1,8 @@
+<?php
+use PMA\libraries\Partition;
+use PMA\libraries\PMA_StorageEngine;
+
+?>
 <form method="post"
       action="<?php echo $action; ?>"
       class="<?php echo ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?>_form ajax lock-page">
@@ -63,7 +68,7 @@
         </div>
     <?php endif; ?>
     <?php if (is_array($content_cells)): ?>
-        <?php echo PMA\Template::get(
+        <?php echo PMA\libraries\Template::get(
             'columns_definitions/table_fields_definitions'
         )->render(array(
             'is_backup' => $is_backup,
@@ -85,12 +90,12 @@
                 <td width="25">&nbsp;</td>
                 <th>
                     <?php echo __('Storage Engine:'); ?>
-                    <?php echo PMA_Util::showMySQLDocu('Storage_engines'); ?>
+                    <?php echo PMA\libraries\Util::showMySQLDocu('Storage_engines'); ?>
                 </th>
                 <td width="25">&nbsp;</td>
                 <th>
                     <?php echo __('Connection:'); ?>
-                    <?php echo PMA_Util::showMySQLDocu('federated-create-connection'); ?>
+                    <?php echo PMA\libraries\Util::showMySQLDocu('federated-create-connection'); ?>
                 </th>
             </tr>
             <tr>
@@ -131,12 +136,12 @@
                            required="required" />
                 </td>
             </tr>
-            <?php if (PMA_Partition::havePartitioning()): ?>
+            <?php if (Partition::havePartitioning()): ?>
                 <tr class="vtop">
                     <th>
                         <?php echo __('PARTITION definition:'); ?>
                         &nbsp;
-                        <?php echo PMA_Util::showMySQLDocu('Partitioning'); ?>
+                        <?php echo PMA\libraries\Util::showMySQLDocu('Partitioning'); ?>
                     </th>
                 </tr>
                 <tr>

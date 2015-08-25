@@ -9,6 +9,8 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_StringCType;
+
 require_once 'libraries/StringCType.class.php';
 
 /**

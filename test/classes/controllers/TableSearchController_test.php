@@ -11,9 +11,10 @@
  */
 use PMA\Controllers\Table\TableSearchController;
 use PMA\DI\Container;
+use PMA\libraries\PMA_Theme;
 
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/DatabaseInterface.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Types.class.php';
@@ -29,7 +30,7 @@ require_once 'libraries/controllers/TableSearchController.class.php';
 class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PMA\Test\Stubs\PMA_Response
+     * @var PMA\Test\Stubs\Response
      */
     private $response;
 
@@ -64,7 +65,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['cfg']['TabsMode'] = 'text';
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -101,7 +102,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->response = new PMA\Test\Stubs\PMA_Response();
+        $this->response = new PMA\Test\Stubs\Response();
 
         $container = Container::getDefaultContainer();
         $container->set('db', 'PMA');

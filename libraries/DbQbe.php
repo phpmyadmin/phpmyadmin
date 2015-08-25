@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -14,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin
  */
-class PMA_DbQbe
+class DbQbe
 {
     /**
      * Database name
@@ -317,13 +319,13 @@ class PMA_DbQbe
             }
         } // end if
         $all_tables = $GLOBALS['dbi']->query(
-            'SHOW TABLES FROM ' . PMA_Util::backquote($this->_db) . ';',
+            'SHOW TABLES FROM ' . Util::backquote($this->_db) . ';',
             null,
-            PMA_DatabaseInterface::QUERY_STORE
+            DatabaseInterface::QUERY_STORE
         );
         $all_tables_count = $GLOBALS['dbi']->numRows($all_tables);
         if (0 == $all_tables_count) {
-            PMA_Message::error(__('No tables found in database.'))->display();
+            Message::error(__('No tables found in database.'))->display();
             exit;
         }
         // The tables list gets from MySQL
@@ -340,11 +342,11 @@ class PMA_DbQbe
 
             // The fields list per selected tables
             if ($this->_criteriaTables[$table] == ' selected="selected"') {
-                $each_table = PMA_Util::backquote($table);
+                $each_table = Util::backquote($table);
                 $this->_columnNames[]  = $each_table . '.*';
                 foreach ($columns as $each_column) {
                     $each_column = $each_table . '.'
-                        . PMA_Util::backquote($each_column['Field']);
+                        . Util::backquote($each_column['Field']);
                     $this->_columnNames[] = $each_column;
                     // increase the width if necessary
                     $this->_form_column_width = max(
@@ -1143,7 +1145,7 @@ class PMA_DbQbe
                 $select = $this->_curField[$column_index];
                 if (! empty($this->_curAlias[$column_index])) {
                     $select .= " AS "
-                        . PMA_Util::backquote($this->_curAlias[$column_index]);
+                        . Util::backquote($this->_curAlias[$column_index]);
                 }
                 $select_clauses[] = $select;
             }
@@ -1566,7 +1568,7 @@ class PMA_DbQbe
         if (empty($from_clause)) {
             // Create cartesian product
             $from_clause = implode(
-                ", ", array_map('PMA_Util::backquote', $search_tables)
+                ", ", array_map('Util::backquote', $search_tables)
             );
         }
 
@@ -1672,7 +1674,7 @@ class PMA_DbQbe
             if (count($unfinalized) > 0) {
                 // Add these tables as cartesian product before joined tables
                 $join .= implode(
-                    ', ', array_map('PMA_Util::backquote', $unfinalized)
+                    ', ', array_map('Util::backquote', $unfinalized)
                 );
             }
         }
@@ -1684,10 +1686,10 @@ class PMA_DbQbe
                 if (! empty($join)) {
                     $join .= ", ";
                 }
-                $join .= PMA_Util::backquote($table);
+                $join .= Util::backquote($table);
                 $first = false;
             } else {
-                $join .= "\n    LEFT JOIN " . PMA_Util::backquote(
+                $join .= "\n    LEFT JOIN " . Util::backquote(
                     $table
                 ) . " ON " . $clause;
             }
@@ -1717,10 +1719,10 @@ class PMA_DbQbe
                     // There may be multiple column relations
                     foreach ($oneKey['index_list'] as $index => $oneField) {
                         $clauses[]
-                            = PMA_Util::backquote($oneTable) . "."
-                            . PMA_Util::backquote($oneField) . " = "
-                            . PMA_Util::backquote($oneKey['ref_table_name']) . "."
-                            . PMA_Util::backquote($oneKey['ref_index_list'][$index]);
+                            = Util::backquote($oneTable) . "."
+                            . Util::backquote($oneField) . " = "
+                            . Util::backquote($oneKey['ref_table_name']) . "."
+                            . Util::backquote($oneKey['ref_index_list'][$index]);
                     }
                     // Combine multiple column relations with AND
                     $relations[$oneTable][$oneKey['ref_table_name']]
@@ -1728,10 +1730,10 @@ class PMA_DbQbe
                 }
             } else { // Internal relations
                 $relations[$oneTable][$foreigner['foreign_table']]
-                    = PMA_Util::backquote($oneTable) . "."
-                    . PMA_Util::backquote($field) . " = "
-                    . PMA_Util::backquote($foreigner['foreign_table']) . "."
-                    . PMA_Util::backquote($foreigner['foreign_field']);
+                    = Util::backquote($oneTable) . "."
+                    . Util::backquote($field) . " = "
+                    . Util::backquote($foreigner['foreign_table']) . "."
+                    . Util::backquote($foreigner['foreign_field']);
             }
         }
     }
@@ -1847,7 +1849,7 @@ class PMA_DbQbe
         $html_output .= '<legend>'
             . sprintf(
                 __('SQL query on database <b>%s</b>:'),
-                PMA_Util::getDbLink($this->_db)
+                Util::getDbLink($this->_db)
             );
         $html_output .= '</legend>';
         $text_dir = 'ltr';

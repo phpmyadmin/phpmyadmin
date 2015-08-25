@@ -5,12 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 require_once 'libraries/Scripts.class.php';
-require_once 'libraries/Util.class.php';
 require_once 'libraries/bookmark.lib.php';
 
 /**
@@ -18,7 +19,7 @@ require_once 'libraries/bookmark.lib.php';
  *
  * @package PhpMyAdmin
  */
-class PMA_Console
+class Console
 {
     /**
      * Whether to display anything
@@ -227,7 +228,7 @@ class PMA_Console
             $output .= '<div class="toolbar collapsed">';
 
             $output .= '<div class="switch_button console_switch">';
-            $output .= PMA_Util::getImage('console.png', __('SQL Query Console'));
+            $output .= Util::getImage('console.png', __('SQL Query Console'));
             $output .= '<span>' . __('Console') . '</span></div>';
 
             $output .= '<div class="button clear"><span>'

@@ -7,6 +7,9 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage HTTP
  */
+use PMA\libraries\Message;
+use PMA\libraries\Response;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -32,7 +35,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function auth()
     {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -85,7 +88,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
         $header->setTitle(__('Access denied!'));
@@ -97,7 +100,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->addHTML('</h1>');
         $response->addHTML('<h3>');
         $response->addHTML(
-            PMA_Message::error(
+            Message::error(
                 __('Wrong username/password. Access denied.')
             )
         );

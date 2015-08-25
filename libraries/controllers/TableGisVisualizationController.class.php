@@ -9,17 +9,17 @@
 
 namespace PMA\Controllers\Table;
 
-use PMA\Template;
-use PMA_GIS_Visualization;
-use PMA_Message;
 use PMA\Controllers\TableController;
+use PMA\libraries\Message;
+use PMA\libraries\Template;
+use PMA_GIS_Visualization;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Message.php';
 
 /**
  * Class TableGisVisualizationController
@@ -98,7 +98,7 @@ class TableGisVisualizationController extends TableController
         if (! isset($this->sql_query) || $this->sql_query == '') {
             $this->response->isSuccess(false);
             $this->response->addHTML(
-                PMA_Message::error(__('No SQL query was set to fetch data.'))
+                Message::error(__('No SQL query was set to fetch data.'))
             );
             return;
         }

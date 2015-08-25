@@ -5,13 +5,24 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * defines
  */
+use PMA_StorageEngine_Bdb;
+use PMA_StorageEngine_Berkeleydb;
+use PMA_StorageEngine_Binlog;
+use PMA_StorageEngine_Innobase;
+use PMA_StorageEngine_Innodb;
+use PMA_StorageEngine_Memory;
+use PMA_StorageEngine_Merge;
+use PMA_StorageEngine_MrgMyisam;
+use PMA_StorageEngine_Myisam;
+use PMA_StorageEngine_Ndbcluster;
+use PMA_StorageEngine_Pbxt;
+use PMA_StorageEngine_PerformanceSchema;
+
 define('PMA_ENGINE_SUPPORT_NO', 0);
 define('PMA_ENGINE_SUPPORT_DISABLED', 1);
 define('PMA_ENGINE_SUPPORT_YES', 2);
@@ -242,7 +253,7 @@ class PMA_StorageEngine
                   . '    <td>' . "\n";
             if (! empty($details['desc'])) {
                 $ret .= '        '
-                    . PMA_Util::showHint($details['desc'])
+                    . Util::showHint($details['desc'])
                     . "\n";
             }
             $ret .= '    </td>' . "\n"
@@ -256,7 +267,7 @@ class PMA_StorageEngine
                 unset($parsed_size);
                 break;
             case PMA_ENGINE_DETAILS_TYPE_NUMERIC:
-                $ret .= PMA_Util::formatNumber($details['value']) . ' ';
+                $ret .= Util::formatNumber($details['value']) . ' ';
                 break;
             default:
                 $ret .= htmlspecialchars($details['value']) . '   ';
@@ -296,7 +307,7 @@ class PMA_StorageEngine
      */
     public function resolveTypeSize($value)
     {
-        return PMA_Util::formatByteDown($value);
+        return Util::formatByteDown($value);
     }
 
     /**

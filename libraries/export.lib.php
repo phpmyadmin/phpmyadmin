@@ -7,6 +7,9 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Message;
+use PMA\libraries\PMA_Table;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -118,7 +121,7 @@ function PMA_exportOutputHandler($line)
                     // Here, use strlen rather than mb_strlen to get the length
                     // in bytes to compare against the number of bytes written.
                     if ($write_result != strlen($dump_buffer)) {
-                        $GLOBALS['message'] = PMA_Message::error(
+                        $GLOBALS['message'] = Message::error(
                             __('Insufficient space to save the file %s.')
                         );
                         $GLOBALS['message']->addParam($save_filename);
@@ -153,7 +156,7 @@ function PMA_exportOutputHandler($line)
                 if (! $write_result
                     || $write_result != strlen($line)
                 ) {
-                    $GLOBALS['message'] = PMA_Message::error(
+                    $GLOBALS['message'] = Message::error(
                         __('Insufficient space to save the file %s.')
                     );
                     $GLOBALS['message']->addParam($save_filename);
@@ -279,7 +282,7 @@ function PMA_getExportFilenameAndMimetype(
             );
         }
     }
-    $filename = PMA_Util::expandUserString($filename_template);
+    $filename = PMA\libraries\Util::expandUserString($filename_template);
     // remove dots in filename (coming from either the template or already
     // part of the filename) to avoid a remote code execution vulnerability
     $filename = PMA_sanitizeFilename($filename, $replaceDots = true);
@@ -324,7 +327,7 @@ function PMA_openExportFile($filename, $quick_export)
     $file_handle = null;
     $message = '';
 
-    $save_filename = PMA_Util::userDir($GLOBALS['cfg']['SaveDir'])
+    $save_filename = PMA\libraries\Util::userDir($GLOBALS['cfg']['SaveDir'])
         . preg_replace('@[/\\\\]@', '_', $filename);
 
     if (file_exists($save_filename)
@@ -332,7 +335,7 @@ function PMA_openExportFile($filename, $quick_export)
         || ($quick_export
         && $_REQUEST['quick_export_onserver_overwrite'] != 'saveitover'))
     ) {
-        $message = PMA_Message::error(
+        $message = Message::error(
             __(
                 'File %s already exists on server, '
                 . 'change filename or check overwrite option.'
@@ -340,7 +343,7 @@ function PMA_openExportFile($filename, $quick_export)
         );
         $message->addParam($save_filename);
     } elseif (is_file($save_filename) && ! is_writable($save_filename)) {
-        $message = PMA_Message::error(
+        $message = Message::error(
             __(
                 'The web server does not have permission '
                 . 'to save the file %s.'
@@ -348,7 +351,7 @@ function PMA_openExportFile($filename, $quick_export)
         );
         $message->addParam($save_filename);
     } elseif (! $file_handle = @fopen($save_filename, 'w')) {
-        $message = PMA_Message::error(
+        $message = Message::error(
             __(
                 'The web server does not have permission '
                 . 'to save the file %s.'
@@ -377,15 +380,15 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
     if (/*overload*/mb_strlen($dump_buffer) > 0
         && (! $write_result || $write_result != strlen($dump_buffer))
     ) {
-        $message = new PMA_Message(
+        $message = new Message(
             __('Insufficient space to save the file %s.'),
-            PMA_Message::ERROR,
+            Message::ERROR,
             array($save_filename)
         );
     } else {
-        $message = new PMA_Message(
+        $message = new Message(
             __('Dump has been saved to file %s.'),
-            PMA_Message::SUCCESS,
+            Message::SUCCESS,
             array($save_filename)
         );
     }
@@ -685,8 +688,8 @@ function PMA_exportDatabase(
             && in_array($table, $table_data)
             && ! ($is_view || $_table->isMerge())
         ) {
-            $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
-                . '.' . PMA_Util::backquote($table);
+            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+                . '.' . PMA\libraries\Util::backquote($table);
             if (! $export_plugin->exportData(
                 $db, $table, $crlf, $err_url, $local_query, $aliases
             )) {
@@ -866,8 +869,8 @@ function PMA_exportTable(
             $local_query = $sql_query . $add_query;
             $GLOBALS['dbi']->selectDb($db);
         } else {
-            $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
-                . '.' . PMA_Util::backquote($table) . $add_query;
+            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+                . '.' . PMA\libraries\Util::backquote($table) . $add_query;
         }
         if (! $export_plugin->exportData(
             $db, $table, $crlf, $err_url, $local_query, $aliases
@@ -992,7 +995,7 @@ function PMA_lockTables($db, $tables, $lockType = "WRITE")
 {
     $locks = array();
     foreach ($tables as $table) {
-        $locks[] = PMA_Util::backquote($db) . "." . PMA_Util::backquote($table)
+        $locks[] = PMA\libraries\Util::backquote($db) . "." . PMA\libraries\Util::backquote($table)
             . " " . $lockType;
     }
 

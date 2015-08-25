@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
+
+use Traversable;
 
 require_once 'libraries/Scripts.class.php';
 
@@ -16,7 +16,7 @@ require_once 'libraries/Scripts.class.php';
  *
  * @package PhpMyAdmin
  */
-class PMA_Footer
+class Footer
 {
     /**
      * PMA_Scripts instance
@@ -81,7 +81,7 @@ class PMA_Footer
             $message .= __('Git information missing!');
         }
 
-        return PMA_Message::notice($message)->getDisplay();
+        return Message::notice($message)->getDisplay();
     }
 
     /**
@@ -199,8 +199,8 @@ class PMA_Footer
         $retval .= '<div id="selflink" class="print_ignore">';
         $retval .= '<a href="' . $url . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
-        if (PMA_Util::showIcons('TabsMode')) {
-            $retval .= PMA_Util::getImage(
+        if (Util::showIcons('TabsMode')) {
+            $retval .= Util::getImage(
                 'window-new.png',
                 __('Open new phpMyAdmin window')
             );
@@ -316,7 +316,7 @@ class PMA_Footer
                     && ! $this->_isAjax
                 ) {
                     $url = $this->getSelfUrl('unencoded');
-                    $header = PMA_Response::getInstance()->getHeader();
+                    $header = Response::getInstance()->getHeader();
                     $scripts = $header->getScripts()->getFiles();
                     $menuHash = $header->getMenu()->getHash();
                     // prime the client-side cache

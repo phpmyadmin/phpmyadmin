@@ -7,6 +7,8 @@
  */
 
 // Let PHP complain about all errors
+use PMA\libraries\PMA_String;
+
 error_reporting(E_ALL);
 
 // Ensure PHP has set timezone
@@ -48,11 +50,11 @@ foreach ($test_defaults as $varname => $defvalue) {
     }
 }
 
+require_once 'libraries/autoloader.php';
 require_once 'libraries/String.class.php';
 require_once 'libraries/core.lib.php';
 $GLOBALS['PMA_String'] = new PMA_String();
-require_once 'libraries/Config.class.php';
-$CFG = new PMA_Config();
+$CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);

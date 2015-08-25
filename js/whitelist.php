@@ -22,12 +22,12 @@ require_once './libraries/common.inc.php';
 // Close session early as we won't write anything there
 session_write_close();
 
-require_once './libraries/OutputBuffering.class.php';
-$buffer = PMA_OutputBuffering::getInstance();
+require_once './libraries/OutputBuffering.php';
+$buffer = PMA\libraries\OutputBuffering::getInstance();
 $buffer->start();
 register_shutdown_function(
     function () {
-        echo PMA_OutputBuffering::getInstance()->getContents();
+        echo PMA\libraries\OutputBuffering::getInstance()->getContents();
     }
 );
 

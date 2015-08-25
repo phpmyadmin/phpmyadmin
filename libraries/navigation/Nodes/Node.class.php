@@ -487,7 +487,7 @@ class Node
             $subClauses = array();
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
-                    . PMA_Util::sqlAddSlashes($prefix) . $dbSeparator . "', "
+                    . PMA\libraries\Util::sqlAddSlashes($prefix) . $dbSeparator . "', "
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }
             $query .= implode("OR", $subClauses) . ")";
@@ -684,7 +684,7 @@ class Node
     {
         if (! empty($searchClause)) {
             $databases = array(
-                "%" . PMA_Util::sqlAddSlashes($searchClause, true) . "%"
+                "%" . PMA\libraries\Util::sqlAddSlashes($searchClause, true) . "%"
             );
         } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
@@ -708,15 +708,15 @@ class Node
     {
         $whereClause = "WHERE TRUE ";
         if (! empty($searchClause)) {
-            $whereClause .= "AND " . PMA_Util::backquote($columnName) . " LIKE '%";
-            $whereClause .= PMA_Util::sqlAddSlashes(
+            $whereClause .= "AND " . PMA\libraries\Util::backquote($columnName) . " LIKE '%";
+            $whereClause .= PMA\libraries\Util::sqlAddSlashes(
                 $searchClause, true
             );
             $whereClause .= "%' ";
         }
 
         if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
-            $whereClause .= "AND " . PMA_Util::backquote($columnName)
+            $whereClause .= "AND " . PMA\libraries\Util::backquote($columnName)
                 . " NOT REGEXP '" . $GLOBALS['cfg']['Server']['hide_db'] . "' ";
         }
 
@@ -729,7 +729,7 @@ class Node
             $whereClause .= "AND (";
             $subClauses = array();
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
-                $subClauses[] = " " . PMA_Util::backquote($columnName) . " LIKE '"
+                $subClauses[] = " " . PMA\libraries\Util::backquote($columnName) . " LIKE '"
                     . $each_only_db . "' ";
             }
             $whereClause .= implode("OR", $subClauses) . ")";
@@ -787,9 +787,9 @@ class Node
             return '';
         } elseif ($match && ! $this->is_group) {
             $this->visible = true;
-            return PMA_Util::getImage('b_minus.png');
+            return PMA\libraries\Util::getImage('b_minus.png');
         } else {
-            return PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
+            return PMA\libraries\Util::getImage('b_plus.png', __('Expand/Collapse'));
         }
     }
 
@@ -802,11 +802,11 @@ class Node
     {
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['navwork']) {
-            $navTable = PMA_Util::backquote($cfgRelation['db'])
-            . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+            $navTable = PMA\libraries\Util::backquote($cfgRelation['db'])
+            . "." . PMA\libraries\Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT `db_name`, COUNT(*) AS `count` FROM " . $navTable
             . " WHERE `username`='"
-                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
+                . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
                     . " GROUP BY `db_name`";
             $counts = $GLOBALS['dbi']->fetchResult(
                 $sqlQuery, 'db_name', 'count', $GLOBALS['controllink']

@@ -314,7 +314,7 @@ function PMA_getHtmlForGotoPage($foreignData)
     $nbTotalPage = @ceil($foreignData['the_total'] / $session_max_rows);
 
     if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
-        $gotopage = PMA_Util::pageselector(
+        $gotopage = PMA\libraries\Util::pageselector(
             'pos',
             $session_max_rows,
             $pageNow,

@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\PMA_ServerStatusData;
+
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/ServerStatusData.class.php';
@@ -28,7 +30,7 @@ $ServerStatusData = new PMA_ServerStatusData();
 /**
  * start output
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(PMA_getHtmlForServerStatus($ServerStatusData));

@@ -5,12 +5,7 @@
  *
  * @package PMA
  */
-
 namespace PMA;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -22,17 +17,17 @@ require_once 'libraries/database_interface.inc.php';
 class SystemDatabase
 {
     /**
-     * @var \PMA_DatabaseInterface
+     * @var \PMA\libraries\DatabaseInterface
      */
     protected $dbi;
 
     /**
      * Get instance of SystemDatabase
      *
-     * @param \PMA_DatabaseInterface $dbi Database interface for the system database
+     * @param \PMA\libraries\DatabaseInterface $dbi Database interface for the system database
      *
      */
-    function __construct(\PMA_DatabaseInterface $dbi)
+    function __construct(\PMA\libraries\DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
     }
@@ -53,9 +48,9 @@ class SystemDatabase
         // from pma__column_info table
         $pma_transformation_sql = sprintf(
             "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
-            \PMA_Util::backquote($cfgRelation['db']),
-            \PMA_Util::backquote($cfgRelation['column_info']),
-            \PMA_Util::sqlAddSlashes($db)
+            \PMA\libraries\Util::backquote($cfgRelation['db']),
+            \PMA\libraries\Util::backquote($cfgRelation['column_info']),
+            \PMA\libraries\Util::sqlAddSlashes($db)
         );
 
         return $this->dbi->tryQuery($pma_transformation_sql);
@@ -82,8 +77,8 @@ class SystemDatabase
             . "`db_name`, `table_name`, `column_name`, "
             . "`comment`, `mimetype`, `transformation`, "
             . "`transformation_options`) VALUES",
-            \PMA_Util::backquote($cfgRelation['db']),
-            \PMA_Util::backquote($cfgRelation['column_info'])
+            \PMA\libraries\Util::backquote($cfgRelation['db']),
+            \PMA\libraries\Util::backquote($cfgRelation['column_info'])
         );
 
         $column_count = 0;
@@ -110,7 +105,7 @@ class SystemDatabase
                     $data_row['comment'],
                     $data_row['mimetype'],
                     $data_row['transformation'],
-                    \PMA_Util::sqlAddSlashes(
+                    \PMA\libraries\Util::sqlAddSlashes(
                         $data_row['transformation_options']
                     )
                 );

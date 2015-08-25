@@ -5,24 +5,20 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
+
+use PMA_Navigation;
 
 require_once 'libraries/Scripts.class.php';
-require_once 'libraries/RecentFavoriteTable.class.php';
-require_once 'libraries/Menu.class.php';
-require_once 'libraries/Console.class.php';
 require_once 'libraries/navigation/Navigation.class.php';
 require_once 'libraries/url_generating.lib.php';
-
 
 /**
  * Class used to output the HTTP and HTML headers
  *
  * @package PhpMyAdmin
  */
-class PMA_Header
+class Header
 {
     /**
      * PMA_Scripts instance
@@ -32,17 +28,17 @@ class PMA_Header
      */
     private $_scripts;
     /**
-     * PMA_Console instance
+     * PMA\libraries\Console instance
      *
      * @access private
-     * @var PMA_Console
+     * @var Console
      */
     private $_console;
     /**
-     * PMA_Menu instance
+     * Menu instance
      *
      * @access private
-     * @var PMA_Menu
+     * @var Menu
      */
     private $_menu;
     /**
@@ -121,10 +117,10 @@ class PMA_Header
         $this->_isAjax = false;
         $this->_bodyId = '';
         $this->_title  = '';
-        $this->_console = new PMA_Console();
+        $this->_console = new Console();
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $this->_menu   = new PMA_Menu(
+        $this->_menu   = new Menu(
             $GLOBALS['server'],
             $db,
             $table
@@ -230,7 +226,7 @@ class PMA_Header
 
         $params = array(
             'common_query' => PMA_URL_getCommon(array(), 'text'),
-            'opendb_url' => PMA_Util::getScriptNameForOption(
+            'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
@@ -243,13 +239,13 @@ class PMA_Header
             'text_dir' => $GLOBALS['text_dir'],
             'show_databases_navigation_as_tree'=> $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
             'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
-            'pma_text_default_tab' => PMA_Util::getTitleForTarget(
+            'pma_text_default_tab' => Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']
             ),
-            'pma_text_left_default_tab' => PMA_Util::getTitleForTarget(
+            'pma_text_left_default_tab' => Util::getTitleForTarget(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
             ),
-            'pma_text_left_default_tab2' => PMA_Util::getTitleForTarget(
+            'pma_text_left_default_tab2' => Util::getTitleForTarget(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable2']
             ),
             'LimitChars' => $GLOBALS['cfg']['LimitChars'],
@@ -318,9 +314,9 @@ class PMA_Header
     }
 
     /**
-     * Returns the PMA_Menu object
+     * Returns the Menu object
      *
-     * @return PMA_Menu object
+     * @return Menu object
      */
     public function getMenu()
     {
@@ -457,14 +453,14 @@ class PMA_Header
                     $retval .= '<span id="page_nav_icons">';
                     $retval .= '<span id="lock_page_icon"></span>';
                     $retval .= '<span id="page_settings_icon">'
-                        . PMA_Util::getImage(
+                        . Util::getImage(
                             's_cog.png',
                             __('Page-related settings')
                         )
                         . '</span>';
                     $retval .= sprintf(
                         '<a id="goto_pagetop" href="#">%s</a>',
-                        PMA_Util::getImage(
+                        Util::getImage(
                             's_top.png',
                             __('Click on the bar to scroll to top of page')
                         )
@@ -505,7 +501,7 @@ class PMA_Header
             if (isset($GLOBALS['buffer_message'])) {
                 $buffer_message = $GLOBALS['buffer_message'];
             }
-            $retval .= PMA_Util::getMessage($message);
+            $retval .= Util::getMessage($message);
             if (isset($buffer_message)) {
                 $GLOBALS['buffer_message'] = $buffer_message;
             }
@@ -728,7 +724,7 @@ class PMA_Header
                     $temp_title = $GLOBALS['cfg']['TitleDefault'];
                 }
                 $this->_title = htmlspecialchars(
-                    PMA_Util::expandUserString($temp_title)
+                    Util::expandUserString($temp_title)
                 );
             } else {
                 $this->_title = 'phpMyAdmin';
@@ -763,7 +759,7 @@ class PMA_Header
         $retval = '';
         if ($this->_warningsEnabled) {
             $retval .= "<noscript>";
-            $retval .= PMA_message::error(
+            $retval .= Message::error(
                 __("Javascript must be enabled past this point!")
             )->getDisplay();
             $retval .= "</noscript>";
@@ -786,10 +782,10 @@ class PMA_Header
             && /*overload*/mb_strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')
+            $tmp_result = RecentFavoriteTable::getInstance('recent')
                               ->add($db, $table);
             if ($tmp_result === true) {
-                $retval = PMA_RecentFavoriteTable::getHtmlUpdateRecentTables();
+                $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
                 $error  = $tmp_result;
                 $retval = $error->getDisplay();

@@ -5,16 +5,14 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Class for generating the top menu
  *
  * @package PhpMyAdmin
  */
-class PMA_Menu
+class Menu
 {
     /**
      * Server id
@@ -39,7 +37,7 @@ class PMA_Menu
     private $_table;
 
     /**
-     * Creates a new instance of PMA_Menu
+     * Creates a new instance of Menu
      *
      * @param int    $server Server id
      * @param string $db     Database name
@@ -115,7 +113,7 @@ class PMA_Menu
                 unset($tabs[$key]);
             }
         }
-        return PMA_Util::getHtmlTabs($tabs, $url_params, 'topmenu', true);
+        return Util::getHtmlTabs($tabs, $url_params, 'topmenu', true);
     }
 
     /**
@@ -127,21 +125,21 @@ class PMA_Menu
      */
     private function _getAllowedTabs($level)
     {
-        $allowedTabs = PMA_Util::getMenuTabList($level);
+        $allowedTabs = Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['menuswork']) {
-            $groupTable = PMA_Util::backquote($cfgRelation['db'])
+            $groupTable = Util::backquote($cfgRelation['db'])
                 . "."
-                . PMA_Util::backquote($cfgRelation['usergroups']);
-            $userTable = PMA_Util::backquote($cfgRelation['db'])
-                . "." . PMA_Util::backquote($cfgRelation['users']);
+                . Util::backquote($cfgRelation['usergroups']);
+            $userTable = Util::backquote($cfgRelation['db'])
+                . "." . Util::backquote($cfgRelation['users']);
 
             $sql_query = "SELECT `tab` FROM " . $groupTable
                 . " WHERE `allowed` = 'N'"
                 . " AND `tab` LIKE '" . $level . "%'"
                 . " AND `usergroup` = (SELECT usergroup FROM "
                 . $userTable . " WHERE `username` = '"
-                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "')";
+                . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "')";
 
             $result = PMA_queryAsControlUser($sql_query, false);
             if ($result) {
@@ -177,14 +175,14 @@ class PMA_Menu
         $separator = "<span class='separator item'>&nbsp;»</span>";
         $item = '<a href="%1$s%2$s" class="item">';
 
-        if (PMA_Util::showText('TabsMode')) {
+        if (Util::showText('TabsMode')) {
             $item .= '%4$s: ';
         }
         $item .= '%3$s</a>';
         $retval .= "<div id='floating_menubar'></div>";
         $retval .= "<div id='serverinfo'>";
-        if (PMA_Util::showIcons('TabsMode')) {
-            $retval .= PMA_Util::getImage(
+        if (Util::showIcons('TabsMode')) {
+            $retval .= Util::getImage(
                 's_host.png',
                 '',
                 array('class' => 'item')
@@ -192,7 +190,7 @@ class PMA_Menu
         }
         $retval .= sprintf(
             $item,
-            PMA_Util::getScriptNameForOption(
+            Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             ),
             PMA_URL_getCommon(),
@@ -202,8 +200,8 @@ class PMA_Menu
 
         if (/*overload*/mb_strlen($this->_db)) {
             $retval .= $separator;
-            if (PMA_Util::showIcons('TabsMode')) {
-                $retval .= PMA_Util::getImage(
+            if (Util::showIcons('TabsMode')) {
+                $retval .= Util::getImage(
                     's_db.png',
                     '',
                     array('class' => 'item')
@@ -211,7 +209,7 @@ class PMA_Menu
             }
             $retval .= sprintf(
                 $item,
-                PMA_Util::getScriptNameForOption(
+                Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 ),
                 PMA_URL_getCommon(array('db' => $this->_db)),
@@ -226,9 +224,9 @@ class PMA_Menu
                 include './libraries/tbl_info.inc.php';
 
                 $retval .= $separator;
-                if (PMA_Util::showIcons('TabsMode')) {
+                if (Util::showIcons('TabsMode')) {
                     $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
-                    $retval .= PMA_Util::getImage(
+                    $retval .= Util::getImage(
                         $icon,
                         '',
                         array('class' => 'item')
@@ -236,7 +234,7 @@ class PMA_Menu
                 }
                 $retval .= sprintf(
                     $item,
-                    PMA_Util::getScriptNameForOption(
+                    Util::getScriptNameForOption(
                         $GLOBALS['cfg']['DefaultTabTable'], 'table'
                     ),
                     PMA_URL_getCommon(
@@ -271,7 +269,7 @@ class PMA_Menu
                 $cfgRelation = PMA_getRelationsParam();
 
                 // Get additional information about tables for tooltip is done
-                // in PMA_Util::getDbInfo() only once
+                // in Util::getDbInfo() only once
                 if ($cfgRelation['commwork']) {
                     $comment = PMA_getDbComment($this->_db);
                     /**
@@ -386,7 +384,7 @@ class PMA_Menu
         }
         if (! $db_is_system_schema
             && ! PMA_DRIZZLE
-            && PMA_Util::currentUserHasPrivilege(
+            && Util::currentUserHasPrivilege(
                 'TRIGGER',
                 $this->_db,
                 $this->_table
@@ -473,14 +471,14 @@ class PMA_Menu
                 $tabs['routines']['icon'] = 'b_routines.png';
             }
             if (! PMA_DRIZZLE
-                && PMA_Util::currentUserHasPrivilege('EVENT', $this->_db)
+                && Util::currentUserHasPrivilege('EVENT', $this->_db)
             ) {
                 $tabs['events']['link'] = 'db_events.php';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events.png';
             }
             if (! PMA_DRIZZLE
-                && PMA_Util::currentUserHasPrivilege('TRIGGER', $this->_db)
+                && Util::currentUserHasPrivilege('TRIGGER', $this->_db)
             ) {
                 $tabs['triggers']['link'] = 'db_triggers.php';
                 $tabs['triggers']['text'] = __('Triggers');
@@ -523,17 +521,17 @@ class PMA_Menu
             || $GLOBALS['dbi']->isUserType('create');
         $binary_logs = null;
         if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
-            if (PMA_Util::cacheExists('binary_logs')) {
-                $binary_logs = PMA_Util::cacheGet('binary_logs');
+            if (Util::cacheExists('binary_logs')) {
+                $binary_logs = Util::cacheGet('binary_logs');
             } else {
                 $binary_logs = $GLOBALS['dbi']->fetchResult(
                     'SHOW MASTER LOGS',
                     'Log_name',
                     null,
                     null,
-                    PMA_DatabaseInterface::QUERY_STORE
+                    DatabaseInterface::QUERY_STORE
                 );
-                PMA_Util::cacheSet('binary_logs', $binary_logs);
+                Util::cacheSet('binary_logs', $binary_logs);
             }
         }
 

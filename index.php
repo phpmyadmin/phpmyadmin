@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_String;
+use PMA\libraries\RecentFavoriteTable;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -62,11 +64,11 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
 if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
-        $page = PMA_Util::getScriptNameForOption(
+        $page = PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
         );
     } else {
-        $page = PMA_Util::getScriptNameForOption(
+        $page = PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         );
     }
@@ -77,12 +79,12 @@ if (! empty($_REQUEST['db'])) {
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
-require_once 'libraries/RecentFavoriteTable.class.php';
+require_once 'libraries/RecentFavoriteTable.php';
 if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     $response->addJSON(
         'list',
-        PMA_RecentFavoriteTable::getInstance('recent')->getHtmlList()
+        RecentFavoriteTable::getInstance('recent')->getHtmlList()
     );
     exit;
 }
@@ -102,7 +104,7 @@ $show_query = '1';
 
 // Any message to display?
 if (! empty($message)) {
-    echo PMA_Util::getMessage($message);
+    echo PMA\libraries\Util::getMessage($message);
     unset($message);
 }
 
@@ -140,7 +142,7 @@ if ($server > 0) {
 
 echo '<div id="maincontainer">' . "\n";
 // Anchor for favorite tables synchronization.
-echo PMA_RecentFavoriteTable::getInstance('favorite')->getHtmlSyncFavoriteTables();
+echo RecentFavoriteTable::getInstance('favorite')->getHtmlSyncFavoriteTables();
 echo '<div id="main_pane_left">';
 if ($server > 0 || count($cfg['Servers']) > 1
 ) {
@@ -173,7 +175,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
         include_once 'libraries/select_server.lib.php';
-        echo PMA_Util::getImage('s_host.png') . " " . PMA_selectServer(true, true);
+        echo PMA\libraries\Util::getImage('s_host.png') . " " . PMA_selectServer(true, true);
         echo '</li>';
     }
 
@@ -188,7 +190,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             if ($cfg['ShowChgPassword']) {
                 $conditional_class = 'ajax';
                 PMA_printListItem(
-                    PMA_Util::getImage('s_passwd.png') . "&nbsp;" . __('Change password'),
+                    PMA\libraries\Util::getImage('s_passwd.png') . "&nbsp;" . __('Change password'),
                     'li_change_password',
                     'user_password.php' . $common_url_query,
                     null,
@@ -203,10 +205,10 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . PMA_Util::getImage('s_asci.png') . "&nbsp;"
+           . '                ' . PMA\libraries\Util::getImage('s_asci.png') . "&nbsp;"
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
-           . PMA_Util::showMySQLDocu('Charset-connection')
+           . PMA\libraries\Util::showMySQLDocu('Charset-connection')
            . ': ' .  "\n"
            . '            </label>' . "\n"
 
@@ -233,7 +235,7 @@ echo '  <ul>';
 if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
     echo '<li id="li_select_lang" class="no_bullets">';
     include_once 'libraries/display_select_lang.lib.php';
-    echo PMA_Util::getImage('s_lang.png') . " " . PMA_getLanguageSelectorHtml();
+    echo PMA\libraries\Util::getImage('s_lang.png') . " " . PMA_getLanguageSelectorHtml();
     echo '</li>';
 }
 
@@ -241,12 +243,12 @@ if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
 
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme" class="no_bullets">';
-    echo PMA_Util::getImage('s_theme.png') . " "
+    echo PMA\libraries\Util::getImage('s_theme.png') . " "
             .  $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';
-echo PMA_Config::getFontsizeForm();
+echo PMA\libraries\Config::getFontsizeForm();
 echo '</li>';
 
 echo '</ul>';
@@ -256,7 +258,7 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     PMA_printListItem(
-        PMA_Util::getImage('b_tblops.png') . "&nbsp;" . __('More settings'),
+        PMA\libraries\Util::getImage('b_tblops.png') . "&nbsp;" . __('More settings'),
         'li_user_preferences',
         'prefs_manage.php' . $common_url_query,
         null,
@@ -284,7 +286,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_info'
     );
     PMA_printListItem(
-        __('Server type:') . ' ' . PMA_Util::getServerType(),
+        __('Server type:') . ' ' . PMA\libraries\Util::getServerType(),
         'li_server_type'
     );
     PMA_printListItem(
@@ -334,13 +336,13 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             );
 
             $php_ext_string = __('PHP extension:') . ' ';
-            if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
+            if (PMA\libraries\DatabaseInterface::checkDbExtension('mysqli')) {
                 $extension = 'mysqli';
             } else {
                 $extension = 'mysql';
             }
             $php_ext_string  .= $extension . ' '
-                . PMA_Util::showPHPDocu('book.' . $extension . '.php');
+                . PMA\libraries\Util::showPHPDocu('book.' . $extension . '.php');
 
             PMA_printListItem(
                 $php_ext_string,
@@ -392,7 +394,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('Documentation'),
     'li_pma_docs',
-    PMA_Util::getDocuLink('index'),
+    PMA\libraries\Util::getDocuLink('index'),
     null,
     '_blank'
 );
@@ -573,7 +575,7 @@ if ($server > 0) {
                     . 'to set it up there.'
                 );
         }
-        $msg = PMA_Message::notice($msg_text);
+        $msg = PMA\libraries\Message::notice($msg_text);
         $msg->addParam(
             '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php'
             . $common_url_query . '">',
@@ -699,7 +701,7 @@ function PMA_printListItem($name, $listId = null, $url = null,
     $mysql_help_page = null, $target = null, $a_id = null, $class = null,
     $a_class = null
 ) {
-    echo PMA\Template::get('list/item')
+    echo PMA\libraries\Template::get('list/item')
         ->render(
             array(
                 'content' => $name,

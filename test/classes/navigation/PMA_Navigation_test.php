@@ -6,7 +6,9 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/Util.class.php';
+use PMA\libraries\PMA_Theme;
+
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
@@ -67,7 +69,7 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "INSERT INTO `pmadb`.`navigationhiding`"
             . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
             . " VALUES ('user','itemName','itemType','db','')";
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -88,7 +90,7 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "DELETE FROM `pmadb`.`navigationhiding`"
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -109,7 +111,7 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "SELECT `item_name`, `item_type`"
             . " FROM `pmadb`.`navigationhiding`"
             . " WHERE `username`='user' AND `db_name`='db' AND `table_name`=''";
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())

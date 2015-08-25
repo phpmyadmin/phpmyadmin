@@ -5,6 +5,10 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+use PMA\libraries\Response;
+use PMA\libraries\PMA_String;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -87,7 +91,7 @@ if (! empty($submit_mult)
             exit;
             break;
         case 'show_create':
-            $show_create = PMA\Template::get('database/structure/show_create')
+            $show_create = PMA\libraries\Template::get('database/structure/show_create')
                 ->render(
                     array(
                         'db'         => $GLOBALS['db'],
@@ -95,7 +99,7 @@ if (! empty($submit_mult)
                     )
                 );
             // Send response to client.
-            $response = PMA_Response::getInstance();
+            $response = PMA\libraries\Response::getInstance();
             $response->addJSON('message', $show_create);
             exit;
         case 'sync_unique_columns_central_list':
@@ -158,7 +162,7 @@ if (!empty($submit_mult) && !empty($what)) {
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+        ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
     } else {
         include_once './libraries/server_common.inc.php';
@@ -177,7 +181,7 @@ if (!empty($submit_mult) && !empty($what)) {
         isset($original_url_query)? $original_url_query : null
     );
 
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
 
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
         $response->addHTML(
@@ -207,7 +211,7 @@ if (!empty($submit_mult) && !empty($what)) {
         // Gets table primary key
         $GLOBALS['dbi']->selectDb($db);
         $result = $GLOBALS['dbi']->query(
-            'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
+            'SHOW KEYS FROM ' . PMA\libraries\Util::backquote($table) . ';'
         );
         $primary = '';
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
@@ -223,7 +227,7 @@ if (!empty($submit_mult) && !empty($what)) {
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'
     ) {
-        $default_fk_check_value = PMA_Util::handleDisableFKCheckInit();
+        $default_fk_check_value = PMA\libraries\Util::handleDisableFKCheckInit();
     }
 
     list(
@@ -286,14 +290,14 @@ if (!empty($submit_mult) && !empty($what)) {
         }
 
         if (! $result) {
-            $message = PMA_Message::error($GLOBALS['dbi']->getError());
+            $message = Message::error($GLOBALS['dbi']->getError());
         }
     }
     if ($query_type == 'drop_tbl'
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'
     ) {
-        PMA_Util::handleDisableFKCheckCleanup($default_fk_check_value);
+        PMA\libraries\Util::handleDisableFKCheckCleanup($default_fk_check_value);
     }
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator
@@ -311,9 +315,9 @@ if (!empty($submit_mult) && !empty($what)) {
         if (isset($centralColsError) && $centralColsError !== true) {
             $message = $centralColsError;
         } else {
-            $message = PMA_Message::success(__('Success!'));
+            $message = Message::success(__('Success!'));
         }
     } else {
-        $message = PMA_Message::success(__('No change'));
+        $message = Message::success(__('No change'));
     }
 }

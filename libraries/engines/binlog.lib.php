@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Engines
  */
+use PMA\libraries\PMA_StorageEngine;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }

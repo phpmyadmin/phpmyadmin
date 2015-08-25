@@ -45,7 +45,7 @@ function PMA_getUrlParams(
     foreach ($selected as $sval) {
         if ($what == 'row_delete') {
             $_url_params['selected'][] = 'DELETE FROM '
-                . PMA_Util::backquote($table)
+                . PMA\libraries\Util::backquote($table)
                 . ' WHERE ' . urldecode($sval) . ' LIMIT 1;';
         } else {
             $_url_params['selected'][] = $sval;
@@ -113,7 +113,7 @@ function PMA_getQueryStrFromSelected(
         case 'drop_db':
             PMA_relationsCleanupDatabase($selected[$i]);
             $a_query   = 'DROP DATABASE '
-                       . PMA_Util::backquote($selected[$i]);
+                       . PMA\libraries\Util::backquote($selected[$i]);
             $reload    = 1;
             $run_parts = true;
             $rebuild_database_list = true;
@@ -124,99 +124,99 @@ function PMA_getQueryStrFromSelected(
             $current = $selected[$i];
             if (!empty($views) && in_array($current, $views)) {
                 $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
-                          . PMA_Util::backquote($current);
+                          . PMA\libraries\Util::backquote($current);
             } else {
                 $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
-                           . PMA_Util::backquote($current);
+                           . PMA\libraries\Util::backquote($current);
             }
             $reload    = 1;
             break;
 
         case 'check_tbl':
             $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
-                       . PMA_Util::backquote($selected[$i]);
+                       . PMA\libraries\Util::backquote($selected[$i]);
             $use_sql    = true;
             break;
 
         case 'optimize_tbl':
             $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
-                       . PMA_Util::backquote($selected[$i]);
+                       . PMA\libraries\Util::backquote($selected[$i]);
             $use_sql    = true;
             break;
 
         case 'analyze_tbl':
             $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
-                       . PMA_Util::backquote($selected[$i]);
+                       . PMA\libraries\Util::backquote($selected[$i]);
             $use_sql    = true;
             break;
 
         case 'checksum_tbl':
             $sql_query .= (empty($sql_query) ? 'CHECKSUM TABLE ' : ', ')
-                       . PMA_Util::backquote($selected[$i]);
+                       . PMA\libraries\Util::backquote($selected[$i]);
             $use_sql    = true;
             break;
 
         case 'repair_tbl':
             $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
-                       . PMA_Util::backquote($selected[$i]);
+                       . PMA\libraries\Util::backquote($selected[$i]);
             $use_sql    = true;
             break;
 
         case 'empty_tbl':
             $deletes = true;
             $a_query = 'TRUNCATE ';
-            $a_query .= PMA_Util::backquote($selected[$i]);
+            $a_query .= PMA\libraries\Util::backquote($selected[$i]);
             $run_parts = true;
             break;
 
         case 'drop_fld':
             PMA_relationsCleanupColumn($db, $table, $selected[$i]);
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table)
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
                 : ',')
-                       . ' DROP ' . PMA_Util::backquote($selected[$i])
+                       . ' DROP ' . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ';' : '');
             break;
 
         case 'primary_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . (empty($primary)
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . (empty($primary)
                     ? ''
                     : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( '
                 : ', ')
-                       . PMA_Util::backquote($selected[$i])
+                       . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'index_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD INDEX( '
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . ' ADD INDEX( '
                 : ', ')
-                       . PMA_Util::backquote($selected[$i])
+                       . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'unique_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD UNIQUE( '
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . ' ADD UNIQUE( '
                 : ', ')
-                       . PMA_Util::backquote($selected[$i])
+                       . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'spatial_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD SPATIAL( '
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . ' ADD SPATIAL( '
                 : ', ')
-                       . PMA_Util::backquote($selected[$i])
+                       . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'fulltext_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD FULLTEXT( '
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . ' ADD FULLTEXT( '
                 : ', ')
-                       . PMA_Util::backquote($selected[$i])
+                       . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
@@ -224,9 +224,9 @@ function PMA_getQueryStrFromSelected(
             $newtablename = $_POST['add_prefix'] . $selected[$i];
             // ADD PREFIX TO TABLE NAME
             $a_query = 'ALTER TABLE '
-                . PMA_Util::backquote($selected[$i])
+                . PMA\libraries\Util::backquote($selected[$i])
                 . ' RENAME '
-                . PMA_Util::backquote($newtablename);
+                . PMA\libraries\Util::backquote($newtablename);
             $run_parts = true;
             break;
 
@@ -248,9 +248,9 @@ function PMA_getQueryStrFromSelected(
             }
             // CHANGE PREFIX PATTERN
             $a_query = 'ALTER TABLE '
-                . PMA_Util::backquote($selected[$i])
+                . PMA\libraries\Util::backquote($selected[$i])
                 . ' RENAME '
-                . PMA_Util::backquote($newtablename);
+                . PMA\libraries\Util::backquote($newtablename);
             $run_parts = true;
             break;
 
@@ -260,9 +260,9 @@ function PMA_getQueryStrFromSelected(
                 /*overload*/mb_substr($current, /*overload*/mb_strlen($from_prefix));
             // COPY TABLE AND CHANGE PREFIX PATTERN
             $a_query = 'CREATE TABLE '
-                . PMA_Util::backquote($newtablename)
+                . PMA\libraries\Util::backquote($newtablename)
                 . ' SELECT * FROM '
-                . PMA_Util::backquote($selected[$i]);
+                . PMA\libraries\Util::backquote($selected[$i]);
             $run_parts = true;
             break;
 
@@ -408,7 +408,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
     // Display option to disable foreign key checks while dropping tables
     if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
         $html .= '<div id="foreignkeychk">';
-        $html .= PMA_Util::getFKCheckbox();
+        $html .= PMA\libraries\Util::getFKCheckbox();
         $html .= '</div>';
     }
     $html .= '<input id="buttonYes" type="submit" name="mult_btn" value="'
@@ -447,7 +447,7 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
         switch ($what) {
         case 'row_delete':
             $full_query .= 'DELETE FROM '
-                . PMA_Util::backquote(htmlspecialchars($table))
+                . PMA\libraries\Util::backquote(htmlspecialchars($table))
                 // Do not append a "LIMIT 1" clause here
                 // (it's not binlog friendly).
                 // We don't need the clause because the calling panel permits
@@ -457,7 +457,7 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
             break;
         case 'drop_db':
             $full_query .= 'DROP DATABASE '
-                . PMA_Util::backquote(htmlspecialchars($sval))
+                . PMA\libraries\Util::backquote(htmlspecialchars($sval))
                 . ';<br />';
             $reload = true;
             break;
@@ -466,31 +466,31 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
             $current = $sval;
             if (!empty($views) && in_array($current, $views)) {
                 $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
-                    . PMA_Util::backquote(htmlspecialchars($current));
+                    . PMA\libraries\Util::backquote(htmlspecialchars($current));
             } else {
                 $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
-                    . PMA_Util::backquote(htmlspecialchars($current));
+                    . PMA\libraries\Util::backquote(htmlspecialchars($current));
             }
             break;
 
         case 'empty_tbl':
             $full_query .= 'TRUNCATE ';
-            $full_query .= PMA_Util::backquote(htmlspecialchars($sval))
+            $full_query .= PMA\libraries\Util::backquote(htmlspecialchars($sval))
                         . ';<br />';
             break;
 
         case 'primary_fld':
             if ($full_query == '') {
                 $full_query .= 'ALTER TABLE '
-                    . PMA_Util::backquote(htmlspecialchars($table))
+                    . PMA\libraries\Util::backquote(htmlspecialchars($table))
                     . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
                     . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
                     . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                    . PMA_Util::backquote(htmlspecialchars($sval))
+                    . PMA\libraries\Util::backquote(htmlspecialchars($sval))
                     . ',';
             } else {
                 $full_query .= '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                    . PMA_Util::backquote(htmlspecialchars($sval))
+                    . PMA\libraries\Util::backquote(htmlspecialchars($sval))
                     . ',';
             }
             if ($i == $selected_cnt-1) {
@@ -501,10 +501,10 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
         case 'drop_fld':
             if ($full_query == '') {
                 $full_query .= 'ALTER TABLE '
-                    . PMA_Util::backquote(htmlspecialchars($table));
+                    . PMA\libraries\Util::backquote(htmlspecialchars($table));
             }
             $full_query .= '<br />&nbsp;&nbsp;DROP '
-                . PMA_Util::backquote(htmlspecialchars($sval))
+                . PMA\libraries\Util::backquote(htmlspecialchars($sval))
                 . ',';
             if ($i == $selected_cnt - 1) {
                 $full_query = preg_replace('@,$@', ';<br />', $full_query);

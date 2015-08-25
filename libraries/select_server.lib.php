@@ -31,7 +31,7 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
 
     if ($not_only_options) {
         $retval .= '<form method="post" action="'
-            . PMA_Util::getScriptNameForOption(
+            . PMA\libraries\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             )
             . '" class="disableAjax">';
@@ -86,7 +86,7 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
             } else {
 
                 $retval .= '<a class="disableAjax item" href="'
-                    . PMA_Util::getScriptNameForOption(
+                    . PMA\libraries\Util::getScriptNameForOption(
                         $GLOBALS['cfg']['DefaultTabServer'], 'server'
                     )
                     . PMA_URL_getCommon(array('server' => $key))

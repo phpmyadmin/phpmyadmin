@@ -8,18 +8,18 @@
 /*
  * Include to test.
  */
-require_once 'libraries/DisplayResults.class.php';
+require_once 'libraries/DisplayResults.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/string.lib.php';
 require_once 'libraries/String.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/DatabaseInterface.php';
 
 /**
  * Test cases for displaying results.
@@ -43,13 +43,13 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
-        $this->object = new PMA_DisplayResults('as', '', '', '');
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $this->object = new PMA\libraries\DisplayResults('as', '', '', '');
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         include_once 'libraries/Response.class.php';
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -81,7 +81,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     private function _callPrivateFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA_DisplayResults');
+        $class = new ReflectionClass('PMA\libraries\DisplayResults');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -284,7 +284,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             'datetimefield',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA_DisplayResults::DATETIME_FIELD)
+                array(PMA\libraries\DisplayResults::DATETIME_FIELD)
             )
         );
     }
@@ -300,7 +300,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             'datefield',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA_DisplayResults::DATE_FIELD)
+                array(PMA\libraries\DisplayResults::DATE_FIELD)
             )
         );
     }
@@ -316,7 +316,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             'text',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA_DisplayResults::STRING_FIELD)
+                array(PMA\libraries\DisplayResults::STRING_FIELD)
             )
         );
     }
@@ -328,7 +328,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetOffsetsCase1()
     {
-        $_SESSION['tmpval']['max_rows'] = PMA_DisplayResults::ALL_ROWS;
+        $_SESSION['tmpval']['max_rows'] = PMA\libraries\DisplayResults::ALL_ROWS;
         $this->assertEquals(
             array(0, 0),
             $this->_callPrivateFunction('_getOffsets', array())
@@ -625,7 +625,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                PMA_DisplayResults::POSITION_LEFT,
+                PMA\libraries\DisplayResults::POSITION_LEFT,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data'
                 . '%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
@@ -701,7 +701,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '</div></td>'
             ),
             array(
-                PMA_DisplayResults::POSITION_RIGHT,
+                PMA\libraries\DisplayResults::POSITION_RIGHT,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
                 . '.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
@@ -775,7 +775,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
             ),
             array(
-                PMA_DisplayResults::POSITION_NONE,
+                PMA\libraries\DisplayResults::POSITION_NONE,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
                 . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
                 . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
@@ -875,7 +875,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                PMA_DisplayResults::POSITION_NONE,
+                PMA\libraries\DisplayResults::POSITION_NONE,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
                 . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
                 . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'

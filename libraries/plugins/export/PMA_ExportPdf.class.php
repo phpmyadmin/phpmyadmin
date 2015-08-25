@@ -6,12 +6,14 @@
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
+use PMA\libraries\PDF;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 /* Get the PDF class */
-require_once 'libraries/PDF.class.php';
+require_once 'libraries/PDF.php';
 
 /**
  * Adapted from a LGPL script by Philip Clarke
@@ -19,7 +21,7 @@ require_once 'libraries/PDF.class.php';
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
-class PMA_ExportPdf extends PMA_PDF
+class PMA_ExportPdf extends PDF
 {
     var $tablewidths;
     var $headerset;
@@ -547,7 +549,7 @@ class PMA_ExportPdf extends PMA_PDF
         // fun begin
         foreach ($columns as $column) {
             $extracted_columnspec
-                = PMA_Util::extractColumnSpec($column['Type']);
+                = PMA\libraries\Util::extractColumnSpec($column['Type']);
 
             $type = $extracted_columnspec['print_type'];
             if (empty($type)) {
@@ -665,7 +667,7 @@ class PMA_ExportPdf extends PMA_PDF
          * Pass 1 for column widths
          */
         $this->results = $GLOBALS['dbi']->query(
-            $query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            $query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->numFields  = $GLOBALS['dbi']->numFields($this->results);
         $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
@@ -792,7 +794,7 @@ class PMA_ExportPdf extends PMA_PDF
         // Pass 2
 
         $this->results = $GLOBALS['dbi']->query(
-            $query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            $query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->setY($this->tMargin);
         $this->AddPage();

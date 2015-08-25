@@ -114,7 +114,7 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($xml === false) {
-            PMA_Message::error(
+            PMA\libraries\Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
@@ -176,7 +176,7 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($db_name === null) {
-            PMA_Message::error(
+            PMA\libraries\Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
@@ -211,7 +211,7 @@ class ImportXml extends ImportPlugin
                      */
                     $attrs = $val2->attributes();
                     $create[] = "USE "
-                        . PMA_Util::backquote(
+                        . PMA\libraries\Util::backquote(
                             $attrs["name"]
                         );
 

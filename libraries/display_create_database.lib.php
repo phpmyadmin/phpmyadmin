@@ -19,10 +19,10 @@ if ($is_create_db_priv) {
     $html .= '<form method="post" action="db_create.php"'
         . ' id="create_database_form" class="ajax"><strong>';
     $html .= '<label for="text_create_db">'
-        . PMA_Util::getImage('b_newdb.png')
+        . PMA\libraries\Util::getImage('b_newdb.png')
         . " " . __('Create database')
         . '</label>&nbsp;'
-        . PMA_Util::showMySQLDocu('CREATE_DATABASE');
+        . PMA\libraries\Util::showMySQLDocu('CREATE_DATABASE');
     $html .= '</strong><br />';
     $html .= PMA_URL_getHiddenInputs('', '', 5);
     $html .= '<input type="hidden" name="reload" value="1" />';
@@ -48,11 +48,11 @@ if ($is_create_db_priv) {
 } else {
     $html .= '<!-- db creation no privileges message -->';
     $html .= '<strong>' . __('Create database:') . '&nbsp;'
-        . PMA_Util::showMySQLDocu('CREATE_DATABASE')
+        . PMA\libraries\Util::showMySQLDocu('CREATE_DATABASE')
         . '</strong><br />';
 
     $html .= '<span class="noPrivileges">'
-        . PMA_Util::getImage(
+        . PMA\libraries\Util::getImage(
             's_error2.png',
             '',
             array('hspace' => 2, 'border' => 0, 'align' => 'middle')

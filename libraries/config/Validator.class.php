@@ -9,7 +9,7 @@
 /**
  * Core libraries.
  */
-require_once './libraries/DatabaseInterface.class.php';
+require_once './libraries/DatabaseInterface.php';
 
 /**
  * Validation class for various validation functions
@@ -49,7 +49,7 @@ class PMA_Validator
 
         // not in setup script: load additional validators for user
         // preferences we need original config values not overwritten
-        // by user preferences, creating a new PMA_Config instance is a
+        // by user preferences, creating a new PMA\libraries\Config instance is a
         // better idea than hacking into its code
         $uvs = $cf->getDbEntry('_userValidators', array());
         foreach ($uvs as $field => $uv_list) {
@@ -229,7 +229,7 @@ class PMA_Validator
         //    static::testPHPErrorMsg();
         $error = null;
 
-        if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
+        if (PMA\libraries\DatabaseInterface::checkDbExtension('mysqli')) {
             $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
             $port = empty($port) || $connect_type == 'socket' ? null : $port;
             $extension = 'mysqli';
@@ -430,7 +430,7 @@ class PMA_Validator
         static::testPHPErrorMsg();
 
         $matches = array();
-        // in libraries/List_Database.class.php _checkHideDatabase(),
+        // in libraries/ListDatabase.php _checkHideDatabase(),
         // a '/' is used as the delimiter for hide_db
         preg_match('/' . $values[$path] . '/', '', $matches);
 

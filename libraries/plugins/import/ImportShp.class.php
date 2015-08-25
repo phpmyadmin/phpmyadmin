@@ -136,7 +136,7 @@ class ImportShp extends ImportPlugin
         $shp->loadFromFile('');
         if ($shp->lastError != "") {
             $error = true;
-            $message = PMA_Message::error(
+            $message = PMA\libraries\Message::error(
                 __('There was an error importing the ESRI shape file: "%s".')
             );
             $message->addParam($shp->lastError);
@@ -191,14 +191,14 @@ class ImportShp extends ImportPlugin
         default:
             $error = true;
             if (! isset($esri_types[$shp->shapeType])) {
-                $message = PMA_Message::error(
+                $message = PMA\libraries\Message::error(
                     __(
                         'You tried to import an invalid file or the imported file'
                         . ' contains invalid data!'
                     )
                 );
             } else {
-                $message = PMA_Message::error(
+                $message = PMA\libraries\Message::error(
                     __('MySQL Spatial Extension does not support ESRI type "%s".')
                 );
                 $message->addParam($esri_types[$shp->shapeType]);
@@ -247,7 +247,7 @@ class ImportShp extends ImportPlugin
 
         if (count($rows) == 0) {
             $error = true;
-            $message = PMA_Message::error(
+            $message = PMA\libraries\Message::error(
                 __('The imported file does not contain any data!')
             );
             return;

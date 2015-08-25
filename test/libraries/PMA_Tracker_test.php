@@ -9,10 +9,12 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_Tracker;
+
 require_once 'libraries/Tracker.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 
@@ -240,7 +242,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -362,7 +364,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testDeleteTracking()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -399,7 +401,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -454,7 +456,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     public function testChangeTracking($dbname = 'pma_db', $tablename = 'pma_tbl',
         $version = '0.1', $new_state = '1', $type = null
     ) {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -513,7 +515,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['controllink'] = null;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -626,7 +628,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['controllink'] = null;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -686,7 +688,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['controllink'] = null;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

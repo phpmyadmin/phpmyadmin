@@ -5,10 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Saved searches managing
@@ -242,10 +239,10 @@ class PMA_SavedSearches
     public function save()
     {
         if (null == $this->getSearchName()) {
-            $message = PMA_Message::error(
+            $message = Message::error(
                 __('Please provide a name for this bookmarked search.')
             );
-            $response = PMA_Response::getInstance();
+            $response = Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchName');
             $response->addJSON('message', $message);
@@ -257,32 +254,32 @@ class PMA_SavedSearches
             || null == $this->getSearchName()
             || null == $this->getCriterias()
         ) {
-            $message = PMA_Message::error(
+            $message = Message::error(
                 __('Missing information to save the bookmarked search.')
             );
-            $response = PMA_Response::getInstance();
+            $response = Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('message', $message);
             exit;
         }
 
         $savedSearchesTbl
-            = PMA_Util::backquote($this->_config['cfgRelation']['db']) . "."
-            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+            = Util::backquote($this->_config['cfgRelation']['db']) . "."
+            . Util::backquote($this->_config['cfgRelation']['savedsearches']);
 
         //If it's an insert.
         if (null === $this->getId()) {
             $wheres = array(
-                "search_name = '" . PMA_Util::sqlAddSlashes($this->getSearchName())
+                "search_name = '" . Util::sqlAddSlashes($this->getSearchName())
                 . "'"
             );
             $existingSearches = $this->getList($wheres);
 
             if (!empty($existingSearches)) {
-                $message = PMA_Message::error(
+                $message = Message::error(
                     __('An entry with this name already exists.')
                 );
-                $response = PMA_Response::getInstance();
+                $response = Response::getInstance();
                 $response->isSuccess($message->isSuccess());
                 $response->addJSON('fieldWithError', 'searchName');
                 $response->addJSON('message', $message);
@@ -292,10 +289,10 @@ class PMA_SavedSearches
             $sqlQuery = "INSERT INTO " . $savedSearchesTbl
                 . "(`username`, `db_name`, `search_name`, `search_data`)"
                 . " VALUES ("
-                . "'" . PMA_Util::sqlAddSlashes($this->getUsername()) . "',"
-                . "'" . PMA_Util::sqlAddSlashes($this->getDbname()) . "',"
-                . "'" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "',"
-                . "'" . PMA_Util::sqlAddSlashes(json_encode($this->getCriterias()))
+                . "'" . Util::sqlAddSlashes($this->getUsername()) . "',"
+                . "'" . Util::sqlAddSlashes($this->getDbname()) . "',"
+                . "'" . Util::sqlAddSlashes($this->getSearchName()) . "',"
+                . "'" . Util::sqlAddSlashes(json_encode($this->getCriterias()))
                 . "')";
 
             $result = (bool)PMA_queryAsControlUser($sqlQuery);
@@ -311,15 +308,15 @@ class PMA_SavedSearches
         //Else, it's an update.
         $wheres = array(
             "id != " . $this->getId(),
-            "search_name = '" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "'"
+            "search_name = '" . Util::sqlAddSlashes($this->getSearchName()) . "'"
         );
         $existingSearches = $this->getList($wheres);
 
         if (!empty($existingSearches)) {
-            $message = PMA_Message::error(
+            $message = Message::error(
                 __('An entry with this name already exists.')
             );
-            $response = PMA_Response::getInstance();
+            $response = Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchName');
             $response->addJSON('message', $message);
@@ -328,9 +325,9 @@ class PMA_SavedSearches
 
         $sqlQuery = "UPDATE " . $savedSearchesTbl
             . "SET `search_name` = '"
-            . PMA_Util::sqlAddSlashes($this->getSearchName()) . "', "
+            . Util::sqlAddSlashes($this->getSearchName()) . "', "
             . "`search_data` = '"
-            . PMA_Util::sqlAddSlashes(json_encode($this->getCriterias())) . "' "
+            . Util::sqlAddSlashes(json_encode($this->getCriterias())) . "' "
             . "WHERE id = " . $this->getId();
         return (bool)PMA_queryAsControlUser($sqlQuery);
     }
@@ -343,10 +340,10 @@ class PMA_SavedSearches
     public function delete()
     {
         if (null == $this->getId()) {
-            $message = PMA_Message::error(
+            $message = Message::error(
                 __('Missing information to delete the search.')
             );
-            $response = PMA_Response::getInstance();
+            $response = Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchId');
             $response->addJSON('message', $message);
@@ -354,11 +351,11 @@ class PMA_SavedSearches
         }
 
         $savedSearchesTbl
-            = PMA_Util::backquote($this->_config['cfgRelation']['db']) . "."
-            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+            = Util::backquote($this->_config['cfgRelation']['db']) . "."
+            . Util::backquote($this->_config['cfgRelation']['savedsearches']);
 
         $sqlQuery = "DELETE FROM " . $savedSearchesTbl
-            . "WHERE id = '" . PMA_Util::sqlAddSlashes($this->getId()) . "'";
+            . "WHERE id = '" . Util::sqlAddSlashes($this->getId()) . "'";
 
         return (bool)PMA_queryAsControlUser($sqlQuery);
     }
@@ -371,28 +368,28 @@ class PMA_SavedSearches
     public function load()
     {
         if (null == $this->getId()) {
-            $message = PMA_Message::error(
+            $message = Message::error(
                 __('Missing information to load the search.')
             );
-            $response = PMA_Response::getInstance();
+            $response = Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchId');
             $response->addJSON('message', $message);
             exit;
         }
 
-        $savedSearchesTbl = PMA_Util::backquote($this->_config['cfgRelation']['db'])
+        $savedSearchesTbl = Util::backquote($this->_config['cfgRelation']['db'])
             . "."
-            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+            . Util::backquote($this->_config['cfgRelation']['savedsearches']);
         $sqlQuery = "SELECT id, search_name, search_data "
             . "FROM " . $savedSearchesTbl . " "
-            . "WHERE id = '" . PMA_Util::sqlAddSlashes($this->getId()) . "' ";
+            . "WHERE id = '" . Util::sqlAddSlashes($this->getId()) . "' ";
 
         $resList = PMA_queryAsControlUser($sqlQuery);
 
         if (false === ($oneResult = $GLOBALS['dbi']->fetchArray($resList))) {
-            $message = PMA_Message::error(__('Error while loading the search.'));
-            $response = PMA_Response::getInstance();
+            $message = Message::error(__('Error while loading the search.'));
+            $response = Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchId');
             $response->addJSON('message', $message);
@@ -420,14 +417,14 @@ class PMA_SavedSearches
             return false;
         }
 
-        $savedSearchesTbl = PMA_Util::backquote($this->_config['cfgRelation']['db'])
+        $savedSearchesTbl = Util::backquote($this->_config['cfgRelation']['db'])
             . "."
-            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+            . Util::backquote($this->_config['cfgRelation']['savedsearches']);
         $sqlQuery = "SELECT id, search_name "
             . "FROM " . $savedSearchesTbl . " "
             . "WHERE "
-            . "username = '" . PMA_Util::sqlAddSlashes($this->getUsername()) . "' "
-            . "AND db_name = '" . PMA_Util::sqlAddSlashes($this->getDbname()) . "' ";
+            . "username = '" . Util::sqlAddSlashes($this->getUsername()) . "' "
+            . "AND db_name = '" . Util::sqlAddSlashes($this->getDbname()) . "' ";
 
         foreach ($wheres as $where) {
             $sqlQuery .= "AND " . $where . " ";

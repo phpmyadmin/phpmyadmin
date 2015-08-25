@@ -1,7 +1,7 @@
 <!-- Displays 'Function' column if it is present -->
 <td>
     <?php
-    $geom_types = PMA_Util::getGISDatatypes();
+    $geom_types = PMA\libraries\Util::getGISDatatypes();
     ?>
 
     <?php
@@ -14,7 +14,7 @@
 
             <?php
             // get the relevant list of GIS functions
-            $funcs = PMA_Util::getGISFunctions(
+            $funcs = PMA\libraries\Util::getGISFunctions(
                 $columnTypes[$column_index], true, true
             );
             ?>

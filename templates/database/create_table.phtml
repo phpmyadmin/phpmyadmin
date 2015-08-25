@@ -1,8 +1,8 @@
 <form id="create_table_form_minimal" method="post" action="tbl_create.php" class="lock-page">
     <fieldset>
         <legend>
-        <?php if (PMA_Util::showIcons('ActionLinksMode')): ?>
-            <?php echo PMA_Util::getImage('b_table_add.png'); ?>&nbsp
+        <?php if (PMA\libraries\Util::showIcons('ActionLinksMode')): ?>
+            <?php echo PMA\libraries\Util::getImage('b_table_add.png'); ?>&nbsp
         <?php endif; ?>
         <?php echo __('Create table'); ?>
         </legend>

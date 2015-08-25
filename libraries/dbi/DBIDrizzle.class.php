@@ -173,7 +173,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      */
     public function realQuery($query, $link, $options)
     {
-        $buffer_mode = $options & PMA_DatabaseInterface::QUERY_UNBUFFERED
+        $buffer_mode = $options & PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
             ? PMA_Drizzle::BUFFER_ROW
             : PMA_Drizzle::BUFFER_RESULT;
         $res = $link->query($query, $buffer_mode);

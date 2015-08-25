@@ -1,26 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds class PMA_Error
+ * Holds class PMA\libraries\Error
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+use Exception;
 
 /**
  * base class
  */
-require_once './libraries/Message.class.php';
+require_once './libraries/Message.php';
 
 /**
  * a single error
  *
  * @package PhpMyAdmin
  */
-class PMA_Error extends PMA_Message
+class Error extends Message
 {
     /**
      * Error types
@@ -120,7 +119,7 @@ class PMA_Error extends PMA_Message
     }
 
     /**
-     * sets PMA_Error::$_backtrace
+     * sets PMA\libraries\Error::$_backtrace
      *
      * @param array $backtrace backtrace
      *
@@ -138,7 +137,7 @@ class PMA_Error extends PMA_Message
     }
 
     /**
-     * sets PMA_Error::$_line
+     * sets PMA\libraries\Error::$_line
      *
      * @param integer $line the line
      *
@@ -150,7 +149,7 @@ class PMA_Error extends PMA_Message
     }
 
     /**
-     * sets PMA_Error::$_file
+     * sets PMA\libraries\Error::$_file
      *
      * @param string $file the file
      *
@@ -158,14 +157,14 @@ class PMA_Error extends PMA_Message
      */
     public function setFile($file)
     {
-        $this->file = PMA_Error::relPath($file);
+        $this->file = Error::relPath($file);
     }
 
 
     /**
-     * returns unique PMA_Error::$hash, if not exists it will be created
+     * returns unique PMA\libraries\Error::$hash, if not exists it will be created
      *
-     * @return string PMA_Error::$hash
+     * @return string PMA\libraries\Error::$hash
      */
     public function getHash()
     {
@@ -188,13 +187,13 @@ class PMA_Error extends PMA_Message
     }
 
     /**
-     * returns PMA_Error::$_backtrace for first $count frames
+     * returns PMA\libraries\Error::$_backtrace for first $count frames
      * pass $count = -1 to get full backtrace.
      * The same can be done by not passing $count at all.
      *
      * @param integer $count Number of stack frames.
      *
-     * @return array PMA_Error::$_backtrace
+     * @return array PMA\libraries\Error::$_backtrace
      */
     public function getBacktrace($count = -1)
     {
@@ -205,9 +204,9 @@ class PMA_Error extends PMA_Message
     }
 
     /**
-     * returns PMA_Error::$file
+     * returns PMA\libraries\Error::$file
      *
-     * @return string PMA_Error::$file
+     * @return string PMA\libraries\Error::$file
      */
     public function getFile()
     {
@@ -215,9 +214,9 @@ class PMA_Error extends PMA_Message
     }
 
     /**
-     * returns PMA_Error::$line
+     * returns PMA\libraries\Error::$line
      *
-     * @return integer PMA_Error::$line
+     * @return integer PMA\libraries\Error::$line
      */
     public function getLine()
     {
@@ -231,7 +230,7 @@ class PMA_Error extends PMA_Message
      */
     public function getType()
     {
-        return PMA_Error::$errortype[$this->getNumber()];
+        return Error::$errortype[$this->getNumber()];
     }
 
     /**
@@ -241,7 +240,7 @@ class PMA_Error extends PMA_Message
      */
     public function getLevel()
     {
-        return PMA_Error::$errorlevel[$this->getNumber()];
+        return Error::$errorlevel[$this->getNumber()];
     }
 
     /**
@@ -273,7 +272,7 @@ class PMA_Error extends PMA_Message
      */
     public function getBacktraceDisplay()
     {
-        return PMA_Error::formatBacktrace(
+        return Error::formatBacktrace(
             $this->getBacktrace(),
             "<br />\n",
             "<br />\n"
@@ -295,13 +294,13 @@ class PMA_Error extends PMA_Message
 
         foreach ($backtrace as $step) {
             if (isset($step['file']) && isset($step['line'])) {
-                $retval .= PMA_Error::relPath($step['file'])
+                $retval .= Error::relPath($step['file'])
                     . '#' . $step['line'] . ': ';
             }
             if (isset($step['class'])) {
                 $retval .= $step['class'] . $step['type'];
             }
-            $retval .= PMA_Error::getFunctionCall($step, $separator);
+            $retval .= Error::getFunctionCall($step, $separator);
             $retval .= $lines;
         }
 
@@ -324,12 +323,12 @@ class PMA_Error extends PMA_Message
                 $retval .= $separator;
                 foreach ($step['args'] as $arg) {
                     $retval .= "\t";
-                    $retval .= PMA_Error::getArg($arg, $step['function']);
+                    $retval .= Error::getArg($arg, $step['function']);
                     $retval .= ',' . $separator;
                 }
             } elseif (count($step['args']) > 0) {
                 foreach ($step['args'] as $arg) {
-                    $retval .= PMA_Error::getArg($arg, $step['function']);
+                    $retval .= Error::getArg($arg, $step['function']);
                 }
             }
         }
@@ -367,7 +366,7 @@ class PMA_Error extends PMA_Message
         );
 
         if (in_array($function, $include_functions)) {
-            $retval .= PMA_Error::relPath($arg);
+            $retval .= Error::relPath($arg);
         } elseif (in_array($function, $connect_functions)
             && getType($arg) === 'string'
         ) {

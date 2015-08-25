@@ -175,7 +175,7 @@ class ImportSql extends ImportPlugin
     /**
      * Handle compatibility options
      *
-     * @param PMA_DatabaseInterface $dbi     Database interface
+     * @param PMA\libraries\DatabaseInterface $dbi     Database interface
      * @param array                 $request Request array
      *
      * @return void

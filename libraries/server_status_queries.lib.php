@@ -8,6 +8,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_ServerStatusData;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -31,10 +33,10 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
     /* l10n: Questions is the name of a MySQL Status variable */
     $retval .= sprintf(
         __('Questions since startup: %s'),
-        PMA_Util::formatNumber($total_queries, 0)
+        PMA\libraries\Util::formatNumber($total_queries, 0)
     );
     $retval .= ' ';
-    $retval .= PMA_Util::showMySQLDocu(
+    $retval .= PMA\libraries\Util::showMySQLDocu(
         'server-status-variables',
         false,
         'statvar_Questions'
@@ -42,17 +44,17 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
     $retval .= '<br />';
     $retval .= '<span>';
     $retval .= '&oslash; ' . __('per hour:') . ' ';
-    $retval .= PMA_Util::formatNumber($total_queries * $hour_factor, 0);
+    $retval .= PMA\libraries\Util::formatNumber($total_queries * $hour_factor, 0);
     $retval .= '<br />';
     $retval .= '&oslash; ' . __('per minute:') . ' ';
-    $retval .= PMA_Util::formatNumber(
+    $retval .= PMA\libraries\Util::formatNumber(
         $total_queries * 60 / $ServerStatusData->status['Uptime'],
         0
     );
     $retval .= '<br />';
     if ($total_queries / $ServerStatusData->status['Uptime'] >= 1) {
         $retval .= '&oslash; ' . __('per second:') . ' ';
-        $retval .= PMA_Util::formatNumber(
+        $retval .= PMA\libraries\Util::formatNumber(
             $total_queries / $ServerStatusData->status['Uptime'],
             0
         );
@@ -123,16 +125,16 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
         $retval .= '">';
         $retval .= '<th class="name">' . htmlspecialchars($name) . '</th>';
         $retval .= '<td class="value">';
-        $retval .= htmlspecialchars(PMA_Util::formatNumber($value, 5, 0, true));
+        $retval .= htmlspecialchars(PMA\libraries\Util::formatNumber($value, 5, 0, true));
         $retval .= '</td>';
         $retval .= '<td class="value">';
         $retval .= htmlspecialchars(
-            PMA_Util::formatNumber($value * $hour_factor, 4, 1, true)
+            PMA\libraries\Util::formatNumber($value * $hour_factor, 4, 1, true)
         );
         $retval .= '</td>';
         $retval .= '<td class="value">';
         $retval .= htmlspecialchars(
-            PMA_Util::formatNumber($value * $perc_factor, 0, 2)
+            PMA\libraries\Util::formatNumber($value * $perc_factor, 0, 2)
         );
         $retval .= '</td>';
         $retval .= '</tr>';

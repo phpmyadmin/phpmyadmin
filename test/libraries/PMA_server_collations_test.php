@@ -10,6 +10,8 @@
  * Include to test.
  */
 //$GLOBALS
+use PMA\libraries\PMA_Theme;
+
 $GLOBALS['server'] = 1;
 $GLOBALS['is_superuser'] = false;
 $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -29,11 +31,11 @@ $GLOBALS['cfg']['Server'] = array(
 require_once 'libraries/Theme.class.php';
 $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
 
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Tracker.class.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
@@ -110,7 +112,7 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
         );
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

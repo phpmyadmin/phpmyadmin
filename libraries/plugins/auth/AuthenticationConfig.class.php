@@ -27,7 +27,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function auth()
     {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -96,7 +96,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
         $header->setBodyId('loginform');
@@ -149,7 +149,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                     ), E_USER_WARNING
                 );
             }
-            echo PMA_Util::mysqlDie(
+            echo PMA\libraries\Util::mysqlDie(
                 $conn_error, '', true, '', false
             );
         }
@@ -159,7 +159,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>' . "\n";
         echo '<a href="'
-            . PMA_Util::getScriptNameForOption(
+            . PMA\libraries\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             )
             . PMA_URL_getCommon(array()) . '" class="button disableAjax">'

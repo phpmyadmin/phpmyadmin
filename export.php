@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_String;
 
 /**
  * Get the variables sent or posted to this script and a core script
@@ -12,7 +13,7 @@
 if (!defined('TESTSUITE')) {
     /**
      * If we are sending the export file (as opposed to just displaying it
-     * as text), we have to bypass the usual PMA_Response mechanism
+     * as text), we have to bypass the usual PMA\libraries\Response mechanism
      */
     if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
         define('PMA_BYPASS_GET_INSTANCE', 1);
@@ -166,7 +167,7 @@ if (!defined('TESTSUITE')) {
     // sanitize this parameter which will be used below in a file inclusion
     $what = PMA_securePath($_POST['what']);
 
-    PMA_Util::checkParameters(array('what', 'export_type'));
+    PMA\libraries\Util::checkParameters(array('what', 'export_type'));
 
     // export class instance, not array of properties, as before
     /* @var $export_plugin ExportPlugin */
@@ -317,7 +318,7 @@ if (!defined('TESTSUITE')) {
     if ($what == 'sql') {
         $crlf = "\n";
     } else {
-        $crlf = PMA_Util::whichCrlf();
+        $crlf = PMA\libraries\Util::whichCrlf();
     }
 
     $output_kanji_conversion = function_exists('PMA_Kanji_strConv')
@@ -377,7 +378,7 @@ if (!defined('TESTSUITE')) {
             if ($export_type == 'database') {
                 $num_tables = count($tables);
                 if ($num_tables == 0) {
-                    $message = PMA_Message::error(
+                    $message = PMA\libraries\Message::error(
                         __('No tables found in database.')
                     );
                     $active_page = 'db_export.php';

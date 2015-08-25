@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Linter.class.php.
+ * Tests for Linter.php.
  *
  * @package PhpMyAdmin-test
  */
@@ -9,10 +9,12 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Linter.class.php';
+use PMA\libraries\Linter;
+
+require_once 'libraries/Linter.php';
 
 /**
- * Tests for Linter.class.php.
+ * Tests for Linter.php.
  *
  * @package PhpMyAdmin-test
  */
@@ -20,19 +22,19 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * Test for PMA_Linter::getLines
+     * Test for Linter::getLines
      *
      * @return void
      */
     public function testGetLines()
     {
-        $this->assertEquals(array(0), PMA_Linter::getLines(''));
-        $this->assertEquals(array(0, 2), PMA_Linter::getLines("a\nb"));
-        $this->assertEquals(array(0, 4, 7), PMA_Linter::getLines("abc\nde\n"));
+        $this->assertEquals(array(0), Linter::getLines(''));
+        $this->assertEquals(array(0, 2), Linter::getLines("a\nb"));
+        $this->assertEquals(array(0, 4, 7), Linter::getLines("abc\nde\n"));
     }
 
     /**
-     * Test for PMA_Linter::findLineNumberAndColumn
+     * Test for Linter::findLineNumberAndColumn
      *
      * @return void
      */
@@ -51,24 +53,24 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
         //      (\n, 7).
         $this->assertEquals(
             array(1, 0),
-            PMA_Linter::findLineNumberAndColumn(array(0, 4, 7), 4)
+            Linter::findLineNumberAndColumn(array(0, 4, 7), 4)
         );
         $this->assertEquals(
             array(1, 1),
-            PMA_Linter::findLineNumberAndColumn(array(0, 4, 7), 5)
+            Linter::findLineNumberAndColumn(array(0, 4, 7), 5)
         );
         $this->assertEquals(
             array(1, 2),
-            PMA_Linter::findLineNumberAndColumn(array(0, 4, 7), 6)
+            Linter::findLineNumberAndColumn(array(0, 4, 7), 6)
         );
         $this->assertEquals(
             array(2, 0),
-            PMA_Linter::findLineNumberAndColumn(array(0, 4, 7), 7)
+            Linter::findLineNumberAndColumn(array(0, 4, 7), 7)
         );
     }
 
     /**
-     * Test for PMA_Linter::lint
+     * Test for Linter::lint
      *
      * @dataProvider testLintProvider
      *
@@ -79,7 +81,7 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
      */
     public function testLint($expected, $query)
     {
-        $this->assertEquals($expected, PMA_Linter::lint($query));
+        $this->assertEquals($expected, Linter::lint($query));
     }
 
     /**

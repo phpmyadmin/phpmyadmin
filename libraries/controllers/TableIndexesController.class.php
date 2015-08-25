@@ -10,16 +10,15 @@
 namespace PMA\Controllers\Table;
 
 use PMA\Controllers\TableController;
-use PMA_Index;
-use PMA_Message;
-use PMA_Response;
-use PMA\Template;
-use PMA_Util;
+use PMA\libraries\Index;
+use PMA\libraries\Message;
+use PMA\libraries\Template;
+use PMA\libraries\Util;
 
-require_once 'libraries/Index.class.php';
-require_once 'libraries/Message.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Index.class.php';
+require_once 'libraries/Index.php';
+require_once 'libraries/Message.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Index.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/Template.class.php';
 
@@ -31,14 +30,14 @@ require_once 'libraries/Template.class.php';
 class TableIndexesController extends TableController
 {
     /**
-     * @var PMA_Index $index
+     * @var Index $index
      */
     protected $index;
 
     /**
      * Constructor
      *
-     * @param PMA_Index $index Index
+     * @param Index $index Index
      */
     public function __construct($index)
     {
@@ -156,16 +155,16 @@ class TableIndexesController extends TableController
 
             $this->dbi->query($sql_query);
             if ($GLOBALS['is_ajax_request'] == true) {
-                $message = PMA_Message::success(
+                $message = Message::success(
                     __('Table %1$s has been altered successfully.')
                 );
                 $message->addParam($this->table);
                 $this->response->addJSON(
-                    'message', PMA_Util::getMessage($message, $sql_query, 'success')
+                    'message', Util::getMessage($message, $sql_query, 'success')
                 );
                 $this->response->addJSON(
                     'index_table',
-                    PMA_Index::getHtmlForIndexes(
+                    Index::getHtmlForIndexes(
                         $this->table, $this->db
                     )
                 );

@@ -9,18 +9,19 @@
 
 namespace PMA\Controllers;
 
-use PMA\Template;
-use PMA_Index;
-use PMA_Partition;
-use PMA_Table;
-use PMA_Message;
+use PMA\libraries\Index;
+use PMA\libraries\Message;
+use PMA\libraries\PMA_Table;
+use PMA\libraries\Template;
+use PMA\libraries\Util;
+use PMA\Util as Util_lib;
 use PMA_PageSettings;
-use PMA_Util;
-use PMA\Util;
 use SqlParser;
+use SqlParser\Statements\CreateStatement;
+use SqlParser\Utils\Table;
 
-require_once 'libraries/Index.class.php';
-require_once 'libraries/Partition.class.php';
+require_once 'libraries/Index.php';
+require_once 'libraries/Partition.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/transformations.lib.php';
@@ -230,10 +231,10 @@ class TableStructureController extends TableController
                      * at this point
                      */
                     if (empty($message)) {
-                        $message = PMA_Message::success();
+                        $message = Message::success();
                     }
                     $this->response->addHTML(
-                        PMA_Util::getMessage($message, $sql_query)
+                        Util::getMessage($message, $sql_query)
                     );
                 }
             } else {
@@ -311,20 +312,20 @@ class TableStructureController extends TableController
          */
         include_once 'libraries/tbl_info.inc.php';
 
-        include_once 'libraries/Index.class.php';
+        include_once 'libraries/Index.php';
 
         // 2. Gets table keys and retains them
         // @todo should be: $server->db($db)->table($table)->primary()
-        $primary = PMA_Index::getPrimary($this->table, $this->db);
+        $primary = Index::getPrimary($this->table, $this->db);
         $columns_with_index = $this->dbi
             ->getTable($this->db, $this->table)
             ->getColumnsWithIndex(
-                PMA_Index::UNIQUE | PMA_Index::INDEX | PMA_Index::SPATIAL
-                | PMA_Index::FULLTEXT
+                Index::UNIQUE | Index::INDEX | Index::SPATIAL
+                | Index::FULLTEXT
             );
         $columns_with_unique_index = $this->dbi
             ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(PMA_Index::UNIQUE);
+            ->getColumnsWithIndex(Index::UNIQUE);
 
         // 3. Get fields
         $fields = (array)$this->dbi->getColumns(
@@ -350,7 +351,7 @@ class TableStructureController extends TableController
          */
         $stmt = $parser->statements[0];
 
-        $create_table_fields = SqlParser\Utils\Table::getFields($stmt);
+        $create_table_fields = Table::getFields($stmt);
 
         //display table structure
         $this->response->addHTML(
@@ -389,7 +390,7 @@ class TableStructureController extends TableController
 
             // it is not, let's move it to index $i
             $data = $columns[$column];
-            $extracted_columnspec = PMA_Util::extractColumnSpec($data['Type']);
+            $extracted_columnspec = Util::extractColumnSpec($data['Type']);
             if (isset($data['Extra'])
                 && $data['Extra'] == 'on update CURRENT_TIMESTAMP'
             ) {
@@ -456,16 +457,16 @@ class TableStructureController extends TableController
         $this->dbi->tryQuery(
             sprintf(
                 'ALTER TABLE %s %s',
-                PMA_Util::backquote($this->table),
+                Util::backquote($this->table),
                 implode(', ', $changes)
             )
         );
         $tmp_error = $this->dbi->getError();
         if ($tmp_error) {
             $this->response->isSuccess(false);
-            $this->response->addJSON('message', PMA_Message::error($tmp_error));
+            $this->response->addJSON('message', Message::error($tmp_error));
         } else {
-            $message = PMA_Message::success(
+            $message = Message::success(
                 __('The columns have been moved successfully.')
             );
             $this->response->addJSON('message', $message);
@@ -562,13 +563,13 @@ class TableStructureController extends TableController
         $GLOBALS['active_page'] = 'sql.php';
         $fields = array();
         foreach ($_REQUEST['selected_fld'] as $sval) {
-            $fields[] = PMA_Util::backquote($sval);
+            $fields[] = Util::backquote($sval);
         }
         $sql_query = sprintf(
             'SELECT %s FROM %s.%s',
             implode(', ', $fields),
-            PMA_Util::backquote($this->db),
-            PMA_Util::backquote($this->table)
+            Util::backquote($this->db),
+            Util::backquote($this->table)
         );
 
         // Parse and analyze the query
@@ -626,20 +627,20 @@ class TableStructureController extends TableController
             }
 
             $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
-                Util\get($_REQUEST, "field_orig.${i}", ''),
+                Util_lib\get($_REQUEST, "field_orig.${i}", ''),
                 $_REQUEST['field_name'][$i],
                 $_REQUEST['field_type'][$i],
                 $_REQUEST['field_length'][$i],
                 $_REQUEST['field_attribute'][$i],
-                Util\get($_REQUEST, "field_collation.${i}", ''),
-                Util\get($_REQUEST, "field_null.${i}", 'NOT NULL'),
+                Util_lib\get($_REQUEST, "field_collation.${i}", ''),
+                Util_lib\get($_REQUEST, "field_null.${i}", 'NOT NULL'),
                 $_REQUEST['field_default_type'][$i],
                 $_REQUEST['field_default_value'][$i],
-                Util\get($_REQUEST, "field_extra.${i}", false),
-                Util\get($_REQUEST, "field_comments.${i}", ''),
-                Util\get($_REQUEST, "field_virtuality.${i}", ''),
-                Util\get($_REQUEST, "field_expression.${i}", ''),
-                Util\get($_REQUEST, "field_move_to.${i}", '')
+                Util_lib\get($_REQUEST, "field_extra.${i}", false),
+                Util_lib\get($_REQUEST, "field_comments.${i}", ''),
+                Util_lib\get($_REQUEST, "field_virtuality.${i}", ''),
+                Util_lib\get($_REQUEST, "field_expression.${i}", ''),
+                Util_lib\get($_REQUEST, "field_move_to.${i}", '')
             );
 
             // find the remembered sort expression
@@ -649,7 +650,7 @@ class TableStructureController extends TableController
             // if the old column name is part of the remembered sort expression
             if (/*overload*/mb_strpos(
                 $sorted_col,
-                PMA_Util::backquote($_REQUEST['field_orig'][$i])
+                Util::backquote($_REQUEST['field_orig'][$i])
             ) !== false) {
                 // delete the whole remembered sort expression
                 $this->table_obj->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
@@ -679,14 +680,14 @@ class TableStructureController extends TableController
             // To allow replication, we first select the db to use
             // and then run queries on this db.
             if (!$this->dbi->selectDb($this->db)) {
-                PMA_Util::mysqlDie(
+                Util::mysqlDie(
                     $this->dbi->getError(),
-                    'USE ' . PMA_Util::backquote($this->db) . ';',
+                    'USE ' . Util::backquote($this->db) . ';',
                     false,
                     $err_url
                 );
             }
-            $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($this->table) . ' ';
+            $sql_query = 'ALTER TABLE ' . Util::backquote($this->table) . ' ';
             $sql_query .= implode(', ', $changes) . $key_query;
             $sql_query .= ';';
 
@@ -703,13 +704,13 @@ class TableStructureController extends TableController
                     && isset($_REQUEST['field_collation_orig'][$i])
                     && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
                 ) {
-                    $secondary_query = 'ALTER TABLE ' . PMA_Util::backquote(
+                    $secondary_query = 'ALTER TABLE ' . Util::backquote(
                         $this->table
                     )
-                    . ' CHANGE ' . PMA_Util::backquote(
+                    . ' CHANGE ' . Util::backquote(
                         $_REQUEST['field_orig'][$i]
                     )
-                    . ' ' . PMA_Util::backquote($_REQUEST['field_orig'][$i])
+                    . ' ' . Util::backquote($_REQUEST['field_orig'][$i])
                     . ' BLOB;';
                     $this->dbi->query($secondary_query);
                     $changedToBlob[$i] = true;
@@ -727,21 +728,21 @@ class TableStructureController extends TableController
                 );
 
                 if ($changed_privileges) {
-                    $message = PMA_Message::success(
+                    $message = Message::success(
                         __(
                             'Table %1$s has been altered successfully. Privileges ' .
                             'have been adjusted.'
                         )
                     );
                 } else {
-                    $message = PMA_Message::success(
+                    $message = Message::success(
                         __('Table %1$s has been altered successfully.')
                     );
                 }
                 $message->addParam($this->table);
 
                 $this->response->addHTML(
-                    PMA_Util::getMessage($message, $sql_query, 'success')
+                    Util::getMessage($message, $sql_query, 'success')
                 );
             } else {
                 // An error happened while inserting/updating a table definition
@@ -754,23 +755,23 @@ class TableStructureController extends TableController
                 for ($i = 0; $i < $field_cnt; $i++) {
                     if ($changedToBlob[$i]) {
                         $changes_revert[] = 'CHANGE ' . PMA_Table::generateAlter(
-                            Util\get($_REQUEST, "field_orig.${i}", ''),
+                            Util_lib\get($_REQUEST, "field_orig.${i}", ''),
                             $_REQUEST['field_name'][$i],
                             $_REQUEST['field_type_orig'][$i],
                             $_REQUEST['field_length_orig'][$i],
                             $_REQUEST['field_attribute_orig'][$i],
-                            Util\get($_REQUEST, "field_collation_orig.${i}", ''),
-                            Util\get($_REQUEST, "field_null_orig.${i}", 'NOT NULL'),
+                            Util_lib\get($_REQUEST, "field_collation_orig.${i}", ''),
+                            Util_lib\get($_REQUEST, "field_null_orig.${i}", 'NOT NULL'),
                             $_REQUEST['field_default_type_orig'][$i],
                             $_REQUEST['field_default_value_orig'][$i],
-                            Util\get($_REQUEST, "field_extra_orig.${i}", false),
-                            Util\get($_REQUEST, "field_comments_orig.${i}", ''),
-                            Util\get($_REQUEST, "field_move_to_orig.${i}", '')
+                            Util_lib\get($_REQUEST, "field_extra_orig.${i}", false),
+                            Util_lib\get($_REQUEST, "field_comments_orig.${i}", ''),
+                            Util_lib\get($_REQUEST, "field_move_to_orig.${i}", '')
                         );
                     }
                 }
 
-                $revert_query = 'ALTER TABLE ' . PMA_Util::backquote($this->table)
+                $revert_query = 'ALTER TABLE ' . Util::backquote($this->table)
                     . ' ';
                 $revert_query .= implode(', ', $changes_revert) . '';
                 $revert_query .= ';';
@@ -781,7 +782,7 @@ class TableStructureController extends TableController
                 $this->response->isSuccess(false);
                 $this->response->addJSON(
                     'message',
-                    PMA_Message::rawError(
+                    Message::rawError(
                         __('Query error') . ':<br />' . $orig_error
                     )
                 );
@@ -841,8 +842,8 @@ class TableStructureController extends TableController
         $changed = false;
 
         if ((!defined('PMA_DRIZZLE') || !PMA_DRIZZLE)
-            && Util\get($GLOBALS, 'col_priv', false)
-            && Util\get($GLOBALS, 'flush_priv', false)
+            && Util_lib\get($GLOBALS, 'col_priv', false)
+            && Util_lib\get($GLOBALS, 'flush_priv', false)
         ) {
             $this->dbi->selectDb('mysql');
 
@@ -855,7 +856,7 @@ class TableStructureController extends TableController
                         WHERE Db = "%s"
                         AND Table_name = "%s"
                         AND Column_name = "%s";',
-                        PMA_Util::backquote('columns_priv'),
+                        Util::backquote('columns_priv'),
                         $newCol, $this->db, $this->table, $oldCol
                     )
                 );
@@ -913,7 +914,7 @@ class TableStructureController extends TableController
      * @param array           $columns_with_unique_index Columns with unique index
      * @param mixed           $url_params                Contains an associative
      *                                                   array with url params
-     * @param PMA_Index|false $primary_index             primary index or false if
+     * @param Index|false $primary_index             primary index or false if
      *                                                   no one exists
      * @param array           $fields                    Fields
      * @param array           $columns_with_index        Columns with index
@@ -947,20 +948,20 @@ class TableStructureController extends TableController
         $columns_list = array();
 
         $titles = array(
-            'Change' => PMA_Util::getIcon('b_edit.png', __('Change')),
-            'Drop' => PMA_Util::getIcon('b_drop.png', __('Drop')),
-            'NoDrop' => PMA_Util::getIcon('b_drop.png', __('Drop')),
-            'Primary' => PMA_Util::getIcon('b_primary.png', __('Primary')),
-            'Index' => PMA_Util::getIcon('b_index.png', __('Index')),
-            'Unique' => PMA_Util::getIcon('b_unique.png', __('Unique')),
-            'Spatial' => PMA_Util::getIcon('b_spatial.png', __('Spatial')),
-            'IdxFulltext' => PMA_Util::getIcon('b_ftext.png', __('Fulltext')),
-            'NoPrimary' => PMA_Util::getIcon('bd_primary.png', __('Primary')),
-            'NoIndex' => PMA_Util::getIcon('bd_index.png', __('Index')),
-            'NoUnique' => PMA_Util::getIcon('bd_unique.png', __('Unique')),
-            'NoSpatial' => PMA_Util::getIcon('bd_spatial.png', __('Spatial')),
-            'NoIdxFulltext' => PMA_Util::getIcon('bd_ftext.png', __('Fulltext')),
-            'DistinctValues' => PMA_Util::getIcon(
+            'Change' => Util::getIcon('b_edit.png', __('Change')),
+            'Drop' => Util::getIcon('b_drop.png', __('Drop')),
+            'NoDrop' => Util::getIcon('b_drop.png', __('Drop')),
+            'Primary' => Util::getIcon('b_primary.png', __('Primary')),
+            'Index' => Util::getIcon('b_index.png', __('Index')),
+            'Unique' => Util::getIcon('b_unique.png', __('Unique')),
+            'Spatial' => Util::getIcon('b_spatial.png', __('Spatial')),
+            'IdxFulltext' => Util::getIcon('b_ftext.png', __('Fulltext')),
+            'NoPrimary' => Util::getIcon('bd_primary.png', __('Primary')),
+            'NoIndex' => Util::getIcon('bd_index.png', __('Index')),
+            'NoUnique' => Util::getIcon('bd_unique.png', __('Unique')),
+            'NoSpatial' => Util::getIcon('bd_spatial.png', __('Spatial')),
+            'NoIdxFulltext' => Util::getIcon('bd_ftext.png', __('Fulltext')),
+            'DistinctValues' => Util::getIcon(
                 'b_browse.png',
                 __('Distinct values')
             ),
@@ -977,8 +978,8 @@ class TableStructureController extends TableController
                     FROM `INFORMATION_SCHEMA`.`VIEWS`
                     WHERE TABLE_SCHEMA='%s'
                     AND TABLE_NAME='%s';",
-                    PMA_Util::sqlAddSlashes($this->db),
-                    PMA_Util::sqlAddSlashes($this->table)
+                    Util::sqlAddSlashes($this->db),
+                    Util::sqlAddSlashes($this->table)
                 )
             );
 
@@ -1079,11 +1080,11 @@ class TableStructureController extends TableController
         // this is to display for example 261.2 MiB instead of 268k KiB
         $max_digits = 3;
         $decimals = 1;
-        list($data_size, $data_unit) = PMA_Util::formatByteDown(
+        list($data_size, $data_unit) = Util::formatByteDown(
             $this->_showtable['Data_length'], $max_digits, $decimals
         );
         if ($mergetable == false) {
-            list($index_size, $index_unit) = PMA_Util::formatByteDown(
+            list($index_size, $index_unit) = Util::formatByteDown(
                 $this->_showtable['Index_length'], $max_digits, $decimals
             );
         }
@@ -1091,28 +1092,28 @@ class TableStructureController extends TableController
         if (! $is_innodb && isset($this->_showtable['Data_free'])
             && $this->_showtable['Data_free'] > 0
         ) {
-            list($free_size, $free_unit) = PMA_Util::formatByteDown(
+            list($free_size, $free_unit) = Util::formatByteDown(
                 $this->_showtable['Data_free'], $max_digits, $decimals
             );
-            list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
+            list($effect_size, $effect_unit) = Util::formatByteDown(
                 $this->_showtable['Data_length']
                 + $this->_showtable['Index_length']
                 - $this->_showtable['Data_free'],
                 $max_digits, $decimals
             );
         } else {
-            list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
+            list($effect_size, $effect_unit) = Util::formatByteDown(
                 $this->_showtable['Data_length']
                 + $this->_showtable['Index_length'],
                 $max_digits, $decimals
             );
         }
-        list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
+        list($tot_size, $tot_unit) = Util::formatByteDown(
             $this->_showtable['Data_length'] + $this->_showtable['Index_length'],
             $max_digits, $decimals
         );
         if ($this->_table_info_num_rows > 0) {
-            list($avg_size, $avg_unit) = PMA_Util::formatByteDown(
+            list($avg_size, $avg_unit) = Util::formatByteDown(
                 ($this->_showtable['Data_length']
                 + $this->_showtable['Index_length'])
                 / $this->_showtable['Rows'],
@@ -1159,7 +1160,7 @@ class TableStructureController extends TableController
     {
         $this->dbi->selectDb($this->db);
         $result = $this->dbi->query(
-            'SHOW KEYS FROM ' . PMA_Util::backquote($this->table) . ';'
+            'SHOW KEYS FROM ' . Util::backquote($this->table) . ';'
         );
         $primary = '';
         while ($row = $this->dbi->fetchAssoc($result)) {
@@ -1236,7 +1237,7 @@ class TableStructureController extends TableController
             break;
         case 'change':
             $this->displayHtmlForColumnChange($selected, $action);
-            // execution stops here but PMA_Response correctly finishes
+            // execution stops here but PMA\libraries\Response correctly finishes
             // the rendering
             exit;
         case 'browse':

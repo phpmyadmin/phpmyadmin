@@ -243,8 +243,8 @@ class ExportCodegen extends ExportPlugin
 
         $result = $GLOBALS['dbi']->query(
             sprintf(
-                'DESC %s.%s', PMA_Util::backquote($db),
-                PMA_Util::backquote($table)
+                'DESC %s.%s', PMA\libraries\Util::backquote($db),
+                PMA\libraries\Util::backquote($table)
             )
         );
         if ($result) {
@@ -347,8 +347,8 @@ class ExportCodegen extends ExportPlugin
             . 'table="' . ExportCodegen::cgMakeIdentifier($table_alias) . '">';
         $result = $GLOBALS['dbi']->query(
             sprintf(
-                "DESC %s.%s", PMA_Util::backquote($db),
-                PMA_Util::backquote($table)
+                "DESC %s.%s", PMA\libraries\Util::backquote($db),
+                PMA\libraries\Util::backquote($table)
             )
         );
         if ($result) {

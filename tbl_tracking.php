@@ -7,12 +7,14 @@
  */
 
 // Run common work
+use PMA\libraries\PMA_Tracker;
+
 require_once './libraries/common.inc.php';
 
 require_once './libraries/tracking.lib.php';
 
 //Get some js files needed for Ajax requests
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery.tablesorter.js');
@@ -28,13 +30,13 @@ if (PMA_Tracker::isActive()
     && ! (isset($_REQUEST['report_export'])
     && $_REQUEST['export_type'] == 'sqldumpfile')
 ) {
-    $msg = PMA_Message::notice(
+    $msg = PMA\libraries\Message::notice(
         sprintf(
             __('Tracking of %s is activated.'),
             htmlspecialchars($GLOBALS["db"] . '.' . $GLOBALS["table"])
         )
     );
-    PMA_Response::getInstance()->addHTML($msg->getDisplay());
+    PMA\libraries\Response::getInstance()->addHTML($msg->getDisplay());
 }
 
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
@@ -98,12 +100,12 @@ if (isset($_REQUEST['submit_mult'])) {
             foreach ($_REQUEST['selected_versions'] as $version) {
                 PMA_deleteTrackingVersion($version);
             }
-            $html .= PMA_Message::success(
+            $html .= PMA\libraries\Message::success(
                 __('Tracking versions deleted successfully.')
             )->getDisplay();
         }
     } else {
-        $html .= PMA_Message::notice(
+        $html .= PMA\libraries\Message::notice(
             __('No versions selected.')
         )->getDisplay();
     }
@@ -135,7 +137,7 @@ if (isset($_REQUEST['toggle_activation'])
 // Export as SQL execution
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution') {
     $sql_result = PMA_exportAsSQLExecution($entries);
-    $msg = PMA_Message::success(__('SQL statements executed.'));
+    $msg = PMA\libraries\Message::success(__('SQL statements executed.'));
     $html .= $msg->getDisplay();
 }
 
@@ -204,5 +206,5 @@ $html .= PMA_getHtmlForDataDefinitionAndManipulationStatements(
 
 $html .= '<br class="clearfloat"/>';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML($html);

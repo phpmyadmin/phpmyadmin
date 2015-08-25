@@ -206,7 +206,7 @@ class ExportMediawiki extends ExportPlugin
             // Print structure comment
             $output = $this->_exportComment(
                 "Table structure for "
-                . PMA_Util::backquote($table_alias)
+                . PMA\libraries\Util::backquote($table_alias)
             );
 
             // Begin the table construction
@@ -292,7 +292,7 @@ class ExportMediawiki extends ExportPlugin
 
         // Print data comment
         $output = $this->_exportComment(
-            "Table data for " . PMA_Util::backquote($table_alias)
+            "Table data for " . PMA\libraries\Util::backquote($table_alias)
         );
 
         // Begin the table construction
@@ -330,7 +330,7 @@ class ExportMediawiki extends ExportPlugin
 
         // Get the table data from the database
         $result = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 

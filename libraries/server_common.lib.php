@@ -52,12 +52,12 @@ function PMA_getHtmlForSubPageHeader($type, $link='', $is_image=true)
 
     if ($is_image) {
         $html = '<h2>' . "\n"
-            . PMA_Util::getImage($header[$type]['image'])
+            . PMA\libraries\Util::getImage($header[$type]['image'])
             . '    ' . $header[$type]['text'] . "\n"
             . $link . '</h2>' . "\n";
     } else {
         $html = '<h2>' . "\n"
-            . PMA_Util::getIcon($header[$type]['image'])
+            . PMA\libraries\Util::getIcon($header[$type]['image'])
             . '    ' . $header[$type]['text'] . "\n"
             . $link . '</h2>' . "\n";
     }

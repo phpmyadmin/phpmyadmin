@@ -19,24 +19,24 @@
  */
 namespace PMA;
 
-use PMA_Response;
-use PMA_Table;
-use PMA_Util;
+use PMA\libraries\Response;
+use PMA\libraries\PMA_Table;
+use PMA\libraries\Util;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableRelationController.class.php';
 require_once 'libraries/Response.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\Table\TableRelationController');
 $container->alias(
     'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
 );
-$container->set('PMA_Response', PMA_Response::getInstance());
-$container->alias('response', 'PMA_Response');
+$container->set('PMA\libraries\Response', Response::getInstance());
+$container->alias('response', 'PMA\libraries\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');
@@ -66,7 +66,7 @@ if ($cfgRelation['relwork']) {
         $db, $table, '', 'internal'
     );
 }
-if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
+if (Util::isForeignKeySupported($tbl_storage_engine)) {
     $dependency_definitions['existrel_foreign'] = PMA_getForeigners(
         $db, $table, '', 'foreign'
     );

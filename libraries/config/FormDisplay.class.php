@@ -748,7 +748,7 @@ class FormDisplay
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }
-        return PMA_Util::getDocuLink(
+        return PMA\libraries\Util::getDocuLink(
             'config',
             'cfg_' .  $this->_getOptName($path)
         );
