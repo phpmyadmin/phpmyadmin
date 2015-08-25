@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-07-08 05:25+0200\n"
+"PO-Revision-Date: 2015-08-25 13:23+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12099,16 +12099,14 @@ msgstr "您已移除 %s 的權限。"
 
 #: libraries/server_privileges.lib.php:2059
 #: libraries/server_privileges.lib.php:4316
-#, fuzzy
 #| msgid "Add user group"
 msgid "Add user account"
-msgstr "新增使用者群組"
+msgstr "新增使用者帳號"
 
 #: libraries/server_privileges.lib.php:2068
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
-msgstr "使用者資料庫"
+msgstr "使用者帳號的資料庫"
 
 #: libraries/server_privileges.lib.php:2072
 msgid "Create database with same name and grant all privileges."
@@ -12202,16 +12200,14 @@ msgid ""
 msgstr "… 從使用者資料表中刪除舊使用者，然後重新載入權限。"
 
 #: libraries/server_privileges.lib.php:2855
-#, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "修改登入資訊/複製使用者"
+msgstr "修改登入資訊/複製使用者帳號"
 
 #: libraries/server_privileges.lib.php:2861
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "建立具有相同權限的新使用者然後 …"
+msgstr "建立具有相同權限的新使用者帳號並且 …"
 
 #: libraries/server_privileges.lib.php:3163
 msgid "Column-specific privileges"
@@ -12230,10 +12226,9 @@ msgid "Add privileges on the following table:"
 msgstr "在下列資料表新增權限："
 
 #: libraries/server_privileges.lib.php:3522
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "刪除選中的使用者"
+msgstr "刪除已選擇的使用者帳號"
 
 #: libraries/server_privileges.lib.php:3528
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12293,16 +12288,14 @@ msgid "New"
 msgstr "新增"
 
 #: libraries/server_privileges.lib.php:4337
-#, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "編輯權限："
 
 #: libraries/server_privileges.lib.php:4338
-#, fuzzy
 #| msgid "User group"
 msgid "User account"
-msgstr "使用者群組"
+msgstr "使用者帳號"
 
 #: libraries/server_privileges.lib.php:4397
 msgid ""
@@ -12311,17 +12304,16 @@ msgid ""
 msgstr "注意：您正嘗試編輯您目前登入使用者的權限。"
 
 #: libraries/server_privileges.lib.php:4417 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "檢視使用者"
+msgstr "使用者帳號一覽"
 
 #: libraries/server_privileges.lib.php:4485
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
-msgstr ""
+msgstr "已存在允許任何來自 localhost 連線的使用者帳號，這將會導致其他若在帳號中的主機允許來自任何(%)地方連線使用者無法使用。"
 
 #: libraries/server_privileges.lib.php:4526
 #, php-format
@@ -12637,7 +12629,7 @@ msgstr "指令"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "進度"
 
 #: libraries/server_status_processes.lib.php:252
 #: libraries/server_status_variables.lib.php:39
@@ -13399,184 +13391,171 @@ msgstr "全域值"
 
 #: libraries/server_variables.lib.php:242
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "此為唯讀變數，不可編輯。"
 
 #: libraries/sql-parser/src/Component.php:63
 #: libraries/sql-parser/src/Component.php:82
 msgid "Not implemented yet."
-msgstr ""
+msgstr "尚未實作。"
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:202
-#, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "資料表操作顯示"
+msgstr "無法辨識的修改(Alter)操作。"
 
 #: libraries/sql-parser/src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "預期要有 %1$d 個數值，但只找到 %2$d 個。"
 
 #: libraries/sql-parser/src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "預期要於數值之後接著開始括號。"
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:103
 #: libraries/sql-parser/src/Components/CreateDefinition.php:204
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "預期要有開始括號。"
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:128
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "預期要有逗號或者結束括號"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:248
-#, fuzzy
 #| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "尚未選擇任何資料表。"
+msgstr "預期要有逗號或者結束括號。"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:264
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "預期要有結束括號。"
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "預期之外的資料類型。"
 
 #: libraries/sql-parser/src/Components/Expression.php:234
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "預期之外的結束括號。"
 
 #: libraries/sql-parser/src/Components/Expression.php:255
 #: libraries/sql-parser/src/Components/Expression.php:292
 #: libraries/sql-parser/src/Components/Expression.php:312
 msgid "An alias was previously found."
-msgstr ""
+msgstr "已於前面找到別名。"
 
 #: libraries/sql-parser/src/Components/Expression.php:266
 msgid "Unexpected dot."
-msgstr ""
+msgstr "預期之外的句點。"
 
 #: libraries/sql-parser/src/Components/Expression.php:336
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "尚未選擇任何資料表。"
+msgstr "預期要有別名。"
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:98
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "尚未選擇任何版本。"
+msgstr "預期要有表示式。"
 
 #: libraries/sql-parser/src/Components/Limit.php:92
 #: libraries/sql-parser/src/Components/Limit.php:114
 msgid "An offset was expected."
-msgstr ""
+msgstr "預期要有偏移量(Offset)。"
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "此選項與 \"%1$s\" 發生衝突。"
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:104
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "已開啟的資料表個數。"
+msgstr "預期要有舊的資料表名稱。"
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:114
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "預期要有 \"TO\" 關鍵字。"
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:131
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "已開啟的資料表個數。"
+msgstr "預期要有新的資料表名稱。"
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:149
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "已刪除該行。"
+msgstr "預期要有重新命名的操作。"
 
 #: libraries/sql-parser/src/Lexer.php:270
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "第 %s 行有不明符號。"
+msgstr "預期之外的字元。"
 
 #: libraries/sql-parser/src/Lexer.php:307
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "預期要有空白於分隔符號之前。"
 
 #: libraries/sql-parser/src/Lexer.php:325
 #: libraries/sql-parser/src/Lexer.php:341
 msgid "Expected delimiter."
-msgstr ""
+msgstr "預期要有分隔符號。"
 
 #: libraries/sql-parser/src/Lexer.php:788
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "建立事件 %1$s 成功。"
+msgstr "預期要於結束使用括號 %1$s。"
 
 #: libraries/sql-parser/src/Lexer.php:828
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "資料表名稱樣板"
+msgstr "預期要有變數名稱。"
 
 #: libraries/sql-parser/src/Parser.php:402
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "於資料表開始"
+msgstr "預期之外的陳述句開頭。"
 
 #: libraries/sql-parser/src/Parser.php:421
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "無法辨識的陳述句類型。"
 
 #: libraries/sql-parser/src/Parser.php:505
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "前面未開啟交易(Transaction)模式。"
 
 #: libraries/sql-parser/src/Statement.php:212
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "第 %s 行有不明符號。"
+msgstr "預期之外的符號。"
 
 #: libraries/sql-parser/src/Statement.php:250
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "此類型的子句已於前面解析過。"
 
 #: libraries/sql-parser/src/Statement.php:277
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr ""
+msgstr "找到新的陳述句，但與前一個陳述句之間未加入間隔符號。"
 
 #: libraries/sql-parser/src/Statement.php:297
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "無法辨識的關鍵字。"
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:348
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "已開啟的資料表個數。"
+msgstr "預期要有實體名稱。"
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:365
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "已刪除該行。"
+msgstr "預期要至少一個欄位定義。"
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:478
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "預期要使用 \"RETURNS\" 關鍵字。"
 
 #: libraries/sql.lib.php:224
 msgid "Detailed profile"
@@ -13669,7 +13648,7 @@ msgid "Run SQL query/queries on database %s"
 msgstr "在資料庫 %s 執行 SQL 查詢"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "在資料庫 %s 執行 SQL 查詢"
@@ -14232,10 +14211,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
 
 #: tbl_row_action.php:70
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "尚未選擇任何版本。"
+msgstr "尚未選擇列。"
 
 #: tbl_tracking.php:33
 #, php-format
@@ -14302,10 +14280,9 @@ msgstr "從中央欄位挑選"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:22
-#, fuzzy
 #| msgid "Compression"
 msgid "Expression"
-msgstr "壓縮"
+msgstr "表示"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -14993,28 +14970,24 @@ msgid "Partitions"
 msgstr "分區 %s"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "已分區"
+msgstr "已做分區依："
 
 #: templates/table/structure/display_partitions.phtml:12
-#, fuzzy
 #| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "已分區"
+msgstr "已做子分區依："
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Row length"
 msgid "Data length"
-msgstr "資料列長度"
+msgstr "資料長度"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "資料列長度"
+msgstr "索引長度"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
