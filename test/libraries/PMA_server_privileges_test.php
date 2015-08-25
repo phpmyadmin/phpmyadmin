@@ -866,7 +866,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            __('Check All'),
+            __('Check all'),
             $html
         );
         $this->assertContains(

@@ -1171,8 +1171,8 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
     $html_output .= '<fieldset id="fieldset_user_global_rights">'
         . '<legend data-submenu-label="' . $menu_label . '">' . $legend
         . '<input type="checkbox" id="addUsersForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" /> '
-        . '<label for="addUsersForm_checkall">' . __('Check All') . '</label> '
+        . 'class="checkall_box" title="' . __('Check all') . '" /> '
+        . '<label for="addUsersForm_checkall">' . __('Check all') . '</label> '
         . '</legend>'
         . '<p><small><i>'
         . __('Note: MySQL privilege names are expressed in English.')
@@ -1384,7 +1384,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
             . '<legend>' . "\n"
             . '<input type="checkbox" class="sub_checkall_box"'
             . ' id="checkall_' . $privTable_names[$i] . '_priv"'
-            . ' title="' . __('Check All') . '"/>'
+            . ' title="' . __('Check all') . '"/>'
             . '<label for="checkall_' . $privTable_names[$i] . '_priv">'
             . $privTable_names[$i] . '</label>' . "\n"
             . '</legend>' . "\n";

@@ -4811,9 +4811,9 @@ class PMA_DisplayResults
 
         $links_html .= '<input type="checkbox" '
             . 'id="resultsForm_' . $this->__get('unique_id') . '_checkall" '
-            . 'class="checkall_box" title="' . __('Check All') . '" /> '
+            . 'class="checkall_box" title="' . __('Check all') . '" /> '
             . '<label for="resultsForm_' . $this->__get('unique_id') . '_checkall">'
-            . __('Check All') . '</label> '
+            . __('Check all') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= PMA_Util::getButtonOrImage(

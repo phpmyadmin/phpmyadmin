@@ -1,7 +1,7 @@
 <div class="clearfloat print_ignore">
     <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>" width="38" height="22" alt="<?php __('With selected:'); ?>" />
-    <input type="checkbox" id="tablesForm_checkall" class="checkall_box" title="<?php echo __('Check All'); ?>" />
-    <label for="tablesForm_checkall"><?php echo __('Check All'); ?></label>
+    <input type="checkbox" id="tablesForm_checkall" class="checkall_box" title="<?php echo __('Check all'); ?>" />
+    <label for="tablesForm_checkall"><?php echo __('Check all'); ?></label>
     <?php if ($overhead_check != ''): ?>
          / <a href="#" onclick="unMarkAllRows('tablesForm'); <?php echo $overhead_check; ?> return false;"><?php echo __('Check tables having overhead'); ?></a>
     <?php endif; ?>
