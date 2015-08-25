@@ -6587,7 +6587,7 @@ msgstr "是否顯示缺少唯一鍵的資料列連結。"
 
 #: libraries/config/messages.inc.php:548
 msgid "Show row links anyway"
-msgstr ""
+msgstr "不論如何顯示資料列連結"
 
 #: libraries/config/messages.inc.php:550
 msgid "Use natural order for sorting table and database names."
