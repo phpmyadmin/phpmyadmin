@@ -198,7 +198,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            'Enable Statistics',
+            'Enable statistics',
             $html
         );
     }
