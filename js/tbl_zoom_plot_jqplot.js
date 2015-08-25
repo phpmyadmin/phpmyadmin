@@ -174,10 +174,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'it' : 0,
             'token' : PMA_commonParams.get('token')
         }, function (data) {
-            $('#tableFieldsId tr:eq(1) td:eq(0)').html(data.field_type);
-            $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
-            $('#tableFieldsId tr:eq(1) td:eq(2)').html(data.field_operators);
-            $('#tableFieldsId tr:eq(1) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId').find('tr:eq(1) td:eq(0)').html(data.field_type);
+            $('#tableFieldsId').find('tr:eq(1) td:eq(1)').html(data.field_collation);
+            $('#tableFieldsId').find('tr:eq(1) td:eq(2)').html(data.field_operators);
+            $('#tableFieldsId').find('tr:eq(1) td:eq(3)').html(data.field_value);
             xLabel = $('#tableid_0').val();
             $('#types_0').val(data.field_type);
             xType = data.field_type;
@@ -199,10 +199,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'it' : 1,
             'token' : PMA_commonParams.get('token')
         }, function (data) {
-            $('#tableFieldsId tr:eq(3) td:eq(0)').html(data.field_type);
-            $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
-            $('#tableFieldsId tr:eq(3) td:eq(2)').html(data.field_operators);
-            $('#tableFieldsId tr:eq(3) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId').find('tr:eq(3) td:eq(0)').html(data.field_type);
+            $('#tableFieldsId').find('tr:eq(3) td:eq(1)').html(data.field_collation);
+            $('#tableFieldsId').find('tr:eq(3) td:eq(2)').html(data.field_operators);
+            $('#tableFieldsId').find('tr:eq(3) td:eq(3)').html(data.field_value);
             yLabel = $('#tableid_1').val();
             $('#types_1').val(data.field_type);
             yType = data.field_type;
@@ -223,10 +223,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'it' : 2,
             'token' : PMA_commonParams.get('token')
         }, function (data) {
-            $('#tableFieldsId tr:eq(6) td:eq(0)').html(data.field_type);
-            $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
-            $('#tableFieldsId tr:eq(6) td:eq(2)').html(data.field_operators);
-            $('#tableFieldsId tr:eq(6) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId').find('tr:eq(6) td:eq(0)').html(data.field_type);
+            $('#tableFieldsId').find('tr:eq(6) td:eq(1)').html(data.field_collation);
+            $('#tableFieldsId').find('tr:eq(6) td:eq(2)').html(data.field_operators);
+            $('#tableFieldsId').find('tr:eq(6) td:eq(3)').html(data.field_value);
             $('#types_2').val(data.field_type);
             $('#collations_2').val(data.field_collations);
             addDateTimePicker();
@@ -245,10 +245,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'it' : 3,
             'token' : PMA_commonParams.get('token')
         }, function (data) {
-            $('#tableFieldsId tr:eq(8) td:eq(0)').html(data.field_type);
-            $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
-            $('#tableFieldsId tr:eq(8) td:eq(2)').html(data.field_operators);
-            $('#tableFieldsId tr:eq(8) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId').find('tr:eq(8) td:eq(0)').html(data.field_type);
+            $('#tableFieldsId').find('tr:eq(8) td:eq(1)').html(data.field_collation);
+            $('#tableFieldsId').find('tr:eq(8) td:eq(2)').html(data.field_operators);
+            $('#tableFieldsId').find('tr:eq(8) td:eq(3)').html(data.field_value);
             $('#types_3').val(data.field_type);
             $('#collations_3').val(data.field_collations);
             addDateTimePicker();

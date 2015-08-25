@@ -49,7 +49,7 @@ function PMA_adjustTotals() {
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
      */
-    var $allTr = $("#tablesForm table.data tbody:first tr");
+    var $allTr = $("#tablesForm").find("table.data tbody:first tr");
     // New summary values for the table
     var tableSum = $allTr.size();
     var rowsSum = 0;
@@ -142,7 +142,7 @@ function PMA_adjustTotals() {
  */
 function PMA_fetchRealRowCount($target)
 {
-    var $throbber = $('#pma_navigation .throbber')
+    var $throbber = $('#pma_navigation').find('.throbber')
         .first()
         .clone()
         .css({visibility: 'visible', display: 'inline-block'})

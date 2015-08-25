@@ -92,7 +92,7 @@ function createTemplate(name)
         if (response.success === true) {
             $('#templateName').val('');
             $('#template').html(response.data);
-            $("#template option").each(function() {
+            $("#template").find("option").each(function() {
                 if ($(this).text() == name) {
                     $(this).prop('selected', true);
                 }
@@ -205,7 +205,7 @@ function deleteTemplate(id)
     PMA_ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
-            $('#template option[value="' + id + '"]').remove();
+            $('#template').find('option[value="' + id + '"]').remove();
             PMA_ajaxShowMessage(PMA_messages.strTemplateDeleted);
         } else {
             PMA_ajaxShowMessage(response.error, false);
@@ -284,8 +284,8 @@ AJAX.registerOnload('export.js', function () {
      * according to the currently selected plugin from the dropdown list
      */
     $("#plugins").change(function () {
-        $("#format_specific_opts div.format_specific_options").hide();
-        var selected_plugin_name = $("#plugins option:selected").val();
+        $("#format_specific_opts").find("div.format_specific_options").hide();
+        var selected_plugin_name = $("#plugins").find("option:selected").val();
         $("#" + selected_plugin_name + "_options").show();
     });
 
@@ -337,7 +337,7 @@ function setup_table_structure_or_data() {
     if ($("input[name='export_type']").val() != 'database') {
         return;
     }
-    var pluginName = $("#plugins option:selected").val();
+    var pluginName = $("#plugins").find("option:selected").val();
     var formElemName = pluginName + "_structure_or_data";
     var force_structure_or_data = !($("input[name='" + formElemName + "_default']").length);
 
@@ -412,14 +412,15 @@ function toggle_structure_data_opts()
  */
 function toggle_save_to_file()
 {
+    var $ulSaveAsfile = $("#ul_save_asfile");
     if (!$("#radio_dump_asfile").prop("checked")) {
-        $("#ul_save_asfile > li").fadeTo('fast', 0.4);
-        $("#ul_save_asfile > li > input").prop('disabled', true);
-        $("#ul_save_asfile > li> select").prop('disabled', true);
+        $ulSaveAsfile.find("> li").fadeTo('fast', 0.4);
+        $ulSaveAsfile.find("> li > input").prop('disabled', true);
+        $ulSaveAsfile.find("> li > select").prop('disabled', true);
     } else {
-        $("#ul_save_asfile > li").fadeTo('fast', 1);
-        $("#ul_save_asfile > li > input").prop('disabled', false);
-        $("#ul_save_asfile > li> select").prop('disabled', false);
+        $ulSaveAsfile.find("> li").fadeTo('fast', 1);
+        $ulSaveAsfile.find("> li > input").prop('disabled', false);
+        $ulSaveAsfile.find("> li > select").prop('disabled', false);
     }
 }
 
@@ -434,16 +435,17 @@ AJAX.registerOnload('export.js', function () {
 function toggle_sql_include_comments()
 {
     $("#checkbox_sql_include_comments").change(function () {
+        var $ulIncludeComments = $("#ul_include_comments");
         if (!$("#checkbox_sql_include_comments").prop("checked")) {
-            $("#ul_include_comments > li").fadeTo('fast', 0.4);
-            $("#ul_include_comments > li > input").prop('disabled', true);
+            $ulIncludeComments.find("> li").fadeTo('fast', 0.4);
+            $ulIncludeComments.find("> li > input").prop('disabled', true);
         } else {
             // If structure is not being exported, the comment options for structure should not be enabled
             if ($("#radio_sql_structure_or_data_data").prop("checked")) {
                 $("#text_sql_header_comment").removeProp('disabled').parent("li").fadeTo('fast', 1);
             } else {
-                $("#ul_include_comments > li").fadeTo('fast', 1);
-                $("#ul_include_comments > li > input").removeProp('disabled');
+                $ulIncludeComments.find("> li").fadeTo('fast', 1);
+                $ulIncludeComments.find("> li > input").removeProp('disabled');
             }
         }
     });
@@ -539,12 +541,25 @@ function toggle_table_select(row) {
 }
 
 AJAX.registerOnload('export.js', function () {
+    /**
+     * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
+     */
+    var $create = $("#checkbox_sql_create_table_statements");
+    var $create_options = $("#ul_create_table_statements").find("input");
+    $create.change(function () {
+        $create_options.prop('checked', $(this).prop("checked"));
+    });
+    $create_options.change(function () {
+        if ($create_options.is(":checked")) {
+            $create.prop('checked', true);
+        }
+    });
 
     /**
      * Disables the view output as text option if the output must be saved as a file
      */
     $("#plugins").change(function () {
-        var active_plugin = $("#plugins option:selected").val();
+        var active_plugin = $("#plugins").find("option:selected").val();
         var force_file = $("#force_file_" + active_plugin).val();
         if (force_file == "true") {
             if ($("#radio_dump_asfile").prop('checked') !== true) {
@@ -643,7 +658,7 @@ function toggle_quick_or_custom()
         $("#output").show();
         $("#format_specific_opts").show();
         $("#output_quick_export").hide();
-        var selected_plugin_name = $("#plugins option:selected").val();
+        var selected_plugin_name = $("#plugins").find("option:selected").val();
         $("#" + selected_plugin_name + "_options").show();
     } else { // quick
         $("#databases_and_tables").hide();
@@ -745,7 +760,7 @@ function createAliasModal(event) {
         });
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     };
-    $('#alias_modal input[type="text"]').prop('disabled', false);
+    $('#alias_modal').find('input[type="text"]').prop('disabled', false);
     $('#alias_modal').dialog({
         width: Math.min($(window).width() - 100, 700),
         maxHeight: $(window).height(),
@@ -778,7 +793,7 @@ AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
 
     $("#scroll_to_options_msg").hide();
-    $("#format_specific_opts div.format_specific_options")
+    $("#format_specific_opts").find("div.format_specific_options")
         .hide()
         .css({
             "border": 0,

@@ -58,11 +58,11 @@ function reloadFieldForm() {
         var $temp_div = $("<div id='temp_div'><div>").append(form_data.message);
         $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
         $("#addColumns").replaceWith($temp_div.find("#addColumns"));
-        $('#move_columns_dialog ul').replaceWith($temp_div.find("#move_columns_dialog ul"));
+        $('#move_columns_dialog').find('ul').replaceWith($temp_div.find("#move_columns_dialog ul"));
         $("#moveColumns").removeClass("move-active");
         /* reinitialise the more options in table */
         if ($('#fieldsForm').hasClass('HideStructureActions')) {
-            $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+            $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
         }
     });
     $('#page_content').show();
@@ -336,7 +336,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }); // end dialog options
                 } else {
                     if ($('#fieldsForm').hasClass('HideStructureActions')) {
-                        $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
+                        $('#fieldsForm').find('ul.table-structure-actions').menuResizer('destroy');
                     }
                     // sort the fields table
                     var $fields_table = $("table#tablestructure tbody");
@@ -364,7 +364,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');
                     if ($('#fieldsForm').hasClass('HideStructureActions')) {
-                        $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+                        $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
                     }
                 }
             });
@@ -380,7 +380,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         var columns = [];
 
-        $("#tablestructure tbody tr").each(function () {
+        $("#tablestructure").find("tbody tr").each(function () {
             var col_name = $(this).find("input:checkbox").eq(0).val();
             var hidden_input = $("<input/>")
                 .prop({
@@ -394,17 +394,17 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 .append(hidden_input);
         });
 
-        var col_list = $("#move_columns_dialog ul")
+        var col_list = $("#move_columns_dialog").find("ul")
             .find("li").remove().end();
         for (var i in columns) {
             col_list.append(columns[i]);
         }
         col_list.sortable({
             axis: 'y',
-            containment: $("#move_columns_dialog div"),
+            containment: $("#move_columns_dialog").find("div"),
             tolerance: 'pointer'
         }).disableSelection();
-        var $form = $("#move_columns_dialog form");
+        var $form = $("#move_columns_dialog").find("form");
         $form.data("serialized-unmoved", $form.serialize());
 
         $("#move_columns_dialog").dialog({
@@ -467,7 +467,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 /** Handler for "More" dropdown in structure table rows */
 AJAX.registerOnload('tbl_structure.js', function () {
     if ($('#fieldsForm').hasClass('HideStructureActions')) {
-        $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+        $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
     } else {
         $('.table-structure-actions').width(function () {
             var width = 5;
@@ -480,13 +480,13 @@ AJAX.registerOnload('tbl_structure.js', function () {
 });
 AJAX.registerTeardown('tbl_structure.js', function () {
     if ($('#fieldsForm').hasClass('HideStructureActions')) {
-        $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
+        $('#fieldsForm').find('ul.table-structure-actions').menuResizer('destroy');
     }
 });
 $(function () {
     $(window).resize($.throttle(function () {
         if ($('#fieldsForm').length && $('#fieldsForm').hasClass('HideStructureActions')) {
-            $('#fieldsForm ul.table-structure-actions').menuResizer('resize');
+            $('#fieldsForm').find('ul.table-structure-actions').menuResizer('resize');
         }
     }));
 });
