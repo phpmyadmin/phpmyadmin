@@ -126,7 +126,7 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
 
         //labels
         $this->assertContains(
-            __('Current Server:'),
+            __('Current server:'),
             $html
         );
         $this->assertContains(

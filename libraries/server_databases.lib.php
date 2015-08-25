@@ -363,12 +363,12 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
     $items = array();
     $items[] = array(
         'content' => '<strong>' . "\n"
-            . __('Enable Statistics')
+            . __('Enable statistics')
             . '</strong><br />' . "\n",
         'class' => 'li_switch_dbstats',
         'url' => array(
             'href' => 'server_databases.php' . $url_query . '&amp;dbstats=1',
-            'title' => __('Enable Statistics')
+            'title' => __('Enable statistics')
         ),
     );
 
