@@ -38,7 +38,17 @@ $db_search = new PMA_DbSearch($GLOBALS['db']);
 
 // Display top links if we are not in an Ajax request
 if ($GLOBALS['is_ajax_request'] != true) {
-    include 'libraries/db_info.inc.php';
+    list(
+        $tables,
+        $num_tables,
+        $total_num_tables,
+        $sub_part,
+        $is_show_stats,
+        $db_is_system_schema,
+        $tooltip_truename,
+        $tooltip_aliasname,
+        $pos
+    ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 }
 
 // Main search form has been submitted, get results

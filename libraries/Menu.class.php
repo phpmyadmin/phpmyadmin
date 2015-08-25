@@ -271,7 +271,7 @@ class PMA_Menu
                 $cfgRelation = PMA_getRelationsParam();
 
                 // Get additional information about tables for tooltip is done
-                // in libraries/db_info.inc.php only once
+                // in PMA_Util::getDbInfo() only once
                 if ($cfgRelation['commwork']) {
                     $comment = PMA_getDbComment($this->_db);
                     /**

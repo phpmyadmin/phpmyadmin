@@ -122,7 +122,19 @@ class TableChartController extends TableController
             );
             $url_params['back'] = 'sql.php';
             include 'libraries/db_common.inc.php';
-            include 'libraries/db_info.inc.php';
+
+            list(
+                $tables,
+                $num_tables,
+                $total_num_tables,
+                $sub_part,
+                $is_show_stats,
+                $db_is_system_schema,
+                $tooltip_truename,
+                $tooltip_aliasname,
+                $pos
+            ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+
         } else {
             $url_params['goto'] = PMA_Util::getScriptNameForOption(
                 $this->cfg['DefaultTabServer'], 'server'

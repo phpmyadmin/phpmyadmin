@@ -20,7 +20,18 @@ $scripts->addFile('import.js');
  * Gets tables information and displays top links
  */
 require 'libraries/db_common.inc.php';
-require 'libraries/db_info.inc.php';
+
+list(
+    $tables,
+    $num_tables,
+    $total_num_tables,
+    $sub_part,
+    $is_show_stats,
+    $db_is_system_schema,
+    $tooltip_truename,
+    $tooltip_aliasname,
+    $pos
+) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 require 'libraries/display_import.lib.php';
 $response = PMA_Response::getInstance();

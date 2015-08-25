@@ -130,11 +130,22 @@ class DatabaseStructureController extends DatabaseController
 
         // Gets the database structure
         $sub_part = '_structure';
-        require 'libraries/db_info.inc.php';
+
+        list(
+            $tables,
+            $num_tables,
+            $total_num_tables,
+            $sub_part,
+            $is_show_stats,
+            $db_is_system_schema,
+            $tooltip_truename,
+            $tooltip_aliasname,
+            $pos
+        ) = PMA_Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
+
         $this->_tables = $tables;
         // updating $tables seems enough for #11376, but updating other
         // variables too in case they may cause some other problem.
-        // TODO: remove all this after refactoring db_info.inc.php
         $this->_num_tables = $num_tables;
         $this->_pos = $pos;
         $this->_db_is_system_schema = $db_is_system_schema;

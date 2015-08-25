@@ -308,7 +308,19 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
     // Gets the database structure
     $sub_part = '_structure';
     ob_start();
-    include 'libraries/db_info.inc.php';
+
+    list(
+        $tables,
+        $num_tables,
+        $total_num_tables,
+        $sub_part,
+        $is_show_stats,
+        $db_is_system_schema,
+        $tooltip_truename,
+        $tooltip_aliasname,
+        $pos
+    ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+
     $content = ob_get_contents();
     ob_end_clean();
     $response->addHTML($content . "\n");
