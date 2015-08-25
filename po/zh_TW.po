@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-08-25 13:42+0200\n"
+"PO-Revision-Date: 2015-08-25 13:49+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
@@ -6953,10 +6953,9 @@ msgid "Maximal number of table preferences to store"
 msgstr "資料表偏好設定的儲存最大值"
 
 #: libraries/config/messages.inc.php:694
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "使用範例查詢(QBE)已儲存的搜尋資料表"
+msgstr "使用範例查詢(QBE)已儲存搜尋的資料表"
 
 #: libraries/config/messages.inc.php:696
 msgid ""
@@ -6965,20 +6964,18 @@ msgid ""
 msgstr "不使用 QBE 查詢功能請留空，建議值：[kbd]pma__savedsearches[/kbd]。"
 
 #: libraries/config/messages.inc.php:699
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "將視表匯出成資料表"
+msgstr "匯出樣板資料表"
 
 #: libraries/config/messages.inc.php:701
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
-msgstr "不使用 PDF 大綱功能請留空，建議值: [kbd]pma__pdf_pages[/kbd]。"
+msgstr "不支援匯出樣板時留空，建議值： [kbd]pma__export_templates[/kbd]。"
 
 #: libraries/config/messages.inc.php:704
 msgid "Central columns table"
@@ -7220,7 +7217,6 @@ msgid "User preferences storage table"
 msgstr "使用者偏好表"
 
 #: libraries/config/messages.inc.php:810
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -7229,9 +7225,7 @@ msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable\n"
 "    this feature, suggested: [kbd]pma__users[/kbd]."
-msgstr ""
-"設定選單功能必須同時啟用此資料表與使用者群組資料表，若有其中一個未填寫則會停"
-"用此功能，請參考：[kbd]pma__users[/kbd]。"
+msgstr "開啟可設定選單功能必須使用此資料表與使用者群組資料表，其中一個欄位留空則會關閉此功能，建議值： [kbd]pma__users[/kbd]。"
 
 #: libraries/config/messages.inc.php:814
 msgid "Users table"
@@ -7876,17 +7870,15 @@ msgstr "密碼加密方式："
 
 #: libraries/display_change_password.lib.php:96
 #: libraries/server_privileges.lib.php:1700
-#, fuzzy
 #| msgid "Generate password"
 msgid "MySQL native password"
-msgstr "產生密碼"
+msgstr "MySQL 原生密碼"
 
 #: libraries/display_change_password.lib.php:110
 #: libraries/server_privileges.lib.php:1706
-#, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password"
-msgstr "修改密碼"
+msgstr "SHA256 密碼"
 
 #: libraries/display_change_password.lib.php:137
 msgid "MySQL 4.0 compatible"
@@ -7898,7 +7890,7 @@ msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
-msgstr ""
+msgstr "此方式當連線至伺服器時需要使用 '<i>SSL 連線</i>' 或 '<i>使用 RSA 加密密碼的未加密連線</i>'。"
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -7937,34 +7929,29 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "正在匯出資料表  \"%s \" 中的資料列"
 
 #: libraries/display_export.lib.php:203
-#, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
-msgstr "匯出類型"
+msgstr "匯出樣板："
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
-msgstr "檔案名稱樣版:"
+msgstr "新樣板:"
 
 #: libraries/display_export.lib.php:211
-#, fuzzy
 #| msgid "Table name"
 msgid "Template name"
-msgstr "資料表名稱"
+msgstr "樣板名稱"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "檔案名稱樣版:"
+msgstr "已存在的樣板："
 
 #: libraries/display_export.lib.php:221
-#, fuzzy
 #| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "暫存磁碟比率"
+msgstr "樣板："
 
 #: libraries/display_export.lib.php:226
 #, fuzzy
