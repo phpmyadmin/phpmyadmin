@@ -1,23 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold the PMA_Util class
+ * Hold the PMA\libraries\Util class
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries;
+
+use ImportPlugin;
+use stdClass;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 require_once 'libraries/Template.class.php';
-use PMA\Template;
 
 /**
  * Misc functions used all over the scripts.
  *
  * @package PhpMyAdmin
  */
-class PMA_Util
+class Util
 {
 
     /**
@@ -69,21 +73,21 @@ class PMA_Util
         }
 
         switch ($use_function) {
-        case 'bcpow' :
-            // bcscale() needed for testing pow() with base values < 1
-            bcscale(10);
-            $pow = bcpow($base, $exp);
-            break;
-        case 'gmp_pow' :
-             $pow = gmp_strval(gmp_pow($base, $exp));
-            break;
-        case 'pow' :
-            $base = (float) $base;
-            $exp = (int) $exp;
-            $pow = pow($base, $exp);
-            break;
-        default:
-            $pow = $use_function($base, $exp);
+            case 'bcpow' :
+                // bcscale() needed for testing pow() with base values < 1
+                bcscale(10);
+                $pow = bcpow($base, $exp);
+                break;
+            case 'gmp_pow' :
+                 $pow = gmp_strval(gmp_pow($base, $exp));
+                break;
+            case 'pow' :
+                $base = (float) $base;
+                $exp = (int) $exp;
+                $pow = pow($base, $exp);
+                break;
+            default:
+                $pow = $use_function($base, $exp);
         }
 
         return $pow;
@@ -128,8 +132,11 @@ class PMA_Util
      * @return string an html snippet
      */
     public static function getIcon(
-        $icon, $alternate = '', $force_text = false,
-        $menu_icon = false, $control_param = 'ActionLinksMode'
+        $icon,
+        $alternate = '',
+        $force_text = false,
+        $menu_icon = false,
+        $control_param = 'ActionLinksMode'
     ) {
         $include_icon = $include_text = false;
         if (self::showIcons($control_param)) {
@@ -290,7 +297,10 @@ class PMA_Util
      * @access  public
      */
     public static function sqlAddSlashes(
-        $a_string = '', $is_like = false, $crlf = false, $php_code = false
+        $a_string = '',
+        $is_like = false,
+        $crlf = false,
+        $php_code = false
     ) {
         if ($is_like) {
             $a_string = str_replace('\\', '\\\\\\\\', $a_string);
@@ -456,9 +466,9 @@ class PMA_Util
         if (defined('PMA_MYSQL_INT_VERSION')) {
             if (PMA_MYSQL_INT_VERSION >= 50700) {
                 $mysql = '5.7';
-            } else if (PMA_MYSQL_INT_VERSION >= 50600) {
+            } elseif (PMA_MYSQL_INT_VERSION >= 50600) {
                 $mysql = '5.6';
-            } else if (PMA_MYSQL_INT_VERSION >= 50500) {
+            } elseif (PMA_MYSQL_INT_VERSION >= 50500) {
                 $mysql = '5.5';
             }
         }
@@ -484,7 +494,10 @@ class PMA_Util
      * @access  public
      */
     public static function showMySQLDocu(
-        $link, $big_icon = false, $anchor = '', $just_open = false
+        $link,
+        $big_icon = false,
+        $anchor = '',
+        $just_open = false
     ) {
         $url = self::getMySQLDocuURL($link, $anchor);
         $open_link = '<a href="' . $url . '" target="mysql_doc">';
@@ -518,7 +531,7 @@ class PMA_Util
         if (defined('TESTSUITE')) {
             /* Provide consistent URL for testsuite */
             return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
-        } else if (file_exists('doc/html/index.html')) {
+        } elseif (file_exists('doc/html/index.html')) {
             if (defined('PMA_SETUP')) {
                 return '../doc/html/' . $url;
             } else {
@@ -603,8 +616,11 @@ class PMA_Util
      * @access public
      */
     public static function mysqlDie(
-        $server_msg = '', $sql_query = '',
-        $is_modify_link = true, $back_url = '', $exit = true
+        $server_msg = '',
+        $sql_query = '',
+        $is_modify_link = true,
+        $back_url = '',
+        $exit = true
     ) {
         global $table, $db;
 
@@ -626,25 +642,23 @@ class PMA_Util
         $sql_query = trim($sql_query);
 
         $errors = array();
-        if (! empty($sql_query)) {
-            /**
-             * The lexer used for analysis.
-             * @var SqlParser\Lexer $lexer
-             */
-            $lexer = new SqlParser\Lexer($sql_query);
+        /**
+         * The lexer used for analysis.
+         * @var \SqlParser\Lexer $lexer
+         */
+        $lexer = new \SqlParser\Lexer($sql_query);
 
-            /**
-             * The parser used for analysis.
-             * @var SqlParser\Parser $parser
-             */
-            $parser = new SqlParser\Parser($lexer->list);
+        /**
+         * The parser used for analysis.
+         * @var \SqlParser\Parser $parser
+         */
+        $parser = new \SqlParser\Parser($lexer->list);
 
-            /**
-             * The errors found by the lexer and the parser.
-             * @var array $errors
-             */
-            $errors = SqlParser\Utils\Error::get(array($lexer, $parser));
-        }
+        /**
+         * The errors found by the lexer and the parser.
+         * @var array $errors
+         */
+        $errors = \SqlParser\Utils\Error::get(array($lexer, $parser));
 
         if (empty($sql_query)) {
             $formatted_sql = '';
@@ -659,17 +673,17 @@ class PMA_Util
         // For security reasons, if the MySQL refuses the connection, the query
         // is hidden so no details are revealed.
         if ((!empty($sql_query)) && (!(mb_strstr($sql_query, 'connect')))) {
-
             // Static analysis errors.
             if (!empty($errors)) {
                 $error_msg .= '<p><strong>' . __('Static analysis:')
                     . '</strong></p>';
                 $error_msg .= '<p>' . sprintf(
-                    __('%d errors were found during analysis.'), count($errors)
+                    __('%d errors were found during analysis.'),
+                    count($errors)
                 ) . '</p>';
                 $error_msg .= '<p><ol>';
                 $error_msg .= implode(
-                    SqlParser\Utils\Error::format(
+                    \SqlParser\Utils\Error::format(
                         $errors,
                         '<li>%2$s (near "%4$s" at position %5$d)</li>'
                     )
@@ -758,10 +772,10 @@ class PMA_Util
 
         /**
          * If this is an AJAX request, there is no "Back" link and
-         * `PMA_Response()` is used to send the response.
+         * `Response()` is used to send the response.
          */
         if (!empty($GLOBALS['is_ajax_request'])) {
-            $response = PMA_Response::getInstance();
+            $response = Response::getInstance();
             $response->isSuccess(false);
             $response->addJSON('message', $error_msg);
             exit;
@@ -829,13 +843,21 @@ class PMA_Util
      * @return array    (recursive) grouped table list
      */
     public static function getTableList(
-        $db, $tables = null, $limit_offset = 0, $limit_count = false
+        $db,
+        $tables = null,
+        $limit_offset = 0,
+        $limit_count = false
     ) {
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         if ($tables === null) {
             $tables = $GLOBALS['dbi']->getTablesFull(
-                $db, '', false, null, $limit_offset, $limit_count
+                $db,
+                '',
+                false,
+                null,
+                $limit_offset,
+                $limit_count
             );
             if ($GLOBALS['cfg']['NaturalOrder']) {
                 uksort($tables, 'strnatcasecmp');
@@ -946,7 +968,7 @@ class PMA_Util
         }
 
         if (! $do_it) {
-            if (!(SqlParser\Context::isKeyword($a_name) & SqlParser\Token::FLAG_KEYWORD_RESERVED)
+            if (!(\SqlParser\Context::isKeyword($a_name) & \SqlParser\Token::FLAG_KEYWORD_RESERVED)
             ) {
                 return $a_name;
             }
@@ -982,7 +1004,9 @@ class PMA_Util
      * @access  public
      */
     public static function backquoteCompat(
-        $a_name, $compatibility = 'MSSQL', $do_it = true
+        $a_name,
+        $compatibility = 'MSSQL',
+        $do_it = true
     ) {
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
@@ -992,19 +1016,19 @@ class PMA_Util
         }
 
         if (! $do_it) {
-            if (!SqlParser\Context::isKeyword($a_name)) {
+            if (!\SqlParser\Context::isKeyword($a_name)) {
                 return $a_name;
             }
         }
 
         // @todo add more compatibility cases (ORACLE for example)
         switch ($compatibility) {
-        case 'MSSQL':
-            $quote = '"';
-            break;
-        default:
-            $quote = "`";
-            break;
+            case 'MSSQL':
+                $quote = '"';
+                break;
+            default:
+                $quote = "`";
+                break;
         }
 
         // '0' is also empty for php :-(
@@ -1024,7 +1048,7 @@ class PMA_Util
      */
     public static function whichCrlf()
     {
-        // The 'PMA_USR_OS' constant is defined in "libraries/Config.class.php"
+        // The 'PMA_USR_OS' constant is defined in "libraries/Config.php"
         // Win case
         if (PMA_USR_OS == 'Win') {
             $the_crlf = "\r\n";
@@ -1040,7 +1064,7 @@ class PMA_Util
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
-     * @param PMA_Message|string $message   the message to display
+     * @param Message|string $message   the message to display
      * @param string             $sql_query the query to display
      * @param string             $type      the type (level) of the message
      *
@@ -1049,7 +1073,9 @@ class PMA_Util
      * @access  public
      */
     public static function getMessage(
-        $message, $sql_query = null, $type = 'notice'
+        $message,
+        $sql_query = null,
+        $type = 'notice'
     ) {
         global $cfg;
         $retval = '';
@@ -1079,7 +1105,7 @@ class PMA_Util
                 : '' )
             . '>' . "\n";
 
-        if ($message instanceof PMA_Message) {
+        if ($message instanceof Message) {
             if (isset($GLOBALS['special_message'])) {
                 $message->addMessage($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
@@ -1105,7 +1131,9 @@ class PMA_Util
                     . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
                 $query_base = htmlspecialchars(addslashes($sql_query));
                 $query_base = preg_replace(
-                    '/((\015\012)|(\015)|(\012))/', $new_line, $query_base
+                    '/((\015\012)|(\015)|(\012))/',
+                    $new_line,
+                    $query_base
                 );
             } else {
                 $query_base = $sql_query;
@@ -1171,7 +1199,8 @@ class PMA_Util
                             __('Explain SQL')
                         ) . ']';
                 } elseif (preg_match(
-                    '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
+                    '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i',
+                    $sql_query
                 )) {
                     $explain_params['sql_query']
                         = /*overload*/mb_substr($sql_query, 8);
@@ -1203,9 +1232,7 @@ class PMA_Util
             if (! empty($cfg['SQLQuery']['Edit'])) {
                 $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
-                    . self::linkOrButton(
-                        $edit_link, __('Edit')
-                    )
+                    . self::linkOrButton($edit_link, __('Edit'))
                     . ']';
             } else {
                 $edit_link = '';
@@ -1227,7 +1254,6 @@ class PMA_Util
                 $php_link = ' [' . self::linkOrButton($php_link, $_message) . ']';
 
                 if (isset($GLOBALS['show_as_php'])) {
-
                     $runquery_link = 'import.php'
                         . PMA_URL_getCommon($url_params);
 
@@ -1266,9 +1292,7 @@ class PMA_Util
 
             $retval .= '<div class="tools print_ignore">';
             $retval .= '<form action="sql.php" method="post">';
-            $retval .= PMA_URL_getHiddenInputs(
-                $GLOBALS['db'], $GLOBALS['table']
-            );
+            $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '" />';
 
@@ -1277,7 +1301,10 @@ class PMA_Util
             if (! empty($refresh_link) && self::profilingSupported()) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1" />';
                 $retval .= self::getCheckbox(
-                    'profiling', __('Profiling'), isset($_SESSION['profiling']), true
+                    'profiling',
+                    __('Profiling'),
+                    isset($_SESSION['profiling']),
+                    true
                 );
             }
             $retval .= '</form>';
@@ -1482,8 +1509,11 @@ class PMA_Util
      * @access  public
      */
     public static function formatNumber(
-        $value, $digits_left = 3, $digits_right = 0,
-        $only_down = false, $noTrailingZero = true
+        $value,
+        $digits_left = 3,
+        $digits_right = 0,
+        $only_down = false,
+        $noTrailingZero = true
     ) {
         if ($value == 0) {
             return '0';
@@ -1799,7 +1829,10 @@ class PMA_Util
      *
      * @return string  html-code for tab-navigation
      */
-    public static function getHtmlTabs($tabs, $url_params, $menu_id,
+    public static function getHtmlTabs(
+        $tabs,
+        $url_params,
+        $menu_id,
         $resizable = false
     ) {
         $class = '';
@@ -1839,8 +1872,12 @@ class PMA_Util
      * @return string  the results to be echoed or saved in an array
      */
     public static function linkOrButton(
-        $url, $message, $tag_params = array(),
-        $new_form = true, $strip_img = false, $target = ''
+        $url,
+        $message,
+        $tag_params = array(),
+        $new_form = true,
+        $strip_img = false,
+        $target = ''
     ) {
         $url_length = /*overload*/mb_strlen($url);
         // with this we should be able to catch case of image upload
@@ -2034,7 +2071,10 @@ class PMA_Util
 
         return sprintf(
             __('%s days, %s hours, %s minutes and %s seconds'),
-            (string)$days, (string)$hours, (string)$minutes, (string)$seconds
+            (string)$days,
+            (string)$hours,
+            (string)$minutes,
+            (string)$seconds
         );
     }
 
@@ -2251,7 +2291,7 @@ class PMA_Util
                         // use a CAST if possible, to avoid problems
                         // if the field contains wildcard characters % or _
                         $con_val = '= CAST(0x' . bin2hex($row[$i]) . ' AS BINARY)';
-                    } else if ($fields_cnt == 1) {
+                    } elseif ($fields_cnt == 1) {
                         // when this blob is the only field present
                         // try settling with length comparison
                         $condition = ' CHAR_LENGTH(' . $con_key . ') ';
@@ -2653,7 +2693,7 @@ class PMA_Util
         }
 
         return '<a href="'
-            . PMA_Util::getScriptNameForOption(
+            . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . PMA_URL_getCommon(array('db' => $database)) . '" title="'
@@ -2956,8 +2996,8 @@ class PMA_Util
     /**
      * Gets cached information from the session
      *
-     * @param string  $var      variable name
-     * @param Closure $callback callback to fetch the value
+     * @param string   $var      variable name
+     * @param \Closure $callback callback to fetch the value
      *
      * @return mixed
      */
@@ -3306,7 +3346,7 @@ class PMA_Util
         }
 
         $wktresult  = $GLOBALS['dbi']->tryQuery(
-            $wktsql, null, PMA_DatabaseInterface::QUERY_STORE
+            $wktsql, null, DatabaseInterface::QUERY_STORE
         );
         $wktarr     = $GLOBALS['dbi']->fetchRow($wktresult, 0);
         $wktval     = $wktarr[0];
@@ -3611,7 +3651,7 @@ class PMA_Util
         );
 
         if ($files === false) {
-            PMA_Message::error(
+            Message::error(
                 __('The directory you set for upload work cannot be reached.')
             )->display();
         } elseif (! empty($files)) {
@@ -4407,7 +4447,7 @@ class PMA_Util
                         'timeout' => $connection_timeout,
                     )
                 );
-                $context = PMA_Util::handleContext($context);
+                $context = Util::handleContext($context);
                 if (! defined('TESTSUITE')) {
                     session_write_close();
                 }
@@ -4421,7 +4461,7 @@ class PMA_Util
                 if ($curl_handle === false) {
                     return null;
                 }
-                $curl_handle = PMA_Util::configureCurl($curl_handle);
+                $curl_handle = Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_HEADER,
@@ -4624,7 +4664,7 @@ class PMA_Util
         }
         $retval .= ' title="' . $text . '">';
         if ($showIcon) {
-            $retval .= PMA_Util::getImage(
+            $retval .= Util::getImage(
                 $icon,
                 $text
             );
@@ -4855,7 +4895,7 @@ class PMA_Util
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if (true === $cfg['SkipLockedTables'] && ! PMA_DRIZZLE) {
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW OPEN TABLES FROM ' . PMA_Util::backquote($db) . ';'
+                'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ';'
             );
 
             // Blending out tables in use
@@ -5000,16 +5040,16 @@ class PMA_Util
             $tblGroupSql = "";
             $whereAdded = false;
             if (PMA_isValid($_REQUEST['tbl_group'])) {
-                $group = PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group']);
-                $groupWithSeparator = PMA_Util::escapeMysqlWildcards(
+                $group = Util::escapeMysqlWildcards($_REQUEST['tbl_group']);
+                $groupWithSeparator = Util::escapeMysqlWildcards(
                     $_REQUEST['tbl_group']
                     . $GLOBALS['cfg']['NavigationTreeTableSeparator']
                 );
                 $tblGroupSql .= " WHERE ("
-                    . PMA_Util::backquote('Tables_in_' . $db)
+                    . Util::backquote('Tables_in_' . $db)
                     . " LIKE '" . $groupWithSeparator . "%'"
                     . " OR "
-                    . PMA_Util::backquote('Tables_in_' . $db)
+                    . Util::backquote('Tables_in_' . $db)
                     . " LIKE '" . $group . "')";
                 $whereAdded = true;
             }
@@ -5022,8 +5062,8 @@ class PMA_Util
                 }
             }
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW FULL TABLES FROM ' . PMA_Util::backquote($db) . $tblGroupSql,
-                null, PMA_DatabaseInterface::QUERY_STORE
+                'SHOW FULL TABLES FROM ' . Util::backquote($db) . $tblGroupSql,
+                null, DatabaseInterface::QUERY_STORE
             );
             unset($tblGroupSql, $whereAdded);
 
@@ -5031,8 +5071,8 @@ class PMA_Util
                 while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result = $GLOBALS['dbi']->query(
-                            "SHOW TABLE STATUS FROM " . PMA_Util::backquote($db)
-                            . " LIKE '" . PMA_Util::sqlAddSlashes($tmp[0], true)
+                            "SHOW TABLE STATUS FROM " . Util::backquote($db)
+                            . " LIKE '" . Util::sqlAddSlashes($tmp[0], true)
                             . "';"
                         );
                         $sts_tmp = $GLOBALS['dbi']->fetchAssoc($sts_result);

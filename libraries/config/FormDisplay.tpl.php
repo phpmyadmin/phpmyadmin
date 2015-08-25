@@ -61,7 +61,7 @@ function PMA_displayTabsTop($tabs)
     }
 
     include_once './libraries/Template.class.php';
-    $htmlOutput = PMA\Template::get('list/unordered')->render(
+    $htmlOutput = PMA\libraries\Template::get('list/unordered')->render(
         array(
             'class' => 'tabs',
             'items' => $items,
@@ -182,7 +182,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         } else {
             // In this case we just use getImage() because it's available
             foreach ($icon_init as $k => $v) {
-                $icons[$k] = PMA_Util::getImage(
+                $icons[$k] = PMA\libraries\Util::getImage(
                     $v[0], $v[1]
                 );
             }
@@ -496,7 +496,7 @@ function PMA_displayJavascript($js_array)
 
     include_once './libraries/Template.class.php';
 
-    return PMA\Template::get('javascript/display')->render(
+    return PMA\libraries\Template::get('javascript/display')->render(
         array('js_array' => $js_array,)
     );
 }

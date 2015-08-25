@@ -40,7 +40,7 @@
     <?php if (!$is_innodb && isset($showtable['Rows'])): ?>
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Rows'); ?></th>
-        <td class="value"><?php echo PMA_Util::formatNumber($showtable['Rows'], 0); ?></td>
+        <td class="value"><?php echo PMA\libraries\Util::formatNumber($showtable['Rows'], 0); ?></td>
         </tr>
     <?php endif; ?>
 
@@ -49,7 +49,7 @@
         && $showtable['Avg_row_length'] > 0
         ): ?>
         <?php list($avg_row_length_value, $avg_row_length_unit)
-            = PMA_Util::formatByteDown($showtable['Avg_row_length'], 6, 1); ?>
+            = PMA\libraries\Util::formatByteDown($showtable['Avg_row_length'], 6, 1); ?>
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Row length'); ?></th>
         <td class="value"><?php echo ($avg_row_length_value . ' ' . $avg_row_length_unit); ?></td>
@@ -71,28 +71,28 @@
     <?php if (isset($showtable['Auto_increment'])): ?>
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Next autoindex'); ?></th>
-        <td class="value"><?php echo PMA_Util::formatNumber($showtable['Auto_increment'], 0); ?></td>
+        <td class="value"><?php echo PMA\libraries\Util::formatNumber($showtable['Auto_increment'], 0); ?></td>
         </tr>
     <?php endif; ?>
 
     <?php if (isset($showtable['Create_time'])): ?>
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Creation'); ?></th>
-        <td class="value"><?php echo PMA_Util::localisedDate(strtotime($showtable['Create_time'])); ?></td>
+        <td class="value"><?php echo PMA\libraries\Util::localisedDate(strtotime($showtable['Create_time'])); ?></td>
         </tr>
     <?php endif; ?>
 
     <?php if (isset($showtable['Update_time'])): ?>
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Last update'); ?></th>
-        <td class="value"><?php echo PMA_Util::localisedDate(strtotime($showtable['Update_time'])); ?></td>
+        <td class="value"><?php echo PMA\libraries\Util::localisedDate(strtotime($showtable['Update_time'])); ?></td>
         </tr>
     <?php endif; ?>
 
     <?php if (isset($showtable['Check_time'])): ?>
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Last check'); ?></th>
-        <td class="value"><?php echo PMA_Util::localisedDate(strtotime($showtable['Check_time'])); ?></td>
+        <td class="value"><?php echo PMA\libraries\Util::localisedDate(strtotime($showtable['Check_time'])); ?></td>
         </tr>
     <?php endif; ?>
 </tbody>

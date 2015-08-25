@@ -8,6 +8,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -47,7 +49,7 @@ function PMA_getHtmlForDatabase(
         'sort_order' => $sort_order,
     );
 
-    $html .= PMA_Util::getListNavigator(
+    $html .= PMA\libraries\Util::getListNavigator(
         $databases_count, $pos, $_url_params, 'server_databases.php',
         'frame_content', $GLOBALS['cfg']['MaxDbList']
     );
@@ -136,10 +138,10 @@ function PMA_getHtmlForTableFooterButtons($is_allowUserDropDb, $is_superuser)
         return '';
     }
 
-    $html = PMA_Util::getWithSelected(
+    $html = PMA\libraries\Util::getWithSelected(
         $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "dbStatsForm"
     );
-    $html .= PMA_Util::getButtonOrImage(
+    $html .= PMA\libraries\Util::getButtonOrImage(
         '',
         'mult_submit' . ' ajax',
         'drop_selected_dbs',
@@ -251,9 +253,9 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
         if (array_key_exists($stat_name, $first_database)) {
             if ($stat['format'] === 'byte') {
                 list($value, $unit)
-                    = PMA_Util::formatByteDown($stat['footer'], 3, 1);
+                    = PMA\libraries\Util::formatByteDown($stat['footer'], 3, 1);
             } elseif ($stat['format'] === 'number') {
-                $value = PMA_Util::formatNumber($stat['footer'], 0);
+                $value = PMA\libraries\Util::formatNumber($stat['footer'], 0);
             } else {
                 $value = htmlentities($stat['footer'], 0);
             }
@@ -302,7 +304,7 @@ function PMA_getHtmlForColumnOrderWithSort(
         . PMA_URL_getCommon($_url_params) . '">' . "\n"
         . '            ' . __('Database') . "\n"
         . ($sort_by == 'SCHEMA_NAME'
-            ? '                ' . PMA_Util::getImage(
+            ? '                ' . PMA\libraries\Util::getImage(
                 's_' . $sort_order . '.png',
                 ($sort_order == 'asc' ? __('Ascending') : __('Descending'))
             ) . "\n"
@@ -330,7 +332,7 @@ function PMA_getHtmlForColumnOrderWithSort(
             . PMA_URL_getCommon($_url_params) . '">' . "\n"
             . '            ' . $stat['disp_name'] . "\n"
             . ($sort_by == $stat_name
-                ? '            ' . PMA_Util::getImage(
+                ? '            ' . PMA\libraries\Util::getImage(
                     's_' . $sort_order . '.png',
                     ($sort_order == 'asc' ? __('Ascending') : __('Descending'))
                 ) . "\n"
@@ -352,7 +354,7 @@ function PMA_getHtmlForColumnOrderWithSort(
  */
 function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
 {
-    $notice = PMA_Message::notice(
+    $notice = Message::notice(
         __(
             'Note: Enabling the database statistics here might cause '
             . 'heavy traffic between the web server and the MySQL server.'
@@ -373,7 +375,7 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
     );
 
     include_once './libraries/Template.class.php';
-    $html .= PMA\Template::get('list/unordered')->render(
+    $html .= PMA\libraries\Template::get('list/unordered')->render(
         array('items' => $items,)
     );
 
@@ -458,7 +460,7 @@ function PMA_getListForSortDatabase()
 function PMA_dropMultiDatabases()
 {
     if (! isset($_REQUEST['selected_dbs']) && ! isset($_REQUEST['query_type'])) {
-        $message = PMA_Message::error(__('No databases selected.'));
+        $message = Message::error(__('No databases selected.'));
     } else {
         $action = 'server_databases.php';
         $submit_mult = 'drop_db';
@@ -487,7 +489,7 @@ function PMA_dropMultiDatabases()
             } else {
                 $number_of_databases = 0;
             }
-            $message = PMA_Message::success(
+            $message = Message::success(
                 _ngettext(
                     '%1$d database has been dropped successfully.',
                     '%1$d databases have been dropped successfully.',
@@ -497,8 +499,8 @@ function PMA_dropMultiDatabases()
             $message->addParam($number_of_databases);
         }
     }
-    if ($GLOBALS['is_ajax_request'] && $message instanceof PMA_Message) {
-        $response = PMA_Response::getInstance();
+    if ($GLOBALS['is_ajax_request'] && $message instanceof Message) {
+        $response = PMA\libraries\Response::getInstance();
         $response->isSuccess($message->isSuccess());
         $response->addJSON('message', $message);
         exit;

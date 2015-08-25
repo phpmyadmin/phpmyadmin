@@ -5,12 +5,14 @@
  *
  * @package PhpMyAdmin-test
  */
+use PMA\libraries\PMA_Table;
+
 require_once 'libraries/plugins/export/ExportSql.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/mysql_charsets.lib.php';
@@ -103,7 +105,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         // test with hide structure and hide sql as false
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -481,7 +483,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_drop_table'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -626,7 +628,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['asfile'] = 'yes';
         $GLOBALS['output_charset_conversion'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -693,7 +695,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['charset'] = 'utf-8';
         $GLOBALS['mysql_charset_map']['utf-8'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -768,7 +770,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_create_view'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -806,7 +808,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         unset($GLOBALS['sql_backquotes']);
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -900,7 +902,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -978,7 +980,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1010,7 +1012,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1049,7 +1051,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['cfg']['LimitChars'] = 40;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1154,7 +1156,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1162,7 +1164,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->method('query')
             ->with(
                 'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA_DatabaseInterface::QUERY_STORE
+                PMA\libraries\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('res'));
 
@@ -1343,7 +1345,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['no_constraints_comments'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1351,7 +1353,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->method('query')
             ->with(
                 'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA_DatabaseInterface::QUERY_STORE
+                PMA\libraries\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('res'));
 
@@ -1468,7 +1470,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1476,7 +1478,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->method('query')
             ->with(
                 'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA_DatabaseInterface::QUERY_STORE
+                PMA\libraries\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('res'));
 
@@ -1558,7 +1560,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1620,7 +1622,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     public function testExportStructure()
     {
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1732,7 +1734,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 4
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1788,7 +1790,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1847,7 +1849,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->with(
                 "SELECT a FROM b WHERE 1",
                 null,
-                PMA_DatabaseInterface::QUERY_UNBUFFERED
+                PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
             )
             ->will($this->returnValue('res'));
 
@@ -1927,7 +1929,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      */
     public function testExportDataWithUpdate()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1969,7 +1971,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->with(
                 "SELECT a FROM b WHERE 1",
                 null,
-                PMA_DatabaseInterface::QUERY_UNBUFFERED
+                PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
             )
             ->will($this->returnValue('res'));
 
@@ -2025,7 +2027,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     */
     public function testExportDataWithIsView()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2070,7 +2072,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     */
     public function testExportDataWithError()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

@@ -188,7 +188,7 @@ class ExportTexytext extends ExportPlugin
 
         // Gets the data from the database
         $result      = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt  = $GLOBALS['dbi']->numFields($result);
 
@@ -538,7 +538,7 @@ class ExportTexytext extends ExportPlugin
             $col_alias = $column['Field'];
         }
         $extracted_columnspec
-            = PMA_Util::extractColumnSpec($column['Type']);
+            = PMA\libraries\Util::extractColumnSpec($column['Type']);
         $type = $extracted_columnspec['print_type'];
         if (empty($type)) {
             $type     = '&nbsp;';

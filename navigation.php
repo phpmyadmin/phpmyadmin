@@ -12,11 +12,11 @@ require_once './libraries/common.inc.php';
 // Also initialises the collapsible tree class
 require_once './libraries/navigation/Navigation.class.php';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $navigation = new PMA_Navigation();
 if (! $response->isAjax()) {
     $response->addHTML(
-        PMA_Message::error(
+        PMA\libraries\Message::error(
             __('Fatal error: The navigation can only be accessed via AJAX')
         )
     );

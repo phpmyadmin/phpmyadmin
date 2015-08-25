@@ -11,6 +11,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_String;
 
 /**
  * requirements
@@ -26,7 +27,7 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
@@ -50,7 +51,7 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
     if (! isset($_REQUEST['newname'])
         || ! /*overload*/mb_strlen($_REQUEST['newname'])
     ) {
-        $message = PMA_Message::error(__('The database name is empty!'));
+        $message = PMA\libraries\Message::error(__('The database name is empty!'));
     } else {
         $_error = false;
         if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
@@ -133,11 +134,11 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
 
             // if someday the RENAME DATABASE reappears, do not DROP
             $local_query = 'DROP DATABASE '
-                . PMA_Util::backquote($GLOBALS['db']) . ';';
+                . PMA\libraries\Util::backquote($GLOBALS['db']) . ';';
             $sql_query .= "\n" . $local_query;
             $GLOBALS['dbi']->query($local_query);
 
-            $message = PMA_Message::success(
+            $message = PMA\libraries\Message::success(
                 __('Database %1$s has been renamed to %2$s.')
             );
             $message->addParam($GLOBALS['db']);
@@ -149,13 +150,13 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
                 PMA_AdjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
             }
 
-            $message = PMA_Message::success(
+            $message = PMA\libraries\Message::success(
                 __('Database %1$s has been copied to %2$s.')
             );
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
         } else {
-            $message = PMA_Message::error();
+            $message = PMA\libraries\Message::error();
         }
         $reload     = true;
 
@@ -176,16 +177,16 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
 
     /**
      * Database has been successfully renamed/moved.  If in an Ajax request,
-     * generate the output with {@link PMA_Response} and exit
+     * generate the output with {@link PMA\libraries\Response} and exit
      */
     if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->isSuccess($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON('newname', $_REQUEST['newname']);
         $response->addJSON(
             'sql_query',
-            PMA_Util::getMessage(null, $sql_query)
+            PMA\libraries\Util::getMessage(null, $sql_query)
         );
         $response->addJSON('db', $GLOBALS['db']);
         exit;
@@ -222,12 +223,12 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 echo "\n";
 
 if (isset($message)) {
-    echo PMA_Util::getMessage($message, $sql_query);
+    echo PMA\libraries\Util::getMessage($message, $sql_query);
     unset($message);
 }
 
@@ -278,7 +279,7 @@ if (!$is_information_schema) {
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
-        $message = PMA_Message::notice(
+        $message = PMA\libraries\Message::notice(
             __(
                 'The phpMyAdmin configuration storage has been deactivated. ' .
                 '%sFind out why%s.'
@@ -304,12 +305,12 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     // We only show this if we find something in the new pdf_pages table
     $test_query = '
          SELECT *
-           FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . PMA_Util::backquote($cfgRelation['pdf_pages']) . '
-          WHERE db_name = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\'';
+           FROM ' . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA\libraries\Util::backquote($cfgRelation['pdf_pages']) . '
+          WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db']) . '\'';
     $test_rs = PMA_queryAsControlUser(
         $test_query,
         false,
-        PMA_DatabaseInterface::QUERY_STORE
+        PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 } // end if

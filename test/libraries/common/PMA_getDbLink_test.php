@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getDbLink_test from Util.class.php
+ * Test for PMA_getDbLink_test from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -11,12 +11,12 @@
  * Include to test.
  */
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- * Test for PMA_getDbLink_test from Util.class.php
+ * Test for PMA_getDbLink_test from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -46,7 +46,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
     function testGetDbLinkEmpty()
     {
         $GLOBALS['db'] = null;
-        $this->assertEmpty(PMA_Util::getDbLink());
+        $this->assertEmpty(PMA\libraries\Util::getDbLink());
     }
 
     /**
@@ -63,7 +63,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         $database = $GLOBALS['db'];
         $this->assertEquals(
             '<a href="'
-            . PMA_Util::getScriptNameForOption(
+            . PMA\libraries\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . '?db=' . $database
@@ -71,7 +71,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
             . 'title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_Util::getDbLink()
+            PMA\libraries\Util::getDbLink()
         );
     }
 
@@ -85,14 +85,14 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         global $cfg;
         $database = 'test_database';
         $this->assertEquals(
-            '<a href="' . PMA_Util::getScriptNameForOption(
+            '<a href="' . PMA\libraries\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . '?db=' . $database
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_Util::getDbLink($database)
+            PMA\libraries\Util::getDbLink($database)
         );
     }
 
@@ -107,7 +107,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         $database = 'test&data\'base';
         $this->assertEquals(
             '<a href="'
-            . PMA_Util::getScriptNameForOption(
+            . PMA\libraries\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . '?db='
@@ -115,7 +115,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_Util::getDbLink($database)
+            PMA\libraries\Util::getDbLink($database)
         );
     }
 }

@@ -1,4 +1,7 @@
-<?php $rownum = 0; $odd_row = true; ?>
+<?php
+use PMA\libraries\Partition;
+
+$rownum = 0; $odd_row = true; ?>
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" class="ajax<?php echo $HideStructureActions; ?>">
     <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
     <input type="hidden" name="table_type" value=
@@ -11,7 +14,7 @@
     <?php endif; ?>
     <table id="tablestructure" class="data topmargin">
         <!-- table header -->
-        <?php echo PMA\Template::get('table/structure/table_structure_header')->render(
+        <?php echo PMA\libraries\Template::get('table/structure/table_structure_header')->render(
             array(
                 'db_is_system_schema' => $db_is_system_schema,
                 'tbl_is_view' => $tbl_is_view
@@ -23,7 +26,7 @@
             <?php
                 $rownum++;
                 $columns_list[] = $row['Field'];
-                $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
+                $extracted_columnspec = PMA\libraries\Util::extractColumnSpec($row['Type']);
                 $attribute = $extracted_columnspec['attribute'];
 
                 // prepare a common variable to reuse below; however,
@@ -70,24 +73,24 @@
                 }
 
                 if ($primary && $primary->hasColumn($field_name)) {
-                    $displayed_field_name .= PMA_Util::getImage(
+                    $displayed_field_name .= PMA\libraries\Util::getImage(
                         'b_primary.png', __('Primary')
                     );
                 }
                 if (in_array($field_name, $columns_with_index)) {
-                    $displayed_field_name .= PMA_Util::getImage(
+                    $displayed_field_name .= PMA\libraries\Util::getImage(
                         'bd_primary.png', __('Index')
                     );
                 }
             ?>
         <tr class="<?php echo ($odd_row ? 'odd': 'even'); ?>">
             <?php $odd_row = !$odd_row; ?>
-            <?php echo PMA\Template::get('table/structure/table_structure_row')->render(
+            <?php echo PMA\libraries\Template::get('table/structure/table_structure_row')->render(
                 array(
                     'row' => $row,
                     'rownum' => $rownum,
                     'displayed_field_name' => $displayed_field_name,
-                    'type_nowrap' => PMA_Util::getClassForType($extracted_columnspec['type']),
+                    'type_nowrap' => PMA\libraries\Util::getClassForType($extracted_columnspec['type']),
                     'extracted_columnspec' => $extracted_columnspec,
                     'attribute' => $attribute,
                     'tbl_is_view' => $tbl_is_view,
@@ -100,7 +103,7 @@
                 )
             ); ?>
             <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
-                <?php echo PMA\Template::get('table/structure/actions_in_table_structure')->render(
+                <?php echo PMA\libraries\Template::get('table/structure/actions_in_table_structure')->render(
                     array(
                         'extracted_columnspec' => $extracted_columnspec,
                         'type' => (!empty($extracted_columnspec['print_type'])) ? $extracted_columnspec['print_type'] : ' ',
@@ -120,7 +123,7 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <?php echo PMA\Template::get('table/structure/check_all_table_column')->render(
+    <?php echo PMA\libraries\Template::get('table/structure/check_all_table_column')->render(
         array(
             'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
@@ -131,16 +134,16 @@
     ); ?>
 </form>
 <hr class="print_ignore"/>
-<?php echo PMA\Template::get('table/structure/move_columns_dialog')->render(); ?>
+<?php echo PMA\libraries\Template::get('table/structure/move_columns_dialog')->render(); ?>
 <!--Work on the table-->
 <div id="structure-action-links">
     <?php if ($tbl_is_view): ?>
-        <?php echo PMA_Util::linkOrButton(
+        <?php echo PMA\libraries\Util::linkOrButton(
             $edit_view_url,
-            PMA_Util::getIcon('b_edit.png', __('Edit view'), true)
+            PMA\libraries\Util::getIcon('b_edit.png', __('Edit view'), true)
         ); ?>
     <?php endif; ?>
-    <?php echo PMA\Template::get('table/structure/optional_action_links')->render(
+    <?php echo PMA\libraries\Template::get('table/structure/optional_action_links')->render(
         array(
             'url_query' => $url_query,
             'tbl_is_view' => $tbl_is_view,
@@ -150,7 +153,7 @@
 </div>
 <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
     <br />
-    <?php echo PMA\Template::get('table/structure/add_column')->render(
+    <?php echo PMA\libraries\Template::get('table/structure/add_column')->render(
         array('columns_list' => $columns_list)
     ); ?>
 <?php endif; ?>
@@ -163,11 +166,11 @@
 
 <!--Display partition details-->
 <?php
-$partition_names = PMA_Partition::getPartitionNames($db, $table);
+$partition_names = Partition::getPartitionNames($db, $table);
 // detect partitioning
 if (! is_null($partition_names[0])) {
 
-    $partitions = PMA_Partition::getPartitions($db, $table);
+    $partitions = Partition::getPartitions($db, $table);
     $firstPartition = $partitions[0];
     $rangeOrList = $firstPartition->getMethod() == 'RANGE'
         || $firstPartition->getMethod() == 'LIST';
@@ -178,24 +181,24 @@ if (! is_null($partition_names[0])) {
     }
 
     $actionIcons = array(
-        'ANALYZE' => PMA_Util::getIcon('b_search.png', __('Analyze')),
-        'CHECK' => PMA_Util::getIcon('eye.png', __('Check')),
-        'OPTIMIZE' => PMA_Util::getIcon('normalize.png', __('Optimize')),
-        'REBUILD' => PMA_Util::getIcon('s_tbl.png', __('Rebuild')),
-        'REPAIR' => PMA_Util::getIcon('b_tblops.png', __('Repair')),
-        'TRUNCATE' => PMA_Util::getIcon('b_empty.png', __('Truncate')),
+        'ANALYZE' => PMA\libraries\Util::getIcon('b_search.png', __('Analyze')),
+        'CHECK' => PMA\libraries\Util::getIcon('eye.png', __('Check')),
+        'OPTIMIZE' => PMA\libraries\Util::getIcon('normalize.png', __('Optimize')),
+        'REBUILD' => PMA\libraries\Util::getIcon('s_tbl.png', __('Rebuild')),
+        'REPAIR' => PMA\libraries\Util::getIcon('b_tblops.png', __('Repair')),
+        'TRUNCATE' => PMA\libraries\Util::getIcon('b_empty.png', __('Truncate')),
     );
     if ($rangeOrList) {
-        $actionIcons['DROP'] = PMA_Util::getIcon('b_drop.png', __('Drop'));
+        $actionIcons['DROP'] = PMA\libraries\Util::getIcon('b_drop.png', __('Drop'));
     }
 
-    echo PMA_Util::getDivForSliderEffect(
+    echo PMA\libraries\Util::getDivForSliderEffect(
         'partitions', __('Partitions')
     );
 
     $tmp_partition_description = $firstPartition->getDescription();
 
-    echo PMA\Template::get('table/structure/display_partitions')->render(
+    echo PMA\libraries\Template::get('table/structure/display_partitions')->render(
         array(
             'table' => $table,
             'url_query'  => $url_query,

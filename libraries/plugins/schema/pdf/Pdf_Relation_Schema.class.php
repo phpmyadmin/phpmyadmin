@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PDF;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -27,7 +29,7 @@ if (getcwd() == dirname(__FILE__)) {
 require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 require_once 'libraries/plugins/schema/pdf/RelationStatsPdf.class.php';
 require_once 'libraries/plugins/schema/pdf/TableStatsPdf.class.php';
-require_once 'libraries/PDF.class.php';
+require_once 'libraries/PDF.php';
 require_once 'libraries/transformations.lib.php';
 
 /**
@@ -38,7 +40,7 @@ require_once 'libraries/transformations.lib.php';
  * @package PhpMyAdmin
  * @see     TCPDF
  */
-class PMA_Schema_PDF extends PMA_PDF
+class PMA_Schema_PDF extends PDF
 {
     /**
      * Defines properties
@@ -241,9 +243,9 @@ class PMA_Schema_PDF extends PMA_PDF
                 $pg_name = __("PDF export page");
             } else {
                 $test_query = 'SELECT * FROM '
-                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-                    . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                    . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($this->_db)
+                    . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
+                    . ' WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($this->_db)
                     . '\' AND page_nr = \'' . $this->_pageNumber . '\'';
                 $test_rs = PMA_queryAsControlUser($test_query);
                 $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
@@ -262,7 +264,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @return void
      *
-     * @see PMA_PDF::Footer()
+     * @see PDF::Footer()
      */
     public function Footer()
     {
@@ -932,17 +934,17 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 ? $showtable['Comment']
                 : '';
             $create_time  = isset($showtable['Create_time'])
-                ? PMA_Util::localisedDate(
+                ? PMA\libraries\Util::localisedDate(
                     strtotime($showtable['Create_time'])
                 )
                 : '';
             $update_time  = isset($showtable['Update_time'])
-                ? PMA_Util::localisedDate(
+                ? PMA\libraries\Util::localisedDate(
                     strtotime($showtable['Update_time'])
                 )
                 : '';
             $check_time   = isset($showtable['Check_time'])
-                ? PMA_Util::localisedDate(
+                ? PMA\libraries\Util::localisedDate(
                     strtotime($showtable['Check_time'])
                 )
                 : '';
@@ -1036,7 +1038,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
             foreach ($columns as $row) {
                 $extracted_columnspec
-                    = PMA_Util::extractColumnSpec($row['Type']);
+                    = PMA\libraries\Util::extractColumnSpec($row['Type']);
                 $type                = $extracted_columnspec['print_type'];
                 $attribute           = $extracted_columnspec['attribute'];
                 if (! isset($row['Default'])) {

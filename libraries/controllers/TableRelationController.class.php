@@ -8,20 +8,20 @@
 
 namespace PMA\Controllers\Table;
 
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/index.lib.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/Index.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Index.php';
+require_once 'libraries/Util.php';
 
-use PMA_DatabaseInterface;
-use PMA_Table;
-use PMA_Index;
-use PMA_Util;
 use PMA\Controllers\TableController;
-use PMA\Template;
+use PMA\libraries\DatabaseInterface;
+use PMA\libraries\Index;
+use PMA\libraries\PMA_Table;
+use PMA\libraries\Template;
+use PMA\libraries\Util;
 
 /**
  * Handles table relation logic
@@ -143,7 +143,7 @@ class TableRelationController extends TableController
             );
         }
         if (isset($_POST['destination_foreign_db'])
-            && PMA_Util::isForeignKeySupported($this->tbl_storage_engine)
+            && Util::isForeignKeySupported($this->tbl_storage_engine)
         ) {
             $this->existrel_foreign = PMA_getForeigners(
                 $this->db, $this->table, '', 'foreign'
@@ -175,7 +175,7 @@ class TableRelationController extends TableController
          * Dialog
          */
         // Now find out the columns of our $table
-        // need to use PMA_DatabaseInterface::QUERY_STORE with $this->dbi->numRows()
+        // need to use DatabaseInterface::QUERY_STORE with $this->dbi->numRows()
         // in mysqli
         $columns = $this->dbi->getColumns($this->db, $this->table);
 
@@ -196,7 +196,7 @@ class TableRelationController extends TableController
             )
         );
 
-        if (PMA_Util::isForeignKeySupported($this->tbl_storage_engine)) {
+        if (Util::isForeignKeySupported($this->tbl_storage_engine)) {
             $this->response->addHTML(PMA_getHtmlForDisplayIndexes());
         }
         $this->response->addHTML('</div>');
@@ -214,7 +214,7 @@ class TableRelationController extends TableController
         )
         ) {
             $this->response->addHTML(
-                PMA_Util::getMessage(
+                Util::getMessage(
                     __('Display column was successfully updated.'),
                     '', 'success'
                 )
@@ -255,7 +255,7 @@ class TableRelationController extends TableController
         if (!empty($display_query) && !$seen_error) {
             $GLOBALS['display_query'] = $display_query;
             $this->response->addHTML(
-                PMA_Util::getMessage(
+                Util::getMessage(
                     __('Your SQL query has been executed successfully.'),
                     null, 'success'
                 )
@@ -284,7 +284,7 @@ class TableRelationController extends TableController
         )
         ) {
             $this->response->addHTML(
-                PMA_Util::getMessage(
+                Util::getMessage(
                     __('Internal relations were successfully updated.'),
                     '', 'success'
                 )
@@ -316,7 +316,7 @@ class TableRelationController extends TableController
         $this->response->addJSON('columns', $columns);
 
         // @todo should be: $server->db($db)->table($table)->primary()
-        $primary = PMA_Index::getPrimary($foreignTable, $_REQUEST['foreignDb']);
+        $primary = Index::getPrimary($foreignTable, $_REQUEST['foreignDb']);
         if (false === $primary) {
             return;
         }
@@ -340,11 +340,11 @@ class TableRelationController extends TableController
         // and manually retrieve table engine values.
         if ($foreign && !PMA_DRIZZLE) {
             $query = 'SHOW TABLE STATUS FROM '
-                . PMA_Util::backquote($_REQUEST['foreignDb']);
+                . Util::backquote($_REQUEST['foreignDb']);
             $tables_rs = $this->dbi->query(
                 $query,
                 null,
-                PMA_DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             );
 
             while ($row = $this->dbi->fetchArray($tables_rs)) {
@@ -356,11 +356,11 @@ class TableRelationController extends TableController
             }
         } else {
             $query = 'SHOW TABLES FROM '
-                . PMA_Util::backquote($_REQUEST['foreignDb']);
+                . Util::backquote($_REQUEST['foreignDb']);
             $tables_rs = $this->dbi->query(
                 $query,
                 null,
-                PMA_DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             );
             while ($row = $this->dbi->fetchArray($tables_rs)) {
                 if ($foreign && PMA_DRIZZLE) {

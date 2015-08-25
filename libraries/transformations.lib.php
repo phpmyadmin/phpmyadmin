@@ -224,10 +224,10 @@ function PMA_getMIME($db, $table, $strict = false, $fullName = false)
                 `transformation_options`,
                 `input_transformation`,
                 `input_transformation_options`
-         FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-        . PMA_Util::backquote($cfgRelation['column_info']) . '
-         WHERE `db_name`    = \'' . PMA_Util::sqlAddSlashes($db) . '\'
-           AND `table_name` = \'' . PMA_Util::sqlAddSlashes($table) . '\'
+         FROM ' . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+        . PMA\libraries\Util::backquote($cfgRelation['column_info']) . '
+         WHERE `db_name`    = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
+           AND `table_name` = \'' . PMA\libraries\Util::sqlAddSlashes($table) . '\'
            AND ( `mimetype` != \'\'' . (!$strict ? '
               OR `transformation` != \'\'
               OR `transformation_options` != \'\'
@@ -319,14 +319,14 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $test_qry = '
          SELECT `mimetype`,
                 `comment`
-           FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-        . PMA_Util::backquote($cfgRelation['column_info']) . '
-          WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
-            AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table) . '\'
-            AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
+           FROM ' . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+        . PMA\libraries\Util::backquote($cfgRelation['column_info']) . '
+          WHERE `db_name`     = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
+            AND `table_name`  = \'' . PMA\libraries\Util::sqlAddSlashes($table) . '\'
+            AND `column_name` = \'' . PMA\libraries\Util::sqlAddSlashes($key) . '\'';
 
     $test_rs   = PMA_queryAsControlUser(
-        $test_qry, true, PMA_DatabaseInterface::QUERY_STORE
+        $test_qry, true, PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 
     if ($test_rs && $GLOBALS['dbi']->numRows($test_rs) > 0) {
@@ -339,46 +339,46 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             || /*overload*/mb_strlen($transformationOpts)
             || /*overload*/mb_strlen($row['comment']))
         ) {
-            $upd_query = 'UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-                . PMA_Util::backquote($cfgRelation['column_info'])
+            $upd_query = 'UPDATE ' . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+                . PMA\libraries\Util::backquote($cfgRelation['column_info'])
                 . ' SET '
                 . '`mimetype` = \''
-                . PMA_Util::sqlAddSlashes($mimetype) . '\', '
+                . PMA\libraries\Util::sqlAddSlashes($mimetype) . '\', '
                 . '`transformation` = \''
-                . PMA_Util::sqlAddSlashes($transformation) . '\', '
+                . PMA\libraries\Util::sqlAddSlashes($transformation) . '\', '
                 . '`transformation_options` = \''
-                . PMA_Util::sqlAddSlashes($transformationOpts) . '\', '
+                . PMA\libraries\Util::sqlAddSlashes($transformationOpts) . '\', '
                 . '`input_transformation` = \''
-                . PMA_Util::sqlAddSlashes($inputTransform) . '\', '
+                . PMA\libraries\Util::sqlAddSlashes($inputTransform) . '\', '
                 . '`input_transformation_options` = \''
-                . PMA_Util::sqlAddSlashes($inputTransformOpts) . '\'';
+                . PMA\libraries\Util::sqlAddSlashes($inputTransformOpts) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
-                . '.' . PMA_Util::backquote($cfgRelation['column_info']);
+            $upd_query = 'DELETE FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
+                . '.' . PMA\libraries\Util::backquote($cfgRelation['column_info']);
         }
         $upd_query .= '
-            WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
-              AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table) . '\'
-              AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
+            WHERE `db_name`     = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
+              AND `table_name`  = \'' . PMA\libraries\Util::sqlAddSlashes($table) . '\'
+              AND `column_name` = \'' . PMA\libraries\Util::sqlAddSlashes($key) . '\'';
     } elseif (/*overload*/mb_strlen($mimetype)
         || /*overload*/mb_strlen($transformation)
         || /*overload*/mb_strlen($transformationOpts)
     ) {
 
-        $upd_query = 'INSERT INTO ' . PMA_Util::backquote($cfgRelation['db'])
-            . '.' . PMA_Util::backquote($cfgRelation['column_info'])
+        $upd_query = 'INSERT INTO ' . PMA\libraries\Util::backquote($cfgRelation['db'])
+            . '.' . PMA\libraries\Util::backquote($cfgRelation['column_info'])
             . ' (db_name, table_name, column_name, mimetype, '
             . 'transformation, transformation_options, '
             . 'input_transformation, input_transformation_options) '
             . ' VALUES('
-            . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($key) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($mimetype) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($transformation) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($transformationOpts) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($inputTransform) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($inputTransformOpts) . '\')';
+            . '\'' . PMA\libraries\Util::sqlAddSlashes($db) . '\','
+            . '\'' . PMA\libraries\Util::sqlAddSlashes($table) . '\','
+            . '\'' . PMA\libraries\Util::sqlAddSlashes($key) . '\','
+            . '\'' . PMA\libraries\Util::sqlAddSlashes($mimetype) . '\','
+            . '\'' . PMA\libraries\Util::sqlAddSlashes($transformation) . '\','
+            . '\'' . PMA\libraries\Util::sqlAddSlashes($transformationOpts) . '\','
+            . '\'' . PMA\libraries\Util::sqlAddSlashes($inputTransform) . '\','
+            . '\'' . PMA\libraries\Util::sqlAddSlashes($inputTransformOpts) . '\')';
     }
 
     if (isset($upd_query)) {
@@ -450,8 +450,8 @@ function PMA_clearTransformations($db, $table = '', $column = '')
     }
 
     $delete_sql = 'DELETE FROM '
-        . PMA_Util::backquote($cfgRelation['db']) . '.'
-        . PMA_Util::backquote($cfgRelation['column_info'])
+        . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+        . PMA\libraries\Util::backquote($cfgRelation['column_info'])
         . ' WHERE ';
 
     if (($column != '') && ($table != '')) {

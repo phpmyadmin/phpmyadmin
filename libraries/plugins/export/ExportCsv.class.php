@@ -218,7 +218,7 @@ class ExportCsv extends ExportPlugin
 
         // Gets the data from the database
         $result = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 

@@ -5,16 +5,14 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Class to handle database search
  *
  * @package PhpMyAdmin
  */
-class PMA_DbSearch
+class DbSearch
 {
     /**
      * Database name
@@ -141,7 +139,7 @@ class PMA_DbSearch
         ) {
             unset($this->_criteriaColumnName);
         } else {
-            $this->_criteriaColumnName = PMA_Util::sqlAddSlashes(
+            $this->_criteriaColumnName = Util::sqlAddSlashes(
                 $_REQUEST['criteriaColumnName'], true
             );
         }
@@ -170,8 +168,8 @@ class PMA_DbSearch
         $sqlstr_delete = 'DELETE';
         // Table to use
         $sqlstr_from = ' FROM '
-            . PMA_Util::backquote($GLOBALS['db']) . '.'
-            . PMA_Util::backquote($table);
+            . Util::backquote($GLOBALS['db']) . '.'
+            . Util::backquote($table);
         // Gets where clause for the query
         $where_clause = $this->_getWhereClause($table);
         // Builds complete queries
@@ -205,7 +203,7 @@ class PMA_DbSearch
         // For "as regular expression" (search option 4), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // he should enter \$ as the value.
-        $criteriaSearchStringEscaped = PMA_Util::sqlAddSlashes(
+        $criteriaSearchStringEscaped = Util::sqlAddSlashes(
             $this->_criteriaSearchString,
             ($this->_criteriaSearchType == 4 ? false : true)
         );
@@ -228,8 +226,8 @@ class PMA_DbSearch
                 ) {
                     // Drizzle has no CONVERT and all text columns are UTF-8
                     $column = ((PMA_DRIZZLE)
-                        ? PMA_Util::backquote($column['Field'])
-                        : 'CONVERT(' . PMA_Util::backquote($column['Field'])
+                        ? Util::backquote($column['Field'])
+                        : 'CONVERT(' . Util::backquote($column['Field'])
                             . ' USING utf8)');
                     $likeClausesPerColumn[] = $column . ' ' . $like_or_regex . ' '
                         . "'"
@@ -402,21 +400,21 @@ class PMA_DbSearch
         $html_output .= '<td>';
         $choices = array(
             '1' => __('at least one of the words')
-                . PMA_Util::showHint(
+                . Util::showHint(
                     __('Words are separated by a space character (" ").')
                 ),
             '2' => __('all words')
-                . PMA_Util::showHint(
+                . Util::showHint(
                     __('Words are separated by a space character (" ").')
                 ),
             '3' => __('the exact phrase'),
             '4' => __('as regular expression') . ' '
-                . PMA_Util::showMySQLDocu('Regexp')
+                . Util::showMySQLDocu('Regexp')
         );
         // 4th parameter set to true to add line breaks
         // 5th parameter set to false to avoid htmlspecialchars() escaping
         // in the label since we have some HTML in some labels
-        $html_output .= PMA_Util::getRadioFields(
+        $html_output .= Util::getRadioFields(
             'criteriaSearchType', $choices, $this->_criteriaSearchType, true, false
         );
         $html_output .= '</td></tr>';

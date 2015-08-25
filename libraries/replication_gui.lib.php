@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -22,11 +24,11 @@ function PMA_getHtmlForErrorMessage()
     ) {
         if ($_SESSION['replication']['sr_action_status'] == 'error') {
             $error_message = $_SESSION['replication']['sr_action_info'];
-            $html .= PMA_Message::error($error_message)->getDisplay();
+            $html .= Message::error($error_message)->getDisplay();
             $_SESSION['replication']['sr_action_status'] = 'unknown';
         } elseif ($_SESSION['replication']['sr_action_status'] == 'success') {
             $success_message = $_SESSION['replication']['sr_action_info'];
-            $html .= PMA_Message::success($success_message)->getDisplay();
+            $html .= Message::success($success_message)->getDisplay();
             $_SESSION['replication']['sr_action_status'] = 'unknown';
         }
     }
@@ -212,12 +214,12 @@ function PMA_getHtmlForSlaveConfiguration(
             . PMA_URL_getCommon($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
-            $html .= PMA_Message::error(
+            $html .= Message::error(
                 __('Slave SQL Thread not running!')
             )->getDisplay();
         }
         if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
-            $html .= PMA_Message::error(
+            $html .= Message::error(
                 __('Slave IO Thread not running!')
             )->getDisplay();
         }
@@ -307,7 +309,7 @@ function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
         . 'id="slave_errormanagement_href">';
     $html .= __('Error management:') . '</a>';
     $html .= ' <div id="slave_errormanagement_gui" style="display: none">';
-    $html .= PMA_Message::error(
+    $html .= Message::error(
         __('Skipping errors might lead into unsynchronized master and slave!')
     )->getDisplay();
     $html .= '  <ul>';
@@ -635,7 +637,7 @@ function PMA_getHtmlForReplicationSlavesTable($hidden = false)
     $html .= '    </tbody>';
     $html .= '    </table>';
     $html .= '    <br />';
-    $html .= PMA_Message::notice(
+    $html .= Message::notice(
         __(
             'Only slaves started with the '
             . '--report-host=host_name option are visible in this list.'
@@ -851,7 +853,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . (isset($_REQUEST['hostname']) ? $_REQUEST['hostname'] : '')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />'
-        . PMA_Util::showHint(
+        . PMA\libraries\Util::showHint(
             __(
                 'When Host table is used, this field is ignored '
                 . 'and values stored in Host table are used instead.'
@@ -951,14 +953,14 @@ function PMA_handleControlRequest()
         }
 
         if ($refresh) {
-            $response = PMA_Response::getInstance();
+            $response = PMA\libraries\Response::getInstance();
             if ($response->isAjax()) {
                 $response->isSuccess($result);
                 $response->addJSON(
                     'message',
                     $result
-                    ? PMA_Message::success($messageSuccess)
-                    : PMA_Message::error($messageError)
+                    ? Message::success($messageSuccess)
+                    : Message::error($messageError)
                 );
             } else {
                 PMA_sendHeaderLocation(
@@ -979,13 +981,13 @@ function PMA_handleRequestForSlaveChangeMaster()
 {
     $sr = array();
     $_SESSION['replication']['m_username'] = $sr['username']
-        = PMA_Util::sqlAddSlashes($_REQUEST['username']);
+        = PMA\libraries\Util::sqlAddSlashes($_REQUEST['username']);
     $_SESSION['replication']['m_password'] = $sr['pma_pw']
-        = PMA_Util::sqlAddSlashes($_REQUEST['pma_pw']);
+        = PMA\libraries\Util::sqlAddSlashes($_REQUEST['pma_pw']);
     $_SESSION['replication']['m_hostname'] = $sr['hostname']
-        = PMA_Util::sqlAddSlashes($_REQUEST['hostname']);
+        = PMA\libraries\Util::sqlAddSlashes($_REQUEST['hostname']);
     $_SESSION['replication']['m_port']     = $sr['port']
-        = PMA_Util::sqlAddSlashes($_REQUEST['text_port']);
+        = PMA\libraries\Util::sqlAddSlashes($_REQUEST['text_port']);
     $_SESSION['replication']['m_correct']  = '';
     $_SESSION['replication']['sr_action_status'] = 'error';
     $_SESSION['replication']['sr_action_info'] = __('Unknown error');

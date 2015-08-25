@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_Config class
+ * Test for PMA\libraries\Config class
  *
  * @package PhpMyAdmin-test
  * @group current
@@ -10,9 +10,11 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_Theme;
+
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/vendor_config.php';
@@ -20,7 +22,7 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- * Tests behaviour of PMA_Config class
+ * Tests behaviour of PMA\libraries\Config class
  *
  * @package PhpMyAdmin-test
  */
@@ -32,7 +34,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     protected $backupGlobals = false;
 
     /**
-     * @var PMA_Config
+     * @var PMA\libraries\Config
      */
     protected $object;
 
@@ -49,13 +51,13 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Config;
+        $this->object = new PMA\libraries\Config;
         $GLOBALS['server'] = 0;
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['PMA_Config'] = new PMA_Config(CONFIG_FILE);
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config(CONFIG_FILE);
 
         //for testing file permissions
-        $this->permTestObj = new PMA_Config("./config.sample.inc.php");
+        $this->permTestObj = new PMA\libraries\Config("./config.sample.inc.php");
     }
 
     /**
@@ -94,12 +96,12 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
         $this->assertContains(
             '<form name="form_fontsize_selection" id="form_fontsize_selection"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
 
         $this->assertContains(
             '<label for="select_fontsize">',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "em" unit
@@ -108,44 +110,44 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $_COOKIE['pma_fontsize'] = "10em";
         $this->assertContains(
             '<option value="7em"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="8em"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "pt" unit
         $_COOKIE['pma_fontsize'] = "10pt";
         $this->assertContains(
             '<option value="2pt"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="4pt"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "px" unit
         $_COOKIE['pma_fontsize'] = "10px";
         $this->assertContains(
             '<option value="5px"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="6px"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for unknown unit
         $_COOKIE['pma_fontsize'] = "10abc";
         $this->assertContains(
             '<option value="7abc"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="8abc"',
-            PMA_Config::getFontsizeForm()
+            PMA\libraries\Config::getFontsizeForm()
         );
         unset($_COOKIE['pma_fontsize']);
         //rollback the fontsize setting

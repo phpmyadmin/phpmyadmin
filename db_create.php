@@ -25,7 +25,7 @@ $err_url = 'index.php' . PMA_URL_getCommon();
 /**
  * Builds and executes the db creation sql query
  */
-$sql_query = 'CREATE DATABASE ' . PMA_Util::backquote($_POST['new_db']);
+$sql_query = 'CREATE DATABASE ' . PMA\libraries\Util::backquote($_POST['new_db']);
 if (! empty($_POST['db_collation'])) {
     list($db_charset) = explode('_', $_POST['db_collation']);
     if (in_array($db_charset, $mysql_charsets)
@@ -42,23 +42,23 @@ $sql_query .= ';';
 $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
 if (! $result) {
-    $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
+    $message = PMA\libraries\Message::rawError($GLOBALS['dbi']->getError());
     // avoid displaying the not-created db name in header or navi panel
     $GLOBALS['db'] = '';
     $GLOBALS['table'] = '';
 
     /**
-     * If in an Ajax request, just display the message with {@link PMA_Response}
+     * If in an Ajax request, just display the message with {@link PMA\libraries\Response}
      */
     if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->isSuccess(false);
         $response->addJSON('message', $message);
     } else {
         include_once 'index.php';
     }
 } else {
-    $message = PMA_Message::success(__('Database %1$s has been created.'));
+    $message = PMA\libraries\Message::success(__('Database %1$s has been created.'));
     $message->addParam($_POST['new_db']);
     $GLOBALS['db'] = $_POST['new_db'];
 
@@ -120,18 +120,18 @@ if (! $result) {
 
         $new_db_string .= '</tr>';
 
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->addJSON('message', $message);
         $response->addJSON('new_db_string', $new_db_string);
         $response->addJSON(
             'sql_query',
-            PMA_Util::getMessage(
+            PMA\libraries\Util::getMessage(
                 null, $sql_query, 'success'
             )
         );
         $response->addJSON(
             'url_query',
-            PMA_Util::getScriptNameForOption(
+            PMA\libraries\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . $url_query . '&amp;db='

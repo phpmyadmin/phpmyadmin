@@ -7,9 +7,7 @@
  * @package    PhpMyAdmin-String
  * @subpackage CType
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 require_once 'libraries/StringAbstractType.class.php';
 

@@ -7,15 +7,15 @@
  */
 
 require_once 'libraries/plugins/auth/AuthenticationSignon.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/DatabaseInterface.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Error_Handler.class.php';
+require_once 'libraries/ErrorHandler.php';
 
 /**
  * tests for AuthenticationSignon class
@@ -33,7 +33,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA_Config;
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $this->object = new AuthenticationSignon();
@@ -297,7 +297,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
         // case 4
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

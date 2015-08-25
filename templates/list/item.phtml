@@ -43,7 +43,7 @@ echo !empty($class) ? ' class="' . $class . '"' : null;
     <?php
     endif;
     if (!empty($mysql_help_page)) :
-        echo PMA_Util::showMySQLDocu($mysql_help_page);
+        echo PMA\libraries\Util::showMySQLDocu($mysql_help_page);
     endif;
     ?>
 </li>

@@ -6,9 +6,11 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
+
+use \Exception;
+
+require_once 'libraries/advisor.lib.php';
 
 /**
  * Advisor class
@@ -17,9 +19,9 @@ if (! defined('PHPMYADMIN')) {
  */
 class Advisor
 {
-    var $variables;
-    var $parseResult;
-    var $runResult;
+    public $variables;
+    public $parseResult;
+    public $runResult;
 
     /**
      * Parses and executes advisor rules
@@ -119,7 +121,7 @@ class Advisor
             } else {
                 try {
                     $value = $this->ruleExprEvaluate($rule['formula']);
-                } catch(Exception $e) {
+                } catch (Exception $e) {
                     $this->storeError(
                         sprintf(
                             __('Failed calculating value for rule \'%s\'.'),
@@ -138,7 +140,7 @@ class Advisor
                     } else {
                         $this->addRule('notfired', $rule);
                     }
-                }  catch(Exception $e) {
+                } catch (Exception $e) {
                     $this->storeError(
                         sprintf(
                             __('Failed running test for rule \'%s\'.'),
@@ -175,7 +177,7 @@ class Advisor
      */
     public function translate($str, $param = null)
     {
-        $string = _gettext(Advisor::escapePercent($str));
+        $string = _gettext(self::escapePercent($str));
         if (! is_null($param)) {
             $params = $this->ruleExprEvaluate('array(' . $param . ')');
         } else {
@@ -210,49 +212,49 @@ class Advisor
      */
     public function addRule($type, $rule)
     {
-        switch($type) {
-        case 'notfired':
-        case 'fired':
-            $jst = Advisor::splitJustification($rule);
-            if (count($jst) > 1) {
-                try {
-                    /* Translate */
-                    $str = $this->translate($jst[0], $jst[1]);
-                } catch (Exception $e) {
-                    $this->storeError(
-                        sprintf(
-                            __('Failed formatting string for rule \'%s\'.'),
-                            $rule['name']
-                        ),
-                        $e
-                    );
-                    return;
+        switch ($type) {
+            case 'notfired':
+            case 'fired':
+                $jst = self::splitJustification($rule);
+                if (count($jst) > 1) {
+                    try {
+                        /* Translate */
+                        $str = $this->translate($jst[0], $jst[1]);
+                    } catch (Exception $e) {
+                        $this->storeError(
+                            sprintf(
+                                __('Failed formatting string for rule \'%s\'.'),
+                                $rule['name']
+                            ),
+                            $e
+                        );
+                        return;
+                    }
+
+                    $rule['justification'] = $str;
+                } else {
+                    $rule['justification'] = $this->translate($rule['justification']);
                 }
+                $rule['id'] = $rule['name'];
+                $rule['name'] = $this->translate($rule['name']);
+                $rule['issue'] = $this->translate($rule['issue']);
 
-                $rule['justification'] = $str;
-            } else {
-                $rule['justification'] = $this->translate($rule['justification']);
-            }
-            $rule['id'] = $rule['name'];
-            $rule['name'] = $this->translate($rule['name']);
-            $rule['issue'] = $this->translate($rule['issue']);
+                // Replaces {server_variable} with 'server_variable'
+                // linking to server_variables.php
+                $rule['recommendation'] = preg_replace(
+                    '/\{([a-z_0-9]+)\}/Ui',
+                    '<a href="server_variables.php' . PMA_URL_getCommon()
+                    . '&filter=\1">\1</a>',
+                    $this->translate($rule['recommendation'])
+                );
 
-            // Replaces {server_variable} with 'server_variable'
-            // linking to server_variables.php
-            $rule['recommendation'] = preg_replace(
-                '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php' . PMA_URL_getCommon()
-                . '&filter=\1">\1</a>',
-                $this->translate($rule['recommendation'])
-            );
-
-            // Replaces external Links with PMA_linkURL() generated links
-            $rule['recommendation'] = preg_replace_callback(
-                '#href=("|\')(https?://[^\1]+)\1#i',
-                array($this, '_replaceLinkURL'),
-                $rule['recommendation']
-            );
-            break;
+                // Replaces external Links with PMA_linkURL() generated links
+                $rule['recommendation'] = preg_replace_callback(
+                    '#href=("|\')(https?://[^\1]+)\1#i',
+                    array($this, 'replaceLinkURL'),
+                    $rule['recommendation']
+                );
+                break;
         }
 
         $this->runResult[$type][] = $rule;
@@ -265,7 +267,7 @@ class Advisor
      *
      * @return string Replacement value
      */
-    private function _replaceLinkURL($matches)
+    private function replaceLinkURL($matches)
     {
         return 'href="' . PMA_linkURL($matches[2]) . '" target="_blank"';
     }
@@ -277,7 +279,7 @@ class Advisor
      *
      * @return string Replacement value
      */
-    private function _ruleExprEvaluateFired($matches)
+    private function ruleExprEvaluateFired($matches)
     {
         // No list of fired rules
         if (!isset($this->runResult['fired'])) {
@@ -301,7 +303,7 @@ class Advisor
      *
      * @return string Replacement value
      */
-    private function _ruleExprEvaluateVariable($matches)
+    private function ruleExprEvaluateVariable($matches)
     {
         if (! isset($this->variables[$matches[1]])) {
             return $matches[1];
@@ -328,13 +330,13 @@ class Advisor
         // Evaluate fired() conditions
         $expr = preg_replace_callback(
             '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui',
-            array($this, '_ruleExprEvaluateFired'),
+            array($this, 'ruleExprEvaluateFired'),
             $expr
         );
         // Evaluate variables
         $expr = preg_replace_callback(
             '/\b(\w+)\b/',
-            array($this, '_ruleExprEvaluateVariable'),
+            array($this, 'ruleExprEvaluateVariable'),
             $expr
         );
         $value = 0;
@@ -458,67 +460,4 @@ class Advisor
 
         return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
     }
-}
-
-
-/**
- * Formats interval like 10 per hour
- *
- * @param integer $num       number to format
- * @param integer $precision required precision
- *
- * @return string formatted string
- */
-function ADVISOR_bytime($num, $precision)
-{
-    if ($num >= 1) { // per second
-        $per = __('per second');
-    } elseif ($num * 60 >= 1) { // per minute
-        $num = $num * 60;
-        $per = __('per minute');
-    } elseif ($num * 60 * 60 >= 1 ) { // per hour
-        $num = $num * 60 * 60;
-        $per = __('per hour');
-    } else {
-        $num = $num * 60 * 60 * 24;
-        $per = __('per day');
-    }
-
-    $num = round($num, $precision);
-
-    if ($num == 0) {
-        $num = '<' . PMA_Util::pow(10, -$precision);
-    }
-
-    return "$num $per";
-}
-
-/**
- * Wrapper for PMA_Util::timespanFormat
- *
- * This function is used when evaluating advisory_rules.txt
- *
- * @param int $seconds the timespan
- *
- * @return string  the formatted value
- */
-function ADVISOR_timespanFormat($seconds)
-{
-    return PMA_Util::timespanFormat($seconds);
-}
-
-/**
- * Wrapper around PMA_Util::formatByteDown
- *
- * This function is used when evaluating advisory_rules.txt
- *
- * @param double $value the value to format
- * @param int    $limes the sensitiveness
- * @param int    $comma the number of decimals to retain
- *
- * @return string the formatted value with unit
- */
-function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
-{
-    return implode(' ', PMA_Util::formatByteDown($value, $limes, $comma));
 }

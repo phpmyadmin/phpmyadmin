@@ -14,7 +14,7 @@ require_once 'libraries/config/page_settings.class.php';
 
 PMA_PageSettings::showGroup('Import');
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('import.js');
@@ -25,7 +25,7 @@ $scripts->addFile('import.js');
 require 'libraries/server_common.inc.php';
 
 require 'libraries/display_import.lib.php';
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML(
     PMA_getImportDisplay(
         'server', $db, $table, $max_upload_size

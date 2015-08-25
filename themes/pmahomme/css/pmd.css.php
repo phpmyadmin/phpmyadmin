@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
+use PMA\libraries\PMA_Theme;
 
 // unplanned execution path
 if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {

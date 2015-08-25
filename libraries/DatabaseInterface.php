@@ -5,23 +5,21 @@
  *
  * @package PhpMyAdmin-DBI
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
+
+use PMA\SystemDatabase;
 
 require_once './libraries/logging.lib.php';
-require_once './libraries/Index.class.php';
+require_once './libraries/Index.php';
 require_once './libraries/SystemDatabase.class.php';
 require_once './libraries/util.lib.php';
-
-use PMA\Util;
 
 /**
  * Main interface for database interactions
  *
  * @package PhpMyAdmin-DBI
  */
-class PMA_DatabaseInterface
+class DatabaseInterface
 {
     /**
      * Force STORE_RESULT method, ignored by classic MySQL.
@@ -41,7 +39,7 @@ class PMA_DatabaseInterface
     const GETVAR_GLOBAL = 2;
 
     /**
-     * @var PMA_DBI_Extension
+     * @var \PMA_DBI_Extension
      */
     private $_extension;
 
@@ -53,7 +51,7 @@ class PMA_DatabaseInterface
     /**
      * Constructor
      *
-     * @param PMA_DBI_Extension $ext Object to be used for database queries
+     * @param \PMA_DBI_Extension $ext Object to be used for database queries
      */
     public function __construct($ext)
     {
@@ -92,7 +90,7 @@ class PMA_DatabaseInterface
         $cache_affected_rows = true
     ) {
         $res = $this->tryQuery($query, $link, $options, $cache_affected_rows)
-            or PMA_Util::mysqlDie($this->getError($link), $query);
+            or Util::mysqlDie($this->getError($link), $query);
         return $res;
     }
 
@@ -106,7 +104,7 @@ class PMA_DatabaseInterface
      */
     public function getCachedTableContent($contentPath, $default = null)
     {
-        return Util\get($this->_table_cache, $contentPath, $default);
+        return \PMA\Util\get($this->_table_cache, $contentPath, $default);
     }
 
     /**
@@ -213,7 +211,7 @@ class PMA_DatabaseInterface
         $dbgInfo['trace'] = debug_backtrace();
         foreach ($dbgInfo['trace'] as $key => $step) {
             if (isset($step['file'])) {
-                $dbgInfo['trace'][$key]['file'] = PMA_Error::relPath($step['file']);
+                $dbgInfo['trace'][$key]['file'] = Error::relPath($step['file']);
             }
         }
         $dbgInfo['hash'] = md5($query);
@@ -319,7 +317,7 @@ class PMA_DatabaseInterface
             'german'        => 'CP1252', //'latin1',
         );
 
-        $server_language = PMA_Util::cacheGet(
+        $server_language = Util::cacheGet(
             'server_language',
             function () {
                 return $GLOBALS['dbi']->fetchValue(
@@ -360,7 +358,7 @@ class PMA_DatabaseInterface
     public function getTables($database, $link = null)
     {
         return $this->fetchResult(
-            'SHOW TABLES FROM ' . PMA_Util::backquote($database) . ';',
+            'SHOW TABLES FROM ' . Util::backquote($database) . ';',
             null,
             0,
             $link,
@@ -383,13 +381,13 @@ class PMA_DatabaseInterface
         if ($table) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                    . PMA_Util::escapeMysqlWildcards(
-                        PMA_Util::sqlAddSlashes($table)
+                    . Util::escapeMysqlWildcards(
+                        Util::sqlAddSlashes($table)
                     )
                     . '%\'';
             } else {
                 $sql_where_table = 'AND t.`TABLE_NAME` = \''
-                    . PMA_Util::sqlAddSlashes($table) . '\'';
+                    . Util::sqlAddSlashes($table) . '\'';
             }
         } else {
             $sql_where_table = '';
@@ -554,7 +552,7 @@ class PMA_DatabaseInterface
             // added BINARY in the WHERE clause to force a case sensitive
             // comparison (if we are looking for the db Aa we don't want
             // to find the db aa)
-            $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
+            $this_databases = array_map('PMA\libraries\Util::sqlAddSlashes', $databases);
 
             $sql = $this->_getSqlForTablesFull($this_databases, $sql_where_table);
 
@@ -620,13 +618,13 @@ class PMA_DatabaseInterface
             foreach ($databases as $each_database) {
                 if ($table || (true === $tbl_is_group) || ! empty($table_type)) {
                     $sql = 'SHOW TABLE STATUS FROM '
-                        . PMA_Util::backquote($each_database)
+                        . Util::backquote($each_database)
                         . ' WHERE';
                     $needAnd = false;
                     if ($table || (true === $tbl_is_group)) {
                         $sql .= " `Name` LIKE '"
-                            . PMA_Util::escapeMysqlWildcards(
-                                PMA_Util::sqlAddSlashes($table, true)
+                            . Util::escapeMysqlWildcards(
+                                Util::sqlAddSlashes($table, true)
                             )
                             . "%'";
                         $needAnd = true;
@@ -643,7 +641,7 @@ class PMA_DatabaseInterface
                     }
                 } else {
                     $sql = 'SHOW TABLE STATUS FROM '
-                        . PMA_Util::backquote($each_database);
+                        . Util::backquote($each_database);
                 }
 
                 $useStatusCache = false;
@@ -963,7 +961,7 @@ class PMA_DatabaseInterface
      * @param bool|int $limit_count  row count for LIMIT or true
      *                               for $GLOBALS['cfg']['MaxDbList']
      *
-     * @todo    move into PMA_List_Database?
+     * @todo    move into ListDatabase?
      *
      * @return array $databases
      */
@@ -997,7 +995,7 @@ class PMA_DatabaseInterface
             // get table information from information_schema
             if (! empty($database)) {
                 $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
-                    . PMA_Util::sqlAddSlashes($database) . '\'';
+                    . Util::sqlAddSlashes($database) . '\'';
             } else {
                 $sql_where_schema = '';
             }
@@ -1027,7 +1025,7 @@ class PMA_DatabaseInterface
                 }
                 $sql .= $sql_where_schema . '
                     GROUP BY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME
-                    ORDER BY ' . PMA_Util::backquote($sort_by) . ' ' . $sort_order
+                    ORDER BY ' . Util::backquote($sort_by) . ' ' . $sort_order
                     . $limit;
             } else {
                 $sql  = 'SELECT *,
@@ -1062,7 +1060,7 @@ class PMA_DatabaseInterface
                 ) {
                     $sql .= 'BINARY ';
                 }
-                $sql .= PMA_Util::backquote($sort_by)
+                $sql .= Util::backquote($sort_by)
                     . ' ' . $sort_order
                     . $limit;
                 $sql .= ') a';
@@ -1072,7 +1070,7 @@ class PMA_DatabaseInterface
 
             $mysql_error = $this->getError($link);
             if (! count($databases) && $GLOBALS['errno']) {
-                PMA_Util::mysqlDie($mysql_error, $sql);
+                Util::mysqlDie($mysql_error, $sql);
             }
 
             // display only databases also in official database list
@@ -1111,7 +1109,7 @@ class PMA_DatabaseInterface
 
                 $res = $this->query(
                     'SHOW TABLE STATUS FROM '
-                    . PMA_Util::backquote($database_name) . ';'
+                    . Util::backquote($database_name) . ';'
                 );
 
                 if ($res === false) {
@@ -1153,7 +1151,7 @@ class PMA_DatabaseInterface
             $GLOBALS['callback_sort_by'] = $sort_by;
             usort(
                 $databases,
-                array('PMA_DatabaseInterface', '_usortComparisonCallback')
+                array('PMA\libraries\DatabaseInterface', '_usortComparisonCallback')
             );
             unset($GLOBALS['callback_sort_order'], $GLOBALS['callback_sort_by']);
 
@@ -1168,7 +1166,6 @@ class PMA_DatabaseInterface
         return $databases;
     }
 
-
     /**
      * Generates JOIN part for the Drizzle query to get database/table stats.
      *
@@ -1176,7 +1173,7 @@ class PMA_DatabaseInterface
      */
     private function _getDrizzeStatsJoin()
     {
-        $engine_info = PMA_Util::cacheGet('drizzle_engines');
+        $engine_info = Util::cacheGet('drizzle_engines');
         $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
         if (isset($engine_info['InnoDB'])
             && $engine_info['InnoDB']['module_library'] == 'innobase'
@@ -1286,19 +1283,19 @@ class PMA_DatabaseInterface
             // get columns information from information_schema
             if (null !== $database) {
                 $sql_wheres[] = '`TABLE_SCHEMA` = \''
-                    . PMA_Util::sqlAddSlashes($database) . '\' ';
+                    . Util::sqlAddSlashes($database) . '\' ';
             } else {
                 $array_keys[] = 'TABLE_SCHEMA';
             }
             if (null !== $table) {
                 $sql_wheres[] = '`TABLE_NAME` = \''
-                    . PMA_Util::sqlAddSlashes($table) . '\' ';
+                    . Util::sqlAddSlashes($table) . '\' ';
             } else {
                 $array_keys[] = 'TABLE_NAME';
             }
             if (null !== $column) {
                 $sql_wheres[] = '`COLUMN_NAME` = \''
-                    . PMA_Util::sqlAddSlashes($column) . '\' ';
+                    . Util::sqlAddSlashes($column) . '\' ';
             } else {
                 $array_keys[] = 'COLUMN_NAME';
             }
@@ -1371,9 +1368,9 @@ class PMA_DatabaseInterface
                 return $columns;
             }
             $sql = 'SHOW FULL COLUMNS FROM '
-                . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table);
+                . Util::backquote($database) . '.' . Util::backquote($table);
             if (null !== $column) {
-                $sql .= " LIKE '" . PMA_Util::sqlAddSlashes($column, true) . "'";
+                $sql .= " LIKE '" . Util::sqlAddSlashes($column, true) . "'";
             }
 
             $columns = $this->fetchResult($sql, 'Field', null, $link);
@@ -1501,20 +1498,20 @@ class PMA_DatabaseInterface
                     NULL               AS `Privileges`,
                     column_comment     AS `Comment`" : '') . "
                 FROM data_dictionary.columns
-                WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
-                    AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
+                WHERE table_schema = '" . Util::sqlAddSlashes($database) . "'
+                    AND table_name = '" . Util::sqlAddSlashes($table) . "'
                     " . (
                         ($column !== null)
                             ? "
-                    AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'"
+                    AND column_name = '" . Util::sqlAddSlashes($column) . "'"
                             : ''
                         );
             // ORDER BY ordinal_position
         } else {
             $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
-                . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
+                . Util::backquote($database) . '.' . Util::backquote($table)
                 . (($column !== null) ? "LIKE '"
-                . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
+                . Util::sqlAddSlashes($column, true) . "'" : '');
         }
         return $sql;
     }
@@ -1540,14 +1537,14 @@ class PMA_DatabaseInterface
             return null;
         }
         // Check if column is a part of multiple-column index and set its 'Key'.
-        $indexes = PMA_Index::getFromTable($table, $database);
+        $indexes = Index::getFromTable($table, $database);
         foreach ($fields as $field => $field_data) {
             if (!empty($field_data['Key'])) {
                 continue;
             }
 
             foreach ($indexes as $index) {
-                /** @var PMA_Index $index */
+                /** @var Index $index */
                 if (!$index->hasColumn($field)) {
                     continue;
                 }
@@ -1578,7 +1575,7 @@ class PMA_DatabaseInterface
                 }
             }
             if (! $has_pk && $has_pk_candidates) {
-                $secureDatabase = PMA_Util::sqlAddSlashes($database);
+                $secureDatabase = Util::sqlAddSlashes($database);
                 // check whether we can promote some unique index to PRI
                 $sql = "
                     SELECT i.index_name, p.column_name
@@ -1586,7 +1583,7 @@ class PMA_DatabaseInterface
                         JOIN data_dictionary.index_parts p
                         USING (table_schema, table_name)
                     WHERE i.table_schema = '" . $secureDatabase . "'
-                        AND i.table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
+                        AND i.table_name = '" . Util::sqlAddSlashes($table) . "'
                         AND i.is_unique
                             AND NOT i.is_nullable";
                 $result = $this->fetchResult($sql, 'index_name', null, $link);
@@ -1652,15 +1649,15 @@ class PMA_DatabaseInterface
                 FROM data_dictionary.index_parts ip
                     LEFT JOIN data_dictionary.indexes i
                     USING (table_schema, table_name, index_name)
-                WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
-                    AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
+                WHERE table_schema = '" . Util::sqlAddSlashes($database) . "'
+                    AND table_name = '" . Util::sqlAddSlashes($table) . "'
             ";
             if ($where) {
                 $sql = "SELECT * FROM (" . $sql . ") A WHERE (" . $where . ")";
             }
         } else {
-            $sql = 'SHOW INDEXES FROM ' . PMA_Util::backquote($database) . '.'
-                . PMA_Util::backquote($table);
+            $sql = 'SHOW INDEXES FROM ' . Util::backquote($database) . '.'
+                . Util::backquote($table);
             if ($where) {
                 $sql .= ' WHERE (' . $where . ')';
             }
@@ -1692,8 +1689,8 @@ class PMA_DatabaseInterface
      * returns value of given mysql server variable
      *
      * @param string $var  mysql server variable name
-     * @param int    $type PMA_DatabaseInterface::GETVAR_SESSION |
-     *                     PMA_DatabaseInterface::GETVAR_GLOBAL
+     * @param int    $type DatabaseInterface::GETVAR_SESSION |
+     *                     DatabaseInterface::GETVAR_GLOBAL
      * @param mixed  $link mysql link resource|object
      *
      * @return mixed   value for mysql server variable
@@ -1758,30 +1755,30 @@ class PMA_DatabaseInterface
     public function postConnect($link)
     {
         if (! defined('PMA_MYSQL_INT_VERSION')) {
-            if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION')) {
+            if (Util::cacheExists('PMA_MYSQL_INT_VERSION')) {
                 define(
                     'PMA_MYSQL_INT_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_INT_VERSION')
+                    Util::cacheGet('PMA_MYSQL_INT_VERSION')
                 );
                 define(
                     'PMA_MYSQL_MAJOR_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_MAJOR_VERSION')
+                    Util::cacheGet('PMA_MYSQL_MAJOR_VERSION')
                 );
                 define(
                     'PMA_MYSQL_STR_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION')
+                    Util::cacheGet('PMA_MYSQL_STR_VERSION')
                 );
                 define(
                     'PMA_MYSQL_VERSION_COMMENT',
-                    PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT')
+                    Util::cacheGet('PMA_MYSQL_VERSION_COMMENT')
                 );
                 define(
                     'PMA_MARIADB',
-                    PMA_Util::cacheGet('PMA_MARIADB')
+                    Util::cacheGet('PMA_MARIADB')
                 );
                 define(
                     'PMA_DRIZZLE',
-                    PMA_Util::cacheGet('PMA_DRIZZLE')
+                    Util::cacheGet('PMA_DRIZZLE')
                 );
             } else {
                 $version = $this->fetchSingleRow(
@@ -1810,19 +1807,19 @@ class PMA_DatabaseInterface
                     define('PMA_MYSQL_STR_VERSION', '5.05.01');
                     define('PMA_MYSQL_VERSION_COMMENT', '');
                 }
-                PMA_Util::cacheSet(
+                Util::cacheSet(
                     'PMA_MYSQL_INT_VERSION',
                     PMA_MYSQL_INT_VERSION
                 );
-                PMA_Util::cacheSet(
+                Util::cacheSet(
                     'PMA_MYSQL_MAJOR_VERSION',
                     PMA_MYSQL_MAJOR_VERSION
                 );
-                PMA_Util::cacheSet(
+                Util::cacheSet(
                     'PMA_MYSQL_STR_VERSION',
                     PMA_MYSQL_STR_VERSION
                 );
-                PMA_Util::cacheSet(
+                Util::cacheSet(
                     'PMA_MYSQL_VERSION_COMMENT',
                     PMA_MYSQL_VERSION_COMMENT
                 );
@@ -1832,7 +1829,7 @@ class PMA_DatabaseInterface
                 } else {
                     define('PMA_MARIADB', false);
                 }
-                PMA_Util::cacheSet(
+                Util::cacheSet(
                     'PMA_MARIADB',
                     PMA_MARIADB
                 );
@@ -1852,7 +1849,7 @@ class PMA_DatabaseInterface
                 }
                 $this->freeResult($charset_result);
 
-                PMA_Util::cacheSet(
+                Util::cacheSet(
                     'PMA_DRIZZLE',
                     PMA_DRIZZLE
                 );
@@ -1885,7 +1882,7 @@ class PMA_DatabaseInterface
                 }
                 $this->query(
                     "SET collation_connection = '"
-                    . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
+                    . Util::sqlAddSlashes($GLOBALS['collation_connection'])
                     . "';",
                     $link,
                     self::QUERY_STORE
@@ -1900,7 +1897,7 @@ class PMA_DatabaseInterface
         }
 
         // Cache plugin list for Drizzle
-        if (PMA_DRIZZLE && !PMA_Util::cacheExists('drizzle_engines')) {
+        if (PMA_DRIZZLE && !Util::cacheExists('drizzle_engines')) {
             $sql = "SELECT p.plugin_name, m.module_library
                 FROM data_dictionary.plugins p
                     JOIN data_dictionary.modules m USING (module_name)
@@ -1908,7 +1905,7 @@ class PMA_DatabaseInterface
                     AND p.plugin_name NOT IN ('FunctionEngine', 'schema')
                     AND p.is_active = 'YES'";
             $engines = $this->fetchResult($sql, 'plugin_name', null, $link);
-            PMA_Util::cacheSet('drizzle_engines', $engines);
+            Util::cacheSet('drizzle_engines', $engines);
         }
     }
 
@@ -2245,8 +2242,8 @@ class PMA_DatabaseInterface
             'VIEW'      => 'Create View'
         );
         $query = 'SHOW CREATE ' . $which . ' '
-            . PMA_Util::backquote($db) . '.'
-            . PMA_Util::backquote($name);
+            . Util::backquote($db) . '.'
+            . Util::backquote($name);
         return($this->fetchValue($query, 0, $returned_field[$which]));
     }
 
@@ -2283,14 +2280,14 @@ class PMA_DatabaseInterface
                 . " `DATABASE_COLLATION` AS `Database Collation`,"
                 . " `DTD_IDENTIFIER`"
                 . " FROM `information_schema`.`ROUTINES`"
-                . " WHERE `ROUTINE_SCHEMA` " . PMA_Util::getCollateForIS()
-                . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                . " WHERE `ROUTINE_SCHEMA` " . Util::getCollateForIS()
+                . " = '" . Util::sqlAddSlashes($db) . "'";
             if (PMA_isValid($which, array('FUNCTION','PROCEDURE'))) {
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
             if (! empty($name)) {
                 $query .= " AND `SPECIFIC_NAME`"
-                    . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
+                    . " = '" . Util::sqlAddSlashes($name) . "'";
             }
             $result = $this->fetchResult($query);
             if (!empty($result)) {
@@ -2299,10 +2296,10 @@ class PMA_DatabaseInterface
         } else {
             if ($which == 'FUNCTION' || $which == null) {
                 $query = "SHOW FUNCTION STATUS"
-                    . " WHERE `Db` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                    . " WHERE `Db` = '" . Util::sqlAddSlashes($db) . "'";
                 if (! empty($name)) {
                     $query .= " AND `Name` = '"
-                        . PMA_Util::sqlAddSlashes($name) . "'";
+                        . Util::sqlAddSlashes($name) . "'";
                 }
                 $result = $this->fetchResult($query);
                 if (!empty($result)) {
@@ -2311,10 +2308,10 @@ class PMA_DatabaseInterface
             }
             if ($which == 'PROCEDURE' || $which == null) {
                 $query = "SHOW PROCEDURE STATUS"
-                    . " WHERE `Db` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                    . " WHERE `Db` = '" . Util::sqlAddSlashes($db) . "'";
                 if (! empty($name)) {
                     $query .= " AND `Name` = '"
-                        . PMA_Util::sqlAddSlashes($name) . "'";
+                        . Util::sqlAddSlashes($name) . "'";
                 }
                 $result = $this->fetchResult($query);
                 if (!empty($result)) {
@@ -2378,17 +2375,17 @@ class PMA_DatabaseInterface
                 . " `COLLATION_CONNECTION` AS `collation_connection`, "
                 . "`DATABASE_COLLATION` AS `Database Collation`"
                 . " FROM `information_schema`.`EVENTS`"
-                . " WHERE `EVENT_SCHEMA` " . PMA_Util::getCollateForIS()
-                . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                . " WHERE `EVENT_SCHEMA` " . Util::getCollateForIS()
+                . " = '" . Util::sqlAddSlashes($db) . "'";
             if (! empty($name)) {
                 $query .= " AND `EVENT_NAME`"
-                    . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
+                    . " = '" . Util::sqlAddSlashes($name) . "'";
             }
         } else {
-            $query = "SHOW EVENTS FROM " . PMA_Util::backquote($db);
+            $query = "SHOW EVENTS FROM " . Util::backquote($db);
             if (! empty($name)) {
                 $query .= " AND `Name` = '"
-                    . PMA_Util::sqlAddSlashes($name) . "'";
+                    . Util::sqlAddSlashes($name) . "'";
             }
         }
 
@@ -2435,17 +2432,17 @@ class PMA_DatabaseInterface
                 . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
                 . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
                 . ' FROM information_schema.TRIGGERS'
-                . ' WHERE EVENT_OBJECT_SCHEMA ' . PMA_Util::getCollateForIS() . '='
-                . ' \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+                . ' WHERE EVENT_OBJECT_SCHEMA ' . Util::getCollateForIS() . '='
+                . ' \'' . Util::sqlAddSlashes($db) . '\'';
 
             if (! empty($table)) {
-                $query .= " AND EVENT_OBJECT_TABLE " . PMA_Util::getCollateForIS()
-                    . " = '" . PMA_Util::sqlAddSlashes($table) . "';";
+                $query .= " AND EVENT_OBJECT_TABLE " . Util::getCollateForIS()
+                    . " = '" . Util::sqlAddSlashes($table) . "';";
             }
         } else {
-            $query = "SHOW TRIGGERS FROM " . PMA_Util::backquote($db);
+            $query = "SHOW TRIGGERS FROM " . Util::backquote($db);
             if (! empty($table)) {
-                $query .= " LIKE '" . PMA_Util::sqlAddSlashes($table, true) . "';";
+                $query .= " LIKE '" . Util::sqlAddSlashes($table, true) . "';";
             }
         }
 
@@ -2469,7 +2466,7 @@ class PMA_DatabaseInterface
 
                 // do not prepend the schema name; this way, importing the
                 // definition into another schema will work
-                $one_result['full_trigger_name'] = PMA_Util::backquote(
+                $one_result['full_trigger_name'] = Util::backquote(
                     $trigger['TRIGGER_NAME']
                 );
                 $one_result['drop'] = 'DROP TRIGGER IF EXISTS '
@@ -2478,7 +2475,7 @@ class PMA_DatabaseInterface
                     . $one_result['full_trigger_name'] . ' '
                     . $trigger['ACTION_TIMING'] . ' '
                     . $trigger['EVENT_MANIPULATION']
-                    . ' ON ' . PMA_Util::backquote($trigger['EVENT_OBJECT_TABLE'])
+                    . ' ON ' . Util::backquote($trigger['EVENT_OBJECT_TABLE'])
                     . "\n" . ' FOR EACH ROW '
                     . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
 
@@ -2556,13 +2553,13 @@ class PMA_DatabaseInterface
      */
     public function getCurrentUser()
     {
-        if (PMA_Util::cacheExists('mysql_cur_user')) {
-            return PMA_Util::cacheGet('mysql_cur_user');
+        if (Util::cacheExists('mysql_cur_user')) {
+            return Util::cacheGet('mysql_cur_user');
         }
         $user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
         if ($user !== false) {
-            PMA_Util::cacheSet('mysql_cur_user', $user);
-            return PMA_Util::cacheGet('mysql_cur_user');
+            Util::cacheSet('mysql_cur_user', $user);
+            return Util::cacheGet('mysql_cur_user');
         }
         return '';
     }
@@ -2589,14 +2586,14 @@ class PMA_DatabaseInterface
      */
     public function isUserType($type)
     {
-        if (PMA_Util::cacheExists('is_' . $type . 'user')) {
-            return PMA_Util::cacheGet('is_' . $type . 'user');
+        if (Util::cacheExists('is_' . $type . 'user')) {
+            return Util::cacheGet('is_' . $type . 'user');
         }
 
         // when connection failed we don't have a $userlink
         if (! isset($GLOBALS['userlink'])) {
-            PMA_Util::cacheSet('is_' . $type . 'user', false);
-            return PMA_Util::cacheGet('is_' . $type . 'user');
+            Util::cacheSet('is_' . $type . 'user', false);
+            return Util::cacheGet('is_' . $type . 'user');
         }
 
         if (PMA_DRIZZLE) {
@@ -2605,8 +2602,8 @@ class PMA_DatabaseInterface
             // Known authorization libraries: regex_policy, simple_user_policy
             // Plugins limit object visibility (dbs, tables, processes), we can
             // safely assume we always deal with superuser
-            PMA_Util::cacheSet('is_' . $type . 'user', true);
-            return PMA_Util::cacheGet('is_' . $type . 'user');
+            Util::cacheSet('is_' . $type . 'user', true);
+            return Util::cacheGet('is_' . $type . 'user');
         }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS'] || $type === 'super') {
@@ -2645,7 +2642,7 @@ class PMA_DatabaseInterface
             }
             $GLOBALS['dbi']->freeResult($result);
 
-            PMA_Util::cacheSet('is_' . $type . 'user', $is);
+            Util::cacheSet('is_' . $type . 'user', $is);
         } else {
             $is = false;
             $grants = $GLOBALS['dbi']->fetchResult(
@@ -2673,10 +2670,10 @@ class PMA_DatabaseInterface
                 }
             }
 
-            PMA_Util::cacheSet('is_' . $type . 'user', $is);
+            Util::cacheSet('is_' . $type . 'user', $is);
         }
 
-        return PMA_Util::cacheGet('is_' . $type . 'user');
+        return Util::cacheGet('is_' . $type . 'user');
     }
 
     /**
@@ -3154,13 +3151,13 @@ class PMA_DatabaseInterface
      */
     public function isAmazonRds()
     {
-        if (PMA_Util::cacheExists('is_amazon_rds')) {
-            return PMA_Util::cacheGet('is_amazon_rds');
+        if (Util::cacheExists('is_amazon_rds')) {
+            return Util::cacheGet('is_amazon_rds');
         }
         $sql = 'SELECT @@basedir';
         $result = $this->fetchResult($sql);
         $rds = ($result[0] == '/rdsdbbin/mysql/');
-        PMA_Util::cacheSet('is_amazon_rds', $rds);
+        Util::cacheSet('is_amazon_rds', $rds);
 
         return $rds;
     }
@@ -3184,11 +3181,11 @@ class PMA_DatabaseInterface
     /**
      * Get the phpmyadmin database manager
      *
-     * @return PMA\SystemDatabase
+     * @return SystemDatabase
      */
     public function getSystemDatabase()
     {
-        return new PMA\SystemDatabase($this);
+        return new SystemDatabase($this);
     }
 
     /**

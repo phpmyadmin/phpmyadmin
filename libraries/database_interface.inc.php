@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/DatabaseInterface.php';
 
 if (defined('TESTSUITE')) {
     /**
@@ -27,9 +27,9 @@ if (defined('TESTSUITE')) {
      * (if PHP 7+, it's the only one supported)
      */
     $extension = 'mysqli';
-    if (! PMA_DatabaseInterface::checkDbExtension($extension)) {
+    if (! PMA\libraries\DatabaseInterface::checkDbExtension($extension)) {
 
-        $docurl = PMA_Util::getDocuLink('faq', 'faqmysql');
+        $docurl = PMA\libraries\Util::getDocuLink('faq', 'faqmysql');
         $doclink = sprintf(
             __('See %sour documentation%s for more information.'),
             '[a@' . $docurl  . '@documentation]',
@@ -38,7 +38,7 @@ if (defined('TESTSUITE')) {
 
         if (PMA_PHP_INT_VERSION < 70000) {
             $extension = 'mysql';
-            if (! PMA_DatabaseInterface::checkDbExtension($extension)) {
+            if (! PMA\libraries\DatabaseInterface::checkDbExtension($extension)) {
                 // warn about both extensions missing and exit
                 PMA_warnMissingExtension(
                     'mysqli|mysql',
@@ -81,7 +81,7 @@ if (defined('TESTSUITE')) {
         break;
     }
 }
-$GLOBALS['dbi'] = new PMA_DatabaseInterface($extension);
+$GLOBALS['dbi'] = new PMA\libraries\DatabaseInterface($extension);
 
 $container = \PMA\DI\Container::getDefaultContainer();
 $container->set('PMA_DatabaseInterface', $GLOBALS['dbi']);

@@ -1,31 +1,23 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds class PMA_Error_Handler
+ * Holds class PMA\libraries\ErrorHandler
  *
  * @package PhpMyAdmin
  */
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-/**
- *
- */
-require_once './libraries/Error.class.php';
+namespace PMA\libraries;
 
 /**
  * handling errors
  *
  * @package PhpMyAdmin
  */
-class PMA_Error_Handler
+class ErrorHandler
 {
     /**
      * holds errors to be displayed or reported later ...
      *
-     * @var PMA_Error[]
+     * @var Error[]
      */
     protected $errors = array();
 
@@ -66,7 +58,7 @@ class PMA_Error_Handler
                  * explode user session.
                  */
                 if (count($_SESSION['errors']) >= 10) {
-                    $error = new PMA_Error(
+                    $error = new Error(
                         0,
                         __('Too many error messages, some are not displayed.'),
                         __FILE__,
@@ -74,7 +66,7 @@ class PMA_Error_Handler
                     );
                     $_SESSION['errors'][$error->getHash()] = $error;
                     break;
-                } else if (($error instanceof PMA_Error)
+                } else if (($error instanceof Error)
                     && ! $error->isDisplayed()
                 ) {
                     $_SESSION['errors'][$key] = $error;
@@ -86,7 +78,7 @@ class PMA_Error_Handler
     /**
      * returns array with all errors
      *
-     * @return PMA_Error[]
+     * @return Error[]
      */
     protected function getErrors()
     {
@@ -98,7 +90,7 @@ class PMA_Error_Handler
     * returns the errors occurred in the current run only.
     * Does not include the errors save din the SESSION
     *
-    * @return PMA_Error[]
+    * @return Error[]
     */
     public function getCurrentErrors()
     {
@@ -152,7 +144,7 @@ class PMA_Error_Handler
             $errstr = htmlspecialchars($errstr);
         }
         // create error object
-        $error = new PMA_Error(
+        $error = new Error(
             $errno,
             $errstr,
             $errfile,
@@ -191,7 +183,7 @@ class PMA_Error_Handler
     /**
      * log error to configured log facility
      *
-     * @param PMA_Error $error the error
+     * @param Error $error the error
      *
      * @return bool
      *
@@ -220,7 +212,7 @@ class PMA_Error_Handler
     /**
      * display fatal error and exit
      *
-     * @param PMA_Error $error the error
+     * @param Error $error the error
      *
      * @return void
      */
@@ -263,13 +255,13 @@ class PMA_Error_Handler
     /**
      * display HTML header
      *
-     * @param PMA_error $error the error
+     * @param Error $error the error
      *
      * @return void
      */
     protected function dispPageStart($error = null)
     {
-        PMA_Response::getInstance()->disable();
+        Response::getInstance()->disable();
         echo '<html><head><title>';
         if ($error) {
             echo $error->getTitle();
@@ -300,7 +292,7 @@ class PMA_Error_Handler
         // display errors if SendErrorReports is set to 'ask'.
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             foreach ($this->getErrors() as $error) {
-                if ($error instanceof PMA_Error) {
+                if ($error instanceof Error) {
                     if (! $error->isDisplayed()) {
                         $retval .= $error->getDisplay();
                     }
@@ -373,7 +365,7 @@ class PMA_Error_Handler
 
             // restore saved errors
             foreach ($_SESSION['errors'] as $hash => $error) {
-                if ($error instanceof PMA_Error && ! isset($this->errors[$hash])) {
+                if ($error instanceof Error && ! isset($this->errors[$hash])) {
                     $this->errors[$hash] = $error;
                 }
             }
@@ -506,7 +498,7 @@ class PMA_Error_Handler
         }
         // Delete all the prev_errors in session & store new prev_errors in session
         $this->savePreviousErrors();
-        $response = PMA_Response::getInstance();
+        $response = Response::getInstance();
         $jsCode = '';
         if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
             if ($response->isAjax()) {

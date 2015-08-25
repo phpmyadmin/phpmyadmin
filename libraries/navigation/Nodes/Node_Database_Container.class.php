@@ -34,7 +34,7 @@ class Node_Database_Container extends Node
                 'Node', _pgettext('Create new database', 'New')
             );
             $new->isNew = true;
-            $new->icon  = PMA_Util::getImage('b_newdb.png', '');
+            $new->icon  = PMA\libraries\Util::getImage('b_newdb.png', '');
             $new->links = array(
                 'text' => 'server_databases.php?server=' . $GLOBALS['server']
                         . '&amp;token=' . $_SESSION[' PMA_token '],

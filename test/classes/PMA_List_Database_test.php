@@ -1,22 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA_List_Database class
+ * tests for ListDatabase class
  *
  * @package PhpMyAdmin-test
  */
+
+use PMA\libraries\ListDatabase;
 
 $GLOBALS['server'] = 1;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/List_Database.class.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/ListDatabase.php';
 require_once 'libraries/relation.lib.php';
 
 /**
- * tests for PMA_List_Database class
+ * tests for ListDatabase class
  *
  * @package PhpMyAdmin-test
  */
@@ -30,7 +32,7 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['cfg']['Server']['only_db'] = array('single\\_db');
-        $this->object = new PMA_List_Database();
+        $this->object = new ListDatabase();
     }
 
     /**
@@ -43,42 +45,42 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA_List_Database');
+        $class = new ReflectionClass('ListDatabase');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
     }
 
     /**
-     * Test for PMA_List_Database::getEmpty
+     * Test for ListDatabase::getEmpty
      *
      * @return void
      */
     public function testEmpty()
     {
-        $arr = new PMA_List_Database;
+        $arr = new ListDatabase;
         $this->assertEquals('', $arr->getEmpty());
     }
 
     /**
-     * Test for PMA_List_Database::exists
+     * Test for ListDatabase::exists
      *
      * @return void
      */
     public function testExists()
     {
-        $arr = new PMA_List_Database;
+        $arr = new ListDatabase;
         $this->assertEquals(true, $arr->exists('single_db'));
     }
 
     /**
-     * Test for PMA_List_Database::getHtmlOptions
+     * Test for ListDatabase::getHtmlOptions
      *
      * @return void
      */
     public function testHtmlOptions()
     {
-        $arr = new PMA_List_Database;
+        $arr = new ListDatabase;
         $this->assertEquals(
             '<option value="single_db">single_db</option>' . "\n",
             $arr->getHtmlOptions()

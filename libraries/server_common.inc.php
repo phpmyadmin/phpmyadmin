@@ -41,7 +41,7 @@ if ($GLOBALS['is_superuser'] && ! PMA_DRIZZLE) {
     $GLOBALS['dbi']->selectDb('mysql', $GLOBALS['userlink']);
 }
 
-PMA_Util::checkParameters(
+PMA\libraries\Util::checkParameters(
     array('is_superuser', 'url_query'), false
 );
 

@@ -12,9 +12,10 @@
  * Include to test.
  */
 use PMA\DI\Container;
+use PMA\libraries\PMA_Theme;
 
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/DatabaseInterface.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Table.class.php';
@@ -32,7 +33,7 @@ require_once 'libraries/controllers/TableStructureController.class.php';
 class TableStructureController_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var \PMA\Test\Stubs\PMA_Response
+     * @var \PMA\Test\Stubs\Response
      */
     private $response;
 
@@ -70,7 +71,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('getTable')
@@ -82,9 +83,9 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new \PMA\Test\Stubs\PMA_Response();
-        $container->set('PMA_Response', $this->response);
-        $container->alias('response', 'PMA_Response');
+        $this->response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->response);
+        $container->alias('response', 'PMA\libraries\Response');
     }
 
     /**
@@ -295,7 +296,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetDataForSubmitMult()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

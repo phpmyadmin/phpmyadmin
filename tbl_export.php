@@ -15,7 +15,7 @@ require_once 'libraries/display_export.lib.php';
 
 PMA_PageSettings::showGroup('Export');
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
@@ -28,12 +28,12 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
 
     if (isset($_REQUEST['templateId'])) {
         $templateId = $_REQUEST['templateId'];
-        $id = PMA_Util::sqlAddSlashes($templateId);
+        $id = PMA\libraries\Util::sqlAddSlashes($templateId);
     }
 
-    $templateTable = PMA_Util::backquote($cfgRelation['db']) . '.'
-       . PMA_Util::backquote($cfgRelation['export_templates']);
-    $user = PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
+    $templateTable = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+       . PMA\libraries\Util::backquote($cfgRelation['export_templates']);
+    $user = PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
 
     switch ($_REQUEST['templateAction']) {
     case 'create':
@@ -42,9 +42,9 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
             . " `template_name`, `template_data`"
             . ") VALUES ("
             . "'" . $user . "', "
-            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['exportType']) . "', "
-            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateName']) . "', "
-            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateData']) . "');";
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['exportType']) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateName']) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData']) . "');";
         break;
     case 'load':
         $query = "SELECT `template_data` FROM " . $templateTable
@@ -52,7 +52,7 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
         break;
     case 'update':
         $query = "UPDATE " . $templateTable . " SET `template_data` = "
-          . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateData']) . "'"
+          . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData']) . "'"
           . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
         break;
     case 'delete':
@@ -65,7 +65,7 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
 
     $result = PMA_queryAsControlUser($query, false);
 
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     if (! $result) {
         $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
         $response->isSuccess(false);
@@ -170,7 +170,7 @@ if (! empty($sql_query)) {
         );
     }
 
-    echo PMA_Util::getMessage(PMA_Message::success());
+    echo PMA\libraries\Util::getMessage(PMA\libraries\Message::success());
 }
 
 $export_type = 'table';

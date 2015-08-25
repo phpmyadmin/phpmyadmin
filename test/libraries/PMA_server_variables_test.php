@@ -9,13 +9,15 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+use PMA\libraries\PMA_Theme;
+
+require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_variables.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
@@ -61,7 +63,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -155,11 +157,11 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
         );
         //validate 2: images
         $this->assertContains(
-            PMA_Util::getIcon('b_save.png', __('Save')),
+            PMA\libraries\Util::getIcon('b_save.png', __('Save')),
             $html
         );
         $this->assertContains(
-            PMA_Util::getIcon('b_close.png', __('Cancel')),
+            PMA\libraries\Util::getIcon('b_close.png', __('Cancel')),
             $html
         );
     }

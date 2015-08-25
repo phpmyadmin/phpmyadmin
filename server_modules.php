@@ -22,7 +22,7 @@ $modules = PMA_getServerModules();
 /**
  * Displays the page
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML('<div>');
 $response->addHTML(PMA_getHtmlForPluginsSubTabs('server_modules.php'));
 $response->addHTML(PMA_getModuleTab($modules));

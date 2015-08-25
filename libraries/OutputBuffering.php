@@ -4,16 +4,14 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Output buffering wrapper class
  *
  * @package PhpMyAdmin
  */
-class PMA_OutputBuffering
+class OutputBuffering
 {
     private static $_instance;
     private $_mode;
@@ -60,14 +58,14 @@ class PMA_OutputBuffering
     }
 
     /**
-     * Returns the singleton PMA_OutputBuffering object
+     * Returns the singleton OutputBuffering object
      *
-     * @return PMA_OutputBuffering object
+     * @return OutputBuffering object
      */
     public static function getInstance()
     {
         if (empty(self::$_instance)) {
-            self::$_instance = new PMA_OutputBuffering();
+            self::$_instance = new OutputBuffering();
         }
         return self::$_instance;
     }
@@ -89,7 +87,7 @@ class PMA_OutputBuffering
             if (! defined('TESTSUITE')) {
                 header('X-ob_mode: ' . $this->_mode);
             }
-            register_shutdown_function('PMA_OutputBuffering::stop');
+            register_shutdown_function(array('PMA\libraries\OutputBuffering', 'stop'));
             $this->_on = true;
         }
     }
@@ -103,7 +101,7 @@ class PMA_OutputBuffering
      */
     public static function stop()
     {
-        $buffer = PMA_OutputBuffering::getInstance();
+        $buffer = OutputBuffering::getInstance();
         if ($buffer->_on) {
             $buffer->_on = false;
             $buffer->_content = ob_get_contents();

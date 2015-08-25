@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for DbSearch.class.php
+ * Tests for DbSearch.php
  *
  * @package PhpMyAdmin-test
  */
@@ -9,14 +9,17 @@
  * Include to test.
  */
 
-require_once 'libraries/DbSearch.class.php';
+require_once 'libraries/DbSearch.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
+
+use PMA\libraries\DbSearch;
+use PMA\libraries\PMA_Theme;
 
 /**
  * Tests for database search.
@@ -39,7 +42,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_DbSearch('pma_test');
+        $this->object = new DbSearch('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ShowHint'] = true;
@@ -68,7 +71,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA_DbSearch');
+        $class = new ReflectionClass('PMA\libraries\DbSearch');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -82,7 +85,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
     public function testGetSearchSqls()
     {
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

@@ -36,7 +36,7 @@ if ($_foreigners
         </a>
     <?php endif; ?>
 
-<?php elseif (in_array($column_type, PMA_Util::getGISDatatypes())): ?>
+<?php elseif (in_array($column_type, PMA\libraries\Util::getGISDatatypes())): ?>
     <input type="text"
            name="criteriaValues[<?php echo $column_index; ?>]"
            size="40"
@@ -46,11 +46,11 @@ if ($_foreigners
 
         <?php
         $edit_url = 'gis_data_editor.php' . PMA_URL_getCommon();
-        $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
+        $edit_str = PMA\libraries\Util::getIcon('b_edit.png', __('Edit/Insert'));
         ?>
 
         <span class="open_search_gis_editor">
-            <?php echo PMA_Util::linkOrButton(
+            <?php echo PMA\libraries\Util::linkOrButton(
                 $edit_url, $edit_str, array(), false, false, '_blank'
             ); ?>
         </span>

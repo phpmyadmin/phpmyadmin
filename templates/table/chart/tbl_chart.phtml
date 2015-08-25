@@ -142,12 +142,12 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <?php echo PMA_Util::getStartAndNumberOfRowsPanel($sql_query); ?>
+            <?php echo PMA\libraries\Util::getStartAndNumberOfRowsPanel($sql_query); ?>
             <p style="clear:both;">&nbsp;</p>
             <div id="resizer" style="width:600px; height:400px;">
                 <div style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
                     <a class="disableAjax" id="saveChart" href="#" download="chart.png">
-                        <?php echo PMA_Util::getImage('b_saveimage', __('Save chart as image')); ?>
+                        <?php echo PMA\libraries\Util::getImage('b_saveimage', __('Save chart as image')); ?>
                     </a>
                 </div>
                 <div id="querychart" dir="ltr">

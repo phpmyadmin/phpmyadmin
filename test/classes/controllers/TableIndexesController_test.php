@@ -8,15 +8,16 @@
 
 use PMA\Controllers\Table\TableIndexesController;
 use PMA\DI\Container;
+use PMA\libraries\PMA_Theme;
 
 /*
  * Include to test.
  */
 require_once 'libraries/Template.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/Index.class.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Index.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
@@ -55,7 +56,7 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
             'server' => 1
         );
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -110,9 +111,9 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $response = new \PMA\Test\Stubs\PMA_Response();
-        $container->set('PMA_Response', $response);
-        $container->alias('response', 'PMA_Response');
+        $response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $response);
+        $container->alias('response', 'PMA\libraries\Response');
 
         $ctrl = new TableIndexesController(null);
 
@@ -161,10 +162,10 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $response = new \PMA\Test\Stubs\PMA_Response();
-        $container->set('PMA_Response', $response);
-        $container->alias('response', 'PMA_Response');
-        $index = new PMA_Index();
+        $response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $response);
+        $container->alias('response', 'PMA\libraries\Response');
+        $index = new PMA\libraries\Index();
 
         $ctrl = new TableIndexesController($index);
 
@@ -185,8 +186,8 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $doc_html = PMA_Util::showHint(
-            PMA_Message::notice(
+        $doc_html = PMA\libraries\Util::showHint(
+            PMA\libraries\Message::notice(
                 __(
                     '"PRIMARY" <b>must</b> be the name of'
                     . ' and <b>only of</b> a primary key!'
@@ -199,13 +200,13 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            PMA_Util::showMySQLDocu('ALTER_TABLE'),
+            PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'),
             $html
         );
 
         // generateIndexSelector
         $this->assertContains(
-            PMA\Template::trim($index->generateIndexChoiceSelector(false)),
+            PMA\libraries\Template::trim($index->generateIndexChoiceSelector(false)),
             $html
         );
 

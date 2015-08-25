@@ -8,6 +8,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_StorageEngine;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -91,9 +93,9 @@ function PMA_getHtmlForSpecifiedServerEngines()
     $html = '';
     $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
     $html .= '<h2>' . "\n"
-        . PMA_Util::getImage('b_engine.png')
+        . PMA\libraries\Util::getImage('b_engine.png')
         . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
-        . '    ' . PMA_Util::showMySQLDocu($engine_plugin->getMysqlHelpPage())
+        . '    ' . PMA\libraries\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage())
         . "\n" . '</h2>' . "\n\n";
     $html .= '<p>' . "\n"
         . '    <em>' . "\n"

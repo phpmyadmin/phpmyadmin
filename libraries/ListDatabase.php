@@ -1,26 +1,23 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * holds the PMA_List_Database class
+ * holds the ListDatabase class
  *
  * @package PhpMyAdmin
  */
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * the list base class
  */
-require_once './libraries/List.class.php';
+require_once './libraries/List.php';
 require_once './libraries/check_user_privileges.lib.php';
 
 /**
  * handles database lists
  *
  * <code>
- * $PMA_List_Database = new PMA_List_Database($userlink);
+ * $ListDatabase = new ListDatabase($userlink);
  * </code>
  *
  * @todo this object should be attached to the PMA_Server object
@@ -28,7 +25,7 @@ require_once './libraries/check_user_privileges.lib.php';
  * @package PhpMyAdmin
  * @since   phpMyAdmin 2.9.10
  */
-class PMA_List_Database extends PMA_List
+class ListDatabase extends PMA_List
 {
     /**
      * @var mixed   database link resource|object to be used
@@ -164,7 +161,7 @@ class PMA_List_Database extends PMA_List
             // thus containing not escaped _ or %
             if (! preg_match('/(^|[^\\\\])(_|%)/', $each_only_db)) {
                 // ... not contains wildcard
-                $items[] = PMA_Util::unescapeMysqlWildcards($each_only_db);
+                $items[] = Util::unescapeMysqlWildcards($each_only_db);
                 continue;
             }
 

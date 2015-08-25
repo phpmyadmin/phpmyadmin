@@ -7,12 +7,12 @@
  */
 require_once 'libraries/plugins/export/ExportTexytext.class.php';
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
@@ -243,13 +243,13 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -306,7 +306,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetTableDefStandIn()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -373,7 +373,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
         // case 1
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -479,7 +479,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetTriggers()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -521,7 +521,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     public function testExportStructure()
     {
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

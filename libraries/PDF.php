@@ -5,9 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
+
+use TCPDF;
+use TCPDF_FONTS;
 
 require_once TCPDF_INC;
 
@@ -21,7 +22,7 @@ define('PMA_PDF_FONT', 'DejaVuSans');
  *
  * @package PhpMyAdmin
  */
-class PMA_PDF extends TCPDF
+class PDF extends TCPDF
 {
     var $footerset;
     var $Alias = array();
@@ -71,7 +72,7 @@ class PMA_PDF extends TCPDF
                 . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(),
                 'T', 0, 'C'
             );
-            $this->Cell(0, 6, PMA_Util::localisedDate(), 0, 1, 'R');
+            $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
             $this->SetY(20);
 
             // set footerset
@@ -122,7 +123,7 @@ class PMA_PDF extends TCPDF
      */
     public function Error($error_message = '')
     {
-        PMA_Message::error(
+        Message::error(
             __('Error while creating PDF:') . ' ' . $error_message
         )->display();
         exit;
@@ -138,7 +139,7 @@ class PMA_PDF extends TCPDF
     public function Download($filename)
     {
         $pdfData = $this->getPDFData();
-        PMA_Response::getInstance()->disable();
+        Response::getInstance()->disable();
         PMA_downloadHeader(
             $filename,
             'application/pdf',

@@ -5,195 +5,21 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-/**
- * Represents a sub partition of a table
- *
- * @package PhpMyAdmin
- */
-class PMA_SubPartition
-{
-    /**
-     * @var string the database
-     */
-    protected $db;
-    /**
-     * @var string the table
-     */
-    protected $table;
-    /**
-     * @var string partition name
-     */
-    protected $name;
-    /**
-     * @var integer ordinal
-     */
-    protected $ordinal;
-    /**
-     * @var string partition method
-     */
-    protected $method;
-    /**
-     * @var string partition expression
-     */
-    protected $expression;
-    /**
-     * @var integer no of table rows in the partition
-     */
-    protected $rows;
-    /**
-     * @var integer data length
-     */
-    protected $dataLength;
-    /**
-     * @var integer index length
-     */
-    protected $indexLength;
-    /**
-     * @var string partition comment
-     */
-    protected $comment;
-
-    /**
-     * Constructs a partition
-     *
-     * @param array $row fetched row from information_schema.PARTITIONS
-     */
-    public function __construct($row)
-    {
-        $this->db = $row['TABLE_SCHEMA'];
-        $this->table = $row['TABLE_NAME'];
-        $this->loadData($row);
-    }
-
-    /**
-     * Loads data from the fetched row from information_schema.PARTITIONS
-     *
-     * @param array $row fetched row
-     *
-     * @return void
-     */
-    protected function loadData($row)
-    {
-        $this->name = $row['SUBPARTITION_NAME'];
-        $this->ordinal = $row['SUBPARTITION_ORDINAL_POSITION'];
-        $this->method = $row['SUBPARTITION_METHOD'];
-        $this->expression = $row['SUBPARTITION_EXPRESSION'];
-        $this->loadCommonData($row);
-    }
-
-    /**
-     * Loads some data that is common to both partitions and sub partitions
-     *
-     * @param array $row fetched row
-     *
-     * @return void
-     */
-    protected function loadCommonData($row)
-    {
-        $this->rows = $row['TABLE_ROWS'];
-        $this->dataLength = $row['DATA_LENGTH'];
-        $this->indexLength = $row['INDEX_LENGTH'];
-        $this->comment = $row['PARTITION_COMMENT'];
-    }
-
-    /**
-     * Return the partition name
-     *
-     * @return string partition name
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Return the ordinal of the partition
-     *
-     * @return number the ordinal
-     */
-    public function getOrdinal()
-    {
-        return $this->ordinal;
-    }
-
-    /**
-     * Returns the partition method
-     *
-     * @return string partition method
-     */
-    public function getMethod()
-    {
-        return $this->method;
-    }
-
-    /**
-     * Returns the partition expression
-     *
-     * @return string partition expression
-     */
-    public function getExpression()
-    {
-        return $this->expression;
-    }
-
-    /**
-     * Returns the number of data rows
-     *
-     * @return integer number of rows
-     */
-    public function getRows()
-    {
-        return $this->rows;
-    }
-
-    /**
-     * Returns the data length
-     *
-     * @return integer data length
-     */
-    public function getDataLength()
-    {
-        return $this->dataLength;
-    }
-
-    /**
-     * Returns the index length
-     *
-     * @return integer index length
-     */
-    public function getIndexLength()
-    {
-        return $this->indexLength;
-    }
-
-    /**
-     * Returns the partition comment
-     *
-     * @return string partition comment
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-}
+namespace PMA\libraries;
 
 /**
  * base Partition Class
  *
  * @package PhpMyAdmin
  */
-class PMA_Partition extends PMA_SubPartition
+class Partition extends SubPartition
 {
     /**
      * @var string partition description
      */
     protected $description;
     /**
-     * @var PMA_SubPartition[] sub partitions
+     * @var SubPartition[] sub partitions
      */
     protected $subPartitions = array();
 
@@ -230,11 +56,11 @@ class PMA_Partition extends PMA_SubPartition
     /**
      * Add a sub partition
      *
-     * @param PMA_SubPartition $partition Sub partition
+     * @param SubPartition $partition Sub partition
      *
      * @return void
      */
-    public function addSubPartition(PMA_SubPartition $partition)
+    public function addSubPartition(SubPartition $partition)
     {
         $this->subPartitions[] = $partition;
     }
@@ -306,7 +132,7 @@ class PMA_Partition extends PMA_SubPartition
     /**
      * Returns the list of sub partitions
      *
-     * @return PMA_SubPartition[]
+     * @return SubPartition[]
      */
     public function getSubPartitions()
     {
@@ -320,15 +146,15 @@ class PMA_Partition extends PMA_SubPartition
      * @param string $table table name
      *
      * @access  public
-     * @return PMA_Partition[]
+     * @return Partition[]
      */
     static public function getPartitions($db, $table)
     {
-        if (PMA_Partition::havePartitioning()) {
+        if (Partition::havePartitioning()) {
             $result = $GLOBALS['dbi']->fetchResult(
                 "SELECT * FROM `information_schema`.`PARTITIONS`"
-                . " WHERE `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($db)
-                . "' AND `TABLE_NAME` = '" . PMA_Util::sqlAddSlashes($table) . "'"
+                . " WHERE `TABLE_SCHEMA` = '" . Util::sqlAddSlashes($db)
+                . "' AND `TABLE_NAME` = '" . Util::sqlAddSlashes($table) . "'"
             );
             if ($result) {
                 $partitionMap = array();
@@ -336,13 +162,13 @@ class PMA_Partition extends PMA_SubPartition
                     if (isset($partitionMap[$row['PARTITION_NAME']])) {
                         $partition = $partitionMap[$row['PARTITION_NAME']];
                     } else {
-                        $partition = new PMA_Partition($row);
+                        $partition = new Partition($row);
                         $partitionMap[$row['PARTITION_NAME']] = $partition;
                     }
 
                     if (! empty($row['SUBPARTITION_NAME'])) {
                         $parentPartition = $partition;
-                        $partition = new PMA_SubPartition($row);
+                        $partition = new SubPartition($row);
                         $parentPartition->addSubPartition($partition);
                     }
                 }
@@ -365,11 +191,11 @@ class PMA_Partition extends PMA_SubPartition
      */
     static public function getPartitionNames($db, $table)
     {
-        if (PMA_Partition::havePartitioning()) {
+        if (Partition::havePartitioning()) {
             return $GLOBALS['dbi']->fetchResult(
                 "SELECT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`"
-                . " WHERE `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($db)
-                . "' AND `TABLE_NAME` = '" . PMA_Util::sqlAddSlashes($table) . "'"
+                . " WHERE `TABLE_SCHEMA` = '" . Util::sqlAddSlashes($db)
+                . "' AND `TABLE_NAME` = '" . Util::sqlAddSlashes($table) . "'"
             );
         } else {
             return array();
@@ -386,11 +212,11 @@ class PMA_Partition extends PMA_SubPartition
      */
     static public function getPartitionMethod($db, $table)
     {
-        if (PMA_Partition::havePartitioning()) {
+        if (Partition::havePartitioning()) {
             $partition_method = $GLOBALS['dbi']->fetchResult(
                 "SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`"
-                . " WHERE `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($db) . "'"
-                . " AND `TABLE_NAME` = '" . PMA_Util::sqlAddSlashes($table) . "'"
+                . " WHERE `TABLE_SCHEMA` = '" . Util::sqlAddSlashes($db) . "'"
+                . " AND `TABLE_NAME` = '" . Util::sqlAddSlashes($table) . "'"
             );
             if (! empty($partition_method)) {
                 return $partition_method[0];

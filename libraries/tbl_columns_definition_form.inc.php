@@ -6,6 +6,10 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_String;
+use PMA\libraries\PMA_Table;
+use PMA\Util;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }
@@ -14,13 +18,10 @@ if (!defined('PHPMYADMIN')) {
  * Check parameters
  */
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/Util.class.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/util.lib.php';
 
-use PMA\Util;
-
-PMA_Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
+PMA\libraries\Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
 
 global $db, $table;
 
@@ -46,7 +47,7 @@ require_once './libraries/StorageEngine.class.php';
 /**
  * Class for partition management
  */
-require_once './libraries/Partition.class.php';
+require_once './libraries/Partition.php';
 
 /** @var PMA_String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
@@ -102,7 +103,7 @@ $comments_map = PMA_getComments($db, $table);
 
 $move_columns = array();
 if (isset($fields_meta)) {
-    /** @var PMA_DatabaseInterface $dbi */
+    /** @var PMA\libraries\DatabaseInterface $dbi */
     $dbi = \PMA\DI\Container::getDefaultContainer()->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
@@ -272,10 +273,10 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     if (isset($columnMeta['Type'])) {
-        $extracted_columnspec = PMA_Util::extractColumnSpec($columnMeta['Type']);
+        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec($columnMeta['Type']);
         if ($extracted_columnspec['type'] == 'bit') {
             $columnMeta['Default']
-                = PMA_Util::convertBitDefaultValue($columnMeta['Default']);
+                = PMA\libraries\Util::convertBitDefaultValue($columnMeta['Default']);
         }
         $type = $extracted_columnspec['type'];
         if ($length == '') {
@@ -401,7 +402,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
-$html = PMA\Template::get('columns_definitions/column_definitions_form')->render(
+$html = PMA\libraries\Template::get('columns_definitions/column_definitions_form')->render(
     array(
         'is_backup' => $is_backup,
         'fields_meta' => isset($fields_meta) ? $fields_meta : null,
@@ -414,7 +415,7 @@ $html = PMA\Template::get('columns_definitions/column_definitions_form')->render
 
 unset($form_params);
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     array(
         'jquery/jquery.uitablefilter.js',

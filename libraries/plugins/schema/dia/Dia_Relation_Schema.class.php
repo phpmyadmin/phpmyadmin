@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -174,7 +176,7 @@ class PMA_DIA extends XMLWriter
             ob_end_clean();
         }
         $output = $this->flush();
-        PMA_Response::getInstance()->disable();
+        PMA\libraries\Response::getInstance()->disable();
         PMA_downloadHeader(
             $fileName,
             'application/x-dia-diagram',

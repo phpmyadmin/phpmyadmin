@@ -68,7 +68,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         }
     }
 
-    $sql_query .= $sep . ' VIEW ' . PMA_Util::backquote($_REQUEST['view']['name']);
+    $sql_query .= $sep . ' VIEW ' . PMA\libraries\Util::backquote($_REQUEST['view']['name']);
 
     if (! empty($_REQUEST['view']['column_names'])) {
         $sql_query .= $sep . ' (' . $_REQUEST['view']['column_names'] . ')';
@@ -85,14 +85,14 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if (!$GLOBALS['dbi']->tryQuery($sql_query)) {
         if (! isset($_REQUEST['ajax_dialog'])) {
-            $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
+            $message = PMA\libraries\Message::rawError($GLOBALS['dbi']->getError());
             return;
         }
 
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
-            PMA_Message::error(
+            PMA\libraries\Message::error(
                 "<i>" . htmlspecialchars($sql_query) . "</i><br /><br />"
                 . $GLOBALS['dbi']->getError()
             )
@@ -133,13 +133,13 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     unset($pma_transformation_data);
 
     if (! isset($_REQUEST['ajax_dialog'])) {
-        $message = PMA_Message::success();
+        $message = PMA\libraries\Message::success();
         include 'tbl_structure.php';
     } else {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
-            PMA_Util::getMessage(PMA_Message::success(), $sql_query)
+            PMA\libraries\Util::getMessage(PMA\libraries\Message::success(), $sql_query)
         );
         $response->isSuccess(true);
     }

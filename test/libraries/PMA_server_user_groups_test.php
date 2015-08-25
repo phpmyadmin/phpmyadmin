@@ -6,8 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\PMA_Theme;
+
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
@@ -58,7 +60,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
             . " ORDER BY `usergroup` ASC";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -96,7 +98,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
             . " ORDER BY `usergroup` ASC";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -178,7 +180,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $userGrpDelQuery = "DELETE FROM `pmadb`.`usergroups`"
             . " WHERE `usergroup`='ug'";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->at(0))
@@ -212,7 +214,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
 
         $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
             . " WHERE `usergroup`='ug'";
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())

@@ -10,7 +10,7 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/db_designer.lib.php';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 
 if (isset($_REQUEST['dialog'])) {
 
@@ -111,7 +111,7 @@ if (isset($_GET['db'])) {
     $params['db'] = $_GET['db'];
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->setBodyId('pmd_body');
@@ -138,7 +138,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 // Embed some data into HTML, later it will be read
 // by pmd/init.js and converted to JS variables.

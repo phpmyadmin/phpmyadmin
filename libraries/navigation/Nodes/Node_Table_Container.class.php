@@ -24,7 +24,7 @@ class Node_Table_Container extends Node_DatabaseChild_Container
     public function __construct()
     {
         parent::__construct(__('Tables'), Node::CONTAINER);
-        $this->icon  = PMA_Util::getImage('b_browse.png', __('Tables'));
+        $this->icon  = PMA\libraries\Util::getImage('b_browse.png', __('Tables'));
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;tbl_type=table'
@@ -39,7 +39,7 @@ class Node_Table_Container extends Node_DatabaseChild_Container
         $new_label = _pgettext('Create new table', 'New');
         $new        = PMA_NodeFactory::getInstance('Node', $new_label);
         $new->isNew = true;
-        $new->icon  = PMA_Util::getImage('b_table_add.png', $new_label);
+        $new->icon  = PMA\libraries\Util::getImage('b_table_add.png', $new_label);
         $new->links = array(
             'text' => 'tbl_create.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],

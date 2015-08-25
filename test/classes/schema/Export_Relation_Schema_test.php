@@ -8,7 +8,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';

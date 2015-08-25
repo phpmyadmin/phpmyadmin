@@ -16,7 +16,7 @@ require_once 'libraries/config/page_settings.class.php';
 
 PMA_PageSettings::showGroup('Export');
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');

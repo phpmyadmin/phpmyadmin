@@ -10,7 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 
 /**
  * tests for JS variable formatting

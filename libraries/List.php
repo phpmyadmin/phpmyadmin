@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
+
+use ArrayObject;
 
 /**
  * Generic list class

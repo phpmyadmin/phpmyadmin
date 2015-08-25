@@ -5,16 +5,11 @@
  *
  * @package PMA
  */
-
 namespace PMA\Controllers;
 
 use PMA\DI\Container;
-use PMA_DatabaseInterface;
-use PMA_Response;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
+use PMA\libraries\DatabaseInterface;
+use PMA\libraries\Response;
 
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/database_interface.inc.php';
@@ -28,12 +23,12 @@ abstract class Controller
 {
 
     /**
-     * @var PMA_Response
+     * @var Response
      */
     protected $response;
 
     /**
-     * @var PMA_DatabaseInterface
+     * @var DatabaseInterface
      */
     protected $dbi;
 

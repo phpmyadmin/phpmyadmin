@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+use PMA\libraries\RecentFavoriteTable;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -184,7 +186,7 @@ class PMA_NavigationTree
                     $query,
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
-                    PMA_Util::sqlAddSlashes($GLOBALS['db'])
+                    PMA\libraries\Util::sqlAddSlashes($GLOBALS['db'])
                 )
             );
 
@@ -752,7 +754,7 @@ class PMA_NavigationTree
                 );
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separator_depth = $node->separator_depth - 1;
-                $groups[$key]->icon = PMA_Util::getImage(
+                $groups[$key]->icon = PMA\libraries\Util::getImage(
                     'b_group.png'
                 );
                 $groups[$key]->pos2 = $node->pos2;
@@ -925,7 +927,7 @@ class PMA_NavigationTree
                 ),
                 $results
             );
-            PMA_Response::getInstance()->addJSON(
+            PMA\libraries\Response::getInstance()->addJSON(
                 'results',
                 $results
             );
@@ -1216,7 +1218,7 @@ class PMA_NavigationTree
         $this->_tree->is_group = false;
         $retval .= '<div id="pma_navigation_select_database">';
         // Provide for pagination in database select
-        $retval .= PMA_Util::getListNavigator(
+        $retval .= PMA\libraries\Util::getListNavigator(
             $this->_tree->getPresence('databases', ''),
             $this->_pos,
             array('server' => $GLOBALS['server']),
@@ -1387,7 +1389,7 @@ class PMA_NavigationTree
         $retval  = '<!-- CONTROLS START -->';
         $retval .= '<li id="navigation_controls_outer">';
         $retval .= '<div id="navigation_controls">';
-        $retval .= PMA_Util::getNavigationLink(
+        $retval .= PMA\libraries\Util::getNavigationLink(
             '#',
             $showText,
             __('Collapse all'),
@@ -1401,7 +1403,7 @@ class PMA_NavigationTree
             $syncImage = 's_link.png';
             $title = __('Unlink from main panel');
         }
-        $retval .= PMA_Util::getNavigationLink(
+        $retval .= PMA\libraries\Util::getNavigationLink(
             '#',
             $showText,
             $title,
@@ -1427,7 +1429,7 @@ class PMA_NavigationTree
     {
         $retval = '';
         if ($node === $this->_tree) {
-             $retval .= PMA_Util::getListNavigator(
+             $retval .= PMA\libraries\Util::getListNavigator(
                  $this->_tree->getPresence('databases', $this->_searchClause),
                  $this->_pos,
                  array('server' => $GLOBALS['server']),
@@ -1459,7 +1461,7 @@ class PMA_NavigationTree
                 $node->real_name,
                 $this->_searchClause2
             );
-            $retval .= PMA_Util::getListNavigator(
+            $retval .= PMA\libraries\Util::getListNavigator(
                 $num,
                 $pos,
                 $_url_params,
@@ -1503,10 +1505,10 @@ class PMA_NavigationTree
     {
         $retval  = '<div class="pma_quick_warp">';
         if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
-            $retval .= PMA_RecentFavoriteTable::getInstance('recent')->getHtml();
+            $retval .= RecentFavoriteTable::getInstance('recent')->getHtml();
         }
         if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-            $retval .= PMA_RecentFavoriteTable::getInstance('favorite')->getHtml();
+            $retval .= RecentFavoriteTable::getInstance('favorite')->getHtml();
         }
         $retval .= '<div class="clearfloat"></div>';
         $retval .= '</div>';

@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_SavedSearches;
 
 /**
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/DBQbe.class.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 
 // Gets the relation settings
 $cfgRelation = PMA_getRelationsParam();
@@ -123,16 +123,16 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 if ($message_to_display) {
-    PMA_Message::error(__('You have to choose at least one column to display!'))
+    PMA\libraries\Message::error(__('You have to choose at least one column to display!'))
         ->display();
 }
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA_DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new PMA\libraries\DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
 $url = 'db_designer.php' . PMA_URL_getCommon(
     array_merge(
@@ -141,7 +141,7 @@ $url = 'db_designer.php' . PMA_URL_getCommon(
     )
 );
 $response->addHTML(
-    PMA_Message::notice(
+    PMA\libraries\Message::notice(
         sprintf(
             __('Switch to %svisual builder%s'),
             '<a href="' . $url . '">',

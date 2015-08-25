@@ -16,5 +16,5 @@ $query = !empty($_POST['sql']) ? $_POST['sql'] : '';
 
 $query = SqlParser\Utils\Formatter::format($query);
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addJSON("sql", $query);

@@ -7,7 +7,7 @@ $(function () {
 /**
  * Holds common parameters such as server, db, table, etc
  *
- * The content for this is normally loaded from Header.class.php or
+ * The content for this is normally loaded from Header.php or
  * Response.class.php and executed by ajax.js
  */
 var PMA_commonParams = (function () {
@@ -98,7 +98,7 @@ var PMA_commonParams = (function () {
 /**
  * Holds common parameters such as server, db, table, etc
  *
- * The content for this is normally loaded from Header.class.php or
+ * The content for this is normally loaded from Header.php or
  * Response.class.php and executed by ajax.js
  */
 var PMA_commonActions = {

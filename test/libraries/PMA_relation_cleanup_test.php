@@ -9,13 +9,15 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
+
+use PMA\libraries\DatabaseInterface;
 
 /**
  * PMA_Relation_Cleanup_Test class
@@ -298,7 +300,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
  *
  * @package PhpMyAdmin-test
  */
-class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
+class DBI_PMA_Relation_Cleanup extends DatabaseInterface
 {
     var $index;
     var $assocIndex;

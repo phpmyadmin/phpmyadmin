@@ -95,7 +95,7 @@ class ImportLdi extends AbstractImportCsv
             || $charset_conversion
         ) {
             // We handle only some kind of data!
-            $GLOBALS['message'] = PMA_Message::error(
+            $GLOBALS['message'] = PMA\libraries\Message::error(
                 __('This plugin does not support compressed imports!')
             );
             $GLOBALS['error'] = true;
@@ -106,29 +106,29 @@ class ImportLdi extends AbstractImportCsv
         if (isset($ldi_local_option)) {
             $sql .= ' LOCAL';
         }
-        $sql .= ' INFILE \'' . PMA_Util::sqlAddSlashes($import_file) . '\'';
+        $sql .= ' INFILE \'' . PMA\libraries\Util::sqlAddSlashes($import_file) . '\'';
         if (isset($ldi_replace)) {
             $sql .= ' REPLACE';
         } elseif (isset($ldi_ignore)) {
             $sql .= ' IGNORE';
         }
-        $sql .= ' INTO TABLE ' . PMA_Util::backquote($table);
+        $sql .= ' INTO TABLE ' . PMA\libraries\Util::backquote($table);
 
         if (strlen($ldi_terminated) > 0) {
             $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
         }
         if (strlen($ldi_enclosed) > 0) {
             $sql .= ' ENCLOSED BY \''
-                . PMA_Util::sqlAddSlashes($ldi_enclosed) . '\'';
+                . PMA\libraries\Util::sqlAddSlashes($ldi_enclosed) . '\'';
         }
         if (strlen($ldi_escaped) > 0) {
             $sql .= ' ESCAPED BY \''
-                . PMA_Util::sqlAddSlashes($ldi_escaped) . '\'';
+                . PMA\libraries\Util::sqlAddSlashes($ldi_escaped) . '\'';
         }
         if (strlen($ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
-                    = (PMA_Util::whichCrlf() == "\n")
+                    = (PMA\libraries\Util::whichCrlf() == "\n")
                         ? '\n'
                         : '\r\n';
             }
@@ -147,7 +147,7 @@ class ImportLdi extends AbstractImportCsv
                     $sql .= ', ';
                 }
                 /* Trim also `, if user already included backquoted fields */
-                $sql .= PMA_Util::backquote(
+                $sql .= PMA\libraries\Util::backquote(
                     trim($tmp[$i], " \t\r\n\0\x0B`")
                 );
             } // end for

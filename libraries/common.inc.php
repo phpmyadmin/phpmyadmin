@@ -30,6 +30,17 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Config;
+use PMA\libraries\DatabaseInterface;
+use PMA\libraries\ErrorHandler;
+use PMA\libraries\Message;
+use PMA\libraries\PMA;
+use PMA\libraries\PMA_String;
+use PMA\libraries\PMA_Theme;
+use PMA\libraries\PMA_Theme_Manager;
+use PMA\libraries\PMA_Tracker;
+use PMA\libraries\Response;
+use PMA\libraries\Util;
 
 /**
  * block attempts to directly run this script
@@ -51,6 +62,10 @@ if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
  */
 define('PHPMYADMIN', true);
 
+/**
+ * Activate autoloader
+ */
+require_once './libraries/autoloader.php';
 
 /**
  * String handling (security)
@@ -59,14 +74,9 @@ require_once './libraries/String.class.php';
 $PMA_String = new PMA_String();
 
 /**
- * the error handler
- */
-require './libraries/Error_Handler.class.php';
-
-/**
  * initialize the error handler
  */
-$GLOBALS['error_handler'] = new PMA_Error_Handler();
+$GLOBALS['error_handler'] = new ErrorHandler();
 
 /**
  * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
@@ -107,11 +117,6 @@ require './libraries/Theme.class.php';
 require './libraries/Theme_Manager.class.php';
 
 /**
- * the PMA_Config class
- */
-require './libraries/Config.class.php';
-
-/**
  * the relation lib, tracker needs it
  */
 require './libraries/relation.lib.php';
@@ -132,10 +137,6 @@ require './libraries/Table.class.php';
 require './libraries/Types.class.php';
 
 if (! defined('PMA_MINIMUM_COMMON')) {
-    /**
-     * common functions
-     */
-    include_once './libraries/Util.class.php';
 
     /**
      * JavaScript escaping.
@@ -293,11 +294,11 @@ if (! function_exists('json_encode')) {
 }
 
 /**
- * @global PMA_Config $GLOBALS['PMA_Config']
+ * @global Config $GLOBALS['PMA_Config']
  * force reading of config file, because we removed sensitive values
  * in the previous iteration
  */
-$GLOBALS['PMA_Config'] = new PMA_Config(CONFIG_FILE);
+$GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     $GLOBALS['PMA_Config']->checkPmaAbsoluteUri();
@@ -458,10 +459,10 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  *
  * remember that some objects in the session with session_start and __wakeup()
  * could access this variables before we reach this point
- * f.e. PMA_Config: fontsize
+ * f.e. PMA\libraries\Config: fontsize
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, collation_connection in PMA_Config
+ * f.e. lang, server, collation_connection in PMA\libraries\Config
  */
 $token_mismatch = true;
 $token_provided = false;
@@ -615,8 +616,8 @@ $GLOBALS['server'] = 0;
 
 /**
  * Servers array fixups.
- * $default_server comes from PMA_Config::enableBc()
- * @todo merge into PMA_Config
+ * $default_server comes from PMA\libraries\Config::enableBc()
+ * @todo merge into PMA\libraries\Config
  */
 // Do we have some server?
 if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
@@ -807,7 +808,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     /**
      * save some settings in cookies
-     * @todo should be done in PMA_Config
+     * @todo should be done in PMA\libraries\Config
      */
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
     if (isset($GLOBALS['collation_connection'])) {
@@ -830,7 +831,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
-        // need to be kept for processing in PMA_Config::loadUserPreferences()
+        // need to be kept for processing in PMA\libraries\Config::loadUserPreferences()
         $cache_key = 'server_' . $GLOBALS['server'];
         if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])
         ) {
@@ -986,16 +987,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Connects to the server (validates user's login)
-        /** @var PMA_DatabaseInterface $userlink */
+        /** @var DatabaseInterface $userlink */
         $userlink = $GLOBALS['dbi']->connect(
             $cfg['Server']['user'], $cfg['Server']['password'], false
         );
 
         // Set timestamp for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
-            $sql_query_tz = 'SET ' . PMA_Util::backquote('time_zone') . ' = '
+            $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
                 . '\''
-                . PMA_Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
                 . '\'';
 
             if (! $userlink->query($sql_query_tz)) {
@@ -1084,7 +1085,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // TODO: Set SQL modes too.
 
         /**
-         * the PMA_List_Database class
+         * the ListDatabase class
          */
         include_once './libraries/PMA.php';
         $pma = new PMA;
@@ -1104,7 +1105,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     } else { // end server connecting
         // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
         // applies only to initial login
-        $response = PMA_Response::getInstance();
+        $response = Response::getInstance();
         $response->getHeader()->disableMenuAndConsole();
         $response->getFooter()->setMinimal();
     }
@@ -1114,7 +1115,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
      */
     if (isset($_REQUEST['profiling'])
-        && PMA_Util::profilingSupported()
+        && Util::profilingSupported()
     ) {
         $_SESSION['profiling'] = true;
     } elseif (isset($_REQUEST['profiling_form'])) {
@@ -1130,7 +1131,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * pages like sql, tbl_sql, db_sql, tbl_select
      */
     if (! defined('PMA_BYPASS_GET_INSTANCE')) {
-        $response = PMA_Response::getInstance();
+        $response = Response::getInstance();
     }
     if (isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
@@ -1150,7 +1151,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $response->isSuccess(false);
         $response->addJSON(
             'message',
-            PMA_Message::error(__('Error: Token mismatch'))
+            Message::error(__('Error: Token mismatch'))
         );
         exit;
     }

@@ -9,14 +9,12 @@
 
 namespace PMA\Controllers\Table;
 
-use PMA\DI\Container;
-use PMA_Util;
-use PMA_Message;
-use PMA\Template;
 use PMA\Controllers\TableController;
+use PMA\libraries\Template;
+use PMA\libraries\Util;
 
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/controllers/TableController.class.php';
 
@@ -78,7 +76,7 @@ class TableChartController extends TableController
         if (!isset($this->sql_query) || $this->sql_query == '') {
             $this->response->isSuccess(false);
             $this->response->addHTML(
-                PMA_Message::error(__('No SQL query was set to fetch data.'))
+                PMA\libraries\Message::error(__('No SQL query was set to fetch data.'))
             );
             return;
         }
@@ -110,20 +108,20 @@ class TableChartController extends TableController
          * Runs common work
          */
         if (/*overload*/ mb_strlen($this->table)) {
-            $url_params['goto'] = PMA_Util::getScriptNameForOption(
+            $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabTable'], 'table'
             );
             $url_params['back'] = 'tbl_sql.php';
             include 'libraries/tbl_common.inc.php';
             include 'libraries/tbl_info.inc.php';
         } elseif (/*overload*/ mb_strlen($this->db)) {
-            $url_params['goto'] = PMA_Util::getScriptNameForOption(
+            $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabDatabase'], 'database'
             );
             $url_params['back'] = 'sql.php';
             include 'libraries/db_common.inc.php';
         } else {
-            $url_params['goto'] = PMA_Util::getScriptNameForOption(
+            $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabServer'], 'server'
             );
             $url_params['back'] = 'sql.php';

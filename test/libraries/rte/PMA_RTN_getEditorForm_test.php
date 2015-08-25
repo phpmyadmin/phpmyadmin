@@ -6,8 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\PMA_Theme;
+
 $GLOBALS['server'] = 0;
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once './libraries/Types.class.php';

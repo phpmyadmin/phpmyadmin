@@ -11,14 +11,14 @@
  */
 $GLOBALS['server'] = 0;
 
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Message.php';
 
 /**
  * Tests for ImportShp class
@@ -66,7 +66,7 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['import_file'] = 'test/test_data/timezone.shp.zip';
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

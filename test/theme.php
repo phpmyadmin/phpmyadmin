@@ -52,7 +52,7 @@ $item = '<a href="%1$s?%2$s" class="item">'
 echo '<div id="serverinfo">' . "\n";
 printf(
     $item,
-    PMA_Util::getScriptNameForOption(
+    PMA\libraries\Util::getScriptNameForOption(
         $GLOBALS['cfg']['DefaultTabserver'], 'server'
     ),
     PMA_URL_getCommon(),
@@ -64,7 +64,7 @@ printf(
 echo $separator;
 printf(
     $item,
-    PMA_Util::getScriptNameForOption(
+    PMA\libraries\Util::getScriptNameForOption(
         $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
     ),
     '',
@@ -76,7 +76,7 @@ printf(
 echo $separator;
 printf(
     $item,
-    PMA_Util::getScriptNameForOption(
+    PMA\libraries\Util::getScriptNameForOption(
         $GLOBALS['cfg']['DefaultTabTable'], 'table'
     ),
     '',
@@ -144,7 +144,7 @@ $tabs['import']['link'] = 'server_import.php';
 $tabs['import']['text'] = 'active';
 $tabs['import']['class'] = 'active';
 
-echo PMA_Util::getHtmlTabs($tabs, array(), 'topmenu');
+echo PMA\libraries\Util::getHtmlTabs($tabs, array(), 'topmenu');
 unset($tabs);
 
 if (@file_exists($pmaThemeImage . 'logo_right.png')) {

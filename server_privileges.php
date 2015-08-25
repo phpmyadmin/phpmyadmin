@@ -22,7 +22,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Does the common work
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
@@ -125,7 +125,7 @@ if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
-    $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
+    $response->addHTML(PMA\libraries\Message::error(__('No Privileges'))->getDisplay());
     exit;
 }
 
@@ -137,7 +137,7 @@ if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
     && $hostname == $_REQUEST['old_hostname']
 ) {
     $response->addHTML(
-        PMA_Message::error(__('Username and hostname didn\'t change.'))->getDisplay()
+        PMA\libraries\Message::error(__('Username and hostname didn\'t change.'))->getDisplay()
     );
     $response->isSuccess(false);
     exit;
@@ -211,7 +211,7 @@ if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
     && $GLOBALS['is_superuser'] && $GLOBALS['is_createuser']
 ) {
     PMA_setUserGroup($username, $_REQUEST['userGroup']);
-    $message = PMA_Message::success();
+    $message = PMA\libraries\Message::success();
 }
 
 /**
@@ -253,7 +253,7 @@ if (isset($_REQUEST['delete'])
  */
 if (isset($_REQUEST['change_copy'])) {
     $queries = PMA_getDataForQueries($queries, $queries_for_display);
-    $message = PMA_Message::success();
+    $message = PMA\libraries\Message::success();
     $sql_query = join("\n", $queries);
 }
 
@@ -288,8 +288,8 @@ if ($GLOBALS['is_ajax_request']
         (isset($username) ? $username : '')
     );
 
-    if (! empty($message) && $message instanceof PMA_Message) {
-        $response = PMA_Response::getInstance();
+    if (! empty($message) && $message instanceof PMA\libraries\Message) {
+        $response = PMA\libraries\Response::getInstance();
         $response->isSuccess($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON($extra_data);
@@ -319,14 +319,14 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+    ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
     $content = ob_get_contents();
     ob_end_clean();
     $response->addHTML($content . "\n");
 } else {
     if (! empty($GLOBALS['message'])) {
-        $response->addHTML(PMA_Util::getMessage($GLOBALS['message']));
+        $response->addHTML(PMA\libraries\Util::getMessage($GLOBALS['message']));
         unset($GLOBALS['message']);
     }
 }
@@ -352,7 +352,7 @@ if (isset($_REQUEST['export'])
 
     unset($username, $hostname, $grants, $one_grant);
 
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     if ($GLOBALS['is_ajax_request']) {
         $response->addJSON('message', $export);
         $response->addJSON('title', $title);

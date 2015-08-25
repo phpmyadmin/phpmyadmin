@@ -10,7 +10,7 @@
 require_once 'libraries/db_designer.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
@@ -57,7 +57,7 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
      */
     private function _mockDatabaseInteraction($db)
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -67,7 +67,7 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
                 "SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`"
                 . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
                 2,
-                PMA_DatabaseInterface::QUERY_STORE,
+                PMA\libraries\DatabaseInterface::QUERY_STORE,
                 false
             )
             ->will($this->returnValue('dummyRS'));

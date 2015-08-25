@@ -52,8 +52,8 @@
                     <tr class="tblFooters">
                         <td colspan="3" class="center">
                             <a href="sql.php<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode(
-                                    'OPTIMIZE TABLE ' . PMA_Util::backquote($GLOBALS['table'])); ?>">
-                                <?php echo PMA_Util::getIcon('b_tbloptimize.png', __('Optimize table')); ?>
+                                    'OPTIMIZE TABLE ' . PMA\libraries\Util::backquote($GLOBALS['table'])); ?>">
+                                <?php echo PMA\libraries\Util::getIcon('b_tbloptimize.png', __('Optimize table')); ?>
                             </a>
                         </td>
                     </tr>
@@ -62,7 +62,7 @@
             </table>
         <?php endif; ?>
         <?php
-            echo PMA\Template::get('table/structure/row_stats_table')->render(
+            echo PMA\libraries\Template::get('table/structure/row_stats_table')->render(
               array(
                   'showtable' => $showtable,
                   'tbl_collation' => $tbl_collation,

@@ -6,6 +6,9 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+use PMA\libraries\PMA_String;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -22,12 +25,12 @@ if (empty($is_db)) {
     if (! $is_db) {
         // not a valid db name -> back to the welcome page
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
-            $response = PMA_Response::getInstance();
+            $response = PMA\libraries\Response::getInstance();
             if ($response->isAjax()) {
                 $response->isSuccess(false);
                 $response->addJSON(
                     'message',
-                    PMA_Message::error(__('No databases selected.'))
+                    Message::error(__('No databases selected.'))
                 );
             } else {
                 $url_params = array('reload' => 1);
@@ -61,9 +64,9 @@ if (empty($is_table)
 
         if (! $is_table) {
             $_result = $GLOBALS['dbi']->tryQuery(
-                'SHOW TABLES LIKE \'' . PMA_Util::sqlAddSlashes($table, true)
+                'SHOW TABLES LIKE \'' . PMA\libraries\Util::sqlAddSlashes($table, true)
                 . '\';',
-                null, PMA_DatabaseInterface::QUERY_STORE
+                null, PMA\libraries\DatabaseInterface::QUERY_STORE
             );
             $is_table = @$GLOBALS['dbi']->numRows($_result);
             $GLOBALS['dbi']->freeResult($_result);
@@ -84,9 +87,9 @@ if (empty($is_table)
                  * only happen if IS_TRANSFORMATION_WRAPPER?
                  */
                 $_result = $GLOBALS['dbi']->tryQuery(
-                    'SELECT COUNT(*) FROM ' . PMA_Util::backquote($table) . ';',
+                    'SELECT COUNT(*) FROM ' . PMA\libraries\Util::backquote($table) . ';',
                     null,
-                    PMA_DatabaseInterface::QUERY_STORE
+                    PMA\libraries\DatabaseInterface::QUERY_STORE
                 );
                 $is_table = ($_result && @$GLOBALS['dbi']->numRows($_result));
                 $GLOBALS['dbi']->freeResult($_result);

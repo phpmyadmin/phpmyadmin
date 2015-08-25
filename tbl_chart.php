@@ -8,7 +8,7 @@
 
 namespace PMA;
 
-use PMA_Response;
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
@@ -20,8 +20,8 @@ $container->factory('PMA\Controllers\Table\TableChartController');
 $container->alias(
     'TableChartController', 'PMA\Controllers\Table\TableChartController'
 );
-$container->set('PMA_Response', PMA_Response::getInstance());
-$container->alias('response', 'PMA_Response');
+$container->set('PMA\libraries\Response', Response::getInstance());
+$container->alias('response', 'PMA\libraries\Response');
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(

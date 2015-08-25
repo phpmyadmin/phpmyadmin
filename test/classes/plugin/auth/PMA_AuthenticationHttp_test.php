@@ -7,14 +7,14 @@
  */
 
 require_once 'libraries/plugins/auth/AuthenticationHttp.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/DatabaseInterface.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
-require_once 'libraries/Error_Handler.class.php';
+require_once 'libraries/ErrorHandler.php';
 require_once 'libraries/sanitizing.lib.php';
 
 /**
@@ -36,7 +36,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA_Config;
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
@@ -87,10 +87,10 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
         // case 2
 
-        $restoreInstance = PMA_Response::getInstance();
+        $restoreInstance = PMA\libraries\Response::getInstance();
 
         // mock footer
-        $mockFooter = $this->getMockBuilder('PMA_Footer')
+        $mockFooter = $this->getMockBuilder('PMA\libraries\Footer')
             ->disableOriginalConstructor()
             ->setMethods(array('setMinimal'))
             ->getMock();
@@ -101,7 +101,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
         // mock header
 
-        $mockHeader = $this->getMockBuilder('PMA_Header')
+        $mockHeader = $this->getMockBuilder('PMA\libraries\Header')
             ->disableOriginalConstructor()
             ->setMethods(
                 array('setBodyId', 'setTitle', 'disableMenuAndConsole', 'addHTML')
@@ -121,7 +121,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             ->with();
 
         // set mocked headers and footers
-        $mockResponse = $this->getMockBuilder('PMA_Response')
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('getHeader', 'getFooter', 'addHTML'))
             ->getMock();
@@ -140,7 +140,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             ->method('addHTML')
             ->with();
 
-        $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
@@ -420,7 +420,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
     public function testAuthFails()
     {
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

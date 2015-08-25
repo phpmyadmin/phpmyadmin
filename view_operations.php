@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_Table;
 
 /**
  *
@@ -65,12 +66,12 @@ if (isset($result)) {
         $_type = $result ? 'success' : 'error';
     }
     if (! empty($warning_messages)) {
-        $_message = new PMA_Message;
+        $_message = new PMA\libraries\Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
         unset($warning_messages);
     }
-    echo PMA_Util::getMessage(
+    echo PMA\libraries\Util::getMessage(
         $_message, $sql_query, $_type
     );
     unset($_message, $_type);
@@ -111,7 +112,7 @@ $url_params['back'] = 'view_operations.php';
 $drop_view_url_params = array_merge(
     $url_params,
     array(
-        'sql_query' => 'DROP VIEW ' . PMA_Util::backquote($GLOBALS['table']),
+        'sql_query' => 'DROP VIEW ' . PMA\libraries\Util::backquote($GLOBALS['table']),
         'goto' => 'tbl_structure.php',
         'reload' => '1',
         'purge' => '1',

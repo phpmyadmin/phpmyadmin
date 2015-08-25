@@ -9,9 +9,12 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_Table;
+use PMA\libraries\PMA_Theme;
+
 require_once 'libraries/Table.class.php';
 require_once 'libraries/mysql_charsets.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
@@ -184,7 +187,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ),
         );
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -838,7 +841,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetColumnsMeta()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -909,7 +912,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     {
         $db = "pma_db";
         $table = "pma_table";
-        $index = new PMA_Index();
+        $index = new PMA\libraries\Index();
         $error = false;
 
         $_REQUEST['old_index'] = "PRIMARY";

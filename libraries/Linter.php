@@ -5,16 +5,19 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
+
+use SqlParser\Lexer;
+use SqlParser\Parser;
+use SqlParser\UtfString;
+use SqlParser\Utils\Error;
 
 /**
  * The linter itself.
  *
  * @package PhpMyAdmin
  */
-class PMA_Linter
+class Linter
 {
 
     /**
@@ -32,7 +35,7 @@ class PMA_Linter
             // If the lexer uses UtfString for processing then the position will
             // represent the position of the character and not the position of
             // the byte.
-            $str = new SqlParser\UtfString($str);
+            $str = new UtfString($str);
         }
 
         // The reason for using the '8bit' parameter is that the length
@@ -47,7 +50,7 @@ class PMA_Linter
         // first byte of the third character. The fourth and the last one
         // (which is actually a new line) aren't going to be processed at
         // all.
-        $len = ($str instanceof SqlParser\UtfString) ?
+        $len = ($str instanceof UtfString) ?
             $str->length() : mb_strlen($len, '8bit');
 
         $lines = array(0);
@@ -108,23 +111,23 @@ class PMA_Linter
         /**
          * Lexer used for tokenizing the query.
          *
-         * @var SqlParser\Lexer
+         * @var Lexer
          */
-        $lexer = new SqlParser\Lexer($query);
+        $lexer = new Lexer($query);
 
         /**
          * Parsed used for analysing the query.
          *
-         * @var SqlParser\Parser
+         * @var Parser
          */
-        $parser = new SqlParser\Parser($lexer->list);
+        $parser = new Parser($lexer->list);
 
         /**
          * Array containing all errors.
          *
          * @var array
          */
-        $errors = SqlParser\Utils\Error::get(array($lexer, $parser));
+        $errors = Error::get(array($lexer, $parser));
 
         /**
          * The response containing of all errors.

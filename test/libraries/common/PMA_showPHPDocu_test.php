@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA_Util::showPHPDocu from Util.class.php
+ ** Test for PMA\libraries\Util::showPHPDocu from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,13 +10,15 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_Theme;
+
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- ** Test for PMA_Util::showPHPDocu from Util.class.php
+ ** Test for PMA\libraries\Util::showPHPDocu from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -50,7 +52,7 @@ class PMA_ShowPHPDocu_Test extends PHPUnit_Framework_TestCase
             . __('Documentation') . '" class="icon ic_b_help" /></a>';
 
         $this->assertEquals(
-            $expected, PMA_Util::showPHPDocu($target)
+            $expected, PMA\libraries\Util::showPHPDocu($target)
         );
     }
 }

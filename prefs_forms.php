@@ -71,7 +71,7 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
 }
 
 // display forms
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('config.js');

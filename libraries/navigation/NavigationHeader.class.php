@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/Template.class.php';
-use PMA\Template;
+use PMA\libraries\Template;
 
 /**
  * This class renders the logo, links, server selection,
@@ -55,7 +55,7 @@ class PMA_NavigationHeader
         $buffer .= $this->_logo();
         $buffer .= $this->_links();
         $buffer .= $this->_serverChoice();
-        $buffer .= PMA_Util::getImage(
+        $buffer .= PMA\libraries\Util::getImage(
             'ajax_clock_small.gif',
             __('Loading…'),
             array(
@@ -156,7 +156,7 @@ class PMA_NavigationHeader
 
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
-        $retval .= PMA_Util::getNavigationLink(
+        $retval .= PMA\libraries\Util::getNavigationLink(
             'index.php' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
@@ -169,7 +169,7 @@ class PMA_NavigationHeader
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
                 $link  = 'index.php' . $GLOBALS['url_query'];
                 $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
-                $retval .= PMA_Util::getNavigationLink(
+                $retval .= PMA\libraries\Util::getNavigationLink(
                     $link,
                     $showText,
                     __('Log out'),
@@ -180,8 +180,8 @@ class PMA_NavigationHeader
                 );
             }
         }
-        $retval .= PMA_Util::getNavigationLink(
-            PMA_Util::getDocuLink('index'),
+        $retval .= PMA\libraries\Util::getNavigationLink(
+            PMA\libraries\Util::getDocuLink('index'),
             $showText,
             __('phpMyAdmin documentation'),
             $showIcon,
@@ -190,8 +190,8 @@ class PMA_NavigationHeader
             false,
             'documentation'
         );
-        $retval .= PMA_Util::getNavigationLink(
-            PMA_Util::getMySQLDocuURL('', ''),
+        $retval .= PMA\libraries\Util::getNavigationLink(
+            PMA\libraries\Util::getMySQLDocuURL('', ''),
             $showText,
             __('Documentation'),
             $showIcon,
@@ -200,7 +200,7 @@ class PMA_NavigationHeader
             false,
             'mysql_doc'
         );
-        $retval .= PMA_Util::getNavigationLink(
+        $retval .= PMA\libraries\Util::getNavigationLink(
             '#',
             $showText,
             __('Navigation panel settings'),
@@ -211,7 +211,7 @@ class PMA_NavigationHeader
             '',
             defined('PMA_DISABLE_NAVI_SETTINGS') ? array('hide') : array()
         );
-        $retval .= PMA_Util::getNavigationLink(
+        $retval .= PMA\libraries\Util::getNavigationLink(
             '#',
             $showText,
             __('Reload navigation panel'),

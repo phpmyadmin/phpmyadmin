@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_String;
 
 /**
  * Get some core libraries
@@ -13,14 +14,14 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/create_addfield.lib.php';
 
 // Check parameters
-PMA_Util::checkParameters(array('db'));
+PMA\libraries\Util::checkParameters(array('db'));
 
 /** @var PMA_String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
 
 /* Check if database name is empty */
 if (/*overload*/mb_strlen($db) == 0) {
-    PMA_Util::mysqlDie(
+    PMA\libraries\Util::mysqlDie(
         __('The database name is empty!'), '', false, 'index.php'
     );
 }
@@ -29,7 +30,7 @@ if (/*overload*/mb_strlen($db) == 0) {
  * Selects the database to work with
  */
 if (!$GLOBALS['dbi']->selectDb($db)) {
-    PMA_Util::mysqlDie(
+    PMA\libraries\Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         false,
@@ -39,7 +40,7 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 
 if ($GLOBALS['dbi']->getColumns($db, $table)) {
     // table exists already
-    PMA_Util::mysqlDie(
+    PMA\libraries\Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
@@ -90,7 +91,7 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
     } else {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->isSuccess(false);
         $response->addJSON('message', $GLOBALS['dbi']->getError());
     }

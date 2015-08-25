@@ -24,7 +24,7 @@ class Node_Function_Container extends Node_DatabaseChild_Container
     public function __construct()
     {
         parent::__construct(__('Functions'), Node::CONTAINER);
-        $this->icon  = PMA_Util::getImage('b_routines.png', __('Functions'));
+        $this->icon  = PMA\libraries\Util::getImage('b_routines.png', __('Functions'));
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token ']
@@ -38,7 +38,7 @@ class Node_Function_Container extends Node_DatabaseChild_Container
         $new_label = _pgettext('Create new function', 'New');
         $new        = PMA_NodeFactory::getInstance('Node', $new_label);
         $new->isNew = true;
-        $new->icon  = PMA_Util::getImage('b_routine_add.png', $new_label);
+        $new->icon  = PMA\libraries\Util::getImage('b_routine_add.png', $new_label);
         $new->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']

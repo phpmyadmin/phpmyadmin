@@ -14,7 +14,7 @@ $GLOBALS['server'] = 0;
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Table.class.php';
@@ -22,7 +22,7 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/plugins/import/ImportOds.class.php';
 
 /**
@@ -127,7 +127,7 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         $sql_query_disabled = false;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

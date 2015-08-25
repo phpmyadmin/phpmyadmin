@@ -111,7 +111,7 @@ class ExportPhparray extends ExportPlugin
         }
         PMA_exportOutputHandler(
             '//' . $GLOBALS['crlf']
-            . '// Database ' . PMA_Util::backquote($db_alias)
+            . '// Database ' . PMA\libraries\Util::backquote($db_alias)
             . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']
         );
         return true;
@@ -163,7 +163,7 @@ class ExportPhparray extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         $result = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
@@ -200,8 +200,8 @@ class ExportPhparray extends ExportPlugin
         $record_cnt = 0;
         // Output table name as comment
         $buffer .= $crlf . '// '
-            . PMA_Util::backquote($db_alias) . '.'
-            . PMA_Util::backquote($table_alias) . $crlf;
+            . PMA\libraries\Util::backquote($db_alias) . '.'
+            . PMA\libraries\Util::backquote($table_alias) . $crlf;
         $buffer .= '$' . $tablefixed . ' = array(';
 
         while ($record = $GLOBALS['dbi']->fetchRow($result)) {

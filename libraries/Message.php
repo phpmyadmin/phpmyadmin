@@ -1,10 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds class PMA_Message
+ * Holds class Message
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries;
 
 /**
  * a single message
@@ -12,23 +13,23 @@
  * simple usage examples:
  * <code>
  * // display simple error message 'Error'
- * PMA_Message::error()->display();
+ * Message::error()->display();
  *
  * // get simple success message 'Success'
- * $message = PMA_Message::success();
+ * $message = Message::success();
  *
  * // get special notice
- * $message = PMA_Message::notice(__('This is a localized notice'));
+ * $message = Message::notice(__('This is a localized notice'));
  * </code>
  *
  * more advanced usage example:
  * <code>
  * // create a localized success message
- * $message = PMA_Message::success('strSomeLocaleMessage');
+ * $message = Message::success('strSomeLocaleMessage');
  *
  * // create another message, a hint, with a localized string which expects
  * // two parameters: $strSomeTooltip = 'Read the %smanual%s'
- * $hint = PMA_Message::notice('strSomeTooltip');
+ * $hint = Message::notice('strSomeTooltip');
  * // replace placeholders with the following params
  * $hint->addParam('[doc@cfg_Example]');
  * $hint->addParam('[/doc]');
@@ -39,7 +40,7 @@
  * $message->addMessage($hint);
  *
  * // create another message ...
- * $more = PMA_Message::notice('strSomeMoreLocale');
+ * $more = Message::notice('strSomeMoreLocale');
  * $more->addString('strSomeEvenMoreLocale', '<br />');
  * $more->addParam('parameter for strSomeMoreLocale');
  * $more->addParam('more parameter for strSomeMoreLocale');
@@ -57,7 +58,7 @@
  *
  * @package PhpMyAdmin
  */
-class PMA_Message
+class Message
 {
     const SUCCESS = 1; // 0001
     const NOTICE  = 2; // 0010
@@ -74,9 +75,9 @@ class PMA_Message
      * @var array
      */
     static public $level = array (
-        PMA_Message::SUCCESS => 'success',
-        PMA_Message::NOTICE  => 'notice',
-        PMA_Message::ERROR   => 'error',
+        Message::SUCCESS => 'success',
+        Message::NOTICE  => 'notice',
+        Message::ERROR   => 'error',
     );
 
     /**
@@ -85,7 +86,7 @@ class PMA_Message
      * @access  protected
      * @var     integer
      */
-    protected $number = PMA_Message::NOTICE;
+    protected $number = Message::NOTICE;
 
     /**
      * The locale string identifier
@@ -144,12 +145,12 @@ class PMA_Message
      * @param integer $sanitize A flag to indicate what to sanitize, see
      *                          constant definitions above
      */
-    public function __construct($string = '', $number = PMA_Message::NOTICE,
-        $params = array(), $sanitize = PMA_Message::SANITIZE_NONE
+    public function __construct($string = '', $number = Message::NOTICE,
+        $params = array(), $sanitize = Message::SANITIZE_NONE
     ) {
-        $this->setString($string, $sanitize & PMA_Message::SANITIZE_STRING);
+        $this->setString($string, $sanitize & Message::SANITIZE_STRING);
         $this->setNumber($number);
-        $this->setParams($params, $sanitize & PMA_Message::SANITIZE_PARAMS);
+        $this->setParams($params, $sanitize & Message::SANITIZE_PARAMS);
     }
 
     /**
@@ -163,7 +164,7 @@ class PMA_Message
     }
 
     /**
-     * get PMA_Message of type success
+     * get Message of type success
      *
      * shorthand for getting a simple success message
      *
@@ -171,7 +172,7 @@ class PMA_Message
      *                       e.g. __('Your SQL query has been
      *                       executed successfully')
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function success($string = '')
@@ -180,17 +181,17 @@ class PMA_Message
             $string = __('Your SQL query has been executed successfully.');
         }
 
-        return new PMA_Message($string, PMA_Message::SUCCESS);
+        return new Message($string, Message::SUCCESS);
     }
 
     /**
-     * get PMA_Message of type error
+     * get Message of type error
      *
      * shorthand for getting a simple error message
      *
      * @param string $string A localized string e.g. __('Error')
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function error($string = '')
@@ -199,11 +200,11 @@ class PMA_Message
             $string = __('Error');
         }
 
-        return new PMA_Message($string, PMA_Message::ERROR);
+        return new Message($string, Message::ERROR);
     }
 
     /**
-     * get PMA_Message of type notice
+     * get Message of type notice
      *
      * shorthand for getting a simple notice message
      *
@@ -212,45 +213,45 @@ class PMA_Message
      *                       linked tables have been deactivated. To find out
      *                       why click %shere%s.')
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function notice($string)
     {
-        return new PMA_Message($string, PMA_Message::NOTICE);
+        return new Message($string, Message::NOTICE);
     }
 
     /**
-     * get PMA_Message with customized content
+     * get Message with customized content
      *
      * shorthand for getting a customized message
      *
      * @param string  $message A localized string
      * @param integer $type    A numeric representation of the type of message
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
-    static public function raw($message, $type = PMA_Message::NOTICE)
+    static public function raw($message, $type = Message::NOTICE)
     {
-        $r = new PMA_Message('', $type);
+        $r = new Message('', $type);
         $r->setMessage($message);
         return $r;
     }
 
     /**
-     * get PMA_Message for number of affected rows
+     * get Message for number of affected rows
      *
      * shorthand for getting a customized message
      *
      * @param integer $rows Number of rows
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function getMessageForAffectedRows($rows)
     {
-        $message = PMA_Message::success(
+        $message = Message::success(
             _ngettext('%1$d row affected.', '%1$d rows affected.', $rows)
         );
         $message->addParam($rows);
@@ -258,18 +259,18 @@ class PMA_Message
     }
 
     /**
-     * get PMA_Message for number of deleted rows
+     * get Message for number of deleted rows
      *
      * shorthand for getting a customized message
      *
      * @param integer $rows Number of rows
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function getMessageForDeletedRows($rows)
     {
-        $message = PMA_Message::success(
+        $message = Message::success(
             _ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows)
         );
         $message->addParam($rows);
@@ -277,18 +278,18 @@ class PMA_Message
     }
 
     /**
-     * get PMA_Message for number of inserted rows
+     * get Message for number of inserted rows
      *
      * shorthand for getting a customized message
      *
      * @param integer $rows Number of rows
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function getMessageForInsertedRows($rows)
     {
-        $message = PMA_Message::success(
+        $message = Message::success(
             _ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows)
         );
         $message->addParam($rows);
@@ -296,48 +297,48 @@ class PMA_Message
     }
 
     /**
-     * get PMA_Message of type error with custom content
+     * get Message of type error with custom content
      *
      * shorthand for getting a customized error message
      *
      * @param string $message A localized string
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function rawError($message)
     {
-        return PMA_Message::raw($message, PMA_Message::ERROR);
+        return Message::raw($message, Message::ERROR);
     }
 
     /**
-     * get PMA_Message of type notice with custom content
+     * get Message of type notice with custom content
      *
      * shorthand for getting a customized notice message
      *
      * @param string $message A localized string
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function rawNotice($message)
     {
-        return PMA_Message::raw($message, PMA_Message::NOTICE);
+        return Message::raw($message, Message::NOTICE);
     }
 
     /**
-     * get PMA_Message of type success with custom content
+     * get Message of type success with custom content
      *
      * shorthand for getting a customized success message
      *
      * @param string $message A localized string
      *
-     * @return PMA_Message
+     * @return Message
      * @static
      */
     static public function rawSuccess($message)
     {
-        return PMA_Message::raw($message, PMA_Message::SUCCESS);
+        return Message::raw($message, Message::SUCCESS);
     }
 
     /**
@@ -351,10 +352,10 @@ class PMA_Message
     public function isSuccess($set = false)
     {
         if ($set) {
-            $this->setNumber(PMA_Message::SUCCESS);
+            $this->setNumber(Message::SUCCESS);
         }
 
-        return $this->getNumber() === PMA_Message::SUCCESS;
+        return $this->getNumber() === Message::SUCCESS;
     }
 
     /**
@@ -368,10 +369,10 @@ class PMA_Message
     public function isNotice($set = false)
     {
         if ($set) {
-            $this->setNumber(PMA_Message::NOTICE);
+            $this->setNumber(Message::NOTICE);
         }
 
-        return $this->getNumber() === PMA_Message::NOTICE;
+        return $this->getNumber() === Message::NOTICE;
     }
 
     /**
@@ -385,10 +386,10 @@ class PMA_Message
     public function isError($set = false)
     {
         if ($set) {
-            $this->setNumber(PMA_Message::ERROR);
+            $this->setNumber(Message::ERROR);
         }
 
-        return $this->getNumber() === PMA_Message::ERROR;
+        return $this->getNumber() === Message::ERROR;
     }
 
     /**
@@ -402,7 +403,7 @@ class PMA_Message
     public function setMessage($message, $sanitize = false)
     {
         if ($sanitize) {
-            $message = PMA_Message::sanitize($message);
+            $message = Message::sanitize($message);
         }
         $this->message = $message;
     }
@@ -418,7 +419,7 @@ class PMA_Message
     public function setString($string, $sanitize = true)
     {
         if ($sanitize) {
-            $string = PMA_Message::sanitize($string);
+            $string = Message::sanitize($string);
         }
         $this->string = $string;
     }
@@ -453,12 +454,12 @@ class PMA_Message
      */
     public function addParam($param, $raw = true)
     {
-        if ($param instanceof PMA_Message) {
+        if ($param instanceof Message) {
             $this->params[] = $param;
         } elseif ($raw) {
             $this->params[] = htmlspecialchars($param);
         } else {
-            $this->params[] = PMA_Message::notice($param);
+            $this->params[] = Message::notice($param);
         }
     }
 
@@ -473,7 +474,7 @@ class PMA_Message
     public function addString($string, $separator = ' ')
     {
         $this->addedMessages[] = $separator;
-        $this->addedMessages[] = PMA_Message::notice($string);
+        $this->addedMessages[] = Message::notice($string);
     }
 
     /**
@@ -505,10 +506,10 @@ class PMA_Message
             $this->addedMessages[] = $separator;
         }
 
-        if ($message instanceof PMA_Message) {
+        if ($message instanceof Message) {
             $this->addedMessages[] = $message;
         } else {
-            $this->addedMessages[] = PMA_Message::rawNotice($message);
+            $this->addedMessages[] = Message::rawNotice($message);
         }
     }
 
@@ -523,7 +524,7 @@ class PMA_Message
     public function setParams($params, $sanitize = false)
     {
         if ($sanitize) {
-            $params = PMA_Message::sanitize($params);
+            $params = Message::sanitize($params);
         }
         $this->params = $params;
     }
@@ -561,7 +562,7 @@ class PMA_Message
     {
         if (is_array($message)) {
             foreach ($message as $key => $val) {
-                $message[$key] = PMA_Message::sanitize($val);
+                $message[$key] = Message::sanitize($val);
             }
 
             return $message;
@@ -602,9 +603,9 @@ class PMA_Message
     }
 
     /**
-     * returns unique PMA_Message::$hash, if not exists it will be created
+     * returns unique Message::$hash, if not exists it will be created
      *
-     * @return string PMA_Message::$hash
+     * @return string Message::$hash
      */
     public function getHash()
     {
@@ -643,10 +644,10 @@ class PMA_Message
             $message = $this->getMessageWithIcon($message);
         }
         if (count($this->getParams()) > 0) {
-            $message = PMA_Message::format($message, $this->getParams());
+            $message = Message::format($message, $this->getParams());
         }
 
-        $message = PMA_Message::decodeBB($message);
+        $message = Message::decodeBB($message);
 
         foreach ($this->getAddedMessages() as $add_message) {
             $message .= $add_message;
@@ -667,9 +668,9 @@ class PMA_Message
 
 
     /**
-     * returns PMA_Message::$string
+     * returns Message::$string
      *
-     * @return string PMA_Message::$string
+     * @return string Message::$string
      */
     public function getString()
     {
@@ -677,9 +678,9 @@ class PMA_Message
     }
 
     /**
-     * returns PMA_Message::$number
+     * returns Message::$number
      *
-     * @return integer PMA_Message::$number
+     * @return integer Message::$number
      */
     public function getNumber()
     {
@@ -693,7 +694,7 @@ class PMA_Message
      */
     public function getLevel()
     {
-        return PMA_Message::$level[$this->getNumber()];
+        return Message::$level[$this->getNumber()];
     }
 
     /**
@@ -724,7 +725,7 @@ class PMA_Message
      *
      * @param boolean $isDisplayed whether to set displayed flag
      *
-     * @return boolean PMA_Message::$isDisplayed
+     * @return boolean Message::$isDisplayed
      */
     public function isDisplayed($isDisplayed = false)
     {
@@ -751,7 +752,7 @@ class PMA_Message
         } else {
             $image = 's_notice.png';
         }
-        $message = PMA_Message::notice(PMA_Util::getImage($image)) . " " . $message;
+        $message = Message::notice(Util::getImage($image)) . " " . $message;
         return $message;
 
     }

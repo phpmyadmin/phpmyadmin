@@ -5,14 +5,16 @@
  *
  * @package PhpMyAdmin-test
  */
+use PMA\libraries\PMA_Table;
+
 $GLOBALS['db'] = 'db';
 require_once 'libraries/plugins/export/ExportXml.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/DatabaseInterface.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
@@ -265,7 +267,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ),
             'table' => array(null, '"tbl"')
         );
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -403,7 +405,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
             )
         );
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -515,7 +517,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ),
             'table' => array(null, '"tbl"')
         );
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -653,13 +655,13 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['xml_export_contents'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

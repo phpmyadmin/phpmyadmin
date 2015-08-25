@@ -6,11 +6,13 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\PMA_Theme;
+
 $GLOBALS['server'] = 0;
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Tracker.class.php';
@@ -70,7 +72,7 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
 
         //getImage
         $this->assertContains(
-            PMA_Util::getImage('b_table_add.png'),
+            PMA\libraries\Util::getImage('b_table_add.png'),
             $html
         );
 

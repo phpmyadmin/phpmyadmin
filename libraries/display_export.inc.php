@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -33,7 +35,7 @@ $export_list = PMA_getPlugins(
 
 /* Fail if we didn't find any plugin */
 if (empty($export_list)) {
-    PMA_Message::error(
+    Message::error(
         __('Could not load export plugins, please check your installation!')
     )->display();
     exit;
@@ -76,5 +78,5 @@ $html .= PMA_getHtmlForExportOptions(
 
 $html .= '</form>';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML($html);
