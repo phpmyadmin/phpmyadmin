@@ -72,7 +72,7 @@ $comments_map = PMA_getCommentsMap($db, $table);
 /**
  * Load JavaScript files
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('functions.js');
@@ -90,7 +90,7 @@ $scripts->addFile('gis_data_editor.js');
  * $disp_message come from tbl_replace.php
  */
 if (! empty($disp_message)) {
-    $response->addHTML(PMA_Util::getMessage($disp_message, null));
+    $response->addHTML(PMA\libraries\Util::getMessage($disp_message, null));
 }
 
 $table_columns = PMA_getTableColumns($db, $table);
@@ -152,7 +152,7 @@ $html_output .= PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
 
 $html_output .= PMA_URL_getHiddenInputs($_form_params);
 
-$titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
+$titles['Browse'] = PMA\libraries\Util::getIcon('b_browse.png', __('Browse foreign values'));
 
 // user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)
@@ -214,7 +214,7 @@ $html_output .= PMA_getActionsPanel(
 
 if ($biggest_max_file_size > 0) {
     $html_output .= '        '
-        . PMA_Util::generateHiddenMaxFileSize(
+        . PMA\libraries\Util::generateHiddenMaxFileSize(
             $biggest_max_file_size
         ) . "\n";
 }

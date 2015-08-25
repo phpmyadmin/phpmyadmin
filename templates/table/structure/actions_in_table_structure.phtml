@@ -1,7 +1,7 @@
 <td class="print_ignore"><ul class="table-structure-actions resizable-menu">
     <!-- Add primary -->
     <?php
-        echo PMA\Template::get('table/structure/action_row_in_structure_table')->render(
+        echo PMA\libraries\Template::get('table/structure/action_row_in_structure_table')->render(
             array(
                 'type' => $type,
                 'tbl_storage_engine' => $tbl_storage_engine,
@@ -21,7 +21,7 @@
     ?>
     <!-- Add unique -->
     <?php
-        echo PMA\Template::get('table/structure/action_row_in_structure_table')->render(
+        echo PMA\libraries\Template::get('table/structure/action_row_in_structure_table')->render(
             array(
                 'type' => $type,
                 'tbl_storage_engine' => $tbl_storage_engine,
@@ -41,7 +41,7 @@
     ?>
     <!-- Add index -->
     <?php
-        echo PMA\Template::get('table/structure/action_row_in_structure_table')->render(
+        echo PMA\libraries\Template::get('table/structure/action_row_in_structure_table')->render(
             array(
                 'type' => $type,
                 'tbl_storage_engine' => $tbl_storage_engine,
@@ -66,7 +66,7 @@
                 'geometry', 'point', 'linestring', 'polygon', 'multipoint',
                 'multilinestring', 'multipolygon', 'geomtrycollection'
             );
-            echo PMA\Template::get('table/structure/action_row_in_structure_table')->render(
+            echo PMA\libraries\Template::get('table/structure/action_row_in_structure_table')->render(
                 array(
                     'type' => $type,
                     'tbl_storage_engine' => $tbl_storage_engine,
@@ -95,8 +95,8 @@
                     || /*overload*/mb_strpos($type, 'char') !== false)
                 ): ?>
             <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php<?php echo $url_query; ?>&amp;add_key=1&amp;sql_query=<?php echo urlencode(
-                'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
-                . ' ADD FULLTEXT(' . PMA_Util::backquote($row['Field'])
+                'ALTER TABLE ' . PMA\libraries\Util::backquote($GLOBALS['table'])
+                . ' ADD FULLTEXT(' . PMA\libraries\Util::backquote($row['Field'])
                 . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(
                     __('An index has been added on %s.'),
                     htmlspecialchars($row['Field']))); ?>">
@@ -110,11 +110,11 @@
     <!-- Distinct value action -->
     <li class="browse nowrap">
         <a href="sql.php<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode(
-                'SELECT COUNT(*) AS ' . PMA_Util::backquote(__('Rows'))
-                . ', ' . PMA_Util::backquote($row['Field'])
-                . ' FROM ' . PMA_Util::backquote($GLOBALS['table'])
-                . ' GROUP BY ' . PMA_Util::backquote($row['Field'])
-                . ' ORDER BY ' . PMA_Util::backquote($row['Field'])
+                'SELECT COUNT(*) AS ' . PMA\libraries\Util::backquote(__('Rows'))
+                . ', ' . PMA\libraries\Util::backquote($row['Field'])
+                . ' FROM ' . PMA\libraries\Util::backquote($GLOBALS['table'])
+                . ' GROUP BY ' . PMA\libraries\Util::backquote($row['Field'])
+                . ' ORDER BY ' . PMA\libraries\Util::backquote($row['Field'])
             ); ?>&amp;is_browse_distinct=1">
             <?php echo $titles['DistinctValues']; ?>
         </a>
@@ -125,7 +125,7 @@
             <a href="#" onclick=$("input:checkbox").prop("checked",false);
             $("#checkbox_row_' . $rownum . '").prop("checked",true);
             $("button[value=remove_from_central_columns]").click();>
-            <?php echo PMA_Util::getIcon(
+            <?php echo PMA\libraries\Util::getIcon(
                 'centralColumns_delete.png',
                 __('Remove from central columns')
             ); ?></a>
@@ -133,7 +133,7 @@
             <a href="#" onclick=$("input:checkbox").prop("checked",false);
             $("#checkbox_row_' . $rownum . '").prop("checked",true);
             $("button[value=add_to_central_columns]").click();>
-            <?php echo PMA_Util::getIcon(
+            <?php echo PMA\libraries\Util::getIcon(
                 'centralColumns_add.png',
                 __('Add to central columns')
             ); ?></a>

@@ -5,9 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Collects information about which JavaScript
@@ -57,7 +55,7 @@ class PMA_Scripts
         foreach ($files as $value) {
             if (/*overload*/mb_strpos($value['filename'], "?") !== false) {
                 $file_name = $value['filename'] . $separator
-                    . PMA_Header::getVersionParameter();
+                    . Header::getVersionParameter();
                 if ($value['before_statics'] === true) {
                     $first_dynamic_scripts
                         .= "<script data-cfasync='false' type='text/javascript' "
@@ -86,7 +84,7 @@ class PMA_Scripts
             }
         }
         $url = 'js/get_scripts.js.php?' . implode($separator, $scripts)
-            . $separator . PMA_Header::getVersionParameter();
+            . $separator . Header::getVersionParameter();
 
         $static_scripts = sprintf(
             '<script data-cfasync="false" type="text/javascript" src="%s"></script>',

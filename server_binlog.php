@@ -28,7 +28,7 @@ $binary_logs = PMA_DRIZZLE
         'Log_name',
         null,
         null,
-        PMA_DatabaseInterface::QUERY_STORE
+        PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 
 if (! isset($_REQUEST['log'])
@@ -43,7 +43,7 @@ if (!empty($_REQUEST['dontlimitchars'])) {
     $url_params['dontlimitchars'] = 1;
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 
 $response->addHTML(PMA_getHtmlForSubPageHeader('binlog'));
 $response->addHTML(PMA_getLogSelector($binary_logs, $url_params));

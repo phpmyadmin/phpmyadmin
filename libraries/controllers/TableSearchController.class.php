@@ -8,10 +8,10 @@
 
 namespace PMA\Controllers\Table;
 
-use PMA\Template;
+use PMA\libraries\Util;
+use PMA\libraries\Template;
 use PMA\Controllers\TableController;
-use PMA_DatabaseInterface;
-use PMA_Util;
+use PMA\libraries\DatabaseInterface;
 
 require_once 'libraries/Template.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
@@ -123,7 +123,7 @@ class TableSearchController extends TableController
             $this->db, $this->table, null, true
         );
         // Get details about the geometry functions
-        $geom_types = PMA_Util::getGISDatatypes();
+        $geom_types = Util::getGISDatatypes();
 
         foreach ($columns as $row) {
             // set column name
@@ -202,7 +202,7 @@ class TableSearchController extends TableController
             }
 
             if (!isset($goto)) {
-                $goto = PMA_Util::getScriptNameForOption(
+                $goto = Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 );
             }
@@ -315,7 +315,7 @@ class TableSearchController extends TableController
             include_once './libraries/tbl_info.inc.php';
 
             if (!isset($goto)) {
-                $goto = PMA_Util::getScriptNameForOption(
+                $goto = Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 );
             }
@@ -394,7 +394,7 @@ class TableSearchController extends TableController
 
         //Query execution part
         $result = $this->dbi->query(
-            $sql_query . ";", null, PMA_DatabaseInterface::QUERY_STORE
+            $sql_query . ";", null, DatabaseInterface::QUERY_STORE
         );
         $fields_meta = $this->dbi->getFieldsMeta($result);
         $data = array();
@@ -406,7 +406,7 @@ class TableSearchController extends TableController
                 $tmpRow[] = $val;
             }
             //Get unique condition on each row (will be needed for row update)
-            $uniqueCondition = PMA_Util::getUniqueCondition(
+            $uniqueCondition = Util::getUniqueCondition(
                 $result, // handle
                 count($this->_columnNames), // fields_cnt
                 $fields_meta, // fields_meta
@@ -432,7 +432,7 @@ class TableSearchController extends TableController
 
         //Displays form for point data and scatter plot
         $titles = array(
-            'Browse' => PMA_Util::getIcon(
+            'Browse' => Util::getIcon(
                 'b_browse.png',
                 __('Browse foreign values')
             )
@@ -491,7 +491,7 @@ class TableSearchController extends TableController
         $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`'
             . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
         $result = $this->dbi->query(
-            $row_info_query . ";", null, PMA_DatabaseInterface::QUERY_STORE
+            $row_info_query . ";", null, DatabaseInterface::QUERY_STORE
         );
         $fields_meta = $this->dbi->getFieldsMeta($result);
         while ($row = $this->dbi->fetchAssoc($result)) {
@@ -499,7 +499,7 @@ class TableSearchController extends TableController
             $i = 0;
             foreach ($row as $col => $val) {
                 if ($fields_meta[$i]->type == 'bit') {
-                    $row[$col] = PMA_Util::printableBitValue(
+                    $row[$col] = Util::printableBitValue(
                         $val, $fields_meta[$i]->length
                     );
                 }
@@ -566,7 +566,7 @@ class TableSearchController extends TableController
 
         include_once 'libraries/tbl_info.inc.php';
         if (! isset($goto)) {
-            $goto = PMA_Util::getScriptNameForOption(
+            $goto = Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'], 'table'
             );
         }
@@ -649,7 +649,7 @@ class TableSearchController extends TableController
             $this->_connectionCharSet
         );
         $this->response->addHTML(
-            PMA_Util::getMessage(
+            Util::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 null, 'success'
             )
@@ -677,21 +677,21 @@ class TableSearchController extends TableController
             );
         } else {
             $sql_query = "SELECT "
-                . PMA_Util::backquote($column) . ","
+                . Util::backquote($column) . ","
                 . " REPLACE("
-                . PMA_Util::backquote($column) . ", '" . $find . "', '"
+                . Util::backquote($column) . ", '" . $find . "', '"
                 . $replaceWith
                 . "'),"
                 . " COUNT(*)"
-                . " FROM " . PMA_Util::backquote($this->db)
-                . "." . PMA_Util::backquote($this->table)
-                . " WHERE " . PMA_Util::backquote($column)
+                . " FROM " . Util::backquote($this->db)
+                . "." . Util::backquote($this->table)
+                . " WHERE " . Util::backquote($column)
                 . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
             // is case sensitive
-            $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
-                . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
+            $sql_query .= " GROUP BY " . Util::backquote($column)
+                . " ORDER BY " . Util::backquote($column) . " ASC";
 
             $result = $this->dbi->fetchResult($sql_query, 0);
         }
@@ -724,18 +724,18 @@ class TableSearchController extends TableController
     ) {
         $column = $this->_columnNames[$columnIndex];
         $sql_query = "SELECT "
-            . PMA_Util::backquote($column) . ","
+            . Util::backquote($column) . ","
             . " 1," // to add an extra column that will have replaced value
             . " COUNT(*)"
-            . " FROM " . PMA_Util::backquote($this->db)
-            . "." . PMA_Util::backquote($this->table)
-            . " WHERE " . PMA_Util::backquote($column)
-            . " RLIKE '" . PMA_Util::sqlAddSlashes($find) . "' COLLATE "
+            . " FROM " . Util::backquote($this->db)
+            . "." . Util::backquote($this->table)
+            . " WHERE " . Util::backquote($column)
+            . " RLIKE '" . Util::sqlAddSlashes($find) . "' COLLATE "
             . $charSet . "_bin"; // here we
         // change the collation of the 2nd operand to a case sensitive
         // binary collation to make sure that the comparison is case sensitive
-        $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
-            . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
+        $sql_query .= " GROUP BY " . Util::backquote($column)
+            . " ORDER BY " . Util::backquote($column) . " ASC";
 
         $result = $this->dbi->fetchResult($sql_query, 0);
 
@@ -770,37 +770,37 @@ class TableSearchController extends TableController
             $toReplace = $this->_getRegexReplaceRows(
                 $columnIndex, $find, $replaceWith, $charSet
             );
-            $sql_query = "UPDATE " . PMA_Util::backquote($this->table)
-                . " SET " . PMA_Util::backquote($column) . " = CASE";
+            $sql_query = "UPDATE " . Util::backquote($this->table)
+                . " SET " . Util::backquote($column) . " = CASE";
             if (is_array($toReplace)) {
                 foreach ($toReplace as $row) {
-                    $sql_query .= "\n WHEN " . PMA_Util::backquote($column)
-                        . " = '" . PMA_Util::sqlAddSlashes($row[0])
-                        . "' THEN '" . PMA_Util::sqlAddSlashes($row[1]) . "'";
+                    $sql_query .= "\n WHEN " . Util::backquote($column)
+                        . " = '" . Util::sqlAddSlashes($row[0])
+                        . "' THEN '" . Util::sqlAddSlashes($row[1]) . "'";
                 }
             }
             $sql_query .= " END"
-                . " WHERE " . PMA_Util::backquote($column)
-                . " RLIKE '" . PMA_Util::sqlAddSlashes($find) . "' COLLATE "
+                . " WHERE " . Util::backquote($column)
+                . " RLIKE '" . Util::sqlAddSlashes($find) . "' COLLATE "
                 . $charSet . "_bin"; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
             // is case sensitive
         } else {
-            $sql_query = "UPDATE " . PMA_Util::backquote($this->table)
-                . " SET " . PMA_Util::backquote($column) . " ="
+            $sql_query = "UPDATE " . Util::backquote($this->table)
+                . " SET " . Util::backquote($column) . " ="
                 . " REPLACE("
-                . PMA_Util::backquote($column) . ", '" . $find . "', '"
+                . Util::backquote($column) . ", '" . $find . "', '"
                 . $replaceWith
                 . "')"
-                . " WHERE " . PMA_Util::backquote($column)
+                . " WHERE " . Util::backquote($column)
                 . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
             // is case sensitive
         }
         $this->dbi->query(
-            $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
+            $sql_query, null, DatabaseInterface::QUERY_STORE
         );
         $GLOBALS['sql_query'] = $sql_query;
     }
@@ -814,10 +814,10 @@ class TableSearchController extends TableController
      */
     public function getColumnMinMax($column)
     {
-        $sql_query = 'SELECT MIN(' . PMA_Util::backquote($column) . ') AS `min`, '
-            . 'MAX(' . PMA_Util::backquote($column) . ') AS `max` '
-            . 'FROM ' . PMA_Util::backquote($this->db) . '.'
-            . PMA_Util::backquote($this->table);
+        $sql_query = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
+            . 'MAX(' . Util::backquote($column) . ') AS `max` '
+            . 'FROM ' . Util::backquote($this->db) . '.'
+            . Util::backquote($this->table);
 
         $result = $this->dbi->fetchSingleRow($sql_query);
 
@@ -876,19 +876,19 @@ class TableSearchController extends TableController
         } else {
             $sql_query .= implode(
                 ', ',
-                PMA_Util::backquote($_POST['columnsToDisplay'])
+                Util::backquote($_POST['columnsToDisplay'])
             );
         } // end if
 
         $sql_query .= ' FROM '
-            . PMA_Util::backquote($_POST['table']);
+            . Util::backquote($_POST['table']);
         $whereClause = $this->_generateWhereClause();
         $sql_query .= $whereClause;
 
         // if the search results are to be ordered
         if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] != '--nil--') {
             $sql_query .= ' ORDER BY '
-                . PMA_Util::backquote($_POST['orderByColumn'])
+                . Util::backquote($_POST['orderByColumn'])
                 . ' ' . $_POST['order'];
         } // end if
         return $sql_query;
@@ -910,7 +910,7 @@ class TableSearchController extends TableController
         $entered_value = (isset($_POST['criteriaValues'])
             ? $_POST['criteriaValues'] : '');
         $titles = array(
-            'Browse' => PMA_Util::getIcon(
+            'Browse' => Util::getIcon(
                 'b_browse.png', __('Browse foreign values')
             )
         );
@@ -1039,10 +1039,10 @@ class TableSearchController extends TableController
             $parens_close = '';
         }
         $enum_where = '\''
-            . PMA_Util::sqlAddSlashes($criteriaValues[0]) . '\'';
+            . Util::sqlAddSlashes($criteriaValues[0]) . '\'';
         for ($e = 1; $e < $enum_selected_count; $e++) {
             $enum_where .= ', \''
-                . PMA_Util::sqlAddSlashes($criteriaValues[$e]) . '\'';
+                . Util::sqlAddSlashes($criteriaValues[$e]) . '\'';
         }
 
         return ' ' . $func_type . ' ' . $parens_open
@@ -1072,13 +1072,13 @@ class TableSearchController extends TableController
         $where = '';
 
         // Get details about the geometry functions
-        $geom_funcs = PMA_Util::getGISFunctions($types, true, false);
+        $geom_funcs = Util::getGISFunctions($types, true, false);
 
         // If the function takes multiple parameters
         if ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
-            $gis_data = PMA_Util::createGISData($criteriaValues);
-            $where = $geom_func . '(' . PMA_Util::backquote($names)
+            $gis_data = Util::createGISData($criteriaValues);
+            $where = $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
             return $where;
         }
@@ -1086,7 +1086,7 @@ class TableSearchController extends TableController
         // New output type is the output type of the function being applied
         $type = $geom_funcs[$geom_func]['type'];
         $geom_function_applied = $geom_func
-            . '(' . PMA_Util::backquote($names) . ')';
+            . '(' . Util::backquote($names) . ')';
 
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
         if (isset($geom_unary_functions[$geom_func])
@@ -1094,11 +1094,11 @@ class TableSearchController extends TableController
         ) {
             $where = $geom_function_applied;
 
-        } elseif (in_array($type, PMA_Util::getGISDatatypes())
+        } elseif (in_array($type, Util::getGISDatatypes())
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
-            $gis_data = PMA_Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues);
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
 
         } elseif (/*overload*/mb_strlen($criteriaValues) > 0) {
@@ -1130,7 +1130,7 @@ class TableSearchController extends TableController
             );
         }
 
-        $backquoted_name = PMA_Util::backquote($names);
+        $backquoted_name = Util::backquote($names);
         $where = '';
         if ($unaryFlag) {
             $where = $backquoted_name . ' ' . $func_type;
@@ -1169,10 +1169,10 @@ class TableSearchController extends TableController
             ) {
                 if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
                     $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
-                        . PMA_Util::sqlAddSlashes($criteriaValues, true) . $quot;
+                        . Util::sqlAddSlashes($criteriaValues, true) . $quot;
                 } else {
                     $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
-                        . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
+                        . Util::sqlAddSlashes($criteriaValues) . $quot;
                 }
                 return $where;
             }
@@ -1193,7 +1193,7 @@ class TableSearchController extends TableController
                     $value = 'NULL';
                     continue;
                 }
-                $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
+                $value = $quot . Util::sqlAddSlashes(trim($value))
                     . $quot;
             }
 

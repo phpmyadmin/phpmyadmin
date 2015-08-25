@@ -55,7 +55,7 @@ if (isset($_POST['add_column'])) {
     $selected_col[] = $_POST['column-select'];
     $tmp_msg = PMA_syncUniqueColumns($selected_col, false, $selected_tbl);
 }
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('jquery/jquery.uitablefilter.js');
@@ -145,7 +145,7 @@ $response->addHTML('</table>');
 $tablefooter = PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir);
 $response->addHTML($tablefooter);
 $response->addHTML('</form></div>');
-$message = PMA_Message::success(
+$message = PMA\libraries\Message::success(
     sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + count($result)))
 );
 if (isset($tmp_msg) && $tmp_msg !== true) {

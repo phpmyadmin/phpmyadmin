@@ -22,7 +22,7 @@ class Node_Column_Container extends Node
     public function __construct()
     {
         parent::__construct(__('Columns'), Node::CONTAINER);
-        $this->icon  = PMA_Util::getImage('pause.png', __('Columns'));
+        $this->icon  = PMA\libraries\Util::getImage('pause.png', __('Columns'));
         $this->links = array(
             'text' => 'tbl_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
@@ -36,7 +36,7 @@ class Node_Column_Container extends Node
         $new_label = _pgettext('Create new column', 'New');
         $new        = PMA_NodeFactory::getInstance('Node', $new_label);
         $new->isNew = true;
-        $new->icon  = PMA_Util::getImage('b_column_add.png', $new_label);
+        $new->icon  = PMA\libraries\Util::getImage('b_column_add.png', $new_label);
         $new->links = array(
             'text' => 'tbl_addfield.php?server=' . $GLOBALS['server']
                     . '&amp;db=%3$s&amp;table=%2$s'

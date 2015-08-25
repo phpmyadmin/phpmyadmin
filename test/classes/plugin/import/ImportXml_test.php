@@ -14,7 +14,7 @@ $GLOBALS['server'] = 0;
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Table.class.php';
@@ -121,7 +121,7 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         global $import_notice;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

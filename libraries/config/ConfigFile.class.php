@@ -28,7 +28,7 @@ class ConfigFile
 
     /**
      * Stores original PMA config, not modified by user preferences
-     * @var PMA_Config
+     * @var PMA\libraries\Config
      */
     private $_baseCfg;
 
@@ -74,7 +74,7 @@ class ConfigFile
      * Constructor
      *
      * @param array $base_config base configuration read from
-     *                           {@link PMA_Config::$base_config},
+     *                           {@link PMA\libraries\Config::$base_config},
      *                           use only when not in PMA Setup
      */
     public function __construct(array $base_config = null)

@@ -23,10 +23,10 @@ if (! isset($selected_tbl)) {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+    ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $header->enablePrintView();
 
@@ -36,12 +36,12 @@ $header->enablePrintView();
 $cfgRelation  = PMA_getRelationsParam();
 
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Index.class.php';
+require_once 'libraries/Index.php';
 
 /**
  * Check parameters
  */
-PMA_Util::checkParameters(array('db'));
+PMA\libraries\Util::checkParameters(array('db'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -86,7 +86,7 @@ foreach ($tables as $table) {
     $GLOBALS['dbi']->selectDb($db);
     $indexes = $GLOBALS['dbi']->getTableIndexes($db, $table);
     list($primary, $pk_array, $indexes_info, $indexes_data)
-        = PMA_Util::processIndexData($indexes);
+        = PMA\libraries\Util::processIndexData($indexes);
 
     /**
      * Gets columns properties
@@ -130,7 +130,7 @@ foreach ($tables as $table) {
             $row['Null'] = 'NO';
         }
         $extracted_columnspec
-            = PMA_Util::extractColumnSpec($row['Type']);
+            = PMA\libraries\Util::extractColumnSpec($row['Type']);
 
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
@@ -157,7 +157,7 @@ foreach ($tables as $table) {
         }
         echo '</td>';
         echo '<td'
-            . PMA_Util::getClassForType(
+            . PMA\libraries\Util::getClassForType(
                 $extracted_columnspec['type']
             )
             . ' lang="en" dir="ltr">' . $type . '</td>';
@@ -203,8 +203,8 @@ foreach ($tables as $table) {
     $count++;
     echo '</table>';
     // display indexes information
-    if (count(PMA_Index::getFromTable($table, $db)) > 0) {
-        echo PMA_Index::getHtmlForIndexes($table, $db, true);
+    if (count(PMA\libraries\Index::getFromTable($table, $db)) > 0) {
+        echo PMA\libraries\Index::getHtmlForIndexes($table, $db, true);
     }
     echo '</div>';
 } //ends main while
@@ -212,4 +212,4 @@ foreach ($tables as $table) {
 /**
  * Displays the footer
  */
-echo PMA_Util::getButton();
+echo PMA\libraries\Util::getButton();

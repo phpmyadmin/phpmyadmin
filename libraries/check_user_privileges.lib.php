@@ -236,20 +236,20 @@ function PMA_checkRequiredPrivilgesForAdjust()
  */
 function PMA_analyseShowGrant()
 {
-    if (PMA_Util::cacheExists('is_create_db_priv')) {
-        $GLOBALS['is_create_db_priv'] = PMA_Util::cacheGet(
+    if (PMA\libraries\Util::cacheExists('is_create_db_priv')) {
+        $GLOBALS['is_create_db_priv'] = PMA\libraries\Util::cacheGet(
             'is_create_db_priv'
         );
-        $GLOBALS['is_reload_priv'] = PMA_Util::cacheGet(
+        $GLOBALS['is_reload_priv'] = PMA\libraries\Util::cacheGet(
             'is_reload_priv'
         );
-        $GLOBALS['db_to_create'] = PMA_Util::cacheGet(
+        $GLOBALS['db_to_create'] = PMA\libraries\Util::cacheGet(
             'db_to_create'
         );
-        $GLOBALS['dbs_where_create_table_allowed'] = PMA_Util::cacheGet(
+        $GLOBALS['dbs_where_create_table_allowed'] = PMA\libraries\Util::cacheGet(
             'dbs_where_create_table_allowed'
         );
-        $GLOBALS['dbs_to_test'] = PMA_Util::cacheGet(
+        $GLOBALS['dbs_to_test'] = PMA\libraries\Util::cacheGet(
             'dbs_to_test'
         );
         return;
@@ -278,7 +278,7 @@ function PMA_analyseShowGrant()
             $row[0], $db_name_offset,
             /*overload*/mb_strpos($row[0], '.', $db_name_offset) - $db_name_offset
         );
-        $show_grants_dbname = PMA_Util::unQuote($show_grants_dbname, '`');
+        $show_grants_dbname = PMA\libraries\Util::unQuote($show_grants_dbname, '`');
 
         $show_grants_str    = /*overload*/mb_substr(
             $row[0],
@@ -320,7 +320,7 @@ function PMA_analyseShowGrant()
                 // this array may contain wildcards
                 $GLOBALS['dbs_where_create_table_allowed'][] = $show_grants_dbname;
 
-                $dbname_to_test = PMA_Util::backquote($show_grants_dbname);
+                $dbname_to_test = PMA\libraries\Util::backquote($show_grants_dbname);
 
                 if ($GLOBALS['is_create_db_priv']) {
                     // no need for any more tests if we already know this
@@ -366,14 +366,14 @@ function PMA_analyseShowGrant()
 
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.class.php
-    PMA_Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
-    PMA_Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
-    PMA_Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
-    PMA_Util::cacheSet(
+    PMA\libraries\Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
+    PMA\libraries\Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
+    PMA\libraries\Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
+    PMA\libraries\Util::cacheSet(
         'dbs_where_create_table_allowed',
         $GLOBALS['dbs_where_create_table_allowed']
     );
-    PMA_Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
+    PMA\libraries\Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
 } // end function
 
 if (!PMA_DRIZZLE) {

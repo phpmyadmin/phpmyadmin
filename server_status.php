@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\PMA_ServerStatusData;
+
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/ServerStatusData.class.php';
@@ -26,7 +28,7 @@ if (PMA_DRIZZLE) {
 /**
  * start output
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML('<div>');
 
 $serverStatusData = new PMA_ServerStatusData();

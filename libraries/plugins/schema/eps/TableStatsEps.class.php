@@ -95,16 +95,16 @@ class Table_Stats_Eps extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                PMA_Font::getStringWidth($field, $font, $fontSize)
+                PMA\libraries\Font::getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += PMA_Font::getStringWidth('      ', $font, $fontSize);
+        $this->width += PMA\libraries\Font::getStringWidth('      ', $font, $fontSize);
         /*
          * it is unknown what value must be added, because
         * table title is affected by the table width value
         */
         while ($this->width
-            < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)) {
+            < PMA\libraries\Font::getStringWidth($this->getTitle(), $font, $fontSize)) {
             $this->width += 7;
         }
     }

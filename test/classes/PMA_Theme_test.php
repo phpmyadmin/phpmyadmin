@@ -5,10 +5,12 @@
  *
  * @package PhpMyAdmin-test
  */
+use PMA\libraries\PMA_Theme;
+
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/Theme_Manager.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
@@ -35,7 +37,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     {
         $this->object = new PMA_Theme();
         $_SESSION['PMA_Theme'] = $this->object;
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';

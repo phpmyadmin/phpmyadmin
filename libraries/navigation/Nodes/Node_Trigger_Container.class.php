@@ -22,7 +22,7 @@ class Node_Trigger_Container extends Node
     public function __construct()
     {
         parent::__construct(__('Triggers'), Node::CONTAINER);
-        $this->icon  = PMA_Util::getImage('b_triggers.png');
+        $this->icon  = PMA\libraries\Util::getImage('b_triggers.png');
         $this->links = array(
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s&amp;token='
@@ -37,7 +37,7 @@ class Node_Trigger_Container extends Node
             'Node', _pgettext('Create new trigger', 'New')
         );
         $new->isNew = true;
-        $new->icon  = PMA_Util::getImage('b_trigger_add.png', '');
+        $new->icon  = PMA\libraries\Util::getImage('b_trigger_add.png', '');
         $new->links = array(
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
                     . '&amp;db=%3$s&amp;token=' . $_SESSION[' PMA_token ']

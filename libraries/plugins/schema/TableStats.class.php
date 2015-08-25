@@ -82,16 +82,16 @@ abstract class TableStats
      */
     protected function validateTableAndLoadFields()
     {
-        $sql = 'DESCRIBE ' . PMA_Util::backquote($this->tableName);
+        $sql = 'DESCRIBE ' . PMA\libraries\Util::backquote($this->tableName);
         $result = $GLOBALS['dbi']->tryQuery(
-            $sql, null, PMA_DatabaseInterface::QUERY_STORE
+            $sql, null, PMA\libraries\DatabaseInterface::QUERY_STORE
         );
         if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $this->showMissingTableError();
         }
 
         if ($this->showKeys) {
-            $indexes = PMA_Index::getFromTable($this->tableName, $this->db);
+            $indexes = PMA\libraries\Index::getFromTable($this->tableName, $this->db);
             $all_columns = array();
             foreach ($indexes as $index) {
                 $all_columns = array_merge(
@@ -149,8 +149,8 @@ abstract class TableStats
     protected function loadPrimaryKey()
     {
         $result = $GLOBALS['dbi']->query(
-            'SHOW INDEX FROM ' . PMA_Util::backquote($this->tableName) . ';',
-            null, PMA_DatabaseInterface::QUERY_STORE
+            'SHOW INDEX FROM ' . PMA\libraries\Util::backquote($this->tableName) . ';',
+            null, PMA\libraries\DatabaseInterface::QUERY_STORE
         );
         if ($GLOBALS['dbi']->numRows($result) > 0) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {

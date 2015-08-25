@@ -8,6 +8,9 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+use PMA\libraries\PMA_Table;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -167,7 +170,7 @@ function PMA_getHtmlForExportOptionHeader($export_type, $db, $table)
 {
     $html  = '<div class="exportoptions" id="header">';
     $html .= '<h2>';
-    $html .= PMA_Util::getImage('b_export.png', __('Export'));
+    $html .= PMA\libraries\Util::getImage('b_export.png', __('Export'));
     if ($export_type == 'server') {
         $html .= __('Exporting databases from the current server');
     } elseif ($export_type == 'database') {
@@ -248,10 +251,10 @@ function PMA_getOptionsForExportTemplates($export_type)
     $cfgRelation = PMA_getRelationsParam();
 
     $query = "SELECT `id`, `template_name` FROM "
-       . PMA_Util::backquote($cfgRelation['db']) . '.'
-       . PMA_Util::backquote($cfgRelation['export_templates'])
+       . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+       . PMA\libraries\Util::backquote($cfgRelation['export_templates'])
        . " WHERE `username` = "
-       . "'" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
+       . "'" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
        . " AND `export_type` = '" . $export_type . "'"
        . " ORDER BY `template_name`;";
 
@@ -391,7 +394,7 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
 
     $html .= '<div class="exportoptions" id="submit">';
 
-    $html .= PMA_Util::getExternalBug(
+    $html .= PMA\libraries\Util::getExternalBug(
         __('SQL compatibility mode'), 'mysql', '50027', '14515'
     );
     global $cfg;
@@ -487,7 +490,7 @@ function PMA_getHtmlForExportOptionsQuickExport()
     $html .= '<label for="checkbox_quick_dump_onserver">';
     $html .= sprintf(
         __('Save on server in the directory <b>%s</b>'),
-        htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']))
+        htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']))
     );
     $html .= '</label>';
     $html .= '</li>';
@@ -522,7 +525,7 @@ function PMA_getHtmlForExportOptionsOutputSaveDir()
     $html .= '<label for="checkbox_dump_onserver">';
     $html .= sprintf(
         __('Save on server in the directory <b>%s</b>'),
-        htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']))
+        htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']))
     );
     $html .= '</label>';
     $html .= '</li>';
@@ -552,7 +555,7 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     $html  = '<li>';
     $html .= '<label for="filename_template" class="desc">';
     $html .= __('File name template:');
-    $trans = new PMA_Message;
+    $trans = new Message;
     $trans->addMessage(__('@SERVER@ will become the server name'));
     if ($export_type == 'database' || $export_type == 'table') {
         $trans->addMessage(__(', @DATABASE@ will become the database name'));
@@ -561,7 +564,7 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
         }
     }
 
-    $msg = new PMA_Message(
+    $msg = new Message(
         __(
             'This value is interpreted using %1$sstrftime%2$s, '
             . 'so you can use time formatting strings. '
@@ -576,14 +579,14 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     );
     $msg->addParam('</a>', false);
     $msg->addParam($trans);
-    $doc_url = PMA_Util::getDocuLink('faq', 'faq6-27');
+    $doc_url = PMA\libraries\Util::getDocuLink('faq', 'faq6-27');
     $msg->addParam(
         '<a href="' . $doc_url . '" target="documentation">',
         false
     );
     $msg->addParam('</a>', false);
 
-    $html .= PMA_Util::showHint($msg);
+    $html .= PMA\libraries\Util::showHint($msg);
     $html .= '</label>';
     $html .= '<input type="text" name="filename_template" id="filename_template" ';
     $html .= ' value="';

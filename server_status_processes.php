@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\PMA_ServerStatusData;
+
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/ServerStatusData.class.php';
@@ -24,7 +26,7 @@ if (PMA_DRIZZLE) {
 }
 
 $ServerStatusData = new PMA_ServerStatusData();
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 
 /**
  * Kills a selected process
@@ -33,10 +35,10 @@ $response = PMA_Response::getInstance();
 if ($response->isAjax() && !empty($_REQUEST['kill'])) {
     $query = $GLOBALS['dbi']->getKillQuery((int)$_REQUEST['kill']);
     if ($GLOBALS['dbi']->tryQuery($query)) {
-        $message = PMA_Message::success(__('Thread %s was successfully killed.'));
+        $message = PMA\libraries\Message::success(__('Thread %s was successfully killed.'));
         $response->isSuccess(true);
     } else {
-        $message = PMA_Message::error(
+        $message = PMA\libraries\Message::error(
             __(
                 'phpMyAdmin was unable to kill thread %s.'
                 . ' It probably has already been closed.'

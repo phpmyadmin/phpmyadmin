@@ -343,15 +343,15 @@ function PMA_pluginGetOneOption(
         $doc = $propertyGroup->getDoc();
         if ($doc != null) {
             if (count($doc) == 3) {
-                $ret .= PMA_Util::showMySQLDocu(
+                $ret .= PMA\libraries\Util::showMySQLDocu(
                     $doc[1],
                     false,
                     $doc[2]
                 );
             } elseif (count($doc) == 1) {
-                $ret .= PMA_Util::showDocu('faq', $doc[0]);
+                $ret .= PMA\libraries\Util::showDocu('faq', $doc[0]);
             } else {
-                $ret .= PMA_Util::showMySQLDocu(
+                $ret .= PMA\libraries\Util::showMySQLDocu(
                     $doc[1]
                 );
             }

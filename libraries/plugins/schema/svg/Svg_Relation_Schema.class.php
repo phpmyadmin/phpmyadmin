@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -12,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 require_once 'libraries/plugins/schema/svg/RelationStatsSvg.class.php';
 require_once 'libraries/plugins/schema/svg/TableStatsSvg.class.php';
-require_once 'libraries/Font.class.php';
+require_once 'libraries/Font.php';
 
 /**
  * This Class inherits the XMLwriter class and
@@ -191,7 +193,7 @@ class PMA_SVG extends XMLWriter
     {
         //ob_get_clean();
         $output = $this->flush();
-        PMA_Response::getInstance()->disable();
+        PMA\libraries\Response::getInstance()->disable();
         PMA_downloadHeader(
             $fileName,
             'image/svg+xml',

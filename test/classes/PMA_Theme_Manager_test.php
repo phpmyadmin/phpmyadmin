@@ -9,12 +9,14 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+use PMA\libraries\PMA_Theme_Manager;
+
+require_once 'libraries/Util.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Theme_Manager.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/core.lib.php';
 
 /**
@@ -36,7 +38,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
     }
 

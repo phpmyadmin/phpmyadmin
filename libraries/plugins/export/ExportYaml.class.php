@@ -152,7 +152,7 @@ class ExportYaml extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $result = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);

@@ -12,7 +12,7 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/normalization.lib.php';
-require_once 'libraries/Index.class.php';
+require_once 'libraries/Index.php';
 
 if (isset($_REQUEST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'
@@ -64,7 +64,7 @@ if (isset($_REQUEST['getNewTables3NF'])) {
     exit;
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('normalization.js');

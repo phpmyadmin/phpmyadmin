@@ -9,17 +9,19 @@
  * Include to test.
  */
 
-require_once 'libraries/Footer.class.php';
+use PMA\libraries\PMA_Theme;
+
+require_once 'libraries/Footer.php';
 require_once 'libraries/Response.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/Error_Handler.class.php';
+require_once 'libraries/ErrorHandler.php';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/relation.lib.php';
 
@@ -32,7 +34,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var array store private attributes of PMA_Footer
+     * @var array store private attributes of PMA\libraries\Footer
      */
     public $privates = array();
 
@@ -56,7 +58,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['pmaThemeImage'] = 'image';
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
@@ -64,10 +66,10 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = '1';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
-        $this->object = new PMA_Footer();
+        $this->object = new PMA\libraries\Footer();
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
-        $GLOBALS['error_handler'] = new PMA_Error_Handler();
+        $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler();
         unset($_POST);
 
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
@@ -96,7 +98,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     private function _callPrivateFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA_Footer');
+        $class = new ReflectionClass('PMA\libraries\Footer');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -216,7 +218,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisable()
     {
-        $footer = new PMA_Footer();
+        $footer = new PMA\libraries\Footer();
         $footer->disable();
         $this->assertEquals(
             '',
@@ -231,7 +233,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     public function testAjax()
     {
-        $footer = new PMA_Footer();
+        $footer = new PMA\libraries\Footer();
         $footer->setAjax(true);
         $this->assertEquals(
             '',
@@ -246,7 +248,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetScripts()
     {
-        $footer = new PMA_Footer();
+        $footer = new PMA\libraries\Footer();
         $this->assertContains(
             '<script data-cfasync="false" type="text/javascript">',
             $footer->getScripts()->getDisplay()
@@ -261,7 +263,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplay()
     {
-        $footer = new PMA_Footer();
+        $footer = new PMA\libraries\Footer();
         $this->assertContains(
             'Open new phpMyAdmin window',
             $footer->getDisplay()
@@ -275,7 +277,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     public function testMinimal()
     {
-        $footer = new PMA_Footer();
+        $footer = new PMA\libraries\Footer();
         $footer->setMinimal();
         $this->assertEquals(
             '</div></body></html>',

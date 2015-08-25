@@ -9,7 +9,7 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_variables.lib.php';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_variables.js');
@@ -42,7 +42,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 /**
  * Displays the sub-page heading
  */
-$doc_link = PMA_Util::showMySQLDocu('server_system_variables');
+$doc_link = PMA\libraries\Util::showMySQLDocu('server_system_variables');
 $response->addHtml(PMA_getHtmlForSubPageHeader('variables', $doc_link));
 
 /**

@@ -20,13 +20,13 @@ require_once 'libraries/plugins/transformations/output/'
 require_once 'libraries/plugins/transformations/output/'
     . 'Application_Octetstream_Hex.class.php';
 require_once 'libraries/plugins/transformations/output/Image_JPEG_Inline.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/config.default.php';
 require_once 'libraries/plugins/transformations/output/Image_JPEG_Link.class.php';
 require_once 'libraries/plugins/transformations/output/Image_PNG_Inline.class.php';
 require_once 'libraries/plugins/transformations/output/'
     . 'Text_Plain_Dateformat.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/plugins/transformations/output/'
     . 'Text_Plain_External.class.php';
 require_once 'libraries/plugins/transformations/output/'
@@ -62,7 +62,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
         $row = array("pma"=>"aaa", "pca"=>"bbb");
 
         // For Image_*_Inline plugin
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
 
         // For Date Format plugin

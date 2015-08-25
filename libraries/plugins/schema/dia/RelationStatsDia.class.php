@@ -105,7 +105,7 @@ class Relation_Stats_Dia
      * @return boolean|void
      *
      * @access public
-     * @see PMA_PDF
+     * @see PDF
      */
     public function relationDraw($showColor)
     {

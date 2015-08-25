@@ -100,7 +100,7 @@ class PMA_PageSettings
      *
      * @param FormDisplay      &$form_display Form
      * @param ConfigFile       &$cf           Configuration file
-     * @param PMA_Message|null &$error        Error message
+     * @param PMA\libraries\Message|null &$error        Error message
      *
      * @return void
      */
@@ -123,7 +123,7 @@ class PMA_PageSettings
      * Store errors in _errorHTML
      *
      * @param FormDisplay      &$form_display Form
-     * @param PMA_Message|null &$error        Error message
+     * @param PMA\libraries\Message|null &$error        Error message
      *
      * @return void
      */
@@ -150,13 +150,13 @@ class PMA_PageSettings
      * Display page-related settings
      *
      * @param FormDisplay &$form_display Form
-     * @param PMA_Message &$error        Error message
+     * @param PMA\libraries\Message &$error        Error message
      *
      * @return string
      */
     private function _getPageSettingsDisplay(&$form_display, &$error)
     {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
 
         $retval = '';
 
@@ -208,7 +208,7 @@ class PMA_PageSettings
     {
         $object = new PMA_PageSettings($formGroupName);
 
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->addHTML($object->getErrorHTML());
         $response->addHTML($object->getHTML());
 
@@ -223,7 +223,7 @@ class PMA_PageSettings
     {
         $object = new PMA_PageSettings('Navi_panel', 'pma_navigation_settings');
 
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->addHTML($object->getErrorHTML());
         return $object->getHTML();
     }

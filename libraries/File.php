@@ -3,11 +3,9 @@
 /**
  * file upload functions
  *
- * @package PhpMyAdmin
+ * @package PMA\libraries
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * File wrapper class
@@ -15,9 +13,9 @@ if (! defined('PHPMYADMIN')) {
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
  *
- * @package PhpMyAdmin
+ * @package PMA\libraries
  */
-class PMA_File
+class File
 {
     /**
      * @var string the temporary file name
@@ -91,7 +89,7 @@ class PMA_File
     /**
      * destructor
      *
-     * @see     PMA_File::cleanUp()
+     * @see     File::cleanUp()
      * @access  public
      */
     public function __destruct()
@@ -131,7 +129,7 @@ class PMA_File
      *
      * @param boolean $is_temp sets the temp flag
      *
-     * @return boolean PMA_File::$_is_temp
+     * @return boolean File::$_is_temp
      * @access  public
      */
     public function isTemp($is_temp = null)
@@ -201,7 +199,7 @@ class PMA_File
      * accessor
      *
      * @access  public
-     * @return string  PMA_File::$_name
+     * @return string  File::$_name
      */
     public function getName()
     {
@@ -245,7 +243,7 @@ class PMA_File
         ) {
             return false;
         }
-        $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple(
+        $file = File::fetchUploadedFromTblChangeRequestMultiple(
             $_FILES['fields_upload'],
             $rownumber,
             $key
@@ -420,7 +418,7 @@ class PMA_File
         }
 
         $this->setName(
-            PMA_Util::userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
+            Util::userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
         );
         if (! $this->isReadable()) {
             $this->_error_message = __('File could not be read!');
@@ -452,7 +450,7 @@ class PMA_File
      * before opening it. The FAQ 1.11 explains how to create the "./tmp"
      * directory - if needed
      *
-     * @todo move check of $cfg['TempDir'] into PMA_Config?
+     * @todo move check of $cfg['TempDir'] into Config?
      * @access  public
      * @return boolean whether uploaded file is fine or not
      */
@@ -535,7 +533,7 @@ class PMA_File
         }
          */
 
-        $this->_compression = PMA_Util::getCompressionMimeType($file);
+        $this->_compression = Util::getCompressionMimeType($file);
         return $this->_compression;
     }
 
@@ -629,7 +627,7 @@ class PMA_File
                 include_once './libraries/zip_extension.lib.php';
                 $result = PMA_getZipContents($this->getName());
                 if (! empty($result['error'])) {
-                    $this->_error_message = PMA_Message::rawError($result['error']);
+                    $this->_error_message = Message::rawError($result['error']);
                     return false;
                 }
                 unset($result);

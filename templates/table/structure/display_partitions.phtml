@@ -1,7 +1,7 @@
 <div id="partitions">
     <fieldset>
         <legend><?php echo __('Partitions')
-            . PMA_Util::showMySQLDocu('partitioning'); ?>
+            . PMA\libraries\Util::showMySQLDocu('partitioning'); ?>
         </legend>
         <p>
             <?php echo __('Partitioned by:');?>
@@ -55,7 +55,7 @@
                     <?php endif; ?>
                     <td class="value"><?php echo $partition->getRows(); ?></td>
                     <td class="value"><?php
-                        list($value, $unit) = PMA_Util::formatByteDown(
+                        list($value, $unit) = PMA\libraries\Util::formatByteDown(
                             $partition->getDataLength(), 3, 1
                         );
                         ?>
@@ -63,7 +63,7 @@
                         <span class="unit"><?php echo $unit; ?></span>
                     </td>
                     <td class="value"><?php
-                        list($value, $unit) = PMA_Util::formatByteDown(
+                        list($value, $unit) = PMA\libraries\Util::formatByteDown(
                             $partition->getIndexLength(), 3, 1
                         );
                         ?>
@@ -74,7 +74,7 @@
                     <?php foreach ($actionIcons as $action => $icon): ?>
                         <td>
                             <a  href="tbl_structure.php<?php echo $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?php echo urlencode(
-                                    "ALTER TABLE " . PMA_Util::backquote($table) . $action . " PARTITION " . $partition->getName()
+                                    "ALTER TABLE " . PMA\libraries\Util::backquote($table) . $action . " PARTITION " . $partition->getName()
                                 ) ?>"
                                 id="partition_action_<?php echo $action; ?>"
                                 name="partition_action_<?php echo $action; ?>"
@@ -96,7 +96,7 @@
                                 <?php endif; ?>
                                 <td class="value"><?php echo $subParition->getRows(); ?></td>
                                 <td class="value"><?php
-                                    list($value, $unit) = PMA_Util::formatByteDown(
+                                    list($value, $unit) = PMA\libraries\Util::formatByteDown(
                                         $subParition->getDataLength(), 3, 1
                                     );
                                     ?>
@@ -104,7 +104,7 @@
                                     <span class="unit"><?php echo $unit; ?></span>
                                 </td>
                                 <td class="value"><?php
-                                    list($value, $unit) = PMA_Util::formatByteDown(
+                                    list($value, $unit) = PMA\libraries\Util::formatByteDown(
                                         $subParition->getIndexLength(), 3, 1
                                     );
                                     ?>

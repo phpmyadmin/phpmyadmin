@@ -34,7 +34,7 @@ class PMA_GIS_Factory
 
         $type_lower = strtolower($type);
         $file = './libraries/gis/GIS_' . ucfirst($type_lower) . '.class.php';
-        if (! PMA_isValid($type_lower, PMA_Util::getGISDatatypes())
+        if (! PMA_isValid($type_lower, PMA\libraries\Util::getGISDatatypes())
             || ! file_exists($file)
         ) {
             return false;

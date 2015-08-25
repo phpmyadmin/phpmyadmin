@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin-String
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
+
+use PMA_StringType;
 
 require_once 'libraries/StringType.int.php';
 

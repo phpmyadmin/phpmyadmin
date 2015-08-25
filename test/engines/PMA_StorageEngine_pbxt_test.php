@@ -13,7 +13,7 @@
 require_once 'libraries/StorageEngine.class.php';
 require_once 'libraries/engines/pbxt.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';

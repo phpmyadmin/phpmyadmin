@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Engines
  */
+use PMA\libraries\PMA_StorageEngine;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -143,11 +145,11 @@ class PMA_StorageEngine_Pbxt extends PMA_StorageEngine
     public function resolveTypeSize($formatted_size)
     {
         if (preg_match('/^[0-9]+[a-zA-Z]+$/', $formatted_size)) {
-            $value = PMA_Util::extractValueFromFormattedSize($formatted_size);
+            $value = PMA\libraries\Util::extractValueFromFormattedSize($formatted_size);
         } else {
             $value = $formatted_size;
         }
-        return PMA_Util::formatByteDown($value);
+        return PMA\libraries\Util::formatByteDown($value);
     }
 
     //--------------------

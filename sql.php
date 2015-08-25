@@ -13,7 +13,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/Header.class.php';
+require_once 'libraries/Header.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
@@ -22,7 +22,7 @@ require_once 'libraries/config/page_settings.class.php';
 PMA_PageSettings::showGroup('Browse');
 
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
@@ -53,11 +53,11 @@ if (! empty($goto)) {
     }
 } else {
     if (empty($table)) {
-        $goto = PMA_Util::getScriptNameForOption(
+        $goto = PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         );
     } else {
-        $goto = PMA_Util::getScriptNameForOption(
+        $goto = PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
         );
     }
@@ -111,9 +111,9 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 if (isset($_REQUEST['get_default_fk_check_value'])
     && $_REQUEST['get_default_fk_check_value'] == true
 ) {
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     $response->addJSON(
-        'default_fk_check_value', PMA_Util::isForeignKeyCheck()
+        'default_fk_check_value', PMA\libraries\Util::isForeignKeyCheck()
     );
     exit;
 }
@@ -137,7 +137,7 @@ if (empty($sql_query) && $tableLength && $dbLength) {
     $goto = '';
 } else {
     // Now we can check the parameters
-    PMA_Util::checkParameters(array('sql_query'));
+    PMA\libraries\Util::checkParameters(array('sql_query'));
 }
 
 /**
@@ -156,7 +156,7 @@ require_once 'libraries/parse_analyze.inc.php';
 if (PMA_hasNoRightsToDropDatabase(
     $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser
 )) {
-    PMA_Util::mysqlDie(
+    PMA\libraries\Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
         '',
         false,

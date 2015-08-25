@@ -9,8 +9,10 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_Theme;
+
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
@@ -245,7 +247,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     public function testClearTransformations()
     {
         // Mock dbi
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

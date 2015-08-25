@@ -6,15 +6,12 @@
  * @package PhpMyAdmin
  *
  */
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Database listing.
  */
-require_once './libraries/List_Database.class.php';
+require_once './libraries/ListDatabase.php';
 
 /**
  * phpMyAdmin main Controller
@@ -29,7 +26,7 @@ class PMA
     /**
      * Holds database list
      *
-     * @var PMA_List_Database
+     * @var ListDatabase
      */
     protected $databases = null;
 
@@ -93,12 +90,12 @@ class PMA
     /**
      * Accessor to PMA::$databases
      *
-     * @return PMA_List_Database
+     * @return ListDatabase
      */
     public function getDatabaseList()
     {
         if (null === $this->databases) {
-            $this->databases = new PMA_List_Database(
+            $this->databases = new ListDatabase(
                 $this->userlink
             );
         }

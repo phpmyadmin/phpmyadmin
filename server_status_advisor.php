@@ -6,8 +6,9 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\PMA_ServerStatusData;
+
 require_once 'libraries/common.inc.php';
-require_once 'libraries/Advisor.class.php';
 require_once 'libraries/ServerStatusData.class.php';
 require_once 'libraries/server_status_advisor.lib.php';
 
@@ -22,7 +23,7 @@ if (PMA_DRIZZLE) {
 
 $serverStatusData = new PMA_ServerStatusData();
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $scripts = $response->getHeader()->getScripts();
 $scripts->addFile('server_status_advisor.js');
 

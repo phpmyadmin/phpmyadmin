@@ -9,12 +9,12 @@
 
 namespace PMA\Controllers;
 
-use PMA\Template;
-use PMA_RecentFavoriteTable;
-use PMA_Tracker;
-use PMA_Message;
+use PMA\libraries\Message;
+use PMA\libraries\PMA_Tracker;
+use PMA\libraries\RecentFavoriteTable;
+use PMA\libraries\Template;
+use PMA\libraries\Util;
 use PMA_PageSettings;
-use PMA_Util;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
@@ -122,7 +122,7 @@ class DatabaseStructureController extends DatabaseController
                 include 'libraries/mult_submits.inc.php';
             }
             if (empty($_POST['message'])) {
-                $_POST['message'] = PMA_Message::success();
+                $_POST['message'] = Message::success();
             }
         }
 
@@ -141,7 +141,7 @@ class DatabaseStructureController extends DatabaseController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = PMA_Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
+        ) = Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
 
         $this->_tables = $tables;
         // updating $tables seems enough for #11376, but updating other
@@ -171,13 +171,13 @@ class DatabaseStructureController extends DatabaseController
 
         $db_collation = PMA_getDbCollation($this->db);
 
-        $titles = PMA_Util::buildActionTitles();
+        $titles = Util::buildActionTitles();
 
         // 1. No tables
 
         if ($this->_num_tables == 0) {
             $this->response->addHTML(
-                PMA_message::notice(__('No tables found in database.'))
+                Message::notice(__('No tables found in database.'))
             );
             if (empty($db_is_system_schema)) {
                 $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
@@ -206,7 +206,7 @@ class DatabaseStructureController extends DatabaseController
         }
 
         $this->response->addHTML(
-            PMA_Util::getListNavigator(
+            Util::getListNavigator(
                 $this->_total_num_tables, $this->_pos, $_url_params,
                 'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']
             )
@@ -239,8 +239,8 @@ class DatabaseStructureController extends DatabaseController
         $hidden_fields = array();
         $odd_row       = true;
         $overall_approx_rows = false;
-        // Instance of PMA_RecentFavoriteTable class.
-        $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
+        // Instance of RecentFavoriteTable class.
+        $fav_instance = RecentFavoriteTable::getInstance('favorite');
         foreach ($this->_tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
 
@@ -406,7 +406,7 @@ class DatabaseStructureController extends DatabaseController
                             array(
                                 'tbl_url_query' => $tbl_url_query,
                                 'sql_query' => urlencode(
-                                    'TRUNCATE ' . PMA_Util::backquote(
+                                    'TRUNCATE ' . Util::backquote(
                                         $current_table['TABLE_NAME']
                                     )
                                 ),
@@ -427,7 +427,7 @@ class DatabaseStructureController extends DatabaseController
                     'DROP %s %s',
                     ($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW'
                     : 'TABLE',
-                    PMA_Util::backquote(
+                    Util::backquote(
                         $current_table['TABLE_NAME']
                     )
                 );
@@ -567,14 +567,15 @@ class DatabaseStructureController extends DatabaseController
                     && $current_table['ENGINE'] != 'FunctionEngine'
                 ) {
                     $approx_rows = true;
-                    $show_superscript = PMA_Util::showHint(
+                    $show_superscript = Util::showHint(
                         PMA_sanitize(
                             sprintf(
                                 __(
                                     'This view has at least this number of '
                                     . 'rows. Please refer to %sdocumentation%s.'
                                 ),
-                                '[doc@cfg_MaxExactCountViews]', '[/doc]'
+                                '[doc@cfg_MaxExactCountViews]',
+                                '[/doc]'
                             )
                         )
                     );
@@ -665,7 +666,7 @@ class DatabaseStructureController extends DatabaseController
 
         // display again the table list navigator
         $this->response->addHTML(
-            PMA_Util::getListNavigator(
+            Util::getListNavigator(
                 $this->_total_num_tables, $this->_pos, $_url_params,
                 'db_structure.php', 'frame_content',
                 $GLOBALS['cfg']['MaxTableList']
@@ -696,7 +697,7 @@ class DatabaseStructureController extends DatabaseController
      */
     public function addRemoveFavoriteTablesAction()
     {
-        $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
+        $fav_instance = RecentFavoriteTable::getInstance('favorite');
         if (isset($_REQUEST['favorite_tables'])) {
             $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
         } else {
@@ -711,7 +712,7 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
         $changes = true;
-        $titles = PMA_Util::buildActionTitles();
+        $titles = Util::buildActionTitles();
         $favorite_table = $_REQUEST['favorite_table'];
         $already_favorite = $this->checkFavoriteTable($favorite_table);
 
@@ -780,7 +781,7 @@ class DatabaseStructureController extends DatabaseController
                 ->getTable($this->db, $_REQUEST['table'])
                 ->getRealRowCountTable();
             // Format the number.
-            $real_row_count = PMA_Util::formatNumber($real_row_count, 0);
+            $real_row_count = Util::formatNumber($real_row_count, 0);
             $ajax_response->addJSON('real_row_count', $real_row_count);
             return;
         }
@@ -808,7 +809,7 @@ class DatabaseStructureController extends DatabaseController
      * Synchronize favorite tables
      *
      *
-     * @param PMA_RecentFavoriteTable $fav_instance    Instance of this class
+     * @param RecentFavoriteTable $fav_instance    Instance of this class
      * @param string                  $user            The user hash
      * @param array                   $favorite_tables Existing favorites
      *
@@ -1001,7 +1002,7 @@ class DatabaseStructureController extends DatabaseController
             $tblsize = doubleval($current_table['Data_length'])
                 + doubleval($current_table['Index_length']);
             $sum_size += $tblsize;
-            list($formatted_size, $unit) = PMA_Util::formatByteDown(
+            list($formatted_size, $unit) = Util::formatByteDown(
                 $tblsize, 3, ($tblsize > 0) ? 1 : 0
             );
             if (isset($current_table['Data_free'])
@@ -1010,7 +1011,7 @@ class DatabaseStructureController extends DatabaseController
                 // here, the value 4 as the second parameter
                 // would transform 6.1MiB into 6,224.6KiB
                 list($formatted_overhead, $overhead_unit)
-                    = PMA_Util::formatByteDown(
+                    = Util::formatByteDown(
                         $current_table['Data_free'], 4,
                         (($current_table['Data_free'] > 0) ? 1 : 0)
                     );
@@ -1052,7 +1053,7 @@ class DatabaseStructureController extends DatabaseController
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
-            list($formatted_size, $unit) = PMA_Util::formatByteDown(
+            list($formatted_size, $unit) = Util::formatByteDown(
                 $tblsize, 3, (($tblsize > 0) ? 1 : 0)
             );
         }

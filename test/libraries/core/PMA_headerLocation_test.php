@@ -9,13 +9,15 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+use PMA\libraries\PMA_Theme;
+
+require_once 'libraries/Util.php';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/select_lang.lib.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Table.class.php';
@@ -85,7 +87,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         }
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
     }
 

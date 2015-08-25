@@ -208,7 +208,7 @@ class ExportLatex extends ExportPlugin
         }
         $head .= $crlf
             . '% ' . __('Generation Time:') . ' '
-            . PMA_Util::localisedDate() . $crlf
+            . PMA\libraries\Util::localisedDate() . $crlf
             . '% ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
             . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
         return PMA_exportOutputHandler($head);
@@ -290,7 +290,7 @@ class ExportLatex extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         $result      = $GLOBALS['dbi']->tryQuery(
-            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
@@ -315,7 +315,7 @@ class ExportLatex extends ExportPlugin
         $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . PMA_Util::expandUserString(
+                . PMA\libraries\Util::expandUserString(
                     $GLOBALS['latex_data_caption'],
                     array(
                         'texEscape',
@@ -325,7 +325,7 @@ class ExportLatex extends ExportPlugin
                     array('table' => $table_alias, 'database' => $db_alias)
                 )
                 . '} \\label{'
-                . PMA_Util::expandUserString(
+                . PMA\libraries\Util::expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
                     array('table' => $table_alias, 'database' => $db_alias)
@@ -352,7 +352,7 @@ class ExportLatex extends ExportPlugin
             if (isset($GLOBALS['latex_caption'])) {
                 if (! PMA_exportOutputHandler(
                     '\\caption{'
-                    . PMA_Util::expandUserString(
+                    . PMA\libraries\Util::expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
                         array(
                             'texEscape',
@@ -524,7 +524,7 @@ class ExportLatex extends ExportPlugin
         // Table caption for first page and label
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . PMA_Util::expandUserString(
+                . PMA\libraries\Util::expandUserString(
                     $GLOBALS['latex_structure_caption'],
                     array(
                         'texEscape',
@@ -534,7 +534,7 @@ class ExportLatex extends ExportPlugin
                     array('table' => $table_alias, 'database' => $db_alias)
                 )
                 . '} \\label{'
-                . PMA_Util::expandUserString(
+                . PMA\libraries\Util::expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
                     array('table' => $table_alias, 'database' => $db_alias)
@@ -546,7 +546,7 @@ class ExportLatex extends ExportPlugin
         // Table caption on next pages
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . PMA_Util::expandUserString(
+                . PMA\libraries\Util::expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
                     array(
                         'texEscape',
@@ -566,7 +566,7 @@ class ExportLatex extends ExportPlugin
         $fields = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
-                = PMA_Util::extractColumnSpec(
+                = PMA\libraries\Util::extractColumnSpec(
                     $row['Type']
                 );
             $type = $extracted_columnspec['print_type'];

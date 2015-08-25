@@ -9,7 +9,10 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\PMA_Theme;
+
+require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/ServerStatusData.class.php';
@@ -56,7 +59,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

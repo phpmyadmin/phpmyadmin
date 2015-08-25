@@ -9,6 +9,8 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_String;
+
 require_once 'libraries/String.class.php';
 
 /**

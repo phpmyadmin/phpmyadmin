@@ -5,16 +5,14 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Class with Font related methods.
  *
  * @package PhpMyAdmin
  */
-class PMA_Font
+class Font
 {
     /**
      * Get list with characters and the corresponding width modifiers.

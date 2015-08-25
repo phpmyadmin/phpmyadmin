@@ -5,34 +5,28 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once 'libraries/OutputBuffering.class.php';
-require_once 'libraries/Header.class.php';
-require_once 'libraries/Footer.class.php';
+namespace PMA\libraries;
 
 /**
  * Singleton class used to manage the rendering of pages in PMA
  *
  * @package PhpMyAdmin
  */
-class PMA_Response
+class Response
 {
     /**
-     * PMA_Response instance
+     * Response instance
      *
      * @access private
      * @static
-     * @var PMA_Response
+     * @var Response
      */
     private static $_instance;
     /**
-     * PMA_Header instance
+     * Header instance
      *
      * @access private
-     * @var PMA_Header
+     * @var Header
      */
     private $_header;
     /**
@@ -51,10 +45,10 @@ class PMA_Response
      */
     private $_JSON;
     /**
-     * PMA_Footer instance
+     * PMA\libraries\Footer instance
      *
      * @access private
-     * @var PMA_Footer
+     * @var Footer
      */
     private $_footer;
     /**
@@ -96,14 +90,14 @@ class PMA_Response
     private function __construct()
     {
         if (! defined('TESTSUITE')) {
-            $buffer = PMA_OutputBuffering::getInstance();
+            $buffer = OutputBuffering::getInstance();
             $buffer->start();
-            register_shutdown_function('PMA_Response::response');
+            register_shutdown_function(array('PMA\libraries\Response', 'response'));
         }
-        $this->_header = new PMA_Header();
+        $this->_header = new Header();
         $this->_HTML   = '';
         $this->_JSON   = array();
-        $this->_footer = new PMA_Footer();
+        $this->_footer = new Footer();
 
         $this->_isSuccess  = true;
         $this->_isAjax     = false;
@@ -122,14 +116,14 @@ class PMA_Response
     }
 
     /**
-     * Returns the singleton PMA_Response object
+     * Returns the singleton Response object
      *
-     * @return PMA_Response object
+     * @return Response object
      */
     public static function getInstance()
     {
         if (empty(self::$_instance)) {
-            self::$_instance = new PMA_Response();
+            self::$_instance = new Response();
         }
         return self::$_instance;
     }
@@ -183,9 +177,9 @@ class PMA_Response
     }
 
     /**
-     * Returns a PMA_Header object
+     * Returns a PMA\libraries\Header object
      *
-     * @return PMA_Header
+     * @return Header
      */
     public function getHeader()
     {
@@ -193,9 +187,9 @@ class PMA_Response
     }
 
     /**
-     * Returns a PMA_Footer object
+     * Returns a PMA\libraries\Footer object
      *
-     * @return PMA_Footer
+     * @return Footer
      */
     public function getFooter()
     {
@@ -216,7 +210,7 @@ class PMA_Response
             foreach ($content as $msg) {
                 $this->addHTML($msg);
             }
-        } elseif ($content instanceof PMA_Message) {
+        } elseif ($content instanceof Message) {
             $this->_HTML .= $content->getDisplay();
         } else {
             $this->_HTML .= $content;
@@ -240,7 +234,7 @@ class PMA_Response
                 $this->addJSON($key, $value);
             }
         } else {
-            if ($value instanceof PMA_Message) {
+            if ($value instanceof Message) {
                 $this->_JSON[$json] = $value->getDisplay();
             } else {
                 $this->_JSON[$json] = $value;
@@ -285,7 +279,7 @@ class PMA_Response
     {
         if (! isset($this->_JSON['message'])) {
             $this->_JSON['message'] = $this->_getDisplay();
-        } else if ($this->_JSON['message'] instanceof PMA_Message) {
+        } else if ($this->_JSON['message'] instanceof Message) {
             $this->_JSON['message'] = $this->_JSON['message']->getDisplay();
         }
 
@@ -385,9 +379,9 @@ class PMA_Response
      */
     public static function response()
     {
-        $response = PMA_Response::getInstance();
+        $response = Response::getInstance();
         chdir($response->getCWD());
-        $buffer = PMA_OutputBuffering::getInstance();
+        $buffer = OutputBuffering::getInstance();
         if (empty($response->_HTML)) {
             $response->_HTML = $buffer->getContents();
         }

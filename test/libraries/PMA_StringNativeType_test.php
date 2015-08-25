@@ -9,6 +9,8 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_StringNativeType;
+
 require_once 'libraries/StringNativeType.class.php';
 
 /**

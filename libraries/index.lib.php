@@ -10,7 +10,7 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Index.class.php';
+require_once 'libraries/Index.php';
 
 /**
  * Get HTML for display indexes
@@ -25,10 +25,10 @@ function PMA_getHtmlForDisplayIndexes()
     }
     $html_output .= '" >';
 
-    $html_output .= PMA_Util::getDivForSliderEffect(
+    $html_output .= PMA\libraries\Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );
-    $html_output .= PMA_Index::getHtmlForIndexes($GLOBALS['table'], $GLOBALS['db']);
+    $html_output .= PMA\libraries\Index::getHtmlForIndexes($GLOBALS['table'], $GLOBALS['db']);
     $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
         . 'left;"><form action="tbl_indexes.php" method="post">';
     $html_output .= PMA_URL_getHiddenInputs(

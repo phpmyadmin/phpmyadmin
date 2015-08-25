@@ -7,13 +7,13 @@
  */
 require_once 'libraries/plugins/export/ExportCsv.class.php';
 require_once 'libraries/export.lib.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/DatabaseInterface.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+require_once 'libraries/Config.php';
 require_once 'libraries/config.default.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Message.php';
 require_once 'export.php';
 /**
  * tests for ExportCsv class
@@ -479,7 +479,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
     public function testExportData()
     {
         // case 1
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -503,13 +503,13 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         // case 2
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -556,13 +556,13 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
         // case 3
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -603,13 +603,13 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
         // case 4
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -653,13 +653,13 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
         // case 5
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -702,13 +702,13 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
         // case 6
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

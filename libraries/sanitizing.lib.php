@@ -89,7 +89,7 @@ function PMA_replaceDocLink($found)
         /* Guess */
         $page = 'setup';
     }
-    $link = PMA_Util::getDocuLink($page, $anchor);
+    $link = PMA\libraries\Util::getDocuLink($page, $anchor);
     return '<a href="' . $link . '" target="documentation">';
 }
 

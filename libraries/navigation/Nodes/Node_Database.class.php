@@ -34,12 +34,12 @@ class Node_Database extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage(
+        $this->icon  = PMA\libraries\Util::getImage(
             's_db.png',
             __('Database operations')
         );
 
-        $script_name = PMA_Util::getScriptNameForOption(
+        $script_name = PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         );
         $this->links = array(
@@ -112,7 +112,7 @@ class Node_Database extends Node
         }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-            $db     = PMA_Util::sqlAddSlashes($db);
+            $db     = PMA\libraries\Util::sqlAddSlashes($db);
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$db' ";
@@ -129,7 +129,7 @@ class Node_Database extends Node
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
             $query  = "SHOW FULL TABLES FROM ";
-            $query .= PMA_Util::backquote($db);
+            $query .= PMA\libraries\Util::backquote($db);
             $query .= " WHERE `Table_type`" . $condition . "'BASE TABLE' ";
             if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
@@ -191,11 +191,11 @@ class Node_Database extends Node
     {
         $db     = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $db     = PMA_Util::sqlAddSlashes($db);
+            $db     = PMA\libraries\Util::sqlAddSlashes($db);
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
             $query .= "WHERE `ROUTINE_SCHEMA` "
-                . PMA_Util::getCollateForIS() . "='$db'";
+                . PMA\libraries\Util::getCollateForIS() . "='$db'";
             $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
             if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
@@ -204,7 +204,7 @@ class Node_Database extends Node
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
-            $db    = PMA_Util::sqlAddSlashes($db);
+            $db    = PMA\libraries\Util::sqlAddSlashes($db);
             $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
             if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
@@ -232,11 +232,11 @@ class Node_Database extends Node
     {
         $db     = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $db     = PMA_Util::sqlAddSlashes($db);
+            $db     = PMA\libraries\Util::sqlAddSlashes($db);
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
             $query .= "WHERE `ROUTINE_SCHEMA` "
-                . PMA_Util::getCollateForIS() . "='$db' ";
+                . PMA\libraries\Util::getCollateForIS() . "='$db' ";
             $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
             if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
@@ -245,7 +245,7 @@ class Node_Database extends Node
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
-            $db    = PMA_Util::sqlAddSlashes($db);
+            $db    = PMA\libraries\Util::sqlAddSlashes($db);
             $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
             if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
@@ -273,11 +273,11 @@ class Node_Database extends Node
     {
         $db     = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $db     = PMA_Util::sqlAddSlashes($db);
+            $db     = PMA\libraries\Util::sqlAddSlashes($db);
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
             $query .= "WHERE `EVENT_SCHEMA` "
-                . PMA_Util::getCollateForIS() . "='$db' ";
+                . PMA\libraries\Util::getCollateForIS() . "='$db' ";
             if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
                     $searchClause, $singleItem, 'EVENT_NAME'
@@ -285,7 +285,7 @@ class Node_Database extends Node
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
-            $db    = PMA_Util::backquote($db);
+            $db    = PMA\libraries\Util::backquote($db);
             $query = "SHOW EVENTS FROM $db ";
             if (! empty($searchClause)) {
                 $query .= "WHERE " . $this->_getWhereClauseForSearch(
@@ -313,11 +313,11 @@ class Node_Database extends Node
     ) {
         $query = '';
         if ($singleItem) {
-            $query .= PMA_Util::backquote($columnName) . " = ";
-            $query .= "'" . PMA_Util::sqlAddSlashes($searchClause) . "'";
+            $query .= PMA\libraries\Util::backquote($columnName) . " = ";
+            $query .= "'" . PMA\libraries\Util::sqlAddSlashes($searchClause) . "'";
         } else {
-            $query .= PMA_Util::backquote($columnName) . " LIKE ";
-            $query .= "'%" . PMA_Util::sqlAddSlashes($searchClause, true) . "%'";
+            $query .= PMA\libraries\Util::backquote($columnName) . " LIKE ";
+            $query .= "'%" . PMA\libraries\Util::sqlAddSlashes($searchClause, true) . "%'";
         }
         return $query;
     }
@@ -385,12 +385,12 @@ class Node_Database extends Node
         if (empty($cfgRelation['navigationhiding'])) {
             return array();
         }
-        $navTable = PMA_Util::backquote($cfgRelation['db'])
-            . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+        $navTable = PMA\libraries\Util::backquote($cfgRelation['db'])
+            . "." . PMA\libraries\Util::backquote($cfgRelation['navigationhiding']);
         $sqlQuery = "SELECT `item_name` FROM " . $navTable
             . " WHERE `username`='" . $cfgRelation['user'] . "'"
             . " AND `item_type`='" . $type
-            . "'" . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+            . "'" . " AND `db_name`='" . PMA\libraries\Util::sqlAddSlashes($db) . "'";
         $result = PMA_queryAsControlUser($sqlQuery, false);
         $hiddenItems = array();
         if ($result) {
@@ -422,7 +422,7 @@ class Node_Database extends Node
         $retval   = array();
         $db       = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $escdDb = PMA\libraries\Util::sqlAddSlashes($db);
             $query  = "SELECT `TABLE_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
@@ -433,7 +433,7 @@ class Node_Database extends Node
             }
             if (! empty($searchClause)) {
                 $query .= "AND `TABLE_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
+                $query .= PMA\libraries\Util::sqlAddSlashes(
                     $searchClause, true
                 );
                 $query .= "%'";
@@ -443,13 +443,13 @@ class Node_Database extends Node
             $retval = $GLOBALS['dbi']->fetchResult($query);
         } else {
             $query  = " SHOW FULL TABLES FROM ";
-            $query .= PMA_Util::backquote($db);
+            $query .= PMA\libraries\Util::backquote($db);
             $query .= " WHERE `Table_type`" . $condition . "'BASE TABLE' ";
             if (! empty($searchClause)) {
-                $query .= "AND " . PMA_Util::backquote(
+                $query .= "AND " . PMA\libraries\Util::backquote(
                     "Tables_in_" . $db
                 );
-                $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
+                $query .= " LIKE '%" . PMA\libraries\Util::sqlAddSlashes(
                     $searchClause, true
                 );
                 $query .= "%'";
@@ -513,15 +513,15 @@ class Node_Database extends Node
         $retval   = array();
         $db       = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $escdDb = PMA\libraries\Util::sqlAddSlashes($db);
             $query  = "SELECT `ROUTINE_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
             $query .= "WHERE `ROUTINE_SCHEMA` "
-                . PMA_Util::getCollateForIS() . "='$escdDb'";
+                . PMA\libraries\Util::getCollateForIS() . "='$escdDb'";
             $query .= "AND `ROUTINE_TYPE`='" . $routineType . "' ";
             if (! empty($searchClause)) {
                 $query .= "AND `ROUTINE_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
+                $query .= PMA\libraries\Util::sqlAddSlashes(
                     $searchClause, true
                 );
                 $query .= "%'";
@@ -530,11 +530,11 @@ class Node_Database extends Node
             $query .= "LIMIT " . intval($pos) . ", $maxItems";
             $retval = $GLOBALS['dbi']->fetchResult($query);
         } else {
-            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $escdDb = PMA\libraries\Util::sqlAddSlashes($db);
             $query  = "SHOW " . $routineType . " STATUS WHERE `Db`='$escdDb' ";
             if (! empty($searchClause)) {
                 $query .= "AND `Name` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
+                $query .= PMA\libraries\Util::sqlAddSlashes(
                     $searchClause, true
                 );
                 $query .= "%'";
@@ -597,14 +597,14 @@ class Node_Database extends Node
         $retval   = array();
         $db       = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $escdDb = PMA\libraries\Util::sqlAddSlashes($db);
             $query  = "SELECT `EVENT_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
             $query .= "WHERE `EVENT_SCHEMA` "
-                . PMA_Util::getCollateForIS() . "='$escdDb' ";
+                . PMA\libraries\Util::getCollateForIS() . "='$escdDb' ";
             if (! empty($searchClause)) {
                 $query .= "AND `EVENT_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
+                $query .= PMA\libraries\Util::sqlAddSlashes(
                     $searchClause, true
                 );
                 $query .= "%'";
@@ -613,11 +613,11 @@ class Node_Database extends Node
             $query .= "LIMIT " . intval($pos) . ", $maxItems";
             $retval = $GLOBALS['dbi']->fetchResult($query);
         } else {
-            $escdDb = PMA_Util::backquote($db);
+            $escdDb = PMA\libraries\Util::backquote($db);
             $query  = "SHOW EVENTS FROM $escdDb ";
             if (! empty($searchClause)) {
                 $query .= "WHERE `Name` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
+                $query .= PMA\libraries\Util::sqlAddSlashes(
                     $searchClause, true
                 );
                 $query .= "%'";
@@ -657,7 +657,7 @@ class Node_Database extends Node
                     . '&showUnhideDialog=true'
                     . '&dbName=' . urldecode($this->real_name) . '"'
                     . ' class="showUnhide ajax">'
-                    . PMA_Util::getImage(
+                    . PMA\libraries\Util::getImage(
                         'lightbulb.png', __('Show hidden items')
                     )
                     . '</a></span>';

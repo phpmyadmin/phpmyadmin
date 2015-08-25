@@ -9,12 +9,12 @@
 // Sets up the session
 define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 
 // Always send the correct headers
 header('Content-type: application/json; charset=UTF-8');
 
-$version = PMA_Util::getLatestVersion();
+$version = PMA\libraries\Util::getLatestVersion();
 
 if (empty($version)) {
     echo json_encode(array());

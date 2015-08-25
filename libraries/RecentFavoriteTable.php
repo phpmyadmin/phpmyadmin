@@ -5,12 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once './libraries/Message.class.php';
+require_once './libraries/Message.php';
 
 /**
  * Handles the recently used and favorite tables.
@@ -20,7 +17,7 @@ require_once './libraries/Message.class.php';
  *
  * @package PhpMyAdmin
  */
-class PMA_RecentFavoriteTable
+class RecentFavoriteTable
 {
     /**
      * Reference to session variable containing recently used or favorite tables.
@@ -39,7 +36,7 @@ class PMA_RecentFavoriteTable
     private $_tableType;
 
     /**
-     * PMA_RecentFavoriteTable instances.
+     * RecentFavoriteTable instances.
      *
      * @access private
      * @var array
@@ -47,7 +44,7 @@ class PMA_RecentFavoriteTable
     private static $_instances = array();
 
     /**
-     * Creates a new instance of PMA_RecentFavoriteTable
+     * Creates a new instance of RecentFavoriteTable
      *
      * @param string $type the table type
      *
@@ -71,12 +68,12 @@ class PMA_RecentFavoriteTable
      *
      * @param string $type the table type
      *
-     * @return PMA_RecentFavoriteTable
+     * @return RecentFavoriteTable
      */
     public static function getInstance($type)
     {
         if (! array_key_exists($type, self::$_instances)) {
-            self::$_instances[$type] = new PMA_RecentFavoriteTable($type);
+            self::$_instances[$type] = new RecentFavoriteTable($type);
         }
         return self::$_instances[$type];
     }
@@ -117,7 +114,7 @@ class PMA_RecentFavoriteTable
     /**
      * Save recent/favorite tables into phpMyAdmin database.
      *
-     * @return true|PMA_Message
+     * @return true|Message
      */
     public function saveToDb()
     {
@@ -125,7 +122,7 @@ class PMA_RecentFavoriteTable
         $sql_query
             = " REPLACE INTO " . $this->_getPmaTable() . " (`username`, `tables`)" .
                 " VALUES ('" . $username . "', '"
-                . PMA_Util::sqlAddSlashes(
+                . Util::sqlAddSlashes(
                     json_encode($this->_tables)
                 ) . "')";
 
@@ -142,10 +139,10 @@ class PMA_RecentFavoriteTable
                 $error_msg = __('Could not save favorite table!');
                 break;
             }
-            $message = PMA_Message::error($error_msg);
+            $message = Message::error($error_msg);
             $message->addMessage('<br /><br />');
             $message->addMessage(
-                PMA_Message::rawError(
+                Message::rawError(
                     $GLOBALS['dbi']->getError($GLOBALS['controllink'])
                 )
             );
@@ -213,7 +210,7 @@ class PMA_RecentFavoriteTable
                         . '" data-favtargetn="'
                         . md5($table['db'] . "." . $table['table'])
                         . '" >'
-                        . PMA_Util::getIcon('b_favorite.png')
+                        . Util::getIcon('b_favorite.png')
                         . '</a>';
 
                     $fav_params = array(
@@ -266,7 +263,7 @@ class PMA_RecentFavoriteTable
      * @param string $db    database name where the table is located
      * @param string $table table name
      *
-     * @return true|PMA_Message True if success, PMA_Message if not
+     * @return true|Message True if success, Message if not
      */
     public function add($db, $table)
     {
@@ -297,8 +294,8 @@ class PMA_RecentFavoriteTable
      * @param string $db    database
      * @param string $table table
      *
-     * @return boolean|PMA_Message True if invalid and removed, False if not invalid,
-     *                            PMA_Message if error while removing
+     * @return boolean|Message True if invalid and removed, False if not invalid,
+     *                            Message if error while removing
      */
     public function removeIfInvalid($db, $table)
     {
@@ -319,7 +316,7 @@ class PMA_RecentFavoriteTable
      * @param string $db    database name where the table is located
      * @param string $table table name
      *
-     * @return true|PMA_Message True if success, PMA_Message if not
+     * @return true|Message True if success, Message if not
      */
     public function remove($db, $table)
     {
@@ -384,8 +381,8 @@ class PMA_RecentFavoriteTable
         if (! empty($cfgRelation['db'])
             && ! empty($cfgRelation[$this->_tableType])
         ) {
-            return PMA_Util::backquote($cfgRelation['db']) . "."
-                . PMA_Util::backquote($cfgRelation[$this->_tableType]);
+            return Util::backquote($cfgRelation['db']) . "."
+                . Util::backquote($cfgRelation[$this->_tableType]);
         }
         return null;
     }

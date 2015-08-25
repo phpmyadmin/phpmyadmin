@@ -11,6 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 use phpseclib\Crypt;
+use PMA\libraries\Message;
 
 /* Get the authentication interface */
 require_once 'libraries/plugins/AuthenticationPlugin.class.php';
@@ -69,7 +70,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         global $conn_error;
 
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
             // redirect_flag redirects to the login page
@@ -142,17 +143,17 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Show error message
         if (! empty($conn_error)) {
-            PMA_Message::rawError($conn_error)->display();
+            Message::rawError($conn_error)->display();
         } elseif (isset($_GET['session_expired'])
             && intval($_GET['session_expired']) == 1
         ) {
-            PMA_Message::rawError(
+            Message::rawError(
                 __('Your session has expired. Please log in again.')
             )->display();
         }
 
         echo "<noscript>\n";
-        PMA_message::error(
+        Message::error(
             __("Javascript must be enabled past this point!")
         )->display();
         echo "</noscript>\n";
@@ -172,7 +173,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         <fieldset>
         <legend>';
         echo __('Log in');
-        echo PMA_Util::showDocu('index');
+        echo PMA\libraries\Util::showDocu('index');
         echo '</legend>';
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             echo '
@@ -466,11 +467,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
         if ($_SESSION['last_access_time'] < $last_access_time
         ) {
-            PMA_Util::cacheUnset('is_create_db_priv');
-            PMA_Util::cacheUnset('is_reload_priv');
-            PMA_Util::cacheUnset('db_to_create');
-            PMA_Util::cacheUnset('dbs_where_create_table_allowed');
-            PMA_Util::cacheUnset('dbs_to_test');
+            PMA\libraries\Util::cacheUnset('is_create_db_priv');
+            PMA\libraries\Util::cacheUnset('is_reload_priv');
+            PMA\libraries\Util::cacheUnset('db_to_create');
+            PMA\libraries\Util::cacheUnset('dbs_where_create_table_allowed');
+            PMA\libraries\Util::cacheUnset('dbs_to_test');
             $GLOBALS['no_activity'] = true;
             $this->authFails();
             if (! defined('TESTSUITE')) {
@@ -616,9 +617,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             /**
              * Clear user cache.
              */
-            PMA_Util::clearUserCache();
+            PMA\libraries\Util::clearUserCache();
 
-            PMA_Response::getInstance()->disable();
+            PMA\libraries\Response::getInstance()->disable();
 
             PMA_sendHeaderLocation(
                 $redirect_url . PMA_URL_getCommon($url_params, 'text'),

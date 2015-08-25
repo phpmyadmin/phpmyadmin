@@ -21,13 +21,13 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getAjaxReturnForGetVal($variable_doc_links)
 {
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
 
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
     $varValue = $GLOBALS['dbi']->fetchSingleRow(
         'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-        . PMA_Util::sqlAddSlashes($_REQUEST['varName']) . '";',
+        . PMA\libraries\Util::sqlAddSlashes($_REQUEST['varName']) . '";',
         'NUM'
     );
     if (isset($variable_doc_links[$_REQUEST['varName']][3])
@@ -36,7 +36,7 @@ function PMA_getAjaxReturnForGetVal($variable_doc_links)
         $response->addJSON(
             'message',
             implode(
-                ' ', PMA_Util::formatByteDown($varValue[1], 3, 3)
+                ' ', PMA\libraries\Util::formatByteDown($varValue[1], 3, 3)
             )
         );
     } else {
@@ -55,7 +55,7 @@ function PMA_getAjaxReturnForGetVal($variable_doc_links)
  */
 function PMA_getAjaxReturnForSetVal($variable_doc_links)
 {
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
 
     $value = $_REQUEST['varValue'];
     $matches = array();
@@ -76,12 +76,12 @@ function PMA_getAjaxReturnForSetVal($variable_doc_links)
             'gb' => 3,
             'gib' => 3
         );
-        $value = floatval($matches[1]) * PMA_Util::pow(
+        $value = floatval($matches[1]) * PMA\libraries\Util::pow(
             1024,
             $exp[/*overload*/mb_strtolower($matches[3])]
         );
     } else {
-        $value = PMA_Util::sqlAddSlashes($value);
+        $value = PMA\libraries\Util::sqlAddSlashes($value);
     }
 
     if (! is_numeric($value)) {
@@ -96,7 +96,7 @@ function PMA_getAjaxReturnForSetVal($variable_doc_links)
         // Some values are rounded down etc.
         $varValue = $GLOBALS['dbi']->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-            . PMA_Util::sqlAddSlashes($_REQUEST['varName'])
+            . PMA\libraries\Util::sqlAddSlashes($_REQUEST['varName'])
             . '";', 'NUM'
         );
         $response->addJSON(
@@ -132,11 +132,11 @@ function PMA_formatVariable($name, $value, $variable_doc_links)
             && $variable_doc_links[$name][3]=='byte'
         ) {
             return '<abbr title="'
-                . PMA_Util::formatNumber($value, 0) . '">'
-                . implode(' ', PMA_Util::formatByteDown($value, 3, 3))
+                . PMA\libraries\Util::formatNumber($value, 0) . '">'
+                . implode(' ', PMA\libraries\Util::formatByteDown($value, 3, 3))
                 . '</abbr>';
         } else {
-            return PMA_Util::formatNumber($value, 0);
+            return PMA\libraries\Util::formatNumber($value, 0);
         }
     }
     return htmlspecialchars($value);
@@ -152,10 +152,10 @@ function PMA_getHtmlForLinkTemplates()
     $url = 'server_variables.php' . PMA_URL_getCommon();
     $output  = '<a style="display: none;" href="'
         . $url . '" class="ajax saveLink">';
-    $output .= PMA_Util::getIcon('b_save.png', __('Save')) . '</a> ';
+    $output .= PMA\libraries\Util::getIcon('b_save.png', __('Save')) . '</a> ';
     $output .= '<a style="display: none;" href="#" class="cancelLink">';
-    $output .= PMA_Util::getIcon('b_close.png', __('Cancel')) . '</a> ';
-    $output .= PMA_Util::getImage(
+    $output .= PMA\libraries\Util::getIcon('b_close.png', __('Cancel')) . '</a> ';
+    $output .= PMA\libraries\Util::getImage(
         'b_help.png',
         __('Documentation'),
         array('style' => 'display:none', 'id' => 'docImage')
@@ -237,12 +237,12 @@ function PMA_getHtmlForServerVariablesItems(
         // Edit Link active only for Dynamic System variables
         if (! in_array(strtolower($name), $static_variables)) {
             $output .= '<a href="#" class="editLink">'
-                . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
+                . PMA\libraries\Util::getIcon('b_edit.png', __('Edit')) . '</a>';
         } else {
             $output .= '<span title="'
                 . __('This is a read-only variable and can not be edited')
                 . '" class="read_only_var" >'
-                . PMA_Util::getIcon('bd_edit.png', __('Edit'))
+                . PMA\libraries\Util::getIcon('bd_edit.png', __('Edit'))
                 . '</span>';
         }
 
@@ -253,7 +253,7 @@ function PMA_getHtmlForServerVariablesItems(
         if (isset($variable_doc_links[$name])) {
             $output .= '<span title="'
                 . htmlspecialchars(str_replace('_', ' ', $name)) . '">';
-            $output .= PMA_Util::showMySQLDocu(
+            $output .= PMA\libraries\Util::showMySQLDocu(
                 $variable_doc_links[$name][1],
                 false,
                 $variable_doc_links[$name][2] . '_' . $variable_doc_links[$name][0],
@@ -307,7 +307,7 @@ function PMA_getHtmlForServerVariablesItems(
  * string $chapter: chapter of "HTML, one page per chapter" documentation
  * string $type: type of system variable
  * string $format: if set to 'byte' it will format the variable
- * with PMA_Util::formatByteDown()
+ * with PMA\libraries\Util::formatByteDown()
  *
  * @return array
  */

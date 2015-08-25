@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -12,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 require_once 'libraries/plugins/schema/eps/RelationStatsEps.class.php';
 require_once 'libraries/plugins/schema/eps/TableStatsEps.class.php';
-require_once 'libraries/Font.class.php';
+require_once 'libraries/Font.php';
 
 /**
  * This Class is EPS Library and
@@ -267,7 +269,7 @@ class PMA_EPS
             //ob_end_clean();
         //}
         $output = $this->stringCommands;
-        PMA_Response::getInstance()->disable();
+        PMA\libraries\Response::getInstance()->disable();
         PMA_downloadHeader(
             $fileName,
             'image/x-eps',

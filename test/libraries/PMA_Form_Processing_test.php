@@ -12,7 +12,7 @@
 require_once 'setup/lib/form_processing.lib.php';
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 
 /**
  * tests for methods under Formset processing library

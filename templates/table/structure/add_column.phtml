@@ -1,7 +1,7 @@
 <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns" onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)">
     <?php echo PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
-    <?php if (PMA_Util::showIcons('ActionLinksMode')): ?>
-        <?php echo PMA_Util::getImage('b_insrow.png', __('Add column')); ?>&nbsp;
+    <?php if (PMA\libraries\Util::showIcons('ActionLinksMode')): ?>
+        <?php echo PMA\libraries\Util::getImage('b_insrow.png', __('Add column')); ?>&nbsp;
     <?php endif; ?>
     <?php $num_fields = '<input type="number" name="num_fields" value="1" onfocus="this.select()" min="1" required />'; ?>
     <?php echo sprintf(__('Add %s column(s)'), $num_fields); ?>

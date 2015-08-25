@@ -20,7 +20,7 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
      * test generateParams method
      *
      * @param string $wkt    point in WKT form
-     * @param index  $index  index
+     * @param int    $index  index
      * @param array  $params expected output array
      *
      * @dataProvider providerForTestGenerateParams

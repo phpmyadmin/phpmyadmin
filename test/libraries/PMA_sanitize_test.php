@@ -12,7 +12,7 @@
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 
 /**
  * tests for PMA_sanitize()

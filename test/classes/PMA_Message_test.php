@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_Message class
+ * Test for Message class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,22 +9,24 @@
 /*
  * Include to test.
  */
+use PMA\libraries\PMA_Theme;
+
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Message.class.php';
+require_once 'libraries/Util.php';
+require_once 'libraries/Message.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Theme.class.php';
 
 /**
- * Test for PMA_Message class
+ * Test for Message class
  *
  * @package PhpMyAdmin-test
  */
 class PMA_Message_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var    PMA_Message
+     * @var    PMA\libraries\Message
      * @access protected
      */
     protected $object;
@@ -38,7 +40,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Message;
+        $this->object = new PMA\libraries\Message;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'theme/';
     }
@@ -72,11 +74,11 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testSuccess()
     {
-        $this->object = new PMA_Message('test<&>', PMA_Message::SUCCESS);
-        $this->assertEquals($this->object, PMA_Message::success('test<&>'));
+        $this->object = new PMA\libraries\Message('test<&>', PMA\libraries\Message::SUCCESS);
+        $this->assertEquals($this->object, PMA\libraries\Message::success('test<&>'));
         $this->assertEquals(
             'Your SQL query has been executed successfully.',
-            PMA_Message::success()->getString()
+            PMA\libraries\Message::success()->getString()
         );
     }
 
@@ -87,9 +89,9 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testError()
     {
-        $this->object = new PMA_Message('test<&>', PMA_Message::ERROR);
-        $this->assertEquals($this->object, PMA_Message::error('test<&>'));
-        $this->assertEquals('Error', PMA_Message::error()->getString());
+        $this->object = new PMA\libraries\Message('test<&>', PMA\libraries\Message::ERROR);
+        $this->assertEquals($this->object, PMA\libraries\Message::error('test<&>'));
+        $this->assertEquals('Error', PMA\libraries\Message::error()->getString());
     }
 
     /**
@@ -99,8 +101,8 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testNotice()
     {
-        $this->object = new PMA_Message('test<&>', PMA_Message::NOTICE);
-        $this->assertEquals($this->object, PMA_Message::notice('test<&>'));
+        $this->object = new PMA\libraries\Message('test<&>', PMA\libraries\Message::NOTICE);
+        $this->assertEquals($this->object, PMA\libraries\Message::notice('test<&>'));
     }
 
     /**
@@ -110,10 +112,10 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testRawError()
     {
-        $this->object = new PMA_Message('', PMA_Message::ERROR);
+        $this->object = new PMA\libraries\Message('', PMA\libraries\Message::ERROR);
         $this->object->setMessage('test<&>');
 
-        $this->assertEquals($this->object, PMA_Message::rawError('test<&>'));
+        $this->assertEquals($this->object, PMA\libraries\Message::rawError('test<&>'));
     }
 
     /**
@@ -123,10 +125,10 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testRawNotice()
     {
-        $this->object = new PMA_Message('', PMA_Message::NOTICE);
+        $this->object = new PMA\libraries\Message('', PMA\libraries\Message::NOTICE);
         $this->object->setMessage('test<&>');
 
-        $this->assertEquals($this->object, PMA_Message::rawNotice('test<&>'));
+        $this->assertEquals($this->object, PMA\libraries\Message::rawNotice('test<&>'));
     }
 
     /**
@@ -136,10 +138,10 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testRawSuccess()
     {
-        $this->object = new PMA_Message('', PMA_Message::SUCCESS);
+        $this->object = new PMA\libraries\Message('', PMA\libraries\Message::SUCCESS);
         $this->object->setMessage('test<&>');
 
-        $this->assertEquals($this->object, PMA_Message::rawSuccess('test<&>'));
+        $this->assertEquals($this->object, PMA\libraries\Message::rawSuccess('test<&>'));
     }
 
     /**
@@ -210,19 +212,19 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testAddParam()
     {
-        $this->object->addParam(PMA_Message::notice('test'));
+        $this->object->addParam(PMA\libraries\Message::notice('test'));
         $this->assertEquals(
-            array(PMA_Message::notice('test')),
+            array(PMA\libraries\Message::notice('test')),
             $this->object->getParams()
         );
         $this->object->addParam('test', true);
         $this->assertEquals(
-            array(PMA_Message::notice('test'), 'test'),
+            array(PMA\libraries\Message::notice('test'), 'test'),
             $this->object->getParams()
         );
         $this->object->addParam('test', false);
         $this->assertEquals(
-            array(PMA_Message::notice('test'), 'test', PMA_Message::notice('test')),
+            array(PMA\libraries\Message::notice('test'), 'test', PMA\libraries\Message::notice('test')),
             $this->object->getParams()
         );
     }
@@ -236,16 +238,16 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     {
         $this->object->addString('test', '*');
         $this->assertEquals(
-            array('*', PMA_Message::notice('test')),
+            array('*', PMA\libraries\Message::notice('test')),
             $this->object->getAddedMessages()
         );
         $this->object->addString('test', '');
         $this->assertEquals(
             array(
                 '*',
-                PMA_Message::notice('test'),
+                PMA\libraries\Message::notice('test'),
                 '',
-                PMA_Message::notice('test')
+                PMA\libraries\Message::notice('test')
             ),
             $this->object->getAddedMessages()
         );
@@ -260,15 +262,15 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     {
         $this->object->addMessage('test', '');
         $this->assertEquals(
-            array(PMA_Message::rawNotice('test')),
+            array(PMA\libraries\Message::rawNotice('test')),
             $this->object->getAddedMessages()
         );
         $this->object->addMessage('test');
         $this->assertEquals(
             array(
-                PMA_Message::rawNotice('test'),
+                PMA\libraries\Message::rawNotice('test'),
                 ' ',
-                PMA_Message::rawNotice('test')
+                PMA\libraries\Message::rawNotice('test')
             ),
             $this->object->getAddedMessages()
         );
@@ -283,15 +285,15 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     {
         $messages = array();
         $messages[] = "Test1";
-        $messages[] = new PMA_Message("PMA_Test2", PMA_Message::ERROR);
+        $messages[] = new PMA\libraries\Message("PMA_Test2", PMA\libraries\Message::ERROR);
         $messages[] = "Test3";
         $this->object->addMessages($messages, '');
 
         $this->assertEquals(
             array(
-                PMA_Message::rawNotice('Test1'),
-                PMA_Message::error("PMA_Test2"),
-                PMA_Message::rawNotice('Test3')
+                PMA\libraries\Message::rawNotice('Test1'),
+                PMA\libraries\Message::error("PMA_Test2"),
+                PMA\libraries\Message::rawNotice('Test3')
             ),
             $this->object->getAddedMessages()
         );
@@ -320,11 +322,11 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
         $this->object->setString('test&string<>', false);
         $this->assertEquals(
             'test&amp;string&lt;&gt;',
-            PMA_Message::sanitize($this->object)
+            PMA\libraries\Message::sanitize($this->object)
         );
         $this->assertEquals(
             array('test&amp;string&lt;&gt;', 'test&amp;string&lt;&gt;'),
-            PMA_Message::sanitize(array($this->object, $this->object))
+            PMA\libraries\Message::sanitize(array($this->object, $this->object))
         );
     }
 
@@ -384,7 +386,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     {
         unset($GLOBALS['server']);
         unset($GLOBALS['collation_connection']);
-        $this->assertEquals($expected, PMA_Message::decodeBB($actual));
+        $this->assertEquals($expected, PMA\libraries\Message::decodeBB($actual));
     }
 
     /**
@@ -396,19 +398,19 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             'test string',
-            PMA_Message::format('test string')
+            PMA\libraries\Message::format('test string')
         );
         $this->assertEquals(
             'test string',
-            PMA_Message::format('test string', 'a')
+            PMA\libraries\Message::format('test string', 'a')
         );
         $this->assertEquals(
             'test string',
-            PMA_Message::format('test string', array())
+            PMA\libraries\Message::format('test string', array())
         );
         $this->assertEquals(
             'test string',
-            PMA_Message::format('%s string', array('test'))
+            PMA\libraries\Message::format('%s string', array('test'))
         );
 
     }
@@ -423,7 +425,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
         $this->object->setString('<&>test', false);
         $this->object->setMessage('<&>test', false);
         $this->assertEquals(
-            md5(PMA_Message::NOTICE . '<&>test<&>test'),
+            md5(PMA\libraries\Message::NOTICE . '<&>test<&>test'),
             $this->object->getHash()
         );
     }
@@ -503,9 +505,9 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     public function testGetLevel()
     {
         $this->assertEquals('notice', $this->object->getLevel());
-        $this->object->setNumber(PMA_Message::SUCCESS);
+        $this->object->setNumber(PMA\libraries\Message::SUCCESS);
         $this->assertEquals('success', $this->object->getLevel());
-        $this->object->setNumber(PMA_Message::ERROR);
+        $this->object->setNumber(PMA\libraries\Message::ERROR);
         $this->assertEquals('error', $this->object->getLevel());
     }
 
@@ -593,7 +595,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testAffectedRows($rows, $output)
     {
-        $this->object = new PMA_Message();
+        $this->object = new PMA\libraries\Message();
         $msg = $this->object->getMessageForAffectedRows($rows);
         echo $this->object->addMessage($msg);
         $this->expectOutputString($output);
@@ -638,7 +640,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testInsertedRows($rows, $output)
     {
-        $this->object = new PMA_Message();
+        $this->object = new PMA\libraries\Message();
         $msg = $this->object->getMessageForInsertedRows($rows);
         echo $this->object->addMessage($msg);
         $this->expectOutputString($output);
@@ -683,7 +685,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      */
     public function testDeletedRows($rows, $output)
     {
-        $this->object = new PMA_Message();
+        $this->object = new PMA\libraries\Message();
         $msg = $this->object->getMessageForDeletedRows($rows);
         echo $this->object->addMessage($msg);
         $this->expectOutputString($output);

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_String;
 
 /**
  * Escapes special characters if the variable is set.
@@ -101,7 +102,7 @@ if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
         'visualization' => $visualization,
         'openLayers'    => $open_layers,
     );
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     $response->addJSON($extra_data);
     exit;
 }
@@ -424,5 +425,5 @@ echo '</div>';
 echo '</div>';
 echo '</form>';
 
-PMA_Response::getInstance()->addJSON('gis_editor', ob_get_contents());
+PMA\libraries\Response::getInstance()->addJSON('gis_editor', ob_get_contents());
 ob_end_clean();

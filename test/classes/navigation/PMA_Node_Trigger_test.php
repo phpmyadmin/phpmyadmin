@@ -6,8 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\PMA_Theme;
+
 require_once 'libraries/navigation/NodeFactory.class.php';
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 
 /**

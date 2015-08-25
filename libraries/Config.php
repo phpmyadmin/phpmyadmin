@@ -5,14 +5,13 @@
  *
  * @package PhpMyAdmin
  */
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Load vendor configuration.
  */
+use DirectoryIterator;
+
 require_once './libraries/vendor_config.php';
 
 /**
@@ -25,7 +24,7 @@ $GLOBALS['pma_config_loading'] = false;
  *
  * @package PhpMyAdmin
  */
-class PMA_Config
+class Config
 {
     /**
      * @var string  default config source
@@ -96,7 +95,7 @@ class PMA_Config
         $this->settings = array();
 
         // functions need to refresh in case of config file changed goes in
-        // PMA_Config::load()
+        // PMA\libraries\Config::load()
         $this->load($source);
 
         // other settings, independent from config file, comes in
@@ -771,7 +770,7 @@ class PMA_Config
         if ($handle === false) {
             return null;
         }
-        PMA_Util::configureCurl($handle);
+        Util::configureCurl($handle);
         curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 0);
@@ -1797,7 +1796,7 @@ class PMA_Config
                 $current_size = '82%';
             }
         }
-        $options = PMA_Config::getFontsizeOptions($current_size);
+        $options = Config::getFontsizeOptions($current_size);
 
         $return = '<label for="select_fontsize">' . __('Font size')
             . ':</label>' . "\n"
@@ -1825,7 +1824,7 @@ class PMA_Config
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="get" action="index.php" class="disableAjax">' . "\n"
             . PMA_URL_getHiddenInputs() . "\n"
-            . PMA_Config::getFontsizeSelection() . "\n"
+            . Config::getFontsizeSelection() . "\n"
             . '</form>';
     }
 
@@ -1912,32 +1911,34 @@ class PMA_Config
         // cookie has already $value as value
         return true;
     }
-}
 
 
-/**
- * Error handler to catch fatal errors when loading configuration
- * file
- *
- * @return void
- */
-function PMA_Config_fatalErrorHandler()
-{
-    if (isset($GLOBALS['pma_config_loading']) && $GLOBALS['pma_config_loading']) {
-        $error = error_get_last();
-        if ($error !== null) {
-            PMA_fatalError(
-                sprintf(
-                    'Failed to load phpMyAdmin configuration (%s:%s): %s',
-                    PMA_Error::relPath($error['file']),
-                    $error['line'],
-                    $error['message']
-                )
-            );
+    /**
+     * Error handler to catch fatal errors when loading configuration
+     * file
+     *
+     *
+     * PMA_Config_fatalErrorHandler
+     * @return void
+     */
+    public static function fatalErrorHandler()
+    {
+        if (isset($GLOBALS['pma_config_loading']) && $GLOBALS['pma_config_loading']) {
+            $error = error_get_last();
+            if ($error !== null) {
+                PMA_fatalError(
+                    sprintf(
+                        'Failed to load phpMyAdmin configuration (%s:%s): %s',
+                        Error::relPath($error['file']),
+                        $error['line'],
+                        $error['message']
+                    )
+                );
+            }
         }
     }
 }
 
 if (!defined('TESTSUITE')) {
-    register_shutdown_function('PMA_Config_fatalErrorHandler');
+    register_shutdown_function(array('PMA\libraries\Config', 'fatalErrorHandler'));
 }

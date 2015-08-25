@@ -19,7 +19,7 @@ echo !empty($id) ? ' id="' . $id . '"' : null;
             if (!is_array($item)) {
                 $item = array('content' => $item);
             }
-            echo PMA\Template::get('list/item')
+            echo PMA\libraries\Template::get('list/item')
                 ->render($item);
         endforeach;
     elseif (!empty($content)) :

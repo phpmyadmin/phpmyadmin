@@ -1,23 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\Template class
+ * hold PMA\libraries\Template class
  *
- * @package PMA
+ * @package PMA\libraries
  */
-
-namespace PMA;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries;
 
 /**
  * Class Template
  *
  * Handle front end templating
  *
- * @package PMA
+ * @package PMA\libraries
  */
 class Template
 {

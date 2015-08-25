@@ -17,7 +17,7 @@ PMA_PageSettings::showGroup('Sql_queries');
 /**
  * Does the common work
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');

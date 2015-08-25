@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\PMA_Table;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -116,11 +118,11 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
             $sql_suffix .= ' FIRST';
         } else {
             $sql_suffix .= ' AFTER '
-                    . PMA_Util::backquote($_REQUEST['after_field']);
+                    . PMA\libraries\Util::backquote($_REQUEST['after_field']);
         }
     } else {
         $sql_suffix .= ' AFTER '
-                . PMA_Util::backquote(
+                . PMA\libraries\Util::backquote(
                     $_REQUEST['field_name'][$current_field_num - 1]
                 );
     }
@@ -151,12 +153,12 @@ function PMA_buildIndexStatements($index, $index_choice,
         . ' ' . $index_choice;
 
     if (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY') {
-        $sql_query .= ' ' . PMA_Util::backquote($index['Key_name']);
+        $sql_query .= ' ' . PMA\libraries\Util::backquote($index['Key_name']);
     }
 
     $index_fields = array();
     foreach ($index['columns'] as $key => $column) {
-        $index_fields[$key] = PMA_Util::backquote(
+        $index_fields[$key] = PMA\libraries\Util::backquote(
             $_REQUEST['field_name'][$column['col_index']]
         );
         if ($column['size']) {
@@ -169,26 +171,26 @@ function PMA_buildIndexStatements($index, $index_choice,
     $keyBlockSizes = $index['Key_block_size'];
     if (! empty($keyBlockSizes)) {
         $sql_query .= " KEY_BLOCK_SIZE = "
-             . PMA_Util::sqlAddSlashes($keyBlockSizes);
+             . PMA\libraries\Util::sqlAddSlashes($keyBlockSizes);
     }
 
     // specifying index type is allowed only for primary, unique and index only
     $type = $index['Index_type'];
     if ($index['Index_choice'] != 'SPATIAL'
         && $index['Index_choice'] != 'FULLTEXT'
-        && in_array($type, PMA_Index::getIndexTypes())
+        && in_array($type, PMA\libraries\Index::getIndexTypes())
     ) {
         $sql_query .= ' USING ' . $type;
     }
 
     $parser = $index['Parser'];
     if ($index['Index_choice'] == 'FULLTEXT' && ! empty($parser)) {
-        $sql_query .= " WITH PARSER " . PMA_Util::sqlAddSlashes($parser);
+        $sql_query .= " WITH PARSER " . PMA\libraries\Util::sqlAddSlashes($parser);
     }
 
     $comment = $index['Index_comment'];
     if (! empty($comment)) {
-        $sql_query .= " COMMENT '" . PMA_Util::sqlAddSlashes($comment) . "'";
+        $sql_query .= " COMMENT '" . PMA\libraries\Util::sqlAddSlashes($comment) . "'";
     }
 
     $statement[] = $sql_query;
@@ -306,8 +308,8 @@ function PMA_getTableCreationQuery($db, $table)
     $sql_statement = PMA_getColumnCreationStatements(true);
 
     // Builds the 'create table' statement
-    $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-        . PMA_Util::backquote(trim($table)) . ' (' . $sql_statement . ')';
+    $sql_query = 'CREATE TABLE ' . PMA\libraries\Util::backquote($db) . '.'
+        . PMA\libraries\Util::backquote(trim($table)) . ' (' . $sql_statement . ')';
 
     // Adds table type, character set, comments and partition definition
     if (!empty($_REQUEST['tbl_storage_engine'])
@@ -323,14 +325,14 @@ function PMA_getTableCreationQuery($db, $table)
         && $_REQUEST['tbl_storage_engine'] == 'FEDERATED'
     ) {
         $sql_query .= " CONNECTION = '"
-            . PMA_Util::sqlAddSlashes($_REQUEST['connection']) . "'";
+            . PMA\libraries\Util::sqlAddSlashes($_REQUEST['connection']) . "'";
     }
     if (!empty($_REQUEST['comment'])) {
         $sql_query .= ' COMMENT = \''
-            . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
+            . PMA\libraries\Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
     if (!empty($_REQUEST['partition_definition'])) {
-        $sql_query .= ' ' . PMA_Util::sqlAddSlashes(
+        $sql_query .= ' ' . PMA\libraries\Util::sqlAddSlashes(
             $_REQUEST['partition_definition']
         );
     }
@@ -376,13 +378,13 @@ function PMA_tryColumnCreationQuery($db, $table, $err_url)
     // To allow replication, we first select the db to use and then run queries
     // on this db.
     $GLOBALS['dbi']->selectDb($db)
-        or PMA_Util::mysqlDie(
+        or PMA\libraries\Util::mysqlDie(
             $GLOBALS['dbi']->getError(),
-            'USE ' . PMA_Util::backquote($db), false,
+            'USE ' . PMA\libraries\Util::backquote($db), false,
             $err_url
         );
     $sql_query    = 'ALTER TABLE ' .
-        PMA_Util::backquote($table) . ' ' . $sql_statement . ';';
+        PMA\libraries\Util::backquote($table) . ' ' . $sql_statement . ';';
     // If there is a request for SQL previewing.
     if (isset($_REQUEST['preview_sql'])) {
         PMA_previewSQL($sql_query);

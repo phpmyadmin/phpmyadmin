@@ -10,10 +10,12 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
+use PMA\libraries\PMA_Theme;
+
 $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-require_once 'libraries/Util.class.php';
+require_once 'libraries/Util.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
@@ -22,8 +24,8 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/navigation/NavigationTree.class.php';
 require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/Tracker.class.php';
-require_once 'libraries/Config.class.php';
-require_once 'libraries/RecentFavoriteTable.class.php';
+require_once 'libraries/Config.php';
+require_once 'libraries/RecentFavoriteTable.php';
 require_once 'libraries/check_user_privileges.lib.php';
 
 /**
@@ -47,7 +49,7 @@ class PMA_NavigationTreeTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';

@@ -18,7 +18,7 @@ require 'libraries/StorageEngine.class.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
-require_once 'libraries/Index.class.php';
+require_once 'libraries/Index.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/plugin_interface.lib.php';
 

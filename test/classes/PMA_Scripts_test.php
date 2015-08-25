@@ -10,6 +10,8 @@
  * Include to test.
  */
 
+use PMA\libraries\PMA_Scripts;
+
 require_once 'libraries/Scripts.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/url_generating.lib.php';

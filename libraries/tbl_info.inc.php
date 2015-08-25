@@ -8,12 +8,14 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\PMA_String;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 // Check parameters
-PMA_Util::checkParameters(array('db', 'table'));
+PMA\libraries\Util::checkParameters(array('db', 'table'));
 
 /**
  * Defining global variables, in case this script is included by a function.
