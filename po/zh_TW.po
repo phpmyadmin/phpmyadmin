@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-08-25 13:23+0200\n"
+"PO-Revision-Date: 2015-08-25 13:37+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
@@ -1072,26 +1072,23 @@ msgid "Close"
 msgstr "關閉"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "已建立的頁數。"
+msgstr "已建立樣板。"
 
 #: js/messages.php:130
 msgid "Template was loaded."
-msgstr ""
+msgstr "已讀取樣板。"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "設定檔案己更新。"
+msgstr "己更新樣板。"
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "已刪除該行。"
+msgstr "已刪除樣板。"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:132
@@ -2475,7 +2472,7 @@ msgstr "您真的要刪除此書籤？"
 
 #: js/messages.php:599
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "取得 SQL 除錯資訊時發生一些錯誤。"
 
 #: js/messages.php:600
 #, php-format
@@ -3467,10 +3464,9 @@ msgid "Relational key"
 msgstr "關聯鍵"
 
 #: libraries/DisplayResults.class.php:1744
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "顯示外鍵的關聯"
+msgstr "顯示關聯的欄位"
 
 #: libraries/DisplayResults.class.php:1757
 msgid "Show binary contents"
@@ -3640,10 +3636,9 @@ msgid "Error while moving uploaded file."
 msgstr "移動暫存檔時發生錯誤，請確認 TempDir 資料夾的寫入權限。"
 
 #: libraries/File.class.php:487
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "移動上傳的暫存檔後，無法讀取該檔案。"
+msgstr "無法讀取已上傳的檔案。"
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -3777,7 +3772,7 @@ msgstr ""
 #: libraries/Linter.class.php:159
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (<code>%2$s</code> 附近)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:430
 #: libraries/config/messages.inc.php:931
@@ -3915,10 +3910,9 @@ msgid "Databases"
 msgstr "資料庫"
 
 #: libraries/Menu.class.php:568
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "使用者群組"
+msgstr "使用者帳號"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4325 libraries/server_common.lib.php:36
@@ -4595,15 +4589,14 @@ msgid "Max: %s%s"
 msgstr "上限: %s %s"
 
 #: libraries/Util.class.php:662
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "靜態資料"
+msgstr "靜態分析："
 
 #: libraries/Util.class.php:664
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "分析過程中發生 %d 個錯誤。"
 
 #: libraries/Util.class.php:726 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -10753,7 +10746,7 @@ msgstr "錯誤: FOREIGN KEY 關聯無法新增!"
 
 #: libraries/pmd_common.php:594
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "錯誤：缺少欄位索引。"
 
 #: libraries/pmd_common.php:598
 msgid "Error: Relational features are disabled!"
@@ -10869,10 +10862,9 @@ msgid "Remembering Designer Settings"
 msgstr "記住 Designer 設定"
 
 #: libraries/relation.lib.php:338
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "無效的匯出類型"
+msgstr "正在儲存匯出的樣板"
 
 #: libraries/relation.lib.php:346
 msgid "Quick steps to setup advanced features:"
@@ -11481,7 +11473,7 @@ msgstr "確定性"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr ""
+msgstr "您未有足夠的權限執行此操作，請參考說明文件了解詳情"
 
 #: libraries/rte/rte_routines.lib.php:1026
 msgid "Security type"
@@ -12062,19 +12054,17 @@ msgid ""
 msgstr "已存在與此帳號相同的使用者名稱，但可能使用不同的主機名稱。"
 
 #: libraries/server_privileges.lib.php:1510
-#, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
-msgstr "帳號:"
+msgstr "主機名稱："
 
 #: libraries/server_privileges.lib.php:1515
 #: libraries/server_privileges.lib.php:1617
 #: libraries/server_privileges.lib.php:2368
 #: libraries/server_privileges.lib.php:3330
-#, fuzzy
 #| msgid "Log name"
 msgid "Host name"
-msgstr "記錄檔名稱"
+msgstr "主機名稱"
 
 #: libraries/server_privileges.lib.php:1657
 msgid "Do not change the password"
@@ -12082,10 +12072,9 @@ msgstr "不修改密碼"
 
 #: libraries/server_privileges.lib.php:1694
 #: libraries/server_privileges.lib.php:1697
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "認證"
+msgstr "認證外掛程式"
 
 #: libraries/server_privileges.lib.php:1923
 #, php-format
@@ -12328,7 +12317,6 @@ msgstr ""
 "在繼續前 %s重新載入權限%s。"
 
 #: libraries/server_privileges.lib.php:4545
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12341,9 +12329,9 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
-"限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
-"在繼續前 %s重新載入權限%s。"
+"注意：phpMyAdmin 係直接由 MySQL "
+"權限資料表中取得使用者的權限資訊，若有任何手動的修改，這些資料表的內容可能將與伺服器實際使用的權限有所不同。 "
+"在此情況下才需要重新整理權限，目前您並不需要重新整理(RELOAD)權限。"
 
 #: libraries/server_privileges.lib.php:4595
 msgid "The selected user was not found in the privilege table."
