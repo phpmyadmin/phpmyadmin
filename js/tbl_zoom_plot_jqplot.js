@@ -12,7 +12,15 @@
  **  Display Help/Info
  **/
 function displayHelp() {
-    PMA_ajaxShowMessage(PMA_messages.strDisplayHelp, 10000);
+    $('<div />')
+        .append(PMA_messages.strDisplayHelp)
+        .appendTo('#page_content')
+        .dialog({
+            width: 450,
+            height: 'auto',
+            title: PMA_messages.strHelpTitle
+        });
+    return false;
 }
 
 /**

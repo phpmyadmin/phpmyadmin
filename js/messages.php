@@ -420,6 +420,7 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . '</li><li>'
     . __('The plot can be resized by dragging it along the bottom right corner.')
     . '</li></ul>';
+$js_messages['strHelpTitle'] = 'Zoom search instructions';
 $js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
 $js_messages['strSameInputs'] = '<strong>'
     . __('Select two different columns')
