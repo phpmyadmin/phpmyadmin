@@ -168,7 +168,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
     public function testGetDropdownValueForDbActionOne()
     {
         $GLOBALS['dbi']->expects($this->any())
-t            ->method('fetchArray')
+            ->method('fetchArray')
             ->will(
                 $this->returnCallback(
                     function () {
