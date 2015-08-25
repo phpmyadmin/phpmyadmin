@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-08-09 00:05+0200\n"
+"PO-Revision-Date: 2015-08-25 12:07+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10571,10 +10571,10 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid "Use this value"
 msgid "%s value"
-msgstr "Usa iste valor"
+msgstr "Valor %s"
 
 #: libraries/plugins/export/ExportSql.class.php:322
 msgid ""
@@ -13821,10 +13821,9 @@ msgid "The name of the entity was expected."
 msgstr ""
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:365
-#, fuzzy
 #| msgid "A rename operation was expected."
 msgid "At least one column definition was expected."
-msgstr "On expectava un operation de renominar.."
+msgstr "On expectava al minus un definition de columna."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:478
 msgid "A \"RETURNS\" keyword was expected."
@@ -15223,32 +15222,28 @@ msgstr "a le initio de tabella"
 
 #: templates/table/structure/display_partitions.phtml:3
 #: templates/table/structure/display_structure.phtml:193
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Partition %s"
+msgstr "Partitiones"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitioned by:"
-msgstr "Partition %s"
+msgstr "Partitionate per:"
 
 #: templates/table/structure/display_partitions.phtml:12
 msgid "Sub partitioned by:"
 msgstr ""
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Data files"
 msgid "Data length"
-msgstr "Files de datos"
+msgstr "Longessa de datos"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Indexes"
 msgid "Index length"
-msgstr "Indices"
+msgstr "Longessa de Indice"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
