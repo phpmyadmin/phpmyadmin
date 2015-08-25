@@ -107,14 +107,14 @@ class PMA_GIS_Visualization
     }
 
     /**
-     * Check if data as srid
+     * Check if data has SRID
      *
      * @return bool
      */
     public function hasSrid()
     {
         foreach ($this->_data as $row) {
-            if ($row['srid'] == 0) {
+            if ($row['srid'] != 0) {
                 return true;
             }
         }
