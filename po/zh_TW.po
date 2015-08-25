@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-08-25 13:37+0200\n"
+"PO-Revision-Date: 2015-08-25 13:42+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
@@ -5443,13 +5443,12 @@ msgstr "使用 CodeMirror"
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr ""
+msgstr "在執行查詢之前找到任何可能的錯誤，需要開啟 CodeMirror 功能."
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "啓用 SQL 檢驗器"
+msgstr "開啟 linter"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5521,7 +5520,7 @@ msgstr "確認刪除 (DROP) 查詢"
 #: libraries/config/messages.inc.php:97
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "記錄 SQL 查詢與其執行時間以顯示在控制台"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
@@ -5734,10 +5733,9 @@ msgid "Overwrite existing file(s)"
 msgstr "覆蓋既有檔案"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 #| msgid "Export tables as separate files"
 msgid "Export as separate files"
-msgstr "匯出資料表為各別檔案"
+msgstr "匯出為各別檔案"
 
 #: libraries/config/messages.inc.php:185
 msgid "Remember file name template"
@@ -5795,7 +5793,7 @@ msgstr "於 BINARY 與 BLOB 欄位使用 16 進位(HEX)表示"
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
-msgstr ""
+msgstr "加入 IF NOT EXISTS (較無效率，因索引會在建立資料表時產生)"
 
 #: libraries/config/messages.inc.php:210
 msgid "Use ignore inserts"
@@ -5853,7 +5851,7 @@ msgstr "外鍵數量限制"
 
 #: libraries/config/messages.inc.php:240
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "使用外鍵(Foreign key)檢查某些查詢的核選方塊的預設值。"
 
 #: libraries/config/messages.inc.php:242
 msgid "Foreign key checks"
@@ -6545,7 +6543,7 @@ msgstr "在導覽樹顯示函數"
 
 #: libraries/config/messages.inc.php:530
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "是否顯示於資料庫底下的函數於導覽樹"
 
 #: libraries/config/messages.inc.php:531
 msgid "Show procedures in tree"
@@ -6553,7 +6551,7 @@ msgstr "在導覽樹顯示預儲程序"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "是否顯示於資料庫底下的程序於導覽樹"
 
 #: libraries/config/messages.inc.php:534
 msgid "Show events in tree"
@@ -6585,7 +6583,7 @@ msgstr "資料列的連結顯示位置"
 
 #: libraries/config/messages.inc.php:546
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "是否顯示缺少唯一鍵的資料列連結。"
 
 #: libraries/config/messages.inc.php:548
 msgid "Show row links anyway"
