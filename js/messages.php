@@ -85,17 +85,17 @@ $js_messages['strChangeAllColumnCollationsWarning'] = __(
 . __('Are you sure you wish to change all the column collations and convert the data?');
 
 /* For modal dialog buttons */
-$js_messages['strSaveAndClose'] = __('Save & Close');
+$js_messages['strSaveAndClose'] = __('Save & close');
 $js_messages['strReset'] = __('Reset');
-$js_messages['strResetAll'] = __('Reset All');
+$js_messages['strResetAll'] = __('Reset all');
 
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
 $js_messages['strRadioUnchecked'] = __('Select at least one of the options!');
 $js_messages['strEnterValidNumber'] = __('Please enter a valid number!');
 $js_messages['strEnterValidLength'] = __('Please enter a valid length!');
-$js_messages['strAddIndex'] = __('Add Index');
-$js_messages['strEditIndex'] = __('Edit Index');
+$js_messages['strAddIndex'] = __('Add index');
+$js_messages['strEditIndex'] = __('Edit index');
 $js_messages['strAddToIndex'] = __('Add %s column(s) to index');
 $js_messages['strCreateSingleColumnIndex'] = __('Create single-column index');
 $js_messages['strCreateCompositeIndex'] = __('Create composite index');
@@ -115,7 +115,7 @@ $js_messages['strSQLQuery'] = __('SQL query:');
 
 /* Charts */
 /* l10n: Default label for the y-Axis of Charts */
-$js_messages['strYValues'] = __('Y Values');
+$js_messages['strYValues'] = __('Y values');
 
 /* For server_privileges.js */
 $js_messages['strHostEmpty'] = __('The host name is empty!');
@@ -148,7 +148,7 @@ $js_messages['strQueryCacheEfficiency'] = __('Query cache efficiency');
 $js_messages['strQueryCacheUsage'] = __('Query cache usage');
 $js_messages['strQueryCacheUsed'] = __('Query cache used');
 
-$js_messages['strSystemCPUUsage'] = __('System CPU Usage');
+$js_messages['strSystemCPUUsage'] = __('System CPU usage');
 $js_messages['strSystemMemory'] = __('System memory');
 $js_messages['strSystemSwap'] = __('System swap');
 
@@ -159,10 +159,10 @@ $js_messages['strBufferedMemory'] = __('Buffered memory');
 $js_messages['strFreeMemory'] = __('Free memory');
 $js_messages['strUsedMemory'] = __('Used memory');
 
-$js_messages['strTotalSwap'] = __('Total Swap');
-$js_messages['strCachedSwap'] = __('Cached Swap');
-$js_messages['strUsedSwap'] = __('Used Swap');
-$js_messages['strFreeSwap'] = __('Free Swap');
+$js_messages['strTotalSwap'] = __('Total swap');
+$js_messages['strCachedSwap'] = __('Cached swap');
+$js_messages['strUsedSwap'] = __('Used swap');
+$js_messages['strFreeSwap'] = __('Free swap');
 
 $js_messages['strBytesSent'] = __('Bytes sent');
 $js_messages['strBytesReceived'] = __('Bytes received');
@@ -216,7 +216,7 @@ $js_messages['strNoSuperUser'] = __(
 $js_messages['strChangeSettings'] = __('Change settings');
 $js_messages['strCurrentSettings'] = __('Current settings');
 
-$js_messages['strChartTitle'] = __('Chart Title');
+$js_messages['strChartTitle'] = __('Chart title');
 /* l10n: As in differential values */
 $js_messages['strDifferential'] = __('Differential');
 $js_messages['strDividedBy'] = __('Divided by %s');
@@ -272,7 +272,7 @@ $js_messages['strImportDialogTitle'] = __('Import monitor configuration');
 $js_messages['strImportDialogMessage'] = __('Please select the file you want to import.');
 $js_messages['strNoImportFile'] = __('No files available on server for import!');
 
-$js_messages['strAnalyzeQuery'] = __('Analyse Query');
+$js_messages['strAnalyzeQuery'] = __('Analyse query');
 
 /* Server status advisor */
 
@@ -298,22 +298,22 @@ $js_messages['strApply'] = _('Apply');
 
 /* For Ajax Notifications */
 $js_messages['strLoading'] = __('Loading…');
-$js_messages['strAbortedRequest'] = __('Request Aborted!!');
-$js_messages['strProcessingRequest'] = __('Processing Request');
-$js_messages['strRequestFailed'] = __('Request Failed!!');
-$js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
+$js_messages['strAbortedRequest'] = __('Request aborted!!');
+$js_messages['strProcessingRequest'] = __('Processing request');
+$js_messages['strRequestFailed'] = __('Request failed!!');
+$js_messages['strErrorProcessingRequest'] = __('Error in processing request');
 $js_messages['strErrorCode'] = __('Error code: %s');
 $js_messages['strErrorText'] = __('Error text: %s');
 $js_messages['strNoDatabasesSelected'] = __('No databases selected.');
-$js_messages['strDroppingColumn'] = __('Dropping Column');
-$js_messages['strAddingPrimaryKey'] = __('Adding Primary Key');
+$js_messages['strDroppingColumn'] = __('Dropping column');
+$js_messages['strAddingPrimaryKey'] = __('Adding primary key');
 $js_messages['strOK'] = __('OK');
 $js_messages['strDismiss'] = __('Click to dismiss this notification');
 
 /* For db_operations.js */
-$js_messages['strRenamingDatabases'] = __('Renaming Databases');
-$js_messages['strCopyingDatabase'] = __('Copying Database');
-$js_messages['strChangingCharset'] = __('Changing Charset');
+$js_messages['strRenamingDatabases'] = __('Renaming databases');
+$js_messages['strCopyingDatabase'] = __('Copying database');
+$js_messages['strChangingCharset'] = __('Changing charset');
 $js_messages['strNo'] = __('No');
 
 /* For Foreign key checks */
@@ -437,8 +437,8 @@ $js_messages['strPointN'] = __('Point %d');
 $js_messages['strLineString'] = __('Linestring');
 $js_messages['strPolygon'] = __('Polygon');
 $js_messages['strGeometry'] = __('Geometry');
-$js_messages['strInnerRing'] = __('Inner Ring');
-$js_messages['strOuterRing'] = __('Outer Ring');
+$js_messages['strInnerRing'] = __('Inner ring');
+$js_messages['strOuterRing'] = __('Outer ring');
 $js_messages['strAddPoint'] = __('Add a point');
 $js_messages['strAddInnerRing'] = __('Add an inner ring');
 $js_messages['strYes'] = __('Yes');
@@ -522,14 +522,14 @@ $js_messages['strColNameCopyText'] = __('Right-click the column name to copy it 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
 $js_messages['strGenerate'] = __('Generate');
-$js_messages['strChangePassword'] = __('Change Password');
+$js_messages['strChangePassword'] = __('Change password');
 
 /* navigation tabs */
 $js_messages['strMore'] = __('More');
 
 /* navigation panel */
-$js_messages['strShowPanel'] = __('Show Panel');
-$js_messages['strHidePanel'] = __('Hide Panel');
+$js_messages['strShowPanel'] = __('Show panel');
+$js_messages['strHidePanel'] = __('Hide panel');
 $js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items.');
 $js_messages['linkWithMain'] = __('Link with main panel');
 $js_messages['unlinkWithMain'] = __('Unlink from main panel');
@@ -553,13 +553,13 @@ $js_messages['strUpToDate'] = __('up to date');
 $js_messages['strCreateView'] = __('Create view');
 
 /* Error Reporting */
-$js_messages['strSendErrorReport'] = __("Send Error Report");
-$js_messages['strSubmitErrorReport'] = __("Submit Error Report");
+$js_messages['strSendErrorReport'] = __("Send error report");
+$js_messages['strSubmitErrorReport'] = __("Submit error report");
 $js_messages['strErrorOccurred'] = __(
     "A fatal JavaScript error has occurred. Would you like to send an error report?"
 );
-$js_messages['strChangeReportSettings'] = __("Change Report Settings");
-$js_messages['strShowReportDetails'] = __("Show Report Details");
+$js_messages['strChangeReportSettings'] = __("Change report settings");
+$js_messages['strShowReportDetails'] = __("Show report details");
 $js_messages['strIgnore'] = __("Ignore");
 $js_messages['strTimeOutError'] = __(
     "Your export is incomplete, due to a low execution time limit at the PHP level!"

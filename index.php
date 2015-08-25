@@ -160,7 +160,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '</div>';
     }
     echo '<div class="group">';
-    echo '<h2>' . __('General Settings') . '</h2>';
+    echo '<h2>' . __('General settings') . '</h2>';
     echo '<ul>';
 
     /**
@@ -226,7 +226,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
 }
 
 echo '<div class="group">';
-echo '<h2>' . __('Appearance Settings') . '</h2>';
+echo '<h2>' . __('Appearance settings') . '</h2>';
 echo '  <ul>';
 
 // Displays language selection combo

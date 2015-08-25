@@ -178,7 +178,7 @@ function PMA_buildHtmlForDb(
                )
                . '">'
                . ' '
-               . PMA_Util::getIcon('s_rights.png', __('Check Privileges'))
+               . PMA_Util::getIcon('s_rights.png', __('Check privileges'))
                . '</a></td>';
     }
     return array($column_order, $out);
