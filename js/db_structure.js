@@ -316,7 +316,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
             var params = getJSConfirmCommonParam(this);
 
-            $.get(url, params, function (data) {
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     toggleRowColors($curr_row.next());
