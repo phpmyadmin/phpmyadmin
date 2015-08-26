@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.0.0 (not yet released)
+
 4.5.0.0 (not yet released)
 + rfe          Pagination for GIS visualization
 + issue #6207  Usability improvements for console
