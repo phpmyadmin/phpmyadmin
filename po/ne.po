@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-08-26 14:35+0200\n"
+"PO-Revision-Date: 2015-08-26 14:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Nepali "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ne/>\n"
@@ -289,7 +289,7 @@ msgstr "संरचना"
 #: libraries/server_privileges.lib.php:1140
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Data"
-msgstr ""
+msgstr "डाटा"
 
 #: db_export.php:56
 #, fuzzy
