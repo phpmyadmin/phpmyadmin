@@ -203,7 +203,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<h3>' . __('Database(s):') . '</h3>',
+            '<h3>' . __('Databases:') . '</h3>',
             $html
         );
         $this->assertContains(

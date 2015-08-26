@@ -335,9 +335,9 @@ function PMA_getHtmlForExportOptionsSelection($export_type, $multi_values)
 {
     $html = '<div class="exportoptions" id="databases_and_tables">';
     if ($export_type == 'server') {
-        $html .= '<h3>' . __('Database(s):') . '</h3>';
+        $html .= '<h3>' . __('Databases:') . '</h3>';
     } else if ($export_type == 'database') {
-        $html .= '<h3>' . __('Table(s):') . '</h3>';
+        $html .= '<h3>' . __('Tables:') . '</h3>';
     }
     if (! empty($multi_values)) {
         $html .= $multi_values;
