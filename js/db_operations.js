@@ -137,7 +137,7 @@ AJAX.registerOnload('db_operations.js', function () {
         );
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
+            $.post(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
                 if (typeof data !== 'undefined' && data.success) {
                     //Database deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
