@@ -375,9 +375,9 @@ function PMA_getHtmlForReplicationDbMultibox()
     } // end while
 
     $multi_values .= '</select><br />';
-    $multi_values .= '<a href="#" id="db_select_href">' . __('Select All') . '</a>';
+    $multi_values .= '<a href="#" id="db_select_href">' . __('Select all') . '</a>';
     $multi_values .= '&nbsp;/&nbsp;';
-    $multi_values .= '<a href="#" id="db_reset_href">' . __('Unselect All') . '</a>';
+    $multi_values .= '<a href="#" id="db_reset_href">' . __('Unselect all') . '</a>';
 
     return $multi_values;
 }
@@ -892,7 +892,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '</div>'
         . '<div class="item">'
         . '<label for="button_generate_password">'
-        . '    ' . __('Generate Password:')
+        . '    ' . __('Generate password:')
         . '</label>'
         . '<span class="options">'
         . '    <input type="button" class="button" '

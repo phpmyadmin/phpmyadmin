@@ -2955,7 +2955,7 @@ $cfg['SQLQuery']['Edit'] = true;
 $cfg['SQLQuery']['Explain'] = true;
 
 /**
- * Display a "Create PHP Code" link on the results page to wrap a query in PHP
+ * Display a "Create PHP code" link on the results page to wrap a query in PHP
  *
  * @global boolean $cfg['SQLQuery']['ShowAsPHP']
  */

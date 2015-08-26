@@ -848,15 +848,15 @@ $strConfigShowDbStructureComment_name = __('Show table comments');
 $strConfigShowDbStructureCreation_desc = __(
     'Show or hide a column displaying the Creation timestamp for all tables.'
 );
-$strConfigShowDbStructureCreation_name = __('Show Creation timestamp');
+$strConfigShowDbStructureCreation_name = __('Show creation timestamp');
 $strConfigShowDbStructureLastUpdate_desc = __(
     'Show or hide a column displaying the Last update timestamp for all tables.'
 );
-$strConfigShowDbStructureLastUpdate_name = __('Show Last update timestamp');
+$strConfigShowDbStructureLastUpdate_name = __('Show last update timestamp');
 $strConfigShowDbStructureLastCheck_desc = __(
     'Show or hide a column displaying the Last check timestamp for all tables.'
 );
-$strConfigShowDbStructureLastCheck_name = __('Show Last check timestamp');
+$strConfigShowDbStructureLastCheck_name = __('Show last check timestamp');
 $strConfigShowFieldTypesInDataEditView_desc = __(
     'Defines whether or not type fields should be initially displayed in ' .
     'edit/insert mode.'
@@ -893,7 +893,7 @@ $strConfigSkipLockedTables_name = __('Skip locked tables');
 $strConfigSQLQuery_Edit_name = __('Edit');
 $strConfigSQLQuery_Explain_name = __('Explain SQL');
 $strConfigSQLQuery_Refresh_name = __('Refresh');
-$strConfigSQLQuery_ShowAsPHP_name = __('Create PHP Code');
+$strConfigSQLQuery_ShowAsPHP_name = __('Create PHP code');
 $strConfigSuhosinDisableWarning_desc = __(
     'Disable the default warning that is displayed on the main page if Suhosin is ' .
     'detected.'

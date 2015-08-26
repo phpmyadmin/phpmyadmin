@@ -91,7 +91,7 @@ class SchemaPdf extends SchemaPlugin
 
         $leaf = new BoolPropertyItem();
         $leaf->setName('with_doc');
-        $leaf->setText(__('Data Dictionary'));
+        $leaf->setText(__('Data dictionary'));
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem();

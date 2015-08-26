@@ -33,7 +33,7 @@ function PMA_checkRequiredPrivilegesForFlushing()
 
 /**
  * Check if user has required privileges for
- * performing 'Adjust Privileges' operations
+ * performing 'Adjust privileges' operations
  *
  * @return void
  */

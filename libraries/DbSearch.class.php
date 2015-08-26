@@ -443,11 +443,11 @@ class PMA_DbSearch
         $alter_select = '<a href="#" '
             . 'onclick="setSelectOptions(\'db_search\','
             . ' \'criteriaTables[]\', true); return false;">'
-            . __('Select All') . '</a> &nbsp;/&nbsp;';
+            . __('Select all') . '</a> &nbsp;/&nbsp;';
         $alter_select .= '<a href="#" '
             . 'onclick="setSelectOptions(\'db_search\','
             . ' \'criteriaTables[]\', false); return false;">'
-            . __('Unselect All') . '</a>';
+            . __('Unselect all') . '</a>';
         $html_output .= '<tr><td class="right vbottom">'
             . $alter_select . '</td></tr>';
         // Inputbox for column name entry

@@ -41,13 +41,13 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
     $multi_values .= '<a href="#"';
     $multi_values .= ' onclick="setSelectOptions'
         . '(\'dump\', \'db_select[]\', true); return false;">';
-    $multi_values .= __('Select All');
+    $multi_values .= __('Select all');
     $multi_values .= '</a>';
     $multi_values .= ' / ';
     $multi_values .= '<a href="#"';
     $multi_values .= ' onclick="setSelectOptions'
         . '(\'dump\', \'db_select[]\', false); return false;">';
-    $multi_values .= __('Unselect All') . '</a><br />';
+    $multi_values .= __('Unselect all') . '</a><br />';
 
     $multi_values .= '<select name="db_select[]" '
         . 'id="db_select" size="10" multiple="multiple">';

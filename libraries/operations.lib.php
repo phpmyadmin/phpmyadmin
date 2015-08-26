@@ -99,7 +99,7 @@ function PMA_getHtmlForRenameDatabase($db)
         }
 
         $html_output .= '<label for="checkbox_adjust_privileges">'
-                . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+                . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
                 . '</label><br />';
     }
 
@@ -246,7 +246,7 @@ function PMA_getHtmlForCopyDatabase($db)
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_privileges">'
-            . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
     }
 
@@ -876,7 +876,7 @@ function PMA_getHtmlForMoveTable()
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_privileges_tables_move">'
-            . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
     }
 
@@ -970,7 +970,7 @@ function PMA_getHtmlForRenameTable()
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_privileges_table_options">'
-            . __('Adjust Privileges') . '&nbsp;'
+            . __('Adjust privileges') . '&nbsp;'
             . PMA_Util::showDocu('faq', 'faq6-39') . '</label>';
     }
 
@@ -1324,7 +1324,7 @@ function PMA_getHtmlForCopytable()
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_adjust_privileges">'
-            . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
     }
 

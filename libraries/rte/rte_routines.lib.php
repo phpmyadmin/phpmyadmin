@@ -995,7 +995,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         && ! empty($_REQUEST['edit_item'])
     ) {
         $retval .= "<tr>";
-        $retval .= "    <td>" . __('Adjust Privileges');
+        $retval .= "    <td>" . __('Adjust privileges');
         $retval .= PMA_Util::showDocu('faq', 'faq6-39');
         $retval .= "</td>";
         if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {

@@ -1217,7 +1217,7 @@ class PMA_Util
                     $_message = __('Without PHP Code');
                 } else {
                     $php_params['show_as_php'] = 1;
-                    $_message = __('Create PHP Code');
+                    $_message = __('Create PHP code');
                 }
 
                 $php_link = 'import.php' . PMA_URL_getCommon($php_params);

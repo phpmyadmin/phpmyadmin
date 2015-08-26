@@ -2032,7 +2032,7 @@ involve a manual verification at one point.
 
 .. _faq6_39:
 
-6.39 What is the "Adjust Privileges" option when renaming, copying, or moving a database, table, column, or procedure?
+6.39 What is the "Adjust privileges" option when renaming, copying, or moving a database, table, column, or procedure?
 ----------------------------------------------------------------------------------------------------------------------
 
 When renaming/copying/moving a database/table/column/procedure,
