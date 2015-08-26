@@ -309,7 +309,7 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version and open a new one for the next minor release
+ 7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version (if this is a stable release) and open a new one for the next minor release
 
  8. if a maintenance version was released, delete the branch corresponding to the previous one; for example git push origin --delete MAINT_4_4_12
 
