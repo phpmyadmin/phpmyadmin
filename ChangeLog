@@ -101,6 +101,7 @@ phpMyAdmin - ChangeLog
 - issue #11411 Undefined "replace" function on numeric scalar
 - issue #11421 Stored-proc / routine - broken parameter parsing
 - issue        Missing name for configuration read_as_multibytes
+- issue #11431 Incorrect "No row selected" message
 
 4.4.14.0 (2015-08-20)
 - issue #11367 Export after search, missing WHERE clause

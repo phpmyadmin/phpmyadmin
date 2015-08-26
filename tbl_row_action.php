@@ -62,8 +62,9 @@ default:
 
 if (!empty($submit_mult)) {
 
-    if (! isset($_REQUEST['rows_to_delete'])
-        || ! is_array($_REQUEST['rows_to_delete'])
+    if (isset($_REQUEST['goto'])
+        && (! isset($_REQUEST['rows_to_delete'])
+        || ! is_array($_REQUEST['rows_to_delete']))
     ) {
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);
