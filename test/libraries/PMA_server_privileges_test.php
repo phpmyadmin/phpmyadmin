@@ -1486,7 +1486,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            __('Edit Privileges'),
+            __('Edit privileges'),
             $html
         );
 
@@ -2122,7 +2122,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
         $this->assertEquals($exp_found_rows, $actual[0]);
-        $this->assertContains('Edit Privileges', $actual[1]);
+        $this->assertContains('Edit privileges', $actual[1]);
         $this->assertContains('Revoke', $actual[1]);
         $this->assertContains(
             '<tr class="odd">',
@@ -2133,8 +2133,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual[1]
         );
         $this->assertContains(
-            '<img src="imageb_usredit.png" title="Edit Privileges" '
-            . 'alt="Edit Privileges" />',
+            '<img src="imageb_usredit.png" title="Edit privileges" '
+            . 'alt="Edit privileges" />',
             $actual[1]
         );
         $this->assertContains(

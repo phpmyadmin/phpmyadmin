@@ -2625,7 +2625,7 @@ function PMA_getUserLink(
 
     switch($linktype) {
     case 'edit':
-        $html .= PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'));
+        $html .= PMA_Util::getIcon('b_usredit.png', __('Edit privileges'));
         break;
     case 'revoke':
         $html .= PMA_Util::getIcon('b_usrdrop.png', __('Revoke'));
