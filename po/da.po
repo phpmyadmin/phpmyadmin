@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-06-10 23:07+0200\n"
-"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2015-08-26 14:52+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgstr "Database %1$s er oprettet."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Databasekommentar:"
+msgstr "Databasekommentar"
 
 #: db_datadict.php:95
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:967
