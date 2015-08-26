@@ -388,7 +388,7 @@ RTE.COMMON = {
              *          the AJAX message shown to the user
              */
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+            $.post(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
                 if (data.success === true) {
                     /**
                      * @var $table Object containing reference
@@ -462,7 +462,7 @@ RTE.COMMON = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $curr_row = $anchor.parents('tr');
-                $.get($anchor.attr('href'), {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+                $.post($anchor.attr('href'), {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
                     returnCount++;
                     if (data.success === true) {
                         /**
