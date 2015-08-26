@@ -437,7 +437,7 @@ RTE.COMMON = {
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }); // end $.PMA_confirm()
     },
 
@@ -519,7 +519,7 @@ RTE.COMMON = {
                             PMA_reloadNavigation();
                         }
                     }
-                }); // end $.get()
+                }); // end $.post()
             }); // end drop_anchors.each()
         }); // end $.PMA_confirm()
     }
@@ -768,7 +768,7 @@ RTE.ROUTINE = {
          *          the AJAX message shown to the user
          */
         var $msg = PMA_ajaxShowMessage();
-        $.get($this.attr('href'), {'ajax_request': true}, function (data) {
+        $.post($this.attr('href'), {'ajax_request': true}, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 // If 'data.dialog' is true we show a dialog with a form
@@ -852,7 +852,7 @@ RTE.ROUTINE = {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }); // end $.get()
+        }); // end $.post()
     }
 };
 
