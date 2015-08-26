@@ -360,6 +360,7 @@ $strConfigImport_skip_queries_name = __('Partial import: skip queries');
 $strConfigImport_sql_compatibility_name = __('SQL compatibility mode');
 $strConfigImport_sql_no_auto_value_on_zero_name
     = __('Do not use AUTO_INCREMENT for zero values');
+$strConfigImport_sql_read_as_multibytes_name = __('Read as multibytes');
 $strConfigImport_xls_col_names_name = __('Column names in first row');
 $strConfigImport_xlsx_col_names_name = __('Column names in first row');
 $strConfigInitialSlidersState_name = __('Initial state for sliders');
