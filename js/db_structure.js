@@ -272,7 +272,7 @@ AJAX.registerOnload('db_structure.js', function () {
                 } else {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }, loadForeignKeyCheckbox); //end $.PMA_confirm()
     }); //end of Truncate Table Ajax action
 
@@ -327,7 +327,7 @@ AJAX.registerOnload('db_structure.js', function () {
                 } else {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }, loadForeignKeyCheckbox); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 
