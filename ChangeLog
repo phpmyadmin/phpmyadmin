@@ -26,7 +26,7 @@ phpMyAdmin - ChangeLog
 + issue #6330  Add grouping to stored procedures in the navigation tree
 + issue #6275  Support IPv6 browser transformation
 + rfe          Option groups for 'With selected' dropdown in database structure page
-+ issue #6347  Support checksum table
++ issue #6347  Support CHECKSUM TABLE operation
 + issue #6088  Support for Paramaters with raw SQL
 + issue #5844  Show original size of truncated columns
 + issue #6114  Explain analyzer
