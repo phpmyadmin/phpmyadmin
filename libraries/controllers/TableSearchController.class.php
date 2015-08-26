@@ -171,10 +171,6 @@ class TableSearchController extends TableController
      */
     public function indexAction()
     {
-        $_REQUEST['db'] = 'TEST';
-        $_REQUEST['table'] = 'fuck2';
-        $_REQUEST['where_clause'] = '`c` = 2';
-        $this->getDataRowAction();
         switch ($this->_searchType) {
         case 'replace':
             if (isset($_POST['find'])) {
