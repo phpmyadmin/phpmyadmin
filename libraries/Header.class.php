@@ -609,8 +609,6 @@ class PMA_Header
         header(
             'X-Permitted-Cross-Domain-Policies: none'
         );
-        // Avoid exposing PHP version
-        header_remove('X-Powered-By');
         PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             // Define the charset to be used
