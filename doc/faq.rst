@@ -2052,8 +2052,7 @@ Notes:
   to the database's new name.
 
 * Similarly, while adjusting privileges for a table, the privileges of all
-  *column-related privileges* for the columns inside the table are also adjusted
-  to the table's new name.
+  the columns inside the new table are also adjusted.
 
 * While adjusting privileges, the user performing the operation **must** have the following
   privileges:
