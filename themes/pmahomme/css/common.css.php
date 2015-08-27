@@ -894,6 +894,7 @@ form.login label {
 form.login input[type=text],
 form.login input[type=password],
 form.login select {
+    box-sizing: border-box;
     width: 14em;
 }
 
