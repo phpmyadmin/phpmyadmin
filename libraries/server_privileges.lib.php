@@ -4909,10 +4909,10 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     // and therefore has to be escaped using an extra '%'
     $escapedHostname = $hostname;
     $escapedUsername = $username;
-    if (strpos($hostname,'%') !== false) {
+    if (strpos($hostname, '%') !== false) {
         $escapedHostname = str_replace('%', '%%', $hostname);
     }
-    if (strpos($username,'%') !== false) {
+    if (strpos($username, '%') !== false) {
         $escapedUsername = str_replace('%', '%%', $username);
     }
     $slashedEscapedUsername = PMA_Util::sqlAddSlashes($escapedUsername);
