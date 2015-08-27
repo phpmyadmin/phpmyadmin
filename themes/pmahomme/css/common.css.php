@@ -3542,4 +3542,3 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     float: <?php echo $right; ?>;
 }
 /* end of styles for jQuery-ui to support rtl languages */
-
