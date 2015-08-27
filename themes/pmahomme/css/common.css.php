@@ -894,6 +894,7 @@ form.login label {
 form.login input[type=text],
 form.login input[type=password],
 form.login select {
+    box-sizing: border-box;
     width: 14em;
 }
 
@@ -3541,3 +3542,4 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     float: <?php echo $right; ?>;
 }
 /* end of styles for jQuery-ui to support rtl languages */
+
