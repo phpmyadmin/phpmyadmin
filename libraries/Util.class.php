@@ -4895,7 +4895,6 @@ class PMA_Util
                 }
             }
 
-            $tbl_group = false;
             $groupWithSeparator = false;
             $tbl_type = null;
             $limit_offset = 0;
@@ -4986,7 +4985,7 @@ class PMA_Util
      */
     public function getTablesWhenOpen($db, $db_info_result)
     {
-        $tables = array();
+        $sot_cache = $tables = array();
 
         while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
             // if in use, memorize table name
@@ -4998,8 +4997,6 @@ class PMA_Util
 
         // is there at least one "in use" table?
         if (isset($sot_cache)) {
-            $db_info_result = false;
-
             $tblGroupSql = "";
             $whereAdded = false;
             if (PMA_isValid($_REQUEST['tbl_group'])) {
