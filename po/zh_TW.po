@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-08-25 13:49+0200\n"
+"PO-Revision-Date: 2015-08-27 13:45+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
@@ -932,6 +932,8 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"此操作將會轉換您的資料至新的編碼與排序。在極少數的情況，特別是在新的編碼與排序不存的字元，此程序可能造成資料在新的編碼與排序顯示不正確，在這種情況之下我們"
+"建議您還原回原來的編碼與排序，並且參考以下文件的提示： "
 
 #: js/messages.php:73
 msgid "Garbled Data"
@@ -950,6 +952,8 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"雖然 MySQL 在此操作會嘗試對應編碼與排序之間的資料值，但若字元集不完整可能會造成資料遺失，且因此遺失的資料將<b>無法</b>透過將欄位轉換回原編碼"
+"與排序來還原。<b>建議使用於資料表結構頁面的欄位編輯功能 (\"更改\" 連結) 來轉換現有的資料。</b>"
 
 #: js/messages.php:85
 msgid ""
@@ -2482,7 +2486,7 @@ msgstr "%s 筆查詢已執行 %s 次，使用 %s 秒。"
 #: js/messages.php:601
 #, php-format
 msgid "%s argument(s) passed"
-msgstr "已傳入 %s 個參數。"
+msgstr "已傳入 %s 個參數"
 
 #: js/messages.php:602
 msgid "Show arguments"
@@ -3767,7 +3771,7 @@ msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一個將可能被刪除
 #: libraries/Linter.class.php:95
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr ""
+msgstr "因此查詢已超過最大長度限制，已關閉 Linting。"
 
 #: libraries/Linter.class.php:159
 #, php-format
@@ -7954,22 +7958,19 @@ msgid "Template:"
 msgstr "樣板："
 
 #: libraries/display_export.lib.php:226
-#, fuzzy
 #| msgid "Updated"
 msgid "Update"
 msgstr "更新"
 
 #: libraries/display_export.lib.php:248
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select a template"
-msgstr "選擇一個資料表"
+msgstr "選擇一個樣板"
 
 #: libraries/display_export.lib.php:294
-#, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
-msgstr "匯出方式"
+msgstr "匯出方式："
 
 #: libraries/display_export.lib.php:304
 msgid "Quick - display only the minimal options"
@@ -8929,7 +8930,7 @@ msgstr "羅馬尼亞語"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "僧伽羅語"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9075,7 +9076,7 @@ msgstr "重新讀取導覽面板"
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
-msgstr ""
+msgstr "導覽面板有群組含有大量項目可能會影響效能，請考慮關閉導覽面板的項目群組功能。"
 
 #: libraries/navigation/NavigationTree.class.php:921
 #, php-format
@@ -9256,6 +9257,7 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"目前沒有主鍵(Primary Key)，請新增一個。<br/>提示：主鍵是一個欄位 (或多個欄位組合而成)，它獨一無二、可以用來辨識所有資料列。"
 
 #: libraries/normalization.lib.php:202
 msgid "Add a primary key on existing column(s)"
@@ -9338,7 +9340,7 @@ msgstr "尋找部份相依"
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
-msgstr ""
+msgstr "當主鍵 ( %1$s ) 由所有資料表的欄位組成時，由於沒有非主要欄位存在，因此不會有部份相依。"
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:387
 msgid "Table is already in second normal form."
@@ -9349,7 +9351,7 @@ msgstr "資料表己完成第二正規化。"
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
-msgstr ""
+msgstr "由於主鍵 ( %1$s ) 由多個欄位組成，所以我們需要尋找部分相依。"
 
 #: libraries/normalization.lib.php:354 libraries/normalization.lib.php:726
 msgid ""
@@ -9378,14 +9380,14 @@ msgstr "'%1$s' 相依於:"
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr ""
+msgstr "當主鍵 ( %1$s ) 只使用一個欄位時不會有部份相依。"
 
 #: libraries/normalization.lib.php:411
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
-msgstr ""
+msgstr "為了要將原始資料 '%1$s' 轉換至第二階正規化需要建立以下資料表："
 
 #: libraries/normalization.lib.php:447
 #, php-format
@@ -9402,7 +9404,7 @@ msgstr "處理時發生錯誤！"
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
-msgstr ""
+msgstr "為了要將原始資料 '%1$s' 轉換至第三階正規化需要建立以下資料表："
 
 #: libraries/normalization.lib.php:580
 msgid "The third step of normalization is complete."
@@ -9433,7 +9435,7 @@ msgstr ""
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
-msgstr ""
+msgstr "當資料表沒有任何非主鍵的欄位時不會有遞移相依"
 
 #: libraries/normalization.lib.php:781
 msgid "Table is already in Third normal form!"
@@ -9465,7 +9467,7 @@ msgstr "提示：請謹心慎依照程序以完成正確的正規化"
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr ""
+msgstr "此清單依據資料表資料的子集合組成，不需要準確。 "
 
 #: libraries/normalization.lib.php:895
 msgid "No partial dependencies found!"
@@ -9479,12 +9481,11 @@ msgstr "重新命名資料庫為"
 #: libraries/operations.lib.php:862 libraries/operations.lib.php:956
 #: libraries/operations.lib.php:1310
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "權限不足！"
+msgstr "您的權限不足以執行此操作，請參考說明文件了解詳細資訊"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:249
 #: libraries/operations.lib.php:868 libraries/operations.lib.php:962
@@ -9663,7 +9664,7 @@ msgstr "修復"
 #: libraries/operations.lib.php:1598
 #: templates/table/structure/display_structure.phtml:186
 msgid "Truncate"
-msgstr ""
+msgstr "清空"
 
 #: libraries/operations.lib.php:1608
 #, fuzzy
@@ -10044,10 +10045,9 @@ msgid "View structure"
 msgstr "檢視結構"
 
 #: libraries/plugins/export/ExportPdf.class.php:288
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "然後"
+msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -10091,13 +10091,13 @@ msgstr "加入指令(Statement):"
 
 #: libraries/plugins/export/ExportSql.class.php:277
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "(較無效率，因索引會在資料表建立時產生)"
 
 #: libraries/plugins/export/ExportSql.class.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid "Session value"
 msgid "%s value"
-msgstr "連線階段值"
+msgstr "%s 值"
 
 #: libraries/plugins/export/ExportSql.class.php:322
 msgid ""
@@ -10612,14 +10612,13 @@ msgid ""
 msgstr "顯示可點選的縮圖。在原比例不變的情況下，可按像素指定最大寬度或高度。"
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
-msgstr "將一個 IPv4 (網際網路協定第4版) 位置轉換成點分十進位標準格式。"
+msgstr "轉換一個使用 BIGINT 儲存的 (IPv4) 網際網路位址為網際網路標準點分格式的字串。"
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
 msgid ""
@@ -10685,7 +10684,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "轉換一個使用 (IPv4/IPv6) 的網際網路位址為二進位"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -10697,17 +10696,16 @@ msgstr "SQL 使用語法明顯標示的 CodeMirror 編輯器。"
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "支援 XML (與 HTML) 的語法強調 CodeMirror 編輯器。"
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
-msgstr "將一個 IPv4 (網際網路協定第4版) 位置轉換成點分十進位標準格式。"
+msgstr "轉換一個使用二進位字串儲存的網際網路位址為網際網路標準 (IPv4/IPv6) 格式字串。"
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:47
 msgid "Formats text as JSON with syntax highlighting."
@@ -10931,7 +10929,6 @@ msgid "Master configuration"
 msgstr "主要伺服器設定"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -10945,9 +10942,8 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"此伺服器尚未設定爲一個備援程序中的主要(Master)伺服器。您可以選擇複製所有但忽"
-"略某些資料庫 (當您想備援大多數資料庫時很有用) 或者僅備援某些資料庫。請選擇模"
-"式:"
+"此伺服器尚未設定爲一個備援程序中的主要(Master)伺服器。您可以選擇複製所有但忽略某些資料庫 (當您想備援大多數資料庫時很有用) "
+"或者僅備援某些資料庫。請選擇模式："
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
@@ -11931,17 +11927,17 @@ msgstr "需要 SSL"
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "需要使用指定的加密方式連線。"
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "需要由此 CA 發行且有效的 X509 憑証存在。"
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "需要使用此主旨且有效的 X509 憑証存在。"
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
@@ -13364,7 +13360,7 @@ msgstr "全域值"
 
 #: libraries/server_variables.lib.php:242
 msgid "This is a read-only variable and can not be edited"
-msgstr "此為唯讀變數，不可編輯。"
+msgstr "此為唯讀變數，不可編輯"
 
 #: libraries/sql-parser/src/Component.php:63
 #: libraries/sql-parser/src/Component.php:82
@@ -14286,7 +14282,7 @@ msgstr "欄位預設值，請輸入單一值，不可加反斜線或引號，如
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "虛擬"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
@@ -14937,10 +14933,9 @@ msgstr "於資料表開始"
 
 #: templates/table/structure/display_partitions.phtml:3
 #: templates/table/structure/display_structure.phtml:193
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "分區 %s"
+msgstr "分區"
 
 #: templates/table/structure/display_partitions.phtml:7
 #| msgid "partitioned"
