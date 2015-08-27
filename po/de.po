@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-22 07:48-0400\n"
-"PO-Revision-Date: 2015-08-25 14:19+0200\n"
-"Last-Translator: Phillip Rohmberger <rohmberger@hotmail.de>\n"
+"PO-Revision-Date: 2015-08-27 17:47+0200\n"
+"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -6064,11 +6064,12 @@ msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Benutze hexadecimal für BINARY und BLOB"
 
 #: libraries/config/messages.inc.php:207
-#, fuzzy
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
-msgstr "Füge IF NOT EXISTS hinzu"
+msgstr ""
+"Füge IF NOT EXISTS hinzu (weniger effizient, da Indizes während der Tabellen-"
+"Erstellung erzeugt werden)"
 
 #: libraries/config/messages.inc.php:210
 msgid "Use ignore inserts"
@@ -10631,6 +10632,8 @@ msgstr "Befehle hinzufügen:"
 #: libraries/plugins/export/ExportSql.class.php:277
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(weniger effizient, da Indizes während der Tabellen-Erstellung erzeugt "
+"werden)"
 
 #: libraries/plugins/export/ExportSql.class.php:282
 #, php-format
@@ -11522,7 +11525,6 @@ msgid "Master configuration"
 msgstr "Master-Konfiguration"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11536,11 +11538,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Dieser Server ist als nicht Master in einem Replikations-Prozess "
-"konfiguriert. Ihnen stehen zwei Konfigurationsmethoden zur Auswahl:/nAlle "
-"bis auf bestimmte Datenbanken replizieren (nützlich, wenn die mehrheit "
-"repliziert werden soll)/nNur bestimmte Datenbanken replizieren/nBitte wählen "
-"Sie:"
+"Dieser Server ist nicht als ein Master in einem Replikations-Prozess "
+"konfiguriert. Sie können entweder alle Datenbank replizieren und einige "
+"ignorieren (nützlich, wenn die meisten Datenbanken repliziert werden sollen)"
+", oder Sie ignorieren standardmäßig alle Datenbanken und erlauben die "
+"Replikation nur für bestimmte Datenbanken. Bitte den Modus wählen:"
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
@@ -12948,7 +12950,6 @@ msgstr ""
 "Benutzerprofile neu laden%s bevor Sie fortfahren."
 
 #: libraries/server_privileges.lib.php:4545
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12964,8 +12965,8 @@ msgstr ""
 "Hinweis: phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden "
 "MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den "
 "Benutzerprofilen, die MySQL z.Zt. verwendet, unterscheiden, wenn manuelle "
-"Änderungen vorgenommen wurden. In diesem Fall sollten Sie %sdie "
-"Benutzerprofile neu laden%s bevor Sie fortfahren."
+"Änderungen vorgenommen wurden. In diesem Fall müssen die Berechtigungen neu "
+"geladen werden, doch im Moment haben Sie keine RELOAD-Berechtigung."
 
 #: libraries/server_privileges.lib.php:4595
 msgid "The selected user was not found in the privilege table."
