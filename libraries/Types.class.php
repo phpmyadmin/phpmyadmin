@@ -497,6 +497,11 @@ class PMA_Types_MySQL extends PMA_Types
             return __('A collection of polygons');
         case 'GEOMETRYCOLLECTION':
             return __('A collection of geometry objects of any type');
+        case 'JSON':
+            return __(
+               'Stores and enables efficient access to data in JSON' .
+               ' (JavaScript Object Notation) documents'
+            );
         }
         return '';
     }
@@ -560,6 +565,9 @@ class PMA_Types_MySQL extends PMA_Types
         case 'MULTIPOLYGON':
         case 'GEOMETRYCOLLECTION':
             return 'SPATIAL';
+
+        case 'JSON':
+            return 'JSON';
         }
 
         return '';
@@ -723,6 +731,12 @@ class PMA_Types_MySQL extends PMA_Types
                 'PolyFromWKB',
                 'MPolyFromWKB',
             );
+
+        case 'JSON':
+            return array(
+                'JSON_ARRAY',
+                'JSON_OBJECT',
+            );
         }
         return array();
     }
@@ -814,6 +828,10 @@ class PMA_Types_MySQL extends PMA_Types
             'MULTILINESTRING',
             'MULTIPOLYGON',
             'GEOMETRYCOLLECTION',
+        );
+
+        $ret['JSON'] = array(
+            'JSON',
         );
 
         return $ret;
