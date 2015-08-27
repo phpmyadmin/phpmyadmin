@@ -1214,25 +1214,41 @@ class PMA_Util
             // Also we would like to get the SQL formed in some nice
             // php-code
             if (! empty($cfg['SQLQuery']['ShowAsPHP']) && ! $query_too_big) {
-                $php_params = $url_params;
 
                 if (! empty($GLOBALS['show_as_php'])) {
                     $_message = __('Without PHP Code');
-                } else {
-                    $php_params['show_as_php'] = 1;
-                    $_message = __('Create PHP code');
-                }
-
-                $php_link = 'import.php' . PMA_URL_getCommon($php_params);
-                $php_link = ' [' . self::linkOrButton($php_link, $_message) . ']';
-
-                if (isset($GLOBALS['show_as_php'])) {
-
-                    $runquery_link = 'import.php'
-                        . PMA_URL_getCommon($url_params);
+                    $php_link = ' ['
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($url_params),
+                            __('Without PHP code'),
+                            array(),
+                            true,
+                            false,
+                            '',
+                            true
+                        )
+                        . ']';
 
                     $php_link .= ' ['
-                        . self::linkOrButton($runquery_link, __('Submit Query'))
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($url_params),
+                            __('Submit query'),
+                            array(),
+                            true,
+                            false,
+                            '',
+                            true
+                        )
+                        . ']';
+                } else {
+                    $php_params = $url_params;
+                    $php_params['show_as_php'] = 1;
+                    $_message = __('Create PHP code');
+                    $php_link = ' ['
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($php_params),
+                            $_message
+                        )
                         . ']';
                 }
             } else {
