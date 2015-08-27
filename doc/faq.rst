@@ -2047,9 +2047,8 @@ phpMyAdmin can make this adjustment for you automatically.
 
 Notes:
 
-* While adjusting privileges for a database, the privileges of all *table-related
-  privileges*, all *column-related privileges* and all *procedure-related privileges*
-  for the tables, columns and procedures inside that database are also adjusted
+* While adjusting privileges for a database, the privileges of all
+  database-related elements (tables, columns and procedures) are also adjusted
   to the database's new name.
 
 * Similarly, while adjusting privileges for a table, the privileges of all
