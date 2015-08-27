@@ -625,23 +625,26 @@ class PMA_Util
         }
         $sql_query = trim($sql_query);
 
-        /**
-         * The lexer used for analysis.
-         * @var SqlParser\Lexer $lexer
-         */
-        $lexer = new SqlParser\Lexer($sql_query);
+        $errors = array();
+        if (! empty($sql_query)) {
+            /**
+             * The lexer used for analysis.
+             * @var SqlParser\Lexer $lexer
+             */
+            $lexer = new SqlParser\Lexer($sql_query);
 
-        /**
-         * The parser used for analysis.
-         * @var SqlParser\Parser $parser
-         */
-        $parser = new SqlParser\Parser($lexer->list);
+            /**
+             * The parser used for analysis.
+             * @var SqlParser\Parser $parser
+             */
+            $parser = new SqlParser\Parser($lexer->list);
 
-        /**
-         * The errors found by the lexer and the parser.
-         * @var array $errors
-         */
-        $errors = SqlParser\Utils\Error::get(array($lexer, $parser));
+            /**
+             * The errors found by the lexer and the parser.
+             * @var array $errors
+             */
+            $errors = SqlParser\Utils\Error::get(array($lexer, $parser));
+        }
 
         if (empty($sql_query)) {
             $formatted_sql = '';
