@@ -4905,10 +4905,23 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     $slashedUsername = PMA_Util::sqlAddSlashes($username);
     $slashedHostname = PMA_Util::sqlAddSlashes($hostname);
 
+    // '%' character causes binding problems with sprintf
+    // and therefore has to be escaped using an extra '%'
+    $escapedHostname = $hostname;
+    $escapedUsername = $username;
+    if (strpos($hostname,'%') !== false) {
+        $escapedHostname = str_replace('%', '%%', $hostname);
+    }
+    if (strpos($username,'%') !== false) {
+        $escapedUsername = str_replace('%', '%%', $username);
+    }
+    $slashedEscapedUsername = PMA_Util::sqlAddSlashes($escapedUsername);
+    $slashedEscapedHostname = PMA_Util::sqlAddSlashes($escapedHostname);
+
     $create_user_stmt = sprintf(
         'CREATE USER \'%s\'@\'%s\'',
-        $slashedUsername,
-        $slashedHostname
+        $slashedEscapedUsername,
+        $slashedEscapedHostname
     );
     $create_user_real = $create_user_show = $create_user_stmt;
 
