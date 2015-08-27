@@ -593,6 +593,24 @@ class PMA_Header
             . $captcha_url
             . ";"
         );
+        // Re-enable possible disabled XSS filters
+        // see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+        header(
+            'X-XSS-Protection: 1; mode=block'
+        );
+        // "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing a
+        // response away from the declared content-type
+        /// see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+        header(
+            'X-Content-Type-Options: nosniff'
+        );
+        // Adobe cross-domain-policies
+        // see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html
+        header(
+            'X-Permitted-Cross-Domain-Policies: none'
+        );
+        // Avoid exposing PHP version
+        header_remove('X-Powered-By');
         PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             // Define the charset to be used
