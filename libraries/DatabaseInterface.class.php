@@ -1839,7 +1839,10 @@ class PMA_DatabaseInterface
 
                 /* Detect Drizzle - it does not support charsets */
                 $charset_result = $this->query(
-                    "SHOW VARIABLES LIKE 'character_set_results'",
+                    // The following does not work in MySQL 5.7:
+                    //"SHOW VARIABLES LIKE 'character_set_results'",
+                    // so a workaround was implemented:
+                    "SELECT @@character_set_results",
                     $link
                 );
                 if ($this->numRows($charset_result) == 0) {
