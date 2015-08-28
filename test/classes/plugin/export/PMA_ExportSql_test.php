@@ -226,12 +226,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
-            $property
-        );
-
-        $property = array_shift($properties);
-        $this->assertInstanceOf(
             'OptionsPropertySubgroup',
             $property
         );
@@ -424,13 +418,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $properties = $properties[0]->getProperties();
 
         $this->assertCount(
-            5,
+            4,
             $properties
         );
 
         $this->assertNotcontains(
             '<code> / EVENT </code>',
-            $properties[1]->getText()
+            $properties[0]->getText()
         );
 
         // dataOptions
@@ -787,7 +781,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBCreate('db')
+            $this->object->exportDBCreate('db', 'database')
         );
         $result = ob_get_clean();
 
@@ -825,7 +819,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBCreate('db')
+            $this->object->exportDBCreate('db', 'database')
         );
         $result = ob_get_clean();
 

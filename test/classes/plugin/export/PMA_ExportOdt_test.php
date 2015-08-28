@@ -402,7 +402,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
     public function testExportDBCreate()
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB')
+            $this->object->exportDBCreate('testDB', 'database')
         );
     }
 
