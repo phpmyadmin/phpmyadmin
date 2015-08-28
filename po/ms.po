@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-28 04:47+0200\n"
-"Last-Translator: diprofinfiniti <anonynuine-999@yahoo.com>\n"
+"PO-Revision-Date: 2015-08-28 06:06+0200\n"
+"Last-Translator: Amir Hamzah <amir.overlord666@gmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/4-4/ms/>"
 "\n"
 "Language: ms\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:89
 msgid "The central list of columns for the current database is empty."
-msgstr "Senarai utama lajur untuk pangkalan data semasa adalah kosong"
+msgstr "Senarai utama lajur untuk pangkalan data semasa adalah kosong."
 
 #: db_central_columns.php:113
 msgid "Click to sort."
