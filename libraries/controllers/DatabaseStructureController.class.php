@@ -135,7 +135,7 @@ class DatabaseStructureController extends DatabaseController
             $tables,
             $num_tables,
             $total_num_tables,
-            $sub_part,
+            ,
             $is_show_stats,
             $db_is_system_schema,
             $tooltip_truename,
