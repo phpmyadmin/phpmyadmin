@@ -61,10 +61,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
     }
 
     foreach ($GLOBALS['pma']->databases as $current_db) {
-        if ($current_db == 'information_schema'
-            || $current_db == 'performance_schema'
-            || $current_db == 'mysql'
-        ) {
+        if ($GLOBALS['dbi']->isSystemSchema($current_db, true)) {
             continue;
         }
         if (isset($_GET['db_select'])) {
