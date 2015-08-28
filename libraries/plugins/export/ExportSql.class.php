@@ -189,16 +189,6 @@ class ExportSql extends ExportPlugin
                 unset($values);
             }
 
-            // server export options
-            if ($plugin_param['export_type'] == 'server') {
-                $leaf = new BoolPropertyItem();
-                $leaf->setName("drop_database");
-                $leaf->setText(
-                    sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
-                );
-                $generalOptions->addProperty($leaf);
-            }
-
             // what to dump (structure/data/both)
             $subgroup = new OptionsPropertySubgroup();
             $subgroup->setName("dump_table");
@@ -232,7 +222,17 @@ class ExportSql extends ExportPlugin
                 $leaf->setText(__('Add statements:'));
                 $subgroup->setSubgroupHeader($leaf);
 
-                if ($plugin_param['export_type'] != 'table') {
+                // server export options
+                if ($plugin_param['export_type'] == 'server') {
+                    $leaf = new BoolPropertyItem();
+                    $leaf->setName("drop_database");
+                    $leaf->setText(
+                        sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
+                    );
+                    $subgroup->addProperty($leaf);
+                }
+
+                if ($plugin_param['export_type'] == 'database') {
                     $leaf = new BoolPropertyItem();
                     $leaf->setName('create_database');
                     $create_clause = '<code>CREATE DATABASE / USE</code>';
@@ -768,12 +768,13 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db          Database name
+     * @param string $export_type 'server', 'database', 'table'
+     * @param string $db_alias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $db_alias = '')
+    public function exportDBCreate($db, $export_type, $db_alias = '')
     {
         global $crlf;
 
@@ -796,7 +797,7 @@ class ExportSql extends ExportPlugin
                 return false;
             }
         }
-        if (!isset($GLOBALS['sql_create_database'])) {
+        if ($export_type == 'database' && !isset($GLOBALS['sql_create_database'])) {
             return true;
         }
 

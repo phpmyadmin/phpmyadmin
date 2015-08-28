@@ -603,7 +603,7 @@ function PMA_exportDatabase(
     if (! $export_plugin->exportDBHeader($db, $db_alias)) {
         return;
     }
-    if (! $export_plugin->exportDBCreate($db, $db_alias)) {
+    if (! $export_plugin->exportDBCreate($db, $export_type, $db_alias)) {
         return;
     }
     if ($separate_files == 'database') {
