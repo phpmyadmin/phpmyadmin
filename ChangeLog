@@ -96,7 +96,8 @@ phpMyAdmin - ChangeLog
 + issue #11414 Unclear export options / organization / hierarchy
                Set minimum required PHP version to 5.5 (older versions are EOL)
 - issue #11407 ALTER TABLE failing on import when table exists
-- issue        Do not export `sys` database when exporting server 
+- issue        Do not export `sys` database when exporting server
+- issue #11436 CREATE DATABASE should be enabled by default on server exports
 
 4.4.15.0 (not yet released)
 - issue #11411 Undefined "replace" function on numeric scalar
