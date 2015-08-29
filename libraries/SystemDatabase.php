@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\SystemDatabase class
+ * hold PMA\libraries\SystemDatabase class
  *
  * @package PMA
  */
-namespace PMA;
+namespace PMA\libraries;
 
 require_once 'libraries/database_interface.inc.php';
 
