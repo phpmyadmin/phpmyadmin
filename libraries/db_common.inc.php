@@ -7,7 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -40,7 +40,7 @@ $err_url = PMA\libraries\Util::getScriptNameForOption(
 )
     . PMA_URL_getCommon(array('db' => $db));
 
-/** @var PMA_String $pmaString */
+/** @var String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
 
 /**

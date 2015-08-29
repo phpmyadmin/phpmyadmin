@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-Import
  */
 use PMA\libraries\Message;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -1297,7 +1297,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
         unset($params);
 
-        $_table = new PMA_Table($tables[$i][TBL_NAME], $db_name);
+        $_table = new Table($tables[$i][TBL_NAME], $db_name);
         if (! $_table->isView()) {
             $message .= sprintf(
                 '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(

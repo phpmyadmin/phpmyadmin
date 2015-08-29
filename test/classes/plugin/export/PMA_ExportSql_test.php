@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 require_once 'libraries/plugins/export/ExportSql.class.php';
 require_once 'libraries/DatabaseInterface.php';
@@ -18,7 +18,7 @@ require_once 'libraries/config.default.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/charset_conversion.lib.php';
 require_once 'export.php';
 /**
@@ -1229,7 +1229,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1405,7 +1405,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1522,7 +1522,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1867,7 +1867,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $_table = new PMA_Table('table', 'db');
+        $_table = new Table('table', 'db');
 
         $dbi->expects($this->once())
             ->method('getTable')
@@ -1991,7 +1991,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -2082,7 +2082,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

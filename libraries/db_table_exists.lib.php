@@ -7,13 +7,13 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/** @var PMA_String $pmaString */
+/** @var String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
 if (empty($is_db)) {
     if (/*overload*/mb_strlen($db)) {

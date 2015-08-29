@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/Template.class.php';
+require_once 'libraries/Template.php';
 
 /**
  * Test for PMA\libraries\Template class

@@ -11,7 +11,7 @@ use PMA\SystemDatabase;
 
 require_once './libraries/logging.lib.php';
 require_once './libraries/Index.php';
-require_once './libraries/SystemDatabase.class.php';
+require_once './libraries/SystemDatabase.php';
 require_once './libraries/util.lib.php';
 
 /**
@@ -152,7 +152,7 @@ class DatabaseInterface
     }
 
     /**
-     * Caches table data so PMA_Table does not require to issue
+     * Caches table data so Table does not require to issue
      * SHOW TABLE STATUS again
      *
      * @param array  $tables information for tables of some databases
@@ -519,7 +519,7 @@ class DatabaseInterface
      * @param string          $sort_order   direction to sort (ASC or DESC)
      * @param string          $table_type   whether table or view
      *
-     * @todo    move into PMA_Table
+     * @todo    move into Table
      *
      * @return array           list of tables in given db(s)
      */
@@ -800,7 +800,7 @@ class DatabaseInterface
         }
 
         // cache table data
-        // so PMA_Table does not require to issue SHOW TABLE STATUS again
+        // so Table does not require to issue SHOW TABLE STATUS again
         $this->_cacheTableData($tables, $table);
 
         if (is_array($database)) {
@@ -3194,10 +3194,10 @@ class DatabaseInterface
      * @param string $db_name    DB name
      * @param string $table_name Table name
      *
-     * @return PMA_Table
+     * @return Table
      */
     public function getTable($db_name, $table_name)
     {
-        return new PMA_Table($table_name, $db_name, $this);
+        return new Table($table_name, $db_name, $this);
     }
 }

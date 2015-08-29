@@ -14,7 +14,7 @@ use PMA\libraries\PMA_Theme;
 require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/ServerStatusData.class.php';
+require_once 'libraries/ServerStatusData.php';
 require_once 'libraries/mult_submits.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
@@ -24,7 +24,7 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/sql.lib.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 
 /**
  * class PMA_MultSubmits_Test

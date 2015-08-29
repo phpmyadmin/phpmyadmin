@@ -9,7 +9,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
-use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\ServerStatusData;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -30,7 +30,7 @@ function PMA_getHtmlForProcessListAutoRefresh()
     )->getDisplay();
     $retval  = $notice . '<div class="tabLinks">';
     $retval .= '<label>' . __('Refresh rate') . ': ';
-    $retval .= PMA_ServerStatusData::getHtmlForRefreshList(
+    $retval .= ServerStatusData::getHtmlForRefreshList(
         'refreshRate',
         5,
         Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)

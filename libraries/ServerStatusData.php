@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * PMA_ServerStatusData class
+ * ServerStatusData class
  * Used by server_status_*.php pages
  *
  * @package PhpMyAdmin
@@ -19,7 +19,7 @@ namespace PMA\libraries;
  *
  * @package PhpMyAdmin
  */
-class PMA_ServerStatusData
+class ServerStatusData
 {
     public $status;
     public $sections;

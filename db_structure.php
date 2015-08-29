@@ -27,7 +27,7 @@ list(
 
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/DatabaseStructureController.class.php';
-require_once 'libraries/Response.class.php';
+require_once 'libraries/Response.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\DatabaseStructureController');

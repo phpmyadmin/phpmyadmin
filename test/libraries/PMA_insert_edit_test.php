@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 use PMA\libraries\PMA_Theme;
 
 require_once 'libraries/insert_edit.lib.php';
@@ -24,9 +24,9 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/Message.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/Response.class.php';
+require_once 'libraries/Response.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 
 /**
  * Tests for libraries/insert_edit.lib.php
@@ -1823,7 +1823,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['insert_rows'] = 5;
         $GLOBALS['cfg']['InsertRows'] = 2;
 
-        $scriptsMock = $this->getMockBuilder('PMA_Scripts')
+        $scriptsMock = $this->getMockBuilder('PMA\libraries\Scripts')
             ->disableOriginalConstructor()
             ->setMethods(array('addFile'))
             ->getMock();
@@ -2771,7 +2771,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->method('getTable')
             ->will(
                 $this->returnValue(
-                    new PMA_Table('table', 'db')
+                    new Table('table', 'db')
                 )
             );
 

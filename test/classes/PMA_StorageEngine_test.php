@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for StorageEngine.class.php
+ * Tests for StorageEngine.php
  *
  * @package PhpMyAdmin-test
  */
@@ -9,7 +9,7 @@
  * Include to test.
  */
 
-require_once 'libraries/StorageEngine.class.php';
+require_once 'libraries/StorageEngine.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.php';
 require_once 'libraries/Config.php';
@@ -18,7 +18,7 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
 /**
- * Tests for StorageEngine.class.php
+ * Tests for StorageEngine.php
  *
  * @package PhpMyAdmin-test
  */
@@ -39,7 +39,7 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = $this->getMockForAbstractClass(
-            'PMA_StorageEngine', array('dummy')
+            'PMA\libraries\StorageEngine', array('dummy')
         );
     }
 
@@ -111,7 +111,7 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
     {
 
         $this->assertInstanceOf(
-            'PMA_StorageEngine',
+            'PMA\libraries\StorageEngine',
             $this->object->getEngine('dummy')
         );
     }

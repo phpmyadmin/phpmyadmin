@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/Template.class.php';
+require_once './libraries/Template.php';
 
 /**
  * Defines the central_columns parameters for the current user

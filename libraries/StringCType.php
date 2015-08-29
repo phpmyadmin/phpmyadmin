@@ -1,16 +1,24 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Defines a set of specialized string functions.
+ * Implements StringType interface using the "ctype" extension.
+ * Methods of the "ctype" extension are faster compared to PHP versions of them.
  *
- * @package PhpMyAdmin-String
+ * @package    PhpMyAdmin-String
+ * @subpackage CType
  */
+namespace PMA\libraries;
+
+require_once 'libraries/StringAbstractType.php';
 
 /**
- * Defines a set of specialized string functions.
+ * Implements StringType interface using the "ctype" extension.
+ * Methods of the "ctype" extension are faster compared to PHP versions of them.
  *
- * @package PhpMyAdmin-String
+ * @package    PhpMyAdmin-String
+ * @subpackage CType
  */
-interface PMA_StringType
+class StringCType extends StringAbstractType
 {
     /**
      * Checks if a character is an alphanumeric one
@@ -19,7 +27,10 @@ interface PMA_StringType
      *
      * @return boolean whether the character is an alphanumeric one or not
      */
-    public function isAlnum($c);
+    public function isAlnum($c)
+    {
+        return ctype_alnum($c);
+    } // end of the "isAlnum()" function
 
     /**
      * Checks if a character is an alphabetic one
@@ -28,7 +39,10 @@ interface PMA_StringType
      *
      * @return boolean whether the character is an alphabetic one or not
      */
-    public function isAlpha($c);
+    public function isAlpha($c)
+    {
+        return ctype_alpha($c);
+    } // end of the "isAlpha()" function
 
     /**
      * Checks if a character is a digit
@@ -37,7 +51,10 @@ interface PMA_StringType
      *
      * @return boolean whether the character is a digit or not
      */
-    public function isDigit($c);
+    public function isDigit($c)
+    {
+        return ctype_digit($c);
+    } // end of the "isDigit()" function
 
     /**
      * Checks if a character is an upper alphabetic one
@@ -46,7 +63,10 @@ interface PMA_StringType
      *
      * @return boolean whether the character is an upper alphabetic one or not
      */
-    public function isUpper($c);
+    public function isUpper($c)
+    {
+        return ctype_upper($c);
+    } // end of the "isUpper()" function
 
 
     /**
@@ -56,7 +76,10 @@ interface PMA_StringType
      *
      * @return boolean whether the character is a lower alphabetic one or not
      */
-    public function isLower($c);
+    public function isLower($c)
+    {
+        return ctype_lower($c);
+    } // end of the "PisLower()" function
 
     /**
      * Checks if a character is a space one
@@ -65,7 +88,10 @@ interface PMA_StringType
      *
      * @return boolean whether the character is a space one or not
      */
-    public function isSpace($c);
+    public function isSpace($c)
+    {
+        return ctype_space($c);
+    } // end of the "isSpace()" function
 
     /**
      * Checks if a character is an hexadecimal digit
@@ -74,16 +100,8 @@ interface PMA_StringType
      *
      * @return boolean whether the character is an hexadecimal digit or not
      */
-    public function isHexDigit($c);
-
-    /**
-     * Checks if a number is in a range
-     *
-     * @param integer $num   number to check for
-     * @param integer $lower lower bound
-     * @param integer $upper upper bound
-     *
-     * @return boolean  whether the number is in the range or not
-     */
-    public function numberInRangeInclusive($num, $lower, $upper);
+    public function isHexDigit($c)
+    {
+        return ctype_xdigit($c);
+    } // end of the "isHexDigit()" function
 }

@@ -1,22 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Common functions for classes based on PMA_StringByte interface.
+ * Common functions for classes based on StringByte interface.
  *
  * @package PhpMyAdmin-String
  */
 namespace PMA\libraries;
 
-use PMA_StringType;
+use StringType;
 
-require_once 'libraries/StringType.int.php';
+require_once 'libraries/StringType.php';
 
 /**
- * Implements PMA_StringByte interface using native PHP functions.
+ * Implements StringByte interface using native PHP functions.
  *
  * @package PhpMyAdmin-String
  */
-abstract class PMA_StringAbstractType implements PMA_StringType
+abstract class StringAbstractType implements StringType
 {
     /**
      * Checks if a number is in a range

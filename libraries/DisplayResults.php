@@ -644,7 +644,7 @@ class DisplayResults
             // - For a VIEW we (probably) did not count the number of rows
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
-            $_table = new PMA_Table($table, $db);
+            $_table = new Table($table, $db);
             if (isset($unlim_num_rows)
                 && ($unlim_num_rows < 2)
                 && ! $_table->isView()
@@ -1658,15 +1658,15 @@ class DisplayResults
         $data_html = '';
 
         // generate the column order, if it is set
-        $pmatable = new PMA_Table($this->__get('table'), $this->__get('db'));
-        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        $pmatable = new Table($this->__get('table'), $this->__get('db'));
+        $col_order = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
 
         if ($col_order) {
             $data_html .= '<input class="col_order" type="hidden" value="'
                 . implode(',', $col_order) . '" />';
         }
 
-        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
+        $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
 
         if ($col_visib) {
             $data_html .= '<input class="col_visib" type="hidden" value="'
@@ -1674,7 +1674,7 @@ class DisplayResults
         }
 
         // generate table create time
-        $table = new PMA_Table($this->__get('table'), $this->__get('db'));
+        $table = new Table($this->__get('table'), $this->__get('db'));
         if (! $table->isView()) {
             $data_html .= '<input class="table_create_time" type="hidden" value="'
                 . $GLOBALS['dbi']->getTable(
@@ -3382,9 +3382,9 @@ class DisplayResults
     private function _getColumnParams($analyzed_sql_results)
     {
         if ($this->_isSelect($analyzed_sql_results)) {
-            $pmatable = new PMA_Table($this->__get('table'), $this->__get('db'));
-            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-            $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
+            $pmatable = new Table($this->__get('table'), $this->__get('db'));
+            $col_order = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
+            $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
         } else {
             $col_order = false;
             $col_visib = false;
@@ -4654,7 +4654,7 @@ class DisplayResults
 
         }
 
-        $table = new PMA_Table($this->__get('table'), $this->__get('db'));
+        $table = new Table($this->__get('table'), $this->__get('db'));
         if ($table->isView()
             && ($total == $GLOBALS['cfg']['MaxExactCountViews'])
         ) {

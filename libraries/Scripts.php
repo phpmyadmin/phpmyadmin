@@ -14,7 +14,7 @@ namespace PMA\libraries;
  *
  * @package PhpMyAdmin
  */
-class PMA_Scripts
+class Scripts
 {
     /**
      * An array of SCRIPT tags
@@ -94,7 +94,7 @@ class PMA_Scripts
     }
 
     /**
-     * Generates new PMA_Scripts objects
+     * Generates new Scripts objects
      *
      */
     public function __construct()

@@ -35,7 +35,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\PMA;
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 use PMA\libraries\PMA_Theme;
 use PMA\libraries\PMA_Theme_Manager;
 use PMA\libraries\PMA_Tracker;
@@ -70,8 +70,8 @@ require_once './libraries/autoloader.php';
 /**
  * String handling (security)
  */
-require_once './libraries/String.class.php';
-$PMA_String = new PMA_String();
+require_once './libraries/String.php';
+$PMA_String = new String();
 
 /**
  * initialize the error handler
@@ -127,9 +127,9 @@ require './libraries/relation.lib.php';
 require './libraries/Tracker.class.php';
 
 /**
- * the PMA_Table class
+ * the Table class
  */
-require './libraries/Table.class.php';
+require './libraries/Table.php';
 
 /**
  * the PMA_Types class
@@ -151,7 +151,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Used to generate the page
      */
-    include_once 'libraries/Response.class.php';
+    include_once 'libraries/Response.php';
 }
 
 /******************************************************************************/

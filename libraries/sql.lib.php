@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 use PMA\libraries\Response;
 
 if (!defined('PHPMYADMIN')) {
@@ -44,12 +44,12 @@ function PMA_parseAndAnalyze($sql_query, $db = null)
 function PMA_handleSortOrder(
     $db, $table, &$analyzed_sql_results, &$full_sql_query
 ) {
-    $pmatable = new PMA_Table($table, $db);
+    $pmatable = new Table($table, $db);
 
     if (empty($analyzed_sql_results['order'])) {
 
         // Retrieving the name of the column we should sort after.
-        $sortCol = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
+        $sortCol = $pmatable->getUiProp(Table::PROP_SORTED_COLUMN);
         if (empty($sortCol)) {
             return;
         }
@@ -69,7 +69,7 @@ function PMA_handleSortOrder(
     } else {
         // Store the remembered table into session.
         $pmatable->setUiProp(
-            PMA_Table::PROP_SORTED_COLUMN,
+            Table::PROP_SORTED_COLUMN,
             SqlParser\Utils\Query::getClause(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
@@ -657,7 +657,7 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
 /**
  * Function to set a column property
  *
- * @param PMA_Table $pmatable      PMA_Table instance
+ * @param Table $pmatable      Table instance
  * @param string    $request_index col_order|col_visib
  *
  * @return boolean $retval
@@ -667,10 +667,10 @@ function PMA_setColumnProperty($pmatable, $request_index)
     $property_value = explode(',', $_REQUEST[$request_index]);
     switch($request_index) {
     case 'col_order':
-        $property_to_set = PMA_Table::PROP_COLUMN_ORDER;
+        $property_to_set = Table::PROP_COLUMN_ORDER;
         break;
     case 'col_visib':
-        $property_to_set = PMA_Table::PROP_COLUMN_VISIB;
+        $property_to_set = Table::PROP_COLUMN_VISIB;
         break;
     default:
         $property_to_set = '';
@@ -700,7 +700,7 @@ function PMA_setColumnProperty($pmatable, $request_index)
  */
 function PMA_setColumnOrderOrVisibility($table, $db)
 {
-    $pmatable = new PMA_Table($table, $db);
+    $pmatable = new Table($table, $db);
     $retval = false;
 
     // set column order
@@ -1761,7 +1761,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
     if ($statement instanceof SqlParser\Statements\SelectStatement) {
         if (!empty($statement->expr)) {
             if ($statement->expr[0]->expr === '*') {
-                $_table = new PMA_Table($table, $db);
+                $_table = new Table($table, $db);
                 $updatableView = $_table->isUpdatableView();
             }
         }
@@ -2109,7 +2109,7 @@ function PMA_calculatePosForLastPage($db, $table, $pos)
         $pos = $_SESSION['tmpval']['pos'];
     }
 
-    $_table = new PMA_Table($table, $db);
+    $_table = new Table($table, $db);
     $unlim_num_rows = $_table->countRecords(true);
     //If position is higher than number of rows
     if ($unlim_num_rows <= $pos && 0 != $pos) {

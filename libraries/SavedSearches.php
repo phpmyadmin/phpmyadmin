@@ -12,7 +12,7 @@ namespace PMA\libraries;
  *
  * @package PhpMyAdmin
  */
-class PMA_SavedSearches
+class SavedSearches
 {
     /**
      * Global configuration

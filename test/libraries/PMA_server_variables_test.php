@@ -67,7 +67,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when PMA_ServerStatusData constructs
+        //this data is needed when ServerStatusData constructs
         $server_session_variable = array(
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "13",

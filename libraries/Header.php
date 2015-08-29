@@ -9,7 +9,7 @@ namespace PMA\libraries;
 
 use PMA_Navigation;
 
-require_once 'libraries/Scripts.class.php';
+require_once 'libraries/Scripts.php';
 require_once 'libraries/navigation/Navigation.class.php';
 require_once 'libraries/url_generating.lib.php';
 
@@ -21,10 +21,10 @@ require_once 'libraries/url_generating.lib.php';
 class Header
 {
     /**
-     * PMA_Scripts instance
+     * Scripts instance
      *
      * @access private
-     * @var PMA_Scripts
+     * @var Scripts
      */
     private $_scripts;
     /**
@@ -128,7 +128,7 @@ class Header
         $this->_menuEnabled = true;
         $this->_warningsEnabled = true;
         $this->_isPrintView = false;
-        $this->_scripts     = new PMA_Scripts();
+        $this->_scripts     = new Scripts();
         $this->_addDefaultScripts();
         $this->_headerIsSent = false;
         // if database storage for user preferences is transient,
@@ -304,9 +304,9 @@ class Header
     }
 
     /**
-     * Returns the PMA_Scripts object
+     * Returns the Scripts object
      *
-     * @return PMA_Scripts object
+     * @return Scripts object
      */
     public function getScripts()
     {

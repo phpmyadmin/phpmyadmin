@@ -374,7 +374,7 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
         ),
     );
 
-    include_once './libraries/Template.class.php';
+    include_once './libraries/Template.php';
     $html .= PMA\libraries\Template::get('list/unordered')->render(
         array('items' => $items,)
     );

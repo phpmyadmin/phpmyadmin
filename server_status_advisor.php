@@ -6,10 +6,10 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/ServerStatusData.class.php';
+require_once 'libraries/ServerStatusData.php';
 require_once 'libraries/server_status_advisor.lib.php';
 
 if (PMA_DRIZZLE) {
@@ -21,7 +21,7 @@ if (PMA_DRIZZLE) {
     include_once 'libraries/replication_gui.lib.php';
 }
 
-$ServerStatusData = new PMA_ServerStatusData();
+$ServerStatusData = new ServerStatusData();
 
 $response = PMA\libraries\Response::getInstance();
 $scripts = $response->getHeader()->getScripts();

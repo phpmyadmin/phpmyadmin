@@ -1,23 +1,23 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Implements PMA_StringByte interface using native PHP functions.
+ * Implements StringByte interface using native PHP functions.
  *
  * @package    PhpMyAdmin-String
  * @subpackage Native
  */
 namespace PMA\libraries;
 
-require_once 'libraries/StringAbstractType.class.php';
+require_once 'libraries/StringAbstractType.php';
 
 /**
- * Implements PMA_StringByte interface using native PHP functions.
+ * Implements StringByte interface using native PHP functions.
  *
  * @package    PhpMyAdmin-String
  * @subpackage Native
  * @todo       May be join this class with PMA_StringNative class
  */
-class PMA_StringNativeType extends PMA_StringAbstractType
+class StringNativeType extends StringAbstractType
 {
     /**
      * Checks if a character is an alphanumeric one

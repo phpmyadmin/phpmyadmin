@@ -6,8 +6,8 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Partition;
-use PMA\libraries\PMA_String;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\String;
+use PMA\libraries\Table;
 
 /**
  *
@@ -20,7 +20,7 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/operations.lib.php';
 
-$pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+$pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
 /**
  * Load JavaScript files
@@ -47,7 +47,7 @@ $cfgRelation = PMA_getRelationsParam();
  * Gets available MySQL charsets and storage engines
  */
 require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/StorageEngine.class.php';
+require_once 'libraries/StorageEngine.php';
 
 /**
  * Class for partition management
@@ -86,7 +86,7 @@ if ($is_aria) {
 $reread_info = false;
 $table_alters = array();
 
-/** @var PMA_String $pmaString */
+/** @var String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
 
 /**

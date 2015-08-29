@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Template.class.php';
+require_once 'libraries/Template.php';
 
 /**
  * Misc functions used all over the scripts.
@@ -817,10 +817,10 @@ class Util
             // and this would break the navigation panel;
             // but we can check row count if this is a view or the
             // information_schema database
-            // since PMA_Table::countRecords() returns a limited row count
+            // since Table::countRecords() returns a limited row count
             // in this case.
 
-            // set this because PMA_Table::countRecords() can use it
+            // set this because Table::countRecords() can use it
             $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
 
             if ($tbl_is_view || $GLOBALS['dbi']->isSystemSchema($db)) {
@@ -2088,7 +2088,7 @@ class Util
      * @param string $Separator The Separator (defaults to "<br />\n")
      *
      * @access  public
-     * @todo    add a multibyte safe function $GLOBALS['PMA_String']->split()
+     * @todo    add a multibyte safe function $GLOBALS['String']->split()
      *
      * @return string      The flipped string
      */

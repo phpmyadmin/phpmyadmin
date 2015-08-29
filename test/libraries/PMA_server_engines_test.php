@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_StorageEngine;
+use PMA\libraries\StorageEngine;
 use PMA\libraries\PMA_Theme;
 
 require_once 'libraries/Util.php';
@@ -22,7 +22,7 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/StorageEngine.class.php';
+require_once 'libraries/StorageEngine.php';
 
 /**
  * PMA_ServerEngines_Test class
@@ -170,7 +170,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
 
         //test PMA_getHtmlForSpecifiedServerEngines
         $html = PMA_getHtmlForSpecifiedServerEngines();
-        $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
+        $engine_plugin = StorageEngine::getEngine($_REQUEST['engine']);
 
         //validate 1: Engine title
         $this->assertContains(
@@ -218,7 +218,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StorageEngine::getEngine
+     * Test for StorageEngine::getEngine
      *
      * @param string $expectedClass Class that should be selected
      * @param string $engineName    Engine name
@@ -230,7 +230,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     public function testGetEngine($expectedClass, $engineName)
     {
         $this->assertInstanceOf(
-            $expectedClass, PMA_StorageEngine::getEngine($engineName)
+            $expectedClass, StorageEngine::getEngine($engineName)
         );
     }
 
@@ -242,7 +242,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     public function providerGetEngine()
     {
         return array(
-            array('PMA_StorageEngine', 'unknown engine'),
+            array('PMA\libraries\StorageEngine', 'unknown engine'),
             array('PMA_StorageEngine_Bdb', 'bdb'),
             array('PMA_StorageEngine_Berkeleydb', 'berkeleydb'),
             array('PMA_StorageEngine_Binlog', 'binlog'),

@@ -15,7 +15,7 @@ namespace PMA\Test\Stubs;
 use PMA\libraries\Header;
 use PMA\libraries\Message;
 
-require_once 'libraries/Response.class.php';
+require_once 'libraries/Response.php';
 require_once 'libraries/Header.php';
 
 /**
@@ -140,7 +140,7 @@ class Response
 
     /**
      * Current I choose to return PMA\libraries\Header object directly because
-     * our test has nothing about the PMA_Scripts and PMA\libraries\Header class.
+     * our test has nothing about the Scripts and PMA\libraries\Header class.
      *
      * @return Header
      */

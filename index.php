@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 use PMA\libraries\RecentFavoriteTable;
 
 /**
@@ -17,7 +17,7 @@ require_once 'libraries/common.inc.php';
  * display Git revision if requested
  */
 require_once 'libraries/display_git_revision.lib.php';
-require_once 'libraries/Template.class.php';
+require_once 'libraries/Template.php';
 
 /**
  * pass variables to child pages
@@ -115,7 +115,7 @@ $mysql_cur_user_and_host = '';
 // all MySQL-related information
 if ($server > 0) {
     include 'libraries/server_common.inc.php';
-    include 'libraries/StorageEngine.class.php';
+    include 'libraries/StorageEngine.php';
 
     // Use the verbose name of the server instead of the hostname
     // if a value is set
@@ -605,7 +605,7 @@ if (isset($GLOBALS['dbi'])
     && !PMA_DRIZZLE
     && $cfg['ServerLibraryDifference_DisableWarning'] == false
 ) {
-    /** @var PMA_String $pmaString */
+    /** @var String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
     $_client_info = $GLOBALS['dbi']->getClientInfo();

@@ -8,7 +8,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\ServerStatusData;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns the html for the list filter
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -89,7 +89,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
 /**
  * Prints the suggestion links
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -124,7 +124,7 @@ function PMA_getHtmlForLinkSuggestions($ServerStatusData)
 /**
  * Returns a table with variables information
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -204,7 +204,7 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
 /**
  * Returns HTML for render variables list
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  * @param Array                $alerts           Alert Array
  * @param Array                $strShowStatus    Status Array
  *

@@ -204,7 +204,7 @@ class DbQbe
      * Current search
      *
      * @access private
-     * @var PMA_SavedSearches
+     * @var SavedSearches
      */
     private $_currentSearch = null;
 
@@ -230,7 +230,7 @@ class DbQbe
     /**
      * Getter for current search
      *
-     * @return PMA_SavedSearches
+     * @return SavedSearches
      */
     private function _getCurrentSearch()
     {
@@ -242,7 +242,7 @@ class DbQbe
      *
      * @param string            $dbname          Database name
      * @param array             $savedSearchList List of saved searches
-     * @param PMA_SavedSearches $currentSearch   Current search id
+     * @param SavedSearches $currentSearch   Current search id
      */
     public function __construct(
         $dbname, $savedSearchList = array(), $currentSearch = null
@@ -1476,7 +1476,7 @@ class DbQbe
         $csize = array();
         foreach ($candidate_columns as $table) {
             if ($checked_tables[$table] != 1) {
-                $_table = new PMA_Table($table, $this->_db);
+                $_table = new Table($table, $this->_db);
                 $tsize[$table] = $_table->countRecords();
                 $checked_tables[$table] = 1;
             }
