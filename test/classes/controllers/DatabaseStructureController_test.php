@@ -69,7 +69,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
 
-        $table = $this->getMockBuilder('PMA_Table')
+        $table = $this->getMockBuilder('PMA\libraries\PMA_Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Expect the table will have 6 rows
@@ -103,8 +103,6 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetValuesForInnodbTable()
     {
-        $this->markTestSkipped('Skip until namespace set is over.');
-
         $container = Container::getDefaultContainer();
         $container->set('db', 'db');
         $container->set('table', 'table');
@@ -199,8 +197,6 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetValuesForAriaTable()
     {
-        $this->markTestSkipped('Skip until namespace set is over.');
-
         $class = new ReflectionClass('PMA\Controllers\DatabaseStructureController');
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
@@ -392,8 +388,6 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testHandleRealRowCountRequestAction()
     {
-        $this->markTestSkipped('Skip until namespace set is over.');
-
         $_REQUEST['table'] = 'table';
 
         $ctrl = new DatabaseStructureController(
