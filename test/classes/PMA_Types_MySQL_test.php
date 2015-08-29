@@ -9,6 +9,8 @@
  * Include to test.
  */
 
+use PMA\libraries\TypesMySQL;
+
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
@@ -31,7 +33,7 @@ class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Types_MySQL();
+        $this->object = new TypesMySQL();
     }
 
     /**

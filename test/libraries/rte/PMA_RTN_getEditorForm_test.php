@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\Theme;
+use PMA\libraries\TypesMySQL;
 
 $GLOBALS['server'] = 0;
 
@@ -42,7 +43,7 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;
 
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
         $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';

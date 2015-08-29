@@ -10,6 +10,7 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\TypesMySQL;
 
 $GLOBALS['server'] = 1;
 
@@ -75,7 +76,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;

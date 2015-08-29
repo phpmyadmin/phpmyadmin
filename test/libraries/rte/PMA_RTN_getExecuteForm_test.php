@@ -6,6 +6,8 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\TypesMySQL;
+
 $GLOBALS['server'] = 0;
 
 require_once 'libraries/php-gettext/gettext.inc';
@@ -33,7 +35,7 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         global $cfg;
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = '';

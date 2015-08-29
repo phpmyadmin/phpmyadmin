@@ -12,6 +12,7 @@
 use PMA\Controllers\Table\TableSearchController;
 use PMA\DI\Container;
 use PMA\libraries\Theme;
+use PMA\libraries\TypesMySQL;
 
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'libraries/di/Container.class.php';
@@ -48,7 +49,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['maxRowPlotLimit'] = 500;
