@@ -16,11 +16,7 @@ use PMA\DI\Container;
 use PMA\libraries\Table;
 use PMA\libraries\Theme;
 
-
-
 require_once 'libraries/database_interface.inc.php';
-
-
 require_once 'libraries/di/Container.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'libraries/controllers/DatabaseStructureController.class.php';
@@ -69,7 +65,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
 
-        $table = $this->getMockBuilder('PMA\libraries\PMA_Table')
+        $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Expect the table will have 6 rows

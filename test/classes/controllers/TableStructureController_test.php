@@ -67,7 +67,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
 
-        $table = $this->getMockBuilder('PMA\libraries\PMA_Table')
+        $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
 
