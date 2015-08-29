@@ -73,7 +73,7 @@ class TableChartController extends TableController
         if (!isset($this->sql_query) || $this->sql_query == '') {
             $this->response->isSuccess(false);
             $this->response->addHTML(
-                PMA\libraries\Message::error(__('No SQL query was set to fetch data.'))
+                Message::error(__('No SQL query was set to fetch data.'))
             );
             return;
         }
