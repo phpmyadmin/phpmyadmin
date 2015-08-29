@@ -6,11 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/Util.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
@@ -34,7 +34,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['DBG'] = array();
         $GLOBALS['cfg']['DBG']['sql'] = false;
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**

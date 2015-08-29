@@ -21,7 +21,7 @@ require_once 'libraries/php-gettext/gettext.inc';
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Tracker.php';
 
 /**
  * Test for generating CREATE TRIGGER query from HTTP request

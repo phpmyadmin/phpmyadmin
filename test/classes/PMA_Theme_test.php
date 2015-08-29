@@ -1,29 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test class for PMA_Theme.
+ * Test class for Theme.
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
-require_once 'libraries/Theme.class.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Config.php';
-require_once 'libraries/Theme_Manager.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 
 /**
- * Test class for PMA_Theme.
+ * Test class for Theme.
  *
  * @package PhpMyAdmin-test
  */
 class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PMA_Theme
+     * @var Theme
      */
     protected $object;
 
@@ -35,7 +31,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Theme();
+        $this->object = new Theme();
         $_SESSION['PMA_Theme'] = $this->object;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -55,7 +51,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::loadInfo
+     * Test for Theme::loadInfo
      *
      * @return void
      * @group medium
@@ -67,7 +63,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::loadInfo
+     * Test for Theme::loadInfo
      *
      * @return void
      */
@@ -81,7 +77,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::getName, getVersion
+     * Test for Theme::getName, getVersion
      *
      * @return void
      */
@@ -94,7 +90,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::loadInfo
+     * Test for Theme::loadInfo
      *
      * @return void
      */
@@ -116,28 +112,28 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::load
+     * Test for Theme::load
      *
      * @return void
      */
     public function testLoad()
     {
-        $newTheme = PMA_Theme::load('./themes/original');
+        $newTheme = Theme::load('./themes/original');
         $this->assertNotNull($newTheme);
     }
 
     /**
-     * Test for PMA_Theme::load
+     * Test for Theme::load
      *
      * @return void
      */
     public function testLoadNotExisted()
     {
-        $this->assertFalse(PMA_Theme::load('/path/to/nowhere'));
+        $this->assertFalse(Theme::load('/path/to/nowhere'));
     }
 
     /**
-     * Test fir PMA_Theme::checkImgPath
+     * Test fir Theme::checkImgPath
      *
      * @return void
      * @expectedException PHPUnit_Framework_Error
@@ -151,7 +147,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::checkImgPath
+     * Test for Theme::checkImgPath
      *
      * @return void
      */
@@ -162,7 +158,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::checkImgPath
+     * Test for Theme::checkImgPath
      *
      * @return void
      */
@@ -174,7 +170,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::checkImgPath
+     * Test for Theme::checkImgPath
      *
      * @return void
      * @expectedException PHPUnit_Framework_Error
@@ -191,7 +187,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::getPath
+     * Test for Theme::getPath
      *
      * @return void
      */
@@ -204,7 +200,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::loadInfo
+     * Test for Theme::loadInfo
      *
      * @return void
      */
@@ -214,7 +210,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::checkVersion
+     * Test for Theme::checkVersion
      *
      * @return void
      *
@@ -236,7 +232,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::getName
+     * Test for Theme::getName
      *
      * @return void
      */
@@ -249,7 +245,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::getId
+     * Test for Theme::getId
      *
      * @return void
      */
@@ -262,7 +258,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Theme::getImgPath
+     * Test for Theme::getImgPath
      *
      * @return void
      */

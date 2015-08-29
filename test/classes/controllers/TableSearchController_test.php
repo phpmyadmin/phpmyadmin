@@ -11,13 +11,8 @@
  */
 use PMA\Controllers\Table\TableSearchController;
 use PMA\DI\Container;
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
-require_once 'libraries/DatabaseInterface.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Tracker.class.php';
-require_once 'libraries/Types.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableSearchController.class.php';
@@ -45,7 +40,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         /**
          * SET these to avoid undefined index error
          */
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $_POST['zoom_submit'] = 'zoom';
 
         $GLOBALS['server'] = 1;
@@ -280,7 +275,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGenerateWhereClause()
     {
-        $types = $this->getMockBuilder('PMA_Types')
+        $types = $this->getMockBuilder('PMA\libraries\Types')
             ->disableOriginalConstructor()
             ->getMock();
         $types->expects($this->any())->method('isUnaryOperator')

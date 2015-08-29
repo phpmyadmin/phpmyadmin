@@ -9,7 +9,7 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 $GLOBALS['server'] = 0;
 
@@ -20,12 +20,12 @@ require_once 'libraries/Util.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Table.php';
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Tracker.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Message.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/plugins/import/ImportCsv.class.php';
 
 /**
@@ -77,8 +77,8 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['csv_new_line'] = 'auto';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')

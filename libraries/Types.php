@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin
  */
-class PMA_Types
+class Types
 {
     /**
      * Returns list of unary operators.
@@ -302,7 +302,7 @@ class PMA_Types
  *
  * @package PhpMyAdmin
  */
-class PMA_Types_MySQL extends PMA_Types
+class PMA_Types_MySQL extends Types
 {
     /**
      * Returns the data type description.
@@ -867,7 +867,7 @@ class PMA_Types_MySQL extends PMA_Types
  *
  * @package PhpMyAdmin
  */
-class PMA_Types_Drizzle extends PMA_Types
+class PMA_Types_Drizzle extends Types
 {
     /**
      * Returns the data type description.

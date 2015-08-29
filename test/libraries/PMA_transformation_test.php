@@ -9,14 +9,14 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Util.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Tracker.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 
 /**
  * tests for transformation wrappers
@@ -35,7 +35,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array(
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',

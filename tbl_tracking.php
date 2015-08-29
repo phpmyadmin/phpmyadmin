@@ -7,7 +7,7 @@
  */
 
 // Run common work
-use PMA\libraries\PMA_Tracker;
+use PMA\libraries\Tracker;
 
 require_once './libraries/common.inc.php';
 
@@ -23,8 +23,8 @@ $scripts->addFile('tbl_tracking.js');
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
 
-if (PMA_Tracker::isActive()
-    && PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
+if (Tracker::isActive()
+    && Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
     && ! (isset($_REQUEST['toggle_activation'])
     && $_REQUEST['toggle_activation'] == 'deactivate_now')
     && ! (isset($_REQUEST['report_export'])
@@ -45,7 +45,7 @@ $url_params['back'] = 'tbl_tracking.php';
 
 // Init vars for tracking report
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
-    $data = PMA_Tracker::getTrackedData(
+    $data = Tracker::getTrackedData(
         $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']
     );
 

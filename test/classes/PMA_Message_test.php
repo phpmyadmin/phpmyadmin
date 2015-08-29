@@ -9,14 +9,14 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.php';
 require_once 'libraries/Message.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 
 /**
  * Test for Message class
@@ -41,7 +41,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PMA\libraries\Message;
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 

@@ -10,10 +10,10 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/Util.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 
 /**
  ** Test for PMA\libraries\Util::getIcon() from Util.php
@@ -30,7 +30,7 @@ class PMA_GetIcon_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**

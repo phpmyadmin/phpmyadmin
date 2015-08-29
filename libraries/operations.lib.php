@@ -386,7 +386,7 @@ function PMA_createDbBeforeCopy()
     $local_query .= ';';
     $GLOBALS['sql_query'] .= $local_query;
 
-    // save the original db name because Tracker.class.php which
+    // save the original db name because Tracker.php which
     // may be called under $GLOBALS['dbi']->query() changes $GLOBALS['db']
     // for some statements, one of which being CREATE DATABASE
     $original_db = $GLOBALS['db'];

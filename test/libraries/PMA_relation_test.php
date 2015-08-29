@@ -9,13 +9,13 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/Util.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Tracker.php';
 require_once 'libraries/relation.lib.php';
 
 /**
@@ -39,7 +39,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $_SESSION['relation'][$GLOBALS['server']] = "PMA_relation";
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'] = array();
 
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();

@@ -10,13 +10,13 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/select_lang.lib.php';
 require_once 'libraries/Config.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/Util.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
@@ -43,7 +43,7 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
             'verbose' => 'verbose',
         );
         $GLOBALS['cfg']['OBGzip'] = false;
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['server'] = 1;

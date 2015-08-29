@@ -14,12 +14,12 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Tracker.php';
 
 use PMA\libraries\DbSearch;
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 /**
  * Tests for database search.
@@ -201,7 +201,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetSelectionForm()
     {
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $this->assertEquals(
             '<a id="db_search"></a><form id="db_search_form" class="ajax lock-page" '

@@ -9,7 +9,7 @@
  * Include to test.
  */
 
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/Footer.php';
 require_once 'libraries/Response.php';
@@ -19,7 +19,7 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.php';
 require_once 'libraries/Config.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/Table.php';
 require_once 'libraries/ErrorHandler.php';
 require_once 'libraries/vendor_config.php';
@@ -72,8 +72,8 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler();
         unset($_POST);
 
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -193,7 +193,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemeImage'] = 'image';
 
         $this->assertEquals(

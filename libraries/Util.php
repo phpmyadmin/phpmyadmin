@@ -3705,7 +3705,7 @@ class Util
 
     /**
      * This function processes the datatypes supported by the DB,
-     * as specified in PMA_Types->getColumns() and either returns an array
+     * as specified in Types->getColumns() and either returns an array
      * (useful for quickly checking if a datatype is supported)
      * or an HTML snippet that creates a drop-down list.
      *

@@ -9,18 +9,18 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 $GLOBALS['server'] = 1;
 require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Tracker.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/Message.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Types.class.php';
+require_once 'libraries/Theme.php';
+require_once 'libraries/Types.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/normalization.lib.php';
 require_once 'libraries/Index.php';
@@ -51,8 +51,8 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         //mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')

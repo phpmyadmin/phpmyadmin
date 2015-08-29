@@ -6,11 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Util.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/navigation/Nodes/Node.class.php';
 require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
@@ -37,7 +37,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';

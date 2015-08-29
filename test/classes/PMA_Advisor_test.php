@@ -10,14 +10,14 @@
  * Include to test.
  */
 require_once 'libraries/Advisor.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.php';
 
 use PMA\libraries\Advisor;
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 /**
  * Tests behaviour of PMA_Advisor class
@@ -35,7 +35,7 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
      */
     public function setup()
     {
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';
     }

@@ -10,7 +10,7 @@
  * Include to test.
  */
 //$GLOBALS
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 $GLOBALS['server'] = 1;
 $GLOBALS['is_superuser'] = false;
@@ -28,13 +28,13 @@ $GLOBALS['cfg']['Server'] = array(
     'DisableIS' => false
 );
 //$_SESSION
-require_once 'libraries/Theme.class.php';
-$_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+require_once 'libraries/Theme.php';
+$_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
 require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Tracker.php';
 require_once 'libraries/Message.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';

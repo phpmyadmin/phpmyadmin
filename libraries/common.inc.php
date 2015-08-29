@@ -36,9 +36,9 @@ use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\PMA;
 use PMA\libraries\String;
-use PMA\libraries\PMA_Theme;
-use PMA\libraries\PMA_Theme_Manager;
-use PMA\libraries\PMA_Tracker;
+use PMA\libraries\Theme;
+use PMA\libraries\ThemeManager;
+use PMA\libraries\Tracker;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 
@@ -107,34 +107,9 @@ if (! function_exists('mb_detect_encoding')) {
 }
 
 /**
- * the PMA_Theme class
- */
-require './libraries/Theme.class.php';
-
-/**
- * the PMA_Theme_Manager class
- */
-require './libraries/Theme_Manager.class.php';
-
-/**
  * the relation lib, tracker needs it
  */
 require './libraries/relation.lib.php';
-
-/**
- * the PMA_Tracker class
- */
-require './libraries/Tracker.class.php';
-
-/**
- * the Table class
- */
-require './libraries/Table.php';
-
-/**
- * the PMA_Types class
- */
-require './libraries/Types.class.php';
 
 if (! defined('PMA_MINIMUM_COMMON')) {
 
@@ -147,11 +122,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Include URL/hidden inputs generating.
      */
     include_once './libraries/url_generating.lib.php';
-
-    /**
-     * Used to generate the page
-     */
-    include_once 'libraries/Response.php';
 }
 
 /******************************************************************************/
@@ -679,10 +649,10 @@ unset($default_server);
 /* setup themes                                          LABEL_theme_setup    */
 
 /**
- * @global PMA_Theme_Manager $_SESSION['PMA_Theme_Manager']
+ * @global ThemeManager $_SESSION['ThemeManager']
  */
 if (! isset($_SESSION['PMA_Theme_Manager'])) {
-    $_SESSION['PMA_Theme_Manager'] = new PMA_Theme_Manager;
+    $_SESSION['PMA_Theme_Manager'] = new ThemeManager;
 } else {
     /**
      * @todo move all __wakeup() functionality into session.inc.php
@@ -701,7 +671,7 @@ if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
     unset($tmp);
 }
 /**
- * @todo move into PMA_Theme_Manager::__wakeup()
+ * @todo move into ThemeManager::__wakeup()
  */
 if (isset($_REQUEST['set_theme'])) {
     // if user selected a theme
@@ -710,7 +680,8 @@ if (isset($_REQUEST['set_theme'])) {
 
 /**
  * the theme object
- * @global PMA_Theme $_SESSION['PMA_Theme']
+ *
+*@global Theme $_SESSION['PMA_Theme']
  */
 $_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
 
@@ -1166,7 +1137,7 @@ $GLOBALS['PMA_Config']->set('Servers', '');
 $GLOBALS['PMA_Config']->set('default_server', '');
 
 /* Tell tracker that it can actually work */
-PMA_Tracker::enable();
+Tracker::enable();
 
 /**
  * @global boolean $GLOBALS['is_ajax_request']

@@ -7,7 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\PMA_Tracker;
+use PMA\libraries\Tracker;
 
 /**
  * Filters tracking entries
@@ -416,7 +416,7 @@ function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_quer
     $html = '<form method="post" action="tbl_tracking.php' . $url_query . '">';
     $html .= '<select name="table" class="autosubmit">';
     while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
-        if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
+        if (Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
             $status = ' (' . __('active') . ')';
         } else {
             $status = ' (' . __('not active') . ')';
@@ -830,7 +830,7 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     $html = '<h3>' . __('Structure snapshot')
         . '  [<a href="tbl_tracking.php' . $url_query . '">' . __('Close')
         . '</a>]</h3>';
-    $data = PMA_Tracker::getTrackedData(
+    $data = Tracker::getTrackedData(
         $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']
     );
 
@@ -1084,7 +1084,7 @@ function PMA_deleteFromTrackingReportLog(&$data, $which_log, $type, $message)
     if ($delete_id == (int)$delete_id) {
         unset($data[$which_log][$delete_id]);
 
-        $successfullyDeleted = PMA_Tracker::changeTrackingData(
+        $successfullyDeleted = Tracker::changeTrackingData(
             $_REQUEST['db'],
             $_REQUEST['table'],
             $_REQUEST['version'],
@@ -1200,7 +1200,7 @@ function PMA_exportAsFileDownload($entries)
 function PMA_activateTracking()
 {
     $html = '';
-    $activated = PMA_Tracker::activateTracking(
+    $activated = Tracker::activateTracking(
         $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
     );
     if ($activated) {
@@ -1225,7 +1225,7 @@ function PMA_activateTracking()
 function PMA_deactivateTracking()
 {
     $html = '';
-    $deactivated = PMA_Tracker::deactivateTracking(
+    $deactivated = Tracker::deactivateTracking(
         $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
     );
     if ($deactivated) {
@@ -1307,7 +1307,7 @@ function PMA_getTrackingSet()
 function PMA_deleteTrackingVersion($version)
 {
     $html = '';
-    $versionDeleted = PMA_Tracker::deleteTracking(
+    $versionDeleted = Tracker::deleteTracking(
         $GLOBALS['db'],
         $GLOBALS['table'],
         $version
@@ -1336,7 +1336,7 @@ function PMA_createTrackingVersion()
     $html = '';
     $tracking_set = PMA_getTrackingSet();
 
-    $versionCreated = PMA_Tracker::createVersion(
+    $versionCreated = Tracker::createVersion(
         $GLOBALS['db'],
         $GLOBALS['table'],
         $_REQUEST['version'],
@@ -1369,7 +1369,7 @@ function PMA_createTrackingForMultipleTables($selected)
     $tracking_set = PMA_getTrackingSet();
 
     foreach ($selected as $selected_table) {
-        PMA_Tracker::createVersion(
+        Tracker::createVersion(
             $GLOBALS['db'],
             $selected_table,
             $_REQUEST['version'],
@@ -1514,7 +1514,7 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
 {
     $checkbox_id = "selected_tbl_"
         . htmlspecialchars($tablename);
-    if (PMA_Tracker::getVersion($db, $tablename) == -1) {
+    if (Tracker::getVersion($db, $tablename) == -1) {
         $my_link = '<a href="tbl_tracking.php' . $url_query
             . '&amp;table=' . htmlspecialchars($tablename) . '">';
         $my_link .= PMA\libraries\Util::getIcon('eye.png', __('Track table'));
@@ -1570,7 +1570,7 @@ function PMA_getUntrackedTables($db)
                 if (is_array($temp_table)
                     && array_key_exists('Name', $temp_table)
                 ) {
-                    $tracking_version = PMA_Tracker::getVersion(
+                    $tracking_version = Tracker::getVersion(
                         $db,
                         $temp_table['Name']
                     );
@@ -1580,7 +1580,7 @@ function PMA_getUntrackedTables($db)
                 }
             }
         } else { // If $value is a table.
-            if (PMA_Tracker::getVersion($db, $value['Name']) == -1) {
+            if (Tracker::getVersion($db, $value['Name']) == -1) {
                 $untracked_tables[] = $value['Name'];
             }
         }

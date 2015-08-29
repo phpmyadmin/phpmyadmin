@@ -9,7 +9,7 @@ require_once 'libraries/plugins/export/ExportPdf.class.php';
 require_once 'libraries/plugins/export/PMA_ExportPdf.class.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/Util.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';

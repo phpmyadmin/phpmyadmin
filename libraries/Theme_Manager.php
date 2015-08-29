@@ -12,7 +12,7 @@ namespace PMA\libraries;
  *
  * @package PhpMyAdmin
  */
-class PMA_Theme_Manager
+class ThemeManager
 {
     /**
      * @var string path to theme folder
@@ -41,7 +41,7 @@ class PMA_Theme_Manager
     var $active_theme = '';
 
     /**
-     * @var PMA_Theme PMA_Theme active theme
+     * @var Theme Theme active theme
      */
     var $theme = null;
 
@@ -127,7 +127,7 @@ class PMA_Theme_Manager
 
         $this->loadThemes();
 
-        $this->theme = new PMA_Theme;
+        $this->theme = new Theme;
 
         if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             trigger_error(
@@ -311,7 +311,7 @@ class PMA_Theme_Manager
             if (array_key_exists($PMA_Theme, $this->themes)) {
                 continue;
             }
-            $new_theme = PMA_Theme::load(
+            $new_theme = Theme::load(
                 $this->getThemesPath() . '/' . $PMA_Theme
             );
             if ($new_theme) {
@@ -420,9 +420,9 @@ class PMA_Theme_Manager
     }
 
     /**
-     * returns PMA_Theme object for fall back theme
+     * returns Theme object for fall back theme
      *
-     * @return PMA_Theme fall back theme
+     * @return Theme fall back theme
      * @access public
      */
     public function getFallBackTheme()

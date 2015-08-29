@@ -8,7 +8,7 @@
 
 use PMA\Controllers\Table\TableIndexesController;
 use PMA\DI\Container;
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 /*
  * Include to test.
@@ -22,7 +22,7 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableIndexesController.class.php';
@@ -84,8 +84,8 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

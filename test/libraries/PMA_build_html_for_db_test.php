@@ -10,17 +10,17 @@
  * Include to test.
  */
 
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 $GLOBALS['server'] = 0;
 require_once 'libraries/Util.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/build_html_for_db.lib.php';
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
-require_once 'libraries/Types.class.php';
+require_once 'libraries/Tracker.php';
+require_once 'libraries/Types.php';
 require_once 'libraries/mysql_charsets.inc.php';
 
 /**
@@ -44,7 +44,7 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
         $cfg['ServerDefault'] = 1;
 
         $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
