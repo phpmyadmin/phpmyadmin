@@ -2031,7 +2031,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $_table = $this->getMockBuilder('PMA\libraries\PMA_Table')
+        $_table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())

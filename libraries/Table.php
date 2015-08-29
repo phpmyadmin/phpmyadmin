@@ -89,7 +89,7 @@ class Table
     /**
      * returns table name
      *
-     * @see PMA_Table::getName()
+     * @see Table::getName()
      * @return string  table name
      */
     function __toString()
@@ -598,7 +598,7 @@ class Table
      * @param string      $expression    expression for the virtual column
      * @param string      $move_to       new position for column
      *
-     * @see PMA_Table::generateFieldSpec()
+     * @see Table::generateFieldSpec()
      *
      * @return string  field specification
      */

@@ -98,7 +98,7 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
     {
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
-        $table = $this->getMockBuilder('PMA\libraries\PMA_Table')
+        $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
@@ -145,7 +145,7 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testDisplayFormAction()
     {
-        $table = $this->getMockBuilder('PMA\libraries\PMA_Table')
+        $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getStatusInfo')
