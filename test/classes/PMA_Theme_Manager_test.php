@@ -151,7 +151,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
     {
         $tm = new ThemeManager();
         $this->assertInstanceOf(
-            'PMA_theme',
+            'PMA\libraries\Theme',
             $tm->getFallBackTheme()
         );
     }
