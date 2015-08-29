@@ -7,8 +7,6 @@
  */
 namespace PMA\libraries;
 
-use StringType;
-
 /**
  * Specialized string class for phpMyAdmin.
  * The SQL Parser code relies heavily on these functions.

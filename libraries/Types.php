@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }

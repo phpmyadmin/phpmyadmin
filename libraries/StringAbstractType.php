@@ -7,8 +7,6 @@
  */
 namespace PMA\libraries;
 
-use StringType;
-
 /**
  * Implements StringByte interface using native PHP functions.
  *

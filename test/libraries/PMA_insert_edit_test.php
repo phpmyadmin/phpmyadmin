@@ -11,6 +11,7 @@
  */
 use PMA\libraries\Table;
 use PMA\libraries\Theme;
+use PMA\libraries\Types;
 
 require_once 'libraries/insert_edit.lib.php';
 
