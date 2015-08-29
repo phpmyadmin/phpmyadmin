@@ -26,9 +26,6 @@ use PMA\libraries\Util;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableRelationController.class.php';
-require_once 'libraries/Response.php';
-require_once 'libraries/Table.php';
-require_once 'libraries/Util.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\Table\TableRelationController');

@@ -47,12 +47,6 @@ $cfgRelation = PMA_getRelationsParam();
  * Gets available MySQL charsets and storage engines
  */
 require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/StorageEngine.php';
-
-/**
- * Class for partition management
- */
-require_once 'libraries/Partition.php';
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
@@ -286,7 +280,6 @@ $hideOrderTable = false;
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
 if ($tbl_storage_engine == 'INNODB') {
-    include_once 'libraries/Index.php';
     $indexes = PMA\libraries\Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
     foreach ($indexes as $name => $idx) {
         if ($name == 'PRIMARY') {

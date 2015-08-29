@@ -18,7 +18,6 @@ if (!defined('PHPMYADMIN')) {
  * Check parameters
  */
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/Template.php';
 require_once 'libraries/util.lib.php';
 
 PMA\libraries\Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
@@ -42,12 +41,6 @@ if (!isset($columnMeta)) {
 
 // Get available character sets and storage engines
 require_once './libraries/mysql_charsets.inc.php';
-require_once './libraries/StorageEngine.php';
-
-/**
- * Class for partition management
- */
-require_once './libraries/Partition.php';
 
 /** @var String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];

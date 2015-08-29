@@ -9,8 +9,6 @@ namespace PMA\libraries;
 
 use Traversable;
 
-require_once 'libraries/Scripts.php';
-
 /**
  * Class used to output the footer
  *

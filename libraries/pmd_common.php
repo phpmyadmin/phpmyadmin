@@ -198,8 +198,6 @@ function PMA_getPKOrUniqueKeys()
  */
 function PMA_getAllKeys($unique_only = false)
 {
-    include_once './libraries/Index.php';
-
     $keys = array();
 
     foreach ($GLOBALS['PMD']['TABLE_NAME_SMALL'] as $I => $table) {

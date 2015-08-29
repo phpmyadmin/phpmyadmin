@@ -5,11 +5,6 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-require_once 'libraries/Font.php';
-
 /**
  * Tests for PMA\libraries\Font class
  *

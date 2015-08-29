@@ -19,7 +19,6 @@ require_once 'libraries/db_common.inc.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
-require_once 'libraries/Message.php';
 
 /**
  * Class TableGisVisualizationController

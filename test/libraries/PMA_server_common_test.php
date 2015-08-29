@@ -11,11 +11,11 @@
  */
 use PMA\libraries\Theme;
 
-require_once 'libraries/Util.php';
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_common.lib.php';
-require_once 'libraries/Theme.php';
+
 
 /**
  * PMA_ServerCommon_Test class

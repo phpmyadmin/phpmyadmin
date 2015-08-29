@@ -8,8 +8,6 @@
  */
 namespace PMA\libraries;
 
-require_once 'libraries/StringAbstractType.php';
-
 /**
  * Implements StringByte interface using native PHP functions.
  *

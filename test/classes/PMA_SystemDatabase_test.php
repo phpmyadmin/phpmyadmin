@@ -6,8 +6,6 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/SystemDatabase.php';
-
 /**
  * Tests for libraries/SystemDatabase.php
  *

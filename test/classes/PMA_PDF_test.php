@@ -11,11 +11,8 @@
  */
 use PMA\libraries\PDF;
 
-require_once 'libraries/Util.php';
-require_once 'libraries/PDF.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Config.php';
 
 /**
  * tests for PDF class

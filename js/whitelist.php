@@ -22,7 +22,6 @@ require_once './libraries/common.inc.php';
 // Close session early as we won't write anything there
 session_write_close();
 
-require_once './libraries/OutputBuffering.php';
 $buffer = PMA\libraries\OutputBuffering::getInstance();
 $buffer->start();
 register_shutdown_function(

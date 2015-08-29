@@ -17,7 +17,6 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
 
-require_once './libraries/OutputBuffering.php';
 $buffer = PMA\libraries\OutputBuffering::getInstance();
 $buffer->start();
 register_shutdown_function(

@@ -9,8 +9,6 @@ namespace PMA\libraries;
 
 use StringType;
 
-require_once 'libraries/StringType.php';
-require_once 'libraries/StringByte.php';
 /**
  * Specialized string class for phpMyAdmin.
  * The SQL Parser code relies heavily on these functions.
@@ -30,10 +28,8 @@ class String implements StringType
     public function __construct()
     {
         if (@extension_loaded('ctype')) {
-            include_once 'libraries/StringCType.php';
             $this->_type = new StringCType();
         } else {
-            include_once 'libraries/StringNativeType.php';
             $this->_type = new StringNativeType();
         }
     }

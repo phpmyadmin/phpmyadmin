@@ -12,9 +12,7 @@ use PMA\libraries\Response;
 use PMA\libraries\Util;
 
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/Response.php';
 require_once 'libraries/controllers/TableGisVisualizationController.class.php';
-require_once 'libraries/Util.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\Table\TableGisVisualizationController');

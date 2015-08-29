@@ -9,9 +9,9 @@
 /*
  * Needed for backquote() and PMA_RTN_getQueryFromRequest()
  */
-require_once 'libraries/Util.php';
+
 require_once 'libraries/php-gettext/gettext.inc';
-require_once './libraries/Types.php';
+
 
 /*
  * Include to test.

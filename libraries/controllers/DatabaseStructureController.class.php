@@ -19,7 +19,6 @@ use PMA_PageSettings;
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/display_create_table.lib.php';
-require_once 'libraries/Template.php';
 require_once 'libraries/controllers/DatabaseController.class.php';
 
 /**

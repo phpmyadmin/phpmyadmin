@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.php';
+
 
 /**
  * Test PMA\libraries\Util::printableBitValue function

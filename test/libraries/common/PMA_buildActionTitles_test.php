@@ -12,8 +12,8 @@
  */
 use PMA\libraries\Theme;
 
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.php';
+
+
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**

@@ -6,12 +6,6 @@
  * @package PhpMyAdmin
  */
 
-/*
- * Include for handleContext() and configureCurl in PMA_sendErrorReport()
- */
-require_once 'libraries/Util.php';
-
-
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -354,7 +348,6 @@ function PMA_getErrorReportForm()
         $datas['hidden_fields'] = PMA_getHiddenFields($reportData);
     }
 
-    include_once './libraries/Template.php';
     return PMA\libraries\Template::get('error/report_form')
         ->render($datas);
 }

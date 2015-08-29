@@ -10,11 +10,6 @@ namespace PMA\libraries;
 use Exception;
 
 /**
- * base class
- */
-require_once './libraries/Message.php';
-
-/**
  * a single error
  *
  * @package PhpMyAdmin

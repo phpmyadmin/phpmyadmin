@@ -7,9 +7,9 @@
  */
 require_once 'libraries/plugins/export/ExportYaml.class.php';
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.php';
-require_once 'libraries/Config.php';
+
+
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/database_interface.inc.php';

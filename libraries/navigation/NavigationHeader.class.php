@@ -9,7 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Template.php';
 use PMA\libraries\Template;
 
 /**

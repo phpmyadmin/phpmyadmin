@@ -15,7 +15,6 @@ require_once 'libraries/common.inc.php';
  * Does the common work
  */
 require 'libraries/server_common.inc.php';
-require 'libraries/StorageEngine.php';
 require 'libraries/server_engines.lib.php';
 
 /**

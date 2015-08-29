@@ -11,10 +11,7 @@
 
 use PMA\libraries\Theme;
 
-require_once 'libraries/ErrorHandler.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.php';
 
 /**
  * Test for PMA\libraries\ErrorHandler class.

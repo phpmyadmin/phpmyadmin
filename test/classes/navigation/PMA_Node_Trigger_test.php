@@ -9,8 +9,8 @@
 use PMA\libraries\Theme;
 
 require_once 'libraries/navigation/NodeFactory.class.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.php';
+
+
 
 /**
  * Tests for Node_Trigger class

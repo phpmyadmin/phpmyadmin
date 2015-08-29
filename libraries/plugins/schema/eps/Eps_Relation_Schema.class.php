@@ -14,7 +14,6 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 require_once 'libraries/plugins/schema/eps/RelationStatsEps.class.php';
 require_once 'libraries/plugins/schema/eps/TableStatsEps.class.php';
-require_once 'libraries/Font.php';
 
 /**
  * This Class is EPS Library and

@@ -15,12 +15,7 @@ use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 
-require_once 'libraries/Index.php';
-require_once 'libraries/Message.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Index.php';
 require_once 'libraries/controllers/TableController.class.php';
-require_once 'libraries/Template.php';
 
 /**
  * Class TableIndexesController

@@ -20,12 +20,9 @@ use SqlParser;
 use SqlParser\Statements\CreateStatement;
 use SqlParser\Utils\Table;
 
-require_once 'libraries/Index.php';
-require_once 'libraries/Partition.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Template.php';
 require_once 'libraries/util.lib.php';
 require_once 'libraries/controllers/TableController.class.php';
 
@@ -311,8 +308,6 @@ class TableStructureController extends TableController
          * Gets tables information
          */
         include_once 'libraries/tbl_info.inc.php';
-
-        include_once 'libraries/Index.php';
 
         // 2. Gets table keys and retains them
         // @todo should be: $server->db($db)->table($table)->primary()

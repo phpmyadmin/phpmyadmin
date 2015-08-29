@@ -13,8 +13,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Template.php';
-
 /**
  * Sets required globals
  *

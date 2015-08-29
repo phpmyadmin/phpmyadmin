@@ -12,7 +12,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Template.php';
 
 /**
  * Function to get html to display a page selector

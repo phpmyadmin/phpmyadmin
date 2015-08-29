@@ -20,8 +20,8 @@ $GLOBALS['server'] = 0;
 /*
  * Include to test.
  */
-require_once 'libraries/Util.php';
-require_once 'libraries/Tracker.php';
+
+
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'libraries/url_generating.lib.php';

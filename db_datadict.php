@@ -36,7 +36,6 @@ $header->enablePrintView();
 $cfgRelation  = PMA_getRelationsParam();
 
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Index.php';
 
 /**
  * Check parameters

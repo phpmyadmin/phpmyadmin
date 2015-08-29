@@ -1986,9 +1986,6 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     $disp_query, $disp_message, $query_type, $sql_query, $selectedTables,
     $complete_query
 ) {
-    // Include Index class for use in PMA\libraries\DisplayResults class
-    include_once './libraries/Index.php';
-
     // Handle disable/enable foreign key checks
     $default_fk_check = PMA\libraries\Util::handleDisableFKCheckInit();
 

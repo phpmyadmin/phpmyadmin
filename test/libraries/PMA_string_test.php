@@ -11,7 +11,7 @@
  */
 use PMA\libraries\String;
 
-require_once 'libraries/String.php';
+
 
 /**
  * Tests for Specialized String Functions for phpMyAdmin

@@ -18,7 +18,6 @@ if (! defined('PHPMYADMIN')) {
  * String handling (security)
  */
 require_once 'libraries/string.lib.php';
-require_once 'libraries/String.php';
 $PMA_String = new String();
 
 /**
@@ -592,8 +591,6 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     if (PMA_IS_IIS && /*overload*/mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();
-
-        include_once './libraries/Template.php';
 
         echo PMA\libraries\Template::get('header_location')
             ->render(array('uri' => $uri));

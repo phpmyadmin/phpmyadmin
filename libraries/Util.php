@@ -14,8 +14,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Template.php';
-
 /**
  * Misc functions used all over the scripts.
  *

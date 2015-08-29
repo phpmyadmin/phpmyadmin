@@ -11,7 +11,6 @@ use PMA\libraries\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/ServerStatusData.php';
 require_once 'libraries/server_status_variables.lib.php';
 
 if (PMA_DRIZZLE) {

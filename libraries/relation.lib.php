@@ -370,7 +370,6 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
                 'Re-login to phpMyAdmin to load the updated configuration file.'
             );
 
-            include_once './libraries/Template.php';
             $retval .= PMA\libraries\Template::get('list/unordered')->render(
                 array('items' => $items,)
             );
@@ -1888,8 +1887,6 @@ function PMA_fixPMATables($db, $create = true)
         // Since configuration storage is updated, we need to
         // re-initialize the favorite and recent tables stored in the
         // session from the current configuration storage.
-        include_once 'libraries/RecentFavoriteTable.php';
-
         if ($cfgRelation['favoritework']) {
             $fav_tables = RecentFavoriteTable::getInstance('favorite');
             $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]

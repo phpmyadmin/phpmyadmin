@@ -11,7 +11,7 @@
  */
 use PMA\libraries\Linter;
 
-require_once 'libraries/Linter.php';
+
 
 /**
  * Tests for Linter.php.

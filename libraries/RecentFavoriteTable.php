@@ -7,8 +7,6 @@
  */
 namespace PMA\libraries;
 
-require_once './libraries/Message.php';
-
 /**
  * Handles the recently used and favorite tables.
  *

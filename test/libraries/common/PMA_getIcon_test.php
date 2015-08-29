@@ -12,8 +12,8 @@
  */
 use PMA\libraries\Theme;
 
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.php';
+
+
 
 /**
  ** Test for PMA\libraries\Util::getIcon() from Util.php

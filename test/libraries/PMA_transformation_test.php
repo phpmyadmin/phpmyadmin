@@ -12,11 +12,11 @@
 use PMA\libraries\Theme;
 
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Util.php';
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.php';
+
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Theme.php';
+
 
 /**
  * tests for transformation wrappers

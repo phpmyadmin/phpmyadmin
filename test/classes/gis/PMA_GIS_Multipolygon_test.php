@@ -10,7 +10,7 @@ require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/GIS_Geometry.class.php';
 require_once 'libraries/gis/GIS_Multipolygon.class.php';
 require_once 'libraries/tcpdf/tcpdf.php';
-require_once 'libraries/Util.php';
+
 
 /**
  * Tests for PMA_GIS_Multipolygon class

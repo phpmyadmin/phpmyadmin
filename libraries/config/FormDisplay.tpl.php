@@ -60,7 +60,6 @@ function PMA_displayTabsTop($tabs)
         );
     }
 
-    include_once './libraries/Template.php';
     $htmlOutput = PMA\libraries\Template::get('list/unordered')->render(
         array(
             'class' => 'tabs',
@@ -493,8 +492,6 @@ function PMA_displayJavascript($js_array)
     if (empty($js_array)) {
         return null;
     }
-
-    include_once './libraries/Template.php';
 
     return PMA\libraries\Template::get('javascript/display')->render(
         array('js_array' => $js_array,)

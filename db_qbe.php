@@ -23,7 +23,6 @@ $savedSearchList = array();
 $savedSearch = null;
 $currentSearchId = null;
 if ($cfgRelation['savedsearcheswork']) {
-    include 'libraries/SavedSearches.php';
     $header = $response->getHeader();
     $scripts = $header->getScripts();
     $scripts->addFile('db_qbe.js');

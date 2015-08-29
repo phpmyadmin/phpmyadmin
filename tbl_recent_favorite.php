@@ -9,7 +9,6 @@
 use PMA\libraries\RecentFavoriteTable;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/RecentFavoriteTable.php';
 
 RecentFavoriteTable::getInstance('recent')
     ->removeIfInvalid($_REQUEST['db'], $_REQUEST['table']);

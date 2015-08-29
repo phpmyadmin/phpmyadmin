@@ -17,7 +17,6 @@ require_once 'libraries/common.inc.php';
  * display Git revision if requested
  */
 require_once 'libraries/display_git_revision.lib.php';
-require_once 'libraries/Template.php';
 
 /**
  * pass variables to child pages
@@ -79,7 +78,6 @@ if (! empty($_REQUEST['db'])) {
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
-require_once 'libraries/RecentFavoriteTable.php';
 if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
     $response = PMA\libraries\Response::getInstance();
     $response->addJSON(
@@ -115,7 +113,6 @@ $mysql_cur_user_and_host = '';
 // all MySQL-related information
 if ($server > 0) {
     include 'libraries/server_common.inc.php';
-    include 'libraries/StorageEngine.php';
 
     // Use the verbose name of the server instead of the hostname
     // if a value is set

@@ -21,7 +21,6 @@ if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER == '6'
 ) {
     @ini_set('zlib.output_compression', 'Off');
 } else {
-    include_once 'libraries/OutputBuffering.php';
     $buffer = OutputBuffering::getInstance();
     $buffer->start();
     register_shutdown_function(
