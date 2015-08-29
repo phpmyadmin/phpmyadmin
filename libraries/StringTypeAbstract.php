@@ -12,7 +12,7 @@ namespace PMA\libraries;
  *
  * @package PhpMyAdmin-String
  */
-abstract class StringAbstractType implements StringType
+abstract class StringTypeAbstract implements StringType
 {
     /**
      * Checks if a number is in a range

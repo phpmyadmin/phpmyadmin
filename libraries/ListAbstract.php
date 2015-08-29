@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold the PMA_List base class
+ * hold the ListAbstract base class
  *
  * @package PhpMyAdmin
  */
@@ -17,7 +17,7 @@ use ArrayObject;
  * @package PhpMyAdmin
  * @since   phpMyAdmin 2.9.10
  */
-abstract class PMA_List extends ArrayObject
+abstract class ListAbstract extends ArrayObject
 {
     /**
      * @var mixed   empty item
@@ -25,7 +25,7 @@ abstract class PMA_List extends ArrayObject
     protected $item_empty = '';
 
     /**
-     * PMA_List constructor
+     * ListAbstract constructor
      *
      * @param array  $array          The input parameter accepts an array or an
      *                               Object.

@@ -21,7 +21,7 @@ require_once './libraries/check_user_privileges.lib.php';
  * @package PhpMyAdmin
  * @since   phpMyAdmin 2.9.10
  */
-class ListDatabase extends PMA_List
+class ListDatabase extends ListAbstract
 {
     /**
      * @var mixed   database link resource|object to be used
