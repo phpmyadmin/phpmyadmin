@@ -9,9 +9,9 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Tracker;
+use PMA\libraries\Tracker;
 
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Tracker.php';
 require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Util.php';
@@ -78,36 +78,36 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::enable
+     * Test for Tracker::enable
      *
      * @return void
      * @test
      */
     public function testEnabled()
     {
-        PMA_Tracker::enable();
+        Tracker::enable();
         $this->assertTrue(
-            PHPUnit_Framework_Assert::readAttribute("PMA_Tracker", 'enabled')
+            PHPUnit_Framework_Assert::readAttribute('PMA\libraries\Tracker', 'enabled')
         );
     }
 
     /**
-     * Test for PMA_Tracker::isActive()
+     * Test for Tracker::isActive()
      *
      * @return void
      * @test
      */
     public function testIsActive()
     {
-        $attr = new \ReflectionProperty('PMA_Tracker', 'enabled');
+        $attr = new \ReflectionProperty('PMA\libraries\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
         $this->assertFalse(
-            PMA_Tracker::isActive()
+            Tracker::isActive()
         );
 
-        PMA_Tracker::enable();
+        Tracker::enable();
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
             'PMA_VERSION' => PMA_VERSION,
@@ -115,7 +115,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertFalse(
-            PMA_Tracker::isActive()
+            Tracker::isActive()
         );
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
@@ -126,12 +126,12 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertTrue(
-            PMA_Tracker::isActive()
+            Tracker::isActive()
         );
     }
 
     /**
-     * Test for PMA_Tracker::getTableName()
+     * Test for Tracker::getTableName()
      *
      * @param string $string   String to test against
      * @param string $expected Expected Table Name
@@ -142,7 +142,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetTableName($string, $expected)
     {
-        $reflection = new \ReflectionClass("PMA_Tracker");
+        $reflection = new \ReflectionClass('PMA\libraries\Tracker');
         $method = $reflection->getMethod("getTableName");
         $method->setAccessible(true);
 
@@ -168,43 +168,43 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::isTracked()
+     * Test for Tracker::isTracked()
      *
      * @return void
      * @test
      */
     public function testIsTracked()
     {
-        $attr = new \ReflectionProperty('PMA_Tracker', 'enabled');
+        $attr = new \ReflectionProperty('PMA\libraries\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
         $this->assertFalse(
-            PMA_Tracker::isTracked("", "")
+            Tracker::isTracked("", "")
         );
 
-        PMA_Tracker::enable();
+        Tracker::enable();
 
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
 
         $this->assertFalse(
-            PMA_Tracker::isTracked("", "")
+            Tracker::isTracked("", "")
         );
 
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = true;
 
         $this->assertTrue(
-            PMA_Tracker::isTracked("pma_test_db", "pma_test_table")
+            Tracker::isTracked("pma_test_db", "pma_test_table")
         );
 
         $this->assertFalse(
-            PMA_Tracker::isTracked("pma_test_db", "pma_test_table2")
+            Tracker::isTracked("pma_test_db", "pma_test_table2")
         );
     }
 
     /**
-     * Test for PMA_Tracker::getLogComment()
+     * Test for Tracker::getLogComment()
      *
      * @return void
      * @test
@@ -220,14 +220,14 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "# log $date pma_test_user\n",
-            PMA_Tracker::getLogComment()
+            Tracker::getLogComment()
         );
 
         tearDownForTestsUsingDate();
     }
 
     /**
-     * Test for PMA_Tracker::createVersion()
+     * Test for Tracker::createVersion()
      *
      * @return void
      * @test
@@ -350,14 +350,14 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
-            PMA_Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true)
+            Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true)
         );
 
         tearDownForTestsUsingDate();
     }
 
     /**
-     * Test for PMA_Tracker::deleteTracking()
+     * Test for Tracker::deleteTracking()
      *
      * @return void
      * @test
@@ -380,13 +380,13 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
-            PMA_Tracker::deleteTracking("testdb", "testtable"),
+            Tracker::deleteTracking("testdb", "testtable"),
             'executed'
         );
     }
 
     /**
-     * Test for PMA_Tracker::createDatabaseVersion()
+     * Test for Tracker::createDatabaseVersion()
      *
      * @return void
      * @test
@@ -432,14 +432,14 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
-            PMA_Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES')
+            Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES')
         );
 
         tearDownForTestsUsingDate();
     }
 
     /**
-     * Test for PMA_Tracker::changeTracking(). This test is also invoked by two
+     * Test for Tracker::changeTracking(). This test is also invoked by two
      * other tests: testActivateTracking() and testDeactivateTracking()
      *
      * @param string $dbname    Database name
@@ -476,7 +476,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         if ($type == null) {
-            $method = new \ReflectionMethod('PMA_Tracker', '_changeTracking');
+            $method = new \ReflectionMethod('PMA\libraries\Tracker', '_changeTracking');
             $method->setAccessible(true);
             $result = $method->invoke(
                 null,
@@ -486,9 +486,9 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                 $new_state
             );
         } elseif ($type == "activate") {
-            $result = PMA_Tracker::activateTracking($dbname, $tablename, $version);
+            $result = Tracker::activateTracking($dbname, $tablename, $version);
         } elseif ($type == "deactivate") {
-            $result = PMA_Tracker::deactivateTracking($dbname, $tablename, $version);
+            $result = Tracker::deactivateTracking($dbname, $tablename, $version);
         }
 
         $this->assertEquals(
@@ -498,7 +498,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::testChangeTrackingData()
+     * Test for Tracker::testChangeTrackingData()
      *
      * @return void
      * @test
@@ -510,7 +510,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         }
 
         $this->assertFalse(
-            PMA_Tracker::changeTrackingData("", "", "", "", "")
+            Tracker::changeTrackingData("", "", "", "", "")
         );
 
         $GLOBALS['controllink'] = null;
@@ -559,7 +559,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             true,
-            PMA_Tracker::changeTrackingData(
+            Tracker::changeTrackingData(
                 'pma_db',
                 'pma_table',
                 '1.0',
@@ -570,7 +570,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             true,
-            PMA_Tracker::changeTrackingData(
+            Tracker::changeTrackingData(
                 'pma_db',
                 'pma_table',
                 '1.0',
@@ -583,7 +583,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::activateTracking()
+     * Test for Tracker::activateTracking()
      *
      * @return void
      * @test
@@ -594,7 +594,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::deactivateTracking()
+     * Test for Tracker::deactivateTracking()
      *
      * @return void
      * @test
@@ -605,7 +605,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::getVersion()
+     * Test for Tracker::getVersion()
      *
      * @return void
      * @test
@@ -657,19 +657,19 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         // first assertion
         $this->assertEquals(
             "executed_3",
-            PMA_Tracker::getVersion("pma'db", "pma'table", "UPDATE")
+            Tracker::getVersion("pma'db", "pma'table", "UPDATE")
         );
 
         // second assertion
         runkit_constant_redefine("PMA_DRIZZLE", false);
         $this->assertEquals(
             -1,
-            PMA_Tracker::getVersion("pma'db", "pma'table", "UPDATE")
+            Tracker::getVersion("pma'db", "pma'table", "UPDATE")
         );
     }
 
     /**
-     * Test for PMA_Tracker::getTrackedData()
+     * Test for Tracker::getTrackedData()
      *
      * @param array $fetchArrayReturn Value to be returned by mocked fetchArray
      * @param array $expectedArray    Expected array
@@ -703,7 +703,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($fetchArrayReturn));
 
         $GLOBALS['dbi'] = $dbi;
-        $result = PMA_Tracker::getTrackedData("pma'db", "pma'table", "1.0");
+        $result = Tracker::getTrackedData("pma'db", "pma'table", "1.0");
 
         $this->assertEquals(
             $expectedArray,
@@ -796,7 +796,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::parseQuery
+     * Test for Tracker::parseQuery
      *
      * @param string $query                  Query to parse
      * @param string $type                   Expected type
@@ -813,7 +813,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     public function testParseQuery($query, $type, $identifier, $tablename,
         $db = null, $tablename_after_rename = null
     ) {
-        $result = PMA_Tracker::parseQuery($query);
+        $result = Tracker::parseQuery($query);
 
         $this->assertEquals(
             $type,
@@ -991,7 +991,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::_transformTrackingSet
+     * Test for Tracker::_transformTrackingSet
      *
      * @return void
      * @test
@@ -1004,7 +1004,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         runkit_constant_redefine("PMA_DRIZZLE", true);
 
-        $method = new \ReflectionMethod("PMA_Tracker", "_transformTrackingSet");
+        $method = new \ReflectionMethod('PMA\libraries\Tracker', "_transformTrackingSet");
         $method->setAccessible(true);
 
         $this->assertEquals(

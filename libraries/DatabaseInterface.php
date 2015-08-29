@@ -252,8 +252,8 @@ class DatabaseInterface
             $this->_dbgQuery($query, $link, $result, $time);
         }
 
-        if ((!empty($result)) && (PMA_Tracker::isActive())) {
-            PMA_Tracker::handleQuery($query);
+        if ((!empty($result)) && (Tracker::isActive())) {
+            Tracker::handleQuery($query);
         }
 
         return $result;

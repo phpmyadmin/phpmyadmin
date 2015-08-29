@@ -6,12 +6,12 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/config/Form.class.php';
 require_once 'libraries/Util.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
@@ -34,7 +34,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();

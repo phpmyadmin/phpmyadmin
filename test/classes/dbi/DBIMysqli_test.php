@@ -8,7 +8,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/Util.php';
 require_once 'libraries/relation.lib.php';
@@ -17,7 +17,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/dbi/DBIMysqli.class.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 
 /**
  * Tests for PMA_DBI_Mysqli class
@@ -48,8 +48,8 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
         $this->object = new PMA_DBI_Mysqli();
     }
 

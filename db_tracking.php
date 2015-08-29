@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_Tracker;
+use PMA\libraries\Tracker;
 
 /**
  * Run common work
@@ -47,7 +47,7 @@ list(
 //  (here, do not use $_REQUEST['db] as it can be crafted)
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 
-    PMA_Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
+    Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
     PMA\libraries\Message::success(
         __('Tracking data deleted successfully.')
     )->display();
@@ -71,7 +71,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
         if ($_REQUEST['submit_mult'] == 'delete_tracking') {
 
             foreach ($_REQUEST['selected_tbl'] as $table) {
-                PMA_Tracker::deleteTracking($GLOBALS['db'], $table);
+                Tracker::deleteTracking($GLOBALS['db'], $table);
             }
             PMA\libraries\Message::success(
                 __('Tracking data deleted successfully.')
@@ -95,7 +95,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 }
 
 // Get tracked data about the database
-$data = PMA_Tracker::getTrackedData($_REQUEST['db'], '', '1');
+$data = Tracker::getTrackedData($_REQUEST['db'], '', '1');
 
 // No tables present and no log exist
 if ($num_tables == 0 && count($data['ddlog']) == 0) {

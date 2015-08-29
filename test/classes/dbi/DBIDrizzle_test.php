@@ -8,7 +8,7 @@
 /*
  * Include to test and mock Drizzle class.
  */
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 /**
  * Drizzle for Mock drizzle class
@@ -38,7 +38,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/dbi/DBIDrizzle.class.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 
 /**
  * Tests for PMA_DBI_Drizzle class
@@ -74,8 +74,8 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         $this->object = new PMA_DBI_Drizzle();
     }

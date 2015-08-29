@@ -1,5 +1,5 @@
 <?php
-use PMA\libraries\PMA_Tracker;
+use PMA\libraries\Tracker;
 
 ?>
 <a href="#" id="printView"><?php echo PMA\libraries\Util::getIcon('b_print.png', __('Print view'), true); ?></a>
@@ -17,7 +17,7 @@ use PMA\libraries\PMA_Tracker;
         </a>
         <?php echo PMA\libraries\Util::showMySQLDocu('procedure_analyse'); ?>
     <?php endif; ?>
-    <?php if (PMA_Tracker::isActive()): ?>
+    <?php if (Tracker::isActive()): ?>
         <a href="tbl_tracking.php<?php echo $url_query; ?>">
             <?php echo PMA\libraries\Util::getIcon('eye.png', __('Track table'), true); ?>
         </a>
@@ -30,7 +30,7 @@ use PMA\libraries\PMA_Tracker;
     </a>
 <?php endif; ?>
 <?php if ($tbl_is_view && ! $db_is_system_schema): ?>
-    <?php if (PMA_Tracker::isActive()): ?>
+    <?php if (Tracker::isActive()): ?>
         <a href="tbl_tracking.php<?php echo $url_query; ?>">
             <?php echo PMA\libraries\Util::getIcon('eye.png', __('Track view'), true); ?>
         </a>

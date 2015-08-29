@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA_Theme class
+ * hold Theme class
  *
  * @package PhpMyAdmin
  */
@@ -16,7 +16,7 @@ namespace PMA\libraries;
  *
  * @package PhpMyAdmin
  */
-class PMA_Theme
+class Theme
 {
     /**
      * @var string theme version
@@ -120,13 +120,13 @@ class PMA_Theme
      *
      * @param string $folder path to theme
      *
-     * @return PMA_Theme|false
+     * @return Theme|false
      * @static
      * @access public
      */
     static public function load($folder)
     {
-        $theme = new PMA_Theme();
+        $theme = new Theme();
 
         $theme->setPath($folder);
 
@@ -155,7 +155,7 @@ class PMA_Theme
 
         // try fallback theme
         $fallback = $GLOBALS['cfg']['ThemePath'] . '/'
-            . PMA_Theme_Manager::FALLBACK_THEME
+            . ThemeManager::FALLBACK_THEME
             . '/img/';
         if (is_dir($fallback)) {
             $this->setImgPath($fallback);
@@ -328,7 +328,7 @@ class PMA_Theme
         }
 
         return $GLOBALS['cfg']['ThemePath'] . '/'
-            . PMA_Theme_Manager::FALLBACK_THEME . '/img/' . $file;
+            . ThemeManager::FALLBACK_THEME . '/img/' . $file;
     }
 
     /**
@@ -352,7 +352,7 @@ class PMA_Theme
         foreach ($this->_cssFiles as $file) {
             $path = $this->getPath() . "/css/$file.css.php";
             $fallback = "./themes/"
-                . PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
+                . ThemeManager::FALLBACK_THEME .  "/css/$file.css.php";
 
             if (is_readable($path)) {
                 echo "\n/* FILE: $file.css.php */\n";

@@ -6,14 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
 
 require_once 'libraries/plugins/auth/AuthenticationCookie.class.php';
 require_once 'libraries/Util.php';
 require_once 'libraries/Message.php';
-require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme.php';
 require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
@@ -54,8 +54,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table';
         $this->object = new AuthenticationCookie();
 
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

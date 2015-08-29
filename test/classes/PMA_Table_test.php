@@ -10,7 +10,7 @@
  * Include to test.
  */
 use PMA\libraries\Table;
-use PMA\libraries\PMA_Theme;
+use PMA\libraries\Theme;
 
 require_once 'libraries/Table.php';
 require_once 'libraries/mysql_charsets.lib.php';
@@ -18,8 +18,8 @@ require_once 'libraries/Util.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Theme.php';
+require_once 'libraries/Tracker.php';
 require_once 'libraries/relation.lib.php';
 
 /**
@@ -51,7 +51,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();

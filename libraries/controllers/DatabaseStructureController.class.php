@@ -10,7 +10,7 @@
 namespace PMA\Controllers;
 
 use PMA\libraries\Message;
-use PMA\libraries\PMA_Tracker;
+use PMA\libraries\Tracker;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
@@ -443,10 +443,10 @@ class DatabaseStructureController extends DatabaseController
             }
 
             $tracking_icon = '';
-            if (PMA_Tracker::isActive()) {
-                $is_tracked = PMA_Tracker::isTracked($GLOBALS["db"], $truename);
+            if (Tracker::isActive()) {
+                $is_tracked = Tracker::isTracked($GLOBALS["db"], $truename);
                 if ($is_tracked
-                    || PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0
+                    || Tracker::getVersion($GLOBALS["db"], $truename) > 0
                 ) {
                     $tracking_icon = Template::get(
                         'database/structure/tracking_icon'

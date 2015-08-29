@@ -16,7 +16,7 @@ use ExportSql;
  *
  * @todo use stristr instead of strstr
  */
-class PMA_Tracker
+class Tracker
 {
     /**
      * Whether tracking is ready.

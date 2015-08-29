@@ -1024,7 +1024,7 @@ class Config
         // in frames
 
         // save theme
-        /** @var PMA_Theme_Manager $tmanager */
+        /** @var ThemeManager $tmanager */
         $tmanager = $_SESSION['PMA_Theme_Manager'];
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if ((! isset($config_data['ThemeDefault'])
