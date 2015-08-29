@@ -15,7 +15,7 @@ namespace PMA\libraries;
  * @subpackage Native
  * @todo       May be join this class with PMA_StringNative class
  */
-class StringNativeType extends StringAbstractType
+class StringNativeType extends StringTypeAbstract
 {
     /**
      * Checks if a character is an alphanumeric one

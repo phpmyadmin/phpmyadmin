@@ -16,7 +16,7 @@ namespace PMA\libraries;
  * @package    PhpMyAdmin-String
  * @subpackage CType
  */
-class StringCType extends StringAbstractType
+class StringCType extends StringTypeAbstract
 {
     /**
      * Checks if a character is an alphanumeric one
