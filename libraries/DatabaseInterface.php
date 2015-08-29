@@ -7,8 +7,6 @@
  */
 namespace PMA\libraries;
 
-use PMA\SystemDatabase;
-
 require_once './libraries/logging.lib.php';
 require_once './libraries/util.lib.php';
 

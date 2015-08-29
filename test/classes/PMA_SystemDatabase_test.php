@@ -64,7 +64,7 @@ class PMA_SystemDatabaseTest extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $this->sysDb = new PMA\SystemDatabase($dbi);
+        $this->sysDb = new PMA\libraries\SystemDatabase($dbi);
     }
 
     /**
