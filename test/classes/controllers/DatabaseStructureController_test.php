@@ -348,7 +348,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testSynchronizeFavoriteTables()
     {
-        $fav_instance = $this->getMockBuilder('RecentFavoriteTable')
+        $fav_instance = $this->getMockBuilder('PMA\libraries\RecentFavoriteTable')
             ->disableOriginalConstructor()
             ->getMock();
         $fav_instance->expects($this->at(1))->method('getTables')
