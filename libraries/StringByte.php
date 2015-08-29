@@ -10,7 +10,7 @@
  *
  * @package PhpMyAdmin-String
  */
-interface PMA_StringByte
+interface StringByte
 {
     /**
      * Returns length of string depending on current charset.

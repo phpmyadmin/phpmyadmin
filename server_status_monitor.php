@@ -6,11 +6,11 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/ServerStatusData.class.php';
+require_once 'libraries/ServerStatusData.php';
 require_once 'libraries/server_status_monitor.lib.php';
 
 if (PMA_DRIZZLE) {
@@ -100,7 +100,7 @@ $scripts->addFile('server_status_sorter.js');
 /**
  * start output
  */
-$ServerStatusData = new PMA_ServerStatusData();
+$ServerStatusData = new ServerStatusData();
 
 /**
  * Output

@@ -8,7 +8,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\ServerStatusData;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns the html content for the query statistics
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -70,7 +70,7 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
 /**
  * Returns the html content for the query details
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */

@@ -7,20 +7,20 @@
  */
 namespace PMA\libraries;
 
-use PMA_StringType;
+use StringType;
 
-require_once 'libraries/StringType.int.php';
-require_once 'libraries/StringByte.int.php';
+require_once 'libraries/StringType.php';
+require_once 'libraries/StringByte.php';
 /**
  * Specialized string class for phpMyAdmin.
  * The SQL Parser code relies heavily on these functions.
  *
  * @package PhpMyAdmin-String
  */
-class PMA_String implements PMA_StringType
+class String implements StringType
 {
     /**
-     * @var PMA_StringType
+     * @var StringType
      */
     private $_type;
 
@@ -30,11 +30,11 @@ class PMA_String implements PMA_StringType
     public function __construct()
     {
         if (@extension_loaded('ctype')) {
-            include_once 'libraries/StringCType.class.php';
-            $this->_type = new PMA_StringCType();
+            include_once 'libraries/StringCType.php';
+            $this->_type = new StringCType();
         } else {
-            include_once 'libraries/StringNativeType.class.php';
-            $this->_type = new PMA_StringNativeType();
+            include_once 'libraries/StringNativeType.php';
+            $this->_type = new StringNativeType();
         }
     }
 

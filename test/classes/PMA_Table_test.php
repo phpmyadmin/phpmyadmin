@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Table.class.php
+ * Tests for Table.php
  *
  * @package PhpMyAdmin-test
  */
@@ -9,10 +9,10 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 use PMA\libraries\PMA_Theme;
 
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/Util.php';
 require_once 'libraries/database_interface.inc.php';
@@ -23,7 +23,7 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
 
 /**
- * Tests behaviour of PMA_Table class
+ * Tests behaviour of Table class
  *
  * @package PhpMyAdmin-test
  */
@@ -297,8 +297,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testCreate()
     {
-        $table = new PMA_Table('table1', 'pma_test');
-        $this->assertInstanceOf('PMA_Table', $table);
+        $table = new Table('table1', 'pma_test');
+        $this->assertInstanceOf('PMA\libraries\Table', $table);
     }
 
     /**
@@ -308,7 +308,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-        $table = new PMA_Table("PMA_BookMark", "PMA");
+        $table = new Table("PMA_BookMark", "PMA");
         $this->assertEquals(
             'PMA_BookMark',
             $table->__toString()
@@ -334,7 +334,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetName()
     {
-        $table = new PMA_Table('table1', 'pma_test');
+        $table = new Table('table1', 'pma_test');
         $this->assertEquals(
             "table1",
             $table->getName()
@@ -360,7 +360,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetLastErrorAndMessage()
     {
-        $table = new PMA_Table('table1', 'pma_test');
+        $table = new Table('table1', 'pma_test');
         $table->errors[] = "error1";
         $table->errors[] = "error2";
         $table->errors[] = "error3";
@@ -393,7 +393,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $result,
-            PMA_Table::isValidName($name)
+            Table::isValidName($name)
         );
     }
 
@@ -419,20 +419,20 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testIsView()
     {
-        $table = new PMA_Table(null, null);
+        $table = new Table(null, null);
         $this->assertEquals(
             false,
             $table->isView()
         );
 
         //validate that it is the same as DBI fetchResult
-        $table = new PMA_Table('PMA_BookMark', 'PMA');
+        $table = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             true,
             $table->isView()
         );
 
-        $table = new PMA_Table('PMA_BookMark_2', 'PMA');
+        $table = new Table('PMA_BookMark_2', 'PMA');
         $this->assertEquals(
             false,
             $table->isView()
@@ -461,7 +461,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $expression = '';
         $move_to = '-first';
 
-        $query = PMA_Table::generateFieldSpec(
+        $query = Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
             $virtuality, $expression, $move_to
@@ -474,7 +474,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 
         //type is DOUBLE
         $type = "DOUBLE";
-        $query = PMA_Table::generateFieldSpec(
+        $query = Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
             $virtuality, $expression, $move_to
@@ -487,7 +487,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 
         //type is BOOLEAN
         $type = "BOOLEAN";
-        $query = PMA_Table::generateFieldSpec(
+        $query = Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
             $virtuality, $expression, $move_to
@@ -500,7 +500,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 
         //$default_type is NULL
         $default_type = 'NULL';
-        $query = PMA_Table::generateFieldSpec(
+        $query = Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
             $virtuality, $expression, $move_to
@@ -513,7 +513,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 
         //$default_type is CURRENT_TIMESTAMP
         $default_type = 'CURRENT_TIMESTAMP';
-        $query = PMA_Table::generateFieldSpec(
+        $query = Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
             $virtuality, $expression, $move_to
@@ -528,7 +528,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $default_type = 'NONE';
         $extra = 'INCREMENT';
         $move_to = '-first';
-        $query = PMA_Table::generateFieldSpec(
+        $query = Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
             $virtuality, $expression, $move_to
@@ -557,7 +557,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation']['db'] = "PMA_db";
         $GLOBALS['cfgRelation'][$pma_table] = "pma_table";
 
-        $ret = PMA_Table::duplicateInfo(
+        $ret = Table::duplicateInfo(
             $work, $pma_table, $get_fields, $where_fields, $new_fields
         );
         $this->assertEquals(
@@ -572,20 +572,20 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testIsUpdatableView()
     {
-        $table = new PMA_Table(null, null);
+        $table = new Table(null, null);
         $this->assertEquals(
             false,
             $table->isUpdatableView()
         );
 
         //validate that it is the same as DBI fetchResult
-        $table = new PMA_Table('PMA_BookMark', 'PMA');
+        $table = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             true,
             $table->isUpdatableView()
         );
 
-        $table = new PMA_Table('PMA_BookMark_2', 'PMA');
+        $table = new Table('PMA_BookMark_2', 'PMA');
         $this->assertEquals(
             false,
             $table->isUpdatableView()
@@ -599,7 +599,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testIsMergeCase1()
     {
-        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             '',
             $tableObj->isMerge()
@@ -608,7 +608,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
             ->will($this->returnValue(array('table_name' => "PMA_BookMark")));
-        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             false,
             $tableObj->isMerge()
@@ -630,7 +630,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->method('getCachedTableContent')
             ->will($this->returnValueMap($map));
 
-        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             true,
             $tableObj->isMerge()
@@ -652,7 +652,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->method('getCachedTableContent')
             ->will($this->returnValueMap($map));
 
-        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             true,
             $tableObj->isMerge()
@@ -674,7 +674,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->method('getCachedTableContent')
             ->will($this->returnValueMap($map));
 
-        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
+        $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             false,
             $tableObj->isMerge()
@@ -704,7 +704,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $expression = '';
         $move_to = 'new_name';
 
-        $result = PMA_Table::generateAlter(
+        $result = Table::generateAlter(
             $oldcol, $newcol, $type, $length,
             $attribute, $collation, $null, $default_type, $default_value,
             $extra, $comment, $virtuality, $expression, $move_to
@@ -737,7 +737,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new PMA_Table($table, $db);
+        $table = new Table($table, $db);
 
         //rename to same name
         $table_new = 'PMA_BookMark';
@@ -795,7 +795,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new PMA_Table($table, $db);
+        $table = new Table($table, $db);
         $return = $table->getUniqueColumns();
         $expect = array(
             '`PMA`.`PMA_BookMark`.`index1`',
@@ -818,7 +818,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new PMA_Table($table, $db);
+        $table = new Table($table, $db);
         $return = $table->getIndexedColumns();
         $expect = array(
             '`PMA`.`PMA_BookMark`.`column1`',
@@ -857,7 +857,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $tableObj = new PMA_Table('table', 'db');
+        $tableObj = new Table('table', 'db');
 
         $this->assertEquals(
             $tableObj->getColumnsMeta(),
@@ -879,10 +879,10 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $foreignTable = "foreignTable";
         $foreignField = array("foreignField1", "foreignField2");
 
-        $class = new ReflectionClass('PMA_Table');
+        $class = new ReflectionClass('PMA\libraries\Table');
         $method = $class->getMethod('_getSQLToCreateForeignKey');
         $method->setAccessible(true);
-        $tableObj = new PMA_Table('PMA_table', 'db');
+        $tableObj = new Table('PMA_table', 'db');
 
         $sql = $method->invokeArgs(
             $tableObj, array(
@@ -917,7 +917,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 
         $_REQUEST['old_index'] = "PRIMARY";
 
-        $table = new PMA_Table($table, $db);
+        $table = new Table($table, $db);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
 
         $this->assertEquals(
@@ -936,7 +936,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new PMA_Table($table, $db);
+        $table = new Table($table, $db);
         $return = $table->getColumns();
         $expect = array(
             '`PMA`.`PMA_BookMark`.`column1`',
@@ -984,7 +984,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 
         $table = 'PMA_BookMark';
         $db = 'PMA';
-        $tableObj = new PMA_Table($table, $db);
+        $tableObj = new Table($table, $db);
 
         $return = $tableObj->countRecords(true);
         $expect = 20;
@@ -1004,9 +1004,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $table_name = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new PMA_Table($table_name, $db);
+        $table = new Table($table_name, $db);
 
-        $property = PMA_Table::PROP_COLUMN_ORDER;
+        $property = Table::PROP_COLUMN_ORDER;
         $value = "UiProp_value";
         $table_create_time = null;
         $table->setUiProp($property, $value, $table_create_time);
@@ -1049,11 +1049,11 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $mode = "one_table";
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValue(new PMA_Table($target_table, $target_db)));
+            ->will($this->returnValue(new Table($target_table, $target_db)));
 
         $_REQUEST['drop_if_exists'] = true;
 
-        $return = PMA_Table::moveCopy(
+        $return = Table::moveCopy(
             $source_db, $source_table, $target_db,
             $target_table, $what, $move, $mode
         );
@@ -1076,7 +1076,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['sql_query']
         );
 
-        $return = PMA_Table::moveCopy(
+        $return = Table::moveCopy(
             $source_db, $source_table, $target_db,
             $target_table, $what, false, $mode
         );
@@ -1102,7 +1102,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 }
 
 /**
- * Tests behaviour of PMA_Table class with Runkit and PMA_Drizzle = false
+ * Tests behaviour of Table class with Runkit and PMA_Drizzle = false
  *
  * @package PhpMyAdmin-test
  */

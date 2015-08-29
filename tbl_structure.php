@@ -18,7 +18,7 @@ require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableStructureController.class.php';
-require_once 'libraries/Response.class.php';
+require_once 'libraries/Response.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\TableStructureController');

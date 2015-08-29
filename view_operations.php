@@ -5,14 +5,14 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 /**
  *
  */
 require_once './libraries/common.inc.php';
 
-$pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+$pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
 /**
  * functions implementation for this script

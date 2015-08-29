@@ -10,8 +10,8 @@
 use PMA\libraries\Message;
 use PMA\libraries\Partition;
 use PMA\libraries\Response;
-use PMA\libraries\PMA_StorageEngine;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\StorageEngine;
+use PMA\libraries\Table;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -400,7 +400,7 @@ function PMA_createDbBeforeCopy()
         $GLOBALS['dbi']->query($sql_set_mode);
     }
 
-    // rebuild the database list because PMA_Table::moveCopy
+    // rebuild the database list because Table::moveCopy
     // checks in this list if the target db exists
     $GLOBALS['pma']->databases->build();
 }
@@ -488,7 +488,7 @@ function PMA_copyTables($tables_full, $move, $db)
             //  for importing via the mysql client or our Import feature)
             $triggers = $GLOBALS['dbi']->getTriggers($db, $each_table, '');
 
-            if (! PMA_Table::moveCopy(
+            if (! Table::moveCopy(
                 $db, $each_table, $_REQUEST['newname'], $each_table,
                 (isset($this_what) ? $this_what : 'data'),
                 $move, 'db_copy'
@@ -566,7 +566,7 @@ function PMA_handleTheViews($views, $move, $db)
 
     $_REQUEST['drop_if_exists'] = 'true';
     foreach ($views as $view) {
-        $copying_succeeded = PMA_Table::moveCopy(
+        $copying_succeeded = Table::moveCopy(
             $db, $view, $_REQUEST['newname'], $view, 'structure', $move, 'db_copy'
         );
         if (! $copying_succeeded) {
@@ -772,7 +772,7 @@ function PMA_duplicateBookmarks($_error, $db)
         $get_fields = array('user', 'label', 'query');
         $where_fields = array('dbase' => $db);
         $new_fields = array('dbase' => $_REQUEST['newname']);
-        PMA_Table::duplicateInfo(
+        Table::duplicateInfo(
             'bookmarkwork', 'bookmark', $get_fields,
             $where_fields, $new_fields
         );
@@ -1078,7 +1078,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '&nbsp;' . PMA\libraries\Util::showMySQLDocu('Storage_engines')
         . '</td>'
         . '<td>'
-        . PMA_StorageEngine::getHtmlSelect(
+        . StorageEngine::getHtmlSelect(
             'new_tbl_storage_engine', null, $tbl_storage_engine
         )
         . '</td>'
@@ -1232,7 +1232,7 @@ function PMA_getPossibleRowFormat()
     );
 
     /** @var PMA_StorageEngine_Innodb $innodbEnginePlugin */
-    $innodbEnginePlugin = PMA_StorageEngine::getEngine('innodb');
+    $innodbEnginePlugin = StorageEngine::getEngine('innodb');
     $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
     if (!empty($innodbPluginVersion)) {
         $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat();
@@ -2117,7 +2117,7 @@ function PMA_moveOrCopyTable($db, $table)
                 $message = Message::error(__('Can\'t copy table to same one!'));
             }
         } else {
-            PMA_Table::moveCopy(
+            Table::moveCopy(
                 $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
                 $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
             );

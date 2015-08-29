@@ -20,7 +20,7 @@ require_once 'libraries/Message.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/Message.php';
-require_once 'libraries/Response.class.php';
+require_once 'libraries/Response.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
 require_once 'libraries/server_privileges.lib.php';

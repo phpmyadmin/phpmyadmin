@@ -11,15 +11,15 @@ namespace PMA\Controllers\Table;
 require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/index.lib.php';
-require_once 'libraries/Template.class.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Template.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/Index.php';
 require_once 'libraries/Util.php';
 
 use PMA\Controllers\TableController;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Index;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 
@@ -61,7 +61,7 @@ class TableRelationController extends TableController
     protected $existrel_foreign;
 
     /**
-     * @var PMA_Table $udp_query
+     * @var Table $udp_query
      */
     protected $upd_query;
 

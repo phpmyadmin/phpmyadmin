@@ -9,7 +9,7 @@ namespace PMA\libraries;
 
 use Traversable;
 
-require_once 'libraries/Scripts.class.php';
+require_once 'libraries/Scripts.php';
 
 /**
  * Class used to output the footer
@@ -19,10 +19,10 @@ require_once 'libraries/Scripts.class.php';
 class Footer
 {
     /**
-     * PMA_Scripts instance
+     * Scripts instance
      *
      * @access private
-     * @var PMA_Scripts
+     * @var Scripts
      */
     private $_scripts;
     /**
@@ -56,7 +56,7 @@ class Footer
     public function __construct()
     {
         $this->_isEnabled = true;
-        $this->_scripts   = new PMA_Scripts();
+        $this->_scripts   = new Scripts();
         $this->_isMinimal = false;
     }
 
@@ -287,9 +287,9 @@ class Footer
     }
 
     /**
-     * Returns the PMA_Scripts object
+     * Returns the Scripts object
      *
-     * @return PMA_Scripts object
+     * @return Scripts object
      */
     public function getScripts()
     {

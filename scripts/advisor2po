@@ -55,7 +55,7 @@ if (!file_exists('./libraries/Advisor.class.php')) {
 }
 include './libraries/String.class.php';
 
-$GLOBALS['PMA_String'] = new PMA_String();
+$GLOBALS['PMA_String'] = new String();
 
 include './libraries/Advisor.class.php';
 

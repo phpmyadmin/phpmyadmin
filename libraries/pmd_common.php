@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Designer
  */
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 /**
  * Block attempts to directly run this script
@@ -500,7 +500,7 @@ function PMA_saveDisplayField($db, $table, $field)
         $field = '';
     }
 
-    $upd_query = new PMA_Table($table, $db, $GLOBALS['dbi']);
+    $upd_query = new Table($table, $db, $GLOBALS['dbi']);
     $upd_query->updateDisplayField($disp, $field, $cfgRelation);
 
     return true;

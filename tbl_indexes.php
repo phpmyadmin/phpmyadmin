@@ -14,7 +14,7 @@ use PMA\libraries\Response;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableIndexesController.class.php';
-require_once 'libraries/Response.class.php';
+require_once 'libraries/Response.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\Table\TableIndexesController');

@@ -7,7 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -143,7 +143,7 @@ $views = $GLOBALS['dbi']->getVirtualTables($db);
 if (!empty($submit_mult) && !empty($what)) {
     unset($message);
 
-    /** @var PMA_String $pmaString */
+    /** @var String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
     if (/*overload*/mb_strlen($table)) {
         include './libraries/tbl_common.inc.php';

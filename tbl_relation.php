@@ -20,14 +20,14 @@
 namespace PMA;
 
 use PMA\libraries\Response;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 use PMA\libraries\Util;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableRelationController.class.php';
-require_once 'libraries/Response.class.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Response.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/Util.php';
 
 $container = DI\Container::getDefaultContainer();
@@ -53,7 +53,7 @@ $tbl_storage_engine = /*overload*/
     mb_strtoupper(
         $GLOBALS['dbi']->getTable($db, $table)->getStatusInfo('Engine')
     );
-$upd_query = new PMA_Table($table, $db, $dbi);
+$upd_query = new Table($table, $db, $dbi);
 
 $dependency_definitions = array(
     "options_array" => $options_array,

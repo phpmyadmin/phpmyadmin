@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_SavedSearches;
+use PMA\libraries\SavedSearches;
 
 /**
  * requirements
@@ -23,13 +23,13 @@ $savedSearchList = array();
 $savedSearch = null;
 $currentSearchId = null;
 if ($cfgRelation['savedsearcheswork']) {
-    include 'libraries/SavedSearches.class.php';
+    include 'libraries/SavedSearches.php';
     $header = $response->getHeader();
     $scripts = $header->getScripts();
     $scripts->addFile('db_qbe.js');
 
     //Get saved search list.
-    $savedSearch = new PMA_SavedSearches($GLOBALS);
+    $savedSearch = new SavedSearches($GLOBALS);
     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
         ->setDbname($_REQUEST['db']);
 
@@ -50,14 +50,14 @@ if ($cfgRelation['savedsearcheswork']) {
         } elseif ('delete' === $_REQUEST['action']) {
             $deleteResult = $savedSearch->delete();
             //After deletion, reset search.
-            $savedSearch = new PMA_SavedSearches($GLOBALS);
+            $savedSearch = new SavedSearches($GLOBALS);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($_REQUEST['db']);
             $_REQUEST = array();
         } elseif ('load' === $_REQUEST['action']) {
             if (empty($_REQUEST['searchId'])) {
                 //when not loading a search, reset the object.
-                $savedSearch = new PMA_SavedSearches($GLOBALS);
+                $savedSearch = new SavedSearches($GLOBALS);
                 $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                     ->setDbname($_REQUEST['db']);
                 $_REQUEST = array();

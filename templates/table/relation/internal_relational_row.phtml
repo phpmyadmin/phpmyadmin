@@ -1,5 +1,5 @@
 <?php
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 $myfield = $save_row[$i]['Field'];
 // Use an md5 as array index to avoid having special characters
@@ -39,7 +39,7 @@ if ($foreign_db && $foreign_table) {
     if (isset($existrel[$myfield])) {
         $foreign_column = $existrel[$myfield]['foreign_field'];
     }
-    $table_obj = new PMA_Table($foreign_table, $foreign_db);
+    $table_obj = new Table($foreign_table, $foreign_db);
     $columns = $table_obj->getUniqueColumns(false, false);
 }
 ?>

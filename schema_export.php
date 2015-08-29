@@ -10,7 +10,7 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require 'libraries/StorageEngine.class.php';
+require 'libraries/StorageEngine.php';
 
 /**
  * get all variables needed for exporting relational schema

@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 $GLOBALS['db'] = 'db';
 require_once 'libraries/plugins/export/ExportXml.class.php';
@@ -13,7 +13,7 @@ require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/Util.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/Config.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
@@ -349,7 +349,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'd<"b')));
+            ->will($this->returnValue(new Table('table', 'd<"b')));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -454,7 +454,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'd<"b')));
+            ->will($this->returnValue(new Table('table', 'd<"b')));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -547,7 +547,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'd<b')));
+            ->will($this->returnValue(new Table('table', 'd<b')));
 
         $GLOBALS['dbi'] = $dbi;
 

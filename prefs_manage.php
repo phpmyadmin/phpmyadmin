@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -175,7 +175,7 @@ if (isset($_POST['submit_export'])
                 $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
                 $return_url = parse_url($return_url, PHP_URL_PATH);
 
-                /** @var PMA_String $pmaString */
+                /** @var String $pmaString */
                 $pmaString = $GLOBALS['PMA_String'];
 
                 foreach ($query as $q) {

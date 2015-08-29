@@ -11,7 +11,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 /**
  * Gets some core libraries
@@ -422,7 +422,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     );
 
     /**Get the total row count of the table*/
-    $_table = new PMA_Table($_REQUEST['table'], $_REQUEST['db']);
+    $_table = new Table($_REQUEST['table'], $_REQUEST['db']);
     $extra_data['row_count'] = $_table->countRecords();
 
     $extra_data['sql_query']

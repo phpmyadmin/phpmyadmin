@@ -8,7 +8,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\ServerStatusData;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Prints html with monitor
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -288,7 +288,7 @@ function PMA_getHtmlForSettingsDialog()
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';
     $retval .= __('Refresh rate') . '<br />';
-    $retval .= PMA_ServerStatusData::getHtmlForRefreshList(
+    $retval .= ServerStatusData::getHtmlForRefreshList(
         'gridChartRefresh',
         5,
         Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
@@ -337,7 +337,7 @@ function PMA_getHtmlForSettingsDialog()
 /**
  * Define some data and links needed on the client side
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */

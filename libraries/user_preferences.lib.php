@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/Template.class.php';
+require_once './libraries/Template.php';
 
 /**
  * Common initialization for user preferences modification pages

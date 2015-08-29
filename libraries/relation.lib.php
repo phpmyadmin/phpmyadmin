@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
 use SqlParser\Statements\CreateStatement;
 
@@ -370,7 +370,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
                 'Re-login to phpMyAdmin to load the updated configuration file.'
             );
 
-            include_once './libraries/Template.class.php';
+            include_once './libraries/Template.php';
             $retval .= PMA\libraries\Template::get('list/unordered')->render(
                 array('items' => $items,)
             );
@@ -739,7 +739,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 
     if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)
     ) {
-        $tableObj = new PMA_Table($table, $db);
+        $tableObj = new Table($table, $db);
         $show_create_table = $tableObj->showCreate();
         if ($show_create_table) {
             $parser = new SqlParser\Parser($show_create_table);

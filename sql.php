@@ -12,7 +12,7 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/Header.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';

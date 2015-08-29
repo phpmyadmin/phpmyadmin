@@ -8,7 +8,7 @@
  */
 
 use PMA\libraries\Message;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -627,7 +627,7 @@ function PMA_exportDatabase(
     $views = array();
 
     foreach ($tables as $table) {
-        $_table = new PMA_Table($table, $db);
+        $_table = new Table($table, $db);
         // if this is a view, collect it for later;
         // views must be exported after the tables
         $is_view = $_table->isView();
@@ -822,7 +822,7 @@ function PMA_exportTable(
         $add_query  = '';
     }
 
-    $_table = new PMA_Table($table, $db);
+    $_table = new Table($table, $db);
     $is_view = $_table->isView();
     if ($whatStrucOrData == 'structure'
         || $whatStrucOrData == 'structure_and_data'

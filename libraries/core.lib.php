@@ -8,7 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -18,8 +18,8 @@ if (! defined('PHPMYADMIN')) {
  * String handling (security)
  */
 require_once 'libraries/string.lib.php';
-require_once 'libraries/String.class.php';
-$PMA_String = new PMA_String();
+require_once 'libraries/String.php';
+$PMA_String = new String();
 
 /**
  * checks given $var and returns it if valid, or $default of not valid
@@ -593,7 +593,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();
 
-        include_once './libraries/Template.class.php';
+        include_once './libraries/Template.php';
 
         echo PMA\libraries\Template::get('header_location')
             ->render(array('uri' => $uri));

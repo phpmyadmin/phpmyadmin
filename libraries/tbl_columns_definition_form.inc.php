@@ -6,8 +6,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\String;
+use PMA\libraries\Table;
 use PMA\Util;
 
 if (!defined('PHPMYADMIN')) {
@@ -18,7 +18,7 @@ if (!defined('PHPMYADMIN')) {
  * Check parameters
  */
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/Template.class.php';
+require_once 'libraries/Template.php';
 require_once 'libraries/util.lib.php';
 
 PMA\libraries\Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
@@ -42,14 +42,14 @@ if (!isset($columnMeta)) {
 
 // Get available character sets and storage engines
 require_once './libraries/mysql_charsets.inc.php';
-require_once './libraries/StorageEngine.class.php';
+require_once './libraries/StorageEngine.php';
 
 /**
  * Class for partition management
  */
 require_once './libraries/Partition.php';
 
-/** @var PMA_String $pmaString */
+/** @var String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
 
 $length_values_input_size = 8;
@@ -240,7 +240,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
         );
         if (in_array($columnMeta['Extra'], $virtual)) {
-            $tableObj = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
             $expressions = $tableObj->getColumnGenerationExpression(
                 $columnMeta['Field']
             );

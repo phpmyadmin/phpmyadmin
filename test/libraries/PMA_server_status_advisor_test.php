@@ -9,14 +9,14 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\ServerStatusData;
 use PMA\libraries\PMA_Theme;
 
 require_once 'libraries/Util.php';
 require_once 'libraries/Advisor.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/ServerStatusData.class.php';
+require_once 'libraries/ServerStatusData.php';
 require_once 'libraries/server_status_advisor.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
@@ -80,7 +80,7 @@ class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when PMA_ServerStatusData constructs
+        //this data is needed when ServerStatusData constructs
         $server_status = array(
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
@@ -130,7 +130,7 @@ class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->ServerStatusData = new PMA_ServerStatusData();
+        $this->ServerStatusData = new ServerStatusData();
     }
 
     /**

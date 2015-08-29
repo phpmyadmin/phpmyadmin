@@ -10,7 +10,7 @@
  * Include to test.
  */
 
-require_once 'libraries/StorageEngine.class.php';
+require_once 'libraries/StorageEngine.php';
 require_once 'libraries/engines/pbxt.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.php';

@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -56,7 +56,7 @@ function PMA_buildColumnCreationStatement(
         }
 
         $definition = PMA_getStatementPrefix($is_create_tbl) .
-                PMA_Table::generateFieldSpec(
+                Table::generateFieldSpec(
                     trim($_REQUEST['field_name'][$i]),
                     $_REQUEST['field_type'][$i],
                     $_REQUEST['field_length'][$i],

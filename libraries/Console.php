@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Scripts.class.php';
+require_once 'libraries/Scripts.php';
 require_once 'libraries/bookmark.lib.php';
 
 /**

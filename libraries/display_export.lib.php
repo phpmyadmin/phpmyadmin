@@ -9,7 +9,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -441,7 +441,7 @@ function PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows)
     } elseif (!empty($unlim_num_rows)) {
         $html .= $unlim_num_rows;
     } else {
-        $_table = new PMA_Table($table, $db);
+        $_table = new Table($table, $db);
         $html .= $_table->countRecords();
     }
     $html .= '" onfocus="this.select()" />';
@@ -872,7 +872,7 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
     $tableLength = /*overload*/mb_strlen($table);
-    $_table = new PMA_Table($table, $db);
+    $_table = new Table($table, $db);
     if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }

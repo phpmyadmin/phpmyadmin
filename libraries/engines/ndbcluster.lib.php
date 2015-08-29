@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Engines
  */
-use PMA\libraries\PMA_StorageEngine;
+use PMA\libraries\StorageEngine;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_Ndbcluster extends PMA_StorageEngine
+class PMA_StorageEngine_Ndbcluster extends StorageEngine
 {
     /**
      * Returns array with variable names related to NDBCLUSTER storage engine

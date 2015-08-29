@@ -14,7 +14,7 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Response.class.php';
+require_once 'libraries/Response.php';
 require_once 'libraries/plugins/schema/dia/Dia_Relation_Schema.class.php';
 
 /**

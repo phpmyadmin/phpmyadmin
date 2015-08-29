@@ -38,7 +38,7 @@ define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN',   3); // 'ON' or 'OFF'
  *
  * @package PhpMyAdmin
  */
-class PMA_StorageEngine
+class StorageEngine
 {
     /**
      * @var string engine name
@@ -68,7 +68,7 @@ class PMA_StorageEngine
      */
     public function __construct($engine)
     {
-        $storage_engines = PMA_StorageEngine::getStorageEngines();
+        $storage_engines = StorageEngine::getStorageEngines();
         if (! empty($storage_engines[$engine])) {
             $this->engine  = $engine;
             $this->title   = $storage_engines[$engine]['Engine'];
@@ -147,7 +147,7 @@ class PMA_StorageEngine
         $output     = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
 
-        foreach (PMA_StorageEngine::getStorageEngines() as $key => $details) {
+        foreach (StorageEngine::getStorageEngines() as $key => $details) {
             // Don't show PERFORMANCE_SCHEMA engine (MySQL 5.5)
             // Don't show MyISAM for Drizzle (allowed only for temporary tables)
             if (! $offerUnavailableEngines
@@ -178,7 +178,7 @@ class PMA_StorageEngine
      *
      * @param string $engine The engine ID
      *
-     * @return PMA_StorageEngine|bool The engine plugin or false if not found
+     * @return StorageEngine|bool The engine plugin or false if not found
      * @static
      */
     static public function getEngine($engine)
@@ -217,7 +217,7 @@ class PMA_StorageEngine
             return false;
         }
 
-        return new PMA_StorageEngine($engine);
+        return new StorageEngine($engine);
     }
 
     /**
@@ -233,7 +233,7 @@ class PMA_StorageEngine
         if ($engine == "PBMS") {
             return true;
         }
-        $storage_engines = PMA_StorageEngine::getStorageEngines();
+        $storage_engines = StorageEngine::getStorageEngines();
         return isset($storage_engines[$engine]);
     }
 

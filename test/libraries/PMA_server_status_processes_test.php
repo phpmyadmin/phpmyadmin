@@ -16,7 +16,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_status_processes.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/ServerStatusData.class.php';
+require_once 'libraries/ServerStatusData.php';
 require_once 'libraries/Message.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/sanitizing.lib.php';

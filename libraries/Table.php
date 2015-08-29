@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA_Table class
+ * Holds the Table class
  *
  * @package PhpMyAdmin
  */
@@ -21,7 +21,7 @@ use SqlParser\Utils\Table;
  * @todo make use of Message and Error
  * @package PhpMyAdmin
  */
-class PMA_Table
+class Table
 {
     /**
      * UI preferences properties
@@ -577,7 +577,7 @@ class PMA_Table
         }
 
         return $row_count;
-    } // end of the 'PMA_Table::countRecords()' function
+    } // end of the 'Table::countRecords()' function
 
     /**
      * Generates column specification for ALTER syntax
@@ -608,7 +608,7 @@ class PMA_Table
         $extra, $comment, $virtuality, $expression, $move_to
     ) {
         return Util::backquote($oldcol) . ' '
-        . PMA_Table::generateFieldSpec(
+        . Table::generateFieldSpec(
             $newcol, $type, $length, $attribute,
             $collation, $null, $default_type, $default_value, $extra,
             $comment, $virtuality, $expression, $move_to
@@ -699,7 +699,7 @@ class PMA_Table
         $GLOBALS['dbi']->freeResult($table_copy_rs);
 
         return $last_id;
-    } // end of 'PMA_Table::duplicateInfo()' function
+    } // end of 'Table::duplicateInfo()' function
 
     /**
      * Copies or renames table
@@ -722,7 +722,7 @@ class PMA_Table
 
         // Try moving the tables directly, using native `RENAME` statement.
         if ($move && $what == 'data') {
-            $tbl = new PMA_Table($source_table, $source_db);
+            $tbl = new Table($source_table, $source_db);
             if ($tbl->rename($target_table, $target_db)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
                 return true;
@@ -852,7 +852,7 @@ class PMA_Table
                  */
                 $statement = new DropStatement();
 
-                $tbl = new PMA_Table($target_db, $target_table);
+                $tbl = new Table($target_db, $target_table);
 
                 $statement->options = new OptionsArray(
                     array(
@@ -1011,7 +1011,7 @@ class PMA_Table
             $GLOBALS['sql_query'] = '';
         }
 
-        $_table = new PMA_Table($target_table, $target_db);
+        $_table = new Table($target_table, $target_db);
         // Copy the data unless this is a VIEW
         if (($what == 'data' || $what == 'dataonly')
             && ! $_table->isView()
@@ -1037,7 +1037,7 @@ class PMA_Table
             // moving table from replicated one to not replicated one
             $GLOBALS['dbi']->selectDb($source_db);
 
-            $_source_table = new PMA_Table($source_table, $source_db);
+            $_source_table = new Table($source_table, $source_db);
             if ($_source_table->isView()) {
                 $sql_drop_query = 'DROP VIEW';
             } else {
@@ -1132,7 +1132,7 @@ class PMA_Table
             'db_name' => $target_db,
             'table_name' => $target_table
         );
-        PMA_Table::duplicateInfo(
+        Table::duplicateInfo(
             'displaywork',
             'table_info',
             $get_fields,
@@ -1157,7 +1157,7 @@ class PMA_Table
             'foreign_db' => $target_db,
             'master_table' => $target_table
         );
-        PMA_Table::duplicateInfo(
+        Table::duplicateInfo(
             'relwork',
             'relation',
             $get_fields,
@@ -1179,7 +1179,7 @@ class PMA_Table
             'foreign_db' => $target_db,
             'foreign_table' => $target_table
         );
-        PMA_Table::duplicateInfo(
+        Table::duplicateInfo(
             'relwork',
             'relation',
             $get_fields,
@@ -1197,7 +1197,7 @@ class PMA_Table
         $get_fields = array('page_descr');
         $where_fields = array('db_name' => $source_db);
         $new_fields = array('db_name' => $target_db);
-        $last_id = PMA_Table::duplicateInfo(
+        $last_id = Table::duplicateInfo(
             'pdfwork',
             'pdf_pages',
             $get_fields,
@@ -1216,7 +1216,7 @@ class PMA_Table
                 'table_name' => $target_table,
                 'pdf_page_number' => $last_id
             );
-            PMA_Table::duplicateInfo(
+            Table::duplicateInfo(
                 'pdfwork',
                 'table_coords',
                 $get_fields,
@@ -1280,13 +1280,13 @@ class PMA_Table
             $new_db = $this->getDbName();
         }
 
-        $new_table = new PMA_Table($new_name, $new_db);
+        $new_table = new Table($new_name, $new_db);
 
         if ($this->getFullName() === $new_table->getFullName()) {
             return true;
         }
 
-        if (! PMA_Table::isValidName($new_name)) {
+        if (! Table::isValidName($new_name)) {
             $this->errors[] = __('Invalid table name:') . ' '
                 . $new_table->getFullName();
             return false;

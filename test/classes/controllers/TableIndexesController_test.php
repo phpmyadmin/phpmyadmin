@@ -13,9 +13,9 @@ use PMA\libraries\PMA_Theme;
 /*
  * Include to test.
  */
-require_once 'libraries/Template.class.php';
+require_once 'libraries/Template.php';
 require_once 'libraries/Util.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/Index.php';
 require_once 'libraries/Message.php';
 require_once 'libraries/database_interface.inc.php';

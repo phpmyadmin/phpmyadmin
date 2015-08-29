@@ -9,9 +9,9 @@
 /*
  * Include to test.
  */
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 
-require_once 'libraries/String.class.php';
+require_once 'libraries/String.php';
 
 /**
  * Tests for Specialized String Functions for phpMyAdmin
@@ -21,7 +21,7 @@ require_once 'libraries/String.class.php';
 class PMA_String_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PMA_String
+     * @var String
      */
     private $_testObj;
 
@@ -33,7 +33,7 @@ class PMA_String_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->_testObj = new PMA_String();
+        $this->_testObj = new String();
     }
 
     /**

@@ -20,9 +20,9 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Config.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Response.class.php';
+require_once 'libraries/Response.php';
 
 /**
  * Test function sending headers.

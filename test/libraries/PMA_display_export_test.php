@@ -11,10 +11,10 @@
  */
 use PMA\libraries\PMA_Theme;
 
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/ServerStatusData.class.php';
+require_once 'libraries/ServerStatusData.php';
 require_once 'libraries/display_export.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';

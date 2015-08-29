@@ -11,7 +11,7 @@ namespace PMA\Controllers;
 
 use PMA\libraries\Index;
 use PMA\libraries\Message;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\Util as Util_lib;
@@ -25,7 +25,7 @@ require_once 'libraries/Partition.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Template.class.php';
+require_once 'libraries/Template.php';
 require_once 'libraries/util.lib.php';
 require_once 'libraries/controllers/TableController.class.php';
 
@@ -37,7 +37,7 @@ require_once 'libraries/controllers/TableController.class.php';
 class TableStructureController extends TableController
 {
     /**
-     * @var PMA_Table  The table object
+     * @var Table  The table object
      */
     protected $_table_obj;
     /**
@@ -422,7 +422,7 @@ class TableStructureController extends TableController
                 $data['Expression'] = $expressions[$column];
             }
 
-            $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
+            $changes[] = 'CHANGE ' . Table::generateAlter(
                 $column,
                 $column,
                 /*overload*/mb_strtoupper($extracted_columnspec['type']),
@@ -626,7 +626,7 @@ class TableStructureController extends TableController
                 continue;
             }
 
-            $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
+            $changes[] = 'CHANGE ' . Table::generateAlter(
                 Util_lib\get($_REQUEST, "field_orig.${i}", ''),
                 $_REQUEST['field_name'][$i],
                 $_REQUEST['field_type'][$i],
@@ -645,7 +645,7 @@ class TableStructureController extends TableController
 
             // find the remembered sort expression
             $sorted_col = $this->table_obj->getUiProp(
-                PMA_Table::PROP_SORTED_COLUMN
+                Table::PROP_SORTED_COLUMN
             );
             // if the old column name is part of the remembered sort expression
             if (/*overload*/mb_strpos(
@@ -653,7 +653,7 @@ class TableStructureController extends TableController
                 Util::backquote($_REQUEST['field_orig'][$i])
             ) !== false) {
                 // delete the whole remembered sort expression
-                $this->table_obj->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
+                $this->table_obj->removeUiProp(Table::PROP_SORTED_COLUMN);
             }
 
             if (isset($_REQUEST['field_adjust_privileges'][$i])
@@ -754,7 +754,7 @@ class TableStructureController extends TableController
                 // Change back to Orignal Collation and data type
                 for ($i = 0; $i < $field_cnt; $i++) {
                     if ($changedToBlob[$i]) {
-                        $changes_revert[] = 'CHANGE ' . PMA_Table::generateAlter(
+                        $changes_revert[] = 'CHANGE ' . Table::generateAlter(
                             Util_lib\get($_REQUEST, "field_orig.${i}", ''),
                             $_REQUEST['field_name'][$i],
                             $_REQUEST['field_type_orig'][$i],

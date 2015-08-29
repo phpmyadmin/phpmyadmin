@@ -13,14 +13,14 @@
  */
 use PMA\Controllers\DatabaseStructureController;
 use PMA\DI\Container;
-use PMA\libraries\PMA_Table;
+use PMA\libraries\Table;
 use PMA\libraries\PMA_Theme;
 
 require_once 'libraries/DatabaseInterface.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.php';
-require_once 'libraries/Table.class.php';
+require_once 'libraries/Table.php';
 require_once 'libraries/di/Container.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'libraries/controllers/DatabaseStructureController.class.php';

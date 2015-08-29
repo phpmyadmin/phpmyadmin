@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 
 /**
  * Escapes special characters if the variable is set.
@@ -40,7 +40,7 @@ $gis_types = array(
     'GEOMETRYCOLLECTION'
 );
 
-/** @var PMA_String $pmaString */
+/** @var String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
 
 // Extract type from the initial call and make sure that it's a valid one.

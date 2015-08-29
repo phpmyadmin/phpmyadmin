@@ -15,7 +15,7 @@ require_once './libraries/common.inc.php';
 require_once 'libraries/tbl_common.inc.php';
 require_once 'libraries/tbl_info.inc.php';
 require_once './libraries/di/Container.class.php';
-require_once './libraries/Response.class.php';
+require_once './libraries/Response.php';
 require_once './libraries/controllers/TableSearchController.class.php';
 
 use PMA\DI;

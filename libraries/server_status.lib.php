@@ -8,7 +8,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_ServerStatusData;
+use PMA\libraries\ServerStatusData;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Prints server status information: processes, connections and traffic
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -45,7 +45,7 @@ function PMA_getHtmlForServerStatus($ServerStatusData)
 /**
  * Prints server state General information
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -131,7 +131,7 @@ function PMA_getHtmlForReplicationInfo()
 /**
  * Prints server state traffic information
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -224,7 +224,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
 /**
  * Prints server state connections information
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */

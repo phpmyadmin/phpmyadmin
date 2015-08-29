@@ -8,7 +8,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
+use PMA\libraries\String;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -34,13 +34,13 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 /**
  * Holds information about the current table
  *
- * @todo replace this by PMA_Table
+ * @todo replace this by Table
  * @global array $GLOBALS['showtable']
  * @name $showtable
  */
 $GLOBALS['showtable'] = array();
 
-// PMA_Table::getStatusInfo() does caching by default, but here
+// Table::getStatusInfo() does caching by default, but here
 // we force reading of the current table status
 // if $reread_info is true (for example, coming from tbl_operations.php
 // and we just changed the table's storage engine)
@@ -57,7 +57,7 @@ $GLOBALS['showtable'] = $GLOBALS['dbi']->getTable(
 // and we don't want to mess up the $tbl_storage_engine coming from the form
 
 if ($showtable) {
-    /** @var PMA_String $pmaString */
+    /** @var String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
     if ($GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])->isView()) {
