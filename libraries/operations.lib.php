@@ -252,11 +252,7 @@ function PMA_getHtmlForCopyDatabase($db)
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_privileges">'
-<<<<<<< HEAD
-            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-=======
-            . __('Adjust Privileges') . PMA\libraries\Util::showDocu('faq', 'faq6-39')
->>>>>>> Set namespace on Advisor, Config, Console and Util classes.
+            . __('Adjust privileges') . PMA\libraries\Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
     }
 
@@ -886,11 +882,7 @@ function PMA_getHtmlForMoveTable()
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_privileges_tables_move">'
-<<<<<<< HEAD
-            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-=======
-            . __('Adjust Privileges') . PMA\libraries\Util::showDocu('faq', 'faq6-39')
->>>>>>> Set namespace on Advisor, Config, Console and Util classes.
+            . __('Adjust privileges') . PMA\libraries\Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
     }
 
@@ -984,13 +976,8 @@ function PMA_getHtmlForRenameTable()
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_privileges_table_options">'
-<<<<<<< HEAD
             . __('Adjust privileges') . '&nbsp;'
-            . PMA_Util::showDocu('faq', 'faq6-39') . '</label>';
-=======
-            . __('Adjust Privileges') . '&nbsp;'
             . PMA\libraries\Util::showDocu('faq', 'faq6-39') . '</label>';
->>>>>>> Set namespace on Advisor, Config, Console and Util classes.
     }
 
     $html_output .= '</td></tr>';
@@ -1343,11 +1330,7 @@ function PMA_getHtmlForCopytable()
                 . '" disabled/>';
         }
         $html_output .= '<label for="checkbox_adjust_privileges">'
-<<<<<<< HEAD
-            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-=======
-            . __('Adjust Privileges') . PMA\libraries\Util::showDocu('faq', 'faq6-39')
->>>>>>> Set namespace on Advisor, Config, Console and Util classes.
+            . __('Adjust privileges') . PMA\libraries\Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
     }
 
