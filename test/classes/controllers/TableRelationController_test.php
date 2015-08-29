@@ -83,7 +83,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $viewColumns = array(
             'viewCol', 'viewCol2', 'viewCol3'
         );
-        $tableMock = $this->getMockBuilder('PMA_Table')
+        $tableMock = $this->getMockBuilder('PMA\libraries\PMA_Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -129,7 +129,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $indexedColumns = array(
             'primaryTableCol'
         );
-        $tableMock = $this->getMockBuilder('PMA_Table')
+        $tableMock = $this->getMockBuilder('PMA\libraries\PMA_Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -265,7 +265,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         }
         runkit_constant_redefine('PMA_DRIZZLE', true);
 
-        $tableMock = $this->getMockBuilder('PMA_Table')
+        $tableMock = $this->getMockBuilder('PMA\libraries\PMA_Table')
             ->disableOriginalConstructor()
             ->getMock();
 
