@@ -4,6 +4,7 @@
  *
  * @package PhpMyAdmin-test
  */
+use PMA\libraries\Types;
 
 /**
  * Test class for Types.

@@ -13,7 +13,6 @@ use SqlParser\Components\OptionsArray;
 use SqlParser\Context;
 use SqlParser\Parser;
 use SqlParser\Statements\DropStatement;
-use SqlParser\Utils\Table;
 
 /**
  * Handles everything related to tables

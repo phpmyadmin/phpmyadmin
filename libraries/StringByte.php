@@ -4,6 +4,7 @@
  *
  * @package PhpMyAdmin-String
  */
+namespace PMA\libraries;
 
 /**
  * Defines a set of specialized string functions.
