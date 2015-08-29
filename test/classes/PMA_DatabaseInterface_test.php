@@ -102,7 +102,7 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
     public function testGetSystemDatabase()
     {
         $sd = $this->_dbi->getSystemDatabase();
-        $this->assertInstanceOf('PMA\\SystemDatabase', $sd);
+        $this->assertInstanceOf('PMA\libraries\SystemDatabase', $sd);
     }
 }
 
