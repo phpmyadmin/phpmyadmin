@@ -12,9 +12,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the PDF class */
-require_once 'libraries/PDF.php';
-
 /**
  * Adapted from a LGPL script by Philip Clarke
  *

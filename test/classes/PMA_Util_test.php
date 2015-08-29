@@ -6,11 +6,6 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-require_once 'libraries/Util.php';
-
 /**
  * Test for PMA\libraries\Util class
  *

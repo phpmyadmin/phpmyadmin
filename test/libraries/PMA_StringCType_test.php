@@ -11,7 +11,7 @@
  */
 use PMA\libraries\StringCType;
 
-require_once 'libraries/StringCType.php';
+
 
 /**
  * Tests for Specialized String Class (CType) for phpMyAdmin

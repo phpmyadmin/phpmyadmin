@@ -29,7 +29,6 @@ if (getcwd() == dirname(__FILE__)) {
 require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 require_once 'libraries/plugins/schema/pdf/RelationStatsPdf.class.php';
 require_once 'libraries/plugins/schema/pdf/TableStatsPdf.class.php';
-require_once 'libraries/PDF.php';
 require_once 'libraries/transformations.lib.php';
 
 /**

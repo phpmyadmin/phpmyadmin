@@ -15,8 +15,8 @@ namespace PMA\Test\Stubs;
 use PMA\libraries\Header;
 use PMA\libraries\Message;
 
-require_once 'libraries/Response.php';
-require_once 'libraries/Header.php';
+
+
 
 /**
  * Class Response

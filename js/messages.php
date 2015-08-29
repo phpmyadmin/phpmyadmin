@@ -24,9 +24,7 @@ require_once './libraries/common.inc.php';
 session_write_close();
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
-require_once './libraries/Util.php';
 
-require_once './libraries/OutputBuffering.php';
 $buffer = PMA\libraries\OutputBuffering::getInstance();
 $buffer->start();
 register_shutdown_function(

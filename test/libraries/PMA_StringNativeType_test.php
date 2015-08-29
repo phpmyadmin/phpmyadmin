@@ -11,7 +11,7 @@
  */
 use PMA\libraries\StringNativeType;
 
-require_once 'libraries/StringNativeType.php';
+
 
 /**
  * Tests for Specialized String Class (Native) for phpMyAdmin

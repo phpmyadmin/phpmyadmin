@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.php';
+
 
 /**
  * Tests for PMA\libraries\Util::pow() function from Util.php

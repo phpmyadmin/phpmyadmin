@@ -10,8 +10,6 @@
  * Include to test.
  */
 require_once 'libraries/dbi/DBIDummy.class.php';
-require_once 'libraries/DatabaseInterface.php';
-require_once 'libraries/SystemDatabase.php';
 
 /**
  * Tests basic functionality of dummy dbi driver

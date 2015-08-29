@@ -14,7 +14,6 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 require_once 'libraries/plugins/schema/svg/RelationStatsSvg.class.php';
 require_once 'libraries/plugins/schema/svg/TableStatsSvg.class.php';
-require_once 'libraries/Font.php';
 
 /**
  * This Class inherits the XMLwriter class and

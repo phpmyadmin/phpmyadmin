@@ -7,10 +7,6 @@
  */
 namespace PMA\libraries;
 
-/**
- * the list base class
- */
-require_once './libraries/List.php';
 require_once './libraries/check_user_privileges.lib.php';
 
 /**

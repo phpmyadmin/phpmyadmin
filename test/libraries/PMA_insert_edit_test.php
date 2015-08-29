@@ -15,18 +15,18 @@ use PMA\libraries\Theme;
 require_once 'libraries/insert_edit.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Util.php';
+
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Types.php';
+
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Message.php';
+
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Theme.php';
-require_once 'libraries/Response.php';
+
+
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Table.php';
+
 
 /**
  * Tests for libraries/insert_edit.lib.php

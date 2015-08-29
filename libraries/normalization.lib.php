@@ -14,8 +14,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Template.php';
-
 /**
  * build the html for columns of $colTypeCategory category
  * in form of given $listType in a table

@@ -9,8 +9,6 @@ namespace PMA\libraries;
 
 use StringType;
 
-require_once 'libraries/StringType.php';
-
 /**
  * Implements StringByte interface using native PHP functions.
  *

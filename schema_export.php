@@ -10,7 +10,6 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require 'libraries/StorageEngine.php';
 
 /**
  * get all variables needed for exporting relational schema
@@ -18,7 +17,6 @@ require 'libraries/StorageEngine.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
-require_once 'libraries/Index.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/plugin_interface.lib.php';
 

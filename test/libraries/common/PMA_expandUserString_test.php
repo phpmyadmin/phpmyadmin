@@ -11,8 +11,8 @@
  * Include to test.
  */
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Config.php';
+
+
 
 /**
  ** Test for PMA\libraries\Util::expandUserString function.

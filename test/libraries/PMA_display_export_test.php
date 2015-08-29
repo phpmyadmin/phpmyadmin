@@ -11,12 +11,12 @@
  */
 use PMA\libraries\Theme;
 
-require_once 'libraries/Table.php';
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/ServerStatusData.php';
+
 require_once 'libraries/display_export.lib.php';
-require_once 'libraries/Theme.php';
+
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/charset_conversion.lib.php';
 require_once 'libraries/plugin_interface.lib.php';

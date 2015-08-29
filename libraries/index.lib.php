@@ -10,8 +10,6 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/Index.php';
-
 /**
  * Get HTML for display indexes
  *

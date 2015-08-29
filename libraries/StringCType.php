@@ -9,8 +9,6 @@
  */
 namespace PMA\libraries;
 
-require_once 'libraries/StringAbstractType.php';
-
 /**
  * Implements StringType interface using the "ctype" extension.
  * Methods of the "ctype" extension are faster compared to PHP versions of them.

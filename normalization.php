@@ -12,7 +12,6 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/normalization.lib.php';
-require_once 'libraries/Index.php';
 
 if (isset($_REQUEST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'

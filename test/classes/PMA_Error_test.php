@@ -12,11 +12,7 @@
 
 use PMA\libraries\Theme;
 
-require_once 'libraries/Error.php';
-require_once 'libraries/Message.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.php';
 
 /**
  * Error class testing.

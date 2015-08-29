@@ -51,7 +51,6 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
 define('PMA_MINIMUM_COMMON', 1);
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/Util.php';
 require_once 'libraries/display_import_ajax.lib.php';
 
 /*

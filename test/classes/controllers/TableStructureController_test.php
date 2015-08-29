@@ -14,11 +14,11 @@
 use PMA\DI\Container;
 use PMA\libraries\Theme;
 
-require_once 'libraries/DatabaseInterface.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.php';
+
+
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Table.php';
+
 require_once 'libraries/di/Container.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'libraries/controllers/TableStructureController.class.php';

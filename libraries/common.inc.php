@@ -70,7 +70,6 @@ require_once './libraries/autoloader.php';
 /**
  * String handling (security)
  */
-require_once './libraries/String.php';
 $PMA_String = new String();
 
 /**
@@ -1058,7 +1057,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * the ListDatabase class
          */
-        include_once './libraries/PMA.php';
         $pma = new PMA;
         $pma->userlink = $userlink;
         $pma->controllink = $controllink;

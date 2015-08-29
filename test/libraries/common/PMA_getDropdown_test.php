@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.php';
+
 
 /**
  ** Test for PMA\libraries\Util::getDropdown from Util.php

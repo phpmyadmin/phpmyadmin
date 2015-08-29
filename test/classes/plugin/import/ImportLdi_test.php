@@ -15,13 +15,13 @@ $GLOBALS['plugin_param'] = "table";
 /*
  * Include to test.
  */
-require_once 'libraries/Util.php';
-require_once 'libraries/Message.php';
+
+
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Table.php';
-require_once 'libraries/Tracker.php';
+
+
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'libraries/plugins/import/ImportLdi.class.php';

@@ -10,9 +10,9 @@ use PMA\libraries\Theme;
 
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/config/Form.class.php';
-require_once 'libraries/Util.php';
-require_once 'libraries/Theme.php';
-require_once 'libraries/Config.php';
+
+
+
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**

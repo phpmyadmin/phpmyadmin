@@ -8,18 +8,13 @@
 /*
  * Include to test.
  */
-require_once 'libraries/DisplayResults.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Util.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Config.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/string.lib.php';
-require_once 'libraries/String.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
-require_once 'libraries/DatabaseInterface.php';
 
 /**
  * Test cases for displaying results.
@@ -47,7 +42,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
-        include_once 'libraries/Response.php';
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()

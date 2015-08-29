@@ -9,11 +9,6 @@
 namespace PMA\libraries;
 
 /**
- * Database listing.
- */
-require_once './libraries/ListDatabase.php';
-
-/**
  * phpMyAdmin main Controller
  *
  * @package PhpMyAdmin

@@ -13,8 +13,6 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
 /*
  * Include to test.
  */
-require_once 'libraries/Util.php';
-require_once 'libraries/ListDatabase.php';
 require_once 'libraries/relation.lib.php';
 
 /**

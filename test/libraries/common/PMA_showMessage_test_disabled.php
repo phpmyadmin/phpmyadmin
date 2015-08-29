@@ -12,8 +12,8 @@ const PMA_IS_WINDOWS = false;
 /*
  * Include to test.
  */
-require_once 'libraries/Util.php';
-require_once 'libraries/Table.php';
+
+
 require_once 'libraries/js_escape.lib.php';
 
 /**

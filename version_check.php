@@ -9,7 +9,6 @@
 // Sets up the session
 define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
-require_once 'libraries/Util.php';
 
 // Always send the correct headers
 header('Content-type: application/json; charset=UTF-8');

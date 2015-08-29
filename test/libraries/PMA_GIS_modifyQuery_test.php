@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/Util.php';
+
 /*
  * Include to test
  */

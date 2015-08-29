@@ -32,7 +32,6 @@ if (! defined('PHPMYADMIN')) {
  *
  */
 require_once './libraries/check_user_privileges.lib.php';
-require_once 'libraries/Template.php';
 
 /**
  * Returns the html for create table.

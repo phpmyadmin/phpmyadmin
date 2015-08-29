@@ -25,7 +25,6 @@ $tabs_icons = array(
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
 
-require_once './libraries/Template.php';
 $content = PMA\libraries\Util::getHtmlTab(
     array(
         'link' => 'prefs_manage.php',

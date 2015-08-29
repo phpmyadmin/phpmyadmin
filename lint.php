@@ -14,11 +14,6 @@ use PMA\libraries\Linter;
 require_once 'libraries/common.inc.php';
 
 /**
- * Loads the linter.
- */
-require_once 'libraries/Linter.php';
-
-/**
  * The SQL query to be analyzed.
  *
  * This does not need to be checked again XSS or MySQL injections because it is

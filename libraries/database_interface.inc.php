@@ -11,7 +11,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/DatabaseInterface.php';
 
 if (defined('TESTSUITE')) {
     /**
