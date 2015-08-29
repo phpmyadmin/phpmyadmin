@@ -43,7 +43,7 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('ListDatabase');
+        $class = new ReflectionClass('PMA\libraries\ListDatabase');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
