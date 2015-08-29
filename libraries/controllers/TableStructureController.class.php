@@ -18,7 +18,6 @@ use PMA\Util as Util_lib;
 use PMA_PageSettings;
 use SqlParser;
 use SqlParser\Statements\CreateStatement;
-use SqlParser\Utils\Table;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/config/page_settings.class.php';
