@@ -21,8 +21,8 @@ require_once './libraries/List_Database.class.php';
  *
  * @package PhpMyAdmin
  *
- * @property resource $userlink
- * @property resource $controllink
+ * @property object $userlink
+ * @property object $controllink
  */
 class PMA
 {
@@ -36,14 +36,14 @@ class PMA
     /**
      * DBMS user link
      *
-     * @var resource
+     * @var object
      */
     protected $userlink = null;
 
     /**
      * DBMS control link
      *
-     * @var resource
+     * @var object
      */
     protected $controllink = null;
 
