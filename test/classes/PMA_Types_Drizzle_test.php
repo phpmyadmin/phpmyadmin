@@ -9,6 +9,8 @@
  * Include to test.
  */
 
+use PMA\libraries\TypesDrizzle;
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
@@ -32,7 +34,7 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Types_Drizzle();
+        $this->object = new TypesDrizzle();
     }
 
     /**

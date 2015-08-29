@@ -12,6 +12,7 @@
 use PMA\libraries\Table;
 use PMA\libraries\Theme;
 use PMA\libraries\Types;
+use PMA\libraries\TypesMySQL;
 
 require_once 'libraries/insert_edit.lib.php';
 
@@ -55,7 +56,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = false;
         $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;

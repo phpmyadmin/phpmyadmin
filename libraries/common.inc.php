@@ -40,6 +40,8 @@ use PMA\libraries\Theme;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
 use PMA\libraries\Response;
+use PMA\libraries\TypesDrizzle;
+use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
 
 /**
@@ -1013,9 +1015,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * Type handling object.
          */
         if (PMA_DRIZZLE) {
-            $GLOBALS['PMA_Types'] = new PMA_Types_Drizzle();
+            $GLOBALS['PMA_Types'] = new TypesDrizzle();
         } else {
-            $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+            $GLOBALS['PMA_Types'] = new TypesMySQL();
         }
 
         if (PMA_DRIZZLE) {

@@ -10,6 +10,7 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\TypesMySQL;
 
 $GLOBALS['server'] = 1;
 
@@ -40,7 +41,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['cfg']['ShowHint'] = true;
