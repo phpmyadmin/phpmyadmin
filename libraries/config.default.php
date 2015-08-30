@@ -2762,14 +2762,14 @@ $cfg['TablePrimaryKeyOrder'] = 'NONE';
 $cfg['RememberSorting'] = true;
 
 /**
- * shows stored relation-comments in 'browse' mode.
+ * shows column comments in 'browse' mode.
  *
  * @global boolean $cfg['ShowBrowseComments']
  */
 $cfg['ShowBrowseComments'] = true;
 
 /**
- * shows stored relation-comments in 'table property' mode.
+ * shows column comments in 'table property' mode.
  *
  * @global boolean $cfg['ShowPropertyComments']
  */
