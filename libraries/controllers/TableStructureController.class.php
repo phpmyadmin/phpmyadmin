@@ -1046,7 +1046,8 @@ class TableStructureController extends TableController
                 'fields' => $fields,
                 'columns_with_index' => $columns_with_index,
                 'central_list' => $central_list,
-                'create_table_fields' => $create_table_fields
+                'create_table_fields' => $create_table_fields,
+                'comments_map' => $comments_map
             )
         );
     }
