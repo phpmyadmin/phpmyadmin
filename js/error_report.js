@@ -172,10 +172,11 @@ var ErrorReport = {
             var reg = /([a-zA-Z]+):/;
             var regex_result = null;
             regex_result = reg.exec(exception.message);
-            if(regex_result && regex_result.length == 2)
+            if (regex_result && regex_result.length == 2) {
                 return regex_result[1];
-            else
+            } else {
                 return "";
+            }
         }
     },
     /**
