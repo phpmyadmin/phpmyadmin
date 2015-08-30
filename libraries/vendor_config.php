@@ -72,7 +72,7 @@ define('VERSION_CHECK_DEFAULT', true);
  * Path to gettext.inc file. Useful when you want php-gettext somewhere else,
  * eg. /usr/share/php/gettext/gettext.inc.
  */
-define('GETTEXT_INC', './libraries/php-gettext/gettext.inc');
+define('GETTEXT_INC', './libraries/gettext_stub.php');
 /**
  * Path to tcpdf.php file. Useful when you want to use system tcpdf,
  * eg. /usr/share/php/tcpdf/tcpdf.php.
