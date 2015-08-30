@@ -791,7 +791,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (is_null($this->_cookie_iv)) {
             $this->_cookie_iv = base64_decode($_COOKIE['pma_iv-' . $GLOBALS['server']], true);
         }
-        if (strlen($this->_cookie_iv) < $this->getIVSize()) {
+        if (mb_strlen($this->_cookie_iv,'8bit') < $this->getIVSize()) {
                 $this->createIV();
         }
 
