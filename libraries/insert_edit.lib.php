@@ -2499,15 +2499,6 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
  */
 function PMA_getCommentsMap($db, $table)
 {
-    /**
-     * get table information
-     * @todo should be done by a Table object
-     */
-    include 'libraries/tbl_info.inc.php';
-
-    /**
-     * Get comments for table fields/columns
-     */
     $comments_map = array();
 
     if ($GLOBALS['cfg']['ShowPropertyComments']) {
