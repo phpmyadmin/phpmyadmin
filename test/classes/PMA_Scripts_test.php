@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Script.class.php
+ * Tests for Script.php
  *
  * @package PhpMyAdmin-test
  */
@@ -16,7 +16,7 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
 /**
- * Tests for Script.class.php
+ * Tests for Script.php
  *
  * @package PhpMyAdmin-test
  */

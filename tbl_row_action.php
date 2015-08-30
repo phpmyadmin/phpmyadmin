@@ -72,6 +72,7 @@ if (!empty($submit_mult)) {
     }
 
     switch($submit_mult) {
+    /** @noinspection PhpMissingBreakStatementInspection */
     case 'row_copy':
         $_REQUEST['default_action'] = 'insert';
         // no break to allow for fallthough

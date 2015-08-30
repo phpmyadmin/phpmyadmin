@@ -8,7 +8,12 @@
 namespace PMA\libraries;
 
 use ImportPlugin;
+use SqlParser\Context;
+use SqlParser\Lexer;
+use SqlParser\Parser;
+use SqlParser\Token;
 use stdClass;
+use SqlParser\Utils\Error;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -642,21 +647,21 @@ class Util
         $errors = array();
         /**
          * The lexer used for analysis.
-         * @var \SqlParser\Lexer $lexer
+         * @var Lexer $lexer
          */
-        $lexer = new \SqlParser\Lexer($sql_query);
+        $lexer = new Lexer($sql_query);
 
         /**
          * The parser used for analysis.
-         * @var \SqlParser\Parser $parser
+         * @var Parser $parser
          */
-        $parser = new \SqlParser\Parser($lexer->list);
+        $parser = new Parser($lexer->list);
 
         /**
          * The errors found by the lexer and the parser.
          * @var array $errors
          */
-        $errors = \SqlParser\Utils\Error::get(array($lexer, $parser));
+        $errors = Error::get(array($lexer, $parser));
 
         if (empty($sql_query)) {
             $formatted_sql = '';
@@ -681,7 +686,7 @@ class Util
                 ) . '</p>';
                 $error_msg .= '<p><ol>';
                 $error_msg .= implode(
-                    \SqlParser\Utils\Error::format(
+                    Error::format(
                         $errors,
                         '<li>%2$s (near "%4$s" at position %5$d)</li>'
                     )
@@ -966,7 +971,7 @@ class Util
         }
 
         if (! $do_it) {
-            if (!(\SqlParser\Context::isKeyword($a_name) & \SqlParser\Token::FLAG_KEYWORD_RESERVED)
+            if (!(Context::isKeyword($a_name) & Token::FLAG_KEYWORD_RESERVED)
             ) {
                 return $a_name;
             }
@@ -1014,7 +1019,7 @@ class Util
         }
 
         if (! $do_it) {
-            if (!\SqlParser\Context::isKeyword($a_name)) {
+            if (!Context::isKeyword($a_name)) {
                 return $a_name;
             }
         }

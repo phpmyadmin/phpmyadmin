@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin-navigation
  */
+use PMA\libraries\config\PageSettings;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -62,7 +64,7 @@ class PMA_Navigation
             $retval .= '</div>'; // pma_navigation_tree
             $retval .= '<div id="pma_navi_settings_container">';
             if (!defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $retval .= PMA_PageSettings::getNaviSettings();
+                $retval .= PageSettings::getNaviSettings();
             }
             $retval .= '</div>'; //pma_navi_settings_container
             $retval .= '</div>'; // pma_navigation_content

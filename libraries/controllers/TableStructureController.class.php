@@ -9,21 +9,23 @@
 
 namespace PMA\Controllers;
 
+use PMA\libraries\config\PageSettings;
 use PMA\libraries\Index;
 use PMA\libraries\Message;
-use PMA\libraries\Table;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\Util as Util_lib;
-use PMA_PageSettings;
 use SqlParser;
 use SqlParser\Statements\CreateStatement;
+use SqlParser\Utils\Table;
 
 require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/util.lib.php';
 require_once 'libraries/controllers/TableController.class.php';
+require_once 'libraries/config/messages.inc.php';
+require_once 'libraries/config/user_preferences.forms.php';
+require_once 'libraries/config/page_settings.forms.php';
 
 /**
  * Handles table structure logic
@@ -108,7 +110,7 @@ class TableStructureController extends TableController
      */
     public function indexAction()
     {
-        PMA_PageSettings::showGroup('TableStructure');
+        PageSettings::showGroup('TableStructure');
 
         /**
          * Function implementations for this script

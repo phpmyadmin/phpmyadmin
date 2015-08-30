@@ -5,14 +5,14 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\PageSettings;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.class.php';
 
-PMA_PageSettings::showGroup('Import');
+PageSettings::showGroup('Import');
 
 $response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();

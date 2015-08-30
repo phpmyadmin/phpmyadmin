@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries\config;
 
 /**
  * Performs various compatibility, security and consistency checks on current config

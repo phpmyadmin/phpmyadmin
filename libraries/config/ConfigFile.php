@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries\config;
+
+use PMA\libraries\Config;
 
 /**
  * Config file management class.
@@ -28,7 +31,7 @@ class ConfigFile
 
     /**
      * Stores original PMA config, not modified by user preferences
-     * @var PMA\libraries\Config
+     * @var Config
      */
     private $_baseCfg;
 

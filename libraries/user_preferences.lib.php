@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\ConfigFile;
 use PMA\libraries\Message;
 
 if (! defined('PHPMYADMIN')) {

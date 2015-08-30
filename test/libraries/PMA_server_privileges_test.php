@@ -97,7 +97,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'menuswork' => true
         );
 
-        $pmaconfig = $this->getMockBuilder('PMA_Config')
+        $pmaconfig = $this->getMockBuilder('PMA\libraries\Config')
             ->disableOriginalConstructor()
             ->getMock();
 

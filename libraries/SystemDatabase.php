@@ -17,17 +17,17 @@ require_once 'libraries/database_interface.inc.php';
 class SystemDatabase
 {
     /**
-     * @var \PMA\libraries\DatabaseInterface
+     * @var DatabaseInterface
      */
     protected $dbi;
 
     /**
      * Get instance of SystemDatabase
      *
-     * @param \PMA\libraries\DatabaseInterface $dbi Database interface for the system database
+     * @param DatabaseInterface $dbi Database interface for the system database
      *
      */
-    function __construct(\PMA\libraries\DatabaseInterface $dbi)
+    function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
     }
@@ -48,9 +48,9 @@ class SystemDatabase
         // from pma__column_info table
         $pma_transformation_sql = sprintf(
             "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
-            \PMA\libraries\Util::backquote($cfgRelation['db']),
-            \PMA\libraries\Util::backquote($cfgRelation['column_info']),
-            \PMA\libraries\Util::sqlAddSlashes($db)
+            Util::backquote($cfgRelation['db']),
+            Util::backquote($cfgRelation['column_info']),
+            Util::sqlAddSlashes($db)
         );
 
         return $this->dbi->tryQuery($pma_transformation_sql);
@@ -77,8 +77,8 @@ class SystemDatabase
             . "`db_name`, `table_name`, `column_name`, "
             . "`comment`, `mimetype`, `transformation`, "
             . "`transformation_options`) VALUES",
-            \PMA\libraries\Util::backquote($cfgRelation['db']),
-            \PMA\libraries\Util::backquote($cfgRelation['column_info'])
+            Util::backquote($cfgRelation['db']),
+            Util::backquote($cfgRelation['column_info'])
         );
 
         $column_count = 0;
@@ -105,7 +105,7 @@ class SystemDatabase
                     $data_row['comment'],
                     $data_row['mimetype'],
                     $data_row['transformation'],
-                    \PMA\libraries\Util::sqlAddSlashes(
+                    Util::sqlAddSlashes(
                         $data_row['transformation_options']
                     )
                 );

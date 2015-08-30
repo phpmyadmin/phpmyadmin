@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Template;
+use PMA\libraries\Util;
 
 /**
  * Displays top part of the form
@@ -60,7 +62,7 @@ function PMA_displayTabsTop($tabs)
         );
     }
 
-    $htmlOutput = PMA\libraries\Template::get('list/unordered')->render(
+    $htmlOutput = Template::get('list/unordered')->render(
         array(
             'class' => 'tabs',
             'items' => $items,
@@ -181,7 +183,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         } else {
             // In this case we just use getImage() because it's available
             foreach ($icon_init as $k => $v) {
-                $icons[$k] = PMA\libraries\Util::getImage(
+                $icons[$k] = Util::getImage(
                     $v[0], $v[1]
                 );
             }
@@ -493,7 +495,7 @@ function PMA_displayJavascript($js_array)
         return null;
     }
 
-    return PMA\libraries\Template::get('javascript/display')->render(
+    return Template::get('javascript/display')->render(
         array('js_array' => $js_array,)
     );
 }

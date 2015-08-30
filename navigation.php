@@ -7,6 +7,8 @@
  */
 
 // Include common functionalities
+use PMA\libraries\config\PageSettings;
+
 require_once './libraries/common.inc.php';
 
 // Also initialises the collapsible tree class
@@ -24,7 +26,7 @@ if (! $response->isAjax()) {
 }
 
 if (isset($_REQUEST['getNaviSettings']) && $_REQUEST['getNaviSettings']) {
-    $response->addJSON('message', PMA_PageSettings::getNaviSettings());
+    $response->addJSON('message', PageSettings::getNaviSettings());
     exit();
 }
 

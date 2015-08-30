@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin-Setup
  */
+namespace PMA\setup\lib;
+
+use PMA\libraries\config\ConfigFile;
 
 /**
  * Config file generation class
@@ -145,7 +148,7 @@ class ConfigGenerator
     /**
      * Generate server part of config file
      *
-     * @param ConfigFile $cf      Config file
+     * @param \PMA\libraries\config\ConfigFile $cf      Config file
      * @param string     $crlf    Carriage return char
      * @param array      $servers Servers list
      *

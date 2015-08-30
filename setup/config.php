@@ -5,14 +5,13 @@
  *
  * @package PhpMyAdmin-Setup
  */
+use PMA\libraries\config\FormDisplay;
+use PMA\setup\lib\ConfigGenerator;
 
 /**
  * Core libraries.
  */
 require './lib/common.inc.php';
-require_once './libraries/config/Form.class.php';
-require_once './libraries/config/FormDisplay.class.php';
-require_once './setup/lib/ConfigGenerator.class.php';
 
 require './libraries/config/setup.forms.php';
 
