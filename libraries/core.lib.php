@@ -234,7 +234,7 @@ function PMA_fatalError(
             if (defined(GETTEXT_INC)) {
                 include_once GETTEXT_INC;
             } else {
-                include_once './libraries/gettext_stub.php';
+                include_once './libraries/php-gettext/gettext.inc';
             }
         }
 
