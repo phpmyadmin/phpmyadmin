@@ -10,6 +10,7 @@
 namespace PMA\Controllers\Table;
 
 use PMA\Controllers\TableController;
+use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 

@@ -12,13 +12,15 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries\config;
 
 /**
  * Core libraries.
  */
-require_once './libraries/config/FormDisplay.tpl.php';
-require_once './libraries/config/Validator.class.php';
+use PMA\libraries\Util;
+
 require_once './libraries/js_escape.lib.php';
+require_once './libraries/config/FormDisplay.tpl.php';
 
 /**
  * Form management class, displays and processes forms
@@ -100,7 +102,7 @@ class FormDisplay
             'error_value_lte' => __('Value must be equal or lower than %s!'));
         $this->_configFile = $cf;
         // initialize validators
-        PMA_Validator::getValidators($this->_configFile);
+        Validator::getValidators($this->_configFile);
     }
 
     /**
@@ -184,7 +186,7 @@ class FormDisplay
         }
 
         // run validation
-        $errors = PMA_Validator::validate(
+        $errors = Validator::validate(
             $this->_configFile, $paths, $values, false
         );
 
@@ -220,7 +222,7 @@ class FormDisplay
         $show_restore_default, array &$js_default, array &$js, $show_buttons
     ) {
         $htmlOutput = '';
-        $validators = PMA_Validator::getValidators($this->_configFile);
+        $validators = Validator::getValidators($this->_configFile);
 
         foreach ($this->_forms as $form) {
             /* @var $form Form */
@@ -748,7 +750,7 @@ class FormDisplay
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }
-        return PMA\libraries\Util::getDocuLink(
+        return Util::getDocuLink(
             'config',
             'cfg_' .  $this->_getOptName($path)
         );

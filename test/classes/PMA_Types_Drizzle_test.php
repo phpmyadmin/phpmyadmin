@@ -22,7 +22,7 @@ require_once 'libraries/database_interface.inc.php';
 class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var Types
+     * @var PMA\libraries\Types
      */
     protected $object;
 

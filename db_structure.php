@@ -9,6 +9,7 @@
 namespace PMA;
 
 use PMA\libraries\Response;
+use PMA\libraries\Util;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';
@@ -23,7 +24,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = \PMA\libraries\Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
 
 require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/DatabaseStructureController.class.php';

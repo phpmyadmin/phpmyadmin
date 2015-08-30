@@ -7,6 +7,9 @@
  *          that returns 0 rows - to prevent cyclic redirects or includes
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\PageSettings;
+use PMA\libraries\Response;
+use PMA\libraries\Util;
 
 /**
  * Gets some core libraries
@@ -15,12 +18,11 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
-require_once 'libraries/config/page_settings.class.php';
 
-PMA_PageSettings::showGroup('Browse');
+PageSettings::showGroup('Browse');
 
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
@@ -51,11 +53,11 @@ if (! empty($goto)) {
     }
 } else {
     if (empty($table)) {
-        $goto = PMA\libraries\Util::getScriptNameForOption(
+        $goto = Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         );
     } else {
-        $goto = PMA\libraries\Util::getScriptNameForOption(
+        $goto = Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
         );
     }
@@ -109,9 +111,9 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 if (isset($_REQUEST['get_default_fk_check_value'])
     && $_REQUEST['get_default_fk_check_value'] == true
 ) {
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON(
-        'default_fk_check_value', PMA\libraries\Util::isForeignKeyCheck()
+        'default_fk_check_value', Util::isForeignKeyCheck()
     );
     exit;
 }
@@ -135,7 +137,7 @@ if (empty($sql_query) && $tableLength && $dbLength) {
     $goto = '';
 } else {
     // Now we can check the parameters
-    PMA\libraries\Util::checkParameters(array('sql_query'));
+    Util::checkParameters(array('sql_query'));
 }
 
 /**
@@ -154,7 +156,7 @@ require_once 'libraries/parse_analyze.inc.php';
 if (PMA_hasNoRightsToDropDatabase(
     $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser
 )) {
-    PMA\libraries\Util::mysqlDie(
+    Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
         '',
         false,

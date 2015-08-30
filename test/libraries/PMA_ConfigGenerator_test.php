@@ -9,8 +9,10 @@
 /*
  * Include to test
  */
-require_once 'setup/lib/ConfigGenerator.class.php';
-require_once 'libraries/config/ConfigFile.class.php';
+use PMA\libraries\Config;
+use PMA\libraries\config\ConfigFile;
+use PMA\setup\lib\ConfigGenerator;
+
 require_once 'libraries/core.lib.php';
 
 require_once 'libraries/php-gettext/gettext.inc';
@@ -34,7 +36,7 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         unset($_SESSION['eol']);
 
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new Config();
 
         $GLOBALS['server'] = 0;
         $cf = new ConfigFile();
@@ -85,7 +87,7 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetVarExport()
     {
-        $reflection = new \ReflectionClass('ConfigGenerator');
+        $reflection = new \ReflectionClass('PMA\setup\lib\ConfigGenerator');
         $method = $reflection->getMethod('_getVarExport');
         $method->setAccessible(true);
 
@@ -132,7 +134,7 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
      */
     public function testIsZeroBasedArray()
     {
-        $reflection = new \ReflectionClass('ConfigGenerator');
+        $reflection = new \ReflectionClass('PMA\setup\lib\ConfigGenerator');
         $method = $reflection->getMethod('_isZeroBasedArray');
         $method->setAccessible(true);
 
@@ -179,7 +181,7 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
      */
     public function testExportZeroBasedArray()
     {
-        $reflection = new \ReflectionClass('ConfigGenerator');
+        $reflection = new \ReflectionClass('PMA\setup\lib\ConfigGenerator');
         $method = $reflection->getMethod('_exportZeroBasedArray');
         $method->setAccessible(true);
 

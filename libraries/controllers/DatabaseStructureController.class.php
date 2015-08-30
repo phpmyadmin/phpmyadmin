@@ -9,17 +9,19 @@
 
 namespace PMA\Controllers;
 
+use PMA\libraries\config\PageSettings;
 use PMA\libraries\Message;
-use PMA\libraries\Tracker;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Template;
+use PMA\libraries\Tracker;
 use PMA\libraries\Util;
-use PMA_PageSettings;
 
 require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/display_create_table.lib.php';
 require_once 'libraries/controllers/DatabaseController.class.php';
+require_once 'libraries/config/messages.inc.php';
+require_once 'libraries/config/user_preferences.forms.php';
+require_once 'libraries/config/page_settings.forms.php';
 
 /**
  * Handles database structure logic
@@ -166,7 +168,7 @@ class DatabaseStructureController extends DatabaseController
             $GLOBALS['replication_info']['slave']['status'] = false;
         }
 
-        PMA_PageSettings::showGroup('DbStructure');
+        PageSettings::showGroup('DbStructure');
 
         $db_collation = PMA_getDbCollation($this->db);
 

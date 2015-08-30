@@ -5,15 +5,15 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\PageSettings;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/display_export.lib.php';
 
-PMA_PageSettings::showGroup('Export');
+PageSettings::showGroup('Export');
 
 $response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();

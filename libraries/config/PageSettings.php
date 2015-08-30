@@ -5,13 +5,14 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries\config;
+
+use PMA\libraries\Message;
+use PMA\libraries\Response;
 
 require_once 'libraries/user_preferences.lib.php';
 require_once 'libraries/config/config_functions.lib.php';
 require_once 'libraries/config/messages.inc.php';
-require_once 'libraries/config/ConfigFile.class.php';
-require_once 'libraries/config/Form.class.php';
-require_once 'libraries/config/FormDisplay.class.php';
 require 'libraries/config/user_preferences.forms.php';
 require 'libraries/config/page_settings.forms.php';
 
@@ -20,7 +21,7 @@ require 'libraries/config/page_settings.forms.php';
  *
  * @package PhpMyAdmin
  */
-class PMA_PageSettings
+class PageSettings
 {
 
     /**
@@ -100,7 +101,7 @@ class PMA_PageSettings
      *
      * @param FormDisplay      &$form_display Form
      * @param ConfigFile       &$cf           Configuration file
-     * @param PMA\libraries\Message|null &$error        Error message
+     * @param Message|null &$error        Error message
      *
      * @return void
      */
@@ -123,7 +124,7 @@ class PMA_PageSettings
      * Store errors in _errorHTML
      *
      * @param FormDisplay      &$form_display Form
-     * @param PMA\libraries\Message|null &$error        Error message
+     * @param Message|null &$error        Error message
      *
      * @return void
      */
@@ -150,13 +151,13 @@ class PMA_PageSettings
      * Display page-related settings
      *
      * @param FormDisplay &$form_display Form
-     * @param PMA\libraries\Message &$error        Error message
+     * @param Message &$error        Error message
      *
      * @return string
      */
     private function _getPageSettingsDisplay(&$form_display, &$error)
     {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
 
         $retval = '';
 
@@ -202,13 +203,13 @@ class PMA_PageSettings
     /**
      * Group to show for Page-related settings
      * @param string $formGroupName The name of config form group to display
-     * @return PMA_PageSettings
+     * @return PageSettings
      */
     public static function showGroup($formGroupName)
     {
-        $object = new PMA_PageSettings($formGroupName);
+        $object = new PageSettings($formGroupName);
 
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->addHTML($object->getErrorHTML());
         $response->addHTML($object->getHTML());
 
@@ -221,9 +222,9 @@ class PMA_PageSettings
      */
     public static function getNaviSettings()
     {
-        $object = new PMA_PageSettings('Navi_panel', 'pma_navigation_settings');
+        $object = new PageSettings('Navi_panel', 'pma_navigation_settings');
 
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->addHTML($object->getErrorHTML());
         return $object->getHTML();
     }

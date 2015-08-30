@@ -6,6 +6,10 @@
  * @package PhpMyAdmin-Setup
  */
 
+use PMA\libraries\config\ConfigFile;
+use PMA\libraries\config\FormDisplay;
+use PMA\libraries\config\ServerConfigChecks;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }
@@ -14,9 +18,8 @@ if (!defined('PHPMYADMIN')) {
  * Core libraries.
  */
 require_once './libraries/display_select_lang.lib.php';
-require_once './libraries/config/FormDisplay.class.php';
-require_once './libraries/config/ServerConfigChecks.class.php';
 require_once './setup/lib/index.lib.php';
+require_once './libraries/config/FormDisplay.tpl.php';
 
 // prepare unfiltered language list
 $all_languages = PMA_langList();

@@ -6,6 +6,8 @@
  * @package PhpMyAdmin-Setup
  */
 
+use PMA\setup\lib\ConfigGenerator;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }
@@ -13,9 +15,7 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Core libraries.
  */
-require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/index.lib.php';
-require_once './setup/lib/ConfigGenerator.class.php';
 
 $config_readable = false;
 $config_writable = false;

@@ -10,7 +10,6 @@
  * Include to test
  */
 require_once 'setup/lib/form_processing.lib.php';
-require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';
 
 
@@ -19,7 +18,7 @@ require_once 'libraries/core.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
+class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -36,7 +35,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
         }
 
         // case 1
-        $formDisplay = $this->getMockBuilder('FormDisplay')
+        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'getDisplay'))
             ->getMock();
@@ -53,7 +52,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
         PMA_Process_formset($formDisplay);
 
         // case 2
-        $formDisplay = $this->getMockBuilder('FormDisplay')
+        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'hasErrors', 'displayErrors'))
             ->getMock();
@@ -93,7 +92,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 3
-        $formDisplay = $this->getMockBuilder('FormDisplay')
+        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'hasErrors'))
             ->getMock();

@@ -21,7 +21,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var Types
+     * @var PMA\libraries\Types
      */
     protected $object;
 

@@ -5,19 +5,20 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\PageSettings;
+use PMA\libraries\Response;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.class.php';
 
-PMA_PageSettings::showGroup('Sql_queries');
+PageSettings::showGroup('Sql_queries');
 
 /**
  * Does the common work
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');

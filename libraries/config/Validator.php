@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+namespace PMA\libraries\config;
 
 /**
  * Validation class for various validation functions
@@ -20,7 +21,7 @@
  *
  * @package PhpMyAdmin
  */
-class PMA_Validator
+class Validator
 {
     /**
      * Returns validator list
@@ -122,7 +123,7 @@ class PMA_Validator
             foreach ((array)$validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
-                $vname = "PMA_Validator::" . $vname;
+                $vname = 'PMA\libraries\config\Validator::' . $vname;
                 $args = array_merge(array($vid, &$arguments), $vdef);
                 $r = call_user_func_array($vname, $args);
 
@@ -187,7 +188,7 @@ class PMA_Validator
             ini_set('html_errors', 'false');
             ini_set('track_errors', 'true');
             ini_set('display_errors', 'true');
-            set_error_handler(array("PMA_Validator", "nullErrorHandler"));
+            set_error_handler(array('PMA\libraries\config\Validator', "nullErrorHandler"));
             ob_start();
         } else {
             ob_end_clean();
@@ -224,7 +225,7 @@ class PMA_Validator
         //    static::testPHPErrorMsg();
         $error = null;
 
-        if (PMA\libraries\DatabaseInterface::checkDbExtension('mysqli')) {
+        if (DatabaseInterface::checkDbExtension('mysqli')) {
             $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
             $port = empty($port) || $connect_type == 'socket' ? null : $port;
             $extension = 'mysqli';

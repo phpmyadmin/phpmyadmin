@@ -7,14 +7,16 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\PageSettings;
+use PMA\libraries\Response;
+use PMA\libraries\Util;
 
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.class.php';
 
-PMA_PageSettings::showGroup('Edit');
+PageSettings::showGroup('Edit');
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
@@ -72,7 +74,7 @@ $comments_map = PMA_getCommentsMap($db, $table);
 /**
  * Load JavaScript files
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('functions.js');
@@ -90,7 +92,7 @@ $scripts->addFile('gis_data_editor.js');
  * $disp_message come from tbl_replace.php
  */
 if (! empty($disp_message)) {
-    $response->addHTML(PMA\libraries\Util::getMessage($disp_message, null));
+    $response->addHTML(Util::getMessage($disp_message, null));
 }
 
 $table_columns = PMA_getTableColumns($db, $table);
@@ -152,7 +154,7 @@ $html_output .= PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
 
 $html_output .= PMA_URL_getHiddenInputs($_form_params);
 
-$titles['Browse'] = PMA\libraries\Util::getIcon('b_browse.png', __('Browse foreign values'));
+$titles['Browse'] = Util::getIcon('b_browse.png', __('Browse foreign values'));
 
 // user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)
@@ -214,7 +216,7 @@ $html_output .= PMA_getActionsPanel(
 
 if ($biggest_max_file_size > 0) {
     $html_output .= '        '
-        . PMA\libraries\Util::generateHiddenMaxFileSize(
+        . Util::generateHiddenMaxFileSize(
             $biggest_max_file_size
         ) . "\n";
 }

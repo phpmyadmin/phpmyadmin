@@ -9,13 +9,13 @@
 /*
  * Include to test
  */
+use PMA\libraries\config\ConfigFile;
+use PMA\libraries\config\ServerConfigChecks;
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/config/config_functions.lib.php';
-require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';
-
-require_once 'libraries/config/ServerConfigChecks.class.php';
 require_once 'setup/lib/index.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sanitizing.lib.php';
@@ -261,7 +261,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $cf = new ConfigFile();
         $GLOBALS['ConfigFile'] = $cf;
 
-        $reflection = new \ReflectionProperty('ConfigFile', '_id');
+        $reflection = new \ReflectionProperty('PMA\libraries\config\ConfigFile', '_id');
         $reflection->setAccessible(true);
         $sessionID = $reflection->getValue($cf);
 

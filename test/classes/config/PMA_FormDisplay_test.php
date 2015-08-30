@@ -6,16 +6,12 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\Config;
+use PMA\libraries\config\ConfigFile;
+use PMA\libraries\config\FormDisplay;
 use PMA\libraries\Theme;
 
-require_once 'libraries/config/ConfigFile.class.php';
-require_once 'libraries/config/Form.class.php';
-require_once 'libraries/config/FormDisplay.class.php';
-require_once 'libraries/config/Form.class.php';
 require_once 'libraries/config/config_functions.lib.php';
-
-
-
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/user_preferences.lib.php';
 
@@ -41,7 +37,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $this->object = new FormDisplay(new ConfigFile());
@@ -79,7 +75,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      */
     public function testRegisterForm()
     {
-        $reflection = new \ReflectionClass('FormDisplay');
+        $reflection = new \ReflectionClass('PMA\libraries\config\FormDisplay');
 
         $attrForms = $reflection->getProperty('_forms');
         $attrForms->setAccessible(true);
@@ -96,7 +92,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         $this->object->registerForm('pma_testform', $array, 2);
         $_forms = $attrForms->getValue($this->object);
         $this->assertInstanceOf(
-            'Form',
+            'PMA\libraries\config\Form',
             $_forms['pma_testform']
         );
 
@@ -129,12 +125,12 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
             $this->object->process(true, true)
         );
 
-        $this->object = $this->getMockBuilder('FormDisplay')
+        $this->object = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('save'))
             ->getMock();
 
-        $attrForms = new \ReflectionProperty('FormDisplay', '_forms');
+        $attrForms = new \ReflectionProperty('PMA\libraries\config\FormDisplay', '_forms');
         $attrForms->setAccessible(true);
         $attrForms->setValue($this->object, array(1, 2, 3));
 
@@ -161,7 +157,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayErrors()
     {
-        $reflection = new \ReflectionClass('FormDisplay');
+        $reflection = new \ReflectionClass('PMA\libraries\config\FormDisplay');
 
         $attrIsValidated = $reflection->getProperty('_isValidated');
         $attrIsValidated->setAccessible(true);
@@ -209,7 +205,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      */
     public function testFixErrors()
     {
-        $reflection = new \ReflectionClass('FormDisplay');
+        $reflection = new \ReflectionClass('PMA\libraries\config\FormDisplay');
 
         $attrIsValidated = $reflection->getProperty('_isValidated');
         $attrIsValidated->setAccessible(true);
@@ -261,7 +257,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
     public function testValidateSelect()
     {
         $attrValidateSelect = new \ReflectionMethod(
-            'FormDisplay',
+            'PMA\libraries\config\FormDisplay',
             '_validateSelect'
         );
         $attrValidateSelect->setAccessible(true);
@@ -314,7 +310,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      */
     public function testHasErrors()
     {
-        $attrErrors = new \ReflectionProperty('FormDisplay', '_errors');
+        $attrErrors = new \ReflectionProperty('PMA\libraries\config\FormDisplay', '_errors');
         $attrErrors->setAccessible(true);
 
         $this->assertFalse(
@@ -362,7 +358,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetOptName()
     {
-        $method = new \ReflectionMethod('FormDisplay', '_getOptName');
+        $method = new \ReflectionMethod('PMA\libraries\config\FormDisplay', '_getOptName');
         $method->setAccessible(true);
 
         $this->assertEquals(
@@ -383,11 +379,11 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      */
     public function testLoadUserprefsInfo()
     {
-        $method = new \ReflectionMethod('FormDisplay', '_loadUserprefsInfo');
+        $method = new \ReflectionMethod('PMA\libraries\config\FormDisplay', '_loadUserprefsInfo');
         $method->setAccessible(true);
 
         $attrUserprefs = new \ReflectionProperty(
-            'FormDisplay',
+            'PMA\libraries\config\FormDisplay',
             '_userprefsDisallow'
         );
 
@@ -410,7 +406,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Cannot redefine constant');
         }
 
-        $method = new \ReflectionMethod('FormDisplay', '_setComments');
+        $method = new \ReflectionMethod('PMA\libraries\config\FormDisplay', '_setComments');
         $method->setAccessible(true);
 
         // recoding

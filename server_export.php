@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\PageSettings;
+use PMA\libraries\Response;
 
 /**
  * Does the common work
@@ -12,11 +14,10 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/display_export.lib.php';
-require_once 'libraries/config/page_settings.class.php';
 
-PMA_PageSettings::showGroup('Export');
+PageSettings::showGroup('Export');
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
