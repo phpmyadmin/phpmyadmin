@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 09:33-0400\n"
+"POT-Creation-Date: 2015-08-31 16:57-0400\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -6812,7 +6812,7 @@ msgstr "గరిష్ఠ పట్టికలు"
 #: libraries/config/messages.inc.php:465
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for no limit)."
+"([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 
 #: libraries/config/messages.inc.php:468
