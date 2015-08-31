@@ -36,7 +36,7 @@ if (isset($_REQUEST['flush'])) {
     unset($_flush_commands);
 }
 
-$ServerStatusData = new PMA_ServerStatusData();
+$serverStatusData = new PMA_ServerStatusData();
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -46,10 +46,18 @@ $scripts->addFile('jquery/jquery.tablesorter.js');
 $scripts->addFile('server_status_sorter.js');
 
 $response->addHTML('<div>');
-$response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(PMA_getHtmlForFilter($ServerStatusData));
-$response->addHTML(PMA_getHtmlForLinkSuggestions($ServerStatusData));
-$response->addHTML(PMA_getHtmlForVariablesList($ServerStatusData));
+$response->addHTML($serverStatusData->getMenuHtml());
+if ($serverStatusData->dataLoaded) {
+    $response->addHTML(PMA_getHtmlForFilter($serverStatusData));
+    $response->addHTML(PMA_getHtmlForLinkSuggestions($serverStatusData));
+    $response->addHTML(PMA_getHtmlForVariablesList($serverStatusData));
+} else {
+    $response->addHTML(
+        PMA_Message::error(
+            __('Not enough privilege to view status variables.')
+        )->getDisplay()
+    );
+}
 $response->addHTML('</div>');
 
 exit;

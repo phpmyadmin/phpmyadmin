@@ -20,7 +20,7 @@ if (PMA_DRIZZLE) {
     include_once 'libraries/replication_gui.lib.php';
 }
 
-$ServerStatusData = new PMA_ServerStatusData();
+$serverStatusData = new PMA_ServerStatusData();
 
 $response = PMA_Response::getInstance();
 $scripts = $response->getHeader()->getScripts();
@@ -30,8 +30,16 @@ $scripts->addFile('server_status_advisor.js');
  * Output
  */
 $response->addHTML('<div>');
-$response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(PMA_getHtmlForAdvisor());
+$response->addHTML($serverStatusData->getMenuHtml());
+if ($serverStatusData->dataLoaded) {
+    $response->addHTML(PMA_getHtmlForAdvisor());
+} else {
+    $response->addHTML(
+        PMA_Message::error(
+            __('Not enough privilege to view the advisor.')
+        )->getDisplay()
+    );
+}
 $response->addHTML('</div>');
 
 exit;
