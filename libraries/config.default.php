@@ -720,7 +720,7 @@ $cfg['ExecTimeLimit'] = 300;
 $cfg['SessionSavePath'] = '';
 
 /**
- * maximum allocated bytes ('-1' for no limit)
+ * maximum allocated bytes ('-1' for no limit, '0' for no change)
  * this is a string because '16M' is a valid value; we must put here
  * a string as the default value so that /setup accepts strings
  *
