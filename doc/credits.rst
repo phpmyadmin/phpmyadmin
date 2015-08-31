@@ -414,6 +414,12 @@ Credits, in chronological order
 
   * Other UI improvements
 
+* Deven Bansod (Google Summer of Code 2015)
+
+  * Print view using CSS
+
+  * Other UI improvements and new features
+
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
 2.1.0:
