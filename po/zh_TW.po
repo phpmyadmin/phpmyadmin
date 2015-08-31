@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 09:37-0400\n"
+"POT-Creation-Date: 2015-08-31 16:58-0400\n"
 "PO-Revision-Date: 2015-08-27 13:45+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
@@ -6439,9 +6439,13 @@ msgid "Maximum tables"
 msgstr "資料表數量上限"
 
 #: libraries/config/messages.inc.php:465
+#, fuzzy
+#| msgid ""
+#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for no limit)."
+"([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "執行 Script 時可配置的記憶體大小，例 [kbd]32MB[/kbd] ([kbd]0[/kbd]爲不限制)。"
 

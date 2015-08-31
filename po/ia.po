@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
-"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 09:37-0400\n"
+"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"POT-Creation-Date: 2015-08-31 16:58-0400\n"
 "PO-Revision-Date: 2015-08-31 17:13+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -658,7 +658,6 @@ msgstr ""
 "disponibile in %s."
 
 #: index.php:163
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "Preferentias general"
 
@@ -673,7 +672,6 @@ msgid "Server connection collation"
 msgstr "Colliger de connexion de servitor"
 
 #: index.php:229
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Preferentias de apparentia"
 
@@ -1011,7 +1009,6 @@ msgstr ""
 "Tu es secur que tu vole modificar omne collationes e converter le datos?"
 
 #: js/messages.php:88
-#| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Salveguarda & claude"
 
@@ -1022,7 +1019,6 @@ msgid "Reset"
 msgstr "Refixa"
 
 #: js/messages.php:90
-#| msgid "Reset All"
 msgid "Reset all"
 msgstr "Refixa toto"
 
@@ -1043,12 +1039,10 @@ msgid "Please enter a valid length!"
 msgstr "Pro favor inserta un longor valide!"
 
 #: js/messages.php:97
-#| msgid "Add Index"
 msgid "Add index"
 msgstr "Adde indice"
 
 #: js/messages.php:98
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Modifica indice"
 
@@ -1098,7 +1092,6 @@ msgstr "Query SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Valores pro le axis Y"
 
@@ -1195,7 +1188,6 @@ msgid "Query cache used"
 msgstr "Cache de query usate"
 
 #: js/messages.php:151
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Usage de CPU de systema"
 
@@ -1232,22 +1224,18 @@ msgid "Used memory"
 msgstr "Memoria usate"
 
 #: js/messages.php:162
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Swap total"
 
 #: js/messages.php:163
-#| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Swap in cache"
 
 #: js/messages.php:164
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Swap usate"
 
 #: js/messages.php:165
-#| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Swap libere"
 
@@ -1667,7 +1655,6 @@ msgid "No files available on server for import!"
 msgstr "Nulle files disponibile sur le servitor pro importar!"
 
 #: js/messages.php:275
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analysa query"
 
@@ -1732,22 +1719,18 @@ msgid "Loading…"
 msgstr "Cargar…"
 
 #: js/messages.php:301
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Requesta abortate!"
 
 #: js/messages.php:302
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Requesta de tractamento"
 
 #: js/messages.php:303
-#| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Requesta fallite!"
 
 #: js/messages.php:304
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Error in le requesta de tractamento"
 
@@ -1767,12 +1750,10 @@ msgid "No databases selected."
 msgstr "Necun base de datos seligite."
 
 #: js/messages.php:308
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Depone columna"
 
 #: js/messages.php:309
-#| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Addente clave primari"
 
@@ -1791,17 +1772,14 @@ msgid "Click to dismiss this notification"
 msgstr "Pulsa pro dimitter iste notification"
 
 #: js/messages.php:314
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Renominante base de datos"
 
 #: js/messages.php:315
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Copiante base de datos"
 
 #: js/messages.php:316
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Modificante insimul de characteres"
 
@@ -2199,12 +2177,10 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: js/messages.php:440
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Circulo interne"
 
 #: js/messages.php:441
-#| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "Circulo externe"
 
@@ -2456,12 +2432,10 @@ msgid "More"
 msgstr "Altere"
 
 #: js/messages.php:531
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Monstra pannello"
 
 #: js/messages.php:532
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Cela pannello"
 
@@ -2540,12 +2514,10 @@ msgid "Create view"
 msgstr "Crea vista"
 
 #: js/messages.php:556
-#| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Invia reporto de errores"
 
 #: js/messages.php:557
-#| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Submitte reporto de error"
 
@@ -2558,12 +2530,10 @@ msgstr ""
 "error?"
 
 #: js/messages.php:561
-#| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Modifica preferentias de reporto"
 
 #: js/messages.php:562
-#| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Monstra detalios de reporto"
 
@@ -3537,7 +3507,6 @@ msgstr "Intra tabulas:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Deselige toto"
 
@@ -3710,7 +3679,6 @@ msgstr "Si seligite:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#| msgid "Check All"
 msgid "Check all"
 msgstr "Marca omnes"
 
@@ -4830,7 +4798,6 @@ msgid "Without PHP Code"
 msgstr "Sin codice PHP"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Crea codice PHP"
 
@@ -4962,7 +4929,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Verifica le privilegios de base de datos \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Verifica le privilegios"
 
@@ -6694,9 +6660,13 @@ msgid "Maximum tables"
 msgstr "Maxime numero de tabellas"
 
 #: libraries/config/messages.inc.php:465
+#, fuzzy
+#| msgid ""
+#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for no limit)."
+"([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Fixa le numero de bytes pro le qual un script es permittite allocar  "
 "[kbd]32M[/kbd] ([kbd]0[/kbd]  pro nulle limite)."
@@ -7691,7 +7661,6 @@ msgstr ""
 "omne tabellas."
 
 #: libraries/config/messages.inc.php:853
-#| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Monstra marca de tempore de creation"
 
@@ -7703,7 +7672,6 @@ msgstr ""
 "actualisation pro omne tabellas."
 
 #: libraries/config/messages.inc.php:857
-#| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Monstra marca de tempore de ultime actualisation"
 
@@ -7715,7 +7683,6 @@ msgstr ""
 "pro omne tabellas."
 
 #: libraries/config/messages.inc.php:861
-#| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Monstra marca de tempore de ultime verifica"
 
@@ -8387,7 +8354,6 @@ msgid "Custom - display all possible options"
 msgstr "Personalisate-monstra omne optiones possibile"
 
 #: libraries/display_export.lib.php:335
-#| msgid "Databases"
 msgid "Databases:"
 msgstr "Base de datos:"
 
@@ -8598,7 +8564,6 @@ msgstr ""
 "b>. Exemplo:<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "File de importar:"
 
@@ -8611,7 +8576,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Il non es permittite incargar files sur iste servitor."
 
 #: libraries/display_import.lib.php:278
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Importation partial:"
 
@@ -8642,7 +8606,6 @@ msgstr ""
 "initiante ab le prime:"
 
 #: libraries/display_import.lib.php:340
-#| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Altere optiones:"
 
@@ -9979,7 +9942,6 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Adapta permissiones"
 
@@ -10952,7 +10914,6 @@ msgstr "Monstra grillia"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Dictionario de datos"
 
@@ -11617,7 +11578,6 @@ msgid "Re-type"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:895
-#| msgid "Generate password"
 msgid "Generate password:"
 msgstr "Contrasigno generate:"
 
@@ -12076,7 +12036,6 @@ msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#| msgid "Current settings"
 msgid "Current server:"
 msgstr "Servitor currente:"
 
@@ -12135,7 +12094,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#| msgid "Query statistics"
 msgid "Enable statistics"
 msgstr "Habilita statisticas"
 
@@ -12564,7 +12522,6 @@ msgid "table-specific"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2628
-#| msgid "Edit privileges:"
 msgid "Edit privileges"
 msgstr "Modifica privilegios"
 
@@ -12934,7 +12891,6 @@ msgid "Clear series"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:233
-#| msgid "Server charset:"
 msgid "Series in chart:"
 msgstr "Series in graphico:"
 

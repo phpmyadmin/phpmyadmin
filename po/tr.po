@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
-"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 09:37-0400\n"
+"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"POT-Creation-Date: 2015-08-31 16:58-0400\n"
 "PO-Revision-Date: 2015-08-31 19:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -648,7 +648,6 @@ msgstr ""
 "değiştirmeyin. Daha fazla bilgi %s adresinde mevcuttur."
 
 #: index.php:163
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "Genel ayarlar"
 
@@ -663,7 +662,6 @@ msgid "Server connection collation"
 msgstr "Sunucu bağlantısı karşılaştırması"
 
 #: index.php:229
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Görünüm ayarları"
 
@@ -1009,7 +1007,6 @@ msgstr ""
 "istediğinizden emin misiniz?"
 
 #: js/messages.php:88
-#| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Kaydet ve kapat"
 
@@ -1020,7 +1017,6 @@ msgid "Reset"
 msgstr "Sıfırla"
 
 #: js/messages.php:90
-#| msgid "Reset All"
 msgid "Reset all"
 msgstr "Tümünü sıfırla"
 
@@ -1045,7 +1041,6 @@ msgid "Add index"
 msgstr "İndeks ekle"
 
 #: js/messages.php:98
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "İndeksi düzenle"
 
@@ -1095,7 +1090,6 @@ msgstr "SQL sorgusu:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Y değerleri"
 
@@ -1191,7 +1185,6 @@ msgid "Query cache used"
 msgstr "Kullanılan sorgu önbelleği"
 
 #: js/messages.php:151
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Sistem İşlemcisi kullanımı"
 
@@ -1228,22 +1221,18 @@ msgid "Used memory"
 msgstr "Kullanılan bellek"
 
 #: js/messages.php:162
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Toplam takas"
 
 #: js/messages.php:163
-#| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Önbelleklenen takas"
 
 #: js/messages.php:164
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Kullanılan takas"
 
 #: js/messages.php:165
-#| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Serbest takas"
 
@@ -1656,7 +1645,6 @@ msgid "No files available on server for import!"
 msgstr "İçe aktarmak için sunucuda mevcut dosyalar yok!"
 
 #: js/messages.php:275
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Sorguyu çözümle"
 
@@ -1721,22 +1709,18 @@ msgid "Loading…"
 msgstr "Yükleniyor…"
 
 #: js/messages.php:301
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "İstek iptal edildi!!!"
 
 #: js/messages.php:302
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "İstek işleniyor"
 
 #: js/messages.php:303
-#| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "İstek başarısız oldu!!"
 
 #: js/messages.php:304
-#| msgid "Error in processing request:"
 msgid "Error in processing request"
 msgstr "İstek işlemede hata"
 
@@ -1756,12 +1740,10 @@ msgid "No databases selected."
 msgstr "Seçilen veritabanları yok."
 
 #: js/messages.php:308
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Sütun kaldırılıyor"
 
 #: js/messages.php:309
-#| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Birincil anahtar ekleniyor"
 
@@ -1780,17 +1762,14 @@ msgid "Click to dismiss this notification"
 msgstr "Bu bildiriyi reddetmek için tıklayın"
 
 #: js/messages.php:314
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Veritabanları yeniden adlandırılıyor"
 
 #: js/messages.php:315
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Veritabanı kopyalanıyor"
 
 #: js/messages.php:316
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Karakter grubu değiştiriliyor"
 
@@ -2185,12 +2164,10 @@ msgid "Geometry"
 msgstr "Geometri"
 
 #: js/messages.php:440
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "İç halka"
 
 #: js/messages.php:441
-#| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "Dış halka"
 
@@ -2438,12 +2415,10 @@ msgid "More"
 msgstr "Daha fazla"
 
 #: js/messages.php:531
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Paneli göster"
 
 #: js/messages.php:532
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Paneli gizle"
 
@@ -2521,12 +2496,10 @@ msgid "Create view"
 msgstr "Görünüm oluştur"
 
 #: js/messages.php:556
-#| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Hata raporu gönder"
 
 #: js/messages.php:557
-#| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Hata raporu gönder"
 
@@ -2539,12 +2512,10 @@ msgstr ""
 "misiniz?"
 
 #: js/messages.php:561
-#| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Rapor ayarlarını değiştir"
 
 #: js/messages.php:562
-#| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Rapor ayrıntılarını göster"
 
@@ -3507,7 +3478,6 @@ msgstr "Tablo içindekiler:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Tüm seçimi kaldır"
 
@@ -3679,7 +3649,6 @@ msgstr "Seçilileri:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#| msgid "Check All"
 msgid "Check all"
 msgstr "Tümünü işaretle"
 
@@ -4790,7 +4759,6 @@ msgid "Without PHP Code"
 msgstr "PHP Kodsuz"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP kodu oluştur"
 
@@ -4919,7 +4887,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "\"%s\" veritabanı için yetkileri kontrol et."
 
 #: libraries/build_html_for_db.lib.php:181
-#| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Yetkileri kontrol et"
 
@@ -6635,9 +6602,13 @@ msgid "Maximum tables"
 msgstr "En fazla tablo"
 
 #: libraries/config/messages.inc.php:465
+#, fuzzy
+#| msgid ""
+#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for no limit)."
+"([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Betiğe ayrılması için izin verilecek bayt sayısıdır, örn. [kbd]32M[/kbd] "
 "(sınırsız için [kbd]0[/kbd])."
@@ -7625,7 +7596,6 @@ msgstr ""
 "veya gizleyin."
 
 #: libraries/config/messages.inc.php:853
-#| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Oluşturma zaman damgasını göster"
 
@@ -7637,7 +7607,6 @@ msgstr ""
 "gösterin veya gizleyin."
 
 #: libraries/config/messages.inc.php:857
-#| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Son güncelleme zaman damgasını göster"
 
@@ -7649,7 +7618,6 @@ msgstr ""
 "veya gizleyin."
 
 #: libraries/config/messages.inc.php:861
-#| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Son kontrol zaman damgasını göster"
 
@@ -8317,7 +8285,6 @@ msgid "Custom - display all possible options"
 msgstr "Özel - tüm olası seçenekleri göster"
 
 #: libraries/display_export.lib.php:335
-#| msgid "Databases"
 msgid "Databases:"
 msgstr "Veritabanları:"
 
@@ -8528,7 +8495,6 @@ msgstr ""
 "Örneğin: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "İçe aktarmak için dosya:"
 
@@ -8542,7 +8508,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Bu sunucuda dosya gönderimlerine izin verilmez."
 
 #: libraries/display_import.lib.php:278
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Kısmi içe aktarma:"
 
@@ -8573,7 +8538,6 @@ msgstr ""
 "başlayarak atla:"
 
 #: libraries/display_import.lib.php:340
-#| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Diğer seçenekler:"
 
@@ -9908,7 +9872,6 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Yetkileri ayarla"
 
@@ -10904,7 +10867,6 @@ msgstr "Kılavuzu göster"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Veri sözlüğü"
 
@@ -11654,7 +11616,6 @@ msgid "Re-type"
 msgstr "Parola tekrarı"
 
 #: libraries/replication_gui.lib.php:895
-#| msgid "Generate password"
 msgid "Generate password:"
 msgstr "Parola üret:"
 
@@ -12121,7 +12082,6 @@ msgid "Ignoring unsupported language code."
 msgstr "Desteklenmeyen dil kodu yoksayılıyor."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#| msgid "Current server"
 msgid "Current server:"
 msgstr "Şu anki sunucu:"
 
@@ -12182,7 +12142,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "İstatistikleri etkinleştir"
 
@@ -12627,7 +12586,6 @@ msgid "table-specific"
 msgstr "tabloya özgü"
 
 #: libraries/server_privileges.lib.php:2628
-#| msgid "Edit privileges:"
 msgid "Edit privileges"
 msgstr "Yetkileri düzenle"
 
@@ -13051,7 +13009,6 @@ msgid "Clear series"
 msgstr "Diziyi temizle"
 
 #: libraries/server_status_monitor.lib.php:233
-#| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Çizelgedeki dizi:"
 
@@ -14549,12 +14506,10 @@ msgid "Username and hostname didn't change."
 msgstr "Kullanıcı adı ve anamakine adı değişmedi."
 
 #: server_status.php:39
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
 msgstr "Sunucu durumunu görüntülemek için yetersiz yetki."
 
 #: server_status_advisor.php:39
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
 msgstr "Danışmanı görüntülemek için yetersiz yetki."
 
@@ -14570,18 +14525,15 @@ msgid ""
 msgstr "phpMyAdmin %s işlemini sonlandıramadı. Muhtemelen zaten kapatılmış."
 
 #: server_status_queries.php:55
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
 msgstr "Sorgu istatistiklerini görüntülemek için yetersiz yetki."
 
 #: server_status_variables.php:57
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
 msgstr "Durum değişkenlerini görüntülemek için yetersiz yetki."
 
 #: server_variables.php:83
 #, php-format
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
 "Sunucu değişkenlerini ve ayarlarını görüntülemek için yetersiz yetki. %s"
