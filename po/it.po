@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 09:37-0400\n"
-"PO-Revision-Date: 2015-08-25 18:59+0200\n"
+"PO-Revision-Date: 2015-08-31 16:04+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -655,10 +655,9 @@ msgstr ""
 "Maggiori informazioni sono disponibili su %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
-msgstr "Impostazioni Generali"
+msgstr "Impostazioni generali"
 
 #: index.php:191 js/messages.php:525
 #: libraries/display_change_password.lib.php:50
@@ -671,10 +670,9 @@ msgid "Server connection collation"
 msgstr "Collation della connessione del server"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "Impostazioni di Presentazione"
+msgstr "Impostazioni di presentazione"
 
 #: index.php:259 prefs_manage.php:285
 msgid "More settings"
@@ -1020,10 +1018,9 @@ msgstr ""
 "convertire i dati?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Salva &amp; Chiudi"
+msgstr "Salva &amp; chiudi"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:417
 #: libraries/insert_edit.lib.php:1548 prefs_manage.php:361
@@ -1032,7 +1029,6 @@ msgid "Reset"
 msgstr "Riavvia"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Reimposta tutto"
@@ -1058,10 +1054,9 @@ msgid "Add index"
 msgstr "Aggiungi indice"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
-msgstr "Modifica Indice"
+msgstr "Modifica indice"
 
 #: js/messages.php:99 templates/table/index_form.phtml:232
 #, php-format
@@ -1109,10 +1104,9 @@ msgstr "Query SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
-msgstr "Valori per asse Y"
+msgstr "Valori per l'asse Y"
 
 #: js/messages.php:121
 msgid "The host name is empty!"
@@ -1207,10 +1201,9 @@ msgid "Query cache used"
 msgstr "Cache delle query utilizzata"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "Utilizzo della CPU"
+msgstr "Utilizzo della CPU di sistema"
 
 #: js/messages.php:152
 msgid "System memory"
@@ -1245,25 +1238,21 @@ msgid "Used memory"
 msgstr "Memoria utilizzata"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Swap totale"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Swap in cache"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Swap utilizzata"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Swap libera"
@@ -1681,10 +1670,9 @@ msgid "No files available on server for import!"
 msgstr "Sul server non è disponibile nessun file da importare!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Analizza la Query"
+msgstr "Analizza la query"
 
 #: js/messages.php:279
 msgid "Advisor system"
@@ -1747,28 +1735,24 @@ msgid "Loading…"
 msgstr "Caricamento…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Richiesta interrotta!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
-msgstr "Elaborazione Richiesta"
+msgstr "Elaborazione richiesta"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
-msgstr "Richiesta Fallita!"
+msgstr "Richiesta fallita!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Errore nell'elaborazione della richiesta:"
+msgstr "Errore nell'elaborazione della richiesta"
 
 #: js/messages.php:305
 #, php-format
@@ -1786,16 +1770,14 @@ msgid "No databases selected."
 msgstr "Nessun database selezionato."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Eliminazione Campo"
+msgstr "Eliminazione campo"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Aggiungi chiave primaria"
+msgstr "Aggiungo chiave primaria"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1812,22 +1794,19 @@ msgid "Click to dismiss this notification"
 msgstr "Clicca per chiudere questa notifica"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Rinominazione dei Database"
+msgstr "Rinomino database"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
-msgstr "Sto copiando il Database"
+msgstr "Copio il database"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
-msgstr "Sto cambiando il charset"
+msgstr "Cambio il charset"
 
 #: js/messages.php:320 libraries/Util.class.php:3234
 msgid "Enable foreign key checks"
@@ -2222,16 +2201,14 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "Cerchio Interno"
+msgstr "Anello Interno"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Cerchio esterno:"
+msgstr "Anello esterno"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2479,13 +2456,11 @@ msgid "More"
 msgstr "Più"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Mostra pannello"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Nascondi pannello"
@@ -2565,10 +2540,9 @@ msgid "Create view"
 msgstr "Crea vista"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Invia rapporti di errore"
+msgstr "Invia rapporto di errore"
 
 #: js/messages.php:557
 #, fuzzy
