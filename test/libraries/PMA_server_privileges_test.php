@@ -630,6 +630,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
+        $_POST['pred_password'] = 'keep';
         $_REQUEST['createdb-3'] = true;
         $_REQUEST['authentication_plugin'] = 'mysql_native_password';
 
@@ -639,11 +640,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
                 (isset ($password) ? $password : '')
             );
         $this->assertEquals(
-            "CREATE USER 'pma_username'@'pma_hostname';",
+            "CREATE USER 'pma_username'@'pma_hostname' "
+            . "IDENTIFIED WITH mysql_native_password BY 'pma_password';",
             $create_user_real
         );
         $this->assertEquals(
-            "CREATE USER 'pma_username'@'pma_hostname';",
+            "CREATE USER 'pma_username'@'pma_hostname' "
+            . "IDENTIFIED WITH mysql_native_password BY '***';",
             $create_user_show
         );
         $this->assertEquals(
@@ -669,6 +672,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
+        $_POST['pred_password'] = 'keep';
         $_REQUEST['createdb-3'] = true;
         $_REQUEST['userGroup'] = "username";
         $_REQUEST['authentication_plugin'] = 'mysql_native_password';
@@ -688,8 +692,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $ret_message->getMessage()
         );
         $this->assertEquals(
-            "CREATE USER ''@'localhost';GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
-            //. "SET PASSWORD FOR ''@'localhost' = PASSWORD('***');"
+            "CREATE USER ''@'localhost' IDENTIFIED WITH mysql_native_password BY '***';"
+            . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
             . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
             $sql_query
         );
@@ -934,6 +938,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $username = "PMA_username";
         $hostname = "PMA_hostname";
         $password = "PMA_password";
+        $_POST['pred_password'] = 'keep';
         $dbname = "PMA_db";
 
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
@@ -941,13 +946,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 1: $create_user_real
         $this->assertEquals(
-            "CREATE USER 'PMA_username'@'PMA_hostname';",
+            "CREATE USER 'PMA_username'@'PMA_hostname' BY 'PMA_password';",
             $create_user_real
         );
 
         //validate 2: $create_user_show
         $this->assertEquals(
-            "CREATE USER 'PMA_username'@'PMA_hostname';",
+            "CREATE USER 'PMA_username'@'PMA_hostname' BY '***';",
             $create_user_show
         );
 
