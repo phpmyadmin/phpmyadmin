@@ -34,6 +34,7 @@ class PMA_ServerStatusData
     public $section;
     public $sectionUsed;
     public $selfUrl;
+    public $dataLoaded;
 
     /**
      * An empty setter makes the above properties read-only
@@ -314,7 +315,18 @@ class PMA_ServerStatusData
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
 
         // get status from server
-        $server_status = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1);
+        $server_status_result = $GLOBALS['dbi']->tryQuery('SHOW GLOBAL STATUS');
+        $server_status = array();
+        if ($server_status_result === false) {
+            $this->dataLoaded = false;
+        } else {
+            $this->dataLoaded = true;
+            while ($arr = $GLOBALS['dbi']->fetchRow($server_status_result)) {
+                $server_status[$arr[0]] = $arr[1];
+            }
+            $GLOBALS['dbi']->freeResult($server_status_result);
+        }
+
         if (PMA_DRIZZLE) {
             // Drizzle doesn't put query statistics into variables, add it
             $sql = "SELECT concat('Com_', variable_name), variable_value "

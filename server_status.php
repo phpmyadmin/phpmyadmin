@@ -23,15 +23,22 @@ if (PMA_DRIZZLE) {
     include_once 'libraries/replication_gui.lib.php';
 }
 
-$ServerStatusData = new PMA_ServerStatusData();
-
 /**
  * start output
  */
 $response = PMA_Response::getInstance();
 $response->addHTML('<div>');
-$response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(PMA_getHtmlForServerStatus($ServerStatusData));
-$response->addHTML('</div>');
 
+$serverStatusData = new PMA_ServerStatusData();
+$response->addHTML($serverStatusData->getMenuHtml());
+if ($serverStatusData->dataLoaded) {
+    $response->addHTML(PMA_getHtmlForServerStatus($serverStatusData));
+} else {
+    $response->addHTML(
+        PMA_Message::error(
+            __('Not enough privilege to view server status.')
+        )->getDisplay()
+    );
+}
+$response->addHTML('</div>');
 exit;
