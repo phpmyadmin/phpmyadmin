@@ -175,7 +175,12 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['filter'] = "auto-commit";
         $variable_doc_links = PMA_getArrayForDocumentLinks();
 
-        $html = PMA_getHtmlForServerVariables($variable_doc_links);
+        $serverVarsSession
+            = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
+        $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
+        $html = PMA_getHtmlForServerVariables(
+            $variable_doc_links, $serverVars, $serverVarsSession
+        );
 
         //validate 1: Filters
         $this->assertContains(
@@ -216,7 +221,12 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
         //Call the test function
         $variable_doc_links = PMA_getArrayForDocumentLinks();
 
-        $html = PMA_getHtmlForServerVariablesItems($variable_doc_links);
+        $serverVarsSession
+            = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
+        $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
+        $html = PMA_getHtmlForServerVariablesItems(
+            $variable_doc_links, $serverVars, $serverVarsSession
+        );
 
         //validate 1: variable: auto_increment_increment
         $name = "auto_increment_increment";

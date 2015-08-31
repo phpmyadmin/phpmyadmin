@@ -167,11 +167,14 @@ function PMA_getHtmlForLinkTemplates()
  * Prints Html for Server Variables
  *
  * @param Array $variable_doc_links documentation links
+ * @param Array $serverVars         global variables
+ * @param Array $serverVarsSession  session variables
  *
  * @return string
  */
-function PMA_getHtmlForServerVariables($variable_doc_links)
-{
+function PMA_getHtmlForServerVariables(
+    $variable_doc_links, $serverVars, $serverVarsSession
+) {
     $value = ! empty($_REQUEST['filter'])
         ? htmlspecialchars($_REQUEST['filter'])
         : '';
@@ -194,7 +197,9 @@ function PMA_getHtmlForServerVariables($variable_doc_links)
         . '</tr>'
         . '</thead>';
 
-    $output .= PMA_getHtmlForServerVariablesItems($variable_doc_links);
+    $output .= PMA_getHtmlForServerVariablesItems(
+        $variable_doc_links, $serverVars, $serverVarsSession
+    );
 
     $output .= '</table>';
 
@@ -206,18 +211,14 @@ function PMA_getHtmlForServerVariables($variable_doc_links)
  * Prints Html for Server Variables Items
  *
  * @param Array $variable_doc_links documentation links
+ * @param Array $serverVars         global variables
+ * @param Array $serverVarsSession  session variables
  *
  * @return string
  */
-function PMA_getHtmlForServerVariablesItems($variable_doc_links)
-{
-    /**
-     * Sends the queries and buffers the results
-     */
-    $serverVarsSession
-        = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
-    $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
-
+function PMA_getHtmlForServerVariablesItems(
+    $variable_doc_links, $serverVars, $serverVarsSession
+) {
     // list of static system variables
     $static_variables = PMA_getStaticSystemVariables();
 
