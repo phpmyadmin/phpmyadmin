@@ -463,7 +463,7 @@ $strConfigMaxTableList_desc = __(
 $strConfigMaxTableList_name = __('Maximum tables');
 $strConfigMemoryLimit_desc = __(
     'The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] '
-    . '([kbd]0[/kbd] for no limit).'
+    . '([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change).'
 );
 $strConfigMemoryLimit_name = __('Memory limit');
 $strConfigShowDatabasesNavigationAsTree_desc = __(
