@@ -1361,7 +1361,7 @@ class PMA_Util
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
             if (defined('PMA_MYSQL_INT_VERSION')
-                && $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'profiling'")
+                && $GLOBALS['dbi']->fetchValue("SELECT @@profiling")
             ) {
                 self::cacheSet('profiling_supported', true);
             } else {
@@ -3196,7 +3196,7 @@ class PMA_Util
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
             $ndbver = $GLOBALS['dbi']->fetchValue(
-                "SHOW VARIABLES LIKE 'ndb_version_string'"
+                "SELECT @@ndb_version_string"
             );
             return ($ndbver >= 7.3);
         } else {
@@ -4651,7 +4651,7 @@ class PMA_Util
             'lower_case_table_names',
             function () {
                 return $GLOBALS['dbi']->fetchValue(
-                    "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
+                    "SELECT @@lower_case_table_names", 0, 1
                 );
             }
         );

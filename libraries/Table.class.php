@@ -827,7 +827,7 @@ class PMA_Table
             if (!PMA_DRIZZLE) {
                 SqlParser\Context::setMode(
                     $GLOBALS['dbi']->fetchValue(
-                        "SHOW VARIABLES LIKE 'sql_mode'", 0, 1
+                        "SELECT @@sql_mode", 0, 1
                     )
                 );
             }

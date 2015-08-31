@@ -116,13 +116,13 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SHOW VARIABLES LIKE \'collation_server\'',
+        'query' => 'SELECT @@collation_server',
         'result' => array(
             array('collation_server', 'utf8_general_ci'),
         )
     ),
     array(
-        'query' => 'SHOW VARIABLES LIKE \'language\';',
+        'query' => 'SELECT @@language;',
         'result' => array(),
     ),
     array(
@@ -424,7 +424,7 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SHOW VARIABLES LIKE \'collation_database\'',
+        'query' => 'SELECT @@collation_database',
         'columns' => array('variable_name', 'variable_value'),
         'result' => array(
             array('foo', 'bar'),
@@ -610,7 +610,7 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array()
     ),
     array(
-        'query' => 'SHOW VARIABLES like \'default_authentication_plugin\'',
+        'query' => 'SELECT @@default_authentication_plugin',
         'result' => array(array('Variable_name' => 'mysql_native_password'))
     ),
     array(
@@ -643,7 +643,7 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array()
     ),
     array(
-        'query' => "SHOW VARIABLES LIKE 'have_partitioning';",
+        'query' => "SELECT @@have_partitioning;",
         'result' => array()
     )
 );
