@@ -122,7 +122,7 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SELECT @@language;',
+        'query' => 'SELECT @@lc_messages;',
         'result' => array(),
     ),
     array(
