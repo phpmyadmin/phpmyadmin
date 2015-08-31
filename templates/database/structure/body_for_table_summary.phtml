@@ -37,12 +37,12 @@ $cell_text = ($approx_rows)
     <?php
         // MySQL <= 5.5.2
         $default_engine = $GLOBALS['dbi']->fetchValue(
-            "SHOW VARIABLES LIKE 'storage_engine';", 0, 1
+            "SELECT @@storage_engine;", 0, 1
         );
         if (empty($default_engine)) {
             // MySQL >= 5.5.3
             $default_engine = $GLOBALS['dbi']->fetchValue(
-                "SHOW VARIABLES LIKE 'default_storage_engine';", 0, 1
+                "SELECT @@default_storage_engine;", 0, 1
             );
         }
     ?>

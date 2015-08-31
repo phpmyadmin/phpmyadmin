@@ -416,7 +416,7 @@ class PMA_Partition extends PMA_SubPartition
         if (! $already_checked) {
             if (PMA_MYSQL_INT_VERSION < 50600) {
                 if ($GLOBALS['dbi']->fetchValue(
-                    "SHOW VARIABLES LIKE 'have_partitioning';"
+                    "SELECT @@have_partitioning;"
                 )) {
                     $have_partitioning = true;
                 }

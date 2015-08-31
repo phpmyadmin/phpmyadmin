@@ -1803,7 +1803,7 @@ function PMA_getCurrentAuthenticationPlugin(
         }
     } else {
         $row = $GLOBALS['dbi']->fetchSingleRow(
-            'SHOW VARIABLES like \'default_authentication_plugin\''
+            'SELECT @@default_authentication_plugin'
         );
         $authentication_plugin = $row['Value'];
     }
@@ -1892,7 +1892,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
 
                 // Backup the old value, to be reset later
                 $row = $GLOBALS['dbi']->fetchSingleRow(
-                    'SHOW VARIABLES like \'old_passwords\';'
+                    'SELECT @@old_passwords;'
                 );
                 $orig_value = $row['Value'];
                 // Set the hashing method used by PASSWORD()
