@@ -323,7 +323,7 @@ class PMA_DatabaseInterface
             'server_language',
             function () {
                 return $GLOBALS['dbi']->fetchValue(
-                    "SHOW VARIABLES LIKE 'language';", 0, 1
+                    "SELECT @@language;", 0, 1
                 );
             }
         );
