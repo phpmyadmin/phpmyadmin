@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-09 00:05+0200\n"
+"PO-Revision-Date: 2015-08-31 17:13+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ia/>\n"
@@ -3358,7 +3358,7 @@ msgstr "Well Known Text (Texto ben cognoscite)"
 
 #: libraries/DisplayResults.class.php:1665
 msgid "Well Known Binary"
-msgstr "Well Known Binary"
+msgstr "Well Known Binary (binari ben cognoscite)"
 
 #: libraries/DisplayResults.class.php:3362
 #: libraries/DisplayResults.class.php:3378
@@ -13460,7 +13460,7 @@ msgstr "Valores distincte"
 
 #: libraries/structure.lib.php:2194 libraries/structure.lib.php:2197
 msgid "Add index"
-msgstr ""
+msgstr "Adde indice"
 
 #: libraries/structure.lib.php:2200 libraries/structure.lib.php:2203
 msgid "Add unique index"
