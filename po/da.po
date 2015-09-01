@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-08-26 14:52+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-5/da/"
-">\n"
+"PO-Revision-Date: 2015-09-01 14:48+0200\n"
+"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,7 @@ msgstr "Tabelkommentarer:"
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
 msgid "Column"
-msgstr "Kolonnenavn"
+msgstr "Kolonne"
 
 #: db_datadict.php:115 libraries/Index.class.php:696
 #: libraries/central_columns.lib.php:697
@@ -287,10 +287,9 @@ msgstr "Data"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:378
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
-msgstr "Vælg alle"
+msgstr "Vælg alt"
 
 #: db_operations.php:53 tbl_create.php:24
 msgid "The database name is empty!"
@@ -511,7 +510,7 @@ msgstr "Udfør"
 
 #: gis_data_editor.php:412
 msgid "Output"
-msgstr "Output"
+msgstr "Resultat"
 
 #: gis_data_editor.php:415
 msgid ""
@@ -557,7 +556,7 @@ msgid ""
 "without access to the %s directory (for temporary files)."
 msgstr ""
 "Den uploadede fil kan ikke flyttes, da serveren har open_basedir slået til, "
-"uden adgang til %s mappen (til midlertidige)."
+"uden adgang til %s mappen (til midlertidige filer)."
 
 #: import.php:486 import.php:563 libraries/File.class.php:426
 #: libraries/File.class.php:522
@@ -571,7 +570,7 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Du forsøgte at indlæse en fil med u-understøttet komprimering (%s). "
+"Du forsøgte at indlæse en fil med ikke understøttet komprimering (%s). "
 "Understøttelse af denne funktion er ikke implementeret eller ikke slået til "
 "for din konfiguration."
 
@@ -649,7 +648,6 @@ msgstr ""
 "rette root, debian-sys-maint og pma-brugere. Mere information fås på %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Generelle indstillinger"
@@ -665,7 +663,6 @@ msgid "Server connection collation"
 msgstr "Servers forbindelsestegnsæt"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Indstillinger for udseende"
@@ -959,7 +956,7 @@ msgstr ""
 
 #: js/messages.php:65
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Er du sikker på at du vil TRUNKERE de valgte partitioner?"
+msgstr "Er du sikker på at du vil TRUNCATE de valgte partitioner?"
 
 #: js/messages.php:67
 msgid ""
@@ -995,9 +992,14 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Ved denne operation vil MySQL forsøge at mappe data mellem "
+"sorteringsrækkefølgerne.  Hvis karaktersæt er inkompatible, kan der "
+"forekomme datatab og de tabte data kan måske <b>IKKE</b> reddes ved at ændre "
+"tilbage kolonne sorteringsrækkefølgen.<b>For at konvertere eksisterende "
+"data, foreslås det at benytte kolonne redigeringsfunktionen (\"Change\" Link)"
+" på tabelstruktur siden.</b>"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
@@ -1007,7 +1009,6 @@ msgstr ""
 "dataene?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Gem & luk"
@@ -1019,7 +1020,6 @@ msgid "Reset"
 msgstr "Nulstil"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Nulstil alle"
@@ -1045,7 +1045,6 @@ msgid "Add index"
 msgstr "Tilføj indeks"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Redigér indeks"
@@ -1096,7 +1095,6 @@ msgstr "SQL-forespørgsel:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y-værdier"
@@ -1121,7 +1119,7 @@ msgstr "De to adgangskoder er ikke ens!"
 
 #: js/messages.php:125
 msgid "Removing Selected Users"
-msgstr "Fjerner valge brugere"
+msgstr "Fjerner valgte brugere"
 
 #: js/messages.php:126 js/messages.php:187 libraries/tracking.lib.php:458
 #: libraries/tracking.lib.php:828
@@ -1129,26 +1127,23 @@ msgid "Close"
 msgstr "Luk"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Antallet af sider oprettet."
+msgstr "Skabelon oprettet."
 
 #: js/messages.php:130
 msgid "Template was loaded."
-msgstr ""
+msgstr "Skabelon hentet."
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profilen er blevet opdateret."
+msgstr "Skabelon blev opdateret."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Rækken er slettet."
+msgstr "Skabelon blev slettet."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:133
@@ -1199,7 +1194,6 @@ msgid "Query cache used"
 msgstr "Forbrugt forespørgsels-mellemlager"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "System CPU forbrug"
@@ -1237,25 +1231,21 @@ msgid "Used memory"
 msgstr "Forbrugt hukommelse"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Totalt sidelager"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Sidelager i mellemlager"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Forbrugt sidelager"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Ledigt sidelager"
@@ -1670,7 +1660,6 @@ msgid "No files available on server for import!"
 msgstr "Der er ingen filer tilgængelige på serveren til import!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analyser forespørgsel"
@@ -1736,28 +1725,24 @@ msgid "Loading…"
 msgstr "Indlæser…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Forespørgsel afbrudt!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Udfører forespørgsel"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Forespørgsel mislykkedes!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Fejl i udførsel af forespørgsel:"
+msgstr "Fejl i udførsel af forespørgsel"
 
 #: js/messages.php:305
 #, php-format
@@ -1775,13 +1760,11 @@ msgid "No databases selected."
 msgstr "Ingen databaser valgt."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Sletter kolonne"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Tilføj primær nøgle"
@@ -1801,19 +1784,16 @@ msgid "Click to dismiss this notification"
 msgstr "Klik for at forkaste denne notifikation"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Omdøber databaser"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopierer database til"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Ændrer tegnsæt"
@@ -2207,16 +2187,14 @@ msgid "Geometry"
 msgstr "Geometri"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Indre ring"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Ydre ring:"
+msgstr "Ydre ring"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2459,13 +2437,11 @@ msgid "More"
 msgstr "Mere"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Vis panel"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Skjul panel"
@@ -2542,13 +2518,11 @@ msgid "Create view"
 msgstr "Opret view"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Send fejlrapporter"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Indsend fejlrapport"
@@ -2561,13 +2535,11 @@ msgstr ""
 "Der opstod en alvorlig JavaScript-fejl. Vil du at indsende en fejlrapport?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Tilpas indstillinger for rapportering"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Vis detaljer for rapport"
@@ -2618,13 +2590,13 @@ msgstr "Er du sikker på at du vil slette dette bogmærke?"
 
 #: js/messages.php:600
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "En fejl opstod mens hentede SQL debug info."
 
 #: js/messages.php:601
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Enter udfører forespørgsler i konsollen"
+msgstr "%s forespørgsler udført %s gange på %s sekunder."
 
 #: js/messages.php:602
 #, php-format
@@ -2632,7 +2604,6 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:603
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Tabel kommentarer"
@@ -2645,7 +2616,7 @@ msgstr "Slet søgeresultater"
 
 #: js/messages.php:605 libraries/Console.class.php:321
 msgid "Time taken:"
-msgstr ""
+msgstr "Tidsforbrug:"
 
 #: js/messages.php:606
 msgid ""
@@ -2915,7 +2886,6 @@ msgid "This field is required"
 msgstr "Dette felt er påkrævet"
 
 #: js/messages.php:776
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Ret venligst dette felt"
@@ -2965,10 +2935,9 @@ msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
 #: js/messages.php:788
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Angiv venligst et gyldigt sidenavn"
+msgstr "Indtast venligst en værdi mellem {0} og {1}"
 
 #: js/messages.php:789
 #, fuzzy
@@ -2983,10 +2952,9 @@ msgid "Please enter a value greater than or equal to {0}"
 msgstr "Angiv venligst et gyldigt sidenavn"
 
 #: js/messages.php:792
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Angiv venligst et gyldigt sidenavn"
+msgstr "Angiv venligst en gyldig dato eller tid"
 
 #: js/messages.php:793
 #, fuzzy
@@ -3227,22 +3195,19 @@ msgid "Press Enter to execute query"
 msgstr "Tast Enter for at udføre forespørgsel"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
 msgstr "Stigende"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
 msgstr "Faldende"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Rækkefølge"
+msgstr "Rækkefølge:"
 
 #: libraries/Console.class.php:289
 #: templates/table/search/replace_preview.phtml:17
@@ -3260,10 +3225,9 @@ msgid "Time taken"
 msgstr ""
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Rækkefølge"
+msgstr "Rækkefølge:"
 
 #: libraries/Console.class.php:301
 #, fuzzy
@@ -3290,10 +3254,9 @@ msgid "Hide trace"
 msgstr "Skjul panel"
 
 #: libraries/Console.class.php:319
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Antal"
+msgstr "Antal:"
 
 #: libraries/Console.class.php:336 libraries/Util.class.php:1249
 #: libraries/config/messages.inc.php:897
@@ -10038,7 +10001,7 @@ msgstr "Der blev ikke fundet delvise afhænigheder!"
 
 #: libraries/operations.lib.php:76
 msgid "Rename database to"
-msgstr "Omdøb database til:"
+msgstr "Omdøb database til"
 
 #: libraries/operations.lib.php:95 libraries/operations.lib.php:243
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:967
@@ -10090,7 +10053,7 @@ msgstr "Kun data"
 
 #: libraries/operations.lib.php:202
 msgid "Copy database to"
-msgstr "Kopier database til:"
+msgstr "Kopier database til"
 
 #: libraries/operations.lib.php:215
 msgid "CREATE DATABASE before copying"
@@ -10114,7 +10077,7 @@ msgstr "(enkeltvis)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Flyt tabel til (database<b>.</b>tabel):"
+msgstr "Flyt tabel til (database<b>.</b>tabel)"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -10140,7 +10103,7 @@ msgstr "Gør alle kolonner atomare"
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopier tabel til (database<b>.</b>tabel):"
+msgstr "Kopier tabel til (database<b>.</b>tabel)"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
@@ -12298,7 +12261,7 @@ msgstr "Der er ingen hændelser at vise."
 
 #: libraries/select_lang.lib.php:614
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignorer ikke understøttet sprog kode."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
 #, fuzzy
@@ -12584,7 +12547,7 @@ msgstr "Kræver SSL-krypterede forbindelser."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Kræver SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
@@ -14431,7 +14394,7 @@ msgstr "Kør SQL-forspørgsel(er) på database %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Hent autogemt forespørgsel"
 
 #: libraries/sql_query_form.lib.php:256
 #, fuzzy
