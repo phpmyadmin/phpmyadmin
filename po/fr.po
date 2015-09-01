@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-09-01 12:54+0200\n"
+"PO-Revision-Date: 2015-09-01 13:17+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/>\n"
@@ -1738,22 +1738,19 @@ msgid "Request aborted!!"
 msgstr "Requête abandonnée !"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Requête en traitement"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Échec de cette requête !"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Erreur dans le traitement de la requête : "
+msgstr "Erreur dans le traitement de la requête"
 
 #: js/messages.php:305
 #, php-format
@@ -1771,16 +1768,14 @@ msgid "No databases selected."
 msgstr "Aucune base de données n'a été sélectionnée."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Suppression de la colonne"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Ajouter une clé primaire"
+msgstr "Ajout de clé primaire"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1797,19 +1792,16 @@ msgid "Click to dismiss this notification"
 msgstr "Cliquer pour éliminer ce message"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Changement de nom de la base de données"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Copie de la base de données"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Changement du jeu de caractères"
@@ -2204,16 +2196,14 @@ msgid "Geometry"
 msgstr "Géométrie"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Anneau intérieur"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Anneau extérieur : "
+msgstr "Anneau extérieur"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2461,13 +2451,11 @@ msgid "More"
 msgstr "plus"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Montrer le panneau"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Cacher le panneau"
@@ -2547,13 +2535,11 @@ msgid "Create view"
 msgstr "Créer une vue"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Envoyer le rapport d'erreurs"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Soumettre un rapport d'erreurs"
@@ -2567,13 +2553,11 @@ msgstr ""
 "d'erreur ?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Changer les paramètres du rapport"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Montrer les détails du rapport"
@@ -3545,7 +3529,6 @@ msgstr "Dans les tables : "
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Tout désélectionner"
@@ -3719,7 +3702,6 @@ msgstr "Pour la sélection : "
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Tout cocher"
@@ -4848,10 +4830,9 @@ msgid "Without PHP Code"
 msgstr "Sans source PHP"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
-msgstr "Créer source PHP"
+msgstr "Créer code source PHP"
 
 #: libraries/Util.class.php:1292
 msgctxt "Inline edit query"
@@ -4979,7 +4960,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Vérifier les privilèges pour la base de données \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Vérifier les privilèges"
@@ -6704,7 +6684,6 @@ msgid "Maximum tables"
 msgstr "Nombre maximum de tables"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)."
@@ -6713,7 +6692,7 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Le nombre d'octets qu'un script peut allouer, par exemple [kbd]32M[/kbd] "
-"([kbd]0[/kbd] signifie illimité)."
+"([kbd]-1[/kbd] signifie illimité et  [kbd]0[/kbd] signifie aucun changement)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -7701,7 +7680,6 @@ msgstr ""
 "tables."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Montrer la date de création"
@@ -7714,7 +7692,6 @@ msgstr ""
 "toutes les tables."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Montrer la date de dernière mise à jour"
@@ -7727,7 +7704,6 @@ msgstr ""
 "pour toutes les tables."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Montrer la date de dernière vérification"
@@ -8407,10 +8383,9 @@ msgid "Custom - display all possible options"
 msgstr "Personnalisée - afficher toutes les options possibles"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "Bases de données"
+msgstr "Bases de données :"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
@@ -8619,10 +8594,9 @@ msgstr ""
 "b>. Exemple: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
-msgstr "Fichier à importer : "
+msgstr "Fichier à importer :"
 
 #: libraries/display_import.lib.php:234 libraries/display_import.lib.php:251
 msgid "You may also drag and drop a file on any page."
@@ -8635,10 +8609,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Les téléchargements vers ce serveur ne sont pas permis."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
-msgstr "Importation partielle : "
+msgstr "Importation partielle :"
 
 #: libraries/display_import.lib.php:285
 #, php-format
@@ -8668,7 +8641,6 @@ msgstr ""
 "partir du début :"
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Autres options :"
@@ -10025,7 +9997,6 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Ajuster les privilèges"
@@ -11028,7 +10999,6 @@ msgstr "Grille"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Dictionnaire de données"
@@ -11788,10 +11758,9 @@ msgid "Re-type"
 msgstr "Saisir à nouveau"
 
 #: libraries/replication_gui.lib.php:895
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Générer un mot de passe"
+msgstr "Générer un mot de passe :"
 
 #: libraries/replication_gui.lib.php:933
 msgid "Replication started successfully."
@@ -12261,10 +12230,9 @@ msgid "Ignoring unsupported language code."
 msgstr "Ce code de langue non pris en charge est ignoré."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#, fuzzy
 #| msgid "Current server"
 msgid "Current server:"
-msgstr "Serveur actuel"
+msgstr "Serveur actuel :"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12323,7 +12291,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Activer les statistiques"
@@ -12784,10 +12751,9 @@ msgid "table-specific"
 msgstr "spécifique à cette table"
 
 #: libraries/server_privileges.lib.php:2628
-#, fuzzy
 #| msgid "Edit privileges:"
 msgid "Edit privileges"
-msgstr "Changer les privilèges :"
+msgstr "Changer les privilèges"
 
 #: libraries/server_privileges.lib.php:2631
 msgid "Revoke"
@@ -13210,10 +13176,9 @@ msgid "Clear series"
 msgstr "Effacer la série"
 
 #: libraries/server_status_monitor.lib.php:233
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
-msgstr "Séries dans le graphique : "
+msgstr "Séries dans le graphique :"
 
 #: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
@@ -14725,16 +14690,14 @@ msgid "Username and hostname didn't change."
 msgstr "Ni le code utilisateur ni le nom du serveur n'ont été modifiés."
 
 #: server_status.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
-msgstr "Privilèges insuffisants pour visualiser les utilisateurs."
+msgstr "Privilèges insuffisants pour visualiser l'état du serveur."
 
 #: server_status_advisor.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
-msgstr "Privilèges insuffisants pour visualiser les utilisateurs."
+msgstr "Privilèges insuffisants pour visualiser le conseiller."
 
 #: server_status_processes.php:36
 #, php-format
@@ -14749,22 +14712,22 @@ msgstr ""
 "phpMyAdmin n'a pu éliminer le processus %s. Il était probablement déjà fermé."
 
 #: server_status_queries.php:55
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
-msgstr "Privilèges insuffisants pour visualiser les utilisateurs."
+msgstr "Privilèges insuffisants pour visualiser les statistiques de requêtes."
 
 #: server_status_variables.php:57
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
-msgstr "Privilèges insuffisants pour visualiser les utilisateurs."
+msgstr "Privilèges insuffisants pour visualiser les variables d'état."
 
 #: server_variables.php:83
-#, fuzzy, php-format
+#, php-format
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Privilèges insuffisants pour visualiser les utilisateurs."
+msgstr ""
+"Privilèges insuffisants pour visualiser les variables d'état et les "
+"paramètres. %s"
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:277
 msgid "Download"
