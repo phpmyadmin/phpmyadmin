@@ -81,10 +81,10 @@ if ($serverVarsResult !== false) {
      * Display the error message
      */
     $response->addHTML(
-        PMA_Message::error(
+        Message::error(
             sprintf(
                 __('Not enough privilege to view server variables and settings. %s'),
-                PMA_Util::showMySQLDocu(
+                Util::showMySQLDocu(
                     'server-system-variables',
                     false,
                     'sysvar_show_compatibility_56'
