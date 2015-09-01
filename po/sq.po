@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:58-0400\n"
-"PO-Revision-Date: 2015-06-29 00:58+0200\n"
+"PO-Revision-Date: 2015-09-01 02:03+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sq/>\n"
+"Language-Team: Albanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -652,10 +652,9 @@ msgstr ""
 "informacion është i vlefshëm në %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
-msgstr "Konfigurimet e përgjithshme"
+msgstr "Rregullimet e përgjithshme"
 
 #: index.php:191 js/messages.php:525
 #: libraries/display_change_password.lib.php:50
@@ -668,10 +667,9 @@ msgid "Server connection collation"
 msgstr "Përshtatja e lidhjes me serverin"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "Konfigurimet e pamjes"
+msgstr "Rregullimet e pamjes"
 
 #: index.php:259 prefs_manage.php:285
 msgid "More settings"
@@ -1016,10 +1014,9 @@ msgstr ""
 "ktheni të dhënat?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Ruaj & Mbyll"
+msgstr "Ruaj & mbyll"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:417
 #: libraries/insert_edit.lib.php:1548 prefs_manage.php:361
@@ -1054,10 +1051,9 @@ msgid "Add index"
 msgstr "Shto indeks"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
-msgstr "Korrigjo indeks"
+msgstr "Korrigjo indeksin"
 
 #: js/messages.php:99 templates/table/index_form.phtml:232
 #, php-format
@@ -1105,10 +1101,9 @@ msgstr "SQL pyetsor:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
-msgstr "Y vlerat"
+msgstr "Vlerat Y"
 
 #: js/messages.php:121
 msgid "The host name is empty!"
@@ -1138,26 +1133,23 @@ msgid "Close"
 msgstr "Mbyll"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Numri i faqeve të krijuara."
+msgstr "Shablloni është krijuar."
 
 #: js/messages.php:130
 msgid "Template was loaded."
 msgstr ""
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profili është aktualizuar."
+msgstr "Shablloni është aktualizuar."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Radha është fshirë."
+msgstr "Shablloni është fshirë."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:133
@@ -1208,10 +1200,9 @@ msgid "Query cache used"
 msgstr "Cache e përdorur e pyetsorit"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "Përdorimi i CPU të sistemit"
+msgstr "Përdorimi CPU i sistemit"
 
 #: js/messages.php:152
 msgid "System memory"
@@ -1246,28 +1237,24 @@ msgid "Used memory"
 msgstr "Kujtesa e përdorur"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "Shkëmbim total"
+msgstr "Shkëmbimi total"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Cached shkëmbim"
+msgstr "Shkëmbimi cache"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Shkëmbim i përdorur"
+msgstr "Shkëmbimi i përdorur"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Shkëmbim i lirë"
+msgstr "Shkëmbimi i lirë"
 
 #: js/messages.php:167
 msgid "Bytes sent"
@@ -1770,10 +1757,9 @@ msgid "Request failed!!"
 msgstr "Kërkesa dështoi!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Gabim në proçesimin e kërkesës:"
+msgstr "Gabim në proçesimin e kërkesës"
 
 #: js/messages.php:305
 #, php-format
@@ -1797,10 +1783,9 @@ msgid "Dropping column"
 msgstr "Po fshin kolonën"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Shto çelës primar"
+msgstr "Shton çelësin primar"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -2233,10 +2218,9 @@ msgid "Inner ring"
 msgstr "Brenda rrethit"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Rrethi i jashtëm:"
+msgstr "Rrethi i jashtëm"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2484,10 +2468,9 @@ msgid "More"
 msgstr "Më shumë"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
-msgstr "Shfaq Panelin"
+msgstr "Shfaq panelin"
 
 #: js/messages.php:532
 #, fuzzy
@@ -2568,10 +2551,9 @@ msgid "Create view"
 msgstr "Krijo pamje"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Dërgo raportet e gabimit"
+msgstr "Dërgo raportin e gabimit"
 
 #: js/messages.php:557
 #, fuzzy
@@ -3646,10 +3628,9 @@ msgid "Relational key"
 msgstr "Çelësi relacional"
 
 #: libraries/DisplayResults.class.php:1745
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Shfaq marrëdhëniet me çelësin e huaj"
+msgstr "Shfaq kolonat për marrëdhëniet"
 
 #: libraries/DisplayResults.class.php:1758
 msgid "Show binary contents"
@@ -3826,10 +3807,9 @@ msgid "Error while moving uploaded file."
 msgstr "Gabim gjatë lëvizjes së fileve të ngarkuara."
 
 #: libraries/File.class.php:497
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Nuk mund të lexojë (lëvizur) filin e ngarkuar."
+msgstr "Nuk mund të lexojë filin e ngarkuar."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -3961,6 +3941,8 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Linting është pasivizuar për këtë pyetsor, pasi e tejkalon gjatësinë "
+"maksimale."
 
 #: libraries/Linter.class.php:162
 #, php-format
@@ -4103,10 +4085,9 @@ msgid "Databases"
 msgstr "Databazat"
 
 #: libraries/Menu.class.php:568
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Grupet e përdoruesve"
+msgstr "Llogaritë e përdoruesve"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
 #: libraries/Util.class.php:4281 libraries/server_common.lib.php:36
@@ -4819,10 +4800,9 @@ msgid "Max: %s%s"
 msgstr "Maks: %s%s"
 
 #: libraries/Util.class.php:665
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Të dhëna statike"
+msgstr "Analizat statike:"
 
 #: libraries/Util.class.php:668
 #, php-format
@@ -4858,10 +4838,9 @@ msgid "Without PHP Code"
 msgstr "Pa kod PHP"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
-msgstr "Krijo kod PHP"
+msgstr "Krijo kodin PHP"
 
 #: libraries/Util.class.php:1292
 msgctxt "Inline edit query"
@@ -5720,10 +5699,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable %s"
 msgid "Enable linter"
-msgstr "Aftëso %s"
+msgstr "Aftëso linterin"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -6020,10 +5998,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Mbishkruaj filin(et) ekzistues"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 #| msgid "Export tables as separate files"
 msgid "Export as separate files"
-msgstr "Eksporto tabelat si file të ndara"
+msgstr "Eksporto si file të ndara"
 
 #: libraries/config/messages.inc.php:185
 msgid "Remember file name template"
@@ -6715,7 +6692,6 @@ msgid "Maximum tables"
 msgstr "Maksimumi i tabelave"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)."
@@ -6724,7 +6700,7 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Numri i bajt, që një skript është i lejuar të ndajë, psh. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] për asnjë kufizim)."
+"([kbd]-1[/kbd] për asnjë kufizim dhe kbd]0[/kbd] për asnjë ndryshim)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -7326,13 +7302,11 @@ msgstr ""
 "[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:701
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Eksporto pamjet si tabela"
+msgstr "Eksporto tabelën e shablloneve"
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -7340,8 +7314,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Lëre të zbrazët për asnjë mbështetje të skemës PDF, sugjerohet: "
-"[kbd]pma__pdf_pages[/kbd]."
+"Lëre të zbrazët për asnjë mbështetje të eksportit të shabllonit, sugjerohet: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:706
 msgid "Central columns table"
@@ -7610,7 +7584,6 @@ msgid "User preferences storage table"
 msgstr "Tabela e ruajtjes së preferencave të përdoruesit"
 
 #: libraries/config/messages.inc.php:812
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will disable "
@@ -7620,9 +7593,10 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable\n"
 "    this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Të dyja, kjo tabelë dhe grupet e përdoruesve kërkohen për të mundësuar "
+"Të dyja, kjo tabelë dhe grupet e përdoruesve kërkohen për të aftësuar "
 "tiparin e menyve të konfigurueshme; duke lënë njërën prej tyre të zbrazët, "
-"do e pasivizoni këtë tipar, sugjerohet: [kbd]pma__users[/kbd]."
+"do të pasivizoni \n"
+"     këtë tipar, sugjerohet: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:816
 msgid "Users table"
@@ -7714,10 +7688,9 @@ msgstr ""
 "gjitha tabelat."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
-msgstr "Shfaq krijimin e vulës kohore"
+msgstr "Shfaq krijimin e vulës kohore (timestamp)"
 
 #: libraries/config/messages.inc.php:855
 msgid ""
@@ -8312,17 +8285,15 @@ msgstr "Ngatërrimi i fjalëkalimit:"
 
 #: libraries/display_change_password.lib.php:98
 #: libraries/server_privileges.lib.php:1700
-#, fuzzy
 #| msgid "Generate password"
 msgid "MySQL native password"
-msgstr "Gjenero fjalëkalimin"
+msgstr "Fjalëkalimi autokton MySQL"
 
 #: libraries/display_change_password.lib.php:112
 #: libraries/server_privileges.lib.php:1708
-#, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password"
-msgstr "Ndrysho fjalëkalimin"
+msgstr "Fjalëkalimi SHA256"
 
 #: libraries/display_change_password.lib.php:141
 msgid "MySQL 4.0 compatible"
@@ -8375,22 +8346,19 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Eksporton radhë nga \"%s\" tabela"
 
 #: libraries/display_export.lib.php:200
-#, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
-msgstr "Tipi i eksportit"
+msgstr "Eksporto shabllonet:"
 
 #: libraries/display_export.lib.php:205
-#, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
-msgstr "Modeli i emrit të filit:"
+msgstr "Shabllon i ri:"
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "Table name"
 msgid "Template name"
-msgstr "Emri i tabelës"
+msgstr "Emri i shabllonit"
 
 #: libraries/display_export.lib.php:217
 #, fuzzy
