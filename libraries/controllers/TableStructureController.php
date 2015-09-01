@@ -17,7 +17,8 @@ use PMA\libraries\Util;
 use PMA\Util as Util_lib;
 use SqlParser;
 use SqlParser\Statements\CreateStatement;
-use SqlParser\Utils\Table;
+use SqlParser\Utils\Table as SqlTable;
+use PMA\libraries\Table;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/transformations.lib.php';
@@ -346,7 +347,7 @@ class TableStructureController extends TableController
          */
         $stmt = $parser->statements[0];
 
-        $create_table_fields = Table::getFields($stmt);
+        $create_table_fields = SqlTable::getFields($stmt);
 
         //display table structure
         $this->response->addHTML(

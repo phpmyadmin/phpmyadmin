@@ -19,6 +19,7 @@
  */
 namespace PMA;
 
+use PMA\libraries\controllers\table\TableRelationController;
 use PMA\libraries\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
@@ -73,6 +74,6 @@ if ($cfgRelation['displaywork']) {
     $dependency_definitions['disp'] = 'asas';
 }
 
-/** @var PMA\libraries\controllers\table\TableRelationController $controller */
+/** @var TableRelationController $controller */
 $controller = $container->get('TableRelationController', $dependency_definitions);
 $controller->indexAction();

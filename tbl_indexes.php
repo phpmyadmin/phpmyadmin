@@ -8,6 +8,7 @@
 
 namespace PMA;
 
+use PMA\libraries\controllers\table\TableIndexesController;
 use PMA\libraries\Index;
 use PMA\libraries\Response;
 
@@ -45,6 +46,6 @@ $dependency_definitions = array(
     "index" => $index
 );
 
-/** @var PMA\libraries\controllers\table\TableIndexesController $controller */
+/** @var TableIndexesController $controller */
 $controller = $container->get('TableIndexesController', $dependency_definitions);
 $controller->indexAction();

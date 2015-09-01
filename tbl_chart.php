@@ -8,11 +8,11 @@
 
 namespace PMA;
 
+use PMA\libraries\controllers\table\TableChartController;
 use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableChartController.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\table\TableChartController');
@@ -29,6 +29,6 @@ $dependency_definitions = array(
     "cfg" => &$GLOBALS['cfg']
 );
 
-/** @var PMA\libraries\controllers\table\TableChartController $controller */
+/** @var TableChartController $controller */
 $controller = $container->get('TableChartController', $dependency_definitions);
 $controller->indexAction();

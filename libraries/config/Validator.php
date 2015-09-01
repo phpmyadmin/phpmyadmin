@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries\config;
 
+use PMA\libraries\DatabaseInterface;
+
 /**
  * Validation class for various validation functions
  *

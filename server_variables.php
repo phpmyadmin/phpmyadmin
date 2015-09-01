@@ -6,6 +6,9 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Message;
+use PMA\libraries\Util;
+
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_variables.lib.php';
 

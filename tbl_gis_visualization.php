@@ -8,11 +8,11 @@
 
 namespace PMA;
 
+use PMA\libraries\controllers\table\TableGisVisualizationController;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableGisVisualizationController.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\table\TableGisVisualizationController');
@@ -34,7 +34,7 @@ $dependency_definitions = array(
     "visualizationSettings" => array()
 );
 
-/** @var PMA\libraries\controllers\table\TableGisVisualizationController $controller */
+/** @var TableGisVisualizationController $controller */
 $controller = $container->get(
     'TableGisVisualizationController', $dependency_definitions
 );

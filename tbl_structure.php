@@ -9,6 +9,7 @@
 
 namespace PMA;
 
+use PMA\libraries\controllers\TableStructureController;
 use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
@@ -43,6 +44,6 @@ $dependency_definitions = array(
     'showtable' => $showtable
 );
 
-/** @var PMA\libraries\controllers\tableStructureController $controller */
+/** @var TableStructureController $controller */
 $controller = $container->get('TableStructureController', $dependency_definitions);
 $controller->indexAction();
