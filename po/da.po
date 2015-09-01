@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-26 14:34+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-09-01 14:27+0200\n"
+"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/da/>\n"
 "Language: da\n"
@@ -72,7 +72,7 @@ msgstr "Tabelkommentarer:"
 #: libraries/tbl_relation.lib.php:619 libraries/tracking.lib.php:877
 #: libraries/tracking.lib.php:966
 msgid "Column"
-msgstr "Kolonnenavn"
+msgstr "Kolonne"
 
 #: db_datadict.php:104 db_printview.php:50 libraries/Index.class.php:648
 #: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:654
@@ -584,7 +584,7 @@ msgstr "Udfør"
 
 #: gis_data_editor.php:412
 msgid "Output"
-msgstr "Output"
+msgstr "Resultat"
 
 #: gis_data_editor.php:415
 msgid ""
@@ -630,7 +630,7 @@ msgid ""
 "without access to the %s directory (for temporary files)."
 msgstr ""
 "Den uploadede fil kan ikke flyttes, da serveren har open_basedir slået til, "
-"uden adgang til %s mappen (til midlertidige)."
+"uden adgang til %s mappen (til midlertidige filer)."
 
 #: import.php:468 import.php:529 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -644,7 +644,7 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Du forsøgte at indlæse en fil med u-understøttet komprimering (%s). "
+"Du forsøgte at indlæse en fil med ikke understøttet komprimering (%s). "
 "Understøttelse af denne funktion er ikke implementeret eller ikke slået til "
 "for din konfiguration."
 
@@ -1119,7 +1119,7 @@ msgstr "De to adgangskoder er ikke ens!"
 
 #: js/messages.php:100
 msgid "Removing Selected Users"
-msgstr "Fjerner valge brugere"
+msgstr "Fjerner valgte brugere"
 
 #: js/messages.php:101 js/messages.php:156 libraries/tracking.lib.php:457
 #: libraries/tracking.lib.php:827
@@ -11494,7 +11494,7 @@ msgstr "Der er ingen hændelser at vise."
 
 #: libraries/select_lang.lib.php:613
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignorer ikke understøttet sprog kode."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -11779,7 +11779,7 @@ msgstr "Kræver SSL-krypterede forbindelser."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Kræver SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
@@ -13356,7 +13356,7 @@ msgstr "Kør SQL-forspørgsel(er) på database %s"
 
 #: libraries/sql_query_form.lib.php:241
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Hent autogemt forespørgsel"
 
 #: libraries/sql_query_form.lib.php:285
 msgid "Bookmark this SQL query:"
