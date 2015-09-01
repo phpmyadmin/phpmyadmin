@@ -9,7 +9,7 @@
 
 namespace PMA\libraries\controllers\table;
 
-use PMA\libraries\controllers\tableController;
+use PMA\libraries\controllers\TableController;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA_GIS_Visualization;

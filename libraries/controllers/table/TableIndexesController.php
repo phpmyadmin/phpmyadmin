@@ -9,7 +9,7 @@
 
 namespace PMA\libraries\controllers\table;
 
-use PMA\libraries\controllers\tableController;
+use PMA\libraries\controllers\TableController;
 use PMA\libraries\Index;
 use PMA\libraries\Message;
 use PMA\libraries\Template;

@@ -10,7 +10,7 @@ namespace PMA\libraries\controllers\table;
 
 require_once 'libraries/index.lib.php';
 
-use PMA\libraries\controllers\tableController;
+use PMA\libraries\controllers\TableController;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Index;
 use PMA\libraries\Table;
