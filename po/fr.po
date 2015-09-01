@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-08-23 12:27+0200\n"
+"PO-Revision-Date: 2015-09-01 12:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -654,7 +654,6 @@ msgstr ""
 "sys-maint et pma. Plus d'informations sont disponibles à %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Paramètres généraux"
@@ -670,7 +669,6 @@ msgid "Server connection collation"
 msgstr "Interclassement pour la connexion au serveur"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Paramètres d'affichage"
@@ -1020,7 +1018,6 @@ msgstr ""
 "et de convertir les données ?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Sauvegarder et fermer"
@@ -1032,7 +1029,6 @@ msgid "Reset"
 msgstr "Réinitialiser"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Tout réinitialiser"
@@ -1058,7 +1054,6 @@ msgid "Add index"
 msgstr "Ajouter un index"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Modifier un index"
@@ -1109,7 +1104,6 @@ msgstr "Requête SQL : "
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Valeurs en Y"
@@ -1206,7 +1200,6 @@ msgid "Query cache used"
 msgstr "Cache de requêtes utilisé"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Utilisation processeur"
@@ -1244,25 +1237,21 @@ msgid "Used memory"
 msgstr "Mémoire utilisée"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Zone d'échange totale"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Zone d'échange en cache"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Zone d'échange utilisée"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Zone d'échange libre"
@@ -1679,7 +1668,6 @@ msgid "No files available on server for import!"
 msgstr "Aucun fichier disponible sur le serveur pour une importation !"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analyser la requête"
@@ -1745,7 +1733,6 @@ msgid "Loading…"
 msgstr "Chargement en cours…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Requête abandonnée !"
