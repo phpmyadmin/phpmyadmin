@@ -5,7 +5,7 @@
  *
  * @package PMA
  */
-namespace PMA\Controllers;
+namespace PMA\libraries\controllers;
 
 use PMA\DI\Container;
 use PMA\libraries\DatabaseInterface;

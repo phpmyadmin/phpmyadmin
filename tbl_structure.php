@@ -16,15 +16,14 @@ require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableStructureController.class.php';
 require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
 $container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\TableStructureController');
+$container->factory('PMA\libraries\controllers\tableStructureController');
 $container->alias(
-    'TableStructureController', 'PMA\Controllers\TableStructureController'
+    'TableStructureController', 'PMA\libraries\controllers\tableStructureController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');
@@ -44,6 +43,6 @@ $dependency_definitions = array(
     'showtable' => $showtable
 );
 
-/** @var Controllers\TableStructureController $controller */
+/** @var PMA\libraries\controllers\tableStructureController $controller */
 $controller = $container->get('TableStructureController', $dependency_definitions);
 $controller->indexAction();

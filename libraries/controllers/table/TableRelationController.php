@@ -6,12 +6,11 @@
  * @package PMA
  */
 
-namespace PMA\Controllers\Table;
+namespace PMA\libraries\controllers\table;
 
-require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/index.lib.php';
 
-use PMA\Controllers\TableController;
+use PMA\libraries\controllers\tableController;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Index;
 use PMA\libraries\Table;

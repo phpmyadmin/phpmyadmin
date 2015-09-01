@@ -5,16 +5,7 @@
  *
  * @package PMA
  */
-
-namespace PMA\Controllers;
-
-use PMA\DI\Container;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once 'libraries/controllers/Controller.class.php';
+namespace PMA\libraries\controllers;
 
 /**
  * Handles database related logic

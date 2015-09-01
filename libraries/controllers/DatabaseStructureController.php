@@ -7,7 +7,7 @@
  * @package PMA
  */
 
-namespace PMA\Controllers;
+namespace PMA\libraries\controllers;
 
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\Message;
@@ -18,7 +18,6 @@ use PMA\libraries\Util;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/display_create_table.lib.php';
-require_once 'libraries/controllers/DatabaseController.class.php';
 require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';

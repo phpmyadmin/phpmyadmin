@@ -7,23 +7,22 @@
  * @package PMA
  */
 
-namespace PMA\Controllers\Table;
+namespace PMA\libraries\controllers\table;
 
-use PMA\Controllers\TableController;
+use PMA\libraries\controllers\tableController;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA_GIS_Visualization;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';
-require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
 
 /**
  * Class TableGisVisualizationController
  *
- * @package PMA\Controllers\Table
+ * @package PMA\libraries\controllers\table
  */
 class TableGisVisualizationController extends TableController
 {

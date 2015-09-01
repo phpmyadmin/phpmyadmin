@@ -25,12 +25,11 @@ use PMA\libraries\Util;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableRelationController.class.php';
 
 $container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\Table\TableRelationController');
+$container->factory('PMA\libraries\controllers\table\TableRelationController');
 $container->alias(
-    'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
+    'TableRelationController', 'PMA\libraries\controllers\table\TableRelationController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');
@@ -74,6 +73,6 @@ if ($cfgRelation['displaywork']) {
     $dependency_definitions['disp'] = 'asas';
 }
 
-/** @var Controllers\Table\TableRelationController $controller */
+/** @var PMA\libraries\controllers\table\TableRelationController $controller */
 $controller = $container->get('TableRelationController', $dependency_definitions);
 $controller->indexAction();

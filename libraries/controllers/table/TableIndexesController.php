@@ -7,20 +7,19 @@
  * @package PMA
  */
 
-namespace PMA\Controllers\Table;
+namespace PMA\libraries\controllers\table;
 
-use PMA\Controllers\TableController;
+use PMA\libraries\controllers\tableController;
 use PMA\libraries\Index;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 
-require_once 'libraries/controllers/TableController.class.php';
 
 /**
  * Class TableIndexesController
  *
- * @package PMA\Controllers\Table
+ * @package PMA\libraries\controllers\table
  */
 class TableIndexesController extends TableController
 {

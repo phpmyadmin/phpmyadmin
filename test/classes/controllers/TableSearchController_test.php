@@ -9,14 +9,13 @@
 /*
  * Include to test.
  */
-use PMA\Controllers\Table\TableSearchController;
+use PMA\libraries\controllers\table\TableSearchController;
 use PMA\DI\Container;
 use PMA\libraries\Theme;
 use PMA\libraries\TypesMySQL;
 
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableSearchController.class.php';
 
 /**
  * Tests for PMA_TableSearch
@@ -160,7 +159,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $_POST['order'] = "asc";
         $_POST['customWhereClause'] = "name='pma'";
 
-        $class = new ReflectionClass('PMA\Controllers\Table\TableSearchController');
+        $class = new ReflectionClass('PMA\libraries\controllers\table\TableSearchController');
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
         $tableSearch = new TableSearchController("zoom", null);
@@ -252,9 +251,9 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableSearchController');
+        $container->factory('PMA\libraries\controllers\table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -290,7 +289,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $container = Container::getDefaultContainer();
         $container->factory('\PMA\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -369,7 +368,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('\PMA\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 

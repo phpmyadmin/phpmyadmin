@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/controllers/TableRelationController.class.php
+ * Tests for libraries/controllers/TableRelationController.php
  *
  * @package PhpMyAdmin-test
  */
@@ -20,10 +20,9 @@ require_once 'libraries/relation.lib.php';
 
 require_once 'libraries/di/Container.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
-require_once 'libraries/controllers/TableRelationController.class.php';
 
 /**
- * Tests for libraries/controllers/TableRelationController.class.php
+ * Tests for libraries/controllers/TableRelationController.php
  *
  * @package PhpMyAdmin-test
  */
@@ -97,13 +96,13 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         /**
-         * @var PMA\Controllers\Table\TableRelationController
+         * @var PMA\libraries\controllers\table\TableRelationController
          */
         $ctrl = $container->get('TableRelationController');
 
@@ -143,10 +142,10 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         $ctrl = $container->get('TableRelationController');
 
@@ -185,10 +184,10 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',
@@ -231,10 +230,10 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',
@@ -291,10 +290,10 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',

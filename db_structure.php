@@ -8,6 +8,7 @@
 
 namespace PMA;
 
+use PMA\libraries\controllers\DatabaseStructureController;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 
@@ -27,12 +28,11 @@ list(
 ) = Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
 
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/DatabaseStructureController.class.php';
 
 $container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\DatabaseStructureController');
+$container->factory('PMA\libraries\controllers\DatabaseStructureController');
 $container->alias(
-    'DatabaseStructureController', 'PMA\Controllers\DatabaseStructureController'
+    'DatabaseStructureController', 'PMA\libraries\controllers\DatabaseStructureController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');
@@ -49,6 +49,6 @@ $dependency_definitions = array(
     'tables' => $tables,
 );
 
-/** @var Controllers\DatabaseStructureController $controller */
+/** @var DatabaseStructureController $controller */
 $controller = $container->get('DatabaseStructureController', $dependency_definitions);
 $controller->indexAction();

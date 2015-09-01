@@ -1,22 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\Controllers\Table\TableSearchController
+ * Holds the PMA\libraries\controllers\table\TableSearchController
  *
- * @package PMA\Controllers\Table
+ * @package PMA\libraries\controllers\table
  */
 
-namespace PMA\Controllers\Table;
+namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\Util;
 use PMA\libraries\Template;
-use PMA\Controllers\TableController;
+use PMA\libraries\controllers\tableController;
 use PMA\libraries\DatabaseInterface;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/sql.lib.php';
 require_once 'libraries/bookmark.lib.php';
-require_once 'libraries/controllers/TableController.class.php';
 
 /**
  * Class TableSearchController

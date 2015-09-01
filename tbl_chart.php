@@ -12,12 +12,12 @@ use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableChartController.class.php';
+require_once 'libraries/controllers/TableChartController.php';
 
 $container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\Table\TableChartController');
+$container->factory('PMA\libraries\controllers\table\TableChartController');
 $container->alias(
-    'TableChartController', 'PMA\Controllers\Table\TableChartController'
+    'TableChartController', 'PMA\libraries\controllers\table\TableChartController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');
@@ -29,6 +29,6 @@ $dependency_definitions = array(
     "cfg" => &$GLOBALS['cfg']
 );
 
-/** @var Controllers\Table\TableChartController $controller */
+/** @var PMA\libraries\controllers\table\TableChartController $controller */
 $controller = $container->get('TableChartController', $dependency_definitions);
 $controller->indexAction();

@@ -7,14 +7,13 @@
  * @package PMA
  */
 
-namespace PMA\Controllers\Table;
+namespace PMA\libraries\controllers\table;
 
-use PMA\Controllers\TableController;
+use PMA\libraries\controllers\tableController;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 
-require_once 'libraries/controllers/TableController.class.php';
 
 /**
  * Handles table related logic

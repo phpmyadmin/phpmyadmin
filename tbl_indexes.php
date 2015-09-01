@@ -13,12 +13,11 @@ use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableIndexesController.class.php';
 
 $container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\Table\TableIndexesController');
+$container->factory('PMA\libraries\controllers\table\TableIndexesController');
 $container->alias(
-    'TableIndexesController', 'PMA\Controllers\Table\TableIndexesController'
+    'TableIndexesController', 'PMA\libraries\controllers\table\TableIndexesController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');
@@ -46,6 +45,6 @@ $dependency_definitions = array(
     "index" => $index
 );
 
-/** @var Controllers\Table\TableIndexesController $controller */
+/** @var PMA\libraries\controllers\table\TableIndexesController $controller */
 $controller = $container->get('TableIndexesController', $dependency_definitions);
 $controller->indexAction();

@@ -7,7 +7,7 @@
  * @package PMA
  */
 
-namespace PMA\Controllers;
+namespace PMA\libraries\controllers;
 
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\Index;
@@ -22,7 +22,6 @@ use SqlParser\Utils\Table;
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/util.lib.php';
-require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
