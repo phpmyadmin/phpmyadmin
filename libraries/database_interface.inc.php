@@ -6,6 +6,11 @@
  *
  * @package PhpMyAdmin-DBI
  */
+use PMA\DI\Container;
+use PMA\libraries\DatabaseInterface;
+use PMA\libraries\dbi\DBIMysql;
+use PMA\libraries\dbi\DBIMysqli;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -16,8 +21,8 @@ if (defined('TESTSUITE')) {
     /**
      * For testsuite we use dummy driver which can fake some queries.
      */
-    include_once './libraries/dbi/DBIDummy.class.php';
-    $extension = new PMA_DBI_Dummy();
+    include_once './libraries/dbi/DBIDummy.php';
+    $extension = new DBIDummy();
 } else {
 
     /**
@@ -26,7 +31,7 @@ if (defined('TESTSUITE')) {
      * (if PHP 7+, it's the only one supported)
      */
     $extension = 'mysqli';
-    if (! PMA\libraries\DatabaseInterface::checkDbExtension($extension)) {
+    if (!DatabaseInterface::checkDbExtension($extension)) {
 
         $docurl = PMA\libraries\Util::getDocuLink('faq', 'faqmysql');
         $doclink = sprintf(
@@ -71,17 +76,15 @@ if (defined('TESTSUITE')) {
      */
     switch($extension) {
     case 'mysql' :
-        include_once './libraries/dbi/DBIMysql.class.php';
-        $extension = new PMA_DBI_Mysql();
+        $extension = new DBIMysql();
         break;
     case 'mysqli' :
-        include_once './libraries/dbi/DBIMysqli.class.php';
-        $extension = new PMA_DBI_Mysqli();
+        $extension = new DBIMysqli();
         break;
     }
 }
-$GLOBALS['dbi'] = new PMA\libraries\DatabaseInterface($extension);
+$GLOBALS['dbi'] = new DatabaseInterface($extension);
 
-$container = \PMA\DI\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->set('PMA_DatabaseInterface', $GLOBALS['dbi']);
 $container->alias('dbi', 'PMA_DatabaseInterface');

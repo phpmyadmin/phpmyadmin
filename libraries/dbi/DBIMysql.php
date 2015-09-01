@@ -6,6 +6,10 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQL
  */
+namespace PMA\libraries\dbi;
+
+use PMA\libraries\DatabaseInterface;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -16,8 +20,6 @@ if (! extension_loaded('mysql')) {
     // should be used.
     return;
 }
-
-require_once './libraries/dbi/DBIExtension.int.php';
 
 /**
  * MySQL client API
@@ -30,7 +32,7 @@ PMA_defineClientAPI(mysql_get_client_info());
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQL
  */
-class PMA_DBI_Mysql implements PMA_DBI_Extension
+class DBIMysql implements DBIExtension
 {
     /**
      * Helper function for connecting to the database server
@@ -185,9 +187,9 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      */
     public function realQuery($query, $link, $options)
     {
-        if ($options == ($options | PMA\libraries\DatabaseInterface::QUERY_STORE)) {
+        if ($options == ($options | DatabaseInterface::QUERY_STORE)) {
             return mysql_query($query, $link);
-        } elseif ($options == ($options | PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)) {
+        } elseif ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
             return mysql_unbuffered_query($query, $link);
         } else {
             return mysql_query($query, $link);

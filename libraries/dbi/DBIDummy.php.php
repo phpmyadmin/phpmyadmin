@@ -10,11 +10,11 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
+use PMA\libraries\dbi\DBIExtension;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once './libraries/dbi/DBIExtension.int.php';
 
 /**
  * Array of queries this "driver" supports
@@ -673,7 +673,7 @@ if (! defined('PMA_MARIADB')) {
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
-class PMA_DBI_Dummy implements PMA_DBI_Extension
+class DBIDummy implements DBIExtension
 {
     /**
      * connects to the database server

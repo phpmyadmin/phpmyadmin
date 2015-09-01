@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_DBI_Drizzle class
+ * Tests for PMA\libraries\dbi\DBIDrizzle class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,6 +8,7 @@
 /*
  * Include to test and mock Drizzle class.
  */
+use PMA\libraries\dbi\DBIDrizzle;
 use PMA\libraries\Theme;
 
 /**
@@ -31,17 +32,13 @@ function drizzle_version()
     return "1.0.0";
 }
 
-
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/dbi/DBIDrizzle.class.php';
-
 
 /**
- * Tests for PMA_DBI_Drizzle class
+ * Tests for PMA\libraries\dbi\DBIDrizzle class
  *
  * @package PhpMyAdmin-test
  */
@@ -77,7 +74,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
 
-        $this->object = new PMA_DBI_Drizzle();
+        $this->object = new DBIDrizzle();
     }
 
     /**

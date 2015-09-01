@@ -6,11 +6,14 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQLi
  */
+namespace PMA\libraries\dbi;
+
+use mysqli_result;
+use PMA\libraries\DatabaseInterface;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once './libraries/dbi/DBIExtension.int.php';
 
 /**
  * MySQL client API
@@ -71,7 +74,7 @@ $pma_mysqli_flag_names = array(
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQLi
  */
-class PMA_DBI_Mysqli implements PMA_DBI_Extension
+class DBIMysqli implements DBIExtension
 {
     /**
      * Helper function for connecting to the database server
@@ -250,9 +253,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function realQuery($query, $link, $options)
     {
-        if ($options == ($options | PMA\libraries\DatabaseInterface::QUERY_STORE)) {
+        if ($options == ($options | DatabaseInterface::QUERY_STORE)) {
             $method = MYSQLI_STORE_RESULT;
-        } elseif ($options == ($options | PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)) {
+        } elseif ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
             $method = MYSQLI_USE_RESULT;
         } else {
             $method = 0;

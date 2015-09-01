@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_DBI_Mysqli class
+ * Tests for PMA\libraries\dbi\DBIMysqli class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,19 +8,16 @@
 /*
  * Include to test.
  */
+use PMA\libraries\dbi\DBIMysqli;
 use PMA\libraries\Theme;
-
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/dbi/DBIMysqli.class.php';
-
 
 /**
- * Tests for PMA_DBI_Mysqli class
+ * Tests for PMA\libraries\dbi\DBIMysqli class
  *
  * @package PhpMyAdmin-test
  */
@@ -50,7 +47,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
-        $this->object = new PMA_DBI_Mysqli();
+        $this->object = new DBIMysqli();
     }
 
     /**

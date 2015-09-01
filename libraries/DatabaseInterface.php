@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\dbi\DBIExtension;
+
 require_once './libraries/logging.lib.php';
 require_once './libraries/util.lib.php';
 
@@ -35,7 +37,7 @@ class DatabaseInterface
     const GETVAR_GLOBAL = 2;
 
     /**
-     * @var \PMA_DBI_Extension
+     * @var DBIExtension
      */
     private $_extension;
 
@@ -47,7 +49,7 @@ class DatabaseInterface
     /**
      * Constructor
      *
-     * @param \PMA_DBI_Extension $ext Object to be used for database queries
+     * @param DBIExtension $ext Object to be used for database queries
      */
     public function __construct($ext)
     {

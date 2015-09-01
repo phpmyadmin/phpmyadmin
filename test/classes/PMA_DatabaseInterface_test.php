@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/dbi/DBIDummy.class.php';
+require_once 'libraries/dbi/DBIDummy.php';
 
 /**
  * Tests basic functionality of dummy dbi driver
@@ -28,8 +28,8 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        //$extension = new PMA_DBI_Dummy();
-        $extension = $this->getMockBuilder('PMA_DBI_Dummy')
+        //$extension = new DBIDummy();
+        $extension = $this->getMockBuilder('DBIDummy')
             ->disableOriginalConstructor()
             ->getMock();
 

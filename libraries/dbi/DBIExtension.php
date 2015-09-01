@@ -4,16 +4,14 @@
  *
  * @package PhpMyAdmin-DBI
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\dbi;
 
 /**
  * Contract for every database extension supported by phpMyAdmin
  *
  * @package PhpMyAdmin-DBI
  */
-interface PMA_DBI_Extension
+interface DBIExtension
 {
     /**
      * connects to the database server

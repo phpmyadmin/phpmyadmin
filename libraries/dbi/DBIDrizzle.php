@@ -14,12 +14,19 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
+namespace PMA\libraries\dbi;
+
+use PMA\libraries\DatabaseInterface;
+use PMA_Drizzle;
+use PMA_DrizzleCon;
+use PMA_DrizzleResult;
+use stdClass;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 require_once './libraries/dbi/drizzle-wrappers.lib.php';
-require_once './libraries/dbi/DBIExtension.int.php';
 
 /**
  * MySQL client API
@@ -57,7 +64,7 @@ if (! defined('DRIZZLE_COLUMN_FLAGS_NUM')) {
  * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
-class PMA_DBI_Drizzle implements PMA_DBI_Extension
+class DBIDrizzle implements DBIExtension
 {
     /**
      * Helper function for connecting to the database server
@@ -173,7 +180,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      */
     public function realQuery($query, $link, $options)
     {
-        $buffer_mode = $options & PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+        $buffer_mode = $options & DatabaseInterface::QUERY_UNBUFFERED
             ? PMA_Drizzle::BUFFER_ROW
             : PMA_Drizzle::BUFFER_RESULT;
         $res = $link->query($query, $buffer_mode);
