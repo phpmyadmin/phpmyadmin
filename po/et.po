@@ -4,12 +4,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:58-0400\n"
-"PO-Revision-Date: 2015-08-24 09:17+0200\n"
+"PO-Revision-Date: 2015-09-01 16:27+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -647,7 +647,6 @@ msgstr ""
 "kasutajaid root, debian-sys-maint ja pma. Lisainfot leiad siit: %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Üldised sätted"
@@ -663,7 +662,6 @@ msgid "Server connection collation"
 msgstr "Serveri ühenduse kodeering"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Välimuse sätted"
@@ -1004,7 +1002,6 @@ msgstr ""
 "teisendada andmed?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Salvesta ja sule"
@@ -1016,7 +1013,6 @@ msgid "Reset"
 msgstr "Lähtesta"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Lähtesta kõik"
@@ -1042,7 +1038,6 @@ msgid "Add index"
 msgstr "Lisa indeks"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Muuda indeksit"
@@ -1093,7 +1088,6 @@ msgstr "SQL päring:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y väärtused"
@@ -1190,7 +1184,6 @@ msgid "Query cache used"
 msgstr "Kasutatud päringu vahemälu"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Süsteemi CPU kasutus"
@@ -1228,28 +1221,24 @@ msgid "Used memory"
 msgstr "Kasutatud mälu"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "Kogusaale"
+msgstr "Kogu saalimisala"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Puhverdatud saale"
+msgstr "Puhverdatud saalimisala"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Kasutatud saale"
+msgstr "Kasutatud saalimisala"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Vaba saale"
+msgstr "Kasutamata saalimisala"
 
 #: js/messages.php:167
 msgid "Bytes sent"
@@ -1658,7 +1647,6 @@ msgid "No files available on server for import!"
 msgstr "Importimiseks ei ole serveris faile!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analüüsi päringut"
@@ -1724,28 +1712,24 @@ msgid "Loading…"
 msgstr "Laadimine…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
-msgstr "Päring katkestati!"
+msgstr "Päring katkestatud!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
-msgstr "Taotluse töötlemine"
+msgstr "Töödeldakse taotlust"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Päring nurjus!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Taotluse töötlemisel esines viga:"
+msgstr "Taotluse töötlemisel esines viga"
 
 #: js/messages.php:305
 #, php-format
@@ -1763,16 +1747,14 @@ msgid "No databases selected."
 msgstr "Ühtegi andmebaasi ei ole valitud."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Veeru kustutamine"
+msgstr "Kustutatakse veergu"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Lisa primaarvõti"
+msgstr "Lisatakse primaarvõtit"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1789,19 +1771,16 @@ msgid "Click to dismiss this notification"
 msgstr "Selle teate sulgemiseks kliki sellel"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Andmebaaside ümbernimetamine"
+msgstr "Andmebaase nimetatakse ümber"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
-msgstr "Andmebaasi kopeerimine"
+msgstr "Andmebaasi kopeeritakse"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Märgitabeli muutmine"
@@ -2192,16 +2171,14 @@ msgid "Geometry"
 msgstr "Geomeetria"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Sisemine ring"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Välimine ring:"
+msgstr "Välimine ring"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2443,13 +2420,11 @@ msgid "More"
 msgstr "Rohkem"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
-msgstr "Näita paneel"
+msgstr "Paneeli kuvamine"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Peida paneel"
@@ -2526,13 +2501,11 @@ msgid "Create view"
 msgstr "Loo vaade"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Saada vearaport"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Saada vearaport"
@@ -2544,16 +2517,14 @@ msgid ""
 msgstr "Saatuslik JavaScripti viga; kas sa soovid saata vearaporti?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
-msgstr "Muuda raporteerimise sätteid"
+msgstr "Muuda raporti sätteid"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Näita raporteerimise detaile"
+msgstr "Kuva raporti detailid"
 
 #: js/messages.php:565
 msgid ""
@@ -3511,7 +3482,6 @@ msgstr "Tabelitest:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Ära vali ühtegi"
@@ -3684,7 +3654,6 @@ msgstr "Valitutega:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Vali kõik"
@@ -4788,7 +4757,6 @@ msgid "Without PHP Code"
 msgstr "Ilma PHP koodita"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Loo PHP kood"
@@ -4918,7 +4886,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Kontrolli \"%s\" andmebaasi õigusi."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Kontrolli õigusi"
@@ -6615,7 +6582,6 @@ msgid "Maximum tables"
 msgstr "Suurim hulk tabeleid"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)."
@@ -6623,8 +6589,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Baitide hulk, mida skriptil on lubatud kasutada, nt [kbd]32M[/kbd] ([kbd]0[/"
-"kbd] - piiramatu)."
+"Baitide hulk, mida skriptil on lubatud kasutada, nt [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] - piiramatu, [kbd]0[/kbd] ei muuda)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -7584,10 +7550,9 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "Näita või peida kõikides tabelites loomise ajatempli veerg."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
-msgstr "Näita loomise ajatemplit"
+msgstr "Kuva loomise ajatempel"
 
 #: libraries/config/messages.inc.php:855
 msgid ""
@@ -7595,10 +7560,9 @@ msgid ""
 msgstr "Näita või peida kõikides tabelites viimase uuendamise ajatempli veerg."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
-msgstr "Näita viimase uuendamise ajatemplit"
+msgstr "Kuva viimase uuendamise ajatempel"
 
 #: libraries/config/messages.inc.php:859
 msgid ""
@@ -7607,10 +7571,9 @@ msgstr ""
 "Näita või peida kõikides tabelites viimase kontrolli ajatemplit näitav veerg."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
-msgstr "Näita viimase kontrolli ajatemplit"
+msgstr "Kuva viimase kontrolli ajatempel"
 
 #: libraries/config/messages.inc.php:863
 msgid ""
@@ -8266,10 +8229,9 @@ msgid "Custom - display all possible options"
 msgstr "Kohandatud - näita kõiki võimalikke valikuid"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "Andmebaasid"
+msgstr "Andmebaasid:"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
@@ -8477,7 +8439,6 @@ msgstr ""
 "Näide: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Imporditav fail:"
@@ -8491,7 +8452,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Faili üleslaadimised on selles serveris keelatud."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Osaline import:"
@@ -8519,7 +8479,6 @@ msgid ""
 msgstr "Jäta vahele nii palju SQL päringuid või ridu, alates esimesest:"
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Muud valikud:"
@@ -9849,7 +9808,6 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Kohanda õiguseid"
@@ -10842,7 +10800,6 @@ msgstr "Näita ruudustikku"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Andmesõnastik"
@@ -11582,10 +11539,9 @@ msgid "Re-type"
 msgstr "Tipi uuesti"
 
 #: libraries/replication_gui.lib.php:895
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Genereeri parool"
+msgstr "Genereeri parool:"
 
 #: libraries/replication_gui.lib.php:933
 msgid "Replication started successfully."
@@ -12051,10 +12007,9 @@ msgid "Ignoring unsupported language code."
 msgstr "Tundmatu keele kood jäeti vahele."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#, fuzzy
 #| msgid "Current server"
 msgid "Current server:"
-msgstr "Praegune server"
+msgstr "Praegune server:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12113,7 +12068,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Luba statistika"
@@ -12556,10 +12510,9 @@ msgid "table-specific"
 msgstr "tabelipõhine"
 
 #: libraries/server_privileges.lib.php:2628
-#, fuzzy
 #| msgid "Edit privileges:"
 msgid "Edit privileges"
-msgstr "Muuda õiguseid:"
+msgstr "Muuda õiguseid"
 
 #: libraries/server_privileges.lib.php:2631
 msgid "Revoke"
@@ -12972,7 +12925,6 @@ msgid "Clear series"
 msgstr "Puhasta seeria"
 
 #: libraries/server_status_monitor.lib.php:233
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Seeriad diagrammis:"
@@ -14460,16 +14412,14 @@ msgid "Username and hostname didn't change."
 msgstr "Kasutaja ja hosti nimi ei muutunud."
 
 #: server_status.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
-msgstr "Puuduvad õigused kasutajate kuvamiseks."
+msgstr "Puuduvad õigused serveri oleku kuvamiseks."
 
 #: server_status_advisor.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
-msgstr "Puuduvad õigused kasutajate kuvamiseks."
+msgstr "Puuduvad õigused nõustaja kuvamiseks."
 
 #: server_status_processes.php:36
 #, php-format
@@ -14484,22 +14434,20 @@ msgstr ""
 "phpMyAdmin ei suutnud katkestada %s lõimu. Tõenäoliselt on see juba suletud."
 
 #: server_status_queries.php:55
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
-msgstr "Puuduvad õigused kasutajate kuvamiseks."
+msgstr "Puuduvad õigused päringute statistika kuvamiseks."
 
 #: server_status_variables.php:57
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
-msgstr "Puuduvad õigused kasutajate kuvamiseks."
+msgstr "Puuduvad õigused olekumuutujate kuvamiseks."
 
 #: server_variables.php:83
-#, fuzzy, php-format
+#, php-format
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Puuduvad õigused kasutajate kuvamiseks."
+msgstr "Puuduvad õigused serveri muutujate ja sätete kuvamiseks. %s"
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:277
 msgid "Download"
