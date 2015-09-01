@@ -4904,25 +4904,27 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 {
     $slashedUsername = PMA_Util::sqlAddSlashes($username);
     $slashedHostname = PMA_Util::sqlAddSlashes($hostname);
-
-    // '%' character causes binding problems with sprintf
-    // and therefore has to be escaped using an extra '%'
-    $escapedHostname = $hostname;
-    $escapedUsername = $username;
-    if (strpos($hostname,'%') !== false) {
-        $escapedHostname = str_replace('%', '%%', $hostname);
-    }
-    if (strpos($username,'%') !== false) {
-        $escapedUsername = str_replace('%', '%%', $username);
-    }
-    $slashedEscapedUsername = PMA_Util::sqlAddSlashes($escapedUsername);
-    $slashedEscapedHostname = PMA_Util::sqlAddSlashes($escapedHostname);
+    $slashedPassword = PMA_Util::sqlAddSlashes($password);
 
     $create_user_stmt = sprintf(
         'CREATE USER \'%s\'@\'%s\'',
-        $slashedEscapedUsername,
-        $slashedEscapedHostname
+        $slashedUsername,
+        $slashedHostname
     );
+
+    if (PMA_MYSQL_INT_VERSION >= 50507
+        && isset($_REQUEST['authentication_plugin'])
+    ) {
+        $create_user_stmt .= ' IDENTIFIED WITH '
+            . $_REQUEST['authentication_plugin'];
+    }
+    if (PMA_MYSQL_INT_VERSION >= 50707
+        && strpos($create_user_stmt, '%') !== false
+    ) {
+        $create_user_stmt = str_replace(
+            '%', '%%', $create_user_stmt
+        );
+    }
     $create_user_real = $create_user_show = $create_user_stmt;
 
     $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = PASSWORD(\'%s\')';
@@ -4942,98 +4944,61 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
     $real_sql_query = $sql_query = $sql_query_stmt;
 
-    //@todo Following blocks should be delegated to another function and factorized.
-    //There are too much duplication here.
-    if ($_POST['pred_password'] != 'none' && $_POST['pred_password'] != 'keep') {
-        $slashedPassword = PMA_Util::sqlAddSlashes($_POST['pma_pw']);
-        if (isset($_REQUEST['authentication_plugin'])
-            && $_REQUEST['authentication_plugin']
-        ) {
-            if (PMA_MYSQL_INT_VERSION >= 50700) {
-                $create_user_stmt .= ' IDENTIFIED WITH '
-                    . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
-                $create_user_show = sprintf($create_user_stmt, '***');
-                $create_user_real = sprintf(
-                    $create_user_stmt,
-                    $slashedPassword
-                );
-            } else {
-                $create_user_stmt .= ' IDENTIFIED WITH '
-                    . $_REQUEST['authentication_plugin'];
-                $create_user_show = $create_user_real = $create_user_stmt;
-            }
+    if (PMA_MYSQL_INT_VERSION < 50707) {
+        if ($_POST['pred_password'] == 'keep') {
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                $slashedPassword
+            );
+        } else if ($_POST['pred_password'] == 'none') {
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                null
+            );
         } else {
-            $sql_query_stmt .= ' IDENTIFIED BY \'%s\' ';
-            $sql_query = sprintf($sql_query_stmt, '***');
-            $real_sql_query = sprintf($sql_query_stmt, $slashedPassword);
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                $_POST['pma_pw']
+            );
         }
-        $password_set_real = sprintf(
-            $password_set_stmt,
-            $slashedUsername,
-            $slashedHostname,
-            $slashedPassword
-        );
     } else {
-        $slashedPassword = PMA_Util::sqlAddSlashes($password);
-        if ($_POST['pred_password'] == 'keep' && ! empty($password)) {
-            if (isset($_REQUEST['authentication_plugin'])
-                && $_REQUEST['authentication_plugin']
-            ) {
-                if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_stmt .= ' IDENTIFIED WITH '
-                        . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
-                    $create_user_show = sprintf($create_user_stmt, '***');
-                    $create_user_real = sprintf(
-                        $create_user_stmt,
-                        $slashedPassword
-                    );
-                } else {
-                    $create_user_stmt .= ' IDENTIFIED WITH '
-                        . $_REQUEST['authentication_plugin'];
-                    $create_user_show = $create_user_real = $create_user_stmt;
-                }
+        $password_set_real = null;
+        $create_user_stmt .= ' BY \'%s\'';
+        $create_user_real = $create_user_show = $create_user_stmt;
 
-                $password_set_real = sprintf(
-                    $password_set_stmt,
-                    $slashedUsername,
-                    $slashedHostname,
-                    $slashedPassword
-                );
-            } else {
-                $sql_query_stmt .= ' IDENTIFIED BY \'%s\' ';
-                $sql_query = sprintf($sql_query_stmt, '***');
-                $real_sql_query = sprintf($sql_query_stmt, $slashedPassword);
-                $password_set_real = null;
-            }
-        } elseif ($_POST['pred_password'] == 'keep' && empty($password)) {
-            if (isset($_REQUEST['authentication_plugin'])
-                && $_REQUEST['authentication_plugin']
-            ) {
-                if (PMA_MYSQL_INT_VERSION >= 50700) {
-                    $create_user_stmt .= ' IDENTIFIED WITH '
-                        . $_REQUEST['authentication_plugin'] . ' BY \'%s\'';
-                    $create_user_show = sprintf($create_user_stmt, '***');
-                    $create_user_real = sprintf(
-                        $create_user_stmt,
-                        null
-                    );
-                } else {
-                    $create_user_stmt .= ' IDENTIFIED WITH '
-                        . $_REQUEST['authentication_plugin'];
-                    $create_user_show = $create_user_real = $create_user_stmt;
-                }
-                $password_set_real = sprintf(
-                    $password_set_stmt,
-                    $slashedUsername,
-                    $slashedHostname,
-                    null
-                );
-            } else {
-                $sql_query_stmt .= ' IDENTIFIED BY \'%s\' ';
-                $sql_query = sprintf($sql_query_stmt, '***');
-                $real_sql_query = sprintf($sql_query_stmt, null);
-                $password_set_real = null;
-            }
+        if ($_POST['pred_password'] == 'keep') {
+            $create_user_real = sprintf(
+                $create_user_stmt,
+                $password
+            );
+            $create_user_show = sprintf(
+                $create_user_stmt,
+                '***'
+            );
+        } else if ($_POST['pred_password'] == 'none') {
+            $create_user_real = sprintf(
+                $create_user_stmt,
+                null
+            );
+            $create_user_show = sprintf(
+                $create_user_stmt,
+                '***'
+            );
+        } else {
+            $create_user_real = sprintf(
+                $create_user_stmt,
+                $_POST['pma_pw']
+            );
+            $create_user_show = sprintf(
+                $create_user_stmt,
+                '***'
+            );
         }
     }
 
