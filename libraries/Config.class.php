@@ -114,7 +114,7 @@ class PMA_Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.5.0-beta1');
+        $this->set('PMA_VERSION', '4.5.0-beta2');
         /**
          * @deprecated
          */
