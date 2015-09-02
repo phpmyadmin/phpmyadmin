@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:58-0400\n"
-"PO-Revision-Date: 2015-08-23 20:15+0200\n"
+"PO-Revision-Date: 2015-09-02 15:20+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -654,10 +654,9 @@ msgstr ""
 "πληροφορίες είναι διαθέσιμες στο %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
-msgstr "Γενικές Ρυθμίσεις"
+msgstr "Γενικές ρυθμίσεις"
 
 #: index.php:191 js/messages.php:525
 #: libraries/display_change_password.lib.php:50
@@ -670,7 +669,6 @@ msgid "Server connection collation"
 msgstr "Σύνθεση σύνδεσης διακομιστή"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Ρυθμίσεις εμφάνισης"
@@ -1018,10 +1016,9 @@ msgstr ""
 "δεδομενα;"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Αποθήκευση & Κλείσιμο"
+msgstr "Αποθήκευση & κλείσιμο"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:417
 #: libraries/insert_edit.lib.php:1548 prefs_manage.php:361
@@ -1030,10 +1027,9 @@ msgid "Reset"
 msgstr "Επαναφορά"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
-msgstr "Επαναφορά Όλων"
+msgstr "Επαναφορά όλων"
 
 #: js/messages.php:93
 msgid "Missing value in the form!"
@@ -1056,7 +1052,6 @@ msgid "Add index"
 msgstr "Προσθήκη ευρετηρίου"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Επεξεργασία ευρετηρίου"
@@ -1107,7 +1102,6 @@ msgstr "Εντολή SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Τιμές Υ"
@@ -1204,10 +1198,9 @@ msgid "Query cache used"
 msgstr "Χρησιμοποιημένη λανθάνουσα μνήμη ερωτήματος"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "Χρήση CPU Συστήματος"
+msgstr "Χρήση CPU συστήματος"
 
 #: js/messages.php:152
 msgid "System memory"
@@ -1242,28 +1235,24 @@ msgid "Used memory"
 msgstr "Χρησιμοποιημένη μνήμη"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "Σύνολο Αδράνειας"
+msgstr "Σύνολο αδράνειας"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Λανθασμένη Αδράνεια"
+msgstr "Λανθανουσα αδράνεια"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Χρησιμοποιημένη Αδράνεια"
+msgstr "Χρησιμοποιημένη αδράνεια"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Ελεύθερη Αδράνεια"
+msgstr "Ελεύθερη αδράνεια"
 
 #: js/messages.php:167
 msgid "Bytes sent"
@@ -1682,10 +1671,9 @@ msgid "No files available on server for import!"
 msgstr "Κανένα διαθέσιμο αρχείο στο διακομιστή για εισαγωγή!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Ανάλυση Ερωτήματος"
+msgstr "Ανάλυση ερωτήματος"
 
 #: js/messages.php:279
 msgid "Advisor system"
@@ -1748,28 +1736,24 @@ msgid "Loading…"
 msgstr "Φόρτωση…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
-msgstr "Το Αίτημα Διακόπηκε!!"
+msgstr "Το Αίτημα διακόπηκε!!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
-msgstr "Προώθηση Αιτήματος"
+msgstr "Προώθηση αιτήματος"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
-msgstr "Το Αίτημα Απέτυχε!!"
+msgstr "Το Αίτημα απέτυχε!!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Σφάλμα στην προώθηση αιτημάτος:"
+msgstr "Σφάλμα στην προώθηση αιτημάτος"
 
 #: js/messages.php:305
 #, php-format
@@ -1787,13 +1771,11 @@ msgid "No databases selected."
 msgstr "Δεν έχετε επιλέξει βάσεις δεδομένων."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Διαγραφή Στήλης"
+msgstr "Διαγραφή στήλης"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
@@ -1813,22 +1795,19 @@ msgid "Click to dismiss this notification"
 msgstr "Πατήστε γαι να παραλείψετε αυτή την ειδοποίηση"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Μετονομασία βάσεων δεδομένων"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Αντιγραφή βάσης δεδομένων"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
-msgstr "Αλλαγή Συνόλου χαρακτήρων"
+msgstr "Αλλαγή συνόλου χαρακτήρων"
 
 #: js/messages.php:320 libraries/Util.class.php:3234
 msgid "Enable foreign key checks"
@@ -2220,16 +2199,14 @@ msgid "Geometry"
 msgstr "Γεωμετρία"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Εσωτερικός δακτύλιος"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Εξωτερικός δακτύλιος:"
+msgstr "Εξωτερικός δακτύλιος"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2474,16 +2451,14 @@ msgid "More"
 msgstr "Περισσότερα"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
-msgstr "Εμφάνιση Πίνακα"
+msgstr "Εμφάνιση πίνακα"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
-msgstr "Απόκρυψη Πίνακα"
+msgstr "Απόκρυψη πίνακα"
 
 #: js/messages.php:533
 msgid "Show hidden navigation tree items."
@@ -2559,16 +2534,14 @@ msgid "Create view"
 msgstr "Δημιουργία προβολής"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Αποστολή αναφορών σφάλματος"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
-msgstr "Υποβολή Αναφοράς Σφάλματος"
+msgstr "Υποβολή αναφοράς σφάλματος"
 
 #: js/messages.php:559
 msgid ""
@@ -2579,16 +2552,14 @@ msgstr ""
 "σφάλματος;"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
-msgstr "Αλλαγή Ρυθμίσεων Αναφοράς"
+msgstr "Αλλαγή ρυθμίσεων αναφοράς"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Εμφάνιση Λεπτομερειών Αναφοράς"
+msgstr "Εμφάνιση λεπτομερειών αναφοράς"
 
 #: js/messages.php:565
 msgid ""
@@ -3550,7 +3521,6 @@ msgstr "Μέσα στους πίνακες:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Αποεπιλογή όλων"
@@ -3724,7 +3694,6 @@ msgstr "Με τους επιλεγμένους:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Επιλογή όλων"
@@ -4848,7 +4817,6 @@ msgid "Without PHP Code"
 msgstr "χωρίς κώδικα PHP"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Δημιουργία κώδικα PHP"
@@ -4980,10 +4948,9 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Έλεγχος δικαιωμάτων για τη βάση «%s»."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
-msgstr "Έλεγχος Δικαιωμάτων"
+msgstr "Έλεγχος δικαιωμάτων"
 
 #: libraries/central_columns.lib.php:155
 msgid ""
@@ -6713,7 +6680,6 @@ msgid "Maximum tables"
 msgstr "Μέγιστος αριθμός πινάκων"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)."
@@ -6722,7 +6688,8 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. "
-"[kbd]32M[/kbd] ([kbd]0[/kbd] για απεριόριστη)."
+"[kbd]32M[/kbd] ([kbd]-1[/kbd] για απεριόριστη και [kbd]0[/kbd] για καμιά "
+"αλλαγή)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -7723,7 +7690,6 @@ msgstr ""
 "για όλους τους πίνακες."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Προβολή χρονοσφραγίδας δημιουργίας"
@@ -7736,10 +7702,9 @@ msgstr ""
 "ενημέρωσης για όλους τους πίνακες."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
-msgstr "Εμφάνιση χρονοσφραγίδας Τελευταίας ενημερώσης"
+msgstr "Εμφάνιση χρονοσφραγίδας τελευταίας ενημερώσης"
 
 #: libraries/config/messages.inc.php:859
 msgid ""
@@ -7749,7 +7714,6 @@ msgstr ""
 "ελέγχου για όλους τους πίνακες."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Προβολή χρονοσφραγίδας τελευταίου ελέγχου"
@@ -8430,10 +8394,9 @@ msgid "Custom - display all possible options"
 msgstr "Προσαρμογή - προβολή όλων των πιθανών επιλογών"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "Βάσεις δεδομένων"
+msgstr "Βάσεις δεδομένων:"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
@@ -8642,7 +8605,6 @@ msgstr ""
 "[compression]</b>. Παράδειγμα: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Αρχείο για εισαγωγή:"
@@ -8656,7 +8618,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Οι αποστολές αρχείων δεν επιτρέπονται σε αυτό τον διακομιστή."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Μερική εισαγωγή:"
@@ -8689,10 +8650,9 @@ msgstr ""
 "ξεκινόντας από το πρώτο:"
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
-msgstr "Άλλες Επιλογές:"
+msgstr "Άλλες επιλογές:"
 
 #: libraries/display_import.lib.php:478
 msgid ""
@@ -10036,10 +9996,9 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
-msgstr "Προσαρμογή Δικαιωμάτων"
+msgstr "Προσαρμογή δικαιωμάτων"
 
 #: libraries/operations.lib.php:134
 #, php-format
@@ -11039,10 +10998,9 @@ msgstr "Εμφάνιση πλέγματος"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
-msgstr "Περιληπτικός πίνακας δεδομένων"
+msgstr "Λεξικό δεδομένων"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
 msgid "Order of the tables"
@@ -11801,10 +11759,9 @@ msgid "Re-type"
 msgstr "Επαναεισαγωγή"
 
 #: libraries/replication_gui.lib.php:895
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Δημιουργία κωδικού πρόσβασης"
+msgstr "Δημιουργία κωδικού πρόσβασης:"
 
 #: libraries/replication_gui.lib.php:933
 msgid "Replication started successfully."
@@ -12276,10 +12233,9 @@ msgid "Ignoring unsupported language code."
 msgstr "Αγνόηση μη υποστηριζόμενου κωδικού γλώσσας."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#, fuzzy
 #| msgid "Current server"
 msgid "Current server:"
-msgstr "Τρέχων διακομιστής"
+msgstr "Τρέχων διακομιστής:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12338,10 +12294,9 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
-msgstr "Ενεργοποίηση Στατιστικών"
+msgstr "Ενεργοποίηση στατιστικών"
 
 #: libraries/server_databases.lib.php:492
 #, php-format
@@ -12793,10 +12748,9 @@ msgid "table-specific"
 msgstr "σχετικός με πίνακα"
 
 #: libraries/server_privileges.lib.php:2628
-#, fuzzy
 #| msgid "Edit privileges:"
 msgid "Edit privileges"
-msgstr "Επεξεργασία δικαιωμάτων:"
+msgstr "Επεξεργασία δικαιωμάτων"
 
 #: libraries/server_privileges.lib.php:2631
 msgid "Revoke"
@@ -13227,10 +13181,9 @@ msgid "Clear series"
 msgstr "Εκκαθάριση σειράς"
 
 #: libraries/server_status_monitor.lib.php:233
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
-msgstr "Σειρά σε Διάγραμμα:"
+msgstr "Σειρά σε διάγραμμα:"
 
 #: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
@@ -14767,16 +14720,14 @@ msgid "Username and hostname didn't change."
 msgstr "Το όνομα χρήστη και το όνομα φιλοξενητή δεν άλλαξαν."
 
 #: server_status.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
-msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή χρηστών."
+msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή κατάστασης διακομιστή."
 
 #: server_status_advisor.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
-msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή χρηστών."
+msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή συμβούλου."
 
 #: server_status_processes.php:36
 #, php-format
@@ -14792,22 +14743,22 @@ msgstr ""
 "σταματήσει."
 
 #: server_status_queries.php:55
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
-msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή χρηστών."
+msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή στατιστικά ερωτημάτων."
 
 #: server_status_variables.php:57
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
-msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή χρηστών."
+msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή μεταβλητών κατάστασης."
 
 #: server_variables.php:83
-#, fuzzy, php-format
+#, php-format
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή χρηστών."
+msgstr ""
+"Δεν υπάρχουν αρκετά δικαιώματα για προβολή μεταβλητών διακομιστή και "
+"ρυθμίσεων. %s"
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:277
 msgid "Download"
