@@ -13,9 +13,8 @@ use PMA\libraries\Index;
 use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/di/Container.class.php';
 
-$container = DI\Container::getDefaultContainer();
+$container = libraries\di\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\table\TableIndexesController');
 $container->alias(
     'TableIndexesController', 'PMA\libraries\controllers\table\TableIndexesController'

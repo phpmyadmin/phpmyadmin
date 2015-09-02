@@ -10,12 +10,11 @@
  * Include to test.
  */
 use PMA\libraries\controllers\table\TableSearchController;
-use PMA\DI\Container;
+use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
 use PMA\libraries\TypesMySQL;
 
 require_once 'test/libraries/stubs/ResponseStub.php';
-require_once 'libraries/di/Container.class.php';
 
 /**
  * Tests for PMA_TableSearch

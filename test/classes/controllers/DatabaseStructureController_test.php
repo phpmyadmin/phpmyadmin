@@ -12,12 +12,11 @@
  * Include to test.
  */
 use PMA\libraries\controllers\DatabaseStructureController;
-use PMA\DI\Container;
+use PMA\libraries\di\Container;
 use PMA\libraries\Table;
 use PMA\libraries\Theme;
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/di/Container.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 
 /**

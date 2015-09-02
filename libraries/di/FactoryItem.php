@@ -1,19 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\DI\FactoryItem class
+ * Holds the PMA\libraries\di\FactoryItem class
  *
  * @package PMA
  */
-
-namespace PMA\DI;
-
-require_once 'libraries/di/ReflectorItem.class.php';
+namespace PMA\libraries\di;
 
 /**
  * Factory manager
  *
- * @package PMA\DI
+ * @package PMA\libraries\di
  */
 class FactoryItem extends ReflectorItem
 {

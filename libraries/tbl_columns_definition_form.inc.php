@@ -17,7 +17,6 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Check parameters
  */
-require_once 'libraries/di/Container.class.php';
 require_once 'libraries/util.lib.php';
 
 PMA\libraries\Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
@@ -97,7 +96,7 @@ $comments_map = PMA_getComments($db, $table);
 $move_columns = array();
 if (isset($fields_meta)) {
     /** @var PMA\libraries\DatabaseInterface $dbi */
-    $dbi = \PMA\DI\Container::getDefaultContainer()->get('dbi');
+    $dbi = \PMA\libraries\di\Container::getDefaultContainer()->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 

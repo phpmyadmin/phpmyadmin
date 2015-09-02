@@ -1,19 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\DI\ValueItem class
+ * Holds the PMA\libraries\di\ValueItem class
  *
  * @package PMA
  */
-
-namespace PMA\DI;
-
-require_once 'libraries/di/Item.int.php';
+namespace PMA\libraries\di;
 
 /**
  * Value manager
  *
- * @package PMA\DI
+ * @package PMA\libraries\di
  */
 class ValueItem implements Item
 {

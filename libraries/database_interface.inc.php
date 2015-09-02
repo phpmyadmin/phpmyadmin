@@ -6,7 +6,7 @@
  *
  * @package PhpMyAdmin-DBI
  */
-use PMA\DI\Container;
+use PMA\libraries\di\Container;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\dbi\DBIMysql;
 use PMA\libraries\dbi\DBIMysqli;
@@ -14,8 +14,6 @@ use PMA\libraries\dbi\DBIMysqli;
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/di/Container.class.php';
 
 if (defined('TESTSUITE')) {
     /**

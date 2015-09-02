@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\controllers\table\TableIndexesController;
-use PMA\DI\Container;
+use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
 
 /*
@@ -24,7 +24,6 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/di/Container.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 
 /**

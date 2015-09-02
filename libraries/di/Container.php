@@ -1,23 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\DI\Container class
+ * Holds the PMA\libraries\di\Container class
  *
  * @package PMA
  */
-
-namespace PMA\DI;
-
-require_once 'libraries/di/Item.int.php';
-require_once 'libraries/di/AliasItem.class.php';
-require_once 'libraries/di/ValueItem.class.php';
-require_once 'libraries/di/ServiceItem.class.php';
-require_once 'libraries/di/FactoryItem.class.php';
+namespace PMA\libraries\di;
 
 /**
  * Class Container
  *
- * @package PMA\DI
+ * @package PMA\libraries\di
  */
 class Container
 {

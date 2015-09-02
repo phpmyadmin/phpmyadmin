@@ -7,11 +7,10 @@
  */
 namespace PMA\libraries\controllers;
 
-use PMA\DI\Container;
 use PMA\libraries\DatabaseInterface;
+use PMA\libraries\di\Container;
 use PMA\libraries\Response;
 
-require_once 'libraries/di/Container.class.php';
 require_once 'libraries/database_interface.inc.php';
 
 /**
@@ -33,7 +32,7 @@ abstract class Controller
     protected $dbi;
 
     /**
-     * @var Container
+     * @var \PMA\libraries\di\Container
      */
     protected $container;
 

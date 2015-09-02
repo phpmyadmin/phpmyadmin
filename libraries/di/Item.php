@@ -1,17 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\DI\Item class
+ * Holds the PMA\libraries\di\Item class
  *
  * @package PMA
  */
-
-namespace PMA\DI;
+namespace PMA\libraries\di;
 
 /**
  * Interface Item
  *
- * @package PMA\DI
+ * @package PMA\libraries\di
  */
 interface Item
 {

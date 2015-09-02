@@ -27,9 +27,7 @@ list(
     $pos
 ) = Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
 
-require_once 'libraries/di/Container.class.php';
-
-$container = DI\Container::getDefaultContainer();
+$container = libraries\di\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\DatabaseStructureController');
 $container->alias(
     'DatabaseStructureController', 'PMA\libraries\controllers\DatabaseStructureController'

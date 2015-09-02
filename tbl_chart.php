@@ -12,9 +12,8 @@ use PMA\libraries\controllers\table\TableChartController;
 use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/di/Container.class.php';
 
-$container = DI\Container::getDefaultContainer();
+$container = libraries\di\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\table\TableChartController');
 $container->alias(
     'TableChartController', 'PMA\libraries\controllers\table\TableChartController'

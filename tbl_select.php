@@ -15,12 +15,11 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_common.inc.php';
 require_once 'libraries/tbl_info.inc.php';
-require_once 'libraries/di/Container.class.php';
 
-use PMA\libraries\controllers\table\TableSearchController;
 use PMA\DI;
+use PMA\libraries\controllers\table\TableSearchController;
 
-$container = DI\Container::getDefaultContainer();
+$container = \PMA\libraries\di\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\table\TableSearchController');
 $container->alias(
     'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
