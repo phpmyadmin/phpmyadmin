@@ -100,7 +100,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(null));
 
-        $class = new ReflectionClass('\PMA\Controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
@@ -148,7 +148,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $class = new ReflectionClass('\PMA\Controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
@@ -174,7 +174,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testAdjustColumnPrivileges()
     {
-        $class = new ReflectionClass('\PMA\Controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
@@ -205,7 +205,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped("Cannot redefine PMA_DRIZZLE constant");
         }
 
-        $class = new ReflectionClass('\PMA\Controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
@@ -242,7 +242,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetMultipleFieldCommandType()
     {
-        $class = new ReflectionClass('\PMA\Controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
         $method = $class->getMethod('getMultipleFieldCommandType');
         $method->setAccessible(true);
 

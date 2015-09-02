@@ -282,12 +282,12 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
         $GLOBALS['PMA_Types'] = $types;
 
-        $class = new ReflectionClass('\PMA\Controllers\Table\TableSearchController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\Table\TableSearchController');
         $method = $class->getMethod('_generateWhereClause');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('\PMA\Controllers\Table\TableSearchController');
+        $container->factory('\PMA\libraries\controllers\Table\TableSearchController');
         $container->alias(
             'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
         );
@@ -366,7 +366,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('\PMA\Controllers\Table\TableSearchController');
+        $container->factory('\PMA\libraries\controllers\Table\TableSearchController');
         $container->alias(
             'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
         );
