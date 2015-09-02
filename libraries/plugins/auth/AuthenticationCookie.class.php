@@ -794,7 +794,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 true
             );
         }
-        if (strlen($this->_cookie_iv) < $this->getIVSize()) {
+        if (mb_strlen($this->_cookie_iv,'8bit') < $this->getIVSize()) {
                 $this->createIV();
         }
 

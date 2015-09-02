@@ -104,7 +104,7 @@ class TableSearchController extends TableController
         // Loads table's information
         $this->_loadTableInfo();
         $this->_connectionCharSet = $this->dbi->fetchValue(
-            "SELECT @@character_set_connection", 0, 1
+            "SELECT @@character_set_connection"
         );
     }
 

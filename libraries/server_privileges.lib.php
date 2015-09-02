@@ -1804,11 +1804,11 @@ function PMA_getCurrentAuthenticationPlugin(
         if (isset($row) && $row && ! empty($row['plugin'])) {
             $authentication_plugin = $row['plugin'];
         }
-    } else {
+    } elseif (PMA_MYSQL_INT_VERSION >= 50702) {
         $row = $GLOBALS['dbi']->fetchSingleRow(
             'SELECT @@default_authentication_plugin'
         );
-        $authentication_plugin = $row['Value'];
+        $authentication_plugin = $row['@@default_authentication_plugin'];
     }
 
     return $authentication_plugin;
@@ -4937,7 +4937,6 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $slashedHostname,
         '***'
     );
-    $password_set_real = null;
 
     $sql_query_stmt = sprintf(
         'GRANT %s ON *.* TO \'%s\'@\'%s\'',
@@ -4973,7 +4972,6 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     } else {
         $password_set_real = null;
         $create_user_stmt .= ' BY \'%s\'';
-        $create_user_real = $create_user_show = $create_user_stmt;
 
         if ($_POST['pred_password'] == 'keep') {
             $create_user_real = sprintf(
