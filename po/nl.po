@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-08-23 12:37+0200\n"
+"PO-Revision-Date: 2015-09-02 19:53+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-5/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -653,7 +653,6 @@ msgstr ""
 "sys-maint en pma-gebruikers niet. Meer informatie is beschikbaar op %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Algemene instellingen"
@@ -669,10 +668,9 @@ msgid "Server connection collation"
 msgstr "Collatie van de serververbinding"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "Opmaakinstellingen"
+msgstr "Opmaak instellingen"
 
 #: index.php:259 prefs_manage.php:285
 msgid "More settings"
@@ -1016,7 +1014,6 @@ msgstr ""
 "converteren?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Opslaan & sluiten"
@@ -1028,7 +1025,6 @@ msgid "Reset"
 msgstr "Herstellen"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Alles terugzetten naar standaardwaarden"
@@ -1054,7 +1050,6 @@ msgid "Add index"
 msgstr "Index toevoegen"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Index bewerken"
@@ -1105,7 +1100,6 @@ msgstr "SQL-query:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y-waarden"
@@ -1203,10 +1197,9 @@ msgid "Query cache used"
 msgstr "Querycache gebruikt"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "CPU-gebruik"
+msgstr "Systeem CPU-gebruik"
 
 #: js/messages.php:152
 msgid "System memory"
@@ -1241,28 +1234,24 @@ msgid "Used memory"
 msgstr "Gebruikt geheugen"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Totaal wisselbestand"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Gecached wisselbestand"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Wisselbestand in gebruik"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Vrij wisselbestand"
+msgstr "Vrije ruimte wisselbestand"
 
 #: js/messages.php:167
 msgid "Bytes sent"
@@ -1676,10 +1665,9 @@ msgid "No files available on server for import!"
 msgstr "Geen bestanden beschikbaar op de server om te importeren!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Analyseer Query"
+msgstr "Analyseer query"
 
 #: js/messages.php:279
 msgid "Advisor system"
@@ -1742,28 +1730,24 @@ msgid "Loading…"
 msgstr "Laden…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Aanvraag afgebroken!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Bezig met verwerken"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Aanvraag gefaald!!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Fout tijdens het uitvoeren van de opdracht:"
+msgstr "Fout tijdens het uitvoeren van de opdracht"
 
 #: js/messages.php:305
 #, php-format
@@ -1781,13 +1765,11 @@ msgid "No databases selected."
 msgstr "Er zijn geen databases geselecteerd."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Kolom komt te vervallen"
+msgstr "Kolom laten vervallen"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Een primaire sleutel toevoegen"
@@ -1807,19 +1789,16 @@ msgid "Click to dismiss this notification"
 msgstr "Klik om deze melding te sluiten"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Database hernoemen"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Database kopiëren"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Karakterset aanpassen"
@@ -2218,17 +2197,15 @@ msgstr "Geometrie"
 
 # https://nl.wikipedia.org/wiki/Ingeschreven_cirkel
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "Ingeschreven cirkel"
+msgstr "Binnenste ring"
 
 # https://nl.wikipedia.org/wiki/Aangeschreven_cirkel
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Buitenste ring:"
+msgstr "Buitenste ring"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2472,13 +2449,11 @@ msgid "More"
 msgstr "Meer"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Paneel tonen"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Paneel verbergen"
@@ -2557,13 +2532,11 @@ msgid "Create view"
 msgstr "VIEW aanmaken"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Verzend foutmeldingsverslagen"
+msgstr "Verzend foutmeldingsverslag"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Verstuur foutmeldingsverslag"
@@ -2577,16 +2550,14 @@ msgstr ""
 "verzenden?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
-msgstr "Verslaginstellingen wijzigen"
+msgstr "Rapport instellingen wijzigen"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Toon verslag details"
+msgstr "Toon rapport details"
 
 #: js/messages.php:565
 msgid ""
@@ -3551,7 +3522,6 @@ msgstr "In de tabellen:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Alles deselecteren"
@@ -3724,7 +3694,6 @@ msgstr "Met geselecteerd:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Selecteer alles"
@@ -4849,7 +4818,6 @@ msgid "Without PHP Code"
 msgstr "zonder PHP-code"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Genereer PHP-code"
@@ -4979,7 +4947,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Controleer rechten op database \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Controleer rechten"
@@ -6706,7 +6673,6 @@ msgid "Maximum tables"
 msgstr "Maximum aantal tabellen"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)."
@@ -6715,7 +6681,8 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Het aantal bytes aan geheugen dat een script maximaal mag gebruiken, "
-"bijvoorbeeld [kbd]32M[/kbd] ([kbd]0[/kbd] voor geen limiet)."
+"bijvoorbeeld [kbd]32M[/kbd] ([kbd]-1[/kbd] voor geen limiet en [kbd]0[/kbd] "
+"voor geen wijziging)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -7705,7 +7672,6 @@ msgstr ""
 "Toon of verberg een kolom met het tijdstip van aanmaken voor alle tabellen."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Toon het tijdstip van aanmaken"
@@ -7718,7 +7684,6 @@ msgstr ""
 "tabellen."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Toon het tijdstip van laatste aanpassing"
@@ -7731,7 +7696,6 @@ msgstr ""
 "tabellen."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Toon het tijdstip van laatste controle"
@@ -8410,10 +8374,9 @@ msgid "Custom - display all possible options"
 msgstr "Uitgebreid - toon alle mogelijke opties"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "Databases"
+msgstr "Databases:"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
@@ -8623,7 +8586,6 @@ msgstr ""
 "[compressie]</b>. Voorbeeld: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Te importeren bestand:"
@@ -8637,7 +8599,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Het uploaden van bestanden is niet toegestaan op deze server."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Gedeeltelijke import:"
@@ -8669,7 +8630,6 @@ msgstr ""
 "beginnend bij de eerste :"
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Andere opties:"
@@ -10024,7 +9984,6 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Aanpassen rechten"
@@ -11025,10 +10984,9 @@ msgstr "Toon raster"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
-msgstr "Data Woordenboek"
+msgstr "Data woordenboek"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
 msgid "Order of the tables"
@@ -11780,10 +11738,9 @@ msgid "Re-type"
 msgstr "Type opnieuw"
 
 #: libraries/replication_gui.lib.php:895
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Wachtwoord genereren"
+msgstr "Wachtwoord genereren:"
 
 #: libraries/replication_gui.lib.php:933
 msgid "Replication started successfully."
@@ -12252,10 +12209,9 @@ msgid "Ignoring unsupported language code."
 msgstr "Niet ondersteunde taal code wordt genegeerd."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#, fuzzy
 #| msgid "Current server"
 msgid "Current server:"
-msgstr "Huidige server"
+msgstr "Huidige server:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12314,7 +12270,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Statistieken inschakelen"
@@ -12772,10 +12727,9 @@ msgid "table-specific"
 msgstr "tabel-specifiek"
 
 #: libraries/server_privileges.lib.php:2628
-#, fuzzy
 #| msgid "Edit privileges:"
 msgid "Edit privileges"
-msgstr "Rechten bewerken:"
+msgstr "Rechten bewerken"
 
 #: libraries/server_privileges.lib.php:2631
 msgid "Revoke"
@@ -13207,7 +13161,6 @@ msgid "Clear series"
 msgstr "Reeks leegmaken"
 
 #: libraries/server_status_monitor.lib.php:233
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Series in grafiek:"
@@ -14727,16 +14680,14 @@ msgid "Username and hostname didn't change."
 msgstr "Gebruikersnaam en hostname werden niet gewijzigd."
 
 #: server_status.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
-msgstr "Niet genoeg rechten om gebruikers in te zien."
+msgstr "Niet genoeg rechten om server status te mogen zien."
 
 #: server_status_advisor.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
-msgstr "Niet genoeg rechten om gebruikers in te zien."
+msgstr "Niet genoeg rechten om adviseur in te mogen zien."
 
 #: server_status_processes.php:36
 #, php-format
@@ -14752,22 +14703,21 @@ msgstr ""
 "al gesloten."
 
 #: server_status_queries.php:55
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
-msgstr "Niet genoeg rechten om gebruikers in te zien."
+msgstr "Niet genoeg rechten om query statistieken in te zien."
 
 #: server_status_variables.php:57
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
-msgstr "Niet genoeg rechten om gebruikers in te zien."
+msgstr "Niet genoeg rechten om status variabelen in te mogen zien."
 
 #: server_variables.php:83
-#, fuzzy, php-format
+#, php-format
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Niet genoeg rechten om gebruikers in te zien."
+msgstr ""
+"Niet genoeg rechten om server variabelen en instellingen in te mogen zien. %s"
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:277
 msgid "Download"
