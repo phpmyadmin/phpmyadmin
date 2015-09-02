@@ -1801,11 +1801,11 @@ function PMA_getCurrentAuthenticationPlugin(
         if (isset($row) && $row && ! empty($row['plugin'])) {
             $authentication_plugin = $row['plugin'];
         }
-    } else {
+    } elseif (PMA_MYSQL_INT_VERSION >= 50702) {
         $row = $GLOBALS['dbi']->fetchSingleRow(
             'SELECT @@default_authentication_plugin'
         );
-        $authentication_plugin = $row['Value'];
+        $authentication_plugin = $row['@@default_authentication_plugin'];
     }
 
     return $authentication_plugin;
