@@ -204,10 +204,6 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
         });
     }
 
-    var removeOnclick = 1;
-    if ($("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").length) {
-        removeOnclick = 0;
-    }
     // Unchecks the corresponding "NULL" control
     $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").prop('checked', false);
 
@@ -227,10 +223,8 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
         // @todo: put back attributes if corresponding function is deselected
     }
 
-    // explanation of the last condition:
-    // if a function has been selected in the function drop-down,
-    // do not validate the input field
-    if (target.name && target.name.substring(0, 6) === "fields" && ! function_selected) {
+    if ($this_input.data('rulesadded') == null && ! function_selected) {
+
         //call validate before adding rules
         $($this_input[0].form).validate();
         // validate for date time
@@ -303,9 +297,17 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
                 }
             });
         }
-        if (removeOnclick === 1) {
-            $this_input.removeAttr('onchange');
-        }
+        $this_input.data('rulesadded', true);
+    } else if ($this_input.data('rulesadded') == true && function_selected) {
+        // remove any rules added
+        $this_input.rules("remove");
+        // remove any error messages
+        $this_input
+            .removeClass('error')
+            .removeAttr('aria-invalid')
+            .siblings('.error')
+            .remove();
+        $this_input.data('rulesadded', null);
     }
 }
 /* End of fields validation*/
