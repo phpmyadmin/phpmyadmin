@@ -826,9 +826,7 @@ class PMA_Table
             // This is not availabile for Drizzle.
             if (!PMA_DRIZZLE) {
                 SqlParser\Context::setMode(
-                    $GLOBALS['dbi']->fetchValue(
-                        "SELECT @@sql_mode", 0, 1
-                    )
+                    $GLOBALS['dbi']->fetchValue("SELECT @@sql_mode")
                 );
             }
 
