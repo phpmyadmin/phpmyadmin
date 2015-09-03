@@ -322,9 +322,7 @@ class PMA_DatabaseInterface
         $server_language = PMA_Util::cacheGet(
             'server_language',
             function () {
-                return $GLOBALS['dbi']->fetchValue(
-                    "SELECT @@lc_messages;", 0, 0
-                );
+                return $GLOBALS['dbi']->fetchValue("SELECT @@lc_messages;");
             }
         );
 

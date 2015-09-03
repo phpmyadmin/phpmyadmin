@@ -1894,7 +1894,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 $row = $GLOBALS['dbi']->fetchSingleRow(
                     'SELECT @@old_passwords;'
                 );
-                $orig_value = $row['Value'];
+                $orig_value = $row['@@old_passwords'];
                 // Set the hashing method used by PASSWORD()
                 // to be 'sha256_password' type
                 $GLOBALS['dbi']->tryQuery('SET old_passwords = 2;');

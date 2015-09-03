@@ -812,7 +812,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->with('SELECT @@collation_database', 0, 1)
+            ->with('SELECT @@collation_database')
             ->will($this->returnValue('testcollation'));
 
         $GLOBALS['dbi'] = $dbi;
