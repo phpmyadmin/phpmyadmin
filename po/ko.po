@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-09-03 09:21+0200\n"
-"Last-Translator: Deleted User <noreply@weblate.org>\n"
+"PO-Revision-Date: 2015-09-03 09:22+0200\n"
+"Last-Translator: Myung-han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/>\n"
 "Language: ko\n"
@@ -2367,7 +2367,7 @@ msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br />(일부 제�
 
 #: js/messages.php:518
 msgid "Go to link:"
-msgstr "링크로 이동합니다:"
+msgstr "다음 링크로 이동:"
 
 #: js/messages.php:519
 msgid "Copy column name."
