@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-07-26 09:31+0200\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-4/zh_CN/>\n"
+"PO-Revision-Date: 2015-09-03 04:02+0200\n"
+"Last-Translator: Vincent Lau <3092849@qq.com>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,10 +31,10 @@ msgid "Click to sort."
 msgstr "点击以排序。"
 
 #: db_central_columns.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "正在显示第 %1$s - %2$s 行"
+msgstr "正在显示第 %1$s - %2$s 行。"
 
 #: db_create.php:61
 #, php-format
@@ -326,10 +326,9 @@ msgid "Access denied!"
 msgstr "访问被拒绝！"
 
 #: db_tracking.php:39 db_tracking.php:64
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "追踪数据定义删除成功"
+msgstr "追踪数据删除成功。"
 
 #: db_tracking.php:48
 #, php-format
@@ -665,14 +664,14 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "导入成功，执行了 %d 个查询。"
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr "脚本超时，如果您要完成导入，请重新提交相同的文件，导入将会继续进行。"
+msgstr "脚本超时，如果您要完成导入，请%s重新提交相同的文件%s，导入将会继续进行。"
 
 #: import.php:675
 msgid ""
@@ -684,7 +683,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "无法加载导入进度。"
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -771,10 +770,9 @@ msgid "PHP extension:"
 msgstr "PHP 扩展："
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "PHP 版本"
+msgstr "PHP 版本："
 
 #: index.php:356
 msgid "Show PHP information"
@@ -813,7 +811,6 @@ msgid "List of changes"
 msgstr "更新列表"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -825,9 +822,8 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务"
-"器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给‘root’用户设"
-"置一个密码来修复这个安全漏洞。"
+"您使用空密码登录了“root”账户，这是 MySQL 的默认管理员帐号。您的 MySQL "
+"服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给“root”用户设置一个密码来修复这个安全漏洞。"
 
 #: index.php:464
 msgid ""
@@ -848,7 +844,6 @@ msgstr ""
 "展的 phpMyAdmin 不能正确分割字符串并可能产生意料之外的结果。"
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -860,10 +855,9 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 参数 [a@http://php.net/manual/zh/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 短于您在 phpMyAdmin "
-"中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 phpMyAdmin 中设置的"
-"时间要更短。"
+"您的 PHP 参数 [a@http://php.net/manual/zh/session.configuration.php#ini.session"
+".gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 短于您在 phpMyAdmin 中设置的 "
+"Cookies 有效期，因此您的登录会话有效期可能会比您在 phpMyAdmin 中设置的时间要更短。"
 
 #: index.php:508
 msgid ""
@@ -889,20 +883,19 @@ msgstr ""
 "而使服务器陷入危险。"
 
 #: index.php:542
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
-msgstr ""
-"phpMyAdmin 高级功能尚未完全设置，部分功能未激活。请点击%s这里%s查看原因。"
+msgstr "phpMyAdmin 高级功能尚未完全设置，部分功能未激活。%s查找原因%s。 "
 
 #: index.php:549
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr ""
+msgstr "或者也可以去某个数据库的“操作”选项卡那里进行设置。"
 
 #: index.php:597
 #, php-format
@@ -946,34 +939,29 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "您将要完全清空一个表！"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "删除该表的追踪数据"
+msgstr "删除该表的追踪数据？"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "删除该表的追踪数据"
+msgstr "删除这些表的追踪数据？"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "删除该表的追踪数据"
+msgstr "删除该版本的追踪数据？"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "删除该表的追踪数据"
+msgstr "删除这些版本的追踪数据？"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "从报告中删除追踪数据"
+msgstr "从追踪报告中删除条目？"
 
 #: js/messages.php:52
 msgid "Deleting tracking data"
@@ -984,10 +972,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "正在删除主键"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "选择外键"
+msgstr "删除外键。"
 
 #: js/messages.php:55
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1008,16 +995,14 @@ msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
 #: js/messages.php:59
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "您真的要删除搜索“%s”吗？"
+msgstr "您真的要删除选择的用户吗？"
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "您真的要删除搜索“%s”吗？"
+msgstr "您真的要删除此中心列吗？"
 
 #: js/messages.php:63
 msgid "Save & Close"
@@ -1063,28 +1048,24 @@ msgid "Add %s column(s) to index"
 msgstr "添加 %s 个字段至索引"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "创建关系"
+msgstr "创建单列索引"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "创建关系"
+msgstr "创建复合索引"
 
 #: js/messages.php:77
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "内容分隔符："
+msgstr "复合对象："
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "添加 %s 个字段至索引"
+msgstr "请为索引选择列。"
 
 #: js/messages.php:81 libraries/structure.lib.php:1686
 msgid "You have to add at least one column."
@@ -1661,7 +1642,7 @@ msgstr "检验"
 
 #: js/messages.php:258
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "正在格式化SQL……"
 
 #: js/messages.php:262 libraries/db_designer.lib.php:833
 #: libraries/db_designer.lib.php:882 libraries/db_designer.lib.php:1026
@@ -1835,13 +1816,12 @@ msgstr "%d 不是有效行数。"
 #: js/messages.php:315 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
 #: tbl_change.php:153
-#, fuzzy
 msgid "Browse foreign values"
 msgstr "浏览不相关的值"
 
 #: js/messages.php:316
 msgid "No auto-saved query"
-msgstr ""
+msgstr "不自动保存查询"
 
 #: js/messages.php:319 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -1860,7 +1840,7 @@ msgstr "在该列表中搜索"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
+msgstr "中心列表中没有列。请确保数据库  %s 的中心列表存在没有显示在当前表中的列。"
 
 #: js/messages.php:323
 msgid "See more"
@@ -1896,7 +1876,7 @@ msgstr "等待进入下一步…"
 #: js/messages.php:332
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "表“%s”标准化过程的第一步已经完成。"
 
 #: js/messages.php:333 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1906,7 +1886,7 @@ msgstr "完成"
 
 #: js/messages.php:334
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "标准化第二步（2NF）"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:335 js/messages.php:581 libraries/normalization.lib.php:264
@@ -1915,76 +1895,72 @@ msgstr "完成"
 
 #: js/messages.php:336
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "确认局部依赖"
 
 #: js/messages.php:337
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "下面是已经选择的局部依赖："
 
 #: js/messages.php:338
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
-msgstr ""
+msgstr "注意： a, b -> d,f 表示a和b两列结合起来决定d和f两列的值。"
 
 #: js/messages.php:339
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "没有已选择的数据库。"
+msgstr "没有已选择的局部依赖！"
 
 #: js/messages.php:341
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "显示基于表中数据可能的局部依赖"
 
 #: js/messages.php:342
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "隐藏局部依赖列表"
 
 #: js/messages.php:343
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
-msgstr ""
+msgstr "坐好啦！取决于数据大小和表的列数，这可能需要几秒钟。"
 
 #: js/messages.php:344
 msgid "Step"
-msgstr ""
+msgstr "步骤"
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "下列查询被执行:"
+msgstr "下列操作将被执行："
 
 #: js/messages.php:346
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "将列 %s 从表 %s 中删除"
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "在下列数据表添加权限"
+msgstr "创建下列表"
 
 #: js/messages.php:350
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "标准化第三步（3NF）"
 
 #: js/messages.php:351
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "确认传递依赖"
 
 #: js/messages.php:352
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "下面是已经选择的依赖："
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "没有已选择的数据库。"
+msgstr "没有已选择的依赖！"
 
 #: js/messages.php:356 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:155
@@ -2117,7 +2093,7 @@ msgstr "加密密匙"
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
-msgstr ""
+msgstr "检测到您已经对页面做出了修改。因此在您放弃改动时会提示您确认"
 
 #: js/messages.php:417
 msgid "Select referenced key"
@@ -2160,10 +2136,9 @@ msgid "Delete page"
 msgstr "删除页面"
 
 #: js/messages.php:429 libraries/db_designer.lib.php:244
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "单位"
+msgstr "未命名"
 
 #: js/messages.php:430
 msgid "Please select a page to continue"
@@ -2223,6 +2198,8 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"点击的同时按下 Shift 键即可将此列添加到 ORDER BY 语句中或是切换升序和降序。<br />使用 Ctrl+Click 或者 Alt+"
+"Click （Mac：Shift+Option+Click ）即可将列从 ORDER BY 语句中移除"
 
 #: js/messages.php:447
 msgid "Click to mark/unmark."
@@ -2253,16 +2230,15 @@ msgstr ""
 
 #: js/messages.php:454
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "请输入一个有效的十六进制字符串。只有0-9和A-F为有效字符。"
 
 #: js/messages.php:455
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
-msgstr ""
+msgstr "您真的想要查看所有的行吗？若表过大可能会导致浏览器崩溃。"
 
 #: js/messages.php:458
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "取消"
@@ -2273,25 +2249,22 @@ msgstr "已取消"
 
 #: js/messages.php:461
 msgid "Success"
-msgstr ""
+msgstr "成功"
 
 #: js/messages.php:462
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "导入选项"
+msgstr "导入状态"
 
 #: js/messages.php:463 libraries/navigation/Navigation.class.php:107
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "日志文件阈值"
+msgstr "将文件拖动至此"
 
 #: js/messages.php:464
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "选择表"
+msgstr "先选择数据库"
 
 #: js/messages.php:469
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2343,52 +2316,45 @@ msgstr "显示隐藏的导航树节点。"
 
 #: js/messages.php:493 libraries/config/messages.inc.php:431
 #: libraries/navigation/NavigationTree.class.php:1335
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "自定义主面板"
+msgstr "与主面板链接"
 
 #: js/messages.php:494 libraries/navigation/NavigationTree.class.php:1338
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "自定义主面板"
+msgstr "从主面板取消链接"
 
 #: js/messages.php:495
 msgid "To filter all databases on server, press Enter after a search term"
-msgstr ""
+msgstr "在搜索项目后回车即可在服务器上所有的数据库中进行过滤"
 
 #: js/messages.php:496
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr ""
+msgstr "在搜索项目后回车以过滤在数据库中所有的 %s"
 
 #: js/messages.php:497
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "表"
 
 #: js/messages.php:498
-#, fuzzy
 #| msgid "Views"
 msgid "views"
 msgstr "视图"
 
 #: js/messages.php:499
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "存储过程"
 
 #: js/messages.php:500
-#, fuzzy
 #| msgid "event"
 msgid "events"
 msgstr "事件"
 
 #: js/messages.php:501
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "函数"
@@ -2457,17 +2423,16 @@ msgstr ""
 
 #: js/messages.php:534 js/messages.php:546
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "在服务上检测到错误！"
 
 #: js/messages.php:536
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "请查看此窗口的底部。"
 
 #: js/messages.php:541 libraries/Error_Handler.class.php:353
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "忽略"
+msgstr "忽略全部"
 
 #: js/messages.php:548
 msgid ""
