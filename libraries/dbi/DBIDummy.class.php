@@ -118,7 +118,7 @@ $GLOBALS['dummy_queries'] = array(
     array(
         'query' => 'SELECT @@collation_server',
         'result' => array(
-            array('collation_server', 'utf8_general_ci'),
+            array('utf8_general_ci'),
         )
     ),
     array(
@@ -425,9 +425,9 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => 'SELECT @@collation_database',
-        'columns' => array('variable_name', 'variable_value'),
+        'columns' => array('@@collation_database'),
         'result' => array(
-            array('foo', 'bar'),
+            array('bar'),
         )
     ),
     array(
@@ -611,7 +611,7 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => 'SELECT @@default_authentication_plugin',
-        'result' => array(array('Variable_name' => 'mysql_native_password'))
+        'result' => array(array('@@default_authentication_plugin' => 'mysql_native_password'))
     ),
     array(
         'query' => "SELECT TABLE_NAME FROM information_schema.VIEWS WHERE "
