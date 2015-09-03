@@ -85,11 +85,7 @@ class ImportLdi_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('numRows')
             ->will($this->returnValue(10));
 
-        $fetchRowResult = array(
-            "PMA_row",
-            "ON"
-        );
-
+        $fetchRowResult = array("ON");
         $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue($fetchRowResult));
 
