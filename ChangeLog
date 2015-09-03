@@ -111,6 +111,7 @@ phpMyAdmin - ChangeLog
 - issue #11447 MySQL 5.5 and the language system variable
 - issue #11452 Semantics of export and import icons are mixed up
 - issue #11451 Designer-Bug in move.js on multiple server configuration
+- issue #11458 Invalid UTF-8 sequence in argument
 
 4.4.14.0 (2015-08-20)
 - issue #11367 Export after search, missing WHERE clause
