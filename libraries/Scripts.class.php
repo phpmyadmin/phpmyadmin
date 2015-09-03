@@ -76,10 +76,17 @@ class PMA_Scripts
                 }
             }
         }
-        $static_scripts = sprintf(
-            "<script type='text/javascript' src='js/get_scripts.js.php?%s'></script>",
-            implode("&", $params)
-        );
+        $static_scripts = '';
+        // Using chunks of 10 files to avoid too long URLs
+        $script_chunks = array_chunk($params, 10);
+        foreach ($script_chunks as $script_chunk) {
+            $url = 'js/get_scripts.js.php?' . implode('&', $script_chunk);
+
+            $static_scripts .= sprintf(
+                '<script type="text/javascript" src="%s"></script>',
+                htmlspecialchars($url)
+            );
+        }
         return $first_dynamic_scripts . $static_scripts . $dynamic_scripts;
     }
 
