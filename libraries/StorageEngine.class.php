@@ -110,6 +110,21 @@ class PMA_StorageEngine
             } else {
                 $storage_engines
                     = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
+                if (PMA_MYSQL_INT_VERSION >= 50708) {
+                    $disabled = PMA_Util::cacheGet(
+                        'disabled_storage_engines',
+                        function() {
+                            return $GLOBALS['dbi']->fetchValue(
+                                'SELECT @@disabled_storage_engines'
+                            );
+                        }
+                    );
+                    foreach (explode(",", $disabled) as $engine) {
+                        if (isset($storage_engines[$engine])) {
+                            $storage_engines[$engine]['Support'] = 'DISABLED';
+                        }
+                    }
+                }
             }
         }
 
