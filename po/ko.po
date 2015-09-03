@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
 "PO-Revision-Date: 2015-09-03 09:23+0200\n"
-"Last-Translator: JongDeok <human.zion@gmail.com>\n"
+"Last-Translator: Myung-han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/>\n"
 "Language: ko\n"
@@ -11266,7 +11266,7 @@ msgstr "마스터 리플리케이션"
 
 #: libraries/replication_gui.lib.php:47
 msgid "This server is configured as master in a replication process."
-msgstr "이 서버는 이중화환경을 위한 마스터 서버로 구성되지 않았습니다."
+msgstr "이 서버는 이중화 환경을 위한 마스터 서버로 구성되었습니다."
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
