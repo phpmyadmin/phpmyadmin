@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-07-22 08:21+0200\n"
-"Last-Translator: Koo Youngmin <youngminz.kr@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-4/ko/"
-">\n"
+"PO-Revision-Date: 2015-09-03 09:25+0200\n"
+"Last-Translator: Myung-han Yu <greatymh@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -822,10 +822,8 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"비밀번호 없이 MySQL의 최고 권한을 가지고 있는 root 유저로 로그인했습니다. "
-"MySQL 서버는 외부의 해킹에 대해 취약한 기본 설정으로 돌아가고 있으며, 설정에"
-"서 root 유저의 비밀번호를 설정하는 것으로 이 취약점을 최대한 빨리 고쳐야 합니"
-"다."
+"당신은 'root' 유저에 비밀번호가 없는 상태로 로그인하여 있습니다. 이같은 기본설정상태로 MySQL 서버가 작동한다면 누구나 침입할 "
+"수 있으므로, 'root'유저에 암호를 설정하여 이 보안 취약점을 수정하시기 바랍니다."
 
 #: index.php:464
 msgid ""
@@ -947,22 +945,19 @@ msgid "Delete tracking data for these tables?"
 msgstr "이 테이블들에 대한 추적 데이터를 제거하시겠습니까?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "이 테이블에 대한 추적 데이터를 제거"
+msgstr "이 버전에 대한 추적 데이터를 제거하시겠습니까?"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "이 테이블에 대한 추적 데이터를 제거"
+msgstr "이 버전에 대한 추적 데이터를 제거하시겠습니까?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
-msgstr "이 테이블에 대한 추적 데이터를 제거"
+msgstr "추적 보고서에서 이 항목을 제거하시겠습니까?"
 
 #: js/messages.php:52
 msgid "Deleting tracking data"
@@ -1321,11 +1316,11 @@ msgstr "모니터링 정지"
 
 #: js/messages.php:161 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr "자동 새로 고침 시작"
+msgstr "자동 새로고침 시작"
 
 #: js/messages.php:162
 msgid "Stop auto refresh"
-msgstr "자동 새로 고침 멈춤"
+msgstr "자동 새로고침 중지"
 
 #: js/messages.php:164
 msgid "general_log and slow_query_log are enabled."
@@ -2199,7 +2194,6 @@ msgid "Click to sort results by this column."
 msgstr "이 열의 값에 따라 결과를 정렬하려면 누르세요."
 
 #: js/messages.php:446
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2208,8 +2202,8 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift+Click 으로 ORDER BY 절에 이 컬럼을 추가하거나 내림차순/오름차순 토글"
-"<br />- Control+Click 으로 ORDER BY 절로부터 이 컬럼 제거"
+"Shift+Click 으로 ORDER BY 절에 이 컬럼을 추가하거나 내림차순/오름차순 토글<br />- Ctrl+Click 또는 Alt+"
+"Click (맥: Shift+Option+Click) 으로 ORDER BY 절로부터 이 컬럼 제거"
 
 #: js/messages.php:447
 msgid "Click to mark/unmark."
@@ -2284,7 +2278,7 @@ msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br />(일부 제�
 
 #: js/messages.php:477
 msgid "Go to link:"
-msgstr "링크로 이동합니다:"
+msgstr "다음 링크로 이동:"
 
 #: js/messages.php:478
 msgid "Copy column name."
@@ -2325,16 +2319,14 @@ msgstr "숨겨진 탐색 트리의 항목보기."
 
 #: js/messages.php:493 libraries/config/messages.inc.php:431
 #: libraries/navigation/NavigationTree.class.php:1335
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "매인 패널 사용자화"
+msgstr "매인 패널에 링크"
 
 #: js/messages.php:494 libraries/navigation/NavigationTree.class.php:1338
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "매인 패널 사용자화"
+msgstr "매인 패널에서 링크 해제"
 
 #: js/messages.php:495
 msgid "To filter all databases on server, press Enter after a search term"
@@ -2358,7 +2350,6 @@ msgid "procedures"
 msgstr "프로시저"
 
 #: js/messages.php:500
-#, fuzzy
 #| msgid "event"
 msgid "events"
 msgstr "이벤트"
@@ -4515,11 +4506,10 @@ msgid "Create PHP Code"
 msgstr "PHP 코드 보기"
 
 #: libraries/Util.class.php:1274
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "인덱스 편집"
+msgstr "인라인 편집"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1579
@@ -4712,10 +4702,9 @@ msgid "Length/Values"
 msgstr "길이/값*"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "보기"
+msgstr "속성"
 
 #: libraries/central_columns.lib.php:664
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -4867,10 +4856,9 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "열 목록 표시"
+msgstr "열 표시"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5246,10 +5234,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "MySQL 서버에 로그인할 수 없습니다"
+msgstr "MySQL 서버로의 로그인 제한"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -5402,7 +5389,7 @@ msgstr "DROP 쿼리 확인"
 
 #: libraries/config/messages.inc.php:86
 msgid "Debug SQL"
-msgstr "SQl 디버그"
+msgstr "SQL 디버그"
 
 #: libraries/config/messages.inc.php:88
 msgid "Tab that is displayed when entering a database."
@@ -5836,7 +5823,6 @@ msgid "Page titles"
 msgstr "페이지 제목"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
 #| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
@@ -5845,8 +5831,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"브라우저의 타이틀바 텍스트를 지정합니다. 특수한 값을 얻기 위해 사용가능한 매"
-"직 문자열들에 대한 내용은 [doc@cfg_TitleTable]문서[/doc]를 참조하십시오."
+"브라우저의 타이틀바 텍스트를 지정합니다. 특수한 값을 얻기 위해 사용가능한 매직 문자열들에 대한 내용은 "
+"[doc@faq6-27]문서[/doc]를 참조하십시오."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
@@ -6274,10 +6260,9 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "숨겨진 탐색 트리의 항목보기."
+msgstr "데이터베이스 내비게이션을 트리로 보기"
 
 #: libraries/config/messages.inc.php:430
 msgid "Link with main panel by highlighting the current database or table."
@@ -6324,10 +6309,9 @@ msgid "Target for quick access icon"
 msgstr "빠른 접근 아이콘 대상"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "빠른 접근 아이콘 대상"
+msgstr "두 번째 빠른 접근 아이콘 대상"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
@@ -6345,14 +6329,13 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "데이터베이스 필터 박스에 표시할 최소 데이터베이스 수"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
-msgstr "네비게이션 트리의 그룹 아이템 (아래 정의된 구분자로 구분)."
+msgstr "내비게이션 트리의 그룹 아이템 (위쪽 '데이터베이스와 테이블' 탭에서 정의한 구분자로 구분)."
 
 #: libraries/config/messages.inc.php:460
 msgid "Group items in the tree"
@@ -10585,9 +10568,8 @@ msgid "Master replication"
 msgstr "마스터 리플리케이션"
 
 #: libraries/replication_gui.lib.php:47
-#, fuzzy
 msgid "This server is configured as master in a replication process."
-msgstr "이 서버는 이중화 환경 내의 마스터 서버로 구성되지 않았습니다."
+msgstr "이 서버는 이중화 환경을 위한 마스터 서버로 구성되었습니다."
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
@@ -10598,10 +10580,9 @@ msgid "Add slave replication user"
 msgstr "슬레이브 리플리케이션 사용자 추가"
 
 #: libraries/replication_gui.lib.php:88
-#, fuzzy
 #| msgid "Import monitor configuration"
 msgid "Master configuration"
-msgstr "모니터 설정 가져오기"
+msgstr "마스터 환경 구성"
 
 #: libraries/replication_gui.lib.php:90
 msgid ""
