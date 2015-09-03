@@ -171,6 +171,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                  .show();
                  // needed for the display options slider in the results
                 PMA_init_slider();
+                $('html, body').animate({scrollTop: 0}, 'fast');
             } else {
                 $("#sqlqueryresultsouter").html(data.error);
             }
