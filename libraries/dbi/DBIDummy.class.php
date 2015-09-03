@@ -104,6 +104,12 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
+        'query' => 'SELECT @@disabled_storage_engines',
+        'result' => array(
+            array(''),
+        )
+    ),
+    array(
         'query' => 'SHOW GLOBAL VARIABLES LIKE \'innodb_file_per_table\';',
         'result' => array(
             array('innodb_file_per_table', 'OFF'),
