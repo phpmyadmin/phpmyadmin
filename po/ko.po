@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:58-0400\n"
-"PO-Revision-Date: 2015-07-22 08:21+0200\n"
-"Last-Translator: Koo Youngmin <youngminz.kr@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ko/>\n"
+"PO-Revision-Date: 2015-09-03 09:25+0200\n"
+"Last-Translator: Myung-han Yu <greatymh@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgstr "데이터베이스 %1$s가 생성되었습니다."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "데이터베이스 설명:"
+msgstr "데이터베이스 설명"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -288,7 +288,6 @@ msgstr "데이터"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:378
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "모두 선택"
@@ -641,7 +640,6 @@ msgstr ""
 "는 변경하지 마세요. 추가정보는 %s에서 있습니다."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "일반 설정"
@@ -657,7 +655,6 @@ msgid "Server connection collation"
 msgstr "서버 연결 콜레이션(언어)"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "외관 설정"
@@ -755,10 +752,8 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"비밀번호 없이 MySQL의 최고 권한을 가지고 있는 root 유저로 로그인했습니다. "
-"MySQL 서버는 외부의 해킹에 대해 취약한 기본 설정으로 돌아가고 있으며, 설정에"
-"서 root 유저의 비밀번호를 설정하는 것으로 이 취약점을 최대한 빨리 고쳐야 합니"
-"다."
+"당신은 'root' 유저에 비밀번호가 없는 상태로 로그인하여 있습니다. 이같은 기본설정상태로 MySQL 서버가 작동한다면 누구나 침입할 "
+"수 있으므로, 'root'유저에 암호를 설정하여 이 보안 취약점을 수정하시기 바랍니다."
 
 #: index.php:469
 msgid ""
@@ -880,22 +875,19 @@ msgid "Delete tracking data for these tables?"
 msgstr "이 테이블들에 대한 추적 데이터를 제거하시겠습니까?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "이 테이블에 대한 추적 데이터를 제거"
+msgstr "이 버전에 대한 추적 데이터를 제거하시겠습니까?"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "이 테이블에 대한 추적 데이터를 제거"
+msgstr "이 버전에 대한 추적 데이터를 제거하시겠습니까?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
-msgstr "이 테이블에 대한 추적 데이터를 제거"
+msgstr "추적 보고서에서 이 항목을 제거하시겠습니까?"
 
 #: js/messages.php:54
 msgid "Deleting tracking data"
@@ -939,22 +931,20 @@ msgid "Do you really want to delete this central column?"
 msgstr "정말 이 북마크를 삭제하겠습니까?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "\"%s\" 검색을 삭제하겠습니까?"
+msgstr "선택된 항목들을 정말로 삭제하시겠습니까?"
 
 #: js/messages.php:64
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
-msgstr ""
+msgstr "선택된 파티션을 정말로 제거하시겠습니까? 이는 선택된 파티션과 연관된 데이터들을 함께 삭제할 것입니다!"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "\"%s\" 검색을 삭제하겠습니까?"
+msgstr "선택된 파티션의 내용을 정말로 비우시겠습니까?"
 
 #: js/messages.php:67
 msgid ""
@@ -990,10 +980,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
-msgstr "저장 & 종료"
+msgstr "저장 & 닫기"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:417
 #: libraries/insert_edit.lib.php:1548 prefs_manage.php:361
@@ -1002,7 +991,6 @@ msgid "Reset"
 msgstr "초기화"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "모두 초기화"
@@ -1028,7 +1016,6 @@ msgid "Add index"
 msgstr "인덱스 추가"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "인덱스 수정"
@@ -1079,7 +1066,6 @@ msgstr "SQL 질의:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y값"
@@ -1112,26 +1098,23 @@ msgid "Close"
 msgstr "닫기"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Database %1$s has been created."
 msgid "Template was created."
-msgstr "데이터베이스 %1$s가 생성되었습니다."
+msgstr "템플릿이 생성되었습니다."
 
 #: js/messages.php:130
 msgid "Template was loaded."
 msgstr ""
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "프로파일을 업데이트했습니다."
+msgstr "템플릿이 업데이트 되었습니다."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "행을 삭제 하였습니다."
+msgstr "템플릿이 삭제되었습니다."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:133
@@ -1181,7 +1164,6 @@ msgid "Query cache used"
 msgstr "질의 캐시 사용됨"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "시스템 CPU 사용량"
@@ -1219,25 +1201,21 @@ msgid "Used memory"
 msgstr "사용된 메모리"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "전체 스왑"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "캐시된 스왑"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "사용된 스왑"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "사용가능 스왑"
@@ -1348,11 +1326,11 @@ msgstr "모니터링 정지"
 
 #: js/messages.php:192 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr "자동 새로 고침 시작"
+msgstr "자동 새로고침 시작"
 
 #: js/messages.php:193
 msgid "Stop auto refresh"
-msgstr "자동 새로 고침 멈춤"
+msgstr "자동 새로고침 중지"
 
 #: js/messages.php:195
 msgid "general_log and slow_query_log are enabled."
@@ -1646,7 +1624,6 @@ msgid "No files available on server for import!"
 msgstr "가져오기를 수행하기 위한 파일이 서버에 없습니다!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "질의 분석"
@@ -1699,10 +1676,9 @@ msgid "Cancel"
 msgstr "취소"
 
 #: js/messages.php:296 libraries/Header.class.php:462
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "설정 변경"
+msgstr "페이지 관련 설정"
 
 #: js/messages.php:297 libraries/config/FormDisplay.tpl.php:415
 msgid "Apply"
@@ -1714,28 +1690,24 @@ msgid "Loading…"
 msgstr "불러오는 중…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "요청이 취소되었습니다!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
-msgstr "요청을 처리중입니다"
+msgstr "요청 처리 중"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
-msgstr "요청이 취소되었습니다!"
+msgstr "요청에 실패했습니다!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "요청 처리 중 에러가 발생:"
+msgstr "요청 처리 중 에러 발생"
 
 #: js/messages.php:305
 #, php-format
@@ -1753,16 +1725,14 @@ msgid "No databases selected."
 msgstr "데이터베이스를 선택하지 않았습니다."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "열을 삭제하고 있습니다"
+msgstr "열 삭제 중"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "기본키 추가"
+msgstr "기본키 추가 중"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1779,28 +1749,24 @@ msgid "Click to dismiss this notification"
 msgstr "클릭하면 이 알림을 받지 않습니다"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "데이터베이스 이름을 변경중입니다"
+msgstr "데이터베이스 이름 변경 중"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
-msgstr "데이터베이스를 복사중입니다"
+msgstr "데이터베이스 복사 중"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
-msgstr "언어를 변경하고 있습니다"
+msgstr "문자셋 변경 중"
 
 #: js/messages.php:320 libraries/Util.class.php:3234
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "외래 키(foreign key) 체크 사용 안함"
+msgstr "외래 키(foreign key) 점검 사용"
 
 #: js/messages.php:323
 msgid "Failed to get real row count."
@@ -1926,10 +1892,10 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:354
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "변수"
+msgstr "변수 %d:"
 
 #: js/messages.php:357 libraries/normalization.lib.php:886
 msgid "Pick"
@@ -2176,16 +2142,14 @@ msgid "Geometry"
 msgstr "기하데이터"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "내륜"
+msgstr "내부 원"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "외부 원:"
+msgstr "외부 원"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2237,10 +2201,9 @@ msgstr "페이지 저장"
 
 #: js/messages.php:465 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "페이지 저장"
+msgstr "페이지를 다른 이름으로 저장"
 
 #: js/messages.php:466 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2315,7 +2278,6 @@ msgid "Click to sort results by this column."
 msgstr "이 열의 값에 따라 결과를 정렬하려면 누르세요."
 
 #: js/messages.php:486
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2324,8 +2286,8 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift+Click 으로 ORDER BY 절에 이 컬럼을 추가하거나 내림차순/오름차순 토글"
-"<br />- Control+Click 으로 ORDER BY 절로부터 이 컬럼 제거"
+"Shift+Click 으로 ORDER BY 절에 이 컬럼을 추가하거나 내림차순/오름차순 토글<br />- Ctrl+Click 또는 Alt+"
+"Click (맥: Shift+Option+Click) 으로 ORDER BY 절로부터 이 컬럼 제거"
 
 #: js/messages.php:487
 msgid "Click to mark/unmark."
@@ -2367,10 +2329,9 @@ msgstr ""
 "니다."
 
 #: js/messages.php:496
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "원본 문자열"
+msgstr "원본 길이"
 
 #: js/messages.php:499
 msgid "cancel"
@@ -2406,7 +2367,7 @@ msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br />(일부 제�
 
 #: js/messages.php:518
 msgid "Go to link:"
-msgstr "링크로 이동합니다:"
+msgstr "다음 링크로 이동:"
 
 #: js/messages.php:519
 msgid "Copy column name."
@@ -2430,13 +2391,11 @@ msgid "More"
 msgstr "더보기"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "패널 표시"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "패널 숨기기"
@@ -2447,16 +2406,14 @@ msgstr "숨겨진 탐색 트리의 항목보기."
 
 #: js/messages.php:534 libraries/config/messages.inc.php:478
 #: libraries/navigation/NavigationTree.class.php:1399
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "매인 패널 사용자화"
+msgstr "매인 패널에 링크"
 
 #: js/messages.php:535 libraries/navigation/NavigationTree.class.php:1402
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "매인 패널 사용자화"
+msgstr "매인 패널에서 링크 해제"
 
 #: js/messages.php:536
 msgid "To filter all databases on server, press Enter after a search term"
@@ -2480,7 +2437,6 @@ msgid "procedures"
 msgstr "프로시저"
 
 #: js/messages.php:541
-#, fuzzy
 #| msgid "event"
 msgid "events"
 msgstr "이벤트"
@@ -2517,16 +2473,14 @@ msgid "Create view"
 msgstr "뷰 생성"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "오류보고서 전송"
+msgstr "오류 보고서 전송"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
-msgstr "제출오류 보고서"
+msgstr "오류 보고서 제출"
 
 #: js/messages.php:559
 msgid ""
@@ -2535,13 +2489,11 @@ msgid ""
 msgstr "치명적인 자바스크립트 오류 발생. 오류를 전송할까요?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "보고서 설정 변경"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "보고서 상세 보기"
@@ -2601,16 +2553,14 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:603
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "테이블 설명"
+msgstr "매개변수 보이기"
 
 #: js/messages.php:604
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "검색 결과 숨기기"
+msgstr "매개변수 숨기기"
 
 #: js/messages.php:605 libraries/Console.class.php:321
 msgid "Time taken:"
@@ -2880,102 +2830,87 @@ msgid "This field is required"
 msgstr ""
 
 #: js/messages.php:776
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "텍스트 입력 필드를 사용"
+msgstr "이 필드를 수정하세요"
 
 #: js/messages.php:777
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "올바른 페이지 이름을 입력하세요"
+msgstr "올바른 이메일 주소를 입력하세요"
 
 #: js/messages.php:778
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "올바른  숫자를 입력하세요!"
+msgstr "올바른  URL을 입력하세요"
 
 #: js/messages.php:779
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "올바른 페이지 이름을 입력하세요"
+msgstr "올바른 날짜를 입력하세요"
 
 #: js/messages.php:780
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "올바른 페이지 이름을 입력하세요"
+msgstr "올바른 날짜(ISO 형식)를 입력하세요"
 
 #: js/messages.php:781
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "올바른  숫자를 입력하세요!"
+msgstr "올바른  숫자를 입력하세요"
 
 #: js/messages.php:782
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "올바른  숫자를 입력하세요!"
+msgstr "올바른 신용 카드 번호를 입력하세요"
 
 #: js/messages.php:783
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "올바른 길이를 입력하세요!"
+msgstr "숫자만 입력해 주세요"
 
 #: js/messages.php:784
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "올바른 페이지 이름을 입력하세요"
+msgstr "같은 값을 한번 더 입력하세요"
 
 #: js/messages.php:785
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
 #: js/messages.php:786
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
-msgstr "올바른 페이지 이름을 입력하세요"
+msgstr "최소 {0} 글자 이상 입력해주세요"
 
 #: js/messages.php:787
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
 #: js/messages.php:788
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "올바른 페이지 이름을 입력하세요"
+msgstr "{0} 에서 {1} 사이의 값을 입력하세요"
 
 #: js/messages.php:789
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "올바른 길이를 입력하세요!"
+msgstr "{0}과 같거나 작은 값을 입력하세요"
 
 #: js/messages.php:790
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "올바른 페이지 이름을 입력하세요"
+msgstr "{0}과 같거나 큰 값을 입력하세요"
 
 #: js/messages.php:792
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "올바른 페이지 이름을 입력하세요"
+msgstr "올바른 날짜 또는 시간을 입력하세요"
 
 #: js/messages.php:793
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "올바른  숫자를 입력하세요!"
+msgstr "올바른 HEX값을 입력하세요"
 
 #: js/messages.php:794 libraries/Message.class.php:199
 #: libraries/Util.class.php:657 libraries/core.lib.php:245
@@ -3198,7 +3133,7 @@ msgstr "북마크"
 #: libraries/Console.class.php:248 libraries/Console.class.php:286
 #: libraries/config/messages.inc.php:99
 msgid "Debug SQL"
-msgstr "SQl 디버그"
+msgstr "SQL 디버그"
 
 #: libraries/Console.class.php:257
 msgid "Press Ctrl+Enter to execute query"
@@ -3209,22 +3144,19 @@ msgid "Press Enter to execute query"
 msgstr "Enter를 눌러 쿼리를 실행"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
 msgstr "오름차순"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
 msgstr "내림차순"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Other"
 msgid "Order:"
-msgstr "기타"
+msgstr "순서:"
 
 #: libraries/Console.class.php:289
 #: templates/table/search/replace_preview.phtml:17
@@ -3232,26 +3164,23 @@ msgid "Count"
 msgstr "개수"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "실행간격"
+msgstr "실행 순서"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
 msgstr ""
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Other"
 msgid "Order by:"
-msgstr "기타"
+msgstr "정렬 순서:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "SQL 질의문"
+msgstr "그룹 질의"
 
 #: libraries/Console.class.php:304
 #, fuzzy
@@ -3260,16 +3189,14 @@ msgid "Ungroup queries"
 msgstr "SQL 질의문"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
-msgstr "색깔 보기"
+msgstr "추적 보기"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "패널 숨기기"
+msgstr "추적 숨기기"
 
 #: libraries/Console.class.php:319
 #, fuzzy
@@ -3327,10 +3254,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Console.class.php:389
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "복사한 테이블로 옮겨감"
+msgstr "어두운 테마로 변경"
 
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1478
 #: libraries/DisplayResults.class.php:2268
@@ -3370,10 +3296,9 @@ msgid "Sort:"
 msgstr "정렬:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "정렬:"
+msgstr "정렬 순서:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -3551,10 +3476,9 @@ msgstr "검색할 테이블:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
-msgstr "모두 선택안함"
+msgstr "모두 선택해제"
 
 #: libraries/DbSearch.class.php:455
 msgid "Inside column:"
@@ -3726,7 +3650,6 @@ msgstr "선택한 것을:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "모두 체크"
@@ -3812,10 +3735,9 @@ msgid "Error while moving uploaded file."
 msgstr "업로드된 파일을 이동하는 중에 오류가 발생하였습니다."
 
 #: libraries/File.class.php:497
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "업로드 파일을 읽을 수 없습니다."
+msgstr "업로드한 파일을 읽을 수 없습니다."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -4088,10 +4010,9 @@ msgid "Databases"
 msgstr "데이터베이스"
 
 #: libraries/Menu.class.php:568
-#, fuzzy
 #| msgid "Users"
 msgid "User accounts"
-msgstr "사용자"
+msgstr "사용자 계정"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
 #: libraries/Util.class.php:4281 libraries/server_common.lib.php:36
@@ -4821,17 +4742,15 @@ msgid "Without PHP Code"
 msgstr "PHP 코드 없이 보기"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP 코드 보기"
 
 #: libraries/Util.class.php:1292
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "인덱스 편집"
+msgstr "인라인 편집"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1638
@@ -4953,7 +4872,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "데이터베이스 \"%s\" 에 대한 사용권한 검사."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "사용권한 검사"
@@ -5015,10 +4933,9 @@ msgid "Length/Values"
 msgstr "길이/값*"
 
 #: libraries/central_columns.lib.php:706
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "보기"
+msgstr "속성"
 
 #: libraries/central_columns.lib.php:710
 #: libraries/central_columns.lib.php:1384
@@ -5168,16 +5085,14 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "열 목록 표시"
+msgstr "열 표시"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "%s에 오셨습니다"
+msgstr "환영합니다"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5200,22 +5115,19 @@ msgid "Never send error reports"
 msgstr "오류보고서 보내지 않음"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "기본값으로 초기화"
+msgstr "서버 기본값"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "사용가능"
+msgstr "활성화"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "사용불가"
+msgstr "비활성화"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -5570,10 +5482,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:26
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "MySQL 서버에 로그인할 수 없습니다"
+msgstr "MySQL 서버로의 로그인 제한"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -5663,10 +5574,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "SQL 검사기 활성화"
+msgstr "Linter 활성화"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5766,16 +5676,14 @@ msgid "Default table tab"
 msgstr "기본 테이블 탭"
 
 #: libraries/config/messages.inc.php:110
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "테이블과 열 이름을 백쿼트(`)로 감싸기"
+msgstr "SQL 질의에서의 테이블 및 칼럼 이름 자동완성 사용 여부."
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "테이블과 열 이름을 백쿼트(`)로 감싸기"
+msgstr "테이블명 및 칼럼명 자동완성 사용"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
@@ -5818,10 +5726,10 @@ msgid "Maximum execution time"
 msgstr "최대 실행 시간"
 
 #: libraries/config/messages.inc.php:132 libraries/display_export.lib.php:796
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "%s 구문 추가"
+msgstr "%s 구문 사용"
 
 #: libraries/config/messages.inc.php:134 prefs_manage.php:318
 msgid "Save as file"
@@ -5961,10 +5869,9 @@ msgid "Overwrite existing file(s)"
 msgstr "기존 파일 덮어쓰기"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "테이블 제목(header) 내보내기"
+msgstr "분리된 파일로 내보내기"
 
 #: libraries/config/messages.inc.php:185
 msgid "Remember file name template"
@@ -6003,10 +5910,9 @@ msgid "Export views as tables"
 msgstr "뷰를 테이블로 내보내기"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
+msgstr "phpMyAdmin 설정 공간으로부터 관련 메타데이터 내보내기"
 
 #: libraries/config/messages.inc.php:197 libraries/config/messages.inc.php:198
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:202
@@ -6086,10 +5992,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:243
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "외래 키(foreign key) 확인:"
+msgstr "외래 키(foreign key) 확인"
 
 #: libraries/config/messages.inc.php:244
 msgid "Browse mode"
@@ -6182,16 +6087,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "내비게이션 패널 모양 설정."
 
 #: libraries/config/messages.inc.php:272
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "내비게이션 패널"
+msgstr "내비게이션 트리"
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "네비게이션 패널 사용자화"
+msgstr "내비게이션 트리 사용자화."
 
 #: libraries/config/messages.inc.php:274 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:145
@@ -6227,7 +6130,6 @@ msgid "Page titles"
 msgstr "페이지 제목"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
 #| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
@@ -6236,8 +6138,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"브라우저의 타이틀바 텍스트를 지정합니다. 특수한 값을 얻기 위해 사용가능한 매"
-"직 문자열들에 대한 내용은 [doc@cfg_TitleTable]문서[/doc]를 참조하십시오."
+"브라우저의 타이틀바 텍스트를 지정합니다. 특수한 값을 얻기 위해 사용가능한 매직 문자열들에 대한 내용은 "
+"[doc@faq6-27]문서[/doc]를 참조하십시오."
 
 #: libraries/config/messages.inc.php:292
 msgid "Security"
@@ -6647,7 +6549,6 @@ msgid "Maximum tables"
 msgstr "최대 테이블 수"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)."
@@ -6655,8 +6556,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"스크립트가 사용 가능한 메모리 최댓값. 예: [kbd]32M[/kbd] ([kbd]0[/kbd] 이면 "
-"무제한)."
+"스크립트가 사용 가능한 메모리 최대값. 예: [kbd]32M[/kbd] ([kbd]-1[/kbd] 이면 무제한, [kbd]0[/kbd]은 "
+"변경하지 않음)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -6667,10 +6568,9 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "숨겨진 탐색 트리의 항목보기."
+msgstr "데이터베이스 내비게이션을 트리로 보기"
 
 #: libraries/config/messages.inc.php:476
 msgid "Link with main panel by highlighting the current database or table."
@@ -6717,10 +6617,9 @@ msgid "Target for quick access icon"
 msgstr "빠른 접근 아이콘 대상"
 
 #: libraries/config/messages.inc.php:494
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "빠른 접근 아이콘 대상"
+msgstr "두 번째 빠른 접근 아이콘 대상"
 
 #: libraries/config/messages.inc.php:497
 msgid ""
@@ -6738,14 +6637,13 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "데이터베이스 필터 박스에 표시할 최소 데이터베이스 수"
 
 #: libraries/config/messages.inc.php:505
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
-msgstr "네비게이션 트리의 그룹 아이템 (아래 정의된 구분자로 구분)."
+msgstr "내비게이션 트리의 그룹 아이템 (위쪽 '데이터베이스와 테이블' 탭에서 정의한 구분자로 구분)."
 
 #: libraries/config/messages.inc.php:508
 msgid "Group items in the tree"
@@ -11367,9 +11265,8 @@ msgid "Master replication"
 msgstr "마스터 리플리케이션"
 
 #: libraries/replication_gui.lib.php:47
-#, fuzzy
 msgid "This server is configured as master in a replication process."
-msgstr "이 서버는 이중화 환경 내의 마스터 서버로 구성되지 않았습니다."
+msgstr "이 서버는 이중화 환경을 위한 마스터 서버로 구성되었습니다."
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
@@ -11380,10 +11277,9 @@ msgid "Add slave replication user"
 msgstr "슬레이브 리플리케이션 사용자 추가"
 
 #: libraries/replication_gui.lib.php:88
-#, fuzzy
 #| msgid "Import monitor configuration"
 msgid "Master configuration"
-msgstr "모니터 설정 가져오기"
+msgstr "마스터 환경 구성"
 
 #: libraries/replication_gui.lib.php:90
 msgid ""
