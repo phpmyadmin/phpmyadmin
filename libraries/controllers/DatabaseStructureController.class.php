@@ -161,11 +161,7 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
 
-        if (!PMA_DRIZZLE) {
-            include_once 'libraries/replication.inc.php';
-        } else {
-            $GLOBALS['replication_info']['slave']['status'] = false;
-        }
+        require_once 'libraries/replication.inc.php';
 
         PMA_PageSettings::showGroup('DbStructure');
 

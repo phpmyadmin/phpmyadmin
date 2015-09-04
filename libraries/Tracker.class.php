@@ -263,7 +263,7 @@ class PMA_Tracker
         '" . PMA_Util::sqlAddSlashes($snapshot) . "',
         '" . PMA_Util::sqlAddSlashes($create_sql) . "',
         '" . PMA_Util::sqlAddSlashes("\n") . "',
-        '" . PMA_Util::sqlAddSlashes(self::_transformTrackingSet($tracking_set))
+        '" . PMA_Util::sqlAddSlashes($tracking_set)
         . "' )";
 
         $result = PMA_queryAsControlUser($sql_query);
@@ -359,7 +359,7 @@ class PMA_Tracker
         '" . PMA_Util::sqlAddSlashes('') . "',
         '" . PMA_Util::sqlAddSlashes($create_sql) . "',
         '" . PMA_Util::sqlAddSlashes("\n") . "',
-        '" . PMA_Util::sqlAddSlashes(self::_transformTrackingSet($tracking_set))
+        '" . PMA_Util::sqlAddSlashes($tracking_set)
         . "' )";
 
         $result = PMA_queryAsControlUser($sql_query);
@@ -495,13 +495,8 @@ class PMA_Tracker
         " AND `table_name` = '" . PMA_Util::sqlAddSlashes($tablename) . "' ";
 
         if ($statement != "") {
-            if (PMA_DRIZZLE) {
-                $sql_query .= ' AND tracking & '
-                    . self::_transformTrackingSet($statement) . ' <> 0';
-            } else {
-                $sql_query .= " AND FIND_IN_SET('"
-                    . $statement . "',tracking) > 0" ;
-            }
+            $sql_query .= " AND FIND_IN_SET('"
+                . $statement . "',tracking) > 0" ;
         }
         $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
         return isset($row[0])
@@ -608,7 +603,7 @@ class PMA_Tracker
         }
         $data['ddlog']           = $ddlog;
         $data['dmlog']           = $dmlog;
-        $data['tracking']        = self::_transformTrackingSet($mixed['tracking']);
+        $data['tracking']        = $mixed['tracking'];
         $data['schema_snapshot'] = $mixed['schema_snapshot'];
 
         return $data;
@@ -960,60 +955,6 @@ class PMA_Tracker
                 PMA_queryAsControlUser($sql_query);
             }
         }
-    }
-
-    /**
-     * Transforms tracking set for Drizzle, which has no SET type
-     *
-     * Converts int<>string for Drizzle, does nothing for MySQL
-     *
-     * @param int|string $tracking_set Set to convert
-     *
-     * @return int|string
-     */
-    static private function _transformTrackingSet($tracking_set)
-    {
-        if (!PMA_DRIZZLE) {
-            return $tracking_set;
-        }
-
-        // init conversion array (key 3 doesn't exist in calculated array)
-        if (isset(self::$_tracking_set_flags[3])) {
-            // initialize flags
-            $set = self::$_tracking_set_flags;
-            $array = array();
-            for ($i = 0, $nb = count($set); $i < $nb; $i++) {
-                $flag = 1 << $i;
-                $array[$flag] = $set[$i];
-                $array[$set[$i]] = $flag;
-            }
-            self::$_tracking_set_flags = $array;
-        }
-
-        if (is_numeric($tracking_set)) {
-            // int > string conversion
-            $aflags = array();
-            // count/2 - conversion table has both int > string
-            // and string > int values
-            for ($i = 0, $nb = count(self::$_tracking_set_flags)/2; $i < $nb; $i++) {
-                $flag = 1 << $i;
-                if ($tracking_set & $flag) {
-                    $aflags[] = self::$_tracking_set_flags[$flag];
-                }
-            }
-            $flags = implode(',', $aflags);
-        } else {
-            // string > int conversion
-            $flags = 0;
-            foreach (explode(',', $tracking_set) as $strflag) {
-                if ($strflag == '') {
-                    continue;
-                }
-                $flags |= self::$_tracking_set_flags[$strflag];
-            }
-        }
-
-        return $flags;
     }
 
     /**

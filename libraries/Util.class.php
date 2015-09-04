@@ -4139,10 +4139,6 @@ class PMA_Util
     public static function getServerType()
     {
         $server_type = 'MySQL';
-        if (PMA_DRIZZLE) {
-            $server_type = 'Drizzle';
-            return $server_type;
-        }
 
         if (/*overload*/mb_stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
             $server_type = 'MariaDB';
@@ -4853,7 +4849,7 @@ class PMA_Util
         $tooltip_aliasname = array();
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if (true === $cfg['SkipLockedTables'] && ! PMA_DRIZZLE) {
+        if (true === $cfg['SkipLockedTables']) {
             $db_info_result = $GLOBALS['dbi']->query(
                 'SHOW OPEN TABLES FROM ' . PMA_Util::backquote($db) . ';'
             );
