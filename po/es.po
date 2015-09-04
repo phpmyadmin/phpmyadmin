@@ -1718,8 +1718,8 @@ msgid "Test"
 msgstr "Prueba"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
-msgstr "Formato SQL..."
+msgid "Formatting SQL…"
+msgstr "Formato SQL…"
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
 #: templates/database/designer/aggregate_query_panel.phtml:63

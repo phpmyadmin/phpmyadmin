@@ -1691,8 +1691,8 @@ msgid "Test"
 msgstr "Essaya"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
-msgstr "Formatante SQL..."
+msgid "Formatting SQL…"
+msgstr "Formatante SQL…"
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
 #: templates/database/designer/aggregate_query_panel.phtml:63

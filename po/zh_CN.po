@@ -1663,7 +1663,7 @@ msgid "Test"
 msgstr "检验"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
+msgid "Formatting SQL…"
 msgstr "正在格式化SQL……"
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157

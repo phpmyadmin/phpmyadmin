@@ -1827,7 +1827,7 @@ msgid "Test"
 msgstr "Test"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
+msgid "Formatting SQL…"
 msgstr ""
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157

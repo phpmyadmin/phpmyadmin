@@ -1684,8 +1684,8 @@ msgid "Test"
 msgstr "Testi"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
-msgstr "SQL vormindamine..."
+msgid "Formatting SQL…"
+msgstr "SQL vormindamine…"
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
 #: templates/database/designer/aggregate_query_panel.phtml:63

@@ -1653,8 +1653,8 @@ msgid "Test"
 msgstr "檢驗方式"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
-msgstr "格式化 SQL..."
+msgid "Formatting SQL…"
+msgstr "格式化 SQL…"
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
 #: templates/database/designer/aggregate_query_panel.phtml:63

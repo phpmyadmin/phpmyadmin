@@ -1706,7 +1706,7 @@ msgid "Test"
 msgstr "Teszt"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
+msgid "Formatting SQL…"
 msgstr "SQL formázása…"
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
