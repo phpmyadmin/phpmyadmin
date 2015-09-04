@@ -1,21 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportYaml class
+ * tests for PMA\libraries\plugins\export\ExportYaml class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportYaml.class.php';
+use PMA\libraries\plugins\export\ExportYaml;
+
 require_once 'libraries/export.lib.php';
-
-
-
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'export.php';
+
 /**
- * tests for ExportYaml class
+ * tests for PMA\libraries\plugins\export\ExportYaml class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -52,17 +51,17 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportYaml::setProperties
+     * Test for PMA\libraries\plugins\export\ExportYaml::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportYaml', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportYaml', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportYaml', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportYaml', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -123,7 +122,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportYaml::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportYaml::exportHeader
      *
      * @return void
      */
@@ -142,7 +141,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportYaml::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportYaml::exportFooter
      *
      * @return void
      */
@@ -157,7 +156,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportYaml::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportYaml::exportDBHeader
      *
      * @return void
      */
@@ -169,7 +168,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportYaml::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportYaml::exportDBFooter
      *
      * @return void
      */
@@ -181,7 +180,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportYaml::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportYaml::exportDBCreate
      *
      * @return void
      */
@@ -193,7 +192,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportYaml::exportData
+     * Test for PMA\libraries\plugins\export\ExportYaml::exportData
      *
      * @return void
      */

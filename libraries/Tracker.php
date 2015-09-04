@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries;
 
-use ExportSql;
+use PMA\libraries\plugins\export\ExportSql;
 
 /**
  * This class tracks changes on databases, tables and views.
@@ -187,7 +187,7 @@ class Tracker
 
         // get Export SQL instance
         include_once "libraries/plugin_interface.lib.php";
-        /* @var $export_sql_plugin ExportSql */
+        /* @var $export_sql_plugin \PMA\libraries\plugins\export\ExportSql */
         $export_sql_plugin = PMA_getPlugin(
             "export",
             "sql",

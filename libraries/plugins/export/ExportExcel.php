@@ -6,12 +6,15 @@
  * @package    PhpMyAdmin-Export
  * @subpackage CSV-Excel
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\export;
 
-/* Extend the export CSV class */
-require_once 'libraries/plugins/export/ExportCsv.class.php';
+use BoolPropertyItem;
+use ExportPluginProperties;
+use HiddenPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use SelectPropertyItem;
+use TextPropertyItem;
 
 /**
  * Handles the export for the CSV-Excel format
@@ -71,9 +74,9 @@ class ExportExcel extends ExportCsv
         $leaf->setName('edition');
         $leaf->setValues(
             array(
-                'win' => 'Windows',
+                'win'           => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
-                'mac_excel2008' => 'Excel 2008 / Macintosh'
+                'mac_excel2008' => 'Excel 2008 / Macintosh',
             )
         );
         $leaf->setText(__('Excel edition:'));

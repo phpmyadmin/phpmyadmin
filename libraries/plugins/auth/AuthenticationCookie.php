@@ -6,15 +6,12 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage Cookie
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\auth;
 
 use phpseclib\Crypt;
 use PMA\libraries\Message;
-
-/* Get the authentication interface */
-require_once 'libraries/plugins/AuthenticationPlugin.class.php';
+use PMA\libraries\Response;
+use PMA\libraries\Util;
 
 /**
  * Remember where to redirect the user
@@ -70,7 +67,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         global $conn_error;
 
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
             // redirect_flag redirects to the login page
@@ -173,7 +170,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         <fieldset>
         <legend>';
         echo __('Log in');
-        echo PMA\libraries\Util::showDocu('index');
+        echo Util::showDocu('index');
         echo '</legend>';
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             echo '
@@ -467,11 +464,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
         if ($_SESSION['last_access_time'] < $last_access_time
         ) {
-            PMA\libraries\Util::cacheUnset('is_create_db_priv');
-            PMA\libraries\Util::cacheUnset('is_reload_priv');
-            PMA\libraries\Util::cacheUnset('db_to_create');
-            PMA\libraries\Util::cacheUnset('dbs_where_create_table_allowed');
-            PMA\libraries\Util::cacheUnset('dbs_to_test');
+            Util::cacheUnset('is_create_db_priv');
+            Util::cacheUnset('is_reload_priv');
+            Util::cacheUnset('db_to_create');
+            Util::cacheUnset('dbs_where_create_table_allowed');
+            Util::cacheUnset('dbs_to_test');
             $GLOBALS['no_activity'] = true;
             $this->authFails();
             if (! defined('TESTSUITE')) {
@@ -617,9 +614,10 @@ class AuthenticationCookie extends AuthenticationPlugin
             /**
              * Clear user cache.
              */
-            PMA\libraries\Util::clearUserCache();
+            Util::clearUserCache();
 
-            PMA\libraries\Response::getInstance()->disable();
+            Response::getInstance()
+                ->disable();
 
             PMA_sendHeaderLocation(
                 $redirect_url . PMA_URL_getCommon($url_params, 'text'),

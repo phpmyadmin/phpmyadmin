@@ -1,22 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportCsv class
+ * tests for PMA\libraries\plugins\export\ExportCsv class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportCsv.class.php';
+use PMA\libraries\plugins\export\ExportCsv;
+
 require_once 'libraries/export.lib.php';
-
-
-
-
 require_once 'libraries/config.default.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
 require_once 'export.php';
 /**
- * tests for ExportCsv class
+ * tests for PMA\libraries\plugins\export\ExportCsv class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -47,17 +43,17 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCsv::setProperties
+     * Test for PMA\libraries\plugins\export\ExportCsv::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportCsv', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportCsv', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportCsv', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportCsv', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -247,7 +243,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCsv::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportCsv::exportHeader
      *
      * @return void
      */
@@ -424,7 +420,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCsv::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportCsv::exportFooter
      *
      * @return void
      */
@@ -436,7 +432,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCsv::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportCsv::exportDBHeader
      *
      * @return void
      */
@@ -448,7 +444,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCsv::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportCsv::exportDBFooter
      *
      * @return void
      */
@@ -460,7 +456,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCsv::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportCsv::exportDBCreate
      *
      * @return void
      */
@@ -472,7 +468,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCsv::exportData
+     * Test for PMA\libraries\plugins\export\ExportCsv::exportData
      *
      * @return void
      */

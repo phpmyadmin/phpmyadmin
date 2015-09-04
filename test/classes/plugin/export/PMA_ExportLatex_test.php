@@ -1,23 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportLatex class
+ * tests for PMA\libraries\plugins\export\ExportLatex class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportLatex.class.php';
+use PMA\libraries\plugins\export\ExportLatex;
+
 require_once 'libraries/export.lib.php';
-
-
-
-
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
 /**
- * tests for ExportLatex class
+ * tests for PMA\libraries\plugins\export\ExportLatex class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -61,7 +58,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::setProperties
+     * Test for PMA\libraries\plugins\export\ExportLatex::setProperties
      *
      * @return void
      */
@@ -71,11 +68,11 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['mimework'] = true;
 
-        $method = new ReflectionMethod('ExportLatex', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportLatex', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportLatex', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportLatex', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -472,7 +469,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportHeader
      *
      * @return void
      */
@@ -499,7 +496,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportFooter
      *
      * @return void
      */
@@ -511,7 +508,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBHeader
      *
      * @return void
      */
@@ -529,7 +526,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBFooter
      *
      * @return void
      */
@@ -541,7 +538,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBCreate
      *
      * @return void
      */
@@ -553,7 +550,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportData
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportData
      *
      * @return void
      */
@@ -667,13 +664,13 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportStructure
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportStructure
      *
      * @return void
      */
     public function testExportStructure()
     {
-        // $this->object = $this->getMockBuilder('ExportHtmlword')
+        // $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
         //     ->setMethods(array('formatOneColumnDefinition'))
         //     ->getMock();
 
@@ -1000,7 +997,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::texEscape
+     * Test for PMA\libraries\plugins\export\ExportLatex::texEscape
      *
      * @return void
      */

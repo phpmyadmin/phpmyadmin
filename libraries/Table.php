@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries;
 
-use ExportSql;
+use PMA\libraries\plugins\export\ExportSql;
 use SqlParser\Components\Expression;
 use SqlParser\Components\OptionsArray;
 use SqlParser\Context;
@@ -785,7 +785,7 @@ class Table
             /**
              * Instance used for exporting the current structure of the table.
              *
-             * @var ExportSql
+             * @var \PMA\libraries\plugins\export\ExportSql
              */
             $export_sql_plugin = PMA_getPlugin(
                 "export",

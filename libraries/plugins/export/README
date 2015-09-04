@@ -15,9 +15,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the export interface */
-require_once 'libraries/plugins/ExportPlugin.class.php';
-
 /**
  * Handles the export for the [Name] format
  *

@@ -6,12 +6,10 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage SignOn
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\auth;
 
-/* Get the authentication interface */
-require_once 'libraries/plugins/AuthenticationPlugin.class.php';
+use AuthenticationPlugin;
+use PMA;
 
 /**
  * Handles the SignOn authentication method
@@ -34,8 +32,8 @@ class AuthenticationSignon extends AuthenticationPlugin
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
             PMA_fatalError('You must set SignonURL!');
-        } elseif (! empty($_REQUEST['old_usr'])
-            && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
+        } elseif (!empty($_REQUEST['old_usr'])
+            && !empty($GLOBALS['cfg']['Server']['LogoutURL'])
         ) {
             /* Perform logout to custom URL */
             PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
@@ -43,7 +41,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
 
-        if (! defined('TESTSUITE')) {
+        if (!defined('TESTSUITE')) {
             exit();
         } else {
             return false;
@@ -53,19 +51,19 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Gets advanced authentication settings
      *
-     * @global  string $PHP_AUTH_USER the username if register_globals is on
-     * @global  string $PHP_AUTH_PW   the password if register_globals is on
-     * @global  array                 the array of server variables if
-     *                                register_globals is off
-     * @global  array                 the array of environment variables if
-     *                                register_globals is off
-     * @global  string                the username for the ? server
-     * @global  string                the password for the ? server
-     * @global  string                the username for the WebSite Professional
-     *                                server
-     * @global  string                the password for the WebSite Professional
-     *                                server
-     * @global  string                the username of the user who logs out
+     * @global  string $PHP_AUTH_USER        the username if register_globals is on
+     * @global  string $PHP_AUTH_PW          the password if register_globals is on
+     * @global         array                 the array of server variables if
+     *                                       register_globals is off
+     * @global         array                 the array of environment variables if
+     *                                       register_globals is off
+     * @global         string                the username for the ? server
+     * @global         string                the password for the ? server
+     * @global         string                the username for the WebSite
+     *                 Professional server
+     * @global         string                the password for the WebSite
+     *                 Professional server
+     * @global         string                the username of the user who logs out
      *
      * @return boolean   whether we get authentication settings or not
      */
@@ -104,7 +102,7 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Handle script based auth */
         if (!empty($script_name)) {
-            if (! file_exists($script_name)) {
+            if (!file_exists($script_name)) {
                 PMA_fatalError(
                     __('Can not find signon authentication script:')
                     . ' ' . $script_name
@@ -114,19 +112,18 @@ class AuthenticationSignon extends AuthenticationPlugin
 
             list ($PHP_AUTH_USER, $PHP_AUTH_PW)
                 = get_login_credentials($GLOBALS['cfg']['Server']['user']);
-
         } elseif (isset($_COOKIE[$session_name])) { /* Does session exist? */
             /* End current session */
             $old_session = session_name();
             $old_id = session_id();
-            if (! defined('TESTSUITE')) {
+            if (!defined('TESTSUITE')) {
                 session_write_close();
             }
 
             /* Load single signon session */
             session_name($session_name);
             session_id($_COOKIE[$session_name]);
-            if (! defined('TESTSUITE')) {
+            if (!defined('TESTSUITE')) {
                 session_start();
             }
 
@@ -167,7 +164,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* End single signon session */
-            if (! defined('TESTSUITE')) {
+            if (!defined('TESTSUITE')) {
                 session_write_close();
             }
 
@@ -176,7 +173,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (!empty($old_id)) {
                 session_id($old_id);
             }
-            if (! defined('TESTSUITE')) {
+            if (!defined('TESTSUITE')) {
                 session_start();
             }
 
@@ -206,9 +203,11 @@ class AuthenticationSignon extends AuthenticationPlugin
         // Returns whether we get authentication settings or not
         if (empty($PHP_AUTH_USER)) {
             unset($_SESSION['LAST_SIGNON_URL']);
+
             return false;
         } else {
             $_SESSION['LAST_SIGNON_URL'] = $GLOBALS['cfg']['Server']['SignonURL'];
+
             return true;
         }
     }
@@ -216,11 +215,11 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Set the user and password after last checkings if required
      *
-     * @global  array   $cfg           the valid servers settings
-     * @global  integer                the id of the current server
-     * @global  array                  the current server settings
-     * @global  string  $PHP_AUTH_USER the current username
-     * @global  string  $PHP_AUTH_PW   the current password
+     * @global  array  $cfg                   the valid servers settings
+     * @global         integer                the id of the current server
+     * @global         array                  the current server settings
+     * @global  string $PHP_AUTH_USER         the current username
+     * @global  string $PHP_AUTH_PW           the current password
      *
      * @return boolean   always true
      */
@@ -229,7 +228,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         global $cfg;
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
-        $cfg['Server']['user']     = $PHP_AUTH_USER;
+        $cfg['Server']['user'] = $PHP_AUTH_USER;
         $cfg['Server']['password'] = $PHP_AUTH_PW;
 
         return true;
@@ -248,14 +247,14 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Does session exist? */
         if (isset($_COOKIE[$session_name])) {
             /* End current session */
-            if (! defined('TESTSUITE')) {
+            if (!defined('TESTSUITE')) {
                 session_write_close();
             }
 
             /* Load single signon session */
             session_name($session_name);
             session_id($_COOKIE[$session_name]);
-            if (! defined('TESTSUITE')) {
+            if (!defined('TESTSUITE')) {
                 session_start();
             }
 

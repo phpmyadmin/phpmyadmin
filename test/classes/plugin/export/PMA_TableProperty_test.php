@@ -1,20 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for TableProperty class
+ * tests for PMA\libraries\plugins\export\TableProperty class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/TableProperty.class.php';
-require_once 'libraries/plugins/export/ExportCodegen.class.php';
-
-
+use PMA\libraries\plugins\export\TableProperty;
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 
 /**
- * tests for TableProperty class
+ * tests for PMA\libraries\plugins\export\TableProperty class
  *
  * @package PhpMyAdmin-test
  */
@@ -45,7 +42,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::__construct
+     * Test for PMA\libraries\plugins\export\TableProperty::__construct
      *
      * @return void
     */
@@ -83,7 +80,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::getPureType
+     * Test for PMA\libraries\plugins\export\TableProperty::getPureType
      *
      * @return void
     */
@@ -105,7 +102,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::isNotNull
+     * Test for PMA\libraries\plugins\export\TableProperty::isNotNull
      *
      * @param string $nullable nullable value
      * @param string $expected expected output
@@ -138,7 +135,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::isUnique
+     * Test for PMA\libraries\plugins\export\TableProperty::isUnique
      *
      * @param string $key      key value
      * @param string $expected expected output
@@ -173,7 +170,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::getDotNetPrimitiveType
+     * Test for PMA\libraries\plugins\export\TableProperty::getDotNetPrimitiveType
      *
      * @param string $type     type value
      * @param string $expected expected output
@@ -214,7 +211,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::getDotNetObjectType
+     * Test for PMA\libraries\plugins\export\TableProperty::getDotNetObjectType
      *
      * @param string $type     type value
      * @param string $expected expected output
@@ -255,7 +252,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::getIndexName
+     * Test for PMA\libraries\plugins\export\TableProperty::getIndexName
      *
      * @return void
      */
@@ -278,7 +275,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::isPK
+     * Test for PMA\libraries\plugins\export\TableProperty::isPK
      *
      * @return void
      */
@@ -298,7 +295,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::formatCs
+     * Test for PMA\libraries\plugins\export\TableProperty::formatCs
      *
      * @return void
     */
@@ -313,7 +310,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::formatXml
+     * Test for PMA\libraries\plugins\export\TableProperty::formatXml
      *
      * @return void
     */
@@ -328,7 +325,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for TableProperty::format
+     * Test for PMA\libraries\plugins\export\TableProperty::format
      *
      * @return void
     */

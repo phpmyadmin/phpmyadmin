@@ -1,23 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportHtmlword class
+ * tests for PMA\libraries\plugins\export\ExportHtmlword class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportHtmlword.class.php';
+use PMA\libraries\plugins\export\ExportHtmlword;
 
 require_once 'libraries/export.lib.php';
-
-
-
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
 /**
- * tests for ExportHtmlword class
+ * tests for PMA\libraries\plugins\export\ExportHtmlword class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -57,17 +54,17 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::setProperties
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportHtmlword', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportHtmlword', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportHtmlword', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportHtmlword', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -213,7 +210,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportHeader
      *
      * @return void
      */
@@ -270,7 +267,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportFooter
      *
      * @return void
      */
@@ -289,7 +286,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportDBHeader
      *
      * @return void
      */
@@ -308,7 +305,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportDBFooter
      *
      * @return void
      */
@@ -320,7 +317,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportDBCreate
      *
      * @return void
      */
@@ -332,7 +329,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::exportData
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportData
      *
      * @return void
      */
@@ -402,13 +399,13 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::getTableDefStandIn
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::getTableDefStandIn
      *
      * @return void
      */
     public function testGetTableDefStandIn()
     {
-        $this->object = $this->getMockBuilder('ExportHtmlword')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
 
@@ -458,13 +455,13 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::getTableDef
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::getTableDef
      *
      * @return void
      */
     public function testGetTableDef()
     {
-        $this->object = $this->getMockBuilder('ExportHtmlword')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
 
@@ -739,7 +736,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::getTriggers
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::getTriggers
      *
      * @return void
      */
@@ -765,7 +762,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $method = new ReflectionMethod('ExportHtmlword', 'getTriggers');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportHtmlword', 'getTriggers');
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'database', 'table');
 
@@ -779,7 +776,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::exportStructure
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportStructure
      *
      * @return void
      */
@@ -795,7 +792,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             ->with('db', 'tbl')
             ->will($this->returnValue(1));
 
-        $this->object = $this->getMockBuilder('ExportHtmlword')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
             ->setMethods(array('getTableDef', 'getTriggers', 'getTableDefStandIn'))
             ->getMock();
 
@@ -875,7 +872,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportHtmlword::formatOneColumnDefinition
+     * Test for PMA\libraries\plugins\export\ExportHtmlword::formatOneColumnDefinition
      *
      * @return void
      */
@@ -884,7 +881,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 40;
 
         $method = new ReflectionMethod(
-            'ExportHtmlword', 'formatOneColumnDefinition'
+            'PMA\libraries\plugins\export\ExportHtmlword', 'formatOneColumnDefinition'
         );
         $method->setAccessible(true);
 

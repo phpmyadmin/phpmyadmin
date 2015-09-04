@@ -1,23 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for AuthenticationConfig class
+ * tests for PMA\libraries\plugins\auth\AuthenticationConfig class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/plugins/auth/AuthenticationConfig.class.php';
-
-
-
+use PMA\libraries\plugins\auth\AuthenticationConfig;
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/js_escape.lib.php';
 
-
 /**
- * tests for AuthenticationConfig class
+ * tests for PMA\libraries\plugins\auth\AuthenticationConfig class
  *
  * @package PhpMyAdmin-test
  */
@@ -52,7 +48,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::auth
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::auth
      *
      * @return void
      */
@@ -64,7 +60,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authCheck
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
      *
      * @return void
      */
@@ -76,7 +72,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authSetUser
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authSetUser
      *
      * @return void
      */
@@ -88,7 +84,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authFails
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authFails
      *
      * @return void
      */

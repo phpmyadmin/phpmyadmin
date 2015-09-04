@@ -1,16 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * TableProperty class
+ * PMA\libraries\plugins\export\TableProperty class
  *
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
-use PMA\libraries\PDF;
+namespace PMA\libraries\plugins\export;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+use PMA\libraries\PDF;
+use PMA\libraries\Util;
+use TCPDF_STATIC;
 
 /**
  * Adapted from a LGPL script by Philip Clarke
@@ -41,7 +41,7 @@ class PMA_ExportPdf extends PDF
         }
         $current_page = $this->page;
         if ((($y + $h) > $this->PageBreakTrigger)
-            AND (! $this->InFooter)
+            AND (!$this->InFooter)
             AND ($this->AcceptPageBreak())
         ) {
             if ($addpage) {
@@ -56,7 +56,7 @@ class PMA_ExportPdf extends PDF
                 $this_page_olm = $this->pagedim[$this->page]['olm'];
                 $old_page_olm = $this->pagedim[$oldpage]['olm'];
                 if ($this->rtl) {
-                    if ($this_page_orm!= $old_page_orm) {
+                    if ($this_page_orm != $old_page_orm) {
                         $this->x = $x - ($this_page_orm - $old_page_orm);
                     } else {
                         $this->x = $x;
@@ -69,12 +69,14 @@ class PMA_ExportPdf extends PDF
                     }
                 }
             }
+
             return true;
         }
         if ($current_page != $this->page) {
             // account for columns mode
             return true;
         }
+
         return false;
     }
 
@@ -92,19 +94,19 @@ class PMA_ExportPdf extends PDF
         // FIXME: Better approach might be to try to compact the content
         $this->SetAutoPageBreak(false);
         // Check if header for this page already exists
-        if (! isset($this->headerset[$this->page])) {
+        if (!isset($this->headerset[$this->page])) {
             $fullwidth = 0;
             foreach ($this->tablewidths as $width) {
                 $fullwidth += $width;
             }
             $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 5);
-            $this->cellFontSize = $this->FontSizePt ;
+            $this->cellFontSize = $this->FontSizePt;
             $this->SetFont(
                 PMA_PDF_FONT,
                 '',
                 ($this->titleFontSize
-                ? $this->titleFontSize
-                : $this->FontSizePt)
+                    ? $this->titleFontSize
+                    : $this->FontSizePt)
             );
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
             $this->SetFont(PMA_PDF_FONT, '', $this->cellFontSize);
@@ -115,7 +117,9 @@ class PMA_ExportPdf extends PDF
                 __('Database:') . ' ' . $this->dbAlias . ',  '
                 . __('Table:') . ' ' . $this->tableAlias . ',  '
                 . __('Purpose:') . ' ' . $this->purpose,
-                0, 1, 'L'
+                0,
+                1,
+                'L'
             );
             $l = ($this->lMargin);
             foreach ($this->colTitles as $col => $txt) {
@@ -125,8 +129,8 @@ class PMA_ExportPdf extends PDF
                     $this->FontSizePt,
                     $txt
                 );
-                $l += $this->tablewidths[$col] ;
-                $maxY = ($maxY < $this->getY()) ? $this->getY() : $maxY ;
+                $l += $this->tablewidths[$col];
+                $maxY = ($maxY < $this->getY()) ? $this->getY() : $maxY;
             }
             $this->SetXY($this->lMargin, $this->tMargin);
             $this->setFillColor(200, 200, 200);
@@ -135,7 +139,7 @@ class PMA_ExportPdf extends PDF
                 $this->SetXY($l, $this->tMargin);
                 $this->cell(
                     $this->tablewidths[$col],
-                    $maxY-($this->tMargin),
+                    $maxY - ($this->tMargin),
                     '',
                     1,
                     0,
@@ -189,7 +193,7 @@ class PMA_ExportPdf extends PDF
         while ($data = $GLOBALS['dbi']->fetchRow($this->results)) {
             $this->page = $currpage;
             // write the horizontal borders
-            $this->Line($l, $h, $fullwidth+$l, $h);
+            $this->Line($l, $h, $fullwidth + $l, $h);
             // write the content and remember the height of the highest col
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
@@ -205,7 +209,7 @@ class PMA_ExportPdf extends PDF
                     $l += $this->tablewidths[$col];
                 }
 
-                if (! isset($tmpheight[$row . '-' . $this->page])) {
+                if (!isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
@@ -229,13 +233,13 @@ class PMA_ExportPdf extends PDF
         // draw the borders
         // we start adding a horizontal line on the last page
         $this->page = $maxpage;
-        $this->Line($l, $h, $fullwidth+$l, $h);
+        $this->Line($l, $h, $fullwidth + $l, $h);
         // now we start at the top of the document and walk down
         for ($i = $startpage; $i <= $maxpage; $i++) {
             $this->page = $i;
             $l = $this->lMargin;
             $t = ($i == $startpage) ? $startheight : $this->tMargin;
-            $lh = ($i == $maxpage) ? $h : $this->h-$this->bMargin;
+            $lh = ($i == $maxpage) ? $h : $this->h - $this->bMargin;
             $this->Line($l, $t, $l, $lh);
             foreach ($this->tablewidths as $width) {
                 $l += $width;
@@ -256,7 +260,7 @@ class PMA_ExportPdf extends PDF
     public function setAttributes($attr = array())
     {
         foreach ($attr as $key => $val) {
-            $this->$key = $val ;
+            $this->$key = $val;
         }
     }
 
@@ -286,7 +290,8 @@ class PMA_ExportPdf extends PDF
         $i = 0;
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
         foreach ($triggers as $trigger) {
-            $i++; break;
+            $i++;
+            break;
         }
         if ($i == 0) {
             return; //prevents printing blank trigger list for any table
@@ -347,7 +352,7 @@ class PMA_ExportPdf extends PDF
             $data[] = $trigger['definition'];
             $this->page = $currpage;
             // write the horizontal borders
-            $this->Line($l, $h, $fullwidth+$l, $h);
+            $this->Line($l, $h, $fullwidth + $l, $h);
             // write the content and remember the height of the highest col
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
@@ -363,7 +368,7 @@ class PMA_ExportPdf extends PDF
                     $l += $this->tablewidths[$col];
                 }
 
-                if (! isset($tmpheight[$row . '-' . $this->page])) {
+                if (!isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
@@ -385,13 +390,13 @@ class PMA_ExportPdf extends PDF
         // draw the borders
         // we start adding a horizontal line on the last page
         $this->page = $maxpage;
-        $this->Line($l, $h, $fullwidth+$l, $h);
+        $this->Line($l, $h, $fullwidth + $l, $h);
         // now we start at the top of the document and walk down
         for ($i = $startpage; $i <= $maxpage; $i++) {
             $this->page = $i;
             $l = $this->lMargin;
             $t = ($i == $startpage) ? $startheight : $this->tMargin;
-            $lh = ($i == $maxpage) ? $h : $this->h-$this->bMargin;
+            $lh = ($i == $maxpage) ? $h : $this->h - $this->bMargin;
             $this->Line($l, $t, $l, $lh);
             foreach ($this->tablewidths as $width) {
                 $l += $width;
@@ -405,18 +410,18 @@ class PMA_ExportPdf extends PDF
     /**
      * Print $table's CREATE definition
      *
-     * @param string $db          the database name
-     * @param string $table       the table name
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column
+     * @param string $db              the database name
+     * @param string $table           the table name
+     * @param bool   $do_relation     whether to include relation comments
+     * @param bool   $do_comments     whether to include the pmadb-style column
      *                                comments as comments in the structure;
      *                                this is deprecated but the parameter is
      *                                left here because export.php calls
      *                                PMA_exportStructure() also for other
      *                                export types which use this parameter
-     * @param bool   $do_mime     whether to include mime comments
-     * @param bool   $view        whether we're handling a view
-     * @param array  $aliases     aliases of db/table/columns
+     * @param bool   $do_mime         whether to include mime comments
+     * @param bool   $view            whether we're handling a view
+     * @param array  $aliases         aliases of db/table/columns
      *
      * @return void
      */
@@ -458,7 +463,7 @@ class PMA_ExportPdf extends PDF
             $res_rel = PMA_getForeigners($db, $table);
             $have_rel = !empty($res_rel);
         } else {
-               $have_rel = false;
+            $have_rel = false;
         } // end if
 
         //column count and table heading
@@ -546,14 +551,14 @@ class PMA_ExportPdf extends PDF
         // fun begin
         foreach ($columns as $column) {
             $extracted_columnspec
-                = PMA\libraries\Util::extractColumnSpec($column['Type']);
+                = Util::extractColumnSpec($column['Type']);
 
             $type = $extracted_columnspec['print_type'];
             if (empty($type)) {
                 $type = ' ';
             }
 
-            if (! isset($column['Default'])) {
+            if (!isset($column['Default'])) {
                 if ($column['Null'] != 'NO') {
                     $column['Default'] = 'NULL';
                 }
@@ -569,15 +574,15 @@ class PMA_ExportPdf extends PDF
 
             if ($do_relation && $have_rel) {
                 $data [] = isset($res_rel[$field_name])
-                        ? $res_rel[$field_name]['foreign_table']
-                            . ' (' . $res_rel[$field_name]['foreign_field']
-                            . ')'
-                        : '';
+                    ? $res_rel[$field_name]['foreign_table']
+                    . ' (' . $res_rel[$field_name]['foreign_field']
+                    . ')'
+                    : '';
             }
             if ($do_comments) {
                 $data [] = isset($comments[$field_name])
-                        ? $comments[$field_name]
-                        : '';
+                    ? $comments[$field_name]
+                    : '';
             }
             if ($do_mime) {
                 $data [] = isset($mime_map[$field_name])
@@ -587,7 +592,7 @@ class PMA_ExportPdf extends PDF
 
             $this->page = $currpage;
             // write the horizontal borders
-            $this->Line($l, $h, $fullwidth+$l, $h);
+            $this->Line($l, $h, $fullwidth + $l, $h);
             // write the content and remember the height of the highest col
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
@@ -603,7 +608,7 @@ class PMA_ExportPdf extends PDF
                     $l += $this->tablewidths[$col];
                 }
 
-                if (! isset($tmpheight[$row . '-' . $this->page])) {
+                if (!isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
@@ -622,18 +627,17 @@ class PMA_ExportPdf extends PDF
             $currpage = $maxpage;
             unset($data);
             $row++;
-
         }
         // draw the borders
         // we start adding a horizontal line on the last page
         $this->page = $maxpage;
-        $this->Line($l, $h, $fullwidth+$l, $h);
+        $this->Line($l, $h, $fullwidth + $l, $h);
         // now we start at the top of the document and walk down
         for ($i = $startpage; $i <= $maxpage; $i++) {
             $this->page = $i;
             $l = $this->lMargin;
             $t = ($i == $startpage) ? $startheight : $this->tMargin;
-            $lh = ($i == $maxpage) ? $h : $this->h-$this->bMargin;
+            $lh = ($i == $maxpage) ? $h : $this->h - $this->bMargin;
             $this->Line($l, $t, $l, $lh);
             foreach ($this->tablewidths as $width) {
                 $l += $width;
@@ -664,9 +668,11 @@ class PMA_ExportPdf extends PDF
          * Pass 1 for column widths
          */
         $this->results = $GLOBALS['dbi']->query(
-            $query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            $query,
+            null,
+            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
-        $this->numFields  = $GLOBALS['dbi']->numFields($this->results);
+        $this->numFields = $GLOBALS['dbi']->numFields($this->results);
         $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
 
         // sColWidth = starting col width (an average size width)
@@ -687,7 +693,7 @@ class PMA_ExportPdf extends PDF
             if (!empty($this->aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $this->aliases[$db]['tables'][$table]['columns'][$col_as];
             }
-            $stringWidth = $this->getstringwidth($col_as) + 6 ;
+            $stringWidth = $this->getstringwidth($col_as) + 6;
             // save the real title's width
             $titleWidth[$i] = $stringWidth;
             $totalTitleWidth += $stringWidth;
@@ -695,7 +701,7 @@ class PMA_ExportPdf extends PDF
             // set any column titles less than the start width to
             // the column title width
             if ($stringWidth < $this->sColWidth) {
-                $colFits[$i] = $stringWidth ;
+                $colFits[$i] = $stringWidth;
             }
             $this->colTitles[$i] = $col_as;
             $this->display_column[$i] = true;
@@ -738,11 +744,11 @@ class PMA_ExportPdf extends PDF
         // loop through the data; any column whose contents
         // is greater than the column size is resized
         /**
-          * @todo force here a LIMIT to avoid reading all rows
-          */
+         * @todo force here a LIMIT to avoid reading all rows
+         */
         while ($row = $GLOBALS['dbi']->fetchRow($this->results)) {
             foreach ($colFits as $key => $val) {
-                $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
+                $stringWidth = $this->getstringwidth($row[$key]) + 6;
                 if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
                     // any column whose data's width is bigger than
                     // the start width is now discarded
@@ -754,7 +760,7 @@ class PMA_ExportPdf extends PDF
                     if ($stringWidth > $val
                         && $stringWidth < ($this->sColWidth * 3)
                     ) {
-                        $colFits[$key] = $stringWidth ;
+                        $colFits[$key] = $stringWidth;
                     }
                 }
             }
@@ -776,7 +782,7 @@ class PMA_ExportPdf extends PDF
         }
 
         for ($i = 0; $i < $this->numFields; $i++) {
-            if (! in_array($i, array_keys($colFits))) {
+            if (!in_array($i, array_keys($colFits))) {
                 $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
             }
             if ($this->display_column[$i] == false) {
@@ -791,14 +797,14 @@ class PMA_ExportPdf extends PDF
         // Pass 2
 
         $this->results = $GLOBALS['dbi']->query(
-            $query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            $query,
+            null,
+            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
         $GLOBALS['dbi']->freeResult($this->results);
-
     } // end of mysqlReport function
-
 } // end of PMA_Export_PDF class

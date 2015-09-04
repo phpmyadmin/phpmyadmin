@@ -6,22 +6,24 @@
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\export;
+
+use ExportPlugin;
+use ExportPluginProperties;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA\libraries\plugins\export\PMA_ExportPdf;
+use RadioPropertyItem;
 
 /**
  * Skip the plugin if TCPDF is not available.
  */
-if (! file_exists(TCPDF_INC)) {
+if (!file_exists(TCPDF_INC)) {
     $GLOBALS['skip_import'] = true;
+
     return;
 }
 
-/* Get the export interface */
-require_once 'libraries/plugins/ExportPlugin.class.php';
-/* Get the PMA_ExportPdf class */
-require_once 'libraries/plugins/export/PMA_ExportPdf.class.php';
 require_once 'libraries/transformations.lib.php';
 
 /**
@@ -33,12 +35,11 @@ require_once 'libraries/transformations.lib.php';
 class ExportPdf extends ExportPlugin
 {
     /**
-     * PMA_ExportPdf instance
+     * PMA\libraries\plugins\export\PMA_ExportPdf instance
      *
      * @var PMA_ExportPdf
      */
     private $_pdf;
-
     /**
      * PDF Report Title
      *
@@ -64,7 +65,7 @@ class ExportPdf extends ExportPlugin
      */
     protected function initSpecificVariables()
     {
-        if (! empty($_POST['pdf_report_title'])) {
+        if (!empty($_POST['pdf_report_title'])) {
             $this->_setPdfReportTitle($_POST['pdf_report_title']);
         }
         $this->_setPdf(new PMA_ExportPdf('L', 'pt', 'A3'));
@@ -116,9 +117,9 @@ class ExportPdf extends ExportPlugin
         $leaf->setName("structure_or_data");
         $leaf->setValues(
             array(
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data')
+                'structure'          => __('structure'),
+                'data'               => __('data'),
+                'structure_and_data' => __('structure and data'),
             )
         );
         $dumpWhat->addProperty($leaf);
@@ -158,7 +159,7 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
 
         // instead of $pdf->Output():
-        if (! PMA_exportOutputHandler($pdf->getPDFData())) {
+        if (!PMA_exportOutputHandler($pdf->getPDFData())) {
             return false;
         }
 
@@ -203,6 +204,7 @@ class ExportPdf extends ExportPlugin
     {
         return true;
     }
+
     /**
      * Outputs the content of a table in NHibernate format
      *
@@ -216,16 +218,23 @@ class ExportPdf extends ExportPlugin
      * @return bool Whether it succeeded
      */
     public function exportData(
-        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $sql_query,
+        $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->_getPdf();
         $attr = array(
-            'currentDb' => $db, 'currentTable' => $table,
-            'dbAlias' => $db_alias, 'tableAlias' => $table_alias,
-            'aliases' => $aliases
+            'currentDb'    => $db,
+            'currentTable' => $table,
+            'dbAlias'      => $db_alias,
+            'tableAlias'   => $table_alias,
+            'aliases'      => $aliases,
         );
         $pdf->setAttributes($attr);
         $pdf->purpose = __('Dumping data');
@@ -237,23 +246,23 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs table structure
      *
-     * @param string $db          database name
-     * @param string $table       table name
-     * @param string $crlf        the end of line sequence
-     * @param string $error_url   the url to go back in case of error
-     * @param string $export_mode 'create_table', 'triggers', 'create_view',
+     * @param string $db              database name
+     * @param string $table           table name
+     * @param string $crlf            the end of line sequence
+     * @param string $error_url       the url to go back in case of error
+     * @param string $export_mode     'create_table', 'triggers', 'create_view',
      *                                'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column
+     * @param string $export_type     'server', 'database', 'table'
+     * @param bool   $do_relation     whether to include relation comments
+     * @param bool   $do_comments     whether to include the pmadb-style column
      *                                comments as comments in the structure;
      *                                this is deprecated but the parameter is
      *                                left here because export.php calls
      *                                PMA_exportStructure() also for other
      *                                export types which use this parameter
-     * @param bool   $do_mime     whether to include mime comments
-     * @param bool   $dates       whether to include creation/update/check dates
-     * @param array  $aliases     aliases for db/table/columns
+     * @param bool   $do_mime         whether to include mime comments
+     * @param bool   $dates           whether to include creation/update/check dates
+     * @param array  $aliases         aliases for db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -275,7 +284,7 @@ class ExportPdf extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->_getPdf();
         // getting purpose to show at top
-        switch($export_mode) {
+        switch ($export_mode) {
         case 'create_table':
             $purpose = __('Table structure');
             break;
@@ -290,9 +299,12 @@ class ExportPdf extends ExportPlugin
         } // end switch
 
         $attr = array(
-            'currentDb' => $db, 'currentTable' => $table,
-            'dbAlias' => $db_alias, 'tableAlias' => $table_alias,
-            'aliases' => $aliases, 'purpose' => $purpose
+            'currentDb'    => $db,
+            'currentTable' => $table,
+            'dbAlias'      => $db_alias,
+            'tableAlias'   => $table_alias,
+            'aliases'      => $aliases,
+            'purpose'      => $purpose,
         );
         $pdf->setAttributes($attr);
         /**
@@ -300,10 +312,16 @@ class ExportPdf extends ExportPlugin
          * format, no option is present to take user input.
          */
         $do_comments = true;
-        switch($export_mode) {
+        switch ($export_mode) {
         case 'create_table':
             $pdf->getTableDef(
-                $db, $table, $do_relation, $do_comments, $do_mime, false, $aliases
+                $db,
+                $table,
+                $do_relation,
+                $do_comments,
+                $do_mime,
+                false,
+                $aliases
             );
             break;
         case 'triggers':
@@ -311,7 +329,13 @@ class ExportPdf extends ExportPlugin
             break;
         case 'create_view':
             $pdf->getTableDef(
-                $db, $table, $do_relation, $do_comments, $do_mime, false, $aliases
+                $db,
+                $table,
+                $do_relation,
+                $do_comments,
+                $do_mime,
+                false,
+                $aliases
             );
             break;
         case 'stand_in':
@@ -327,9 +351,8 @@ class ExportPdf extends ExportPlugin
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
-
     /**
-     * Gets the PMA_ExportPdf instance
+     * Gets the PMA\libraries\plugins\export\PMA_ExportPdf instance
      *
      * @return PMA_ExportPdf
      */
@@ -339,7 +362,7 @@ class ExportPdf extends ExportPlugin
     }
 
     /**
-     * Instantiates the PMA_ExportPdf class
+     * Instantiates the PMA\libraries\plugins\export\PMA_ExportPdf class
      *
      * @param PMA_ExportPdf $pdf The instance
      *

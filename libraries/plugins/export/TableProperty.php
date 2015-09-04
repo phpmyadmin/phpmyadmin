@@ -1,17 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the TableProperty class
+ * Holds the PMA\libraries\plugins\export\TableProperty class
  *
  * @package    PhpMyAdmin-Export
  * @subpackage CodeGen
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\export;
 
 /**
- * TableProperty class
+ * PMA\libraries\plugins\export\TableProperty class
  *
  * @package    PhpMyAdmin-Export
  * @subpackage CodeGen

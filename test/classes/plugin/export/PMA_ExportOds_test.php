@@ -1,21 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportOds class
+ * tests for PMA\libraries\plugins\export\ExportOds class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportOds.class.php';
+use PMA\libraries\plugins\export\ExportOds;
 
 require_once 'libraries/export.lib.php';
-
-
-
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
+
 /**
- * tests for ExportOds class
+ * tests for PMA\libraries\plugins\export\ExportOds class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -51,17 +49,17 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::setProperties
+     * Test for PMA\libraries\plugins\export\ExportOds::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportOds', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportOds', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportOds', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportOds', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -170,7 +168,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportOds::exportHeader
      *
      * @return void
      */
@@ -186,7 +184,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportOds::exportFooter
      *
      * @return void
      */
@@ -223,7 +221,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportOds::exportDBHeader
      *
      * @return void
      */
@@ -235,7 +233,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportOds::exportDBFooter
      *
      * @return void
      */
@@ -247,7 +245,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportOds::exportDBCreate
      *
      * @return void
      */
@@ -259,7 +257,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportData
+     * Test for PMA\libraries\plugins\export\ExportOds::exportData
      *
      * @return void
      */
@@ -384,7 +382,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportData
+     * Test for PMA\libraries\plugins\export\ExportOds::exportData
      *
      * @return void
      */

@@ -1,25 +1,28 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions used to build YAML dumps of tables
+ * Set of methods used to build dumps of tables as JSON
  *
  * @package    PhpMyAdmin-Export
- * @subpackage YAML
+ * @subpackage JSON
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\export;
 
-/* Get the export interface */
-require_once 'libraries/plugins/ExportPlugin.class.php';
+use BoolPropertyItem;
+use ExportPlugin;
+use ExportPluginProperties;
+use HiddenPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA;
 
 /**
- * Handles the export for the YAML format
+ * Handles the export for the JSON format
  *
  * @package    PhpMyAdmin-Export
- * @subpackage YAML
+ * @subpackage JSON
  */
-class ExportYaml extends ExportPlugin
+class ExportJson extends ExportPlugin
 {
     /**
      * Constructor
@@ -30,7 +33,7 @@ class ExportYaml extends ExportPlugin
     }
 
     /**
-     * Sets the export YAML properties
+     * Sets the export JSON properties
      *
      * @return void
      */
@@ -41,12 +44,12 @@ class ExportYaml extends ExportPlugin
         include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
         include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
         include_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
-        $exportPluginProperties->setText('YAML');
-        $exportPluginProperties->setExtension('yml');
-        $exportPluginProperties->setMimeType('text/yaml');
-        $exportPluginProperties->setForceFile(true);
+        $exportPluginProperties->setText('JSON');
+        $exportPluginProperties->setExtension('json');
+        $exportPluginProperties->setMimeType('text/plain');
         $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
@@ -62,6 +65,17 @@ class ExportYaml extends ExportPlugin
         $leaf = new HiddenPropertyItem();
         $leaf->setName("structure_or_data");
         $generalOptions->addProperty($leaf);
+
+        // JSON_PRETTY_PRINT is available since 5.4.0
+        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+            $leaf = new BoolPropertyItem();
+            $leaf->setName('pretty_print');
+            $leaf->setText(
+                __('Output pretty-printed JSON (Use human-readable formatting)')
+            );
+            $generalOptions->addProperty($leaf);
+        }
+
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
@@ -78,8 +92,12 @@ class ExportYaml extends ExportPlugin
     public function exportHeader()
     {
         PMA_exportOutputHandler(
-            '%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']
+            '/**' . $GLOBALS['crlf']
+            . ' Export to JSON plugin for PHPMyAdmin' . $GLOBALS['crlf']
+            . ' @version 0.1' . $GLOBALS['crlf']
+            . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
         );
+
         return true;
     }
 
@@ -90,7 +108,6 @@ class ExportYaml extends ExportPlugin
      */
     public function exportFooter()
     {
-        PMA_exportOutputHandler('...' . $GLOBALS['crlf']);
         return true;
     }
 
@@ -104,6 +121,13 @@ class ExportYaml extends ExportPlugin
      */
     public function exportDBHeader($db, $db_alias = '')
     {
+        if (empty($db_alias)) {
+            $db_alias = $db;
+        }
+        PMA_exportOutputHandler(
+            '// Database \'' . $db_alias . '\'' . $GLOBALS['crlf']
+        );
+
         return true;
     }
 
@@ -146,16 +170,24 @@ class ExportYaml extends ExportPlugin
      * @return bool Whether it succeeded
      */
     public function exportData(
-        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $sql_query,
+        $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
-        $result = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
-        );
 
+        $result = $GLOBALS['dbi']->query(
+            $sql_query,
+            null,
+            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+        );
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
+
         $columns = array();
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
@@ -165,48 +197,51 @@ class ExportYaml extends ExportPlugin
             $columns[$i] = stripslashes($col_as);
         }
 
-        $buffer = '';
         $record_cnt = 0;
         while ($record = $GLOBALS['dbi']->fetchRow($result)) {
+
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt == 1) {
-                $buffer = '# ' . $db_alias . '.' . $table_alias . $crlf;
-                $buffer .= '-' . $crlf;
+                $buffer = $crlf . '// ' . $db_alias . '.' . $table_alias
+                    . $crlf . $crlf;
+                $buffer .= '[';
             } else {
-                $buffer = '-' . $crlf;
+                $buffer = ', ';
             }
+
+            if (!PMA_exportOutputHandler($buffer)) {
+                return false;
+            }
+
+            $data = array();
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if (! isset($record[$i])) {
-                    continue;
-                }
-
-                if (is_null($record[$i])) {
-                    $buffer .= '  ' . $columns[$i] . ': null' . $crlf;
-                    continue;
-                }
-
-                if (is_numeric($record[$i])) {
-                    $buffer .= '  ' . $columns[$i] . ': '  . $record[$i] . $crlf;
-                    continue;
-                }
-
-                $record[$i] = str_replace(
-                    array('\\', '"', "\n", "\r"),
-                    array('\\\\', '\"', '\n', '\r'),
-                    $record[$i]
-                );
-                $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . $crlf;
+                $data[$columns[$i]] = $record[$i];
             }
 
-            if (! PMA_exportOutputHandler($buffer)) {
+            if (isset($GLOBALS['json_pretty_print'])
+                && $GLOBALS['json_pretty_print']
+            ) {
+                $encoded = json_encode($data, JSON_PRETTY_PRINT);
+            } else {
+                $encoded = json_encode($data);
+            }
+
+            if (!PMA_exportOutputHandler($encoded)) {
                 return false;
             }
         }
+
+        if ($record_cnt) {
+            if (!PMA_exportOutputHandler(']' . $crlf)) {
+                return false;
+            }
+        }
+
         $GLOBALS['dbi']->freeResult($result);
 
         return true;
-    } // end getTableYAML
+    }
 }

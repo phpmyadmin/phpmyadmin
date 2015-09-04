@@ -6,12 +6,15 @@
  * @package    PhpMyAdmin-Export
  * @subpackage PHP
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
-/* Get the export interface */
-require_once 'libraries/plugins/ExportPlugin.class.php';
+namespace PMA\libraries\plugins\export;
+
+use ExportPlugin;
+use ExportPluginProperties;
+use HiddenPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA;
 
 /**
  * Handles the export for the PHP Array class
@@ -83,6 +86,7 @@ class ExportPhparray extends ExportPlugin
             . ' * @version 0.2b' . $GLOBALS['crlf']
             . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
         );
+
         return true;
     }
 
@@ -114,6 +118,7 @@ class ExportPhparray extends ExportPlugin
             . '// Database ' . PMA\libraries\Util::backquote($db_alias)
             . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']
         );
+
         return true;
     }
 
@@ -156,14 +161,21 @@ class ExportPhparray extends ExportPlugin
      * @return bool Whether it succeeded
      */
     public function exportData(
-        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $sql_query,
+        $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         $result = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            $sql_query,
+            null,
+            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
@@ -178,14 +190,17 @@ class ExportPhparray extends ExportPlugin
 
         // fix variable names (based on
         // http://www.php.net/manual/language.variables.basics.php)
-        if (! preg_match(
+        if (!preg_match(
             '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
             $table_alias
-        )) {
+        )
+        ) {
             // fix invalid characters in variable names by replacing them with
             // underscores
             $tablefixed = preg_replace(
-                '/[^a-zA-Z0-9_\x7f-\xff]/', '_', $table_alias
+                '/[^a-zA-Z0-9_\x7f-\xff]/',
+                '_',
+                $table_alias
             );
 
             // variable name must not start with a number or dash...
@@ -223,11 +238,12 @@ class ExportPhparray extends ExportPlugin
         }
 
         $buffer .= $crlf . ');' . $crlf;
-        if (! PMA_exportOutputHandler($buffer)) {
+        if (!PMA_exportOutputHandler($buffer)) {
             return false;
         }
 
         $GLOBALS['dbi']->freeResult($result);
+
         return true;
     }
 }

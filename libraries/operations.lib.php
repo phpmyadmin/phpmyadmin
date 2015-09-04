@@ -9,6 +9,7 @@
 
 use PMA\libraries\Message;
 use PMA\libraries\Partition;
+use PMA\libraries\plugins\export\ExportSql;
 use PMA\libraries\Response;
 use PMA\libraries\StorageEngine;
 use PMA\libraries\Table;

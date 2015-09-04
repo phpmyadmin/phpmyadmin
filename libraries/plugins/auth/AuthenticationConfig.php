@@ -6,12 +6,10 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage Config
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\auth;
 
-/* Get the authentication interface */
-require_once 'libraries/plugins/AuthenticationPlugin.class.php';
+use AuthenticationPlugin;
+use PMA;
 
 /**
  * Handles the config authentication method
@@ -38,6 +36,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 exit;
             }
         }
+
         return true;
     }
 
@@ -51,6 +50,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
             return false;
         }
+
         return true;
     }
 
@@ -64,7 +64,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         // try to workaround PHP 5 session garbage collection which
         // looks at the session file's last modified time
         if (isset($_REQUEST['access_time'])) {
-            $_SESSION['last_access_time'] = time()- $_REQUEST['access_time'];
+            $_SESSION['last_access_time'] = time() - $_REQUEST['access_time'];
         } else {
             $_SESSION['last_access_time'] = time();
         }
@@ -91,13 +91,14 @@ class AuthenticationConfig extends AuthenticationPlugin
     public function authFails()
     {
         $conn_error = $GLOBALS['dbi']->getError();
-        if (! $conn_error) {
+        if (!$conn_error) {
             $conn_error = __('Cannot connect: invalid settings.');
         }
 
         /* HTML header */
         $response = PMA\libraries\Response::getInstance();
-        $response->getFooter()->setMinimal();
+        $response->getFooter()
+            ->setMinimal();
         $header = $response->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));
@@ -120,15 +121,15 @@ class AuthenticationConfig extends AuthenticationPlugin
             // Check whether user has configured something
             if ($GLOBALS['PMA_Config']->source_mtime == 0) {
                 echo '<p>' . sprintf(
-                    __(
-                        'You probably did not create a configuration file.'
-                        . ' You might want to use the %1$ssetup script%2$s to'
-                        . ' create one.'
-                    ),
-                    '<a href="setup/">',
-                    '</a>'
-                ) . '</p>' . "\n";
-            } elseif (! isset($GLOBALS['errno'])
+                        __(
+                            'You probably did not create a configuration file.'
+                            . ' You might want to use the %1$ssetup script%2$s to'
+                            . ' create one.'
+                        ),
+                        '<a href="setup/">',
+                        '</a>'
+                    ) . '</p>' . "\n";
+            } elseif (!isset($GLOBALS['errno'])
                 || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002)
                 && $GLOBALS['errno'] != 2003
             ) {
@@ -146,11 +147,16 @@ class AuthenticationConfig extends AuthenticationPlugin
                         . ' host, username and password in your configuration and'
                         . ' make sure that they correspond to the information given'
                         . ' by the administrator of the MySQL server.'
-                    ), E_USER_WARNING
+                    ),
+                    E_USER_WARNING
                 );
             }
             echo PMA\libraries\Util::mysqlDie(
-                $conn_error, '', true, '', false
+                $conn_error,
+                '',
+                true,
+                '',
+                false
             );
         }
         $GLOBALS['error_handler']->dispUserErrors();
@@ -160,7 +166,8 @@ class AuthenticationConfig extends AuthenticationPlugin
             <td>' . "\n";
         echo '<a href="'
             . PMA\libraries\Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+                $GLOBALS['cfg']['DefaultTabServer'],
+                'server'
             )
             . PMA_URL_getCommon(array()) . '" class="button disableAjax">'
             . __('Retry to connect')
@@ -180,6 +187,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         if (!defined('TESTSUITE')) {
             exit;
         }
+
         return true;
     }
 }

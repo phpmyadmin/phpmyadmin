@@ -1,21 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportPhparray class
+ * tests for PMA\libraries\plugins\export\ExportPhparray class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportPhparray.class.php';
+use PMA\libraries\plugins\export\ExportPhparray;
 
 require_once 'libraries/export.lib.php';
-
-
-
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
+
 /**
- * tests for ExportPhparray class
+ * tests for PMA\libraries\plugins\export\ExportPhparray class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -51,17 +49,17 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportPhparray::setProperties
+     * Test for PMA\libraries\plugins\export\ExportPhparray::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportPhparray', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportPhparray', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportPhparray', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportPhparray', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -126,7 +124,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportPhparray::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportPhparray::exportHeader
      *
      * @return void
      */
@@ -147,7 +145,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportPhparray::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportPhparray::exportFooter
      *
      * @return void
      */
@@ -159,7 +157,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportPhparray::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportPhparray::exportDBHeader
      *
      * @return void
      */
@@ -180,7 +178,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportPhparray::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportPhparray::exportDBFooter
      *
      * @return void
      */
@@ -192,7 +190,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportPhparray::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportPhparray::exportDBCreate
      *
      * @return void
      */
@@ -204,7 +202,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportPhparray::exportData
+     * Test for PMA\libraries\plugins\export\ExportPhparray::exportData
      *
      * @return void
      */

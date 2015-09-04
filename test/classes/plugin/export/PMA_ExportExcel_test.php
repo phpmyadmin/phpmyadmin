@@ -1,20 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportExcel class
+ * tests for PMA\libraries\plugins\export\ExportExcel class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportExcel.class.php';
+use PMA\libraries\plugins\export\ExportExcel;
+
 require_once 'libraries/export.lib.php';
-
-
-
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
 /**
- * tests for ExportExcel class
+ * tests for PMA\libraries\plugins\export\ExportExcel class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -45,17 +43,17 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportExcel::setProperties
+     * Test for PMA\libraries\plugins\export\ExportExcel::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportExcel', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportExcel', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportExcel', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportExcel', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 

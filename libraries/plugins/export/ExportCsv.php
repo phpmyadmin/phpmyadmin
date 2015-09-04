@@ -6,12 +6,17 @@
  * @package    PhpMyAdmin-Export
  * @subpackage CSV
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
-/* Get the export interface */
-require_once 'libraries/plugins/ExportPlugin.class.php';
+namespace PMA\libraries\plugins\export;
+
+use BoolPropertyItem;
+use ExportPlugin;
+use ExportPluginProperties;
+use HiddenPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA;
+use TextPropertyItem;
 
 /**
  * Handles the export for the CSV format
@@ -113,7 +118,7 @@ class ExportCsv extends ExportPlugin
         // Here we just prepare some values for export
         if ($what == 'excel') {
             $csv_terminated = "\015\012";
-            switch($GLOBALS['excel_edition']) {
+            switch ($GLOBALS['excel_edition']) {
             case 'win':
                 // as tested on Windows with Excel 2002 and Excel 2007
                 $csv_separator = ';';
@@ -126,13 +131,14 @@ class ExportCsv extends ExportPlugin
                 break;
             }
             $csv_enclosed = '"';
-            $csv_escaped  = '"';
+            $csv_escaped = '"';
             if (isset($GLOBALS['excel_columns'])) {
                 $GLOBALS['csv_columns'] = 'yes';
             }
         } else {
             if (empty($csv_terminated)
-                || /*overload*/mb_strtolower($csv_terminated) == 'auto'
+                || /*overload*/
+                mb_strtolower($csv_terminated) == 'auto'
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
@@ -208,7 +214,12 @@ class ExportCsv extends ExportPlugin
      * @return bool Whether it succeeded
      */
     public function exportData(
-        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $sql_query,
+        $aliases = array()
     ) {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
 
@@ -218,7 +229,9 @@ class ExportCsv extends ExportPlugin
 
         // Gets the data from the database
         $result = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            $sql_query,
+            null,
+            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
@@ -240,14 +253,15 @@ class ExportCsv extends ExportPlugin
                             $csv_escaped . $csv_enclosed,
                             $col_as
                         )
-                        .  $csv_enclosed;
+                        . $csv_enclosed;
                 }
                 $schema_insert .= $csv_separator;
             } // end for
             $schema_insert = trim(
-                /*overload*/mb_substr($schema_insert, 0, -1)
+            /*overload*/
+                mb_substr($schema_insert, 0, -1)
             );
-            if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
+            if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end if
@@ -256,7 +270,7 @@ class ExportCsv extends ExportPlugin
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (! isset($row[$j]) || is_null($row[$j])) {
+                if (!isset($row[$j]) || is_null($row[$j])) {
                     $schema_insert .= $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     // always enclose fields
@@ -296,23 +310,23 @@ class ExportCsv extends ExportPlugin
                         } else {
                             // avoid a problem when escape string equals enclose
                             $schema_insert .= $csv_enclosed
-                            . str_replace(
-                                $csv_enclosed,
-                                $csv_escaped . $csv_enclosed,
-                                $row[$j]
-                            )
-                            . $csv_enclosed;
+                                . str_replace(
+                                    $csv_enclosed,
+                                    $csv_escaped . $csv_enclosed,
+                                    $row[$j]
+                                )
+                                . $csv_enclosed;
                         }
                     }
                 } else {
                     $schema_insert .= '';
                 }
-                if ($j < $fields_cnt-1) {
+                if ($j < $fields_cnt - 1) {
                     $schema_insert .= $csv_separator;
                 }
             } // end for
 
-            if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
+            if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end while
