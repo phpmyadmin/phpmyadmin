@@ -5,20 +5,17 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+namespace PMA\libraries\navigation\nodes;
+
+use PMA;
 use PMA\libraries\navigation\NodeFactory;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once 'libraries/navigation/nodes/Node_DatabaseChild_Container.class.php';
 
 /**
  * Represents a container for events nodes in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Event_Container extends Node_DatabaseChild_Container
+class NodeEventContainer extends NodeDatabaseChildContainer
 {
     /**
      * Initialises the class
@@ -26,27 +23,28 @@ class Node_Event_Container extends Node_DatabaseChild_Container
     public function __construct()
     {
         parent::__construct(__('Events'), Node::CONTAINER);
-        $this->icon  = PMA\libraries\Util::getImage('b_events.png', '');
+        $this->icon = PMA\libraries\Util::getImage('b_events.png', '');
         $this->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->real_name = 'events';
 
-        $new        = NodeFactory::getInstance(
-            'Node', _pgettext('Create new event', 'New')
+        $new = NodeFactory::getInstance(
+            'PMA\libraries\navigation\nodes\Node',
+            _pgettext('Create new event', 'New')
         );
         $new->isNew = true;
-        $new->icon  = PMA\libraries\Util::getImage('b_event_add.png', '');
+        $new->icon = PMA\libraries\Util::getImage('b_event_add.png', '');
         $new->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
-                    . '&add_item=1',
+                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
+                . '&add_item=1',
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
-                    . '&add_item=1',
+                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
+                . '&add_item=1',
         );
         $new->classes = 'new_event italics';
         $this->addChild($new);

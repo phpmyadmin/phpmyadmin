@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\navigation\nodes;
+
+use PMA;
 
 /**
  * Represents a node that is a child of a database node
@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Navigation
  */
-abstract class Node_DatabaseChild extends Node
+abstract class NodeDatabaseChild extends Node
 {
     /**
      * Returns the type of the item represented by the node.
@@ -35,9 +35,9 @@ abstract class Node_DatabaseChild extends Node
         $ret = '';
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['navwork']) {
-            $db   = $this->realParent()->real_name;
+            $db = $this->realParent()->real_name;
             $item = $this->real_name;
-            $ret  = '<span class="navItemControls">'
+            $ret = '<span class="navItemControls">'
                 . '<a href="navigation.php'
                 . PMA_URL_getCommon()
                 . '&hideNavItem=true'
@@ -48,6 +48,7 @@ abstract class Node_DatabaseChild extends Node
                 . PMA\libraries\Util::getImage('lightbulb_off.png', __('Hide'))
                 . '</a></span>';
         }
+
         return $ret;
     }
 }

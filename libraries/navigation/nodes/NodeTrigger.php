@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\navigation\nodes;
+
+use PMA;
 
 /**
  * Represents a trigger node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Trigger extends Node
+class NodeTrigger extends Node
 {
     /**
      * Initialises the class
@@ -27,14 +27,14 @@ class Node_Trigger extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA\libraries\Util::getImage('b_triggers.png');
+        $this->icon = PMA\libraries\Util::getImage('b_triggers.png');
         $this->links = array(
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%3$s&amp;item_name=%1$s&amp;edit_item=1'
-                    . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%3$s&amp;item_name=%1$s&amp;edit_item=1'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_triggers.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%3$s&amp;item_name=%1$s&amp;export_item=1'
-                    . '&amp;token=' . $_SESSION[' PMA_token ']
+                . '&amp;db=%3$s&amp;item_name=%1$s&amp;export_item=1'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->classes = 'trigger';
     }

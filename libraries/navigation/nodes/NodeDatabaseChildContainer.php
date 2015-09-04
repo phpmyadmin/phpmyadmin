@@ -5,18 +5,14 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once 'libraries/navigation/nodes/Node_DatabaseChild.class.php';
+namespace PMA\libraries\navigation\nodes;
 
 /**
  * Represents container node that carries children of a database
  *
  * @package PhpMyAdmin-Navigation
  */
-abstract class Node_DatabaseChild_Container extends Node_DatabaseChild
+abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
 {
     /**
      * Initialises the class by setting the common variables
@@ -30,7 +26,7 @@ abstract class Node_DatabaseChild_Container extends Node_DatabaseChild
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->separator = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
             $this->separator_depth = (int)(
-                $GLOBALS['cfg']['NavigationTreeTableLevel']
+            $GLOBALS['cfg']['NavigationTreeTableLevel']
             );
         }
     }

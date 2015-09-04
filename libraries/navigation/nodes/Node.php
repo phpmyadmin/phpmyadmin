@@ -5,7 +5,11 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\navigation\nodes;
+
+use PMA\libraries\Util;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -20,97 +24,80 @@ class Node
      * @var int Defines a possible node type
      */
     const CONTAINER = 0;
-
     /**
      * @var int Defines a possible node type
      */
     const OBJECT = 1;
-
     /**
      * @var string A non-unique identifier for the node
      *             This may be trimmed when grouping nodes
      */
     public $name = "";
-
     /**
      * @var string A non-unique identifier for the node
      *             This will never change after being assigned
      */
     public $real_name = "";
-
     /**
      * @var int May be one of CONTAINER or OBJECT
      */
     public $type = Node::OBJECT;
-
     /**
      * @var bool Whether this object has been created while grouping nodes
      *           Only relevant if the node is of type CONTAINER
      */
     public $is_group;
-
     /**
      * @var bool Whether to add a "display: none;" CSS
      *           rule to the node when rendering it
      */
     public $visible = false;
-
     /**
      * @var Node A reference to the parent object of
      *           this node, NULL for the root node.
      */
     public $parent;
-
     /**
      * @var Node[] An array of Node objects that are
      *             direct children of this node
      */
     public $children = array();
-
     /**
      * @var Mixed A string used to group nodes, or an array of strings
      *            Only relevant if the node is of type CONTAINER
      */
     public $separator = '';
-
     /**
      * @var int How many time to recursively apply the grouping function
      *          Only relevant if the node is of type CONTAINER
      */
     public $separator_depth = 1;
-
     /**
      * @var string An IMG tag, used when rendering the node
      */
     public $icon;
-
     /**
      * @var Array An array of A tags, used when rendering the node
      *            The indexes in the array may be 'icon' and 'text'
      */
     public $links;
-
     /**
      * @var string HTML title
      */
     public $title;
-
     /**
      * @var string Extra CSS classes for the node
      */
     public $classes = '';
-
     /**
      * @var bool Whether this node is a link for creating new objects
      */
     public $isNew = false;
-
     /**
      * @var int The position for the pagination of
      *          the branch at the second level of the tree
      */
     public $pos2 = 0;
-
     /**
      * @var int The position for the pagination of
      *          the branch at the third level of the tree
@@ -127,8 +114,8 @@ class Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
-        if (! empty($name)) {
-            $this->name      = $name;
+        if (!empty($name)) {
+            $this->name = $name;
             $this->real_name = $name;
         }
         if ($type === Node::CONTAINER) {
@@ -147,7 +134,7 @@ class Node
     public function addChild($child)
     {
         $this->children[] = $child;
-        $child->parent    = $this;
+        $child->parent = $this;
     }
 
     /**
@@ -175,6 +162,7 @@ class Node
                 }
             }
         }
+
         return false;
     }
 
@@ -222,6 +210,7 @@ class Node
             }
             $parent = $parent->parent;
         }
+
         return $parents;
     }
 
@@ -265,6 +254,7 @@ class Node
                 }
             }
         }
+
         return $retval;
     }
 
@@ -281,9 +271,10 @@ class Node
     public function hasSiblings()
     {
         $retval = false;
-        $paths  = $this->getPaths();
+        $paths = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
             $retval = true;
+
             return $retval;
         }
 
@@ -295,6 +286,7 @@ class Node
                 break;
             }
         }
+
         return $retval;
     }
 
@@ -313,6 +305,7 @@ class Node
                 $retval += $child->numChildren();
             }
         }
+
         return $retval;
     }
 
@@ -324,35 +317,35 @@ class Node
      */
     public function getPaths()
     {
-        $aPath       = array();
+        $aPath = array();
         $aPath_clean = array();
         foreach ($this->parents(true, true, false) as $parent) {
-            $aPath[]       = base64_encode($parent->real_name);
+            $aPath[] = base64_encode($parent->real_name);
             $aPath_clean[] = $parent->real_name;
         }
-        $aPath       = implode('.', array_reverse($aPath));
+        $aPath = implode('.', array_reverse($aPath));
         $aPath_clean = array_reverse($aPath_clean);
 
-        $vPath       = array();
+        $vPath = array();
         $vPath_clean = array();
         foreach ($this->parents(true, true, true) as $parent) {
-            $vPath[]       = base64_encode($parent->name);
+            $vPath[] = base64_encode($parent->name);
             $vPath_clean[] = $parent->name;
         }
-        $vPath       = implode('.', array_reverse($vPath));
+        $vPath = implode('.', array_reverse($vPath));
         $vPath_clean = array_reverse($vPath_clean);
 
         return array(
-            'aPath' => $aPath,
+            'aPath'       => $aPath,
             'aPath_clean' => $aPath_clean,
-            'vPath' => $vPath,
-            'vPath_clean' => $vPath_clean
+            'vPath'       => $vPath,
+            'vPath_clean' => $vPath_clean,
         );
     }
 
     /**
      * Returns the names of children of type $type present inside this container
-     * This method is overridden by the Node_Database and Node_Table classes
+     * This method is overridden by the PMA\libraries\navigation\nodes\NodeDatabase and PMA\libraries\navigation\nodes\NodeTable classes
      *
      * @param string $type         The type of item we are looking for
      *                             ('tables', 'views', etc)
@@ -368,14 +361,15 @@ class Node
             || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-                && ! $GLOBALS['cfg']['Server']['DisableIS']
+                && !$GLOBALS['cfg']['Server']['DisableIS']
             ) {
-                $query  = "SELECT `SCHEMA_NAME` ";
+                $query = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
                 $query .= "ORDER BY `SCHEMA_NAME` ";
                 $query .= "LIMIT $pos, $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
+
                 return $retval;
             }
 
@@ -430,14 +424,15 @@ class Node
                 }
             }
             sort($retval);
+
             return $retval;
         }
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
         if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-            && ! $GLOBALS['cfg']['Server']['DisableIS']
+            && !$GLOBALS['cfg']['Server']['DisableIS']
         ) {
-            $query  = "SELECT `SCHEMA_NAME` ";
+            $query = "SELECT `SCHEMA_NAME` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
             $query .= "(";
             $query .= "SELECT DB_first_level ";
@@ -457,6 +452,7 @@ class Node
             $query .= "'$dbSeparator')) ";
             $query .= "ORDER BY SCHEMA_NAME ASC";
             $retval = $GLOBALS['dbi']->fetchResult($query);
+
             return $retval;
         }
 
@@ -487,11 +483,13 @@ class Node
             $subClauses = array();
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
-                    . PMA\libraries\Util::sqlAddSlashes($prefix) . $dbSeparator . "', "
+                    . Util::sqlAddSlashes($prefix) . $dbSeparator
+                    . "', "
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }
             $query .= implode("OR", $subClauses) . ")";
             $retval = $GLOBALS['dbi']->fetchResult($query);
+
             return $retval;
         }
 
@@ -538,9 +536,9 @@ class Node
 
                 foreach ($prefixes as $prefix) {
                     $starts_with = strpos(
-                        $arr[0] . $dbSeparator,
-                        $prefix . $dbSeparator
-                    ) === 0;
+                            $arr[0] . $dbSeparator,
+                            $prefix . $dbSeparator
+                        ) === 0;
                     if ($starts_with) {
                         $retval[] = $arr[0];
                         break;
@@ -555,7 +553,7 @@ class Node
 
     /**
      * Returns the number of children of type $type present inside this container
-     * This method is overridden by the Node_Database and Node_Table classes
+     * This method is overridden by the PMA\libraries\navigation\nodes\NodeDatabase and PMA\libraries\navigation\nodes\NodeTable classes
      *
      * @param string $type         The type of item we are looking for
      *                             ('tables', 'views', etc)
@@ -569,12 +567,13 @@ class Node
             || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-                && ! $GLOBALS['cfg']['Server']['DisableIS']
+                && !$GLOBALS['cfg']['Server']['DisableIS']
             ) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
                 $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+
                 return $retval;
             }
 
@@ -584,6 +583,7 @@ class Node
                 $retval = $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
                 );
+
                 return $retval;
             }
 
@@ -594,11 +594,12 @@ class Node
                     $GLOBALS['dbi']->tryQuery($query)
                 );
             }
+
             return $retval;
         }
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (!$GLOBALS['cfg']['Server']['DisableIS']) {
             $query = "SELECT COUNT(*) ";
             $query .= "FROM ( ";
             $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
@@ -608,6 +609,7 @@ class Node
             $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= ") t ";
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+
             return $retval;
         }
 
@@ -632,6 +634,7 @@ class Node
                 }
             }
             $retval = count($prefixMap);
+
             return $retval;
         }
 
@@ -662,11 +665,12 @@ class Node
      */
     private function _isHideDb($db)
     {
-        if (! empty($GLOBALS['cfg']['Server']['hide_db'])
+        if (!empty($GLOBALS['cfg']['Server']['hide_db'])
             && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)
         ) {
             return true;
         }
+
         return false;
     }
 
@@ -682,16 +686,17 @@ class Node
      */
     private function _getDatabasesToSearch($searchClause)
     {
-        if (! empty($searchClause)) {
+        if (!empty($searchClause)) {
             $databases = array(
-                "%" . PMA\libraries\Util::sqlAddSlashes($searchClause, true) . "%"
+                "%" . Util::sqlAddSlashes($searchClause, true) . "%",
             );
-        } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
+        } elseif (!empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
-        } elseif (! empty($GLOBALS['dbs_to_test'])) {
+        } elseif (!empty($GLOBALS['dbs_to_test'])) {
             $databases = $GLOBALS['dbs_to_test'];
         }
         sort($databases);
+
         return $databases;
     }
 
@@ -707,33 +712,37 @@ class Node
     private function _getWhereClause($columnName, $searchClause = '')
     {
         $whereClause = "WHERE TRUE ";
-        if (! empty($searchClause)) {
-            $whereClause .= "AND " . PMA\libraries\Util::backquote($columnName) . " LIKE '%";
-            $whereClause .= PMA\libraries\Util::sqlAddSlashes(
-                $searchClause, true
+        if (!empty($searchClause)) {
+            $whereClause .= "AND " . Util::backquote($columnName)
+                . " LIKE '%";
+            $whereClause .= Util::sqlAddSlashes(
+                $searchClause,
+                true
             );
             $whereClause .= "%' ";
         }
 
-        if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
-            $whereClause .= "AND " . PMA\libraries\Util::backquote($columnName)
+        if (!empty($GLOBALS['cfg']['Server']['hide_db'])) {
+            $whereClause .= "AND " . Util::backquote($columnName)
                 . " NOT REGEXP '" . $GLOBALS['cfg']['Server']['hide_db'] . "' ";
         }
 
-        if (! empty($GLOBALS['cfg']['Server']['only_db'])) {
+        if (!empty($GLOBALS['cfg']['Server']['only_db'])) {
             if (is_string($GLOBALS['cfg']['Server']['only_db'])) {
                 $GLOBALS['cfg']['Server']['only_db'] = array(
-                    $GLOBALS['cfg']['Server']['only_db']
+                    $GLOBALS['cfg']['Server']['only_db'],
                 );
             }
             $whereClause .= "AND (";
             $subClauses = array();
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
-                $subClauses[] = " " . PMA\libraries\Util::backquote($columnName) . " LIKE '"
+                $subClauses[] = " " . Util::backquote($columnName)
+                    . " LIKE '"
                     . $each_only_db . "' ";
             }
             $whereClause .= implode("OR", $subClauses) . ")";
         }
+
         return $whereClause;
     }
 
@@ -756,7 +765,7 @@ class Node
      */
     public function getCssClasses($match)
     {
-        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
+        if (!$GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
         }
@@ -782,14 +791,15 @@ class Node
      */
     public function getIcon($match)
     {
-        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
+        if (!$GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
-        } elseif ($match && ! $this->is_group) {
+        } elseif ($match && !$this->is_group) {
             $this->visible = true;
-            return PMA\libraries\Util::getImage('b_minus.png');
+
+            return Util::getImage('b_minus.png');
         } else {
-            return PMA\libraries\Util::getImage('b_plus.png', __('Expand/Collapse'));
+            return Util::getImage('b_plus.png', __('Expand/Collapse'));
         }
     }
 
@@ -802,17 +812,26 @@ class Node
     {
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['navwork']) {
-            $navTable = PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['navigationhiding']);
+            $navTable = Util::backquote($cfgRelation['db'])
+                . "." . Util::backquote(
+                    $cfgRelation['navigationhiding']
+                );
             $sqlQuery = "SELECT `db_name`, COUNT(*) AS `count` FROM " . $navTable
-            . " WHERE `username`='"
-                . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-                    . " GROUP BY `db_name`";
+                . " WHERE `username`='"
+                . Util::sqlAddSlashes(
+                    $GLOBALS['cfg']['Server']['user']
+                ) . "'"
+                . " GROUP BY `db_name`";
             $counts = $GLOBALS['dbi']->fetchResult(
-                $sqlQuery, 'db_name', 'count', $GLOBALS['controllink']
+                $sqlQuery,
+                'db_name',
+                'count',
+                $GLOBALS['controllink']
             );
+
             return $counts;
         }
+
         return null;
     }
 }

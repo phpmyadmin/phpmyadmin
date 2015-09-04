@@ -5,20 +5,17 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+namespace PMA\libraries\navigation\nodes;
+
+use PMA;
 use PMA\libraries\navigation\NodeFactory;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once 'libraries/navigation/nodes/Node_DatabaseChild_Container.class.php';
 
 /**
  * Represents a container for table nodes in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Table_Container extends Node_DatabaseChild_Container
+class NodeTableContainer extends NodeDatabaseChildContainer
 {
     /**
      * Initialises the class
@@ -26,27 +23,30 @@ class Node_Table_Container extends Node_DatabaseChild_Container
     public function __construct()
     {
         parent::__construct(__('Tables'), Node::CONTAINER);
-        $this->icon  = PMA\libraries\Util::getImage('b_browse.png', __('Tables'));
+        $this->icon = PMA\libraries\Util::getImage('b_browse.png', __('Tables'));
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;tbl_type=table'
-                    . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;tbl_type=table'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;tbl_type=table'
-                    . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;tbl_type=table'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->real_name = 'tables';
-        $this->classes   = 'tableContainer subContainer';
+        $this->classes = 'tableContainer subContainer';
 
         $new_label = _pgettext('Create new table', 'New');
-        $new        = NodeFactory::getInstance('Node', $new_label);
+        $new = NodeFactory::getInstance(
+            'PMA\libraries\navigation\nodes\Node',
+            $new_label
+        );
         $new->isNew = true;
-        $new->icon  = PMA\libraries\Util::getImage('b_table_add.png', $new_label);
+        $new->icon = PMA\libraries\Util::getImage('b_table_add.png', $new_label);
         $new->links = array(
             'text' => 'tbl_create.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'tbl_create.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
         );
         $new->classes = 'new_table italics';
         $this->addChild($new);

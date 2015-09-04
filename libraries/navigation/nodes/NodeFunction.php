@@ -5,18 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\navigation\nodes;
 
-require_once 'libraries/navigation/nodes/Node_DatabaseChild.class.php';
+use PMA;
 
 /**
  * Represents a function node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Function extends Node_DatabaseChild
+class NodeFunction extends NodeDatabaseChild
 {
     /**
      * Initialises the class
@@ -29,14 +27,14 @@ class Node_Function extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA\libraries\Util::getImage('b_routines.png', __('Function'));
+        $this->icon = PMA\libraries\Util::getImage('b_routines.png', __('Function'));
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
-                    . '&amp;edit_item=1&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
+                . '&amp;edit_item=1&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
-                    . '&amp;execute_dialog=1&amp;token=' . $_SESSION[' PMA_token ']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
+                . '&amp;execute_dialog=1&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->classes = 'function';
     }

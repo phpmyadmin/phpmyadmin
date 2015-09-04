@@ -5,18 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\navigation\nodes;
 
-require_once 'libraries/navigation/nodes/Node_DatabaseChild.class.php';
+use PMA;
 
 /**
- * Represents a view node in the navigation tree
+ * Represents a procedure node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_View extends Node_DatabaseChild
+class NodeProcedure extends NodeDatabaseChild
 {
     /**
      * Initialises the class
@@ -29,16 +27,19 @@ class Node_View extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA\libraries\Util::getImage('b_props.png', __('View'));
-        $this->links = array(
-            'text' => 'sql.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0'
-                    . '&amp;token=' . $_SESSION[' PMA_token '],
-            'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;table=%1$s'
-                    . '&amp;token=' . $_SESSION[' PMA_token ']
+        $this->icon = PMA\libraries\Util::getImage(
+            'b_routines.png',
+            __('Procedure')
         );
-        $this->classes = 'view';
+        $this->links = array(
+            'text' => 'db_routines.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
+                . '&amp;edit_item=1&amp;token=' . $_SESSION[' PMA_token '],
+            'icon' => 'db_routines.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
+                . '&amp;execute_dialog=1&amp;token=' . $_SESSION[' PMA_token '],
+        );
+        $this->classes = 'procedure';
     }
 
     /**
@@ -48,7 +49,7 @@ class Node_View extends Node_DatabaseChild
      */
     protected function getItemType()
     {
-        return 'view';
+        return 'procedure';
     }
 }
 

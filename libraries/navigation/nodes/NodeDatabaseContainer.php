@@ -5,11 +5,10 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-use PMA\libraries\navigation\NodeFactory;
+namespace PMA\libraries\navigation\nodes;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+use PMA;
+use PMA\libraries\navigation\NodeFactory;
 
 require_once './libraries/check_user_privileges.lib.php';
 
@@ -18,7 +17,7 @@ require_once './libraries/check_user_privileges.lib.php';
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Database_Container extends Node
+class NodeDatabaseContainer extends Node
 {
     /**
      * Initialises the class
@@ -32,16 +31,17 @@ class Node_Database_Container extends Node
         if ($GLOBALS['is_create_db_priv']
             && $GLOBALS['cfg']['ShowCreateDb'] !== false
         ) {
-            $new        = NodeFactory::getInstance(
-                'Node', _pgettext('Create new database', 'New')
+            $new = NodeFactory::getInstance(
+                'PMA\libraries\navigation\nodes\Node',
+                _pgettext('Create new database', 'New')
             );
             $new->isNew = true;
-            $new->icon  = PMA\libraries\Util::getImage('b_newdb.png', '');
+            $new->icon = PMA\libraries\Util::getImage('b_newdb.png', '');
             $new->links = array(
                 'text' => 'server_databases.php?server=' . $GLOBALS['server']
-                        . '&amp;token=' . $_SESSION[' PMA_token '],
+                    . '&amp;token=' . $_SESSION[' PMA_token '],
                 'icon' => 'server_databases.php?server=' . $GLOBALS['server']
-                        . '&amp;token=' . $_SESSION[' PMA_token '],
+                    . '&amp;token=' . $_SESSION[' PMA_token '],
             );
             $new->classes = 'new_database italics';
             $this->addChild($new);

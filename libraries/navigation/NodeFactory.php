@@ -7,9 +7,7 @@
  */
 namespace PMA\libraries\navigation;
 
-use Node;
-
-require_once 'libraries/navigation/Nodes/Node.class.php';
+use PMA\libraries\navigation\nodes\Node;
 
 /**
  * Node factory - instantiates Node objects or objects derived from the Node class
@@ -23,7 +21,7 @@ class NodeFactory
      *                    that contain various Node classes
      * @access private
      */
-    private static $_path = 'libraries/navigation/Nodes/%s.class.php';
+    private static $_path = 'libraries/navigation/nodes/%s.php';
 
     /**
      * Sanitizes the name of a Node class
@@ -34,12 +32,12 @@ class NodeFactory
      */
     private static function _sanitizeClass($class)
     {
-        if ($class !== 'Node' && !preg_match('@^Node_\w+(_\w+)?$@', $class)) {
-            $class = 'Node';
+        if ($class !== 'PMA\libraries\navigation\nodes\Node' && !preg_match('@^Node\w+(_\w+)?$@', $class)) {
+            $class = 'PMA\libraries\navigation\nodes\Node';
             trigger_error(
                 sprintf(
                 /* l10n: The word "Node" must not be translated here */
-                    __('Invalid class name "%1$s", using default of "Node"'),
+                    __('Invalid class name "%1$s", using default of "PMA\libraries\navigation\nodes\Node"'),
                     $class
                 ),
                 E_USER_ERROR
@@ -62,12 +60,12 @@ class NodeFactory
     {
         $path = sprintf(self::$_path, $class);
         if (!is_readable($path)) {
-            $class = 'Node';
+            $class = 'PMA\libraries\navigation\nodes\Node';
             trigger_error(
                 sprintf(
                     __('Could not include class "%1$s", file "%2$s" not found'),
                     $class,
-                    'Nodes/' . $class . '.class.php'
+                    'Nodes/' . $class . '.php'
                 ),
                 E_USER_ERROR
             );
@@ -88,14 +86,12 @@ class NodeFactory
      * @return mixed
      */
     public static function getInstance(
-        $class = 'Node',
+        $class = 'PMA\libraries\navigation\nodes\Node',
         $name = 'default',
         $type = Node::OBJECT,
         $is_group = false
     ) {
         $class = self::_sanitizeClass($class);
-        include_once sprintf(self::$_path, $class);
-
         return new $class($name, $type, $is_group);
     }
 }

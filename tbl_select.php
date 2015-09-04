@@ -16,7 +16,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_common.inc.php';
 require_once 'libraries/tbl_info.inc.php';
 
-use PMA\DI;
 use PMA\libraries\controllers\table\TableSearchController;
 
 $container = \PMA\libraries\di\Container::getDefaultContainer();

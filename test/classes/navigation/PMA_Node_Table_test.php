@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Node_Table class
+ * Tests for PMA\libraries\navigation\nodes\NodeTable class
  *
  * @package PhpMyAdmin-test
  */
@@ -15,7 +15,7 @@ require_once 'libraries/navigation/NodeFactory.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- * Tests for Node_Table class
+ * Tests for PMA\libraries\navigation\nodes\NodeTable class
  *
  * @package PhpMyAdmin-test
  */
@@ -48,7 +48,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('Node_Table');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeTable');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -72,7 +72,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
     public function testIcon($target, $imageName)
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
-        $node = NodeFactory::getInstance('Node_Table');
+        $node = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeTable');
         $this->assertContains($imageName, $node->icon[0]);
     }
 

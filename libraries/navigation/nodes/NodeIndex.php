@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\navigation\nodes;
+
+use PMA;
 
 /**
  * Represents a index node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Index extends Node
+class NodeIndex extends Node
 {
     /**
      * Initialises the class
@@ -27,14 +27,14 @@ class Node_Index extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA\libraries\Util::getImage('b_index.png', __('Index'));
+        $this->icon = PMA\libraries\Util::getImage('b_index.png', __('Index'));
         $this->links = array(
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s'
-                    . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s'
-                    . '&amp;token=' . $_SESSION[' PMA_token ']
+                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->classes = 'index';
     }

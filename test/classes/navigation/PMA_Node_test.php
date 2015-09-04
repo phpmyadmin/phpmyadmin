@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\navigation\NodeFactory;
+use PMA\libraries\navigation\nodes\Node;
 use PMA\libraries\Theme;
 
 require_once 'libraries/navigation/NodeFactory.php';
@@ -40,8 +41,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testAddNode()
     {
-        $parent = NodeFactory::getInstance('Node', 'parent');
-        $child = NodeFactory::getInstance('Node', 'child');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\Node', 'parent');
+        $child = NodeFactory::getInstance('PMA\libraries\navigation\nodes\Node', 'child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
@@ -60,7 +61,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetChildError()
     {
-        $parent = NodeFactory::getInstance('Node', 'parent');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\Node', 'parent');
         $this->assertEquals(
             $parent->getChild("foo"),
             false
@@ -78,8 +79,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testRemoveNode()
     {
-        $parent = NodeFactory::getInstance('Node', 'parent');
-        $child = NodeFactory::getInstance('Node', 'child');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\Node', 'parent');
+        $child = NodeFactory::getInstance('PMA\libraries\navigation\nodes\Node', 'child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
@@ -101,7 +102,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
     {
         $parent = NodeFactory::getInstance();
         $empty_container = NodeFactory::getInstance(
-            'Node', 'empty', Node::CONTAINER
+            'PMA\libraries\navigation\nodes\Node', 'empty', Node::CONTAINER
         );
         $child = NodeFactory::getInstance();
         // test with no children
@@ -155,7 +156,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
         $container = NodeFactory::getInstance(
-            'Node', 'default', Node::CONTAINER
+            'PMA\libraries\navigation\nodes\Node', 'default', Node::CONTAINER
         );
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
@@ -239,7 +240,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $firstChild = NodeFactory::getInstance();
         $parent->addChild($firstChild);
         $secondChild = NodeFactory::getInstance(
-            'Node', 'default', Node::CONTAINER
+            'PMA\libraries\navigation\nodes\Node', 'default', Node::CONTAINER
         );
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
@@ -283,7 +284,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
     public function testGetWhereClause()
     {
         $method = new ReflectionMethod(
-            'Node', '_getWhereClause'
+            'PMA\libraries\navigation\nodes\Node', '_getWhereClause'
         );
         $method->setAccessible(true);
 

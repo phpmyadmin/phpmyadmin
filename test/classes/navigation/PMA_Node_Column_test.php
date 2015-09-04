@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Node_Column class
+ * Tests for PMA\libraries\navigation\nodes\NodeColumn class
  *
  * @package PhpMyAdmin-test
  */
@@ -15,7 +15,7 @@ require_once 'libraries/navigation/NodeFactory.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- * Tests for Node_Column class
+ * Tests for PMA\libraries\navigation\nodes\NodeColumn class
  *
  * @package PhpMyAdmin-test
  */
@@ -39,7 +39,7 @@ class Node_Column_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('Node_Column');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeColumn');
         $this->assertArrayHasKey(
             'text',
             $parent->links

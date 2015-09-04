@@ -5,18 +5,20 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\navigation\nodes;
+
+use PMA;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/navigation/nodes/Node_DatabaseChild.class.php';
-
 /**
- * Represents a procedure node in the navigation tree
+ * Represents a event node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Procedure extends Node_DatabaseChild
+class NodeEvent extends NodeDatabaseChild
 {
     /**
      * Initialises the class
@@ -29,16 +31,16 @@ class Node_Procedure extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA\libraries\Util::getImage('b_routines.png', __('Procedure'));
+        $this->icon = PMA\libraries\Util::getImage('b_events.png');
         $this->links = array(
-            'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
-                    . '&amp;edit_item=1&amp;token=' . $_SESSION[' PMA_token '],
-            'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
-                    . '&amp;execute_dialog=1&amp;token=' . $_SESSION[' PMA_token ']
+            'text' => 'db_events.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;edit_item=1'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
+            'icon' => 'db_events.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;export_item=1'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
         );
-        $this->classes = 'procedure';
+        $this->classes = 'event';
     }
 
     /**
@@ -48,7 +50,7 @@ class Node_Procedure extends Node_DatabaseChild
      */
     protected function getItemType()
     {
-        return 'procedure';
+        return 'event';
     }
 }
 

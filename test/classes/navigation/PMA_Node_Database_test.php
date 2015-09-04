@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Node_Database class
+ * Tests for PMA\libraries\navigation\nodes\NodeDatabase class
  *
  * @package PhpMyAdmin-test
  */
@@ -15,7 +15,7 @@ require_once 'libraries/navigation/NodeFactory.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- * Tests for Node_Database class
+ * Tests for PMA\libraries\navigation\nodes\NodeDatabase class
  *
  * @package PhpMyAdmin-test
  */
@@ -45,7 +45,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('Node_Database');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeDatabase');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -64,7 +64,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPresence()
     {
-        $parent = NodeFactory::getInstance('Node_Database');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeDatabase');
         $this->assertEquals(
             2,
             $parent->getPresence('tables')
@@ -94,7 +94,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetData()
     {
-        $parent = NodeFactory::getInstance('Node_Database');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeDatabase');
 
         $tables = $parent->getData('tables', 0);
         $this->assertContains(
@@ -130,7 +130,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testHiddenCount()
     {
-        $parent = NodeFactory::getInstance('Node_Database');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeDatabase');
 
         $parent->setHiddenCount(3);
         $this->assertEquals(

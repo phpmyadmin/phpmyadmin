@@ -7,7 +7,14 @@
  */
 namespace PMA\libraries\navigation;
 
+use PMA\libraries\navigation\nodes\Node;
+use PMA\libraries\navigation\nodes\NodeDatabase;
+use PMA\libraries\navigation\nodes\NodeTable;
+use PMA\libraries\navigation\nodes\NodeTableContainer;
+use PMA\libraries\navigation\nodes\NodeViewContainer;
 use PMA\libraries\RecentFavoriteTable;
+use PMA\libraries\Response;
+use PMA\libraries\Util;
 
 /**
  * Displays a collapsible of database objects in the navigation frame
@@ -137,7 +144,7 @@ class NavigationTree
             $this->_searchClause2 = $_REQUEST['searchClause2'];
         }
         // Initialise the tree by creating a root node
-        $node = NodeFactory::getInstance('Node_Database_Container', 'root');
+        $node = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeDatabaseContainer', 'root');
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
             && $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
@@ -178,7 +185,7 @@ class NavigationTree
                     $query,
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
-                    PMA\libraries\Util::sqlAddSlashes($GLOBALS['db'])
+                    Util::sqlAddSlashes($GLOBALS['db'])
                 )
             );
 
@@ -275,7 +282,7 @@ class NavigationTree
         );
         $hiddenCounts = $this->_tree->getNavigationHidingData();
         foreach ($data as $db) {
-            $node = NodeFactory::getInstance('Node_Database', $db);
+            $node = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeDatabase', $db);
             if (isset($hiddenCounts[$db])) {
                 $node->setHiddenCount($hiddenCounts[$db]);
             }
@@ -328,7 +335,7 @@ class NavigationTree
         }
 
         array_shift($path); // remove 'root'
-        /* @var $db Node_Database */
+        /* @var $db NodeDatabase */
         $db = $this->_tree->getChild($path[0]);
         $retval = $db;
 
@@ -367,31 +374,31 @@ class NavigationTree
                 switch ($container->real_name) {
                 case 'events':
                     $node = NodeFactory::getInstance(
-                        'Node_Event',
+                        'PMA\libraries\navigation\nodes\NodeEvent',
                         $item
                     );
                     break;
                 case 'functions':
                     $node = NodeFactory::getInstance(
-                        'Node_Function',
+                        'PMA\libraries\navigation\nodes\NodeFunction',
                         $item
                     );
                     break;
                 case 'procedures':
                     $node = NodeFactory::getInstance(
-                        'Node_Procedure',
+                        'PMA\libraries\navigation\nodes\NodeProcedure',
                         $item
                     );
                     break;
                 case 'tables':
                     $node = NodeFactory::getInstance(
-                        'Node_Table',
+                        'PMA\libraries\navigation\nodes\NodeTable',
                         $item
                     );
                     break;
                 case 'views':
                     $node = NodeFactory::getInstance(
-                        'Node_View',
+                        'PMA\libraries\navigation\nodes\NodeView',
                         $item
                     );
                     break;
@@ -417,7 +424,7 @@ class NavigationTree
             return $retval;
         }
 
-        /* @var $table Node_Table */
+        /* @var $table NodeTable */
         $table = $container->getChild($path[0], true);
         if ($table === false) {
             if (!$db->getPresence('tables', $path[0])) {
@@ -425,7 +432,7 @@ class NavigationTree
             }
 
             $node = NodeFactory::getInstance(
-                'Node_Table',
+                'PMA\libraries\navigation\nodes\NodeTable',
                 $path[0]
             );
             if ($type2 == $container->real_name) {
@@ -458,19 +465,19 @@ class NavigationTree
             switch ($container->real_name) {
             case 'indexes':
                 $node = NodeFactory::getInstance(
-                    'Node_Index',
+                    'PMA\libraries\navigation\nodes\NodeIndex',
                     $item
                 );
                 break;
             case 'columns':
                 $node = NodeFactory::getInstance(
-                    'Node_Column',
+                    'PMA\libraries\navigation\nodes\NodeColumn',
                     $item
                 );
                 break;
             case 'triggers':
                 $node = NodeFactory::getInstance(
-                    'Node_Trigger',
+                    'PMA\libraries\navigation\nodes\NodeTrigger',
                     $item
                 );
                 break;
@@ -495,7 +502,7 @@ class NavigationTree
      * References to existing children are returned
      * if this function is called twice on the same node
      *
-     * @param Node_Table $table The table node, new containers will be
+     * @param NodeTable $table The table node, new containers will be
      *                          attached to this node
      * @param int        $pos2  The position for the pagination of
      *                          the branch at the second level of the tree
@@ -512,17 +519,17 @@ class NavigationTree
         if ($table->hasChildren(true) == 0) {
             if ($table->getPresence('columns')) {
                 $retval['columns'] = NodeFactory::getInstance(
-                    'Node_Column_Container'
+                    'PMA\libraries\navigation\nodes\NodeColumn_Container'
                 );
             }
             if ($table->getPresence('indexes')) {
                 $retval['indexes'] = NodeFactory::getInstance(
-                    'Node_Index_Container'
+                    'PMA\libraries\navigation\nodes\NodeIndex_Container'
                 );
             }
             if ($table->getPresence('triggers')) {
                 $retval['triggers'] = NodeFactory::getInstance(
-                    'Node_Trigger_Container'
+                    'PMA\libraries\navigation\nodes\NodeTrigger_Container'
                 );
             }
             // Add all new Nodes to the tree
@@ -551,7 +558,7 @@ class NavigationTree
      * References to existing children are returned
      * if this function is called twice on the same node
      *
-     * @param Node_Database $db   The database node, new containers will be
+     * @param NodeDatabase $db   The database node, new containers will be
      *                            attached to this node
      * @param string        $type The type of item being paginated on
      *                            the second level of the tree
@@ -594,27 +601,27 @@ class NavigationTree
         if ($db->hasChildren(true) == 0) {
             if (!in_array('tables', $hidden) && $db->getPresence('tables')) {
                 $retval['tables'] = NodeFactory::getInstance(
-                    'Node_Table_Container'
+                    'PMA\libraries\navigation\nodes\NodeTable_Container'
                 );
             }
             if (!in_array('views', $hidden) && $db->getPresence('views')) {
                 $retval['views'] = NodeFactory::getInstance(
-                    'Node_View_Container'
+                    'PMA\libraries\navigation\nodes\NodeView_Container'
                 );
             }
             if (!in_array('functions', $hidden) && $db->getPresence('functions')) {
                 $retval['functions'] = NodeFactory::getInstance(
-                    'Node_Function_Container'
+                    'PMA\libraries\navigation\nodes\NodeFunction_Container'
                 );
             }
             if (!in_array('procedures', $hidden) && $db->getPresence('procedures')) {
                 $retval['procedures'] = NodeFactory::getInstance(
-                    'Node_Procedure_Container'
+                    'PMA\libraries\navigation\nodes\NodeProcedure_Container'
                 );
             }
             if (!in_array('events', $hidden) && $db->getPresence('events')) {
                 $retval['events'] = NodeFactory::getInstance(
-                    'Node_Event_Container'
+                    'PMA\libraries\navigation\nodes\NodeEvent_Container'
                 );
             }
             // Add all new Nodes to the tree
@@ -760,13 +767,13 @@ class NavigationTree
                 );
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separator_depth = $node->separator_depth - 1;
-                $groups[$key]->icon = PMA\libraries\Util::getImage(
+                $groups[$key]->icon = Util::getImage(
                     'b_group.png'
                 );
                 $groups[$key]->pos2 = $node->pos2;
                 $groups[$key]->pos3 = $node->pos3;
-                if ($node instanceof Node_Table_Container
-                    || $node instanceof Node_View_Container
+                if ($node instanceof NodeTableContainer
+                    || $node instanceof NodeViewContainer
                 ) {
                     $tblGroup = '&amp;tbl_group=' . urlencode($key);
                     $groups[$key]->links = array(
@@ -806,7 +813,7 @@ class NavigationTree
                             )
                         );
 
-                        if ($new_child instanceof Node_Database
+                        if ($new_child instanceof NodeDatabase
                             && $child->getHiddenCount() > 0
                         ) {
                             $new_child->setHiddenCount($child->getHiddenCount());
@@ -948,7 +955,7 @@ class NavigationTree
                 ),
                 $results
             );
-            PMA\libraries\Response::getInstance()
+            Response::getInstance()
                 ->addJSON(
                     'results',
                     $results
@@ -1247,7 +1254,7 @@ class NavigationTree
         $this->_tree->is_group = false;
         $retval .= '<div id="pma_navigation_select_database">';
         // Provide for pagination in database select
-        $retval .= PMA\libraries\Util::getListNavigator(
+        $retval .= Util::getListNavigator(
             $this->_tree->getPresence('databases', ''),
             $this->_pos,
             array('server' => $GLOBALS['server']),
@@ -1431,7 +1438,7 @@ class NavigationTree
         $retval = '<!-- CONTROLS START -->';
         $retval .= '<li id="navigation_controls_outer">';
         $retval .= '<div id="navigation_controls">';
-        $retval .= PMA\libraries\Util::getNavigationLink(
+        $retval .= Util::getNavigationLink(
             '#',
             $showText,
             __('Collapse all'),
@@ -1445,7 +1452,7 @@ class NavigationTree
             $syncImage = 's_link.png';
             $title = __('Unlink from main panel');
         }
-        $retval .= PMA\libraries\Util::getNavigationLink(
+        $retval .= Util::getNavigationLink(
             '#',
             $showText,
             $title,
@@ -1472,7 +1479,7 @@ class NavigationTree
     {
         $retval = '';
         if ($node === $this->_tree) {
-            $retval .= PMA\libraries\Util::getListNavigator(
+            $retval .= Util::getListNavigator(
                 $this->_tree->getPresence('databases', $this->_searchClause),
                 $this->_pos,
                 array('server' => $GLOBALS['server']),
@@ -1506,7 +1513,7 @@ class NavigationTree
                         $node->real_name,
                         $this->_searchClause2
                     );
-                $retval .= PMA\libraries\Util::getListNavigator(
+                $retval .= Util::getListNavigator(
                     $num,
                     $pos,
                     $_url_params,

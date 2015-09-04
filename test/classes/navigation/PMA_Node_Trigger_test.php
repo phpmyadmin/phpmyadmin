@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Node_Trigger class
+ * Tests for PMA\libraries\navigation\nodes\NodeTrigger class
  *
  * @package PhpMyAdmin-test
  */
@@ -14,7 +14,7 @@ require_once 'libraries/navigation/NodeFactory.php';
 
 
 /**
- * Tests for Node_Trigger class
+ * Tests for PMA\libraries\navigation\nodes\NodeTrigger class
  *
  * @package PhpMyAdmin-test
  */
@@ -39,7 +39,7 @@ class Node_Trigger_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('Node_Trigger');
+        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeTrigger');
         $this->assertArrayHasKey(
             'text',
             $parent->links

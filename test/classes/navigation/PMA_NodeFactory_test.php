@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\navigation\NodeFactory;
+use PMA\libraries\navigation\nodes\Node;
 use PMA\libraries\Theme;
 
 require_once 'libraries/navigation/NodeFactory.php';
@@ -52,7 +53,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
      */
     public function testDefaultContainer()
     {
-        $node = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
+        $node = NodeFactory::getInstance('PMA\libraries\navigation\nodes\Node', 'default', Node::CONTAINER);
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
         $this->assertEquals(false, $node->is_group);
@@ -66,7 +67,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
     public function testGroupContainer()
     {
         $node = NodeFactory::getInstance(
-            'Node', 'default', Node::CONTAINER, true
+            'PMA\libraries\navigation\nodes\Node', 'default', Node::CONTAINER, true
         );
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
@@ -81,7 +82,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
     public function testFileError()
     {
         $this->setExpectedException('PHPUnit_Framework_Error');
-        NodeFactory::getInstance('Node_DoesNotExist');
+        NodeFactory::getInstance('NodeDoesNotExist');
     }
 
     /**
