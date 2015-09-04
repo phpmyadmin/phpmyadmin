@@ -5,12 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\import\upload;
 
-/* Get the transformations interface */
-require_once 'libraries/plugins/UploadInterface.int.php';
+use PMA\libraries\plugins\UploadInterface;
 
 /**
  * Implementation for the APC extension
@@ -45,26 +42,26 @@ class UploadApc implements UploadInterface
         if (trim($id) == "") {
             return null;
         }
-        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = array(
                 'id'       => $id,
                 'finished' => false,
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadApc::getIdKey()
-             );
+                'plugin'   => UploadApc::getIdKey(),
+            );
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (! PMA_Import_apcCheck() || $ret['finished']) {
+        if (!PMA_Import_apcCheck() || $ret['finished']) {
             return $ret;
         }
         $status = apc_fetch('upload_' . $id);
 
         if ($status) {
             $ret['finished'] = (bool)$status['done'];
-            $ret['total']    = $status['total'];
+            $ret['total'] = $status['total'];
             $ret['complete'] = $status['current'];
 
             if ($ret['total'] > 0) {

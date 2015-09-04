@@ -5,12 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\import\upload;
 
-/* Get the transformations interface */
-require_once 'libraries/plugins/UploadInterface.int.php';
+use PMA\libraries\plugins\UploadInterface;
 
 /**
  * Implementation for upload progress
@@ -46,19 +43,19 @@ class UploadProgress implements UploadInterface
             return null;
         }
 
-        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = array(
                 'id'       => $id,
                 'finished' => false,
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadProgress::getIdKey()
+                'plugin'   => UploadProgress::getIdKey(),
             );
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (! PMA_Import_progressCheck() || $ret['finished']) {
+        if (!PMA_Import_progressCheck() || $ret['finished']) {
             return $ret;
         }
 
@@ -70,7 +67,7 @@ class UploadProgress implements UploadInterface
             } else {
                 $ret['finished'] = false;
             }
-            $ret['total']    = $status['bytes_total'];
+            $ret['total'] = $status['bytes_total'];
             $ret['complete'] = $status['bytes_uploaded'];
 
             if ($ret['total'] > 0) {
@@ -83,11 +80,12 @@ class UploadProgress implements UploadInterface
                 'percent'  => 100,
                 'total'    => $ret['total'],
                 'complete' => $ret['total'],
-                'plugin'   => UploadProgress::getIdKey()
+                'plugin'   => UploadProgress::getIdKey(),
             );
         }
 
         $_SESSION[$SESSION_KEY][$id] = $ret;
+
         return $ret;
     }
 }

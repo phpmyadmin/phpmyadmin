@@ -9,7 +9,7 @@
  */
 namespace PMA\libraries\plugins\auth;
 
-use AuthenticationPlugin;
+use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA;
 use PMA\libraries\Message;
 

@@ -6,12 +6,12 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Link
  */
+use PMA\libraries\plugins\TransformationsPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the transformations interface */
-require_once 'libraries/plugins/TransformationsPlugin.class.php';
 /* For PMA_Transformation_globalHtmlReplace */
 require_once 'libraries/transformations.lib.php';
 

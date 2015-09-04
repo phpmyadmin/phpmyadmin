@@ -8,7 +8,7 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use ExportPlugin;
+use PMA\libraries\plugins\ExportPlugin;
 use ExportPluginProperties;
 use HiddenPropertyItem;
 use OptionsPropertyMainGroup;

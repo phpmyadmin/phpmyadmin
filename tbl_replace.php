@@ -11,6 +11,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\plugins\IOTransformationsPlugin;
 use PMA\libraries\Table;
 
 /**

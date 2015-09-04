@@ -8,6 +8,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage ODS
  */
+use PMA\libraries\plugins\ImportPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -19,9 +21,6 @@ if (! function_exists('libxml_disable_entity_loader')) {
     $GLOBALS['skip_import'] = true;
     return;
 }
-
-/* Get the import interface */
-require_once 'libraries/plugins/ImportPlugin.class.php';
 
 /**
  * Handles the import for the ODS format

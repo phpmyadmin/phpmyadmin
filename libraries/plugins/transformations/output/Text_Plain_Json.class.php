@@ -6,14 +6,12 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
  */
+use PMA\libraries\plugins\TransformationsPlugin;
 use PMA\libraries\Response;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the transformations interface */
-require_once 'libraries/plugins/TransformationsPlugin.class.php';
 
 /**
  * Handles the json transformation for text plain

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage ESRI_Shape
  */
+use PMA\libraries\plugins\ImportPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -16,8 +18,6 @@ if (PMA_DRIZZLE) {
     return;
 }
 
-/* Get the import interface*/
-require_once 'libraries/plugins/ImportPlugin.class.php';
 /* Get the ShapeFile class */
 require_once 'libraries/bfShapeFiles/ShapeFile.lib.php';
 require_once 'libraries/plugins/import/ShapeFile.class.php';

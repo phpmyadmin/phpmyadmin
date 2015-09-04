@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries;
 
-use ImportPlugin;
+use PMA\libraries\plugins\ImportPlugin;
 use SqlParser\Context;
 use SqlParser\Lexer;
 use SqlParser\Parser;

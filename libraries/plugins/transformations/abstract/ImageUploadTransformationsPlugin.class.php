@@ -6,12 +6,11 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage ImageUpload
  */
+use PMA\libraries\plugins\IOTransformationsPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the transformations class */
-require_once 'libraries/plugins/IOTransformationsPlugin.class.php';
 
 /**
  * Provides common methods for all of the image upload transformations plugins.

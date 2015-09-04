@@ -5,9 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+
+namespace PMA\libraries\plugins;
+
+use ImportPluginProperties;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -33,7 +34,6 @@ abstract class ImportPlugin
 
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
 
     /**
      * Gets the import specific format plugin properties
@@ -63,7 +63,9 @@ abstract class ImportPlugin
      */
     protected function getDbnameAndOptions($currentDb, $defaultDb)
     {
-        if (/*overload*/mb_strlen($currentDb)) {
+        if (/*overload*/
+        mb_strlen($currentDb)
+        ) {
             $db_name = $currentDb;
             $options = array('create_db' => false);
         } else {

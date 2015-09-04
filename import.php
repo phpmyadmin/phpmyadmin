@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\String;
 
 /**

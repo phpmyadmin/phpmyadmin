@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\plugins\SchemaPlugin;
 
 if (! defined('PHPMYADMIN')) {
     exit;

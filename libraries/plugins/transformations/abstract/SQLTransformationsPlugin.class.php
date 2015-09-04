@@ -6,12 +6,11 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
  */
+use PMA\libraries\plugins\TransformationsPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the transformations interface */
-require_once 'libraries/plugins/TransformationsPlugin.class.php';
 
 /**
  * Provides common methods for all of the SQL transformations plugins.

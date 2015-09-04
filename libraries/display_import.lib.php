@@ -10,6 +10,7 @@
  */
 
 use PMA\libraries\Message;
+use PMA\libraries\plugins\ImportPlugin;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -61,7 +62,7 @@ function PMA_getHtmlForImportJS($upload_id)
     // hide form
     $html .= '        $("#upload_form_form").css("display", "none");';
 
-    if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
+    if ($_SESSION[$SESSION_KEY]["handler"] != 'PMA\libraries\plugins\import\upload\UploadNoplugin') {
 
         $html .= PMA_getHtmlForImportWithPlugin($upload_id);
 
@@ -432,7 +433,7 @@ function PMA_getHtmlForImport(
     $html .= '    <form id="import_file_form" action="import.php" method="post" '
         . 'enctype="multipart/form-data"';
     $html .= '        name="import"';
-    if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
+    if ($_SESSION[$SESSION_KEY]["handler"] != 'PMA\libraries\plugins\import\upload\UploadNoplugin') {
         $html .= ' target="import_upload_iframe"';
     }
     $html .= ' class="ajax"';

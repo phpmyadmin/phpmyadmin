@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\Message;
+use PMA\libraries\plugins\TransformationsPlugin;
 
 if (! defined('PHPMYADMIN')) {
     exit;

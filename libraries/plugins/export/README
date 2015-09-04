@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Export
  */
-class Export[Name] extends ExportPlugin
+class Export[Name] extends PMA\libraries\plugins\ExportPlugin
 {
     /**
      * optional - declare variables and descriptions
@@ -201,7 +201,7 @@ class Export[Name] extends ExportPlugin
         return true;
     }
 
-    // optional - implement other methods defined in ExportPlugin.class.php:
+    // optional - implement other methods defined in PMA\libraries\plugins\ExportPlugin.class.php:
     //  - exportRoutines()
     //  - exportStructure()
     //  - getTableDefStandIn()
@@ -210,7 +210,7 @@ class Export[Name] extends ExportPlugin
     // optional - implement other private methods in order to avoid
     // having huge methods or avoid duplicate code. Make use of them
     // as well as of the getters and setters declared both here
-    // and in the ExportPlugin class
+    // and in the PMA\libraries\plugins\ExportPlugin class
 
 
     // optional:

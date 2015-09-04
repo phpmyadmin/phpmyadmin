@@ -5,9 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -61,25 +59,25 @@ abstract class AuthenticationPlugin
      */
     public function getErrorMessage()
     {
-        if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
+        if (!empty($GLOBALS['login_without_password_is_forbidden'])) {
             return __(
                 'Login without a password is forbidden by configuration'
                 . ' (see AllowNoPassword)'
             );
-        } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
+        } elseif (!empty($GLOBALS['allowDeny_forbidden'])) {
             return __('Access denied!');
-        } elseif (! empty($GLOBALS['no_activity'])) {
+        } elseif (!empty($GLOBALS['no_activity'])) {
             return sprintf(
                 __('No activity within %s seconds; please log in again.'),
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
         } else {
             $dbi_error = $GLOBALS['dbi']->getError();
-            if (! empty($dbi_error)) {
+            if (!empty($dbi_error)) {
                 return PMA_sanitize($dbi_error);
             } elseif (isset($GLOBALS['errno'])) {
                 return '#' . $GLOBALS['errno'] . ' '
-                    . __('Cannot log in to the MySQL server');
+                . __('Cannot log in to the MySQL server');
             } else {
                 return __('Cannot log in to the MySQL server');
             }

@@ -5,9 +5,12 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+
+namespace PMA\libraries\plugins;
+
+use BoolPropertyItem;
+use OptionsPropertyMainGroup;
+use SchemaPluginProperties;
 
 /**
  * Provides a common interface that will have to be implemented by all of the

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\plugins\SchemaPlugin;
 
 /**
  * Gets some core libraries

@@ -15,6 +15,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\plugins\TransformationsInterface;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }

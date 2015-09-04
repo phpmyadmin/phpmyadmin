@@ -5,12 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-/* It also implements the transformations interface */
-require_once 'TransformationsInterface.int.php';
+namespace PMA\libraries\plugins;
 
 /**
  * Provides a common interface that will have to
@@ -42,7 +37,9 @@ abstract class TransformationsPlugin implements TransformationsInterface
      * @return string the transformed text
      */
     abstract public function applyTransformation(
-        $buffer, $options = array(), $meta = ''
+        $buffer,
+        $options = array(),
+        $meta = ''
     );
 
     /**
@@ -63,6 +60,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
                 $result[$key] = $value;
             }
         }
+
         return $result;
     }
 }

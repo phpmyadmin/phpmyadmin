@@ -8,7 +8,7 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use ExportPlugin;
+use PMA\libraries\plugins\ExportPlugin;
 
 /**
  * Handles the export for the Texy! text class

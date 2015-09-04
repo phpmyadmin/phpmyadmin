@@ -6,12 +6,13 @@
  * @package    PhpMyAdmin-Schema
  * @subpackage SVG
  */
+use PMA\libraries\plugins\SchemaPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 /* Get the schema export interface */
-require_once 'libraries/plugins/SchemaPlugin.class.php';
 require_once 'libraries/plugins/schema/svg/Svg_Relation_Schema.class.php';
 
 /**

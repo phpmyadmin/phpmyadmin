@@ -5,12 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins;
 
-/* It extends the transformations plugin class */
-require_once 'TransformationsPlugin.class.php';
+use PMA\libraries\plugins\TransformationsPlugin;
 
 /**
  * Provides a common interface that will have to be implemented
@@ -20,10 +17,8 @@ require_once 'TransformationsPlugin.class.php';
  */
 abstract class IOTransformationsPlugin extends TransformationsPlugin
 {
-
     // specifies whether transformation was successful or not
     protected $success = true;
-
     // to store the error message in case of failed transformations
     protected $error = '';
 
@@ -44,8 +39,15 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
      * @return string the html for input field
      */
     public function getInputHtml(
-        $column, $row_id, $column_name_appendix, $options, $value, $text_dir,
-        $tabindex, $tabindex_for_value, $idindex
+        $column,
+        $row_id,
+        $column_name_appendix,
+        $options,
+        $value,
+        $text_dir,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex
     ) {
         return '';
     }

@@ -6,12 +6,11 @@
  * @package    PhpMyAdmin-Import
  * @subpackage MediaWiki
  */
+use PMA\libraries\plugins\ImportPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the import interface */
-require_once 'libraries/plugins/ImportPlugin.class.php';
 
 /**
  * Handles the import for the MediaWiki format

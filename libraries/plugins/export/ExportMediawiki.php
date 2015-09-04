@@ -9,7 +9,7 @@
 namespace PMA\libraries\plugins\export;
 
 use BoolPropertyItem;
-use ExportPlugin;
+use PMA\libraries\plugins\ExportPlugin;
 use ExportPluginProperties;
 use OptionsPropertyMainGroup;
 use OptionsPropertyRootGroup;

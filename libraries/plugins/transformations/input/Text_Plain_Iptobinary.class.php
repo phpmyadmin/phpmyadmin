@@ -6,12 +6,11 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage IPToBinary
  */
+use PMA\libraries\plugins\IOTransformationsPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the transformations class */
-require_once 'libraries/plugins/IOTransformationsPlugin.class.php';
 
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain

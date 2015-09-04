@@ -15,14 +15,14 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the import interface */
-require_once 'libraries/plugins/ImportPlugin.class.php';
+require_once 'libraries/plugins/PMA\libraries\plugins\ImportPlugin.class.php';
 
 /**
  * Handles the import for the [Name] format
  *
  * @package PhpMyAdmin-Import
  */
-class Import[Name] extends ImportPlugin
+class Import[Name] extends PMA\libraries\plugins\ImportPlugin
 {
     /**
      * optional - declare variables and descriptions

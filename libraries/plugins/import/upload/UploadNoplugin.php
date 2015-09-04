@@ -5,12 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\plugins\import\upload;
 
-/* Get the transformations interface */
-require_once 'libraries/plugins/UploadInterface.int.php';
+use PMA\libraries\plugins\UploadInterface;
 
 /**
  * Implementation for no plugin
@@ -46,14 +43,14 @@ class UploadNoplugin implements UploadInterface
         if (trim($id) == "") {
             return null;
         }
-        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = array(
                 'id'       => $id,
                 'finished' => false,
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadNoplugin::getIdKey()
+                'plugin'   => UploadNoplugin::getIdKey(),
             );
         }
         $ret = $_SESSION[$SESSION_KEY][$id];

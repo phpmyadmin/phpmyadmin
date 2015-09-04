@@ -34,6 +34,7 @@ use PMA\libraries\Config;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
+use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\PMA;
 use PMA\libraries\String;
 use PMA\libraries\Theme;

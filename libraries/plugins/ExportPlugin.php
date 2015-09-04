@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+
+namespace PMA\libraries\plugins;
+
+use ExportPluginProperties;
+use nothing;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -26,11 +28,9 @@ abstract class ExportPlugin
      * @var ExportPluginProperties
      */
     protected $properties;
-
     /**
      * Common methods, must be overwritten by all export plugins
      */
-
 
     /**
      * Outputs export header
@@ -76,7 +76,7 @@ abstract class ExportPlugin
      */
     abstract public function exportDBCreate($db, $export_type, $db_alias = '');
 
-     /**
+    /**
      * Outputs the content of a table
      *
      * @param string $db        database name
@@ -89,7 +89,12 @@ abstract class ExportPlugin
      * @return bool Whether it succeeded
      */
     abstract public function exportData(
-        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $sql_query,
+        $aliases = array()
     );
 
     /**
@@ -172,7 +177,10 @@ abstract class ExportPlugin
      * @return bool Whether it succeeded
      */
     public function exportMetadata(
-        $db, $tables, $metadataTypes, $targetNames = array()
+        $db,
+        $tables,
+        $metadataTypes,
+        $targetNames = array()
     ) {
         ;
     }
@@ -277,14 +285,15 @@ abstract class ExportPlugin
     {
         if (!empty($db) && isset($aliases[$db])) {
             $aliases = array(
-                $db => $aliases[$db]
+                $db => $aliases[$db],
             );
         }
         // search each database
         foreach ($aliases as $db_key => $db) {
             // check if id is database and has alias
             if (stristr($type, 'db') !== false
-                && $db_key === $id && !empty($db['alias'])
+                && $db_key === $id
+                && !empty($db['alias'])
             ) {
                 return $db['alias'];
             }
@@ -293,14 +302,15 @@ abstract class ExportPlugin
             }
             if (!empty($tbl) && isset($db['tables'][$tbl])) {
                 $db['tables'] = array(
-                    $tbl => $db['tables'][$tbl]
+                    $tbl => $db['tables'][$tbl],
                 );
             }
             // search each of its tables
             foreach ($db['tables'] as $table_key => $table) {
                 // check if id is table and has alias
                 if (stristr($type, 'tbl') !== false
-                    && $table_key === $id && !empty($table['alias'])
+                    && $table_key === $id
+                    && !empty($table['alias'])
                 ) {
                     return $table['alias'];
                 }
@@ -311,13 +321,15 @@ abstract class ExportPlugin
                 foreach ($table['columns'] as $col_key => $col) {
                     // check if id is column
                     if (stristr($type, 'col') !== false
-                        && $col_key === $id && !empty($col)
+                        && $col_key === $id
+                        && !empty($col)
                     ) {
                         return $col;
                     }
                 }
             }
         }
+
         return '';
     }
 
@@ -335,7 +347,10 @@ abstract class ExportPlugin
      * @return string the Relation string
      */
     public function getRelationString(
-        $res_rel, $field_name, $db, $aliases = array()
+        $res_rel,
+        $field_name,
+        $db,
+        $aliases = array()
     ) {
         $relation = '';
         $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
@@ -350,6 +365,7 @@ abstract class ExportPlugin
             }
             $relation = $ftable . ' (' . $ffield . ')';
         }
+
         return $relation;
     }
 }

@@ -6,12 +6,7 @@
  * @package    PhpMyAdmin-Import
  * @subpackage CSV
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-/* Get the import interface */
-require_once 'libraries/plugins/ImportPlugin.class.php';
+use PMA\libraries\plugins\ImportPlugin;
 
 /**
  * Super class of the import plugins for the CSV format
