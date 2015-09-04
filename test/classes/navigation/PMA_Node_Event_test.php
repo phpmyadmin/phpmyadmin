@@ -38,7 +38,7 @@ class Node_Event_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeEvent');
+        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeEvent');
         $this->assertArrayHasKey(
             'text',
             $parent->links

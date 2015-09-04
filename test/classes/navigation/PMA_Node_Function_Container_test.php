@@ -39,7 +39,7 @@ class Node_Function_Container_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeFunction_Container');
+        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeFunction_Container');
         $this->assertArrayHasKey(
             'text',
             $parent->links

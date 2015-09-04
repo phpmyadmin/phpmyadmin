@@ -39,7 +39,7 @@ class Node_Index_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeIndex');
+        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeIndex');
         $this->assertArrayHasKey(
             'text',
             $parent->links

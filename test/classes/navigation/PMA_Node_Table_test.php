@@ -48,7 +48,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeTable');
+        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeTable');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -72,7 +72,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
     public function testIcon($target, $imageName)
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
-        $node = NodeFactory::getInstance('PMA\libraries\navigation\nodes\NodeTable');
+        $node = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeTable');
         $this->assertContains($imageName, $node->icon[0]);
     }
 
