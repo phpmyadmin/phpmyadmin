@@ -33,10 +33,6 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        }
-
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -67,19 +63,6 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetProperties()
     {
-        $restoreDrizzle = 'PMANORESTORE';
-
-        if (PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', false);
-            }
-        }
-
         $method = new ReflectionMethod('ExportXml', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
@@ -212,10 +195,6 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-
-        if ($restoreDrizzle !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
     }
 
     /**
@@ -224,23 +203,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
      * @return void
      * @group medium
      */
-    public function testExportHeaderWithoutDrizzle()
+    public function testExportHeader()
     {
         if (!defined("PMA_MYSQL_STR_VERSION")) {
             define("PMA_MYSQL_STR_VERSION", "5.0.0");
-        }
-
-        $restoreDrizzle = 'PMANORESTORE';
-
-        if (PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', false);
-            }
         }
 
         $GLOBALS['xml_export_functions'] = 1;
@@ -473,94 +439,6 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             '    &lt;/pma:structure_schemas&gt;',
             $result
         );
-
-        if ($restoreDrizzle !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
-    }
-
-    /**
-     * Test for ExportXml::exportHeader
-     *
-     * @return void
-     */
-    public function testExportHeaderWithDrizzle()
-    {
-        $restoreDrizzle = 'PMANORESTORE';
-
-        if (!PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', true);
-            }
-        }
-
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['xml_export_triggers'] = true;
-        $GLOBALS['cfg']['Server']['port'] = 80;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['crlf'] = "\n";
-        $GLOBALS['db'] = 'd<b';
-
-        $result = array(
-            0 => array(
-                'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
-                'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
-
-            ),
-            'table' => array(null, '"tbl"')
-        );
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('fetchResult')
-            ->with(
-                "SELECT
-                        'utf8' AS DEFAULT_CHARACTER_SET_NAME,
-                        DEFAULT_COLLATION_NAME
-                    FROM data_dictionary.SCHEMAS
-                    WHERE SCHEMA_NAME = 'd<b'"
-            )
-            ->will($this->returnValue($result));
-
-        $dbi->expects($this->at(1))
-            ->method('fetchResult')
-            ->with(
-                'SHOW CREATE TABLE `d<b`.`table`',
-                0
-            )
-            ->will($this->returnValue($result));
-
-        // isView
-        $dbi->expects($this->at(2))
-            ->method('fetchResult')
-            ->will($this->returnValue(false));
-
-        $dbi->expects($this->once())
-            ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'd<b')));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $GLOBALS['tables'] = array();
-        $GLOBALS['table'] = 'table';
-
-        ob_start();
-        $this->assertTrue(
-            $this->object->exportHeader()
-        );
-        $result = ob_get_clean();
-
-        if ($restoreDrizzle !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
     }
 
     /**
