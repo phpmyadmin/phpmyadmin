@@ -100,35 +100,32 @@ class ExportXml extends ExportPlugin
         $structure = new OptionsPropertyMainGroup();
         $structure->setName("structure");
         $structure->setText(__('Object creation options (all are recommended)'));
+
         // create primary items and add them to the group
-        if (! PMA_DRIZZLE) {
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("export_events");
-            $leaf->setText(__('Events'));
-            $structure->addProperty($leaf);
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("export_functions");
-            $leaf->setText(__('Functions'));
-            $structure->addProperty($leaf);
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("export_procedures");
-            $leaf->setText(__('Procedures'));
-            $structure->addProperty($leaf);
-        }
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("export_events");
+        $leaf->setText(__('Events'));
+        $structure->addProperty($leaf);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("export_functions");
+        $leaf->setText(__('Functions'));
+        $structure->addProperty($leaf);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("export_procedures");
+        $leaf->setText(__('Procedures'));
+        $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem();
         $leaf->setName("export_tables");
         $leaf->setText(__('Tables'));
         $structure->addProperty($leaf);
-        if (! PMA_DRIZZLE) {
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("export_triggers");
-            $leaf->setText(__('Triggers'));
-            $structure->addProperty($leaf);
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("export_views");
-            $leaf->setText(__('Views'));
-            $structure->addProperty($leaf);
-        }
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("export_triggers");
+        $leaf->setText(__('Triggers'));
+        $structure->addProperty($leaf);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("export_views");
+        $leaf->setText(__('Views'));
+        $structure->addProperty($leaf);
         $exportSpecificOptions->addProperty($structure);
 
         // data main group
@@ -197,22 +194,11 @@ class ExportXml extends ExportPlugin
             . '>' . $crlf;
 
         if ($export_struct) {
-            if (PMA_DRIZZLE) {
-                $result = $GLOBALS['dbi']->fetchResult(
-                    "SELECT
-                        'utf8' AS DEFAULT_CHARACTER_SET_NAME,
-                        DEFAULT_COLLATION_NAME
-                    FROM data_dictionary.SCHEMAS
-                    WHERE SCHEMA_NAME = '"
-                    . PMA_Util::sqlAddSlashes($db) . "'"
-                );
-            } else {
-                $result = $GLOBALS['dbi']->fetchResult(
-                    'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
-                    . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                    . ' = \'' . PMA_Util::sqlAddSlashes($db) . '\' LIMIT 1'
-                );
-            }
+            $result = $GLOBALS['dbi']->fetchResult(
+                'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
+                . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
+                . ' = \'' . PMA_Util::sqlAddSlashes($db) . '\' LIMIT 1'
+            );
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
             $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
 
