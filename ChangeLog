@@ -112,6 +112,7 @@ phpMyAdmin - ChangeLog
 - issue #11452 Semantics of export and import icons are mixed up
 - issue #11451 Designer-Bug in move.js on multiple server configuration
 - issue #11458 Invalid UTF-8 sequence in argument
+- issue #11457 Request URI too large
 
 4.4.14.0 (2015-08-20)
 - issue #11367 Export after search, missing WHERE clause

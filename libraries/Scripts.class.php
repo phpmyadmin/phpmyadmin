@@ -85,13 +85,20 @@ class PMA_Scripts
                 $scripts[] = "scripts%5B%5D=" . $value['filename'];
             }
         }
-        $url = 'js/get_scripts.js.php?' . implode($separator, $scripts)
-            . $separator . PMA_Header::getVersionParameter();
+        $separator = PMA_URL_getArgSeparator();
+        $static_scripts = '';
+        // Using chunks of 20 files to avoid too long URLs
+        $script_chunks = array_chunk($scripts, 20);
+        foreach ($script_chunks as $script_chunk) {
+            $url = 'js/get_scripts.js.php?'
+                . implode($separator, $script_chunk)
+                . $separator . PMA_Header::getVersionParameter();
 
-        $static_scripts = sprintf(
-            '<script data-cfasync="false" type="text/javascript" src="%s"></script>',
-            htmlspecialchars($url)
-        );
+            $static_scripts .= sprintf(
+                '<script data-cfasync="false" type="text/javascript" src="%s"></script>',
+                htmlspecialchars($url)
+            );
+        }
         return $first_dynamic_scripts . $static_scripts . $dynamic_scripts;
     }
 
