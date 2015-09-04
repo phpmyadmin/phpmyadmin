@@ -29,9 +29,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 
     $retval .= PMA_getHtmlForAddChartDialog();
 
-    if (! PMA_DRIZZLE) {
-        $retval .= PMA_getHtmlForAnalyseDialog();
-    }
+    $retval .= PMA_getHtmlForAnalyseDialog();
 
     $retval .= '<table class="clearfloat" id="chartGrid"></table>';
     $retval .= '<div id="logTable">';

@@ -14,14 +14,8 @@ require_once 'libraries/server_status_processes.lib.php';
 /**
  * Replication library
  */
-if (PMA_DRIZZLE) {
-    $GLOBALS['replication_info'] = array();
-    $GLOBALS['replication_info']['master']['status'] = false;
-    $GLOBALS['replication_info']['slave']['status'] = false;
-} else {
-    include_once 'libraries/replication.inc.php';
-    include_once 'libraries/replication_gui.lib.php';
-}
+require_once 'libraries/replication.inc.php';
+require_once 'libraries/replication_gui.lib.php';
 
 $ServerStatusData = new PMA_ServerStatusData();
 $response = PMA_Response::getInstance();
