@@ -61,6 +61,7 @@ function PMA_getHtmlForAllServerEngines()
             . ($odd_row ? 'odd' : 'even')
             . ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
                 ? ' disabled' : '')
+            . ($details['Support'] == 'DEFAULT' ? ' marked' : '')
             . '">' . "\n"
             . '    <td><a rel="newpage" href="server_engines.php'
             . PMA_URL_getCommon(array('engine' => $engine)) . '">' . "\n"
