@@ -6,9 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\Theme;
 
-require_once 'libraries/navigation/NodeFactory.class.php';
+require_once 'libraries/navigation/NodeFactory.php';
 
 
 require_once 'libraries/php-gettext/gettext.inc';
@@ -44,7 +45,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Database');
+        $parent = NodeFactory::getInstance('Node_Database');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -63,7 +64,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPresence()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Database');
+        $parent = NodeFactory::getInstance('Node_Database');
         $this->assertEquals(
             2,
             $parent->getPresence('tables')
@@ -93,7 +94,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetData()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Database');
+        $parent = NodeFactory::getInstance('Node_Database');
 
         $tables = $parent->getData('tables', 0);
         $this->assertContains(
@@ -129,7 +130,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testHiddenCount()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Database');
+        $parent = NodeFactory::getInstance('Node_Database');
 
         $parent->setHiddenCount(3);
         $this->assertEquals(

@@ -8,14 +8,13 @@
 
 // Include common functionalities
 use PMA\libraries\config\PageSettings;
+use PMA\libraries\navigation\Navigation;
 
 require_once './libraries/common.inc.php';
 
 // Also initialises the collapsible tree class
-require_once './libraries/navigation/Navigation.class.php';
-
 $response = PMA\libraries\Response::getInstance();
-$navigation = new PMA_Navigation();
+$navigation = new Navigation();
 if (! $response->isAjax()) {
     $response->addHTML(
         PMA\libraries\Message::error(

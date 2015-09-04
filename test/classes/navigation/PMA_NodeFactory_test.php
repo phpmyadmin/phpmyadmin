@@ -6,9 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\Theme;
 
-require_once 'libraries/navigation/NodeFactory.class.php';
+require_once 'libraries/navigation/NodeFactory.php';
 
 
 require_once 'libraries/php-gettext/gettext.inc';
@@ -32,39 +33,39 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_NodeFactory::getInstance
+     * Test for PMA\libraries\navigation\NodeFactory::getInstance
      *
      * @return void
      */
     public function testDefaultNode()
     {
-        $node = PMA_NodeFactory::getInstance();
+        $node = NodeFactory::getInstance();
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::OBJECT, $node->type);
         $this->assertEquals(false, $node->is_group);
     }
 
     /**
-     * Test for PMA_NodeFactory::getInstance
+     * Test for PMA\libraries\navigation\NodeFactory::getInstance
      *
      * @return void
      */
     public function testDefaultContainer()
     {
-        $node = PMA_NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
+        $node = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
         $this->assertEquals(false, $node->is_group);
     }
 
     /**
-     * Test for PMA_NodeFactory::getInstance
+     * Test for PMA\libraries\navigation\NodeFactory::getInstance
      *
      * @return void
      */
     public function testGroupContainer()
     {
-        $node = PMA_NodeFactory::getInstance(
+        $node = NodeFactory::getInstance(
             'Node', 'default', Node::CONTAINER, true
         );
         $this->assertEquals('default', $node->name);
@@ -73,24 +74,24 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_NodeFactory::getInstance
+     * Test for PMA\libraries\navigation\NodeFactory::getInstance
      *
      * @return void
      */
     public function testFileError()
     {
         $this->setExpectedException('PHPUnit_Framework_Error');
-        PMA_NodeFactory::getInstance('Node_DoesNotExist');
+        NodeFactory::getInstance('Node_DoesNotExist');
     }
 
     /**
-     * Test for PMA_NodeFactory::getInstance
+     * Test for PMA\libraries\navigation\NodeFactory::getInstance
      *
      * @return void
      */
     public function testClassNameError()
     {
         $this->setExpectedException('PHPUnit_Framework_Error');
-        PMA_NodeFactory::getInstance('Invalid');
+        NodeFactory::getInstance('Invalid');
     }
 }

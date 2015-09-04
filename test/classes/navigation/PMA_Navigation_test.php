@@ -1,30 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_Navigation class
+ * Test for PMA\libraries\navigation\Navigation class
  *
  * @package PhpMyAdmin-test
  */
 
 use PMA\libraries\Theme;
 
-
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/navigation/Navigation.class.php';
 
 /**
- * Tests for PMA_Navigation class
+ * Tests for PMA\libraries\navigation\Navigation class
  *
  * @package PhpMyAdmin-test
  */
 class PMA_NavigationTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PMA_Navigation
+     * @var PMA\libraries\navigation\Navigation
      */
     protected $object;
 
@@ -36,7 +33,7 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Navigation();
+        $this->object = new PMA\libraries\navigation\Navigation();
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';

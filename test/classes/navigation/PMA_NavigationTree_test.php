@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_NavigationTree class
+ * Test for PMA\libraries\navigation\NavigationTree class
  *
  * @package PhpMyAdmin-test
  */
@@ -10,6 +10,7 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
+use PMA\libraries\navigation\NavigationTree;
 use PMA\libraries\Theme;
 
 $GLOBALS['server'] = 0;
@@ -21,22 +22,22 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/navigation/NavigationTree.class.php';
-require_once 'libraries/navigation/NodeFactory.class.php';
+require_once 'libraries/navigation/NavigationTree.php';
+require_once 'libraries/navigation/NodeFactory.php';
 
 
 
 require_once 'libraries/check_user_privileges.lib.php';
 
 /**
- * Tests for PMA_NavigationTree class
+ * Tests for PMA\libraries\navigation\NavigationTree class
  *
  * @package PhpMyAdmin-test
  */
 class PMA_NavigationTreeTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PMA_NavigationTree
+     * @var NavigationTree
      */
     protected $object;
 
@@ -61,7 +62,7 @@ class PMA_NavigationTreeTest extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
-        $this->object = new PMA_NavigationTree();
+        $this->object = new PMA\libraries\navigation\NavigationTree();
     }
 
     /**

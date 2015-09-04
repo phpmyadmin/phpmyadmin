@@ -6,15 +6,16 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\Theme;
 
 require_once 'libraries/url_generating.lib.php';
 
 
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/navigation/Nodes/Node.class.php';
-require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
-require_once 'libraries/navigation/NodeFactory.class.php';
+require_once 'libraries/navigation/nodes/Node.class.php';
+require_once 'libraries/navigation/nodes/Node_DatabaseChild.class.php';
+require_once 'libraries/navigation/NodeFactory.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
@@ -69,7 +70,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForControlButtons()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Database', 'parent');
+        $parent = NodeFactory::getInstance('Node_Database', 'parent');
         $parent->addChild($this->object);
         $this->object->expects($this->once())
             ->method('getItemType')

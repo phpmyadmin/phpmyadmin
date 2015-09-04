@@ -6,22 +6,19 @@
  *
  * @package PhpMyAdmin-navigation
  */
+namespace PMA\libraries\navigation;
+
 use PMA\libraries\config\PageSettings;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once 'libraries/navigation/NodeFactory.class.php';
-require_once 'libraries/navigation/NavigationHeader.class.php';
-require_once 'libraries/navigation/NavigationTree.class.php';
+use PMA\libraries\Message;
+use PMA\libraries\Response;
+use PMA\libraries\Util;
 
 /**
  * The navigation panel - displays server, db and table selection tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class PMA_Navigation
+class Navigation
 {
     /**
      * Renders the navigation tree, or part of it
@@ -32,12 +29,12 @@ class PMA_Navigation
     {
         /* Init */
         $retval = '';
-        if (! PMA\libraries\Response::getInstance()->isAjax()) {
-            $header = new PMA_NavigationHeader();
+        if (!Response::getInstance()->isAjax()) {
+            $header = new NavigationHeader();
             $retval = $header->getDisplay();
         }
-        $tree = new PMA_NavigationTree();
-        if (! PMA\libraries\Response::getInstance()->isAjax()
+        $tree = new NavigationTree();
+        if (! Response::getInstance()->isAjax()
             || ! empty($_REQUEST['full'])
             || ! empty($_REQUEST['reload'])
         ) {
@@ -52,14 +49,14 @@ class PMA_Navigation
             $navRender = $tree->renderPath();
         }
         if (! $navRender) {
-            $retval .= PMA\libraries\Message::error(
+            $retval .= Message::error(
                 __('An error has occurred while loading the navigation display')
             )->getDisplay();
         } else {
             $retval .= $navRender;
         }
 
-        if (! PMA\libraries\Response::getInstance()->isAjax()) {
+        if (! Response::getInstance()->isAjax()) {
             // closes the tags that were opened by the navigation header
             $retval .= '</div>'; // pma_navigation_tree
             $retval .= '<div id="pma_navi_settings_container">';
@@ -88,16 +85,16 @@ class PMA_Navigation
     public function hideNavigationItem(
         $itemName, $itemType, $dbName, $tableName = null
     ) {
-        $navTable = PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
+            . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "INSERT INTO " . $navTable
             . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
             . " VALUES ("
-            . "'" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "',"
-            . "'" . PMA\libraries\Util::sqlAddSlashes($itemName) . "',"
-            . "'" . PMA\libraries\Util::sqlAddSlashes($itemType) . "',"
-            . "'" . PMA\libraries\Util::sqlAddSlashes($dbName) . "',"
-            . "'" . (! empty($tableName)? PMA\libraries\Util::sqlAddSlashes($tableName) : "" )
+            . "'" . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "',"
+            . "'" . Util::sqlAddSlashes($itemName) . "',"
+            . "'" . Util::sqlAddSlashes($itemType) . "',"
+            . "'" . Util::sqlAddSlashes($dbName) . "',"
+            . "'" . (! empty($tableName)? Util::sqlAddSlashes($tableName) : "" )
             . "')";
         PMA_queryAsControlUser($sqlQuery, false);
     }
@@ -137,17 +134,17 @@ class PMA_Navigation
     public function unhideNavigationItem(
         $itemName, $itemType, $dbName, $tableName = null
     ) {
-        $navTable = PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
+            . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "DELETE FROM " . $navTable
             . " WHERE"
             . " `username`='"
-            . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `item_name`='" . PMA\libraries\Util::sqlAddSlashes($itemName) . "'"
-            . " AND `item_type`='" . PMA\libraries\Util::sqlAddSlashes($itemType) . "'"
-            . " AND `db_name`='" . PMA\libraries\Util::sqlAddSlashes($dbName) . "'"
+            . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `item_name`='" . Util::sqlAddSlashes($itemName) . "'"
+            . " AND `item_type`='" . Util::sqlAddSlashes($itemType) . "'"
+            . " AND `db_name`='" . Util::sqlAddSlashes($dbName) . "'"
             . (! empty($tableName)
-                ? " AND `table_name`='" . PMA\libraries\Util::sqlAddSlashes($tableName) . "'"
+                ? " AND `table_name`='" . Util::sqlAddSlashes($tableName) . "'"
                 : ""
             );
         PMA_queryAsControlUser($sqlQuery, false);
@@ -168,14 +165,14 @@ class PMA_Navigation
         $html .= '<fieldset>';
         $html .= PMA_URL_getHiddenInputs($dbName, $tableName);
 
-        $navTable = PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
+            . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
             . " WHERE `username`='"
-            . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name`='" . PMA\libraries\Util::sqlAddSlashes($dbName) . "'"
+            . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `db_name`='" . Util::sqlAddSlashes($dbName) . "'"
             . " AND `table_name`='"
-            . (! empty($tableName) ? PMA\libraries\Util::sqlAddSlashes($tableName) : '') . "'";
+            . (! empty($tableName) ? Util::sqlAddSlashes($tableName) : '') . "'";
         $result = PMA_queryAsControlUser($sqlQuery, false);
 
         $hidden = array();
@@ -218,7 +215,7 @@ class PMA_Navigation
                             . '&itemName=' . urlencode($hiddenItem)
                             . '&dbName=' . urlencode($dbName) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . PMA\libraries\Util::getIcon('lightbulb.png', __('Show'))
+                            . Util::getIcon('lightbulb.png', __('Show'))
                             .  '</a></td>';
                         $odd = ! $odd;
                     }

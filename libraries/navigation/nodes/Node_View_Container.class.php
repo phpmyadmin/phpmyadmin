@@ -5,11 +5,13 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+use PMA\libraries\navigation\NodeFactory;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/navigation/Nodes/Node_DatabaseChild_Container.class.php';
+require_once 'libraries/navigation/nodes/Node_DatabaseChild_Container.class.php';
 
 /**
  * Represents a container for view nodes in the navigation tree
@@ -37,7 +39,7 @@ class Node_View_Container extends Node_DatabaseChild_Container
         $this->real_name = 'views';
 
         $new_label = _pgettext('Create new view', 'New');
-        $new        = PMA_NodeFactory::getInstance('Node', $new_label);
+        $new        = NodeFactory::getInstance('Node', $new_label);
         $new->isNew = true;
         $new->icon  = PMA\libraries\Util::getImage('b_view_add.png', $new_label);
         $new->links = array(

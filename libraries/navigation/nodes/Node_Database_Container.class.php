@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+use PMA\libraries\navigation\NodeFactory;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -30,7 +32,7 @@ class Node_Database_Container extends Node
         if ($GLOBALS['is_create_db_priv']
             && $GLOBALS['cfg']['ShowCreateDb'] !== false
         ) {
-            $new        = PMA_NodeFactory::getInstance(
+            $new        = NodeFactory::getInstance(
                 'Node', _pgettext('Create new database', 'New')
             );
             $new->isNew = true;

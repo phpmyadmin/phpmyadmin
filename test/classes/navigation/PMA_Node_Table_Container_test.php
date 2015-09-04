@@ -6,9 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\Theme;
 
-require_once 'libraries/navigation/NodeFactory.class.php';
+require_once 'libraries/navigation/NodeFactory.php';
 
 
 require_once 'libraries/php-gettext/gettext.inc';
@@ -43,7 +44,7 @@ class Node_Table_Container_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Table_Container');
+        $parent = NodeFactory::getInstance('Node_Table_Container');
         $this->assertArrayHasKey(
             'text',
             $parent->links

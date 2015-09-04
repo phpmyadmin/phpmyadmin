@@ -5,10 +5,9 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\navigation;
 
+use PMA;
 use PMA\libraries\Template;
 
 /**
@@ -17,7 +16,7 @@ use PMA\libraries\Template;
  *
  * @package PhpMyAdmin-Navigation
  */
-class PMA_NavigationHeader
+class NavigationHeader
 {
     /**
      * Renders the navigation
@@ -31,7 +30,7 @@ class PMA_NavigationHeader
         }
         $link_url = PMA_URL_getCommon(
             array(
-                'ajax_request' => true
+                'ajax_request' => true,
             )
         );
         $class = ' class="list_container';
@@ -42,7 +41,7 @@ class PMA_NavigationHeader
             $class .= ' highlight';
         }
         $class .= '"';
-        $buffer  = '<div id="pma_navigation">';
+        $buffer = '<div id="pma_navigation">';
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
         $buffer .= '<div id="pma_navigation_content">';
@@ -59,11 +58,12 @@ class PMA_NavigationHeader
             __('Loading…'),
             array(
                 'style' => 'visibility: hidden; display:none',
-                'class' => 'throbber'
+                'class' => 'throbber',
             )
         );
         $buffer .= '</div>'; // pma_navigation_header
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
+
         return $buffer;
     }
 
@@ -96,7 +96,7 @@ class PMA_NavigationHeader
                     array(
                         'displayLogo' => true,
                         'useLogoLink' => false,
-                        'logo' => $logo,
+                        'logo'        => $logo,
                     )
                 );
         }
@@ -109,7 +109,7 @@ class PMA_NavigationHeader
         // prevent XSS, see PMASA-2013-9
         // if link has protocol, allow only http and https
         if (preg_match('/^[a-z]+:/i', $logoLink)
-            && ! preg_match('/^https?:/i', $logoLink)
+            && !preg_match('/^https?:/i', $logoLink)
         ) {
             $logoLink = 'index.php';
         }
@@ -120,7 +120,8 @@ class PMA_NavigationHeader
         case 'main':
             // do not add our parameters for an external link
             $host = parse_url(
-                $GLOBALS['cfg']['NavigationLogoLink'], PHP_URL_HOST
+                $GLOBALS['cfg']['NavigationLogoLink'],
+                PHP_URL_HOST
             );
             if (empty($host)) {
                 $logoLink .= PMA_URL_getCommon();
@@ -134,9 +135,9 @@ class PMA_NavigationHeader
                 array(
                     'displayLogo' => true,
                     'useLogoLink' => $useLogoLink,
-                    'logoLink' => $logoLink,
+                    'logoLink'    => $logoLink,
                     'linkAttribs' => $linkAttriks,
-                    'logo' => $logo,
+                    'logo'        => $logo,
                 )
             );
     }
@@ -153,7 +154,7 @@ class PMA_NavigationHeader
         $showIcon = true;
         $showText = false;
 
-        $retval  = '<!-- LINKS START -->';
+        $retval = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
         $retval .= PMA\libraries\Util::getNavigationLink(
             'index.php' . PMA_URL_getCommon(),
@@ -166,7 +167,7 @@ class PMA_NavigationHeader
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $link  = 'index.php' . $GLOBALS['url_query'];
+                $link = 'index.php' . $GLOBALS['url_query'];
                 $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
                 $retval .= PMA\libraries\Util::getNavigationLink(
                     $link,
@@ -220,6 +221,7 @@ class PMA_NavigationHeader
         );
         $retval .= '</div>';
         $retval .= '<!-- LINKS ENDS -->';
+
         return $retval;
     }
 
@@ -241,6 +243,7 @@ class PMA_NavigationHeader
             $retval .= '</div>';
             $retval .= '<!-- SERVER CHOICE END -->';
         }
+
         return $retval;
     }
 }

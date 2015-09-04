@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+use PMA\libraries\navigation\NodeFactory;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -34,7 +36,7 @@ class Node_Column_Container extends Node
         $this->real_name = 'columns';
 
         $new_label = _pgettext('Create new column', 'New');
-        $new        = PMA_NodeFactory::getInstance('Node', $new_label);
+        $new        = NodeFactory::getInstance('Node', $new_label);
         $new->isNew = true;
         $new->icon  = PMA\libraries\Util::getImage('b_column_add.png', $new_label);
         $new->links = array(

@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin-navigation
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PMA\libraries\navigation;
+
+use Node;
 
 require_once 'libraries/navigation/Nodes/Node.class.php';
 
@@ -16,7 +16,7 @@ require_once 'libraries/navigation/Nodes/Node.class.php';
  *
  * @package PhpMyAdmin-Navigation
  */
-class PMA_NodeFactory
+class NodeFactory
 {
     /**
      * @var string $_path A template for generating paths to files
@@ -24,6 +24,7 @@ class PMA_NodeFactory
      * @access private
      */
     private static $_path = 'libraries/navigation/Nodes/%s.class.php';
+
     /**
      * Sanitizes the name of a Node class
      *
@@ -33,19 +34,21 @@ class PMA_NodeFactory
      */
     private static function _sanitizeClass($class)
     {
-        if ($class !== 'Node' && ! preg_match('@^Node_\w+(_\w+)?$@', $class)) {
+        if ($class !== 'Node' && !preg_match('@^Node_\w+(_\w+)?$@', $class)) {
             $class = 'Node';
             trigger_error(
                 sprintf(
-                    /* l10n: The word "Node" must not be translated here */
+                /* l10n: The word "Node" must not be translated here */
                     __('Invalid class name "%1$s", using default of "Node"'),
                     $class
                 ),
                 E_USER_ERROR
             );
         }
+
         return self::_checkFile($class);
     }
+
     /**
      * Checks if a file exists for a given class name
      * Will return the default class name back if the
@@ -58,7 +61,7 @@ class PMA_NodeFactory
     private static function _checkFile($class)
     {
         $path = sprintf(self::$_path, $class);
-        if (! is_readable($path)) {
+        if (!is_readable($path)) {
             $class = 'Node';
             trigger_error(
                 sprintf(
@@ -69,8 +72,10 @@ class PMA_NodeFactory
                 E_USER_ERROR
             );
         }
+
         return $class;
     }
+
     /**
      * Instantiates a Node object
      *
@@ -90,6 +95,7 @@ class PMA_NodeFactory
     ) {
         $class = self::_sanitizeClass($class);
         include_once sprintf(self::$_path, $class);
+
         return new $class($name, $type, $is_group);
     }
 }

@@ -7,9 +7,8 @@
  */
 namespace PMA\libraries;
 
-use PMA_Navigation;
+use PMA\libraries\navigation\Navigation;
 
-require_once 'libraries/navigation/Navigation.class.php';
 require_once 'libraries/url_generating.lib.php';
 
 /**
@@ -424,7 +423,7 @@ class Header
                 $retval .= '</noscript>';
                 $retval .= $this->_getBodyStart();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
-                    $nav = new PMA_Navigation();
+                    $nav = new Navigation();
                     $retval .= $nav->getDisplay();
                 }
                 // Include possible custom headers

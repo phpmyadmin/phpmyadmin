@@ -9,7 +9,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
+require_once 'libraries/navigation/nodes/Node_DatabaseChild.class.php';
 
 /**
  * Represents container node that carries children of a database

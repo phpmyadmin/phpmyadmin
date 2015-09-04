@@ -5,11 +5,13 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+use PMA\libraries\navigation\NodeFactory;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/navigation/Nodes/Node_DatabaseChild_Container.class.php';
+require_once 'libraries/navigation/nodes/Node_DatabaseChild_Container.class.php';
 
 /**
  * Represents a container for events nodes in the navigation tree
@@ -33,7 +35,7 @@ class Node_Event_Container extends Node_DatabaseChild_Container
         );
         $this->real_name = 'events';
 
-        $new        = PMA_NodeFactory::getInstance(
+        $new        = NodeFactory::getInstance(
             'Node', _pgettext('Create new event', 'New')
         );
         $new->isNew = true;

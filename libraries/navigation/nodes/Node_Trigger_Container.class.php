@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+use PMA\libraries\navigation\NodeFactory;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -33,7 +35,7 @@ class Node_Trigger_Container extends Node
         );
         $this->real_name = 'triggers';
 
-        $new        = PMA_NodeFactory::getInstance(
+        $new        = NodeFactory::getInstance(
             'Node', _pgettext('Create new trigger', 'New')
         );
         $new->isNew = true;
