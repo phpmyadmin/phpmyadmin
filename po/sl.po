@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 16:58-0400\n"
+"POT-Creation-Date: 2015-08-31 16:57-0400\n"
 "PO-Revision-Date: 2015-09-01 00:14+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
@@ -1681,8 +1681,8 @@ msgid "Test"
 msgstr "Preizkus"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
-msgstr "Oblikovanje SQL ..."
+msgid "Formatting SQL…"
+msgstr "Oblikovanje SQL …"
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
 #: templates/database/designer/aggregate_query_panel.phtml:63

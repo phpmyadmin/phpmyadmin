@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 16:58-0400\n"
+"POT-Creation-Date: 2015-08-31 16:57-0400\n"
 "PO-Revision-Date: 2015-02-09 16:12+0200\n"
 "Last-Translator: mrnonz <nontawat39@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1747,7 +1747,7 @@ msgid "Test"
 msgstr "ทดสอบ"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
+msgid "Formatting SQL…"
 msgstr ""
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
