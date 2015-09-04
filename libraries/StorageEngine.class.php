@@ -94,35 +94,20 @@ class PMA_StorageEngine
         static $storage_engines = null;
 
         if (null == $storage_engines) {
-            if (PMA_DRIZZLE) {
-                $sql = "SELECT
-                        p.plugin_name            AS Engine,
-                        (CASE
-                            WHEN p.plugin_name = @@storage_engine THEN 'DEFAULT'
-                            WHEN p.is_active THEN 'YES'
-                            ELSE 'DISABLED' END) AS Support,
-                        m.module_description     AS Comment
-                    FROM data_dictionary.plugins p
-                        JOIN data_dictionary.modules m USING (module_name)
-                    WHERE p.plugin_type = 'StorageEngine'
-                        AND p.plugin_name NOT IN ('FunctionEngine', 'schema')";
-                $storage_engines = $GLOBALS['dbi']->fetchResult($sql, 'Engine');
-            } else {
-                $storage_engines
-                    = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
-                if (PMA_MYSQL_INT_VERSION >= 50708) {
-                    $disabled = PMA_Util::cacheGet(
-                        'disabled_storage_engines',
-                        function() {
-                            return $GLOBALS['dbi']->fetchValue(
-                                'SELECT @@disabled_storage_engines'
-                            );
-                        }
-                    );
-                    foreach (explode(",", $disabled) as $engine) {
-                        if (isset($storage_engines[$engine])) {
-                            $storage_engines[$engine]['Support'] = 'DISABLED';
-                        }
+            $storage_engines
+                = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
+            if (PMA_MYSQL_INT_VERSION >= 50708) {
+                $disabled = PMA_Util::cacheGet(
+                    'disabled_storage_engines',
+                    function() {
+                        return $GLOBALS['dbi']->fetchValue(
+                            'SELECT @@disabled_storage_engines'
+                        );
+                    }
+                );
+                foreach (explode(",", $disabled) as $engine) {
+                    if (isset($storage_engines[$engine])) {
+                        $storage_engines[$engine]['Support'] = 'DISABLED';
                     }
                 }
             }

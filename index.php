@@ -180,7 +180,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
     /**
      * Displays the mysql server related links
      */
-    if ($server > 0 && ! PMA_DRIZZLE) {
+    if ($server > 0) {
         include_once 'libraries/check_user_privileges.lib.php';
 
         // Logout for advanced authentication
@@ -220,7 +220,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
            )
            . '        </form>' . "\n"
            . '    </li>' . "\n";
-    } // end of if ($server > 0 && !PMA_DRIZZLE)
+    } // end of if ($server > 0)
     echo '</ul>';
     echo '</div>';
 }
@@ -305,10 +305,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' . __('Server charset:') . ' '
        . '        <span lang="en" dir="ltr">';
-    if (! PMA_DRIZZLE) {
-        echo '           '
-            . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
-    }
+    echo '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
     echo '           (' . $mysql_charset_map['utf-8'] . ')'
        . '        </span>'
        . '    </li>'
@@ -600,7 +597,6 @@ if ($server > 0) {
  * numbering.
  */
 if (isset($GLOBALS['dbi'])
-    && !PMA_DRIZZLE
     && $cfg['ServerLibraryDifference_DisableWarning'] == false
 ) {
     /** @var PMA_String $pmaString */
