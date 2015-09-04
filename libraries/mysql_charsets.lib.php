@@ -126,9 +126,7 @@ function PMA_getDbCollation($db)
         return $GLOBALS['dbi']->fetchValue($sql);
     } else {
         $GLOBALS['dbi']->selectDb($db);
-        $return = $GLOBALS['dbi']->fetchValue(
-            'SELECT @@collation_database', 0, 1
-        );
+        $return = $GLOBALS['dbi']->fetchValue('SELECT @@collation_database');
         if ($db !== $GLOBALS['db']) {
             $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         }
@@ -143,9 +141,7 @@ function PMA_getDbCollation($db)
  */
 function PMA_getServerCollation()
 {
-    return $GLOBALS['dbi']->fetchValue(
-        'SELECT @@collation_server', 0, 1
-    );
+    return $GLOBALS['dbi']->fetchValue('SELECT @@collation_server');
 }
 
 /**

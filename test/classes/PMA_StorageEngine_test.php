@@ -34,6 +34,7 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+        $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
             'PMA\libraries\StorageEngine', array('dummy')
         );

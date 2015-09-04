@@ -318,9 +318,7 @@ class DatabaseInterface
         $server_language = Util::cacheGet(
             'server_language',
             function () {
-                return $GLOBALS['dbi']->fetchValue(
-                    "SELECT @@lc_messages;", 0, 0
-                );
+                return $GLOBALS['dbi']->fetchValue("SELECT @@lc_messages;");
             }
         );
 

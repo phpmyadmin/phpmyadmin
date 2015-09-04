@@ -831,9 +831,7 @@ class Table
             // This is not availabile for Drizzle.
             if (!PMA_DRIZZLE) {
                 Context::setMode(
-                    $GLOBALS['dbi']->fetchValue(
-                        "SELECT @@sql_mode", 0, 1
-                    )
+                    $GLOBALS['dbi']->fetchValue("SELECT @@sql_mode")
                 );
             }
 

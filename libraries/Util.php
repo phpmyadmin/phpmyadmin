@@ -3238,9 +3238,7 @@ class Util
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
-            $ndbver = $GLOBALS['dbi']->fetchValue(
-                "SELECT @@ndb_version_string"
-            );
+            $ndbver = $GLOBALS['dbi']->fetchValue("SELECT @@ndb_version_string");
             return ($ndbver >= 7.3);
         } else {
             return false;
@@ -4694,7 +4692,7 @@ class Util
             'lower_case_table_names',
             function () {
                 return $GLOBALS['dbi']->fetchValue(
-                    "SELECT @@lower_case_table_names", 0, 1
+                    "SELECT @@lower_case_table_names"
                 );
             }
         );

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 16:58-0400\n"
+"POT-Creation-Date: 2015-08-31 16:57-0400\n"
 "PO-Revision-Date: 2015-08-31 17:13+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1691,8 +1691,8 @@ msgid "Test"
 msgstr "Essaya"
 
 #: js/messages.php:289
-msgid "Formatting SQL..."
-msgstr "Formatante SQL..."
+msgid "Formatting SQL…"
+msgstr "Formatante SQL…"
 
 #: js/messages.php:293 libraries/server_variables.lib.php:157
 #: templates/database/designer/aggregate_query_panel.phtml:63
