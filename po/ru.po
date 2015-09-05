@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-09-05 18:57+0200\n"
-"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
+"PO-Revision-Date: 2015-09-05 19:08+0200\n"
+"Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
@@ -643,7 +643,6 @@ msgstr ""
 "Дополнительная информация доступна на %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Основные настройки"
@@ -659,7 +658,6 @@ msgid "Server connection collation"
 msgstr "Сопоставление кодировки соединения"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Настройки внешнего вида"
@@ -999,7 +997,6 @@ msgstr ""
 "Вы уверены, что хотите изменить сверки колонок и конвертировать данные?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Сохранить и Закрыть"
@@ -1011,7 +1008,6 @@ msgid "Reset"
 msgstr "Сбросить"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Сбросить всё"
@@ -1037,7 +1033,6 @@ msgid "Add index"
 msgstr "Добавить индекс"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Редактировать индекс"
@@ -1088,7 +1083,6 @@ msgstr "SQL запрос:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Значения Y"
@@ -1185,7 +1179,6 @@ msgid "Query cache used"
 msgstr "Использован кэш запроса"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Загрузка процессора"
@@ -1223,25 +1216,21 @@ msgid "Used memory"
 msgstr "Использованная память"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Всего области подкачки"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Кэшировано области подкачки"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Использовано области подкачки"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Свободно области подкачки"
@@ -1657,7 +1646,6 @@ msgid "No files available on server for import!"
 msgstr "На сервере нет доступных для импорта файлов!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Анализировать запрос"
@@ -1723,28 +1711,24 @@ msgid "Loading…"
 msgstr "Загрузка…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Запрос отменён!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Обработка запроса"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Запрос не выполнен!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Ошибка при обработке запроса:"
+msgstr "Ошибка при обработке запроса"
 
 #: js/messages.php:305
 #, php-format
@@ -1762,16 +1746,14 @@ msgid "No databases selected."
 msgstr "Ни одна база данных не выбрана."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Удаление столбца"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Добавить первичный ключ"
+msgstr "Добавление первичного ключа"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1788,19 +1770,16 @@ msgid "Click to dismiss this notification"
 msgstr "Кликните для сокрытия данного уведомления"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Переименование баз данных"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Копирование базы данных"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Смена кодировки"
@@ -2193,16 +2172,14 @@ msgid "Geometry"
 msgstr "Геометрия"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Внутренний контур"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Внешний контур:"
+msgstr "Внешний контур"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2447,13 +2424,11 @@ msgid "More"
 msgstr "Ещё"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Раскрыть панель"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Скрыть панель"
@@ -2534,13 +2509,11 @@ msgid "Create view"
 msgstr "Создать представление"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Отправить отчёты об ошибках"
+msgstr "Отправить отчёт об ошибках"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Отправить отчёт об ошибке"
@@ -2553,13 +2526,11 @@ msgstr ""
 "Произошла фатальная ошибка JavaScript. Вы хотите отправить отчёт об ошибке?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Изменить настройки отчёта"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Показать детали отчёта"
