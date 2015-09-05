@@ -32,7 +32,7 @@ class NodeFactory
      */
     private static function _sanitizeClass($class)
     {
-        if ($class !== 'PMA\libraries\navigation\nodes\Node' && !preg_match('@^Node\w+(_\w+)?$@', $class)) {
+        if ($class !== 'PMA\libraries\navigation\nodes\Node' && !preg_match('@^PMA\libraries\navigation\nodes\Node\w+(_\w+)?$@', $class)) {
             $class = 'PMA\libraries\navigation\nodes\Node';
             trigger_error(
                 sprintf(
