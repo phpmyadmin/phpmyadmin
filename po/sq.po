@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-09-01 02:03+0200\n"
+"PO-Revision-Date: 2015-09-05 18:05+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/sq/>\n"
@@ -1025,7 +1025,6 @@ msgid "Reset"
 msgstr "Rivendos"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Rivendos të gjitha"
@@ -1139,7 +1138,7 @@ msgstr "Shablloni është krijuar."
 
 #: js/messages.php:130
 msgid "Template was loaded."
-msgstr ""
+msgstr "Shablloni është lokalizuar."
 
 #: js/messages.php:131
 #| msgid "The profile has been updated."
@@ -1673,10 +1672,9 @@ msgid "No files available on server for import!"
 msgstr "Nuk ka file të vlefshme në server për import!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Pyetsor analize"
+msgstr "Analizo pyetsorin"
 
 #: js/messages.php:279
 msgid "Advisor system"
@@ -1739,22 +1737,19 @@ msgid "Loading…"
 msgstr "Ngarkon…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
-msgstr "Kërkesa u abortua!"
+msgstr "Kërkesa u abortua!!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Proçeson kërkesën"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
-msgstr "Kërkesa dështoi!"
+msgstr "Kërkesa dështoi!!"
 
 #: js/messages.php:304
 #| msgid "Error in processing request:"
@@ -1777,7 +1772,6 @@ msgid "No databases selected."
 msgstr "Nuk janë zgjedhur databaza."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Po fshin kolonën"
@@ -1802,19 +1796,16 @@ msgid "Click to dismiss this notification"
 msgstr "Kliko për të larguar këtë njoftim"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Riemëron databazën"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopjon databazën"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Ndryshon setin e karaktereve"
@@ -2212,7 +2203,6 @@ msgid "Geometry"
 msgstr "Gjeometri"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Brenda rrethit"
@@ -2473,7 +2463,6 @@ msgid "Show panel"
 msgstr "Shfaq panelin"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Fsheh panelin"
@@ -2556,7 +2545,6 @@ msgid "Send error report"
 msgstr "Dërgo raportin e gabimit"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Dërgo raportin e gabimit"
@@ -2570,13 +2558,11 @@ msgstr ""
 "gabimi?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Ndrysho rregullimet e raportit"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Shfaq detajet e raportit"
@@ -3546,7 +3532,6 @@ msgstr "Tabelat e brendshme:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Mos-zgjedh të gjitha"
@@ -3721,7 +3706,6 @@ msgstr "Me të zgjedhur:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Shënjo të gjitha"
@@ -3947,7 +3931,7 @@ msgstr ""
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (afër <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
@@ -4807,7 +4791,7 @@ msgstr "Analizat statike:"
 #: libraries/Util.class.php:668
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d gabime u gjendën gjatë analizave."
 
 #: libraries/Util.class.php:730 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -4967,7 +4951,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Kontrollo privilegjet për databazën \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Kontrollo privilegjet"
@@ -5697,6 +5680,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Gjej gabimet në pyetsor, parase taekzekutoni atë. Kjo kërkon të aftësohet "
+"CodeMirror."
 
 #: libraries/config/messages.inc.php:67
 #| msgid "Enable %s"
@@ -6061,6 +6046,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Shto NËSE NUK EKZISTON (më pak efiçiente, pasi indekset do të gjenerohen "
+"gjatë krijimit të tabelës)"
 
 #: libraries/config/messages.inc.php:211
 msgid "Use ignore inserts"
@@ -6699,7 +6686,7 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Numri i bajt, që një skript është i lejuar të ndajë, psh. [kbd]32M[/kbd] "
+"Numri i bajtëve, që një skript është i lejuar të ndajë, psh. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] për asnjë kufizim dhe kbd]0[/kbd] për asnjë ndryshim)."
 
 #: libraries/config/messages.inc.php:468
@@ -7700,7 +7687,6 @@ msgstr ""
 "kohore për të gjithë tabelat."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Shfaq vulën kohore të aktualizuar së fundi"
@@ -7713,7 +7699,6 @@ msgstr ""
 "kohore për të gjithë tabelat."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Shfaq vulën kohore të kontrolluar së fundi"
@@ -8306,6 +8291,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Kjo metodë kërkon përdorimin e një '<i>lidhje SSL</i>' ose një '<i>lidhje të "
+"pakriptuar, që kripton fjalëkalimet me anë të RSA</i>'; ndërsa lidhet me "
+"serverin."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -8361,34 +8349,29 @@ msgid "Template name"
 msgstr "Emri i shabllonit"
 
 #: libraries/display_export.lib.php:217
-#, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "Modeli i emrit të filit:"
+msgstr "Shabllonet ekzistuese:"
 
 #: libraries/display_export.lib.php:218
-#, fuzzy
 #| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "Shkalla e diskut të përkohshëm"
+msgstr "Shablloni:"
 
 #: libraries/display_export.lib.php:223
-#, fuzzy
 #| msgid "Updated"
 msgid "Update"
-msgstr "Aktualizuar"
+msgstr "Aktualizo"
 
 #: libraries/display_export.lib.php:245
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select a template"
-msgstr "Zgjedh një tabelë"
+msgstr "Zgjedh një shabllon"
 
 #: libraries/display_export.lib.php:291
-#, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
-msgstr "Metoda e eksportit"
+msgstr "Metoda e eksportit:"
 
 #: libraries/display_export.lib.php:301
 msgid "Quick - display only the minimal options"
@@ -8399,10 +8382,9 @@ msgid "Custom - display all possible options"
 msgstr "Përshtat - shfaq të gjitha opsionet e mundshme"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "Databazat"
+msgstr "Databazat:"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
@@ -8611,7 +8593,6 @@ msgstr ""
 "b>. Shembull: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Fili për import:"
@@ -8625,10 +8606,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Ngarkimet e fileve nuk lejohen në këtë server."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
-msgstr "Importimi i pjesshëm:"
+msgstr "Importim i pjesshëm:"
 
 #: libraries/display_import.lib.php:285
 #, php-format
@@ -8657,7 +8637,6 @@ msgstr ""
 "duke filluar nga i pari:"
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Opsionet e tjera:"
@@ -9994,18 +9973,18 @@ msgstr "Riemëro databazën në"
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:967
 #: libraries/operations.lib.php:1321
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Nuk keni privilegje të mjaftueshme të jeni këtu tani!"
+msgstr ""
+"Ju nuk keni privilegje të mjaftueshme për të kryer këtë veprim; Ju lutem, "
+"referoni dokumentacionin për më shumë detaje"
 
 #: libraries/operations.lib.php:102 libraries/operations.lib.php:249
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Përshtat privilegjet"
@@ -10618,12 +10597,13 @@ msgstr "Shto %s deklaratë"
 #: libraries/plugins/export/ExportSql.class.php:279
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(më pak efiçiente, pasi indekset do të gjenerohen gjatë krijimirt të tabelës)"
 
 #: libraries/plugins/export/ExportSql.class.php:288
-#, fuzzy, php-format
+#, php-format
 #| msgid "Session value"
 msgid "%s value"
-msgstr "Vlera e sesionit"
+msgstr "Vlera %s"
 
 #: libraries/plugins/export/ExportSql.class.php:329
 msgid ""
@@ -11003,7 +10983,6 @@ msgstr "Shfaq rrjetën"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Fjalori i të dhënave"
@@ -11409,10 +11388,9 @@ msgid "Remembering Designer Settings"
 msgstr "Kujton rregullimet e dizajnerit"
 
 #: libraries/relation.lib.php:338
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "Lloji i eksportit është i pavlefshëm"
+msgstr "Shabllonet e eksportit të ruajtjes"
 
 #: libraries/relation.lib.php:346
 msgid "Quick steps to setup advanced features:"
@@ -11496,7 +11474,6 @@ msgid "Master configuration"
 msgstr "Konfigurimi master"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11510,11 +11487,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Ky server nuk është konfiguruar si master në një proces të replikimit. Mund "
-"t'i zgjidhni nga replikimi të gjitha databazat dhe duke injoruar sigurisht "
-"(e dobishme, nëse doni të replikoni shumicën e databazave), ose mund të "
-"zgjidhni të injoroni të gjitha databazat si standard dhe të lejoni vetëm "
-"databazat e caktuara të replikohen. Ju lutem, zgjedh mënyrën:"
+"Ky server nuk është konfiguruar si master, në një proces replikimi. Mund të "
+"zgjidhni nga replikimi të gjitha databazat dhe injoroni disa nga ato (e "
+"dobishme, nëse doni të replikoni shumicën e databazave), ose mund të "
+"zgjidhni të injoroni të gjitha databazat si standard dhe të lejoni të "
+"replikohen vetëm databazat e caktuara. Ju lutem, zgjedh mënyrën:"
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
@@ -11761,10 +11738,9 @@ msgid "Re-type"
 msgstr "Ri-shkruaj"
 
 #: libraries/replication_gui.lib.php:895
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Gjenero fjalëkalimin"
+msgstr "Gjenero fjalëkalimin:"
 
 #: libraries/replication_gui.lib.php:933
 msgid "Replication started successfully."
@@ -12230,7 +12206,6 @@ msgid "Ignoring unsupported language code."
 msgstr "Injoron kodin e gjuhës së pambuluar."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#, fuzzy
 #| msgid "Current Server:"
 msgid "Current server:"
 msgstr "Serveri aktual:"
@@ -12292,7 +12267,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Aftëso statistikat"
@@ -12636,19 +12610,17 @@ msgstr ""
 "emër tjetër pritësi (hostname)."
 
 #: libraries/server_privileges.lib.php:1510
-#, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
-msgstr "Emri i përdoruesit:"
+msgstr "Emri i pritësit:"
 
 #: libraries/server_privileges.lib.php:1515
 #: libraries/server_privileges.lib.php:1617
 #: libraries/server_privileges.lib.php:2370
 #: libraries/server_privileges.lib.php:3332
-#, fuzzy
 #| msgid "Log name"
 msgid "Host name"
-msgstr "Emri i hyrjes"
+msgstr "Emri i pritësit"
 
 #: libraries/server_privileges.lib.php:1657
 msgid "Do not change the password"
@@ -12656,10 +12628,9 @@ msgstr "Mos ndrysho fjalëkalimin"
 
 #: libraries/server_privileges.lib.php:1694
 #: libraries/server_privileges.lib.php:1697
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Autentifikimi"
+msgstr "Shtojca e autentifikimit"
 
 #: libraries/server_privileges.lib.php:1925
 #, php-format
@@ -12673,16 +12644,14 @@ msgstr "Keni anuluar privilegjet për %s."
 
 #: libraries/server_privileges.lib.php:2061
 #: libraries/server_privileges.lib.php:4318
-#, fuzzy
 #| msgid "Add user group"
 msgid "Add user account"
-msgstr "Shto grup përdoruesish"
+msgstr "Shto llogari përdoruesi"
 
 #: libraries/server_privileges.lib.php:2070
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
-msgstr "Databaza për përdorues"
+msgstr "Databaza për llogarinë e përdoruesit"
 
 #: libraries/server_privileges.lib.php:2074
 msgid "Create database with same name and grant all privileges."
@@ -12747,10 +12716,9 @@ msgid "table-specific"
 msgstr "Privilegjet specifike të tabelës"
 
 #: libraries/server_privileges.lib.php:2628
-#, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges"
-msgstr "Korrigjo privilegjet:"
+msgstr "Korrigjo privilegjet"
 
 #: libraries/server_privileges.lib.php:2631
 msgid "Revoke"
@@ -12783,16 +12751,14 @@ msgstr ""
 "… fshij të vjetrin nga tabela e përdoruesve dhe pastaj ringarko privilegjet."
 
 #: libraries/server_privileges.lib.php:2857
-#, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "Ndrysho informacionin e hyrjes / Kopjo përdorues"
+msgstr "Ndrysho informacionin e hyrjes / Kopjo llogarinë e përdoruesit"
 
 #: libraries/server_privileges.lib.php:2863
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "Krijo një përdorues të ri me të njëjtat privilegje dhe …"
+msgstr "Krijo një llogari të re përdoruesi me të njëjtat privilegje dhe …"
 
 #: libraries/server_privileges.lib.php:3165
 msgid "Column-specific privileges"
@@ -12813,10 +12779,9 @@ msgid "Add privileges on the following table:"
 msgstr "Shto privilegje në tabelën që vijon:"
 
 #: libraries/server_privileges.lib.php:3524
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "Largo përdoruesit e zgjedhur"
+msgstr "Largo llogaritë e zgjedhura të përdoruesve"
 
 #: libraries/server_privileges.lib.php:3530
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12877,16 +12842,14 @@ msgid "New"
 msgstr "I ri"
 
 #: libraries/server_privileges.lib.php:4339
-#, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "Korrigjo privilegjet:"
 
 #: libraries/server_privileges.lib.php:4340
-#, fuzzy
 #| msgid "User group"
 msgid "User account"
-msgstr "Grup përdoruesi"
+msgstr "Llogaria e përdoruesit"
 
 #: libraries/server_privileges.lib.php:4399
 msgid ""
@@ -12897,10 +12860,9 @@ msgstr ""
 "cilën keni hyrë aktualisht."
 
 #: libraries/server_privileges.lib.php:4419 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "Pamja e përgjithshme e përdoruesve"
+msgstr "Pamja e përgjithshme e llogarive të përdoruesve"
 
 #: libraries/server_privileges.lib.php:4487
 msgid ""
@@ -12923,7 +12885,6 @@ msgstr ""
 "rast, ju duhet të %sngarkoni privilegjet%s para se të vazhdoni."
 
 #: libraries/server_privileges.lib.php:4547
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12939,7 +12900,8 @@ msgstr ""
 "Shënim: phpMyAdmin i merr privilegjet e përdoruesit direkt nga tabelat e "
 "privilegjeve MySQL. Përmbajtja e këtyre tabelave mund të ndryshojë nga "
 "privilegjet që përdor serveri, nëse ato janë ndryshuar manualisht. Në këtë "
-"rast, ju duhet të %sngarkoni privilegjet%s para se të vazhdoni."
+"rast, privilegjet duhet të ringarkohen, por aktualisht ju nuk duhet të "
+"RINGARKONI privilegjet."
 
 #: libraries/server_privileges.lib.php:4597
 msgid "The selected user was not found in the privilege table."
@@ -13189,7 +13151,6 @@ msgid "Clear series"
 msgstr "Pastro seritë"
 
 #: libraries/server_status_monitor.lib.php:233
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Seritë në grafik:"
@@ -14118,10 +14079,9 @@ msgid "A comma or a closing bracket was expected"
 msgstr ""
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:248
-#, fuzzy
 #| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Nuk është zgjedhur tabelë."
+msgstr "Pritet një presje ose një kllapë mbyllëse."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:264
 msgid "A closing bracket was expected."
@@ -14146,16 +14106,14 @@ msgid "Unexpected dot."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:336
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Nuk është zgjedhur tabelë."
+msgstr "Pritet një alias (pseudonim)."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:98
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Nuk janë zgjedhur versione."
+msgstr "Pritet një shprehje."
 
 #: libraries/sql-parser/src/Components/Limit.php:92
 #: libraries/sql-parser/src/Components/Limit.php:114
@@ -14168,32 +14126,28 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:104
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Numri i tabelave që janë hapur."
+msgstr "Pritet emri i vjetër i tabelës."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:114
 msgid "Keyword \"TO\" was expected."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:131
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Numri i tabelave që janë hapur."
+msgstr "Pritet emri i ri i tabelës."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:149
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Radha është fshirë."
+msgstr "Pritet një veprim riemërimi."
 
 #: libraries/sql-parser/src/Lexer.php:270
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Karakter i papritur në linjën %s."
+msgstr "Karakter i papritur."
 
 #: libraries/sql-parser/src/Lexer.php:307
 msgid "Expected whitespace(s) before delimiter."
@@ -14205,22 +14159,20 @@ msgid "Expected delimiter."
 msgstr ""
 
 #: libraries/sql-parser/src/Lexer.php:788
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "Ngjarja %1$s është krijuar."
+msgstr "Pritet thonjëza e fundit %1$s."
 
 #: libraries/sql-parser/src/Lexer.php:828
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Modeli i emrit të tabelës"
+msgstr "Pritet emri i variablit."
 
 #: libraries/sql-parser/src/Parser.php:402
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "në fillim të tabelës"
+msgstr "Fillim i papritur i deklaratës."
 
 #: libraries/sql-parser/src/Parser.php:421
 msgid "Unrecognized statement type."
@@ -14231,10 +14183,9 @@ msgid "No transaction was previously started."
 msgstr ""
 
 #: libraries/sql-parser/src/Statement.php:212
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Karakter i papritur në linjën %s."
+msgstr "Shenjë e papritur."
 
 #: libraries/sql-parser/src/Statement.php:250
 msgid "This type of clause was previously parsed."
@@ -14250,16 +14201,14 @@ msgid "Unrecognized keyword."
 msgstr ""
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:348
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Numri i tabelave që janë hapur."
+msgstr "Pritet emri i entitetit."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:365
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Radha është fshirë."
+msgstr "Pritet së paku një përcaktim kolone."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:478
 msgid "A \"RETURNS\" keyword was expected."
@@ -14356,10 +14305,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Ekzekuto pyetsorin/rët SQL në databazën %s"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Ekzekuto pyetsorin/rët SQL në databazën %s"
+msgstr "Ekzekuto pyetsorin/rët SQL në tabelën %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
@@ -14723,16 +14672,14 @@ msgid "Username and hostname didn't change."
 msgstr "Emri i përdoruesit dhe emri i pritësit (hostname) nuk ndryshuan."
 
 #: server_status.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
-msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur përdoruesit."
+msgstr "Nuk ka privilegje të mjaftueshme, për të shfaqur statusin e serverit."
 
 #: server_status_advisor.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
-msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur përdoruesit."
+msgstr "Nuk ka privilegje të mjaftueshme, për të shfaqur këshilluesin."
 
 #: server_status_processes.php:36
 #, php-format
@@ -14748,22 +14695,23 @@ msgstr ""
 "të jetë mbyllur."
 
 #: server_status_queries.php:55
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
-msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur përdoruesit."
+msgstr ""
+"Nuk ka privilegje të mjaftueshme për të shfaqur statistikat e pyetsorit."
 
 #: server_status_variables.php:57
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
-msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur përdoruesit."
+msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur variablat e statusit."
 
 #: server_variables.php:83
-#, fuzzy, php-format
+#, php-format
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur përdoruesit."
+msgstr ""
+"Nuk ka privilegje të mjaftueshme për të shfaqur variablat e serverit dhe "
+"rregullimet. %s"
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:277
 msgid "Download"
@@ -14966,10 +14914,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Radhë: %1$s, Kolonë: %2$s, Gabim: %3$s"
 
 #: tbl_row_action.php:71
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Nuk janë zgjedhur versione."
+msgstr "Nuk është zgjedhur radha."
 
 #: tbl_tracking.php:33
 #, php-format
@@ -15036,10 +14983,9 @@ msgstr "Zgjedh nga kolonat qendrore"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:22
-#, fuzzy
 #| msgid "Compression"
 msgid "Expression"
-msgstr "Kompresim"
+msgstr "Shprehje"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -15754,34 +15700,29 @@ msgstr "në fillim të tabelës"
 
 #: templates/table/structure/display_partitions.phtml:3
 #: templates/table/structure/display_structure.phtml:193
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Pjesa %s"
+msgstr "Pjesët"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "copëzuar"
+msgstr "Ndarë nga:"
 
 #: templates/table/structure/display_partitions.phtml:12
-#, fuzzy
 #| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "copëzuar"
+msgstr "Nën-ndarë nga:"
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Row length"
 msgid "Data length"
-msgstr "Gjatësia e radhës"
+msgstr "Gjatësia e të dhënave"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "Gjatësia e radhës"
+msgstr "Gjatësia e indeksit"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
