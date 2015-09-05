@@ -11,6 +11,7 @@ namespace PMA\libraries\plugins\auth;
 
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 
 /**
  * Handles the HTTP authentication methods
@@ -26,7 +27,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function auth()
     {
-        $response = \PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -79,7 +80,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = \PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->getFooter()
             ->setMinimal();
         $header = $response->getHeader();
