@@ -876,11 +876,3 @@ class AuthenticationCookie extends AuthenticationPlugin
         $this->storePasswordCookie($password);
     }
 }
-
-/**
- * phpseclib
- */
-if (! AuthenticationCookie::useOpenSSL()) {
-    include PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-    include PHPSECLIB_INC_DIR . '/Crypt/Random.php';
-}
