@@ -110,6 +110,7 @@ phpMyAdmin - ChangeLog
 - issue #11451 Designer-Bug in move.js on multiple server configuration
 - issue #11458 Invalid UTF-8 sequence in argument
 - issue #11457 Request URI too large
+- issue        Invalid argument supplied for foreach()
 
 4.4.14.0 (2015-08-20)
 - issue #11367 Export after search, missing WHERE clause

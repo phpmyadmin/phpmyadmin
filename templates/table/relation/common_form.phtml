@@ -50,20 +50,22 @@
                     </th>
                 </tr>
                 <?php $odd_row = true; $i = 0; ?>
-                <?php foreach ($existrel_foreign as $key => $one_key): ?>
-                    <?php echo PMA\Template::get('table/relation/foreign_key_row')->render(
-                        array(
-                            'one_key' => $one_key,
-                            'odd_row' => $odd_row,
-                            'columns' => $columns,
-                            'i' => $i++,
-                            'options_array' => $options_array,
-                            'tbl_storage_engine' => $tbl_storage_engine,
-                            'db' => $db
-                        )
-                    );
-                    $odd_row = ! $odd_row;?>
-                <?php endforeach; ?>
+                <?php if (! empty($existrel_foreign)): ?>
+                    <?php foreach ($existrel_foreign as $key => $one_key): ?>
+                        <?php echo PMA\Template::get('table/relation/foreign_key_row')->render(
+                            array(
+                                'one_key' => $one_key,
+                                'odd_row' => $odd_row,
+                                'columns' => $columns,
+                                'i' => $i++,
+                                'options_array' => $options_array,
+                                'tbl_storage_engine' => $tbl_storage_engine,
+                                'db' => $db
+                            )
+                        );
+                        $odd_row = ! $odd_row;?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <?php echo PMA\Template::get('table/relation/foreign_key_row')->render(
                     array(
                         'one_key' => array(),
