@@ -8,6 +8,7 @@
  */
 namespace PMA\libraries\plugins\export;
 
+use PMA\libraries\DatabaseInterface;
 use PMA\libraries\PDF;
 use PMA\libraries\Util;
 use TCPDF_STATIC;
@@ -670,7 +671,7 @@ class PMA_ExportPdf extends PDF
         $this->results = $GLOBALS['dbi']->query(
             $query,
             null,
-            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->numFields = $GLOBALS['dbi']->numFields($this->results);
         $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
@@ -799,7 +800,7 @@ class PMA_ExportPdf extends PDF
         $this->results = $GLOBALS['dbi']->query(
             $query,
             null,
-            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->setY($this->tMargin);
         $this->AddPage();

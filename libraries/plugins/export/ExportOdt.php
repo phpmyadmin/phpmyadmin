@@ -13,7 +13,10 @@ use ExportPluginProperties;
 use OptionsPropertyMainGroup;
 use OptionsPropertyRootGroup;
 use PMA\libraries\DatabaseInterface;
+use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\Util;
 use RadioPropertyItem;
+use TextPropertyItem;
 
 $GLOBALS['odt_buffer'] = '';
 

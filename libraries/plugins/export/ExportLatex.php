@@ -8,9 +8,15 @@
  */
 namespace PMA\libraries\plugins\export;
 
+use BoolPropertyItem;
+use ExportPluginProperties;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Util;
+use RadioPropertyItem;
+use TextPropertyItem;
 
 /**
  * Handles the export for the Latex format

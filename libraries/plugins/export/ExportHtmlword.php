@@ -8,10 +8,15 @@
  */
 namespace PMA\libraries\plugins\export;
 
+use BoolPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
 use PMA\libraries\plugins\ExportPlugin;
 use ExportPluginProperties;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Util;
+use RadioPropertyItem;
+use TextPropertyItem;
 
 /**
  * Handles the export for the HTML-Word format

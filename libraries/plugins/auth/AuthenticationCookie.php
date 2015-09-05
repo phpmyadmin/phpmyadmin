@@ -10,6 +10,7 @@ namespace PMA\libraries\plugins\auth;
 
 use phpseclib\Crypt;
 use PMA\libraries\Message;
+use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 

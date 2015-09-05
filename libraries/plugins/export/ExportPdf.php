@@ -14,6 +14,7 @@ use OptionsPropertyMainGroup;
 use OptionsPropertyRootGroup;
 use PMA\libraries\plugins\export\PMA_ExportPdf;
 use RadioPropertyItem;
+use TextPropertyItem;
 
 /**
  * Skip the plugin if TCPDF is not available.

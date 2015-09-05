@@ -10,7 +10,6 @@
 namespace PMA\libraries\plugins\auth;
 
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA;
 use PMA\libraries\Message;
 
 /**
@@ -23,15 +22,11 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Displays authentication form and redirect as necessary
      *
-     * @global  string    the font face to use in case of failure
-     * @global  string    the default font size to use in case of failure
-     * @global  string    the big font size to use in case of failure
-     *
      * @return boolean   always true (no return indeed)
      */
     public function auth()
     {
-        $response = PMA\libraries\Response::getInstance();
+        $response = \PMA\libraries\Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -84,7 +79,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = PMA\libraries\Response::getInstance();
+        $response = \PMA\libraries\Response::getInstance();
         $response->getFooter()
             ->setMinimal();
         $header = $response->getHeader();
@@ -121,17 +116,6 @@ class AuthenticationHttp extends AuthenticationPlugin
      *          on
      * @global  string $PHP_AUTH_PW            the password if register_globals is
      *          on
-     * @global         array                   the array of server variables if
-     *                                         register_globals is off
-     * @global         array                   the array of environment variables if
-     *                                         register_globals is off
-     * @global         string                  the username for the ? server
-     * @global         string                  the password for the ? server
-     * @global         string                  the username for the WebSite
-     *                 Professional server
-     * @global         string                  the password for the WebSite
-     *                 Professional server
-     * @global         string                  the username of the user who logs out
      *
      * @return boolean   whether we get authentication settings or not
      */
@@ -221,7 +205,6 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @global  array   $cfg                   the valid servers settings
      * @global  integer $server                the id of the current server
-     * @global          array                  the current server settings
      * @global  string  $PHP_AUTH_USER         the current username
      * @global  string  $PHP_AUTH_PW           the current password
      *

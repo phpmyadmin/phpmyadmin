@@ -284,7 +284,7 @@ class TableSearchController extends TableController
             /**
              * Handle AJAX request for data row on point select
              *
-             * @var post_params Object containing parameters for the POST request
+             * @var boolean Object containing parameters for the POST request
              */
             if (isset($_REQUEST['get_data_row'])
                 && $_REQUEST['get_data_row'] == true
@@ -297,7 +297,7 @@ class TableSearchController extends TableController
              * Handle AJAX request for changing field information
              * (value,collation,operators,field values) in input form
              *
-             * @var post_params Object containing parameters for the POST request
+             * @var boolean Object containing parameters for the POST request
              */
             if (isset($_REQUEST['change_tbl_info'])
                 && $_REQUEST['change_tbl_info'] == true

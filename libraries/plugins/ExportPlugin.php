@@ -9,7 +9,6 @@
 namespace PMA\libraries\plugins;
 
 use ExportPluginProperties;
-use nothing;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -257,7 +256,7 @@ abstract class ExportPlugin
      * @param string &$db     the database
      * @param string &$table  the table
      *
-     * @return nothing
+     * @return void
      */
     public function initAlias($aliases, &$db, &$table = null)
     {

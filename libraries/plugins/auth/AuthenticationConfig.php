@@ -75,17 +75,6 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * @global string  the MySQL error message PHP returns
-     * @global string  the connection type (persistent or not)
-     * @global string  the MySQL server port to use
-     * @global string  the MySQL socket port to use
-     * @global array   the current server settings
-     * @global string  the font face to use in case of failure
-     * @global string  the default font size to use in case of failure
-     * @global string  the big font size to use in case of failure
-     * @global boolean tell the "PMA_mysqlDie()" function headers have been
-     *                 sent
-     *
      * @return boolean   always true (no return indeed)
      */
     public function authFails()

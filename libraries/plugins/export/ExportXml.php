@@ -8,6 +8,15 @@
  */
 namespace PMA\libraries\plugins\export;
 
+use BoolPropertyItem;
+use ExportPluginProperties;
+use HiddenPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA\libraries\DatabaseInterface;
+use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\Util;
+
 if (!/*overload*/mb_strlen($GLOBALS['db'])) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
 
@@ -181,7 +190,7 @@ class ExportXml extends ExportPlugin
         }
         $head .= $crlf
             . '- ' . __('Generation Time:') . ' '
-            . PMA\libraries\Util::localisedDate() . $crlf
+            . Util::localisedDate() . $crlf
             . '- ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
             . '- ' . __('PHP Version:') . ' ' . phpversion() . $crlf
             . '-->' . $crlf . $crlf;
@@ -200,13 +209,13 @@ class ExportXml extends ExportPlugin
                         DEFAULT_COLLATION_NAME
                     FROM data_dictionary.SCHEMAS
                     WHERE SCHEMA_NAME = '"
-                    . PMA\libraries\Util::sqlAddSlashes($db) . "'"
+                    . Util::sqlAddSlashes($db) . "'"
                 );
             } else {
                 $result = $GLOBALS['dbi']->fetchResult(
                     'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                     . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                    . ' = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\' LIMIT 1'
+                    . ' = \'' . Util::sqlAddSlashes($db) . '\' LIMIT 1'
                 );
             }
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
@@ -227,8 +236,8 @@ class ExportXml extends ExportPlugin
             foreach ($tables as $table) {
                 // Export tables and views
                 $result = $GLOBALS['dbi']->fetchResult(
-                    'SHOW CREATE TABLE ' . PMA\libraries\Util::backquote($db) . '.'
-                    . PMA\libraries\Util::backquote($table),
+                    'SHOW CREATE TABLE ' . Util::backquote($db) . '.'
+                    . Util::backquote($table),
                     0
                 );
                 $tbl = $result[$table][1];
@@ -357,7 +366,7 @@ class ExportXml extends ExportPlugin
                 // Export events
                 $events = $GLOBALS['dbi']->fetchResult(
                     "SELECT EVENT_NAME FROM information_schema.EVENTS "
-                    . "WHERE EVENT_SCHEMA='" . PMA\libraries\Util::sqlAddslashes($db)
+                    . "WHERE EVENT_SCHEMA='" . Util::sqlAddslashes($db)
                     . "'"
                 );
                 if ($events) {
@@ -501,7 +510,7 @@ class ExportXml extends ExportPlugin
             $result = $GLOBALS['dbi']->query(
                 $sql_query,
                 null,
-                PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+                DatabaseInterface::QUERY_UNBUFFERED
             );
 
             $columns_cnt = $GLOBALS['dbi']->numFields($result);

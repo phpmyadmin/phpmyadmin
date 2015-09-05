@@ -8,7 +8,15 @@
  */
 namespace PMA\libraries\plugins\export;
 
+use BoolPropertyItem;
+use ExportPluginProperties;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\Util;
+use RadioPropertyItem;
+use TextPropertyItem;
 
 /**
  * Handles the export for the Texy! text class
@@ -195,7 +203,7 @@ class ExportTexytext extends ExportPlugin
         $result = $GLOBALS['dbi']->query(
             $sql_query,
             null,
-            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
@@ -576,7 +584,7 @@ class ExportTexytext extends ExportPlugin
             $col_alias = $column['Field'];
         }
         $extracted_columnspec
-            = PMA\libraries\Util::extractColumnSpec($column['Type']);
+            = Util::extractColumnSpec($column['Type']);
         $type = $extracted_columnspec['print_type'];
         if (empty($type)) {
             $type = '&nbsp;';
