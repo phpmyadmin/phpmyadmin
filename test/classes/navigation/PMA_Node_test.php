@@ -284,7 +284,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
     public function testGetWhereClause()
     {
         $method = new ReflectionMethod(
-            'Node', '_getWhereClause'
+            'PMA\libraries\navigation\nodes\Node', '_getWhereClause'
         );
         $method->setAccessible(true);
 
