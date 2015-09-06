@@ -21,7 +21,6 @@ use TextPropertyItem;
  */
 if (!file_exists(TCPDF_INC)) {
     $GLOBALS['skip_import'] = true;
-
     return;
 }
 

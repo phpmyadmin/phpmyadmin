@@ -19,7 +19,6 @@ use PMA\libraries\Util;
 
 if (!/*overload*/mb_strlen($GLOBALS['db'])) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
-
     return;
 }
 

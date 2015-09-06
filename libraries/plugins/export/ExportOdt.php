@@ -19,6 +19,7 @@ use RadioPropertyItem;
 use TextPropertyItem;
 
 $GLOBALS['odt_buffer'] = '';
+require_once 'libraries/opendocument.lib.php';
 
 /**
  * Handles the export for the ODT class
