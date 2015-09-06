@@ -40,7 +40,7 @@ class Node_Trigger_Container_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeTrigger_Container');
+        $parent = NodeFactory::getInstance('NodeTriggerContainer');
         $this->assertArrayHasKey(
             'text',
             $parent->links

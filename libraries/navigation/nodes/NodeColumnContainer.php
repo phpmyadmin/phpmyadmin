@@ -41,7 +41,7 @@ class NodeColumnContainer extends Node
 
         $new_label = _pgettext('Create new column', 'New');
         $new = NodeFactory::getInstance(
-            'PMA\libraries\navigation\nodes\Node',
+            'Node',
             $new_label
         );
         $new->isNew = true;

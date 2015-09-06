@@ -33,7 +33,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         $this->real_name = 'events';
 
         $new = NodeFactory::getInstance(
-            'PMA\libraries\navigation\nodes\Node',
+            'Node',
             _pgettext('Create new event', 'New')
         );
         $new->isNew = true;

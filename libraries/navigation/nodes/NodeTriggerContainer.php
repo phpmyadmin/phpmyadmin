@@ -35,7 +35,7 @@ class NodeTriggerContainer extends Node
         $this->real_name = 'triggers';
 
         $new = NodeFactory::getInstance(
-            'PMA\libraries\navigation\nodes\Node',
+            'Node',
             _pgettext('Create new trigger', 'New')
         );
         $new->isNew = true;

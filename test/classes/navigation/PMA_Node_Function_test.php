@@ -39,7 +39,7 @@ class Node_Function_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeFunction');
+        $parent = NodeFactory::getInstance('NodeFunction');
         $this->assertArrayHasKey(
             'text',
             $parent->links

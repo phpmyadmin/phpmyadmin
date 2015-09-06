@@ -37,7 +37,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
 
         $new_label = _pgettext('Create new view', 'New');
         $new = NodeFactory::getInstance(
-            'PMA\libraries\navigation\nodes\Node',
+            'Node',
             $new_label
         );
         $new->isNew = true;

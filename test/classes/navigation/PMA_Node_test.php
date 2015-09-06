@@ -41,8 +41,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testAddNode()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\Node', 'parent');
-        $child = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\Node', 'child');
+        $parent = NodeFactory::getInstance('Node', 'parent');
+        $child = NodeFactory::getInstance('Node', 'child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
@@ -61,7 +61,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetChildError()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\Node', 'parent');
+        $parent = NodeFactory::getInstance('Node', 'parent');
         $this->assertEquals(
             $parent->getChild("foo"),
             false
@@ -79,8 +79,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testRemoveNode()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\Node', 'parent');
-        $child = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\Node', 'child');
+        $parent = NodeFactory::getInstance('Node', 'parent');
+        $child = NodeFactory::getInstance('Node', 'child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),

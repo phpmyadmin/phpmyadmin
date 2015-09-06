@@ -144,7 +144,7 @@ class NavigationTree
             $this->_searchClause2 = $_REQUEST['searchClause2'];
         }
         // Initialise the tree by creating a root node
-        $node = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeDatabaseContainer', 'root');
+        $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
             && $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
@@ -282,7 +282,7 @@ class NavigationTree
         );
         $hiddenCounts = $this->_tree->getNavigationHidingData();
         foreach ($data as $db) {
-            $node = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeDatabase', $db);
+            $node = NodeFactory::getInstance('NodeDatabase', $db);
             if (isset($hiddenCounts[$db])) {
                 $node->setHiddenCount($hiddenCounts[$db]);
             }
@@ -374,31 +374,31 @@ class NavigationTree
                 switch ($container->real_name) {
                 case 'events':
                     $node = NodeFactory::getInstance(
-                        'PMA\libraries\navigation\nodes\NodeEvent',
+                        'NodeEvent',
                         $item
                     );
                     break;
                 case 'functions':
                     $node = NodeFactory::getInstance(
-                        'PMA\libraries\navigation\nodes\NodeFunction',
+                        'NodeFunction',
                         $item
                     );
                     break;
                 case 'procedures':
                     $node = NodeFactory::getInstance(
-                        'PMA\libraries\navigation\nodes\NodeProcedure',
+                        'NodeProcedure',
                         $item
                     );
                     break;
                 case 'tables':
                     $node = NodeFactory::getInstance(
-                        'PMA\libraries\navigation\nodes\NodeTable',
+                        'NodeTable',
                         $item
                     );
                     break;
                 case 'views':
                     $node = NodeFactory::getInstance(
-                        'PMA\libraries\navigation\nodes\NodeView',
+                        'NodeView',
                         $item
                     );
                     break;
@@ -432,7 +432,7 @@ class NavigationTree
             }
 
             $node = NodeFactory::getInstance(
-                'PMA\libraries\navigation\nodes\NodeTable',
+                'NodeTable',
                 $path[0]
             );
             if ($type2 == $container->real_name) {
@@ -465,19 +465,19 @@ class NavigationTree
             switch ($container->real_name) {
             case 'indexes':
                 $node = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeIndex',
+                    'NodeIndex',
                     $item
                 );
                 break;
             case 'columns':
                 $node = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeColumn',
+                    'NodeColumn',
                     $item
                 );
                 break;
             case 'triggers':
                 $node = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeTrigger',
+                    'NodeTrigger',
                     $item
                 );
                 break;
@@ -519,17 +519,17 @@ class NavigationTree
         if ($table->hasChildren(true) == 0) {
             if ($table->getPresence('columns')) {
                 $retval['columns'] = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeColumn_Container'
+                    'NodeColumnContainer'
                 );
             }
             if ($table->getPresence('indexes')) {
                 $retval['indexes'] = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeIndex_Container'
+                    'NodeIndexContainer'
                 );
             }
             if ($table->getPresence('triggers')) {
                 $retval['triggers'] = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeTrigger_Container'
+                    'NodeTriggerContainer'
                 );
             }
             // Add all new Nodes to the tree
@@ -601,27 +601,27 @@ class NavigationTree
         if ($db->hasChildren(true) == 0) {
             if (!in_array('tables', $hidden) && $db->getPresence('tables')) {
                 $retval['tables'] = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeTable_Container'
+                    'NodeTableContainer'
                 );
             }
             if (!in_array('views', $hidden) && $db->getPresence('views')) {
                 $retval['views'] = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeView_Container'
+                    'NodeViewContainer'
                 );
             }
             if (!in_array('functions', $hidden) && $db->getPresence('functions')) {
                 $retval['functions'] = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeFunction_Container'
+                    'NodeFunctionContainer'
                 );
             }
             if (!in_array('procedures', $hidden) && $db->getPresence('procedures')) {
                 $retval['procedures'] = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeProcedure_Container'
+                    'NodeProcedureContainer'
                 );
             }
             if (!in_array('events', $hidden) && $db->getPresence('events')) {
                 $retval['events'] = NodeFactory::getInstance(
-                    'PMA\libraries\navigation\nodes\NodeEvent_Container'
+                    'NodeEventContainer'
                 );
             }
             // Add all new Nodes to the tree

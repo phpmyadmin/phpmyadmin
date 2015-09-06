@@ -40,7 +40,7 @@ class Node_View_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeView');
+        $parent = NodeFactory::getInstance('NodeView');
         $this->assertArrayHasKey(
             'text',
             $parent->links

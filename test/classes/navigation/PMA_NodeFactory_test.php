@@ -53,7 +53,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
      */
     public function testDefaultContainer()
     {
-        $node = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\Node', 'default', Node::CONTAINER);
+        $node = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
         $this->assertEquals(false, $node->is_group);

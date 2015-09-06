@@ -66,7 +66,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForControlButtons()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeDatabase', 'parent');
+        $parent = NodeFactory::getInstance('NodeDatabase', 'parent');
         $parent->addChild($this->object);
         $this->object->expects($this->once())
             ->method('getItemType')

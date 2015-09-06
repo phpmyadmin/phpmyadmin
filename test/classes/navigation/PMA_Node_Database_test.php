@@ -45,7 +45,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeDatabase');
+        $parent = NodeFactory::getInstance('NodeDatabase');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -64,7 +64,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPresence()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeDatabase');
+        $parent = NodeFactory::getInstance('NodeDatabase');
         $this->assertEquals(
             2,
             $parent->getPresence('tables')
@@ -94,7 +94,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetData()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeDatabase');
+        $parent = NodeFactory::getInstance('NodeDatabase');
 
         $tables = $parent->getData('tables', 0);
         $this->assertContains(
@@ -130,7 +130,7 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
      */
     public function testHiddenCount()
     {
-        $parent = NodeFactory::getInstance('\PMA\libraries\navigation\nodes\NodeDatabase');
+        $parent = NodeFactory::getInstance('NodeDatabase');
 
         $parent->setHiddenCount(3);
         $this->assertEquals(
