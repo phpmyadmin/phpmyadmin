@@ -2,18 +2,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-07-25 20:50+0200\n"
-"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"PO-Revision-Date: 2015-09-06 06:59+0200\n"
+"Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:30
@@ -618,7 +618,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Не удалось загрузить прогресс (ход) импорта."
 
 #: import_status.php:112 js/messages.php:378 libraries/Util.class.php:780
 #: libraries/export.lib.php:518
@@ -643,7 +643,6 @@ msgstr ""
 "Дополнительная информация доступна на %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Основные настройки"
@@ -659,7 +658,6 @@ msgid "Server connection collation"
 msgstr "Сопоставление кодировки соединения"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Настройки внешнего вида"
@@ -999,7 +997,6 @@ msgstr ""
 "Вы уверены, что хотите изменить сверки колонок и конвертировать данные?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Сохранить и Закрыть"
@@ -1011,7 +1008,6 @@ msgid "Reset"
 msgstr "Сбросить"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Сбросить всё"
@@ -1037,7 +1033,6 @@ msgid "Add index"
 msgstr "Добавить индекс"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Редактировать индекс"
@@ -1088,7 +1083,6 @@ msgstr "SQL запрос:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Значения Y"
@@ -1185,7 +1179,6 @@ msgid "Query cache used"
 msgstr "Использован кэш запроса"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Загрузка процессора"
@@ -1223,25 +1216,21 @@ msgid "Used memory"
 msgstr "Использованная память"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Всего области подкачки"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Кэшировано области подкачки"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Использовано области подкачки"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Свободно области подкачки"
@@ -1657,7 +1646,6 @@ msgid "No files available on server for import!"
 msgstr "На сервере нет доступных для импорта файлов!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Анализировать запрос"
@@ -1723,28 +1711,24 @@ msgid "Loading…"
 msgstr "Загрузка…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Запрос отменён!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Обработка запроса"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Запрос не выполнен!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Ошибка при обработке запроса:"
+msgstr "Ошибка при обработке запроса"
 
 #: js/messages.php:305
 #, php-format
@@ -1762,16 +1746,14 @@ msgid "No databases selected."
 msgstr "Ни одна база данных не выбрана."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Удаление столбца"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Добавить первичный ключ"
+msgstr "Добавление первичного ключа"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1788,19 +1770,16 @@ msgid "Click to dismiss this notification"
 msgstr "Кликните для сокрытия данного уведомления"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Переименование баз данных"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Копирование базы данных"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Смена кодировки"
@@ -2193,16 +2172,14 @@ msgid "Geometry"
 msgstr "Геометрия"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Внутренний контур"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Внешний контур:"
+msgstr "Внешний контур"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2447,13 +2424,11 @@ msgid "More"
 msgstr "Ещё"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Раскрыть панель"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Скрыть панель"
@@ -2534,13 +2509,11 @@ msgid "Create view"
 msgstr "Создать представление"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Отправить отчёты об ошибках"
+msgstr "Отправить отчёт об ошибках"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Отправить отчёт об ошибке"
@@ -2553,13 +2526,11 @@ msgstr ""
 "Произошла фатальная ошибка JavaScript. Вы хотите отправить отчёт об ошибке?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Изменить настройки отчёта"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Показать детали отчёта"
@@ -3344,7 +3315,7 @@ msgstr "Столбец:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Псевдоним:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
@@ -3533,7 +3504,6 @@ msgstr "В таблицах:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Снять выделение"
@@ -3709,7 +3679,6 @@ msgstr "С отмеченными:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Отметить все"
@@ -3800,10 +3769,9 @@ msgid "Error while moving uploaded file."
 msgstr "Ошибка при перемещении загруженного файла."
 
 #: libraries/File.class.php:497
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Невозможно прочесть (переместить) загруженный файл."
+msgstr "Невозможно прочесть загруженный файл."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -4795,10 +4763,9 @@ msgid "Max: %s%s"
 msgstr "Максимальный размер: %s%s"
 
 #: libraries/Util.class.php:665
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Статические данные"
+msgstr "Статический анализ:"
 
 #: libraries/Util.class.php:668
 #, php-format
@@ -4834,10 +4801,9 @@ msgid "Without PHP Code"
 msgstr "Убрать PHP-код"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
-msgstr "PHP-код"
+msgstr "Создать PHP-код"
 
 #: libraries/Util.class.php:1292
 msgctxt "Inline edit query"
@@ -4964,7 +4930,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Проверить привилегии для базы данных \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Проверить привилегии"
@@ -7679,7 +7644,6 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "Выводить/скрывать столбец, отображающий время создания всех таблиц."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Показать время создания"
@@ -7692,7 +7656,6 @@ msgstr ""
 "таблиц."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Показать последнее время обновления"
@@ -7704,7 +7667,6 @@ msgstr ""
 "Выводить/скрывать столбец, отображающий последнее время проверки всех таблиц."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Показать последнее время проверки"
@@ -8006,6 +7968,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Запросы выполняются по нажатию Enter (вместо Ctrl+Enter). Строки переносятся "
+"с помощью Shift+Enter."
 
 #: libraries/config/messages.inc.php:999
 msgid "Enter executes queries in console"
@@ -8302,6 +8266,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Этот метод требует использования '<i>SSL соединения</i>' или '<i>"
+"незащищённого соединения, которое шифрует пароль с помощью RSA</i>'; при "
+"подключении к серверу."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -8382,10 +8349,9 @@ msgid "Custom - display all possible options"
 msgstr "Обычный - отображать все возможные настройки"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "Базы данных"
+msgstr "Базы данных:"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
@@ -8592,7 +8558,6 @@ msgstr ""
 "Пример: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Импортируемый файл:"
@@ -8606,7 +8571,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Загрузка файлов на сервер, невозможна."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Частичный импорт:"
@@ -8638,7 +8602,6 @@ msgstr ""
 "форматов), начиная со следующего:"
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Прочие параметры:"
@@ -9379,7 +9342,7 @@ msgstr "Румынский"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "Сингальский"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9973,7 +9936,6 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Настроить привилегии"
@@ -10799,7 +10761,7 @@ msgstr "Таблица:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
-msgstr ""
+msgstr "Цель:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:496
 msgid "MIME"
@@ -10976,7 +10938,6 @@ msgstr "Отображать сетку"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Словарь данных"
@@ -11218,7 +11179,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Преобразует IP адрес из формата IPv4/IPv6 в бинарный"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11262,7 +11223,7 @@ msgstr "Ошибка: связь внешнего ключа невозможн�
 
 #: libraries/pmd_common.php:594
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Ошибка: отсутствует индекс в столбце."
 
 #: libraries/pmd_common.php:598
 msgid "Error: Relational features are disabled!"
@@ -11463,7 +11424,6 @@ msgid "Master configuration"
 msgstr "Настройка головного сервера"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
 #| msgid ""
 #| "This server is not configured as master server in a replication process. "
 #| "You can choose from either replicating all databases and ignoring certain "
@@ -11478,8 +11438,8 @@ msgid ""
 "databases to be replicated. Please select the mode:"
 msgstr ""
 "Данный сервер не настроен в качестве головного для процесса репликации. Вы "
-"можете выбрать репликацию всех баз данных с игнорированием определенных "
-"(используйте, если хотите провести репликацию большинства баз данных), либо "
+"можете выбрать репликацию всех баз данных и игнорировать некоторые из них ("
+"используйте, если хотите провести репликацию большинства баз данных), либо "
 "выбрать игнорирование всех баз данных по умолчанию и разрешение для "
 "репликации только определенных. Пожалуйста, выберите желаемый режим:"
 
@@ -11730,10 +11690,9 @@ msgid "Re-type"
 msgstr "Подтверждение"
 
 #: libraries/replication_gui.lib.php:895
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Создать пароль"
+msgstr "Создать пароль:"
 
 #: libraries/replication_gui.lib.php:933
 msgid "Replication started successfully."
@@ -12200,10 +12159,9 @@ msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#, fuzzy
 #| msgid "Current server"
 msgid "Current server:"
-msgstr "Текущий сервер"
+msgstr "Текущий сервер:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12262,7 +12220,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Включить статистику"
@@ -12627,10 +12584,9 @@ msgstr "Не менять пароль"
 
 #: libraries/server_privileges.lib.php:1694
 #: libraries/server_privileges.lib.php:1697
-#, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Идентификация"
+msgstr "Модуль аутентификации"
 
 #: libraries/server_privileges.lib.php:1925
 #, php-format
@@ -12715,10 +12671,9 @@ msgid "table-specific"
 msgstr "уровень таблицы"
 
 #: libraries/server_privileges.lib.php:2628
-#, fuzzy
 #| msgid "Edit privileges:"
 msgid "Edit privileges"
-msgstr "Редактировать привилегии:"
+msgstr "Редактировать привилегии"
 
 #: libraries/server_privileges.lib.php:2631
 msgid "Revoke"
@@ -13140,10 +13095,9 @@ msgid "Clear series"
 msgstr "Очистить серии"
 
 #: libraries/server_status_monitor.lib.php:233
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
-msgstr "Серии в графике:"
+msgstr "Ряды данных в графике:"
 
 #: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
@@ -13204,7 +13158,7 @@ msgstr "Команда"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "Прогресс"
 
 #: libraries/server_status_processes.lib.php:252
 #: libraries/server_status_variables.lib.php:39
@@ -14038,16 +13992,16 @@ msgstr "Глобальное значение"
 
 #: libraries/server_variables.lib.php:243
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Эта переменная только для чтения и не может быть изменена"
 
 #: libraries/sql-parser/src/Component.php:63
 #: libraries/sql-parser/src/Component.php:83
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Ещё не реализовано."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:202
 msgid "Unrecognized alter operation."
-msgstr ""
+msgstr "Нераспознанная операция изменения."
 
 #: libraries/sql-parser/src/Components/Array2d.php:93
 #, php-format
@@ -14079,25 +14033,25 @@ msgstr ""
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Нераспознанный тип данных."
 
 #: libraries/sql-parser/src/Components/Expression.php:234
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Неожиданная закрывающая скобка."
 
 #: libraries/sql-parser/src/Components/Expression.php:255
 #: libraries/sql-parser/src/Components/Expression.php:292
 #: libraries/sql-parser/src/Components/Expression.php:312
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Псевдоним был найден ранее."
 
 #: libraries/sql-parser/src/Components/Expression.php:266
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Неожиданная точка."
 
 #: libraries/sql-parser/src/Components/Expression.php:336
 msgid "An alias was expected."
-msgstr ""
+msgstr "Ожидался псевдоним."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:98
 msgid "An expression was expected."
@@ -14106,12 +14060,12 @@ msgstr "Ожидалось выражение."
 #: libraries/sql-parser/src/Components/Limit.php:92
 #: libraries/sql-parser/src/Components/Limit.php:114
 msgid "An offset was expected."
-msgstr ""
+msgstr "Ожидалось смещение."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Этот параметр конфликтует с \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:104
 msgid "The old name of the table was expected."
@@ -14119,7 +14073,7 @@ msgstr "Ожидалось старое имя таблицы."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:114
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Ожидалось ключевое слово \"TO\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:131
 msgid "The new name of the table was expected."
@@ -14135,7 +14089,7 @@ msgstr "Неожиданный символ."
 
 #: libraries/sql-parser/src/Lexer.php:307
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Ожидался пробел перед разделителем."
 
 #: libraries/sql-parser/src/Lexer.php:325
 #: libraries/sql-parser/src/Lexer.php:341
@@ -14164,10 +14118,9 @@ msgid "No transaction was previously started."
 msgstr ""
 
 #: libraries/sql-parser/src/Statement.php:212
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Неожиданные символы на строке %s."
+msgstr "Неожиданный токен."
 
 #: libraries/sql-parser/src/Statement.php:250
 msgid "This type of clause was previously parsed."
@@ -14180,21 +14133,20 @@ msgstr ""
 
 #: libraries/sql-parser/src/Statement.php:297
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Неизвестное ключевое слово."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:348
 msgid "The name of the entity was expected."
-msgstr ""
+msgstr "Ожидалось имя сущности."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:365
-#, fuzzy
 #| msgid "A rename operation was expected."
 msgid "At least one column definition was expected."
-msgstr "Ожидалась операция переименования."
+msgstr "Ожидалось объявление, по крайней мере, одного столбца."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:478
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Ожидалось ключевое слово \"RETURNS\"."
 
 #: libraries/sql.lib.php:224
 msgid "Detailed profile"
@@ -14294,7 +14246,7 @@ msgstr "Выполнить SQL-запрос(ы) к таблице %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Получить автосохранённый запрос"
 
 #: libraries/sql_query_form.lib.php:256
 msgid "Bind parameters"
@@ -14656,16 +14608,14 @@ msgid "Username and hostname didn't change."
 msgstr "Имя пользователя и хоста не изменялись."
 
 #: server_status.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
-msgstr "Недостаточно прав для просмотра пользователей."
+msgstr "Недостаточно прав для просмотра состояния сервера."
 
 #: server_status_advisor.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
-msgstr "Недостаточно прав для просмотра пользователей."
+msgstr "Недостаточно прав для просмотра советчика."
 
 #: server_status_processes.php:36
 #, php-format
@@ -14681,10 +14631,9 @@ msgstr ""
 "закрыт."
 
 #: server_status_queries.php:55
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
-msgstr "Недостаточно прав для просмотра пользователей."
+msgstr "Недостаточно прав для просмотра статистики запроса."
 
 #: server_status_variables.php:57
 #, fuzzy
@@ -14901,10 +14850,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Строка: %1$s, Столбец: %2$s, Ошибка: %3$s"
 
 #: tbl_row_action.php:71
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Версии не выбраны."
+msgstr "Строка не выбрана."
 
 #: tbl_tracking.php:33
 #, php-format
@@ -15006,7 +14954,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Виртуальность"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
@@ -15235,7 +15183,7 @@ msgstr "Переместить меню"
 #: templates/database/designer/side_menu.phtml:181
 #: templates/database/designer/side_menu.phtml:186
 msgid "Pin text"
-msgstr ""
+msgstr "Прикрепить текст"
 
 #: templates/database/designer/table_list.phtml:4
 msgid "Hide/Show all"
@@ -15494,7 +15442,7 @@ msgstr "Выбор индекса:"
 
 #: templates/table/index_form.phtml:57
 msgid "Key block size:"
-msgstr ""
+msgstr "Размер блока ключа:"
 
 #: templates/table/index_form.phtml:74
 msgid "Index type:"
@@ -15647,7 +15595,6 @@ msgid "Reset zoom"
 msgstr "Сбросить увеличение"
 
 #: templates/table/secondary_tabs.phtml:14
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
 msgstr "Связи"
@@ -15686,10 +15633,9 @@ msgstr "в начале таблицы"
 
 #: templates/table/structure/display_partitions.phtml:3
 #: templates/table/structure/display_structure.phtml:193
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Раздел %s"
+msgstr "Разделы"
 
 #: templates/table/structure/display_partitions.phtml:7
 #, fuzzy
@@ -15704,16 +15650,14 @@ msgid "Sub partitioned by:"
 msgstr "разделён"
 
 #: templates/table/structure/display_partitions.phtml:25
-#, fuzzy
 #| msgid "Row length"
 msgid "Data length"
-msgstr "Длина строки"
+msgstr "Длина данных"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "Длина строки"
+msgstr "Длина индекса"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
@@ -16072,6 +16016,9 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Документация по Percona находится на <a href=\""
+"http://www.percona.com/software/documentation/\""
+">http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -16082,6 +16029,9 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"Документация по Drizzle находится на <a href=\""
+"http://www.drizzle.org/content/documentation/\""
+">http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
