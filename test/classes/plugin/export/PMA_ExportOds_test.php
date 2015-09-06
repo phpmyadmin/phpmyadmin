@@ -7,6 +7,8 @@
  */
 use PMA\libraries\plugins\export\ExportOds;
 
+//ExportOds required because of initialisation inside
+require_once 'libraries/plugins/export/ExportOds.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
