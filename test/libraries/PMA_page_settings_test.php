@@ -7,6 +7,7 @@
  */
 use PMA\libraries\config\PageSettings;
 
+require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
 /**
