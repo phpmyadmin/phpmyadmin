@@ -334,7 +334,6 @@ class ExportLatex extends ExportPlugin
                     array(
                         'texEscape',
                         get_class($this),
-                        'libraries/plugins/export/' . get_class($this) . ".class.php",
                     ),
                     array('table' => $table_alias, 'database' => $db_alias)
                 )
@@ -373,8 +372,6 @@ class ExportLatex extends ExportPlugin
                         array(
                             'texEscape',
                             get_class($this),
-                            'libraries/plugins/export/'
-                            . get_class($this) . ".class.php",
                         ),
                         array('table' => $table_alias, 'database' => $db_alias)
                     )
@@ -547,7 +544,6 @@ class ExportLatex extends ExportPlugin
                     array(
                         'texEscape',
                         get_class($this),
-                        'libraries/plugins/export/' . get_class($this) . ".class.php",
                     ),
                     array('table' => $table_alias, 'database' => $db_alias)
                 )
@@ -569,7 +565,6 @@ class ExportLatex extends ExportPlugin
                     array(
                         'texEscape',
                         get_class($this),
-                        'libraries/plugins/export/' . get_class($this) . ".class.php",
                     ),
                     array('table' => $table_alias, 'database' => $db_alias)
                 )

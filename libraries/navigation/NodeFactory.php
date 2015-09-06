@@ -22,6 +22,7 @@ class NodeFactory
      * @access private
      */
     private static $_path = 'libraries/navigation/nodes/%s.php';
+    private static $_namespace = 'PMA\libraries\navigation\nodes\%s';
 
     /**
      * Sanitizes the name of a Node class
@@ -32,19 +33,19 @@ class NodeFactory
      */
     private static function _sanitizeClass($class)
     {
-        if ($class !== 'PMA\libraries\navigation\nodes\Node' && !preg_match('@^PMA\libraries\navigation\nodes\Node\w+(_\w+)?$@', $class)) {
-            $class = 'PMA\libraries\navigation\nodes\Node';
+        if ($class !== 'Node' && !preg_match('@^Node\w+(_\w+)?$@', $class)) {
+            $class = 'Node';
             trigger_error(
                 sprintf(
                 /* l10n: The word "Node" must not be translated here */
-                    __('Invalid class name "%1$s", using default of "PMA\libraries\navigation\nodes\Node"'),
+                    __('Invalid class name "%1$s", using default of "Node"'),
                     $class
                 ),
                 E_USER_ERROR
             );
         }
 
-        return self::_checkFile($class);
+        return sprintf(self::$_namespace, self::_checkFile($class));
     }
 
     /**
@@ -60,12 +61,12 @@ class NodeFactory
     {
         $path = sprintf(self::$_path, $class);
         if (!is_readable($path)) {
-            $class = 'PMA\libraries\navigation\nodes\Node';
+            $class = 'Node';
             trigger_error(
                 sprintf(
                     __('Could not include class "%1$s", file "%2$s" not found'),
                     $class,
-                    'Nodes/' . $class . '.php'
+                    'nodes/' . $class . '.php'
                 ),
                 E_USER_ERROR
             );
@@ -86,7 +87,7 @@ class NodeFactory
      * @return mixed
      */
     public static function getInstance(
-        $class = 'PMA\libraries\navigation\nodes\Node',
+        $class = 'Node',
         $name = 'default',
         $type = Node::OBJECT,
         $is_group = false

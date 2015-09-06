@@ -3535,7 +3535,6 @@ class Util
         /* Optional escaping */
         if (! is_null($escape)) {
             if (is_array($escape)) {
-                include_once $escape[2];
                 $escape_class = new $escape[1];
                 $escape_method = $escape[0];
             }
