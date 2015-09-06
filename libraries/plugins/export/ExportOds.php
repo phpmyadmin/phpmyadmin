@@ -17,6 +17,9 @@ use OptionsPropertyRootGroup;
 use PMA\libraries\DatabaseInterface;
 use TextPropertyItem;
 
+$GLOBALS['ods_buffer'] = '';
+require_once 'libraries/opendocument.lib.php';
+
 /**
  * Handles the export for the ODS class
  *

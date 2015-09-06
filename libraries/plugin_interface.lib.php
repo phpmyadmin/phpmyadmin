@@ -28,9 +28,9 @@ function PMA_getPlugin(
         . /*overload*/mb_strtolower(/*overload*/mb_substr($plugin_type, 1))
         . /*overload*/mb_strtoupper($plugin_format[0])
         . /*overload*/mb_strtolower(/*overload*/mb_substr($plugin_format, 1));
-    $file = $class_name . ".class.php";
+    $file = $class_name . ".php";
     if (is_file($plugins_dir . $file)) {
-        include_once $plugins_dir . $file;
+        //include_once $plugins_dir . $file;
         return new $class_name;
     }
 
