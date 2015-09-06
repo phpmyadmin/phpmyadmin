@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 16:57-0400\n"
+"Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
+"POT-Creation-Date: 2015-09-06 07:29-0400\n"
 "PO-Revision-Date: 2014-03-28 11:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -258,9 +258,9 @@ msgid "Tables"
 msgstr "Tablice"
 
 #: db_export.php:63 libraries/Menu.class.php:317 libraries/Menu.class.php:425
-#: libraries/Util.class.php:3352 libraries/Util.class.php:3362
-#: libraries/Util.class.php:3368 libraries/Util.class.php:3648
-#: libraries/Util.class.php:4289 libraries/Util.class.php:4306
+#: libraries/Util.class.php:3350 libraries/Util.class.php:3360
+#: libraries/Util.class.php:3366 libraries/Util.class.php:3646
+#: libraries/Util.class.php:4287 libraries/Util.class.php:4304
 #: libraries/central_columns.lib.php:728 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:320
@@ -1152,7 +1152,7 @@ msgstr "Morate dodati najmanje jedno polje."
 #: js/messages.php:109 libraries/insert_edit.lib.php:1546
 #: templates/columns_definitions/column_definitions_form.phtml:162
 #: templates/table/index_form.phtml:237
-#: templates/table/relation/common_form.phtml:106
+#: templates/table/relation/common_form.phtml:108
 msgid "Preview SQL"
 msgstr ""
 
@@ -1420,7 +1420,7 @@ msgid "Traffic"
 msgstr "Promet"
 
 #: js/messages.php:185 libraries/Menu.class.php:586
-#: libraries/Util.class.php:4280 libraries/server_status_monitor.lib.php:257
+#: libraries/Util.class.php:4278 libraries/server_status_monitor.lib.php:257
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
@@ -1648,7 +1648,7 @@ msgid "Explain output"
 msgstr "Objasni SQL"
 
 #: js/messages.php:243 libraries/Menu.class.php:552
-#: libraries/Util.class.php:4276 libraries/config.values.php:104
+#: libraries/Util.class.php:4274 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:279
 #: libraries/tracking.lib.php:1620
@@ -1758,8 +1758,8 @@ msgstr ""
 
 #: js/messages.php:270 libraries/Menu.class.php:352
 #: libraries/Menu.class.php:455 libraries/Menu.class.php:582
-#: libraries/Util.class.php:4279 libraries/Util.class.php:4294
-#: libraries/Util.class.php:4311 libraries/config/messages.inc.php:260
+#: libraries/Util.class.php:4277 libraries/Util.class.php:4292
+#: libraries/Util.class.php:4309 libraries/config/messages.inc.php:260
 #: libraries/display_import.lib.php:105
 #: libraries/server_status_monitor.lib.php:318 prefs_manage.php:238
 #: setup/frames/menu.inc.php:26
@@ -1938,7 +1938,7 @@ msgstr "Kopiraj bazu podataka u"
 msgid "Changing charset"
 msgstr "Tablica znakova"
 
-#: js/messages.php:320 libraries/Util.class.php:3234
+#: js/messages.php:320 libraries/Util.class.php:3232
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -1984,9 +1984,9 @@ msgstr ""
 #: js/messages.php:334 libraries/DisplayResults.class.php:4837
 #: libraries/DisplayResults.class.php:5095 libraries/Menu.class.php:344
 #: libraries/Menu.class.php:446 libraries/Menu.class.php:578
-#: libraries/Util.class.php:3655 libraries/Util.class.php:3656
-#: libraries/Util.class.php:4278 libraries/Util.class.php:4293
-#: libraries/Util.class.php:4310 libraries/config/messages.inc.php:254
+#: libraries/Util.class.php:3653 libraries/Util.class.php:3654
+#: libraries/Util.class.php:4276 libraries/Util.class.php:4291
+#: libraries/Util.class.php:4308 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:146
 #: libraries/server_privileges.lib.php:2213
 #: libraries/server_privileges.lib.php:2292
@@ -2041,7 +2041,7 @@ msgstr "SQL upit"
 #: libraries/Console.class.php:214 libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:4821 libraries/Index.class.php:723
 #: libraries/Util.class.php:710 libraries/Util.class.php:1207
-#: libraries/Util.class.php:3653 libraries/Util.class.php:3654
+#: libraries/Util.class.php:3651 libraries/Util.class.php:3652
 #: libraries/central_columns.lib.php:851
 #: libraries/central_columns.lib.php:1194
 #: libraries/config/messages.inc.php:895
@@ -2246,7 +2246,7 @@ msgstr "Nema odabrane baze podataka."
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
 #: templates/columns_definitions/column_definitions_form.phtml:165
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:107
+#: templates/table/relation/common_form.phtml:109
 msgid "Save"
 msgstr "Spremi"
 
@@ -3797,7 +3797,7 @@ msgstr "Prikazivanje oznake"
 msgid "Delete bookmark"
 msgstr "Izbriši relaciju"
 
-#: libraries/DatabaseInterface.class.php:2524
+#: libraries/DatabaseInterface.class.php:2522
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -3806,21 +3806,21 @@ msgid ""
 msgstr ""
 "(ili priključak lokalnog MySQL poslužitelja nije ispravno konfiguriran)"
 
-#: libraries/DatabaseInterface.class.php:2529
+#: libraries/DatabaseInterface.class.php:2527
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Poslužitelj ne odgovara"
 
-#: libraries/DatabaseInterface.class.php:2534
+#: libraries/DatabaseInterface.class.php:2532
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2544
+#: libraries/DatabaseInterface.class.php:2542
 msgid "Details…"
 msgstr "Detalji…"
 
-#: libraries/DatabaseInterface.class.php:2764
+#: libraries/DatabaseInterface.class.php:2762
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Povezivanje kontrolnih korisnika na način kako je definirano u vašoj "
@@ -3864,9 +3864,9 @@ msgstr[0] "%s poklapanja unutar tablice <i>%s</i>"
 msgstr[1] "%s poklapanja unutar tablice <i>%s</i>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:311
-#: libraries/Util.class.php:3356 libraries/Util.class.php:3366
-#: libraries/Util.class.php:3642 libraries/Util.class.php:3643
-#: libraries/Util.class.php:4305 libraries/config.values.php:43
+#: libraries/Util.class.php:3354 libraries/Util.class.php:3364
+#: libraries/Util.class.php:3640 libraries/Util.class.php:3641
+#: libraries/Util.class.php:4303 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:119
 #: libraries/navigation/Nodes/Node_Table.class.php:295
 #: templates/table/structure/check_all_table_column.phtml:5
@@ -4092,16 +4092,16 @@ msgid "Query took %01.4f seconds."
 msgstr "Upit je trajao %01.4f sek"
 
 #: libraries/DisplayResults.class.php:4810
-#: libraries/DisplayResults.class.php:4817 libraries/Util.class.php:4729
-#: libraries/Util.class.php:4735 libraries/mult_submits.inc.php:50
+#: libraries/DisplayResults.class.php:4817 libraries/Util.class.php:4727
+#: libraries/Util.class.php:4733 libraries/mult_submits.inc.php:50
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
 msgid "With selected:"
 msgstr "S odabirom:"
 
 #: libraries/DisplayResults.class.php:4814
-#: libraries/DisplayResults.class.php:4816 libraries/Util.class.php:4731
-#: libraries/Util.class.php:4732 libraries/server_privileges.lib.php:1174
+#: libraries/DisplayResults.class.php:4816 libraries/Util.class.php:4729
+#: libraries/Util.class.php:4730 libraries/server_privileges.lib.php:1174
 #: libraries/server_privileges.lib.php:1175
 #: libraries/server_privileges.lib.php:1387
 #: libraries/server_user_groups.lib.php:231
@@ -4319,8 +4319,8 @@ msgstr "Primarni ključ je odbačen."
 msgid "Index %s has been dropped."
 msgstr "Index %s je odbačen."
 
-#: libraries/Index.class.php:757 libraries/Util.class.php:3649
-#: libraries/Util.class.php:3650
+#: libraries/Index.class.php:757 libraries/Util.class.php:3647
+#: libraries/Util.class.php:3648
 #: libraries/controllers/TableStructureController.class.php:951
 #: libraries/controllers/TableStructureController.class.php:952
 #: libraries/operations.lib.php:1617 libraries/rte/rte_list.lib.php:150
@@ -4379,10 +4379,10 @@ msgid "Table"
 msgstr "Tablica"
 
 #: libraries/Menu.class.php:325 libraries/Menu.class.php:429
-#: libraries/Menu.class.php:548 libraries/Util.class.php:3353
-#: libraries/Util.class.php:3363 libraries/Util.class.php:3369
-#: libraries/Util.class.php:4275 libraries/Util.class.php:4290
-#: libraries/Util.class.php:4307 libraries/config.values.php:40
+#: libraries/Menu.class.php:548 libraries/Util.class.php:3351
+#: libraries/Util.class.php:3361 libraries/Util.class.php:3367
+#: libraries/Util.class.php:4273 libraries/Util.class.php:4288
+#: libraries/Util.class.php:4305 libraries/config.values.php:40
 #: libraries/config.values.php:48 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/messages.inc.php:323
 #: libraries/navigation/Nodes/Node_Table.class.php:292
@@ -4390,19 +4390,19 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:328 libraries/Menu.class.php:432
-#: libraries/Util.class.php:3354 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3370 libraries/Util.class.php:3644
-#: libraries/Util.class.php:3645 libraries/Util.class.php:4291
-#: libraries/Util.class.php:4308 libraries/config.values.php:41
+#: libraries/Util.class.php:3352 libraries/Util.class.php:3362
+#: libraries/Util.class.php:3368 libraries/Util.class.php:3642
+#: libraries/Util.class.php:3643 libraries/Util.class.php:4289
+#: libraries/Util.class.php:4306 libraries/config.values.php:41
 #: libraries/config.values.php:49 libraries/config.values.php:111
 #: libraries/config.values.php:117
 #: libraries/navigation/Nodes/Node_Table.class.php:286
 msgid "Search"
 msgstr "Traži"
 
-#: libraries/Menu.class.php:338 libraries/Util.class.php:3355
-#: libraries/Util.class.php:3365 libraries/Util.class.php:3646
-#: libraries/Util.class.php:3647 libraries/Util.class.php:4309
+#: libraries/Menu.class.php:338 libraries/Util.class.php:3353
+#: libraries/Util.class.php:3363 libraries/Util.class.php:3644
+#: libraries/Util.class.php:3645 libraries/Util.class.php:4307
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:118
 #: libraries/navigation/Nodes/Node_Table.class.php:289
@@ -4411,7 +4411,7 @@ msgid "Insert"
 msgstr "Umetni"
 
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:467
-#: libraries/Util.class.php:4296 libraries/Util.class.php:4312
+#: libraries/Util.class.php:4294 libraries/Util.class.php:4310
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
 #: libraries/server_privileges.lib.php:2372
 #: libraries/server_privileges.lib.php:3160
@@ -4420,21 +4420,21 @@ msgid "Privileges"
 msgstr "Privilegije"
 
 #: libraries/Menu.class.php:371 libraries/Menu.class.php:379
-#: libraries/Menu.class.php:459 libraries/Util.class.php:3357
-#: libraries/Util.class.php:3371 libraries/Util.class.php:4295
-#: libraries/Util.class.php:4313 libraries/config.values.php:112
+#: libraries/Menu.class.php:459 libraries/Util.class.php:3355
+#: libraries/Util.class.php:3369 libraries/Util.class.php:4293
+#: libraries/Util.class.php:4311 libraries/config.values.php:112
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Operacije"
 
 #: libraries/Menu.class.php:384 libraries/Menu.class.php:492
-#: libraries/Util.class.php:4300 libraries/Util.class.php:4314
+#: libraries/Util.class.php:4298 libraries/Util.class.php:4312
 #: libraries/relation.lib.php:255
 msgid "Tracking"
 msgstr "Praćenje"
 
 #: libraries/Menu.class.php:397 libraries/Menu.class.php:486
-#: libraries/Util.class.php:4299 libraries/Util.class.php:4315
+#: libraries/Util.class.php:4297 libraries/Util.class.php:4313
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:24
 #: libraries/plugins/export/ExportHtmlword.class.php:558
 #: libraries/plugins/export/ExportOdt.class.php:686
@@ -4451,16 +4451,16 @@ msgstr "Okidači"
 msgid "Database seems to be empty!"
 msgstr "Baza podataka izgleda praznom!"
 
-#: libraries/Menu.class.php:439 libraries/Util.class.php:4292
+#: libraries/Menu.class.php:439 libraries/Util.class.php:4290
 msgid "Query"
 msgstr "Upit"
 
-#: libraries/Menu.class.php:472 libraries/Util.class.php:4297
+#: libraries/Menu.class.php:472 libraries/Util.class.php:4295
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Rutine"
 
-#: libraries/Menu.class.php:479 libraries/Util.class.php:4298
+#: libraries/Menu.class.php:479 libraries/Util.class.php:4296
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:947
 #: libraries/plugins/export/ExportXml.class.php:107
@@ -4468,18 +4468,18 @@ msgstr "Rutine"
 msgid "Events"
 msgstr "Događaji"
 
-#: libraries/Menu.class.php:498 libraries/Util.class.php:4301
+#: libraries/Menu.class.php:498 libraries/Util.class.php:4299
 msgid "Designer"
 msgstr "Kreator"
 
-#: libraries/Menu.class.php:507 libraries/Util.class.php:4302
+#: libraries/Menu.class.php:507 libraries/Util.class.php:4300
 #: templates/database/structure/check_all_tables.phtml:35
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns"
 msgstr "Dodaj/Izbriši stupce polja"
 
-#: libraries/Menu.class.php:544 libraries/Util.class.php:4274
+#: libraries/Menu.class.php:544 libraries/Util.class.php:4272
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.class.php:1240
@@ -4494,34 +4494,34 @@ msgid "User accounts"
 msgstr "Korisnik"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
-#: libraries/Util.class.php:4281 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4279 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Binarni zapisnik"
 
 #: libraries/Menu.class.php:601 libraries/ServerStatusData.class.php:127
-#: libraries/Util.class.php:4282 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4280 libraries/server_common.lib.php:42
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replikacija"
 
 #: libraries/Menu.class.php:606 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4283 libraries/config.values.php:105
+#: libraries/Util.class.php:4281 libraries/config.values.php:105
 #: libraries/server_engines.lib.php:108 libraries/server_engines.lib.php:112
 #: libraries/sql_query_form.lib.php:421
 msgid "Variables"
 msgstr "Varijable"
 
-#: libraries/Menu.class.php:610 libraries/Util.class.php:4284
+#: libraries/Menu.class.php:610 libraries/Util.class.php:4282
 msgid "Charsets"
 msgstr "Tablice znakova"
 
-#: libraries/Menu.class.php:615 libraries/Util.class.php:4285
+#: libraries/Menu.class.php:615 libraries/Util.class.php:4283
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:27
 msgid "Plugins"
 msgstr "Dodatci"
 
-#: libraries/Menu.class.php:626 libraries/Util.class.php:4286
+#: libraries/Menu.class.php:626 libraries/Util.class.php:4284
 msgid "Engines"
 msgstr "Pogoni"
 
@@ -4798,44 +4798,44 @@ msgstr "Traži u bazi podataka"
 msgid "Target database `%s` was not found!"
 msgstr "Tema %s nije pronađena!"
 
-#: libraries/Table.class.php:1270
+#: libraries/Table.class.php:1268
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Neispravna baza podataka"
 
-#: libraries/Table.class.php:1284
+#: libraries/Table.class.php:1282
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Neispravan naziv tablice"
 
-#: libraries/Table.class.php:1319
+#: libraries/Table.class.php:1317
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Pogreška tijekom preimenovanja tablice %1$s u %2$s"
 
-#: libraries/Table.class.php:1338
+#: libraries/Table.class.php:1336
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tablica %s preimenovana je u %s"
 
-#: libraries/Table.class.php:1518
+#: libraries/Table.class.php:1516
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/Table.class.php:1548
+#: libraries/Table.class.php:1546
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1703
+#: libraries/Table.class.php:1701
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4843,19 +4843,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.class.php:1840
+#: libraries/Table.class.php:1838
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Naziv primarnog ključa mora biti \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1851
+#: libraries/Table.class.php:1849
 msgid "Can't rename index to PRIMARY!"
 msgstr "Preimenovanje indeksa u PRIMARY nije moguće!"
 
-#: libraries/Table.class.php:1873
+#: libraries/Table.class.php:1871
 msgid "No index parts defined!"
 msgstr "Nema definiranih dijelova indeksa!"
 
-#: libraries/Table.class.php:2187
+#: libraries/Table.class.php:2185
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -5274,39 +5274,39 @@ msgstr "Na funkcionalnost %s utječe poznati nedostatak. Pogledajte %s"
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/Util.class.php:3561 prefs_manage.php:248
+#: libraries/Util.class.php:3559 prefs_manage.php:248
 msgid "Browse your computer:"
 msgstr "Pretraži računalo:"
 
-#: libraries/Util.class.php:3586
+#: libraries/Util.class.php:3584
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "mapa učitavanja web poslužitelja"
 
-#: libraries/Util.class.php:3615 libraries/insert_edit.lib.php:1171
+#: libraries/Util.class.php:3613 libraries/insert_edit.lib.php:1171
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Mapu koju ste odabrali za potrebe učitavanja nije moguće dohvatiti."
 
-#: libraries/Util.class.php:3626
+#: libraries/Util.class.php:3624
 #, fuzzy
 msgid "There are no files to upload!"
 msgstr "Provjeri tablicu"
 
-#: libraries/Util.class.php:3651 libraries/Util.class.php:3652
+#: libraries/Util.class.php:3649 libraries/Util.class.php:3650
 #: templates/database/structure/check_all_tables.phtml:15
 msgid "Empty"
 msgstr "Isprazni"
 
-#: libraries/Util.class.php:3657 libraries/Util.class.php:3658
+#: libraries/Util.class.php:3655 libraries/Util.class.php:3656
 msgid "Execute"
 msgstr "Izvrši"
 
-#: libraries/Util.class.php:4171
+#: libraries/Util.class.php:4169
 msgid "Print"
 msgstr "Ispiši"
 
-#: libraries/Util.class.php:4277
+#: libraries/Util.class.php:4275
 #, fuzzy
 #| msgid "User"
 msgid "Users"
@@ -8501,7 +8501,7 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/controllers/DatabaseStructureController.class.php:957
-#: libraries/mysql_charsets.lib.php:367 libraries/mysql_charsets.lib.php:374
+#: libraries/mysql_charsets.lib.php:363 libraries/mysql_charsets.lib.php:370
 msgid "unknown"
 msgstr "nepoznato"
 
@@ -9624,8 +9624,8 @@ msgstr "Sakrij"
 msgid "Function"
 msgstr "Funkcija"
 
-#: libraries/insert_edit.lib.php:399 libraries/mysql_charsets.lib.php:161
-#: libraries/mysql_charsets.lib.php:371
+#: libraries/insert_edit.lib.php:399 libraries/mysql_charsets.lib.php:157
+#: libraries/mysql_charsets.lib.php:367
 msgid "Binary"
 msgstr "Binarno"
 
@@ -9784,191 +9784,191 @@ msgstr "Želite li zaista  "
 msgid "Charset"
 msgstr "Tablica znakova"
 
-#: libraries/mysql_charsets.lib.php:173
+#: libraries/mysql_charsets.lib.php:169
 msgid "Bulgarian"
 msgstr "Bugarski"
 
-#: libraries/mysql_charsets.lib.php:177 libraries/mysql_charsets.lib.php:311
+#: libraries/mysql_charsets.lib.php:173 libraries/mysql_charsets.lib.php:307
 msgid "Simplified Chinese"
 msgstr "Kineski, pojednostavljen"
 
-#: libraries/mysql_charsets.lib.php:179 libraries/mysql_charsets.lib.php:331
+#: libraries/mysql_charsets.lib.php:175 libraries/mysql_charsets.lib.php:327
 msgid "Traditional Chinese"
 msgstr "Kineski, tradicionalan"
 
-#: libraries/mysql_charsets.lib.php:183 libraries/mysql_charsets.lib.php:378
+#: libraries/mysql_charsets.lib.php:179 libraries/mysql_charsets.lib.php:374
 msgid "case-insensitive"
 msgstr "nebitna veličina znakova"
 
-#: libraries/mysql_charsets.lib.php:186 libraries/mysql_charsets.lib.php:380
+#: libraries/mysql_charsets.lib.php:182 libraries/mysql_charsets.lib.php:376
 msgid "case-sensitive"
 msgstr "veličina znakova je važna"
 
-#: libraries/mysql_charsets.lib.php:189
+#: libraries/mysql_charsets.lib.php:185
 msgid "Croatian"
 msgstr "Hrvatski"
 
-#: libraries/mysql_charsets.lib.php:192
+#: libraries/mysql_charsets.lib.php:188
 msgid "Czech"
 msgstr "Češki"
 
-#: libraries/mysql_charsets.lib.php:195
+#: libraries/mysql_charsets.lib.php:191
 msgid "Danish"
 msgstr "Danski"
 
-#: libraries/mysql_charsets.lib.php:198
+#: libraries/mysql_charsets.lib.php:194
 msgid "English"
 msgstr "Engleski"
 
-#: libraries/mysql_charsets.lib.php:201
+#: libraries/mysql_charsets.lib.php:197
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/mysql_charsets.lib.php:204
+#: libraries/mysql_charsets.lib.php:200
 msgid "Estonian"
 msgstr "Estonski"
 
-#: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
+#: libraries/mysql_charsets.lib.php:203 libraries/mysql_charsets.lib.php:206
 msgid "German"
 msgstr "Njemački"
 
-#: libraries/mysql_charsets.lib.php:207
+#: libraries/mysql_charsets.lib.php:203
 msgid "dictionary"
 msgstr "rječnik"
 
-#: libraries/mysql_charsets.lib.php:210
+#: libraries/mysql_charsets.lib.php:206
 msgid "phone book"
 msgstr "telefonski imenik"
 
-#: libraries/mysql_charsets.lib.php:213
+#: libraries/mysql_charsets.lib.php:209
 msgid "Hungarian"
 msgstr "Mađarski"
 
-#: libraries/mysql_charsets.lib.php:216
+#: libraries/mysql_charsets.lib.php:212
 msgid "Icelandic"
 msgstr "Islandski"
 
-#: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:318
+#: libraries/mysql_charsets.lib.php:215 libraries/mysql_charsets.lib.php:314
 msgid "Japanese"
 msgstr "Japanski"
 
-#: libraries/mysql_charsets.lib.php:222
+#: libraries/mysql_charsets.lib.php:218
 msgid "Latvian"
 msgstr "Latvijski"
 
-#: libraries/mysql_charsets.lib.php:225
+#: libraries/mysql_charsets.lib.php:221
 msgid "Lithuanian"
 msgstr "Litavski"
 
-#: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:340
+#: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:336
 msgid "Korean"
 msgstr "Korejski"
 
-#: libraries/mysql_charsets.lib.php:231
+#: libraries/mysql_charsets.lib.php:227
 msgid "Persian"
 msgstr "Perzijski"
 
-#: libraries/mysql_charsets.lib.php:234
+#: libraries/mysql_charsets.lib.php:230
 msgid "Polish"
 msgstr "Poljski"
 
-#: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:294
+#: libraries/mysql_charsets.lib.php:233 libraries/mysql_charsets.lib.php:290
 msgid "West European"
 msgstr "Zapadno europski"
 
-#: libraries/mysql_charsets.lib.php:240
+#: libraries/mysql_charsets.lib.php:236
 msgid "Romanian"
 msgstr "Rumunjski"
 
-#: libraries/mysql_charsets.lib.php:243
+#: libraries/mysql_charsets.lib.php:239
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/mysql_charsets.lib.php:246
+#: libraries/mysql_charsets.lib.php:242
 msgid "Slovak"
 msgstr "Slovački"
 
-#: libraries/mysql_charsets.lib.php:249
+#: libraries/mysql_charsets.lib.php:245
 msgid "Slovenian"
 msgstr "Slovenski"
 
-#: libraries/mysql_charsets.lib.php:252
+#: libraries/mysql_charsets.lib.php:248
 msgid "Spanish"
 msgstr "Španjolski"
 
-#: libraries/mysql_charsets.lib.php:255
+#: libraries/mysql_charsets.lib.php:251
 msgid "Traditional Spanish"
 msgstr "Španjolski, tradicionalan"
 
-#: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:361
+#: libraries/mysql_charsets.lib.php:254 libraries/mysql_charsets.lib.php:357
 msgid "Swedish"
 msgstr "Švedski"
 
-#: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:364
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:360
 msgid "Thai"
 msgstr "Thai"
 
-#: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:358
+#: libraries/mysql_charsets.lib.php:260 libraries/mysql_charsets.lib.php:354
 msgid "Turkish"
 msgstr "Turski"
 
-#: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:355
+#: libraries/mysql_charsets.lib.php:263 libraries/mysql_charsets.lib.php:351
 msgid "Ukrainian"
 msgstr "Ukrajinski"
 
-#: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:285
+#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:281
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:285
-#: libraries/mysql_charsets.lib.php:294 libraries/mysql_charsets.lib.php:301
-#: libraries/mysql_charsets.lib.php:323 libraries/mysql_charsets.lib.php:334
+#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:281
+#: libraries/mysql_charsets.lib.php:290 libraries/mysql_charsets.lib.php:297
+#: libraries/mysql_charsets.lib.php:319 libraries/mysql_charsets.lib.php:330
 msgid "multilingual"
 msgstr "višejezično"
 
-#: libraries/mysql_charsets.lib.php:273
+#: libraries/mysql_charsets.lib.php:269
 #, fuzzy
 #| msgid "Table name"
 msgid "Vietnamese"
 msgstr "Naziv tablice"
 
-#: libraries/mysql_charsets.lib.php:301
+#: libraries/mysql_charsets.lib.php:297
 msgid "Central European"
 msgstr "Srednjoeuropski"
 
-#: libraries/mysql_charsets.lib.php:306
+#: libraries/mysql_charsets.lib.php:302
 msgid "Russian"
 msgstr "Ruski"
 
-#: libraries/mysql_charsets.lib.php:323
+#: libraries/mysql_charsets.lib.php:319
 msgid "Baltic"
 msgstr "Baltički"
 
-#: libraries/mysql_charsets.lib.php:328
+#: libraries/mysql_charsets.lib.php:324
 msgid "Armenian"
 msgstr "Armenski"
 
-#: libraries/mysql_charsets.lib.php:334
+#: libraries/mysql_charsets.lib.php:330
 msgid "Cyrillic"
 msgstr "Ćirilica"
 
-#: libraries/mysql_charsets.lib.php:337
+#: libraries/mysql_charsets.lib.php:333
 msgid "Arabic"
 msgstr "Arapski"
 
-#: libraries/mysql_charsets.lib.php:343
+#: libraries/mysql_charsets.lib.php:339
 msgid "Hebrew"
 msgstr "Hebrejski"
 
-#: libraries/mysql_charsets.lib.php:346
+#: libraries/mysql_charsets.lib.php:342
 msgid "Georgian"
 msgstr "Gruzijski"
 
-#: libraries/mysql_charsets.lib.php:349
+#: libraries/mysql_charsets.lib.php:345
 msgid "Greek"
 msgstr "Grčki"
 
-#: libraries/mysql_charsets.lib.php:352
+#: libraries/mysql_charsets.lib.php:348
 msgid "Czech-Slovak"
 msgstr "Češki ili Slovački"
 
@@ -15952,8 +15952,10 @@ msgid "Operator"
 msgstr "Operator"
 
 #: templates/database/designer/database_tables.phtml:29
-msgid "Toggle"
-msgstr ""
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Show/hide columns"
+msgstr "Ukloni stupac / stupce"
 
 #: templates/database/designer/database_tables.phtml:40
 #, fuzzy
@@ -16515,13 +16517,13 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:81
+#: templates/table/relation/common_form.phtml:83
 #, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "Dodaj prisile"
 
-#: templates/table/relation/common_form.phtml:91
+#: templates/table/relation/common_form.phtml:93
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display:"

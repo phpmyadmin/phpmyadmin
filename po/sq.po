@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
+"Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 16:57-0400\n"
+"POT-Creation-Date: 2015-09-06 07:29-0400\n"
 "PO-Revision-Date: 2015-09-05 23:03+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
-"Language-Team: Albanian "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/sq/>\n"
+"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
+"sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -255,9 +255,9 @@ msgid "Tables"
 msgstr "Tabela"
 
 #: db_export.php:63 libraries/Menu.class.php:317 libraries/Menu.class.php:425
-#: libraries/Util.class.php:3352 libraries/Util.class.php:3362
-#: libraries/Util.class.php:3368 libraries/Util.class.php:3648
-#: libraries/Util.class.php:4289 libraries/Util.class.php:4306
+#: libraries/Util.class.php:3350 libraries/Util.class.php:3360
+#: libraries/Util.class.php:3366 libraries/Util.class.php:3646
+#: libraries/Util.class.php:4287 libraries/Util.class.php:4304
 #: libraries/central_columns.lib.php:728 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:320
@@ -652,7 +652,6 @@ msgstr ""
 "informacion është i vlefshëm në %s."
 
 #: index.php:163
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "Rregullimet e përgjithshme"
 
@@ -667,7 +666,6 @@ msgid "Server connection collation"
 msgstr "Përshtatja e lidhjes me serverin"
 
 #: index.php:229
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Rregullimet e pamjes"
 
@@ -1014,7 +1012,6 @@ msgstr ""
 "ktheni të dhënat?"
 
 #: js/messages.php:88
-#| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Ruaj & mbyll"
 
@@ -1025,7 +1022,6 @@ msgid "Reset"
 msgstr "Rivendos"
 
 #: js/messages.php:90
-#| msgid "Reset All"
 msgid "Reset all"
 msgstr "Rivendos të gjitha"
 
@@ -1050,7 +1046,6 @@ msgid "Add index"
 msgstr "Shto indeks"
 
 #: js/messages.php:98
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Korrigjo indeksin"
 
@@ -1082,7 +1077,7 @@ msgstr "Keni shtuar së paku një kolonë."
 #: js/messages.php:109 libraries/insert_edit.lib.php:1546
 #: templates/columns_definitions/column_definitions_form.phtml:162
 #: templates/table/index_form.phtml:237
-#: templates/table/relation/common_form.phtml:106
+#: templates/table/relation/common_form.phtml:108
 msgid "Preview SQL"
 msgstr "Paraqit SQL"
 
@@ -1100,7 +1095,6 @@ msgstr "SQL pyetsor:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Vlerat Y"
 
@@ -1132,7 +1126,6 @@ msgid "Close"
 msgstr "Mbyll"
 
 #: js/messages.php:129
-#| msgid "The number of pages created."
 msgid "Template was created."
 msgstr "Shablloni është krijuar."
 
@@ -1141,12 +1134,10 @@ msgid "Template was loaded."
 msgstr "Shablloni është lokalizuar."
 
 #: js/messages.php:131
-#| msgid "The profile has been updated."
 msgid "Template was updated."
 msgstr "Shablloni është aktualizuar."
 
 #: js/messages.php:132
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "Shablloni është fshirë."
 
@@ -1199,7 +1190,6 @@ msgid "Query cache used"
 msgstr "Cache e përdorur e pyetsorit"
 
 #: js/messages.php:151
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Përdorimi CPU i sistemit"
 
@@ -1236,22 +1226,18 @@ msgid "Used memory"
 msgstr "Kujtesa e përdorur"
 
 #: js/messages.php:162
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Shkëmbimi total"
 
 #: js/messages.php:163
-#| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Shkëmbimi cache"
 
 #: js/messages.php:164
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Shkëmbimi i përdorur"
 
 #: js/messages.php:165
-#| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Shkëmbimi i lirë"
 
@@ -1325,7 +1311,7 @@ msgid "Traffic"
 msgstr "Trafiku"
 
 #: js/messages.php:185 libraries/Menu.class.php:586
-#: libraries/Util.class.php:4280 libraries/server_status_monitor.lib.php:257
+#: libraries/Util.class.php:4278 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Konfigurimet"
 
@@ -1549,7 +1535,7 @@ msgid "Explain output"
 msgstr "Sqaro rezultatin"
 
 #: js/messages.php:243 libraries/Menu.class.php:552
-#: libraries/Util.class.php:4276 libraries/config.values.php:104
+#: libraries/Util.class.php:4274 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:279
 #: libraries/tracking.lib.php:1620
@@ -1651,8 +1637,8 @@ msgstr ""
 
 #: js/messages.php:270 libraries/Menu.class.php:352
 #: libraries/Menu.class.php:455 libraries/Menu.class.php:582
-#: libraries/Util.class.php:4279 libraries/Util.class.php:4294
-#: libraries/Util.class.php:4311 libraries/config/messages.inc.php:260
+#: libraries/Util.class.php:4277 libraries/Util.class.php:4292
+#: libraries/Util.class.php:4309 libraries/config/messages.inc.php:260
 #: libraries/display_import.lib.php:105
 #: libraries/server_status_monitor.lib.php:318 prefs_manage.php:238
 #: setup/frames/menu.inc.php:26
@@ -1672,7 +1658,6 @@ msgid "No files available on server for import!"
 msgstr "Nuk ka file të vlefshme në server për import!"
 
 #: js/messages.php:275
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analizo pyetsorin"
 
@@ -1737,22 +1722,18 @@ msgid "Loading…"
 msgstr "Ngarkon…"
 
 #: js/messages.php:301
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Kërkesa u abortua!!"
 
 #: js/messages.php:302
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Proçeson kërkesën"
 
 #: js/messages.php:303
-#| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Kërkesa dështoi!!"
 
 #: js/messages.php:304
-#| msgid "Error in processing request:"
 msgid "Error in processing request"
 msgstr "Gabim në proçesimin e kërkesës"
 
@@ -1772,12 +1753,10 @@ msgid "No databases selected."
 msgstr "Nuk janë zgjedhur databaza."
 
 #: js/messages.php:308
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Po fshin kolonën"
 
 #: js/messages.php:309
-#| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Shton çelësin primar"
 
@@ -1796,21 +1775,18 @@ msgid "Click to dismiss this notification"
 msgstr "Kliko për të larguar këtë njoftim"
 
 #: js/messages.php:314
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Riemëron databazën"
 
 #: js/messages.php:315
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopjon databazën"
 
 #: js/messages.php:316
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Ndryshon setin e karaktereve"
 
-#: js/messages.php:320 libraries/Util.class.php:3234
+#: js/messages.php:320 libraries/Util.class.php:3232
 msgid "Enable foreign key checks"
 msgstr "Aftëso kontrollet e çelësave të huaj"
 
@@ -1847,9 +1823,9 @@ msgstr ""
 #: js/messages.php:334 libraries/DisplayResults.class.php:4837
 #: libraries/DisplayResults.class.php:5095 libraries/Menu.class.php:344
 #: libraries/Menu.class.php:446 libraries/Menu.class.php:578
-#: libraries/Util.class.php:3655 libraries/Util.class.php:3656
-#: libraries/Util.class.php:4278 libraries/Util.class.php:4293
-#: libraries/Util.class.php:4310 libraries/config/messages.inc.php:254
+#: libraries/Util.class.php:3653 libraries/Util.class.php:3654
+#: libraries/Util.class.php:4276 libraries/Util.class.php:4291
+#: libraries/Util.class.php:4308 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:146
 #: libraries/server_privileges.lib.php:2213
 #: libraries/server_privileges.lib.php:2292
@@ -1901,7 +1877,7 @@ msgstr "Shfaq kutinë e pyetsorit"
 #: libraries/Console.class.php:214 libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:4821 libraries/Index.class.php:723
 #: libraries/Util.class.php:710 libraries/Util.class.php:1207
-#: libraries/Util.class.php:3653 libraries/Util.class.php:3654
+#: libraries/Util.class.php:3651 libraries/Util.class.php:3652
 #: libraries/central_columns.lib.php:851
 #: libraries/central_columns.lib.php:1194
 #: libraries/config/messages.inc.php:895
@@ -2092,7 +2068,7 @@ msgstr "Nuk janë zgjedhur varësi!"
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
 #: templates/columns_definitions/column_definitions_form.phtml:165
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:107
+#: templates/table/relation/common_form.phtml:109
 msgid "Save"
 msgstr "Ruaj"
 
@@ -2203,12 +2179,10 @@ msgid "Geometry"
 msgstr "Gjeometri"
 
 #: js/messages.php:440
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Brenda rrethit"
 
 #: js/messages.php:441
-#| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "Rrethi i jashtëm"
 
@@ -2458,12 +2432,10 @@ msgid "More"
 msgstr "Më shumë"
 
 #: js/messages.php:531
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Shfaq panelin"
 
 #: js/messages.php:532
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Fsheh panelin"
 
@@ -2540,12 +2512,10 @@ msgid "Create view"
 msgstr "Krijo pamje"
 
 #: js/messages.php:556
-#| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Dërgo raportin e gabimit"
 
 #: js/messages.php:557
-#| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Dërgo raportin e gabimit"
 
@@ -2558,12 +2528,10 @@ msgstr ""
 "gabimi?"
 
 #: js/messages.php:561
-#| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Ndrysho rregullimet e raportit"
 
 #: js/messages.php:562
-#| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Shfaq detajet e raportit"
 
@@ -3433,7 +3401,7 @@ msgstr "Aktualizo faqeruajtësin"
 msgid "Delete bookmark"
 msgstr "Fshij faqeruajtësin"
 
-#: libraries/DatabaseInterface.class.php:2524
+#: libraries/DatabaseInterface.class.php:2522
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3441,19 +3409,19 @@ msgstr ""
 "Serveri nuk përgjigjet (ose foleja e serverit lokal nuk është konfiguruar "
 "saktë)."
 
-#: libraries/DatabaseInterface.class.php:2529
+#: libraries/DatabaseInterface.class.php:2527
 msgid "The server is not responding."
 msgstr "Serveri nuk përgjigjet."
 
-#: libraries/DatabaseInterface.class.php:2534
+#: libraries/DatabaseInterface.class.php:2532
 msgid "Please check privileges of directory containing database."
 msgstr "Ju lutem, kontrollo privilegjet e drejtorisë që përmban databazën."
 
-#: libraries/DatabaseInterface.class.php:2544
+#: libraries/DatabaseInterface.class.php:2542
 msgid "Details…"
 msgstr "Detajet…"
 
-#: libraries/DatabaseInterface.class.php:2764
+#: libraries/DatabaseInterface.class.php:2762
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Lidhja për përdoruesin e kontrollit, siç përcaktohet në konfigurimin tuaj "
@@ -3495,9 +3463,9 @@ msgstr[0] "%1$s përkim në <strong>%2$s</strong>"
 msgstr[1] "%1$s përkime në <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:311
-#: libraries/Util.class.php:3356 libraries/Util.class.php:3366
-#: libraries/Util.class.php:3642 libraries/Util.class.php:3643
-#: libraries/Util.class.php:4305 libraries/config.values.php:43
+#: libraries/Util.class.php:3354 libraries/Util.class.php:3364
+#: libraries/Util.class.php:3640 libraries/Util.class.php:3641
+#: libraries/Util.class.php:4303 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:119
 #: libraries/navigation/Nodes/Node_Table.class.php:295
 #: templates/table/structure/check_all_table_column.phtml:5
@@ -3532,7 +3500,6 @@ msgstr "Tabelat e brendshme:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Mos-zgjedh të gjitha"
 
@@ -3613,7 +3580,6 @@ msgid "Relational key"
 msgstr "Çelësi relacional"
 
 #: libraries/DisplayResults.class.php:1745
-#| msgid "Display foreign key relationships"
 msgid "Display column for relations"
 msgstr "Shfaq kolonat për marrëdhëniet"
 
@@ -3691,22 +3657,21 @@ msgid "Query took %01.4f seconds."
 msgstr "Pyetsori mori %01.4f sekonda."
 
 #: libraries/DisplayResults.class.php:4810
-#: libraries/DisplayResults.class.php:4817 libraries/Util.class.php:4729
-#: libraries/Util.class.php:4735 libraries/mult_submits.inc.php:50
+#: libraries/DisplayResults.class.php:4817 libraries/Util.class.php:4727
+#: libraries/Util.class.php:4733 libraries/mult_submits.inc.php:50
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
 msgid "With selected:"
 msgstr "Me të zgjedhur:"
 
 #: libraries/DisplayResults.class.php:4814
-#: libraries/DisplayResults.class.php:4816 libraries/Util.class.php:4731
-#: libraries/Util.class.php:4732 libraries/server_privileges.lib.php:1174
+#: libraries/DisplayResults.class.php:4816 libraries/Util.class.php:4729
+#: libraries/Util.class.php:4730 libraries/server_privileges.lib.php:1174
 #: libraries/server_privileges.lib.php:1175
 #: libraries/server_privileges.lib.php:1387
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#| msgid "Check All"
 msgid "Check all"
 msgstr "Shënjo të gjitha"
 
@@ -3791,7 +3756,6 @@ msgid "Error while moving uploaded file."
 msgstr "Gabim gjatë lëvizjes së fileve të ngarkuara."
 
 #: libraries/File.class.php:497
-#| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "Nuk mund të lexojë filin e ngarkuar."
 
@@ -3899,8 +3863,8 @@ msgstr "Çelësi primar është fshirë."
 msgid "Index %s has been dropped."
 msgstr "Indeksi %s është fshirë."
 
-#: libraries/Index.class.php:757 libraries/Util.class.php:3649
-#: libraries/Util.class.php:3650
+#: libraries/Index.class.php:757 libraries/Util.class.php:3647
+#: libraries/Util.class.php:3648
 #: libraries/controllers/TableStructureController.class.php:951
 #: libraries/controllers/TableStructureController.class.php:952
 #: libraries/operations.lib.php:1617 libraries/rte/rte_list.lib.php:150
@@ -3962,10 +3926,10 @@ msgid "Table"
 msgstr "Tabela"
 
 #: libraries/Menu.class.php:325 libraries/Menu.class.php:429
-#: libraries/Menu.class.php:548 libraries/Util.class.php:3353
-#: libraries/Util.class.php:3363 libraries/Util.class.php:3369
-#: libraries/Util.class.php:4275 libraries/Util.class.php:4290
-#: libraries/Util.class.php:4307 libraries/config.values.php:40
+#: libraries/Menu.class.php:548 libraries/Util.class.php:3351
+#: libraries/Util.class.php:3361 libraries/Util.class.php:3367
+#: libraries/Util.class.php:4273 libraries/Util.class.php:4288
+#: libraries/Util.class.php:4305 libraries/config.values.php:40
 #: libraries/config.values.php:48 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/messages.inc.php:323
 #: libraries/navigation/Nodes/Node_Table.class.php:292
@@ -3973,19 +3937,19 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:328 libraries/Menu.class.php:432
-#: libraries/Util.class.php:3354 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3370 libraries/Util.class.php:3644
-#: libraries/Util.class.php:3645 libraries/Util.class.php:4291
-#: libraries/Util.class.php:4308 libraries/config.values.php:41
+#: libraries/Util.class.php:3352 libraries/Util.class.php:3362
+#: libraries/Util.class.php:3368 libraries/Util.class.php:3642
+#: libraries/Util.class.php:3643 libraries/Util.class.php:4289
+#: libraries/Util.class.php:4306 libraries/config.values.php:41
 #: libraries/config.values.php:49 libraries/config.values.php:111
 #: libraries/config.values.php:117
 #: libraries/navigation/Nodes/Node_Table.class.php:286
 msgid "Search"
 msgstr "Kërko"
 
-#: libraries/Menu.class.php:338 libraries/Util.class.php:3355
-#: libraries/Util.class.php:3365 libraries/Util.class.php:3646
-#: libraries/Util.class.php:3647 libraries/Util.class.php:4309
+#: libraries/Menu.class.php:338 libraries/Util.class.php:3353
+#: libraries/Util.class.php:3363 libraries/Util.class.php:3644
+#: libraries/Util.class.php:3645 libraries/Util.class.php:4307
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:118
 #: libraries/navigation/Nodes/Node_Table.class.php:289
@@ -3994,7 +3958,7 @@ msgid "Insert"
 msgstr "Fut"
 
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:467
-#: libraries/Util.class.php:4296 libraries/Util.class.php:4312
+#: libraries/Util.class.php:4294 libraries/Util.class.php:4310
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
 #: libraries/server_privileges.lib.php:2372
 #: libraries/server_privileges.lib.php:3160
@@ -4003,21 +3967,21 @@ msgid "Privileges"
 msgstr "Privilegjet"
 
 #: libraries/Menu.class.php:371 libraries/Menu.class.php:379
-#: libraries/Menu.class.php:459 libraries/Util.class.php:3357
-#: libraries/Util.class.php:3371 libraries/Util.class.php:4295
-#: libraries/Util.class.php:4313 libraries/config.values.php:112
+#: libraries/Menu.class.php:459 libraries/Util.class.php:3355
+#: libraries/Util.class.php:3369 libraries/Util.class.php:4293
+#: libraries/Util.class.php:4311 libraries/config.values.php:112
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Veprime"
 
 #: libraries/Menu.class.php:384 libraries/Menu.class.php:492
-#: libraries/Util.class.php:4300 libraries/Util.class.php:4314
+#: libraries/Util.class.php:4298 libraries/Util.class.php:4312
 #: libraries/relation.lib.php:255
 msgid "Tracking"
 msgstr "Gjurmim"
 
 #: libraries/Menu.class.php:397 libraries/Menu.class.php:486
-#: libraries/Util.class.php:4299 libraries/Util.class.php:4315
+#: libraries/Util.class.php:4297 libraries/Util.class.php:4313
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:24
 #: libraries/plugins/export/ExportHtmlword.class.php:558
 #: libraries/plugins/export/ExportOdt.class.php:686
@@ -4034,16 +3998,16 @@ msgstr "Shkrehësit"
 msgid "Database seems to be empty!"
 msgstr "Databaza duket se është e zbrazët!"
 
-#: libraries/Menu.class.php:439 libraries/Util.class.php:4292
+#: libraries/Menu.class.php:439 libraries/Util.class.php:4290
 msgid "Query"
 msgstr "Pyetsori"
 
-#: libraries/Menu.class.php:472 libraries/Util.class.php:4297
+#: libraries/Menu.class.php:472 libraries/Util.class.php:4295
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Rutinat"
 
-#: libraries/Menu.class.php:479 libraries/Util.class.php:4298
+#: libraries/Menu.class.php:479 libraries/Util.class.php:4296
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:947
 #: libraries/plugins/export/ExportXml.class.php:107
@@ -4051,16 +4015,16 @@ msgstr "Rutinat"
 msgid "Events"
 msgstr "Ngjarjet"
 
-#: libraries/Menu.class.php:498 libraries/Util.class.php:4301
+#: libraries/Menu.class.php:498 libraries/Util.class.php:4299
 msgid "Designer"
 msgstr "Dizajner"
 
-#: libraries/Menu.class.php:507 libraries/Util.class.php:4302
+#: libraries/Menu.class.php:507 libraries/Util.class.php:4300
 #: templates/database/structure/check_all_tables.phtml:35
 msgid "Central columns"
 msgstr "Kolonat qendrore"
 
-#: libraries/Menu.class.php:544 libraries/Util.class.php:4274
+#: libraries/Menu.class.php:544 libraries/Util.class.php:4272
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.class.php:1240
@@ -4069,39 +4033,38 @@ msgid "Databases"
 msgstr "Databazat"
 
 #: libraries/Menu.class.php:568
-#| msgid "User groups"
 msgid "User accounts"
 msgstr "Llogaritë e përdoruesve"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
-#: libraries/Util.class.php:4281 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4279 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Regjistër (log) binar"
 
 #: libraries/Menu.class.php:601 libraries/ServerStatusData.class.php:127
-#: libraries/Util.class.php:4282 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4280 libraries/server_common.lib.php:42
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replikimi"
 
 #: libraries/Menu.class.php:606 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4283 libraries/config.values.php:105
+#: libraries/Util.class.php:4281 libraries/config.values.php:105
 #: libraries/server_engines.lib.php:108 libraries/server_engines.lib.php:112
 #: libraries/sql_query_form.lib.php:421
 msgid "Variables"
 msgstr "Variablat"
 
-#: libraries/Menu.class.php:610 libraries/Util.class.php:4284
+#: libraries/Menu.class.php:610 libraries/Util.class.php:4282
 msgid "Charsets"
 msgstr "Karakteret"
 
-#: libraries/Menu.class.php:615 libraries/Util.class.php:4285
+#: libraries/Menu.class.php:615 libraries/Util.class.php:4283
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:27
 msgid "Plugins"
 msgstr "Shtojcat (plugins)"
 
-#: libraries/Menu.class.php:626 libraries/Util.class.php:4286
+#: libraries/Menu.class.php:626 libraries/Util.class.php:4284
 msgid "Engines"
 msgstr "Makinat"
 
@@ -4347,29 +4310,29 @@ msgstr "Databaza e burimit `%s` nuk gjendet!"
 msgid "Target database `%s` was not found!"
 msgstr "Databaza e objektivit `%s` nuk u gjend!"
 
-#: libraries/Table.class.php:1270
+#: libraries/Table.class.php:1268
 msgid "Invalid database:"
 msgstr "Databazë e pavlefshme:"
 
-#: libraries/Table.class.php:1284
+#: libraries/Table.class.php:1282
 msgid "Invalid table name:"
 msgstr "Emër tabele i pavlefshëm:"
 
-#: libraries/Table.class.php:1319
+#: libraries/Table.class.php:1317
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Dështoi në riemërimin e tabelës %1$s në %2$s!"
 
-#: libraries/Table.class.php:1338
+#: libraries/Table.class.php:1336
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabela %1$s është riemëruar në %2$s."
 
-#: libraries/Table.class.php:1518
+#: libraries/Table.class.php:1516
 msgid "Could not save table UI preferences!"
 msgstr "Nuk mund të ruajë tabelën e preferencave UI!"
 
-#: libraries/Table.class.php:1548
+#: libraries/Table.class.php:1546
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4378,7 +4341,7 @@ msgstr ""
 "Dështoi në pastrimin e tabelës së preferencave UI (shiko $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1703
+#: libraries/Table.class.php:1701
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4389,19 +4352,19 @@ msgstr ""
 "qëndrueshme, pasi ju ta rifreskoni këtë faqe. Ju lutem, kontrollo nëse "
 "struktura e tabelës ka ndryshuar."
 
-#: libraries/Table.class.php:1840
+#: libraries/Table.class.php:1838
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Emri i çelësit primar duhet të jetë \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1851
+#: libraries/Table.class.php:1849
 msgid "Can't rename index to PRIMARY!"
 msgstr "uk mund ta riemërojë indeksin tek PRIMARY!"
 
-#: libraries/Table.class.php:1873
+#: libraries/Table.class.php:1871
 msgid "No index parts defined!"
 msgstr "Nuk janë përcaktuar pjesë të indeksit!"
 
-#: libraries/Table.class.php:2187
+#: libraries/Table.class.php:2185
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -4784,7 +4747,6 @@ msgid "Max: %s%s"
 msgstr "Maks: %s%s"
 
 #: libraries/Util.class.php:665
-#| msgid "Static data"
 msgid "Static analysis:"
 msgstr "Analizat statike:"
 
@@ -4822,7 +4784,6 @@ msgid "Without PHP Code"
 msgstr "Pa kod PHP"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Krijo kodin PHP"
 
@@ -4866,37 +4827,37 @@ msgstr "Funksionaliteti %s është ndikuar nga një defekt i njohur, shiko %s"
 msgid "Click to toggle"
 msgstr "Kliko për të nyjëzuar"
 
-#: libraries/Util.class.php:3561 prefs_manage.php:248
+#: libraries/Util.class.php:3559 prefs_manage.php:248
 msgid "Browse your computer:"
 msgstr "Shfleto kompjuterin:"
 
-#: libraries/Util.class.php:3586
+#: libraries/Util.class.php:3584
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Zgjedh nga drejtoria e ngarkimit <b>%s</b> të ueb serverit:"
 
-#: libraries/Util.class.php:3615 libraries/insert_edit.lib.php:1171
+#: libraries/Util.class.php:3613 libraries/insert_edit.lib.php:1171
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Dosja që keni zgjedhur për ngarkim nuk mund të arrihet."
 
-#: libraries/Util.class.php:3626
+#: libraries/Util.class.php:3624
 msgid "There are no files to upload!"
 msgstr "Nuk ka file për ngarkim!"
 
-#: libraries/Util.class.php:3651 libraries/Util.class.php:3652
+#: libraries/Util.class.php:3649 libraries/Util.class.php:3650
 #: templates/database/structure/check_all_tables.phtml:15
 msgid "Empty"
 msgstr "Zbraz"
 
-#: libraries/Util.class.php:3657 libraries/Util.class.php:3658
+#: libraries/Util.class.php:3655 libraries/Util.class.php:3656
 msgid "Execute"
 msgstr "Ekzekuto"
 
-#: libraries/Util.class.php:4171
+#: libraries/Util.class.php:4169
 msgid "Print"
 msgstr "Printo"
 
-#: libraries/Util.class.php:4277
+#: libraries/Util.class.php:4275
 msgid "Users"
 msgstr "Përdoruesit"
 
@@ -4951,7 +4912,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Kontrollo privilegjet për databazën \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Kontrollo privilegjet"
 
@@ -5684,7 +5644,6 @@ msgstr ""
 "CodeMirror."
 
 #: libraries/config/messages.inc.php:67
-#| msgid "Enable %s"
 msgid "Enable linter"
 msgstr "Aftëso linterin"
 
@@ -5983,7 +5942,6 @@ msgid "Overwrite existing file(s)"
 msgstr "Mbishkruaj filin(et) ekzistues"
 
 #: libraries/config/messages.inc.php:181
-#| msgid "Export tables as separate files"
 msgid "Export as separate files"
 msgstr "Eksporto si file të ndara"
 
@@ -6679,9 +6637,6 @@ msgid "Maximum tables"
 msgstr "Maksimumi i tabelave"
 
 #: libraries/config/messages.inc.php:465
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -7289,14 +7244,10 @@ msgstr ""
 "[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:701
-#| msgid "Export views as tables"
 msgid "Export templates table"
 msgstr "Eksporto tabelën e shablloneve"
 
 #: libraries/config/messages.inc.php:703
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -7571,10 +7522,6 @@ msgid "User preferences storage table"
 msgstr "Tabela e ruajtjes së preferencave të përdoruesit"
 
 #: libraries/config/messages.inc.php:812
-#| msgid ""
-#| "Both this table and the user groups table are required to enable the "
-#| "configurable menus feature; leaving either one of them blank will disable "
-#| "this feature, suggested: [kbd]pma__users[/kbd]."
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable\n"
@@ -7675,7 +7622,6 @@ msgstr ""
 "gjitha tabelat."
 
 #: libraries/config/messages.inc.php:853
-#| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Shfaq krijimin e vulës kohore (timestamp)"
 
@@ -7687,7 +7633,6 @@ msgstr ""
 "kohore për të gjithë tabelat."
 
 #: libraries/config/messages.inc.php:857
-#| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Shfaq vulën kohore të aktualizuar së fundi"
 
@@ -7699,7 +7644,6 @@ msgstr ""
 "kohore për të gjithë tabelat."
 
 #: libraries/config/messages.inc.php:861
-#| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Shfaq vulën kohore të kontrolluar së fundi"
 
@@ -8098,7 +8042,7 @@ msgid "Favorite List is full!"
 msgstr "Lista e preferencave është e mbushur!"
 
 #: libraries/controllers/DatabaseStructureController.class.php:957
-#: libraries/mysql_charsets.lib.php:367 libraries/mysql_charsets.lib.php:374
+#: libraries/mysql_charsets.lib.php:363 libraries/mysql_charsets.lib.php:370
 msgid "unknown"
 msgstr "e panjohur"
 
@@ -8270,13 +8214,11 @@ msgstr "Ngatërrimi i fjalëkalimit:"
 
 #: libraries/display_change_password.lib.php:98
 #: libraries/server_privileges.lib.php:1700
-#| msgid "Generate password"
 msgid "MySQL native password"
 msgstr "Fjalëkalimi autokton MySQL"
 
 #: libraries/display_change_password.lib.php:112
 #: libraries/server_privileges.lib.php:1708
-#| msgid "Change password"
 msgid "SHA256 password"
 msgstr "Fjalëkalimi SHA256"
 
@@ -8334,42 +8276,34 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Eksporton radhë nga \"%s\" tabela"
 
 #: libraries/display_export.lib.php:200
-#| msgid "Export type"
 msgid "Export templates:"
 msgstr "Eksporto shabllonet:"
 
 #: libraries/display_export.lib.php:205
-#| msgid "File name template:"
 msgid "New template:"
 msgstr "Shabllon i ri:"
 
 #: libraries/display_export.lib.php:208
-#| msgid "Table name"
 msgid "Template name"
 msgstr "Emri i shabllonit"
 
 #: libraries/display_export.lib.php:217
-#| msgid "File name template:"
 msgid "Existing templates:"
 msgstr "Shabllonet ekzistuese:"
 
 #: libraries/display_export.lib.php:218
-#| msgid "Temp disk rate"
 msgid "Template:"
 msgstr "Shablloni:"
 
 #: libraries/display_export.lib.php:223
-#| msgid "Updated"
 msgid "Update"
 msgstr "Aktualizo"
 
 #: libraries/display_export.lib.php:245
-#| msgid "Select a table"
 msgid "Select a template"
 msgstr "Zgjedh një shabllon"
 
 #: libraries/display_export.lib.php:291
-#| msgid "Export method"
 msgid "Export method:"
 msgstr "Metoda e eksportit:"
 
@@ -8382,7 +8316,6 @@ msgid "Custom - display all possible options"
 msgstr "Përshtat - shfaq të gjitha opsionet e mundshme"
 
 #: libraries/display_export.lib.php:335
-#| msgid "Databases"
 msgid "Databases:"
 msgstr "Databazat:"
 
@@ -8593,7 +8526,6 @@ msgstr ""
 "b>. Shembull: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Fili për import:"
 
@@ -8606,7 +8538,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Ngarkimet e fileve nuk lejohen në këtë server."
 
 #: libraries/display_import.lib.php:278
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Importim i pjesshëm:"
 
@@ -8637,7 +8568,6 @@ msgstr ""
 "duke filluar nga i pari:"
 
 #: libraries/display_import.lib.php:340
-#| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Opsionet e tjera:"
 
@@ -9145,8 +9075,8 @@ msgstr "Fsheh"
 msgid "Function"
 msgstr "Funksioni"
 
-#: libraries/insert_edit.lib.php:399 libraries/mysql_charsets.lib.php:161
-#: libraries/mysql_charsets.lib.php:371
+#: libraries/insert_edit.lib.php:399 libraries/mysql_charsets.lib.php:157
+#: libraries/mysql_charsets.lib.php:367
 msgid "Binary"
 msgstr "Binar"
 
@@ -9285,189 +9215,189 @@ msgstr "Doni me të vërtetë të ekzekutoni pyetsorin që vijon?"
 msgid "Charset"
 msgstr "Set karakteresh"
 
-#: libraries/mysql_charsets.lib.php:173
+#: libraries/mysql_charsets.lib.php:169
 msgid "Bulgarian"
 msgstr "Bulgarisht"
 
-#: libraries/mysql_charsets.lib.php:177 libraries/mysql_charsets.lib.php:311
+#: libraries/mysql_charsets.lib.php:173 libraries/mysql_charsets.lib.php:307
 msgid "Simplified Chinese"
 msgstr "Kinisht e thjeshtëzuar"
 
-#: libraries/mysql_charsets.lib.php:179 libraries/mysql_charsets.lib.php:331
+#: libraries/mysql_charsets.lib.php:175 libraries/mysql_charsets.lib.php:327
 msgid "Traditional Chinese"
 msgstr "Kineze tradicionale"
 
-#: libraries/mysql_charsets.lib.php:183 libraries/mysql_charsets.lib.php:378
+#: libraries/mysql_charsets.lib.php:179 libraries/mysql_charsets.lib.php:374
 msgid "case-insensitive"
 msgstr "kasë josensitive"
 
-#: libraries/mysql_charsets.lib.php:186 libraries/mysql_charsets.lib.php:380
+#: libraries/mysql_charsets.lib.php:182 libraries/mysql_charsets.lib.php:376
 msgid "case-sensitive"
 msgstr "kasë sensitive"
 
-#: libraries/mysql_charsets.lib.php:189
+#: libraries/mysql_charsets.lib.php:185
 msgid "Croatian"
 msgstr "Kroatisht"
 
-#: libraries/mysql_charsets.lib.php:192
+#: libraries/mysql_charsets.lib.php:188
 msgid "Czech"
 msgstr "Çekisht"
 
-#: libraries/mysql_charsets.lib.php:195
+#: libraries/mysql_charsets.lib.php:191
 msgid "Danish"
 msgstr "Danisht"
 
-#: libraries/mysql_charsets.lib.php:198
+#: libraries/mysql_charsets.lib.php:194
 msgid "English"
 msgstr "Anglisht"
 
-#: libraries/mysql_charsets.lib.php:201
+#: libraries/mysql_charsets.lib.php:197
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/mysql_charsets.lib.php:204
+#: libraries/mysql_charsets.lib.php:200
 msgid "Estonian"
 msgstr "Estonisht"
 
-#: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
+#: libraries/mysql_charsets.lib.php:203 libraries/mysql_charsets.lib.php:206
 msgid "German"
 msgstr "Gjerman"
 
-#: libraries/mysql_charsets.lib.php:207
+#: libraries/mysql_charsets.lib.php:203
 msgid "dictionary"
 msgstr "fjalori"
 
-#: libraries/mysql_charsets.lib.php:210
+#: libraries/mysql_charsets.lib.php:206
 msgid "phone book"
 msgstr "numratori telefonik"
 
-#: libraries/mysql_charsets.lib.php:213
+#: libraries/mysql_charsets.lib.php:209
 msgid "Hungarian"
 msgstr "Hungarisht"
 
-#: libraries/mysql_charsets.lib.php:216
+#: libraries/mysql_charsets.lib.php:212
 msgid "Icelandic"
 msgstr "Islandisht"
 
-#: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:318
+#: libraries/mysql_charsets.lib.php:215 libraries/mysql_charsets.lib.php:314
 msgid "Japanese"
 msgstr "Japonisht"
 
-#: libraries/mysql_charsets.lib.php:222
+#: libraries/mysql_charsets.lib.php:218
 msgid "Latvian"
 msgstr "Letonisht"
 
-#: libraries/mysql_charsets.lib.php:225
+#: libraries/mysql_charsets.lib.php:221
 msgid "Lithuanian"
 msgstr "Lituanisht"
 
-#: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:340
+#: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:336
 msgid "Korean"
 msgstr "Koreane"
 
-#: libraries/mysql_charsets.lib.php:231
+#: libraries/mysql_charsets.lib.php:227
 msgid "Persian"
 msgstr "Persisht"
 
-#: libraries/mysql_charsets.lib.php:234
+#: libraries/mysql_charsets.lib.php:230
 msgid "Polish"
 msgstr "Polonisht"
 
-#: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:294
+#: libraries/mysql_charsets.lib.php:233 libraries/mysql_charsets.lib.php:290
 msgid "West European"
 msgstr "Europian perëndimor"
 
-#: libraries/mysql_charsets.lib.php:240
+#: libraries/mysql_charsets.lib.php:236
 msgid "Romanian"
 msgstr "Rumanisht"
 
-#: libraries/mysql_charsets.lib.php:243
+#: libraries/mysql_charsets.lib.php:239
 msgid "Sinhalese"
 msgstr "Singalez"
 
-#: libraries/mysql_charsets.lib.php:246
+#: libraries/mysql_charsets.lib.php:242
 msgid "Slovak"
 msgstr "Sllovakisht"
 
-#: libraries/mysql_charsets.lib.php:249
+#: libraries/mysql_charsets.lib.php:245
 msgid "Slovenian"
 msgstr "Sllovenisht"
 
-#: libraries/mysql_charsets.lib.php:252
+#: libraries/mysql_charsets.lib.php:248
 msgid "Spanish"
 msgstr "Spanjisht"
 
-#: libraries/mysql_charsets.lib.php:255
+#: libraries/mysql_charsets.lib.php:251
 msgid "Traditional Spanish"
 msgstr "Spanjisht tradicionale"
 
-#: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:361
+#: libraries/mysql_charsets.lib.php:254 libraries/mysql_charsets.lib.php:357
 msgid "Swedish"
 msgstr "Suedisht"
 
-#: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:364
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:360
 msgid "Thai"
 msgstr "Tailandisht"
 
-#: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:358
+#: libraries/mysql_charsets.lib.php:260 libraries/mysql_charsets.lib.php:354
 msgid "Turkish"
 msgstr "Turqisht"
 
-#: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:355
+#: libraries/mysql_charsets.lib.php:263 libraries/mysql_charsets.lib.php:351
 msgid "Ukrainian"
 msgstr "Ukrahinas"
 
-#: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:285
+#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:281
 msgid "Unicode"
 msgstr "Unikod"
 
-#: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:285
-#: libraries/mysql_charsets.lib.php:294 libraries/mysql_charsets.lib.php:301
-#: libraries/mysql_charsets.lib.php:323 libraries/mysql_charsets.lib.php:334
+#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:281
+#: libraries/mysql_charsets.lib.php:290 libraries/mysql_charsets.lib.php:297
+#: libraries/mysql_charsets.lib.php:319 libraries/mysql_charsets.lib.php:330
 msgid "multilingual"
 msgstr "shumëgjuhësor"
 
-#: libraries/mysql_charsets.lib.php:273
+#: libraries/mysql_charsets.lib.php:269
 msgid "Vietnamese"
 msgstr "Vietnamisht"
 
-#: libraries/mysql_charsets.lib.php:301
+#: libraries/mysql_charsets.lib.php:297
 msgid "Central European"
 msgstr "Evropiane qendrore"
 
-#: libraries/mysql_charsets.lib.php:306
+#: libraries/mysql_charsets.lib.php:302
 msgid "Russian"
 msgstr "Rusisht"
 
-#: libraries/mysql_charsets.lib.php:323
+#: libraries/mysql_charsets.lib.php:319
 msgid "Baltic"
 msgstr "Balltike"
 
-#: libraries/mysql_charsets.lib.php:328
+#: libraries/mysql_charsets.lib.php:324
 msgid "Armenian"
 msgstr "Armenisht"
 
-#: libraries/mysql_charsets.lib.php:334
+#: libraries/mysql_charsets.lib.php:330
 msgid "Cyrillic"
 msgstr "Cirilike"
 
-#: libraries/mysql_charsets.lib.php:337
+#: libraries/mysql_charsets.lib.php:333
 msgid "Arabic"
 msgstr "Arabisht"
 
-#: libraries/mysql_charsets.lib.php:343
+#: libraries/mysql_charsets.lib.php:339
 msgid "Hebrew"
 msgstr "Hebraisht"
 
-#: libraries/mysql_charsets.lib.php:346
+#: libraries/mysql_charsets.lib.php:342
 msgid "Georgian"
 msgstr "Gjeorgjian"
 
-#: libraries/mysql_charsets.lib.php:349
+#: libraries/mysql_charsets.lib.php:345
 msgid "Greek"
 msgstr "Greqisht"
 
-#: libraries/mysql_charsets.lib.php:352
+#: libraries/mysql_charsets.lib.php:348
 msgid "Czech-Slovak"
 msgstr "Çeko-Sllovakisht"
 
@@ -9973,7 +9903,6 @@ msgstr "Riemëro databazën në"
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:967
 #: libraries/operations.lib.php:1321
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
@@ -9985,7 +9914,6 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Përshtat privilegjet"
 
@@ -10601,7 +10529,6 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:288
 #, php-format
-#| msgid "Session value"
 msgid "%s value"
 msgstr "Vlera %s"
 
@@ -10983,7 +10910,6 @@ msgstr "Shfaq rrjetën"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Fjalori i të dhënave"
 
@@ -11388,7 +11314,6 @@ msgid "Remembering Designer Settings"
 msgstr "Kujton rregullimet e dizajnerit"
 
 #: libraries/relation.lib.php:338
-#| msgid "Invalid export type"
 msgid "Saving export templates"
 msgstr "Shabllonet e eksportit të ruajtjes"
 
@@ -11474,12 +11399,6 @@ msgid "Master configuration"
 msgstr "Konfigurimi master"
 
 #: libraries/replication_gui.lib.php:90
-#| msgid ""
-#| "This server is not configured as master server in a replication process. "
-#| "You can choose from either replicating all databases and ignoring certain "
-#| "(useful if you want to replicate majority of databases) or you can choose "
-#| "to ignore all databases by default and allow only certain databases to be "
-#| "replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a master server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -11738,7 +11657,6 @@ msgid "Re-type"
 msgstr "Ri-shkruaj"
 
 #: libraries/replication_gui.lib.php:895
-#| msgid "Generate password"
 msgid "Generate password:"
 msgstr "Gjenero fjalëkalimin:"
 
@@ -12208,7 +12126,6 @@ msgid "Ignoring unsupported language code."
 msgstr "Injoron kodin e gjuhës së pambuluar."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#| msgid "Current Server:"
 msgid "Current server:"
 msgstr "Serveri aktual:"
 
@@ -12269,7 +12186,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Aftëso statistikat"
 
@@ -12612,7 +12528,6 @@ msgstr ""
 "emër tjetër pritësi (hostname)."
 
 #: libraries/server_privileges.lib.php:1510
-#| msgid "User name:"
 msgid "Host name:"
 msgstr "Emri i pritësit:"
 
@@ -12620,7 +12535,6 @@ msgstr "Emri i pritësit:"
 #: libraries/server_privileges.lib.php:1617
 #: libraries/server_privileges.lib.php:2370
 #: libraries/server_privileges.lib.php:3332
-#| msgid "Log name"
 msgid "Host name"
 msgstr "Emri i pritësit"
 
@@ -12630,7 +12544,6 @@ msgstr "Mos ndrysho fjalëkalimin"
 
 #: libraries/server_privileges.lib.php:1694
 #: libraries/server_privileges.lib.php:1697
-#| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "Shtojca e autentifikimit"
 
@@ -12646,12 +12559,10 @@ msgstr "Keni anuluar privilegjet për %s."
 
 #: libraries/server_privileges.lib.php:2061
 #: libraries/server_privileges.lib.php:4318
-#| msgid "Add user group"
 msgid "Add user account"
 msgstr "Shto llogari përdoruesi"
 
 #: libraries/server_privileges.lib.php:2070
-#| msgid "Database for user"
 msgid "Database for user account"
 msgstr "Databaza për llogarinë e përdoruesit"
 
@@ -12718,7 +12629,6 @@ msgid "table-specific"
 msgstr "Privilegjet specifike të tabelës"
 
 #: libraries/server_privileges.lib.php:2628
-#| msgid "Edit Privileges:"
 msgid "Edit privileges"
 msgstr "Korrigjo privilegjet"
 
@@ -12753,12 +12663,10 @@ msgstr ""
 "… fshij të vjetrin nga tabela e përdoruesve dhe pastaj ringarko privilegjet."
 
 #: libraries/server_privileges.lib.php:2857
-#| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "Ndrysho informacionin e hyrjes / Kopjo llogarinë e përdoruesit"
 
 #: libraries/server_privileges.lib.php:2863
-#| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Krijo një llogari të re përdoruesi me të njëjtat privilegje dhe …"
 
@@ -12781,7 +12689,6 @@ msgid "Add privileges on the following table:"
 msgstr "Shto privilegje në tabelën që vijon:"
 
 #: libraries/server_privileges.lib.php:3524
-#| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "Largo llogaritë e zgjedhura të përdoruesve"
 
@@ -12844,12 +12751,10 @@ msgid "New"
 msgstr "I ri"
 
 #: libraries/server_privileges.lib.php:4339
-#| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "Korrigjo privilegjet:"
 
 #: libraries/server_privileges.lib.php:4340
-#| msgid "User group"
 msgid "User account"
 msgstr "Llogaria e përdoruesit"
 
@@ -12862,7 +12767,6 @@ msgstr ""
 "cilën keni hyrë aktualisht."
 
 #: libraries/server_privileges.lib.php:4419 libraries/server_users.lib.php:25
-#| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "Pamja e përgjithshme e llogarive të përdoruesve"
 
@@ -12891,11 +12795,6 @@ msgstr ""
 "rast, ju duhet të %sngarkoni privilegjet%s para se të vazhdoni."
 
 #: libraries/server_privileges.lib.php:4547
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13157,7 +13056,6 @@ msgid "Clear series"
 msgstr "Pastro seritë"
 
 #: libraries/server_status_monitor.lib.php:233
-#| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Seritë në grafik:"
 
@@ -14085,7 +13983,6 @@ msgid "A comma or a closing bracket was expected"
 msgstr "Pritet një presje ose një kllapë e mbyllur"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:248
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
 msgstr "Pritet një presje ose një kllapë mbyllëse."
 
@@ -14112,12 +14009,10 @@ msgid "Unexpected dot."
 msgstr "Pikë (dot) e papritur."
 
 #: libraries/sql-parser/src/Components/Expression.php:336
-#| msgid "No tables selected."
 msgid "An alias was expected."
 msgstr "Pritet një alias (pseudonim)."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:98
-#| msgid "No versions selected."
 msgid "An expression was expected."
 msgstr "Pritet një shprehje."
 
@@ -14132,7 +14027,6 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Ky opsion konflikton me \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:104
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
 msgstr "Pritet emri i vjetër i tabelës."
 
@@ -14141,17 +14035,14 @@ msgid "Keyword \"TO\" was expected."
 msgstr "Pritet fjala kyçe \"TO\" (për)."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:131
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
 msgstr "Pritet emri i ri i tabelës."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:149
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
 msgstr "Pritet një veprim riemërimi."
 
 #: libraries/sql-parser/src/Lexer.php:270
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
 msgstr "Karakter i papritur."
 
@@ -14166,17 +14057,14 @@ msgstr "Pritet delimiter."
 
 #: libraries/sql-parser/src/Lexer.php:788
 #, php-format
-#| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "Pritet thonjëza e fundit %1$s."
 
 #: libraries/sql-parser/src/Lexer.php:828
-#| msgid "Table name template"
 msgid "Variable name was expected."
 msgstr "Pritet emri i variablit."
 
 #: libraries/sql-parser/src/Parser.php:402
-#| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
 msgstr "Fillim i papritur i deklaratës."
 
@@ -14189,7 +14077,6 @@ msgid "No transaction was previously started."
 msgstr "Nuk ka filluar ndonjë transaksion më parë."
 
 #: libraries/sql-parser/src/Statement.php:212
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
 msgstr "Shenjë e papritur."
 
@@ -14209,12 +14096,10 @@ msgid "Unrecognized keyword."
 msgstr "Fjalë kyçe e panjohur."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:348
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
 msgstr "Pritet emri i entitetit."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:365
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
 msgstr "Pritet së paku një përcaktim kolone."
 
@@ -14314,7 +14199,6 @@ msgstr "Ekzekuto pyetsorin/rët SQL në databazën %s"
 
 #: libraries/sql_query_form.lib.php:174
 #, php-format
-#| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Ekzekuto pyetsorin/rët SQL në tabelën %s"
 
@@ -14680,12 +14564,10 @@ msgid "Username and hostname didn't change."
 msgstr "Emri i përdoruesit dhe emri i pritësit (hostname) nuk ndryshuan."
 
 #: server_status.php:39
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
 msgstr "Nuk ka privilegje të mjaftueshme, për të shfaqur statusin e serverit."
 
 #: server_status_advisor.php:39
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
 msgstr "Nuk ka privilegje të mjaftueshme, për të shfaqur këshilluesin."
 
@@ -14703,19 +14585,16 @@ msgstr ""
 "të jetë mbyllur."
 
 #: server_status_queries.php:55
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
 msgstr ""
 "Nuk ka privilegje të mjaftueshme për të shfaqur statistikat e pyetsorit."
 
 #: server_status_variables.php:57
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
 msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur variablat e statusit."
 
 #: server_variables.php:83
 #, php-format
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
 "Nuk ka privilegje të mjaftueshme për të shfaqur variablat e serverit dhe "
@@ -14922,7 +14801,6 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Radhë: %1$s, Kolonë: %2$s, Gabim: %3$s"
 
 #: tbl_row_action.php:71
-#| msgid "No versions selected."
 msgid "No row selected."
 msgstr "Nuk është zgjedhur radha."
 
@@ -14991,7 +14869,6 @@ msgstr "Zgjedh nga kolonat qendrore"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:22
-#| msgid "Compression"
 msgid "Expression"
 msgstr "Shprehje"
 
@@ -15096,8 +14973,10 @@ msgid "Operator"
 msgstr "Operator"
 
 #: templates/database/designer/database_tables.phtml:29
-msgid "Toggle"
-msgstr "Nyjëzim"
+#, fuzzy
+#| msgid "Move columns"
+msgid "Show/hide columns"
+msgstr "Lëviz kolonat"
 
 #: templates/database/designer/database_tables.phtml:40
 msgid "See table structure"
@@ -15575,11 +15454,11 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr "Kufizo çelësin e huaj"
 
-#: templates/table/relation/common_form.phtml:81
+#: templates/table/relation/common_form.phtml:83
 msgid "+ Add constraint"
 msgstr "+ Shto detyrim"
 
-#: templates/table/relation/common_form.phtml:91
+#: templates/table/relation/common_form.phtml:93
 msgid "Choose column to display:"
 msgstr "Zgjedh kolonën për të shfaqur:"
 
@@ -15708,27 +15587,22 @@ msgstr "në fillim të tabelës"
 
 #: templates/table/structure/display_partitions.phtml:3
 #: templates/table/structure/display_structure.phtml:193
-#| msgid "Partition %s"
 msgid "Partitions"
 msgstr "Pjesët"
 
 #: templates/table/structure/display_partitions.phtml:7
-#| msgid "partitioned"
 msgid "Partitioned by:"
 msgstr "Ndarë nga:"
 
 #: templates/table/structure/display_partitions.phtml:12
-#| msgid "partitioned"
 msgid "Sub partitioned by:"
 msgstr "Nën-ndarë nga:"
 
 #: templates/table/structure/display_partitions.phtml:25
-#| msgid "Row length"
 msgid "Data length"
 msgstr "Gjatësia e të dhënave"
 
 #: templates/table/structure/display_partitions.phtml:26
-#| msgid "Row length"
 msgid "Index length"
 msgstr "Gjatësia e indeksit"
 
@@ -17152,6 +17026,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert është vendosur në 0"
+
+#~ msgid "Toggle"
+#~ msgstr "Nyjëzim"
 
 #~ msgid "Add Index"
 #~ msgstr "Shto Indeks"
