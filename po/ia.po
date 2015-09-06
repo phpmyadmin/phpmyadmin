@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
-"Report-Msgid-Bugs-To: developers@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-08-31 16:57-0400\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
+"POT-Creation-Date: 2015-09-06 07:31-0400\n"
 "PO-Revision-Date: 2015-08-31 17:13+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -258,9 +258,9 @@ msgid "Tables"
 msgstr "Tabellas"
 
 #: db_export.php:63 libraries/Menu.class.php:317 libraries/Menu.class.php:425
-#: libraries/Util.class.php:3352 libraries/Util.class.php:3362
-#: libraries/Util.class.php:3368 libraries/Util.class.php:3648
-#: libraries/Util.class.php:4289 libraries/Util.class.php:4306
+#: libraries/Util.class.php:3350 libraries/Util.class.php:3360
+#: libraries/Util.class.php:3366 libraries/Util.class.php:3646
+#: libraries/Util.class.php:4287 libraries/Util.class.php:4304
 #: libraries/central_columns.lib.php:728 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:320
@@ -1074,7 +1074,7 @@ msgstr "Tu debe adder al minus un columna."
 #: js/messages.php:109 libraries/insert_edit.lib.php:1546
 #: templates/columns_definitions/column_definitions_form.phtml:162
 #: templates/table/index_form.phtml:237
-#: templates/table/relation/common_form.phtml:106
+#: templates/table/relation/common_form.phtml:108
 msgid "Preview SQL"
 msgstr "Vista preliminar SQL"
 
@@ -1309,7 +1309,7 @@ msgid "Traffic"
 msgstr "Traffico"
 
 #: js/messages.php:185 libraries/Menu.class.php:586
-#: libraries/Util.class.php:4280 libraries/server_status_monitor.lib.php:257
+#: libraries/Util.class.php:4278 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Preferentias"
 
@@ -1533,7 +1533,7 @@ msgid "Explain output"
 msgstr "Explica le exito"
 
 #: js/messages.php:243 libraries/Menu.class.php:552
-#: libraries/Util.class.php:4276 libraries/config.values.php:104
+#: libraries/Util.class.php:4274 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:279
 #: libraries/tracking.lib.php:1620
@@ -1634,8 +1634,8 @@ msgstr ""
 
 #: js/messages.php:270 libraries/Menu.class.php:352
 #: libraries/Menu.class.php:455 libraries/Menu.class.php:582
-#: libraries/Util.class.php:4279 libraries/Util.class.php:4294
-#: libraries/Util.class.php:4311 libraries/config/messages.inc.php:260
+#: libraries/Util.class.php:4277 libraries/Util.class.php:4292
+#: libraries/Util.class.php:4309 libraries/config/messages.inc.php:260
 #: libraries/display_import.lib.php:105
 #: libraries/server_status_monitor.lib.php:318 prefs_manage.php:238
 #: setup/frames/menu.inc.php:26
@@ -1783,7 +1783,7 @@ msgstr "Copiante base de datos"
 msgid "Changing charset"
 msgstr "Modificante insimul de characteres"
 
-#: js/messages.php:320 libraries/Util.class.php:3234
+#: js/messages.php:320 libraries/Util.class.php:3232
 msgid "Enable foreign key checks"
 msgstr "Habilita le verificationes sur le clave estranie"
 
@@ -1820,9 +1820,9 @@ msgstr ""
 #: js/messages.php:334 libraries/DisplayResults.class.php:4837
 #: libraries/DisplayResults.class.php:5095 libraries/Menu.class.php:344
 #: libraries/Menu.class.php:446 libraries/Menu.class.php:578
-#: libraries/Util.class.php:3655 libraries/Util.class.php:3656
-#: libraries/Util.class.php:4278 libraries/Util.class.php:4293
-#: libraries/Util.class.php:4310 libraries/config/messages.inc.php:254
+#: libraries/Util.class.php:3653 libraries/Util.class.php:3654
+#: libraries/Util.class.php:4276 libraries/Util.class.php:4291
+#: libraries/Util.class.php:4308 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:146
 #: libraries/server_privileges.lib.php:2213
 #: libraries/server_privileges.lib.php:2292
@@ -1875,7 +1875,7 @@ msgstr "Monstra quadro de query"
 #: libraries/Console.class.php:214 libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:4821 libraries/Index.class.php:723
 #: libraries/Util.class.php:710 libraries/Util.class.php:1207
-#: libraries/Util.class.php:3653 libraries/Util.class.php:3654
+#: libraries/Util.class.php:3651 libraries/Util.class.php:3652
 #: libraries/central_columns.lib.php:851
 #: libraries/central_columns.lib.php:1194
 #: libraries/config/messages.inc.php:895
@@ -2068,7 +2068,7 @@ msgstr "Necun dependentias seligite!"
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
 #: templates/columns_definitions/column_definitions_form.phtml:165
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:107
+#: templates/table/relation/common_form.phtml:109
 msgid "Save"
 msgstr "Salveguarda"
 
@@ -3406,7 +3406,7 @@ msgstr "Actualisa marcator de libro"
 msgid "Delete bookmark"
 msgstr "Dele marcator de libro"
 
-#: libraries/DatabaseInterface.class.php:2524
+#: libraries/DatabaseInterface.class.php:2522
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3414,21 +3414,21 @@ msgstr ""
 "Le servitor non es respondente (o le socket del servitor local non es "
 "configurate correctemente)."
 
-#: libraries/DatabaseInterface.class.php:2529
+#: libraries/DatabaseInterface.class.php:2527
 msgid "The server is not responding."
 msgstr "Le servitor non es respondente."
 
-#: libraries/DatabaseInterface.class.php:2534
+#: libraries/DatabaseInterface.class.php:2532
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Pro favor, controla le permissiones del directorio continente le base de "
 "datos."
 
-#: libraries/DatabaseInterface.class.php:2544
+#: libraries/DatabaseInterface.class.php:2542
 msgid "Details…"
 msgstr "Detalios…"
 
-#: libraries/DatabaseInterface.class.php:2764
+#: libraries/DatabaseInterface.class.php:2762
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Connexion per usatores de controlo de usator (controluser) falleva como in "
@@ -3470,9 +3470,9 @@ msgstr[0] "%1$s correspondentia in <strong>%2$s</strong>"
 msgstr[1] "%1$s correspondentias in <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:311
-#: libraries/Util.class.php:3356 libraries/Util.class.php:3366
-#: libraries/Util.class.php:3642 libraries/Util.class.php:3643
-#: libraries/Util.class.php:4305 libraries/config.values.php:43
+#: libraries/Util.class.php:3354 libraries/Util.class.php:3364
+#: libraries/Util.class.php:3640 libraries/Util.class.php:3641
+#: libraries/Util.class.php:4303 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:119
 #: libraries/navigation/Nodes/Node_Table.class.php:295
 #: templates/table/structure/check_all_table_column.phtml:5
@@ -3664,16 +3664,16 @@ msgid "Query took %01.4f seconds."
 msgstr "Query prendeva %01.4f secundas."
 
 #: libraries/DisplayResults.class.php:4810
-#: libraries/DisplayResults.class.php:4817 libraries/Util.class.php:4729
-#: libraries/Util.class.php:4735 libraries/mult_submits.inc.php:50
+#: libraries/DisplayResults.class.php:4817 libraries/Util.class.php:4727
+#: libraries/Util.class.php:4733 libraries/mult_submits.inc.php:50
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
 msgid "With selected:"
 msgstr "Si seligite:"
 
 #: libraries/DisplayResults.class.php:4814
-#: libraries/DisplayResults.class.php:4816 libraries/Util.class.php:4731
-#: libraries/Util.class.php:4732 libraries/server_privileges.lib.php:1174
+#: libraries/DisplayResults.class.php:4816 libraries/Util.class.php:4729
+#: libraries/Util.class.php:4730 libraries/server_privileges.lib.php:1174
 #: libraries/server_privileges.lib.php:1175
 #: libraries/server_privileges.lib.php:1387
 #: libraries/server_user_groups.lib.php:231
@@ -3871,8 +3871,8 @@ msgstr "Le clave primari ha essite delite."
 msgid "Index %s has been dropped."
 msgstr "Indice %s ha essite delite."
 
-#: libraries/Index.class.php:757 libraries/Util.class.php:3649
-#: libraries/Util.class.php:3650
+#: libraries/Index.class.php:757 libraries/Util.class.php:3647
+#: libraries/Util.class.php:3648
 #: libraries/controllers/TableStructureController.class.php:951
 #: libraries/controllers/TableStructureController.class.php:952
 #: libraries/operations.lib.php:1617 libraries/rte/rte_list.lib.php:150
@@ -3932,10 +3932,10 @@ msgid "Table"
 msgstr "Tabula"
 
 #: libraries/Menu.class.php:325 libraries/Menu.class.php:429
-#: libraries/Menu.class.php:548 libraries/Util.class.php:3353
-#: libraries/Util.class.php:3363 libraries/Util.class.php:3369
-#: libraries/Util.class.php:4275 libraries/Util.class.php:4290
-#: libraries/Util.class.php:4307 libraries/config.values.php:40
+#: libraries/Menu.class.php:548 libraries/Util.class.php:3351
+#: libraries/Util.class.php:3361 libraries/Util.class.php:3367
+#: libraries/Util.class.php:4273 libraries/Util.class.php:4288
+#: libraries/Util.class.php:4305 libraries/config.values.php:40
 #: libraries/config.values.php:48 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/messages.inc.php:323
 #: libraries/navigation/Nodes/Node_Table.class.php:292
@@ -3943,19 +3943,19 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:328 libraries/Menu.class.php:432
-#: libraries/Util.class.php:3354 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3370 libraries/Util.class.php:3644
-#: libraries/Util.class.php:3645 libraries/Util.class.php:4291
-#: libraries/Util.class.php:4308 libraries/config.values.php:41
+#: libraries/Util.class.php:3352 libraries/Util.class.php:3362
+#: libraries/Util.class.php:3368 libraries/Util.class.php:3642
+#: libraries/Util.class.php:3643 libraries/Util.class.php:4289
+#: libraries/Util.class.php:4306 libraries/config.values.php:41
 #: libraries/config.values.php:49 libraries/config.values.php:111
 #: libraries/config.values.php:117
 #: libraries/navigation/Nodes/Node_Table.class.php:286
 msgid "Search"
 msgstr "Cerca"
 
-#: libraries/Menu.class.php:338 libraries/Util.class.php:3355
-#: libraries/Util.class.php:3365 libraries/Util.class.php:3646
-#: libraries/Util.class.php:3647 libraries/Util.class.php:4309
+#: libraries/Menu.class.php:338 libraries/Util.class.php:3353
+#: libraries/Util.class.php:3363 libraries/Util.class.php:3644
+#: libraries/Util.class.php:3645 libraries/Util.class.php:4307
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:118
 #: libraries/navigation/Nodes/Node_Table.class.php:289
@@ -3964,7 +3964,7 @@ msgid "Insert"
 msgstr "Inserta"
 
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:467
-#: libraries/Util.class.php:4296 libraries/Util.class.php:4312
+#: libraries/Util.class.php:4294 libraries/Util.class.php:4310
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
 #: libraries/server_privileges.lib.php:2372
 #: libraries/server_privileges.lib.php:3160
@@ -3973,21 +3973,21 @@ msgid "Privileges"
 msgstr "Permissiones"
 
 #: libraries/Menu.class.php:371 libraries/Menu.class.php:379
-#: libraries/Menu.class.php:459 libraries/Util.class.php:3357
-#: libraries/Util.class.php:3371 libraries/Util.class.php:4295
-#: libraries/Util.class.php:4313 libraries/config.values.php:112
+#: libraries/Menu.class.php:459 libraries/Util.class.php:3355
+#: libraries/Util.class.php:3369 libraries/Util.class.php:4293
+#: libraries/Util.class.php:4311 libraries/config.values.php:112
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Operationes"
 
 #: libraries/Menu.class.php:384 libraries/Menu.class.php:492
-#: libraries/Util.class.php:4300 libraries/Util.class.php:4314
+#: libraries/Util.class.php:4298 libraries/Util.class.php:4312
 #: libraries/relation.lib.php:255
 msgid "Tracking"
 msgstr "Traciamento"
 
 #: libraries/Menu.class.php:397 libraries/Menu.class.php:486
-#: libraries/Util.class.php:4299 libraries/Util.class.php:4315
+#: libraries/Util.class.php:4297 libraries/Util.class.php:4313
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:24
 #: libraries/plugins/export/ExportHtmlword.class.php:558
 #: libraries/plugins/export/ExportOdt.class.php:686
@@ -4004,16 +4004,16 @@ msgstr "Triggers"
 msgid "Database seems to be empty!"
 msgstr "Le base de datos sembla esser vacue!"
 
-#: libraries/Menu.class.php:439 libraries/Util.class.php:4292
+#: libraries/Menu.class.php:439 libraries/Util.class.php:4290
 msgid "Query"
 msgstr "Query"
 
-#: libraries/Menu.class.php:472 libraries/Util.class.php:4297
+#: libraries/Menu.class.php:472 libraries/Util.class.php:4295
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Routines"
 
-#: libraries/Menu.class.php:479 libraries/Util.class.php:4298
+#: libraries/Menu.class.php:479 libraries/Util.class.php:4296
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:947
 #: libraries/plugins/export/ExportXml.class.php:107
@@ -4021,16 +4021,16 @@ msgstr "Routines"
 msgid "Events"
 msgstr "Eventos"
 
-#: libraries/Menu.class.php:498 libraries/Util.class.php:4301
+#: libraries/Menu.class.php:498 libraries/Util.class.php:4299
 msgid "Designer"
 msgstr "Designator"
 
-#: libraries/Menu.class.php:507 libraries/Util.class.php:4302
+#: libraries/Menu.class.php:507 libraries/Util.class.php:4300
 #: templates/database/structure/check_all_tables.phtml:35
 msgid "Central columns"
 msgstr "Columnas central"
 
-#: libraries/Menu.class.php:544 libraries/Util.class.php:4274
+#: libraries/Menu.class.php:544 libraries/Util.class.php:4272
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.class.php:1240
@@ -4043,34 +4043,34 @@ msgid "User accounts"
 msgstr "Contos de usator"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
-#: libraries/Util.class.php:4281 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4279 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Registro binari"
 
 #: libraries/Menu.class.php:601 libraries/ServerStatusData.class.php:127
-#: libraries/Util.class.php:4282 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4280 libraries/server_common.lib.php:42
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replication"
 
 #: libraries/Menu.class.php:606 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4283 libraries/config.values.php:105
-#: libraries/server_engines.lib.php:108 libraries/server_engines.lib.php:112
+#: libraries/Util.class.php:4281 libraries/config.values.php:105
+#: libraries/server_engines.lib.php:109 libraries/server_engines.lib.php:113
 #: libraries/sql_query_form.lib.php:421
 msgid "Variables"
 msgstr "Variabiles"
 
-#: libraries/Menu.class.php:610 libraries/Util.class.php:4284
+#: libraries/Menu.class.php:610 libraries/Util.class.php:4282
 msgid "Charsets"
 msgstr "Insimul de characteres"
 
-#: libraries/Menu.class.php:615 libraries/Util.class.php:4285
+#: libraries/Menu.class.php:615 libraries/Util.class.php:4283
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:27
 msgid "Plugins"
 msgstr "Plugins"
 
-#: libraries/Menu.class.php:626 libraries/Util.class.php:4286
+#: libraries/Menu.class.php:626 libraries/Util.class.php:4284
 msgid "Engines"
 msgstr "Motores"
 
@@ -4099,7 +4099,7 @@ msgstr[1] "%1$d rangos insertate."
 #: libraries/browse_foreigners.lib.php:327
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:865
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:890
-#: libraries/select_lang.lib.php:605
+#: libraries/select_lang.lib.php:607
 msgid "Page number:"
 msgstr "Numero pagina:"
 
@@ -4276,30 +4276,30 @@ msgid_plural "%d minutes"
 msgstr[0] "%d minuta"
 msgstr[1] "%d minutas"
 
-#: libraries/StorageEngine.class.php:273
+#: libraries/StorageEngine.class.php:288
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Il non ha information de stato detaliate disponibile pro iste motor de "
 "immagazinage."
 
-#: libraries/StorageEngine.class.php:376
+#: libraries/StorageEngine.class.php:391
 #: templates/database/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s es le motor predefinite de immagazinage sur iste servitor MySQL."
 
-#: libraries/StorageEngine.class.php:379
+#: libraries/StorageEngine.class.php:394
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s es disponibile sur iste servitor MySQL."
 
-#: libraries/StorageEngine.class.php:382
+#: libraries/StorageEngine.class.php:397
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s ha essite dishabilitate sur iste servitor MySQL."
 
-#: libraries/StorageEngine.class.php:387
+#: libraries/StorageEngine.class.php:402
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Iste servitor MySQL non supporta lemotor de immagazinage %s."
@@ -4318,29 +4318,29 @@ msgstr "Il non trovava base de datos de fonte '%s'!"
 msgid "Target database `%s` was not found!"
 msgstr "Il non trovava base de datos objectivo '%s'!"
 
-#: libraries/Table.class.php:1270
+#: libraries/Table.class.php:1268
 msgid "Invalid database:"
 msgstr "Base de datos invalide:"
 
-#: libraries/Table.class.php:1284
+#: libraries/Table.class.php:1282
 msgid "Invalid table name:"
 msgstr "Nomine de tabella invalide:"
 
-#: libraries/Table.class.php:1319
+#: libraries/Table.class.php:1317
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Il falleva renominar tabella ab %1$s a %2$s!"
 
-#: libraries/Table.class.php:1338
+#: libraries/Table.class.php:1336
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabella %1$s ha essite renominate a %2$s."
 
-#: libraries/Table.class.php:1518
+#: libraries/Table.class.php:1516
 msgid "Could not save table UI preferences!"
 msgstr "Il non pote salveguarda preferentias UI de tabella!"
 
-#: libraries/Table.class.php:1548
+#: libraries/Table.class.php:1546
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4349,7 +4349,7 @@ msgstr ""
 "Il falleva nettar preferentias de UI de tabella (vide $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1703
+#: libraries/Table.class.php:1701
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4360,19 +4360,19 @@ msgstr ""
 "essera mantenite post que tu recarga iste pagina. Pro favor controla que le "
 "structura del tabella ha essite modificate."
 
-#: libraries/Table.class.php:1840
+#: libraries/Table.class.php:1838
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Le nomine del clave primari debe esser \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1851
+#: libraries/Table.class.php:1849
 msgid "Can't rename index to PRIMARY!"
 msgstr "Non pote renominar indice a PRIMARY!"
 
-#: libraries/Table.class.php:1873
+#: libraries/Table.class.php:1871
 msgid "No index parts defined!"
 msgstr "Nulle partes de indice definite!"
 
-#: libraries/Table.class.php:2187
+#: libraries/Table.class.php:2185
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -4842,39 +4842,39 @@ msgstr ""
 msgid "Click to toggle"
 msgstr "Pulsa pro alternar"
 
-#: libraries/Util.class.php:3561 prefs_manage.php:248
+#: libraries/Util.class.php:3559 prefs_manage.php:248
 msgid "Browse your computer:"
 msgstr "Cerca in tu computator:"
 
-#: libraries/Util.class.php:3586
+#: libraries/Util.class.php:3584
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selige ex le directorio de incargamento de servitor web <b>%s</b>:"
 
-#: libraries/Util.class.php:3615 libraries/insert_edit.lib.php:1171
+#: libraries/Util.class.php:3613 libraries/insert_edit.lib.php:1171
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Le directorio que tu fixava pro le travalio de incargar non pote esser "
 "attingite."
 
-#: libraries/Util.class.php:3626
+#: libraries/Util.class.php:3624
 msgid "There are no files to upload!"
 msgstr "Il non ha alcun file  de incargar!"
 
-#: libraries/Util.class.php:3651 libraries/Util.class.php:3652
+#: libraries/Util.class.php:3649 libraries/Util.class.php:3650
 #: templates/database/structure/check_all_tables.phtml:15
 msgid "Empty"
 msgstr "Vacua"
 
-#: libraries/Util.class.php:3657 libraries/Util.class.php:3658
+#: libraries/Util.class.php:3655 libraries/Util.class.php:3656
 msgid "Execute"
 msgstr "Executa"
 
-#: libraries/Util.class.php:4171
+#: libraries/Util.class.php:4169
 msgid "Print"
 msgstr "Imprime"
 
-#: libraries/Util.class.php:4277
+#: libraries/Util.class.php:4275
 msgid "Users"
 msgstr "Usatores"
 
@@ -8082,7 +8082,7 @@ msgid "Favorite List is full!"
 msgstr "Lista de favoritos es complete!"
 
 #: libraries/controllers/DatabaseStructureController.class.php:957
-#: libraries/mysql_charsets.lib.php:367 libraries/mysql_charsets.lib.php:374
+#: libraries/mysql_charsets.lib.php:363 libraries/mysql_charsets.lib.php:370
 msgid "unknown"
 msgstr "incognite"
 
@@ -9110,8 +9110,8 @@ msgstr "Cela"
 msgid "Function"
 msgstr "Function"
 
-#: libraries/insert_edit.lib.php:399 libraries/mysql_charsets.lib.php:161
-#: libraries/mysql_charsets.lib.php:371
+#: libraries/insert_edit.lib.php:399 libraries/mysql_charsets.lib.php:157
+#: libraries/mysql_charsets.lib.php:367
 msgid "Binary"
 msgstr "Binari"
 
@@ -9249,189 +9249,189 @@ msgstr "Tu es secur que tu vermente vole executar le query sequente?"
 msgid "Charset"
 msgstr "Insimul de characteres"
 
-#: libraries/mysql_charsets.lib.php:173
+#: libraries/mysql_charsets.lib.php:169
 msgid "Bulgarian"
 msgstr "Bulgaro"
 
-#: libraries/mysql_charsets.lib.php:177 libraries/mysql_charsets.lib.php:311
+#: libraries/mysql_charsets.lib.php:173 libraries/mysql_charsets.lib.php:307
 msgid "Simplified Chinese"
 msgstr "Chinese simplificate"
 
-#: libraries/mysql_charsets.lib.php:179 libraries/mysql_charsets.lib.php:331
+#: libraries/mysql_charsets.lib.php:175 libraries/mysql_charsets.lib.php:327
 msgid "Traditional Chinese"
 msgstr "Chinese traditional"
 
-#: libraries/mysql_charsets.lib.php:183 libraries/mysql_charsets.lib.php:378
+#: libraries/mysql_charsets.lib.php:179 libraries/mysql_charsets.lib.php:374
 msgid "case-insensitive"
 msgstr "insensibile al differentia inter majusculas e minusculas"
 
-#: libraries/mysql_charsets.lib.php:186 libraries/mysql_charsets.lib.php:380
+#: libraries/mysql_charsets.lib.php:182 libraries/mysql_charsets.lib.php:376
 msgid "case-sensitive"
 msgstr "sensibile al differentia inter majusculas e minusculas"
 
-#: libraries/mysql_charsets.lib.php:189
+#: libraries/mysql_charsets.lib.php:185
 msgid "Croatian"
 msgstr "Croato"
 
-#: libraries/mysql_charsets.lib.php:192
+#: libraries/mysql_charsets.lib.php:188
 msgid "Czech"
 msgstr "Checo"
 
-#: libraries/mysql_charsets.lib.php:195
+#: libraries/mysql_charsets.lib.php:191
 msgid "Danish"
 msgstr "Danese"
 
-#: libraries/mysql_charsets.lib.php:198
+#: libraries/mysql_charsets.lib.php:194
 msgid "English"
 msgstr "Anglese"
 
-#: libraries/mysql_charsets.lib.php:201
+#: libraries/mysql_charsets.lib.php:197
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/mysql_charsets.lib.php:204
+#: libraries/mysql_charsets.lib.php:200
 msgid "Estonian"
 msgstr "Estonian"
 
-#: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
+#: libraries/mysql_charsets.lib.php:203 libraries/mysql_charsets.lib.php:206
 msgid "German"
 msgstr "Germano"
 
-#: libraries/mysql_charsets.lib.php:207
+#: libraries/mysql_charsets.lib.php:203
 msgid "dictionary"
 msgstr "dictionario"
 
-#: libraries/mysql_charsets.lib.php:210
+#: libraries/mysql_charsets.lib.php:206
 msgid "phone book"
 msgstr "agenda"
 
-#: libraries/mysql_charsets.lib.php:213
+#: libraries/mysql_charsets.lib.php:209
 msgid "Hungarian"
 msgstr "Hungaro"
 
-#: libraries/mysql_charsets.lib.php:216
+#: libraries/mysql_charsets.lib.php:212
 msgid "Icelandic"
 msgstr "Islandese"
 
-#: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:318
+#: libraries/mysql_charsets.lib.php:215 libraries/mysql_charsets.lib.php:314
 msgid "Japanese"
 msgstr "Japonese"
 
-#: libraries/mysql_charsets.lib.php:222
+#: libraries/mysql_charsets.lib.php:218
 msgid "Latvian"
 msgstr "Letton"
 
-#: libraries/mysql_charsets.lib.php:225
+#: libraries/mysql_charsets.lib.php:221
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:340
+#: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:336
 msgid "Korean"
 msgstr "Coreano"
 
-#: libraries/mysql_charsets.lib.php:231
+#: libraries/mysql_charsets.lib.php:227
 msgid "Persian"
 msgstr "Persiano"
 
-#: libraries/mysql_charsets.lib.php:234
+#: libraries/mysql_charsets.lib.php:230
 msgid "Polish"
 msgstr "Polonese"
 
-#: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:294
+#: libraries/mysql_charsets.lib.php:233 libraries/mysql_charsets.lib.php:290
 msgid "West European"
 msgstr "Europeo Occidental"
 
-#: libraries/mysql_charsets.lib.php:240
+#: libraries/mysql_charsets.lib.php:236
 msgid "Romanian"
 msgstr "Romaniano"
 
-#: libraries/mysql_charsets.lib.php:243
+#: libraries/mysql_charsets.lib.php:239
 msgid "Sinhalese"
 msgstr "Sinhalese o Sinhala"
 
-#: libraries/mysql_charsets.lib.php:246
+#: libraries/mysql_charsets.lib.php:242
 msgid "Slovak"
 msgstr "Slovaco"
 
-#: libraries/mysql_charsets.lib.php:249
+#: libraries/mysql_charsets.lib.php:245
 msgid "Slovenian"
 msgstr "Sloveno"
 
-#: libraries/mysql_charsets.lib.php:252
+#: libraries/mysql_charsets.lib.php:248
 msgid "Spanish"
 msgstr "Espaniol"
 
-#: libraries/mysql_charsets.lib.php:255
+#: libraries/mysql_charsets.lib.php:251
 msgid "Traditional Spanish"
 msgstr "Espaniol traditional"
 
-#: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:361
+#: libraries/mysql_charsets.lib.php:254 libraries/mysql_charsets.lib.php:357
 msgid "Swedish"
 msgstr "Svedese"
 
-#: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:364
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:360
 msgid "Thai"
 msgstr "Thai"
 
-#: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:358
+#: libraries/mysql_charsets.lib.php:260 libraries/mysql_charsets.lib.php:354
 msgid "Turkish"
 msgstr "Turco"
 
-#: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:355
+#: libraries/mysql_charsets.lib.php:263 libraries/mysql_charsets.lib.php:351
 msgid "Ukrainian"
 msgstr "Ukrainiano"
 
-#: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:285
+#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:281
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:285
-#: libraries/mysql_charsets.lib.php:294 libraries/mysql_charsets.lib.php:301
-#: libraries/mysql_charsets.lib.php:323 libraries/mysql_charsets.lib.php:334
+#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:281
+#: libraries/mysql_charsets.lib.php:290 libraries/mysql_charsets.lib.php:297
+#: libraries/mysql_charsets.lib.php:319 libraries/mysql_charsets.lib.php:330
 msgid "multilingual"
 msgstr "multilingue"
 
-#: libraries/mysql_charsets.lib.php:273
+#: libraries/mysql_charsets.lib.php:269
 msgid "Vietnamese"
 msgstr "Vietnamese"
 
-#: libraries/mysql_charsets.lib.php:301
+#: libraries/mysql_charsets.lib.php:297
 msgid "Central European"
 msgstr "Europeo central"
 
-#: libraries/mysql_charsets.lib.php:306
+#: libraries/mysql_charsets.lib.php:302
 msgid "Russian"
 msgstr "Russo"
 
-#: libraries/mysql_charsets.lib.php:323
+#: libraries/mysql_charsets.lib.php:319
 msgid "Baltic"
 msgstr "Baltic"
 
-#: libraries/mysql_charsets.lib.php:328
+#: libraries/mysql_charsets.lib.php:324
 msgid "Armenian"
 msgstr "Armenio"
 
-#: libraries/mysql_charsets.lib.php:334
+#: libraries/mysql_charsets.lib.php:330
 msgid "Cyrillic"
 msgstr "Cyrillic"
 
-#: libraries/mysql_charsets.lib.php:337
+#: libraries/mysql_charsets.lib.php:333
 msgid "Arabic"
 msgstr "Arabe"
 
-#: libraries/mysql_charsets.lib.php:343
+#: libraries/mysql_charsets.lib.php:339
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: libraries/mysql_charsets.lib.php:346
+#: libraries/mysql_charsets.lib.php:342
 msgid "Georgian"
 msgstr "Georgian"
 
-#: libraries/mysql_charsets.lib.php:349
+#: libraries/mysql_charsets.lib.php:345
 msgid "Greek"
 msgstr "Greco"
 
-#: libraries/mysql_charsets.lib.php:352
+#: libraries/mysql_charsets.lib.php:348
 msgid "Czech-Slovak"
 msgstr "Tcheco-Slovaco"
 
@@ -12031,7 +12031,7 @@ msgstr ""
 msgid "There are no events to display."
 msgstr ""
 
-#: libraries/select_lang.lib.php:614
+#: libraries/select_lang.lib.php:616
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -14628,8 +14628,10 @@ msgid "Operator"
 msgstr "Operator"
 
 #: templates/database/designer/database_tables.phtml:29
-msgid "Toggle"
-msgstr "Alternar"
+#, fuzzy
+#| msgid "Show/Hide left menu"
+msgid "Show/hide columns"
+msgstr "Monstra/Cela le menu de sinistra"
 
 #: templates/database/designer/database_tables.phtml:40
 msgid "See table structure"
@@ -15099,11 +15101,11 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:81
+#: templates/table/relation/common_form.phtml:83
 msgid "+ Add constraint"
 msgstr "+ Adde un limite"
 
-#: templates/table/relation/common_form.phtml:91
+#: templates/table/relation/common_form.phtml:93
 msgid "Choose column to display:"
 msgstr "Selige columna de monstrar:"
 
@@ -16421,6 +16423,9 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert - insertion concurrente- es ponite a 0"
 
+#~ msgid "Toggle"
+#~ msgstr "Alternar"
+
 #~ msgid "Adding Primary Key"
 #~ msgstr "Adde clave primari"
 
@@ -16528,9 +16533,6 @@ msgstr "concurrent_insert - insertion concurrente- es ponite a 0"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "Monstra rangos(s) de datos."
-
-#~ msgid "Show/Hide left menu"
-#~ msgstr "Monstra/Cela le menu de sinistra"
 
 #~ msgctxt "Inline edit query"
 #~ msgid "Inline"
