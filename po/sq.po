@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-31 16:57-0400\n"
-"PO-Revision-Date: 2015-09-05 18:05+0200\n"
+"PO-Revision-Date: 2015-09-05 23:03+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/sq/>\n"
@@ -6687,7 +6687,7 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Numri i bajtëve, që një skript është i lejuar të ndajë, psh. [kbd]32M[/kbd] "
-"([kbd]-1[/kbd] për asnjë kufizim dhe kbd]0[/kbd] për asnjë ndryshim)."
+"([kbd]-1[/kbd] për jo limit dhe [kbd]0[/kbd] për jo ndryshim)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -12015,6 +12015,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Nuk keni privilegje të mjaftueshme për të kryer këtë veprim; Ju lutem, "
+"refero dokumentacionin për më tepër detaje"
 
 #: libraries/rte/rte_routines.lib.php:1026
 msgid "Security type"
@@ -12870,6 +12872,10 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Një llogari e përdoruesit që lejon çdo përdorues nga localhost për t'u "
+"lidhur është prezente. Kjo do t'i parandalojë përdoruesit e tjerë që të "
+"ndërlidhen nëse pjesa e pritësit (host) të llogarisë së tyre lejon një "
+"lidhje nga çdo pritës (%)."
 
 #: libraries/server_privileges.lib.php:4528
 #, php-format
@@ -13214,7 +13220,7 @@ msgstr "Komanda"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "Progresi"
 
 #: libraries/server_status_processes.lib.php:252
 #: libraries/server_status_variables.lib.php:39
@@ -14049,34 +14055,34 @@ msgstr "Vlera globale"
 
 #: libraries/server_variables.lib.php:243
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Ky është një variabël vetëm-lexo dhe nuk mund të korrigjohet"
 
 #: libraries/sql-parser/src/Component.php:63
 #: libraries/sql-parser/src/Component.php:83
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Nuk është implementuar ende."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:202
 msgid "Unrecognized alter operation."
-msgstr ""
+msgstr "Veprim alter i panjohur."
 
 #: libraries/sql-parser/src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Vlerat %1$d u pranuan, por gjeti %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Pritet një kllapë e hapur, e ndjekur nga një set vlerash."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:103
 #: libraries/sql-parser/src/Components/CreateDefinition.php:204
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Pritet një kllapë e hapur."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:128
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Pritet një presje ose një kllapë e mbyllur"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:248
 #| msgid "No tables selected."
@@ -14085,25 +14091,25 @@ msgstr "Pritet një presje ose një kllapë mbyllëse."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:264
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Pritet një kllapë e mbylljes."
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tip të dhënash i panjohur."
 
 #: libraries/sql-parser/src/Components/Expression.php:234
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Kllapë e mbylljes e papritur."
 
 #: libraries/sql-parser/src/Components/Expression.php:255
 #: libraries/sql-parser/src/Components/Expression.php:292
 #: libraries/sql-parser/src/Components/Expression.php:312
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Një pseudonim është gjetur më përpara."
 
 #: libraries/sql-parser/src/Components/Expression.php:266
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Pikë (dot) e papritur."
 
 #: libraries/sql-parser/src/Components/Expression.php:336
 #| msgid "No tables selected."
@@ -14118,12 +14124,12 @@ msgstr "Pritet një shprehje."
 #: libraries/sql-parser/src/Components/Limit.php:92
 #: libraries/sql-parser/src/Components/Limit.php:114
 msgid "An offset was expected."
-msgstr ""
+msgstr "Pritet një rezultat (offset)."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Ky opsion konflikton me \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:104
 #| msgid "The number of tables that are open."
@@ -14132,7 +14138,7 @@ msgstr "Pritet emri i vjetër i tabelës."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:114
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Pritet fjala kyçe \"TO\" (për)."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:131
 #| msgid "The number of tables that are open."
@@ -14151,12 +14157,12 @@ msgstr "Karakter i papritur."
 
 #: libraries/sql-parser/src/Lexer.php:307
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Pritet hapësirë(a) e bardhë para delimitrit."
 
 #: libraries/sql-parser/src/Lexer.php:325
 #: libraries/sql-parser/src/Lexer.php:341
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Pritet delimiter."
 
 #: libraries/sql-parser/src/Lexer.php:788
 #, php-format
@@ -14176,11 +14182,11 @@ msgstr "Fillim i papritur i deklaratës."
 
 #: libraries/sql-parser/src/Parser.php:421
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tip deklarate i panjohur."
 
 #: libraries/sql-parser/src/Parser.php:505
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Nuk ka filluar ndonjë transaksion më parë."
 
 #: libraries/sql-parser/src/Statement.php:212
 #| msgid "Unexpected characters on line %s."
@@ -14189,16 +14195,18 @@ msgstr "Shenjë e papritur."
 
 #: libraries/sql-parser/src/Statement.php:250
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Ky tip i klauzolës është parsuar më parë."
 
 #: libraries/sql-parser/src/Statement.php:277
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Një deklaratë e re është gjetur, por nuk ka delimiter ndërmjet asaj dhe "
+"tjetrës më përpara."
 
 #: libraries/sql-parser/src/Statement.php:297
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Fjalë kyçe e panjohur."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:348
 #| msgid "The number of tables that are open."
@@ -14212,7 +14220,7 @@ msgstr "Pritet së paku një përcaktim kolone."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:478
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Pritet një fjalë kyçe \"RETURNS\"."
 
 #: libraries/sql.lib.php:224
 msgid "Detailed profile"
@@ -15020,7 +15028,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualiteti"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
