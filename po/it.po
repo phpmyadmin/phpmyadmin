@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-09 07:21-0400\n"
-"PO-Revision-Date: 2015-09-06 14:31+0200\n"
+"PO-Revision-Date: 2015-10-09 16:04+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
-"it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -969,10 +969,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Sei sicuro di voler TRONCARE la partizione selezionata?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Sei sicuro di voler eseguire \"%s\"?"
+msgstr "Sei sicuro di voler eseguire il comando RESET SLAVE?"
 
 #: js/messages.php:68
 msgid ""
