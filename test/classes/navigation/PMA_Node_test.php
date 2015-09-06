@@ -102,7 +102,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
     {
         $parent = NodeFactory::getInstance();
         $empty_container = NodeFactory::getInstance(
-            'PMA\libraries\navigation\nodes\Node', 'empty', Node::CONTAINER
+            'Node', 'empty', Node::CONTAINER
         );
         $child = NodeFactory::getInstance();
         // test with no children
@@ -156,7 +156,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
         $container = NodeFactory::getInstance(
-            'PMA\libraries\navigation\nodes\Node', 'default', Node::CONTAINER
+            'Node', 'default', Node::CONTAINER
         );
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
@@ -240,7 +240,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $firstChild = NodeFactory::getInstance();
         $parent->addChild($firstChild);
         $secondChild = NodeFactory::getInstance(
-            'PMA\libraries\navigation\nodes\Node', 'default', Node::CONTAINER
+            'Node', 'default', Node::CONTAINER
         );
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
@@ -284,7 +284,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
     public function testGetWhereClause()
     {
         $method = new ReflectionMethod(
-            'PMA\libraries\navigation\nodes\Node', '_getWhereClause'
+            'Node', '_getWhereClause'
         );
         $method->setAccessible(true);
 

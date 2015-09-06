@@ -39,7 +39,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
 
         $new_label = _pgettext('Create new procedure', 'New');
         $new = NodeFactory::getInstance(
-            'PMA\libraries\navigation\nodes\Node',
+            'Node',
             $new_label
         );
         $new->isNew = true;
