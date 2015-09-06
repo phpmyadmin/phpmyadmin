@@ -632,8 +632,8 @@ are always ways to make your installation more secure:
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them.
 * Consider hiding phpMyAdmin behind an authentication proxy, so that
   users need to authenticate prior to providing MySQL credentials
-  to phpMyAdmin. You can achieve this by confiuring your web server to request
-  HTTP authentication. For exaple in Apache this can be done by:
+  to phpMyAdmin. You can achieve this by configuring your web server to request
+  HTTP authentication. For example in Apache this can be done with:
     
   .. code-block:: apache
 
@@ -643,7 +643,7 @@ are always ways to make your installation more secure:
      Require valid-user
 
   Once you have changed configuration, you need to create list of users which
-  can authenticate. This can be done using :program:`htpasswd` utility:
+  can authenticate. This can be done using the :program:`htpasswd` utility:
 
   .. code-block:: sh
 
