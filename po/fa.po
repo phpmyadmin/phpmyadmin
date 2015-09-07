@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-08-26 14:52+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
-"fa/>\n"
+"PO-Revision-Date: 2015-09-07 14:51+0200\n"
+"Last-Translator: ashkan shirian <ashkan.shirian@gmail.com>\n"
+"Language-Team: Persian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,15 +29,14 @@ msgid "The central list of columns for the current database is empty."
 msgstr "فهرست مرکزی ستون‌ها برای پایگاه داده در حال استفاده خالی است."
 
 #: db_central_columns.php:130
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "برای مرتب کردن کلیک کنید"
+msgstr "برای مرتب کردن کلیک کنید."
 
 #: db_central_columns.php:149
-#, fuzzy, php-format
+#, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "نمایش سطرها  %1$s از %2$s."
+msgstr "نمایش سطرها  %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -311,7 +310,7 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "رونوشت پایگاه داده %1$s در %2$s انجام شد."
 
 #: db_operations.php:283
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -319,13 +318,12 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
 "امكانات اضافي براي كاركردن با جدولهاي پيوندي غيرفعال شده‌است . براي پيداكردن "
-"دليل آن %shere%s  را بزنيد."
+"دليل آن  %sFind out why%s  را بزنيد."
 
 #: db_qbe.php:129
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد"
+msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد!"
 
 #: db_qbe.php:146
 #, php-format
@@ -340,22 +338,20 @@ msgid "Access denied!"
 msgstr "دسترسي مجاز نيست!"
 
 #: db_tracking.php:51 db_tracking.php:76
-#, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "Tracking data deleted successfully."
-msgstr "پايگاه داده %s حذف گرديد."
+msgstr "پايگاه داده پیگیری با موفقیت حذف گرديد."
 
 #: db_tracking.php:60
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
+msgstr "نسخه %1$s برای جداول انتخاب شده ساخته شده، پیگیری برای آنها فعال گردید."
 
 #: db_tracking.php:91
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "هیچ پایگاه داده ای انتخاب نشده است."
+msgstr "هیچ جدولی انتخاب نشده است."
 
 #: db_tracking.php:145
 msgid "Database Log"
@@ -578,10 +574,9 @@ msgstr ""
 
 #: import.php:486 import.php:563 libraries/File.class.php:426
 #: libraries/File.class.php:522
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "امکان خواندن فایل وجود ندارد"
+msgstr "امکان خواندن فایل وجود ندارد!"
 
 #: import.php:497 import.php:512 import.php:537 import.php:552
 #: libraries/File.class.php:589
