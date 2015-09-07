@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-07 03:07+0200\n"
-"Last-Translator: Myung-han Yu <greatymh@gmail.com>\n"
+"PO-Revision-Date: 2015-09-07 03:21+0200\n"
+"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr "현재 데이터베이스의 컬럼의 중앙목록이 비어있습니다."
+msgstr "현재 데이터베이스 컬럼의 중앙 목록이 비어 있습니다."
 
 #: db_central_columns.php:130
 msgid "Click to sort."
@@ -819,7 +819,7 @@ msgstr ""
 #: index.php:572
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr ""
+msgstr "대신 데이터베이스 작업 탭을 사용하여 설정할 수도 있습니다."
 
 #: index.php:621
 #, php-format
@@ -3127,10 +3127,9 @@ msgid "Hide trace"
 msgstr "추적 숨기기"
 
 #: libraries/Console.class.php:319
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "개수"
+msgstr "개수:"
 
 #: libraries/Console.class.php:336 libraries/Util.class.php:1249
 #: libraries/config/messages.inc.php:897
