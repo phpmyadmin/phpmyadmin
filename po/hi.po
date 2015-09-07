@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-08-26 15:09+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"hi/>\n"
+"PO-Revision-Date: 2015-09-07 06:52+0200\n"
+"Last-Translator: Deven Bansod <devenbansod.bits@gmail.com>\n"
+"Language-Team: Hindi "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -288,7 +288,6 @@ msgstr "डाटा"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:378
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "सभी का चयन करें"
@@ -525,7 +524,6 @@ msgid "Failed"
 msgstr "असफल रहा"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
 msgstr "अपूर्ण पैरामीटर"
@@ -601,7 +599,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "आयात सफलतापूर्वक समाप्त हो गया है,%d कुएरी चलाई गयी हैं."
 
 #: import.php:713
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -609,7 +607,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"स्क्रिप्ट मध्यांतर पारित की गयी है, आयात खत्म करने के लिए वही फाइल फिर से जमा करें."
+"स्क्रिप्ट मध्यांतर पारित की गयी है, आयात खत्म करने के लिए %sवही फाइल फिर से "
+"जमा करें%s."
 
 #: import.php:723
 msgid ""
@@ -621,7 +620,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "आयात की प्रगति लोड नहीं कर सका."
 
 #: import_status.php:112 js/messages.php:378 libraries/Util.class.php:780
 #: libraries/export.lib.php:518
@@ -645,7 +644,6 @@ msgstr ""
 "maint और pma उपयोगकर्ताओं को मत बदलें। अधिक जानकारी %s पर उपलब्ध है।"
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "जनरल सेटिंग्स"
@@ -661,10 +659,9 @@ msgid "Server connection collation"
 msgstr "MySQL जोडणी मिलान"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "उपस्थिति सेटिंग्स"
+msgstr "दिखाव सेटिंग्स"
 
 #: index.php:259 prefs_manage.php:285
 msgid "More settings"
@@ -707,10 +704,9 @@ msgid "Web server"
 msgstr "वेब सर्वर"
 
 #: index.php:332
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version:"
-msgstr "सरल संस्करण का उपयोग"
+msgstr "डाटाबेस ग्राहक संस्करण:"
 
 #: index.php:336
 #, fuzzy
