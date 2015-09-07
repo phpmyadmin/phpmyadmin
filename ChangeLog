@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.13.2 (Not yet released)
+- bug       [security] reCaptcha bypass
+
 4.3.13.1 (2015-05-13)
 - bug #4899 [security] CSRF vulnerability in setup
 - bug #4900 [security] Vulnerability allowing man-in-the-middle attack
