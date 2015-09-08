@@ -143,7 +143,6 @@ class PMA_StorageEngine
                 && ($details['Support'] == 'NO'
                 || $details['Support'] == 'DISABLED'
                 || $details['Engine'] == 'PERFORMANCE_SCHEMA')
-                || (PMA_DRIZZLE && $details['Engine'] == 'MyISAM')
             ) {
                 continue;
             }
