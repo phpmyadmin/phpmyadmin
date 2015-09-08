@@ -70,9 +70,7 @@ class PMA_DatabaseInterface
      */
     public static function checkDbExtension($extension = 'mysql')
     {
-        if ($extension == 'drizzle' && function_exists('drizzle_create')) {
-            return true;
-        } else if (function_exists($extension . '_connect')) {
+        if (function_exists($extension . '_connect')) {
             return true;
         }
         return false;

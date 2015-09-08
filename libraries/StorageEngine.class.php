@@ -138,7 +138,6 @@ class PMA_StorageEngine
 
         foreach (PMA_StorageEngine::getStorageEngines() as $key => $details) {
             // Don't show PERFORMANCE_SCHEMA engine (MySQL 5.5)
-            // Don't show MyISAM for Drizzle (allowed only for temporary tables)
             if (! $offerUnavailableEngines
                 && ($details['Support'] == 'NO'
                 || $details['Support'] == 'DISABLED'

@@ -591,8 +591,6 @@ if ($server > 0) {
  * If someday there is a constant that we can check about mysqlnd,
  * we can use it instead of strpos().
  * If no default server is set, $GLOBALS['dbi'] is not defined yet.
- * Drizzle can speak MySQL protocol, so don't warn about version mismatch for
- * Drizzle servers.
  * We also do not warn if MariaDB is detected, as it has its own version
  * numbering.
  */

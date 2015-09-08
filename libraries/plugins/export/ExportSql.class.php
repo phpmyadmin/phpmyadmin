@@ -1346,8 +1346,6 @@ class ExportSql extends ExportPlugin
                 // Here we optionally add the AUTO_INCREMENT next value,
                 // but starting with MySQL 5.0.24, the clause is already included
                 // in SHOW CREATE TABLE so we'll remove it below
-                // It's required for Drizzle because SHOW CREATE TABLE uses
-                // the value from table's creation time
                 if (isset($GLOBALS['sql_auto_increment'])
                     && ! empty($tmpres['Auto_increment'])
                 ) {

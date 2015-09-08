@@ -4132,7 +4132,7 @@ class PMA_Util
     /**
      * Returns server type for current connection
      *
-     * Known types are: Drizzle, MariaDB and MySQL (default)
+     * Known types are: MariaDB and MySQL (default)
      *
      * @return string
      */

@@ -818,7 +818,6 @@ class PMA_Table
             // Find server's SQL mode so the builder can generate correct
             // queries.
             // One of the options that alters the behaviour is `ANSI_QUOTES`.
-            // This is not availabile for Drizzle.
             SqlParser\Context::setMode(
                 $GLOBALS['dbi']->fetchValue("SELECT @@sql_mode")
             );

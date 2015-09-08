@@ -24,19 +24,6 @@ class PMA_Tracker
     static protected $enabled = false;
 
     /**
-     * Flags copied from `tracking` column definition in `pma_tracking` table.
-     * Used for column type conversion in Drizzle.
-     *
-     * @var array
-     */
-    static private $_tracking_set_flags = array(
-        'UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE',
-        'ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE',
-        'RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX',
-        'CREATE VIEW','ALTER VIEW','DROP VIEW'
-    );
-
-    /**
      * Actually enables tracking. This needs to be done after all
      * underlaying code is initialized.
      *
