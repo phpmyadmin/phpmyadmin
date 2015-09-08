@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.14.1 (2015-09-08)
+- issue        [security] reCaptcha bypass
+
 4.4.14.0 (2015-08-20)
 - issue #11367 Export after search, missing WHERE clause
 - issue #11380 Incomplete message after import

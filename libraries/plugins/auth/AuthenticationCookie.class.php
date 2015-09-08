@@ -223,18 +223,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                 . $GLOBALS['server'] . '" />';
         } // end if (server choice)
 
-        // We already have one correct captcha.
-        $skip = false;
-        if (  isset($_SESSION['last_valid_captcha'])
-            && $_SESSION['last_valid_captcha']
-        ) {
-            $skip = true;
-        }
-
         // Add captcha input field if reCaptcha is enabled
         if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-            && !$skip
         ) {
             // If enabled show captcha to the user on the login screen.
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
@@ -336,8 +327,6 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             if (! defined('TESTSUITE')) {
                 session_destroy();
-                // $_SESSION array is not immediately emptied
-                $_SESSION['last_valid_captcha'] = false;
             }
             // -> delete password cookie(s)
             if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
@@ -359,18 +348,9 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         if (! empty($_REQUEST['pma_username'])) {
 
-            // We already have one correct captcha.
-            $skip = false;
-            if (isset($_SESSION['last_valid_captcha'])
-                && $_SESSION['last_valid_captcha']
-            ) {
-                $skip = true;
-            }
-
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-                && ! $skip
             ) {
                 if (! empty($_POST["g-recaptcha-response"])) {
 
@@ -388,18 +368,11 @@ class AuthenticationCookie extends AuthenticationPlugin
                     // Check if the captcha entered is valid, if not stop the login.
                     if ($resp == null || ! $resp->isSuccess()) {
                         $conn_error = __('Entered captcha is wrong, try again!');
-                        $_SESSION['last_valid_captcha'] = false;
                         return false;
-                    } else {
-                        $_SESSION['last_valid_captcha'] = true;
                     }
                 } else {
-                    if (! isset($_SESSION['last_valid_captcha'])
-                        || ! $_SESSION['last_valid_captcha']
-                    ) {
-                        $conn_error = __('Please enter correct captcha!');
-                        return false;
-                    }
+                    $conn_error = __('Please enter correct captcha!');
+                    return false;
                 }
             }
 
