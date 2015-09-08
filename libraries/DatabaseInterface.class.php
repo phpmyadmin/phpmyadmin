@@ -397,17 +397,9 @@ class PMA_DatabaseInterface
 
         if ($table_type) {
             if ($table_type == 'view') {
-                if (PMA_DRIZZLE) {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE'";
-                } else {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
-                }
+                $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
             } else if ($table_type == 'table') {
-                if (PMA_DRIZZLE) {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE'";
-                } else {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
-                }
+                $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
             }
         }
         return $sql_where_table;
@@ -423,77 +415,34 @@ class PMA_DatabaseInterface
      */
     private function _getSqlForTablesFull($this_databases, $sql_where_table)
     {
-        if (PMA_DRIZZLE) {
-            $stats_join = $this->_getDrizzeStatsJoin();
+        $sql = '
+            SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` ' . PMA_Util::getCollateForIS() . '
+                IN (\'' . implode("', '", $this_databases) . '\')
+                ' . $sql_where_table;
 
-            // data_dictionary.table_cache may not contain any data
-            // for some tables, it's just a table cache
-            // auto_increment == 0 is cast to NULL because currently
-            // (2011.03.13 GA)
-            // Drizzle doesn't provide correct value
-            $sql = "
-                SELECT t.*,
-                    t.TABLE_SCHEMA        AS `Db`,
-                    t.TABLE_NAME          AS `Name`,
-                    t.TABLE_TYPE          AS `TABLE_TYPE`,
-                    t.ENGINE              AS `Engine`,
-                    t.ENGINE              AS `Type`,
-                    t.TABLE_VERSION       AS `Version`,-- VERSION
-                    t.ROW_FORMAT          AS `Row_format`,
-                    coalesce(tc.ROWS, stat.NUM_ROWS)
-                                          AS `Rows`,-- TABLE_ROWS,
-                    coalesce(tc.ROWS, stat.NUM_ROWS)
-                                          AS `TABLE_ROWS`,
-                    tc.AVG_ROW_LENGTH     AS `Avg_row_length`, -- AVG_ROW_LENGTH
-                    tc.TABLE_SIZE         AS `Data_length`, -- DATA_LENGTH
-                    NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
-                    NULL                  AS `Index_length`, -- INDEX_LENGTH
-                    NULL                  AS `Data_free`, -- DATA_FREE
-                    nullif(t.AUTO_INCREMENT, 0)
-                                          AS `Auto_increment`,
-                    t.TABLE_CREATION_TIME AS `Create_time`, -- CREATE_TIME
-                    t.TABLE_UPDATE_TIME   AS `Update_time`, -- UPDATE_TIME
-                    NULL                  AS `Check_time`, -- CHECK_TIME
-                    t.TABLE_COLLATION     AS `Collation`,
-                    NULL                  AS `Checksum`, -- CHECKSUM
-                    NULL                  AS `Create_options`, -- CREATE_OPTIONS
-                    t.TABLE_COMMENT       AS `Comment`
-                FROM data_dictionary.TABLES t
-                    LEFT JOIN data_dictionary.TABLE_CACHE tc
-                        ON tc.TABLE_SCHEMA = t.TABLE_SCHEMA AND tc.TABLE_NAME
-                        = t.TABLE_NAME
-                    $stats_join
-                WHERE t.TABLE_SCHEMA IN ('" . implode("', '", $this_databases) . "')
-                    " . $sql_where_table;
-        } else {
-            $sql = '
-                SELECT *,
-                    `TABLE_SCHEMA`       AS `Db`,
-                    `TABLE_NAME`         AS `Name`,
-                    `TABLE_TYPE`         AS `TABLE_TYPE`,
-                    `ENGINE`             AS `Engine`,
-                    `ENGINE`             AS `Type`,
-                    `VERSION`            AS `Version`,
-                    `ROW_FORMAT`         AS `Row_format`,
-                    `TABLE_ROWS`         AS `Rows`,
-                    `AVG_ROW_LENGTH`     AS `Avg_row_length`,
-                    `DATA_LENGTH`        AS `Data_length`,
-                    `MAX_DATA_LENGTH`    AS `Max_data_length`,
-                    `INDEX_LENGTH`       AS `Index_length`,
-                    `DATA_FREE`          AS `Data_free`,
-                    `AUTO_INCREMENT`     AS `Auto_increment`,
-                    `CREATE_TIME`        AS `Create_time`,
-                    `UPDATE_TIME`        AS `Update_time`,
-                    `CHECK_TIME`         AS `Check_time`,
-                    `TABLE_COLLATION`    AS `Collation`,
-                    `CHECKSUM`           AS `Checksum`,
-                    `CREATE_OPTIONS`     AS `Create_options`,
-                    `TABLE_COMMENT`      AS `Comment`
-                FROM `information_schema`.`TABLES` t
-                WHERE `TABLE_SCHEMA` ' . PMA_Util::getCollateForIS() . '
-                    IN (\'' . implode("', '", $this_databases) . '\')
-                    ' . $sql_where_table;
-        }
         return $sql;
     }
 
@@ -569,19 +518,6 @@ class PMA_DatabaseInterface
                 $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
             );
 
-            if (PMA_DRIZZLE) {
-                // correct I_S and D_D names returned by D_D.TABLES -
-                // Drizzle generally uses lower case for them,
-                // but TABLES returns uppercase
-                foreach ((array)$database as $db) {
-                    $db_upper = /*overload*/mb_strtoupper($db);
-                    if (!isset($tables[$db]) && isset($tables[$db_upper])) {
-                        $tables[$db] = $tables[$db_upper];
-                        unset($tables[$db_upper]);
-                    }
-                }
-            }
-
             if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $one_database_name => $one_database_tables) {
@@ -616,7 +552,7 @@ class PMA_DatabaseInterface
         // If permissions are wrong on even one database directory,
         // information_schema does not return any table info for any database
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
-        if (empty($tables) && !PMA_DRIZZLE) {
+        if (empty($tables)) {
             foreach ($databases as $each_database) {
                 if ($table || (true === $tbl_is_group) || ! empty($table_type)) {
                     $sql = 'SHOW TABLE STATUS FROM '
@@ -823,17 +759,6 @@ class PMA_DatabaseInterface
             return $tables[/*overload*/mb_strtolower($database)];
         }
 
-        // one database but inexact letter case match
-        // as Drizzle is always case insensitive,
-        // we can safely return the only result
-        if (!PMA_DRIZZLE || !count($tables) == 1) {
-            return $tables;
-        }
-
-        $keys = array_keys($tables);
-        if (/*overload*/mb_strlen(array_pop($keys)) == /*overload*/mb_strlen($database)) {
-            return array_pop($tables);
-        }
         return $tables;
     }
 
@@ -1002,71 +927,42 @@ class PMA_DatabaseInterface
                 $sql_where_schema = '';
             }
 
-            if (PMA_DRIZZLE) {
-                // data_dictionary.table_cache may not contain any data for some
-                // tables, it's just a table cache
-                $sql = 'SELECT
-                    s.SCHEMA_NAME,
-                    s.DEFAULT_COLLATION_NAME';
-                if ($force_stats) {
-                    // no TABLE_CACHE data, stable results are better than
-                    // constantly changing
-                    $sql .= ',
-                        COUNT(t.TABLE_SCHEMA) AS SCHEMA_TABLES,
-                        SUM(stat.NUM_ROWS)    AS SCHEMA_TABLE_ROWS';
-                }
-                $sql .= '
-                       FROM data_dictionary.SCHEMAS s';
-                if ($force_stats) {
-                    $stats_join = $this->_getDrizzeStatsJoin();
-
-                    $sql .= "
-                        LEFT JOIN data_dictionary.TABLES t
-                            ON t.TABLE_SCHEMA = s.SCHEMA_NAME
-                        $stats_join";
-                }
-                $sql .= $sql_where_schema . '
-                    GROUP BY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME
-                    ORDER BY ' . PMA_Util::backquote($sort_by) . ' ' . $sort_order
-                    . $limit;
-            } else {
-                $sql  = 'SELECT *,
-                        CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME
-                    FROM (';
-                $sql .= 'SELECT
-                    BINARY s.SCHEMA_NAME AS BIN_NAME,
-                    s.DEFAULT_COLLATION_NAME';
-                if ($force_stats) {
-                    $sql .= ',
-                        COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,
-                        SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,
-                        SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,
-                        SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,
-                        SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
-                        SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
-                                               AS SCHEMA_LENGTH,
-                        SUM(t.DATA_FREE)       AS SCHEMA_DATA_FREE';
-                }
-                $sql .= '
-                       FROM `information_schema`.SCHEMATA s';
-                if ($force_stats) {
-                    $sql .= '
-                        LEFT JOIN `information_schema`.TABLES t
-                            ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
-                }
-                $sql .= $sql_where_schema . '
-                        GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME
-                        ORDER BY ';
-                if ($sort_by == 'SCHEMA_NAME'
-                    || $sort_by == 'DEFAULT_COLLATION_NAME'
-                ) {
-                    $sql .= 'BINARY ';
-                }
-                $sql .= PMA_Util::backquote($sort_by)
-                    . ' ' . $sort_order
-                    . $limit;
-                $sql .= ') a';
+            $sql  = 'SELECT *,
+                    CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME
+                FROM (';
+            $sql .= 'SELECT
+                BINARY s.SCHEMA_NAME AS BIN_NAME,
+                s.DEFAULT_COLLATION_NAME';
+            if ($force_stats) {
+                $sql .= ',
+                    COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,
+                    SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,
+                    SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,
+                    SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,
+                    SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
+                    SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
+                                           AS SCHEMA_LENGTH,
+                    SUM(t.DATA_FREE)       AS SCHEMA_DATA_FREE';
             }
+            $sql .= '
+                   FROM `information_schema`.SCHEMATA s';
+            if ($force_stats) {
+                $sql .= '
+                    LEFT JOIN `information_schema`.TABLES t
+                        ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
+            }
+            $sql .= $sql_where_schema . '
+                    GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME
+                    ORDER BY ';
+            if ($sort_by == 'SCHEMA_NAME'
+                || $sort_by == 'DEFAULT_COLLATION_NAME'
+            ) {
+                $sql .= 'BINARY ';
+            }
+            $sql .= PMA_Util::backquote($sort_by)
+                . ' ' . $sort_order
+                . $limit;
+            $sql .= ') a';
 
             $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $link);
 
@@ -1167,28 +1063,6 @@ class PMA_DatabaseInterface
 
         return $databases;
     }
-
-
-    /**
-     * Generates JOIN part for the Drizzle query to get database/table stats.
-     *
-     * @return string
-     */
-    private function _getDrizzeStatsJoin()
-    {
-        $engine_info = PMA_Util::cacheGet('drizzle_engines');
-        $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
-        if (isset($engine_info['InnoDB'])
-            && $engine_info['InnoDB']['module_library'] == 'innobase'
-        ) {
-            $stats_join
-                = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS stat"
-                . " ON (t.ENGINE = 'InnoDB' AND stat.NAME"
-                . " = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
-        }
-        return $stats_join;
-    }
-
 
     /**
      * usort comparison callback
@@ -1305,49 +1179,19 @@ class PMA_DatabaseInterface
 
             // for PMA bc:
             // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
-            if (PMA_DRIZZLE) {
-                $sql = "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME,
-                    column_name        AS `Field`,
-                    (CASE
-                        WHEN character_maximum_length > 0
-                        THEN concat(lower(data_type), '(', character_maximum_length, ')')
-                        WHEN numeric_precision > 0 OR numeric_scale > 0
-                        THEN concat(lower(data_type), '(', numeric_precision,
-                            ',', numeric_scale, ')')
-                        WHEN enum_values IS NOT NULL
-                            THEN concat(lower(data_type), '(', enum_values, ')')
-                        ELSE lower(data_type) END)
-                                       AS `Type`,
-                    collation_name     AS `Collation`,
-                    (CASE is_nullable
-                        WHEN 1 THEN 'YES'
-                        ELSE 'NO' END) AS `Null`,
-                    (CASE
-                        WHEN is_used_in_primary THEN 'PRI'
-                        ELSE '' END)   AS `Key`,
-                    column_default     AS `Default`,
-                    (CASE
-                        WHEN is_auto_increment THEN 'auto_increment'
-                        WHEN column_default_update
-                        THEN 'on update ' || column_default_update
-                        ELSE '' END)   AS `Extra`,
-                    NULL               AS `Privileges`,
-                    column_comment     AS `Comment`
-                FROM data_dictionary.columns";
-            } else {
-                $sql = '
-                     SELECT *,
-                            `COLUMN_NAME`       AS `Field`,
-                            `COLUMN_TYPE`       AS `Type`,
-                            `COLLATION_NAME`    AS `Collation`,
-                            `IS_NULLABLE`       AS `Null`,
-                            `COLUMN_KEY`        AS `Key`,
-                            `COLUMN_DEFAULT`    AS `Default`,
-                            `EXTRA`             AS `Extra`,
-                            `PRIVILEGES`        AS `Privileges`,
-                            `COLUMN_COMMENT`    AS `Comment`
-                       FROM `information_schema`.`COLUMNS`';
-            }
+            $sql = '
+                 SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`';
+
             if (count($sql_wheres)) {
                 $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
             }
@@ -1459,63 +1303,11 @@ class PMA_DatabaseInterface
      */
     public function getColumnsSql($database, $table, $column = null, $full = false)
     {
-        if (defined('PMA_DRIZZLE') && PMA_DRIZZLE) {
-            // `Key` column:
-            // * used in primary key => PRI
-            // * unique one-column => UNI
-            // * indexed, one-column or first in multi-column => MUL
-            // Promotion of UNI to PRI in case no primary index exists
-            // is done after query is executed
-            $sql = "SELECT
-                    column_name        AS `Field`,
-                    (CASE
-                        WHEN character_maximum_length > 0
-                        THEN concat(
-                            lower(data_type), '(', character_maximum_length, ')'
-                        )
-                        WHEN numeric_precision > 0 OR numeric_scale > 0
-                        THEN concat(lower(data_type), '(', numeric_precision,
-                            ',', numeric_scale, ')')
-                        WHEN enum_values IS NOT NULL
-                            THEN concat(lower(data_type), '(', enum_values, ')')
-                        ELSE lower(data_type) END)
-                                       AS `Type`,
-                    " . ($full ? "
-                    collation_name     AS `Collation`," : '') . "
-                    (CASE is_nullable
-                        WHEN 1 THEN 'YES'
-                        ELSE 'NO' END) AS `Null`,
-                    (CASE
-                        WHEN is_used_in_primary THEN 'PRI'
-                        WHEN is_unique AND NOT is_multi THEN 'UNI'
-                        WHEN is_indexed
-                        AND (NOT is_multi OR is_first_in_multi) THEN 'MUL'
-                        ELSE '' END)   AS `Key`,
-                    column_default     AS `Default`,
-                    (CASE
-                        WHEN is_auto_increment THEN 'auto_increment'
-                        WHEN column_default_update <> ''
-                        THEN 'on update ' || column_default_update
-                        ELSE '' END)   AS `Extra`
-                    " . ($full ? " ,
-                    NULL               AS `Privileges`,
-                    column_comment     AS `Comment`" : '') . "
-                FROM data_dictionary.columns
-                WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
-                    AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
-                    " . (
-                        ($column !== null)
-                            ? "
-                    AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'"
-                            : ''
-                        );
-            // ORDER BY ordinal_position
-        } else {
-            $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
-                . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
-                . (($column !== null) ? "LIKE '"
-                . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
-        }
+        $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
+            . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
+            . (($column !== null) ? "LIKE '"
+            . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
+
         return $sql;
     }
 
@@ -1562,40 +1354,6 @@ class PMA_DatabaseInterface
                 }
             }
         }
-        if (PMA_DRIZZLE) {
-            // fix Key column, it's much simpler in PHP than in SQL
-            $has_pk = false;
-            $has_pk_candidates = false;
-            foreach ($fields as $f) {
-                if ($f['Key'] == 'PRI') {
-                    $has_pk = true;
-                    break;
-                } else if ($f['Null'] == 'NO'
-                    && ($f['Key'] == 'MUL'
-                    || $f['Key'] == 'UNI')
-                ) {
-                    $has_pk_candidates = true;
-                }
-            }
-            if (! $has_pk && $has_pk_candidates) {
-                $secureDatabase = PMA_Util::sqlAddSlashes($database);
-                // check whether we can promote some unique index to PRI
-                $sql = "
-                    SELECT i.index_name, p.column_name
-                    FROM data_dictionary.indexes i
-                        JOIN data_dictionary.index_parts p
-                        USING (table_schema, table_name)
-                    WHERE i.table_schema = '" . $secureDatabase . "'
-                        AND i.table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
-                        AND i.is_unique
-                            AND NOT i.is_nullable";
-                $result = $this->fetchResult($sql, 'index_name', null, $link);
-                $result = $result ? array_shift($result) : array();
-                foreach ($result as $f) {
-                    $fields[$f]['Key'] = 'PRI';
-                }
-            }
-        }
 
         return ($column != null) ? array_shift($fields) : $fields;
     }
@@ -1632,38 +1390,10 @@ class PMA_DatabaseInterface
     */
     public function getTableIndexesSql($database, $table, $where = null)
     {
-        if (PMA_DRIZZLE) {
-            $sql = "SELECT
-                    ip.table_name          AS `Table`,
-                    (NOT ip.is_unique)     AS Non_unique,
-                    ip.index_name          AS Key_name,
-                    ip.sequence_in_index+1 AS Seq_in_index,
-                    ip.column_name         AS Column_name,
-                    (CASE
-                        WHEN i.index_type = 'BTREE' THEN 'A'
-                        ELSE NULL END)     AS Collation,
-                    NULL                   AS Cardinality,
-                    compare_length         AS Sub_part,
-                    NULL                   AS Packed,
-                    ip.is_nullable         AS `Null`,
-                    i.index_type           AS Index_type,
-                    NULL                   AS Comment,
-                    i.index_comment        AS Index_comment
-                FROM data_dictionary.index_parts ip
-                    LEFT JOIN data_dictionary.indexes i
-                    USING (table_schema, table_name, index_name)
-                WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
-                    AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
-            ";
-            if ($where) {
-                $sql = "SELECT * FROM (" . $sql . ") A WHERE (" . $where . ")";
-            }
-        } else {
-            $sql = 'SHOW INDEXES FROM ' . PMA_Util::backquote($database) . '.'
-                . PMA_Util::backquote($table);
-            if ($where) {
-                $sql .= ' WHERE (' . $where . ')';
-            }
+        $sql = 'SHOW INDEXES FROM ' . PMA_Util::backquote($database) . '.'
+            . PMA_Util::backquote($table);
+        if ($where) {
+            $sql .= ' WHERE (' . $where . ')';
         }
         return $sql;
     }
@@ -1779,10 +1509,6 @@ class PMA_DatabaseInterface
                     'PMA_MARIADB',
                     PMA_Util::cacheGet('PMA_MARIADB')
                 );
-                define(
-                    'PMA_DRIZZLE',
-                    PMA_Util::cacheGet('PMA_DRIZZLE')
-                );
             } else {
                 $version = $this->fetchSingleRow(
                     'SELECT @@version, @@version_comment',
@@ -1836,79 +1562,44 @@ class PMA_DatabaseInterface
                     'PMA_MARIADB',
                     PMA_MARIADB
                 );
-
-                /* Detect Drizzle - it does not support charsets */
-                $charset_result = $this->query(
-                    // The following does not work in MySQL 5.7:
-                    //"SHOW VARIABLES LIKE 'character_set_results'",
-                    // so a workaround was implemented:
-                    "SELECT @@character_set_results",
-                    $link
-                );
-                if ($this->numRows($charset_result) == 0) {
-                    define('PMA_DRIZZLE', true);
-                } else {
-                    define('PMA_DRIZZLE', false);
-                }
-                $this->freeResult($charset_result);
-
-                PMA_Util::cacheSet(
-                    'PMA_DRIZZLE',
-                    PMA_DRIZZLE
-                );
             }
         }
 
-        // Skip charsets for Drizzle
-        if (!PMA_DRIZZLE) {
-            if (PMA_MYSQL_INT_VERSION >  50503) {
-                $default_charset = 'utf8mb4';
-                $default_collation = 'utf8mb4_general_ci';
-            } else {
-                $default_charset = 'utf8';
-                $default_collation = 'utf8_general_ci';
-            }
-            if (! empty($GLOBALS['collation_connection'])) {
-                $this->query(
-                    "SET CHARACTER SET '$default_charset';",
-                    $link,
-                    self::QUERY_STORE
-                );
-                /* Automatically adjust collation to mb4 variant */
-                if ($default_charset == 'utf8mb4'
-                    && strncmp('utf8_', $GLOBALS['collation_connection'], 5) == 0
-                ) {
-                    $GLOBALS['collation_connection'] = 'utf8mb4_' . substr(
-                        $GLOBALS['collation_connection'],
-                        5
-                    );
-                }
-                $this->query(
-                    "SET collation_connection = '"
-                    . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
-                    . "';",
-                    $link,
-                    self::QUERY_STORE
-                );
-            } else {
-                $this->query(
-                    "SET NAMES '$default_charset' COLLATE '$default_collation';",
-                    $link,
-                    self::QUERY_STORE
-                );
-            }
+        if (PMA_MYSQL_INT_VERSION >  50503) {
+            $default_charset = 'utf8mb4';
+            $default_collation = 'utf8mb4_general_ci';
+        } else {
+            $default_charset = 'utf8';
+            $default_collation = 'utf8_general_ci';
         }
-
-        // Cache plugin list for Drizzle
-        if (PMA_DRIZZLE && !PMA_Util::cacheExists('drizzle_engines')) {
-            $sql = "SELECT p.plugin_name, m.module_library
-                FROM data_dictionary.plugins p
-                    JOIN data_dictionary.modules m USING (module_name)
-                WHERE p.plugin_type = 'StorageEngine'
-                    AND p.plugin_name NOT IN ('FunctionEngine', 'schema')
-                    AND p.is_active = 'YES'";
-            $engines = $this->fetchResult($sql, 'plugin_name', null, $link);
-            PMA_Util::cacheSet('drizzle_engines', $engines);
+        if (! empty($GLOBALS['collation_connection'])) {
+            $this->query(
+                "SET CHARACTER SET '$default_charset';",
+                $link,
+                self::QUERY_STORE
+            );
+            /* Automatically adjust collation to mb4 variant */
+            if ($default_charset == 'utf8mb4'
+                && strncmp('utf8_', $GLOBALS['collation_connection'], 5) == 0
+            ) {
+                $GLOBALS['collation_connection'] = 'utf8mb4_' . substr(
+                    $GLOBALS['collation_connection'],
+                    5
+                );
+            }
+            $this->query(
+                "SET collation_connection = '"
+                . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
+                . "';",
+                $link,
+                self::QUERY_STORE
+            );
+        } else {
+            $this->query(
+                "SET NAMES '$default_charset' COLLATE '$default_collation';",
+                $link,
+                self::QUERY_STORE
+            );
         }
     }
 
@@ -2162,11 +1853,6 @@ class PMA_DatabaseInterface
      */
     public function getCompatibilities()
     {
-        // Drizzle doesn't support compatibility modes
-        if (PMA_DRIZZLE) {
-            return array();
-        }
-
         $compats = array('NONE');
         $compats[] = 'ANSI';
         $compats[] = 'DB2';
@@ -2211,10 +1897,6 @@ class PMA_DatabaseInterface
      */
     public function getProceduresOrFunctions($db, $which, $link = null)
     {
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't support functions and procedures
-            return array();
-        }
         $shows = $this->fetchResult(
             'SHOW ' . $which . ' STATUS;', null, null, $link
         );
@@ -2262,11 +1944,6 @@ class PMA_DatabaseInterface
      */
     public function getRoutines($db, $which = null, $name = '')
     {
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't support functions and procedures
-            return array();
-        }
-
         $routines = array();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = "SELECT"
@@ -2355,11 +2032,6 @@ class PMA_DatabaseInterface
      */
     public function getEvents($db, $name = '')
     {
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't support events
-            return array();
-        }
-
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = "SELECT"
                 . " `EVENT_SCHEMA` AS `Db`,"
@@ -2424,11 +2096,6 @@ class PMA_DatabaseInterface
      */
     public function getTriggers($db, $table = '', $delimiter = '//')
     {
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't support triggers
-            return array();
-        }
-
         $result = array();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
@@ -2599,16 +2266,6 @@ class PMA_DatabaseInterface
             return PMA_Util::cacheGet('is_' . $type . 'user');
         }
 
-        if (PMA_DRIZZLE) {
-            // Drizzle has no authorization by default, so when no plugin is
-            // enabled everyone is a superuser
-            // Known authorization libraries: regex_policy, simple_user_policy
-            // Plugins limit object visibility (dbs, tables, processes), we can
-            // safely assume we always deal with superuser
-            PMA_Util::cacheSet('is_' . $type . 'user', true);
-            return PMA_Util::cacheGet('is_' . $type . 'user');
-        }
-
         if (! $GLOBALS['cfg']['Server']['DisableIS'] || $type === 'super') {
             // Prepare query for each user type check
             $query = '';
@@ -2711,8 +2368,7 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * Checks whether given schema is a system schema: information_schema
-     * (MySQL and Drizzle) or data_dictionary (Drizzle)
+     * Checks whether given schema is a system schema
      *
      * @param string $schema_name        Name of schema (database) to test
      * @param bool   $testForMysqlSchema Whether 'mysql' schema should
@@ -2724,10 +2380,9 @@ class PMA_DatabaseInterface
     {
         $schema_name = strtolower($schema_name);
         return $schema_name == 'information_schema'
-            || (!PMA_DRIZZLE && $schema_name == 'performance_schema')
-            || (!PMA_DRIZZLE && $schema_name == 'mysql' && $testForMysqlSchema)
-            || (!PMA_DRIZZLE && $schema_name == 'sys')
-            || ( PMA_DRIZZLE && $schema_name == 'data_dictionary');
+            || $schema_name == 'performance_schema'
+            || ($schema_name == 'mysql' && $testForMysqlSchema)
+            || $schema_name == 'sys';
     }
 
     /**
