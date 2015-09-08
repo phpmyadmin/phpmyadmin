@@ -42,7 +42,6 @@ phpMyAdmin supports MySQL-compatible databases.
 
 * MySQL 5.5 or newer
 * MariaDB 5.5 or newer
-* Drizzle
 
 .. seealso:: :ref:`faq1_17`
 
