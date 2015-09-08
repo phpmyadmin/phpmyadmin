@@ -752,18 +752,13 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
      * Emulating relations for some information_schema and data_dictionary tables
      */
     $isInformationSchema = /*overload*/mb_strtolower($db) == 'information_schema';
-    $is_data_dictionary = PMA_DRIZZLE
-        && /*overload*/mb_strtolower($db) == 'data_dictionary';
-    $isMysql = /*overload*/mb_strtolower($db) == 'mysql';
-    if (($isInformationSchema || $is_data_dictionary || $isMysql)
+        $isMysql = /*overload*/mb_strtolower($db) == 'mysql';
+    if (($isInformationSchema || $isMysql)
         && ($source == 'internal' || $source == 'both')
     ) {
         if ($isInformationSchema) {
             $relations_key = 'information_schema_relations';
             include_once './libraries/information_schema_relations.lib.php';
-        } else if ($is_data_dictionary) {
-            $relations_key = 'data_dictionary_relations';
-            include_once './libraries/data_dictionary_relations.lib.php';
         } else {
             $relations_key = 'mysql_relations';
             include_once './libraries/mysql_relations.lib.php';
@@ -1766,15 +1761,9 @@ function PMA_searchColumnInForeigners($foreigners, $column)
 function PMA_getDefaultPMATableNames()
 {
     $pma_tables = array();
-    if (PMA_DRIZZLE) {
-        $create_tables_file = file_get_contents(
-            SQL_DIR . 'create_tables_drizzle.sql'
-        );
-    } else {
-        $create_tables_file = file_get_contents(
-            SQL_DIR . 'create_tables.sql'
-        );
-    }
+    $create_tables_file = file_get_contents(
+        SQL_DIR . 'create_tables.sql'
+    );
 
     $queries = explode(';', $create_tables_file);
 

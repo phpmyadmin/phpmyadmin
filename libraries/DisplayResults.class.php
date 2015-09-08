@@ -1779,21 +1779,19 @@ class PMA_DisplayResults
             )
             . '</div>';
 
-        if (! PMA_DRIZZLE) {
-            $options_html .= '<div class="formelement">';
-            $choices = array(
-                'GEOM'  => __('Geometry'),
-                'WKT'   => __('Well Known Text'),
-                'WKB'   => __('Well Known Binary')
-            );
+        $options_html .= '<div class="formelement">';
+        $choices = array(
+            'GEOM'  => __('Geometry'),
+            'WKT'   => __('Well Known Text'),
+            'WKB'   => __('Well Known Binary')
+        );
 
-            $options_html .= PMA_Util::getRadioFields(
-                'geoOption', $choices,
-                $_SESSION['tmpval']['geoOption'],
-                true, true, '', 'geoOption_' . $this->__get('unique_id')
-            )
-                . '</div>';
-        }
+        $options_html .= PMA_Util::getRadioFields(
+            'geoOption', $choices,
+            $_SESSION['tmpval']['geoOption'],
+            true, true, '', 'geoOption_' . $this->__get('unique_id')
+        );
+        $options_html .= '</div>';
 
         $options_html .= '<div class="clearfloat"></div>'
             . '</fieldset>';
@@ -4931,7 +4929,7 @@ class PMA_DisplayResults
     private function _getLinkForCreateView($analyzed_sql_results, $url_query)
     {
         $results_operations_html = '';
-        if (!PMA_DRIZZLE && empty($analyzed_sql_results['procedure'])) {
+        if (empty($analyzed_sql_results['procedure'])) {
 
             $ajax_class = ' ajax';
 

@@ -840,8 +840,7 @@ class TableStructureController extends TableController
     {
         $changed = false;
 
-        if ((!defined('PMA_DRIZZLE') || !PMA_DRIZZLE)
-            && Util\get($GLOBALS, 'col_priv', false)
+        if (Util\get($GLOBALS, 'col_priv', false)
             && Util\get($GLOBALS, 'flush_priv', false)
         ) {
             $this->dbi->selectDb('mysql');
