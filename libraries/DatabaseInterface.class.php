@@ -2355,8 +2355,7 @@ class PMA_DatabaseInterface
     public function getSystemSchemas()
     {
         $schemas = array(
-            'information_schema', 'performance_schema', 'data_dictionary', 'mysql',
-            'sys'
+            'information_schema', 'performance_schema', 'mysql', 'sys'
         );
         $systemSchemas = array();
         foreach ($schemas as $schema) {

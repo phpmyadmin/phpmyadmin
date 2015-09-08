@@ -749,7 +749,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     }
 
     /**
-     * Emulating relations for some information_schema and data_dictionary tables
+     * Emulating relations for some information_schema tables
      */
     $isInformationSchema = /*overload*/mb_strtolower($db) == 'information_schema';
         $isMysql = /*overload*/mb_strtolower($db) == 'mysql';
