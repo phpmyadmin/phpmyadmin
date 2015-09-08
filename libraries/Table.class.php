@@ -530,12 +530,7 @@ class PMA_Table
             return $row_count;
         }
 
-        // Make an exception for views in I_S and D_D schema in
-        // Drizzle, as these map to in-memory data and should execute
-        // fast enough
-        if (! $is_view
-            || (PMA_DRIZZLE && $this->_dbi->isSystemSchema($db))
-        ) {
+        if (! $is_view) {
             $row_count = $this->_dbi->fetchValue(
                 'SELECT COUNT(*) FROM ' . PMA_Util::backquote($db) . '.'
                 . PMA_Util::backquote($table)
@@ -824,11 +819,9 @@ class PMA_Table
             // queries.
             // One of the options that alters the behaviour is `ANSI_QUOTES`.
             // This is not availabile for Drizzle.
-            if (!PMA_DRIZZLE) {
-                SqlParser\Context::setMode(
-                    $GLOBALS['dbi']->fetchValue("SELECT @@sql_mode")
-                );
-            }
+            SqlParser\Context::setMode(
+                $GLOBALS['dbi']->fetchValue("SELECT @@sql_mode")
+            );
 
             // -----------------------------------------------------------------
             // Phase 1: Dropping existent element of the same name (if exists
@@ -1008,11 +1001,9 @@ class PMA_Table
         if (($what == 'data' || $what == 'dataonly')
             && ! $_table->isView()
         ) {
-            if (! PMA_DRIZZLE) {
-                $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-                $GLOBALS['dbi']->query($sql_set_mode);
-                $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
-            }
+            $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
+            $GLOBALS['dbi']->query($sql_set_mode);
+            $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
 
             $sql_insert_data = 'INSERT INTO ' . $target
                 . ' SELECT * FROM ' . $source;
