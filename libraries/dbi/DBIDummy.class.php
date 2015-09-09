@@ -26,6 +26,10 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(array('pma_test@localhost')),
     ),
     array(
+        'query' => "SHOW VARIABLES LIKE 'lower_case_table_names'",
+        'result' => array(array('lower_case_table_names', '0'))
+    ),
+    array(
         'query' => 'SELECT 1 FROM mysql.user LIMIT 1',
         'result' => array(array('1')),
     ),
