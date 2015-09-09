@@ -1,7 +1,9 @@
 <td class="print_ignore"><ul class="table-structure-actions resizable-menu">
     <!-- Add primary -->
     <?php
-        echo PMA\libraries\Template::get('table/structure/action_row_in_structure_table')->render(
+    use PMA\libraries\Util;
+
+    echo PMA\libraries\Template::get('table/structure/action_row_in_structure_table')->render(
             array(
                 'type' => $type,
                 'tbl_storage_engine' => $tbl_storage_engine,
@@ -59,54 +61,53 @@
             )
         );
     ?>
-    <?php if (!PMA_DRIZZLE): ?>
-        <!-- Add spatial -->
-        <?php
-            $spatial_types = array(
-                'geometry', 'point', 'linestring', 'polygon', 'multipoint',
-                'multilinestring', 'multipolygon', 'geomtrycollection'
-            );
-            echo PMA\libraries\Template::get('table/structure/action_row_in_structure_table')->render(
-                array(
-                    'type' => $type,
-                    'tbl_storage_engine' => $tbl_storage_engine,
-                    'class' => 'spatial nowrap',
-                    'hasField' => ! (in_array($type, $spatial_types) && ('MYISAM' == $tbl_storage_engine || PMA_MYSQL_INT_VERSION >= 50705)),
-                    'hasLinkClass' => false,
-                    'url_query' => $url_query,
-                    'primary' => $primary,
-                    'syntax' => 'ADD SPATIAL',
-                    'message' => __('An index has been added on %s.'),
-                    'action' => 'Spatial',
-                    'titles' => $titles,
-                    'row' => $row,
-                    'isPrimary' => false
-                )
-            );
-        ?>
-        <!-- FULLTEXT is possible on TEXT, CHAR and VARCHAR -->
-        <li class="fulltext nowrap">
-        <?php if (! empty($tbl_storage_engine)
-                    && ($tbl_storage_engine == 'MYISAM'
-                    || $tbl_storage_engine == 'ARIA'
-                    || $tbl_storage_engine == 'MARIA'
-                    || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
-                    && (/*overload*/mb_strpos($type, 'text') !== false
-                    || /*overload*/mb_strpos($type, 'char') !== false)
-                ): ?>
-            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php<?php echo $url_query; ?>&amp;add_key=1&amp;sql_query=<?php echo urlencode(
-                'ALTER TABLE ' . PMA\libraries\Util::backquote($GLOBALS['table'])
-                . ' ADD FULLTEXT(' . PMA\libraries\Util::backquote($row['Field'])
-                . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(
-                    __('An index has been added on %s.'),
-                    htmlspecialchars($row['Field']))); ?>">
-                <?php echo $titles['IdxFulltext']; ?>
-            </a>
-        <?php else: ?>
-            <?php echo $titles['NoIdxFulltext']; ?>
-        <?php endif; ?>
-        </li>
+
+    <!-- Add spatial -->
+    <?php
+        $spatial_types = array(
+            'geometry', 'point', 'linestring', 'polygon', 'multipoint',
+            'multilinestring', 'multipolygon', 'geomtrycollection'
+        );
+        echo PMA\libraries\Template::get('table/structure/action_row_in_structure_table')->render(
+            array(
+                'type' => $type,
+                'tbl_storage_engine' => $tbl_storage_engine,
+                'class' => 'spatial nowrap',
+                'hasField' => ! (in_array($type, $spatial_types) && ('MYISAM' == $tbl_storage_engine || PMA_MYSQL_INT_VERSION >= 50705)),
+                'hasLinkClass' => false,
+                'url_query' => $url_query,
+                'primary' => $primary,
+                'syntax' => 'ADD SPATIAL',
+                'message' => __('An index has been added on %s.'),
+                'action' => 'Spatial',
+                'titles' => $titles,
+                'row' => $row,
+                'isPrimary' => false
+            )
+        );
+    ?>
+    <!-- FULLTEXT is possible on TEXT, CHAR and VARCHAR -->
+    <li class="fulltext nowrap">
+    <?php if (! empty($tbl_storage_engine)
+                && ($tbl_storage_engine == 'MYISAM'
+                || $tbl_storage_engine == 'ARIA'
+                || $tbl_storage_engine == 'MARIA'
+                || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
+                && (/*overload*/mb_strpos($type, 'text') !== false
+                || /*overload*/mb_strpos($type, 'char') !== false)
+            ): ?>
+        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php<?php echo $url_query; ?>&amp;add_key=1&amp;sql_query=<?php echo urlencode(
+            'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
+            . ' ADD FULLTEXT(' . Util::backquote($row['Field'])
+            . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(
+                __('An index has been added on %s.'),
+                htmlspecialchars($row['Field']))); ?>">
+            <?php echo $titles['IdxFulltext']; ?>
+        </a>
+    <?php else: ?>
+        <?php echo $titles['NoIdxFulltext']; ?>
     <?php endif; ?>
+    </li>
     <!-- Distinct value action -->
     <li class="browse nowrap">
         <a href="sql.php<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode(

@@ -926,35 +926,33 @@ class Config
      */
     private function _saveConnectionCollation($config_data)
     {
-        if (!PMA_DRIZZLE) {
-            // just to shorten the lines
-            $collation = 'collation_connection';
-            if (isset($GLOBALS[$collation])
-                && (isset($_COOKIE['pma_collation_connection'])
-                || isset($_POST[$collation]))
+        // just to shorten the lines
+        $collation = 'collation_connection';
+        if (isset($GLOBALS[$collation])
+            && (isset($_COOKIE['pma_collation_connection'])
+            || isset($_POST[$collation]))
+        ) {
+            if ((! isset($config_data[$collation])
+                && $GLOBALS[$collation] != 'utf8_general_ci')
+                || isset($config_data[$collation])
+                && $GLOBALS[$collation] != $config_data[$collation]
             ) {
-                if ((! isset($config_data[$collation])
-                    && $GLOBALS[$collation] != 'utf8_general_ci')
-                    || isset($config_data[$collation])
-                    && $GLOBALS[$collation] != $config_data[$collation]
-                ) {
-                    $this->setUserValue(
-                        null,
-                        $collation,
-                        $GLOBALS[$collation],
-                        'utf8_general_ci'
-                    );
-                }
-            } else {
-                // read collation from settings
-                if (isset($config_data[$collation])) {
+                $this->setUserValue(
+                    null,
+                    $collation,
+                    $GLOBALS[$collation],
+                    'utf8_general_ci'
+                );
+            }
+        } else {
+            // read collation from settings
+            if (isset($config_data[$collation])) {
+                $GLOBALS[$collation]
+                    = $config_data[$collation];
+                $this->setCookie(
+                    'pma_collation_connection',
                     $GLOBALS[$collation]
-                        = $config_data[$collation];
-                    $this->setCookie(
-                        'pma_collation_connection',
-                        $GLOBALS[$collation]
-                    );
-                }
+                );
             }
         }
     }

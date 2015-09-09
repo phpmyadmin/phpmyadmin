@@ -18,12 +18,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_databases.js');
 
-if (! PMA_DRIZZLE) {
-    include_once 'libraries/replication.inc.php';
-} else {
-    $replication_types = array();
-    $GLOBALS['replication_info'] = null;
-}
+require_once 'libraries/replication.inc.php';
 require 'libraries/build_html_for_db.lib.php';
 
 /**

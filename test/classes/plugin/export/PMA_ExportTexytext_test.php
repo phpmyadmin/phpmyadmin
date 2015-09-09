@@ -31,10 +31,6 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        }
-
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;

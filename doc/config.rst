@@ -2112,8 +2112,7 @@ Languages
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets
     <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
-    for list of possible values. This setting is
-    ignored when connected to Drizzle server.
+    for list of possible values.
 
 .. config:option:: $cfg['Lang']
 

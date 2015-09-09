@@ -1287,12 +1287,7 @@ class NavigationTree
                     . ' apath="' . $paths['aPath'] . '"'
                     . ' vpath="' . $paths['vPath'] . '"'
                     . ' pos="' . $this->_pos . '"';
-                if ($node->real_name == $selected
-                    || (PMA_DRIZZLE
-                        && strtolower($node->real_name) == strtolower(
-                            $selected
-                        ))
-                ) {
+                if ($node->real_name == $selected) {
                     $retval .= ' selected="selected"';
                 }
                 $retval .= '>' . htmlspecialchars($node->real_name);

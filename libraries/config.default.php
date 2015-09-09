@@ -549,7 +549,7 @@ $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 
 /**
- * Disable use of INFORMATION_SCHEMA. Is always 'false' for Drizzle.
+ * Disable use of INFORMATION_SCHEMA.
  *
  * @see https://sourceforge.net/p/phpmyadmin/bugs/2606/
  * @see http://bugs.mysql.com/19588
@@ -730,7 +730,6 @@ $cfg['MemoryLimit'] = '-1';
 
 /**
  * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
- * Is ignored for Drizzle.
  *
  * @global boolean $cfg['SkipLockedTables']
  */

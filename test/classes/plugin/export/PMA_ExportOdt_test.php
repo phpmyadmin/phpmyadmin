@@ -33,10 +33,6 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        }
-
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;

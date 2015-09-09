@@ -3077,27 +3077,5 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             'bar',
             $actual
         );
-
-        // Drizzle
-        $table_columns = array(
-            array(
-                'Field' => 'foo',
-                'Type' => 'longtext',
-                'Null' => 'Yes',
-                'pma_type' => 'longtext',
-                'True_Type' => 'longtext',
-                'Privileges' => null,
-            )
-        );
-        $actual = PMA_getHtmlForInsertEditRow(
-            array(), $table_columns, array(), false, array(), '', '',
-            '', false, array(), $o_rows, $tabindex, 1, false, 0,
-            array(), 0, 0, 'table', 'db', 0, array(), 0, '',
-            array(), array('wc')
-        );
-        $this->assertContains(
-            'foo',
-            $actual
-        );
     }
 }

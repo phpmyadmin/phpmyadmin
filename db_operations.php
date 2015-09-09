@@ -107,7 +107,7 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
         }
         unset($sqlConstratints);
 
-        if (! PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50100) {
+        if (PMA_MYSQL_INT_VERSION >= 50100) {
             // here DELIMITER is not used because it's not part of the
             // language; each statement is sent one by one
 
@@ -263,7 +263,7 @@ if (!$is_information_schema) {
     // Don't allow to easily drop mysql database, RFE #1327514.
     if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
         && ! $db_is_system_schema
-        && (PMA_DRIZZLE || $GLOBALS['db'] != 'mysql')
+        && $GLOBALS['db'] != 'mysql'
     ) {
         $response->addHTML(PMA_getHtmlForDropDatabaseLink($GLOBALS['db']));
     }

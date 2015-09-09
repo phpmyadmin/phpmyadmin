@@ -30,10 +30,6 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        }
-
         $GLOBALS['server'] = 0;
         $this->object = new ExportHtmlword();
         $GLOBALS['output_kanji_conversion'] = false;

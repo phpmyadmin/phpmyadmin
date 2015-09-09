@@ -2,7 +2,9 @@
 <tr>
     <th class="print_ignore"></th>
     <th>#</th>
-    <th><?php echo __('Name'); ?></th>
+    <th><?php use PMA\libraries\Util;
+
+        echo __('Name'); ?></th>
     <th><?php echo __('Type'); ?></th>
     <th><?php echo __('Collation'); ?></th>
     <th><?php echo __('Attributes'); ?></th>
@@ -13,10 +15,7 @@
      <?php if (! $db_is_system_schema && ! $tbl_is_view): ?>
         <?php
             $colspan = 9;
-            if (PMA_DRIZZLE) {
-                $colspan -= 2;
-            }
-            if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
+            if (Util::showIcons('ActionLinksMode')) {
                 $colspan--;
             }
         ?>

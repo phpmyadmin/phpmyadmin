@@ -114,17 +114,13 @@ class NodeDatabase extends Node
             $condition = '!=';
         }
 
-        if (!$GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-            $db = Util::sqlAddSlashes($db);
-            $query = "SELECT COUNT(*) ";
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $db     = Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-            if (PMA_DRIZZLE) {
-                $query .= "AND `TABLE_TYPE`" . $condition . "'BASE' ";
-            } else {
-                $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
-            }
-            if (!empty($searchClause)) {
+            $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
+            if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
                         $searchClause,
                         $singleItem,
@@ -453,19 +449,15 @@ class NodeDatabase extends Node
             $condition = '!=';
         }
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
-        $retval = array();
-        $db = $this->real_name;
-        if (!$GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
+        $retval   = array();
+        $db       = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $escdDb = Util::sqlAddSlashes($db);
-            $query = "SELECT `TABLE_NAME` AS `name` ";
+            $query  = "SELECT `TABLE_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
-            if (PMA_DRIZZLE) {
-                $query .= "AND `TABLE_TYPE`" . $condition . "'BASE' ";
-            } else {
-                $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
-            }
-            if (!empty($searchClause)) {
+            $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
+            if (! empty($searchClause)) {
                 $query .= "AND `TABLE_NAME` LIKE '%";
                 $query .= Util::sqlAddSlashes(
                     $searchClause,

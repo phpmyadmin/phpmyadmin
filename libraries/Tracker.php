@@ -24,19 +24,6 @@ class Tracker
     static protected $enabled = false;
 
     /**
-     * Flags copied from `tracking` column definition in `pma_tracking` table.
-     * Used for column type conversion in Drizzle.
-     *
-     * @var array
-     */
-    static private $_tracking_set_flags = array(
-        'UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE',
-        'ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE',
-        'RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX',
-        'CREATE VIEW','ALTER VIEW','DROP VIEW'
-    );
-
-    /**
      * Actually enables tracking. This needs to be done after all
      * underlaying code is initialized.
      *
@@ -263,7 +250,7 @@ class Tracker
         '" . Util::sqlAddSlashes($snapshot) . "',
         '" . Util::sqlAddSlashes($create_sql) . "',
         '" . Util::sqlAddSlashes("\n") . "',
-        '" . Util::sqlAddSlashes(self::_transformTrackingSet($tracking_set))
+        '" . Util::sqlAddSlashes($tracking_set)
         . "' )";
 
         $result = PMA_queryAsControlUser($sql_query);
@@ -359,7 +346,7 @@ class Tracker
         '" . Util::sqlAddSlashes('') . "',
         '" . Util::sqlAddSlashes($create_sql) . "',
         '" . Util::sqlAddSlashes("\n") . "',
-        '" . Util::sqlAddSlashes(self::_transformTrackingSet($tracking_set))
+        '" . Util::sqlAddSlashes($tracking_set)
         . "' )";
 
         $result = PMA_queryAsControlUser($sql_query);
@@ -495,13 +482,8 @@ class Tracker
         " AND `table_name` = '" . Util::sqlAddSlashes($tablename) . "' ";
 
         if ($statement != "") {
-            if (PMA_DRIZZLE) {
-                $sql_query .= ' AND tracking & '
-                    . self::_transformTrackingSet($statement) . ' <> 0';
-            } else {
-                $sql_query .= " AND FIND_IN_SET('"
-                    . $statement . "',tracking) > 0" ;
-            }
+            $sql_query .= " AND FIND_IN_SET('"
+                . $statement . "',tracking) > 0" ;
         }
         $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
         return isset($row[0])
@@ -608,7 +590,7 @@ class Tracker
         }
         $data['ddlog']           = $ddlog;
         $data['dmlog']           = $dmlog;
-        $data['tracking']        = self::_transformTrackingSet($mixed['tracking']);
+        $data['tracking']        = $mixed['tracking'];
         $data['schema_snapshot'] = $mixed['schema_snapshot'];
 
         return $data;
@@ -960,60 +942,6 @@ class Tracker
                 PMA_queryAsControlUser($sql_query);
             }
         }
-    }
-
-    /**
-     * Transforms tracking set for Drizzle, which has no SET type
-     *
-     * Converts int<>string for Drizzle, does nothing for MySQL
-     *
-     * @param int|string $tracking_set Set to convert
-     *
-     * @return int|string
-     */
-    static private function _transformTrackingSet($tracking_set)
-    {
-        if (!PMA_DRIZZLE) {
-            return $tracking_set;
-        }
-
-        // init conversion array (key 3 doesn't exist in calculated array)
-        if (isset(self::$_tracking_set_flags[3])) {
-            // initialize flags
-            $set = self::$_tracking_set_flags;
-            $array = array();
-            for ($i = 0, $nb = count($set); $i < $nb; $i++) {
-                $flag = 1 << $i;
-                $array[$flag] = $set[$i];
-                $array[$set[$i]] = $flag;
-            }
-            self::$_tracking_set_flags = $array;
-        }
-
-        if (is_numeric($tracking_set)) {
-            // int > string conversion
-            $aflags = array();
-            // count/2 - conversion table has both int > string
-            // and string > int values
-            for ($i = 0, $nb = count(self::$_tracking_set_flags)/2; $i < $nb; $i++) {
-                $flag = 1 << $i;
-                if ($tracking_set & $flag) {
-                    $aflags[] = self::$_tracking_set_flags[$flag];
-                }
-            }
-            $flags = implode(',', $aflags);
-        } else {
-            // string > int conversion
-            $flags = 0;
-            foreach (explode(',', $tracking_set) as $strflag) {
-                if ($strflag == '') {
-                    continue;
-                }
-                $flags |= self::$_tracking_set_flags[$strflag];
-            }
-        }
-
-        return $flags;
     }
 
     /**

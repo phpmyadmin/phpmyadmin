@@ -161,11 +161,7 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
 
-        if (!PMA_DRIZZLE) {
-            include_once 'libraries/replication.inc.php';
-        } else {
-            $GLOBALS['replication_info']['slave']['status'] = false;
-        }
+        require_once 'libraries/replication.inc.php';
 
         PageSettings::showGroup('DbStructure');
 
@@ -558,28 +554,6 @@ class DatabaseStructureController extends DatabaseController
                 $approx_rows = !$table_is_view
                     && $current_table['ENGINE'] == 'InnoDB'
                     && !$current_table['COUNTED'];
-
-                // Drizzle views use FunctionEngine, and the only place where
-                // they are available are I_S and D_D schemas, where we do exact
-                // counting
-                if ($table_is_view
-                    && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
-                    && $current_table['ENGINE'] != 'FunctionEngine'
-                ) {
-                    $approx_rows = true;
-                    $show_superscript = Util::showHint(
-                        PMA_sanitize(
-                            sprintf(
-                                __(
-                                    'This view has at least this number of '
-                                    . 'rows. Please refer to %sdocumentation%s.'
-                                ),
-                                '[doc@cfg_MaxExactCountViews]',
-                                '[/doc]'
-                            )
-                        )
-                    );
-                }
             }
 
             $this->response->addHTML(
@@ -930,7 +904,6 @@ class DatabaseStructureController extends DatabaseController
                 = $this->getValuesForInnodbTable(
                     $current_table, $sum_size
                 );
-            //$display_rows                   =  ' - ';
             break;
         // Mysql 5.0.x (and lower) uses MRG_MyISAM
         // and MySQL 5.1.x (and higher) uses MRG_MYISAM
@@ -949,9 +922,6 @@ class DatabaseStructureController extends DatabaseController
         // or on some servers it's reported as "SYSTEM VIEW"
         case null :
         case 'SYSTEM VIEW' :
-        case 'FunctionEngine' :
-            // possibly a view, do nothing
-            break;
         default :
             // Unknown table type.
             if ($this->_is_show_stats) {
@@ -1048,8 +1018,7 @@ class DatabaseStructureController extends DatabaseController
             $current_table['COUNTED'] = false;
         }
 
-        // Drizzle doesn't provide data and index length, check for null
-        if ($this->_is_show_stats && $current_table['Data_length'] !== null) {
+        if ($this->_is_show_stats) {
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;

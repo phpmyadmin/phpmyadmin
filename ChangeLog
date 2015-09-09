@@ -4,6 +4,8 @@ phpMyAdmin - ChangeLog
 4.6.0.0 (not yet released)
 + issue #11456 Disabled storage engines
 
+4.5.1.0 (not yet released)
+
 4.5.0.0 (not yet released)
 + rfe          Pagination for GIS visualization
 + issue #6207  Usability improvements for console
@@ -113,6 +115,11 @@ phpMyAdmin - ChangeLog
 - issue #11451 Designer-Bug in move.js on multiple server configuration
 - issue #11458 Invalid UTF-8 sequence in argument
 - issue #11457 Request URI too large
+- issue        Invalid argument supplied for foreach()
+- issue #11461 Foreign key constraints for InnoDB tables with upper-case letters disabled
+
+4.4.14.1 (2015-09-08)
+- issue        [security] reCaptcha bypass
 
 4.4.14.0 (2015-08-20)
 - issue #11367 Export after search, missing WHERE clause

@@ -843,8 +843,6 @@ function PMA_isAllowedDomain($url)
         'docs.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
-        /* drizzle.org domains */
-        'www.drizzle.org',
         /* mariadb domains */
         'mariadb.org',
         /* php.net domains */

@@ -34,10 +34,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        }
-
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -69,20 +65,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetProperties()
     {
-        $restoreDrizzle = $restoreMySQLIntVersion = 'PMANORESTORE';
-
-        if (PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                if (PMA_DRIZZLE) {
-                    $restoreDrizzle = PMA_DRIZZLE;
-                    runkit_constant_redefine('PMA_DRIZZLE', false);
-                }
-            }
-        }
         // test with hide structure and hide sql as true
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
@@ -331,142 +313,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             2,
             $properties[1]->getProperties()
         );
-
-        if ($restoreDrizzle !== 'PMANORESTORE') {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
-
-        if ($restoreMySQLIntVersion !== 'PMANORESTORE') {
-            runkit_constant_redefine(
-                'PMA_MYSQL_INT_VERSION', $restoreMySQLIntVersion
-            );
-        }
-    }
-
-    /**
-     * Test for PMA\libraries\plugins\export\ExportSql::setProperties
-     *
-     * @return void
-     */
-    public function testSetPropertiesWithDrizzle()
-    {
-        $restoreDrizzle = $restoreMySQLIntVersion = 'PMANORESTORE';
-
-        if (!PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                if (!PMA_DRIZZLE) {
-                    $restoreDrizzle = PMA_DRIZZLE;
-                    runkit_constant_redefine('PMA_DRIZZLE', true);
-                }
-                $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
-                runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50000);
-            }
-        }
-
-        $GLOBALS['plugin_param']['export_type'] = 'tableNot';
-        $GLOBALS['plugin_param']['single_table'] = true;
-        $GLOBALS['cfgRelation']['mimework'] = false;
-        $GLOBALS['cfgRelation']['relation'] = false;
-
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', 'setProperties');
-        $method->setAccessible(true);
-        $method->invoke($this->object, null);
-
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportSql', 'properties');
-        $attrProperties->setAccessible(true);
-        $properties = $attrProperties->getValue($this->object);
-
-        $options = $properties->getOptions();
-
-        $generalOptionsArray = $options->getProperties();
-
-        $this->assertCount(
-            3,
-            $generalOptionsArray
-        );
-
-        // generalOptions
-        $option = array_shift($generalOptionsArray);
-
-        $properties = $option->getProperties();
-
-        $this->assertCount(
-            6,
-            $properties
-        );
-
-        $this->assertCount(
-            2,
-            $properties[0]->getProperties()
-        );
-
-        // structureOptions
-        $option = array_shift($generalOptionsArray);
-        $properties = $option->getProperties();
-
-        $this->assertCount(
-            2,
-            $properties
-        );
-
-        $properties = $properties[0]->getProperties();
-
-        $this->assertCount(
-            4,
-            $properties
-        );
-
-        $this->assertNotcontains(
-            '<code> / EVENT </code>',
-            $properties[0]->getText()
-        );
-
-        // dataOptions
-        $option = array_shift($generalOptionsArray);
-        $properties = $option->getProperties();
-
-        $this->assertCount(
-            6,
-            $properties
-        );
-
-        $properties = $properties[1]->getProperties();
-
-        $this->assertCount(
-            1,
-            $properties
-        );
-
-        // case 2 with export type as table
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-
-        $method->invoke($this->object, null);
-        $properties = $attrProperties->getValue($this->object);
-
-        $options = $properties->getOptions();
-        $generalOptionsArray = $options->getProperties();
-        $structOption = $generalOptionsArray[1];
-        $properties = $structOption->getProperties();
-        $subgroupProps = $properties[0]->getProperties();
-
-        $this->assertContains(
-            '<code>DROP TABLE</code>',
-            $subgroupProps[0]->getText()
-        );
-
-        if ($restoreDrizzle !== 'PMANORESTORE') {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
-
-        if ($restoreMySQLIntVersion !== 'PMANORESTORE') {
-            runkit_constant_redefine(
-                'PMA_MYSQL_INT_VERSION', $restoreMySQLIntVersion
-            );
-        }
     }
 
     /**
@@ -602,19 +448,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      */
     public function testExportFooter()
     {
-        $restoreDrizzle = 'PMANORESTORE';
-
-        if (PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', false);
-            }
-        }
-
         $GLOBALS['sql_disable_fk'] = true;
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['charset'] = 'utf-8';
@@ -644,11 +477,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(
             $this->object->exportFooter()
         );
-
-        if ($restoreDrizzle !== 'PMANORESTORE') {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
-
     }
 
     /**
@@ -660,19 +488,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         if (!defined("PMA_MYSQL_STR_VERSION")) {
             define("PMA_MYSQL_STR_VERSION", "5.0.0");
-        }
-
-        $restoreDrizzle = 'PMANORESTORE';
-
-        if (PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', false);
-            }
         }
 
         $GLOBALS['crlf'] = "\n";
@@ -744,11 +559,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             "SET time_zone = \"+00:00\";\n",
             $result
         );
-
-        if ($restoreDrizzle !== 'PMANORESTORE') {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
-
     }
 
     /**
@@ -1122,21 +932,8 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      * @return void
      * @group medium
      */
-    public function testGetTableDefWithoutDrizzle()
+    public function testGetTableDef()
     {
-        $restoreDrizzle = 'PMANORESTORE';
-
-        if (PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', false);
-            }
-        }
-
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_drop_table'] = true;
@@ -1298,136 +1095,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             'DROP FOREIGN KEY',
             $GLOBALS['sql_drop_foreign_keys']
         );
-
-        if ($restoreDrizzle !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
-    }
-
-    /**
-     * Test for PMA\libraries\plugins\export\ExportSql::getTableDef
-     *
-     * @return void
-     */
-    public function testGetTableDefWithDrizzle()
-    {
-        $restoreDrizzle = 'PMANORESTORE';
-
-        if (!PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', true);
-            }
-        }
-
-        $GLOBALS['sql_auto_increment'] = true;
-        $GLOBALS['sql_drop_table'] = true;
-        $GLOBALS['sql_backquotes'] = true;
-        $GLOBALS['sql_if_not_exists']  = true;
-        $GLOBALS['sql_include_comments']  = true;
-        $GLOBALS['crlf'] = "\n";
-
-        if (isset($GLOBALS['sql_compatibility'])) {
-            unset($GLOBALS['sql_compatibility']);
-        }
-
-        if (isset($GLOBALS['sql_constraints'])) {
-            unset($GLOBALS['sql_constraints']);
-        }
-
-        $GLOBALS['no_constraints_comments'] = true;
-
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('query')
-            ->with(
-                'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
-            ->will($this->returnValue('res'));
-
-        $dbi->expects($this->once())
-            ->method('numRows')
-            ->with('res')
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->once())
-            ->method('fetchSingleRow')
-            ->will($this->returnValue(array()));
-
-        $dbi->expects($this->any())
-            ->method('fetchValue')
-            ->will($this->returnValue(false));
-
-        $tmpres = array(
-            'Auto_increment' => 1,
-            'Create_time' => '2000-01-01 10:00:00',
-            'Update_time' => '2000-01-02 12:00:00',
-            'Check_time' => '2000-01-02 13:00:00',
-        );
-
-        $dbi->expects($this->once())
-            ->method('fetchAssoc')
-            ->with('res')
-            ->will($this->returnValue($tmpres));
-
-        $dbi->expects($this->once())
-            ->method('tryQuery')
-            ->with('SHOW CREATE TABLE `db`.`table`')
-            ->will($this->returnValue('res'));
-
-        $row = array(
-            '',
-            "CREATE TABLE `table` (\n" .
-            "`id` INT NOT NULL AUTO_INCREMENT,\n" .
-            "username VARCHAR(64) NULL,\n" .
-            "`password` VARCHAR(256) DEFAULT '123456',\n" .
-            "CONSTRAINT pk_id PRIMARY KEY (`id`),\n" .
-            "UNIQUE (username)\n" .
-            ")"
-        );
-
-        $dbi->expects($this->once())
-            ->method('fetchRow')
-            ->with('res')
-            ->will($this->returnValue($row));
-
-        $dbi->expects($this->once())
-            ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db')));
-
-        $GLOBALS['dbi'] = $dbi;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-
-        $result = $this->object->getTableDef(
-            'db', 'table', "\n", "example.com/err", true, true, false
-        );
-
-        $this->assertContains(
-            "CREATE TABLE IF NOT EXISTS `table`",
-            $result
-        );
-
-        $this->assertNotContains(
-            '-- Constraints for table',
-            $GLOBALS['sql_constraints']
-        );
-
-        $this->assertNotContains(
-            '-- Constraints for table "table"',
-            $GLOBALS['sql_constraints']
-        );
-
-        if ($restoreDrizzle !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
     }
 
     /**
@@ -1437,19 +1104,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetTableDefWithError()
     {
-        $restoreDrizzle = 'PMANORESTORE';
-
-        if (PMA_DRIZZLE) {
-            if (!PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    "Cannot redefine constant. Missing runkit extension"
-                );
-            } else {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', false);
-            }
-        }
-
         $GLOBALS['sql_compatibility'] = '';
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_drop_table'] = true;
@@ -1531,10 +1185,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             '-- in use(error occurred)',
             $result
         );
-
-        if ($restoreDrizzle !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-        }
     }
 
     /**

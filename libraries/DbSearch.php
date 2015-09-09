@@ -224,11 +224,8 @@ class DbSearch
                     || /*overload*/mb_strlen($this->_criteriaColumnName) == 0
                     || $column['Field'] == $this->_criteriaColumnName
                 ) {
-                    // Drizzle has no CONVERT and all text columns are UTF-8
-                    $column = ((PMA_DRIZZLE)
-                        ? Util::backquote($column['Field'])
-                        : 'CONVERT(' . Util::backquote($column['Field'])
-                            . ' USING utf8)');
+                    $column = 'CONVERT(' . Util::backquote($column['Field'])
+                            . ' USING utf8)';
                     $likeClausesPerColumn[] = $column . ' ' . $like_or_regex . ' '
                         . "'"
                         . $automatic_wildcard . $search_word . $automatic_wildcard

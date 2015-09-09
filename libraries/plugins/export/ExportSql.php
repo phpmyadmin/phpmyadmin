@@ -263,12 +263,8 @@ class ExportSql extends ExportPlugin
                         $drop_clause = '<code>DROP TABLE</code>';
                     }
                 } else {
-                    if (PMA_DRIZZLE) {
-                        $drop_clause = '<code>DROP TABLE</code>';
-                    } else {
-                        $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE'
-                            . ' / FUNCTION / EVENT</code>';
-                    }
+                    $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE'
+                        . ' / FUNCTION / EVENT</code>';
                 }
 
                 $drop_clause .= '<code> / TRIGGER</code>';
@@ -315,18 +311,15 @@ class ExportSql extends ExportPlugin
                 );
                 $subgroup->addProperty($leaf);
 
-                // Drizzle doesn't support procedures and functions
-                if (!PMA_DRIZZLE) {
-                    $leaf = new BoolPropertyItem();
-                    $leaf->setName('procedure_function');
-                    $leaf->setText(
-                        sprintf(
-                            __('Add %s statement'),
-                            '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>'
-                        )
-                    );
-                    $subgroup->addProperty($leaf);
-                }
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('procedure_function');
+                $leaf->setText(
+                    sprintf(
+                        __('Add %s statement'),
+                        '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>'
+                    )
+                );
+                $subgroup->addProperty($leaf);
 
                 // Add triggers option
                 $leaf = new BoolPropertyItem();
@@ -369,19 +362,18 @@ class ExportSql extends ExportPlugin
             $leaf = new MessageOnlyPropertyItem();
             $leaf->setText(__('Instead of <code>INSERT</code> statements, use:'));
             $subgroup->setSubgroupHeader($leaf);
-            // Not supported in Drizzle
-            if (!PMA_DRIZZLE) {
-                $leaf = new BoolPropertyItem();
-                $leaf->setName("delayed");
-                $leaf->setText(__('<code>INSERT DELAYED</code> statements'));
-                $leaf->setDoc(
-                    array(
-                        'manual_MySQL_Database_Administration',
-                        'insert_delayed',
-                    )
-                );
-                $subgroup->addProperty($leaf);
-            }
+
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("delayed");
+            $leaf->setText(__('<code>INSERT DELAYED</code> statements'));
+            $leaf->setDoc(
+                array(
+                    'manual_MySQL_Database_Administration',
+                    'insert_delayed'
+                )
+            );
+            $subgroup->addProperty($leaf);
+
             $leaf = new BoolPropertyItem();
             $leaf->setName("ignore");
             $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
@@ -458,20 +450,17 @@ class ExportSql extends ExportPlugin
             );
             $dataOptions->addProperty($leaf);
 
-            // Drizzle works only with UTC timezone
-            if (!PMA_DRIZZLE) {
-                // Dump time in UTC
-                $leaf = new BoolPropertyItem();
-                $leaf->setName("utc_time");
-                $leaf->setText(
-                    __(
-                        'Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns'
-                        . ' to be dumped and reloaded between servers in different'
-                        . ' time zones)</i>'
-                    )
-                );
-                $dataOptions->addProperty($leaf);
-            }
+            // Dump time in UTC
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("utc_time");
+            $leaf->setText(
+                __(
+                    'Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns'
+                    . ' to be dumped and reloaded between servers in different'
+                    . ' time zones)</i>'
+                )
+            );
+            $dataOptions->addProperty($leaf);
 
             // add the main group to the root group
             $exportSpecificOptions->addProperty($dataOptions);
@@ -659,7 +648,6 @@ class ExportSql extends ExportPlugin
             ? $GLOBALS['charset'] : '';
         if (!empty($GLOBALS['asfile'])
             && isset($mysql_charset_map[$charset])
-            && !PMA_DRIZZLE
         ) {
             $foot .= $crlf
                 . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;'
@@ -735,9 +723,8 @@ class ExportSql extends ExportPlugin
 
         // We want exported AUTO_INCREMENT columns to have still same value,
         // do this only for recent MySQL exports
-        if ((!isset($GLOBALS['sql_compatibility'])
-                || $GLOBALS['sql_compatibility'] == 'NONE')
-            && !PMA_DRIZZLE
+        if ((! isset($GLOBALS['sql_compatibility'])
+            || $GLOBALS['sql_compatibility'] == 'NONE')
         ) {
             $head .= 'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";' . $crlf;
         }
@@ -757,7 +744,7 @@ class ExportSql extends ExportPlugin
 
         $head .= $this->_possibleCRLF();
 
-        if (!empty($GLOBALS['asfile']) && !PMA_DRIZZLE) {
+        if (! empty($GLOBALS['asfile'])) {
             // we are saving as file, therefore we provide charset information
             // so that a utility like the mysql client can interpret
             // the file correctly
@@ -832,24 +819,16 @@ class ExportSql extends ExportPlugin
                 isset($GLOBALS['sql_backquotes'])
             );
         $collation = PMA_getDbCollation($db);
-        if (PMA_DRIZZLE) {
-            $create_query .= ' COLLATE ' . $collation;
+        if (/*overload*/mb_strpos($collation, '_')) {
+            $create_query .= ' DEFAULT CHARACTER SET '
+                . /*overload*/mb_substr(
+                    $collation,
+                    0,
+                    /*overload*/mb_strpos($collation, '_')
+                )
+                . ' COLLATE ' . $collation;
         } else {
-            if (/*overload*/
-            mb_strpos($collation, '_')
-            ) {
-                $create_query .= ' DEFAULT CHARACTER SET '
-                    . /*overload*/
-                    mb_substr(
-                        $collation,
-                        0,
-                        /*overload*/
-                        mb_strpos($collation, '_')
-                    )
-                    . ' COLLATE ' . $collation;
-            } else {
-                $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
-            }
+            $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
         }
         $create_query .= ';' . $crlf;
         if (!PMA_exportOutputHandler($create_query)) {
@@ -871,9 +850,8 @@ class ExportSql extends ExportPlugin
     {
         global $crlf;
 
-        if ((isset($GLOBALS['sql_compatibility'])
-                && $GLOBALS['sql_compatibility'] == 'NONE')
-            || PMA_DRIZZLE
+        if (isset($GLOBALS['sql_compatibility'])
+            && $GLOBALS['sql_compatibility'] == 'NONE'
         ) {
             $result = PMA_exportOutputHandler(
                 'USE '
@@ -1423,28 +1401,10 @@ class ExportSql extends ExportPlugin
         if ($result != false) {
             if ($GLOBALS['dbi']->numRows($result) > 0) {
                 $tmpres = $GLOBALS['dbi']->fetchAssoc($result);
-                if (PMA_DRIZZLE && $show_dates) {
-                    // Drizzle doesn't give Create_time and Update_time in
-                    // SHOW TABLE STATUS, add it
-                    $sql
-                        = "SELECT
-                            TABLE_CREATION_TIME AS Create_time,
-                            TABLE_UPDATE_TIME AS Update_time
-                        FROM data_dictionary.TABLES
-                        WHERE TABLE_SCHEMA = '"
-                        . Util::sqlAddSlashes($db) . "'
-                          AND TABLE_NAME = '"
-                        . Util::sqlAddSlashes($table) . "'";
-                    $tmpres = array_merge(
-                        $GLOBALS['dbi']->fetchSingleRow($sql),
-                        $tmpres
-                    );
-                }
+
                 // Here we optionally add the AUTO_INCREMENT next value,
                 // but starting with MySQL 5.0.24, the clause is already included
                 // in SHOW CREATE TABLE so we'll remove it below
-                // It's required for Drizzle because SHOW CREATE TABLE uses
-                // the value from table's creation time
                 if (isset($GLOBALS['sql_auto_increment'])
                     && !empty($tmpres['Auto_increment'])
                 ) {
@@ -1508,13 +1468,10 @@ class ExportSql extends ExportPlugin
 
         // Complete table dump,
         // Whether to quote table and column names or not
-        // Drizzle always quotes names
-        if (!PMA_DRIZZLE) {
-            if ($sql_backquotes) {
-                $GLOBALS['dbi']->query('SET SQL_QUOTE_SHOW_CREATE = 1');
-            } else {
-                $GLOBALS['dbi']->query('SET SQL_QUOTE_SHOW_CREATE = 0');
-            }
+        if ($sql_backquotes) {
+            $GLOBALS['dbi']->query('SET SQL_QUOTE_SHOW_CREATE = 1');
+        } else {
+            $GLOBALS['dbi']->query('SET SQL_QUOTE_SHOW_CREATE = 0');
         }
 
         // I don't see the reason why this unbuffered query could cause problems,
@@ -1609,16 +1566,6 @@ class ExportSql extends ExportPlugin
             // Making the query MSSQL compatible.
             if ($compat == 'MSSQL') {
                 $create_query = $this->_makeCreateTableMSSQLCompatible(
-                    $create_query
-                );
-            }
-
-            // Drizzle (checked on 2011.03.13) returns `ROW_FORMAT`'s value
-            // surrounded with quotes, which is not accepted by parser
-            if (PMA_DRIZZLE) {
-                $create_query = preg_replace(
-                    '/ROW_FORMAT=\'(\S+)\'/',
-                    'ROW_FORMAT=$1',
                     $create_query
                 );
             }

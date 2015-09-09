@@ -42,19 +42,6 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        // Drizzle does not support GIS data types
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        } else if (PMA_DRIZZLE) {
-            //PMA_DRIZZLE is defined and PMA_DRIZZLE = true
-            if (PMA_HAS_RUNKIT) {
-                runkit_constant_redefine("PMA_DRIZZLE", false);
-            } else {
-                //Drizzle does not support GIS data types
-                $this->markTestSkipped("Drizzle does not support GIS data types");
-            }
-        }
-
         //setting
         $GLOBALS['plugin_param'] = 'table';
         $GLOBALS['finished'] = false;

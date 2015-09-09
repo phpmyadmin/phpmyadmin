@@ -406,7 +406,7 @@ function PMA_getHtmlForReplicationType(
         }
     }
 
-    if ($is_superuser && ! PMA_DRIZZLE) {
+    if ($is_superuser) {
         $html .= '    <th>' . ($cfg_iconic ? '' : __('Action')) . "\n"
             . '    </th>' . "\n";
     }

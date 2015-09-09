@@ -376,31 +376,19 @@ function PMA_analyseShowGrant()
     PMA\libraries\Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
 } // end function
 
-if (!PMA_DRIZZLE) {
-    $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
-    if ($user == '@') { // MySQL is started with --skip-grant-tables
-        $GLOBALS['is_create_db_priv'] = true;
-        $GLOBALS['is_reload_priv']    = true;
-        $GLOBALS['db_to_create']      = '';
-        $GLOBALS['dbs_where_create_table_allowed'] = array('*');
-        $GLOBALS['dbs_to_test']       = false;
-    } else {
-        PMA_analyseShowGrant();
-    }
-
-    // Check if privileges to 'mysql'.col_privs, 'mysql'.db,
-    // 'mysql'.table_privs, 'mysql'.proc_privs and privileges for
-    // flushing the privileges are available
-    PMA_checkRequiredPrivilegesForFlushing();
-    PMA_checkRequiredPrivilgesForAdjust();
-
-} else {
-    // todo: for simple_user_policy only database with user's login can be created
-    // (unless logged in as root)
-    $GLOBALS['is_create_db_priv'] = $GLOBALS['is_superuser'];
-    $GLOBALS['is_reload_priv']    = false;
+$user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
+if ($user == '@') { // MySQL is started with --skip-grant-tables
+    $GLOBALS['is_create_db_priv'] = true;
+    $GLOBALS['is_reload_priv']    = true;
     $GLOBALS['db_to_create']      = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array('*');
     $GLOBALS['dbs_to_test']       = false;
+} else {
+    PMA_analyseShowGrant();
 }
 
+// Check if privileges to 'mysql'.col_privs, 'mysql'.db,
+// 'mysql'.table_privs, 'mysql'.proc_privs and privileges for
+// flushing the privileges are available
+PMA_checkRequiredPrivilegesForFlushing();
+PMA_checkRequiredPrivilgesForAdjust();

@@ -12,9 +12,9 @@
 require_once 'libraries/common.inc.php';
 
 require_once 'libraries/mysql_charsets.inc.php';
-if (! PMA_DRIZZLE) {
-    include_once 'libraries/replication.inc.php';
-}
+
+require_once 'libraries/replication.inc.php';
+
 require 'libraries/build_html_for_db.lib.php';
 
 /**

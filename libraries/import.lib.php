@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Table;
+use PMA\libraries\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -1005,14 +1006,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     $sql = array();
 
     if ($create_db) {
-        if (PMA_DRIZZLE) {
-            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA\libraries\Util::backquote($db_name)
-                . " COLLATE " . $collation . ";";
-        } else {
-            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA\libraries\Util::backquote($db_name)
-                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation
-                . ";";
-        }
+        $sql[] = "CREATE DATABASE IF NOT EXISTS " . Util::backquote($db_name)
+            . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation
+            . ";";
     }
 
     /**
@@ -1102,8 +1098,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                     $tempSQLStr .= ", ";
                 }
             }
-            $tempSQLStr .= ")"
-                . (PMA_DRIZZLE ? "" : " DEFAULT CHARACTER SET " . $charset)
+            $tempSQLStr .= ") DEFAULT CHARACTER SET " . $charset
                 . " COLLATE " . $collation . ";";
 
             /**

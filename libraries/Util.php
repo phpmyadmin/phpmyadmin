@@ -4174,17 +4174,13 @@ class Util
     /**
      * Returns server type for current connection
      *
-     * Known types are: Drizzle, MariaDB and MySQL (default)
+     * Known types are: MariaDB and MySQL (default)
      *
      * @return string
      */
     public static function getServerType()
     {
         $server_type = 'MySQL';
-        if (PMA_DRIZZLE) {
-            $server_type = 'Drizzle';
-            return $server_type;
-        }
 
         if (/*overload*/mb_stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
             $server_type = 'MariaDB';
@@ -4696,7 +4692,9 @@ class Util
             }
         );
 
-        if ($lowerCaseTableNames === '0') {
+        if ($lowerCaseTableNames === '0' // issue #10961
+            || $lowerCaseTableNames === '2' // issue #11461
+        ) {
             return "COLLATE utf8_bin";
         }
         return "";
@@ -4893,7 +4891,7 @@ class Util
         $tooltip_aliasname = array();
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if (true === $cfg['SkipLockedTables'] && ! PMA_DRIZZLE) {
+        if (true === $cfg['SkipLockedTables']) {
             $db_info_result = $GLOBALS['dbi']->query(
                 'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ';'
             );

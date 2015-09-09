@@ -17,9 +17,7 @@ if (! PMA\libraries\Util::cacheExists('mysql_charsets')) {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available,
         $mysql_default_collations, $mysql_collations_flat;
-    $sql = PMA_DRIZZLE
-        ? 'SELECT * FROM data_dictionary.CHARACTER_SETS'
-        : 'SELECT * FROM information_schema.CHARACTER_SETS';
+    $sql = 'SELECT * FROM information_schema.CHARACTER_SETS';
     $res = $GLOBALS['dbi']->query($sql);
 
     $mysql_charsets = array();
@@ -38,14 +36,10 @@ if (! PMA\libraries\Util::cacheExists('mysql_charsets')) {
     $mysql_default_collations = $mysql_collations_flat
         = $mysql_charsets_available = $mysql_collations_available = array();
 
-    $sql = PMA_DRIZZLE
-        ? 'SELECT * FROM data_dictionary.COLLATIONS'
-        : 'SELECT * FROM information_schema.COLLATIONS';
+    $sql = 'SELECT * FROM information_schema.COLLATIONS';
     $res = $GLOBALS['dbi']->query($sql);
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-        $char_set_name = PMA_DRIZZLE
-            ? $row['DESCRIPTION']
-            : $row['CHARACTER_SET_NAME'];
+        $char_set_name = $row['CHARACTER_SET_NAME'];
         if (! is_array($mysql_collations[$char_set_name])) {
             $mysql_collations[$char_set_name] = array($row['COLLATION_NAME']);
         } else {

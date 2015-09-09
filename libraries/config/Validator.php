@@ -239,37 +239,7 @@ class Validator
             $extension = 'mysql';
         }
 
-        // dead code (drizzle extension)
-        if ($extension == 'drizzle') {
-            while (1) {
-                $drizzle = @drizzle_create();
-                if (! $drizzle) {
-                    $error = __('Could not initialize Drizzle connection library!');
-                    break;
-                }
-                $conn = $socket
-                    ? @drizzle_con_add_uds($socket, $user, $pass, null, 0)
-                    : @drizzle_con_add_tcp(
-                        $drizzle, $host, $port, $user, $pass, null, 0
-                    );
-                if (! $conn) {
-                    $error = __('Could not connect to the database server!');
-                    drizzle_free($drizzle);
-                    break;
-                }
-                // connection object is set up but we have to send some query
-                // to actually connect
-                $res = @drizzle_query($conn, 'SELECT 1');
-                if (! $res) {
-                    $error = __('Could not connect to the database server!');
-                } else {
-                    drizzle_result_free($res);
-                }
-                drizzle_con_free($conn);
-                drizzle_free($drizzle);
-                break;
-            }
-        } else if ($extension == 'mysql') {
+        if ($extension == 'mysql') {
             $conn = @mysql_connect($host . $port . $socket, $user, $pass);
             if (! $conn) {
                 $error = __('Could not connect to the database server!');

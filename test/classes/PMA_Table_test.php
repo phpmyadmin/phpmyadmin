@@ -260,30 +260,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
 
         $GLOBALS['dbi'] = $dbi;
-
-        //RunKit, we test:
-        //1. without Runkit,  PMA_DRIZZLE = true;
-        //2. with Runkit,  PMA_DRIZZLE = false;
-
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", true);
-        }
-        if (PMA_HAS_RUNKIT) {
-            runkit_constant_redefine("PMA_DRIZZLE", false);
-        }
-    }
-
-    /**
-     * tearDown function for test cases
-     *
-     * @access protected
-     * @return void
-     */
-    protected function tearDown()
-    {
-        if (PMA_HAS_RUNKIT) {
-            runkit_constant_redefine("PMA_DRIZZLE", false);
-        }
     }
 
     /**
@@ -706,16 +682,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $extra, $comment, $virtuality, $expression, $move_to
         );
 
-        $expect = "";
-        if (PMA_DRIZZLE) {
-            $expect = "`name` `new_name` VARCHAR(2) new_name "
-                . "COLLATE charset1 NULL DEFAULT 'VARCHAR' "
-                . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
-        } else {
-            $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER "
-                . "SET charset1 NULL DEFAULT 'VARCHAR' "
-                . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
-        }
+        $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER "
+            . "SET charset1 NULL DEFAULT 'VARCHAR' "
+            . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
 
         $this->assertEquals(
             $expect,
@@ -1094,36 +1063,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $sql_query,
             $GLOBALS['sql_query']
         );
-    }
-}
-
-/**
- * Tests behaviour of Table class with Runkit and PMA_Drizzle = false
- *
- * @package PhpMyAdmin-test
- */
-class PMA_Table_Runkit_Test extends PMA_Table_Test
-{
-    /**
-     * Configures environment
-     *
-     * @return void
-     */
-    protected function setUp()
-    {
-        //we test:
-        //1. without Runkit,  PMA_DRIZZLE = false;
-        //2. with Runkit,  PMA_DRIZZLE = true;
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        }
-
-        parent::setUp();
-
-        //RunKit
-        if (PMA_HAS_RUNKIT) {
-            runkit_constant_redefine("PMA_DRIZZLE", true);
-        }
     }
 }
 

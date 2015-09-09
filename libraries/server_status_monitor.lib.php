@@ -9,6 +9,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\ServerStatusData;
+use PMA\libraries\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -31,9 +32,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 
     $retval .= PMA_getHtmlForAddChartDialog();
 
-    if (! PMA_DRIZZLE) {
-        $retval .= PMA_getHtmlForAnalyseDialog();
-    }
+    $retval .= PMA_getHtmlForAnalyseDialog();
 
     $retval .= '<table class="clearfloat" id="chartGrid"></table>';
     $retval .= '<div id="logTable">';
@@ -258,12 +257,10 @@ function PMA_getHtmlForTabLinks()
     $retval .= '<a href="#settingsPopup" class="popupLink">';
     $retval .= PMA\libraries\Util::getImage('s_cog.png') .  __('Settings');
     $retval .= '</a>';
-    if (! PMA_DRIZZLE) {
-        $retval .= '<a href="#monitorInstructionsDialog">';
-        $retval .= PMA\libraries\Util::getImage('b_help.png') . __('Instructions/Setup');
-    }
+    $retval .= '<a href="#monitorInstructionsDialog">';
+    $retval .= Util::getImage('b_help.png') . __('Instructions/Setup');
     $retval .= '<a href="#endChartEditMode" style="display:none;">';
-    $retval .= PMA\libraries\Util::getImage('s_okay.png');
+    $retval .= Util::getImage('s_okay.png');
     $retval .= __('Done dragging (rearranging) charts');
     $retval .= '</a>';
     $retval .= '</div>';

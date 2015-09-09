@@ -1,7 +1,7 @@
 phpMyAdmin
 ==========
 
-A set of PHP-scripts to manage MySQL over the web.
+A web interface for MySQL and MariaDB.
 
 https://www.phpmyadmin.net/
 

@@ -44,7 +44,7 @@
                 <?php endif; ?>
 
                 <!-- Optimize link if overhead -->
-                <?php if (isset($free_size) && !PMA_DRIZZLE
+                <?php if (isset($free_size)
                             && ($tbl_storage_engine == 'MYISAM'
                             || $tbl_storage_engine == 'ARIA'
                             || $tbl_storage_engine == 'MARIA'

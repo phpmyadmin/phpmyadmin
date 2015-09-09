@@ -1015,26 +1015,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Type handling object.
          */
-        if (PMA_DRIZZLE) {
-            $GLOBALS['PMA_Types'] = new TypesDrizzle();
-        } else {
-            $GLOBALS['PMA_Types'] = new TypesMySQL();
-        }
-
-        if (PMA_DRIZZLE) {
-            // DisableIS must be set to false for Drizzle, it maps SHOW commands
-            // to INFORMATION_SCHEMA queries anyway so it's fast on large servers
-            $cfg['Server']['DisableIS'] = false;
-            // SHOW OPEN TABLES is not supported by Drizzle
-            $cfg['SkipLockedTables'] = false;
-        }
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         /**
          * Charset information
          */
-        if (!PMA_DRIZZLE) {
-            include_once './libraries/mysql_charsets.inc.php';
-        }
+        require_once './libraries/mysql_charsets.inc.php';
+
         if (!isset($mysql_charsets)) {
             $mysql_charsets = array();
             $mysql_collations_flat = array();
@@ -1046,9 +1033,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         include_once './libraries/sql-parser/autoload.php';
 
         // Loads closest context to this version.
-        SqlParser\Context::loadClosest(
-            (PMA_DRIZZLE ? 'Drizzle' : 'MySql') . PMA_MYSQL_INT_VERSION
-        );
+        SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
 
         // Sets the default delimiter (if specified).
         if (!empty($_REQUEST['sql_delimiter'])) {

@@ -182,7 +182,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Lang'] = 'en';
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['cfg']['Servers'] = array(1, 2);
-        $_SESSION['last_valid_captcha'] = true;
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['target'] = 'testTarget';
         $GLOBALS['db'] = 'testDb';
         $GLOBALS['table'] = 'testTable';
@@ -304,7 +305,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Lang'] = '';
         $GLOBALS['cfg']['AllowArbitraryServer'] = false;
         $GLOBALS['cfg']['Servers'] = array(1);
-        $_SESSION['last_valid_captcha'] = false;
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
@@ -427,7 +427,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // case 2
 
-        $_SESSION['last_valid_captcha'] = false;
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST["g-recaptcha-response"] = '';
@@ -477,7 +476,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // case 6
 
-        $_SESSION['last_valid_captcha'] = true;
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = 'testPMAUser';
         $_REQUEST['pma_servername'] = 'testPMAServer';
@@ -607,7 +607,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = '';
-        $_SESSION['last_valid_captcha'] = true;
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
@@ -645,7 +646,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pmaPass-1'] = 'pmaPass1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
-        $_SESSION['last_valid_captcha'] = true;
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_SESSION['last_access_time'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
 
@@ -690,7 +692,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = 1;
-        $_SESSION['last_valid_captcha'] = true;
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 0;
         $_SESSION['last_access_time'] = -1;
         // mock for blowfish function

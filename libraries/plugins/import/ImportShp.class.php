@@ -12,12 +12,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// Drizzle does not support GIS data types
-if (PMA_DRIZZLE) {
-    $GLOBALS['skip_import'] = true;
-    return;
-}
-
 /* Get the ShapeFile class */
 require_once 'libraries/bfShapeFiles/ShapeFile.lib.php';
 require_once 'libraries/plugins/import/ShapeFile.class.php';

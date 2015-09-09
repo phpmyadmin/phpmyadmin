@@ -157,7 +157,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
     /**
      * Tests for getDropdownValueForDbAction()
      *
-     * Case one: foreign and not Drizzle
+     * Case one: foreign
      *
      * @return void
      * @test
@@ -203,7 +203,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
     /**
      * Tests for getDropdownValueForDbAction()
      *
-     * Case two: not foreign and not Drizzle
+     * Case two: not foreign
      *
      * @return void
      * @test
@@ -238,68 +238,6 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         );
 
         $_REQUEST['foreign'] = 'false';
-        $ctrl->getDropdownValueForDbAction();
-        $json = $this->response->getJSONResult();
-        $this->assertEquals(
-            array('table'),
-            $json['tables']
-        );
-    }
-
-    /**
-     * Tests for getDropdownValueForDbAction()
-     *
-     * Case three: foreign and Drizzle
-     *
-     * @return void
-     * @test
-     */
-    public function testGetDropdownValueForDbActionThree()
-    {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped("Cannot redefine PMA_DRIZZLE constant");
-        }
-        runkit_constant_redefine('PMA_DRIZZLE', true);
-
-        $tableMock = $this->getMockBuilder('PMA\libraries\Table')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $statusInfo = 'InnoDB';
-        $tableMock->expects($this->any())->method('getStatusInfo')
-            ->will($this->returnValue($statusInfo));
-
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValue($tableMock));
-        $GLOBALS['dbi']->expects($this->any())->method('fetchArray')
-            ->will(
-                $this->returnCallback(
-                    function () {
-                        static $count = 0;
-                        if ($count == 0) {
-                            $count++;
-                            return array('table');
-                        }
-                        return null;
-                    }
-                )
-            );
-
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
-        $container->alias(
-            'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
-        );
-        $ctrl = $container->get(
-            'TableRelationController',
-            array(
-                'tbl_storage_engine' => 'INNODB',
-            )
-        );
-
-        $_REQUEST['foreign'] = 'true';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->response->getJSONResult();
         $this->assertEquals(

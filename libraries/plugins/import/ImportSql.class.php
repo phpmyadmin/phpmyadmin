@@ -161,10 +161,11 @@ class ImportSql extends ImportPlugin
         }
 
         // Extracting remaining statements.
-        while ((!$error) && (!$timeout_passed)
-            && ($statement = $bq->extract(true))
-        ) {
-            PMA_importRunQuery($statement, $statement, false, $sql_data);
+        while ((!$error) && (!$timeout_passed) && (!empty($bq->query))) {
+            $statement = $bq->extract(true);
+            if (!empty($statement)) {
+                PMA_importRunQuery($statement, $statement, false, $sql_data);
+            }
         }
 
         // Finishing.

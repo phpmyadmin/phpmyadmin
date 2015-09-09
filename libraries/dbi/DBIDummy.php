@@ -26,6 +26,10 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(array('pma_test@localhost')),
     ),
     array(
+        'query' => "SHOW VARIABLES LIKE 'lower_case_table_names'",
+        'result' => array(array('lower_case_table_names', '1'))
+    ),
+    array(
         'query' => 'SELECT 1 FROM mysql.user LIMIT 1',
         'result' => array(array('1')),
     ),
@@ -225,13 +229,6 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(),
     ),
     array(
-        'query' => 'SELECT upper(plugin_name) f FROM data_dictionary.plugins'
-            . ' WHERE plugin_name IN (\'MYSQL_PASSWORD\',\'ROT13\')'
-            . ' AND plugin_type = \'Function\' AND is_active',
-        'columns' => array('f'),
-        'result' => array(array('ROT13')),
-    ),
-    array(
         'query' => 'SELECT `column_name`, `mimetype`, `transformation`,'
             . ' `transformation_options`, `input_transformation`,'
             . ' `input_transformation_options`'
@@ -270,7 +267,7 @@ $GLOBALS['dummy_queries'] = array(
             . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
             . ' `TABLE_COMMENT` AS `Comment`'
             . ' FROM `information_schema`.`TABLES` t'
-            . ' WHERE BINARY `TABLE_SCHEMA` IN (\'pma_test\')'
+            . ' WHERE `TABLE_SCHEMA` IN (\'pma_test\')'
             . ' AND t.`TABLE_NAME` = \'table1\' ORDER BY Name ASC',
         'columns' => array(
             'TABLE_CATALOG', 'TABLE_SCHEMA', 'TABLE_NAME', 'TABLE_TYPE', 'ENGINE',
@@ -419,14 +416,6 @@ $GLOBALS['dummy_queries'] = array(
         'columns' => array('DEFAULT_COLLATION_NAME'),
         'result' => array(
             array('utf8_general_ci')
-        )
-    ),
-    array(
-        'query' => 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS'
-            . ' WHERE SCHEMA_NAME = \'pma_test\' LIMIT 1',
-        'columns' => array('DEFAULT_COLLATION_NAME'),
-        'result' => array(
-            array('utf8_general_ci_pma_drizzle')
         )
     ),
     array(
@@ -662,9 +651,6 @@ $GLOBALS['dummy_db'] = '';
 $GLOBALS['userlink'] = 1;
 $GLOBALS['controllink'] = 2;
 $GLOBALS['cfg']['DBG']['sql'] = false;
-if (! defined('PMA_DRIZZLE')) {
-    define('PMA_DRIZZLE', 0);
-}
 if (! defined('PMA_MARIADB')) {
     define('PMA_MARIADB', 0);
 }
