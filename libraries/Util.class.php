@@ -4654,7 +4654,9 @@ class PMA_Util
             }
         );
 
-        if ($lowerCaseTableNames === '0') {
+        if ($lowerCaseTableNames === '0' // issue #10961
+            || $lowerCaseTableNames === '2' // issue #11461
+        ) {
             return "COLLATE utf8_bin";
         }
         return "";
