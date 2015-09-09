@@ -387,7 +387,8 @@ class PMA_DatabaseInterface
                     )
                     . '%\'';
             } else {
-                $sql_where_table = 'AND t.`TABLE_NAME` = \''
+                $sql_where_table = 'AND t.`TABLE_NAME` '
+                    . PMA_Util::getCollateForIS() . ' = \''
                     . PMA_Util::sqlAddSlashes($table) . '\'';
             }
         } else {
@@ -489,7 +490,7 @@ class PMA_DatabaseInterface
                     `CREATE_OPTIONS`     AS `Create_options`,
                     `TABLE_COMMENT`      AS `Comment`
                 FROM `information_schema`.`TABLES` t
-                WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA`
+                WHERE `TABLE_SCHEMA` ' . PMA_Util::getCollateForIS() . '
                     IN (\'' . implode("', '", $this_databases) . '\')
                     ' . $sql_where_table;
         }
