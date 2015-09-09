@@ -4517,7 +4517,9 @@ class PMA_Util
             "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
         );
 
-        if ($lowerCaseTableNames === '0') {
+        if ($lowerCaseTableNames === '0' // issue #10961
+            || $lowerCaseTableNames === '2' // issue #11461
+        ) {
             return "COLLATE utf8_bin";
         }
         return "";
