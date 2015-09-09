@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-09 10:24+0200\n"
+"PO-Revision-Date: 2015-09-09 11:40+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -6087,7 +6087,7 @@ msgstr "Աղյուսակների ցանկի ցուցադրման կայանքն�
 
 #: libraries/config/messages.inc.php:278 setup/frames/menu.inc.php:25
 msgid "Main panel"
-msgstr "Հիմնական փեղկը"
+msgstr "Հիմնական փեղկ"
 
 #: libraries/config/messages.inc.php:279
 msgid "Microsoft Office"
@@ -13813,10 +13813,12 @@ msgstr ""
 "Վիճակագրության փոփոխականները դիտելու համար արտոնությունները բավարար չեն։"
 
 #: server_variables.php:83
-#, fuzzy, php-format
+#, php-format
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Օգտնողներին դիտելու համար արտոնությունները բավարար չեն։"
+msgstr ""
+"Սպասարկչի փոփոխականները և կայանքները դիտելու համար արտոնությունները բավարար "
+"չեն։ %s"
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:277
 msgid "Download"
@@ -14162,10 +14164,9 @@ msgid "Operator"
 msgstr "Գործարկու"
 
 #: templates/database/designer/database_tables.phtml:29
-#, fuzzy
 #| msgid "Move columns"
 msgid "Show/hide columns"
-msgstr "Տեղափոխել սյունակները"
+msgstr "Ցուցադրել/թաքցնել սյունակները"
 
 #: templates/database/designer/database_tables.phtml:40
 msgid "See table structure"
