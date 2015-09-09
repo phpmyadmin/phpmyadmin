@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #11458 Invalid UTF-8 sequence in argument
 - issue #11457 Request URI too large
 - issue        Invalid argument supplied for foreach()
+- issue #11461 Foreign key constraints for InnoDB tables with upper-case letters disabled
 
 4.4.14.1 (2015-09-08)
 - issue        [security] reCaptcha bypass
