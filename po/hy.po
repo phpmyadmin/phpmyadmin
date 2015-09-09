@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-19 16:48+0200\n"
+"PO-Revision-Date: 2015-09-09 11:40+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/hy/>\n"
@@ -5815,7 +5815,7 @@ msgstr "Աղյուսակների ցանկի ցուցադրման կայանքն�
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:25
 msgid "Main panel"
-msgstr "Հիմնական փեղկը"
+msgstr "Հիմնական փեղկ"
 
 #: libraries/config/messages.inc.php:242
 msgid "Microsoft Office"
