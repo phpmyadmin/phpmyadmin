@@ -103,49 +103,22 @@ function PMA_getHtmlForServerProcesslist()
     );
     $sortableColCount = count($sortable_columns);
 
-    if (PMA_DRIZZLE) {
-        $left_str = 'left(p.info, '
-            . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')';
-        $sql_query = "SELECT
-                p.id       AS Id,
-                p.username AS User,
-                p.host     AS Host,
-                p.db       AS db,
-                p.command  AS Command,
-                p.time     AS Time,
-                p.state    AS State,"
-                . ($show_full_sql ? 's.query' : $left_str )
-                . " AS Info FROM data_dictionary.PROCESSLIST p "
-                . ($show_full_sql
-                ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id'
-                : '');
-        if (! empty($_REQUEST['showExecuting'])) {
-            $sql_query .= ' WHERE p.state = "executing" ';
-        }
-        if (! empty($_REQUEST['order_by_field'])
-            && ! empty($_REQUEST['sort_order'])
-        ) {
-            $sql_query .= ' ORDER BY p.' . $_REQUEST['order_by_field'] . ' '
-                 . $_REQUEST['sort_order'];
-        }
-    } else {
-        $sql_query = $show_full_sql
-            ? 'SHOW FULL PROCESSLIST'
-            : 'SHOW PROCESSLIST';
-        if ((! empty($_REQUEST['order_by_field'])
-            && ! empty($_REQUEST['sort_order']))
-            || (! empty($_REQUEST['showExecuting']))
-        ) {
-            $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
-        }
-        if (! empty($_REQUEST['showExecuting'])) {
-            $sql_query .= ' WHERE state = "executing" ';
-        }
-        if (!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order'])) {
-            $sql_query .= ' ORDER BY '
-                . PMA_Util::backquote($_REQUEST['order_by_field'])
-                . ' ' . $_REQUEST['sort_order'];
-        }
+    $sql_query = $show_full_sql
+        ? 'SHOW FULL PROCESSLIST'
+        : 'SHOW PROCESSLIST';
+    if ((! empty($_REQUEST['order_by_field'])
+        && ! empty($_REQUEST['sort_order']))
+        || (! empty($_REQUEST['showExecuting']))
+    ) {
+        $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
+    }
+    if (! empty($_REQUEST['showExecuting'])) {
+        $sql_query .= ' WHERE state = "executing" ';
+    }
+    if (!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order'])) {
+        $sql_query .= ' ORDER BY '
+            . PMA_Util::backquote($_REQUEST['order_by_field'])
+            . ' ' . $_REQUEST['sort_order'];
     }
 
     $result = $GLOBALS['dbi']->query($sql_query);
@@ -194,7 +167,7 @@ function PMA_getHtmlForServerProcesslist()
 
         $retval .= '</a>';
 
-        if (! PMA_DRIZZLE && (0 === --$sortableColCount)) {
+        if (0 === --$sortableColCount) {
             $retval .= '<a href="' . $full_text_link . '">';
             if ($show_full_sql) {
                 $retval .= PMA_Util::getImage(

@@ -163,7 +163,7 @@ function PMA_buildHtmlForDb(
         }
     }
 
-    if ($is_superuser && !PMA_DRIZZLE) {
+    if ($is_superuser) {
         $out .= '<td class="tool">'
                . '<a onclick="'
                . 'PMA_commonActions.setDb(\''

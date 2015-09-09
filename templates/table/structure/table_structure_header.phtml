@@ -13,9 +13,6 @@
      <?php if (! $db_is_system_schema && ! $tbl_is_view): ?>
         <?php
             $colspan = 9;
-            if (PMA_DRIZZLE) {
-                $colspan -= 2;
-            }
             if (PMA_Util::showIcons('ActionLinksMode')) {
                 $colspan--;
             }

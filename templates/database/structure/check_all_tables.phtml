@@ -18,11 +18,9 @@
             <optgroup label="<?php echo __('Table maintenance'); ?>">
                 <option value="analyze_tbl" ><?php echo __('Analyze table'); ?></option>
                 <option value="check_tbl" ><?php echo __('Check table'); ?></option>
-                <?php if (!PMA_DRIZZLE): ?>
-                    <option value="checksum_tbl" ><?php echo __('Checksum table'); ?></option>
-                    <option value="optimize_tbl" ><?php echo __('Optimize table'); ?></option>
-                    <option value="repair_tbl" ><?php echo __('Repair table'); ?></option>
-                <?php endif; ?>
+                <option value="checksum_tbl" ><?php echo __('Checksum table'); ?></option>
+                <option value="optimize_tbl" ><?php echo __('Optimize table'); ?></option>
+                <option value="repair_tbl" ><?php echo __('Repair table'); ?></option>
             </optgroup>
             <optgroup label="<?php echo __('Prefix'); ?>">
                 <option value="add_prefix_tbl" ><?php echo __('Add prefix to table'); ?></option>

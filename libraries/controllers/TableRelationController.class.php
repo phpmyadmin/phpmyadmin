@@ -335,10 +335,7 @@ class TableRelationController extends TableController
         $tables = array();
         $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
 
-        // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
-        // which are currently in the table cache. Hence we have to use 'SHOW TABLES'
-        // and manually retrieve table engine values.
-        if ($foreign && !PMA_DRIZZLE) {
+        if ($foreign) {
             $query = 'SHOW TABLE STATUS FROM '
                 . PMA_Util::backquote($_REQUEST['foreignDb']);
             $tables_rs = $this->dbi->query(
@@ -363,20 +360,7 @@ class TableRelationController extends TableController
                 PMA_DatabaseInterface::QUERY_STORE
             );
             while ($row = $this->dbi->fetchArray($tables_rs)) {
-                if ($foreign && PMA_DRIZZLE) {
-                    $engine = /*overload*/
-                        mb_strtoupper(
-                            $GLOBALS['dbi']->getTable(
-                                $_REQUEST['foreignDb'],
-                                $row[0]
-                            )->getStatusInfo('Engine')
-                        );
-                    if (isset($engine) && $engine == $this->tbl_storage_engine) {
-                        $tables[] = htmlspecialchars($row[0]);
-                    }
-                } else {
-                    $tables[] = htmlspecialchars($row[0]);
-                }
+                $tables[] = htmlspecialchars($row[0]);
             }
         }
         $this->response->addJSON('tables', $tables);

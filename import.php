@@ -585,22 +585,10 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
         $charset_conversion = true;
     }
 } elseif (isset($charset_of_file) && $charset_of_file != 'utf-8') {
-    if (PMA_DRIZZLE) {
-        // Drizzle doesn't support other character sets,
-        // so we can't fallback to SET NAMES - throw an error
-        $message = PMA_Message::error(
-            __(
-                'Cannot convert file\'s character'
-                . ' set without character set conversion library!'
-            )
-        );
-        PMA_stopImport($message);
-    } else {
-        $GLOBALS['dbi']->query('SET NAMES \'' . $charset_of_file . '\'');
-        // We can not show query in this case, it is in different charset
-        $sql_query_disabled = true;
-        $reset_charset = true;
-    }
+    $GLOBALS['dbi']->query('SET NAMES \'' . $charset_of_file . '\'');
+    // We can not show query in this case, it is in different charset
+    $sql_query_disabled = true;
+    $reset_charset = true;
 }
 
 // Something to skip? (because timeout has passed)

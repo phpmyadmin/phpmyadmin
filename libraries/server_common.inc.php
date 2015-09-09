@@ -37,7 +37,7 @@ $GLOBALS['is_grantuser'] = $GLOBALS['dbi']->isUserType('grant');
 $GLOBALS['is_createuser'] = $GLOBALS['dbi']->isUserType('create');
 
 // now, select the mysql db
-if ($GLOBALS['is_superuser'] && ! PMA_DRIZZLE) {
+if ($GLOBALS['is_superuser']) {
     $GLOBALS['dbi']->selectDb('mysql', $GLOBALS['userlink']);
 }
 

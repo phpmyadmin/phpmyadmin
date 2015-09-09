@@ -49,32 +49,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             'db' => 'pmadb',
             'tracking' => 'tracking'
         );
-
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        } elseif (PMA_DRIZZLE) {
-            if (PMA_HAS_RUNKIT) {
-                runkit_constant_redefine("PMA_DRIZZLE", false);
-            } else {
-                $this->markTestSkipped("Cannot redefine constant");
-            }
-        }
-
     }
-
-    /**
-     * tearDown function for test cases
-     *
-     * @access protected
-     * @return void
-     */
-    protected function tearDown()
-    {
-        if (PMA_HAS_RUNKIT) {
-            runkit_constant_redefine("PMA_DRIZZLE", false);
-        }
-    }
-
     /**
      * Test for PMA_Tracker::enable
      *
@@ -603,70 +578,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::getVersion()
-     *
-     * @return void
-     * @test
-     */
-    public function testGetVersion()
-    {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped("Cannot redefine constant");
-        }
-
-        runkit_constant_redefine("PMA_DRIZZLE", true);
-
-        $sql_query = " SELECT MAX(version) FROM `pmadb`.`tracking`" .
-        " WHERE `db_name` = 'pma''db' " .
-        " AND `table_name` = 'pma''table' ";
-
-        $sql_query_drizzle = ' AND tracking & 1 <> 0';
-
-        $sql_query_non_drizzle = " AND FIND_IN_SET('UPDATE',tracking) > 0" ;
-
-        $GLOBALS['controllink'] = null;
-
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('query')
-            ->with($sql_query . $sql_query_drizzle, null, 0, false)
-            ->will($this->returnValue("executed_1"));
-
-        $dbi->expects($this->at(1))
-            ->method('fetchArray')
-            ->with("executed_1")
-            ->will($this->returnValue(array("executed_3")));
-
-        $dbi->expects($this->at(2))
-            ->method('query')
-            ->with($sql_query . $sql_query_non_drizzle, null, 0, false)
-            ->will($this->returnValue("executed_2"));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchArray')
-            ->with("executed_2")
-            ->will($this->returnValue(array()));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        // first assertion
-        $this->assertEquals(
-            "executed_3",
-            PMA_Tracker::getVersion("pma'db", "pma'table", "UPDATE")
-        );
-
-        // second assertion
-        runkit_constant_redefine("PMA_DRIZZLE", false);
-        $this->assertEquals(
-            -1,
-            PMA_Tracker::getVersion("pma'db", "pma'table", "UPDATE")
-        );
-    }
-
-    /**
      * Test for PMA_Tracker::getTrackedData()
      *
      * @param array $fetchArrayReturn Value to be returned by mocked fetchArray
@@ -986,33 +897,5 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
 
         return $query;
-    }
-
-    /**
-     * Test for PMA_Tracker::_transformTrackingSet
-     *
-     * @return void
-     * @test
-     */
-    public function testTransformTrackingSet()
-    {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped("Cannot redefine constant");
-        }
-
-        runkit_constant_redefine("PMA_DRIZZLE", true);
-
-        $method = new \ReflectionMethod("PMA_Tracker", "_transformTrackingSet");
-        $method->setAccessible(true);
-
-        $this->assertEquals(
-            $method->invoke(null, "CREATE DATABASE,ALTER DATABASE,DROP DATABASE"),
-            224
-        );
-
-        $this->assertEquals(
-            $method->invoke(null, 224),
-            "CREATE DATABASE,ALTER DATABASE,DROP DATABASE"
-        );
     }
 }

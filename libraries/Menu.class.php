@@ -352,7 +352,7 @@ class PMA_Menu
             $tabs['import']['text'] = __('Import');
         }
         if (($is_superuser || $isCreateOrGrantUser)
-            && ! PMA_DRIZZLE && ! $db_is_system_schema
+            && ! $db_is_system_schema
         ) {
             $tabs['privileges']['link'] = 'server_privileges.php';
             $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
@@ -385,7 +385,6 @@ class PMA_Menu
             $tabs['tracking']['link'] = 'tbl_tracking.php';
         }
         if (! $db_is_system_schema
-            && ! PMA_DRIZZLE
             && PMA_Util::currentUserHasPrivilege(
                 'TRIGGER',
                 $this->_db,
@@ -459,7 +458,7 @@ class PMA_Menu
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['icon'] = 'b_tblops.png';
 
-            if (($is_superuser || $isCreateOrGrantUser) && ! PMA_DRIZZLE) {
+            if (($is_superuser || $isCreateOrGrantUser)) {
                 $tabs['privileges']['link'] = 'server_privileges.php';
                 $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
                 // stay on database view
@@ -467,21 +466,18 @@ class PMA_Menu
                 $tabs['privileges']['text'] = __('Privileges');
                 $tabs['privileges']['icon'] = 's_rights.png';
             }
-            if (! PMA_DRIZZLE) {
-                $tabs['routines']['link'] = 'db_routines.php';
-                $tabs['routines']['text'] = __('Routines');
-                $tabs['routines']['icon'] = 'b_routines.png';
-            }
-            if (! PMA_DRIZZLE
-                && PMA_Util::currentUserHasPrivilege('EVENT', $this->_db)
-            ) {
+
+            $tabs['routines']['link'] = 'db_routines.php';
+            $tabs['routines']['text'] = __('Routines');
+            $tabs['routines']['icon'] = 'b_routines.png';
+
+            if (PMA_Util::currentUserHasPrivilege('EVENT', $this->_db)) {
                 $tabs['events']['link'] = 'db_events.php';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events.png';
             }
-            if (! PMA_DRIZZLE
-                && PMA_Util::currentUserHasPrivilege('TRIGGER', $this->_db)
-            ) {
+
+            if (PMA_Util::currentUserHasPrivilege('TRIGGER', $this->_db)) {
                 $tabs['triggers']['link'] = 'db_triggers.php';
                 $tabs['triggers']['text'] = __('Triggers');
                 $tabs['triggers']['icon'] = 'b_triggers.png';
@@ -522,19 +518,17 @@ class PMA_Menu
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');
         $binary_logs = null;
-        if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
-            if (PMA_Util::cacheExists('binary_logs')) {
-                $binary_logs = PMA_Util::cacheGet('binary_logs');
-            } else {
-                $binary_logs = $GLOBALS['dbi']->fetchResult(
-                    'SHOW MASTER LOGS',
-                    'Log_name',
-                    null,
-                    null,
-                    PMA_DatabaseInterface::QUERY_STORE
-                );
-                PMA_Util::cacheSet('binary_logs', $binary_logs);
-            }
+        if (PMA_Util::cacheExists('binary_logs')) {
+            $binary_logs = PMA_Util::cacheGet('binary_logs');
+        } else {
+            $binary_logs = $GLOBALS['dbi']->fetchResult(
+                'SHOW MASTER LOGS',
+                'Log_name',
+                null,
+                null,
+                PMA_DatabaseInterface::QUERY_STORE
+            );
+            PMA_Util::cacheSet('binary_logs', $binary_logs);
         }
 
         $tabs = array();
@@ -562,7 +556,7 @@ class PMA_Menu
             )
         );
 
-        if (($is_superuser || $isCreateOrGrantUser) && ! PMA_DRIZZLE) {
+        if ($is_superuser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights.png';
             $tabs['rights']['link'] = 'server_privileges.php';
             $tabs['rights']['text'] = __('User accounts');
@@ -595,7 +589,7 @@ class PMA_Menu
             $tabs['binlog']['text'] = __('Binary log');
         }
 
-        if ($is_superuser && ! PMA_DRIZZLE) {
+        if ($is_superuser) {
             $tabs['replication']['icon'] = 's_replication.png';
             $tabs['replication']['link'] = 'server_replication.php';
             $tabs['replication']['text'] = __('Replication');
@@ -609,22 +603,10 @@ class PMA_Menu
         $tabs['charset']['link'] = 'server_collations.php';
         $tabs['charset']['text'] = __('Charsets');
 
-        if (defined('PMA_DRIZZLE') && PMA_DRIZZLE) {
-            $tabs['plugins']['icon'] = 'b_engine.png';
-            $tabs['plugins']['link'] = 'server_plugins.php';
-            $tabs['plugins']['text'] = __('Plugins');
-            $tabs['plugins']['active'] = in_array(
-                basename($GLOBALS['PMA_PHP_SELF']),
-                array(
-                    'server_plugins.php',
-                    'server_modules.php',
-                )
-            );
-        } else {
-            $tabs['engine']['icon'] = 'b_engine.png';
-            $tabs['engine']['link'] = 'server_engines.php';
-            $tabs['engine']['text'] = __('Engines');
-        }
+        $tabs['engine']['icon'] = 'b_engine.png';
+        $tabs['engine']['link'] = 'server_engines.php';
+        $tabs['engine']['text'] = __('Engines');
+
         return $tabs;
     }
 

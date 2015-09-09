@@ -327,14 +327,6 @@ class PMA_ServerStatusData
             $GLOBALS['dbi']->freeResult($server_status_result);
         }
 
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't put query statistics into variables, add it
-            $sql = "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS";
-            $statements = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
-            $server_status = array_merge($server_status, $statements);
-        }
-
         // for some calculations we require also some server settings
         $server_variables = $GLOBALS['dbi']->fetchResult(
             'SHOW GLOBAL VARIABLES', 0, 1
@@ -374,18 +366,9 @@ class PMA_ServerStatusData
             $used_queries
         );
 
-        if (PMA_DRIZZLE) {
-            $used_queries = $GLOBALS['dbi']->fetchResult(
-                'SELECT * FROM data_dictionary.global_statements',
-                0,
-                1
-            );
-            unset($used_queries['admin_commands']);
-        } else {
-            // admin commands are not queries (e.g. they include COM_PING,
-            // which is excluded from $server_status['Questions'])
-            unset($used_queries['Com_admin_commands']);
-        }
+        // admin commands are not queries (e.g. they include COM_PING,
+        // which is excluded from $server_status['Questions'])
+        unset($used_queries['Com_admin_commands']);
 
         // Set all class properties
         $this->db_isLocal = false;
