@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.13.3 (Not yet released)
+- bug       Fix regression disallowing users to login when reCaptcha test is enabled
+
 4.3.13.2 (2015-09-08)
 - bug       [security] reCaptcha bypass
 
