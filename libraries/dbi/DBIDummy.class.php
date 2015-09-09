@@ -27,7 +27,7 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => "SHOW VARIABLES LIKE 'lower_case_table_names'",
-        'result' => array(array('lower_case_table_names', '0'))
+        'result' => array(array('lower_case_table_names', '1'))
     ),
     array(
         'query' => 'SELECT 1 FROM mysql.user LIMIT 1',
@@ -262,7 +262,7 @@ $GLOBALS['dummy_queries'] = array(
             . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
             . ' `TABLE_COMMENT` AS `Comment`'
             . ' FROM `information_schema`.`TABLES` t'
-            . ' WHERE BINARY `TABLE_SCHEMA` IN (\'pma_test\')'
+            . ' WHERE `TABLE_SCHEMA` IN (\'pma_test\')'
             . ' AND t.`TABLE_NAME` = \'table1\' ORDER BY Name ASC',
         'columns' => array(
             'TABLE_CATALOG', 'TABLE_SCHEMA', 'TABLE_NAME', 'TABLE_TYPE', 'ENGINE',
