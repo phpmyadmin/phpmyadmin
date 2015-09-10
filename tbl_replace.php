@@ -153,7 +153,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
     $multi_edit_columns_name
         = isset($_REQUEST['fields_name']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_name']['multi_edit'][$rownumber]
-        : null;
+        : array();
     $multi_edit_columns_prev
         = isset($_REQUEST['fields_prev']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_prev']['multi_edit'][$rownumber]
