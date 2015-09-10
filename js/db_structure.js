@@ -253,7 +253,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
             var params = getJSConfirmCommonParam(this);
 
-            $.get(url, params, function (data) {
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     // Adjust table statistics
@@ -272,7 +272,7 @@ AJAX.registerOnload('db_structure.js', function () {
                 } else {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }, loadForeignKeyCheckbox); //end $.PMA_confirm()
     }); //end of Truncate Table Ajax action
 
@@ -316,7 +316,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
             var params = getJSConfirmCommonParam(this);
 
-            $.get(url, params, function (data) {
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     toggleRowColors($curr_row.next());
@@ -327,7 +327,7 @@ AJAX.registerOnload('db_structure.js', function () {
                 } else {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }, loadForeignKeyCheckbox); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 

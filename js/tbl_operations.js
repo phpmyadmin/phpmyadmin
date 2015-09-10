@@ -214,7 +214,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
 
             var params = getJSConfirmCommonParam(this);
 
-            $.get(url, params, function (data) {
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
@@ -229,7 +229,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }, loadForeignKeyCheckbox); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 
@@ -247,7 +247,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
 
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
+            $.post(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
@@ -262,7 +262,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }); // end $.PMA_confirm()
     }); //end of Drop View Ajax action
 
@@ -281,7 +281,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
 
             var params = getJSConfirmCommonParam(this);
 
-            $.get(url, params, function (data) {
+            $.post(url, params, function (data) {
                 if ($(".sqlqueryresults").length !== 0) {
                     $(".sqlqueryresults").remove();
                 }
@@ -296,7 +296,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }, loadForeignKeyCheckbox); // end $.PMA_confirm()
     }); //end of Truncate Table Ajax action
 

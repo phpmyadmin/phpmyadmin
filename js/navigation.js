@@ -410,6 +410,7 @@ $(function () {
     $(document).on('click', 'a.hideNavItem.ajax', function (event) {
         event.preventDefault();
         $.ajax({
+            type: 'POST',
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -457,6 +458,7 @@ $(function () {
         var $tr = $(this).parents('tr');
         var $msg = PMA_ajaxShowMessage();
         $.ajax({
+            type: 'POST',
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);

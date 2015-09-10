@@ -209,7 +209,7 @@ function goTo2NFFinish(pd)
             "newTablesName":JSON.stringify(tables),
             "createNewTables2NF":1};
     $.ajax({
-            type: "GET",
+            type: "POST",
             url: "normalization.php",
             data: datastring,
             async:false,
@@ -254,7 +254,7 @@ function goTo3NFFinish(newTables)
             "newTables":JSON.stringify(newTables),
             "createNewTables3NF":1};
     $.ajax({
-            type: "GET",
+            type: "POST",
             url: "normalization.php",
             data: datastring,
             async:false,
@@ -526,7 +526,7 @@ AJAX.registerOnload('normalization.js', function() {
         datastring += "&ajax_request=1&do_save_data=1&field_where=last";
         $.post("tbl_addfield.php", datastring, function(data) {
             if (data.success) {
-                $.get(
+                $.post(
                     "sql.php",
                     {
                         "token": PMA_commonParams.get('token'),
@@ -604,7 +604,7 @@ AJAX.registerOnload('normalization.js', function() {
             dropQuery += 'DROP `' + $(this).val() + '`, ';
         });
         dropQuery = dropQuery.slice(0, -2);
-        $.get(
+        $.post(
             "sql.php",
             {
                 "token": PMA_commonParams.get('token'),

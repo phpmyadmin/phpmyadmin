@@ -189,7 +189,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                             .find('select[name="userGroup"]')
                             .val();
                         var $message = PMA_ajaxShowMessage();
-                        $.get(
+                        $.post(
                             'server_privileges.php',
                             $('#changeUserGroupDialog').find('form').serialize() + '&ajax_request=1',
                             function (data) {

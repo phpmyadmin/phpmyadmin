@@ -388,7 +388,7 @@ RTE.COMMON = {
              *          the AJAX message shown to the user
              */
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+            $.post(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
                 if (data.success === true) {
                     /**
                      * @var $table Object containing reference
@@ -437,7 +437,7 @@ RTE.COMMON = {
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }); // end $.PMA_confirm()
     },
 
@@ -462,7 +462,7 @@ RTE.COMMON = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $curr_row = $anchor.parents('tr');
-                $.get($anchor.attr('href'), {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+                $.post($anchor.attr('href'), {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
                     returnCount++;
                     if (data.success === true) {
                         /**
@@ -519,7 +519,7 @@ RTE.COMMON = {
                             PMA_reloadNavigation();
                         }
                     }
-                }); // end $.get()
+                }); // end $.post()
             }); // end drop_anchors.each()
         }); // end $.PMA_confirm()
     }
@@ -768,7 +768,7 @@ RTE.ROUTINE = {
          *          the AJAX message shown to the user
          */
         var $msg = PMA_ajaxShowMessage();
-        $.get($this.attr('href'), {'ajax_request': true}, function (data) {
+        $.post($this.attr('href'), {'ajax_request': true}, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 // If 'data.dialog' is true we show a dialog with a form
@@ -852,7 +852,7 @@ RTE.ROUTINE = {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }); // end $.get()
+        }); // end $.post()
     }
 };
 

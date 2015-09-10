@@ -53,7 +53,7 @@ AJAX.registerOnload('db_operations.js', function () {
 
         $form.PMA_confirm(question, $form.attr('action'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strRenamingDatabases, false);
-            $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function (data) {
+            $.post(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     PMA_commonParams.set('db', data.newname);
@@ -73,7 +73,7 @@ AJAX.registerOnload('db_operations.js', function () {
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         });
     }); // end Rename Database
 
@@ -85,7 +85,7 @@ AJAX.registerOnload('db_operations.js', function () {
         PMA_ajaxShowMessage(PMA_messages.strCopyingDatabase, false);
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
-        $.get($form.attr('action'), $form.serialize(), function (data) {
+        $.post($form.attr('action'), $form.serialize(), function (data) {
             // use messages that stay on screen
             $('div.success, div.error').fadeOut();
             if (typeof data !== 'undefined' && data.success === true) {
@@ -102,7 +102,7 @@ AJAX.registerOnload('db_operations.js', function () {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }); // end $.get
+        }); // end $.post()
     }); // end copy database
 
     /**
@@ -113,13 +113,13 @@ AJAX.registerOnload('db_operations.js', function () {
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
         PMA_ajaxShowMessage(PMA_messages.strChangingCharset);
-        $.get($form.attr('action'), $form.serialize() + "&submitcollation=1", function (data) {
+        $.post($form.attr('action'), $form.serialize() + "&submitcollation=1", function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }); // end $.get()
+        }); // end $.post()
     }); // end change charset
 
     /**
@@ -137,7 +137,7 @@ AJAX.registerOnload('db_operations.js', function () {
         );
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
+            $.post(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
                 if (typeof data !== 'undefined' && data.success) {
                     //Database deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
