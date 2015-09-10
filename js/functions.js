@@ -4415,7 +4415,7 @@ function PMA_createViewDialog($this)
                     syntaxHighlighter.save();
                 }
                 $msg = PMA_ajaxShowMessage();
-                $.get('view_create.php', $('#createViewDialog').find('form').serialize(), function (data) {
+                $.post('view_create.php', $('#createViewDialog').find('form').serialize(), function (data) {
                     PMA_ajaxRemoveMessage($msg);
                     if (typeof data !== 'undefined' && data.success === true) {
                         $('#createViewDialog').dialog("close");

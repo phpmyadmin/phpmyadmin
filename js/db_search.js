@@ -85,7 +85,7 @@ function deleteResult(result_path, msg)
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
             var url = result_path;
-            $.get(url, {'ajax_request': true, 'is_js_confirmed': true},
+            $.post(url, {'ajax_request': true, 'is_js_confirmed': true},
                 function (data) {
                     if (typeof data !== 'undefined' && data.success) {
                         $('#sqlqueryform').html(data.sql_query);

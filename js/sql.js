@@ -160,7 +160,7 @@ AJAX.registerOnload('sql.js', function () {
             if ($link.hasClass('formLinkSubmit')) {
                 submitFormLink($link);
             } else {
-                $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
+                $.post(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
                     if (data.success) {
                         PMA_ajaxShowMessage(data.message);
                         $link.closest('tr').remove();
