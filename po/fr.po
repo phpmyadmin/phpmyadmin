@@ -10044,7 +10044,7 @@ msgstr "Aller à la table copiée"
 #: libraries/operations.lib.php:1370
 #: templates/database/structure/check_all_tables.phtml:18
 msgid "Table maintenance"
-msgstr "<b>Maintenance</b> de la table"
+msgstr "Maintenance de la table"
 
 #: libraries/operations.lib.php:1408
 #: templates/database/structure/check_all_tables.phtml:19
