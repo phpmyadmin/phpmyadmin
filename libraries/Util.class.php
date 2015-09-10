@@ -1214,25 +1214,41 @@ class PMA_Util
             // Also we would like to get the SQL formed in some nice
             // php-code
             if (! empty($cfg['SQLQuery']['ShowAsPHP']) && ! $query_too_big) {
-                $php_params = $url_params;
 
                 if (! empty($GLOBALS['show_as_php'])) {
                     $_message = __('Without PHP Code');
-                } else {
-                    $php_params['show_as_php'] = 1;
-                    $_message = __('Create PHP code');
-                }
-
-                $php_link = 'import.php' . PMA_URL_getCommon($php_params);
-                $php_link = ' [' . self::linkOrButton($php_link, $_message) . ']';
-
-                if (isset($GLOBALS['show_as_php'])) {
-
-                    $runquery_link = 'import.php'
-                        . PMA_URL_getCommon($url_params);
+                    $php_link = ' ['
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($url_params),
+                            __('Without PHP code'),
+                            array(),
+                            true,
+                            false,
+                            '',
+                            true
+                        )
+                        . ']';
 
                     $php_link .= ' ['
-                        . self::linkOrButton($runquery_link, __('Submit Query'))
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($url_params),
+                            __('Submit query'),
+                            array(),
+                            true,
+                            false,
+                            '',
+                            true
+                        )
+                        . ']';
+                } else {
+                    $php_params = $url_params;
+                    $php_params['show_as_php'] = 1;
+                    $_message = __('Create PHP code');
+                    $php_link = ' ['
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($php_params),
+                            $_message
+                        )
                         . ']';
                 }
             } else {
@@ -1827,20 +1843,21 @@ class PMA_Util
      * Displays a link, or a button if the link's URL is too large, to
      * accommodate some browsers' limitations
      *
-     * @param string  $url        the URL
-     * @param string  $message    the link message
-     * @param mixed   $tag_params string: js confirmation
-     *                            array: additional tag params (f.e. style="")
-     * @param boolean $new_form   we set this to false when we are already in
-     *                            a  form, to avoid generating nested forms
-     * @param boolean $strip_img  whether to strip the image
-     * @param string  $target     target
+     * @param string  $url          the URL
+     * @param string  $message      the link message
+     * @param mixed   $tag_params   string: js confirmation
+     *                              array: additional tag params (f.e. style="")
+     * @param boolean $new_form     we set this to false when we are already in
+     *                              a  form, to avoid generating nested forms
+     * @param boolean $strip_img    whether to strip the image
+     * @param string  $target       target
+     * @param boolean $force_button use a button even when the URL is not too long
      *
      * @return string  the results to be echoed or saved in an array
      */
     public static function linkOrButton(
         $url, $message, $tag_params = array(),
-        $new_form = true, $strip_img = false, $target = ''
+        $new_form = true, $strip_img = false, $target = '', $force_button = false
     ) {
         $url_length = /*overload*/mb_strlen($url);
         // with this we should be able to catch case of image upload
@@ -1898,6 +1915,7 @@ class PMA_Util
 
         if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
             && $in_suhosin_limits
+            && ! $force_button
         ) {
             $tag_params_strings = array();
             foreach ($tag_params as $par_name => $par_value) {

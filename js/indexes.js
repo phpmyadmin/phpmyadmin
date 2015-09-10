@@ -610,7 +610,7 @@ AJAX.registerOnload('indexes.js', function () {
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+            $.post(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
@@ -644,7 +644,7 @@ AJAX.registerOnload('indexes.js', function () {
                 } else {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
-            }); // end $.get()
+            }); // end $.post()
         }); // end $.PMA_confirm()
     }); //end Drop Primary Key/Index
 
