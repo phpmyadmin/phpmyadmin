@@ -433,7 +433,7 @@ class DatabaseInterface
                 `CREATE_OPTIONS`     AS `Create_options`,
                 `TABLE_COMMENT`      AS `Comment`
             FROM `information_schema`.`TABLES` t
-            WHERE `TABLE_SCHEMA` ' . PMA_Util::getCollateForIS() . '
+            WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS() . '
                 IN (\'' . implode("', '", $this_databases) . '\')
                 ' . $sql_where_table;
 
@@ -953,7 +953,7 @@ class DatabaseInterface
             ) {
                 $sql .= 'BINARY ';
             }
-            $sql .= PMA_Util::backquote($sort_by)
+            $sql .= Util::backquote($sort_by)
                 . ' ' . $sort_order
                 . $limit;
             $sql .= ') a';

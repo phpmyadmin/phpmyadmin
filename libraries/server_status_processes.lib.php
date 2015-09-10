@@ -10,6 +10,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\ServerStatusData;
+use PMA\libraries\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -37,7 +38,7 @@ function PMA_getHtmlForProcessListAutoRefresh()
     );
     $retval .= '</label>';
     $retval .= '<a id="toggleRefresh" href="#">';
-    $retval .= PMA\libraries\Util::getImage('play.png') . __('Start auto refresh');
+    $retval .= Util::getImage('play.png') . __('Start auto refresh');
     $retval .= '</a>';
     $retval .= '</div>';
     return $retval;
@@ -173,12 +174,12 @@ function PMA_getHtmlForServerProcesslist()
         if (0 === --$sortableColCount) {
             $retval .= '<a href="' . $full_text_link . '">';
             if ($show_full_sql) {
-                $retval .= PMA\libraries\Util::getImage(
+                $retval .= Util::getImage(
                     's_partialtext.png',
                     __('Truncate Shown Queries')
                 );
             } else {
-                $retval .= PMA\libraries\Util::getImage(
+                $retval .= Util::getImage(
                     's_fulltext.png',
                     __('Show Full Queries')
                 );
@@ -294,7 +295,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     if (empty($process['Info'])) {
         $retval .= '---';
     } else {
-        $retval .= PMA\libraries\Util::formatSql($process['Info'], ! $show_full_sql);
+        $retval .= Util::formatSql($process['Info'], ! $show_full_sql);
     }
     $retval .= '</td>';
     $retval .= '</tr>';

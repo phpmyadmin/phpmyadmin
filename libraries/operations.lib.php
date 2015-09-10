@@ -104,7 +104,7 @@ function PMA_getHtmlForRenameDatabase($db)
     }
 
     $html_output .= '<label for="checkbox_adjust_privileges">'
-            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+            . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
 
     $html_output .= ''
@@ -962,7 +962,7 @@ function PMA_getHtmlForRenameTable()
     }
     $html_output .= '<label for="checkbox_privileges_table_options">'
         . __('Adjust privileges') . '&nbsp;'
-        . PMA_Util::showDocu('faq', 'faq6-39') . '</label>';
+        . Util::showDocu('faq', 'faq6-39') . '</label>';
 
     $html_output .= '</td></tr>';
     return $html_output;

@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Response;
+use PMA\libraries\Util;
 use SqlParser\Statements\CreateStatement;
 
 if (! defined('PHPMYADMIN')) {
