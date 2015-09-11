@@ -4,8 +4,6 @@
 /**
  * functions for displaying server, database and table export
  *
- * @usedby display_export.inc.php
- *
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
@@ -1023,5 +1021,85 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
     $html .= $table_html;
 
     $html .= '</div>';
+    return $html;
+}
+
+/**
+ * Gets HTML to display export dialogs
+ *
+ * @param String $export_type    export type: server|database|table
+ * @param String $db             selected DB
+ * @param String $table          selected table
+ * @param String $sql_query      SQL query
+ * @param Int    $num_tables     number of tables
+ * @param Int    $unlim_num_rows unlimited number of rows
+ * @param String $multi_values   selector options
+ *
+ * @return string $html
+ */
+function PMA_getExportDisplay(
+    $export_type, $db, $table, $sql_query, $num_tables,
+    $unlim_num_rows, $multi_values
+) {
+    $cfgRelation = PMA_getRelationsParam();
+
+    if (isset($_REQUEST['single_table'])) {
+        $GLOBALS['single_table'] = $_REQUEST['single_table'];
+    }
+
+    include_once './libraries/file_listing.lib.php';
+    include_once './libraries/plugin_interface.lib.php';
+    include_once './libraries/display_export.lib.php';
+
+    /* Scan for plugins */
+    /* @var $export_list ExportPlugin[] */
+    $export_list = PMA_getPlugins(
+        "export",
+        'libraries/plugins/export/',
+        array(
+            'export_type' => $export_type,
+            'single_table' => isset($GLOBALS['single_table'])
+        )
+    );
+
+    /* Fail if we didn't find any plugin */
+    if (empty($export_list)) {
+        PMA_Message::error(
+            __('Could not load export plugins, please check your installation!')
+        )->display();
+        exit;
+    }
+
+    $html = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
+
+    if ($cfgRelation['exporttemplateswork']) {
+        $html .= PMA_getHtmlForExportTemplateLoading($export_type);
+    }
+
+    $html .= '<form method="post" action="export.php" '
+        . ' name="dump" class="disableAjax">';
+
+    //output Hidden Inputs
+    $single_table_str = isset($GLOBALS['single_table'])? $GLOBALS['single_table'] : '';
+    $html .= PMA_getHtmlForHiddenInput(
+        $export_type,
+        $db,
+        $table,
+        $single_table_str,
+        $sql_query
+    );
+
+    //output Export Options
+    $html .= PMA_getHtmlForExportOptions(
+        $export_type,
+        $db,
+        $table,
+        $multi_values,
+        $num_tables,
+        $export_list,
+        $unlim_num_rows
+    );
+
+    $html .= '</form>';
     return $html;
 }

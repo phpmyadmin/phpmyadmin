@@ -1246,7 +1246,6 @@ class Util
             if (! empty($cfg['SQLQuery']['ShowAsPHP']) && ! $query_too_big) {
 
                 if (! empty($GLOBALS['show_as_php'])) {
-                    $_message = __('Without PHP Code');
                     $php_link = ' ['
                         . self::linkOrButton(
                             'import.php' . PMA_URL_getCommon($url_params),

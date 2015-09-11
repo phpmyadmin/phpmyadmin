@@ -134,5 +134,23 @@ foreach ($tables as $each_table) {
 $multi_values .= "\n";
 $multi_values .= '</tbody></table></div>';
 
-$export_type = 'database';
-require_once 'libraries/display_export.inc.php';
+require_once 'libraries/display_export.lib.php';
+if (! isset($sql_query)) {
+    $sql_query = '';
+}
+if (! isset($num_tables)) {
+    $num_tables = 0;
+}
+if (! isset($unlim_num_rows)) {
+    $unlim_num_rows = 0;
+}
+if (! isset($multi_values)) {
+    $multi_values = '';
+}
+$response = PMA_Response::getInstance();
+$response->addHTML(
+    PMA_getExportDisplay(
+        'database', $db, $table, $sql_query, $num_tables,
+        $unlim_num_rows, $multi_values
+    )
+);

@@ -515,7 +515,6 @@ class Menu
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');
-        $binary_logs = null;
         if (Util::cacheExists('binary_logs')) {
             $binary_logs = Util::cacheGet('binary_logs');
         } else {
