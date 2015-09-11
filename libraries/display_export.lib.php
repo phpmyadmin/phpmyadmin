@@ -1034,7 +1034,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
  * @return string $html
  */
 function PMA_getExportDisplay(
-    $export_type, $db, $table, $sql_query = '', $num_tables,
+    $export_type, $db, $table, $sql_query, $num_tables,
     $unlim_num_rows, $multi_values
 ) {
     $cfgRelation = PMA_getRelationsParam();
@@ -1043,9 +1043,9 @@ function PMA_getExportDisplay(
         $GLOBALS['single_table'] = $_REQUEST['single_table'];
     }
 
-    require_once './libraries/file_listing.lib.php';
-    require_once './libraries/plugin_interface.lib.php';
-    require_once './libraries/display_export.lib.php';
+    include_once './libraries/file_listing.lib.php';
+    include_once './libraries/plugin_interface.lib.php';
+    include_once './libraries/display_export.lib.php';
 
     /* Scan for plugins */
     /* @var $export_list ExportPlugin[] */

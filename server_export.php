@@ -44,6 +44,6 @@ $response = PMA_Response::getInstance();
 $response->addHTML(
     PMA_getExportDisplay(
         'server', $db, $table, $sql_query, $num_tables,
-         $unlim_num_rows, $multi_values
+        $unlim_num_rows, $multi_values
     )
 );
