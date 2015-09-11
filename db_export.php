@@ -138,9 +138,6 @@ if (! isset($sql_query)) {
 if (! isset($num_tables)) {
     $num_tables = 0;
 }
-if (! isset($num_tables)) {
-    $num_tables = 0;
-}
 if (! isset($unlim_num_rows)) {
     $unlim_num_rows = 0;
 }
