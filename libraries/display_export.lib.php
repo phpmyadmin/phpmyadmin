@@ -1064,7 +1064,7 @@ function PMA_getExportDisplay(
 
     /* Fail if we didn't find any plugin */
     if (empty($export_list)) {
-        PMA_Message::error(
+        Message::error(
             __('Could not load export plugins, please check your installation!')
         )->display();
         exit;
