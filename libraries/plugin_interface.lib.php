@@ -57,25 +57,28 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
         return $plugin_list;
     }
 
+    $namespace = 'PMA\\' . str_replace('/', '\\', $plugins_dir);
+    $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
+        . mb_strtolower(/*overload*/mb_substr($plugin_type, 1), 'UTF-8');
+
+    $prefix_class_name = $namespace . $class_type;
+
     //@todo Find a way to use PMA_StringMB with UTF-8 instead of mb_*.
     while ($file = @readdir($handle)) {
         // In some situations, Mac OS creates a new file for each file
         // (for example ._csv.php) so the following regexp
         // matches a file which does not start with a dot but ends
         // with ".php"
-        $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
-            . mb_strtolower(/*overload*/mb_substr($plugin_type, 1), 'UTF-8');
         if (is_file($plugins_dir . $file)
             && preg_match(
-                '@^' . $class_type . '(.+)\.class\.php$@i',
+                '@^' . $class_type . '(.+)\.php$@i',
                 $file,
                 $matches
             )
         ) {
             $GLOBALS['skip_import'] = false;
-            include_once $plugins_dir . $file;
             if (! $GLOBALS['skip_import']) {
-                $class_name = $class_type . $matches[1];
+                $class_name = $prefix_class_name . $matches[1];
                 $plugin = new $class_name;
                 if (null !== $plugin->getProperties()) {
                     $plugin_list[] = $plugin;
