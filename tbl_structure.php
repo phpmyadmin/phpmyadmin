@@ -21,9 +21,9 @@ require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
 $container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\tableStructureController');
+$container->factory('PMA\libraries\controllers\TableStructureController');
 $container->alias(
-    'TableStructureController', 'PMA\libraries\controllers\tableStructureController'
+    'TableStructureController', 'PMA\libraries\controllers\TableStructureController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');

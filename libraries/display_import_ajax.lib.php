@@ -45,7 +45,6 @@ foreach ($plugins as $plugin) {
     if ($check()) {
         $upload_class = 'PMA\libraries\plugins\import\upload\Upload' . ucwords($plugin);
         $_SESSION[$SESSION_KEY]["handler"] = $upload_class;
-        include_once "plugins/import/upload/" . $upload_class . ".php";
         break;
     }
 }

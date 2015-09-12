@@ -36,7 +36,8 @@ function PMA_getPlugin(
     $file = $class_name . ".php";
     if (is_file($plugins_dir . $file)) {
         //include_once $plugins_dir . $file;
-        return new $class_name;
+        $fqnClass = 'PMA\\' . str_replace('/', '\\', $plugins_dir) . $class_name;
+        return new $fqnClass;
     }
 
     return null;
