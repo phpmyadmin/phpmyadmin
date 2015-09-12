@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin-GIS
  */
-
 namespace PMA\libraries\gis;
 
+use PMA\libraries\Util;
 use \TCPDF;
 
 if (!defined('PHPMYADMIN')) {
@@ -573,8 +573,8 @@ class GISPolygon extends GISGeometry
         // Always keep $epsilon < 1 to go with the reduction logic down here
         $epsilon = 0.1;
         $denominator = sqrt(
-            PMA\libraries\Util::pow(($y1 - $y0), 2)
-            + PMA\libraries\Util::pow(($x0 - $x1), 2)
+            Util::pow(($y1 - $y0), 2)
+            + Util::pow(($x0 - $x1), 2)
         );
         $pointA = array();
         $pointB = array();
@@ -600,7 +600,7 @@ class GISPolygon extends GISGeometry
 
             //If both are outside the polygon reduce the epsilon and
             //recalculate the points(reduce exponentially for faster convergence)
-            $epsilon = PMA\libraries\Util::pow($epsilon, 2);
+            $epsilon = Util::pow($epsilon, 2);
             if ($epsilon == 0) {
                 return false;
             }
