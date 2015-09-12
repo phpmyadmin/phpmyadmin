@@ -5,10 +5,6 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-
 use PMA\libraries\plugins\transformations\input\ImageJPEGUpload;
 use PMA\libraries\plugins\transformations\input\TextPlainRegexValidation;
 use PMA\libraries\plugins\transformations\input\TextPlainFileUpload;
@@ -27,6 +23,9 @@ use PMA\libraries\plugins\transformations\TextPlainLongtoipv4;
 use PMA\libraries\plugins\transformations\TextPlainPreApPend;
 use PMA\libraries\plugins\transformations\TextPlainSubstring;
 
+/*
+ * Include to test.
+ */
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 
@@ -148,7 +147,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     0
                 )
             ),
-            // Test data for Text_Plain_Fileupload plugin
+            // Test data for TextPlainFileupload plugin
             array(
                 new TextPlainFileUpload(),
                 'getName',

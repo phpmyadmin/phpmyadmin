@@ -8,15 +8,11 @@
  */
 namespace PMA\libraries\plugins\transformations\input;
 
-use CodeMirrorEditorTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\CodeMirrorEditorTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the CodeMirror editor transformations class */
-require_once 'libraries/plugins/transformations/abstract/'
-    . 'CodeMirrorEditorTransformationPlugin.class.php';
 
 /**
  * JSON editing with syntax highlighted CodeMirror editor

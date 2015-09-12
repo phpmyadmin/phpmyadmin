@@ -8,15 +8,11 @@
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use InlineTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\InlineTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the inline transformations interface */
-require_once 'libraries/plugins/transformations/abstract/'
-    . 'InlineTransformationsPlugin.class.php';
 
 /**
  * Handles the inline transformation for image jpeg

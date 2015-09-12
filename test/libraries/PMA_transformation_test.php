@@ -160,10 +160,10 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                 ),
                 'input_transformation_file' => array(
                     'input/ImageJPEGUpload.php',
-                    'input/TextPlainFileupload.php',
+                    'input/TextPlainFileUpload.php',
                     'input/TextPlainIptobinary.php',
                     'input/TextPlainJsonEditor.php',
-                    'input/TextPlainRegexvalidation.php',
+                    'input/TextPlainRegexValidation.php',
                     'input/TextPlainSqlEditor.php',
                     'input/TextPlainXmlEditor.php',
                     'TextPlainLink.php',
