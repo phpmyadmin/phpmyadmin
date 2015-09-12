@@ -20,7 +20,7 @@ require_once 'libraries/relation.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_DesginerTest extends PHPUnit_Framework_TestCase
+class PMA_DesignerTest extends PHPUnit_Framework_TestCase
 {
 
     /**
