@@ -94,7 +94,7 @@ if ($server > 0) {
 /**
  * Displays the page
  */
-if ($databases_count > 0) {
+if ($databases_count > 0 && ! empty($databases)) {
     $html .= PMA_getHtmlForDatabase(
         $databases,
         $databases_count,
