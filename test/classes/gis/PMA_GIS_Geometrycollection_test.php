@@ -8,6 +8,8 @@
  */
 use PMA\libraries\gis\GISGeometrycollection;
 
+require_once 'libraries/tcpdf/tcpdf.php';
+
 /**
  * Tests for PMA\libraries\gis\GISGeometrycollection class
  *
@@ -264,7 +266,7 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
                     'scale' => 2,
                     'height' => 150
                 ),
-                new TCPDF(),
+                new \TCPDF(),
             )
         );
     }
