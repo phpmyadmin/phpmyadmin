@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for ImportMediawiki class
+ * Tests for PMA\libraries\plugins\import\ImportMediawiki class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,25 +8,20 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
+use PMA\libraries\plugins\import\ImportMediawiki;
+
 $GLOBALS['server'] = 0;
 
 /*
  * Include to test.
  */
-
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 
-require_once 'libraries/plugins/import/ImportMediawiki.class.php';
-
-
-
 /**
- * Tests for ImportMediawiki class
+ * Tests for PMA\libraries\plugins\import\ImportMediawiki class
  *
  * @package PhpMyAdmin-test
  */

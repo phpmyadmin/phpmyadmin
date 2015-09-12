@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\config\PageSettings;
+use PMA\libraries\Response;
 
 /**
  *
@@ -192,7 +193,7 @@ if (! isset($unlim_num_rows)) {
 if (! isset($multi_values)) {
     $multi_values = '';
 }
-$response = PMA_Response::getInstance();
+$response = Response::getInstance();
 $response->addHTML(
     PMA_getExportDisplay(
         'table', $db, $table, $sql_query, $num_tables,

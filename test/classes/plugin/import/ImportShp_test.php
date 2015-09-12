@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for ImportShp class
+ * Tests for PMA\libraries\plugins\import\ImportShp class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,19 +9,17 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
-$GLOBALS['server'] = 0;
+use PMA\libraries\plugins\import\ImportShp;
 
+$GLOBALS['server'] = 0;
 
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 
-
 /**
- * Tests for ImportShp class
+ * Tests for PMA\libraries\plugins\import\ImportShp class
  *
  * @package PhpMyAdmin-test
  */
@@ -58,7 +56,6 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
 
-        include_once 'libraries/plugins/import/ImportShp.class.php';
         $this->object = new ImportShp();
 
         /**

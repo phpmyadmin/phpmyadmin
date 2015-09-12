@@ -1,12 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains PMA_Export_Relation_Schema class which is inherited
- * by all schema classes.
+ * Contains PMA\libraries\plugins\schema\ExportRelationSchema class which is
+ * inherited by all schema classes.
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema;
+
+use PMA;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -17,7 +21,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin
  */
-class PMA_Export_Relation_Schema
+class ExportRelationSchema
 {
     /**
      * Constructor.
@@ -35,14 +39,12 @@ class PMA_Export_Relation_Schema
 
     protected $db;
     protected $diagram;
-
     protected $showColor;
     protected $tableDimension;
     protected $sameWide;
     protected $showKeys;
     protected $orientation;
     protected $paper;
-
     protected $pageNumber;
     protected $offline;
 
@@ -246,6 +248,7 @@ class PMA_Export_Relation_Schema
                 $tables[] = mb_substr($key, $dbLength + 1);
             }
         }
+
         return $tables;
     }
 
@@ -260,7 +263,7 @@ class PMA_Export_Relation_Schema
     {
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
-        if ($this->pageNumber != -1 && ! $this->offline) {
+        if ($this->pageNumber != -1 && !$this->offline) {
             $_name_sql = 'SELECT page_descr FROM '
                 . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                 . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
@@ -286,7 +289,7 @@ class PMA_Export_Relation_Schema
      */
     public static function dieSchema($pageNumber, $type = '', $error_message = '')
     {
-        echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type . "</strong></p>" . "\n";
+        echo "<p><strong>" . __("SCHEMA ERROR: ") . $type . "</strong></p>" . "\n";
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
         }

@@ -1,27 +1,31 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Dia schema export code
+ * PDF schema export code
  *
  * @package    PhpMyAdmin-Schema
- * @subpackage Dia
+ * @subpackage SVG
  */
-use PMA\libraries\plugins\SchemaPlugin;
+namespace PMA\libraries\plugins\schema;
 
-if (! defined('PHPMYADMIN')) {
+use BoolPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA\libraries\plugins\SchemaPlugin;
+use PMA\libraries\plugins\schema\svg\SvgRelationSchema;
+use SchemaPluginProperties;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the schema export interface */
-require_once 'libraries/plugins/schema/dia/Dia_Relation_Schema.class.php';
-
 /**
- * Handles the schema export for the Dia format
+ * Handles the schema export for the SVG format
  *
  * @package    PhpMyAdmin-Schema
- * @subpackage Dia
+ * @subpackage SVG
  */
-class SchemaDia extends SchemaPlugin
+class SchemaSvg extends SchemaPlugin
 {
     /**
      * Constructor
@@ -32,7 +36,7 @@ class SchemaDia extends SchemaPlugin
     }
 
     /**
-     * Sets the schema export Dia properties
+     * Sets the schema export SVG properties
      *
      * @return void
      */
@@ -43,12 +47,11 @@ class SchemaDia extends SchemaPlugin
         include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
         include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
         include_once "$props/options/items/BoolPropertyItem.class.php";
-        include_once "$props/options/items/SelectPropertyItem.class.php";
 
         $schemaPluginProperties = new SchemaPluginProperties();
-        $schemaPluginProperties->setText('Dia');
-        $schemaPluginProperties->setExtension('dia');
-        $schemaPluginProperties->setMimeType('application/dia');
+        $schemaPluginProperties->setText('SVG');
+        $schemaPluginProperties->setExtension('svg');
+        $schemaPluginProperties->setMimeType('application/svg');
 
         // create the root group that will be the options field for
         // $schemaPluginProperties
@@ -62,21 +65,10 @@ class SchemaDia extends SchemaPlugin
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 
-        $leaf = new SelectPropertyItem();
-        $leaf->setName("orientation");
-        $leaf->setText(__('Orientation'));
-        $leaf->setValues(
-            array(
-                'L' => __('Landscape'),
-                'P' => __('Portrait'),
-            )
-        );
-        $specificOptions->addProperty($leaf);
-
-        $leaf = new SelectPropertyItem();
-        $leaf->setName("paper");
-        $leaf->setText(__('Paper size'));
-        $leaf->setValues($this->_getPaperSizeArray());
+        // create leaf items and add them to the group
+        $leaf = new BoolPropertyItem();
+        $leaf->setName('all_tables_same_width');
+        $leaf->setText(__('Same width for all tables'));
         $specificOptions->addProperty($leaf);
 
         // add the main group to the root group
@@ -88,22 +80,7 @@ class SchemaDia extends SchemaPlugin
     }
 
     /**
-     * Returns the array of paper sizes
-     *
-     * @return array array of paper sizes
-     */
-    private function _getPaperSizeArray()
-    {
-        $ret = array();
-        foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
-            $ret[$val] = $val;
-        }
-        return $ret;
-    }
-
-
-    /**
-     * Exports the schema into DIA format.
+     * Exports the schema into SVG format.
      *
      * @param string $db database name
      *
@@ -111,7 +88,7 @@ class SchemaDia extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Dia_Relation_Schema($db);
+        $export = new SvgRelationSchema($db);
         $export->showOutput();
     }
 }

@@ -147,7 +147,7 @@ if (! isset($unlim_num_rows)) {
 if (! isset($multi_values)) {
     $multi_values = '';
 }
-$response = PMA_Response::getInstance();
+$response = Response::getInstance();
 $response->addHTML(
     PMA_getExportDisplay(
         'database', $db, $table, $sql_query, $num_tables,

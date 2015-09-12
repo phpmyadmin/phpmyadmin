@@ -6,14 +6,19 @@
  * @package    PhpMyAdmin-Schema
  * @subpackage PDF
  */
-use PMA\libraries\plugins\SchemaPlugin;
+namespace PMA\libraries\plugins\schema;
 
-if (! defined('PHPMYADMIN')) {
+use BoolPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA\libraries\plugins\schema\pdf\PdfRelationSchema;
+use PMA\libraries\plugins\SchemaPlugin;
+use SchemaPluginProperties;
+use SelectPropertyItem;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the schema export interface */
-require_once 'libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php';
 
 /**
  * Handles the schema export for the PDF format
@@ -100,8 +105,8 @@ class SchemaPdf extends SchemaPlugin
         $leaf->setText(__('Order of the tables'));
         $leaf->setValues(
             array(
-                '' => __('None'),
-                'name_asc' => __('Name (Ascending)'),
+                ''          => __('None'),
+                'name_asc'  => __('Name (Ascending)'),
                 'name_desc' => __('Name (Descending)'),
             )
         );
@@ -126,6 +131,7 @@ class SchemaPdf extends SchemaPlugin
         foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
             $ret[$val] = $val;
         }
+
         return $ret;
     }
 
@@ -138,7 +144,7 @@ class SchemaPdf extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Pdf_Relation_Schema($db);
+        $export = new PdfRelationSchema($db);
         $export->showOutput();
     }
 }

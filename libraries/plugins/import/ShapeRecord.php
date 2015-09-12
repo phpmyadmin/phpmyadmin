@@ -7,20 +7,23 @@
  * @package    PhpMyAdmin-Import
  * @subpackage ESRI_Shape
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\import;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
  * 1) To load data from .dbf file only when the dBase extension is available.
  * 2) To use PMA_importGetNextChunk() functionality to read data, rather than
- *    reading directly from a file. Using ImportShp::readFromBuffer() in place
- *    of fread(). This makes it possible to use compressions.
+ *    reading directly from a file. Using
+ *    PMA\libraries\plugins\import\ImportShp::readFromBuffer() in place of fread().
+ *    This makes it possible to use compressions.
  *
  * @package    PhpMyAdmin-Import
  * @subpackage ESRI_Shape
  */
-class PMA_ShapeRecord extends ShapeRecord
+class ShapeRecord extends \ShapeRecord
 {
     /**
      * Loads a geometry data record from the file
@@ -130,26 +133,27 @@ class PMA_ShapeRecord extends ShapeRecord
         $this->SHPData["xmax"] = loadData("d", ImportShp::readFromBuffer(8));
         $this->SHPData["ymax"] = loadData("d", ImportShp::readFromBuffer(8));
 
-        $this->SHPData["numparts"]  = loadData("V", ImportShp::readFromBuffer(4));
+        $this->SHPData["numparts"] = loadData("V", ImportShp::readFromBuffer(4));
         $this->SHPData["numpoints"] = loadData("V", ImportShp::readFromBuffer(4));
 
         for ($i = 0; $i < $this->SHPData["numparts"]; $i++) {
             $this->SHPData["parts"][$i] = loadData(
-                "V", ImportShp::readFromBuffer(4)
+                "V",
+                ImportShp::readFromBuffer(4)
             );
         }
 
         $readPoints = 0;
         reset($this->SHPData["parts"]);
         while (list($partIndex,) = each($this->SHPData["parts"])) {
-            if (! isset($this->SHPData["parts"][$partIndex]["points"])
+            if (!isset($this->SHPData["parts"][$partIndex]["points"])
                 || !is_array($this->SHPData["parts"][$partIndex]["points"])
             ) {
                 $this->SHPData["parts"][$partIndex] = array();
                 $this->SHPData["parts"][$partIndex]["points"] = array();
             }
-            while (! in_array($readPoints, $this->SHPData["parts"])
-            && ($readPoints < ($this->SHPData["numpoints"]))
+            while (!in_array($readPoints, $this->SHPData["parts"])
+                && ($readPoints < ($this->SHPData["numpoints"]))
             ) {
                 $this->SHPData["parts"][$partIndex]["points"][]
                     = $this->_loadPoint();

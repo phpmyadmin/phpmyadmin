@@ -8,17 +8,23 @@
  * @subpackage XML
  */
 
-use PMA\libraries\plugins\ImportPlugin;
+namespace PMA\libraries\plugins\import;
 
-if (! defined('PHPMYADMIN')) {
+use ImportPluginProperties;
+use PMA;
+use PMA\libraries\plugins\ImportPlugin;
+use SimpleXMLElement;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
  * We need way to disable external XML entities processing.
  */
-if (! function_exists('libxml_disable_entity_loader')) {
+if (!function_exists('libxml_disable_entity_loader')) {
     $GLOBALS['skip_import'] = true;
+
     return;
 }
 
@@ -76,7 +82,7 @@ class ImportXml extends ImportPlugin
          * Read in the file via PMA_importGetNextChunk so that
          * it can process compressed files
          */
-        while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
+        while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             $data = PMA_importGetNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
@@ -118,9 +124,11 @@ class ImportXml extends ImportPlugin
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )->display();
+            )
+                ->display();
             unset($xml);
             $GLOBALS['finished'] = false;
+
             return;
         }
 
@@ -165,7 +173,8 @@ class ImportXml extends ImportPlugin
              * If the structure section is not present
              * get the database name from the data section
              */
-            $db_attr = $xml->children()->attributes();
+            $db_attr = $xml->children()
+                ->attributes();
             $db_name = (string)$db_attr['name'];
             $collation = null;
             $charset = null;
@@ -180,9 +189,11 @@ class ImportXml extends ImportPlugin
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )->display();
+            )
+                ->display();
             unset($xml);
             $GLOBALS['finished'] = false;
+
             return;
         }
 
@@ -192,6 +203,7 @@ class ImportXml extends ImportPlugin
         if (isset($namespaces['pma'])) {
             /**
              * Get structures for all tables
+             *
              * @var SimpleXMLElement $struct
              */
             $struct = $xml->children($namespaces['pma']);
@@ -230,7 +242,8 @@ class ImportXml extends ImportPlugin
         /**
          * Move down the XML tree to the actual data
          */
-        $xml = $xml->children()->children();
+        $xml = $xml->children()
+            ->children();
 
         $data_present = false;
 
@@ -249,7 +262,7 @@ class ImportXml extends ImportPlugin
                 $isInTables = false;
                 $num_tables = count($tables);
                 for ($i = 0; $i < $num_tables; ++$i) {
-                    if (! strcmp($tables[$i][TBL_NAME], (string)$tbl_attr['name'])) {
+                    if (!strcmp($tables[$i][TBL_NAME], (string)$tbl_attr['name'])) {
                         $isInTables = true;
                         break;
                     }
@@ -261,7 +274,7 @@ class ImportXml extends ImportPlugin
 
                 foreach ($v1 as $v2) {
                     $row_attr = $v2->attributes();
-                    if (! array_search((string)$row_attr['name'], $tempRow)) {
+                    if (!array_search((string)$row_attr['name'], $tempRow)) {
                         $tempRow[] = (string)$row_attr['name'];
                     }
                     $tempCells[] = (string)$v2;
@@ -284,8 +297,8 @@ class ImportXml extends ImportPlugin
             for ($i = 0; $i < $num_tables; ++$i) {
                 $num_rows = count($rows);
                 for ($j = 0; $j < $num_rows; ++$j) {
-                    if (! strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
-                        if (! isset($tables[$i][COL_NAMES])) {
+                    if (!strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
+                        if (!isset($tables[$i][COL_NAMES])) {
                             $tables[$i][] = $rows[$j][COL_NAMES];
                         }
 
@@ -296,7 +309,7 @@ class ImportXml extends ImportPlugin
 
             unset($rows);
 
-            if (! $struct_present) {
+            if (!$struct_present) {
                 $analyses = array();
 
                 $len = count($tables);
@@ -318,9 +331,9 @@ class ImportXml extends ImportPlugin
              * Set values to NULL if they were not present
              * to maintain PMA_buildSQL() call integrity
              */
-            if (! isset($analyses)) {
+            if (!isset($analyses)) {
                 $analyses = null;
-                if (! $struct_present) {
+                if (!$struct_present) {
                     $create = null;
                 }
             }

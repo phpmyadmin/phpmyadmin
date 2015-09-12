@@ -1,15 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains Relation_Stats_Eps class
+ * Contains PMA\libraries\plugins\schema\eps\RelationStatsEps class
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema\eps;
+
+use PMA\libraries\plugins\schema\RelationStats;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/plugins/schema/RelationStats.class.php';
 
 /**
  * Relation preferences/statistics
@@ -23,10 +25,10 @@ require_once 'libraries/plugins/schema/RelationStats.class.php';
  * @name    Relation_Stats_Eps
  * @see     PMA_EPS
  */
-class Relation_Stats_Eps extends RelationStats
+class RelationStatsEps extends RelationStats
 {
     /**
-     * The "Relation_Stats_Eps" constructor
+     * The "PMA\libraries\plugins\schema\eps\RelationStatsEps" constructor
      *
      * @param object $diagram       The EPS diagram
      * @param string $master_table  The master table name

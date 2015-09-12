@@ -5,7 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema;
+
+use PMA;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -24,18 +28,14 @@ abstract class TableStats
     protected $db;
     protected $pageNumber;
     protected $tableName;
-
     protected $showKeys;
     protected $tableDimension;
-
     public $displayfield;
     public $fields = array();
     public $primary = array();
     public $x, $y;
-
     public $width = 0;
     public $heightCell = 0;
-
     protected $offline;
 
     /**

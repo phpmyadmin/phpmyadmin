@@ -1,15 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains Table_Stats_Dia class
+ * Contains PMA\libraries\plugins\schema\dia\TableStatsDia class
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema\dia;
+
+use PMA\libraries\plugins\schema\ExportRelationSchema;
+use PMA\libraries\plugins\schema\TableStats;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/plugins/schema/TableStats.class.php';
 
 /**
  * Table preferences/statistics
@@ -21,13 +24,13 @@ require_once 'libraries/plugins/schema/TableStats.class.php';
  * @name    Table_Stats_Dia
  * @see     PMA_DIA
  */
-class Table_Stats_Dia extends TableStats
+class TableStatsDia extends TableStats
 {
     public $tableId;
     public $tableColor;
 
     /**
-     * The "Table_Stats_Dia" constructor
+     * The "PMA\libraries\plugins\schema\dia\TableStatsDia" constructor
      *
      * @param object  $diagram    The current dia document
      * @param string  $db         The database name
@@ -38,18 +41,29 @@ class Table_Stats_Dia extends TableStats
      * @param boolean $offline    Whether the coordinates are sent from the browser
      */
     public function __construct(
-        $diagram, $db, $tableName, $pageNumber, $showKeys = false, $offline = false
+        $diagram,
+        $db,
+        $tableName,
+        $pageNumber,
+        $showKeys = false,
+        $offline = false
     ) {
         parent::__construct(
-            $diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline
+            $diagram,
+            $db,
+            $pageNumber,
+            $tableName,
+            $showKeys,
+            false,
+            $offline
         );
 
         /**
          * Every object in Dia document needs an ID to identify
          * so, we used a static variable to keep the things unique
-        */
-        PMA_Dia_Relation_Schema::$objectId += 1;
-        $this->tableId = PMA_Dia_Relation_Schema::$objectId;
+         */
+        DiaRelationSchema::$objectId += 1;
+        $this->tableId = DiaRelationSchema::$objectId;
     }
 
     /**
@@ -59,7 +73,7 @@ class Table_Stats_Dia extends TableStats
      */
     protected function showMissingTableError()
     {
-        PMA_Export_Relation_Schema::dieSchema(
+        ExportRelationSchema::dieSchema(
             $this->pageNumber,
             "DIA",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
@@ -76,13 +90,14 @@ class Table_Stats_Dia extends TableStats
      * of displaying Database - Table on Dia Document.
      *
      * @param boolean $showColor Whether to show color for tables text or not
-     * if showColor is true then an array of $listOfColors will be used to choose
-     * the random colors for tables text we can change/add more colors to this array
+     *                           if showColor is true then an array of $listOfColors
+     *                           will be used to choose the random colors for tables
+     *                           text we can change/add more colors to this array
      *
      * @return void
      *
      * @access public
-     * @see PMA_DIA
+     * @see    Dia
      */
     public function tableDraw($showColor)
     {

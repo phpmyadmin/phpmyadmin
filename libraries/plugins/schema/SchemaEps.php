@@ -4,24 +4,29 @@
  * PDF schema export code
  *
  * @package    PhpMyAdmin-Schema
- * @subpackage SVG
+ * @subpackage EPS
  */
-use PMA\libraries\plugins\SchemaPlugin;
+namespace PMA\libraries\plugins\schema;
 
-if (! defined('PHPMYADMIN')) {
+use BoolPropertyItem;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA\libraries\plugins\schema\eps\EpsRelationSchema;
+use PMA\libraries\plugins\SchemaPlugin;
+use SchemaPluginProperties;
+use SelectPropertyItem;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the schema export interface */
-require_once 'libraries/plugins/schema/svg/Svg_Relation_Schema.class.php';
-
 /**
- * Handles the schema export for the SVG format
+ * Handles the schema export for the EPS format
  *
  * @package    PhpMyAdmin-Schema
- * @subpackage SVG
+ * @subpackage EPS
  */
-class SchemaSvg extends SchemaPlugin
+class SchemaEps extends SchemaPlugin
 {
     /**
      * Constructor
@@ -32,7 +37,7 @@ class SchemaSvg extends SchemaPlugin
     }
 
     /**
-     * Sets the schema export SVG properties
+     * Sets the schema export EPS properties
      *
      * @return void
      */
@@ -43,11 +48,12 @@ class SchemaSvg extends SchemaPlugin
         include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
         include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
         include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/SelectPropertyItem.class.php";
 
         $schemaPluginProperties = new SchemaPluginProperties();
-        $schemaPluginProperties->setText('SVG');
-        $schemaPluginProperties->setExtension('svg');
-        $schemaPluginProperties->setMimeType('application/svg');
+        $schemaPluginProperties->setText('EPS');
+        $schemaPluginProperties->setExtension('eps');
+        $schemaPluginProperties->setMimeType('application/eps');
 
         // create the root group that will be the options field for
         // $schemaPluginProperties
@@ -67,6 +73,17 @@ class SchemaSvg extends SchemaPlugin
         $leaf->setText(__('Same width for all tables'));
         $specificOptions->addProperty($leaf);
 
+        $leaf = new SelectPropertyItem();
+        $leaf->setName("orientation");
+        $leaf->setText(__('Orientation'));
+        $leaf->setValues(
+            array(
+                'L' => __('Landscape'),
+                'P' => __('Portrait'),
+            )
+        );
+        $specificOptions->addProperty($leaf);
+
         // add the main group to the root group
         $exportSpecificOptions->addProperty($specificOptions);
 
@@ -76,7 +93,7 @@ class SchemaSvg extends SchemaPlugin
     }
 
     /**
-     * Exports the schema into SVG format.
+     * Exports the schema into EPS format.
      *
      * @param string $db database name
      *
@@ -84,7 +101,7 @@ class SchemaSvg extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Svg_Relation_Schema($db);
+        $export = new EpsRelationSchema($db);
         $export->showOutput();
     }
 }

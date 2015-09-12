@@ -1,15 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains Table_Stats_Pdf class
+ * Contains PMA\libraries\plugins\schema\pdf\TableStatsPdf class
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema\pdf;
+
+use PMA\libraries\plugins\schema\ExportRelationSchema;
+use PMA\libraries\plugins\schema\TableStats;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/plugins/schema/TableStats.class.php';
 
 /**
  * Table preferences/statistics
@@ -21,7 +24,7 @@ require_once 'libraries/plugins/schema/TableStats.class.php';
  * @package PhpMyAdmin
  * @see     PMA_Schema_PDF
  */
-class Table_Stats_Pdf extends TableStats
+class TableStatsPdf extends TableStats
 {
     /**
      * Defines properties
@@ -31,7 +34,7 @@ class Table_Stats_Pdf extends TableStats
     private $_ff = PMA_PDF_FONT;
 
     /**
-     * The "Table_Stats_Pdf" constructor
+     * The "PMA\libraries\plugins\schema\pdf\TableStatsPdf" constructor
      *
      * @param object  $diagram        The PDF diagram
      * @param string  $db             The database name
@@ -46,15 +49,27 @@ class Table_Stats_Pdf extends TableStats
      *                                from the browser
      *
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
-     *     Table_Stats_Pdf::Table_Stats_setHeight
+     *     PMA\libraries\plugins\schema\pdf\TableStatsPdf::Table_Stats_setHeight
      */
     public function __construct(
-        $diagram, $db, $tableName, $fontSize, $pageNumber, &$sameWideWidth,
-        $showKeys = false, $tableDimension = false, $offline = false
+        $diagram,
+        $db,
+        $tableName,
+        $fontSize,
+        $pageNumber,
+        &$sameWideWidth,
+        $showKeys = false,
+        $tableDimension = false,
+        $offline = false
     ) {
         parent::__construct(
-            $diagram, $db, $pageNumber, $tableName,
-            $showKeys, $tableDimension, $offline
+            $diagram,
+            $db,
+            $pageNumber,
+            $tableName,
+            $showKeys,
+            $tableDimension,
+            $offline
         );
 
         $this->heightCell = 6;
@@ -76,7 +91,7 @@ class Table_Stats_Pdf extends TableStats
      */
     protected function showMissingTableError()
     {
-        PMA_Export_Relation_Schema::dieSchema(
+        ExportRelationSchema::dieSchema(
             $this->pageNumber,
             "PDF",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
@@ -95,6 +110,7 @@ class Table_Stats_Pdf extends TableStats
         if ($this->tableDimension) {
             $ret = sprintf('%.0fx%0.f', $this->width, $this->height);
         }
+
         return $ret . ' ' . $this->tableName;
     }
 
@@ -107,7 +123,7 @@ class Table_Stats_Pdf extends TableStats
      *
      * @return void
      *
-     * @see PMA_Schema_PDF
+     * @see    PMA_Schema_PDF
      */
     private function _setWidth($fontSize)
     {
@@ -149,7 +165,7 @@ class Table_Stats_Pdf extends TableStats
      *
      * @return void
      *
-     * @see PMA_Schema_PDF
+     * @see    PMA_Schema_PDF
      */
     public function tableDraw($fontSize, $withDoc, $setColor = 0)
     {
@@ -160,7 +176,10 @@ class Table_Stats_Pdf extends TableStats
             $this->diagram->SetFillColor(0, 0, 128);
         }
         if ($withDoc) {
-            $this->diagram->SetLink($this->diagram->PMA_links['RT'][$this->tableName]['-'], -1);
+            $this->diagram->SetLink(
+                $this->diagram->PMA_links['RT'][$this->tableName]['-'],
+                -1
+            );
         } else {
             $this->diagram->PMA_links['doc'][$this->tableName]['-'] = '';
         }
@@ -190,7 +209,10 @@ class Table_Stats_Pdf extends TableStats
                 }
             }
             if ($withDoc) {
-                $this->diagram->SetLink($this->diagram->PMA_links['RT'][$this->tableName][$field], -1);
+                $this->diagram->SetLink(
+                    $this->diagram->PMA_links['RT'][$this->tableName][$field],
+                    -1
+                );
             } else {
                 $this->diagram->PMA_links['doc'][$this->tableName][$field] = '';
             }

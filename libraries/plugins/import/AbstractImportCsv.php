@@ -6,7 +6,14 @@
  * @package    PhpMyAdmin-Import
  * @subpackage CSV
  */
+namespace PMA\libraries\plugins\import;
+
+use BoolPropertyItem;
+use ImportPluginProperties;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
 use PMA\libraries\plugins\ImportPlugin;
+use TextPropertyItem;
 
 /**
  * Super class of the import plugins for the CSV format

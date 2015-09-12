@@ -1,27 +1,31 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains Table_Stats_Svg class
+ * Contains PMA\libraries\plugins\schema\eps\TableStatsEps class
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema\eps;
+
+use PMA;
+use PMA\libraries\plugins\schema\ExportRelationSchema;
+use PMA\libraries\plugins\schema\TableStats;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/plugins/schema/TableStats.class.php';
 
 /**
  * Table preferences/statistics
  *
  * This class preserves the table co-ordinates,fields
- * and helps in drawing/generating the Tables in SVG XML document.
+ * and helps in drawing/generating the Tables in EPS.
  *
  * @package PhpMyAdmin
- * @name    Table_Stats_Svg
- * @see     PMA_SVG
+ * @name    Table_Stats_Eps
+ * @see     PMA_EPS
  */
-class Table_Stats_Svg extends TableStats
+class TableStatsEps extends TableStats
 {
     /**
      * Defines properties
@@ -30,30 +34,43 @@ class Table_Stats_Svg extends TableStats
     public $currentCell = 0;
 
     /**
-     * The "Table_Stats_Svg" constructor
+     * The "PMA\libraries\plugins\schema\eps\TableStatsEps" constructor
      *
-     * @param object  $diagram          The current SVG image document
+     * @param object  $diagram          The EPS diagram
      * @param string  $db               The database name
      * @param string  $tableName        The table name
-     * @param string  $font             Font face
+     * @param string  $font             The font  name
      * @param integer $fontSize         The font size
      * @param integer $pageNumber       Page number
-     * @param integer &$same_wide_width The max. with among tables
+     * @param integer &$same_wide_width The max width among tables
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $tableDimension   Whether to display table position or not
      * @param boolean $offline          Whether the coordinates are sent
+     *                                  from the browser
      *
-     *
-     * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,
-     *       Table_Stats_Svg::Table_Stats_setHeight
+     * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
+     *      PMA\libraries\plugins\schema\eps\TableStatsEps::Table_Stats_setHeight
      */
     public function __construct(
-        $diagram, $db, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
-        $showKeys = false, $tableDimension = false, $offline = false
+        $diagram,
+        $db,
+        $tableName,
+        $font,
+        $fontSize,
+        $pageNumber,
+        &$same_wide_width,
+        $showKeys = false,
+        $tableDimension = false,
+        $offline = false
     ) {
         parent::__construct(
-            $diagram, $db, $pageNumber, $tableName,
-            $showKeys, $tableDimension, $offline
+            $diagram,
+            $db,
+            $pageNumber,
+            $tableName,
+            $showKeys,
+            $tableDimension,
+            $offline
         );
 
         // height and width
@@ -73,9 +90,9 @@ class Table_Stats_Svg extends TableStats
      */
     protected function showMissingTableError()
     {
-        PMA_Export_Relation_Schema::dieSchema(
+        ExportRelationSchema::dieSchema(
             $this->pageNumber,
-            "SVG",
+            "EPS",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
     }
@@ -83,15 +100,14 @@ class Table_Stats_Svg extends TableStats
     /**
      * Sets the width of the table
      *
-     * @param string  $font     The font size
+     * @param string  $font     The font name
      * @param integer $fontSize The font size
      *
      * @return void
-     * @access private
      *
-     * @see PMA_SVG
+     * @see PMA_EPS
      */
-    private function _setWidthTable($font,$fontSize)
+    private function _setWidthTable($font, $fontSize)
     {
         foreach ($this->fields as $field) {
             $this->width = max(
@@ -99,15 +115,21 @@ class Table_Stats_Svg extends TableStats
                 PMA\libraries\Font::getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += PMA\libraries\Font::getStringWidth('  ', $font, $fontSize);
-
+        $this->width += PMA\libraries\Font::getStringWidth(
+            '      ',
+            $font,
+            $fontSize
+        );
         /*
          * it is unknown what value must be added, because
-         * table title is affected by the table width value
-         */
+        * table title is affected by the table width value
+        */
         while ($this->width
-            < PMA\libraries\Font::getStringWidth($this->getTitle(), $font, $fontSize)
-        ) {
+            < PMA\libraries\Font::getStringWidth(
+                $this->getTitle(),
+                $font,
+                $fontSize
+            )) {
             $this->width += 7;
         }
     }
@@ -115,7 +137,7 @@ class Table_Stats_Svg extends TableStats
     /**
      * Sets the height of the table
      *
-     * @param integer $fontSize font size
+     * @param integer $fontSize The font size
      *
      * @return void
      */
@@ -126,43 +148,38 @@ class Table_Stats_Svg extends TableStats
     }
 
     /**
-     * draw the table
+     * Draw the table
      *
      * @param boolean $showColor Whether to display color
      *
-     * @access public
      * @return void
      *
-     * @see PMA_SVG,PMA_SVG::printElement
+     * @see PMA_EPS,PMA_EPS::line,PMA_EPS::rect
      */
     public function tableDraw($showColor)
     {
-        $this->diagram->printElement(
-            'rect', $this->x, $this->y, $this->width,
-            $this->heightCell, null, 'fill:#007;stroke:black;'
+        //echo $this->tableName.'<br />';
+        $this->diagram->rect(
+            $this->x,
+            $this->y + 12,
+            $this->width,
+            $this->heightCell,
+            1
         );
-        $this->diagram->printElement(
-            'text', $this->x + 5, $this->y+ 14, $this->width, $this->heightCell,
-            $this->getTitle(), 'fill:#fff;'
-        );
+        $this->diagram->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
-            $fillColor    = 'none';
-            if ($showColor) {
-                if (in_array($field, $this->primary)) {
-                    $fillColor = '#aea';
-                }
-                if ($field == $this->displayfield) {
-                    $fillColor = 'none';
-                }
-            }
-            $this->diagram->printElement(
-                'rect', $this->x, $this->y + $this->currentCell, $this->width,
-                $this->heightCell, null, 'fill:' . $fillColor . ';stroke:black;'
+            $this->diagram->rect(
+                $this->x,
+                $this->y + 12 + $this->currentCell,
+                $this->width,
+                $this->heightCell,
+                1
             );
-            $this->diagram->printElement(
-                'text', $this->x + 5, $this->y + 14 + $this->currentCell,
-                $this->width, $this->heightCell, $field, 'fill:black;'
+            $this->diagram->showXY(
+                $field,
+                $this->x + 5,
+                $this->y + 14 + $this->currentCell
             );
         }
     }

@@ -6,9 +6,18 @@
  * @package    PhpMyAdmin-Import
  * @subpackage SQL
  */
-use PMA\libraries\plugins\ImportPlugin;
+namespace PMA\libraries\plugins\import;
 
-if (! defined('PHPMYADMIN')) {
+use BoolPropertyItem;
+use ImportPluginProperties;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA;
+use PMA\libraries\plugins\ImportPlugin;
+use SelectPropertyItem;
+use SqlParser;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -20,7 +29,6 @@ if (! defined('PHPMYADMIN')) {
  */
 class ImportSql extends ImportPlugin
 {
-
     /**
      * Constructor
      */
@@ -86,7 +94,7 @@ class ImportSql extends ImportPlugin
                 array(
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',
-                    'sqlmode_no_auto_value_on_zero'
+                    'sqlmode_no_auto_value_on_zero',
                 )
             );
             $generalOptions->addProperty($leaf);
@@ -121,7 +129,8 @@ class ImportSql extends ImportPlugin
 
         /**
          * Will be set in PMA_importGetNextChunk().
-         * @global bool $GLOBALS['finished']
+         *
+         * @global bool $GLOBALS ['finished']
          */
         $GLOBALS['finished'] = false;
 
@@ -176,7 +185,7 @@ class ImportSql extends ImportPlugin
      * Handle compatibility options
      *
      * @param PMA\libraries\DatabaseInterface $dbi     Database interface
-     * @param array                 $request Request array
+     * @param array                           $request Request array
      *
      * @return void
      */

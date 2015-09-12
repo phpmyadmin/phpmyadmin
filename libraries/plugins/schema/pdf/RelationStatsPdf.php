@@ -1,15 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains Relation_Stats_Pdf class
+ * Contains PMA\libraries\plugins\schema\pdf\RelationStatsPdf class
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema\pdf;
+
+use PMA\libraries\plugins\schema\RelationStats;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/plugins/schema/RelationStats.class.php';
 
 /**
  * Relation preferences/statistics
@@ -22,12 +24,12 @@ require_once 'libraries/plugins/schema/RelationStats.class.php';
  * @name    Relation_Stats_Pdf
  * @package PhpMyAdmin
  * @see     PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::setLineWidthScale,
- *          PMA_Schema_PDF::lineScale
+ *          Pdf::lineScale
  */
-class Relation_Stats_Pdf extends RelationStats
+class RelationStatsPdf extends RelationStats
 {
     /**
-     * The "Relation_Stats_Pdf" constructor
+     * The "PMA\libraries\plugins\schema\pdf\RelationStatsPdf" constructor
      *
      * @param object $diagram       The PDF diagram
      * @param string $master_table  The master table name
@@ -55,7 +57,7 @@ class Relation_Stats_Pdf extends RelationStats
      *
      * @return void
      *
-     * @see PMA_Schema_PDF
+     * @see    Pdf
      */
     public function relationDraw($showColor, $i)
     {

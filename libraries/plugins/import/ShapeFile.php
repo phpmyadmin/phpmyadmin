@@ -7,20 +7,23 @@
  * @package    PhpMyAdmin-Import
  * @subpackage ESRI_Shape
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\import;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
  * 1) To load data from .dbf file only when the dBase extension is available.
  * 2) To use PMA_importGetNextChunk() functionality to read data, rather than
- *    reading directly from a file. Using ImportShp::readFromBuffer() in place
- *    of fread(). This makes it possible to use compressions.
+ *    reading directly from a file. Using
+ *    PMA\libraries\plugins\import\ImportShp::readFromBuffer() in place of fread().
+ *    This makes it possible to use compressions.
  *
  * @package    PhpMyAdmin-Import
  * @subpackage ESRI_Shape
  */
-class PMA_ShapeFile extends ShapeFile
+class ShapeFile extends \ShapeFile
 {
     /**
      * Returns whether the 'dbase' extension is loaded
@@ -86,7 +89,7 @@ class PMA_ShapeFile extends ShapeFile
         global $eof;
         ImportShp::readFromBuffer(32);
         while (true) {
-            $record = new PMA_ShapeRecord(-1);
+            $record = new ShapeRecord(-1);
             $record->loadFromFile($this->SHPFile, $this->DBFFile);
             if ($record->lastError != "") {
                 return false;

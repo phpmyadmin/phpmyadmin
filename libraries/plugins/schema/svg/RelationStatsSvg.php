@@ -1,15 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains Relation_Stats_Svg class
+ * Contains PMA\libraries\plugins\schema\svg\RelationStatsSvg class
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema\svg;
+
+use PMA\libraries\plugins\schema\RelationStats;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/plugins/schema/RelationStats.class.php';
 
 /**
  * Relation preferences/statistics
@@ -23,10 +25,10 @@ require_once 'libraries/plugins/schema/RelationStats.class.php';
  * @name    Relation_Stats_Svg
  * @see     PMA_SVG::printElementLine
  */
-class Relation_Stats_Svg extends RelationStats
+class RelationStatsSvg extends RelationStats
 {
     /**
-     * The "Relation_Stats_Svg" constructor
+     * The "PMA\libraries\plugins\schema\svg\RelationStatsSvg" constructor
      *
      * @param object $diagram       The SVG diagram
      * @param string $master_table  The master table name
@@ -35,11 +37,19 @@ class Relation_Stats_Svg extends RelationStats
      * @param string $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram, $master_table, $master_field, $foreign_table, $foreign_field
+        $diagram,
+        $master_table,
+        $master_field,
+        $foreign_table,
+        $foreign_field
     ) {
         $this->wTick = 10;
         parent::__construct(
-            $diagram, $master_table, $master_field, $foreign_table, $foreign_field
+            $diagram,
+            $master_table,
+            $master_field,
+            $foreign_table,
+            $foreign_field
         );
     }
 
@@ -51,7 +61,7 @@ class Relation_Stats_Svg extends RelationStats
      * @return void
      * @access public
      *
-     * @see PMA_SVG
+     * @see    PMA_SVG
      */
     public function relationDraw($showColor)
     {
@@ -63,50 +73,67 @@ class Relation_Stats_Svg extends RelationStats
                 '#cb0',
                 '#0b0',
                 '#0bf',
-                '#b0b'
+                '#b0b',
             );
             shuffle($listOfColors);
-            $color =  $listOfColors[0];
+            $color = $listOfColors[0];
         } else {
             $color = '#333';
         }
 
         $this->diagram->printElementLine(
-            'line', $this->xSrc, $this->ySrc,
-            $this->xSrc + $this->srcDir * $this->wTick, $this->ySrc,
+            'line',
+            $this->xSrc,
+            $this->ySrc,
+            $this->xSrc + $this->srcDir * $this->wTick,
+            $this->ySrc,
             'stroke:' . $color . ';stroke-width:1;'
         );
         $this->diagram->printElementLine(
-            'line', $this->xDest + $this->destDir * $this->wTick,
-            $this->yDest, $this->xDest, $this->yDest,
+            'line',
+            $this->xDest + $this->destDir * $this->wTick,
+            $this->yDest,
+            $this->xDest,
+            $this->yDest,
             'stroke:' . $color . ';stroke-width:1;'
         );
         $this->diagram->printElementLine(
-            'line', $this->xSrc + $this->srcDir * $this->wTick, $this->ySrc,
-            $this->xDest + $this->destDir * $this->wTick, $this->yDest,
+            'line',
+            $this->xSrc + $this->srcDir * $this->wTick,
+            $this->ySrc,
+            $this->xDest + $this->destDir * $this->wTick,
+            $this->yDest,
             'stroke:' . $color . ';stroke-width:1;'
         );
         $root2 = 2 * sqrt(2);
         $this->diagram->printElementLine(
-            'line', $this->xSrc + $this->srcDir * $this->wTick * 0.75, $this->ySrc,
+            'line',
+            $this->xSrc + $this->srcDir * $this->wTick * 0.75,
+            $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc + $this->wTick / $root2,
             'stroke:' . $color . ';stroke-width:2;'
         );
         $this->diagram->printElementLine(
-            'line', $this->xSrc + $this->srcDir * $this->wTick * 0.75, $this->ySrc,
+            'line',
+            $this->xSrc + $this->srcDir * $this->wTick * 0.75,
+            $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc - $this->wTick / $root2,
             'stroke:' . $color . ';stroke-width:2;'
         );
         $this->diagram->printElementLine(
-            'line', $this->xDest + $this->destDir * $this->wTick / 2, $this->yDest,
+            'line',
+            $this->xDest + $this->destDir * $this->wTick / 2,
+            $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest + $this->wTick / $root2,
             'stroke:' . $color . ';stroke-width:2;'
         );
         $this->diagram->printElementLine(
-            'line', $this->xDest + $this->destDir * $this->wTick / 2, $this->yDest,
+            'line',
+            $this->xDest + $this->destDir * $this->wTick / 2,
+            $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest - $this->wTick / $root2,
             'stroke:' . $color . ';stroke-width:2;'

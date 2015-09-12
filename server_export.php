@@ -43,7 +43,7 @@ if (! isset($num_tables)) {
 if (! isset($unlim_num_rows)) {
     $unlim_num_rows = 0;
 }
-$response = PMA_Response::getInstance();
+$response = Response::getInstance();
 $response->addHTML(
     PMA_getExportDisplay(
         'server', $db, $table, $sql_query, $num_tables,

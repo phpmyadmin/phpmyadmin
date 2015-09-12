@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for ImportLdi class
+ * Tests for PMA\libraries\plugins\import\ImportLdi class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,26 +9,22 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
+use PMA\libraries\plugins\import\ImportLdi;
+
 $GLOBALS['server'] = 0;
 $GLOBALS['plugin_param'] = "table";
 
 /*
  * Include to test.
  */
-
-
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
-require_once 'libraries/plugins/import/ImportLdi.class.php';
-
 
 /**
- * Tests for ImportLdi class
+ * Tests for PMA\libraries\plugins\import\ImportLdi class
  *
  * @package PhpMyAdmin-test
  */

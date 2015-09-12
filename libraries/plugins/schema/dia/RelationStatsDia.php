@@ -1,11 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains Relation_Stats_Dia class
+ * Contains PMA\libraries\plugins\schema\dia\RelationStatsDia class
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\plugins\schema\dia;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -21,7 +23,7 @@ if (! defined('PHPMYADMIN')) {
  * @name    Relation_Stats_Dia
  * @see     PMA_DIA
  */
-class Relation_Stats_Dia
+class RelationStatsDia
 {
     protected $diagram;
     /**
@@ -38,7 +40,7 @@ class Relation_Stats_Dia
     public $referenceColor;
 
     /**
-     * The "Relation_Stats_Dia" constructor
+     * The "PMA\libraries\plugins\schema\dia\RelationStatsDia" constructor
      *
      * @param object $diagram       The DIA diagram
      * @param string $master_table  The master table name
@@ -99,17 +101,19 @@ class Relation_Stats_Dia
      * in the combination of displaying Database - reference on Dia Document.
      *
      * @param boolean $showColor Whether to use one color per relation or not
-     * if showColor is true then an array of $listOfColors will be used to choose
-     * the random colors for references lines. we can change/add more colors to this
+     *                           if showColor is true then an array of $listOfColors
+     *                           will be used to choose the random colors for
+     *                           references lines. we can change/add more colors to
+     *                           this
      *
      * @return boolean|void
      *
      * @access public
-     * @see PDF
+     * @see    PDF
      */
     public function relationDraw($showColor)
     {
-        PMA_Dia_Relation_Schema::$objectId += 1;
+        DiaRelationSchema::$objectId += 1;
         /*
          * if source connection points and destination connection
         * points are same then return it false and don't draw that
@@ -125,17 +129,17 @@ class Relation_Stats_Dia
             $listOfColors = array(
                 'FF0000',
                 '000099',
-                '00FF00'
+                '00FF00',
             );
             shuffle($listOfColors);
-            $this->referenceColor =  '#' . $listOfColors[0] . '';
+            $this->referenceColor = '#' . $listOfColors[0] . '';
         } else {
             $this->referenceColor = '#000000';
         }
 
         $this->diagram->writeRaw(
             '<dia:object type="Database - Reference" version="0" id="'
-            . PMA_Dia_Relation_Schema::$objectId . '">
+            . DiaRelationSchema::$objectId . '">
             <dia:attribute name="obj_pos">
                 <dia:point val="3.27,18.9198"/>
             </dia:attribute>

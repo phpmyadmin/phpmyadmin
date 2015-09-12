@@ -3,22 +3,31 @@
 /**
  * OpenDocument Spreadsheet import plugin for phpMyAdmin
  *
- * @todo    Pretty much everything
- * @todo    Importing of accented characters seems to fail
+ * @todo       Pretty much everything
+ * @todo       Importing of accented characters seems to fail
  * @package    PhpMyAdmin-Import
  * @subpackage ODS
  */
-use PMA\libraries\plugins\ImportPlugin;
+namespace PMA\libraries\plugins\import;
 
-if (! defined('PHPMYADMIN')) {
+use BoolPropertyItem;
+use ImportPluginProperties;
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA;
+use PMA\libraries\plugins\ImportPlugin;
+use SimpleXMLElement;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
  * We need way to disable external XML entities processing.
  */
-if (! function_exists('libxml_disable_entity_loader')) {
+if (!function_exists('libxml_disable_entity_loader')) {
     $GLOBALS['skip_import'] = true;
+
     return;
 }
 
@@ -119,7 +128,7 @@ class ImportOds extends ImportPlugin
          * Read in the file via PMA_importGetNextChunk so that
          * it can process compressed files
          */
-        while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
+        while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             $data = PMA_importGetNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
@@ -209,12 +218,12 @@ class ImportOds extends ImportPlugin
 
                     if (count($text) != 0) {
                         $attr = $cell->attributes('table', true);
-                        $num_repeat = (int) $attr['number-columns-repeated'];
+                        $num_repeat = (int)$attr['number-columns-repeated'];
                         $num_iterations = $num_repeat ? $num_repeat : 1;
 
                         for ($k = 0; $k < $num_iterations; $k++) {
                             $value = $this->getValue($cell_attrs, $text);
-                            if (! $col_names_in_first_row) {
+                            if (!$col_names_in_first_row) {
                                 $tempRow[] = $value;
                             } else {
                                 // MySQL column names can't end with a space
@@ -236,7 +245,7 @@ class ImportOds extends ImportPlugin
                     $num_null = (int)$attr['number-columns-repeated'];
 
                     if ($num_null) {
-                        if (! $col_names_in_first_row) {
+                        if (!$col_names_in_first_row) {
                             for ($i = 0; $i < $num_null; ++$i) {
                                 $tempRow[] = 'NULL';
                                 ++$col_count;
@@ -250,7 +259,7 @@ class ImportOds extends ImportPlugin
                             }
                         }
                     } else {
-                        if (! $col_names_in_first_row) {
+                        if (!$col_names_in_first_row) {
                             $tempRow[] = 'NULL';
                         } else {
                             $col_names[] = PMA_getColumnAlphaName(
@@ -268,7 +277,7 @@ class ImportOds extends ImportPlugin
                 }
 
                 /* Don't include a row that is full of NULL values */
-                if (! $col_names_in_first_row) {
+                if (!$col_names_in_first_row) {
                     if ($_REQUEST['ods_empty_rows']) {
                         foreach ($tempRow as $cell) {
                             if (strcmp('NULL', $cell)) {
@@ -341,7 +350,7 @@ class ImportOds extends ImportPlugin
                     continue;
                 }
 
-                if (! isset($tables[$i][COL_NAMES])) {
+                if (!isset($tables[$i][COL_NAMES])) {
                     $tables[$i][] = $rows[$j][COL_NAMES];
                 }
 
@@ -407,11 +416,13 @@ class ImportOds extends ImportPlugin
             )
         ) {
             $value = (double)$cell_attrs['value'];
+
             return $value;
         } elseif ($_REQUEST['ods_recognize_currency']
             && !strcmp('currency', $cell_attrs['value-type'])
         ) {
             $value = (double)$cell_attrs['value'];
+
             return $value;
         } else {
             /* We need to concatenate all paragraphs */
@@ -420,6 +431,7 @@ class ImportOds extends ImportPlugin
                 $values[] = (string)$paragraph;
             }
             $value = implode("\n", $values);
+
             return $value;
         }
     }

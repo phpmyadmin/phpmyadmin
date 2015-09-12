@@ -1,27 +1,31 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * PDF schema export code
+ * Dia schema export code
  *
  * @package    PhpMyAdmin-Schema
- * @subpackage EPS
+ * @subpackage Dia
  */
-use PMA\libraries\plugins\SchemaPlugin;
+namespace PMA\libraries\plugins\schema;
 
-if (! defined('PHPMYADMIN')) {
+use OptionsPropertyMainGroup;
+use OptionsPropertyRootGroup;
+use PMA\libraries\plugins\SchemaPlugin;
+use PMA\libraries\plugins\schema\dia\DiaRelationSchema;
+use SchemaPluginProperties;
+use SelectPropertyItem;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the schema export interface */
-require_once 'libraries/plugins/schema/eps/Eps_Relation_Schema.class.php';
-
 /**
- * Handles the schema export for the EPS format
+ * Handles the schema export for the Dia format
  *
  * @package    PhpMyAdmin-Schema
- * @subpackage EPS
+ * @subpackage Dia
  */
-class SchemaEps extends SchemaPlugin
+class SchemaDia extends SchemaPlugin
 {
     /**
      * Constructor
@@ -32,7 +36,7 @@ class SchemaEps extends SchemaPlugin
     }
 
     /**
-     * Sets the schema export EPS properties
+     * Sets the schema export Dia properties
      *
      * @return void
      */
@@ -46,9 +50,9 @@ class SchemaEps extends SchemaPlugin
         include_once "$props/options/items/SelectPropertyItem.class.php";
 
         $schemaPluginProperties = new SchemaPluginProperties();
-        $schemaPluginProperties->setText('EPS');
-        $schemaPluginProperties->setExtension('eps');
-        $schemaPluginProperties->setMimeType('application/eps');
+        $schemaPluginProperties->setText('Dia');
+        $schemaPluginProperties->setExtension('dia');
+        $schemaPluginProperties->setMimeType('application/dia');
 
         // create the root group that will be the options field for
         // $schemaPluginProperties
@@ -62,12 +66,6 @@ class SchemaEps extends SchemaPlugin
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 
-        // create leaf items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('all_tables_same_width');
-        $leaf->setText(__('Same width for all tables'));
-        $specificOptions->addProperty($leaf);
-
         $leaf = new SelectPropertyItem();
         $leaf->setName("orientation");
         $leaf->setText(__('Orientation'));
@@ -79,6 +77,12 @@ class SchemaEps extends SchemaPlugin
         );
         $specificOptions->addProperty($leaf);
 
+        $leaf = new SelectPropertyItem();
+        $leaf->setName("paper");
+        $leaf->setText(__('Paper size'));
+        $leaf->setValues($this->_getPaperSizeArray());
+        $specificOptions->addProperty($leaf);
+
         // add the main group to the root group
         $exportSpecificOptions->addProperty($specificOptions);
 
@@ -88,7 +92,22 @@ class SchemaEps extends SchemaPlugin
     }
 
     /**
-     * Exports the schema into EPS format.
+     * Returns the array of paper sizes
+     *
+     * @return array array of paper sizes
+     */
+    private function _getPaperSizeArray()
+    {
+        $ret = array();
+        foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
+            $ret[$val] = $val;
+        }
+
+        return $ret;
+    }
+
+    /**
+     * Exports the schema into DIA format.
      *
      * @param string $db database name
      *
@@ -96,7 +115,7 @@ class SchemaEps extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Eps_Relation_Schema($db);
+        $export = new DiaRelationSchema($db);
         $export->showOutput();
     }
 }
