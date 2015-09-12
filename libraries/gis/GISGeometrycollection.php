@@ -8,7 +8,7 @@
 
 namespace PMA\libraries\gis;
 
-use TCPDF;
+use \TCPDF;
 
 if (!defined('PHPMYADMIN')) {
     exit;
