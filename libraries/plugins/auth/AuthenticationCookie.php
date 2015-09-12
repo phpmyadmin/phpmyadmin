@@ -13,6 +13,7 @@ use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use ReCaptcha\ReCaptcha;
 
 /**
  * Remember where to redirect the user
@@ -354,7 +355,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 if (! empty($_POST["g-recaptcha-response"])) {
 
                     include_once 'libraries/plugins/auth/recaptcha/autoload.php';
-                    $reCaptcha = new \ReCaptcha\ReCaptcha(
+                    $reCaptcha = new ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey']
                     );
 

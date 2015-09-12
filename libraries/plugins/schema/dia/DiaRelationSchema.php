@@ -58,7 +58,7 @@ class DiaRelationSchema extends ExportRelationSchema
      */
     public function __construct($db)
     {
-        parent::__construct($db, new \PMA\libraries\plugins\schema\dia\Dia());
+        parent::__construct($db, new Dia());
 
         $this->setShowColor(isset($_REQUEST['dia_show_color']));
         $this->setShowKeys(isset($_REQUEST['dia_show_keys']));
