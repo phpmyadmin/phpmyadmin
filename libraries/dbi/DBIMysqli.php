@@ -8,7 +8,6 @@
  */
 namespace PMA\libraries\dbi;
 
-use mysqli_result;
 use PMA\libraries\DatabaseInterface;
 
 if (! defined('PHPMYADMIN')) {
