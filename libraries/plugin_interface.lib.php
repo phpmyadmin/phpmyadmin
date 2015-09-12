@@ -191,10 +191,14 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     }
     $ret = '<select id="plugins" name="' . $name . '">';
     $default = PMA_pluginGetDefault($section, $cfgname);
+    $hidden = null;
     foreach ($list as $plugin) {
+        $elem = explode('\\', get_class($plugin));
+        $plugin_name = array_pop($elem);
+        unset($elem);
         $plugin_name = /*overload*/mb_strtolower(
             /*overload*/mb_substr(
-                get_class($plugin),
+                $plugin_name,
                 /*overload*/mb_strlen($section)
             )
         );
@@ -217,30 +221,22 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         $ret .= ' value="' . $plugin_name . '">'
            . PMA_getString($text)
            . '</option>' . "\n";
-    }
-    $ret .= '</select>' . "\n";
 
-    // Whether each plugin has to be saved as a file
-    foreach ($list as $plugin) {
-        $plugin_name = /*overload*/mb_strtolower(
-            /*overload*/mb_substr(
-                get_class($plugin),
-                /*overload*/mb_strlen($section)
-            )
-        );
-        $ret .= '<input type="hidden" id="force_file_' . $plugin_name
+        // Whether each plugin has to be saved as a file
+        $hidden .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
         /** @var ExportPluginProperties|SchemaPluginProperties $properties */
         $properties = $plugin->getProperties();
         if (! strcmp($section, 'Import')
             || ($properties != null && $properties->getForceFile() != null)
         ) {
-            $ret .= 'true';
+            $hidden .= 'true';
         } else {
-            $ret .= 'false';
+            $hidden .= 'false';
         }
-        $ret .= '" />' . "\n";
+        $hidden .= '" />' . "\n";
     }
+    $ret .= '</select>' . "\n" . $hidden;
 
     return $ret;
 }
@@ -521,12 +517,16 @@ function PMA_pluginGetOptions($section, &$list)
             $options = $properties->getOptions();
         }
 
+        $elem = explode('\\', get_class($plugin));
+        $plugin_name = array_pop($elem);
+        unset($elem);
         $plugin_name = /*overload*/mb_strtolower(
             /*overload*/mb_substr(
-                get_class($plugin),
+                $plugin_name,
                 /*overload*/mb_strlen($section)
             )
         );
+
         $ret .= '<div id="' . $plugin_name
             . '_options" class="format_specific_options">';
         $ret .= '<h3>' . PMA_getString($text) . '</h3>';
