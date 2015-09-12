@@ -154,9 +154,8 @@ function PMA_getAvailableMIMEtypes()
 function PMA_getTransformationClassName($filename)
 {
     // get the transformation class name
-    $class_name = explode(".class.php", $filename);
-    $class_name = explode("/", $class_name[0]);
-    $class_name = count($class_name) === 1 ? $class_name[0] : $class_name[1];
+    $class_name = explode(".php", $filename);
+    $class_name = 'PMA\\' . str_replace('/', '\\', $class_name[0]);
 
     return $class_name;
 }

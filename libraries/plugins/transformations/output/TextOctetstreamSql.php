@@ -1,0 +1,44 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Blob SQL Transformations plugin for phpMyAdmin
+ *
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage SQL
+ */
+namespace PMA\libraries\plugins\transformations\output;
+
+use PMA\libraries\plugins\transformations\abs\SQLTransformationsPlugin;
+
+if (!defined('PHPMYADMIN')) {
+    exit;
+}
+
+/**
+ * Handles the sql transformation for blob data
+ *
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage SQL
+ */
+class TextOctetstreamSql extends SQLTransformationsPlugin
+{
+    /**
+     * Gets the plugin`s MIME type
+     *
+     * @return string
+     */
+    public static function getMIMEType()
+    {
+        return "Text";
+    }
+
+    /**
+     * Gets the plugin`s MIME subtype
+     *
+     * @return string
+     */
+    public static function getMIMESubtype()
+    {
+        return "Octetstream";
+    }
+}

@@ -8,19 +8,20 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage [TransformationName]
  */
+namespace PMA\libraries\plugins\transformations;
+
+use PMA\libraries\plugins\transformations\abs\[TransformationName]TransformationsPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the [TransformationName] transformations interface */
-require_once 'abstract/[TransformationName]TransformationsPlugin.class.php';
 
 /**
  * Handles the [TransformationName] transformation for [MIMEType] - [MIMESubtype]
  *
  * @package PhpMyAdmin
  */
-class [MIMEType]_[MIMESubtype]_[TransformationName]
+class [MIMEType][MIMESubtype][TransformationName]
     extends [TransformationName]TransformationsPlugin
 {
     /**

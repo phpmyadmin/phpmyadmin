@@ -2117,7 +2117,7 @@ function PMA_transformEditedValues($db, $table,
         );
         $transform_options['wrapper_link']
             = PMA_URL_getCommon($_url_params);
-        $class_name = PMA_getTransformationClassName($file);
+        $class_name = PMA_getTransformationClassName($include_file);
         /** @var TransformationsPlugin $transformation_plugin */
         $transformation_plugin = new $class_name();
 
@@ -2812,7 +2812,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
         $include_file = 'libraries/plugins/transformations/' . $file;
         if (is_file($include_file)) {
             include_once $include_file;
-            $class_name = PMA_getTransformationClassName($file);
+            $class_name = PMA_getTransformationClassName($include_file);
             $transformation_plugin = new $class_name();
             $transformation_options = PMA_Transformation_getOptions(
                 $column_mime['input_transformation_options']

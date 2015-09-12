@@ -15,20 +15,13 @@ use PMA\libraries\Types;
 use PMA\libraries\TypesMySQL;
 
 require_once 'libraries/insert_edit.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
-
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation.lib.php';
-
 require_once 'libraries/transformations.lib.php';
-
-
 require_once 'libraries/sanitizing.lib.php';
-
 
 /**
  * Tests for libraries/insert_edit.lib.php
@@ -2292,7 +2285,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
         $result = PMA_transformEditedValues(
             'db', 'table', $transformation, $edited_values,
-            'Text_Plain_Preappend.class.php', 'c', array('a' => 'b'),
+            'TextPlainPreApPend.php', 'c', array('a' => 'b'),
             'transformation'
         );
 
@@ -2855,7 +2848,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             md5('col') => 'val'
         );
         $column_mime = array(
-            'input_transformation' => 'input/Image_JPEG_Upload.class.php',
+            'input_transformation' => 'input/ImageJPEGUpload.php',
             'input_transformation_options' => '150'
         );
 

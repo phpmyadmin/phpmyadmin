@@ -214,9 +214,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 . $mime_map[$column_name]['input_transformation'];
             if (is_file($filename)) {
                 include_once $filename;
-                $classname = PMA_getTransformationClassName(
-                    $mime_map[$column_name]['input_transformation']
-                );
+                $classname = PMA_getTransformationClassName($filename);
                 /** @var IOTransformationsPlugin $transformation_plugin */
                 $transformation_plugin = new $classname();
                 $transformation_options = PMA_Transformation_getOptions(

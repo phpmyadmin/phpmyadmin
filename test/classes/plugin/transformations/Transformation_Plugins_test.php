@@ -9,36 +9,26 @@
  * Include to test.
  */
 
+use PMA\libraries\plugins\transformations\input\ImageJPEGUpload;
+use PMA\libraries\plugins\transformations\input\TextPlainRegexValidation;
+use PMA\libraries\plugins\transformations\input\TextPlainFileUpload;
+use PMA\libraries\plugins\transformations\output\ApplicationOctetstreamDownload;
+use PMA\libraries\plugins\transformations\output\ApplicationOctetstreamHex;
+use PMA\libraries\plugins\transformations\output\ImageJPEGInline;
+use PMA\libraries\plugins\transformations\output\ImageJPEGLink;
+use PMA\libraries\plugins\transformations\output\ImagePNGInline;
+use PMA\libraries\plugins\transformations\output\TextPlainDateformat;
+use PMA\libraries\plugins\transformations\output\TextPlainExternal;
+use PMA\libraries\plugins\transformations\output\TextPlainFormatted;
+use PMA\libraries\plugins\transformations\output\TextPlainImagelink;
+use PMA\libraries\plugins\transformations\output\TextPlainSql;
+use PMA\libraries\plugins\transformations\TextPlainLink;
+use PMA\libraries\plugins\transformations\TextPlainLongtoipv4;
+use PMA\libraries\plugins\transformations\TextPlainPreApPend;
+use PMA\libraries\plugins\transformations\TextPlainSubstring;
+
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/plugins/transformations/input/Image_JPEG_Upload.class.php';
-require_once 'libraries/plugins/transformations/input/'
-    . 'Text_Plain_Fileupload.class.php';
-require_once 'libraries/plugins/transformations/input/'
-    . 'Text_Plain_Regexvalidation.class.php';
-require_once 'libraries/plugins/transformations/output/'
-    . 'Application_Octetstream_Download.class.php';
-require_once 'libraries/plugins/transformations/output/'
-    . 'Application_Octetstream_Hex.class.php';
-require_once 'libraries/plugins/transformations/output/Image_JPEG_Inline.class.php';
-
 require_once 'libraries/config.default.php';
-require_once 'libraries/plugins/transformations/output/Image_JPEG_Link.class.php';
-require_once 'libraries/plugins/transformations/output/Image_PNG_Inline.class.php';
-require_once 'libraries/plugins/transformations/output/'
-    . 'Text_Plain_Dateformat.class.php';
-
-require_once 'libraries/plugins/transformations/output/'
-    . 'Text_Plain_External.class.php';
-require_once 'libraries/plugins/transformations/output/'
-    . 'Text_Plain_Formatted.class.php';
-require_once 'libraries/plugins/transformations/output/'
-    . 'Text_Plain_Imagelink.class.php';
-require_once 'libraries/plugins/transformations/output/'
-    . 'Text_Plain_Sql.class.php';
-require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
-require_once 'libraries/plugins/transformations/Text_Plain_Longtoipv4.class.php';
-require_once 'libraries/plugins/transformations/Text_Plain_Preappend.class.php';
-require_once 'libraries/plugins/transformations/Text_Plain_Substring.class.php';
 
 /**
  * Tests for different input/output transformation plugins
@@ -88,36 +78,36 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
     public function multiDataProvider()
     {
         return array(
-            // Test data for Image_JPEG_Upload plugin
+            // Test data for PMA\libraries\plugins\transformations\input\ImageJPEGUpload plugin
             array(
-                new Image_JPEG_Upload(),
+                new ImageJPEGUpload(),
                 'getName',
                 'Image upload'
             ),
             array(
-                new Image_JPEG_Upload(),
+                new ImageJPEGUpload(),
                 'getInfo',
                 'Image upload functionality which also displays a thumbnail.'
                 . ' The options are the width and height of the thumbnail'
                 . ' in pixels. Defaults to 100 X 100.'
             ),
             array(
-                new Image_JPEG_Upload(),
+                new ImageJPEGUpload(),
                 'getMIMEType',
                 'Image'
             ),
             array(
-                new Image_JPEG_Upload(),
+                new ImageJPEGUpload(),
                 'getMIMESubtype',
                 'JPEG'
             ),
             array(
-                new Image_JPEG_Upload(),
+                new ImageJPEGUpload(),
                 'getScripts',
                 array('transformations/image_upload.js')
             ),
             array(
-                new Image_JPEG_Upload(),
+                new ImageJPEGUpload(),
                 'getInputHtml',
                 '<img src="" width="150" height="100" '
                 . 'alt="Image preview here"/><br/><input type="file" '
@@ -135,7 +125,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 )
             ),
             array(
-                new Image_JPEG_Upload(),
+                new ImageJPEGUpload(),
                 'getInputHtml',
                 '<input type="hidden" name="fields_prev2ndtest" '
                 . 'value="736f6d657468696e67"/><input type="hidden" '
@@ -160,33 +150,33 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
             ),
             // Test data for Text_Plain_Fileupload plugin
             array(
-                new Text_Plain_Fileupload(),
+                new TextPlainFileUpload(),
                 'getName',
                 'Text file upload'
             ),
             array(
-                new Text_Plain_Fileupload(),
+                new TextPlainFileUpload(),
                 'getInfo',
                 'File upload functionality for TEXT columns. '
                 . 'It does not have a textarea for input.'
             ),
             array(
-                new Text_Plain_Fileupload(),
+                new TextPlainFileUpload(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Fileupload(),
+                new TextPlainFileUpload(),
                 'getMIMESubtype',
                 'Plain'
             ),
             array(
-                new Text_Plain_Fileupload(),
+                new TextPlainFileUpload(),
                 'getScripts',
                 array()
             ),
             array(
-                new Text_Plain_Fileupload(),
+                new TextPlainFileUpload(),
                 'getInputHtml',
                 '<input type="file" name="fields_uploadtest"/>',
                 array(
@@ -202,7 +192,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 )
             ),
             array(
-                new Text_Plain_Fileupload(),
+                new TextPlainFileUpload(),
                 'getInputHtml',
                 '<input type="hidden" name="fields_prev2ndtest" '
                 . 'value="something"/><input type="hidden" name="fields2ndtest" '
@@ -222,43 +212,43 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
             ),
             // Test data for Text_Plain_Regexvalidation plugin
             array(
-                new Text_Plain_Regexvalidation(),
+                new TextPlainRegexValidation(),
                 'getName',
                 'Regex Validation'
             ),
             array(
-                new Text_Plain_Regexvalidation(),
+                new TextPlainRegexValidation(),
                 'getInfo',
                 'Validates the string using regular expression '
                 . 'and performs insert only if string matches it. '
                 . 'The first option is the Regular Expression.'
             ),
             array(
-                new Text_Plain_Regexvalidation(),
+                new TextPlainRegexValidation(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Regexvalidation(),
+                new TextPlainRegexValidation(),
                 'getMIMESubtype',
                 'Plain'
             ),
             array(
-                new Text_Plain_Regexvalidation(),
+                new TextPlainRegexValidation(),
                 'getInputHtml',
                 '',
                 array(
                     array(), 0, '', array(), '', 'ltr', 0, 0, 0
                 )
             ),
-            // Test data for Application_Octetstream_Download plugin
+            // Test data for PMA\libraries\plugins\transformations\output\ApplicationOctetstreamDownload plugin
             array(
-                new Application_Octetstream_Download(),
+                new ApplicationOctetstreamDownload(),
                 'getName',
                 'Download'
             ),
             array(
-                new Application_Octetstream_Download(),
+                new ApplicationOctetstreamDownload(),
                 'getInfo',
                 'Displays a link to download the binary data of the column. You can'
                 . ' use the first option to specify the filename, or use the second'
@@ -267,116 +257,116 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . ' the empty string.'
             ),
             array(
-                new Application_Octetstream_Download(),
+                new ApplicationOctetstreamDownload(),
                 'getMIMEType',
                 'Application'
             ),
             array(
-                new Application_Octetstream_Download(),
+                new ApplicationOctetstreamDownload(),
                 'getMIMESubtype',
                 'OctetStream'
             ),
-            // Test data for Application_Octetstream_Hex plugin
+            // Test data for PMA\libraries\plugins\transformations\output\ApplicationOctetstreamHex plugin
             array(
-                new Application_Octetstream_Hex(),
+                new ApplicationOctetstreamHex(),
                 'getName',
                 'Hex'
             ),
             array(
-                new Application_Octetstream_Hex(),
+                new ApplicationOctetstreamHex(),
                 'getInfo',
                 'Displays hexadecimal representation of data. Optional first'
                 . ' parameter specifies how often space will be added (defaults'
                 . ' to 2 nibbles).'
             ),
             array(
-                new Application_Octetstream_Hex(),
+                new ApplicationOctetstreamHex(),
                 'getMIMEType',
                 'Application'
             ),
             array(
-                new Application_Octetstream_Hex(),
+                new ApplicationOctetstreamHex(),
                 'getMIMESubtype',
                 'OctetStream'
             ),
-            // Test data for Image_JPEG_Inline plugin
+            // Test data for PMA\libraries\plugins\transformations\output\ImageJPEGInline plugin
             array(
-                new Image_JPEG_Inline(),
+                new ImageJPEGInline(),
                 'getName',
                 'Inline'
             ),
             array(
-                new Image_JPEG_Inline(),
+                new ImageJPEGInline(),
                 'getInfo',
                 'Displays a clickable thumbnail. The options are the maximum width'
                 . ' and height in pixels. The original aspect ratio is preserved.'
             ),
             array(
-                new Image_JPEG_Inline(),
+                new ImageJPEGInline(),
                 'getMIMEType',
                 'Image'
             ),
             array(
-                new Image_JPEG_Inline(),
+                new ImageJPEGInline(),
                 'getMIMESubtype',
                 'JPEG'
             ),
-            // Test data for Image_JPEG_Link plugin
+            // Test data for PMA\libraries\plugins\transformations\output\ImageJPEGLink plugin
             array(
-                new Image_JPEG_Link(),
+                new ImageJPEGLink(),
                 'getName',
                 'ImageLink'
             ),
             array(
-                new Image_JPEG_Link(),
+                new ImageJPEGLink(),
                 'getInfo',
                 'Displays a link to download this image.'
             ),
             array(
-                new Image_JPEG_Link(),
+                new ImageJPEGLink(),
                 'getMIMEType',
                 'Image'
             ),
             array(
-                new Image_JPEG_Link(),
+                new ImageJPEGLink(),
                 'getMIMESubtype',
                 'JPEG'
             ),
             array(
-                new Image_JPEG_Link(),
+                new ImageJPEGLink(),
                 'applyTransformationNoWrap',
                 null
             ),
-            // Test data for Image_PNG_Inline plugin
+            // Test data for PMA\libraries\plugins\transformations\output\ImagePNGInline plugin
             array(
-                new Image_PNG_Inline(),
+                new ImagePNGInline(),
                 'getName',
                 'Inline'
             ),
             array(
-                new Image_PNG_Inline(),
+                new ImagePNGInline(),
                 'getInfo',
                 'Displays a clickable thumbnail. The options are the maximum width'
                 . ' and height in pixels. The original aspect ratio is preserved.'
             ),
             array(
-                new Image_PNG_Inline(),
+                new ImagePNGInline(),
                 'getMIMEType',
                 'Image'
             ),
             array(
-                new Image_PNG_Inline(),
+                new ImagePNGInline(),
                 'getMIMESubtype',
                 'PNG'
             ),
-            // Test data for Text_Plain_Dateformat plugin
+            // Test data for PMA\libraries\plugins\transformations\output\TextPlainDateformat plugin
             array(
-                new Text_Plain_Dateformat(),
+                new TextPlainDateformat(),
                 'getName',
                 'Date Format'
             ),
             array(
-                new Text_Plain_Dateformat(),
+                new TextPlainDateformat(),
                 'getInfo',
                 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp'
                 . ' column as formatted date. The first option is the offset (in'
@@ -389,31 +379,31 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . ' is done using gmdate() function.'
             ),
             array(
-                new Text_Plain_Dateformat(),
+                new TextPlainDateformat(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Dateformat(),
+                new TextPlainDateformat(),
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for Text_Plain_External plugin
+            // Test data for PMA\libraries\plugins\transformations\output\TextPlainExternal plugin
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 'getName',
                 'External'
             ),
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 'getInfo',
                 'LINUX ONLY:'
                 . ' Launches an external application and feeds it the column'
                 . ' data via standard input. Returns the standard output of the'
                 . ' application. The default is Tidy, to pretty-print HTML code.'
                 . ' For security reasons, you have to manually edit the file'
-                . ' libraries/plugins/transformations/output/Text_Plain_External'
-                . '.class.php and list the tools you want to make available.'
+                . ' libraries/plugins/transformations/output/TextPlainExternal'
+                . '.php and list the tools you want to make available.'
                 . ' The first option is then the number of the program you want to'
                 . ' use and the second option is the parameters for the program.'
                 . ' The third option, if set to 1, will convert the output using'
@@ -422,17 +412,17 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . ' one line (Default 1).'
             ),
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 'getMIMESubtype',
                 'Plain'
             ),
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 'applyTransformationNoWrap',
                 true,
                 array(
@@ -440,7 +430,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 )
             ),
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 'applyTransformationNoWrap',
                 true,
                 array(
@@ -452,7 +442,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 )
             ),
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 'applyTransformationNoWrap',
                 true,
                 array(
@@ -464,7 +454,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 )
             ),
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 'applyTransformationNoWrap',
                 false,
                 array(
@@ -476,37 +466,37 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             ),
-            // Test data for Text_Plain_Formatted plugin
+            // Test data for PMA\libraries\plugins\transformations\output\TextPlainFormatted plugin
             array(
-                new Text_Plain_Formatted(),
+                new TextPlainFormatted(),
                 'getName',
                 'Formatted'
             ),
             array(
-                new Text_Plain_Formatted(),
+                new TextPlainFormatted(),
                 'getInfo',
                 'Displays the contents of the column as-is, without running it'
                 . ' through htmlspecialchars(). That is, the column is assumed'
                 . ' to contain valid HTML.'
             ),
             array(
-                new Text_Plain_Formatted(),
+                new TextPlainFormatted(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Formatted(),
+                new TextPlainFormatted(),
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for Text_Plain_Imagelink plugin
+            // Test data for PMA\libraries\plugins\transformations\output\TextPlainImagelink plugin
             array(
-                new Text_Plain_Imagelink(),
+                new TextPlainImagelink(),
                 'getName',
                 'Image Link'
             ),
             array(
-                new Text_Plain_Imagelink(),
+                new TextPlainImagelink(),
                 'getInfo',
                 'Displays an image and a link; '
                 . 'the column contains the filename. The first option'
@@ -515,112 +505,112 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . ' are the width and the height in pixels.'
             ),
             array(
-                new Text_Plain_Imagelink(),
+                new TextPlainImagelink(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Imagelink(),
+                new TextPlainImagelink(),
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for Text_Plain_Sql plugin
+            // Test data for PMA\libraries\plugins\transformations\output\TextPlainSql plugin
             array(
-                new Text_Plain_Sql(),
+                new TextPlainSql(),
                 'getName',
                 'SQL'
             ),
             array(
-                new Text_Plain_Sql(),
+                new TextPlainSql(),
                 'getInfo',
                 'Formats text as SQL query with syntax highlighting.'
             ),
             array(
-                new Text_Plain_Sql(),
+                new TextPlainSql(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Sql(),
+                new TextPlainSql(),
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for Text_Plain_Link plugin
+            // Test data for PMA\libraries\plugins\transformations\TextPlainLink plugin
             array(
-                new Text_Plain_Link(),
+                new TextPlainLink(),
                 'getName',
                 'TextLink'
             ),
             array(
-                new Text_Plain_Link(),
+                new TextPlainLink(),
                 'getInfo',
                 'Displays a link; the column contains the filename. The first option'
                 . ' is a URL prefix like "http://www.example.com/".'
                 . ' The second option is a title for the link.'
             ),
             array(
-                new Text_Plain_Link(),
+                new TextPlainLink(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Link(),
+                new TextPlainLink(),
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for Text_Plain_Longtoipv4 plugin
+            // Test data for PMA\libraries\plugins\transformations\TextPlainLongtoipv4 plugin
             array(
-                new Text_Plain_Longtoipv4(),
+                new TextPlainLongtoipv4(),
                 'getName',
                 'Long To IPv4'
             ),
             array(
-                new Text_Plain_Longtoipv4(),
+                new TextPlainLongtoipv4(),
                 'getInfo',
                 'Converts an (IPv4) Internet network address stored as a BIGINT'
                 . ' into a string in Internet standard dotted format.'
             ),
             array(
-                new Text_Plain_Longtoipv4(),
+                new TextPlainLongtoipv4(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Longtoipv4(),
+                new TextPlainLongtoipv4(),
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for Text_Plain_Preappend plugin
+            // Test data for TextPlainPreApPend plugin
             array(
-                new Text_Plain_Preappend(),
+                new TextPlainPreApPend(),
                 'getName',
                 'PreApPend'
             ),
             array(
-                new Text_Plain_Preappend(),
+                new TextPlainPreApPend(),
                 'getInfo',
                 'Prepends and/or Appends text to a string. First option is text'
                 . ' to be prepended, second is appended (enclosed in single'
                 . ' quotes, default empty string).'
             ),
             array(
-                new Text_Plain_Preappend(),
+                new TextPlainPreApPend(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Preappend(),
+                new TextPlainPreApPend(),
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for Text_Plain_Substring plugin
+            // Test data for PMA\libraries\plugins\transformations\TextPlainSubstring plugin
             array(
-                new Text_Plain_Substring(),
+                new TextPlainSubstring(),
                 'getName',
                 'Substring'
             ),
             array(
-                new Text_Plain_Substring(),
+                new TextPlainSubstring(),
                 'getInfo',
                 'Displays a part of a string. The first option is the number '
                 . 'of characters to skip from the beginning of the string '
@@ -630,17 +620,17 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . '(Default: "…").'
             ),
             array(
-                new Text_Plain_Substring(),
+                new TextPlainSubstring(),
                 'getMIMEType',
                 'Text'
             ),
             array(
-                new Text_Plain_Substring(),
+                new TextPlainSubstring(),
                 'getMIMESubtype',
                 'Plain'
             ),
             array(
-                new Text_Plain_Substring(),
+                new TextPlainSubstring(),
                 'getOptions',
                 array('foo', 'bar', 'baz'),
                 array(
@@ -649,7 +639,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 )
             ),
             array(
-                new Text_Plain_Substring(),
+                new TextPlainSubstring(),
                 'getOptions',
                 array('foo', 'bar', 'baz'),
                 array(
@@ -658,7 +648,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 )
             ),
             array(
-                new Text_Plain_Substring(),
+                new TextPlainSubstring(),
                 'getOptions',
                 array('foo', 'bar', 'baz'),
                 array(
@@ -703,7 +693,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                new Image_JPEG_Upload(),
+                new ImageJPEGUpload(),
                 array(
                     'test',
                     array(150, 100)
@@ -711,7 +701,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 'test'
             ),
             array(
-                new Text_Plain_Fileupload(),
+                new TextPlainFileUpload(),
                 array(
                     'test',
                     array()
@@ -719,7 +709,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 'test'
             ),
             array(
-                new Text_Plain_Regexvalidation(),
+                new TextPlainRegexValidation(),
                 array(
                     'phpMyAdmin',
                     array('/php/i')
@@ -729,7 +719,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 ''
             ),
             array(
-                new Text_Plain_Regexvalidation(),
+                new TextPlainRegexValidation(),
                 array(
                     'qwerty',
                     array('/^a/')
@@ -739,7 +729,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 'Validation failed for the input string qwerty.'
             ),
             array(
-                new Application_Octetstream_Download(),
+                new ApplicationOctetstreamDownload(),
                 array(
                     'PMA_BUFFER',
                     array("filename", 'wrapper_link'=>'PMA_wrapper_link')
@@ -749,7 +739,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'title="filename" class="disableAjax">filename</a>'
             ),
             array(
-                new Application_Octetstream_Download(),
+                new ApplicationOctetstreamDownload(),
                 array(
                     'PMA_BUFFER',
                     array("", 'cloumn', 'wrapper_link'=>'PMA_wrapper_link')
@@ -759,7 +749,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'title="binary_file.dat" class="disableAjax">binary_file.dat</a>'
             ),
             array(
-                new Application_Octetstream_Hex(),
+                new ApplicationOctetstreamHex(),
                 array(
                     '11111001',
                     array(3)
@@ -767,7 +757,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 '313 131 313 130 303 1 '
             ),
             array(
-                new Application_Octetstream_Hex(),
+                new ApplicationOctetstreamHex(),
                 array(
                     '11111001',
                     array(0)
@@ -775,7 +765,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 '3131313131303031'
             ),
             array(
-                new Application_Octetstream_Hex(),
+                new ApplicationOctetstreamHex(),
                 array(
                     '11111001',
                     array()
@@ -783,7 +773,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 '31 31 31 31 31 30 30 31 '
             ),
             array(
-                new Image_JPEG_Inline(),
+                new ImageJPEGInline(),
                 array(
                     'PMA_JPEG_Inline',
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
@@ -794,7 +784,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'newHeight=200" alt="PMA_JPEG_Inline" border="0" /></a>'
             ),
             array(
-                new Image_JPEG_Link(),
+                new ImageJPEGLink(),
                 array(
                     'PMA_IMAGE_LINK',
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
@@ -804,7 +794,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . ' alt="PMA_IMAGE_LINK">[BLOB]</a>'
             ),
             array(
-                new Image_PNG_Inline(),
+                new ImagePNGInline(),
                 array(
                     'PMA_PNG_Inline',
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
@@ -816,7 +806,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'alt="PMA_PNG_Inline" border="0" /></a>'
             ),
             array(
-                new Text_Plain_Dateformat(),
+                new TextPlainDateformat(),
                 array(
                     12345,
                     array(0),
@@ -828,7 +818,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'Jan 01, 1970 at 03:25 AM</dfn>'
             ),
             array(
-                new Text_Plain_Dateformat(),
+                new TextPlainDateformat(),
                 array(
                     12345678,
                     array(0),
@@ -840,7 +830,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'May 23, 1970 at 09:21 PM</dfn>'
             ),
             array(
-                new Text_Plain_Dateformat(),
+                new TextPlainDateformat(),
                 array(
                     123456789,
                     array(0),
@@ -852,7 +842,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'Nov 29, 1973 at 09:33 PM</dfn>'
             ),
             array(
-                new Text_Plain_Dateformat(),
+                new TextPlainDateformat(),
                 array(
                     '20100201',
                     array(0),
@@ -864,7 +854,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'Feb 01, 2010 at 12:00 AM</dfn>'
             ),
             array(
-                new Text_Plain_External(),
+                new TextPlainExternal(),
                 array(
                     'PMA_BUFFER',
                     array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q")
@@ -872,7 +862,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 'PMA_BUFFER'
             ),
             array(
-                new Text_Plain_Formatted(),
+                new TextPlainFormatted(),
                 array(
                     "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>",
                     array("option1", "option2")
@@ -880,7 +870,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>"
             ),
             array(
-                new Text_Plain_Imagelink(),
+                new TextPlainImagelink(),
                 array(
                     'PMA_IMAGE',
                     array("./image/", "200")
@@ -890,7 +880,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . 'height="50" />PMA_IMAGE</a>'
             ),
             array(
-                new Text_Plain_Sql(),
+                new TextPlainSql(),
                 array(
                     'select *',
                     array("option1", "option2")
@@ -900,7 +890,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . '</pre></code>'
             ),
             array(
-                new Text_Plain_Link(),
+                new TextPlainLink(),
                 array(
                     'PMA_TXT_LINK',
                     array("./php/", "text_name")
@@ -909,7 +899,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 . ' title="text_name" target="_new">text_name</a>'
             ),
             array(
-                new Text_Plain_Longtoipv4(),
+                new TextPlainLongtoipv4(),
                 array(
                     42949672,
                     array("option1", "option2")
@@ -917,7 +907,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 '2.143.92.40'
             ),
             array(
-                new Text_Plain_Longtoipv4(),
+                new TextPlainLongtoipv4(),
                 array(
                     4294967295,
                     array("option1", "option2")
@@ -925,7 +915,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 '255.255.255.255'
             ),
             array(
-                new Text_Plain_Preappend(),
+                new TextPlainPreApPend(),
                 array(
                     'My',
                     array('php', 'Admin')
@@ -933,7 +923,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 'phpMyAdmin'
             ),
             array(
-                new Text_Plain_Substring(),
+                new TextPlainSubstring(),
                 array(
                     'PMA_BUFFER',
                     array(1, 3, 'suffix')
