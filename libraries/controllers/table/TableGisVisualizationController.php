@@ -12,12 +12,10 @@ namespace PMA\libraries\controllers\table;
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
-use PMA_GIS_Visualization;
+use PMA\libraries\gis\GISVisualization;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';
-require_once 'libraries/gis/GIS_Visualization.class.php';
-require_once 'libraries/gis/GIS_Factory.class.php';
 
 /**
  * Class TableGisVisualizationController
@@ -43,7 +41,7 @@ class TableGisVisualizationController extends TableController
     protected $visualizationSettings;
 
     /**
-     * @var PMA_GIS_Visualization $visualization
+     * @var \PMA\libraries\gis\GISVisualization $visualization
      */
     protected $visualization;
 
@@ -145,7 +143,7 @@ class TableGisVisualizationController extends TableController
                 $rows = $GLOBALS['cfg']['MaxRows'];
             }
         }
-        $this->visualization = PMA_GIS_Visualization::get(
+        $this->visualization = GISVisualization::get(
             $this->sql_query,
             $this->visualizationSettings,
             $rows,

@@ -6,7 +6,11 @@
  * @package PhpMyAdmin-GIS
  */
 
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\gis;
+
+use PMA;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -15,14 +19,14 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-GIS
  */
-class PMA_GIS_Factory
+class GISFactory
 {
     /**
      * Returns the singleton instance of geometric class of the given type.
      *
      * @param string $type type of the geometric object
      *
-     * @return PMA_GIS_Geometry the singleton instance of geometric class
+     * @return GISGeometry the singleton instance of geometric class
      *                          of the given type
      *
      * @access public
@@ -30,31 +34,29 @@ class PMA_GIS_Factory
      */
     public static function factory($type)
     {
-        include_once './libraries/gis/GIS_Geometry.class.php';
-
         $type_lower = strtolower($type);
-        $file = './libraries/gis/GIS_' . ucfirst($type_lower) . '.class.php';
-        if (! PMA_isValid($type_lower, PMA\libraries\Util::getGISDatatypes())
-            || ! file_exists($file)
+        $file = './libraries/gis/GIS' . ucfirst($type_lower) . '.php';
+        if (!PMA_isValid($type_lower, PMA\libraries\Util::getGISDatatypes())
+            || !file_exists($file)
         ) {
             return false;
         }
         if (include_once $file) {
-            switch(strtoupper($type)) {
+            switch (strtoupper($type)) {
             case 'MULTIPOLYGON' :
-                return PMA_GIS_Multipolygon::singleton();
+                return GISMultipolygon::singleton();
             case 'POLYGON' :
-                return PMA_GIS_Polygon::singleton();
+                return GISPolygon::singleton();
             case 'MULTIPOINT' :
-                return PMA_GIS_Multipoint::singleton();
+                return GISMultipoint::singleton();
             case 'POINT' :
-                return PMA_GIS_Point::singleton();
+                return GISPoint::singleton();
             case 'MULTILINESTRING' :
-                return PMA_GIS_Multilinestring::singleton();
+                return GISMultilinestring::singleton();
             case 'LINESTRING' :
-                return PMA_GIS_Linestring::singleton();
+                return GISLinestring::singleton();
             case 'GEOMETRYCOLLECTION' :
-                return PMA_GIS_Geometrycollection::singleton();
+                return GISGeometrycollection::singleton();
             default :
                 return false;
             }

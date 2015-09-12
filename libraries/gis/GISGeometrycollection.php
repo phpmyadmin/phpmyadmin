@@ -6,7 +6,11 @@
  * @package PhpMyAdmin-GIS
  */
 
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\gis;
+
+use TCPDF;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -15,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-GIS
  */
-class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
+class GISGeometrycollection extends GISGeometry
 {
     // Hold the singleton instance of the class
     private static $_instance;
@@ -32,7 +36,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     /**
      * Returns the singleton.
      *
-     * @return PMA_GIS_Geometrycollection the singleton
+     * @return GISGeometrycollection the singleton
      * @access public
      */
     public static function singleton()
@@ -58,46 +62,54 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         $min_max = array();
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = /*overload*/mb_substr(
-            $spatial,
-            19,
-            /*overload*/mb_strlen($spatial) - 20
-        );
+        $goem_col
+            = /*overload*/
+            mb_substr(
+                $spatial,
+                19,
+                /*overload*/
+                mb_strlen($spatial) - 20
+            );
 
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = /*overload*/mb_stripos($sub_part, '(');
-            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
+            $type_pos
+                = /*overload*/
+                mb_stripos($sub_part, '(');
+            $type
+                = /*overload*/
+                mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = PMA_GIS_Factory::factory($type);
-            if (! $gis_obj) {
+            $gis_obj = GISFactory::factory($type);
+            if (!$gis_obj) {
                 continue;
             }
             $scale_data = $gis_obj->scaleRow($sub_part);
 
             // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = (float) $scale_data['maxX'];
-            if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
+            $c_maxX = (float)$scale_data['maxX'];
+            if (!isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
                 $min_max['maxX'] = $c_maxX;
             }
 
-            $c_minX = (float) $scale_data['minX'];
-            if (! isset($min_max['minX']) || $c_minX < $min_max['minX']) {
+            $c_minX = (float)$scale_data['minX'];
+            if (!isset($min_max['minX']) || $c_minX < $min_max['minX']) {
                 $min_max['minX'] = $c_minX;
             }
 
-            $c_maxY = (float) $scale_data['maxY'];
-            if (! isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
+            $c_maxY = (float)$scale_data['maxY'];
+            if (!isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
                 $min_max['maxY'] = $c_maxY;
             }
 
-            $c_minY = (float) $scale_data['minY'];
-            if (! isset($min_max['minY']) || $c_minY < $min_max['minY']) {
+            $c_minY = (float)$scale_data['minY'];
+            if (!isset($min_max['minY']) || $c_minY < $min_max['minY']) {
                 $min_max['minY'] = $c_minY;
             }
         }
+
         return $min_max;
     }
 
@@ -116,26 +128,38 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $color, $scale_data, $image)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = /*overload*/mb_substr(
-            $spatial,
-            19,
-            /*overload*/mb_strlen($spatial) - 20
-        );
+        $goem_col
+            = /*overload*/
+            mb_substr(
+                $spatial,
+                19,
+                /*overload*/
+                mb_strlen($spatial) - 20
+            );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = /*overload*/mb_stripos($sub_part, '(');
-            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
+            $type_pos
+                = /*overload*/
+                mb_stripos($sub_part, '(');
+            $type
+                = /*overload*/
+                mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = PMA_GIS_Factory::factory($type);
-            if (! $gis_obj) {
+            $gis_obj = GISFactory::factory($type);
+            if (!$gis_obj) {
                 continue;
             }
             $image = $gis_obj->prepareRowAsPng(
-                $sub_part, $label, $color, $scale_data, $image
+                $sub_part,
+                $label,
+                $color,
+                $scale_data,
+                $image
             );
         }
+
         return $image;
     }
 
@@ -154,26 +178,38 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = /*overload*/mb_substr(
-            $spatial,
-            19,
-            /*overload*/mb_strlen($spatial) - 20
-        );
+        $goem_col
+            = /*overload*/
+            mb_substr(
+                $spatial,
+                19,
+                /*overload*/
+                mb_strlen($spatial) - 20
+            );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = /*overload*/mb_stripos($sub_part, '(');
-            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
+            $type_pos
+                = /*overload*/
+                mb_stripos($sub_part, '(');
+            $type
+                = /*overload*/
+                mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = PMA_GIS_Factory::factory($type);
-            if (! $gis_obj) {
+            $gis_obj = GISFactory::factory($type);
+            if (!$gis_obj) {
                 continue;
             }
             $pdf = $gis_obj->prepareRowAsPdf(
-                $sub_part, $label, $color, $scale_data, $pdf
+                $sub_part,
+                $label,
+                $color,
+                $scale_data,
+                $pdf
             );
         }
+
         return $pdf;
     }
 
@@ -193,26 +229,37 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         $row = '';
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = /*overload*/mb_substr(
-            $spatial,
-            19,
-            /*overload*/mb_strlen($spatial) - 20
-        );
+        $goem_col
+            = /*overload*/
+            mb_substr(
+                $spatial,
+                19,
+                /*overload*/
+                mb_strlen($spatial) - 20
+            );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = /*overload*/mb_stripos($sub_part, '(');
-            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
+            $type_pos
+                = /*overload*/
+                mb_stripos($sub_part, '(');
+            $type
+                = /*overload*/
+                mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = PMA_GIS_Factory::factory($type);
-            if (! $gis_obj) {
+            $gis_obj = GISFactory::factory($type);
+            if (!$gis_obj) {
                 continue;
             }
             $row .= $gis_obj->prepareRowAsSvg(
-                $sub_part, $label, $color, $scale_data
+                $sub_part,
+                $label,
+                $color,
+                $scale_data
             );
         }
+
         return $row;
     }
 
@@ -234,26 +281,38 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         $row = '';
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = /*overload*/mb_substr(
-            $spatial,
-            19,
-            /*overload*/mb_strlen($spatial) - 20
-        );
+        $goem_col
+            = /*overload*/
+            mb_substr(
+                $spatial,
+                19,
+                /*overload*/
+                mb_strlen($spatial) - 20
+            );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = /*overload*/mb_stripos($sub_part, '(');
-            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
+            $type_pos
+                = /*overload*/
+                mb_stripos($sub_part, '(');
+            $type
+                = /*overload*/
+                mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = PMA_GIS_Factory::factory($type);
-            if (! $gis_obj) {
+            $gis_obj = GISFactory::factory($type);
+            if (!$gis_obj) {
                 continue;
             }
             $row .= $gis_obj->prepareRowAsOl(
-                $sub_part, $srid, $label, $color, $scale_data
+                $sub_part,
+                $srid,
+                $label,
+                $color,
+                $scale_data
             );
         }
+
         return $row;
     }
 
@@ -277,16 +336,19 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             } elseif ($char == ')') {
                 $br_count--;
                 if ($br_count == 0) {
-                    $sub_parts[] = /*overload*/mb_substr(
-                        $geom_col,
-                        $start,
-                        ($count + 1 - $start)
-                    );
+                    $sub_parts[]
+                        = /*overload*/
+                        mb_substr(
+                            $geom_col,
+                            $start,
+                            ($count + 1 - $start)
+                        );
                     $start = $count + 2;
                 }
             }
             $count++;
         }
+
         return $sub_parts;
     }
 
@@ -308,17 +370,24 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         for ($i = 0; $i < $geom_count; $i++) {
             if (isset($gis_data[$i]['gis_type'])) {
                 $type = $gis_data[$i]['gis_type'];
-                $gis_obj = PMA_GIS_Factory::factory($type);
-                if (! $gis_obj) {
+                $gis_obj = GISFactory::factory($type);
+                if (!$gis_obj) {
                     continue;
                 }
                 $wkt .= $gis_obj->generateWkt($gis_data, $i, $empty) . ',';
             }
         }
         if (isset($gis_data[0]['gis_type'])) {
-            $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
+            $wkt
+                = /*overload*/
+                mb_substr(
+                    $wkt,
+                    0, /*overload*/
+                    mb_strlen($wkt) - 1
+                );
         }
         $wkt .= ')';
+
         return $wkt;
     }
 
@@ -333,31 +402,39 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     public function generateParams($value)
     {
         $params = array();
-        $data = PMA_GIS_Geometry::generateParams($value);
+        $data = GISGeometry::generateParams($value);
         $params['srid'] = $data['srid'];
         $wkt = $data['wkt'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = /*overload*/mb_substr(
-            $wkt,
-            19,
-            /*overload*/mb_strlen($wkt) - 20
-        );
+        $goem_col
+            = /*overload*/
+            mb_substr(
+                $wkt,
+                19,
+                /*overload*/
+                mb_strlen($wkt) - 20
+            );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
         $params['GEOMETRYCOLLECTION']['geom_count'] = count($sub_parts);
 
         $i = 0;
         foreach ($sub_parts as $sub_part) {
-            $type_pos = /*overload*/mb_stripos($sub_part, '(');
-            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
-            $gis_obj = PMA_GIS_Factory::factory($type);
-            if (! $gis_obj) {
+            $type_pos
+                = /*overload*/
+                mb_stripos($sub_part, '(');
+            $type
+                = /*overload*/
+                mb_substr($sub_part, 0, $type_pos);
+            $gis_obj = GISFactory::factory($type);
+            if (!$gis_obj) {
                 continue;
             }
             $params = array_merge($params, $gis_obj->generateParams($sub_part, $i));
             $i++;
         }
+
         return $params;
     }
 }

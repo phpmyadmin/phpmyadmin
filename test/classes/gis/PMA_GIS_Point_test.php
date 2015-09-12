@@ -1,25 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_GIS_Point
+ * Test for PMA\libraries\gis\GISPoint
  *
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\gis\GISPoint;
+
 require_once 'PMA_GIS_Geom_test.php';
-require_once 'libraries/gis/GIS_Geometry.class.php';
-require_once 'libraries/gis/GIS_Point.class.php';
 require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
- * Tests for PMA_GIS_Point class.
+ * Tests for PMA\libraries\gis\GISPoint class.
  *
  * @package PhpMyAdmin-test
  */
 class PMA_GIS_PointTest extends PMA_GIS_GeomTest
 {
     /**
-     * @var    PMA_GIS_Point
+     * @var    GISPoint
      * @access protected
      */
     protected $object;
@@ -33,7 +33,7 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
      */
     protected function setUp()
     {
-        $this->object = PMA_GIS_Point::singleton();
+        $this->object = GISPoint::singleton();
     }
 
     /**

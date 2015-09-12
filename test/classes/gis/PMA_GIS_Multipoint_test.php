@@ -1,25 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_GIS_Multipoint
+ * Test for PMA\libraries\gis\GISMultipoint
  *
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\gis\GISMultipoint;
+
 require_once 'PMA_GIS_Geom_test.php';
-require_once 'libraries/gis/GIS_Geometry.class.php';
-require_once 'libraries/gis/GIS_Multipoint.class.php';
 require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
- * Tests for PMA_GIS_Multipoint class
+ * Tests for PMA\libraries\gis\GISMultipoint class
  *
  * @package PhpMyAdmin-test
  */
 class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
 {
     /**
-     * @var    PMA_GIS_Multipoint
+     * @var    GISMultipoint
      * @access protected
      */
     protected $object;
@@ -33,7 +33,7 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
      */
     protected function setUp()
     {
-        $this->object = PMA_GIS_Multipoint::singleton();
+        $this->object = GISMultipoint::singleton();
     }
 
     /**

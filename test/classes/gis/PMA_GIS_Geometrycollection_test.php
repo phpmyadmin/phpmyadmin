@@ -2,17 +2,14 @@
 
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_GIS_Geometry
+ * Test for PMA\libraries\gis\GISGeometry
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/gis/GIS_Geometry.class.php';
-require_once 'libraries/gis/GIS_Geometrycollection.class.php';
-require_once 'libraries/gis/GIS_Factory.class.php';
-require_once 'libraries/tcpdf/tcpdf.php';
+use PMA\libraries\gis\GISGeometrycollection;
 
 /**
- * Tests for PMA_GIS_Geometrycollection class
+ * Tests for PMA\libraries\gis\GISGeometrycollection class
  *
  * @package PhpMyAdmin-test
  */
@@ -33,7 +30,7 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = PMA_GIS_Geometrycollection::singleton();
+        $this->object = GISGeometrycollection::singleton();
     }
 
     /**

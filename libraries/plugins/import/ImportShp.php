@@ -11,11 +11,11 @@ namespace PMA\libraries\plugins\import;
 use PMA\libraries\properties\plugins\ImportPluginProperties;
 use PMA;
 use PMA\libraries\plugins\ImportPlugin;
-use PMA_GIS_Factory;
-use PMA_GIS_Multilinestring;
-use PMA_GIS_Multipoint;
-use PMA_GIS_Point;
-use PMA_GIS_Polygon;
+use PMA\libraries\gis\GISFactory;
+use PMA\libraries\gis\GISMultilinestring;
+use PMA\libraries\gis\GISMultipoint;
+use PMA\libraries\gis\GISPoint;
+use PMA\libraries\gis\GISPolygon;
 use PMA\libraries\plugins\import\ShapeFile;
 
 if (!defined('PHPMYADMIN')) {
@@ -215,9 +215,8 @@ class ImportShp extends ImportPlugin
         }
 
         if (isset($gis_type)) {
-            include_once './libraries/gis/GIS_Factory.class.php';
-            /** @var PMA_GIS_Multilinestring|PMA_GIS_Multipoint|PMA_GIS_Point|PMA_GIS_Polygon $gis_obj */
-            $gis_obj = PMA_GIS_Factory::factory($gis_type);
+            /** @var GISMultilinestring|\PMA\libraries\gis\GISMultipoint|\PMA\libraries\gis\GISPoint|GISPolygon $gis_obj */
+            $gis_obj = GISFactory::factory($gis_type);
         } else {
             $gis_obj = null;
         }
