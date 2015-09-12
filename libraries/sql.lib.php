@@ -1476,7 +1476,7 @@ function PMA_getBookmarkCreatedMessage()
 /**
  * Function to get html for the sql query results table
  *
- * @param PMA\libraries\DisplayResults $displayResultsObject instance of DisplayResult.class
+ * @param PMA\libraries\DisplayResults $displayResultsObject instance of DisplayResult
  * @param string             $pmaThemeImage        theme image uri
  * @param string             $url_query            url query
  * @param array              $displayParts         the parts to display
@@ -1706,7 +1706,7 @@ function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
  * @param string             $table                current table
  * @param string             $message              message to show
  * @param array              $sql_data             sql data
- * @param PMA\libraries\DisplayResults $displayResultsObject Instance of DisplayResults.class
+ * @param PMA\libraries\DisplayResults $displayResultsObject Instance of DisplayResults
  * @param string             $pmaThemeImage        uri of the theme image
  * @param int                $unlim_num_rows       unlimited number of rows
  * @param int                $num_rows             number of rows

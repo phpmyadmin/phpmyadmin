@@ -829,7 +829,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
         if (! file_exists(
             './libraries/plugins/auth/'
-            . $auth_class . '.class.php'
+            . $auth_class . '.php'
         )) {
             PMA_fatalError(
                 __('Invalid authentication method set in configuration:')
@@ -839,11 +839,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($_REQUEST['pma_password'])) {
             $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
         }
-        include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
+        $fqnAuthClass = 'PMA\libraries\plugins\auth\\' . $auth_class;
         // todo: add plugin manager
         $plugin_manager = null;
         /** @var AuthenticationPlugin $auth_plugin */
-        $auth_plugin = new $auth_class($plugin_manager);
+        $auth_plugin = new $fqnAuthClass($plugin_manager);
 
         if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
