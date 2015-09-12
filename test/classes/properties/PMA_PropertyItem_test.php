@@ -1,15 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PropertyItem class
+ * tests for PMA\libraries\properties\PropertyItem class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/properties/PropertyItem.class.php';
-
 /**
- * Tests for PropertyItem class
+ * Tests for PMA\libraries\properties\PropertyItem class
  *
  * @package PhpMyAdmin-test
  */
@@ -24,7 +22,7 @@ class PMA_PropertyItem_Test extends PHPUnit_Framework_TestCase
      */
     protected function setup()
     {
-        $this->stub = $this->getMockForAbstractClass('PropertyItem');
+        $this->stub = $this->getMockForAbstractClass('PMA\libraries\properties\PropertyItem');
     }
 
     /**
@@ -38,7 +36,7 @@ class PMA_PropertyItem_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PropertyItem::getGroup
+     * Test for PMA\libraries\properties\PropertyItem::getGroup
      *
      * @return void
      */

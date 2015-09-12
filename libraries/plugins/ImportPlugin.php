@@ -8,7 +8,7 @@
 
 namespace PMA\libraries\plugins;
 
-use ImportPluginProperties;
+use PMA\libraries\properties\plugins\ImportPluginProperties;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -19,7 +19,7 @@ use ImportPluginProperties;
 abstract class ImportPlugin
 {
     /**
-     * ImportPluginProperties object containing the import plugin properties
+     * PMA\libraries\properties\plugins\ImportPluginProperties object containing the import plugin properties
      *
      * @var ImportPluginProperties
      */
@@ -38,7 +38,7 @@ abstract class ImportPlugin
     /**
      * Gets the import specific format plugin properties
      *
-     * @return ImportPluginProperties
+     * @return \PMA\libraries\properties\plugins\ImportPluginProperties
      */
     public function getProperties()
     {

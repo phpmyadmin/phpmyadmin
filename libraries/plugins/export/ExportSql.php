@@ -8,24 +8,24 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use BoolPropertyItem;
-use ExportPluginProperties;
-use MessageOnlyPropertyItem;
-use NumberPropertyItem;
-use OptionsPropertyMainGroup;
-use OptionsPropertyRootGroup;
-use OptionsPropertySubgroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\plugins\ExportPluginProperties;
+use PMA\libraries\properties\options\items\MessageOnlyPropertyItem;
+use PMA\libraries\properties\options\items\NumberPropertyItem;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
-use RadioPropertyItem;
-use SelectPropertyItem;
+use PMA\libraries\properties\options\items\RadioPropertyItem;
+use PMA\libraries\properties\options\items\SelectPropertyItem;
 use SqlParser\Components\CreateDefinition;
 use SqlParser\Context;
 use SqlParser\Parser;
 use SqlParser\Statements\SelectStatement;
 use SqlParser\Token;
-use TextPropertyItem;
+use PMA\libraries\properties\options\items\TextPropertyItem;
 
 /**
  * Handles the export for the SQL class
@@ -67,18 +67,6 @@ class ExportSql extends ExportPlugin
         }
 
         if (!$hide_sql) {
-            $props = 'libraries/properties/';
-            include_once "$props/plugins/ExportPluginProperties.class.php";
-            include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-            include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-            include_once "$props/options/groups/OptionsPropertySubgroup.class.php";
-            include_once "$props/options/items/BoolPropertyItem.class.php";
-            include_once "$props/options/items/MessageOnlyPropertyItem.class.php";
-            include_once "$props/options/items/RadioPropertyItem.class.php";
-            include_once "$props/options/items/SelectPropertyItem.class.php";
-            include_once "$props/options/items/TextPropertyItem.class.php";
-            include_once "$props/options/items/NumberPropertyItem.class.php";
-
             $exportPluginProperties = new ExportPluginProperties();
             $exportPluginProperties->setText('SQL');
             $exportPluginProperties->setExtension('sql');

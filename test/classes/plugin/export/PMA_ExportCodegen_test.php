@@ -93,7 +93,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -120,7 +120,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -133,7 +133,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -147,7 +147,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $hidden = $generalProperties[0];
 
         $this->assertInstanceOf(
-            'HiddenPropertyItem',
+            'PMA\libraries\properties\options\items\HiddenPropertyItem',
             $hidden
         );
 
@@ -159,7 +159,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $select = $generalProperties[1];
 
         $this->assertInstanceOf(
-            'SelectPropertyItem',
+            'PMA\libraries\properties\options\items\SelectPropertyItem',
             $select
         );
 

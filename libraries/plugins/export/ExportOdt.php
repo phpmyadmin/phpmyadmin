@@ -8,15 +8,15 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use BoolPropertyItem;
-use ExportPluginProperties;
-use OptionsPropertyMainGroup;
-use OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\plugins\ExportPluginProperties;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
-use RadioPropertyItem;
-use TextPropertyItem;
+use PMA\libraries\properties\options\items\RadioPropertyItem;
+use PMA\libraries\properties\options\items\TextPropertyItem;
 
 $GLOBALS['odt_buffer'] = '';
 require_once 'libraries/opendocument.lib.php';
@@ -51,15 +51,6 @@ class ExportOdt extends ExportPlugin
         ) {
             $hide_structure = true;
         }
-
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ExportPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/TextPropertyItem.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-        include_once "$props/options/items/HiddenPropertyItem.class.php";
-        include_once "$props/options/items/RadioPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('OpenDocument Text');

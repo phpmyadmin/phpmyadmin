@@ -9,9 +9,9 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use BoolPropertyItem;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA;
-use TextPropertyItem;
+use PMA\libraries\properties\options\items\TextPropertyItem;
 
 if (!defined('PHPMYADMIN')) {
     exit;

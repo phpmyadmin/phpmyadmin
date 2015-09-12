@@ -8,12 +8,12 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use BoolPropertyItem;
-use ImportPluginProperties;
-use OptionsPropertyMainGroup;
-use OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\plugins\ImportPluginProperties;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\plugins\ImportPlugin;
-use TextPropertyItem;
+use PMA\libraries\properties\options\items\TextPropertyItem;
 
 /**
  * Super class of the import plugins for the CSV format
@@ -27,17 +27,10 @@ abstract class AbstractImportCsv extends ImportPlugin
      * Sets the import plugin properties.
      * Called in the constructor.
      *
-     * @return OptionsPropertyMainGroup OptionsPropertyMainGroup object of the plugin
+     * @return \PMA\libraries\properties\options\groups\OptionsPropertyMainGroup PMA\libraries\properties\options\groups\OptionsPropertyMainGroup object of the plugin
      */
     protected function setProperties()
     {
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ImportPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-        include_once "$props/options/items/TextPropertyItem.class.php";
-
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setOptionsText(__('Options'));
 

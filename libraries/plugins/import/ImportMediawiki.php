@@ -8,7 +8,7 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use ImportPluginProperties;
+use PMA\libraries\properties\plugins\ImportPluginProperties;
 use PMA;
 use PMA\libraries\plugins\ImportPlugin;
 
@@ -51,9 +51,6 @@ class ImportMediawiki extends ImportPlugin
         if ($GLOBALS['plugin_param'] !== 'table') {
             $this->_setAnalyze(true);
         }
-
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ImportPluginProperties.class.php";
 
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('MediaWiki Table'));

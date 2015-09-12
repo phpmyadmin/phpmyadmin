@@ -8,12 +8,12 @@
  */
 namespace PMA\libraries\plugins\schema;
 
-use BoolPropertyItem;
-use OptionsPropertyMainGroup;
-use OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\plugins\SchemaPlugin;
 use PMA\libraries\plugins\schema\svg\SvgRelationSchema;
-use SchemaPluginProperties;
+use PMA\libraries\properties\plugins\SchemaPluginProperties;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -42,12 +42,6 @@ class SchemaSvg extends SchemaPlugin
      */
     protected function setProperties()
     {
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/SchemaPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('SVG');
         $schemaPluginProperties->setExtension('svg');

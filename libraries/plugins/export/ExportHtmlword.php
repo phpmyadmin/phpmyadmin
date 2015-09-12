@@ -8,15 +8,15 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use BoolPropertyItem;
-use OptionsPropertyMainGroup;
-use OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\plugins\ExportPlugin;
-use ExportPluginProperties;
+use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Util;
-use RadioPropertyItem;
-use TextPropertyItem;
+use PMA\libraries\properties\options\items\RadioPropertyItem;
+use PMA\libraries\properties\options\items\TextPropertyItem;
 
 /**
  * Handles the export for the HTML-Word format
@@ -41,14 +41,6 @@ class ExportHtmlword extends ExportPlugin
      */
     protected function setProperties()
     {
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ExportPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/RadioPropertyItem.class.php";
-        include_once "$props/options/items/TextPropertyItem.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Microsoft Word 2000');
         $exportPluginProperties->setExtension('doc');

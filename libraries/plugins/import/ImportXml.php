@@ -10,7 +10,7 @@
 
 namespace PMA\libraries\plugins\import;
 
-use ImportPluginProperties;
+use PMA\libraries\properties\plugins\ImportPluginProperties;
 use PMA;
 use PMA\libraries\plugins\ImportPlugin;
 use SimpleXMLElement;
@@ -52,9 +52,6 @@ class ImportXml extends ImportPlugin
      */
     protected function setProperties()
     {
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ImportPluginProperties.class.php";
-
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('XML'));
         $importPluginProperties->setExtension('xml');

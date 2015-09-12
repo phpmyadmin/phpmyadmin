@@ -5,24 +5,25 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\properties\options;
+
+use PMA\libraries\properties\options\OptionsPropertyItem;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/* This class extends the OptionsPropertyItem class */
-require_once 'OptionsPropertyItem.class.php';
 
 /**
  * Parents group property items and provides methods to manage groups of
  * properties.
  *
- * @todo modify descriptions if needed, when the options are integrated
+ * @todo    modify descriptions if needed, when the options are integrated
  * @package PhpMyAdmin
  */
 abstract class OptionsPropertyGroup extends OptionsPropertyItem
 {
     /**
-     * Holds a group of properties (OptionsPropertyItem instances)
+     * Holds a group of properties (PMA\libraries\properties\options\OptionsPropertyItem instances)
      *
      * @var array
      */
@@ -38,7 +39,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem
      */
     public function addProperty($property)
     {
-        if (! $this->getProperties() == null
+        if (!$this->getProperties() == null
             && in_array($property, $this->getProperties(), true)
         ) {
             return;
@@ -64,7 +65,6 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem
 
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
 
     /**
      * Gets the instance of the class

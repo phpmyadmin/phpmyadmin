@@ -6,17 +6,19 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\properties\plugins;
+
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PMA\libraries\properties\PropertyItem;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/* This class extends the PropertyItem class */
-require_once 'libraries/properties/PropertyItem.class.php';
-
 /**
  * Superclass for
- *  - ExportPluginProperties,
- *  - ImportPluginProperties and
+ *  - PMA\libraries\properties\plugins\ExportPluginProperties,
+ *  - PMA\libraries\properties\plugins\ImportPluginProperties and
  *  - TransformationsPluginProperties
  *
  * @package PhpMyAdmin
@@ -29,35 +31,30 @@ abstract class PluginPropertyItem extends PropertyItem
      * @var string
      */
     private $_text;
-
     /**
      * Extension
      *
      * @var string
      */
     private $_extension;
-
     /**
      * Options
      *
      * @var OptionsPropertyRootGroup
      */
     private $_options;
-
     /**
      * Options text
      *
      * @var string
      */
     private $_optionsText;
-
     /**
      * MIME Type
      *
      * @var string
      */
     private $_mimeType;
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

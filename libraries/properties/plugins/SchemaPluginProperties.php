@@ -5,12 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\properties\plugins;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/* This class extends the PluginPropertyItem class */
-require_once 'PluginPropertyItem.class.php';
 
 /**
  * Defines possible options and getters and setters for them.
@@ -23,9 +22,12 @@ class SchemaPluginProperties extends PluginPropertyItem
 
     /**
      * Returns the property item type of either an instance of
-     *  - OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
-     *  - OptionsPropertyGroup   ( "root", "main" or "subgroup" )
-     *  - PluginPropertyItem     ( "export", "import", "transformations" )
+     *  - PMA\libraries\properties\options\OptionsPropertyOneItem ( f.e. "bool",
+     *  "text", "radio", etc ) or
+     *  - PMA\libraries\properties\options\OptionsPropertyGroup   ( "root", "main"
+     *  or "subgroup" )
+     *  - PMA\libraries\properties\plugins\PluginPropertyItem     ( "export",
+     *  "import", "transformations" )
      *
      * @return string
      */

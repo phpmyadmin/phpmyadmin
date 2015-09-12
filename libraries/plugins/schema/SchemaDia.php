@@ -8,12 +8,12 @@
  */
 namespace PMA\libraries\plugins\schema;
 
-use OptionsPropertyMainGroup;
-use OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\plugins\SchemaPlugin;
 use PMA\libraries\plugins\schema\dia\DiaRelationSchema;
-use SchemaPluginProperties;
-use SelectPropertyItem;
+use PMA\libraries\properties\plugins\SchemaPluginProperties;
+use PMA\libraries\properties\options\items\SelectPropertyItem;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -42,13 +42,6 @@ class SchemaDia extends SchemaPlugin
      */
     protected function setProperties()
     {
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/SchemaPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-        include_once "$props/options/items/SelectPropertyItem.class.php";
-
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('Dia');
         $schemaPluginProperties->setExtension('dia');

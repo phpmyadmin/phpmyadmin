@@ -1,15 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for OptionsPropertyGroup class
+ * tests for PMA\libraries\properties\options\OptionsPropertyGroup class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/properties/options/OptionsPropertyGroup.class.php';
-
 /**
- * Tests for OptionsPropertyGroup class
+ * Tests for PMA\libraries\properties\options\OptionsPropertyGroup class
  *
  * @package PhpMyAdmin-test
  */
@@ -24,7 +22,7 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
      */
     protected function setup()
     {
-        $this->stub = $this->getMockForAbstractClass('OptionsPropertyGroup');
+        $this->stub = $this->getMockForAbstractClass('PMA\libraries\properties\options\OptionsPropertyGroup');
     }
 
     /**
@@ -38,13 +36,13 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for OptionsPropertyGroup::addProperty
+     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::addProperty
      *
      * @return void
      */
     public function testAddProperty()
     {
-        $properties = new \ReflectionProperty('OptionsPropertyGroup', '_properties');
+        $properties = new \ReflectionProperty('PMA\libraries\properties\options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
 
         $properties->setValue($this->stub, array(1, 2, 3));
@@ -62,13 +60,13 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for OptionsPropertyGroup::removeProperty
+     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::removeProperty
      *
      * @return void
      */
     public function testRemoveProperty()
     {
-        $properties = new \ReflectionProperty('OptionsPropertyGroup', '_properties');
+        $properties = new \ReflectionProperty('PMA\libraries\properties\options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
 
         $properties->setValue($this->stub, array(1, 2, 'test', 3));
@@ -85,26 +83,26 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for OptionsPropertyGroup::getGroup
+     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::getGroup
      *
      * @return void
      */
     public function testGetGroup()
     {
         $this->assertInstanceOf(
-            'OptionsPropertyGroup',
+            'PMA\libraries\properties\options\OptionsPropertyGroup',
             $this->stub->getGroup()
         );
     }
 
     /**
-     * Test for OptionsPropertyGroup::getProperties
+     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::getProperties
      *
      * @return void
      */
     public function testGetProperties()
     {
-        $properties = new \ReflectionProperty('OptionsPropertyGroup', '_properties');
+        $properties = new \ReflectionProperty('PMA\libraries\properties\options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
         $properties->setValue($this->stub, array(1, 2, 3));
 
@@ -115,13 +113,13 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for OptionsPropertyGroup::getProperties
+     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::getProperties
      *
      * @return void
      */
     public function testGetNrOfProperties()
     {
-        $properties = new \ReflectionProperty('OptionsPropertyGroup', '_properties');
+        $properties = new \ReflectionProperty('PMA\libraries\properties\options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
         $properties->setValue($this->stub, array(1, 2, 3));
 

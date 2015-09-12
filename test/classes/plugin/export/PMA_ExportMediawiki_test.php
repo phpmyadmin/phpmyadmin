@@ -64,7 +64,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -91,7 +91,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -104,7 +104,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -123,7 +123,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $property
         );
 
@@ -140,7 +140,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $sgHeader = $property->getSubGroupHeader();
 
         $this->assertInstanceOf(
-            'RadioPropertyItem',
+            'PMA\libraries\properties\options\items\RadioPropertyItem',
             $sgHeader
         );
 
@@ -161,7 +161,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -178,7 +178,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 

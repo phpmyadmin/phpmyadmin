@@ -8,9 +8,9 @@
 
 namespace PMA\libraries\plugins;
 
-use BoolPropertyItem;
-use OptionsPropertyMainGroup;
-use SchemaPluginProperties;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\plugins\SchemaPluginProperties;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -23,7 +23,7 @@ use SchemaPluginProperties;
 abstract class SchemaPlugin
 {
     /**
-     * SchemaPluginProperties object containing
+     * PMA\libraries\properties\plugins\SchemaPluginProperties object containing
      * the specific schema export plugin type properties
      *
      * @var SchemaPluginProperties
@@ -60,7 +60,7 @@ abstract class SchemaPlugin
     /**
      * Adds export options common to all plugins.
      *
-     * @param OptionsPropertyMainGroup $propertyGroup property group
+     * @param \PMA\libraries\properties\options\groups\OptionsPropertyMainGroup $propertyGroup property group
      *
      * @return void
      */

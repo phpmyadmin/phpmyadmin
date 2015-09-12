@@ -6,16 +6,17 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\properties\options;
+
+use PMA\libraries\properties\PropertyItem;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/* This class extends the PropertyItem class */
-require_once 'libraries/properties/PropertyItem.class.php';
-
 /**
  * Superclass for
- *  - OptionsPropertyOneItem and
+ *  - PMA\libraries\properties\options\OptionsPropertyOneItem and
  *  - OptionsProperty Group
  *
  * @package PhpMyAdmin
@@ -28,25 +29,19 @@ abstract class OptionsPropertyItem extends PropertyItem
      * @var string
      */
     private $_name;
-
     /**
      * Text
      *
      * @var string
      */
     private $_text;
-
     /**
      * What to force
      *
      * @var string
      */
     private $_force;
-
-
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
 
     /**
      * Gets the name

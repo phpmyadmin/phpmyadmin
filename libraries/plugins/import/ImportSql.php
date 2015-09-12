@@ -8,13 +8,13 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use BoolPropertyItem;
-use ImportPluginProperties;
-use OptionsPropertyMainGroup;
-use OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\plugins\ImportPluginProperties;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA;
 use PMA\libraries\plugins\ImportPlugin;
-use SelectPropertyItem;
+use PMA\libraries\properties\options\items\SelectPropertyItem;
 use SqlParser;
 
 if (!defined('PHPMYADMIN')) {
@@ -45,13 +45,6 @@ class ImportSql extends ImportPlugin
      */
     protected function setProperties()
     {
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ImportPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/SelectPropertyItem.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('SQL');
         $importPluginProperties->setExtension('sql');

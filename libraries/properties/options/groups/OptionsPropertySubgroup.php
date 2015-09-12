@@ -1,16 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the OptionsPropertySubgroup class
+ * Holds the PMA\libraries\properties\options\groups\OptionsPropertySubgroup class
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\properties\options\groups;
+
+use PMA\libraries\properties\options\OptionsPropertyGroup;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/* This class extends the OptionsPropertyGroup class */
-require_once 'libraries/properties/options/OptionsPropertyGroup.class.php';
 
 /**
  * Group property item class of type subgroup
@@ -25,16 +26,15 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
      * @var string
      */
     private $_subgroupHeader;
-
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
 
     /**
      * Returns the property item type of either an instance of
-     *  - OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
-     *  - OptionsPropertyGroup   ( "root", "main" or "subgroup" )
-     *  - PluginPropertyItem     ( "export", "import", "transformations" )
+     *  - PMA\libraries\properties\options\OptionsPropertyOneItem ( f.e. "bool",
+     *  "text", "radio", etc ) or
+     *  - PMA\libraries\properties\options\OptionsPropertyGroup   ( "root", "main"
+     *  or "subgroup" )
+     *  - PMA\libraries\properties\plugins\PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */

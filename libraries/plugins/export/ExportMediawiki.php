@@ -8,14 +8,14 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use BoolPropertyItem;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\plugins\ExportPlugin;
-use ExportPluginProperties;
-use OptionsPropertyMainGroup;
-use OptionsPropertyRootGroup;
-use OptionsPropertySubgroup;
+use PMA\libraries\properties\plugins\ExportPluginProperties;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
 use PMA;
-use RadioPropertyItem;
+use PMA\libraries\properties\options\items\RadioPropertyItem;
 
 /**
  * Handles the export for the MediaWiki class
@@ -40,15 +40,6 @@ class ExportMediawiki extends ExportPlugin
      */
     protected function setProperties()
     {
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ExportPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertySubgroup.class.php";
-        include_once "$props/options/items/MessageOnlyPropertyItem.class.php";
-        include_once "$props/options/items/RadioPropertyItem.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('MediaWiki Table');
         $exportPluginProperties->setExtension('mediawiki');

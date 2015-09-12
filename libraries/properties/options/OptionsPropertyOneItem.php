@@ -5,12 +5,13 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\properties\options;
+
+use PMA\libraries\properties\options\OptionsPropertyItem;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/* This class extends the OptionsPropertyItem class */
-require_once 'OptionsPropertyItem.class.php';
 
 /**
  * Parents only single property items (not groups).
@@ -26,38 +27,31 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * @var bool
      */
     private $_force_one;
-
     /**
      * Values
      *
      * @var array
      */
     private $_values;
-
     /**
      * Doc
      *
      * @var string
      */
     private $_doc;
-
     /**
      * Length
      *
      * @var int
      */
     private $_len;
-
     /**
      * Size
      *
      * @var int
      */
     private $_size;
-
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
 
     /**
      * Gets the force parameter

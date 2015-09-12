@@ -8,7 +8,7 @@
 
 namespace PMA\libraries\plugins;
 
-use ExportPluginProperties;
+use PMA\libraries\properties\plugins\ExportPluginProperties;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -21,10 +21,10 @@ use ExportPluginProperties;
 abstract class ExportPlugin
 {
     /**
-     * ExportPluginProperties object containing
+     * PMA\libraries\properties\plugins\ExportPluginProperties object containing
      * the specific export plugin type properties
      *
-     * @var ExportPluginProperties
+     * @var \PMA\libraries\properties\plugins\ExportPluginProperties
      */
     protected $properties;
     /**

@@ -1,15 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for OptionsPropertyOneItem class
+ * tests for PMA\libraries\properties\options\OptionsPropertyOneItem class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/properties/options/OptionsPropertyOneItem.class.php';
-
 /**
- * Tests for OptionsPropertyOneItem class
+ * Tests for PMA\libraries\properties\options\OptionsPropertyOneItem class
  *
  * @package PhpMyAdmin-test
  */
@@ -24,7 +22,7 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
      */
     protected function setup()
     {
-        $this->stub = $this->getMockForAbstractClass('OptionsPropertyOneItem');
+        $this->stub = $this->getMockForAbstractClass('PMA\libraries\properties\options\OptionsPropertyOneItem');
     }
 
     /**
@@ -39,8 +37,8 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - OptionsPropertyOneItem::getValues
-     *     - OptionsPropertyOneItem::setValues
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getValues
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setValues
      *
      * @return void
      */
@@ -56,8 +54,8 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - OptionsPropertyOneItem::getLen
-     *     - OptionsPropertyOneItem::setLen
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getLen
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setLen
      *
      * @return void
      */
@@ -73,8 +71,8 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - OptionsPropertyOneItem::getForce
-     *     - OptionsPropertyOneItem::setForce
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getForce
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setForce
      *
      * @return void
      */
@@ -90,8 +88,8 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - OptionsPropertyOneItem::getDoc
-     *     - OptionsPropertyOneItem::setDoc
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getDoc
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setDoc
      *
      * @return void
      */
@@ -107,8 +105,8 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - OptionsPropertyOneItem::getSize
-     *     - OptionsPropertyOneItem::setSize
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getSize
+     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setSize
      *
      * @return void
      */

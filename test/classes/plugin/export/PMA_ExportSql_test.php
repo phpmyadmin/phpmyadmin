@@ -101,7 +101,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -113,7 +113,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -122,7 +122,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -131,12 +131,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($properties);
 
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property->getSubgroupHeader()
         );
 
@@ -144,55 +144,55 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'SelectPropertyItem',
+            'PMA\libraries\properties\options\items\SelectPropertyItem',
             $property
         );
 
@@ -206,19 +206,19 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'RadioPropertyItem',
+            'PMA\libraries\properties\options\items\RadioPropertyItem',
             $property->getSubgroupHeader()
         );
 
         $structureOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $structureOptions
         );
 
@@ -227,12 +227,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($properties);
 
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'MessageOnlyPropertyItem',
+            'PMA\libraries\properties\options\items\MessageOnlyPropertyItem',
             $property->getSubgroupHeader()
         );
 
@@ -240,13 +240,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
@@ -258,7 +258,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $leaf
         );
 
@@ -268,37 +268,37 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $dataOptions = array_shift($generalOptionsArray);
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $dataOptions
         );
 
