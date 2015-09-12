@@ -21,6 +21,8 @@ if (! extension_loaded('mysql')) {
     return;
 }
 
+require_once 'libraries/dbi/DBIExtension.lib.php';
+
 /**
  * MySQL client API
  */
