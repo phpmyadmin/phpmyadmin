@@ -15,8 +15,6 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\plugins\TransformationsInterface;
-
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -116,9 +114,9 @@ function PMA_getAvailableMIMEtypes()
         sort($filestack);
 
         foreach ($filestack as $file) {
-            if (preg_match('|^[^.].*_.*_.*\.class\.php$|', $file)) {
+            if (preg_match('|^[^.].*_.*_.*\.php$|', $file)) {
                 // File contains transformation functions.
-                $parts = explode('_', str_replace('.class.php', '', $file));
+                $parts = explode('_', str_replace('.php', '', $file));
                 $mimetype = $parts[0] . "/" . $parts[1];
                 $stack['mimetype'][$mimetype] = $mimetype;
 
@@ -129,9 +127,10 @@ function PMA_getAvailableMIMEtypes()
                     $stack['input_transformation_file'][] = $sd . $file;
                 }
 
-            } elseif (preg_match('|^[^.].*\.class.php$|', $file)) {
+            } elseif (preg_match('|^[^.].*\.php$|', $file)) {
+                var_dump($file);
                 // File is a plain mimetype, no functions.
-                $base = str_replace('.class.php', '', $file);
+                $base = str_replace('.php', '', $file);
 
                 if ($base != 'global') {
                     $mimetype = str_replace('_', '/', $base);

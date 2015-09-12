@@ -1,26 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Image Link Transformations plugin for phpMyAdmin
+ * Image JPEG Upload Input Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage ImageLink
+ * @subpackage ImageUpload
  */
-namespace PMA\libraries\plugins\transformations\output;
+namespace PMA\libraries\plugins\transformations\input;
 
-use PMA\libraries\plugins\transformations\abs\TextImageLinkTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\ImageUploadTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the image link transformation for text plain
+ * Handles the image upload input transformation for JPEG.
+ * Has two option: width & height of the thumbnail
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage ImageLink
+ * @subpackage ImageUpload
  */
-class TextPlainImagelink extends TextImageLinkTransformationsPlugin
+class Image_JPEG_Upload extends ImageUploadTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -29,7 +30,7 @@ class TextPlainImagelink extends TextImageLinkTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return "Image";
     }
 
     /**
@@ -39,6 +40,6 @@ class TextPlainImagelink extends TextImageLinkTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return "JPEG";
     }
 }

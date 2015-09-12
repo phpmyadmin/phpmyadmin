@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Long To IPv4 Transformations plugin for phpMyAdmin
+ * Text Plain Link Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage LongToIPv4
+ * @subpackage Link
  */
 namespace PMA\libraries\plugins\transformations;
 
-use PMA\libraries\plugins\transformations\abs\LongToIPv4TransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\TextLinkTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the long to ipv4 transformation for text plain
+ * Handles the link transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage LongToIPv4
+ * @subpackage Link
  */
-class TextPlainLongtoipv4 extends LongToIPv4TransformationsPlugin
+class Text_Plain_Link extends TextLinkTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

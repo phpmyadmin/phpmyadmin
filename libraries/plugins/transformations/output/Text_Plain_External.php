@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Image JPEG Inline Transformations plugin for phpMyAdmin
+ * Text Plain External Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage External
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\InlineTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\ExternalTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the inline transformation for image jpeg
+ * Handles the external transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage External
  */
-class ImageJPEGInline extends InlineTransformationsPlugin
+class Text_Plain_External extends ExternalTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -29,7 +29,7 @@ class ImageJPEGInline extends InlineTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Image";
+        return "Text";
     }
 
     /**
@@ -39,6 +39,6 @@ class ImageJPEGInline extends InlineTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "JPEG";
+        return "Plain";
     }
 }

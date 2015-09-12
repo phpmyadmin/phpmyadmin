@@ -1,27 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Image JPEG Upload Input Transformations plugin for phpMyAdmin
+ * Text Plain Date Format Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage ImageUpload
+ * @subpackage DateFormat
  */
-namespace PMA\libraries\plugins\transformations\input;
+namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\ImageUploadTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\DateFormatTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the image upload input transformation for JPEG.
- * Has two option: width & height of the thumbnail
+ * Handles the date format transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage ImageUpload
+ * @subpackage DateFormat
  */
-class ImageJPEGUpload extends ImageUploadTransformationsPlugin
+class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -30,7 +29,7 @@ class ImageJPEGUpload extends ImageUploadTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Image";
+        return "Text";
     }
 
     /**
@@ -40,6 +39,6 @@ class ImageJPEGUpload extends ImageUploadTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "JPEG";
+        return "Plain";
     }
 }

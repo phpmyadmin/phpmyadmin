@@ -21,7 +21,7 @@ if (!defined('PHPMYADMIN')) {
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
  */
-class TextPlainSql extends SQLTransformationsPlugin
+class Text_Plain_Sql extends SQLTransformationsPlugin
 {
     /**
      * No-arg constructor

@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Date Format Transformations plugin for phpMyAdmin
+ * Image JPEG Link Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage DateFormat
+ * @subpackage Link
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\DateFormatTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\ImageLinkTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the date format transformation for text plain
+ * Handles the link transformation for image jpeg
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage DateFormat
+ * @subpackage Link
  */
-class TextPlainDateformat extends DateFormatTransformationsPlugin
+class Image_JPEG_Link extends ImageLinkTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -29,7 +29,7 @@ class TextPlainDateformat extends DateFormatTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return "Image";
     }
 
     /**
@@ -39,6 +39,6 @@ class TextPlainDateformat extends DateFormatTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return "JPEG";
     }
 }

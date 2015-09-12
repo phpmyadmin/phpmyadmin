@@ -6,17 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\Theme;
+
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
-
 require_once 'libraries/transformations.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
-
 require_once 'libraries/relation.lib.php';
-
 
 /**
  * tests for transformation wrappers
@@ -125,25 +122,25 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     18 => 'Text/Plain: Substring',
                     ),
                 'transformation_file' => array (
-                    0 => 'output/ApplicationOctetstreamDownload.php',
-                    1 => 'output/ApplicationOctetstreamHex.php',
-                    2 => 'output/ImageJPEGInline.php',
-                    3 => 'output/ImageJPEGLink.php',
-                    4 => 'output/ImagePNGInline.php',
-                    5 => 'output/TextOctetstreamSql.php',
-                    6 => 'output/TextPlainBinarytoip.php',
-                    7 => 'output/TextPlainBool2Text.php',
-                    8 => 'output/TextPlainDateformat.php',
-                    9 => 'output/TextPlainExternal.php',
-                    10 => 'output/TextPlainFormatted.php',
-                    11 => 'output/TextPlainImagelink.php',
-                    12 => 'output/TextPlainJson.php',
-                    13 => 'output/TextPlainSql.php',
-                    14 => 'output/TextPlainXml.php',
-                    15 => 'TextPlainLink.php',
-                    16 => 'TextPlainLongtoipv4.php',
-                    17 => 'TextPlainPreApPend.php',
-                    18 => 'TextPlainSubstring.php',
+                    0 => 'output/Application_Octetstream_Download.php',
+                    1 => 'output/Application_Octetstream_Hex.php',
+                    2 => 'output/Image_JPEG_Inline.php',
+                    3 => 'output/Image_JPEG_Link.php',
+                    4 => 'output/Image_PNG_Inline.php',
+                    5 => 'output/Text_Octetstream_Sql.php',
+                    6 => 'output/Text_Plain_Binarytoip.php',
+                    7 => 'output/Text_Plain_Bool2Text.php',
+                    8 => 'output/Text_Plain_Dateformat.php',
+                    9 => 'output/Text_Plain_External.php',
+                    10 => 'output/Text_Plain_Formatted.php',
+                    11 => 'output/Text_Plain_Imagelink.php',
+                    12 => 'output/Text_Plain_Json.php',
+                    13 => 'output/Text_Plain_Sql.php',
+                    14 => 'output/Text_Plain_Xml.php',
+                    15 => 'Text_Plain_Link.php',
+                    16 => 'Text_Plain_Longtoipv4.php',
+                    17 => 'Text_Plain_PreApPend.php',
+                    18 => 'Text_Plain_Substring.php',
                 ),
                 'input_transformation' => array(
                     'Image/JPEG: Upload',
@@ -159,17 +156,17 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     'Text/Plain: Substring',
                 ),
                 'input_transformation_file' => array(
-                    'input/ImageJPEGUpload.php',
-                    'input/TextPlainFileUpload.php',
-                    'input/TextPlainIptobinary.php',
-                    'input/TextPlainJsonEditor.php',
-                    'input/TextPlainRegexValidation.php',
-                    'input/TextPlainSqlEditor.php',
-                    'input/TextPlainXmlEditor.php',
-                    'TextPlainLink.php',
-                    'TextPlainLongtoipv4.php',
-                    'TextPlainPreApPend.php',
-                    'TextPlainSubstring.php',
+                    'input/Image_JPEG_Upload.php',
+                    'input/Text_Plain_FileUpload.php',
+                    'input/Text_Plain_Iptobinary.php',
+                    'input/Text_Plain_JsonEditor.php',
+                    'input/Text_Plain_RegexValidation.php',
+                    'input/Text_Plain_SqlEditor.php',
+                    'input/Text_Plain_XmlEditor.php',
+                    'Text_Plain_Link.php',
+                    'Text_Plain_Longtoipv4.php',
+                    'Text_Plain_PreApPend.php',
+                    'Text_Plain_Substring.php',
                 ),
             ),
             PMA_getAvailableMIMEtypes()

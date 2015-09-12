@@ -1,26 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain File Upload Input Transformations plugin for phpMyAdmin
+ * Text Plain Prepend/Append Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage TextFileUpload
+ * @subpackage PreApPend
  */
-namespace PMA\libraries\plugins\transformations\input;
+namespace PMA\libraries\plugins\transformations;
 
-use PMA\libraries\plugins\transformations\abs\TextFileUploadTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\PreApPendTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the input text file upload transformation for text plain.
+ * Handles the prepend and/or append transformation for text plain.
+ * Has two options: the text to be prepended and appended (if any, default '')
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage TextFileUpload
+ * @subpackage PreApPend
  */
-class TextPlainFileUpload extends TextFileUploadTransformationsPlugin
+class Text_Plain_PreApPend extends PreApPendTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

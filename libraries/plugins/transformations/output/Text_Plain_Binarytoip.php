@@ -20,7 +20,7 @@ if (!defined('PHPMYADMIN')) {
  * @package    PhpMyAdmin-Transformations
  * @subpackage BinaryToIP
  */
-class TextPlainBinarytoip extends TransformationsPlugin
+class Text_Plain_Binarytoip extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin

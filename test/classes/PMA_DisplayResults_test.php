@@ -8,7 +8,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\plugins\transformations\TextPlainLink;
+use PMA\libraries\plugins\transformations\Text_Plain_Link;
 
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
@@ -1322,7 +1322,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function dataProviderForTestHandleNonPrintableContents()
     {
-        $transformation_plugin = new TextPlainLink();
+        $transformation_plugin = new Text_Plain_Link();
         $meta = new StdClass();
         $meta->type = 'BLOB';
         $meta->orgtable = 'bar';
@@ -1440,7 +1440,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function dataProviderForTestGetDataCellForNonNumericColumns()
     {
-        $transformation_plugin = new TextPlainLink();
+        $transformation_plugin = new Text_Plain_Link();
         $meta = new StdClass();
         $meta->db = 'foo';
         $meta->table = 'tbl';

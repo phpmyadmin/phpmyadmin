@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain External Transformations plugin for phpMyAdmin
+ * Text Plain Formatted Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage External
+ * @subpackage Formatted
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\ExternalTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\FormattedTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the external transformation for text plain
+ * Handles the formatted transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage External
+ * @subpackage Formatted
  */
-class TextPlainExternal extends ExternalTransformationsPlugin
+class Text_Plain_Formatted extends FormattedTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

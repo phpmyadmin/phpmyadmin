@@ -1,27 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Regex Validation Input Transformations plugin for phpMyAdmin
+ * Blob SQL Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage RegexValidation
+ * @subpackage SQL
  */
-namespace PMA\libraries\plugins\transformations\input;
+namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\RegexValidationTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\SQLTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the input regex validation transformation for text plain.
- * Has one option: the regular expression
+ * Handles the sql transformation for blob data
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage RegexValidation
+ * @subpackage SQL
  */
-class TextPlainRegexValidation extends RegexValidationTransformationsPlugin
+class Text_Octetstream_Sql extends SQLTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -40,6 +39,6 @@ class TextPlainRegexValidation extends RegexValidationTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return "Octetstream";
     }
 }

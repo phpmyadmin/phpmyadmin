@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Image PNG Inline Transformations plugin for phpMyAdmin
+ * Text Plain Substring Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage Substring
  */
-namespace PMA\libraries\plugins\transformations\output;
+namespace PMA\libraries\plugins\transformations;
 
-use PMA\libraries\plugins\transformations\abs\InlineTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\SubstringTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the inline transformation for image png
+ * Handles the substring transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage Substring
  */
-class ImagePNGInline extends InlineTransformationsPlugin
+class Text_Plain_Substring extends SubstringTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -29,7 +29,7 @@ class ImagePNGInline extends InlineTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Image";
+        return "Text";
     }
 
     /**
@@ -39,6 +39,6 @@ class ImagePNGInline extends InlineTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "PNG";
+        return "Plain";
     }
 }

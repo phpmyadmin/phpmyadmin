@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Image JPEG Link Transformations plugin for phpMyAdmin
+ * Text Plain Long To IPv4 Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Link
+ * @subpackage LongToIPv4
  */
-namespace PMA\libraries\plugins\transformations\output;
+namespace PMA\libraries\plugins\transformations;
 
-use PMA\libraries\plugins\transformations\abs\ImageLinkTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\LongToIPv4TransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the link transformation for image jpeg
+ * Handles the long to ipv4 transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Link
+ * @subpackage LongToIPv4
  */
-class ImageJPEGLink extends ImageLinkTransformationsPlugin
+class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -29,7 +29,7 @@ class ImageJPEGLink extends ImageLinkTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Image";
+        return "Text";
     }
 
     /**
@@ -39,6 +39,6 @@ class ImageJPEGLink extends ImageLinkTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "JPEG";
+        return "Plain";
     }
 }

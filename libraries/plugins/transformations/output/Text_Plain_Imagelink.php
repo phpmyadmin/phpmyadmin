@@ -1,27 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Prepend/Append Transformations plugin for phpMyAdmin
+ * Text Plain Image Link Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage PreApPend
+ * @subpackage ImageLink
  */
-namespace PMA\libraries\plugins\transformations;
+namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\PreApPendTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\TextImageLinkTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the prepend and/or append transformation for text plain.
- * Has two options: the text to be prepended and appended (if any, default '')
+ * Handles the image link transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage PreApPend
+ * @subpackage ImageLink
  */
-class TextPlainPreApPend extends PreApPendTransformationsPlugin
+class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

@@ -8,7 +8,7 @@
 namespace PMA\libraries;
 
 use SqlParser\Utils\Query;
-use PMA\libraries\plugins\transformations\TextPlainLink;
+use PMA\libraries\plugins\transformations\Text_Plain_Link;
 
 require_once './libraries/transformations.lib.php';
 
@@ -236,22 +236,22 @@ class DisplayResults
     private  function _setDefaultTransformations()
     {
         $json_highlighting_data = array(
-            'libraries/plugins/transformations/output/TextPlainJson.php',
+            'libraries/plugins/transformations/output/Text_Plain_Json.php',
             'PMA\libraries\plugins\transformations\output\Text_Plain_Json',
             'Text_Plain'
         );
         $sql_highlighting_data = array(
-            'libraries/plugins/transformations/output/TextPlainSql.php',
+            'libraries/plugins/transformations/output/Text_Plain_Sql.php',
             'PMA\libraries\plugins\transformations\output\Text_Plain_Sql',
             'Text_Plain'
         );
         $blob_sql_highlighting_data = array(
-            'libraries/plugins/transformations/output/TextOctetstreamSql.php',
+            'libraries/plugins/transformations/output/Text_Octetstream_Sql.php',
             'PMA\libraries\plugins\transformations\output\Text_Octetstream_Sql',
             'Text_Octetstream'
         );
         $link_data = array(
-            'libraries/plugins/transformations/TextPlainLink.php',
+            'libraries/plugins/transformations/Text_Plain_Link.php',
             'PMA\libraries\plugins\transformations\Text_Plain_Link',
             'Text_Plain'
         );
@@ -2928,7 +2928,7 @@ class DisplayResults
                 if ($isShowProcessList) {
                     $mimeMap['..Info'] = array(
                         'mimetype' => 'Text_Plain',
-                        'transformation' => 'output/TextPlainSql.php',
+                        'transformation' => 'output/Text_Plain_Sql.php',
                     );
                 }
 
@@ -2938,7 +2938,7 @@ class DisplayResults
                 if ($isShowCreateTable) {
                     $mimeMap['..Create Table'] = array(
                         'mimetype' => 'Text_Plain',
-                        'transformation' => 'output/TextPlainSql.php',
+                        'transformation' => 'output/Text_Plain_Sql.php',
                     );
                 }
             }
@@ -3109,7 +3109,7 @@ class DisplayResults
                 $linking_url = $this->_getSpecialLinkUrl(
                     $row[$i], $row_info, /*overload*/mb_strtolower($meta->orgname)
                 );
-                $transformation_plugin = new TextPlainLink();
+                $transformation_plugin = new Text_Plain_Link();
 
                 $transform_options  = array(
                     0 => $linking_url,

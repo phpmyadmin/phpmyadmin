@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * JSON editing with syntax highlighted CodeMirror editor
+ * XML (and HTML) editing with syntax highlighted CodeMirror editor
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage JSON
+ * @subpackage XML
  */
 namespace PMA\libraries\plugins\transformations\input;
 
@@ -15,12 +15,12 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * JSON editing with syntax highlighted CodeMirror editor
+ * XML (and HTML) editing with syntax highlighted CodeMirror editor
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage JSON
+ * @subpackage XML
  */
-class TextPlainJsonEditor extends CodeMirrorEditorTransformationsPlugin
+class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -30,7 +30,7 @@ class TextPlainJsonEditor extends CodeMirrorEditorTransformationsPlugin
     public static function getInfo()
     {
         return __(
-            'Syntax highlighted CodeMirror editor for JSON.'
+            'Syntax highlighted CodeMirror editor for XML (and HTML).'
         );
     }
 
@@ -45,8 +45,8 @@ class TextPlainJsonEditor extends CodeMirrorEditorTransformationsPlugin
         $scripts = array();
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
             $scripts[] = 'codemirror/lib/codemirror.js';
-            $scripts[] = 'codemirror/mode/javascript/javascript.js';
-            $scripts[] = 'transformations/json_editor.js';
+            $scripts[] = 'codemirror/mode/xml/xml.js';
+            $scripts[] = 'transformations/xml_editor.js';
         }
 
         return $scripts;
@@ -61,7 +61,7 @@ class TextPlainJsonEditor extends CodeMirrorEditorTransformationsPlugin
      */
     public static function getName()
     {
-        return "JSON";
+        return "XML";
     }
 
     /**

@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Blob SQL Transformations plugin for phpMyAdmin
+ * Text Plain File Upload Input Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
+ * @subpackage TextFileUpload
  */
-namespace PMA\libraries\plugins\transformations\output;
+namespace PMA\libraries\plugins\transformations\input;
 
-use PMA\libraries\plugins\transformations\abs\SQLTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\TextFileUploadTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the sql transformation for blob data
+ * Handles the input text file upload transformation for text plain.
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
+ * @subpackage TextFileUpload
  */
-class TextOctetstreamSql extends SQLTransformationsPlugin
+class Text_Plain_FileUpload extends TextFileUploadTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -39,6 +39,6 @@ class TextOctetstreamSql extends SQLTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Octetstream";
+        return "Plain";
     }
 }

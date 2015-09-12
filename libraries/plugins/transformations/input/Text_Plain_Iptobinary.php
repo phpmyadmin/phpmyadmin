@@ -20,7 +20,7 @@ if (!defined('PHPMYADMIN')) {
  * @package    PhpMyAdmin-Transformations
  * @subpackage IPToBinary
  */
-class TextPlainIptobinary extends IOTransformationsPlugin
+class Text_Plain_Iptobinary extends IOTransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin

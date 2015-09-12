@@ -2285,7 +2285,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
         $result = PMA_transformEditedValues(
             'db', 'table', $transformation, $edited_values,
-            'TextPlainPreApPend.php', 'c', array('a' => 'b'),
+            'Text_Plain_PreApPend.php', 'c', array('a' => 'b'),
             'transformation'
         );
 
@@ -2848,7 +2848,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             md5('col') => 'val'
         );
         $column_mime = array(
-            'input_transformation' => 'input/ImageJPEGUpload.php',
+            'input_transformation' => 'input/Image_JPEG_Upload.php',
             'input_transformation_options' => '150'
         );
 

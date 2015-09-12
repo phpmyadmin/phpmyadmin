@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * SQL editing with syntax highlighted CodeMirror editor
+ * JSON editing with syntax highlighted CodeMirror editor
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
+ * @subpackage JSON
  */
 namespace PMA\libraries\plugins\transformations\input;
 
@@ -15,12 +15,12 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * SQL editing with syntax highlighted CodeMirror editor
+ * JSON editing with syntax highlighted CodeMirror editor
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
+ * @subpackage JSON
  */
-class TextPlainSqlEditor extends CodeMirrorEditorTransformationsPlugin
+class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -30,7 +30,7 @@ class TextPlainSqlEditor extends CodeMirrorEditorTransformationsPlugin
     public static function getInfo()
     {
         return __(
-            'Syntax highlighted CodeMirror editor for SQL.'
+            'Syntax highlighted CodeMirror editor for JSON.'
         );
     }
 
@@ -45,8 +45,8 @@ class TextPlainSqlEditor extends CodeMirrorEditorTransformationsPlugin
         $scripts = array();
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
             $scripts[] = 'codemirror/lib/codemirror.js';
-            $scripts[] = 'codemirror/mode/sql/sql.js';
-            $scripts[] = 'transformations/sql_editor.js';
+            $scripts[] = 'codemirror/mode/javascript/javascript.js';
+            $scripts[] = 'transformations/json_editor.js';
         }
 
         return $scripts;
@@ -61,7 +61,7 @@ class TextPlainSqlEditor extends CodeMirrorEditorTransformationsPlugin
      */
     public static function getName()
     {
-        return "SQL";
+        return "JSON";
     }
 
     /**

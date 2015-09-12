@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Application OctetStream Hex Transformations plugin for phpMyAdmin
+ * Image JPEG Inline Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Hex
+ * @subpackage Inline
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\HexTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\InlineTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the hex transformation for application octetstream
+ * Handles the inline transformation for image jpeg
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Hex
+ * @subpackage Inline
  */
-class ApplicationOctetstreamHex extends HexTransformationsPlugin
+class Image_JPEG_Inline extends InlineTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -29,7 +29,7 @@ class ApplicationOctetstreamHex extends HexTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Application";
+        return "Image";
     }
 
     /**
@@ -39,6 +39,6 @@ class ApplicationOctetstreamHex extends HexTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "OctetStream";
+        return "JPEG";
     }
 }

@@ -1,26 +1,28 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Formatted Transformations plugin for phpMyAdmin
+ * Text Plain Bool2Text Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Formatted
+ * @subpackage Bool2Text
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\FormattedTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\Bool2TextTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the formatted transformation for text plain
+ * Handles the Boolean to Text transformation for text plain.
+ * Has one option: the output format (default 'T/F')
+ * or 'Y/N'
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Formatted
+ * @subpackage Bool2Text
  */
-class TextPlainFormatted extends FormattedTransformationsPlugin
+class Text_Plain_Bool2Text extends Bool2TextTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

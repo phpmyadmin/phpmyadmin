@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain XML Transformations plugin for phpMyAdmin
+ * Text Plain JSON Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
@@ -17,12 +17,12 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * Handles the XML transformation for text plain
+ * Handles the json transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage XML
+ * @subpackage JSON
  */
-class TextPlainXml extends TransformationsPlugin
+class Text_Plain_Json extends TransformationsPlugin
 {
     /**
      * No-arg constructor
@@ -34,9 +34,9 @@ class TextPlainXml extends TransformationsPlugin
             $scripts = $response->getHeader()
                 ->getScripts();
             $scripts->addFile('codemirror/lib/codemirror.js');
-            $scripts->addFile('codemirror/mode/xml/xml.js');
+            $scripts->addFile('codemirror/mode/javascript/javascript.js');
             $scripts->addFile('codemirror/addon/runmode/runmode.js');
-            $scripts->addFile('transformations/xml.js');
+            $scripts->addFile('transformations/json.js');
         }
     }
 
@@ -48,7 +48,7 @@ class TextPlainXml extends TransformationsPlugin
     public static function getInfo()
     {
         return __(
-            'Formats text as XML with syntax highlighting.'
+            'Formats text as JSON with syntax highlighting.'
         );
     }
 
@@ -63,7 +63,7 @@ class TextPlainXml extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        return '<code class="xml"><pre>' . "\n"
+        return '<code class="json"><pre>' . "\n"
         . htmlspecialchars($buffer) . "\n"
         . '</pre></code>';
     }
@@ -97,6 +97,6 @@ class TextPlainXml extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "XML";
+        return "JSON";
     }
 }

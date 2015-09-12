@@ -1,26 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Link Transformations plugin for phpMyAdmin
+ * Text Plain Regex Validation Input Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Link
+ * @subpackage RegexValidation
  */
-namespace PMA\libraries\plugins\transformations;
+namespace PMA\libraries\plugins\transformations\input;
 
-use PMA\libraries\plugins\transformations\abs\TextLinkTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\RegexValidationTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the link transformation for text plain
+ * Handles the input regex validation transformation for text plain.
+ * Has one option: the regular expression
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Link
+ * @subpackage RegexValidation
  */
-class TextPlainLink extends TextLinkTransformationsPlugin
+class Text_Plain_RegexValidation extends RegexValidationTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

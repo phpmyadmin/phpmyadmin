@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Substring Transformations plugin for phpMyAdmin
+ * Application OctetStream Download Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Substring
+ * @subpackage Download
  */
-namespace PMA\libraries\plugins\transformations;
+namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\SubstringTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\DownloadTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the substring transformation for text plain
+ * Handles the download transformation for application octetstream
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Substring
+ * @subpackage Download
  */
-class TextPlainSubstring extends SubstringTransformationsPlugin
+class Application_Octetstream_Download extends DownloadTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -29,7 +29,7 @@ class TextPlainSubstring extends SubstringTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return "Application";
     }
 
     /**
@@ -39,6 +39,6 @@ class TextPlainSubstring extends SubstringTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return "OctetStream";
     }
 }

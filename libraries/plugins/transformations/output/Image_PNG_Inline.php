@@ -1,28 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Bool2Text Transformations plugin for phpMyAdmin
+ * Image PNG Inline Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Bool2Text
+ * @subpackage Inline
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\plugins\transformations\abs\Bool2TextTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\InlineTransformationsPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the Boolean to Text transformation for text plain.
- * Has one option: the output format (default 'T/F')
- * or 'Y/N'
+ * Handles the inline transformation for image png
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Bool2Text
+ * @subpackage Inline
  */
-class TextPlainBool2Text extends Bool2TextTransformationsPlugin
+class Image_PNG_Inline extends InlineTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -31,7 +29,7 @@ class TextPlainBool2Text extends Bool2TextTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return "Image";
     }
 
     /**
@@ -41,6 +39,6 @@ class TextPlainBool2Text extends Bool2TextTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return "PNG";
     }
 }
