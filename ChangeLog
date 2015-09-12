@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.5.1.0 (not yet released)
+- issue        Invalid argument supplied for foreach()
 
 4.5.0.0 (not yet released)
 + rfe          Pagination for GIS visualization
