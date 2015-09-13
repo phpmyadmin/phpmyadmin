@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-07-26 08:26+0200\n"
+"PO-Revision-Date: 2015-09-13 10:19+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -648,7 +648,6 @@ msgstr ""
 "užívateľov root, debian-sys-maint a pma. Viac informácii nájdete na %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Všeobecné nastavenia"
@@ -664,7 +663,6 @@ msgid "Server connection collation"
 msgstr "Znaková sada pre pripojenie k serveru"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Nastavenia vzhľadu"
@@ -990,10 +988,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Uložiť & Zavrieť"
+msgstr "Uložiť a zavrieť"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:417
 #: libraries/insert_edit.lib.php:1548 prefs_manage.php:361
@@ -1002,10 +999,9 @@ msgid "Reset"
 msgstr "Vynulovať"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
-msgstr "Zrušiť všetko"
+msgstr "Obnoviť všetko"
 
 #: js/messages.php:93
 msgid "Missing value in the form!"
@@ -1028,7 +1024,6 @@ msgid "Add index"
 msgstr "Pridať index"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Upraviť index"
@@ -1079,10 +1074,9 @@ msgstr "SQL dotaz:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
-msgstr "Y Hodnoty"
+msgstr "Hodnoty Y"
 
 #: js/messages.php:121
 msgid "The host name is empty!"
@@ -1175,7 +1169,6 @@ msgid "Query cache used"
 msgstr "Využitá vyrovnávacia pamäť príkazov"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Využitie CPU"
@@ -1213,25 +1206,21 @@ msgid "Used memory"
 msgstr "Využitá pamäť"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Swap celkom"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Cachovaný swap"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Využitý swap"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Voľný swap"
@@ -1648,7 +1637,6 @@ msgid "No files available on server for import!"
 msgstr "Na serveri nie sú dostupné žiadne súbory na import!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analyzovať dopyt"
@@ -1714,28 +1702,24 @@ msgid "Loading…"
 msgstr "Načítanie…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
-msgstr "Požiadavka bola zrušená!"
+msgstr "Požiadavka bola prerušená!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
-msgstr "Prebieha spracovanie požiadavka"
+msgstr "Prebieha spracovanie požiadavky"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Požiadavka zlyhala!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Chyba pri spracovaní požiadavky:"
+msgstr "Chyba pri spracovaní požiadavky"
 
 #: js/messages.php:305
 #, php-format
@@ -1753,16 +1737,14 @@ msgid "No databases selected."
 msgstr "Neboli vybrané žiadne databázy."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Odstraňujem stĺpce"
+msgstr "Odstraňujem stĺpec"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Pridať primárny kľúč"
+msgstr "Pridávam primárny kľúč"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1779,19 +1761,16 @@ msgid "Click to dismiss this notification"
 msgstr "Kliknutím zatvoríte túto správu"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Premenovávam databázy"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopírujem databázu"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Mením znakovú sadu"
@@ -2178,16 +2157,14 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Vnútorný obrys"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Vonkajší obrys:"
+msgstr "Vonkajší obrys"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2424,13 +2401,11 @@ msgid "More"
 msgstr "Viac"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Zobraziť panel"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Skryť panel"
@@ -2509,13 +2484,11 @@ msgid "Create view"
 msgstr "Vytvoriť pohľad"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Poslať chybové hlásenia"
+msgstr "Poslať chybové hlásenie"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Odoslať chybové hlásenie"
@@ -2527,16 +2500,14 @@ msgid ""
 msgstr "Vyskytla sa chyba JavaScriptu. Chcete odoslať chybové hlásenie?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Zmeniť nastavenia hlásení"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Zobraziť detail hlásenia"
+msgstr "Zobraziť podrobnosti hlásenia"
 
 #: js/messages.php:565
 msgid ""
@@ -3210,16 +3181,14 @@ msgid "Ungroup queries"
 msgstr "Zrušiť zoskupenie dopytov"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Zobraziť vytvorenie"
+msgstr "Zobraziť trasovacie informácie"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Skryť panel"
+msgstr "Skryť trasovacie informácie"
 
 #: libraries/Console.class.php:319
 msgid "Count:"
@@ -3499,7 +3468,6 @@ msgstr "V tabuľkách:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Odznačiť všetko"
@@ -3581,10 +3549,9 @@ msgid "Relational key"
 msgstr "Relačný kľúč"
 
 #: libraries/DisplayResults.class.php:1745
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Zobraziť vzťahy cudzích kľúčov"
+msgstr "Zobraziť stĺpec so vzťahmi"
 
 #: libraries/DisplayResults.class.php:1758
 msgid "Show binary contents"
@@ -3674,7 +3641,6 @@ msgstr "Výber:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Označiť všetko"
@@ -3762,10 +3728,9 @@ msgid "Error while moving uploaded file."
 msgstr "Chyba pri presúvaní nahraného súboru."
 
 #: libraries/File.class.php:497
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Nahraný súbor sa nedá prečítať (presunúť)."
+msgstr "Nahraný súbor sa nedá prečítať."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -4788,7 +4753,6 @@ msgid "Without PHP Code"
 msgstr "Bez PHP kódu"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Vytvoriť PHP kód"
@@ -4918,7 +4882,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Skontrolovať oprávnenia pre databázu \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Skontrolovať oprávnenia"
@@ -5602,7 +5565,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
 msgstr "Povoliť kontrolovanie SQL"
@@ -5940,10 +5902,9 @@ msgid "Export views as tables"
 msgstr "Exportovať pohľady (views) ako tabuľky"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
+msgstr "Exportovať súvisiace metadata z úložiska phpMyAdmin konfigurácie"
 
 #: libraries/config/messages.inc.php:197 libraries/config/messages.inc.php:198
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:202
@@ -6589,7 +6550,6 @@ msgid "Maximum tables"
 msgstr "Maximum tabuliek"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)."
@@ -6597,8 +6557,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Počet bytov, ktoré môže alokovať skript, napr. [kbd]32M[/kbd] ([kbd]0[/kbd] "
-"ruší obmedzenia)."
+"Počet bytov, ktoré môže alokovať skript, napr. [kbd]32M[/kbd] ([kbd]-1[/kbd] "
+"pre žiadny limit a [kbd]0[/kbd] pre žiadnu zmenu)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -6738,10 +6698,9 @@ msgid "Show views in tree"
 msgstr "Zobraziť pohľady v strome"
 
 #: libraries/config/messages.inc.php:529
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Zobraziť databázovú navigáciu ako strom"
+msgstr "Či sa majú zobrazovať pohľady pod databázou v navigačnom strome"
 
 #: libraries/config/messages.inc.php:530
 msgid "Show functions in tree"
@@ -6764,10 +6723,9 @@ msgid "Show events in tree"
 msgstr "Zobraziť udalosti v strome"
 
 #: libraries/config/messages.inc.php:538
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Zobraziť databázovú navigáciu ako strom"
+msgstr "Či sa majú zobrazovať udalosti pod databázou v navigačnom strome"
 
 #: libraries/config/messages.inc.php:540
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -7202,7 +7160,6 @@ msgid "Export templates table"
 msgstr "Exportovať tabuľku šablón"
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -7210,8 +7167,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Nechajte prázdne pre vypnutie podpory pre PDF schémy, navrhované: "
-"[kbd]pma__pdf_pages[/kbd]."
+"Nechajte prázdne pre vypnutie podpory exportných šablón, navrhované: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:706
 msgid "Central columns table"
@@ -7568,10 +7525,9 @@ msgstr ""
 "Zobraziť/Skryť stĺpec s Časovou značkou vytvorenia vo všetkých tabuľkách."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
-msgstr "Zobraziť viac časových značiek"
+msgstr "Zobraziť časovú značku vytvorenia"
 
 #: libraries/config/messages.inc.php:855
 msgid ""
@@ -7581,10 +7537,9 @@ msgstr ""
 "tabuľkách."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
-msgstr "Zobraziť Časovú značku poslednej aktualizácie"
+msgstr "Zobraziť časovú značku poslednej aktualizácie"
 
 #: libraries/config/messages.inc.php:859
 msgid ""
@@ -7594,10 +7549,9 @@ msgstr ""
 "tabuľkách."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
-msgstr "Zobraziť Časovú značku poslednej kontroly"
+msgstr "Zobraziť časovú značku poslednej kontroly"
 
 #: libraries/config/messages.inc.php:863
 msgid ""
@@ -7886,10 +7840,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:999
-#, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
-msgstr "Vykonaných dopytov"
+msgstr "Enter spustí dopyty v konzole"
 
 #: libraries/config/messages.inc.php:1002
 msgid ""
@@ -7902,10 +7855,11 @@ msgid "Enable Zero Configuration mode"
 msgstr "Povoliť režim nulovej konfigurácie"
 
 #: libraries/config/page_settings.class.php:140
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Nepodarilo sa uložiť nastavenia, odoslaný formulár obsahuje chyby!"
+msgstr ""
+"Nepodarilo sa uložiť nastavenia, odoslaný konfiguračný formulár obsahuje "
+"chyby!"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -8044,11 +7998,11 @@ msgid "The columns have been moved successfully."
 msgstr "Stĺpce boli úspešne presunuté."
 
 #: libraries/controllers/TableStructureController.class.php:732
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabuľka %1$s bola úspešné upravená."
+msgstr "Tabuľka %1$s bola úspešné upravená. Oprávnenia boli upravené."
 
 #: libraries/controllers/TableStructureController.class.php:785
 #: libraries/tracking.lib.php:1094
@@ -8155,17 +8109,15 @@ msgstr "Hashovanie hesla:"
 
 #: libraries/display_change_password.lib.php:98
 #: libraries/server_privileges.lib.php:1700
-#, fuzzy
 #| msgid "Generate password"
 msgid "MySQL native password"
-msgstr "Vytvoriť heslo"
+msgstr "Natívne heslo MySQL"
 
 #: libraries/display_change_password.lib.php:112
 #: libraries/server_privileges.lib.php:1708
-#, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password"
-msgstr "Zmeniť heslo"
+msgstr "SHA256 heslo"
 
 #: libraries/display_change_password.lib.php:141
 msgid "MySQL 4.0 compatible"
@@ -8217,22 +8169,19 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Exportujem riadky z tabuľky \"%s\""
 
 #: libraries/display_export.lib.php:200
-#, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
-msgstr "Typ exportu"
+msgstr "Exportné šablóny:"
 
 #: libraries/display_export.lib.php:205
-#, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
-msgstr "Šablóna pre názov súboru:"
+msgstr "Nová šablóna:"
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "Table name"
 msgid "Template name"
-msgstr "Názov tabuľky"
+msgstr "Názov šablóny"
 
 #: libraries/display_export.lib.php:217
 #, fuzzy
@@ -14011,10 +13960,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Spustiť SQL dopyt/dopyty na databázu %s"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Spustiť SQL dopyt/dopyty na databázu %s"
+msgstr "Spustiť SQL dopyt/dopyty na tabuľke %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
@@ -14592,10 +14541,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:71
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Nie je vybraná verzia."
+msgstr "Nie je vybraný žiadny riadok."
 
 #: tbl_tracking.php:33
 #, php-format
