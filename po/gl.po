@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-08 15:13+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-09-13 22:55+0200\n"
+"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/gl/>\n"
 "Language: gl\n"
@@ -5538,43 +5538,38 @@ msgid "Could not connect to the database server!"
 msgstr "Non foi posíbel conectar co servidor de bases de datos!"
 
 #: libraries/config/Validator.class.php:319
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Atopouse un nome de usuario baleiro ao empregar o método de autenticación da "
-"configuración"
+"Atopouse un nome de usuario baleiro ao empregar o método de autenticación "
+"mediante [kbd]configuración[/kbd]!"
 
 #: libraries/config/Validator.class.php:327
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 "Atopouse un nome de rexistro da sesión baleiro ao empregar o método de "
-"autenticación mediante rexistro de entrada"
+"autenticación mediante [kbd]rexistro de acceso[/kbd]!"
 
 #: libraries/config/Validator.class.php:336
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"Atopouse un URL de rexistro baleiro ao empregar o método de autenticación "
-"mediante rexistro de entrada"
+"Atopouse un URL de acceso baleiro ao empregar o método de autenticación "
+"mediante [dbd]rexistro de acceso[/kbd]!"
 
 #: libraries/config/Validator.class.php:387
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Atopouse un usuario de control de phpMyAdmin baleiro ao empregar phpMyAdmin "
-"configuration storage"
+"configuration storage!"
 
 #: libraries/config/Validator.class.php:394
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
 #| "configuration storage"
@@ -5583,7 +5578,7 @@ msgid ""
 "storage!"
 msgstr ""
 "Atopouse un contrasinal de control de phpMyAdmin baleiro ao empregar "
-"phpMyAdmin configuration storage"
+"phpMyAdmin configuration storage!"
 
 #: libraries/config/Validator.class.php:480
 msgid "Incorrect value:"
@@ -5595,14 +5590,13 @@ msgid "Incorrect IP address: %s"
 msgstr "O enderezo de IP é incorrecto: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Se estiver activado, os usuarios poden entrar en calquera servidor de MySQL "
-"no formulario de rexistro de cookie auth"
+"no formulario de rexistro de cookie auth."
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -5616,10 +5610,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:26
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Non é posíbel rexistrarse no servidor de MySQL"
+msgstr "Restrinxir o acceso aoo servidor de MySQL"
 
 #: libraries/config/messages.inc.php:28
 #, fuzzy
@@ -5671,17 +5664,15 @@ msgid "Row marker"
 msgstr "Marcador de fileiras"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Realzar a fileira á que apunta o cursor do rato"
+msgstr "Realzar a fila á que apunta o cursor do rato."
 
 #: libraries/config/messages.inc.php:45
 msgid "Highlight pointer"
 msgstr "Realzar o punteiro"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -5690,7 +5681,7 @@ msgid ""
 "import operations."
 msgstr ""
 "Activar a compresión [a@http://gl.wikipedia.org/wiki/Bzip2]bzip2[/a] nas "
-"operacións de importación e exportación"
+"operacións de importación."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5716,7 +5707,6 @@ msgid "CHAR columns editing"
 msgstr "Edición de columnas CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -5724,8 +5714,9 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Empregue un editor amigábel para editar as consultas de SQL ([a@http://"
-"codemirror.net/]CodeMirror[/a]) con realce da sintaxe e números de liña"
+"Empregue un editor amigábel para editar as consultas de SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) con realce da sintaxe e números "
+"de liña."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5768,20 +5759,18 @@ msgid "Maximum size for input field"
 msgstr "Tamaño máximo do campo de entrada"
 
 #: libraries/config/messages.inc.php:79
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Número de columnas das áreas de texto de CHAR/VARCHAR"
+msgstr "Número de columnas das áreas de texto de CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:81
 msgid "CHAR textarea columns"
 msgstr "Columnas de área de texto de CHAR"
 
 #: libraries/config/messages.inc.php:82
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Número de fileiras das áreas de texto de CHAR/VARCHAR"
+msgstr "Número de fileiras das áreas de texto de CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:83
 msgid "CHAR textarea rows"
@@ -5792,7 +5781,6 @@ msgid "Check config file permissions"
 msgstr "Comprobar os permisos do ficheiro de configuración"
 
 #: libraries/config/messages.inc.php:86
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -5803,7 +5791,7 @@ msgid ""
 msgstr ""
 "Comprimir ao voo as exportacións en gzip/bzip2 que non precisen moita "
 "memoria; se atopa problemas cos ficheiros gzip/bzip2 que se creen, desactive "
-"esta funcionalidade"
+"esta funcionalidade."
 
 #: libraries/config/messages.inc.php:89
 msgid "Compress on the fly"
@@ -5815,7 +5803,6 @@ msgid "Configuration file"
 msgstr "Ficheiro de configuración"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
 #| "you're about to lose data"
@@ -5824,7 +5811,7 @@ msgid ""
 "you're about to lose data."
 msgstr ""
 "Se se debe mostrar un aviso (\"Ten a certeza…\") cando se estea a piques de "
-"perder datos"
+"perder datos."
 
 #: libraries/config/messages.inc.php:95
 msgid "Confirm DROP queries"
@@ -5836,10 +5823,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:101
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "A lapela que aparece cando se entra nunha base de datos"
+msgstr "A lapela que aparece cando se entra nunha base de datos."
 
 #: libraries/config/messages.inc.php:102
 msgid "Default database tab"
@@ -5869,10 +5855,9 @@ msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Encerrar os nomes das táboas e das columnas entre aspas invertidas."
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Encerrar os nomes das táboas e das columnas entre aspas invertidas"
+msgstr "Permitir o completado automático dos nomes de táboas e columnas"
 
 #: libraries/config/messages.inc.php:116
 #| msgid "Whether the table structure actions should be hidden"
@@ -6106,10 +6091,11 @@ msgid "Export views as tables"
 msgstr "Exportar as vistas como táboas"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
+msgstr ""
+"Exportar metadatos relacionados do almacenamento de configuración do "
+"phpMyAdmin"
 
 #: libraries/config/messages.inc.php:197 libraries/config/messages.inc.php:198
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:202
@@ -6187,10 +6173,9 @@ msgid "Foreign key dropdown order"
 msgstr "Ordenación das chaves alleas"
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Emprégase un menú despregábel de haber un número menor de elementos"
+msgstr "Emprégase un menú despregábel de haber un número menor de elementos."
 
 #: libraries/config/messages.inc.php:239
 msgid "Foreign key limit"
@@ -6372,7 +6357,6 @@ msgid "Security"
 msgstr "Seguranza"
 
 #: libraries/config/messages.inc.php:294
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
@@ -6381,7 +6365,7 @@ msgid ""
 "limit MySQL."
 msgstr ""
 "Lembre que o phpMyAdmin é simplemente unha interface de usuario e que as "
-"súas funcionalidades non limitan o MySQL"
+"súas funcionalidades non limitan o MySQL."
 
 #: libraries/config/messages.inc.php:297
 msgid "Basic settings"
@@ -6835,17 +6819,15 @@ msgid "Maximum number of rows to display"
 msgstr "Número máximo de fileiras que se mostran"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "Número máximo de táboas que se mostran na listaxe de táboas"
+msgstr "Número máximo de táboas que se mostran na listaxe de táboas."
 
 #: libraries/config/messages.inc.php:463
 msgid "Maximum tables"
 msgstr "Táboas máximas"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)"
@@ -6854,7 +6836,7 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "O número de bytes que se permite asignar a un script, p.ex. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] para non o limitar)"
+"([kbd]0[/kbd] para non o limitar)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -6865,37 +6847,33 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show databases navigation as tree"
-msgstr "Mostrar o logotipo no panel de navegación"
+msgstr "Mostrar a navegación polas bases de datos como árbore"
 
 #: libraries/config/messages.inc.php:476
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
 #: libraries/config/messages.inc.php:479
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show logo in navigation panel."
-msgstr "Mostrar o logotipo no panel de navegación"
+msgstr "Mostrar o logotipo no panel de navegación."
 
 #: libraries/config/messages.inc.php:480
 msgid "Display logo"
 msgstr "Mostrar o logotipo"
 
 #: libraries/config/messages.inc.php:482
-#, fuzzy
 #| msgid "URL where logo in the navigation panel will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "URL ao que apunta o logotipo do panel de navegación"
+msgstr "URL ao que apunta o logotipo do panel de navegación."
 
 #: libraries/config/messages.inc.php:483
 msgid "Logo link URL"
 msgstr "URL da ligazón ao logotipo"
 
 #: libraries/config/messages.inc.php:485
-#, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 #| "([kbd]new[/kbd])"
@@ -6904,17 +6882,16 @@ msgid ""
 "([kbd]new[/kbd])."
 msgstr ""
 "Abrir a páxina ligada na xanela principal ([kbd]principal[/kbd]) ou nunha "
-"nova ([kbd]nova[/kbd])"
+"nova ([kbd]nova[/kbd])."
 
 #: libraries/config/messages.inc.php:488
 msgid "Logo link target"
 msgstr "Destino da ligazón do logotipo"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Display server choice at the top of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Mostrar a escolla de servidor na parte superior do panel de navegación"
+msgstr "Mostrar a escolla de servidor na parte superior do panel de navegación."
 
 #: libraries/config/messages.inc.php:491
 msgid "Display servers selection"
@@ -6925,10 +6902,9 @@ msgid "Target for quick access icon"
 msgstr "Destino da icona de acceso rápido"
 
 #: libraries/config/messages.inc.php:494
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Destino da icona de acceso rápido"
+msgstr "Destino da segunda icona de acceso rápido"
 
 #: libraries/config/messages.inc.php:497
 msgid ""
@@ -6947,7 +6923,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Número mínimo de bases de datos para mostrar a caixa de filtro"
 
 #: libraries/config/messages.inc.php:505
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)"
@@ -6955,28 +6930,26 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Agrupar os elementos na árbore de navegación (determinado polo separador "
-"indicado embaixo)"
+"Agrupar os elementos na árbore de navegación (determinado polo separador nas "
+"táboas Bases de datos e Táboas de enriba)."
 
 #: libraries/config/messages.inc.php:508
 msgid "Group items in the tree"
 msgstr "Agrupar os elementos na árbore"
 
 #: libraries/config/messages.inc.php:510
-#, fuzzy
 #| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
-msgstr "Cadea que separa as bases de datos en tres niveis distintos"
+msgstr "Cadea que separa as bases de datos en tres niveis distintos."
 
 #: libraries/config/messages.inc.php:511
 msgid "Database tree separator"
 msgstr "Separador da árbore das bases de datos"
 
 #: libraries/config/messages.inc.php:513
-#, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
-msgstr "Cadea que separa as táboas en tres niveis distintos"
+msgstr "Cadea que separa as táboas en tres niveis distintos."
 
 #: libraries/config/messages.inc.php:514
 msgid "Table tree separator"
@@ -6987,10 +6960,9 @@ msgid "Maximum table tree depth"
 msgstr "Profundidade máxima das táboas"
 
 #: libraries/config/messages.inc.php:517
-#, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
-msgstr "Realzar o servidor que estea por baixo do cursor do rato"
+msgstr "Realzar o servidor que estea por baixo do cursor do rato."
 
 #: libraries/config/messages.inc.php:518
 msgid "Enable highlighting"
@@ -7002,16 +6974,14 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:523
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Barra de navegación das táboas"
+msgstr "Activar a expansión da árbore de navegación"
 
 #: libraries/config/messages.inc.php:524
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show tables in tree"
-msgstr "A mostrar as táboas:"
+msgstr "Mostrar as táboas nunha árbore"
 
 #: libraries/config/messages.inc.php:526
 #, fuzzy
@@ -7020,10 +6990,9 @@ msgid "Whether to show tables under database in the navigation tree"
 msgstr "Mostrar o logotipo no panel de navegación"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Mostrar as versións"
+msgstr "Mostrar as vistas nunha árbore"
 
 #: libraries/config/messages.inc.php:529
 #, fuzzy
@@ -7032,30 +7001,27 @@ msgid "Whether to show views under database in the navigation tree"
 msgstr "Mostrar o logotipo no panel de navegación"
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Mostrar os campos de función"
+msgstr "Mostrar as funcións nunha árbore"
 
 #: libraries/config/messages.inc.php:532
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:533
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Mostrar os procesos"
+msgstr "Mostrar os procedementos nunha árbore"
 
 #: libraries/config/messages.inc.php:535
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Mostrar as versións"
+msgstr "Mostrar os eventos nunha árbore"
 
 #: libraries/config/messages.inc.php:538
 #, fuzzy
