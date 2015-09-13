@@ -285,6 +285,9 @@ function PMA_allowDeny($type)
 
     // copy rule database
     $rules     = $cfg['Server']['AllowDeny']['rules'];
+    if (! is_array($rules)) {
+        $rules = array();
+    }
 
     // lookup table for some name shortcuts
     $shortcuts = array(

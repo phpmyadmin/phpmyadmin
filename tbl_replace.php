@@ -288,11 +288,13 @@ foreach ($loop_array as $rownumber => $where_clause) {
         }
     }
 } // end foreach ($loop_array as $where_clause)
-unset($multi_edit_columns_name, $multi_edit_columns_prev, $multi_edit_funcs,
+unset(
+    $multi_edit_columns_name, $multi_edit_columns_prev, $multi_edit_funcs,
     $multi_edit_columns_type, $multi_edit_columns_null, $func_no_param,
     $multi_edit_auto_increment, $current_value_as_an_array, $key, $current_value,
     $loop_array, $where_clause, $using_key,  $multi_edit_columns_null_prev,
-    $insert_fail);
+    $insert_fail
+);
 
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {

@@ -3053,7 +3053,8 @@ class DisplayResults
                         );
 
                         $transform_options  = PMA_Transformation_getOptions(
-                            isset($mime_map[$orgFullColName]
+                            isset(
+                                $mime_map[$orgFullColName]
                                 ['transformation_options']
                             )
                             ? $mime_map[$orgFullColName]

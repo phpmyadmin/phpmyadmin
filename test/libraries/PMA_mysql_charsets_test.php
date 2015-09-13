@@ -29,7 +29,8 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      * @test
      * @dataProvider charsetQueryData
      */
-    public function testGenerateCharsetQueryPart($collation, $expected) {
+    public function testGenerateCharsetQueryPart($collation, $expected)
+    {
         $this->assertEquals(
             $expected,
             PMA_generateCharsetQueryPart($collation)
