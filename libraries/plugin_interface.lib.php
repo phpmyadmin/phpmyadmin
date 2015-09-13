@@ -268,7 +268,7 @@ function PMA_pluginGetOneOption(
 
     if (! $is_subgroup) {
         // for subgroup headers
-        if (/*overload*/mb_strpos(get_class($propertyGroup), "PMA\\libraries\\properties\\PropertyItem")) {
+        if (/*overload*/mb_strpos(get_class($propertyGroup), "PropertyItem")) {
             $properties = array($propertyGroup);
         } else {
             // for main groups
