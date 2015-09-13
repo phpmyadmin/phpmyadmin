@@ -77,6 +77,7 @@ if (defined('TESTSUITE')) {
         $extension = new DBIMysql();
         break;
     case 'mysqli' :
+        include_once 'libraries/dbi/DBIMysqli.lib.php';
         $extension = new DBIMysqli();
         break;
     }
