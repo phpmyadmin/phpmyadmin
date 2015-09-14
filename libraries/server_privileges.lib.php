@@ -718,33 +718,77 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
 function PMA_getHtmlForRequires($row)
 {
     $html_output  = '<fieldset>';
+    $html_output .= '<legend>SSL</legend>';
 
-    $html_output .= '<legend>';
-    $html_output .= '<input type="checkbox" name="SSL_priv" id="checkbox_SSL_priv"'
-        . ' value="Y" title="'
+    $html_output .= '<div id="require_ssl_div">';
+
+    // REQUIRE NONE
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_NONE"'
+        . ' value="NONE" title="'
+        . __(
+            'Does not requires SSL-encrypted connections.'
+        )
+        . '"'
+        . ((isset($row['ssl_type'])
+            && ($row['ssl_type'] == 'NONE'
+                || $row['ssl_type'] == ''))
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+
+    $html_output .= '<label for="ssl_type_NONE"><code>'
+        . 'REQUIRE NONE'
+        . '</code></label>';
+    $html_output .= '</div>';
+
+    // REQUIRE SSL
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_ANY"'
+        . ' value="ANY" title="'
         . __(
             'Requires SSL-encrypted connections.'
         )
         . '"'
-        . ((isset($row['ssl_type']) && $row['ssl_type'] != '')
+        . ((isset($row['ssl_type'])
+            && $row['ssl_type'] == 'ANY')
             ? ' checked="checked"'
             : ''
         )
         . '/>';
-    $html_output .= __('Require SSL') . '</legend>';
-    $html_output .= '<div id="require_ssl_div">';
+
+    $html_output .= '<label for="ssl_type_ANY"><code>'
+        . 'REQUIRE SSL'
+        . '</code></label>';
+    $html_output .= '</div>';
+
+    // REQUIRE X509
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_X509"'
+        . ' value="X509" title="'
+        . __(
+            'Requires a valid X509 certificate.'
+        )
+        . '"'
+        . ((isset($row['ssl_type']) && $row['ssl_type'] == 'X509')
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+
+    $html_output .= '<label for="ssl_type_X509"><code>'
+        . 'REQUIRE X509'
+        . '</code></label>';
+    $html_output .= '</div>';
 
     // Specified
+    $specified = (isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED');
     $html_output .= '<div class="item">';
     $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_specified"'
-        . ' value="specified"'
-        . ((isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED')
-            ? ' checked="checked"'
-            : ''
-        )
-        . '/>';
+        . ' value="specified"' . ($specified ? ' checked="checked"' : '') . '/>';
 
-    $html_output .= '<label for="ssl_type_speified"><code>'
+    $html_output .= '<label for="ssl_type_specified"><code>'
         . 'SPECIFIED'
         . '</code></label>';
     $html_output .= '</div>';
@@ -766,8 +810,9 @@ function PMA_getHtmlForRequires($row)
         . 'size=80" title="'
         . __(
             'Requires that a specific cipher method be used for a connection.'
-        )
-        . '" />';
+        ) . '"'
+        . (! $specified ? ' disabled' : '')
+        . ' />';
     $html_output .= '</div>';
 
     // REQUIRE ISSUER
@@ -785,8 +830,9 @@ function PMA_getHtmlForRequires($row)
         . 'size=80" title="'
         . __(
             'Requires that a valid X509 certificate issued by this CA be presented.'
-        )
-        . '" />';
+        ) .'"'
+        . (! $specified ? ' disabled' : '')
+        . ' />';
     $html_output .= '</div>';
 
     // REQUIRE SUBJECT
@@ -804,50 +850,11 @@ function PMA_getHtmlForRequires($row)
         . '" size=80" title="'
         . __(
             'Requires that a valid X509 certificate with this subject be presented.'
-        )
-        . '" />';
+        ) . '"'
+        . (! $specified ? ' disabled' : '')
+        . ' />';
     $html_output .= '</div>';
 
-    $html_output .= '</div>';
-
-    // REQUIRE X509
-    $html_output .= '<div class="item">';
-    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_X509"'
-        . ' value="X509" title="'
-        . __(
-            'Requires a valid X509 certificate.'
-        )
-        . '"'
-        . ((isset($row['ssl_type']) && $row['ssl_type'] == 'X509')
-            ? ' checked="checked"'
-            : ''
-        )
-        . '/>';
-
-    $html_output .= '<label for="radio_X509_priv"><code>'
-        . 'REQUIRE X509'
-        . '</code></label>';
-    $html_output .= '</div>';
-
-    // REQUIRE SSL
-    $html_output .= '<div class="item">';
-    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_ANY"'
-        . ' value="ANY" title="'
-        . __(
-            'Requires SSL-encrypted connections.'
-        )
-        . '"'
-        . ((isset($row['ssl_type'])
-            && ($row['ssl_type'] == 'ANY'
-                || $row['ssl_type'] == ''))
-            ? ' checked="checked"'
-            : ''
-        )
-        . '/>';
-
-    $html_output .= '<label for="ssl_type_ANY"><code>'
-        . 'REQUIRE SSL'
-        . '</code></label>';
     $html_output .= '</div>';
 
     $html_output .= '</div>';
@@ -1986,31 +1993,29 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
 function PMA_getRequireClause()
 {
     $require_clause = "";
-    if (isset($_POST['SSL_priv']) && $_POST['SSL_priv'] == 'Y') {
-        if (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'specified') {
-            $require = array();
-            if (! empty($_POST['ssl_cipher'])) {
-                $require[] = "CIPHER '"
-                        . PMA_Util::sqlAddSlashes($_POST['ssl_cipher']) . "'";
-            }
-            if (! empty($_POST['x509_issuer'])) {
-                $require[] = "ISSUER '"
-                        . PMA_Util::sqlAddSlashes($_POST['x509_issuer']) . "'";
-            }
-            if (! empty($_POST['x509_subject'])) {
-                $require[] = "SUBJECT '"
-                        . PMA_Util::sqlAddSlashes($_POST['x509_subject']) . "'";
-            }
-            if (count($require)) {
-                $require_clause = " REQUIRE " . implode(" AND ", $require);
-            } else {
-                $require_clause = " REQUIRE NONE";
-            }
-        } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'X509') {
-            $require_clause = " REQUIRE X509";
-        } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'ANY') {
-            $require_clause = " REQUIRE SSL";
+    if (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'specified') {
+        $require = array();
+        if (! empty($_POST['ssl_cipher'])) {
+            $require[] = "CIPHER '"
+                    . PMA_Util::sqlAddSlashes($_POST['ssl_cipher']) . "'";
         }
+        if (! empty($_POST['x509_issuer'])) {
+            $require[] = "ISSUER '"
+                    . PMA_Util::sqlAddSlashes($_POST['x509_issuer']) . "'";
+        }
+        if (! empty($_POST['x509_subject'])) {
+            $require[] = "SUBJECT '"
+                    . PMA_Util::sqlAddSlashes($_POST['x509_subject']) . "'";
+        }
+        if (count($require)) {
+            $require_clause = " REQUIRE " . implode(" AND ", $require);
+        } else {
+            $require_clause = " REQUIRE NONE";
+        }
+    } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'X509') {
+        $require_clause = " REQUIRE X509";
+    } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'ANY') {
+        $require_clause = " REQUIRE SSL";
     } else {
         $require_clause = " REQUIRE NONE";
     }
