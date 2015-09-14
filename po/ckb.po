@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-06-22 11:43+0200\n"
-"Last-Translator: Zrng Abdulla <zhyarabdulla94@gmail.com>\n"
-"Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/ckb/>\n"
+"PO-Revision-Date: 2015-09-14 09:27+0200\n"
+"Last-Translator: muhammad <esy_vb@yahoo.com>\n"
+"Language-Team: Kurdish Sorani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -255,7 +255,7 @@ msgstr "هیچ خشتەیەک نەدۆزرایەوە لەناو بنکەدراو
 #: libraries/plugins/export/ExportXml.class.php:120
 #: templates/database/structure/show_create.phtml:18
 msgid "Tables"
-msgstr ""
+msgstr "خشتەکان"
 
 #: db_export.php:63 libraries/Menu.class.php:317 libraries/Menu.class.php:425
 #: libraries/Util.class.php:3350 libraries/Util.class.php:3360
@@ -288,11 +288,10 @@ msgstr "پێکهاتە"
 #: libraries/server_privileges.lib.php:1140
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Data"
-msgstr ""
+msgstr "دراوە"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:378
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "هەڵبژاردنی هەموو"
