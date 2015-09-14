@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()
 - issue        array_key_exists() expects parameter 2 to be array
+- issue #11480 Notice Undefined index: drop_database
 
 4.5.0.0 (not yet released)
 + rfe          Pagination for GIS visualization
