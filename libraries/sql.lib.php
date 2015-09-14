@@ -646,6 +646,7 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
 ) {
     return ! defined('PMA_CHK_DROP')
         && ! $allowUserDropDatabase
+        && isset($analyzed_sql_results['drop_database'])
         && $analyzed_sql_results['drop_database']
         && ! $is_superuser;
 }
