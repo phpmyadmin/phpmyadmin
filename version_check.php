@@ -10,19 +10,31 @@
 define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Util.class.php';
+require_once 'libraries/VersionInformation.php';
 
 // Always send the correct headers
 header('Content-type: application/json; charset=UTF-8');
 
-$version = PMA_Util::getLatestVersion();
+$versionInformation = new VersionInformation();
+$versionDetails = $versionInformation->getLatestVersion();
 
-if (empty($version)) {
+if (empty($versionDetails)) {
     echo json_encode(array());
 } else {
+    $latestCompatible = $versionInformation->getLatestCompatibleVersion(
+        $versionDetails->releases
+    );
+    if ($latestCompatible != null) {
+        $version = $latestCompatible['version'];
+        $date = $latestCompatible['date'];
+    } else { // fallback to old behavior
+        $version = $versionDetails->version;
+        $date = $versionDetails->date;
+    }
     echo json_encode(
         array(
-            'version' => (! empty($version->version) ? $version->version : ''),
-            'date' => (! empty($version->date) ? $version->date : ''),
+            'version' => (! empty($version) ? $version : ''),
+            'date' => (! empty($date) ? $date : ''),
         )
     );
 }
