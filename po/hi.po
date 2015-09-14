@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-07 06:52+0200\n"
-"Last-Translator: Deven Bansod <devenbansod.bits@gmail.com>\n"
+"PO-Revision-Date: 2015-09-14 00:30+0200\n"
+"Last-Translator: Atul Pratap Singh <atulpratapsingh05@gmail.com>\n"
 "Language-Team: Hindi "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
@@ -709,16 +709,14 @@ msgid "Database client version:"
 msgstr "डाटाबेस ग्राहक संस्करण:"
 
 #: index.php:336
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHPविस्तार"
+msgstr "PHP एक्सटेंशन:"
 
 #: index.php:350
-#, fuzzy
 #| msgid "Version"
 msgid "PHP version:"
-msgstr "संस्करण"
+msgstr "PHP संस्करण:"
 
 #: index.php:361
 msgid "Show PHP information"

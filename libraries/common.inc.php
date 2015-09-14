@@ -1030,7 +1030,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Initializes the SQL parsing library.
          */
-        include_once './libraries/sql-parser/autoload.php';
+        include_once SQL_PARSER_AUTOLOAD;
 
         // Loads closest context to this version.
         SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
