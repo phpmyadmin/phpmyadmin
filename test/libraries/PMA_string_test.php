@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 
 
 
@@ -33,7 +33,7 @@ class PMA_String_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->_testObj = new String();
+        $this->_testObj = new PMA_String();
     }
 
     /**

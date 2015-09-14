@@ -7,7 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 
 if (! defined('PHPMYADMIN')) {
     exit;

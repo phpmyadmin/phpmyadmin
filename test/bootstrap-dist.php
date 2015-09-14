@@ -7,7 +7,7 @@
  */
 
 // Let PHP complain about all errors
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 
 error_reporting(E_ALL);
 
@@ -52,7 +52,7 @@ foreach ($test_defaults as $varname => $defvalue) {
 
 require_once 'libraries/autoloader.php';
 require_once 'libraries/core.lib.php';
-$GLOBALS['PMA_String'] = new String();
+$GLOBALS['PMA_String'] = new PMA_String();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));

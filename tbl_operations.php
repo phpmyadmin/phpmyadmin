@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Partition;
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 use PMA\libraries\Table;
 
 /**

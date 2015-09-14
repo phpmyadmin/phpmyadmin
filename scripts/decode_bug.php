@@ -10,7 +10,7 @@
  *
  * @package PhpMyAdmin-debug
  */
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 
 /**
  * Displays the form

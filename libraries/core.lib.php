@@ -8,7 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -18,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
  * String handling (security)
  */
 require_once 'libraries/string.lib.php';
-$PMA_String = new String();
+$PMA_String = new PMA_String();
 
 /**
  * checks given $var and returns it if valid, or $default of not valid

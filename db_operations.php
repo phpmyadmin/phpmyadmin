@@ -12,7 +12,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\export\ExportSql;
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 
 /**
  * requirements

@@ -9,7 +9,7 @@ use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 use PMA\libraries\Util;
 
 /**

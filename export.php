@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 
 /**
  * Get the variables sent or posted to this script and a core script

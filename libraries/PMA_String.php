@@ -13,7 +13,7 @@ namespace PMA\libraries;
  *
  * @package PhpMyAdmin-String
  */
-class String implements StringType
+class PMA_String implements StringType
 {
     /**
      * @var StringType

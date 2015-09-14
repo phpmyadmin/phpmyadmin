@@ -8,7 +8,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 
 if (! defined('PHPMYADMIN')) {
     exit;

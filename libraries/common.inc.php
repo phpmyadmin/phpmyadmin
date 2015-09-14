@@ -36,7 +36,7 @@ use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\PMA;
-use PMA\libraries\String;
+use PMA\libraries\PMA_String;
 use PMA\libraries\Theme;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
@@ -73,7 +73,7 @@ require_once './libraries/autoloader.php';
 /**
  * String handling (security)
  */
-$PMA_String = new String();
+$PMA_String = new PMA_String();
 
 /**
  * initialize the error handler
