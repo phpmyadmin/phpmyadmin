@@ -1568,7 +1568,7 @@ class DbQbe
         if (empty($from_clause)) {
             // Create cartesian product
             $from_clause = implode(
-                ", ", array_map('Util::backquote', $search_tables)
+                ", ", array_map('PMA\libraries\Util::backquote', $search_tables)
             );
         }
 
