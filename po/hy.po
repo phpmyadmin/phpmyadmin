@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-10 05:32+0200\n"
+"PO-Revision-Date: 2015-09-15 11:48+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/hy/>\n"
@@ -667,7 +667,7 @@ msgstr "Փոխել գաղտնաբառը"
 
 #: index.php:207
 msgid "Server connection collation"
-msgstr "Սպասարկչի կապի կոդավորումը"
+msgstr "Սպասարկչի կապի համադրումը"
 
 #: index.php:229
 #| msgid "Appearance Settings"
@@ -975,11 +975,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
-"Այս գործողությունը փորձելու է փոխարկել ձեր տվյալները նոր համադասմանը։ "
-"Հազվադեպ դեպքերում, հատկապես երբ նոր համադասման մեջ որևէ նշան գոյություն "
-"չունի, դա կարող է հանգեցնել տվյալների ոչ ճիշտ ցուցադրմանը նոր համադասման "
-"տակ; նման դեպքերում մենք առաջարկում ենք հետադարձել սկզբնական համադասմանը և "
-"դիմել հուշակներին "
+"Այս գործողությունը փորձելու է փոխարկել ձեր տվյալները նոր համադրմանը։ "
+"Հազվադեպ դեպքերում, հատկապես երբ նոր համադրման մեջ որևէ նշան գոյություն "
+"չունի, դա կարող է հանգեցնել տվյալների ոչ ճիշտ ցուցադրմանը նոր համադրման տակ; "
+"նման դեպքերում մենք առաջարկում ենք վերադառնալ սկզբնական համադրմանը և դիմել "
+"հուշակներին "
 
 #: js/messages.php:73
 msgid "Garbled Data"
@@ -987,7 +987,7 @@ msgstr "Խեղաթյուրված տվյալներ"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr "Համոզվա՞ծ եք, որ ցանկանում եք փոխել համադասումը և փոխարկել տվյալները։"
+msgstr "Համոզվա՞ծ եք, որ ցանկանում եք փոխել համադրումը և փոխարկել տվյալները։"
 
 #: js/messages.php:77
 msgid ""
@@ -999,18 +999,18 @@ msgid ""
 "</b>"
 msgstr ""
 "Այս գործողության միջոցով, MySQL-ը փորձում է ձևավորել տվյալների արժեքները "
-"համադասումների միջև։ Եթե գրանշանների կազմերը անհամատեղելի են, հնարավոր է "
+"համադրումների միջև։ Եթե գրանշանների կազմերը անհամատեղելի են, հնարավոր է "
 "տվյալների կորսուստ և տվյալները կարող են <b>ՉԼԻՆԵՆ</b> վերականգնման ենթակա՝ "
-"ուղղակի սկունակի համադասումը հետարկելու միջոցով։ <b>Առկա տվյալները "
-"փոխարկելու համար խորհուրդ է տրվում օգտագործել սյունակ(ների) խմբագրման "
-"հատկությունը (\"Փոխել\" հղումը)՝ աղյուսակի կառուցվածքի էջում։</b>"
+"ուղղակի սկունակի համադրումը հետարկելու միջոցով։ <b>Առկա տվյալները փոխարկելու "
+"համար խորհուրդ է տրվում օգտագործել սյունակ(ների) խմբագրման հատկությունը (\""
+"Փոխել\" հղումը)՝ աղյուսակի կառուցվածքի էջում։</b>"
 
 #: js/messages.php:85
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Համոզվա՞ծ եք, որ ցանկանում եք փոխել բոլոր սյունակների համադասումները և "
+"Համոզվա՞ծ եք, որ ցանկանում եք փոխել բոլոր սյունակների համադրումները և "
 "փոխարկել տվյալները։"
 
 #: js/messages.php:88
@@ -3861,7 +3861,7 @@ msgstr "Բազմության հզորություն"
 #: templates/table/structure/row_stats_table.phtml:31
 #: templates/table/structure/table_structure_header.phtml:7
 msgid "Collation"
-msgstr "Համեմատումը"
+msgstr "Համադրում"
 
 #: libraries/Index.class.php:703 libraries/rte/rte_events.lib.php:496
 #: libraries/rte/rte_routines.lib.php:1047 libraries/tracking.lib.php:885
@@ -4083,7 +4083,7 @@ msgstr "Խրվակներ"
 
 #: libraries/Menu.class.php:626 libraries/Util.class.php:4284
 msgid "Engines"
-msgstr "Շարժիչներ"
+msgstr "Պահպանման տեսակներ"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -4145,7 +4145,7 @@ msgstr "Վերջին աղյուսակները"
 
 #: libraries/RecentFavoriteTable.class.php:252
 msgid "Recent"
-msgstr "Վերջերս օգտագործված"
+msgstr "Վերջերս օգտագործվածներ"
 
 #: libraries/RecentFavoriteTable.class.php:254
 #: libraries/config/messages.inc.php:544
@@ -4290,14 +4290,16 @@ msgstr[1] "%d րոպե"
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
-"Այս պահպանման շարժիչի համար մանրակրկիտ կարգավիճակի տեղեկությունները "
-"բացակայում են։"
+"Աղյուսակների պահպանման այս տեսակի համար մանրակրկիտ կարգավիճակի "
+"տեղեկությունները բացակայում են։"
 
 #: libraries/StorageEngine.class.php:376
 #: templates/database/structure/body_for_table_summary.phtml:50
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s-ը հանդիսանում է MySQL սպասարկչի լռելյայն պահպանման շարժիչը։"
+msgstr ""
+"%s-ը հանդիսանում է տվյալ MySQL սպասարկչում աղյուսակների պահպանման լռելյայն "
+"տեսակը։"
 
 #: libraries/StorageEngine.class.php:379
 #, php-format
@@ -4312,7 +4314,7 @@ msgstr "%s աղյուսակների տեսակը կասեցվել է այս MySQ
 #: libraries/StorageEngine.class.php:387
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "Այս MySQL սպասարկիչը չի աջակցում %s պահպանման շարժիչը։"
+msgstr "Այս MySQL սպասարկիչը չի աջակցում աղյուսակների պահպանման %s տեսակը։"
 
 #: libraries/Table.class.php:342
 msgid "Unknown table status:"
@@ -4706,6 +4708,8 @@ msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Փոփոխական երկարության գրվածք (0-65,535), որն օգտագործում է երկուական "
+"համարդումը բոլոր համեմատումների համար"
 
 #: libraries/Types.class.php:951
 msgid "An enumeration, chosen from the list of defined values"
@@ -6814,7 +6818,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:602
 msgid "Recoding engine"
-msgstr ""
+msgstr "Վերակոդավորման տեսակը"
 
 #: libraries/config/messages.inc.php:604
 msgid "When browsing tables, the sorting of each table is remembered."
@@ -8516,6 +8520,8 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"Ընդհանրական գործարքների մատյանի պահնակի չափը (շարժիչը հատկացնում նշված չափի "
+"2 պահնակ)։ Լռելիությամբ՝ 1 մԲայթ։"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Checkpoint frequency"
@@ -8687,6 +8693,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Հետարկումը հնարավոր է միայն INSERT, UPDATE, DELETE և REPLACE SQL հարցումների "
+"համար, որոնք պարունակում են շարժիչի գործարքային աղյուսակները։"
 
 #: libraries/index.lib.php:38
 #, php-format
@@ -8879,7 +8887,7 @@ msgstr "Դանիերեն"
 
 #: libraries/mysql_charsets.lib.php:194
 msgid "English"
-msgstr ""
+msgstr "Անգլերեն"
 
 #: libraries/mysql_charsets.lib.php:197
 msgid "Esperanto"
@@ -8919,7 +8927,7 @@ msgstr "Լատվիերեն"
 
 #: libraries/mysql_charsets.lib.php:221
 msgid "Lithuanian"
-msgstr "Լիթվերեն"
+msgstr "Լիտվերեն"
 
 #: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:336
 msgid "Korean"
@@ -9005,7 +9013,7 @@ msgstr "Բալտիկական"
 
 #: libraries/mysql_charsets.lib.php:324
 msgid "Armenian"
-msgstr "Հայկական"
+msgstr "Հայերեն"
 
 #: libraries/mysql_charsets.lib.php:330
 msgid "Cyrillic"
@@ -9017,7 +9025,7 @@ msgstr "Արաբերեն"
 
 #: libraries/mysql_charsets.lib.php:339
 msgid "Hebrew"
-msgstr ""
+msgstr "Եբրայերեն"
 
 #: libraries/mysql_charsets.lib.php:342
 msgid "Georgian"
@@ -9029,7 +9037,7 @@ msgstr "Հունարեն"
 
 #: libraries/mysql_charsets.lib.php:348
 msgid "Czech-Slovak"
-msgstr "Չեխոսլովակական"
+msgstr "Չեխոսլովակերեն"
 
 #: libraries/navigation/Navigation.class.php:54
 msgid "An error has occurred while loading the navigation display"
@@ -9564,11 +9572,11 @@ msgstr "Աղյուսակի կայանքները"
 
 #: libraries/operations.lib.php:1071 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
-msgstr ""
+msgstr "Պահպանման տեսակը"
 
 #: libraries/operations.lib.php:1096
 msgid "Change all column collations"
-msgstr ""
+msgstr "Փոխել բոլոր սյունակների համադրումները"
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
@@ -11597,7 +11605,7 @@ msgstr "Սպասարկչի փոփոխականները և կայանքները"
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
-msgstr ""
+msgstr "Պահպանման տեսակներ"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
@@ -11898,7 +11906,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1178
 #: libraries/server_privileges.lib.php:3336
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr ""
+msgstr "Նշում՝ MySQL-ի արտոնությունների անվանումները ցուցադրվում են Անգլերենով։"
 
 #: libraries/server_privileges.lib.php:1142
 msgid "Administration"
@@ -14038,11 +14046,11 @@ msgstr "Աղյուսակի անուն"
 
 #: templates/columns_definitions/column_definitions_form.phtml:83
 msgid "Collation:"
-msgstr "Համադասում՝"
+msgstr "Համադրում՝"
 
 #: templates/columns_definitions/column_definitions_form.phtml:87
 msgid "Storage Engine:"
-msgstr ""
+msgstr "Պահպանման տեսակը՝"
 
 #: templates/columns_definitions/column_definitions_form.phtml:92
 msgid "Connection:"
@@ -15836,7 +15844,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "Սովորաբար, նախընտրելի է աղյուսակների պահպանման InnoDB տեսակը։"
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
