@@ -1545,7 +1545,6 @@ class PMA_Table
                         $this->_dbi->getError($GLOBALS['controllink'])
                     )
                 );
-                print_r($message);
                 return $message;
             }
         }
