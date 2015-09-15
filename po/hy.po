@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-15 11:47+0200\n"
+"PO-Revision-Date: 2015-09-15 20:57+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -769,8 +769,8 @@ msgid ""
 msgstr ""
 "Դուք միացել եք որպես 'root' առանց գաղտնաբառի, ինչը համապատասխանում է MySQL-ի "
 "հաշվի լռելյայն արտոնությունների կայանքներին։ Տվյալ կայանքներով մենկնարկված "
-"MySQL սպասարկիչը պաշտպանված չէ ներխուժումներից, ուստի դուք պետք է շտկեք այս "
-"անվտանգություն խոցելիությունը՝ նշանակելով գաղտնաբառ 'root' օգտվողի համար։"
+"MySQL սպասարկիչը պաշտպանված չէ ներխուժումներից, ուստի դուք պետք է շտկեք "
+"անվտանգության այս խոցելիությունը՝ 'root' օգտվողի համար գաղտնաբառ նշանակելով։"
 
 #: index.php:469
 msgid ""
@@ -838,8 +838,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"phpMyAdmin-ի կազմաձևի տարածությունը լիովին կազմաձևած չէ, որոշ հավելյալ "
-"հատկությունները կասեցվեցին %sԻմացեք, թե ինչու%s։ "
+"phpMyAdmin-ի կազմաձևի պահպանումը լիովին կազմաձևած չէ, որոշ ընդլայնված "
+"հատկությունները կասեցվել են։ %sԻմացեք, թե ինչու%s։ "
 
 #: index.php:572
 msgid ""
@@ -1315,7 +1315,7 @@ msgstr "Հարցեր"
 
 #: js/messages.php:184 libraries/server_status.lib.php:143
 msgid "Traffic"
-msgstr "Երթևեկություն"
+msgstr "Փոխանակում"
 
 #: js/messages.php:185 libraries/Menu.class.php:586
 #: libraries/Util.class.php:4278 libraries/server_status_monitor.lib.php:257
@@ -2462,7 +2462,7 @@ msgstr "Կապել հիմնական փեղկին"
 
 #: js/messages.php:535 libraries/navigation/NavigationTree.class.php:1402
 msgid "Unlink from main panel"
-msgstr "Ապակապել հիմնանակ փեղկից"
+msgstr "Ապակապել հիմնական փեղկից"
 
 #: js/messages.php:536
 msgid "To filter all databases on server, press Enter after a search term"
@@ -3389,7 +3389,7 @@ msgstr "Ջնջել՝"
 #: libraries/DBQbe.class.php:1849
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "<b>%s</b> տվյալների բազային SQL հարցում՝"
+msgstr "<b>%s</b> տվյալների բազային ուղղված SQL հարցումը՝"
 
 #: libraries/DBQbe.class.php:1863 libraries/Util.class.php:1235
 msgid "Submit Query"
@@ -4145,7 +4145,7 @@ msgstr "Վերջին աղյուսակները"
 
 #: libraries/RecentFavoriteTable.class.php:252
 msgid "Recent"
-msgstr "Վերջերս օգտագործվածներ"
+msgstr "Վերջինները"
 
 #: libraries/RecentFavoriteTable.class.php:254
 #: libraries/config/messages.inc.php:544
@@ -4154,7 +4154,7 @@ msgstr "Ընտրյալ աղյուսակներ"
 
 #: libraries/RecentFavoriteTable.class.php:256
 msgid "Favorites"
-msgstr "Ընտրյալներ"
+msgstr "Ընտրյալները"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -4804,7 +4804,7 @@ msgstr "Կտտացրեք՝ փոխարկելու համար"
 
 #: libraries/Util.class.php:3559 prefs_manage.php:248
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Զննել համակարգիչը՝"
 
 #: libraries/Util.class.php:3584
 #, php-format
@@ -5644,6 +5644,8 @@ msgstr "Հաստատել DROP հարցումները"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Գրանցել SQL հարցումները և դրանց կատարման ժամանակը՝ կառավարակետում "
+"ցուցադրելու համար"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
@@ -8021,11 +8023,11 @@ msgstr "Արտահանման եղանակը՝"
 
 #: libraries/display_export.lib.php:301
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Արագ՝ ցուցադրել նվազագույն կայանքները"
 
 #: libraries/display_export.lib.php:313
 msgid "Custom - display all possible options"
-msgstr ""
+msgstr "Ընտելական՝ ցուցադրել բոլոր առկա կայանքները"
 
 #: libraries/display_export.lib.php:335
 #| msgid "Databases"
@@ -8220,13 +8222,15 @@ msgstr "Ներմուծում \"%s\" աղյուսակի մեջ"
 #: libraries/display_import.lib.php:153
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Ֆայլը կարող է լինել սեղմած պահոցի տեսքով (%s), կամ առանց սեղմելու։"
 
 #: libraries/display_import.lib.php:159
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Սեղմած ֆայլի անունը պետք է վերջանա <b>.[ձևաչափ].[սեղմում]</b> տեսքով։ Օրինակ՝"
+" <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
 #| msgid "File to Import:"
@@ -8235,7 +8239,7 @@ msgstr "Ներմուծելու ֆայլը՝"
 
 #: libraries/display_import.lib.php:234 libraries/display_import.lib.php:251
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Դուք կարող եք նաև քաշել և գցել ֆայլը՝ ցանկացած էջում։"
 
 #: libraries/display_import.lib.php:254
 msgid "File uploads are not allowed on this server."
@@ -8264,6 +8268,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Զանցել հարցումների (SQL-ի դեպքում) կամ տողերի (այլ ձևանմուշների դեպքում) "
+"նշված քանակը, սկսած հետևյալից՝"
 
 #: libraries/display_import.lib.php:340
 #| msgid "Active options"
@@ -11620,6 +11626,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
+"Նշում՝ տվյալների բազաների վիճակագրության գործունացումը կարող է պատճառել "
+"մեծածավալ փոխանակում՝ վեբ սպասարկչի և MySQL սպասարկչի միջև։"
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
@@ -11915,7 +11923,7 @@ msgstr "Կառավարում"
 #: libraries/server_privileges.lib.php:1162
 #: libraries/server_privileges.lib.php:3334
 msgid "Global privileges"
-msgstr ""
+msgstr "Ընդհանրական արտոնություններ"
 
 #: libraries/server_privileges.lib.php:1163
 msgid "Global"
@@ -12127,6 +12135,8 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3547
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
+"Ջնջել տվյալների բազաները, որոնց անունները համընկնում են օգտվողների անունների "
+"հետ։"
 
 #: libraries/server_privileges.lib.php:3688
 msgid "No users selected for deleting!"
@@ -12229,12 +12239,12 @@ msgstr ""
 #: libraries/server_status.lib.php:60
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Ցանցի փոխանակումը մեկնարկման պահից՝ %s"
 
 #: libraries/server_status.lib.php:73
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr ""
+msgstr "Այս MySQL սպասարկիչը աշխատում է %1$s։ Այն մեկնարկվել է %2$s։"
 
 #: libraries/server_status.lib.php:94
 msgid ""
@@ -12245,10 +12255,14 @@ msgstr ""
 #: libraries/server_status.lib.php:99
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"Այս MySQL սպասարկիչը <b>կրկնապատկման</b> ընթացքում աշխատում է որպես "
+"<b>հիմնական</b>։"
 
 #: libraries/server_status.lib.php:104
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Այս MySQL սպասարկիչը <b>կրկնապատկման</b> ընթացքում աշխատում է որպես "
+"<b>ենթարկվող</b>։"
 
 #: libraries/server_status.lib.php:116
 msgid "Replication status"
@@ -12467,6 +12481,8 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"Գծապատկերի դասավորությունը պահպանվում է դիտարկչի տեղային շտեմարանում։ Բարդ "
+"կազմաձևի դեպքում դուք կարող եք արտահանել այն։"
 
 #: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
@@ -12477,6 +12493,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
+"Նշում՝ ինքնաթարմացման գործունացումը կարող է պատճառել մեծածավալ փոխանակում՝ "
+"վեբ սպասարկչի և MySQL սպասարկչի միջև։"
 
 #: libraries/server_status_processes.lib.php:68
 msgid "ID"
@@ -13676,7 +13694,7 @@ msgstr "Տարբերակներ"
 
 #: libraries/user_preferences.inc.php:30
 msgid "Manage your settings"
-msgstr "Կառավարել ձեր կայանքները"
+msgstr "Անձնական կայանքներ"
 
 #: libraries/user_preferences.inc.php:54 prefs_manage.php:307
 msgid "Configuration has been saved."
@@ -13688,6 +13706,9 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Ձեր կայանքները պահպանվելու են միայն ընթացիկ ժամանակաշրջանի համար։ Դրանց "
+"մշտական պահպանման համար անհրաժեշտ է %sphpMyAdmin-ի կազմաձևի պահպանման "
+"ընդլայնումը%s։"
 
 #: libraries/user_preferences.lib.php:132
 msgid "Could not save configuration"
@@ -13736,7 +13757,7 @@ msgstr "Ներմուծում դիտարկչի պահեստից"
 
 #: prefs_manage.php:257
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Կայանքները ներմուծվելու են ձեր դիտարկչի տեղային շտեմարանից։"
 
 #: prefs_manage.php:263
 msgid "You have no saved settings!"
@@ -13756,14 +13777,16 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Դուք կարող եք կարգավորել հավելյալ կայանքներ՝ config.inc.php ֆայլի խմբագրման "
+"միջոցով, օրինակ, օգտագործելով %sՏեղակայման սցենարը%s։"
 
 #: prefs_manage.php:323
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Պահպանել դիտարկչի տեղային շտեմարանում"
 
 #: prefs_manage.php:330
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Կայանքները պահպանվելու են ձեր դիտարկչի տեղային շտեմարանում։"
 
 #: prefs_manage.php:338
 msgid "Existing settings will be overwritten!"
