@@ -757,7 +757,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
                 || $verboseToLower == $serverToLower
-                || md5($verboseToLower) == $serverToLower
+                || md5($verboseToLower) === $serverToLower
             ) {
                 $_REQUEST['server'] = $i;
                 break;
