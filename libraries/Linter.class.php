@@ -26,7 +26,7 @@ class PMA_Linter
      */
     public static function getLines($str)
     {
-        if ((!($str instanceof UtfString))
+        if ((!($str instanceof SqlParser\UtfString))
             && (defined('USE_UTF_STRINGS')) && (USE_UTF_STRINGS)
         ) {
             // If the lexer uses UtfString for processing then the position will
