@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-16 13:22+0200\n"
-"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
+"PO-Revision-Date: 2015-09-16 13:23+0200\n"
+"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
 "Language: da\n"
@@ -2917,7 +2917,7 @@ msgstr "Angiv venligst en gyldig dato eller tid"
 #: js/messages.php:793
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Angiv venligst et gyldigt HEX tal!"
+msgstr "Angiv venligst et gyldigt HEX-tal"
 
 #: js/messages.php:794 libraries/Message.class.php:199
 #: libraries/Util.class.php:657 libraries/core.lib.php:245
@@ -3169,10 +3169,9 @@ msgid "Count"
 msgstr "Antal"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Udfør hver"
+msgstr "Rækkefølge for udførelse"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
