@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-16 13:30+0200\n"
-"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
+"PO-Revision-Date: 2015-09-16 13:31+0200\n"
+"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
 "Language: da\n"
@@ -3192,16 +3192,14 @@ msgid "Ungroup queries"
 msgstr "Opløs gruppering af SQL-forespørgsler"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Vis opret"
+msgstr "Vis sporing"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Skjul panel"
+msgstr "Skjul sporing"
 
 #: libraries/Console.class.php:319
 msgid "Count:"
@@ -3880,6 +3878,8 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Linting er deaktiveret for denne forespørgsel, da den overstiger max. "
+"længden."
 
 #: libraries/Linter.class.php:162
 #, php-format
