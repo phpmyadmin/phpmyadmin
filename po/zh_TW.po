@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-27 13:32+0200\n"
+"PO-Revision-Date: 2015-09-16 05:33+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/zh_TW/>\n"
@@ -5150,7 +5150,7 @@ msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
-msgstr ""
+msgstr "限制使用者登入任意 MySQL 伺服器時，該 MySQL 伺服器的 IP 或主機名稱需要符合指定的正規表示法。"
 
 #: libraries/config/messages.inc.php:25
 msgid "Restrict login to MySQL server"
@@ -8986,7 +8986,7 @@ msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
-msgstr ""
+msgstr "以下欄位，請選擇可足夠用來辨識欄位值的<b>最少</b>欄位值組合。"
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
@@ -9047,7 +9047,7 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
-msgstr ""
+msgstr "以下欄位，請選擇可足夠用來辨識欄位值的<b>最少</b>欄位值組合。<br />注意：欄位可能沒有遞移相依，因此您可能不用做任何選擇。"
 
 #: libraries/normalization.lib.php:743
 msgid ""
