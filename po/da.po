@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-16 14:10+0200\n"
+"PO-Revision-Date: 2015-09-16 14:22+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
@@ -5523,6 +5523,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Begrænser de MySQL-servere som brugeren kan angive, når et login til en "
+"arbitrær MySQL-server er slået til, ved at matche IP-adressen eller "
+"værtsnavnet på MySQL-serveren til det angivne regulære udtryk."
 
 #: libraries/config/messages.inc.php:26
 msgid "Restrict login to MySQL server"
@@ -6422,11 +6425,11 @@ msgstr "Afbryd ikke ved fejl i INSERT"
 
 #: libraries/config/messages.inc.php:373 libraries/config/messages.inc.php:387
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Tilføj ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:389
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Opdatér data når der findes duplikerede nøgler under import"
 
 #: libraries/config/messages.inc.php:379
 msgid ""
@@ -10806,6 +10809,8 @@ msgstr "MIME-type"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Opdatér data når der findes duplikerede nøgler under import (tilføj ON "
+"DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -12489,17 +12494,19 @@ msgstr "Kræver SSL"
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Kræver at den specifikke chiffermetode anvendes for en forbindelse."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Kræver at et gyldigt X509-certifikat som er udstedt af denne "
+"certifikatudsteder bliver forevist."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Kræver at et gyldigt X509-certifikat med dette emne bliver forevist."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
@@ -14929,10 +14936,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Række: %1$s, kolonne: %2$s, fejl: %3$s"
 
 #: tbl_row_action.php:71
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Der er ikke valgt versioner."
+msgstr "Der er ikke valgt en række."
 
 #: tbl_tracking.php:33
 #, php-format
@@ -16917,7 +16923,6 @@ msgid "Too many connections are aborted."
 msgstr "For mange forbindelser er aborterede."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16928,10 +16933,10 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Forbindelser aborteres normalt, når de ikke kan blive autoriseret. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Denne artikel</a> kan måske hjælpe dig med at "
-"finde årsagen."
+"Forbindelser aborteres normalt, når de ikke kan blive autoriseret. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Denne artikel</a> kan måske hjælpe dig med at finde "
+"årsagen."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -17052,7 +17057,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB logfilen er utilstrækkelig stor."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -17077,11 +17082,11 @@ msgstr ""
 "Det er sædvanligvis tilstrækkeligt at sætte {innodb_log_file_size} til 25%% "
 "af størrelsen af {innodb_buffer_pool_size}. En meget høj "
 "{innodb_log_file_size} reducerer genoprettelsestiden betydeligt efter et "
-"databasenedbrud. Se også <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">denne artikel</a>.Man "
-"skal lukke serveren ned, fjerne InnoDB-logfiler, sætte den nye værdi i my."
-"cnf, starte serveren og tjekke at alt gik godt i fejllogene. Se også <a href="
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"databasenedbrud. Se også <a href=\"http://www.percona.com/blog/2006/07/03"
+"/choosing-proper-innodb_log_file_size/\">denne artikel</a>.Man skal lukke "
+"serveren ned, fjerne InnoDB-logfiler, sætte den nye værdi i my.cnf, starte "
+"serveren og tjekke at alt gik godt i fejllogene. Se også <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">dette blogindlæg</a>"
 
 #: libraries/advisory_rules.txt:448
@@ -17098,7 +17103,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Din InnoDB buffer pool er temmelig lille."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -17124,13 +17129,13 @@ msgid ""
 msgstr ""
 "InnoDB buffer pool har en betydelig indvirkning på ydeevnen af InnoDB "
 "tabeller. Alloker al resterende hukommelse til denne buffer. For database "
-"servere, som kun bruger InnoDB tabeller og ikke har andre services kørende "
-"(fx webserver), kan man bruge op til 80%% af tilgængelig hukommelse. Hvis "
-"der bruges non-InnoDB tabeller og/eller der kører andet på maskinen, skal "
-"man være varsom med at sætte denne parameter for højt. Det kan ellers give "
-"sig udslag i, at der opstår høj brug af swap-filen. Se også <a href=\"http://"
-"www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">denne artikel</a>"
+"servere, som kun bruger InnoDB tabeller og ikke har andre services kørende ("
+"fx webserver), kan man bruge op til 80%% af tilgængelig hukommelse. Hvis der "
+"bruges non-InnoDB tabeller og/eller der kører andet på maskinen, skal man "
+"være varsom med at sætte denne parameter for højt. Det kan ellers give sig "
+"udslag i, at der opstår høj brug af swap-filen. Se også <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"denne artikel</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
