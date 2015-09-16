@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
 "PO-Revision-Date: 2015-09-16 13:29+0200\n"
-"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
+"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
 "Language: da\n"
@@ -3187,10 +3187,9 @@ msgid "Group queries"
 msgstr "Gruppér SQL-forespørgsler"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "SQL-forespørgsler"
+msgstr "Afgruppe SQL-forespørgsler"
 
 #: libraries/Console.class.php:315
 #, fuzzy
