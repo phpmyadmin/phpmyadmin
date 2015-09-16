@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-16 13:55+0200\n"
+"PO-Revision-Date: 2015-09-16 17:13+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -3608,7 +3608,7 @@ msgstr "Ցուցադրել BLOB տվյալները"
 
 #: libraries/DisplayResults.class.php:1776
 msgid "Hide browser transformation"
-msgstr "Թաքցնել կերպարանափոխությունը"
+msgstr "Թաքցնել դիտարկչի ձևափոխումը"
 
 #: libraries/DisplayResults.class.php:1786
 msgid "Well Known Text"
@@ -4262,7 +4262,7 @@ msgstr "Հարցումների վիճակագրություն"
 
 #: libraries/ServerStatusData.class.php:454
 msgid "All status variables"
-msgstr "Կարգավիճակի բոբոր փոփոխականները"
+msgstr "Կարգավիճակի բոլոր փոփոխականները"
 
 #: libraries/ServerStatusData.class.php:458
 msgid "Monitor"
@@ -9128,7 +9128,7 @@ msgstr "Զտել ըստ անվան կամ կանոնավոր արտահայտո�
 
 #: libraries/navigation/NavigationTree.class.php:1393
 msgid "Collapse all"
-msgstr "Կոծկել բոբորը"
+msgstr "Կոծկել բոլորը"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -10751,7 +10751,7 @@ msgstr "Սյունակների մեկնաբանությունների ցուցա
 
 #: libraries/relation.lib.php:180
 msgid "Browser transformation"
-msgstr ""
+msgstr "Դիտարկչի ձևափոխումը"
 
 #: libraries/relation.lib.php:187
 msgid "Please see the documentation on how to update your column_info table. "
@@ -14150,16 +14150,16 @@ msgstr "Տեղափոխել սյունակը"
 #: templates/columns_definitions/table_fields_definitions.phtml:86
 #: templates/columns_definitions/table_fields_definitions.phtml:105
 msgid "List of available transformations and their options"
-msgstr ""
+msgstr "Առկա ձևափոխումների և դրանց կայանքների ցանկը"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:88
 #: transformation_overview.php:41
 msgid "Browser display transformation"
-msgstr ""
+msgstr "Դիտարկչի ցուցադրման ձևափոխումը"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:92
 msgid "Browser display transformation options"
-msgstr ""
+msgstr "Դիտարկչի ցուցադրման ձևափոխման կայանքներ"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:95
 #: templates/columns_definitions/table_fields_definitions.phtml:114
@@ -14173,11 +14173,11 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.phtml:107
 #: transformation_overview.php:42
 msgid "Input transformation"
-msgstr ""
+msgstr "Ներածման ձևափոխումը"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:111
 msgid "Input transformation options"
-msgstr ""
+msgstr "Ներածման ձևափոխման կայանքներ"
 
 #: templates/database/create_table.phtml:7
 #: templates/database/designer/side_menu.phtml:77
@@ -14902,11 +14902,11 @@ msgstr "Առկա MIME-տեսակներ"
 
 #: transformation_overview.php:37
 msgid "Available browser display transformations"
-msgstr "Առկա դիտարկչի ցուցադրման կերպարանափոխումներ"
+msgstr "Դիտարկչի ցուցադրման առկա ձևափոխումները"
 
 #: transformation_overview.php:38
 msgid "Available input transformations"
-msgstr ""
+msgstr "Ներածման առկա ձևափոխումները"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
