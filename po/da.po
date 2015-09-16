@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-16 14:09+0200\n"
+"PO-Revision-Date: 2015-09-16 14:10+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
@@ -14324,10 +14324,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Kør SQL-forspørgsel(er) på database %s"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Kør SQL-forspørgsel(er) på database %s"
+msgstr "Kør SQL-forspørgsel/forespørgsler på tabellen %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
