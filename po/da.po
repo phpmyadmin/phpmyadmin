@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-16 14:08+0200\n"
+"PO-Revision-Date: 2015-09-16 14:09+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
@@ -6713,7 +6713,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Mindste antal databaser, der skal vises i database-filterboksen"
 
 #: libraries/config/messages.inc.php:505
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6721,7 +6720,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Gruppér elementer i navigationstræet (iht. separator defineret nedenfor)."
+"Gruppér elementer i navigationstræet (iht. separator defineret i databaserne "
+"og tabelfanerne ovenfor)."
 
 #: libraries/config/messages.inc.php:508
 msgid "Group items in the tree"
