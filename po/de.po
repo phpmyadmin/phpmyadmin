@@ -11989,7 +11989,7 @@ msgstr ""
 "präsentiert wird."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Erfordert ein gültiges X509 Zertifikat."
 
 #: libraries/server_privileges.lib.php:867
