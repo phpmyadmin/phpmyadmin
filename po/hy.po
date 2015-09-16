@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-15 21:04+0200\n"
+"PO-Revision-Date: 2015-09-16 13:55+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -5710,6 +5710,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
+"Նշեք վայրկյանների քանակը, որոնց ընթացքում սցենարը կարող է աշխատել "
+"([kbd]0[/kbd] - առանց սահմանափակման)։"
 
 #: libraries/config/messages.inc.php:130
 msgid "Maximum execution time"
@@ -6474,7 +6476,7 @@ msgstr "Տվյալների բազաների առավելագույն քանակ�
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr ""
+msgstr "Մեկ էջում նավարկման ծառի առաջին աստիճանում ցուցադրվող տարրերի քանակը։"
 
 #: libraries/config/messages.inc.php:448
 msgid "Maximum items on first level"
@@ -6484,7 +6486,7 @@ msgstr "Առաջին աստիճանում տարրերի առավելագույ�
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr ""
+msgstr "Մեկ էջում նավարկման ծառում ցուցադրվող տարրերի քանակը։"
 
 #: libraries/config/messages.inc.php:452
 msgid "Maximum items in branch"
@@ -10870,7 +10872,7 @@ msgstr "Ցուցադրել միացրալ ենթարկվող սպասարկիչ�
 
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:700
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Ավելացնել կրկնապատկման ենթարկվող օգտվողին"
 
 #: libraries/replication_gui.lib.php:88
 msgid "Master configuration"
@@ -11895,16 +11897,21 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
+"Սահմանափակում է օգտվողից մեկ ժամվա ընթացքում ուղարկվող աղյուսակների կամ "
+"տվյալների բազաների փոփոխման հարցումների առավելագույն քանակը։"
 
 #: libraries/server_privileges.lib.php:919
 #: libraries/server_privileges.lib.php:928 server_privileges.php:77
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
+"Սահմանափակում է օգտվողից մեկ ժամվա ընթացքում նոր միացումների բացման "
+"առավելագույն քանակը։"
 
 #: libraries/server_privileges.lib.php:936
 #: libraries/server_privileges.lib.php:946 server_privileges.php:87
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
+"Սահմանափակում է մեկ օգտվողի մասով միաժամանակ միացումների առավելագույն քանակը։"
 
 #: libraries/server_privileges.lib.php:999
 #: libraries/server_privileges.lib.php:1168
@@ -12524,7 +12531,7 @@ msgstr "Ցուցադրել միայն գործունը"
 #: libraries/server_status_queries.lib.php:33
 #, php-format
 msgid "Questions since startup: %s"
-msgstr ""
+msgstr "Հարցերի քանակը մեկնարկումից հետո՝ %s"
 
 #: libraries/server_status_queries.lib.php:44
 msgid "per hour:"
@@ -12554,7 +12561,7 @@ msgstr "Պարունակում է բառը՝"
 
 #: libraries/server_status_variables.lib.php:52
 msgid "Show only alert values"
-msgstr ""
+msgstr "Ցուցադրել միայն զգուշացնող արժեքները"
 
 #: libraries/server_status_variables.lib.php:57
 msgid "Filter by category…"
@@ -13456,7 +13463,7 @@ msgstr "Կատարել SQL հարցում(ներ)ը %s աղյուսակին"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Ստանալ ինքնապահպանված հարցումը"
 
 #: libraries/sql_query_form.lib.php:256
 msgid "Bind parameters"
@@ -15833,7 +15840,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:413
 msgid "Percentage of aborted clients"
-msgstr ""
+msgstr "Ընդհատված սպասառուների տոկոսային հարաբերությունը"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
 msgid "Too many clients are aborted."
@@ -15853,7 +15860,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"
-msgstr ""
+msgstr "Ընդհատված սպասառուների հարաբերությունը"
 
 #: libraries/advisory_rules.txt:425
 #, php-format
