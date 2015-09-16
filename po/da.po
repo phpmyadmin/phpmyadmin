@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-16 13:21+0200\n"
-"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
+"PO-Revision-Date: 2015-09-16 13:22+0200\n"
+"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
 "Language: da\n"
@@ -2901,26 +2901,23 @@ msgid "Please enter a value between {0} and {1}"
 msgstr "Indtast venligst en værdi mellem {0} og {1}"
 
 #: js/messages.php:789
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Angiv venligst en gyldig længde!"
+msgstr "Angiv venligst værdi der er mindre end eller lig med {0}"
 
 #: js/messages.php:790
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Angiv venligst et gyldigt sidenavn"
+msgstr "Angiv venligst værdi der er større end eller lig med {0}"
 
 #: js/messages.php:792
 msgid "Please enter a valid date or time"
 msgstr "Angiv venligst en gyldig dato eller tid"
 
 #: js/messages.php:793
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Angiv venligst et gyldigt nummer!"
+msgstr "Angiv venligst et gyldigt HEX tal!"
 
 #: js/messages.php:794 libraries/Message.class.php:199
 #: libraries/Util.class.php:657 libraries/core.lib.php:245
