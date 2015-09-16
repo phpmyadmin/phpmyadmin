@@ -1,0 +1,14 @@
+<tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
+    <td><?php echo htmlspecialchars($name); ?></td>
+    <td><code><?php echo $privileges; ?></code></td>
+    <td><?php echo ($grant ? __('Yes') : __('No')); ?></td>
+
+    <?php if ($type == 'database') : ?>
+        <td><?php echo ($tablePrivs ? __('Yes') : __('No')); ?></td>
+    <?php elseif ($type == 'table') : ?>
+        <td><?php echo ($columnPrivs ? __('Yes') : __('No')); ?></td>
+    <?php endif; ?>
+
+    <td><?php echo $editLink; ?></td>
+    <td><?php echo $revokeLink; ?></td>
+</tr>

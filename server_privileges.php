@@ -114,7 +114,7 @@ $_add_user_error = false;
  * tablename, db_and_table, dbname_is_wildcard
  */
 list(
-    $username, $hostname, $dbname, $tablename,
+    $username, $hostname, $dbname, $tablename, $routinename,
     $db_and_table, $dbname_is_wildcard
 ) = PMA_getDataForDBInfo();
 
@@ -179,6 +179,11 @@ if (isset($_REQUEST['change_copy'])) {
     );
 }
 
+$itemType = '';
+if (! empty($routinename)) {
+    $itemType = PMA_getRoutineType($dbname, $routinename);
+}
+
 /**
  * Updates privileges
  */
@@ -188,8 +193,11 @@ if (! empty($_POST['update_privs'])) {
             list($sql_query[$key], $message) = PMA_updatePrivileges(
                 (isset($username) ? $username : ''),
                 (isset($hostname) ? $hostname : ''),
-                (isset($tablename) ? $tablename : ''),
-                (isset($db_name) ? $db_name : '')
+                (isset($tablename)
+                    ? $tablename
+                    : (isset($routinename) ? $routinename : '')),
+                (isset($db_name) ? $db_name : ''),
+                $itemType
             );
         }
 
@@ -198,8 +206,11 @@ if (! empty($_POST['update_privs'])) {
         list($sql_query, $message) = PMA_updatePrivileges(
             (isset($username) ? $username : ''),
             (isset($hostname) ? $hostname : ''),
-            (isset($tablename) ? $tablename : ''),
-            (isset($dbname) ? $dbname : '')
+            (isset($tablename)
+                ? $tablename
+                : (isset($routinename) ? $routinename : '')),
+            (isset($dbname) ? $dbname : ''),
+            $itemType
         );
     }
 }
@@ -220,8 +231,12 @@ if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
 if (isset($_REQUEST['revokeall'])) {
     list ($message, $sql_query) = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
         (isset($dbname) ? $dbname : ''),
-        (isset($tablename) ? $tablename : ''),
-        $username, $hostname
+        (isset($tablename)
+            ? $tablename
+            : (isset($routinename) ? $routinename : '')),
+        $username,
+        $hostname,
+        $itemType
     );
 }
 
@@ -382,10 +397,27 @@ if (isset($_REQUEST['adduser'])) {
         );
     }
 } else {
+    if (isset($dbname) && ! is_array($dbname)) {
+        $url_dbname = urlencode(
+            str_replace(
+                array('\_', '\%'),
+                array('_', '%'),
+                $_REQUEST['dbname']
+            )
+        );
+    }
+
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
             PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
+        );
+    } else if (!empty($routinename)) {
+        $response->addHTML(
+             PMA_getHtmlForRoutineSpecificPrivilges(
+                 $username, $hostname, $dbname, $routinename,
+                 (isset($url_dbname) ? $url_dbname : '')
+             )
         );
     } else {
         // A user was selected -> display the user's properties
@@ -393,14 +425,7 @@ if (isset($_REQUEST['adduser'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
-        if (isset($dbname) && ! is_array($dbname)) {
-            $url_dbname = urlencode(
-                str_replace(
-                    array('\_', '\%'),
-                    array('_', '%'), $_REQUEST['dbname']
-                )
-            );
-        }
+
         $response->addHTML(
             PMA_getHtmlForUserProperties(
                 (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
