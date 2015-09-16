@@ -11379,7 +11379,7 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "需要使用此主旨且有效的 X509 憑証存在。"
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:867

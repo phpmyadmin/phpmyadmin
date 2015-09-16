@@ -11935,7 +11935,7 @@ msgstr ""
 "Vereist dat een geldig X509 certificaat met dit onderwerp wordt aangeboden."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Vereist een geldig X509 certificaat."
 
 #: libraries/server_privileges.lib.php:867

@@ -11803,7 +11803,7 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Kræver at et gyldigt X509-certifikat med dette emne bliver forevist."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Kræver et gyldigt X509-certifikat."
 
 #: libraries/server_privileges.lib.php:867

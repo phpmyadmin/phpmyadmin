@@ -11964,7 +11964,7 @@ msgstr ""
 "soggetto."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Richiede un certificato X509 valido."
 
 #: libraries/server_privileges.lib.php:867

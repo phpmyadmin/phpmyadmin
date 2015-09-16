@@ -11896,7 +11896,7 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Kërkon të paraqitet një çertifikatë e vlefshme X509 me këtë temë."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Kërkon një çertifikatë të vlefshme X509."
 
 #: libraries/server_privileges.lib.php:867
