@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
 "PO-Revision-Date: 2015-09-16 13:20+0200\n"
-"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
+"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
 "Language: da\n"
@@ -2894,7 +2894,7 @@ msgstr "Angiv mindst {0} tegn"
 
 #: js/messages.php:787
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Indtast venligst en værdi mellem {0} og {1} karakterer"
 
 #: js/messages.php:788
 msgid "Please enter a value between {0} and {1}"
