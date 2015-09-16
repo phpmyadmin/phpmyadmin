@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-16 14:22+0200\n"
-"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
+"PO-Revision-Date: 2015-09-16 14:31+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -12510,7 +12510,7 @@ msgstr "Kræver at et gyldigt X509-certifikat med dette emne bliver forevist."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Kræver et gyldigt X509-certifikat."
 
 #: libraries/server_privileges.lib.php:869
 msgid "Resource limits"
