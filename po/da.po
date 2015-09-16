@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-16 14:09+0200\n"
+"PO-Revision-Date: 2015-09-16 14:10+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
@@ -14929,10 +14929,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Række: %1$s, kolonne: %2$s, fejl: %3$s"
 
 #: tbl_row_action.php:71
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Der er ikke valgt versioner."
+msgstr "Der er ikke valgt en række."
 
 #: tbl_tracking.php:33
 #, php-format
