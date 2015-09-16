@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-16 13:31+0200\n"
-"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
+"PO-Revision-Date: 2015-09-16 14:08+0200\n"
+"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/da/>\n"
 "Language: da\n"
@@ -3253,12 +3253,13 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Udfør forespørgsler med Enter og indsæt ny linje med Skift + Enter. For at "
+"gøre dette permanent, så se indstillingerne."
 
 #: libraries/Console.class.php:389
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Skift til den kopierede tabel"
+msgstr "Skift til det mørke tema"
 
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1478
 #: libraries/DisplayResults.class.php:2268
@@ -3291,17 +3292,16 @@ msgstr "Kolonne:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "Sortér:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Sortér:"
+msgstr "Sorteringsrækkefølge:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -3482,7 +3482,6 @@ msgstr "Indeni tabel(ler):"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Fravælg alle"
@@ -3564,10 +3563,9 @@ msgid "Relational key"
 msgstr "Relationel nøgle"
 
 #: libraries/DisplayResults.class.php:1745
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Vis fremmednøgle-relationer"
+msgstr "Vis kolonne for relationer"
 
 #: libraries/DisplayResults.class.php:1758
 msgid "Show binary contents"
@@ -3657,7 +3655,6 @@ msgstr "Med det markerede:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Vælg alle"
@@ -3743,10 +3740,9 @@ msgid "Error while moving uploaded file."
 msgstr "Fejl under flytning af uploaded fil."
 
 #: libraries/File.class.php:497
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Kan ikke læse (flyttet) uploaded fil."
+msgstr "Kan ikke læse uploaded fil."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -3878,13 +3874,13 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"Linting er deaktiveret for denne forespørgsel, da den overstiger max. "
-"længden."
+"Linting er deaktiveret for denne forespørgsel, da den overstiger den maks. "
+"længde."
 
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (nær <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
@@ -4022,10 +4018,9 @@ msgid "Databases"
 msgstr "Databaser"
 
 #: libraries/Menu.class.php:568
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Brugergrupper"
+msgstr "Brugerkonti"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
 #: libraries/Util.class.php:4279 libraries/server_common.lib.php:36
@@ -4736,15 +4731,14 @@ msgid "Max: %s%s"
 msgstr "Maksimum størrelse: %s%s"
 
 #: libraries/Util.class.php:665
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Statiske data"
+msgstr "Statisk analyse:"
 
 #: libraries/Util.class.php:668
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "Der blev fundet %d fejl under analysen."
 
 #: libraries/Util.class.php:730 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -4768,14 +4762,13 @@ msgstr "Spring over Forklar SQL"
 #: libraries/Util.class.php:1189
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Forklaring af analyse ved %s"
 
 #: libraries/Util.class.php:1220
 msgid "Without PHP Code"
 msgstr "Uden PHP-kode"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Fremstil PHP-kode"
@@ -4907,7 +4900,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Tjek privilegier for databasen \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Tjek privilegier"
@@ -4976,8 +4968,9 @@ msgstr "Attribut"
 
 #: libraries/central_columns.lib.php:710
 #: libraries/central_columns.lib.php:1384
+#, fuzzy
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:750
 msgid "Select a table"
@@ -5131,7 +5124,6 @@ msgid "display column"
 msgstr "vis kolonne"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
 msgstr "Velkommen til %s"
@@ -5157,22 +5149,19 @@ msgid "Never send error reports"
 msgstr "Send aldrig fejlrapporter"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "Angiv standardværdi"
+msgstr "Serverens standardforvalg"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Slået til"
+msgstr "Slå til"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Slået fra"
+msgstr "Slå fra"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -6202,7 +6191,6 @@ msgid "Page titles"
 msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
 #| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
@@ -6211,8 +6199,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Angiv browserens tekst i titelbaren. Se [doc@cfg_TitleTable]dokumentationen[/"
-"doc] for tekststrenge der indeholder særlige værdier."
+"Angiv browserens tekst i titelbaren. Se [doc@faq6-27]dokumentationen[/doc] "
+"for tekststrenge der indeholder særlige værdier."
 
 #: libraries/config/messages.inc.php:292
 msgid "Security"
@@ -12210,7 +12198,7 @@ msgstr "Der er ingen hændelser at vise."
 
 #: libraries/select_lang.lib.php:614
 msgid "Ignoring unsupported language code."
-msgstr "Ignorer ikke understøttet sprog kode."
+msgstr "Ignorér sprogkoder som ikke understøttes."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
 #, fuzzy
@@ -14343,7 +14331,7 @@ msgstr "Kør SQL-forspørgsel(er) på database %s"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
-msgstr "Hent autogemt forespørgsel"
+msgstr "Hent automatisk gemt forespørgsel"
 
 #: libraries/sql_query_form.lib.php:256
 #, fuzzy
