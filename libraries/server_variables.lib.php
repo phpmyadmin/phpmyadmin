@@ -25,9 +25,11 @@ function PMA_getAjaxReturnForGetVal($variable_doc_links)
 
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
+    // Do not use double quotes inside the query to avoid a problem
+    // when server is running in ANSI_QUOTES sql_mode
     $varValue = $GLOBALS['dbi']->fetchSingleRow(
-        'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-        . PMA_Util::sqlAddSlashes($_REQUEST['varName']) . '";',
+        'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
+        . PMA_Util::sqlAddSlashes($_REQUEST['varName']) . '\';',
         'NUM'
     );
     if (isset($variable_doc_links[$_REQUEST['varName']][3])
