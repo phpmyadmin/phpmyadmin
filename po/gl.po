@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-14 20:44+0200\n"
+"PO-Revision-Date: 2015-09-16 19:34+0200\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/gl/>\n"
@@ -370,7 +370,7 @@ msgstr "Produciuse un erro e xerouse un erro de fallo que foi imposíbel enviar.
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Se percibe problemas envíe un informe de fallo manualmente."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
@@ -957,7 +957,7 @@ msgid ""
 "the data related to the selected partition(s)!"
 msgstr ""
 "Confirma que desexa ELIMINAR (DROP)  a(s) partición(s) seleccionada(s)? Isto "
-"tamén ha ELIMINAR os datos relacionados coa(s) partición(s) seleccionada(s)?"
+"tamén ha ELIMINAR os datos relacionados coa(s) partición(s) seleccionada(s)!"
 
 #: js/messages.php:65
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
