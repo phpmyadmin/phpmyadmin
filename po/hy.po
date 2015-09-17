@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-16 17:13+0200\n"
+"PO-Revision-Date: 2015-09-17 08:02+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -4178,7 +4178,7 @@ msgstr "Բացակայում են տեղեկություններ՝ որոնու�
 
 #: libraries/SavedSearches.class.php:394
 msgid "Error while loading the search."
-msgstr "Սխալ որոնումը բեռնելու ժամանակ։"
+msgstr "Որոնումը բեռնելու սխալ։"
 
 #: libraries/ServerStatusData.class.php:116
 #: libraries/server_status_processes.lib.php:100
@@ -4241,7 +4241,7 @@ msgstr "Ցուցադրել ենթարկվող խնամորդները"
 #: libraries/ServerStatusData.class.php:169
 #: libraries/replication_gui.lib.php:50
 msgid "Show master status"
-msgstr "Ցուցադրել վերադաս սպասարկչի կարգավիճակը"
+msgstr "Ցուցադրել հիմնական սպասարկչի կարգավիճակը"
 
 #: libraries/ServerStatusData.class.php:172
 msgid "Show slave status"
@@ -4611,6 +4611,8 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Թվարկում, որի արժեքը ընտրվում է մինչև 65,535 արժեքներ պարունակող ցանկից կամ "
+"պարունակում '' հատուկ սխալի արժեքը"
 
 #: libraries/Types.class.php:481
 msgid "A single value chosen from a set of up to 64 members"
@@ -4994,6 +4996,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Սա սովորաբար նշանակում է շարահյուսության սխալների առկայություն, խնդրում ենք "
+"ստուգել ստորև ցուցադրվող սխալները։"
 
 #: libraries/common.inc.php:591
 #, php-format
@@ -5123,7 +5127,7 @@ msgstr "Փակ"
 
 #: libraries/config.values.php:127
 msgid "Ask before sending error reports"
-msgstr "Հանցնել՝ սխալների զեկույցները ուղարկելուց առաջ"
+msgstr "Հարցնել՝ սխալների զեկույցները ուղարկելուց առաջ"
 
 #: libraries/config.values.php:128
 msgid "Always send error reports"
@@ -5693,7 +5697,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:120
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Ցուցադրել սպասարկիչների ցանկի տեսքով"
 
 #: libraries/config/messages.inc.php:122
 msgid ""
@@ -5861,7 +5865,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:181
 msgid "Export as separate files"
-msgstr ""
+msgstr "Արտահանել առանձին ֆայլերի տեսքով"
 
 #: libraries/config/messages.inc.php:185
 msgid "Remember file name template"
@@ -6302,7 +6306,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:361
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Անտեսել բաղկացած հարցումների սխալները"
 
 #: libraries/config/messages.inc.php:363
 msgid ""
@@ -6319,7 +6323,7 @@ msgstr "Մասնակի ներմուծում՝ թույլատրել խզումն�
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:73
 msgid "Do not abort on INSERT error"
-msgstr "Չընդհատել INSERT-ը կատարելուց առաջացած սխալների պատճառով"
+msgstr "Չընդհատել INSERT-ի ժամանակ առաջացած սխալների դեպքում"
 
 #: libraries/config/messages.inc.php:373 libraries/config/messages.inc.php:387
 msgid "Add ON DUPLICATE KEY UPDATE"
@@ -6595,6 +6599,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
+"Խմբավորել տարրերը նավարկման ծառում (սահմանվում է վերևի տվյալների բազաների և "
+"աղյուսակների ներդիրներում նշված բաժանիչով)։"
 
 #: libraries/config/messages.inc.php:508
 msgid "Group items in the tree"
@@ -6606,7 +6612,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:511
 msgid "Database tree separator"
-msgstr "Տվյալների բազաների ծառի սահմանիչը"
+msgstr "Տվյալների բազաների ծառի բաժանիչը"
 
 #: libraries/config/messages.inc.php:513
 msgid "String that separates tables into different tree levels."
@@ -6614,7 +6620,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:514
 msgid "Table tree separator"
-msgstr "Աղյուսակների ծառի սահմանիչը"
+msgstr "Աղյուսակների ծառի բաժանիչը"
 
 #: libraries/config/messages.inc.php:515
 msgid "Maximum table tree depth"
@@ -6740,7 +6746,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:563
 msgid "Default sorting order"
-msgstr ""
+msgstr "Լռելյայն դասակարգումը"
 
 #: libraries/config/messages.inc.php:565
 msgid "Use persistent connections to MySQL databases."
@@ -7196,7 +7202,7 @@ msgstr "Սպասարկչի բնակը"
 
 #: libraries/config/messages.inc.php:759
 msgid "Enable SSL for connection to MySQL server."
-msgstr ""
+msgstr "Օգտագործել SSL՝ MySQL սպասարկչին միանալու համար։"
 
 #: libraries/config/messages.inc.php:760
 msgid "Use SSL"
@@ -7664,7 +7670,7 @@ msgstr "reCaptcha-ի գաղտնի բանալին"
 
 #: libraries/config/messages.inc.php:991
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Ընտրել լռելյայն գործողությունը՝ սխալների զեկույցը ուղարկելու ժամանակ։"
 
 #: libraries/config/messages.inc.php:993
 msgid "Send error reports"
@@ -7693,6 +7699,7 @@ msgstr ""
 #: libraries/config/page_settings.class.php:140
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
+"Հնարավոր չէ պահպանել կայանքները, լրացված կազմաձևի ձևը պարունակում է սխալներ։"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7872,7 +7879,7 @@ msgstr "Ամբողջ գրվածքով"
 
 #: libraries/controllers/TableStructureController.class.php:965
 msgid "Distinct values"
-msgstr ""
+msgstr "Հատուկ արժեքները"
 
 #: libraries/core.lib.php:306
 #, php-format
@@ -8008,7 +8015,7 @@ msgstr "Ձևանմուշի անունը"
 
 #: libraries/display_export.lib.php:217
 msgid "Existing templates:"
-msgstr ""
+msgstr "Առկա ձևանմուշներ՝"
 
 #: libraries/display_export.lib.php:218
 msgid "Template:"
@@ -8139,7 +8146,7 @@ msgstr "Ցուցադրել արտածումը գրվածքի տեսքով"
 
 #: libraries/display_export.lib.php:751
 msgid "Export databases as separate files"
-msgstr ""
+msgstr "Արտահանել տվյալների բազաները՝ առանձին ֆայլերի տեսքով"
 
 #: libraries/display_export.lib.php:753
 msgid "Export tables as separate files"
@@ -8767,7 +8774,7 @@ msgstr "Զետեղել որպես նոր տող"
 
 #: libraries/insert_edit.lib.php:1462
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Զետեղել որպես նոր տող և անտեսել սխալներ"
 
 #: libraries/insert_edit.lib.php:1465
 msgid "Show insert query"
@@ -9052,7 +9059,7 @@ msgstr "Չեխոսլովակերեն"
 
 #: libraries/navigation/Navigation.class.php:54
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "Նավարկման փեղկի բեռման ժամանակ առաջացել է սխալ"
 
 #: libraries/navigation/Navigation.class.php:192
 msgid "Groups:"
@@ -9416,7 +9423,7 @@ msgstr ""
 #: libraries/normalization.lib.php:487 libraries/normalization.lib.php:632
 #: libraries/normalization.lib.php:697
 msgid "Error in processing!"
-msgstr ""
+msgstr "Մշակման ժամանակ առաջացել է սխալ։"
 
 #: libraries/normalization.lib.php:533
 #, php-format
@@ -9619,7 +9626,7 @@ msgstr "Ստուգել աղյուսակի ստւգագումարը"
 
 #: libraries/operations.lib.php:1453
 msgid "Defragment table"
-msgstr ""
+msgstr "Ապամասնատել աղյուսակը"
 
 #: libraries/operations.lib.php:1465
 #, php-format
@@ -10390,7 +10397,7 @@ msgstr "ESRI ձևի ֆայլ"
 #: libraries/plugins/import/ImportShp.class.php:140
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "ESRI ձևի ֆայլը ներմուծելու ժամանակ առաջացել է սխալ՝ \"%s\"։"
 
 #: libraries/plugins/import/ImportShp.class.php:196
 msgid ""
@@ -10674,7 +10681,7 @@ msgstr ""
 
 #: libraries/pmd_common.php:538
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Սխալ՝ կապակցումը արդեն իսկ առկա է։"
 
 #: libraries/pmd_common.php:584
 msgid "FOREIGN KEY relation has been added."
@@ -10682,15 +10689,15 @@ msgstr ""
 
 #: libraries/pmd_common.php:589
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr ""
+msgstr "Սխալ՝ հնարավոր չէ ավելացնել արտաքին բանալիի կապակցումը։"
 
 #: libraries/pmd_common.php:594
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Սխալ՝ սյունակ(ներ)ի ցուցակագիրը բացակայում է։"
 
 #: libraries/pmd_common.php:598
 msgid "Error: Relational features are disabled!"
-msgstr ""
+msgstr "Սխալ՝ կապակցման հատկությունները կասեցված են։"
 
 #: libraries/pmd_common.php:618
 msgid "Internal relation has been added."
@@ -10706,7 +10713,7 @@ msgstr "Արտաքին բանալիի կապակցումը ջնջվեց։"
 
 #: libraries/pmd_common.php:670
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr ""
+msgstr "Սխալ՝ հնարավոր չէ հեռացնել արտաքին բանալիի կապակցումը։"
 
 #: libraries/pmd_common.php:697
 msgid "Error: Internal relation could not be removed!"
@@ -10860,11 +10867,12 @@ msgstr ""
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:344
 #: libraries/server_databases.lib.php:398
 msgid "Master replication"
-msgstr ""
+msgstr "Հիմնական սպասարկչի կրկնապատկում"
 
 #: libraries/replication_gui.lib.php:47
 msgid "This server is configured as master in a replication process."
 msgstr ""
+"Այս սպասարկիչը կազմաձևած է որպես հիմնական կրկնապատկման գործընթացի համար։"
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
@@ -10876,7 +10884,7 @@ msgstr "Ավելացնել կրկնապատկման ենթարկվող օգտվ�
 
 #: libraries/replication_gui.lib.php:88
 msgid "Master configuration"
-msgstr ""
+msgstr "Հիմնական սպասարկչի կազմաձևում"
 
 #: libraries/replication_gui.lib.php:90
 msgid ""
@@ -10886,6 +10894,12 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
+"Այս սպասարկիչը կազմաձևած չէ որպես հիմնական՝ կրկնապատկման գործընթացի համար։ "
+"Դուք կարող եք ընտել բոլոր տվյալների բազաների կրկնապատկումը՝ անտեսելով "
+"դրանցից մի քանիսը (օգտակար է տվյալների բազաների մեծ մասը կրկնապատկելու "
+"անհրաժեշտության դեպքում), կամ լռելիությամբ անտեսել բոլոր տվյալների բազաները՝ "
+"ընտրելով կրկնապատկման համար մի քանիսը։ Խնդրում ենք նշել ձեր նախընտրելի "
+"եղանակը՝"
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
@@ -10911,15 +10925,18 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
+"MySQL սպասարկչի վերամեկնարկումից անմիջապես հետո խնդրում ենք կտտացնել 'Առաջ' "
+"կոճակը, ինչից հետո դուք պետք է տեսնեք տեղեկություն՝ որ տվյալ սպասարկիչը <b>"
+"կազմաձևած է</b> որպես հիմնական։"
 
 #: libraries/replication_gui.lib.php:141
 #: libraries/server_databases.lib.php:400
 msgid "Slave replication"
-msgstr ""
+msgstr "Ենթարկվող սպասարկչի կրկնապատկում"
 
 #: libraries/replication_gui.lib.php:149
 msgid "Master connection:"
-msgstr ""
+msgstr "Հիմնական միացում՝"
 
 #: libraries/replication_gui.lib.php:216
 msgid "Slave SQL Thread not running!"
@@ -10933,6 +10950,8 @@ msgstr ""
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Սպասարկիչը կազմաձևած է որպես ենթարկվող՝ կրկնապատկման գործընթացի համար։ Նշեք "
+"գործողությունը՝"
 
 #: libraries/replication_gui.lib.php:239
 msgid "See slave status table"
@@ -10972,7 +10991,7 @@ msgstr "Կանգնեցնել միայն ներածման/արտածման հոս
 
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:402
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Փոփոխել կամ վերակազմաձևել հիմնական սպասարկիչը"
 
 #: libraries/replication_gui.lib.php:286
 #, php-format
@@ -10980,10 +10999,12 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Այս սպասարկիչը կազմաձևած չէ որպես ենթարկվող՝ կրկնապատկման գործընթացի համար։ "
+"Ցանկանու՞մ եք <a href=\"%s\">կազմաձևել</a> այն։"
 
 #: libraries/replication_gui.lib.php:308
 msgid "Error management:"
-msgstr "Սխալների կառավարումը՝"
+msgstr "Սխալների կառավարում՝"
 
 #: libraries/replication_gui.lib.php:311
 msgid "Skipping errors might lead into unsynchronized master and slave!"
@@ -10991,12 +11012,12 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:315
 msgid "Skip current error"
-msgstr "Զանցել ընթացիկ սխալը"
+msgstr "Անտեսել ընթացիկ սխալը"
 
 #: libraries/replication_gui.lib.php:320
 #, php-format
 msgid "Skip next %s errors."
-msgstr "Զանցել հաջորդ %s սխալները։"
+msgstr "Անտեսել հաջորդ %s սխալները։"
 
 #: libraries/replication_gui.lib.php:347
 #, php-format
@@ -11004,6 +11025,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Այս սպասարկիչը կազմաձևած չէ որպես հիմնական՝ կրկնապատկման գործընթացի համար։ "
+"Ցանկանու՞մ եք <a href=\"%s\">կազմաձևել</a> այն։"
 
 #: libraries/replication_gui.lib.php:401
 msgid "Slave configuration"
@@ -11043,7 +11066,7 @@ msgstr "Միացք՝"
 
 #: libraries/replication_gui.lib.php:530
 msgid "Master status"
-msgstr ""
+msgstr "Հիմնական սպասարկչի կարգավիճակը"
 
 #: libraries/replication_gui.lib.php:533
 msgid "Slave status"
@@ -11121,27 +11144,27 @@ msgstr "Ստեղծել գաղտնաբառը՝"
 
 #: libraries/replication_gui.lib.php:933
 msgid "Replication started successfully."
-msgstr ""
+msgstr "Կրկնապատկումը հաջողությամբ մեկնարկվեց։"
 
 #: libraries/replication_gui.lib.php:934
 msgid "Error starting replication."
-msgstr ""
+msgstr "Կարկնապատկումը մեկնարկելու սխալ։"
 
 #: libraries/replication_gui.lib.php:937
 msgid "Replication stopped successfully."
-msgstr ""
+msgstr "Կրկնապատկումը հաջողությամբ կանգնեցվեց։"
 
 #: libraries/replication_gui.lib.php:938
 msgid "Error stopping replication."
-msgstr ""
+msgstr "Կրկնապատկումը կանգնեցնելու սխալ։"
 
 #: libraries/replication_gui.lib.php:941
 msgid "Replication resetting successfully."
-msgstr ""
+msgstr "Կրկնապատկումը հաջողությամբ վերակայվեց։"
 
 #: libraries/replication_gui.lib.php:942
 msgid "Error resetting replication."
-msgstr ""
+msgstr "Կրկնապատկումը վերակայելու սխալ։"
 
 #: libraries/replication_gui.lib.php:945
 msgid "Success."
@@ -11149,7 +11172,7 @@ msgstr "Հաջողում։"
 
 #: libraries/replication_gui.lib.php:946
 msgid "Error."
-msgstr ""
+msgstr "Սխալ։"
 
 #: libraries/replication_gui.lib.php:991
 msgid "Unknown error"
@@ -11158,7 +11181,7 @@ msgstr "Անհայտ սպալ"
 #: libraries/replication_gui.lib.php:1001
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Չհաջողվեց միանալ հիմնական սպասարկչին %s։"
 
 #: libraries/replication_gui.lib.php:1012
 msgid ""
@@ -11167,12 +11190,12 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:1030
 msgid "Unable to change master!"
-msgstr ""
+msgstr "Հնարավոր չէ փոխել հիմնական սպասարկիչը։"
 
 #: libraries/replication_gui.lib.php:1034
 #, php-format
 msgid "Master server changed successfully to %s."
-msgstr ""
+msgstr "Հիմնական սպասարկիչը հաջողությամբ փոխվեց %s-ին։"
 
 #: libraries/rte/rte_events.lib.php:106 libraries/rte/rte_events.lib.php:115
 #: libraries/rte/rte_events.lib.php:146 libraries/rte/rte_routines.lib.php:219
@@ -11202,7 +11225,7 @@ msgstr "%1$s իրադարձությունը ստեղծվեց։"
 #: libraries/rte/rte_events.lib.php:167 libraries/rte/rte_routines.lib.php:266
 #: libraries/rte/rte_triggers.lib.php:144
 msgid "One or more errors have occurred while processing your request:"
-msgstr ""
+msgstr "Ձեր հարցումը կատարելու ժամանակ առաջացել են մեկ կամ ավել սխալներ՝"
 
 #: libraries/rte/rte_events.lib.php:220
 msgid "Edit event"
@@ -11252,13 +11275,13 @@ msgstr "Վերջացնելուց պահպանել"
 #: libraries/rte/rte_routines.lib.php:1021
 #: libraries/rte/rte_triggers.lib.php:383 view_create.php:209
 msgid "Definer"
-msgstr ""
+msgstr "Սահմանիչ"
 
 #: libraries/rte/rte_events.lib.php:535
 #: libraries/rte/rte_routines.lib.php:1088
 #: libraries/rte/rte_triggers.lib.php:422
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr ""
+msgstr "Սահմանիչը պետք է համապատասխանի \"օգտանուն@խնամորդի_անուն\" ձևաչափին։"
 
 #: libraries/rte/rte_events.lib.php:542
 msgid "You must provide an event name!"
@@ -11318,7 +11341,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:123
 msgid "Edit routine"
-msgstr ""
+msgstr "Խմբագրել գործընթացը"
 
 #: libraries/rte/rte_routines.lib.php:200
 #: libraries/rte/rte_routines.lib.php:1097
@@ -11438,7 +11461,7 @@ msgstr[1] "Ընթացակարգի վերջին արտահայտությունո�
 #: libraries/rte/rte_routines.lib.php:1489
 #: libraries/rte/rte_routines.lib.php:1497
 msgid "Execute routine"
-msgstr ""
+msgstr "Կատարել գործընթացը"
 
 #: libraries/rte/rte_routines.lib.php:1576
 #: libraries/rte/rte_routines.lib.php:1579
@@ -11461,7 +11484,7 @@ msgstr "%1$s ձգանը ստեղծվեց։"
 
 #: libraries/rte/rte_triggers.lib.php:206
 msgid "Edit trigger"
-msgstr ""
+msgstr "Խմբագրել ձգանը"
 
 #: libraries/rte/rte_triggers.lib.php:326
 msgid "Trigger name"
@@ -11788,7 +11811,7 @@ msgstr "Անհրաժեշտ է ենթարկվող սպասարկիչներին՝ 
 #: libraries/server_privileges.lib.php:375
 #: libraries/server_privileges.lib.php:1354 server_privileges.php:95
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr ""
+msgstr "Թուլյատրում է հարցնել հիմնական և ենթարկվող սպասարկիչների տեղակայումը։"
 
 #: libraries/server_privileges.lib.php:380
 #: libraries/server_privileges.lib.php:396
@@ -12261,6 +12284,8 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Այս MySQL սպասարկիչը <b>կրկնապատկման</b> ընթացքում աշխատում է որպես "
+"<b>հիմնական</b> և <b>ենթարկվող</b>։"
 
 #: libraries/server_status.lib.php:99
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
@@ -12276,7 +12301,7 @@ msgstr ""
 
 #: libraries/server_status.lib.php:116
 msgid "Replication status"
-msgstr ""
+msgstr "Կրկնապատկման կարգավիճակ"
 
 #: libraries/server_status.lib.php:146
 msgid ""
@@ -12426,7 +12451,7 @@ msgstr "Ընտրեք շարքերը՝"
 
 #: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Հաճախակի վերահսկվող"
 
 #: libraries/server_status_monitor.lib.php:203
 msgid "or type variable name:"
@@ -13074,6 +13099,8 @@ msgstr ""
 #: libraries/server_status_variables.lib.php:708
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
+"Այն հանդիսանում է ON, եթե տվյալ սպասարկիչը ենթարկվող է, որը միացրած է "
+"հիմնականին։"
 
 #: libraries/server_status_variables.lib.php:711
 msgid ""
@@ -13323,7 +13350,7 @@ msgstr ""
 #: libraries/sql-parser/src/Lexer.php:788
 #, php-format
 msgid "Ending quote %1$s was expected."
-msgstr ""
+msgstr "Սպասվում էր %1$s փակող չակերտը։"
 
 #: libraries/sql-parser/src/Lexer.php:828
 msgid "Variable name was expected."
@@ -13479,7 +13506,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:331
 msgid "Delimiter"
-msgstr "Սահմանիչ"
+msgstr "Բաժանիչ"
 
 #: libraries/sql_query_form.lib.php:341
 msgid "Show this query here again"
@@ -13527,7 +13554,7 @@ msgstr "Գործունացնել"
 #: libraries/tracking.lib.php:207
 #, php-format
 msgid "Deactivate tracking for %s"
-msgstr ""
+msgstr "Անջատել հետագծումը %s-ի համար"
 
 #: libraries/tracking.lib.php:209
 msgid "Deactivate now"
@@ -14635,7 +14662,7 @@ msgstr "Մեկնաբանություն՝"
 
 #: templates/table/index_form.phtml:149 templates/table/index_form.phtml:190
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Քաշեք՝ վերադասակարգելու համար"
 
 #: templates/table/relation/common_form.phtml:7
 msgid "Internal relations"
