@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-28 06:06+0200\n"
-"Last-Translator: Amir Hamzah <amir.overlord666@gmail.com>\n"
+"PO-Revision-Date: 2015-09-17 15:33+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/4-4/ms/>"
 "\n"
 "Language: ms\n"
@@ -249,13 +249,13 @@ msgstr "Tiada nama pangkalan data!"
 #, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Pangkalan data %1$s telah ditukarnama ke %2$s"
+msgstr "Pangkalan data %1$s telah ditukarnama ke %2$s."
 
 #: db_operations.php:138
 #, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Pangkalan data %1$s telah di salin ke %2$s"
+msgstr "Pangkalan data %1$s telah di salin ke %2$s."
 
 #: db_operations.php:259
 #, php-format
@@ -16737,10 +16737,6 @@ msgstr ""
 #~ "halaman"
 
 #~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Tiada"
-
-#~ msgctxt ""
 #~ msgid "None"
 #~ msgstr "Tiada"
 
