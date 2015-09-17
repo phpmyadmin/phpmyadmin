@@ -527,12 +527,12 @@ function PMA_getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
         );
         $html .= '</legend>';
         $html .= '<div class="formelement">';
-        $html .= '<label>' . __('Label:') . '</label>';
-        $html .= '<input type="text" name="bkm_fields[bkm_label]" value="" />';
+        $html .= '<label>' . __('Label:');
+        $html .= '<input type="text" name="bkm_fields[bkm_label]" value="" /></label>';
         $html .= '</div>';
         $html .= '<div class="formelement">';
-        $html .= '<input type="checkbox" name="bkm_all_users" value="true" />';
-        $html .= '<label>' . __('Let every user access this bookmark') . '</label>';
+        $html .= '<label><input type="checkbox" name="bkm_all_users" value="true" />';
+        $html .=  __('Let every user access this bookmark') . '</label>';
         $html .= '</div>';
         $html .= '<div class="clearfloat"></div>';
         $html .= '</fieldset>';
