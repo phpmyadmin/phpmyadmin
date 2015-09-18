@@ -1314,8 +1314,8 @@ class DatabaseInterface
      * @param boolean $full     whether to return full info or only column names
      * @param mixed   $link     mysql link resource
      *
-     * @return false|array   array indexed by column names or,
-     *                        if $column is given, flat array description
+     * @return array array indexed by column names or,
+     *               if $column is given, flat array description
      */
     public function getColumns($database, $table, $column = null, $full = false,
         $link = null
@@ -1323,7 +1323,7 @@ class DatabaseInterface
         $sql = $this->getColumnsSql($database, $table, $column, $full);
         $fields = $this->fetchResult($sql, 'Field', null, $link);
         if (! is_array($fields) || count($fields) == 0) {
-            return null;
+            return array();
         }
         // Check if column is a part of multiple-column index and set its 'Key'.
         $indexes = Index::getFromTable($table, $database);

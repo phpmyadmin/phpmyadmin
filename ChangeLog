@@ -3,11 +3,14 @@ phpMyAdmin - ChangeLog
 
 4.6.0.0 (not yet released)
 + issue #11456 Disabled storage engines
++ issue #11479 Allow setting routine wise privileges
 
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()
 - issue        array_key_exists() expects parameter 2 to be array
 - issue #11480 Notice Undefined index: drop_database
+- issue #11486 Server variable edition in ANSI_QUOTES sql_mode: losing current value
+- issue #11491 Propose table structure broken
 
 4.5.0.0 (not yet released)
 + rfe          Pagination for GIS visualization
@@ -107,6 +110,7 @@ phpMyAdmin - ChangeLog
 - issue #11442 MySQL 5.7 and SHOW VARIABLES
 - issue #11445 MySQL 5.7 and Status page for an unprivileged user
 - issue #11448 Clarify doc about the MemoryLimit directive
+- issue #11489 Cannot copy a database under certain conditions
 
 4.4.15.0 (not yet released)
 - issue #11411 Undefined "replace" function on numeric scalar
@@ -120,6 +124,7 @@ phpMyAdmin - ChangeLog
 - issue #11457 Request URI too large
 - issue        Invalid argument supplied for foreach()
 - issue #11461 Foreign key constraints for InnoDB tables with upper-case letters disabled
+- issue #11487 Warning when entering Query page
 
 4.4.14.1 (2015-09-08)
 - issue        [security] reCaptcha bypass

@@ -1,0 +1,26 @@
+<div id="edit_user_dialog">
+    <?php echo $header; ?>
+    <form class="submenu-item" name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">
+        <?php echo PMA_URL_getHiddenInputs(); ?>
+        <input type="hidden" name="username" value="<?php echo htmlspecialchars($username); ?>">
+        <input type="hidden" name="hostname" value="<?php echo htmlspecialchars($hostname); ?>">
+        <input type="hidden" name="dbname" value="<?php echo htmlspecialchars($database); ?>">
+        <input type="hidden" name="routinename" value="<?php echo htmlspecialchars($routine); ?>">
+        <input type="hidden" name="grant_count" value="<?php echo $grantCount; ?>">
+        <fieldset id="fieldset_user_global_rights">
+            <legend data-submenu-label="<?php echo __('Routine')?>">
+                <?php echo __('Routine-specific privileges'); ?>
+            </legend>
+            <p>
+                <small>
+                    <i><?php echo __('Note: MySQL privilege names are expressed in English.'); ?></i>
+                </small>
+            </p>
+            <?php echo $privCheckboxes; ?>
+        </fieldset>
+        <fieldset id="fieldset_user_privtable_footer" class="tblFooters">
+            <input type="hidden" name="update_privs" value="1">
+            <input type="submit" value="Go">
+        </fieldset>
+    </form>
+</div>

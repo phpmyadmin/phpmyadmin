@@ -1,0 +1,67 @@
+<form class="submenu-item" action="server_privileges.php" id="<?php echo $formId; ?>" method="post">
+    <?php echo PMA_URL_getHiddenInputs(); ?>
+    <input type="hidden" name="username" value="<?php echo htmlspecialchars($userName); ?>" />
+    <input type="hidden" name="hostname" value="<?php echo htmlspecialchars($hostName); ?>" />
+
+    <fieldset>
+        <legend data-submenu-label="<?php echo $subMenuLabel; ?>">
+            <?php echo $legend; ?>
+        </legend>
+
+        <table class="data">
+            <thead>
+                <tr>
+                    <th><?php echo $typeLabel; ?></th>
+                    <th><?php echo __('Privileges'); ?></th>
+                    <th><?php echo __('Grant'); ?></th>
+                    <?php if ($type == 'database') : ?>
+                        <th><?php echo __('Table-specific privileges'); ?></th>
+                    <?php elseif ($type == 'table') : ?>
+                        <th><?php echo __('Column-specific privileges'); ?></th>
+                    <?php endif; ?>
+                    <th colspan="2"><?php echo __('Action'); ?></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php if (count($privileges) == 0) : ?>
+                    <?php $colspan = ($type == 'database' ? 7 : ($type == 'table' ? 6 : 5)); ?>
+                    <tr class="odd">
+                        <td colspan="<?php echo $colspan; ?>"><center><i><?php echo __('None') ?></i></center></td>
+                    </tr>
+                <?php else : ?>
+                    <?php $odd = true; ?>
+                    <?php foreach ($privileges as $privilege) : ?>
+                        <?php echo PMA\Template::get('privileges/privileges_summary_row')
+                                ->render(
+                                    array_merge(
+                                        $privilege,
+                                        array(
+                                            'odd'  => $odd,
+                                            'type' => $type,
+                                        )
+                                    )
+                                ); ?>
+                        <?php $odd = !$odd; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <?php if ($type == 'database') : ?>
+            <?php echo PMA\Template::get('privileges/add_privileges_database')
+                    ->render(array('databases' => $databases)); ?>
+        <?php elseif ($type == 'table') : ?>
+            <?php echo PMA\Template::get('privileges/add_privileges_table')
+                    ->render(array('database' => $database, 'tables' => $tables)); ?>
+        <?php else: // routine ?>
+            <?php echo PMA\Template::get('privileges/add_privileges_routine')
+                    ->render(array('database' => $database, 'routines' => $routines)); ?>
+        <?php endif; ?>
+
+    </fieldset>
+
+    <fieldset class="tblFooters">
+        <input type="submit" value="<?php echo __('Go'); ?>" />
+    </fieldset>
+</form>
