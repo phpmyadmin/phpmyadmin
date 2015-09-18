@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-09-17 08:02+0200\n"
+"PO-Revision-Date: 2015-09-18 07:09+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -5799,7 +5799,7 @@ msgstr "Excel տարբերակ"
 
 #: libraries/config/messages.inc.php:149
 msgid "Database name template"
-msgstr ""
+msgstr "Տվյալների բազայի անվան ձևանմուշը"
 
 #: libraries/config/messages.inc.php:150
 msgid "Server name template"
@@ -6029,7 +6029,7 @@ msgstr "Արտահանման լռելյայն կայանքներ"
 
 #: libraries/config/messages.inc.php:256
 msgid "Customize default export options."
-msgstr ""
+msgstr "Կազմաձևել արտահանման լռելյայն կայանքները։"
 
 #: libraries/config/messages.inc.php:257 libraries/config/messages.inc.php:318
 #: setup/frames/menu.inc.php:22
@@ -6886,7 +6886,7 @@ msgstr "Թողեք դատարկ, թեթ չի օգտագործվում։"
 
 #: libraries/config/messages.inc.php:621
 msgid "Host authorization order"
-msgstr ""
+msgstr "Խնամորդի նունյացման հերթականությունը"
 
 #: libraries/config/messages.inc.php:622
 msgid "Leave blank for defaults."
@@ -6894,7 +6894,7 @@ msgstr "Թողեք դատարկ՝ լռելյայնը օգտագործելու հ
 
 #: libraries/config/messages.inc.php:623
 msgid "Host authorization rules"
-msgstr ""
+msgstr "Խնամորդի նունյացման կանոնները"
 
 #: libraries/config/messages.inc.php:624
 msgid "Allow logins without a password"
@@ -7074,7 +7074,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:701
 msgid "Export templates table"
-msgstr ""
+msgstr "Արտահանել ձևանմուշների աղյուսակը"
 
 #: libraries/config/messages.inc.php:703
 msgid ""
@@ -8182,7 +8182,7 @@ msgstr "Նոր աղյուսակի անունը"
 
 #: libraries/display_export.lib.php:988
 msgid "Old column name"
-msgstr ""
+msgstr "Սյունակի նախորդ անունը"
 
 #: libraries/display_export.lib.php:989
 msgid "New column name"
@@ -8490,7 +8490,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
-msgstr ""
+msgstr "Ցուցակագրի շտեմի չափը"
 
 #: libraries/engines/pbxt.lib.php:30
 msgid ""
@@ -10794,7 +10794,7 @@ msgstr "Ձևափոխվող ընտրացանկեր"
 
 #: libraries/relation.lib.php:294
 msgid "Hide/show navigation items"
-msgstr ""
+msgstr "Ցուցադրել/թաքցնել նավարկման տարրերը"
 
 #: libraries/relation.lib.php:305
 msgid "Saving Query-By-Example searches"
@@ -10963,11 +10963,11 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:250
 msgid "Full start"
-msgstr ""
+msgstr "Ամբողջական մեկնարկում"
 
 #: libraries/replication_gui.lib.php:251
 msgid "Full stop"
-msgstr ""
+msgstr "Ամբողջական կանգ"
 
 #: libraries/replication_gui.lib.php:253
 msgid "Reset slave"
@@ -12382,7 +12382,7 @@ msgstr "Արդյունքները խմբավորվում են ըստ հարցու
 
 #: libraries/server_status_monitor.lib.php:93
 msgid "Query analyzer"
-msgstr ""
+msgstr "Հարցման վերլուծումը"
 
 #: libraries/server_status_monitor.lib.php:110
 msgid "Monitor Instructions"
@@ -14135,7 +14135,7 @@ msgstr "Սա՝ արտաքին բանալի է։"
 
 #: templates/columns_definitions/column_name.phtml:44
 msgid "Pick from Central Columns"
-msgstr ""
+msgstr "Ընտրել կենտրոնական սյունակներից"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:22
@@ -15011,7 +15011,7 @@ msgstr "Հարցումների ընթացիկ քանակը՝ %s"
 
 #: libraries/advisory_rules.txt:63
 msgid "Percentage of slow queries"
-msgstr ""
+msgstr "Դանդաղ հարցումների տոկոսային հարաբերությունը"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
@@ -15814,7 +15814,7 @@ msgstr "slow_launch_time նշված է %s"
 
 #: libraries/advisory_rules.txt:392
 msgid "Percentage of used connections"
-msgstr ""
+msgstr "Օգտագործված միացումների տոկոսային հարաբերությունը"
 
 #: libraries/advisory_rules.txt:395
 msgid ""
@@ -15837,7 +15837,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
-msgstr ""
+msgstr "Ընդհանտված միացումների տոկոսային հարաբերությունը"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
 msgid "Too many connections are aborted."
