@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue        array_key_exists() expects parameter 2 to be array
 - issue #11480 Notice Undefined index: drop_database
 - issue #11486 Server variable edition in ANSI_QUOTES sql_mode: losing current value
+- issue #11491 Propose table structure broken
 
 4.5.0.0 (not yet released)
 + rfe          Pagination for GIS visualization
