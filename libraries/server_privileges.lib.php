@@ -1095,10 +1095,10 @@ function PMA_getHtmlForTableSpecificPrivileges(
         . 'value="' . count($columns) . '" />' . "\n"
         . '<fieldset id="fieldset_user_priv">' . "\n"
         . '<legend data-submenu-label="Table">' . __('Table-specific privileges')
-        . PMA_Util::showHint(
-            __('Note: MySQL privilege names are expressed in English.')
-        )
-        . '</legend>' . "\n";
+        . '</legend>'
+        . '<p><small><i>'
+        . __('Note: MySQL privilege names are expressed in English.')
+        . '</i></small></p>';
 
     // privs that are attached to a specific column
     $html_output .= PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn(
