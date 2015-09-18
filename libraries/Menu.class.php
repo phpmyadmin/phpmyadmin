@@ -606,7 +606,7 @@ class PMA_Menu
         $tabs['engine']['link'] = 'server_engines.php';
         $tabs['engine']['text'] = __('Engines');
 
-        $tabs['plugins']['icon'] = 'b_routines.png';
+        $tabs['plugins']['icon'] = 'b_plugin.png';
         $tabs['plugins']['link'] = 'server_plugins.php';
         $tabs['plugins']['text'] = __('Plugins');
 
