@@ -29,7 +29,7 @@ class Linter
      */
     public static function getLines($str)
     {
-        if ((!($str instanceof SqlParser\UtfString))
+        if ((!($str instanceof UtfString))
             && (defined('USE_UTF_STRINGS')) && (USE_UTF_STRINGS)
         ) {
             // If the lexer uses UtfString for processing then the position will
