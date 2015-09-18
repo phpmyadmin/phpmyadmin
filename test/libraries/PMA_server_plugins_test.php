@@ -123,7 +123,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<td>plugin_type_version1</td>',
+            '<td>plugin_version1</td>',
             $html
         );
         $this->assertContains(
