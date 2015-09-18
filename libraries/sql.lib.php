@@ -2009,7 +2009,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     }
 
     $displayResultsObject = new PMA_DisplayResults(
-        $GLOBALS['db'], $GLOBALS['table'], $GLOBALS['goto'], $sql_query
+        $GLOBALS['db'], $GLOBALS['table'], $goto, $sql_query
     );
     $displayResultsObject->setConfigParamsForDisplayTable();
 
