@@ -96,8 +96,9 @@ function PMA_getAvailableMIMEtypes()
         'output/' => '',
         '' => ''
     );
+    $dir = './libraries/plugins/transformations/';
     foreach ($sub_dirs as $sd => $prefix) {
-        $handle = opendir('./libraries/plugins/transformations/' . $sd);
+        $handle = opendir($dir . $sd);
 
         if (! $handle) {
             $stack[$prefix . 'transformation'] = array();
@@ -121,14 +122,13 @@ function PMA_getAvailableMIMEtypes()
                 $stack['mimetype'][$mimetype] = $mimetype;
 
                 $stack[$prefix . 'transformation'][] = $mimetype . ': ' . $parts[2];
-                $stack[$prefix . 'transformation_file'][] = $sd . $file;
+                $stack[$prefix . 'transformation_file'][] = $dir . $sd . $file;
                 if ($sd === '') {
                     $stack['input_transformation'][] = $mimetype . ': ' . $parts[2];
-                    $stack['input_transformation_file'][] = $sd . $file;
+                    $stack['input_transformation_file'][] = $dir . $sd . $file;
                 }
 
             } elseif (preg_match('|^[^.].*\.php$|', $file)) {
-                var_dump($file);
                 // File is a plain mimetype, no functions.
                 $base = str_replace('.php', '', $file);
 
@@ -169,7 +169,7 @@ function PMA_getTransformationClassName($filename)
 function PMA_getTransformationDescription($file)
 {
     /* @var $class_name TransformationsInterface */
-    $class_name = PMA_getTransformationClassName($file);
+    $class_name = PMA_getTransformationClassName('libraries/plugins/transformations/' . $file);
     // include and instantiate the class
     include_once 'libraries/plugins/transformations/' . $file;
     return $class_name::getInfo();
