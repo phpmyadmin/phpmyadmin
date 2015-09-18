@@ -52,7 +52,7 @@ function PMA_getServerPlugins()
  */
 function PMA_getPluginTab($plugins)
 {
-    $html  = '<br /><div id="plugins_plugins">';
+    $html  = '<div id="plugins_plugins">';
     $html .= '<div id="sectionlinks">';
 
     foreach ($plugins as $plugin_type => $plugin_list) {

@@ -31,6 +31,7 @@ $plugins = PMA_getServerPlugins();
 /**
  * Displays the page
  */
+$response->addHTML(PMA_getHtmlForSubPageHeader('plugins'));
 $response->addHTML(PMA_getPluginTab($plugins));
 
 exit;
