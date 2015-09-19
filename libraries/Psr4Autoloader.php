@@ -5,6 +5,7 @@ namespace PMA;
 
 class Psr4Autoloader
 {
+    protected static $instance = null;
     /**
      * An associative array where the key is a namespace prefix and the value
      * is an array of base directories for classes in that namespace.
@@ -12,6 +13,23 @@ class Psr4Autoloader
      * @var array
      */
     protected $prefixes = array();
+
+    protected function __construct()
+    {
+    }
+
+    /**
+     * Get instance
+     *
+     * @return Psr4Autoloader
+     */
+    public static function getInstance()
+    {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
 
     /**
      * Register loader with SPL autoloader stack.

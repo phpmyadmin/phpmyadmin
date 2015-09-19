@@ -32,7 +32,7 @@ class NodeDatabaseContainer extends Node
             && $GLOBALS['cfg']['ShowCreateDb'] !== false
         ) {
             $new = NodeFactory::getInstance(
-                'Node',
+                'PMA\\libraries\\navigation\\nodes\\Node',
                 _pgettext('Create new database', 'New')
             );
             $new->isNew = true;

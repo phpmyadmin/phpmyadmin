@@ -3,7 +3,7 @@
 require_once './libraries/Psr4Autoloader.php';
 
 // instantiate the loader
-$loader = new \PMA\Psr4Autoloader;
+$loader = \PMA\Psr4Autoloader::getInstance();
 
 // register the autoloader
 $loader->register();

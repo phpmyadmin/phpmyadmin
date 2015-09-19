@@ -8,6 +8,7 @@
 namespace PMA\libraries\navigation;
 
 use PMA\libraries\navigation\nodes\Node;
+use PMA\Psr4Autoloader;
 
 /**
  * Node factory - instantiates Node objects or objects derived from the Node class
@@ -17,14 +18,6 @@ use PMA\libraries\navigation\nodes\Node;
 class NodeFactory
 {
     /**
-     * @var string $_path A template for generating paths to files
-     *                    that contain various Node classes
-     * @access private
-     */
-    private static $_path = 'libraries/navigation/nodes/%s.php';
-    private static $_namespace = 'PMA\libraries\navigation\nodes\%s';
-
-    /**
      * Sanitizes the name of a Node class
      *
      * @param string $class The class name to be sanitized
@@ -33,7 +26,7 @@ class NodeFactory
      */
     private static function _sanitizeClass($class)
     {
-        if ($class !== 'Node' && !preg_match('@^Node\w+(_\w+)?$@', $class)) {
+        if (!preg_match('@^PMA\\\\libraries\\\\navigation\\\\nodes\\\\Node\w*$@', $class)) {
             $class = 'Node';
             trigger_error(
                 sprintf(
@@ -45,11 +38,11 @@ class NodeFactory
             );
         }
 
-        return sprintf(self::$_namespace, self::_checkFile($class));
+        return self::_checkClass($class);
     }
 
     /**
-     * Checks if a file exists for a given class name
+     * Checks if a class exists and try to load it.
      * Will return the default class name back if the
      * file for some subclass is not available
      *
@@ -57,16 +50,14 @@ class NodeFactory
      *
      * @return string
      */
-    private static function _checkFile($class)
+    private static function _checkClass($class)
     {
-        $path = sprintf(self::$_path, $class);
-        if (!is_readable($path)) {
+        if (!class_exists($class) && !Psr4Autoloader::getInstance()->loadClass($class)) {
             $class = 'Node';
             trigger_error(
                 sprintf(
-                    __('Could not include class "%1$s", file "%2$s" not found'),
-                    $class,
-                    'nodes/' . $class . '.php'
+                    __('Could not load class "%1$s"'),
+                    $class
                 ),
                 E_USER_ERROR
             );
@@ -87,7 +78,7 @@ class NodeFactory
      * @return mixed
      */
     public static function getInstance(
-        $class = 'Node',
+        $class = 'PMA\\libraries\\navigation\\nodes\\Node',
         $name = 'default',
         $type = Node::OBJECT,
         $is_group = false

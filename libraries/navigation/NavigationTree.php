@@ -144,7 +144,7 @@ class NavigationTree
             $this->_searchClause2 = $_REQUEST['searchClause2'];
         }
         // Initialise the tree by creating a root node
-        $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
+        $node = NodeFactory::getInstance('PMA\\libraries\\navigation\\nodes\\NodeDatabaseContainer', 'root');
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
             && $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
@@ -282,7 +282,7 @@ class NavigationTree
         );
         $hiddenCounts = $this->_tree->getNavigationHidingData();
         foreach ($data as $db) {
-            $node = NodeFactory::getInstance('NodeDatabase', $db);
+            $node = NodeFactory::getInstance('PMA\\libraries\\navigation\\nodes\\NodeDatabase', $db);
             if (isset($hiddenCounts[$db])) {
                 $node->setHiddenCount($hiddenCounts[$db]);
             }
@@ -863,7 +863,7 @@ class NavigationTree
         $children = $this->_tree->children;
         usort(
             $children,
-            array('PMA\libraries\navigation\NavigationTree', 'sortNode')
+            array('PMA\\libraries\\navigation\\NavigationTree', 'sortNode')
         );
         $this->_setVisibility();
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
@@ -906,7 +906,7 @@ class NavigationTree
             $children = $node->children;
             usort(
                 $children,
-                array('PMA\libraries\navigation\NavigationTree', 'sortNode')
+                array('PMA\\libraries\\navigation\\NavigationTree', 'sortNode')
             );
             for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
                 if ($i + 1 != $nbChildren) {
@@ -1209,7 +1209,7 @@ class NavigationTree
             $children = $node->children;
             usort(
                 $children,
-                array('PMA\libraries\navigation\NavigationTree', 'sortNode')
+                array('PMA\\libraries\\navigation\\NavigationTree', 'sortNode')
             );
             $buffer = '';
             $extra_class = '';
@@ -1300,7 +1300,7 @@ class NavigationTree
         $children = $this->_tree->children;
         usort(
             $children,
-            array('PMA\libraries\navigation\NavigationTree', 'sortNode')
+            array('PMA\\libraries\\navigation\\NavigationTree', 'sortNode')
         );
         $this->_setVisibility();
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
