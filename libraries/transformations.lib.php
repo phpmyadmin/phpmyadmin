@@ -96,7 +96,7 @@ function PMA_getAvailableMIMEtypes()
         'output/' => '',
         '' => ''
     );
-    $dir = './libraries/plugins/transformations/';
+    $dir = 'libraries/plugins/transformations/';
     foreach ($sub_dirs as $sd => $prefix) {
         $handle = opendir($dir . $sd);
 
