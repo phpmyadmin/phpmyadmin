@@ -3333,7 +3333,7 @@ function PMA_getHtmlForAllTableSpecificRights(
         $data['routines'] = $routines;
     }
 
-    $html_output = PMA\Template::get('privileges/privileges_summary')
+    $html_output = Template::get('privileges/privileges_summary')
         ->render($data);
 
     return $html_output;

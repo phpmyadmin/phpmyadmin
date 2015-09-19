@@ -1,9 +1,10 @@
+<?php use PMA\libraries\Util; ?>
 <label for="text_dbname"><?php echo __('Add privileges on the following database(s):'); ?></label>
 
 <?php if (! empty($databases)) : ?>
     <select name="pred_dbname[]" multiple="multiple">
         <?php foreach ($databases as $database) : ?>
-            <?php $escapedDatabase = PMA_Util::escapeMysqlWildcards($database); ?>
+            <?php $escapedDatabase = Util::escapeMysqlWildcards($database); ?>
             <option value="<?php echo htmlspecialchars($escapedDatabase); ?>">
                 <?php echo htmlspecialchars($database); ?>
             </option>
@@ -12,4 +13,4 @@
 <?php endif; ?>
 
 <input type="text" id="text_dbname" name="dbname" />
-<?php echo PMA_Util::showHint(__('Wildcards % and _ should be escaped with a \ to use them literally.'))?>
+<?php echo Util::showHint(__('Wildcards % and _ should be escaped with a \ to use them literally.'))?>

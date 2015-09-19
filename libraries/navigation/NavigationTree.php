@@ -144,7 +144,7 @@ class NavigationTree
             $this->_searchClause2 = $_REQUEST['searchClause2'];
         }
         // Initialise the tree by creating a root node
-        $node = NodeFactory::getInstance('PMA\\libraries\\navigation\\nodes\\NodeDatabaseContainer', 'root');
+        $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
             && $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
@@ -282,7 +282,7 @@ class NavigationTree
         );
         $hiddenCounts = $this->_tree->getNavigationHidingData();
         foreach ($data as $db) {
-            $node = NodeFactory::getInstance('PMA\\libraries\\navigation\\nodes\\NodeDatabase', $db);
+            $node = NodeFactory::getInstance('NodeDatabase', $db);
             if (isset($hiddenCounts[$db])) {
                 $node->setHiddenCount($hiddenCounts[$db]);
             }
@@ -804,8 +804,10 @@ class NavigationTree
                             continue;
                         }
                         $class = get_class($child);
+                        $className = substr($class, strrpos($class, '\\') + 1);
+                        unset($class);
                         $new_child = NodeFactory::getInstance(
-                            $class,
+                            $className,
                             /*overload*/
                             mb_substr(
                                 $child->name,

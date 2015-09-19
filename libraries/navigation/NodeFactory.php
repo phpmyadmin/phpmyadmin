@@ -17,6 +17,7 @@ use PMA\Psr4Autoloader;
  */
 class NodeFactory
 {
+    protected static $_namespace = 'PMA\\libraries\\navigation\\nodes\\%s';
     /**
      * Sanitizes the name of a Node class
      *
@@ -26,7 +27,7 @@ class NodeFactory
      */
     private static function _sanitizeClass($class)
     {
-        if (!preg_match('@^PMA\\\\libraries\\\\navigation\\\\nodes\\\\Node\w*$@', $class)) {
+        if (!preg_match('@^Node\w*$@', $class)) {
             $class = 'Node';
             trigger_error(
                 sprintf(
@@ -52,8 +53,11 @@ class NodeFactory
      */
     private static function _checkClass($class)
     {
-        if (!class_exists($class) && !Psr4Autoloader::getInstance()->loadClass($class)) {
-            $class = 'Node';
+        $class = sprintf(self::$_namespace, $class);
+        if (!class_exists($class)
+            && !Psr4Autoloader::getInstance()->loadClass($class)
+        ) {
+            $class = sprintf(self::$_namespace, 'Node');
             trigger_error(
                 sprintf(
                     __('Could not load class "%1$s"'),
@@ -78,7 +82,7 @@ class NodeFactory
      * @return mixed
      */
     public static function getInstance(
-        $class = 'PMA\\libraries\\navigation\\nodes\\Node',
+        $class = 'Node',
         $name = 'default',
         $type = Node::OBJECT,
         $is_group = false

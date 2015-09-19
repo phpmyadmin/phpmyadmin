@@ -5,7 +5,6 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
 use PMA\libraries\RecentFavoriteTable;
 
 /**
