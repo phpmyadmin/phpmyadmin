@@ -830,7 +830,7 @@ function PMA_getHtmlForRequires($row)
         . 'size=80" title="'
         . __(
             'Requires that a valid X509 certificate issued by this CA be presented.'
-        ) .'"'
+        ) . '"'
         . (! $specified ? ' disabled' : '')
         . ' />';
     $html_output .= '</div>';
@@ -3265,7 +3265,6 @@ function PMA_getHtmlForAllTableSpecificRights(
 
         $privileges[] = $onePrivilege;
     }
-
 
     $data = $uiData[$type];
     $data['privileges'] = $privileges;
