@@ -46,7 +46,6 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
      */
     public function testShowGroupBrowse()
     {
-        $this->markTestSkipped('Skipped until end of namespacing');
         $object = PageSettings::showGroup('Browse');
 
         $html = $object->getHTML();
@@ -81,7 +80,6 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
      */
     function testGetNaviSettings()
     {
-        $this->markTestSkipped('Skipped until end of namespacing');
         $html = PageSettings::getNaviSettings();
 
         // Test some sample parts
