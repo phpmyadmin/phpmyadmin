@@ -108,7 +108,7 @@ phpMyAdmin - ChangeLog
 - issue #11448 Clarify doc about the MemoryLimit directive
 - issue #11489 Cannot copy a database under certain conditions
 
-4.4.15.0 (not yet released)
+4.4.15.0 (2015-09-20)
 - issue #11411 Undefined "replace" function on numeric scalar
 - issue #11421 Stored-proc / routine - broken parameter parsing
 - issue        Missing name for configuration read_as_multibytes
