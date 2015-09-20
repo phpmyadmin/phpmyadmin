@@ -11948,7 +11948,7 @@ msgstr ""
 "Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509 με αυτό το θέμα παρουσιάζεται."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509."
 
 #: libraries/server_privileges.lib.php:867

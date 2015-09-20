@@ -384,12 +384,14 @@ function PMA_getHtmlForForeignKeyForm($columns, $existrel_foreign, $db,
 
     $odd_row = true;
     $i = 0;
-    foreach ($existrel_foreign as $key => $one_key) {
-        $html_output .= PMA_getHtmlForForeignKeyRow(
-            $one_key, $odd_row, $columns, $i++, $options_array, $tbl_storage_engine,
-            $db
-        );
-        $odd_row = ! $odd_row;
+    if (! empty($existrel_foreign)) {
+        foreach ($existrel_foreign as $key => $one_key) {
+            $html_output .= PMA_getHtmlForForeignKeyRow(
+                $one_key, $odd_row, $columns, $i++, $options_array,
+                $tbl_storage_engine, $db
+            );
+            $odd_row = ! $odd_row;
+        }
     }
     $html_output .= PMA_getHtmlForForeignKeyRow(
         array(), $odd_row, $columns, $i++, $options_array, $tbl_storage_engine,

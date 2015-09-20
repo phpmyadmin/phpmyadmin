@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-06-10 23:03+0200\n"
+"PO-Revision-Date: 2015-09-16 14:24+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-4/da/"
-">\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +72,7 @@ msgstr "Tabelkommentarer:"
 #: libraries/tbl_relation.lib.php:619 libraries/tracking.lib.php:877
 #: libraries/tracking.lib.php:966
 msgid "Column"
-msgstr "Kolonnenavn"
+msgstr "Kolonne"
 
 #: db_datadict.php:104 db_printview.php:50 libraries/Index.class.php:648
 #: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:654
@@ -584,7 +584,7 @@ msgstr "Udfør"
 
 #: gis_data_editor.php:412
 msgid "Output"
-msgstr "Output"
+msgstr "Resultat"
 
 #: gis_data_editor.php:415
 msgid ""
@@ -630,7 +630,7 @@ msgid ""
 "without access to the %s directory (for temporary files)."
 msgstr ""
 "Den uploadede fil kan ikke flyttes, da serveren har open_basedir slået til, "
-"uden adgang til %s mappen (til midlertidige)."
+"uden adgang til %s mappen (til midlertidige filer)."
 
 #: import.php:468 import.php:529 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -644,7 +644,7 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Du forsøgte at indlæse en fil med u-understøttet komprimering (%s). "
+"Du forsøgte at indlæse en fil med ikke understøttet komprimering (%s). "
 "Understøttelse af denne funktion er ikke implementeret eller ikke slået til "
 "for din konfiguration."
 
@@ -698,7 +698,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Kunne ikke indlæse hvor langt importen er nået."
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -1119,7 +1119,7 @@ msgstr "De to adgangskoder er ikke ens!"
 
 #: js/messages.php:100
 msgid "Removing Selected Users"
-msgstr "Fjerner valge brugere"
+msgstr "Fjerner valgte brugere"
 
 #: js/messages.php:101 js/messages.php:156 libraries/tracking.lib.php:457
 #: libraries/tracking.lib.php:827
@@ -5310,6 +5310,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Begrænser de MySQL-servere som brugeren kan angive, når et login til en "
+"arbitrær MySQL-server er slået til, ved at matche IP-adressen eller "
+"værtsnavnet på MySQL-serveren til det angivne regulære udtryk."
 
 #: libraries/config/messages.inc.php:25
 msgid "Restrict login to MySQL server"
@@ -5911,7 +5914,6 @@ msgid "Page titles"
 msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
 #| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
@@ -5920,8 +5922,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Angiv browserens tekst i titelbaren. Se [doc@cfg_TitleTable]dokumentationen[/"
-"doc] for tekststrenge der indeholder særlige værdier."
+"Angiv browserens tekst i titelbaren. Se [doc@faq6-27]dokumentationen[/doc] "
+"for tekststrenge der indeholder særlige værdier."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
@@ -6149,11 +6151,11 @@ msgstr "Afbryd ikke ved fejl i INSERT"
 
 #: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:349
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Tilføj ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:338 libraries/config/messages.inc.php:350
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Opdatér data når der findes duplikerede nøgler under import"
 
 #: libraries/config/messages.inc.php:341
 msgid ""
@@ -6432,7 +6434,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Mindste antal databaser, der skal vises i database-filterboksen"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6440,7 +6441,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Gruppér elementer i navigationstræet (iht. separator defineret nedenfor)."
+"Gruppér elementer i navigationstræet (iht. separator defineret i databaserne "
+"og tabelfanerne ovenfor)."
 
 #: libraries/config/messages.inc.php:460
 msgid "Group items in the tree"
@@ -10179,6 +10181,8 @@ msgstr "Tabel:"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Opdatér data når der findes duplikerede nøgler under import (tilføj ON "
+"DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -11494,7 +11498,7 @@ msgstr "Der er ingen hændelser at vise."
 
 #: libraries/select_lang.lib.php:613
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignorér sprogkoder som ikke understøttes."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -11779,26 +11783,28 @@ msgstr "Kræver SSL-krypterede forbindelser."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Kræver SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Kræver at den specifikke chiffermetode anvendes for en forbindelse."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Kræver at et gyldigt X509-certifikat som er udstedt af denne "
+"certifikatudsteder bliver forevist."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Kræver at et gyldigt X509-certifikat med dette emne bliver forevist."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgid "Requires a valid X509 certificate."
+msgstr "Kræver et gyldigt X509-certifikat."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -13349,14 +13355,14 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Kør SQL-forspørgsel(er) på database %s"
 
 #: libraries/sql_query_form.lib.php:192
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Kør SQL-forspørgsel(er) på database %s"
+msgstr "Kør SQL-forspørgsel/forespørgsler på tabellen %s"
 
 #: libraries/sql_query_form.lib.php:241
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Hent automatisk gemt forespørgsel"
 
 #: libraries/sql_query_form.lib.php:285
 msgid "Bookmark this SQL query:"
@@ -14536,10 +14542,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Række: %1$s, kolonne: %2$s, fejl: %3$s"
 
 #: tbl_row_action.php:65
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Der er ikke valgt versioner."
+msgstr "Der er ikke valgt en række."
 
 #: tbl_structure.php:63
 #, php-format
@@ -14850,22 +14855,22 @@ msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "MySQL manualen er kun korrekt for officielle MySQL binære filer."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
-msgstr "Percona dokumentation findes i http://www.percona.com/docs/wiki/"
+msgstr ""
+"Percona-dokumentationen fås på http://www.percona.com/software/documentation/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "'percona' fundet i version_comment"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "Drizzle dokumentation er i http://docs.drizzle.org/"
+msgstr ""
+"Drizzle-dokumentationen fås på http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15670,7 +15675,6 @@ msgid "Too many connections are aborted."
 msgstr "For mange forbindelser er aborterede."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15681,10 +15685,10 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Forbindelser aborteres normalt, når de ikke kan blive autoriseret. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Denne artikel</a> kan måske hjælpe dig med at "
-"finde årsagen."
+"Forbindelser aborteres normalt, når de ikke kan blive autoriseret. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Denne artikel</a> kan måske hjælpe dig med at finde "
+"årsagen."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15805,7 +15809,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB logfilen er utilstrækkelig stor."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -15830,11 +15834,11 @@ msgstr ""
 "Det er sædvanligvis tilstrækkeligt at sætte {innodb_log_file_size} til 25%% "
 "af størrelsen af {innodb_buffer_pool_size}. En meget høj "
 "{innodb_log_file_size} reducerer genoprettelsestiden betydeligt efter et "
-"databasenedbrud. Se også <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">denne artikel</a>.Man "
-"skal lukke serveren ned, fjerne InnoDB-logfiler, sætte den nye værdi i my."
-"cnf, starte serveren og tjekke at alt gik godt i fejllogene. Se også <a href="
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"databasenedbrud. Se også <a href=\"http://www.percona.com/blog/2006/07/03"
+"/choosing-proper-innodb_log_file_size/\">denne artikel</a>.Man skal lukke "
+"serveren ned, fjerne InnoDB-logfiler, sætte den nye værdi i my.cnf, starte "
+"serveren og tjekke at alt gik godt i fejllogene. Se også <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">dette blogindlæg</a>"
 
 #: libraries/advisory_rules.txt:448
@@ -15851,7 +15855,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Din InnoDB buffer pool er temmelig lille."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -15877,13 +15881,13 @@ msgid ""
 msgstr ""
 "InnoDB buffer pool har en betydelig indvirkning på ydeevnen af InnoDB "
 "tabeller. Alloker al resterende hukommelse til denne buffer. For database "
-"servere, som kun bruger InnoDB tabeller og ikke har andre services kørende "
-"(fx webserver), kan man bruge op til 80%% af tilgængelig hukommelse. Hvis "
-"der bruges non-InnoDB tabeller og/eller der kører andet på maskinen, skal "
-"man være varsom med at sætte denne parameter for højt. Det kan ellers give "
-"sig udslag i, at der opstår høj brug af swap-filen. Se også <a href=\"http://"
-"www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">denne artikel</a>"
+"servere, som kun bruger InnoDB tabeller og ikke har andre services kørende ("
+"fx webserver), kan man bruge op til 80%% af tilgængelig hukommelse. Hvis der "
+"bruges non-InnoDB tabeller og/eller der kører andet på maskinen, skal man "
+"være varsom med at sætte denne parameter for højt. Det kan ellers give sig "
+"udslag i, at der opstår høj brug af swap-filen. Se også <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"denne artikel</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format

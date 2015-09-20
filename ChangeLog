@@ -1,6 +1,20 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.15.0 (2015-09-20)
+- issue #11411 Undefined "replace" function on numeric scalar
+- issue #11421 Stored-proc / routine - broken parameter parsing
+- issue        Missing name for configuration read_as_multibytes
+- issue #11431 Incorrect "No row selected" message
+- issue #11447 MySQL 5.5 and the language system variable
+- issue #11452 Semantics of export and import icons are mixed up
+- issue #11451 Designer-Bug in move.js on multiple server configuration
+- issue #11458 Invalid UTF-8 sequence in argument
+- issue #11457 Request URI too large
+- issue        Invalid argument supplied for foreach()
+- issue #11461 Foreign key constraints for InnoDB tables with upper-case letters disabled
+- issue #11487 Warning when entering Query page
+
 4.4.14.1 (2015-09-08)
 - issue        [security] reCaptcha bypass
 

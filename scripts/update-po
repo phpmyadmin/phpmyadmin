@@ -9,7 +9,7 @@ set -e
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
 xgettext \
     -d phpmyadmin \
-    --msgid-bugs-address=phpmyadmin-devel@lists.sourceforge.net \
+    --msgid-bugs-address=translators@phpmyadmin.net \
     -o po/phpmyadmin.pot \
     --language=PHP \
     --add-comments=l10n \

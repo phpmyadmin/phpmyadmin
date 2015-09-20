@@ -2,18 +2,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-07-25 20:45+0200\n"
-"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-4/"
-"ru/>\n"
+"PO-Revision-Date: 2015-09-06 06:49+0200\n"
+"Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -694,7 +694,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Не удалось загрузить прогресс (ход) импорта."
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -7812,7 +7812,7 @@ msgstr "Переместить меню"
 
 #: libraries/db_designer.lib.php:419 libraries/db_designer.lib.php:422
 msgid "Pin text"
-msgstr ""
+msgstr "Прикрепить текст"
 
 #: libraries/db_designer.lib.php:461
 msgid "Hide/Show all"
@@ -10651,7 +10651,7 @@ msgstr "Ошибка: связь внешнего ключа невозможн�
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Ошибка: отсутствует индекс в столбце."
 
 #: libraries/pmd_common.php:552
 msgid "Error: Relational features are disabled!"
@@ -11855,7 +11855,7 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:867
@@ -13416,14 +13416,14 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Выполнить SQL-запрос(ы) к базе данных %s"
 
 #: libraries/sql_query_form.lib.php:192
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Выполнить SQL-запрос(ы) к базе данных %s"
+msgstr "Выполнить SQL-запрос(ы) к таблице %s"
 
 #: libraries/sql_query_form.lib.php:241
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Получить автосохранённый запрос"
 
 #: libraries/sql_query_form.lib.php:285
 msgid "Bookmark this SQL query:"
@@ -13756,7 +13756,6 @@ msgid "Showing create queries"
 msgstr "Показываются запросы создания"
 
 #: libraries/structure.lib.php:3289
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
 msgstr "Связи"
@@ -14004,7 +14003,7 @@ msgstr "Выбор индекса:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
-msgstr ""
+msgstr "Размер блока ключа:"
 
 #: libraries/tbl_indexes.lib.php:334
 msgid "Index type:"
@@ -14615,10 +14614,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Строка: %1$s, Столбец: %2$s, Ошибка: %3$s"
 
 #: tbl_row_action.php:65
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Версии не выбраны."
+msgstr "Строка не выбрана."
 
 #: tbl_structure.php:63
 #, php-format

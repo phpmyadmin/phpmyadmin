@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-15 16:10+0200\n"
-"Last-Translator: Phillip Rohmberger <rohmberger@hotmail.de>\n"
+"PO-Revision-Date: 2015-09-16 14:31+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/de/>\n"
 "Language: de\n"
@@ -11989,8 +11989,8 @@ msgstr ""
 "präsentiert wird."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
-msgstr "Erfordert ein gültiges X509 Zertifikat."
+msgid "Requires a valid X509 certificate."
+msgstr "Erfordert ein gültiges X509-Zertifikat."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"

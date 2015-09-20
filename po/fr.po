@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-08-10 13:03+0200\n"
+"PO-Revision-Date: 2015-09-11 00:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/fr/>\n"
@@ -9642,7 +9642,7 @@ msgstr "Aller à la table copiée"
 
 #: libraries/operations.lib.php:1042
 msgid "Table maintenance"
-msgstr "<b>Maintenance</b> de la table"
+msgstr "Maintenance de la table"
 
 #: libraries/operations.lib.php:1080 libraries/structure.lib.php:330
 msgid "Check table"
@@ -11946,7 +11946,7 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Exige qu'un certificat X509 valide avec ce sujet soit présenté."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Nécessite un certificat X509 valide."
 
 #: libraries/server_privileges.lib.php:867

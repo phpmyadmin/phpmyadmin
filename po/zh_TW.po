@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-07-08 05:25+0200\n"
+"PO-Revision-Date: 2015-09-16 05:33+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-4/zh_TW/>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -681,7 +681,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "無法讀取匯入的進度。"
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -5150,7 +5150,7 @@ msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
-msgstr ""
+msgstr "限制使用者登入任意 MySQL 伺服器時，該 MySQL 伺服器的 IP 或主機名稱需要符合指定的正規表示法。"
 
 #: libraries/config/messages.inc.php:25
 msgid "Restrict login to MySQL server"
@@ -5957,11 +5957,11 @@ msgstr "新增錯誤時不中斷程式"
 
 #: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:349
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "加入 ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:338 libraries/config/messages.inc.php:350
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "匯入發現重複鍵值時更新資料"
 
 #: libraries/config/messages.inc.php:341
 msgid ""
@@ -6656,10 +6656,9 @@ msgid "Maximal number of table preferences to store"
 msgstr "資料表偏好設定的儲存最大值"
 
 #: libraries/config/messages.inc.php:620
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "使用範例查詢(QBE)已儲存的搜尋資料表"
+msgstr "使用範例查詢(QBE)已儲存搜尋的資料表"
 
 #: libraries/config/messages.inc.php:622
 msgid ""
@@ -8681,7 +8680,7 @@ msgstr "重新讀取導覽面板"
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
-msgstr ""
+msgstr "導覽面板有群組含有大量項目可能會影響效能，請考慮關閉導覽面板的項目群組功能。"
 
 #: libraries/navigation/NavigationTree.class.php:871
 #, php-format
@@ -8876,6 +8875,7 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"目前沒有主鍵(Primary Key)，請新增一個。<br/>提示：主鍵是一個欄位 (或多個欄位組合而成)，它獨一無二、可以用來辨識所有資料列。"
 
 #: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
@@ -8958,7 +8958,7 @@ msgstr "尋找部份相依"
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
-msgstr ""
+msgstr "當主鍵 ( %1$s ) 由所有資料表的欄位組成時，由於沒有非主要欄位存在，因此不會有部份相依。"
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
@@ -8969,7 +8969,7 @@ msgstr "資料表己完成第二正規化。"
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
-msgstr ""
+msgstr "由於主鍵 ( %1$s ) 由多個欄位組成，所以我們需要尋找部分相依。"
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
@@ -8986,7 +8986,7 @@ msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
-msgstr ""
+msgstr "以下欄位，請選擇可足夠用來辨識欄位值的<b>最少</b>欄位值組合。"
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
@@ -8998,14 +8998,14 @@ msgstr "'%1$s' 相依於:"
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr ""
+msgstr "當主鍵 ( %1$s ) 只使用一個欄位時不會有部份相依。"
 
 #: libraries/normalization.lib.php:381
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
-msgstr ""
+msgstr "為了要將原始資料 '%1$s' 轉換至第二階正規化需要建立以下資料表："
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -9022,7 +9022,7 @@ msgstr "處理時發生錯誤！"
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
-msgstr ""
+msgstr "為了要將原始資料 '%1$s' 轉換至第三階正規化需要建立以下資料表："
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
@@ -9047,13 +9047,13 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
-msgstr ""
+msgstr "以下欄位，請選擇可足夠用來辨識欄位值的<b>最少</b>欄位值組合。<br />注意：欄位可能沒有遞移相依，因此您可能不用做任何選擇。"
 
 #: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
-msgstr ""
+msgstr "當資料表沒有任何非主鍵的欄位時不會有遞移相依"
 
 #: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
@@ -9085,7 +9085,7 @@ msgstr "提示：請謹心慎依照程序以完成正確的正規化"
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr ""
+msgstr "此清單依據資料表資料的子集合組成，不需要準確。 "
 
 #: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
@@ -9799,7 +9799,7 @@ msgstr "資料表："
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
-msgstr ""
+msgstr "當匯入重複鍵值時更新資料 (加入 ON DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10177,7 +10177,7 @@ msgstr "SQL 使用語法明顯標示的 CodeMirror 編輯器。"
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "支援 XML (與 HTML) 的語法強調 CodeMirror 編輯器。"
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:44
 msgid "Formats text as JSON with syntax highlighting."
@@ -10201,7 +10201,7 @@ msgstr "錯誤: FOREIGN KEY 關聯無法新增!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "錯誤：缺少欄位索引。"
 
 #: libraries/pmd_common.php:552
 msgid "Error: Relational features are disabled!"
@@ -11366,20 +11366,20 @@ msgstr "需要 SSL"
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "需要使用指定的加密方式連線。"
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "需要由此 CA 發行且有效的 X509 憑証存在。"
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "需要使用此主旨且有效的 X509 憑証存在。"
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:867
@@ -12829,7 +12829,7 @@ msgid "Run SQL query/queries on database %s"
 msgstr "在資料庫 %s 執行 SQL 查詢"
 
 #: libraries/sql_query_form.lib.php:192
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "在資料庫 %s 執行 SQL 查詢"
@@ -13989,10 +13989,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
 
 #: tbl_row_action.php:65
-#, fuzzy
 #| msgid "No versions selected."
 msgid "No row selected."
-msgstr "尚未選擇任何版本。"
+msgstr "尚未選擇列。"
 
 #: tbl_structure.php:63
 #, php-format

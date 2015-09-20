@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.14-dev\n"
-"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-08-08 13:51-0400\n"
-"PO-Revision-Date: 2015-06-22 11:43+0200\n"
-"Last-Translator: Zrng Abdulla <zhyarabdulla94@gmail.com>\n"
-"Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-4/ckb/>\n"
+"PO-Revision-Date: 2015-09-14 09:27+0200\n"
+"Last-Translator: muhammad <esy_vb@yahoo.com>\n"
+"Language-Team: Kurdish Sorani "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3949,7 +3949,7 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:120
 #: libraries/structure.lib.php:3102
 msgid "Tables"
-msgstr ""
+msgstr "خشتەکان"
 
 #: libraries/ServerStatusData.class.php:202
 msgid "Transaction coordinator"
@@ -4695,7 +4695,7 @@ msgstr "ئەم نرخە هەڵبژێرە"
 #: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2353
 #: libraries/tbl_printview.lib.php:308
 msgid "Data"
-msgstr ""
+msgstr "دراوە"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:173 libraries/server_status.lib.php:185
@@ -11496,7 +11496,7 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:867
