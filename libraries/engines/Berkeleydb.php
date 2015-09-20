@@ -5,21 +5,18 @@
  *
  * @package PhpMyAdmin-Engines
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\engines;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/**
- * Load BDB class.
- */
-require_once './libraries/engines/bdb.lib.php';
 
 /**
  * This is same as BDB
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_Berkeleydb extends PMA_StorageEngine_Bdb
+class Berkeleydb extends Bdb
 {
 }
 

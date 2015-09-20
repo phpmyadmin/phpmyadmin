@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin-Engines
  */
+namespace PMA\libraries\engines;
+
 use PMA\libraries\StorageEngine;
 
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -16,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_Memory extends StorageEngine
+class Memory extends StorageEngine
 {
     /**
      * Returns array with variable names dedicated to MEMORY storage engine
@@ -27,7 +29,7 @@ class PMA_StorageEngine_Memory extends StorageEngine
     {
         return array(
             'max_heap_table_size' => array(
-                'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
+                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ),
         );
     }

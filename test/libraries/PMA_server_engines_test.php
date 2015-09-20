@@ -158,7 +158,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForSpecifiedServerEngines()
     {
-        $_REQUEST['engine'] = "pbxt";
+        $_REQUEST['engine'] = "Pbxt";
         $_REQUEST['page'] = "page";
 
         //Mock DBI
@@ -243,18 +243,18 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array('PMA\libraries\StorageEngine', 'unknown engine'),
-            array('PMA_StorageEngine_Bdb', 'bdb'),
-            array('PMA_StorageEngine_Berkeleydb', 'berkeleydb'),
-            array('PMA_StorageEngine_Binlog', 'binlog'),
-            array('PMA_StorageEngine_Innobase', 'innobase'),
-            array('PMA_StorageEngine_Innodb', 'innodb'),
-            array('PMA_StorageEngine_Memory', 'memory'),
-            array('PMA_StorageEngine_Merge', 'merge'),
-            array('PMA_StorageEngine_MrgMyisam', 'mrg_myisam'),
-            array('PMA_StorageEngine_Myisam', 'myisam'),
-            array('PMA_StorageEngine_Ndbcluster', 'ndbcluster'),
-            array('PMA_StorageEngine_Pbxt', 'pbxt'),
-            array('PMA_StorageEngine_PerformanceSchema', 'performance_schema'),
+            array('PMA\libraries\engines\Bdb', 'Bdb'),
+            array('PMA\libraries\engines\Berkeleydb', 'Berkeleydb'),
+            array('PMA\libraries\engines\Binlog', 'Binlog'),
+            array('PMA\libraries\engines\Innobase', 'Innobase'),
+            array('PMA\libraries\engines\Innodb', 'Innodb'),
+            array('PMA\libraries\engines\Memory', 'Memory'),
+            array('PMA\libraries\engines\Merge', 'Merge'),
+            array('PMA\libraries\engines\Mrg_Myisam', 'Mrg_Myisam'),
+            array('PMA\libraries\engines\Myisam', 'Myisam'),
+            array('PMA\libraries\engines\Ndbcluster', 'Ndbcluster'),
+            array('PMA\libraries\engines\Pbxt', 'Pbxt'),
+            array('PMA\libraries\engines\Performance_Schema', 'Performance_Schema'),
         );
     }
 }

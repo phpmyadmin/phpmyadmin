@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin-Engines
  */
+namespace PMA\libraries\engines;
+
 use PMA\libraries\StorageEngine;
 
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -16,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_Bdb extends StorageEngine
+class Bdb extends StorageEngine
 {
     /**
      * Returns array with variable names related to this storage engine
@@ -26,40 +28,29 @@ class PMA_StorageEngine_Bdb extends StorageEngine
     public function getVariables()
     {
         return array(
-            'version_bdb' => array(
+            'version_bdb'         => array(
                 'title' => __('Version information'),
             ),
-            'bdb_cache_size' => array(
-                'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
+            'bdb_cache_size'      => array(
+                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ),
-            'bdb_home' => array(
-            ),
+            'bdb_home'            => array(),
             'bdb_log_buffer_size' => array(
-                'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
+                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ),
-            'bdb_logdir' => array(
+            'bdb_logdir'          => array(),
+            'bdb_max_lock'        => array(
+                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
             ),
-            'bdb_max_lock' => array(
-                'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ),
-            'bdb_shared_data' => array(
-            ),
-            'bdb_tmpdir' => array(
-            ),
-            'bdb_data_direct' => array(
-            ),
-            'bdb_lock_detect' => array(
-            ),
-            'bdb_log_direct' => array(
-            ),
-            'bdb_no_recover' => array(
-            ),
-            'bdb_no_sync' => array(
-            ),
-            'skip_sync_bdb_logs' => array(
-            ),
-            'sync_bdb_logs' => array(
-            ),
+            'bdb_shared_data'     => array(),
+            'bdb_tmpdir'          => array(),
+            'bdb_data_direct'     => array(),
+            'bdb_lock_detect'     => array(),
+            'bdb_log_direct'      => array(),
+            'bdb_no_recover'      => array(),
+            'bdb_no_sync'         => array(),
+            'skip_sync_bdb_logs'  => array(),
+            'sync_bdb_logs'       => array(),
         );
     }
 

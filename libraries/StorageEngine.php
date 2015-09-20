@@ -10,18 +10,18 @@ namespace PMA\libraries;
 /**
  * defines
  */
-use PMA_StorageEngine_Bdb;
-use PMA_StorageEngine_Berkeleydb;
-use PMA_StorageEngine_Binlog;
-use PMA_StorageEngine_Innobase;
-use PMA_StorageEngine_Innodb;
-use PMA_StorageEngine_Memory;
-use PMA_StorageEngine_Merge;
-use PMA_StorageEngine_MrgMyisam;
-use PMA_StorageEngine_Myisam;
-use PMA_StorageEngine_Ndbcluster;
-use PMA_StorageEngine_Pbxt;
-use PMA_StorageEngine_PerformanceSchema;
+use PMA\libraries\engines\Bdb;
+use PMA\libraries\engines\Berkeleydb;
+use PMA\libraries\engines\Binlog;
+use PMA\libraries\engines\Innobase;
+use PMA\libraries\engines\Innodb;
+use PMA\libraries\engines\Memory;
+use PMA\libraries\engines\Merge;
+use PMA\libraries\engines\Mrg_Myisam;
+use PMA\libraries\engines\Myisam;
+use PMA\libraries\engines\Ndbcluster;
+use PMA\libraries\engines\Pbxt;
+use PMA\libraries\engines\Performance_Schema;
 
 define('PMA_ENGINE_SUPPORT_NO', 0);
 define('PMA_ENGINE_SUPPORT_DISABLED', 1);
@@ -182,34 +182,33 @@ class StorageEngine
     static public function getEngine($engine)
     {
         $engine = str_replace('/', '', str_replace('.', '', $engine));
-        $filename = './libraries/engines/'
-            . /*overload*/mb_strtolower($engine) . '.lib.php';
+        $filename = './libraries/engines/' . $engine . '.php';
         if (file_exists($filename) && include_once $filename) {
-            switch(/*overload*/mb_strtolower($engine)) {
-            case 'bdb':
-                return new PMA_StorageEngine_Bdb($engine);
-            case 'berkeleydb':
-                return new PMA_StorageEngine_Berkeleydb($engine);
-            case 'binlog':
-                return new PMA_StorageEngine_Binlog($engine);
-            case 'innobase':
-                return new PMA_StorageEngine_Innobase($engine);
-            case 'innodb':
-                return new PMA_StorageEngine_Innodb($engine);
-            case 'memory':
-                return new PMA_StorageEngine_Memory($engine);
-            case 'merge':
-                return new PMA_StorageEngine_Merge($engine);
-            case 'mrg_myisam':
-                return new PMA_StorageEngine_MrgMyisam($engine);
-            case 'myisam':
-                return new PMA_StorageEngine_Myisam($engine);
-            case 'ndbcluster':
-                return new PMA_StorageEngine_Ndbcluster($engine);
-            case 'pbxt':
-                return new PMA_StorageEngine_Pbxt($engine);
-            case 'performance_schema':
-                return new PMA_StorageEngine_PerformanceSchema($engine);
+            switch($engine) {
+            case 'Bdb':
+                return new Bdb($engine);
+            case 'Berkeleydb':
+                return new Berkeleydb($engine);
+            case 'Binlog':
+                return new Binlog($engine);
+            case 'Innobase':
+                return new Innobase($engine);
+            case 'Innodb':
+                return new Innodb($engine);
+            case 'Memory':
+                return new Memory($engine);
+            case 'Merge':
+                return new Merge($engine);
+            case 'Mrg_Myisam':
+                return new Mrg_Myisam($engine);
+            case 'Myisam':
+                return new Myisam($engine);
+            case 'Ndbcluster':
+                return new Ndbcluster($engine);
+            case 'Pbxt':
+                return new Pbxt($engine);
+            case 'Performance_Schema':
+                return new Performance_Schema($engine);
             }
 
             return false;

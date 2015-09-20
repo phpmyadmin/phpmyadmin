@@ -7,6 +7,7 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\engines\Innodb;
 use PMA\libraries\Message;
 use PMA\libraries\Partition;
 use PMA\libraries\plugins\export\ExportSql;
@@ -1215,8 +1216,8 @@ function PMA_getPossibleRowFormat()
         )
     );
 
-    /** @var PMA_StorageEngine_Innodb $innodbEnginePlugin */
-    $innodbEnginePlugin = StorageEngine::getEngine('innodb');
+    /** @var Innodb $innodbEnginePlugin */
+    $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
     $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
     if (!empty($innodbPluginVersion)) {
         $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat();

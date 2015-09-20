@@ -9,8 +9,8 @@
  * Include to test.
  */
 
+use PMA\libraries\engines\Memory;
 
-require_once 'libraries/engines/memory.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
@@ -36,7 +36,7 @@ class PMA_StorageEngine_Memory_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_Memory('memory');
+        $this->object = new Memory('memory');
     }
 
     /**

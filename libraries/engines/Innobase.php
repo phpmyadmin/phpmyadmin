@@ -5,20 +5,17 @@
  *
  * @package PhpMyAdmin-Engines
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\engines;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/**
- *
- */
-require_once './libraries/engines/innodb.lib.php';
 
 /**
  * The Innobase storage engine
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_Innobase extends PMA_StorageEngine_Innodb
+class Innobase extends Innodb
 {
 }

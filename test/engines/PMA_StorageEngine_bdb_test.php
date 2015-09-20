@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_StorageEngine_Bdb
+ * Tests for PMA\libraries\engines\Bdb
  *
  * @package PhpMyAdmin-test
  */
@@ -9,14 +9,14 @@
  * Include to test.
  */
 
+use PMA\libraries\engines\Bdb;
 
-require_once 'libraries/engines/bdb.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
 
 /**
- * Tests for PMA_StorageEngine_Bdb
+ * Tests for PMA\libraries\engines\Bdb
  *
  * @package PhpMyAdmin-test
  */
@@ -36,7 +36,7 @@ class PMA_StorageEngine_Bdb_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_Bdb('bdb');
+        $this->object = new Bdb('bdb');
     }
 
     /**

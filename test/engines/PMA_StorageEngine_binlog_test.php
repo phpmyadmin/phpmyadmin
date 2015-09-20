@@ -9,8 +9,8 @@
  * Include to test.
  */
 
+use PMA\libraries\engines\Binlog;
 
-require_once 'libraries/engines/binlog.lib.php';
 require_once 'libraries/database_interface.inc.php';
 
 
@@ -35,7 +35,7 @@ class PMA_StorageEngine_Binlog_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_Binlog('binlog');
+        $this->object = new Binlog('binlog');
     }
 
     /**

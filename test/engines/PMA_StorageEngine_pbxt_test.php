@@ -10,13 +10,11 @@
  * Include to test.
  */
 
+use PMA\libraries\engines\Pbxt;
 
-require_once 'libraries/engines/pbxt.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
 require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
-
 
 /**
  * Tests for PMA_StorageEngine_pbxt
@@ -39,7 +37,7 @@ class PMA_StorageEngine_Pbxt_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_Pbxt('pbxt');
+        $this->object = new Pbxt('pbxt');
     }
 
     /**

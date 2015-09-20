@@ -5,21 +5,18 @@
  *
  * @package PhpMyAdmin-Engines
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries\engines;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/**
- *
- */
-require_once './libraries/engines/merge.lib.php';
 
 /**
  * The MERGE storage engine
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_MrgMyisam extends PMA_StorageEngine_Merge
+class Mrg_Myisam extends Merge
 {
     /**
      * returns string with filename for the MySQL helppage

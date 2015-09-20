@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin-Engines
  */
+namespace PMA\libraries\engines;
+
 use PMA\libraries\StorageEngine;
 
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -16,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_Ndbcluster extends StorageEngine
+class Ndbcluster extends StorageEngine
 {
     /**
      * Returns array with variable names related to NDBCLUSTER storage engine
@@ -26,9 +28,8 @@ class PMA_StorageEngine_Ndbcluster extends StorageEngine
     public function getVariables()
     {
         return array(
-            'ndb_connectstring' => array(
-            ),
-         );
+            'ndb_connectstring' => array(),
+        );
     }
 
     /**

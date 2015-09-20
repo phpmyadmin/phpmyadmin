@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin-Engines
  */
+namespace PMA\libraries\engines;
+
 use PMA\libraries\StorageEngine;
 
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -16,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_PerformanceSchema extends StorageEngine
+class Performance_Schema extends StorageEngine
 {
     /**
      * Returns string with filename for the MySQL helppage

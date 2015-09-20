@@ -9,12 +9,10 @@
  * Include to test.
  */
 
+use PMA\libraries\engines\Innodb;
 
-require_once 'libraries/engines/innodb.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
 require_once 'libraries/database_interface.inc.php';
-
 
 /**
  * Tests for PMA_StorageEngine_innodb
@@ -37,7 +35,7 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_Innodb('innodb');
+        $this->object = new Innodb('innodb');
     }
 
     /**

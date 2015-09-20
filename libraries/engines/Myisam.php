@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin-Engines
  */
+namespace PMA\libraries\engines;
+
 use PMA\libraries\StorageEngine;
 
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -16,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_Myisam extends StorageEngine
+class Myisam extends StorageEngine
 {
     /**
      * Returns array with variable names dedicated to MyISAM storage engine
@@ -59,7 +61,7 @@ class PMA_StorageEngine_Myisam extends StorageEngine
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ),
-            'myisam_repair_threads' => array(
+            'myisam_repair_threads'           => array(
                 'title' => __('Repair threads'),
                 'desc'  => __(
                     'If this value is greater than 1, MyISAM table indexes are '
@@ -68,7 +70,7 @@ class PMA_StorageEngine_Myisam extends StorageEngine
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
             ),
-            'myisam_sort_buffer_size' => array(
+            'myisam_sort_buffer_size'         => array(
                 'title' => __('Sort buffer size'),
                 'desc'  => __(
                     'The buffer that is allocated when sorting MyISAM indexes '
@@ -77,15 +79,12 @@ class PMA_StorageEngine_Myisam extends StorageEngine
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ),
-            'myisam_stats_method' => array(
+            'myisam_stats_method'             => array(),
+            'delay_key_write'                 => array(),
+            'bulk_insert_buffer_size'         => array(
+                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ),
-            'delay_key_write' => array(
-            ),
-            'bulk_insert_buffer_size' => array(
-                'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'skip_external_locking' => array(
-            ),
+            'skip_external_locking'           => array(),
         );
     }
 }

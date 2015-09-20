@@ -9,11 +9,10 @@
  * Include to test.
  */
 
+use PMA\libraries\engines\Myisam;
 
-require_once 'libraries/engines/myisam.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
-
 
 /**
  * Tests for PMA_StorageEngine_myisam
@@ -36,7 +35,7 @@ class PMA_StorageEngine_Myisam_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_Myisam('myisam');
+        $this->object = new Myisam('myisam');
     }
 
     /**
