@@ -129,9 +129,8 @@ function PMA_versionCheck()
     if ($latestCompatible != null) {
         $version = $latestCompatible['version'];
         $date = $latestCompatible['date'];
-    } else { // fallback to old behavior
-        $version = $versionDetials->version;
-        $date = $versionDetials->date;
+    } else {
+        return;
     }
 
     $version_upstream = $versionInformation->versionToInt($version);

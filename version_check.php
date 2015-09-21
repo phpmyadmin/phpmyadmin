@@ -24,12 +24,11 @@ if (empty($versionDetails)) {
     $latestCompatible = $versionInformation->getLatestCompatibleVersion(
         $versionDetails->releases
     );
+    $version = '';
+    $date = '';
     if ($latestCompatible != null) {
         $version = $latestCompatible['version'];
         $date = $latestCompatible['date'];
-    } else { // fallback to old behavior
-        $version = $versionDetails->version;
-        $date = $versionDetails->date;
     }
     echo json_encode(
         array(
