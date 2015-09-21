@@ -676,6 +676,7 @@ function Save3(callback)
         };
 
         var $form = $('<form action="db_designer.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
+            .append('<input type="hidden" name="server" value="' + server + '" />')
             .append('<input type="hidden" name="db" value="' + db + '" />')
             .append('<input type="hidden" name="token" value="' + token + '" />')
             .append('<input type="hidden" name="operation" value="savePage" />')
@@ -718,7 +719,7 @@ function Edit_pages()
         };
 
         var $msgbox = PMA_ajaxShowMessage();
-        var params = 'ajax_request=true&dialog=edit&token=' + token + '&db=' + db;
+        var params = 'ajax_request=true&dialog=edit&server=' + server + '&token=' + token + '&db=' + db;
         $.get("db_designer.php", params, function (data) {
             if (data.success === false) {
                 PMA_ajaxShowMessage(data.error, false);
@@ -798,7 +799,7 @@ function Delete_pages()
     };
 
     var $msgbox = PMA_ajaxShowMessage();
-    var params = 'ajax_request=true&dialog=delete&token=' + token + '&db=' + db;
+    var params = 'ajax_request=true&dialog=delete&server=' + server + '&token=' + token + '&db=' + db;
     $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
@@ -897,7 +898,7 @@ function Save_as()
     };
 
     var $msgbox = PMA_ajaxShowMessage();
-    var params = 'ajax_request=true&dialog=save_as&token=' + token + '&db=' + db;
+    var params = 'ajax_request=true&dialog=save_as&server=' + server + '&token=' + token + '&db=' + db;
     $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
@@ -974,7 +975,7 @@ function Export_pages()
         $(this).dialog('close');
     };
     var $msgbox = PMA_ajaxShowMessage();
-    var params = 'ajax_request=true&dialog=export&token=' + token + '&db=' + db + '&selected_page=' + selected_page;
+    var params = 'ajax_request=true&dialog=export&server=' + server + '&token=' + token + '&db=' + db + '&selected_page=' + selected_page;
     $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
@@ -1015,7 +1016,7 @@ function Load_page(page) {
         if (page !== null) {
             param_page = '&page=' + page;
         }
-        $('<a href="db_designer.php?db=' + db + '&token=' + token + param_page + '"></a>')
+        $('<a href="db_designer.php?server=' + server + '&db=' + db + '&token=' + token + param_page + '"></a>')
             .appendTo($('#page_content'))
             .click();
     } else {

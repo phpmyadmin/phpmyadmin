@@ -815,7 +815,7 @@ function PMA_getHtmlForRequires($row)
     $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_X509"'
         . ' value="X509" title="'
         . __(
-            'Requires a valid X509 cetrificate.'
+            'Requires a valid X509 certificate.'
         )
         . '"'
         . ((isset($row['ssl_type']) && $row['ssl_type'] == 'X509')

@@ -26,7 +26,10 @@ AJAX.registerOnload('tbl_operations.js', function () {
         $.post($form.attr('action'), $form.serialize() + "&submit_copy=Go", function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($form.find("input[name='switch_to_new']").prop('checked')) {
-                    PMA_commonParams.set('db', data.db);
+                    PMA_commonParams.set(
+                        'db',
+                        $form.find("select[name='target_db']").val()
+                    );
                     PMA_commonParams.set(
                         'table',
                         $form.find("input[name='new_name']").val()

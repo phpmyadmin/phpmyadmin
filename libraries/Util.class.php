@@ -4234,7 +4234,7 @@ class PMA_Util
      *
      * @return resource curl_handle with updated options
      */
-    public static function configureCurl(resource $curl_handle)
+    public static function configureCurl($curl_handle)
     {
         if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
             curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
@@ -4517,7 +4517,9 @@ class PMA_Util
             "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
         );
 
-        if ($lowerCaseTableNames === '0') {
+        if ($lowerCaseTableNames === '0' // issue #10961
+            || $lowerCaseTableNames === '2' // issue #11461
+        ) {
             return "COLLATE utf8_bin";
         }
         return "";

@@ -3,54 +3,44 @@
 /**
  * Random Number Generator
  *
- * PHP versions 4 and 5
+ * PHP version 5
  *
  * Here's a short example of how to use this library:
  * <code>
  * <?php
- *    include 'Crypt/Random.php';
+ *    include 'vendor/autoload.php';
  *
- *    echo bin2hex(crypt_random_string(8));
+ *    echo bin2hex(\phpseclib\Crypt\Random::string(8));
  * ?>
  * </code>
  *
- * LICENSE: Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
  * @category  Crypt
- * @package   Crypt_Random
+ * @package   Random
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright MMVII Jim Wigginton
+ * @copyright 2007 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://phpseclib.sourceforge.net
  */
 
-// laravel is a PHP framework that utilizes phpseclib. laravel workbenches may, independently,
-// have phpseclib as a requirement as well. if you're developing such a program you may encounter
-// a "Cannot redeclare crypt_random_string()" error.
-if (!function_exists('crypt_random_string')) {
-    /**
-     * "Is Windows" test
-     *
-     * @access private
-     */
-    define('CRYPT_RANDOM_IS_WINDOWS', strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
+namespace phpseclib\Crypt;
 
+use phpseclib\Crypt\AES;
+use phpseclib\Crypt\Base;
+use phpseclib\Crypt\Blowfish;
+use phpseclib\Crypt\DES;
+use phpseclib\Crypt\RC4;
+use phpseclib\Crypt\TripleDES;
+use phpseclib\Crypt\Twofish;
+
+/**
+ * Pure-PHP Random Number Generator
+ *
+ * @package Random
+ * @author  Jim Wigginton <terrafrost@php.net>
+ * @access  public
+ */
+class Random
+{
     /**
      * Generate a random string.
      *
@@ -60,11 +50,10 @@ if (!function_exists('crypt_random_string')) {
      *
      * @param Integer $length
      * @return String
-     * @access public
      */
-    function crypt_random_string($length)
+    public static function string($length)
     {
-        if (CRYPT_RANDOM_IS_WINDOWS) {
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
             // method 1. prior to PHP 5.3 this would call rand() on windows hence the function_exists('class_alias') call.
             // ie. class_alias is a function that was introduced in PHP 5.3
             if (function_exists('mcrypt_create_iv') && function_exists('class_alias')) {
@@ -120,7 +109,7 @@ if (!function_exists('crypt_random_string')) {
         // easy to guess at. linux uses mouse clicks, keyboard timings, etc, as entropy sources, but
         // PHP isn't low level to be able to use those as sources and on a web server there's not likely
         // going to be a ton of keyboard or mouse action. web servers do have one thing that we can use
-        // however. a ton of people visiting the website. obviously you don't want to base your seeding
+        // however, a ton of people visiting the website. obviously you don't want to base your seeding
         // soley on parameters a potential attacker sends but (1) not everything in $_SERVER is controlled
         // by the user and (2) this isn't just looking at the data sent by the current user - it's based
         // on the data sent by all users. one user requests the page and a hash of their info is saved.
@@ -168,9 +157,9 @@ if (!function_exists('crypt_random_string')) {
                 ini_set('session.use_cookies', $old_use_cookies);
                 session_cache_limiter($old_session_cache_limiter);
             } else {
-               if ($_OLD_SESSION !== false) {
-                   $_SESSION = $_OLD_SESSION;
-                   unset($_OLD_SESSION);
+                if ($_OLD_SESSION !== false) {
+                    $_SESSION = $_OLD_SESSION;
+                    unset($_OLD_SESSION);
                 } else {
                     unset($_SESSION);
                 }
@@ -191,21 +180,27 @@ if (!function_exists('crypt_random_string')) {
             //
             // http://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator#Designs_based_on_cryptographic_primitives
             switch (true) {
-                case class_exists('Crypt_AES'):
-                    $crypto = new Crypt_AES(CRYPT_AES_MODE_CTR);
+                case class_exists('\phpseclib\Crypt\AES'):
+                    $crypto = new AES(Base::MODE_CTR);
                     break;
-                case class_exists('Crypt_TripleDES'):
-                    $crypto = new Crypt_TripleDES(CRYPT_DES_MODE_CTR);
+                case class_exists('\phpseclib\Crypt\Twofish'):
+                    $crypto = new Twofish(Base::MODE_CTR);
                     break;
-                case class_exists('Crypt_DES'):
-                    $crypto = new Crypt_DES(CRYPT_DES_MODE_CTR);
+                case class_exists('\phpseclib\Crypt\Blowfish'):
+                    $crypto = new Blowfish(Base::MODE_CTR);
                     break;
-                case class_exists('Crypt_RC4'):
-                    $crypto = new Crypt_RC4();
+                case class_exists('\phpseclib\Crypt\TripleDES'):
+                    $crypto = new TripleDES(Base::MODE_CTR);
+                    break;
+                case class_exists('\phpseclib\Crypt\DES'):
+                    $crypto = new DES(Base::MODE_CTR);
+                    break;
+                case class_exists('\phpseclib\Crypt\RC4'):
+                    $crypto = new RC4();
                     break;
                 default:
-                    $crypto = $seed;
-                    return crypt_random_string($length);
+                    user_error(__CLASS__ . ' requires at least one symmetric cipher be loaded');
+                    return false;
             }
 
             $crypto->setKey($key);
@@ -213,37 +208,21 @@ if (!function_exists('crypt_random_string')) {
             $crypto->enableContinuousBuffer();
         }
 
-        if (is_string($crypto)) {
-            // the following is based off of ANSI X9.31:
-            //
-            // http://csrc.nist.gov/groups/STM/cavp/documents/rng/931rngext.pdf
-            //
-            // OpenSSL uses that same standard for it's random numbers:
-            //
-            // http://www.opensource.apple.com/source/OpenSSL/OpenSSL-38/openssl/fips-1.0/rand/fips_rand.c
-            // (do a search for "ANS X9.31 A.2.4")
-            //
-            // ANSI X9.31 recommends ciphers be used and phpseclib does use them if they're available (see
-            // later on in the code) but if they're not we'll use sha1
-            $result = '';
-            while (strlen($result) < $length) { // each loop adds 20 bytes
-                // microtime() isn't packed as "densely" as it could be but then neither is that the idea.
-                // the idea is simply to ensure that each "block" has a unique element to it.
-                $i = pack('H*', sha1(microtime()));
-                $r = pack('H*', sha1($i ^ $v));
-                $v = pack('H*', sha1($r ^ $i));
-                $result.= $r;
-            }
-            return substr($result, 0, $length);
-        }
-
         //return $crypto->encrypt(str_repeat("\0", $length));
 
+        // the following is based off of ANSI X9.31:
+        //
+        // http://csrc.nist.gov/groups/STM/cavp/documents/rng/931rngext.pdf
+        //
+        // OpenSSL uses that same standard for it's random numbers:
+        //
+        // http://www.opensource.apple.com/source/OpenSSL/OpenSSL-38/openssl/fips-1.0/rand/fips_rand.c
+        // (do a search for "ANS X9.31 A.2.4")
         $result = '';
         while (strlen($result) < $length) {
-            $i = $crypto->encrypt(microtime());
-            $r = $crypto->encrypt($i ^ $v);
-            $v = $crypto->encrypt($r ^ $i);
+            $i = $crypto->encrypt(microtime()); // strlen(microtime()) == 21
+            $r = $crypto->encrypt($i ^ $v); // strlen($v) == 20
+            $v = $crypto->encrypt($r ^ $i); // strlen($r) == 20
             $result.= $r;
         }
         return substr($result, 0, $length);

@@ -228,42 +228,43 @@ class PMA_DatabaseInterface
     public function convertMessage($message)
     {
         // latin always last!
+        // @todo some values are missing,
+        // see https://mariadb.com/kb/en/mariadb/server-locale/
+
         $encodings = array(
-            'japanese'      => 'EUC-JP', //'ujis',
-            'japanese-sjis' => 'Shift-JIS', //'sjis',
-            'korean'        => 'EUC-KR', //'euckr',
-            'russian'       => 'KOI8-R', //'koi8r',
-            'ukrainian'     => 'KOI8-U', //'koi8u',
-            'greek'         => 'ISO-8859-7', //'greek',
-            'serbian'       => 'CP1250', //'cp1250',
-            'estonian'      => 'ISO-8859-13', //'latin7',
-            'slovak'        => 'ISO-8859-2', //'latin2',
-            'czech'         => 'ISO-8859-2', //'latin2',
-            'hungarian'     => 'ISO-8859-2', //'latin2',
-            'polish'        => 'ISO-8859-2', //'latin2',
-            'romanian'      => 'ISO-8859-2', //'latin2',
-            'spanish'       => 'CP1252', //'latin1',
-            'swedish'       => 'CP1252', //'latin1',
-            'italian'       => 'CP1252', //'latin1',
-            'norwegian-ny'  => 'CP1252', //'latin1',
-            'norwegian'     => 'CP1252', //'latin1',
-            'portuguese'    => 'CP1252', //'latin1',
-            'danish'        => 'CP1252', //'latin1',
-            'dutch'         => 'CP1252', //'latin1',
-            'english'       => 'CP1252', //'latin1',
-            'french'        => 'CP1252', //'latin1',
-            'german'        => 'CP1252', //'latin1',
+            'ja' => 'EUC-JP', //'ujis',
+            'ko' => 'EUC-KR', //'euckr',
+            'ru' => 'KOI8-R', //'koi8r',
+            'uk' => 'KOI8-U', //'koi8u',
+            'sr' => 'CP1250', //'cp1250',
+            'et' => 'ISO-8859-13', //'latin7',
+            'sk' => 'ISO-8859-2', //'latin2',
+            'cz' => 'ISO-8859-2', //'latin2',
+            'hu' => 'ISO-8859-2', //'latin2',
+            'pl' => 'ISO-8859-2', //'latin2',
+            'ro' => 'ISO-8859-2', //'latin2',
+            'es' => 'CP1252', //'latin1',
+            'sv' => 'CP1252', //'latin1',
+            'it' => 'CP1252', //'latin1',
+            'no' => 'CP1252', //'latin1',
+            'pt' => 'CP1252', //'latin1',
+            'da' => 'CP1252', //'latin1',
+            'nl' => 'CP1252', //'latin1',
+            'en' => 'CP1252', //'latin1',
+            'fr' => 'CP1252', //'latin1',
+            'de' => 'CP1252', //'latin1',
         );
 
         $server_language = $this->fetchValue(
-            'SHOW VARIABLES LIKE \'language\';',
+            'SELECT @@lc_messages;',
             0,
-            1
+            0
         );
+
         if ($server_language) {
             $found = array();
             $match = preg_match(
-                '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i',
+                '&([a-z][a-z])_&i',
                 $server_language,
                 $found
             );
@@ -321,7 +322,8 @@ class PMA_DatabaseInterface
                     )
                     . '%\'';
             } else {
-                $sql_where_table = 'AND t.`TABLE_NAME` = \''
+                $sql_where_table = 'AND t.`TABLE_NAME` '
+                    . PMA_Util::getCollateForIS() . ' = \''
                     . PMA_Util::sqlAddSlashes($table) . '\'';
             }
         } else {
@@ -423,7 +425,7 @@ class PMA_DatabaseInterface
                     `CREATE_OPTIONS`     AS `Create_options`,
                     `TABLE_COMMENT`      AS `Comment`
                 FROM `information_schema`.`TABLES` t
-                WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA`
+                WHERE `TABLE_SCHEMA` ' . PMA_Util::getCollateForIS() . '
                     IN (\'' . implode("', '", $this_databases) . '\')
                     ' . $sql_where_table;
         }
@@ -1410,8 +1412,8 @@ class PMA_DatabaseInterface
      * @param boolean $full     whether to return full info or only column names
      * @param mixed   $link     mysql link resource
      *
-     * @return false|array   array indexed by column names or,
-     *                        if $column is given, flat array description
+     * @return array array indexed by column names or,
+     *               if $column is given, flat array description
      */
     public function getColumns($database, $table, $column = null, $full = false,
         $link = null
@@ -1419,7 +1421,7 @@ class PMA_DatabaseInterface
         $sql = $this->getColumnsSql($database, $table, $column, $full);
         $fields = $this->fetchResult($sql, 'Field', null, $link);
         if (! is_array($fields) || count($fields) == 0) {
-            return null;
+            return array();
         }
         // Check if column is a part of multiple-column index and set its 'Key'.
         $indexes = PMA_Index::getFromTable($table, $database);
