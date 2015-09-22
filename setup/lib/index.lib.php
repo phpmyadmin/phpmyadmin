@@ -110,7 +110,7 @@ function PMA_version_check()
     // from a working server
     $connection_timeout = 3;
 
-    $url = 'http://phpmyadmin.net/home_page/version.php';
+    $url = 'http://phpmyadmin.net/home_page/version.json';
     $context = stream_context_create(
         array(
             'http' => array('timeout' => $connection_timeout)
@@ -146,14 +146,14 @@ function PMA_version_check()
         return;
     }
 
-    /* Format: version\ndate\n(download\n)* */
-    $data_list = explode("\n", $data);
-
-    if (count($data_list) > 1) {
-        $version = $data_list[0];
-        $date = $data_list[1];
+    $data_list = json_decode($data);
+    $releases = $data_list->releases;
+    $latestCompatible = PMA_Util::getLatestCompatibleVersion($releases);
+    if ($latestCompatible != null) {
+        $version = $latestCompatible['version'];
+        $date = $latestCompatible['date'];
     } else {
-        $version = $date = '';
+        return;
     }
 
     $version_upstream = version_to_int($version);

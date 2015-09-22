@@ -4151,5 +4151,79 @@ class PMA_Util
                 . PMA_Util::localisedDate(strtotime($table['Check_time']));
         }
     }
+
+    /**
+     * Returns the version and date of the latest phpMyAdmin version compatible
+     * with avilable PHP and MySQL versions
+     *
+     * @param array $releases array of information related to each version
+     *
+     * @return array containing the version and date of latest compatibel version
+     */
+    public static function getLatestCompatibleVersion($releases)
+    {
+        foreach ($releases as $release) {
+            $phpVersions = $release->php_versions;
+            $phpConditions = explode(",", $phpVersions);
+            foreach ($phpConditions as $phpCondition) {
+                if (! self::evaluateVersionCondition("PHP", $phpCondition)) {
+                    continue 2;
+                }
+            }
+
+            // We evalute MySQL version constraint if there are only
+            // one server configured.
+            if (count($GLOBALS['cfg']['Servers']) == 1) {
+                $mysqlVersions = $release->mysql_versions;
+                $mysqlConditions = explode(",", $mysqlVersions);
+                foreach ($mysqlConditions as $mysqlCondition) {
+                    if (! self::evaluateVersionCondition('MySQL', $mysqlCondition)) {
+                        continue 2;
+                    }
+                }
+            }
+
+            return array(
+                'version' => $release->version,
+                'date' => $release->date,
+            );
+        }
+
+        // no compatible version
+        return null;
+    }
+
+    /**
+     * Checks whether PHP or MySQL version meets supplied version condition
+     *
+     * @param string $type      PHP or MySQL
+     * @param string $condition version condition
+     *
+     * @return boolean whether the condition is met
+     */
+    public static function evaluateVersionCondition($type, $condition)
+    {
+        $operator = null;
+        $operators = array("<=", ">=", "!=", "<>", "<", ">", "="); // preserve order
+        foreach ($operators as $oneOperator) {
+            if (strpos($condition, $oneOperator) === 0) {
+                $operator = $oneOperator;
+                $version = substr($condition, strlen($oneOperator));
+                break;
+            }
+        }
+
+        $myVersion = null;
+        if ($type == 'PHP') {
+            $myVersion = PHP_VERSION;
+        } elseif ($type == 'MySQL') {
+            $myVersion = PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION', true);
+        }
+
+        if ($myVersion != null && $operator != null) {
+            return version_compare($myVersion, $version, $operator);
+        }
+        return false;
+    }
 }
 ?>

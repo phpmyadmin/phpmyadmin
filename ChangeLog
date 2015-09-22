@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.11 (not yet released)
+- issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
+
 4.0.10.10 (2015-05-13)
 - bug #4899 [security] CSRF vulnerability in setup
 - bug #4900 [security] Vulnerability allowing Man-in-the-middle attack
