@@ -414,10 +414,10 @@ if (isset($_REQUEST['adduser'])) {
         );
     } else if (!empty($routinename)) {
         $response->addHTML(
-             PMA_getHtmlForRoutineSpecificPrivilges(
-                 $username, $hostname, $dbname, $routinename,
-                 (isset($url_dbname) ? $url_dbname : '')
-             )
+            PMA_getHtmlForRoutineSpecificPrivilges(
+                $username, $hostname, $dbname, $routinename,
+                (isset($url_dbname) ? $url_dbname : '')
+            )
         );
     } else {
         // A user was selected -> display the user's properties
