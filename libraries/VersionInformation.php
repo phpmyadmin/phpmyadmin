@@ -264,7 +264,7 @@ class VersionInformation
      */
     protected function getMySQLVersion()
     {
-        PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION');
+        return PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION');
     }
 }
 ?>
