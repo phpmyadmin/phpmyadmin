@@ -99,7 +99,7 @@ class PMA_StorageEngine
             if (PMA_MYSQL_INT_VERSION >= 50708) {
                 $disabled = PMA_Util::cacheGet(
                     'disabled_storage_engines',
-                    function() {
+                    function () {
                         return $GLOBALS['dbi']->fetchValue(
                             'SELECT @@disabled_storage_engines'
                         );
