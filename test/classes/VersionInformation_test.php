@@ -22,8 +22,10 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
     private $_releases;
 
     /**
-     * (non-PHPdoc)
-     * @see PHPUnit_Framework_TestCase::setUp()
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     *
+     * @return void
      */
     protected function setUp()
     {
@@ -50,7 +52,6 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
         $release->mysql_versions = ">=5.0";
         $this->_releases[] = $release;
     }
-
 
     /**
      * Test version checking
@@ -229,6 +230,11 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('4.0.10.10', $compatible['version']);
     }
 
+    /**
+     * Tests evaluateVersionCondition() method
+     *
+     * @return void
+     */
     public function testEvaluateVersionCondition()
     {
         $mockVersionInfo = $this->getMockBuilder('VersionInformation')
