@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #11480 Notice Undefined index: drop_database
 - issue #11486 Server variable edition in ANSI_QUOTES sql_mode: losing current value
 - issue #11491 Propose table structure broken
+- issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
 
 4.5.0.0 (not yet released)
 + rfe          Pagination for GIS visualization
