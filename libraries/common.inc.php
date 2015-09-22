@@ -1046,7 +1046,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Charset information
          */
-        require_once './libraries/mysql_charsets.inc.php';
+        include_once './libraries/mysql_charsets.inc.php';
 
         if (!isset($mysql_charsets)) {
             $mysql_charsets = array();
