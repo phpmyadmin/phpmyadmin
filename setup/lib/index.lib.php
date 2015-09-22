@@ -108,7 +108,8 @@ function PMA_versionCheck()
     $message_id = uniqid('version_check');
 
     // Fetch data
-    $version_data = PMA_Util::getLatestVersion();
+    $versionInformation = new VersionInformation();
+    $version_data = $versionInformation->getLatestVersion();
 
     if (empty($version_data)) {
         PMA_messagesSet(
@@ -123,10 +124,16 @@ function PMA_versionCheck()
         return;
     }
 
-    $version = $version_data->version;
-    $date = $version_data->date;
+    $releases = $version_data->releases;
+    $latestCompatible = $versionInformation->getLatestCompatibleVersion($releases);
+    if ($latestCompatible != null) {
+        $version = $latestCompatible['version'];
+        $date = $latestCompatible['date'];
+    } else {
+        return;
+    }
 
-    $version_upstream = PMA_Util::versionToInt($version);
+    $version_upstream = $versionInformation->versionToInt($version);
     if ($version_upstream === false) {
         PMA_messagesSet(
             'error',
@@ -137,7 +144,7 @@ function PMA_versionCheck()
         return;
     }
 
-    $version_local = PMA_Util::versionToInt(
+    $version_local = $versionInformation->versionToInt(
         $GLOBALS['PMA_Config']->get('PMA_VERSION')
     );
     if ($version_local === false) {
