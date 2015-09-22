@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Responsile for retrieving version information and notifiying about latest version
+ * Responsible for retrieving version information and notifiying about latest version
  *
  * @package PhpMyAdmin
  */
@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Responsile for retrieving version information and notifiying about latest version
+ * Responsible for retrieving version information and notifiying about latest version
  *
  * @package PhpMyAdmin
  *
@@ -175,11 +175,11 @@ class VersionInformation
 
     /**
      * Returns the version and date of the latest phpMyAdmin version compatible
-     * with avilable PHP and MySQL versions
+     * with the available PHP and MySQL versions
      *
      * @param array $releases array of information related to each version
      *
-     * @return array containing the version and date of latest compatibel version
+     * @return array containing the version and date of latest compatible version
      */
     public function getLatestCompatibleVersion($releases)
     {
