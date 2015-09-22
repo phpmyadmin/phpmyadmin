@@ -637,7 +637,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
             = PMA_getSqlQueriesForDisplayAndAddUser(
                 $username, $hostname,
-                (isset ($password) ? $password : '')
+                (isset($password) ? $password : '')
             );
         $this->assertEquals(
             "CREATE USER 'pma_username'@'pma_hostname' "
