@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.5.0.0 (not yet released)
+4.5.0.0 (2015-09-23)
 + rfe          Pagination for GIS visualization
 + issue #6207  Usability improvements for console
 + issue #6310  Access to Add columns text-box and Go button when creating table
