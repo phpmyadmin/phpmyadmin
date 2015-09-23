@@ -328,4 +328,3 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

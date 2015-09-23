@@ -68,7 +68,8 @@
         // Calculate the total width used by all the shown tabs
         var total_len = more_shown ? submenu_w : 0;
         var l = $li.length - 1;
-        for (var i = 0; i < l; i++) {
+        var i;
+        for (i = 0; i < l; i++) {
             total_len += $($li[i]).outerWidth(true);
         }
         // Now hide menu elements that don't fit into the menubar
@@ -91,7 +92,7 @@
         // If we didn't hide any tabs, then there might be some space to show some
         if (! hidden) {
             // Show menu elements that do fit into the menubar
-            for (var i = 0, l = $li2.length; i < l; i++) {
+            for (i = 0, l = $li2.length; i < l; i++) {
                 total_len += $($li2[i]).data('width');
                 // item fits or (it is the last item
                 // and it would fit if More got removed)

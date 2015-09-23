@@ -125,25 +125,24 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
             $client_flags |= DRIZZLE_CAPABILITIES_SSL;
         }
 
-        if (! $server) {
-            $link = @$this->_realConnect(
-                $drizzle, $cfg['Server']['host'],
-                $server_port, $server_socket, $user,
-                $password, false, $client_flags
-            );
-            // Retry with empty password if we're allowed to
-            if ($link == false && isset($cfg['Server']['nopassword'])
-                && $cfg['Server']['nopassword'] && ! $is_controluser
-            ) {
-                $link = @$this->_realConnect(
-                    $drizzle, $cfg['Server']['host'], $server_port, $server_socket,
-                    $user, null, false, $client_flags
-                );
-            }
-        } else {
-            $link = @$this->_realConnect(
+        if ($server) {
+            return @$this->_realConnect(
                 $drizzle, $server['host'], $server_port, $server_socket,
                 $user, $password
+            );
+        }
+
+        $link = @$this->_realConnect(
+            $drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user,
+            $password, false, $client_flags
+        );
+        // Retry with empty password if we're allowed to
+        if ($link == false && isset($cfg['Server']['nopassword'])
+            && $cfg['Server']['nopassword'] && ! $is_controluser
+        ) {
+            $link = @$this->_realConnect(
+                $drizzle, $cfg['Server']['host'], $server_port, $server_socket,
+                $user, null, false, $client_flags
             );
         }
 
@@ -154,7 +153,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      * selects given database
      *
      * @param string         $dbname database name to select
-     * @param PMA_DrizzleCom $link   connection object
+     * @param PMA_DrizzleCon $link   connection object
      *
      * @return bool
      */
@@ -184,10 +183,10 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Run the multi query and output the results
      *
-     * @param object $link  connection object
-     * @param string $query multi query statement to execute
+     * @param resource $link  connection object
+     * @param string   $query multi query statement to execute
      *
-     * @return result collection | boolean(false)
+     * @return array|bool
      */
     public function realMultiQuery($link, $query)
     {
@@ -260,7 +259,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return bool false
      */
@@ -276,7 +275,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return bool false
      */
@@ -381,7 +380,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      */
     public function affectedRows($link)
     {
-        return $link->affectedRows();
+        $affectedRows = $link->affectedRows();
+        return $affectedRows !== false ? $affectedRows : 0;
     }
 
     /**
@@ -395,34 +395,6 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     {
         // Build an associative array for a type look up
         $typeAr = array();
-        /*$typeAr[DRIZZLE_COLUMN_TYPE_DECIMAL]     = 'real';
-        $typeAr[DRIZZLE_COLUMN_TYPE_NEWDECIMAL]  = 'real';
-        $typeAr[DRIZZLE_COLUMN_TYPE_BIT]         = 'int';
-        $typeAr[DRIZZLE_COLUMN_TYPE_TINY]        = 'int';
-        $typeAr[DRIZZLE_COLUMN_TYPE_SHORT]       = 'int';
-        $typeAr[DRIZZLE_COLUMN_TYPE_LONG]        = 'int';
-        $typeAr[DRIZZLE_COLUMN_TYPE_FLOAT]       = 'real';
-        $typeAr[DRIZZLE_COLUMN_TYPE_DOUBLE]      = 'real';
-        $typeAr[DRIZZLE_COLUMN_TYPE_NULL]        = 'null';
-        $typeAr[DRIZZLE_COLUMN_TYPE_TIMESTAMP]   = 'timestamp';
-        $typeAr[DRIZZLE_COLUMN_TYPE_LONGLONG]    = 'int';
-        $typeAr[DRIZZLE_COLUMN_TYPE_INT24]       = 'int';
-        $typeAr[DRIZZLE_COLUMN_TYPE_DATE]        = 'date';
-        $typeAr[DRIZZLE_COLUMN_TYPE_TIME]        = 'date';
-        $typeAr[DRIZZLE_COLUMN_TYPE_DATETIME]    = 'datetime';
-        $typeAr[DRIZZLE_COLUMN_TYPE_YEAR]        = 'year';
-        $typeAr[DRIZZLE_COLUMN_TYPE_NEWDATE]     = 'date';
-        $typeAr[DRIZZLE_COLUMN_TYPE_ENUM]        = 'unknown';
-        $typeAr[DRIZZLE_COLUMN_TYPE_SET]         = 'unknown';
-        $typeAr[DRIZZLE_COLUMN_TYPE_VIRTUAL]     = 'unknown';
-        $typeAr[DRIZZLE_COLUMN_TYPE_TINY_BLOB]   = 'blob';
-        $typeAr[DRIZZLE_COLUMN_TYPE_MEDIUM_BLOB] = 'blob';
-        $typeAr[DRIZZLE_COLUMN_TYPE_LONG_BLOB]   = 'blob';
-        $typeAr[DRIZZLE_COLUMN_TYPE_BLOB]        = 'blob';
-        $typeAr[DRIZZLE_COLUMN_TYPE_VAR_STRING]  = 'string';
-        $typeAr[DRIZZLE_COLUMN_TYPE_VARCHAR]     = 'string';
-        $typeAr[DRIZZLE_COLUMN_TYPE_STRING]      = 'string';
-        $typeAr[DRIZZLE_COLUMN_TYPE_GEOMETRY]    = 'geometry';*/
 
         $typeAr[DRIZZLE_COLUMN_TYPE_DRIZZLE_BLOB]      = 'blob';
         $typeAr[DRIZZLE_COLUMN_TYPE_DRIZZLE_DATE]      = 'date';
@@ -580,4 +552,3 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
         return false;
     }
 }
-?>

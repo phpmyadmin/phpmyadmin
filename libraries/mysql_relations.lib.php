@@ -166,4 +166,3 @@ $GLOBALS['mysql_relations'] = array(
         ),
     ),
 );
-?>

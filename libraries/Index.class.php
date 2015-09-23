@@ -17,6 +17,12 @@ if (! defined('PHPMYADMIN')) {
  */
 class PMA_Index
 {
+    const PRIMARY  = 1;
+    const UNIQUE   = 2;
+    const INDEX    = 4;
+    const SPATIAL  = 8;
+    const FULLTEXT = 16;
+
     /**
      * Class-wide storage container for indexes (caching, singleton)
      *
@@ -141,7 +147,7 @@ class PMA_Index
      * @param string $table  table
      * @param string $schema schema
      *
-     * @return array  array of indexes
+     * @return PMA_Index[]  array of indexes
      */
     static public function getFromTable($table, $schema)
     {
@@ -152,6 +158,48 @@ class PMA_Index
         } else {
             return array();
         }
+    }
+
+    /**
+     * Returns an array with all indexes from the given table of the requested types
+     *
+     * @param string $table   table
+     * @param string $schema  schema
+     * @param int    $choices choices
+     *
+     * @return PMA_Index[] array of indexes
+     */
+    static public function getFromTableByChoice($table, $schema, $choices = 31)
+    {
+        $indexes = array();
+        foreach (self::getFromTable($table, $schema) as $index) {
+            if (($choices & PMA_Index::PRIMARY)
+                && $index->getChoice() == 'PRIMARY'
+            ) {
+                $indexes[] = $index;
+            }
+            if (($choices & PMA_Index::UNIQUE)
+                && $index->getChoice() == 'UNIQUE'
+            ) {
+                $indexes[] = $index;
+            }
+            if (($choices & PMA_Index::INDEX)
+                && $index->getChoice() == 'INDEX'
+            ) {
+                $indexes[] = $index;
+            }
+            if (($choices & PMA_Index::SPATIAL)
+                && $index->getChoice() == 'SPATIAL'
+            ) {
+                $indexes[] = $index;
+            }
+            if (($choices & PMA_Index::FULLTEXT)
+                && $index->getChoice() == 'FULLTEXT'
+            ) {
+                $indexes[] = $index;
+            }
+        }
+        return $indexes;
     }
 
     /**
@@ -610,7 +658,7 @@ class PMA_Index
      *
      * @access  public
      */
-    static public function getView($table, $schema, $print_mode = false)
+    static public function getHtmlForIndexes($table, $schema, $print_mode = false)
     {
         $indexes = PMA_Index::getFromTable($table, $schema);
 
@@ -642,7 +690,7 @@ class PMA_Index
         $r .= '<thead>';
         $r .= '<tr>';
         if (! $print_mode) {
-            $r .= '<th colspan="2">' . __('Action') . '</th>';
+            $r .= '<th colspan="2" class="print_ignore">' . __('Action') . '</th>';
         }
         $r .= '<th>' . __('Keyname') . '</th>';
         $r .= '<th>' . __('Type') . '</th>';
@@ -666,7 +714,7 @@ class PMA_Index
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
                 $this_params['index'] = $index->getName();
-                $r .= '<td class="edit_index';
+                $r .= '<td class="edit_index print_ignore';
                 $r .= ' ajax';
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
@@ -699,7 +747,7 @@ class PMA_Index
 
                 }
 
-                $r .= '<td ' . $row_span . '>';
+                $r .= '<td ' . $row_span . ' class="print_ignore">';
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '" />';
                 $r .= '    <a class="drop_primary_key_index_anchor';
@@ -822,7 +870,10 @@ class PMA_Index
                 // so it makes no sense to have this two equal indexes
 
                 $message = PMA_Message::notice(
-                    __('The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.')
+                    __(
+                        'The indexes %1$s and %2$s seem to be equal and one of them '
+                        . 'could possibly be removed.'
+                    )
                 );
                 $message->addParam($each_index->getName());
                 $message->addParam($while_index->getName());
@@ -1008,4 +1059,3 @@ class PMA_Index_Column
         );
     }
 }
-?>

@@ -8,8 +8,15 @@
 
 require_once 'libraries/common.inc.php';
 
-// If request for creating all PMA tables.
+// If request for creating the pmadb
 if (isset($_REQUEST['create_pmadb'])) {
+    if (PMA_createPMADatabase()) {
+        PMA_fixPMATables('phpmyadmin');
+    }
+}
+
+// If request for creating all PMA tables.
+if (isset($_REQUEST['fixall_pmadb'])) {
     PMA_fixPMATables($GLOBALS['db']);
 }
 
@@ -23,5 +30,3 @@ $response = PMA_Response::getInstance();
 $response->addHTML(
     PMA_getRelationsParamDiagnostic($cfgRelation)
 );
-
-?>

@@ -56,14 +56,14 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForServerProcesses
+     * Test for PMA_getHtmlForProcessListAutoRefresh
      *
      * @return void
      * @group medium
      */
-    public function testPMAGetHtmlForServerProcesses()
+    public function testPMAGetHtmlForProcessListAutoRefresh()
     {
-        $html = PMA_getHtmlForServerProcesses();
+        $html = PMA_getHtmlForProcessListAutoRefresh();
 
         // Test Notice
         $this->assertContains(
@@ -112,7 +112,6 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
             "Id" => "Id1",
             "db" => "db1",
             "Command" => "Command1",
-            "State" => "State1",
             "Info" => "Info1",
             "State" => "State1",
             "Time" => "Time1"
@@ -190,7 +189,6 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
             "id" => "Id1",
             "db" => "db1",
             "command" => "Command1",
-            "state" => "State1",
             "info" => "Info1",
             "state" => "State1",
             "time" => "Time1",
@@ -276,4 +274,3 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

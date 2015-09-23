@@ -480,6 +480,25 @@ $cfg['Servers'][$i]['savedsearches'] = '';
  * @global string $cfg['Servers'][$i]['central_columns']
  */
 $cfg['Servers'][$i]['central_columns'] = '';
+
+/**
+ * table to store designer settings
+ *   - leave blank to disable the storage of designer settings
+ *     SUGGESTED: 'pma__designer_settings'
+ *
+ * @global string $cfg['Servers'][$i]['designer_settings']
+ */
+$cfg['Servers'][$i]['designer_settings'] = '';
+
+/**
+ * table to store export templates
+ *   - leave blank to disable saved searches feature
+ *     SUGGESTED: 'pma__export_templates'
+ *
+ * @global string $cfg['Servers'][$i]['export_templates']
+ */
+$cfg['Servers'][$i]['export_templates'] = '';
+
 /**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
@@ -544,7 +563,6 @@ $cfg['Servers'][$i]['DisableIS'] = false;
  *
  * @global bool $cfg['Servers'][$i]['tracking_version_auto_create']
  */
-
 $cfg['Servers'][$i]['tracking_version_auto_create'] = false;
 
 /**
@@ -553,7 +571,6 @@ $cfg['Servers'][$i]['tracking_version_auto_create'] = false;
  *
  * @global string $cfg['Servers'][$i]['tracking_default_statements']
  */
-
 $cfg['Servers'][$i]['tracking_default_statements']
     = 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,' .
       'DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,' .
@@ -565,7 +582,6 @@ $cfg['Servers'][$i]['tracking_default_statements']
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_view']
  */
-
 $cfg['Servers'][$i]['tracking_add_drop_view'] = true;
 
 /**
@@ -574,7 +590,6 @@ $cfg['Servers'][$i]['tracking_add_drop_view'] = true;
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_table']
  */
-
 $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
 
 /**
@@ -583,7 +598,6 @@ $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_database']
  */
-
 $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
 
 /**
@@ -706,7 +720,7 @@ $cfg['ExecTimeLimit'] = 300;
 $cfg['SessionSavePath'] = '';
 
 /**
- * maximum allocated bytes ('-1' for no limit)
+ * maximum allocated bytes ('-1' for no limit, '0' for no change)
  * this is a string because '16M' is a valid value; we must put here
  * a string as the default value so that /setup accepts strings
  *
@@ -742,6 +756,13 @@ $cfg['RetainQueryBox'] = false;
  * @global boolean $cfg['CodemirrorEnable']
  */
 $cfg['CodemirrorEnable'] = true;
+
+/**
+ * use the parser to find any errors in the query before executing
+ *
+ * @global boolean $cfg['LintEnable']
+ */
+$cfg['LintEnable'] = true;
 
 /**
  * show a 'Drop database' link to normal users
@@ -962,25 +983,25 @@ $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
  * target of the navigation panel quick access icon
  *
  * Possible values:
- * 'tbl_structure.php' = fields list
- * 'tbl_sql.php' = SQL form
- * 'tbl_select.php' = search page
- * 'tbl_change.php' = insert row page
- * 'sql.php' = browse page
+ * 'structure.php' = fields list
+ * 'sql' = SQL form
+ * 'search' = search page
+ * 'insert' = insert row page
+ * 'browse' = browse page
  *
  * @global string $cfg['NavigationTreeDefaultTabTable']
  */
-$cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
+$cfg['NavigationTreeDefaultTabTable'] = 'structure';
 
 /**
  * target of the navigation panel quick second access icon
  *
  * Possible values:
- * 'tbl_structure.php' = fields list
- * 'tbl_sql.php' = SQL form
- * 'tbl_select.php' = search page
- * 'tbl_change.php' = insert row page
- * 'sql.php' = browse page
+ * 'structure' = fields list
+ * 'sql' = SQL form
+ * 'search' = search page
+ * 'insert' = insert row page
+ * 'browse' = browse page
  * '' = no link
  *
  * @global string $cfg['NavigationTreeDefaultTabTable2']
@@ -993,6 +1014,41 @@ $cfg['NavigationTreeDefaultTabTable2'] = '';
  * @global boolean $cfg['NavigationTreeEnableExpansion']
  */
 $cfg['NavigationTreeEnableExpansion'] = true;
+
+/**
+ * Show tables in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowTables']
+ */
+$cfg['NavigationTreeShowTables'] = true;
+
+/**
+ * Show views in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowViews']
+ */
+$cfg['NavigationTreeShowViews'] = true;
+
+/**
+ * Show functions in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowFunctions']
+ */
+$cfg['NavigationTreeShowFunctions'] = true;
+
+/**
+ * Show procedures in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowProcedures']
+ */
+$cfg['NavigationTreeShowProcedures'] = true;
+
+/**
+ * Show events in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowEvents']
+ */
+$cfg['NavigationTreeShowEvents'] = true;
 
 /*******************************************************************************
  * In the main panel, at startup...
@@ -1038,6 +1094,13 @@ $cfg['ShowCreateDb'] = true;
 /*******************************************************************************
  * Database structure
  */
+
+/**
+ * show comment column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureComment']
+ */
+$cfg['ShowDbStructureComment'] = false;
 
 /**
  * show creation timestamp column in database structure (true|false)?
@@ -1111,7 +1174,6 @@ $cfg['Order'] = 'SMART';
  *
  * @global boolean $cfg['SaveCellsAtOnce']
  */
-
 $cfg['SaveCellsAtOnce'] = false;
 
 /**
@@ -1136,7 +1198,6 @@ $cfg['GridEditing'] ='double-click';
  * @global string $cfg['RelationalDisplay']
  *
  */
-
 $cfg['RelationalDisplay'] = 'K';
 
 
@@ -1215,6 +1276,12 @@ $cfg['ForeignKeyDropdownOrder'] = array('content-id', 'id-content');
  */
 $cfg['ForeignKeyMaxLimit'] = 100;
 
+/**
+ * Whether to disable foreign key checks while importing
+ *
+ * @global boolean $cfg['DefaultForeignKeyChecks']
+ */
+$cfg['DefaultForeignKeyChecks'] = 'default';
 
 /*******************************************************************************
  * For the export features...
@@ -1278,39 +1345,39 @@ $cfg['PropertiesNumColumns'] = 1;
 
 /**
  * Possible values:
- * 'index.php' = the welcome page
+ * 'welcome' = the welcome page
  * (recommended for multiuser setups)
- * 'server_databases.php' = list of databases
- * 'server_status.php' = runtime information
- * 'server_variables.php' = MySQL server variables
- * 'server_privileges.php' = user management
+ * 'databases' = list of databases
+ * 'status' = runtime information
+ * 'variables' = MySQL server variables
+ * 'privileges' = user management
  *
  * @global string $cfg['DefaultTabServer']
  */
-$cfg['DefaultTabServer'] = 'index.php';
+$cfg['DefaultTabServer'] = 'welcome';
 
 /**
  * Possible values:
- * 'db_structure.php' = tables list
- * 'db_sql.php' = SQL form
- * 'db_search.php' = search query
- * 'db_operations.php' = operations on database
+ * 'structure' = tables list
+ * 'sql' = SQL form
+ * 'search' = search query
+ * 'operations' = operations on database
  *
  * @global string $cfg['DefaultTabDatabase']
  */
-$cfg['DefaultTabDatabase'] = 'db_structure.php';
+$cfg['DefaultTabDatabase'] = 'structure';
 
 /**
  * Possible values:
- * 'tbl_structure.php' = fields list
- * 'tbl_sql.php' = SQL form
- * 'tbl_select.php' = search page
- * 'tbl_change.php' = insert row page
- * 'sql.php' = browse page
+ * 'structure' = fields list
+ * 'sql' = SQL form
+ * 'search' = search page
+ * 'insert' = insert row page
+ * 'browse' = browse page
  *
  * @global string $cfg['DefaultTabTable']
  */
-$cfg['DefaultTabTable'] = 'sql.php';
+$cfg['DefaultTabTable'] = 'browse';
 
 /**
  * Whether to display image or text or both image and text in table row
@@ -1343,6 +1410,20 @@ $cfg['Export']['method'] = 'quick';
  * @global string $cfg['Export']['compression']
  */
 $cfg['Export']['compression'] = 'none';
+
+/**
+ * Whether to LOCK TABLES before exporting
+ *
+ * @global boolean $cfg['Export']['lock_tables']
+ */
+$cfg['Export']['lock_tables'] = false;
+
+/**
+ * Whether to export databases/tables as separate files
+ *
+ * @global boolean $cfg['Export']['as_separate_files']
+ */
+$cfg['Export']['as_separate_files'] = false;
 
 /**
  *
@@ -1763,8 +1844,8 @@ $cfg['Export']['mediawiki_structure_or_data'] = 'data';
  *
  * @global boolean $cfg['Export']['mediawiki_caption']
  */
-
 $cfg['Export']['mediawiki_caption'] = true;
+
 /**
  *
  *
@@ -1801,6 +1882,13 @@ $cfg['Export']['phparray_structure_or_data'] = 'data';
 $cfg['Export']['json_structure_or_data'] = 'data';
 
 /**
+ * Export functions
+ *
+ * @global string $cfg['Export']['json_pretty_print']
+ */
+$cfg['Export']['json_pretty_print'] = false;
+
+/**
  *
  *
  * @global string $cfg['Export']['sql_structure_or_data']
@@ -1827,12 +1915,20 @@ $cfg['Export']['sql_include_comments'] = true;
  * @global boolean $cfg['Export']['sql_disable_fk']
  */
 $cfg['Export']['sql_disable_fk'] = false;
+
 /**
  *
  *
  * @global boolean $cfg['Export']['sql_views_as_tables']
  */
 $cfg['Export']['sql_views_as_tables'] = false;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['sql_metadata']
+ */
+$cfg['Export']['sql_metadata'] = false;
 
 /**
  *
@@ -1869,7 +1965,7 @@ $cfg['Export']['sql_drop_table'] = false;
  * of VIEWs and the stand-in table
  * @global boolean $cfg['Export']['sql_if_not_exists']
  */
-$cfg['Export']['sql_if_not_exists'] = true;
+$cfg['Export']['sql_if_not_exists'] = false;
 
 /**
  *
@@ -1989,13 +2085,6 @@ $cfg['Export']['sql_mime'] = false;
  * @global string $cfg['Export']['sql_header_comment']
  */
 $cfg['Export']['sql_header_comment'] = '';
-
-/**
- *
- *
- * @global boolean $cfg['Export']['sql_create_table_statements']
- */
-$cfg['Export']['sql_create_table_statements'] = true;
 
 /**
  * Whether to use complete inserts, extended inserts, both, or neither
@@ -2360,6 +2449,13 @@ $cfg['Schema']['pdf_with_doc'] = true;
 /**
  *
  *
+ * @global string $cfg['Schema']['pdf_table_order']
+ */
+$cfg['Schema']['pdf_table_order'] = '';
+
+/**
+ *
+ *
  * @global string $cfg['Schema']['dia_show_color']
  */
 $cfg['Schema']['dia_show_color'] = true;
@@ -2645,6 +2741,14 @@ $cfg['LimitChars'] = 50;
 $cfg['RowActionLinks'] = 'left';
 
 /**
+ * Whether to show row links (Edit, Copy, Delete) and checkboxes for
+ * multiple row operations even when the selection does not have a unique key.
+ *
+ * @global boolean $cfg['RowActionLinksWithoutUnique']
+ */
+$cfg['RowActionLinksWithoutUnique'] = false;
+
+/**
  * Default sort order by primary key.
  * @global string $cfg['TablePrimaryKeyOrder']
  */
@@ -2837,32 +2941,39 @@ $cfg['DefaultQueryDatabase'] = '';
 $cfg['SQLQuery'] = array();
 
 /**
- * Edit link to change a query
+ * Display an "Edit" link on the results page to change a query
  *
  * @global boolean $cfg['SQLQuery']['Edit']
  */
 $cfg['SQLQuery']['Edit'] = true;
 
 /**
- * EXPLAIN on SELECT queries
+ * Display an "Explain SQL" link on the results page
  *
  * @global boolean $cfg['SQLQuery']['Explain']
  */
 $cfg['SQLQuery']['Explain'] = true;
 
 /**
- * Wrap a query in PHP
+ * Display a "Create PHP code" link on the results page to wrap a query in PHP
  *
  * @global boolean $cfg['SQLQuery']['ShowAsPHP']
  */
 $cfg['SQLQuery']['ShowAsPHP'] = true;
 
 /**
- * Refresh the results page
+ * Display a "Refresh" link on the results page
  *
  * @global boolean $cfg['SQLQuery']['Refresh']
  */
 $cfg['SQLQuery']['Refresh'] = true;
+
+/**
+ * Enables autoComplete for table & column names in SQL queries
+ *
+ * default = 'true'
+ */
+$cfg['EnableAutocompleteForTablesAndColumns'] = true;
 
 
 /*******************************************************************************
@@ -2957,6 +3068,13 @@ $cfg['DisableMultiTableMaintenance'] = false;
 $cfg['SendErrorReports'] = 'ask';
 
 /**
+ * Whether Enter or Ctrl+Enter executes queries in the console.
+ *
+ * @global boolean $cfg['ConsoleEnterExecutes']
+ */
+$cfg['ConsoleEnterExecutes'] = false;
+
+/**
  * Zero Configuration mode.
  *
  * @global boolean $cfg['ZeroConf']
@@ -3008,4 +3126,19 @@ $cfg['DefaultFunctions'] = array(
  */
 $cfg['maxRowPlotLimit'] = 500;
 
-?>
+/**
+ * Show Git revision if applicable
+ *
+ * @global boolean $cfg['ShowGitRevision']
+ */
+$cfg['ShowGitRevision'] = true;
+
+/**
+ * MySQL minimal version required
+ *
+ * @global array $cfg['MysqlMinVersion']
+ */
+$cfg['MysqlMinVersion'] = array(
+    'internal' => 50500,
+    'human' => '5.5.0'
+);

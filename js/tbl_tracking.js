@@ -60,10 +60,12 @@ AJAX.registerOnload('tbl_tracking.js', function () {
             var question = PMA_messages.strDeleteTrackingVersionMultiple;
             $button.PMA_confirm(question, $form.attr('action'), function (url) {
                 PMA_ajaxShowMessage();
+                AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
             PMA_ajaxShowMessage();
+            AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
     });
@@ -77,6 +79,7 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         var question = PMA_messages.strDeleteTrackingVersion;
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             PMA_ajaxShowMessage();
+            AJAX.source = $anchor;
             $.get(url, {'ajax_page_request': true, 'ajax_request': true}, AJAX.responseHandler);
         });
     });
@@ -90,6 +93,7 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         var question = PMA_messages.strDeletingTrackingEntry;
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             PMA_ajaxShowMessage();
+            AJAX.source = $anchor;
             $.get(url, {'ajax_page_request': true, 'ajax_request': true}, AJAX.responseHandler);
         });
     });

@@ -17,7 +17,6 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 
@@ -164,7 +163,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         );
         //validate 3: BINLOG HTML
         $this->assertContains(
-            '<table cellpadding="2" cellspacing="1" id="binlogTable">',
+            '<table id="binlogTable">',
             $html
         );
         //validate 4: PMA_getNavigationRow is right

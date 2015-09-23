@@ -18,7 +18,6 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/tbl_columns_definition_form.lib.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/normalization.lib.php';
@@ -84,9 +83,10 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
           ),
           array(
               'PMA_db', 'PMA_table2', null,
-              array(array('Key_name'=>'PRIMARY', 'Column_name'=>'id'),
+              array(
+                array('Key_name'=>'PRIMARY', 'Column_name'=>'id'),
                 array('Key_name'=>'PRIMARY', 'Column_name'=>'col1')
-             )
+              )
           ),
         );
         $dbi->expects($this->any())
@@ -163,12 +163,12 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
             '<h4',
             $result
         );
-            
+
         $this->assertContains(
             '<p',
             $result
         );
-            
+
         $this->assertContains(
             "<select id='selectNonAtomicCol'",
             $result
@@ -478,7 +478,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $result = PMA_getHtmlForNormalizetable();
         $this->assertContains(
             '<form method="post" action="normalization.php"'
-                . ' name="normalize" id="normalizeTable"',
+            . ' name="normalize" id="normalizeTable"',
             $result
         );
         $this->assertContains(

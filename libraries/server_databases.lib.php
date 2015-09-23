@@ -23,8 +23,8 @@ if (! defined('PHPMYADMIN')) {
  * @param string $sort_order        sort order string
  * @param bool   $is_superuser      User status
  * @param Array  $cfg               configuration
- * @param string $replication_types replication types
- * @param string $replication_info  replication info
+ * @param array  $replication_types replication types
+ * @param array  $replication_info  replication info
  * @param string $url_query         url query
  *
  * @return string
@@ -194,10 +194,10 @@ function PMA_getHtmlForTableFooter(
  *
  * @param array  $databases         GBI return databases
  * @param bool   $is_superuser      User status
- * @param Array  $url_query         Url query
- * @param string $column_order      column order
- * @param string $replication_types replication types
- * @param string $replication_info  replication info
+ * @param string $url_query         Url query
+ * @param array  $column_order      column order
+ * @param array  $replication_types replication types
+ * @param array  $replication_info  replication info
  *
  * @return Array
  */
@@ -345,7 +345,7 @@ function PMA_getHtmlForColumnOrderWithSort(
 /**
  * Returns the html for Enable Statistics
  *
- * @param bool   $url_query Url query
+ * @param string $url_query Url query
  * @param string $html      html for database list
  *
  * @return string
@@ -358,14 +358,24 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
             . 'heavy traffic between the web server and the MySQL server.'
         )
     )->getDisplay();
-    //we should put notice above database list
-    $html  = $notice . $html;
-    $html .= '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-    $html .= '<a href="server_databases.php' . $url_query . '&amp;dbstats=1"'
-        . ' title="' . __('Enable Statistics') . '">' . "\n"
-        . '            ' . __('Enable Statistics');
-    $html .= '</a></strong><br />' . "\n";
-    $html .= '</li>' . "\n" . '</ul>' . "\n";
+    $html .= $notice;
+
+    $items = array();
+    $items[] = array(
+        'content' => '<strong>' . "\n"
+            . __('Enable statistics')
+            . '</strong><br />' . "\n",
+        'class' => 'li_switch_dbstats',
+        'url' => array(
+            'href' => 'server_databases.php' . $url_query . '&amp;dbstats=1',
+            'title' => __('Enable statistics')
+        ),
+    );
+
+    include_once './libraries/Template.class.php';
+    $html .= PMA\Template::get('list/unordered')->render(
+        array('items' => $items,)
+    );
 
     return $html;
 }
@@ -495,4 +505,3 @@ function PMA_dropMultiDatabases()
     }
 }
 
-?>

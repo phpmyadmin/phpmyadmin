@@ -29,4 +29,3 @@ if ($result === false) {
     $result = 'Wrong data or no validation for ' . $vids;
 }
 echo $result !== true ? json_encode($result) : '';
-?>

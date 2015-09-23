@@ -16,4 +16,3 @@ PMA_RecentFavoriteTable::getInstance('favorite')
     ->removeIfInvalid($_REQUEST['db'], $_REQUEST['table']);
 
 require 'sql.php';
-?>

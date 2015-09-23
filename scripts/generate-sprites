@@ -136,7 +136,7 @@ if [ -d $1/themes ]; then
     done
     echo "    );" >> $LIBRARY
     echo "}" >> $LIBRARY
-    echo "?>" >> $LIBRARY
+    echo "" >> $LIBRARY
 
     # Back to the parent folder
     cd ../..

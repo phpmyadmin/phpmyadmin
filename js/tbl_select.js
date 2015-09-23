@@ -92,8 +92,15 @@ AJAX.registerOnload('tbl_select.js', function () {
             "!= ''"
         ];
 
+        var geomUnaryFunctions = [
+            'IsEmpty',
+            'IsSimple',
+            'IsRing',
+            'IsClosed',
+        ];
+
         // jQuery object to reuse
-        $search_form = $(this);
+        var $search_form = $(this);
         event.preventDefault();
 
         // empty previous search results while we are waiting for new results
@@ -118,6 +125,11 @@ AJAX.registerOnload('tbl_select.js', function () {
         for (var a = 0; a < columnCount; a++) {
             if ($.inArray(values['criteriaColumnOperators[' + a + ']'], unaryFunctions) >= 0) {
                 continue;
+            }
+
+            if (values['geom_func[' + a + ']'] &&
+                $.isArray(values['geom_func[' + a + ']'], geomUnaryFunctions) >= 0) {
+            	continue;
             }
 
             if (values['criteriaValues[' + a + ']'] === '' || values['criteriaValues[' + a + ']'] === null) {

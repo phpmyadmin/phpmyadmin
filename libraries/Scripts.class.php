@@ -53,15 +53,19 @@ class PMA_Scripts
         $first_dynamic_scripts = "";
         $dynamic_scripts = "";
         $scripts = array();
+        $separator = PMA_URL_getArgSeparator();
         foreach ($files as $value) {
             if (/*overload*/mb_strpos($value['filename'], "?") !== false) {
+                $file_name = $value['filename'] . $separator
+                    . PMA_Header::getVersionParameter();
                 if ($value['before_statics'] === true) {
                     $first_dynamic_scripts
-                        .= "<script data-cfasync='false' type='text/javascript' src='js/"
-                        . $value['filename'] . "'></script>";
+                        .= "<script data-cfasync='false' type='text/javascript' "
+                        . "src='js/" . $file_name . "'></script>";
                 } else {
-                    $dynamic_scripts .= "<script data-cfasync='false' type='text/javascript' src='js/"
-                        . $value['filename'] . "'></script>";
+                    $dynamic_scripts .= "<script data-cfasync='false' "
+                        . "type='text/javascript' src='js/" . $file_name
+                        . "'></script>";
                 }
                 continue;
             }
@@ -86,7 +90,9 @@ class PMA_Scripts
         // Using chunks of 20 files to avoid too long URLs
         $script_chunks = array_chunk($scripts, 20);
         foreach ($script_chunks as $script_chunk) {
-            $url = 'js/get_scripts.js.php?' . implode($separator, $script_chunk);
+            $url = 'js/get_scripts.js.php?'
+                . implode($separator, $script_chunk)
+                . $separator . PMA_Header::getVersionParameter();
 
             $static_scripts .= sprintf(
                 '<script data-cfasync="false" type="text/javascript" src="%s"></script>',
@@ -99,7 +105,6 @@ class PMA_Scripts
     /**
      * Generates new PMA_Scripts objects
      *
-     * @return PMA_Scripts object
      */
     public function __construct()
     {
@@ -165,7 +170,7 @@ class PMA_Scripts
      */
     private function _eventBlacklist($filename)
     {
-        if (   strpos($filename, 'jquery') !== false
+        if (strpos($filename, 'jquery') !== false
             || strpos($filename, 'codemirror') !== false
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false

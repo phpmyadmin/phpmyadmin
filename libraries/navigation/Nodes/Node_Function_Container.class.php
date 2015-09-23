@@ -9,12 +9,14 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild_Container.class.php';
+
 /**
  * Represents a container for functions nodes in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Function_Container extends Node
+class Node_Function_Container extends Node_DatabaseChild_Container
 {
     /**
      * Initialises the class
@@ -50,4 +52,3 @@ class Node_Function_Container extends Node
     }
 }
 
-?>

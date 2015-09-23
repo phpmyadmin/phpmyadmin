@@ -60,7 +60,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = '1';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
@@ -111,24 +111,48 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetDebugMessage()
     {
-
+        $GLOBALS['cfg']['DBG']['sql'] = true;
         $_SESSION['debug']['queries'] = array(
-            'abc' => array(
+            array(
                 'count' => 1,
                 'time' => 0.2,
                 'query' => 'SELECT * FROM `pma_bookmark` WHERE 1',
             ),
-            'def' => array(
+            array(
                 'count' => 1,
                 'time' => 2.5,
                 'query' => 'SELECT * FROM `db` WHERE 1',
             ),
         );
 
-        $this->assertRegExp(
-            '/<div id="session_debug">2 queries executed 2 times in 2.7 seconds'
-            . '<pre>/',
+        $this->assertEquals(
+            '{"queries":[{"count":1,"time":0.2,"query":"SELECT * FROM `pma_bookmark` WHERE 1"},'
+            . '{"count":1,"time":2.5,"query":"SELECT * FROM `db` WHERE 1"}]}',
             $this->object->getDebugMessage()
+        );
+    }
+
+    /**
+     * Test for _removeRecursion
+     *
+     * @return void
+     */
+    public function testRemoveRecursion()
+    {
+        $object = (object) array();
+        $object->child = (object) array();
+        $object->child->parent = $object;
+
+        $this->_callPrivateFunction(
+            '_removeRecursion',
+            array(
+                &$object
+            )
+        );
+
+        $this->assertEquals(
+            '{"child":{"parent":"***RECURSION***"}}',
+            json_encode($object)
         );
     }
 

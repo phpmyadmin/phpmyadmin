@@ -19,7 +19,6 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sql_query_form.lib.php';
@@ -57,12 +56,13 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TextareaAutoSelect'] = true;
         $GLOBALS['cfg']['TextareaRows'] = 100;
         $GLOBALS['cfg']['TextareaCols'] = 11;
-        $GLOBALS['cfg']['DefaultTabDatabase'] = "default_database";
+        $GLOBALS['cfg']['DefaultTabDatabase'] = "structure";
         $GLOBALS['cfg']['RetainQueryBox'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
         //_SESSION
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
             'db' => "information_schema",
@@ -101,42 +101,6 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($getColumns));
 
         $GLOBALS['dbi'] = $dbi;
-    }
-
-    /**
-     * Test for PMA_getHtmlForSqlQueryFormUpload
-     *
-     * @return void
-     */
-    public function testPMAGetHtmlForSqlQueryFormUpload()
-    {
-        //Call the test function
-        $html = PMA_getHtmlForSqlQueryFormUpload();
-
-        //validate 1: Browse your computer
-        $this->assertContains(
-            __('Browse your computer:'),
-            $html
-        );
-
-        //validate 2: $GLOBALS['max_upload_size']
-        $this->assertContains(
-            PMA_Util::getFormattedMaximumUploadSize($GLOBALS['max_upload_size']),
-            $html
-        );
-        $this->assertContains(
-            PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size']),
-            $html
-        );
-
-        //validate 3: Dropdown Box
-        $this->assertContains(
-            PMA_generateCharsetDropdownBox(
-                PMA_CSDROPDOWN_CHARSET,
-                'charset_of_file', null, 'utf8', false
-            ),
-            $html
-        );
     }
 
     /**

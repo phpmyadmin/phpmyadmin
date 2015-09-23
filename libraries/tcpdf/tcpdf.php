@@ -1,13 +1,13 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 6.2.3
+// Version     : 6.2.9
 // Begin       : 2002-08-03
-// Last Update : 2014-12-18
+// Last Update : 2015-06-18
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2002-2014 Nicola Asuni - Tecnick.com LTD
+// Copyright (C) 2002-2015 Nicola Asuni - Tecnick.com LTD
 //
 // This file is part of TCPDF software library.
 //
@@ -104,7 +104,7 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 6.2.3
+ * @version 6.2.8
  */
 
 // TCPDF configuration
@@ -128,7 +128,7 @@ require_once(dirname(__FILE__).'/include/tcpdf_static.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 6.2.3
+ * @version 6.2.8
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -5748,7 +5748,7 @@ class TCPDF {
 	 * @param $autopadding (boolean) if true, uses internal padding and automatically adjust it to account for line width.
 	 * @param $maxh (float) maximum height. It should be >= $h and less then remaining space to the bottom of the page, or 0 for disable this feature. This feature works only when $ishtml=false.
 	 * @param $valign (string) Vertical alignment of text (requires $maxh = $h > 0). Possible values are:<ul><li>T: TOP</li><li>M: middle</li><li>B: bottom</li></ul>. This feature works only when $ishtml=false and the cell must fit in a single page.
-	 * @param $fitcell (boolean) if true attempt to fit all the text within the cell by reducing the font size (do not work in HTML mode). $maxh must be greater than 0 and wqual to $h.
+	 * @param $fitcell (boolean) if true attempt to fit all the text within the cell by reducing the font size (do not work in HTML mode). $maxh must be greater than 0 and equal to $h.
 	 * @return int Return the number of cells or 1 for html mode.
 	 * @public
 	 * @since 1.3
@@ -6819,10 +6819,10 @@ class TCPDF {
 		if ($this->state != 2) {
 			return;
 		}
-		if ($x === '') {
+		if (strcmp($x, '') === 0) {
 			$x = $this->x;
 		}
-		if ($y === '') {
+		if (strcmp($y, '') === 0) {
 			$y = $this->y;
 		}
 		// check page for no-write regions and adapt page margins if necessary
@@ -7026,6 +7026,7 @@ class TCPDF {
 					AND (($info === 'pngalpha') OR (isset($info['trns']) AND !empty($info['trns'])))) {
 					return $this->ImagePngAlpha($file, $x, $y, $pixw, $pixh, $w, $h, 'PNG', $link, $align, $resize, $dpi, $palign, $filehash);
 				}
+				$info = false;
 			}
 			if (($info === false) AND function_exists($gdfunction)) {
 				try {
@@ -9537,13 +9538,13 @@ class TCPDF {
 		$dcdate = TCPDF_STATIC::getFormattedDate($this->doc_creation_timestamp);
 		$doccreationdate = substr($dcdate, 0, 4).'-'.substr($dcdate, 4, 2).'-'.substr($dcdate, 6, 2);
 		$doccreationdate .= 'T'.substr($dcdate, 8, 2).':'.substr($dcdate, 10, 2).':'.substr($dcdate, 12, 2);
-		$doccreationdate .= '+'.substr($dcdate, 15, 2).':'.substr($dcdate, 18, 2);
+		$doccreationdate .= substr($dcdate, 14, 3).':'.substr($dcdate, 18, 2);
 		$doccreationdate = TCPDF_STATIC::_escapeXML($doccreationdate);
 		// convert doc modification date format
 		$dmdate = TCPDF_STATIC::getFormattedDate($this->doc_modification_timestamp);
 		$docmoddate = substr($dmdate, 0, 4).'-'.substr($dmdate, 4, 2).'-'.substr($dmdate, 6, 2);
 		$docmoddate .= 'T'.substr($dmdate, 8, 2).':'.substr($dmdate, 10, 2).':'.substr($dmdate, 12, 2);
-		$docmoddate .= '+'.substr($dmdate, 15, 2).':'.substr($dmdate, 18, 2);
+		$docmoddate .= substr($dmdate, 14, 3).':'.substr($dmdate, 18, 2);
 		$docmoddate = TCPDF_STATIC::_escapeXML($docmoddate);
 		$xmp .= "\t\t".'<rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/">'."\n";
 		$xmp .= "\t\t\t".'<xmp:CreateDate>'.$doccreationdate.'</xmp:CreateDate>'."\n";
@@ -10362,7 +10363,7 @@ class TCPDF {
 	 * @public
 	 */
 	public function addHtmlLink($url, $name, $fill=false, $firstline=false, $color='', $style=-1, $firstblock=false) {
-		if (isset($url[1]) AND ($url[0] == '#')) {
+		if (isset($url[1]) AND ($url[0] == '#') AND is_numeric($url[1])) {
 			// convert url to internal link
 			$lnkdata = explode(',', $url);
 			if (isset($lnkdata[0]) ) {
@@ -18175,7 +18176,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 							// inherit column width
 							$cellw = 0;
 							for ($i = 0; $i < $colspan; ++$i) {
-								$cellw += $table_colwidths[($colid + $i)];
+								$cellw += (isset($table_colwidths[($colid + $i)]) ? $table_colwidths[($colid + $i)] : 0);
 							}
 						}
 						$cellw += (($colspan - 1) * $cellspacing['H']);
@@ -18649,7 +18650,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 		$this->lispacer = $prev_lispacer;
 		if ($ln AND (!($cell AND ($dom[$key-1]['value'] == 'table')))) {
 			$this->Ln($this->lasth);
-			if ($this->y < $maxbottomliney) {
+			if (($this->y < $maxbottomliney) AND ($startlinepage == $this->page)) {
 				$this->y = $maxbottomliney;
 			}
 		}
@@ -19427,8 +19428,9 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 				$prev_page = $this->page;
 				$this->setPage($dom[($dom[$key]['parent'])]['endpage']);
 				if ($this->num_columns > 1) {
-					if ((($this->current_column == 0) AND ($dom[($dom[$key]['parent'])]['endcolumn'] == ($this->num_columns - 1)))
-						OR (($this->current_column == $dom[($dom[$key]['parent'])]['endcolumn']) AND ($prev_page < $this->page))) {
+					if (($prev_page < $this->page)
+						AND ((($this->current_column == 0) AND ($dom[($dom[$key]['parent'])]['endcolumn'] == ($this->num_columns - 1)))
+							OR ($this->current_column == $dom[($dom[$key]['parent'])]['endcolumn']))) {
 						// page jump
 						$this->selectColumn(0);
 						$dom[($dom[$key]['parent'])]['endcolumn'] = 0;

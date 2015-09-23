@@ -485,4 +485,3 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
         );
     }
 }
-?>

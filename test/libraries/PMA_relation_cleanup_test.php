@@ -54,6 +54,8 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['savedsearches'] = 'savedsearches';
         $GLOBALS['cfg']['Server']['central_columns'] = 'central_columns';
+        $GLOBALS['cfg']['Server']['designer_settings'] = 'designer_settings';
+        $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
 
         $this->redefineRelation();
     }

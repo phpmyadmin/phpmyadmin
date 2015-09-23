@@ -16,11 +16,11 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/Response.class.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/relation_cleanup.lib.php';
 require_once 'libraries/server_privileges.lib.php';
 
 /**
@@ -43,7 +43,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         if (!defined("PMA_USR_BROWSER_AGENT")) {
             define("PMA_USR_BROWSER_AGENT", "other");
         }
-
         if (!defined("PMA_MYSQL_VERSION_COMMENT")) {
             define("PMA_MYSQL_VERSION_COMMENT", "MySQL");
         }
@@ -65,12 +64,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['cfg']['PmaAbsoluteUri'] = "PmaAbsoluteUri";
-        $GLOBALS['cfg']['DefaultTabTable'] = "db_structure.php";
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "db_structure.php";
+        $GLOBALS['cfg']['DefaultTabTable'] = "structure";
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "structure";
         $GLOBALS['cfg']['Confirm'] = "Confirm";
         $GLOBALS['cfg']['ShowHint'] = true;
+        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
 
         $GLOBALS['cfgRelation'] = array();
         $GLOBALS['cfgRelation']['menuswork'] = false;
@@ -88,6 +88,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
@@ -589,15 +590,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $username = "PMA_username";
         $hostname = "PMA_hostname";
-        $GLOBALS['cfg']['TextareaCols'] = 'TextareaCols';
-        $GLOBALS['cfg']['TextareaRows'] = 'TextareaCols';
 
         list($title, $export)
             = PMA_getListForExportUserDefinition($username, $hostname);
 
         //validate 1: $export
-        $result = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
-        . '" rows="' . $GLOBALS['cfg']['TextareaRows'];
         $this->assertContains(
             'grant user2 delete',
             $export
@@ -607,7 +604,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $export
         );
         $this->assertContains(
-            $result,
+            '<textarea class="export"',
             $export
         );
 
@@ -633,18 +630,23 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
+        $_POST['pred_password'] = 'keep';
         $_REQUEST['createdb-3'] = true;
+        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
             = PMA_getSqlQueriesForDisplayAndAddUser(
                 $username, $hostname,
                 (isset ($password) ? $password : '')
             );
         $this->assertEquals(
-            "CREATE USER 'pma_username'@'pma_hostname';",
+            "CREATE USER 'pma_username'@'pma_hostname' "
+            . "IDENTIFIED WITH mysql_native_password BY 'pma_password';",
             $create_user_real
         );
         $this->assertEquals(
-            "CREATE USER 'pma_username'@'pma_hostname';",
+            "CREATE USER 'pma_username'@'pma_hostname' "
+            . "IDENTIFIED WITH mysql_native_password BY '***';",
             $create_user_show
         );
         $this->assertEquals(
@@ -670,8 +672,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
+        $_POST['pred_password'] = 'keep';
         $_REQUEST['createdb-3'] = true;
         $_REQUEST['userGroup'] = "username";
+        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
 
         list(
             $ret_message,,, $sql_query,
@@ -688,7 +692,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $ret_message->getMessage()
         );
         $this->assertEquals(
-            "CREATE USER ''@'localhost';GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
+            "CREATE USER ''@'localhost' IDENTIFIED WITH mysql_native_password BY '***';"
+            . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
             . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
             $sql_query
         );
@@ -865,7 +870,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            __('Check All'),
+            __('Check all'),
             $html
         );
         $this->assertContains(
@@ -933,6 +938,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $username = "PMA_username";
         $hostname = "PMA_hostname";
         $password = "PMA_password";
+        $_POST['pred_password'] = 'keep';
         $dbname = "PMA_db";
 
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
@@ -940,13 +946,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 1: $create_user_real
         $this->assertEquals(
-            "CREATE USER 'PMA_username'@'PMA_hostname';",
+            "CREATE USER 'PMA_username'@'PMA_hostname' BY 'PMA_password';",
             $create_user_real
         );
 
         //validate 2: $create_user_show
         $this->assertEquals(
-            "CREATE USER 'PMA_username'@'PMA_hostname';",
+            "CREATE USER 'PMA_username'@'PMA_hostname' BY '***';",
             $create_user_show
         );
 
@@ -1485,7 +1491,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            __('Edit Privileges'),
+            __('Edit privileges'),
             $html
         );
 
@@ -1645,13 +1651,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //PMA_getHtmlForLoginInformationFields
         $this->assertContains(
-            PMA_getHtmlForLoginInformationFields('change'),
+            PMA_getHtmlForLoginInformationFields('change', $username, $hostname),
             $html
         );
 
         //Create a new user with the same privileges
         $this->assertContains(
-            "Create a new user with the same privileges",
+            "Create a new user account with the same privileges",
             $html
         );
 
@@ -1677,7 +1683,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            $GLOBALS['cfg']['DefaultTabDatabase'],
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            ),
             $html
         );
         $item = PMA_URL_getCommon(
@@ -1701,7 +1709,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            $GLOBALS['cfg']['DefaultTabTable'],
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            ),
             $html
         );
         $item = PMA_URL_getCommon(
@@ -1835,11 +1845,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //labels
         $this->assertContains(
-            __('Add user'),
+            __('Add user account'),
             $html
         );
         $this->assertContains(
-            __('Remove selected users'),
+            __('Remove selected user accounts'),
             $html
         );
         $this->assertContains(
@@ -1862,6 +1872,19 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['change_copy'] = "change_copy";
         $_REQUEST['old_hostname'] = "old_hostname";
         $_REQUEST['old_username'] = "old_username";
+        $_SESSION['relation'][1] = array(
+            'PMA_VERSION' => PMA_VERSION,
+            'bookmarkwork' => false,
+            'historywork' => false,
+            'recentwork' => false,
+            'favoritework' => false,
+            'uiprefswork' => false,
+            'userconfigwork' => false,
+            'menuswork' => false,
+            'navwork' => false,
+            'savedsearcheswork' => false,
+            'designersettingswork' => false,
+        );
 
         $queries = array();
 
@@ -1922,11 +1945,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //title
         $this->assertContains(
-            __('Edit Privileges:'),
+            __('Edit privileges:'),
             $html
         );
         $this->assertContains(
-            __('User'),
+            __('User account'),
             $html
         );
 
@@ -2104,7 +2127,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
         $this->assertEquals($exp_found_rows, $actual[0]);
-        $this->assertContains('Edit Privileges', $actual[1]);
+        $this->assertContains('Edit privileges', $actual[1]);
         $this->assertContains('Revoke', $actual[1]);
         $this->assertContains(
             '<tr class="odd">',
@@ -2115,8 +2138,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual[1]
         );
         $this->assertContains(
-            '<img src="imageb_usredit.png" title="Edit Privileges" '
-                . 'alt="Edit Privileges" />',
+            '<img src="imageb_usredit.png" title="Edit privileges" '
+            . 'alt="Edit privileges" />',
             $actual[1]
         );
         $this->assertContains(
@@ -2158,7 +2181,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<legend data-submenu-label="Table">'
-                . 'Table-specific privileges',
+            . 'Table-specific privileges',
             $actual[0]
         );
         $this->assertEquals(array(), $actual[1]);
@@ -2168,8 +2191,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
         $this->assertContains(
-                '<legend data-submenu-label="Database">'
-                    . 'Database-specific privileges',
+            '<legend data-submenu-label="Database">'
+            . 'Database-specific privileges',
             $actual[0]
         );
     }
@@ -2190,7 +2213,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $actual = PMA_getHtmlForSelectDbInEditPrivs(array('pmadb'));
         $this->assertContains(
             '<label for="text_dbname">'
-                . 'Add privileges on the following database(s):',
+            . 'Add privileges on the following database(s):',
             $actual
         );
         $this->assertContains(
@@ -2198,13 +2221,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<option value="testdb">'
-                . 'testdb',
+            '<option value="testdb">testdb',
             $actual
         );
         $this->assertContains(
-            '<option value="mysql">'
-                . 'mysql',
+            '<option value="mysql">mysql',
             $actual
         );
         $this->assertContains(
@@ -2235,8 +2256,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<label for="text_tablename">'
-                . 'Add privileges on the following table:',
+            '<label for="text_tablename">Add privileges on the following table:',
             $actual
         );
         $this->assertContains(
@@ -2248,8 +2268,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<option value="" selected="selected">'
-                . 'Use text field:',
+            '<option value="" selected="selected">Use text field:',
             $actual
         );
         $this->assertContains(

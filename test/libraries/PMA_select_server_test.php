@@ -17,7 +17,6 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
@@ -69,7 +68,7 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
         $not_only_options = false;
         $omit_fieldset = false;
 
-        $GLOBALS['cfg']['DefaultTabServer'] = "DefaultTabServer";
+        $GLOBALS['cfg']['DefaultTabServer'] = "welcome";
 
         $GLOBALS['cfg']['Servers'] = array(
             '0' => array(
@@ -119,19 +118,15 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
 
         //$GLOBALS['cfg']['DefaultTabServer']
         $this->assertContains(
-            $GLOBALS['cfg']['DefaultTabServer'],
-            $html
-        );
-
-        //PMA_URL_getHiddenInputs
-        $this->assertContains(
-            '<input type="hidden" name="token" value="token" />',
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            ),
             $html
         );
 
         //labels
         $this->assertContains(
-            __('Current Server:'),
+            __('Current server:'),
             $html
         );
         $this->assertContains(

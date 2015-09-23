@@ -33,5 +33,3 @@ function get_login_credentials($user)
 
     return $credentials;
 }
-
-?>

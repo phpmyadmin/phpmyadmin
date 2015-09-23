@@ -45,3 +45,6 @@ phpunit.xml
 /.pydevproject
 # Ant cache
 cache.properties
+# Composer
+composer.lock
+/vendor/

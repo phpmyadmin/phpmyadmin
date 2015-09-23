@@ -43,4 +43,3 @@ class Image_JPEG_Upload extends ImageUploadTransformationsPlugin
         return "JPEG";
     }
 }
-?>

@@ -1,0 +1,11 @@
+<input id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>"
+       type="text"
+       name="field_length[<?php echo $columnNumber; ?>]"
+       size="<?php echo $length_values_input_size ?>"
+       value="<?php echo htmlspecialchars($length_to_display); ?>"
+       class="textfield" />
+<p class="enum_notice" id="enum_notice_<?php echo $columnNumber ?>_<?php echo ($ci - $ci_offset); ?>">
+    <a href="#" class="open_enum_editor">
+        <?php echo __('Edit ENUM/SET values'); ?>
+    </a>
+</p>

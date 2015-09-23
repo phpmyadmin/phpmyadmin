@@ -224,7 +224,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         } // end if (server choice)
 
         // Add captcha input field if reCaptcha is enabled
-        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+        if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
             // If enabled show captcha to the user on the login screen.
@@ -440,7 +440,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($_SESSION['last_access_time'] < $last_access_time
         ) {
             PMA_Util::cacheUnset('is_create_db_priv');
-            PMA_Util::cacheUnset('is_process_priv');
             PMA_Util::cacheUnset('is_reload_priv');
             PMA_Util::cacheUnset('db_to_create');
             PMA_Util::cacheUnset('dbs_where_create_table_allowed');
@@ -699,7 +698,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     private function _getSessionEncryptionSecret()
     {
         if (empty($_SESSION['encryption_key'])) {
-            if ($this->_useOpenSSL()) {
+            if (self::useOpenSSL()) {
                 $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(256);
             } else {
                 $_SESSION['encryption_key'] = Crypt\Random::string(256);
@@ -713,7 +712,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return boolean
      */
-    private function _useOpenSSL()
+    public static function useOpenSSL()
     {
         return (
             function_exists('openssl_encrypt')
@@ -734,7 +733,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function cookieEncrypt($data, $secret)
     {
-        if ($this->_useOpenSSL()) {
+        if (self::useOpenSSL()) {
             return openssl_encrypt(
                 $data,
                 'AES-128-CBC',
@@ -762,13 +761,16 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function cookieDecrypt($encdata, $secret)
     {
         if (is_null($this->_cookie_iv)) {
-            $this->_cookie_iv = base64_decode($_COOKIE['pma_iv-' . $GLOBALS['server']], true);
+            $this->_cookie_iv = base64_decode(
+                $_COOKIE['pma_iv-' . $GLOBALS['server']],
+                true
+            );
         }
         if (mb_strlen($this->_cookie_iv,'8bit') < $this->getIVSize()) {
                 $this->createIV();
         }
 
-        if ($this->_useOpenSSL()) {
+        if (self::useOpenSSL()) {
             return openssl_decrypt(
                 $encdata,
                 'AES-128-CBC',
@@ -791,7 +793,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function getIVSize()
     {
-        if ($this->_useOpenSSL()) {
+        if (self::useOpenSSL()) {
             return openssl_cipher_iv_length('AES-128-CBC');
         }
         $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
@@ -808,7 +810,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function createIV()
     {
-        if ($this->_useOpenSSL()) {
+        if (self::useOpenSSL()) {
             $this->_cookie_iv = openssl_random_pseudo_bytes(
                 $this->getIVSize()
             );

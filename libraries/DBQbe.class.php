@@ -129,12 +129,26 @@ class PMA_DbQbe
      */
     private $_curField;
     /**
+     * Current alias
+     *
+     * @access private
+     * @var array
+     */
+    private $_curAlias;
+    /**
      * Current criteria Sort options
      *
      * @access private
      * @var array
      */
     private $_curSort;
+    /**
+     * Current criteria sort order
+     *
+     * @access private
+     * @var array
+     */
+    private $_curSortOrder;
     /**
      * Current criteria Show options
      *
@@ -399,6 +413,50 @@ class PMA_DbQbe
     }
 
     /**
+     * Provides select options list containing sort order
+     *
+     * @param integer $columnNumber Column Number (0,1,2) or more
+     * @param integer $sortOrder    Sort order
+     *
+     * @return string HTML for select options
+     */
+    private function _getSortOrderSelectCell($columnNumber, $sortOrder)
+    {
+        $totalColumnCount = $this->_getNewColumnCount();
+        $html_output  = '<td class="center">';
+        $html_output .= '<select name="criteriaSortOrder[' . $columnNumber . ']">';
+        $html_output .= '<option value="1000">'
+            . '&nbsp;</option>';
+        for ($a = 1; $a <= $totalColumnCount; $a++) {
+            $html_output .= '<option value="' . $a . '"';
+            if ($a == $sortOrder) {
+                $html_output .= ' selected="selected"';
+            }
+            $html_output .= '>' . $a . '</option>';
+        }
+        $html_output .= '</select>';
+        $html_output .= '</td>';
+        return $html_output;
+    }
+
+    /**
+     * Returns the new column count after adding and removing columns as instructed
+     *
+     * @return int new column count
+     */
+    private function _getNewColumnCount()
+    {
+        $totalColumnCount = $this->_criteria_column_count;
+        if (! empty($this->_criteriaColumnInsert)) {
+            $totalColumnCount += count($this->_criteriaColumnInsert);
+        }
+        if (! empty($this->_criteriaColumnDelete)) {
+            $totalColumnCount -= count($this->_criteriaColumnDelete);
+        }
+        return $totalColumnCount;
+    }
+
+    /**
      * Provides search form's row containing column select options
      *
      * @return string HTML for search table's row
@@ -445,6 +503,59 @@ class PMA_DbQbe
     }
 
     /**
+     * Provides search form's row containing column aliases
+     *
+     * @return string HTML for search table's row
+     */
+    private function _getColumnAliasRow()
+    {
+        $html_output = '<tr class="even noclick">';
+        $html_output .= '<th>' . __('Alias:') . '</th>';
+        $new_column_count = 0;
+
+        for (
+        $colInd = 0;
+        $colInd < $this->_criteria_column_count;
+        $colInd++
+        ) {
+            if (! empty($this->_criteriaColumnInsert)
+                && isset($this->_criteriaColumnInsert[$colInd])
+                && $this->_criteriaColumnInsert[$colInd] == 'on'
+            ) {
+                $html_output .= '<td class="center">';
+                $html_output .= '<input type="text"'
+                    . ' name="criteriaAlias[' . $new_column_count . ']"'
+                    . ' value="" />';
+                $html_output .= '</td>';
+                $new_column_count++;
+            } // end if
+
+            if (! empty($this->_criteriaColumnDelete)
+                && isset($this->_criteriaColumnDelete[$colInd])
+                && $this->_criteriaColumnDelete[$colInd] == 'on'
+            ) {
+                continue;
+            }
+
+            $tmp_alias = '';
+            if (! empty($_REQUEST['criteriaAlias'][$colInd])) {
+                $tmp_alias
+                    = $this->_curAlias[$new_column_count]
+                        = $_REQUEST['criteriaAlias'][$colInd];
+            }// end if
+
+            $html_output .= '<td class="center">';
+            $html_output .= '<input type="text"'
+                . ' name="criteriaAlias[' . $new_column_count . ']"'
+                . ' value="' . htmlspecialchars($tmp_alias) . '" />';
+            $html_output .= '</td>';
+            $new_column_count++;
+        } // end for
+        $html_output .= '</tr>';
+        return $html_output;
+    }
+
+    /**
      * Provides search form's row containing sort(ASC/DESC) select options
      *
      * @return string HTML for search table's row
@@ -482,28 +593,74 @@ class PMA_DbQbe
             ) {
                 $_REQUEST['criteriaSort'][$colInd] = '';
             } //end if
-            // Set asc_selected
-            if (isset($_REQUEST['criteriaSort'][$colInd])
-                && $_REQUEST['criteriaSort'][$colInd] == 'ASC'
-            ) {
+
+            $asc_selected = ''; $desc_selected = '';
+            if (isset($_REQUEST['criteriaSort'][$colInd])) {
                 $this->_curSort[$new_column_count]
                     = $_REQUEST['criteriaSort'][$colInd];
-                $asc_selected = ' selected="selected"';
+                // Set asc_selected
+                if ($_REQUEST['criteriaSort'][$colInd] == 'ASC') {
+                    $asc_selected = ' selected="selected"';
+                } // end if
+                // Set desc selected
+                if ($_REQUEST['criteriaSort'][$colInd] == 'DESC') {
+                    $desc_selected = ' selected="selected"';
+                } // end if
             } else {
-                $asc_selected = '';
-            } // end if
-            // Set desc selected
-            if (isset($_REQUEST['criteriaSort'][$colInd])
-                && $_REQUEST['criteriaSort'][$colInd] == 'DESC'
-            ) {
-                $this->_curSort[$new_column_count]
-                    = $_REQUEST['criteriaSort'][$colInd];
-                $desc_selected = ' selected="selected"';
-            } else {
-                $desc_selected = '';
-            } // end if
+                $this->_curSort[$new_column_count] = '';
+            }
+
             $html_output .= $this->_getSortSelectCell(
                 $new_column_count, $asc_selected, $desc_selected
+            );
+            $new_column_count++;
+        } // end for
+        $html_output .= '</tr>';
+        return $html_output;
+    }
+
+    /**
+     * Provides search form's row containing sort order
+     *
+     * @return string HTML for search table's row
+     */
+    private function _getSortOrder()
+    {
+        $html_output = '<tr class="even noclick">';
+        $html_output .= '<th>' . __('Sort order:') . '</th>';
+        $new_column_count = 0;
+
+        for (
+        $colInd = 0;
+        $colInd < $this->_criteria_column_count;
+        $colInd++
+        ) {
+            if (! empty($this->_criteriaColumnInsert)
+                && isset($this->_criteriaColumnInsert[$colInd])
+                && $this->_criteriaColumnInsert[$colInd] == 'on'
+            ) {
+                $html_output .= $this->_getSortOrderSelectCell(
+                    $new_column_count, null
+                );
+                $new_column_count++;
+            } // end if
+
+            if (! empty($this->_criteriaColumnDelete)
+                && isset($this->_criteriaColumnDelete[$colInd])
+                && $this->_criteriaColumnDelete[$colInd] == 'on'
+            ) {
+                continue;
+            }
+
+            $sortOrder = null;
+            if (! empty($_REQUEST['criteriaSortOrder'][$colInd])) {
+                $sortOrder
+                    = $this->_curSortOrder[$new_column_count]
+                        = $_REQUEST['criteriaSortOrder'][$colInd];
+            }
+
+            $html_output .= $this->_getSortOrderSelectCell(
+                $new_column_count, $sortOrder
             );
             $new_column_count++;
         } // end for
@@ -708,20 +865,24 @@ class PMA_DbQbe
      *
      * @param integer $column_number Column Number (0,1,2) or more
      * @param array   $selected      Selected criteria column name
+     * @param bool    $last_column   Whether this is the last column
      *
      * @return string HTML for modification cell
      */
-    private function _getAndOrColCell($column_number, $selected = null)
-    {
+    private function _getAndOrColCell(
+        $column_number, $selected = null, $last_column = false
+    ) {
         $html_output = '<td class="center">';
-        $html_output .= '<strong>' . __('Or:') . '</strong>';
-        $html_output .= '<input type="radio"'
-            . ' name="criteriaAndOrColumn[' . $column_number . ']"'
-            . ' value="or"' . $selected['or'] . ' />';
-        $html_output .= '&nbsp;&nbsp;<strong>' . __('And:') . '</strong>';
-        $html_output .= '<input type="radio"'
-            . ' name="criteriaAndOrColumn[' . $column_number . ']"'
-            . ' value="and"' . $selected['and'] . ' />';
+        if (! $last_column) {
+            $html_output .= '<strong>' . __('Or:') . '</strong>';
+            $html_output .= '<input type="radio"'
+                . ' name="criteriaAndOrColumn[' . $column_number . ']"'
+                . ' value="or"' . $selected['or'] . ' />';
+            $html_output .= '&nbsp;&nbsp;<strong>' . __('And:') . '</strong>';
+            $html_output .= '<input type="radio"'
+                . ' name="criteriaAndOrColumn[' . $column_number . ']"'
+                . ' value="and"' . $selected['and'] . ' />';
+        }
         $html_output .= '<br />' . __('Ins');
         $html_output .= '<input type="checkbox"'
             . ' name="criteriaColumnInsert[' . $column_number . ']" />';
@@ -779,7 +940,8 @@ class PMA_DbQbe
             }
             $html_output .= $this->_getAndOrColCell(
                 $new_column_count,
-                $checked_options
+                $checked_options,
+                ($column_index + 1 == $this->_criteria_column_count)
             );
             $new_column_count++;
         } // end for
@@ -978,10 +1140,15 @@ class PMA_DbQbe
                 && isset($this->_curShow[$column_index])
                 && $this->_curShow[$column_index] == 'on'
             ) {
-                $select_clauses[] = $this->_curField[$column_index];
+                $select = $this->_curField[$column_index];
+                if (! empty($this->_curAlias[$column_index])) {
+                    $select .= " AS "
+                        . PMA_Util::backquote($this->_curAlias[$column_index]);
+                }
+                $select_clauses[] = $select;
             }
         } // end for
-        if ($select_clauses) {
+        if (!empty($select_clauses)) {
             $select_clause = 'SELECT '
                 . htmlspecialchars(implode(", ", $select_clauses)) . "\n";
         }
@@ -1092,6 +1259,18 @@ class PMA_DbQbe
         $orderby_clause = '';
         $orderby_clauses = array();
 
+        // Create copy of instance variables
+        $field = $this->_curField;
+        $sort = $this->_curSort;
+        $sortOrder = $this->_curSortOrder;
+        if (!empty($sortOrder)
+            && count($sortOrder) == count($sort)
+            && count($sortOrder) == count($field)
+        ) {
+            // Sort all three arrays based on sort order
+            array_multisort($sortOrder, $sort, $field);
+        }
+
         for (
             $column_index = 0;
             $column_index < $this->_criteria_column_count;
@@ -1100,22 +1279,22 @@ class PMA_DbQbe
             // if all columns are chosen with * selector,
             // then sorting isn't available
             // Fix for Bug #570698
-            if (empty($this->_curField[$column_index])
-                && empty($this->_curSort[$column_index])
+            if (empty($field[$column_index])
+                && empty($sort[$column_index])
             ) {
                 continue;
             }
 
-            if (/*overload*/mb_substr($this->_curField[$column_index], -2) == '.*') {
+            if (/*overload*/mb_substr($field[$column_index], -2) == '.*') {
                 continue;
             }
 
-            if (! empty($this->_curSort[$column_index])) {
-                $orderby_clauses[] = $this->_curField[$column_index] . ' '
-                    . $this->_curSort[$column_index];
+            if (! empty($sort[$column_index])) {
+                $orderby_clauses[] = $field[$column_index] . ' '
+                    . $sort[$column_index];
             }
         } // end for
-        if ($orderby_clauses) {
+        if (!empty($orderby_clauses)) {
             $orderby_clause = 'ORDER BY '
                 . htmlspecialchars(implode(", ", $orderby_clauses)) . "\n";
         }
@@ -1125,23 +1304,23 @@ class PMA_DbQbe
     /**
      * Provides UNIQUE columns and INDEX columns present in criteria tables
      *
-     * @param array $all_tables           Tables involved in the search
-     * @param array $all_columns          Columns involved in the search
+     * @param array $search_tables        Tables involved in the search
+     * @param array $search_columns       Columns involved in the search
      * @param array $where_clause_columns Columns having criteria where clause
      *
      * @return array having UNIQUE and INDEX columns
      */
-    private function _getIndexes($all_tables, $all_columns,
+    private function _getIndexes($search_tables, $search_columns,
         $where_clause_columns
     ) {
         $unique_columns = array();
         $index_columns = array();
 
-        foreach ($all_tables as $table) {
+        foreach ($search_tables as $table) {
             $indexes = $GLOBALS['dbi']->getTableIndexes($this->_db, $table);
             foreach ($indexes as $index) {
                 $column = $table . '.' . $index['Column_name'];
-                if (isset($all_columns[$column])) {
+                if (isset($search_columns[$column])) {
                     if ($index['Non_unique'] == 0) {
                         if (isset($where_clause_columns[$column])) {
                             $unique_columns[$column] = 'Y';
@@ -1168,27 +1347,30 @@ class PMA_DbQbe
     /**
      * Provides UNIQUE columns and INDEX columns present in criteria tables
      *
-     * @param array $all_tables           Tables involved in the search
-     * @param array $all_columns          Columns involved in the search
+     * @param array $search_tables        Tables involved in the search
+     * @param array $search_columns       Columns involved in the search
      * @param array $where_clause_columns Columns having criteria where clause
      *
      * @return array having UNIQUE and INDEX columns
      */
-    private function _getLeftJoinColumnCandidates($all_tables, $all_columns,
+    private function _getLeftJoinColumnCandidates($search_tables, $search_columns,
         $where_clause_columns
     ) {
         $GLOBALS['dbi']->selectDb($this->_db);
 
         // Get unique columns and index columns
         $indexes = $this->_getIndexes(
-            $all_tables, $all_columns, $where_clause_columns
+            $search_tables, $search_columns, $where_clause_columns
         );
         $unique_columns = $indexes['unique'];
         $index_columns = $indexes['index'];
 
         list($candidate_columns, $needsort)
             = $this->_getLeftJoinColumnCandidatesBest(
-                $all_tables, $where_clause_columns, $unique_columns, $index_columns
+                $search_tables,
+                $where_clause_columns,
+                $unique_columns,
+                $index_columns
             );
 
         // If we came up with $unique_columns (very good) or $index_columns (still
@@ -1199,22 +1381,22 @@ class PMA_DbQbe
             return $candidate_columns;
         }
 
-        $vg = array();
-        $sg = array();
+        $very_good = array();
+        $still_good = array();
         foreach ($candidate_columns as $column => $is_where) {
             $table = explode('.', $column);
             $table = $table[0];
             if ($is_where == 'Y') {
-                $vg[$column] = $table;
+                $very_good[$column] = $table;
             } else {
-                $sg[$column] = $table;
+                $still_good[$column] = $table;
             }
         }
-        if (count($vg) > 0) {
-            $candidate_columns = $vg;
+        if (count($very_good) > 0) {
+            $candidate_columns = $very_good;
             // Candidates restricted in index+where
         } else {
-            $candidate_columns = $sg;
+            $candidate_columns = $still_good;
             // None of the candidates where in a where-clause
         }
 
@@ -1224,14 +1406,14 @@ class PMA_DbQbe
     /**
      * Provides the main table to form the LEFT JOIN clause
      *
-     * @param array $all_tables           Tables involved in the search
-     * @param array $all_columns          Columns involved in the search
+     * @param array $search_tables        Tables involved in the search
+     * @param array $search_columns       Columns involved in the search
      * @param array $where_clause_columns Columns having criteria where clause
      * @param array $where_clause_tables  Tables having criteria where clause
      *
      * @return string table name
      */
-    private function _getMasterTable($all_tables, $all_columns,
+    private function _getMasterTable($search_tables, $search_columns,
         $where_clause_columns, $where_clause_tables
     ) {
         if (count($where_clause_tables) == 1) {
@@ -1246,7 +1428,7 @@ class PMA_DbQbe
         // because he is using one of his databases as pmadb,
         // the last db selected is not always the one where we need to work)
         $candidate_columns = $this->_getLeftJoinColumnCandidates(
-            $all_tables, $all_columns, $where_clause_columns
+            $search_tables, $search_columns, $where_clause_columns
         );
 
         // Generally, we need to display all the rows of foreign (referenced)
@@ -1292,11 +1474,8 @@ class PMA_DbQbe
         $csize = array();
         foreach ($candidate_columns as $table) {
             if ($checked_tables[$table] != 1) {
-                $tsize[$table] = PMA_Table::countRecords(
-                    $this->_db,
-                    $table,
-                    false
-                );
+                $_table = new PMA_Table($table, $this->_db);
+                $tsize[$table] = $_table->countRecords();
                 $checked_tables[$table] = 1;
             }
             $csize[$table] = $tsize[$table];
@@ -1356,43 +1535,248 @@ class PMA_DbQbe
     private function _getFromClause()
     {
         $from_clause = '';
-        if (isset($_POST['criteriaColumn']) && count($_POST['criteriaColumn']) > 0) {
-            // Initialize some variables
-            $all_tables = $all_columns = array();
+        if (!isset($_POST['criteriaColumn'])
+            || count($_POST['criteriaColumn']) <= 0
+        ) {
+            return $from_clause;
+        }
 
-            // We only start this if we have fields, otherwise it would be dumb
-            foreach ($_POST['criteriaColumn'] as $value) {
-                $parts = explode('.', $value);
-                if (! empty($parts[0]) && ! empty($parts[1])) {
-                    $table = str_replace('`', '', $parts[0]);
-                    $all_tables[$table] = $table;
-                    $all_columns[] = $table . '.' . str_replace('`', '', $parts[1]);
-                }
-            } // end while
+        // Initialize some variables
+        $search_tables = $search_columns = array();
 
-            // Create LEFT JOINS out of Relations
-            if (count($all_tables) > 0) {
-                // Get tables and columns with valid where clauses
-                $valid_where_clauses = $this->_getWhereClauseTablesAndColumns();
-                $where_clause_tables = $valid_where_clauses['where_clause_tables'];
-                $where_clause_columns = $valid_where_clauses['where_clause_columns'];
-                // Get master table
-                $master = $this->_getMasterTable(
-                    $all_tables, $all_columns,
-                    $where_clause_columns, $where_clause_tables
+        // We only start this if we have fields, otherwise it would be dumb
+        foreach ($_POST['criteriaColumn'] as $value) {
+            $parts = explode('.', $value);
+            if (! empty($parts[0]) && ! empty($parts[1])) {
+                $table = str_replace('`', '', $parts[0]);
+                $search_tables[$table] = $table;
+                $search_columns[] = $table . '.' . str_replace(
+                    '`', '', $parts[1]
                 );
-                $from_clause = PMA_Util::backquote($master)
-                    . PMA_getRelatives($all_tables, $master);
+            }
+        } // end while
 
-            } // end if (count($all_tables) > 0)
-        } // end count($_POST['criteriaColumn']) > 0
+        // Create LEFT JOINS out of Relations
+        $from_clause = $this->_getJoinForFromClause(
+            $search_tables, $search_columns
+        );
 
         // In case relations are not defined, just generate the FROM clause
         // from the list of tables, however we don't generate any JOIN
-        if (empty($from_clause) && isset($all_tables)) {
-            $from_clause = implode(', ', $all_tables);
+        if (empty($from_clause)) {
+            // Create cartesian product
+            $from_clause = implode(
+                ", ", array_map('PMA_Util::backquote', $search_tables)
+            );
         }
+
         return $from_clause;
+    }
+
+    /**
+     * Formulates the WHERE clause by JOINing tables
+     *
+     * @param array $searchTables  Tables involved in the search
+     * @param array $searchColumns Columns involved in the search
+     *
+     * @return string table name
+     */
+    private function _getJoinForFromClause($searchTables, $searchColumns)
+    {
+        // $relations[master_table][foreign_table] => clause
+        $relations = array();
+
+        // Fill $relations with inter table relationship data
+        foreach ($searchTables as $oneTable) {
+            $this->_loadRelationsForTable($relations, $oneTable);
+        }
+
+        // Get tables and columns with valid where clauses
+        $validWhereClauses = $this->_getWhereClauseTablesAndColumns();
+        $whereClauseTables = $validWhereClauses['where_clause_tables'];
+        $whereClauseColumns = $validWhereClauses['where_clause_columns'];
+
+        // Get master table
+        $master = $this->_getMasterTable(
+            $searchTables, $searchColumns,
+            $whereClauseColumns, $whereClauseTables
+        );
+
+        // Will incldue master tables and all tables that can be combined into
+        // a cluster by their relation
+        $finalized = array();
+        if (mb_strlen($master) > 0) {
+            // Add master tables
+            $finalized[$master] = '';
+        }
+        // Fill the $finalized array with JOIN clauses for each table
+        $this->_fillJoinClauses($finalized, $relations, $searchTables);
+
+        // JOIN clause
+        $join = '';
+
+        // Tables that can not be combined with the table cluster
+        // which includes master table
+        $unfinalized = array_diff($searchTables, array_keys($finalized));
+        if (count($unfinalized) > 0) {
+
+            // We need to look for intermediary tables to JOIN unfinalized tables
+            // Heuristic to chose intermediary tables is to look for tables
+            // having relationships with unfinalized tables
+            foreach ($unfinalized as $oneTable) {
+
+                $references = PMA_getChildReferences($this->_db, $oneTable);
+                foreach ($references as $column => $columnReferences) {
+                    foreach ($columnReferences as $reference) {
+
+                        // Only from this schema
+                        if ($reference['table_schema'] != $this->_db) {
+                            continue;
+                        }
+
+                        $table = $reference['table_name'];
+
+                        $this->_loadRelationsForTable($relations, $table);
+
+                        // Make copies
+                        $tempFinalized = $finalized;
+                        $tempSearchTables = $searchTables;
+                        $tempSearchTables[] = $table;
+
+                        // Try joining with the added table
+                        $this->_fillJoinClauses(
+                            $tempFinalized, $relations, $tempSearchTables
+                        );
+
+                        $tempUnfinalized = array_diff(
+                            $tempSearchTables, array_keys($tempFinalized)
+                        );
+                        // Take greedy approach.
+                        // If the unfinalized count drops we keep the new table
+                        // and switch temporary varibles with the original ones
+                        if (count($tempUnfinalized) < count($unfinalized)) {
+                            $finalized = $tempFinalized;
+                            $searchTables = $tempSearchTables;
+                        }
+
+                        // We are done if no unfinalized tables anymore
+                        if (count($tempUnfinalized) == 0) {
+                            break 3;
+                        }
+                    }
+                }
+            }
+
+            $unfinalized = array_diff($searchTables, array_keys($finalized));
+            // If there are still unfinalized tables
+            if (count($unfinalized) > 0) {
+                // Add these tables as cartesian product before joined tables
+                $join .= implode(
+                    ', ', array_map('PMA_Util::backquote', $unfinalized)
+                );
+            }
+        }
+
+        $first = true;
+        // Add joined tables
+        foreach ($finalized as $table => $clause) {
+            if ($first) {
+                if (! empty($join)) {
+                    $join .= ", ";
+                }
+                $join .= PMA_Util::backquote($table);
+                $first = false;
+            } else {
+                $join .= "\n    LEFT JOIN " . PMA_Util::backquote(
+                    $table
+                ) . " ON " . $clause;
+            }
+        }
+
+        return $join;
+    }
+
+    /**
+     * Loads relations for a given table into the $relations array
+     *
+     * @param array  &$relations array of relations
+     * @param string $oneTable   the table
+     *
+     * @return void
+     */
+    private function _loadRelationsForTable(&$relations, $oneTable)
+    {
+        $relations[$oneTable] = array();
+
+        $foreigners = PMA_getForeigners($GLOBALS['db'], $oneTable);
+        foreach ($foreigners as $field => $foreigner) {
+            // Foreign keys data
+            if ($field == 'foreign_keys_data') {
+                foreach ($foreigner as $oneKey) {
+                    $clauses = array();
+                    // There may be multiple column relations
+                    foreach ($oneKey['index_list'] as $index => $oneField) {
+                        $clauses[]
+                            = PMA_Util::backquote($oneTable) . "."
+                            . PMA_Util::backquote($oneField) . " = "
+                            . PMA_Util::backquote($oneKey['ref_table_name']) . "."
+                            . PMA_Util::backquote($oneKey['ref_index_list'][$index]);
+                    }
+                    // Combine multiple column relations with AND
+                    $relations[$oneTable][$oneKey['ref_table_name']]
+                        = implode(" AND ", $clauses);
+                }
+            } else { // Internal relations
+                $relations[$oneTable][$foreigner['foreign_table']]
+                    = PMA_Util::backquote($oneTable) . "."
+                    . PMA_Util::backquote($field) . " = "
+                    . PMA_Util::backquote($foreigner['foreign_table']) . "."
+                    . PMA_Util::backquote($foreigner['foreign_field']);
+            }
+        }
+    }
+
+    /**
+     * Fills the $finalized arrays with JOIN clauses for each of the tables
+     *
+     * @param array &$finalized   JOIN clauses for each table
+     * @param array $relations    Relations among tables
+     * @param array $searchTables Tables involved in the search
+     *
+     * @return void
+     */
+    private function _fillJoinClauses(&$finalized, $relations, $searchTables)
+    {
+        while (true) {
+            $added = false;
+            foreach ($searchTables as $masterTable) {
+                $foreignData = $relations[$masterTable];
+                foreach ($foreignData as $foreignTable => $clause) {
+                    if (! isset($finalized[$masterTable])
+                        && isset($finalized[$foreignTable])
+                    ) {
+                        $finalized[$masterTable] = $clause;
+                        $added = true;
+                    } elseif (! isset($finalized[$foreignTable])
+                        && isset($finalized[$masterTable])
+                        && in_array($foreignTable, $searchTables)
+                    ) {
+                        $finalized[$foreignTable] = $clause;
+                        $added = true;
+                    }
+                    if ($added) {
+                        // We are done if all tables are in $finalized
+                        if (count($finalized) == count($searchTables)) {
+                            return;
+                        }
+                    }
+                }
+            }
+            // If no new tables were added during this iteration, break;
+            if (! $added) {
+                return;
+            }
+        }
     }
 
     /**
@@ -1424,7 +1808,8 @@ class PMA_DbQbe
      */
     public function getSelectionForm()
     {
-        $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';
+        $html_output = '<form action="db_qbe.php" method="post" id="formQBE" '
+            . 'class="lock-page">';
         $html_output .= '<fieldset>';
 
         if ($GLOBALS['cfgRelation']['savedsearcheswork']) {
@@ -1434,8 +1819,10 @@ class PMA_DbQbe
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
         $html_output .= $this->_getColumnNamesRow();
-        $html_output .= $this->_getSortRow();
+        $html_output .= $this->_getColumnAliasRow();
         $html_output .= $this->_getShowRow();
+        $html_output .= $this->_getSortRow();
+        $html_output .= $this->_getSortOrder();
         $html_output .= $this->_getCriteriaInputboxRow();
         $html_output .= $this->_getInsDelAndOrCriteriaRows();
         $html_output .= $this->_getModifyColumnsRow();
@@ -1452,10 +1839,10 @@ class PMA_DbQbe
         // get tables select list
         $html_output .= $this->_getTablesList();
         $html_output .= '</form>';
-        $html_output .= '<form action="db_qbe.php" method="post">';
+        $html_output .= '<form action="db_qbe.php" method="post" class="lock-page">';
         $html_output .= PMA_URL_getHiddenInputs(array('db' => $this->_db));
         // get SQL query
-        $html_output .= '<div class="floatleft">';
+        $html_output .= '<div class="floatleft" style="width:50%">';
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
             . sprintf(
@@ -1560,7 +1947,7 @@ class PMA_DbQbe
     /**
      * Get best
      *
-     * @param array $all_tables           All tables
+     * @param array $search_tables        Tables involved in the search
      * @param array $where_clause_columns Columns with where clause
      * @param array $unique_columns       Unique columns
      * @param array $index_columns        Indexed columns
@@ -1568,7 +1955,7 @@ class PMA_DbQbe
      * @return array
      */
     private function _getLeftJoinColumnCandidatesBest(
-        $all_tables, $where_clause_columns, $unique_columns, $index_columns
+        $search_tables, $where_clause_columns, $unique_columns, $index_columns
     ) {
         // now we want to find the best.
         if (isset($unique_columns) && count($unique_columns) > 0) {
@@ -1584,10 +1971,9 @@ class PMA_DbQbe
             $needsort = 0;
             return array($candidate_columns, $needsort);
         } else {
-            $candidate_columns = $all_tables;
+            $candidate_columns = $search_tables;
             $needsort = 0;
             return array($candidate_columns, $needsort);
         }
     }
 }
-?>

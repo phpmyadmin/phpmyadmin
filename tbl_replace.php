@@ -218,6 +218,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 $classname = PMA_getTransformationClassName(
                     $mime_map[$column_name]['input_transformation']
                 );
+                /** @var IOTransformationsPlugin $transformation_plugin */
                 $transformation_plugin = new $classname();
                 $transformation_options = PMA_Transformation_getOptions(
                     $mime_map[$column_name]['input_transformation_options']
@@ -283,8 +284,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . PMA_Util::backquote($GLOBALS['db'])
-                . '.' . PMA_Util::backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
                 . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
@@ -424,9 +424,8 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     );
 
     /**Get the total row count of the table*/
-    $extra_data['row_count'] = PMA_Table::countRecords(
-        $_REQUEST['db'], $_REQUEST['table']
-    );
+    $_table = new PMA_Table($_REQUEST['table'], $_REQUEST['db']);
+    $extra_data['row_count'] = $_table->countRecords();
 
     $extra_data['sql_query']
         = PMA_Util::getMessage($message, $GLOBALS['display_query']);
@@ -464,5 +463,3 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
  */
 require '' . PMA_securePath($goto_include);
 exit;
-
-?>

@@ -23,20 +23,9 @@ require_once 'libraries/pmd_common.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 /**
- * get all the export options and verify
- * call and include the appropriate Schema Class depending on $export_type
+ * Include the appropriate Schema Class depending on $export_type
  * default is PDF
  */
-
-$post_params = array(
-    'db'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_REQUEST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_REQUEST[$one_post_param];
-    }
-}
-
 PMA_processExportSchema($_REQUEST['export_type']);
 
 /**
@@ -60,6 +49,7 @@ function PMA_processExportSchema($export_type)
     $export_type = PMA_securePath($export_type);
 
     // get the specific plugin
+    /* @var $export_plugin SchemaPlugin */
     $export_plugin = PMA_getPlugin(
         "schema",
         $export_type,
@@ -74,4 +64,3 @@ function PMA_processExportSchema($export_type)
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $export_plugin->exportSchema($GLOBALS['db']);
 }
-?>

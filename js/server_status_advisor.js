@@ -16,6 +16,12 @@ AJAX.registerTeardown('server_status_advisor.js', function () {
 });
 
 AJAX.registerOnload('server_status_advisor.js', function () {
+
+	// if no advisor is loaded
+	if ($('#advisorData').length == 0) {
+		return;
+	}
+
     /**** Server config advisor ****/
     var $dialog = $('<div />').attr('id', 'advisorDialog');
     var $instructionsDialog = $('<div />')

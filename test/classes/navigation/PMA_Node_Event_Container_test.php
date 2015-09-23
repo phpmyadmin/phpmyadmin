@@ -48,4 +48,3 @@ class Node_Event_Container_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('events', $parent->real_name);
     }
 }
-?>

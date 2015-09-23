@@ -58,11 +58,15 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      * @param array  $options              transformation options
      * @param string $value                Current field value
      * @param string $text_dir             text direction
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
      *
      * @return string the html for input field
      */
     public function getInputHtml(
-        $column, $row_id, $column_name_appendix, $options, $value, $text_dir
+        $column, $row_id, $column_name_appendix, $options, $value, $text_dir,
+        $tabindex, $tabindex_for_value, $idindex
     ) {
         $html = '';
         $src = '';
@@ -107,4 +111,3 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
         return "Image upload";
     }
 }
-?>

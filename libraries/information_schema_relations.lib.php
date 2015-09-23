@@ -324,4 +324,3 @@ $GLOBALS['information_schema_relations'] = array(
     )
 );
 
-?>

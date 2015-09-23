@@ -79,10 +79,7 @@ class PMA_FatalError_Test extends PHPUnit_Framework_TestCase
         $message = "Fatal error #%d in file %s.";
         $params = array(1, 'error_file.php');
 
-        $this->expectOutputRegex(
-            "/Fatal error #1 in file error_file.php./",
-            "Not EQ"
-        );
+        $this->expectOutputRegex("/Fatal error #1 in file error_file.php./");
         PMA_fatalError($message, $params);
 
         $message = "Fatal error in file %s.";

@@ -9,17 +9,17 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild_Container.class.php';
+
 /**
  * Represents a container for events nodes in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Event_Container extends Node
+class Node_Event_Container extends Node_DatabaseChild_Container
 {
     /**
      * Initialises the class
-     *
-     * @return Node_Event_Container
      */
     public function __construct()
     {
@@ -51,4 +51,3 @@ class Node_Event_Container extends Node
     }
 }
 
-?>

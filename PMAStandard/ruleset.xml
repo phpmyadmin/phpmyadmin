@@ -9,12 +9,6 @@
     <exclude name="PEAR.Commenting.FunctionComment" />
     <exclude name="Generic.Commenting.DocComment" />
   </rule>
-  <rule ref="Generic.Files.LineLength">
-    <properties>
-      <property name="lineLimit" value="85"/>
-      <property name="absoluteLineLimit" value="0"/>
-    </properties>
-  </rule>
   <rule ref="Generic.Metrics.NestingLevel" />
   <!-- There MUST NOT be trailing whitespace at the end of lines. -->
   <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />

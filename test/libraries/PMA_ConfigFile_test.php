@@ -591,4 +591,3 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

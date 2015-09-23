@@ -11,7 +11,6 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/Table.class.php';
@@ -48,6 +47,7 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pdf_show_table_dimension'] = true;
         $_REQUEST['pdf_all_tables_same_width'] = true;
         $_REQUEST['pdf_paper'] = 'paper';
+        $_REQUEST['pdf_table_order'] = '';
         $_REQUEST['t_h'] = array('information_schema.files' => 1);
         $_REQUEST['t_x'] = array('information_schema.files' => 0);
         $_REQUEST['t_y'] = array('information_schema.files' => 0);
@@ -66,6 +66,7 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
             'db' => "information_schema",
@@ -177,7 +178,7 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object = new PMA_Pdf_Relation_Schema();
+        $this->object = new PMA_Pdf_Relation_Schema('information_schema');
     }
 
     /**

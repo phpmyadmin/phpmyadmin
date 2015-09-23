@@ -44,7 +44,7 @@ class PMA_ServerUsers_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            __('Users overview'),
+            __('User accounts overview'),
             $html
         );
 
@@ -59,4 +59,3 @@ class PMA_ServerUsers_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

@@ -46,12 +46,12 @@ function PMA_getHtmlForMasterReplication()
         $html .= '<legend>' . __('Master replication') . '</legend>';
         $html .= __('This server is configured as master in a replication process.');
         $html .= '<ul>';
-        $html .= '  <li><a href="#" id="master_status_href">';
+        $html .= '  <li><a href="#master_status_href" id="master_status_href">';
         $html .= __('Show master status') . '</a>';
         $html .= PMA_getHtmlForReplicationStatusTable('master', true, false);
         $html .= '  </li>';
 
-        $html .= '  <li><a href="#" id="master_slaves_href">';
+        $html .= '  <li><a href="#master_slaves_href" id="master_slaves_href">';
         $html .= __('Show connected slaves') . '</a>';
         $html .= PMA_getHtmlForReplicationSlavesTable(true);
         $html .= '  </li>';
@@ -87,12 +87,12 @@ function PMA_getHtmlForMasterConfiguration()
     $html  = '<fieldset>';
     $html .= '<legend>' . __('Master configuration') . '</legend>';
     $html .= __(
-        'This server is not configured as master server in a '
+        'This server is not configured as a master server in a '
         . 'replication process. You can choose from either replicating '
-        . 'all databases and ignoring certain (useful if you want to replicate '
-        . 'majority of databases) or you can choose to ignore all databases by '
-        . 'default and allow only certain databases to be replicated. '
-        . 'Please select the mode:'
+        . 'all databases and ignoring some of them (useful if you want to '
+        . 'replicate a majority of the databases) or you can choose to ignore '
+        . 'all databases by default and allow only certain databases to be '
+        . 'replicated. Please select the mode:'
     ) . '<br /><br />';
 
     $html .= '<select name="db_type" id="db_type">';
@@ -139,15 +139,22 @@ function PMA_getHtmlForSlaveConfiguration(
 ) {
     $html  = '<fieldset>';
     $html .= '<legend>' . __('Slave replication') . '</legend>';
-    if ($GLOBALS['server_slave_multi_replication']) {
+    /**
+     * check for multi-master replication functionality
+     */
+    $server_slave_multi_replication = $GLOBALS['dbi']->fetchResult(
+        'SHOW ALL SLAVES STATUS'
+    );
+    if ($server_slave_multi_replication) {
         $html .= __('Master connection:');
         $html .= '<form method="get" action="server_replication.php">';
         $html .= PMA_URL_getHiddenInputs($GLOBALS['url_params']);
         $html .= ' <select name="master_connection">';
         $html .= '<option value="">' . __('Default') . '</option>';
-        foreach ($GLOBALS['server_slave_multi_replication'] as $server) {
-            $html .= '<option' . (isset($_REQUEST['master_connection']) && $_REQUEST['master_connection'] == $server['Connection_name'] ?
-                ' selected="selected"' : '') . '>' . $server['Connection_name']
+        foreach ($server_slave_multi_replication as $server) {
+            $html .= '<option' . (isset($_REQUEST['master_connection'])
+                && $_REQUEST['master_connection'] == $server['Connection_name'] ?
+                    ' selected="selected"' : '') . '>' . $server['Connection_name']
                 . '</option>';
         }
         $html .= '</select>';
@@ -222,15 +229,18 @@ function PMA_getHtmlForSlaveConfiguration(
         $reconfiguremaster_link = 'server_replication.php'
             . PMA_URL_getCommon($_url_params);
 
-        $html .= __('Server is configured as slave in a replication process. Would you like to:');
+        $html .= __(
+            'Server is configured as slave in a replication process. Would you ' .
+            'like to:'
+        );
         $html .= '<br />';
         $html .= '<ul>';
-        $html .= ' <li><a href="#" id="slave_status_href">';
+        $html .= ' <li><a href="#slave_status_href" id="slave_status_href">';
         $html .= __('See slave status table') . '</a>';
         $html .= PMA_getHtmlForReplicationStatusTable('slave', true, false);
         $html .= ' </li>';
 
-        $html .= ' <li><a href="#" id="slave_control_href">';
+        $html .= ' <li><a href="#slave_control_href" id="slave_control_href">';
         $html .= __('Control slave:') . '</a>';
         $html .= ' <div id="slave_control_gui" style="display: none">';
         $html .= '  <ul>';
@@ -293,7 +303,8 @@ function PMA_getHtmlForSlaveConfiguration(
  */
 function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
 {
-    $html  = '<a href="#" id="slave_errormanagement_href">';
+    $html  = '<a href="#slave_errormanagement_href" '
+        . 'id="slave_errormanagement_href">';
     $html .= __('Error management:') . '</a>';
     $html .= ' <div id="slave_errormanagement_gui" style="display: none">';
     $html .= PMA_Message::error(
@@ -363,9 +374,10 @@ function PMA_getHtmlForReplicationDbMultibox()
         $multi_values .= $current_db . '</option>';
     } // end while
 
-    $multi_values .= '</select>';
-    $multi_values .= '<br /><a href="#" id="db_reset_href">';
-    $multi_values .= __('Uncheck All') . '</a>';
+    $multi_values .= '</select><br />';
+    $multi_values .= '<a href="#" id="db_select_href">' . __('Select all') . '</a>';
+    $multi_values .= '&nbsp;/&nbsp;';
+    $multi_values .= '<a href="#" id="db_reset_href">' . __('Unselect all') . '</a>';
 
     return $multi_values;
 }
@@ -377,7 +389,6 @@ function PMA_getHtmlForReplicationDbMultibox()
  *
  * @return String HTML code
  */
-
 function PMA_getHtmlForReplicationChangeMaster($submitname)
 {
     $html = '';
@@ -641,7 +652,6 @@ function PMA_getHtmlForReplicationSlavesTable($hidden = false)
  *
  * @return array   username length, hostname length
  */
-
 function PMA_replicationGetUsernameHostnameLength()
 {
     $fields_info = $GLOBALS['dbi']->getColumns('mysql', 'user');
@@ -882,7 +892,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '</div>'
         . '<div class="item">'
         . '<label for="button_generate_password">'
-        . '    ' . __('Generate Password:')
+        . '    ' . __('Generate password:')
         . '</label>'
         . '<span class="options">'
         . '    <input type="button" class="button" '
@@ -1085,4 +1095,3 @@ function PMA_handleRequestForSlaveSkipError()
 
     return $result;
 }
-?>

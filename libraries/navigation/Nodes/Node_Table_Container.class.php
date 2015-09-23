@@ -9,17 +9,17 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild_Container.class.php';
+
 /**
  * Represents a container for table nodes in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Table_Container extends Node
+class Node_Table_Container extends Node_DatabaseChild_Container
 {
     /**
      * Initialises the class
-     *
-     * @return Node_Table_Container
      */
     public function __construct()
     {
@@ -33,12 +33,6 @@ class Node_Table_Container extends Node
                     . '&amp;db=%1$s&amp;tbl_type=table'
                     . '&amp;token=' . $_SESSION[' PMA_token '],
         );
-        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
-            $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-            $this->separator_depth = (int)(
-                $GLOBALS['cfg']['NavigationTreeTableLevel']
-            );
-        }
         $this->real_name = 'tables';
         $this->classes   = 'tableContainer subContainer';
 
@@ -57,4 +51,3 @@ class Node_Table_Container extends Node
     }
 }
 
-?>

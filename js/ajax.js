@@ -153,7 +153,12 @@ var AJAX = {
          * @todo Fix Code mirror does not give correct full value (query)
          * in textarea, it returns only the change in content.
          */
-        var newHash = AJAX.hash($(this).val());
+        var newHash = null;
+        if (event.data.value == 1) {
+            newHash = AJAX.hash($(this).val());
+        } else {
+            newHash = AJAX.hash($(this).is(":checked"));
+        }
         var oldHash = $(this).data('val-hash');
         // Set lock if old value != new value
         // otherwise release lock
@@ -178,6 +183,15 @@ var AJAX = {
     resetLock: function() {
         AJAX.lockedTargets = {};
         $('#lock_page_icon').html('');
+    },
+    handleMenu: {
+        replace: function (content) {
+            $('#floating_menubar').html(content)
+                // Remove duplicate wrapper
+                // TODO: don't send it in the response
+                .children().first().remove();
+            $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
+        }
     },
     /**
      * Event handler for clicks on links and form submissions
@@ -226,6 +240,8 @@ var AJAX = {
             return false;
         }
         AJAX.resetLock();
+        var isLink = !! href || false;
+        var previousLinkAborted = false;
 
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
@@ -239,6 +255,7 @@ var AJAX = {
                     AJAX.$msgbox = PMA_ajaxShowMessage(PMA_messages.strAbortedRequest);
                     AJAX.active = false;
                     AJAX.xhr = null;
+                    previousLinkAborted = true;
                 } else {
                     //If can't abort
                     return false;
@@ -253,14 +270,15 @@ var AJAX = {
 
         $('html, body').animate({scrollTop: 0}, 'fast');
 
-        var isLink = !! href || false;
         var url = isLink ? href : $(this).attr('action');
         var params = 'ajax_request=true&ajax_page_request=true';
         if (! isLink) {
             params += '&' + $(this).serialize();
         }
-        // Add a list of menu hashes that we have in the cache to the request
-        params += AJAX.cache.menus.getRequestParam();
+        if (! (history && history.pushState)) {
+            // Add a list of menu hashes that we have in the cache to the request
+            params += PMA_MicroHistory.menus.getRequestParam();
+        }
 
         if (AJAX._debug) {
             console.log("Loading: " + url); // no need to translate
@@ -271,6 +289,18 @@ var AJAX = {
             AJAX.$msgbox = PMA_ajaxShowMessage();
             //Save reference for the new link request
             AJAX.xhr = $.get(url, params, AJAX.responseHandler);
+            if (history && history.pushState) {
+                var state = {
+                    url : href
+                };
+                if (previousLinkAborted) {
+                    //hack: there is already an aborted entry on stack
+                    //so just modify the aborted one
+                    history.replaceState(state, null, href);
+                } else {
+                    history.pushState(state, null, href);
+                }
+            }
         } else {
             /**
              * Manually fire the onsubmit event for the form, if any.
@@ -305,7 +335,6 @@ var AJAX = {
             return;
         }
         if (typeof data.success != 'undefined' && data.success) {
-            $table_clone = false;
             $('html, body').animate({scrollTop: 0}, 'fast');
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
@@ -324,10 +353,27 @@ var AJAX = {
                     $('title').replaceWith(data._title);
                 }
                 if (data._menu) {
-                    AJAX.cache.menus.replace(data._menu);
-                    AJAX.cache.menus.add(data._menuHash, data._menu);
+                    if (history && history.pushState) {
+                        var state = {
+                            url : data._selflink,
+                            menu : data._menu
+                        };
+                        history.replaceState(state, null);
+                        AJAX.handleMenu.replace(data._menu);
+                    } else {
+                        PMA_MicroHistory.menus.replace(data._menu);
+                        PMA_MicroHistory.menus.add(data._menuHash, data._menu);
+                    }
                 } else if (data._menuHash) {
-                    AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
+                    if (! (history && history.pushState)) {
+                        PMA_MicroHistory.menus.replace(PMA_MicroHistory.menus.get(data._menuHash));
+                    }
+                }
+                if (data._disableNaviSettings) {
+                    PMA_disableNaviSettings();
+                }
+                else {
+                    PMA_ensureNaviSettings(data._selflink);
                 }
 
                 // Remove all containers that may have
@@ -335,15 +381,14 @@ var AJAX = {
                 $('body').children()
                     .not('#pma_navigation')
                     .not('#floating_menubar')
-                    .not('#goto_pagetop')
-                    .not('#lock_page_icon')
+                    .not('#page_nav_icons')
                     .not('#page_content')
                     .not('#selflink')
-                    .not('#session_debug')
                     .not('#pma_header')
                     .not('#pma_footer')
                     .not('#pma_demo')
                     .not('#pma_console_container')
+                    .not('#prefs_autoload')
                     .remove();
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
@@ -355,29 +400,35 @@ var AJAX = {
                 }
 
                 if (data._selflink) {
-
                     var source = data._selflink.split('?')[0];
                     //Check for faulty links
-                    if (source == "import.php") {
-                        var replacement = "tbl_sql.php";
-                        data._selflink = data._selflink.replace(source,replacement);
+                    $selflink_replace = {
+                        "import.php": "tbl_sql.php",
+                        "tbl_chart.php": "sql.php",
+                        "tbl_gis_visualization.php": "sql.php"
+                    };
+                    if ($selflink_replace[source]) {
+                        var replacement = $selflink_replace[source];
+                        data._selflink = data._selflink.replace(source, replacement);
                     }
-                    $('#selflink > a').attr('href', data._selflink);
+                    $('#selflink').find('> a').attr('href', data._selflink);
+                }
+                if (data._params) {
+                    PMA_commonParams.setAll(data._params);
                 }
                 if (data._scripts) {
                     AJAX.scriptHandler.load(data._scripts);
                 }
                 if (data._selflink && data._scripts && data._menuHash && data._params) {
-                    AJAX.cache.add(
-                        data._selflink,
-                        data._scripts,
-                        data._menuHash,
-                        data._params,
-                        AJAX.source.attr('rel')
-                    );
-                }
-                if (data._params) {
-                    PMA_commonParams.setAll(data._params);
+                    if (! (history && history.pushState)) {
+                        PMA_MicroHistory.add(
+                            data._selflink,
+                            data._scripts,
+                            data._menuHash,
+                            data._params,
+                            AJAX.source.attr('rel')
+                        );
+                    }
                 }
                 if (data._displayMessage) {
                     $('#page_content').prepend(data._displayMessage);
@@ -390,18 +441,17 @@ var AJAX = {
                 if(data._errSubmitMsg){
                     msg = data._errSubmitMsg;
                 }
-                if (data._debug) {
-                    $('#session_debug').replaceWith(data._debug);
-                }
                 if (data._errors) {
                     $('<div/>', {id : 'pma_errors'})
                         .insertAfter('#selflink')
                         .append(data._errors);
                     // bind for php error reporting forms (bottom)
-                    $("#pma_ignore_errors_bottom").bind("click", function() {
+                    $("#pma_ignore_errors_bottom").bind("click", function(e) {
+                        e.preventDefault();
                         PMA_ignorePhpErrors();
                     });
-                    $("#pma_ignore_all_errors_bottom").bind("click", function() {
+                    $("#pma_ignore_all_errors_bottom").bind("click", function(e) {
+                        e.preventDefault();
                         PMA_ignorePhpErrors(false);
                     });
                     // In case of 'sendErrorReport'='always'
@@ -433,6 +483,7 @@ var AJAX = {
                 }
                 AJAX._callback = function () {};
             });
+
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
@@ -462,6 +513,11 @@ var AJAX = {
          * @var array _scripts The list of files already downloaded
          */
         _scripts: [],
+        /**
+         * @var string _scriptsVersion version of phpMyAdmin from which the
+         *                             scripts have been loaded
+         */
+        _scriptsVersion: null,
         /**
          * @var array _scriptsToBeLoaded The list of files that
          *                               need to be downloaded
@@ -497,8 +553,16 @@ var AJAX = {
          *
          * @return void
          */
-        load: function (files) {
+        load: function (files, callback) {
             var self = this;
+            // Clear loaded scripts if they are from another version of phpMyAdmin.
+            // Depends on common params being set before loading scripts in responseHandler
+            if (self._scriptsVersion == null) {
+            	self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
+            } else if (self._scriptsVersion != PMA_commonParams.get('PMA_VERSION')) {
+            	self._scripts = [];
+            	self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
+            }
             self._scriptsToBeLoaded = [];
             self._scriptsToBeFired = [];
             for (var i in files) {
@@ -520,11 +584,12 @@ var AJAX = {
                 }
             }
             request.push("call_done=1");
+            request.push("v=" + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
             // Download the composite js file, if necessary
             if (needRequest) {
                 this.appendScript("js/get_scripts.js.php?" + request.join("&"));
             } else {
-                self.done();
+                self.done(callback);
             }
         },
         /**
@@ -532,7 +597,10 @@ var AJAX = {
          *
          * @return void
          */
-        done: function () {
+        done: function (callback) {
+            if($.isFunction(callback)) {
+                callback();
+            }
             if (typeof ErrorReport !== 'undefined') {
                 ErrorReport.wrap_global_functions();
             }
@@ -573,7 +641,9 @@ var AJAX = {
              */
             $(document).off('click', 'a').on('click', 'a', AJAX.requestHandler);
             $(document).off('submit', 'form').on('submit', 'form', AJAX.requestHandler);
-            AJAX.cache.update();
+            if (! (history && history.pushState)) {
+                PMA_MicroHistory.update();
+            }
             callback();
         }
     }
@@ -596,11 +666,12 @@ AJAX.registerOnload('functions.js', function () {
         }
     });
 
+    var $page_content = $('#page_content');
     /**
      * Workaround for passing submit button name,value on ajax form submit
      * by appending hidden element with submit button name and value.
      */
-    $("#page_content").on('click', 'form input[type=submit]', function() {
+    $page_content.on('click', 'form input[type=submit]', function() {
         var buttonName = $(this).attr('name');
         if (typeof buttonName === 'undefined') {
             return;
@@ -614,12 +685,22 @@ AJAX.registerOnload('functions.js', function () {
 
     /**
      * Attach event listener to events when user modify visible
-     * Input or Textarea fields to make changes in forms
+     * Input,Textarea and select fields to make changes in forms
      */
-    $('#page_content').on(
+    $page_content.on(
         'keyup change',
         'form.lock-page textarea, ' +
-        'form.lock-page input[type="text"]',
+        'form.lock-page input[type="text"], ' +
+        'form.lock-page input[type="number"], ' +
+        'form.lock-page select',
+        {value:1},
+        AJAX.lockPageHandler
+    );
+    $page_content.on(
+        'change',
+        'form.lock-page input[type="checkbox"], ' +
+        'form.lock-page input[type="radio"]',
+        {value:2},
         AJAX.lockPageHandler
     );
     /**
@@ -633,374 +714,67 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
- * Unbind all event handlers before tearing down a page
- */
-AJAX.registerTeardown('functions.js', function () {
-    $('#page_content').off('keyup change',
-        'form.lock-page textarea, ' +
-        'form.lock-page input[type="text"]'
-    );
-    $('form.lock-page').off('reset');
-});
-
-/**
- * An implementation of a client-side page cache.
- * This object also uses the cache to provide a simple microhistory,
- * that is the ability to use the back and forward buttons in the browser
- */
-AJAX.cache = {
-    /**
-     * @var int The maximum number of pages to keep in the cache
-     */
-    MAX: 6,
-    /**
-     * @var object A hash used to prime the cache with data about the initially
-     *             loaded page. This is set in the footer, and then loaded
-     *             by a double-queued event further down this file.
-     */
-    primer: {},
-    /**
-     * @var array Stores the content of the cached pages
-     */
-    pages: [],
-    /**
-     * @var int The index of the currently loaded page
-     *          This is used to know at which point in the history we are
-     */
-    current: 0,
-    /**
-     * Saves a new page in the cache
-     *
-     * @param string hash    The hash part of the url that is being loaded
-     * @param array  scripts A list of scripts that is required for the page
-     * @param string menu    A hash that links to a menu stored
-     *                       in a dedicated menu cache
-     * @param array  params  A list of parameters used by PMA_commonParams()
-     * @param string rel     A relationship to the current page:
-     *                       'samepage': Forces the response to be treated as
-     *                                   the same page as the current one
-     *                       'newpage':  Forces the response to be treated as
-     *                                   a new page
-     *                       undefined:  Default behaviour, 'samepage' if the
-     *                                   selflinks of the two pages are the same.
-     *                                   'newpage' otherwise
-     *
-     * @return void
-     */
-    add: function (hash, scripts, menu, params, rel) {
-        if (this.pages.length > AJAX.cache.MAX) {
-            // Trim the cache, to the maximum number of allowed entries
-            // This way we will have a cached menu for every page
-            for (var i = 0; i < this.pages.length - this.MAX; i++) {
-                delete this.pages[i];
-            }
-        }
-        while (this.current < this.pages.length) {
-            // trim the cache if we went back in the history
-            // and are now going forward again
-            this.pages.pop();
-        }
-        if (rel === 'newpage' ||
-            (
-                typeof rel === 'undefined' && (
-                    typeof this.pages[this.current - 1] === 'undefined' ||
-                    this.pages[this.current - 1].hash !== hash
-                )
-            )
-        ) {
-            this.pages.push({
-                hash: hash,
-                content: $('#page_content').html(),
-                scripts: scripts,
-                selflink: $('#selflink').html(),
-                menu: menu,
-                params: params
-            });
-            AJAX.setUrlHash(this.current, hash);
-            this.current++;
-        }
-    },
-    /**
-     * Restores a page from the cache. This is called when the hash
-     * part of the url changes and it's structure appears to be valid
-     *
-     * @param string index Which page from the history to load
-     *
-     * @return void
-     */
-    navigate: function (index) {
-        if (typeof this.pages[index] === 'undefined' ||
-            typeof this.pages[index].content === 'undefined' ||
-            typeof this.pages[index].menu === 'undefined' ||
-            ! AJAX.cache.menus.get(this.pages[index].menu)
-        ) {
-            PMA_ajaxShowMessage(
-                '<div class="error">' + PMA_messages.strInvalidPage + '</div>',
-                false
-            );
-        } else {
-            AJAX.active = true;
-            var record = this.pages[index];
-            AJAX.scriptHandler.reset(function () {
-                $('#page_content').html(record.content);
-                $('#selflink').html(record.selflink);
-                AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
-                PMA_commonParams.setAll(record.params);
-                AJAX.scriptHandler.load(record.scripts);
-                AJAX.cache.current = ++index;
-            });
-        }
-    },
-    /**
-     * Resaves the content of the current page in the cache.
-     * Necessary in order not to show the user some outdated version of the page
-     *
-     * @return void
-     */
-    update: function () {
-        var page = this.pages[this.current - 1];
-        if (page) {
-            page.content = $('#page_content').html();
-        }
-    },
-    /**
-     * @var object Dedicated menu cache
-     */
-    menus: {
-        /**
-         * Returns the number of items in an associative array
-         *
-         * @return int
-         */
-        size: function (obj) {
-            var size = 0, key;
-            for (key in obj) {
-                if (obj.hasOwnProperty(key)) {
-                    size++;
-                }
-            }
-            return size;
-        },
-        /**
-         * @var hash Stores the content of the cached menus
-         */
-        data: {},
-        /**
-         * Saves a new menu in the cache
-         *
-         * @param string hash    The hash (trimmed md5) of the menu to be saved
-         * @param string content The HTML code of the menu to be saved
-         *
-         * @return void
-         */
-        add: function (hash, content) {
-            if (this.size(this.data) > AJAX.cache.MAX) {
-                // when the cache grows, we remove the oldest entry
-                var oldest, key, init = 0;
-                for (var i in this.data) {
-                    if (this.data[i]) {
-                        if (! init || this.data[i].timestamp.getTime() < oldest.getTime()) {
-                            oldest = this.data[i].timestamp;
-                            key = i;
-                            init = 1;
-                        }
-                    }
-                }
-                delete this.data[key];
-            }
-            this.data[hash] = {
-                content: content,
-                timestamp: new Date()
-            };
-        },
-        /**
-         * Retrieves a menu given its hash
-         *
-         * @param string hash The hash of the menu to be retrieved
-         *
-         * @return string
-         */
-        get: function (hash) {
-            if (this.data[hash]) {
-                return this.data[hash].content;
-            } else {
-                // This should never happen as long as the number of stored menus
-                // is larger or equal to the number of pages in the page cache
-                return '';
-            }
-        },
-        /**
-         * Prepares part of the parameter string used during page requests,
-         * this is necessary to tell the server which menus we have in the cache
-         *
-         * @return string
-         */
-        getRequestParam: function () {
-            var param = '';
-            var menuHashes = [];
-            for (var i in this.data) {
-                menuHashes.push(i);
-            }
-            var menuHashesParam = menuHashes.join('-');
-            if (menuHashesParam) {
-                param = '&menuHashes=' + menuHashesParam;
-            }
-            return param;
-        },
-        /**
-         * Replaces the menu with new content
-         *
-         * @return void
-         */
-        replace: function (content) {
-            $('#floating_menubar').html(content)
-                // Remove duplicate wrapper
-                // TODO: don't send it in the response
-                .children().first().remove();
-            $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
-        }
-    }
-};
-
-/**
- * URL hash management module.
- * Allows direct bookmarking and microhistory.
- */
-AJAX.setUrlHash = (function (jQuery, window) {
-    "use strict";
-    /**
-     * Indictaes whether we have already completed
-     * the initialisation of the hash
-     *
-     * @access private
-     */
-    var ready = false;
-    /**
-     * Stores a hash that needed to be set when we were not ready
-     *
-     * @access private
-     */
-    var savedHash = "";
-    /**
-     * Flag to indicate if the change of hash was triggered
-     * by a user pressing the back/forward button or if
-     * the change was triggered internally
-     *
-     * @access private
-     */
-    var userChange = true;
-
-    // Fix favicon disappearing in Firefox when setting location.hash
-    function resetFavicon() {
-        if (navigator.userAgent.indexOf('Firefox') > -1) {
-            // Move the link tags for the favicon to the bottom
-            // of the head element to force a reload of the favicon
-            $('head > link[href=favicon\\.ico]').appendTo('head');
-        }
-    }
-
-    /**
-     * Sets the hash part of the URL
-     *
-     * @access public
-     */
-    function setUrlHash(index, hash) {
-        /*
-         * Known problem:
-         * Setting hash leads to reload in webkit:
-         * http://www.quirksmode.org/bugreports/archives/2005/05/Safari_13_visual_anomaly_with_windowlocationhref.html
-         *
-         * so we expect that users are not running an ancient Safari version
-         */
-
-        userChange = false;
-        if (ready) {
-            window.location.hash = "PMAURL-" + index + ":" + hash;
-            resetFavicon();
-        } else {
-            savedHash = "PMAURL-" + index + ":" + hash;
-        }
-    }
-    /**
-     * Start initialisation
-     */
-    if (window.location.hash.substring(0, 8) == '#PMAURL-') {
-        // We have a valid hash, let's redirect the user
-        // to the page that it's pointing to
-        var colon_position = window.location.hash.indexOf(':');
-        var questionmark_position = window.location.hash.indexOf('?');
-        if (colon_position != -1 && questionmark_position != -1 && colon_position < questionmark_position) {
-            var hash_url = window.location.hash.substring(colon_position + 1, questionmark_position);
-            if (PMA_gotoWhitelist.indexOf(hash_url) != -1) {
-                window.location = window.location.hash.substring(
-                    colon_position + 1
-                );
-            }
-        }
-    } else {
-        // We don't have a valid hash, so we'll set it up
-        // when the page finishes loading
-        jQuery(function () {
-            /* Check if we should set URL */
-            if (savedHash !== "") {
-                window.location.hash = savedHash;
-                savedHash = "";
-                resetFavicon();
-            }
-            // Indicate that we're done initialising
-            ready = true;
-        });
-    }
-    /**
-     * Register an event handler for when the url hash changes
-     */
-    jQuery(function () {
-        jQuery(window).hashchange(function () {
-            if (userChange === false) {
-                // Ignore internally triggered hash changes
-                userChange = true;
-            } else if (/^#PMAURL-\d+:/.test(window.location.hash)) {
-                // Change page if the hash changed was triggered by a user action
-                var index = window.location.hash.substring(
-                    8, window.location.hash.indexOf(':')
-                );
-                AJAX.cache.navigate(index);
-            }
-        });
-    });
-    /**
-     * Publicly exposes a reference to the otherwise private setUrlHash function
-     */
-    return setUrlHash;
-})(jQuery, window);
-
-/**
  * Page load event handler
  */
 $(function () {
-    // Add the menu from the initial page into the cache
-    // The cache primer is set by the footer class
-    if (AJAX.cache.primer.url) {
-        AJAX.cache.menus.add(
-            AJAX.cache.primer.menuHash,
-            $('<div></div>')
-                .append('<div></div>')
-                .append($('#serverinfo').clone())
-                .append($('#topmenucontainer').clone())
-                .html()
-        );
+    var menuContent = $('<div></div>')
+        .append($('#serverinfo').clone())
+        .append($('#topmenucontainer').clone())
+        .html();
+    if (history && history.pushState) {
+        //set initial state reload
+        var initState = ('state' in window.history && window.history.state !== null);
+        var initURL = $('#selflink').find('> a').attr('href') || location.href;
+        var state = {
+            url : initURL,
+            menu : menuContent
+        };
+        history.replaceState(state, null);
+
+        $(window).on('popstate', function(event) {
+            var initPop = (! initState && location.href == initURL);
+            initState = true;
+            //check if popstate fired on first page itself
+            if (initPop) {
+                return;
+            }
+            var state = event.originalEvent.state;
+            if (state && state.menu) {
+                AJAX.$msgbox = PMA_ajaxShowMessage();
+                var params = 'ajax_request=true&ajax_page_request=true';
+                var url = state.url || location.href;
+                $.get(url, params, AJAX.responseHandler);
+                //TODO: Check if sometimes menu is not retrieved from server,
+                // Not sure but it seems menu was missing only for printview which
+                // been removed lately, so if it's right some dead menu checks/fallbacks
+                // may need to be removed from this file and Header.class.php
+                //AJAX.handleMenu.replace(event.originalEvent.state.menu);
+            }
+        });
+    } else {
+        // Fallback to microhistory mechanism
+        AJAX.scriptHandler
+            .load([{'name' : 'microhistory.js', 'fire' : 1}], function () {
+                // The cache primer is set by the footer class
+                if (PMA_MicroHistory.primer.url) {
+                    PMA_MicroHistory.menus.add(
+                        PMA_MicroHistory.primer.menuHash,
+                        menuContent
+                    );
+                }
+                $(function () {
+                    // Queue up this event twice to make sure that we get a copy
+                    // of the page after all other onload events have been fired
+                    if (PMA_MicroHistory.primer.url) {
+                        PMA_MicroHistory.add(
+                            PMA_MicroHistory.primer.url,
+                            PMA_MicroHistory.primer.scripts,
+                            PMA_MicroHistory.primer.menuHash
+                        );
+                    }
+                });
+            });
     }
-    $(function () {
-        // Queue up this event twice to make sure that we get a copy
-        // of the page after all other onload events have been fired
-        if (AJAX.cache.primer.url) {
-            AJAX.cache.add(
-                AJAX.cache.primer.url,
-                AJAX.cache.primer.scripts,
-                AJAX.cache.primer.menuHash
-            );
-        }
-    });
 });
 
 /**

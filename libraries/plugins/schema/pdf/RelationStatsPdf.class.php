@@ -29,17 +29,19 @@ class Relation_Stats_Pdf extends RelationStats
     /**
      * The "Relation_Stats_Pdf" constructor
      *
+     * @param object $diagram       The PDF diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      */
-    function __construct($master_table, $master_field, $foreign_table,
+    public function __construct(
+        $diagram, $master_table, $master_field, $foreign_table,
         $foreign_field
     ) {
         $this->wTick = 5;
         parent::__construct(
-            $master_table, $master_field, $foreign_table, $foreign_field
+            $diagram, $master_table, $master_field, $foreign_table, $foreign_field
         );
     }
 
@@ -49,8 +51,6 @@ class Relation_Stats_Pdf extends RelationStats
      * @param boolean $showColor Whether to use one color per relation or not
      * @param integer $i         The id of the link to draw
      *
-     * @global object $pdf The current PDF document
-     *
      * @access public
      *
      * @return void
@@ -59,8 +59,6 @@ class Relation_Stats_Pdf extends RelationStats
      */
     public function relationDraw($showColor, $i)
     {
-        global $pdf;
-
         if ($showColor) {
             $d = $i % 6;
             $j = ($i - $d) / 6;
@@ -76,25 +74,25 @@ class Relation_Stats_Pdf extends RelationStats
             );
             list ($a, $b, $c) = $case[$d];
             $e = (1 - ($j - 1) / 6);
-            $pdf->SetDrawColor($a * 255 * $e, $b * 255 * $e, $c * 255 * $e);
+            $this->diagram->SetDrawColor($a * 255 * $e, $b * 255 * $e, $c * 255 * $e);
         } else {
-            $pdf->SetDrawColor(0);
+            $this->diagram->SetDrawColor(0);
         }
-        $pdf->setLineWidthScale(0.2);
-        $pdf->lineScale(
+        $this->diagram->setLineWidthScale(0.2);
+        $this->diagram->lineScale(
             $this->xSrc,
             $this->ySrc,
             $this->xSrc + $this->srcDir * $this->wTick,
             $this->ySrc
         );
-        $pdf->lineScale(
+        $this->diagram->lineScale(
             $this->xDest + $this->destDir * $this->wTick,
             $this->yDest,
             $this->xDest,
             $this->yDest
         );
-        $pdf->setLineWidthScale(0.1);
-        $pdf->lineScale(
+        $this->diagram->setLineWidthScale(0.1);
+        $this->diagram->lineScale(
             $this->xSrc + $this->srcDir * $this->wTick,
             $this->ySrc,
             $this->xDest + $this->destDir * $this->wTick,
@@ -104,32 +102,31 @@ class Relation_Stats_Pdf extends RelationStats
          * Draws arrows ->
         */
         $root2 = 2 * sqrt(2);
-        $pdf->lineScale(
+        $this->diagram->lineScale(
             $this->xSrc + $this->srcDir * $this->wTick * 0.75,
             $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc + $this->wTick / $root2
         );
-        $pdf->lineScale(
+        $this->diagram->lineScale(
             $this->xSrc + $this->srcDir * $this->wTick * 0.75,
             $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc - $this->wTick / $root2
         );
 
-        $pdf->lineScale(
+        $this->diagram->lineScale(
             $this->xDest + $this->destDir * $this->wTick / 2,
             $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest + $this->wTick / $root2
         );
-        $pdf->lineScale(
+        $this->diagram->lineScale(
             $this->xDest + $this->destDir * $this->wTick / 2,
             $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest - $this->wTick / $root2
         );
-        $pdf->SetDrawColor(0);
+        $this->diagram->SetDrawColor(0);
     }
 }
-?>

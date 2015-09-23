@@ -37,4 +37,3 @@ class PMA_SeleniumXSSTest extends PMA_SeleniumBase
         $this->assertEquals("Missing value in the form!", $this->alertText());
     }
 }
-?>

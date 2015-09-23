@@ -14,13 +14,14 @@ if (!function_exists('__')) {
     PMA_fatalError('Bad invocation!');
 }
 
-$strConfigAllowArbitraryServer_desc
-    = __('If enabled, user can enter any MySQL server in login form for cookie auth.');
+$strConfigAllowArbitraryServer_desc = __(
+    'If enabled, user can enter any MySQL server in login form for cookie auth.'
+);
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
 $strConfigArbitraryServerRegexp_desc = __(
     'Restricts the MySQL servers the user can enter when a login to an arbitrary '
-    . 'MySQL server is enabled by matching the IP or hostname of the MySQL server to the given '
-    . 'regular expression.'
+    . 'MySQL server is enabled by matching the IP or hostname of the MySQL server ' .
+    'to the given regular expression.'
 );
 $strConfigArbitraryServerRegexp_name = __('Restrict login to MySQL server');
 $strConfigAllowThirdPartyFraming_desc = __(
@@ -38,7 +39,9 @@ $strConfigblowfish_secret_desc = __(
 $strConfigblowfish_secret_name = __('Blowfish secret');
 $strConfigBrowseMarkerEnable_desc = __('Highlight selected rows.');
 $strConfigBrowseMarkerEnable_name = __('Row marker');
-$strConfigBrowsePointerEnable_desc = __('Highlight row pointed by the mouse cursor.');
+$strConfigBrowsePointerEnable_desc = __(
+    'Highlight row pointed by the mouse cursor.'
+);
 $strConfigBrowsePointerEnable_name = __('Highlight pointer');
 $strConfigBZipDump_desc = __(
     'Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for'
@@ -57,6 +60,11 @@ $strConfigCodemirrorEnable_desc = __(
     . 'line numbers.'
 );
 $strConfigCodemirrorEnable_name = __('Enable CodeMirror');
+$strConfigLintEnable_desc = __(
+    'Find any errors in the query before executing it.'
+    . ' Requires CodeMirror to be enabled.'
+);
+$strConfigLintEnable_name = __('Enable linter');
 $strConfigMinSizeForInputField_desc = __(
     'Defines the minimum size for input fields generated for CHAR and VARCHAR '
     . 'columns.'
@@ -67,7 +75,9 @@ $strConfigMaxSizeForInputField_desc = __(
     . 'columns.'
 );
 $strConfigMaxSizeForInputField_name = __('Maximum size for input field');
-$strConfigCharTextareaCols_desc = __('Number of columns for CHAR/VARCHAR textareas.');
+$strConfigCharTextareaCols_desc = __(
+    'Number of columns for CHAR/VARCHAR textareas.'
+);
 $strConfigCharTextareaCols_name = __('CHAR textarea columns');
 $strConfigCharTextareaRows_desc = __('Number of rows for CHAR/VARCHAR textareas.');
 $strConfigCharTextareaRows_name = __('CHAR textarea rows');
@@ -83,14 +93,25 @@ $strConfigConfirm_desc = __(
     . 'when you\'re about to lose data.'
 );
 $strConfigConfirm_name = __('Confirm DROP queries');
+$strConfigDBG_sql_desc = __(
+    'Log SQL queries and their execution time, to be displayed in the console'
+);
 $strConfigDBG_sql_name = __('Debug SQL');
 $strConfigDefaultTabDatabase_desc
     = __('Tab that is displayed when entering a database.');
 $strConfigDefaultTabDatabase_name = __('Default database tab');
-$strConfigDefaultTabServer_desc = __('Tab that is displayed when entering a server.');
+$strConfigDefaultTabServer_desc = __(
+    'Tab that is displayed when entering a server.'
+);
 $strConfigDefaultTabServer_name = __('Default server tab');
 $strConfigDefaultTabTable_desc = __('Tab that is displayed when entering a table.');
 $strConfigDefaultTabTable_name = __('Default table tab');
+$strConfigEnableAutocompleteForTablesAndColumns_desc = __(
+    'Autocomplete of the table and column names in the SQL queries.'
+);
+$strConfigEnableAutocompleteForTablesAndColumns_name = __(
+    'Enable autocomplete for table and column names'
+);
 $strConfigHideStructureActions_desc
     = __('Whether the table structure actions should be hidden.');
 $strConfigHideStructureActions_name = __('Hide table structure actions');
@@ -107,6 +128,9 @@ $strConfigExecTimeLimit_desc = __(
     . 'limit).'
 );
 $strConfigExecTimeLimit_name = __('Maximum execution time');
+$strConfigExport_lock_tables_name = sprintf(
+    __('Use %s statement'), '<code>LOCK TABLES</code>'
+);
 $strConfigExport_asfile_name = __('Save as file');
 $strConfigExport_charset_name = __('Character set of the file');
 $strConfigExport_codegen_format_name = __('Format');
@@ -136,7 +160,7 @@ $strConfigExport_latex_data_caption_name = __('Table caption');
 $strConfigExport_latex_data_continued_caption_name = __('Continued table caption');
 $strConfigExport_latex_data_label_name = __('Label key');
 $strConfigExport_latex_mime_name = __('MIME type');
-$strConfigExport_latex_null_name  = __('Replace NULL with');
+$strConfigExport_latex_null_name = __('Replace NULL with');
 $strConfigExport_latex_relation_name = __('Relations');
 $strConfigExport_latex_structure_caption_name = __('Table caption');
 $strConfigExport_latex_structure_continued_caption_name
@@ -154,6 +178,7 @@ $strConfigExport_odt_relation_name = __('Relations');
 $strConfigExport_odt_structure_or_data_name = __('Dump table');
 $strConfigExport_onserver_name = __('Save on server');
 $strConfigExport_onserver_overwrite_name = __('Overwrite existing file(s)');
+$strConfigExport_as_separate_files_name = __('Export as separate files');
 $strConfigExport_quick_export_onserver_name = __('Save on server');
 $strConfigExport_quick_export_onserver_overwrite_name
     = __('Overwrite existing file(s)');
@@ -162,21 +187,27 @@ $strConfigExport_sql_auto_increment_name = __('Add AUTO_INCREMENT value');
 $strConfigExport_sql_backquotes_name
     = __('Enclose table and column names with backquotes');
 $strConfigExport_sql_compatibility_name = __('SQL compatibility mode');
-$strConfigExport_sql_create_table_statements_name
-    = __('<code>CREATE TABLE</code> options:');
 $strConfigExport_sql_dates_name = __('Creation/Update/Check dates');
 $strConfigExport_sql_delayed_name = __('Use delayed inserts');
 $strConfigExport_sql_disable_fk_name = __('Disable foreign key checks');
 $strConfigExport_sql_views_as_tables_name = __('Export views as tables');
+$strConfigExport_sql_metadata_name = __(
+    'Export related metadata from phpMyAdmin configuration storage'
+);
+$strConfigExport_sql_create_database_name = sprintf(__('Add %s'), 'CREATE DATABASE / USE');
 $strConfigExport_sql_drop_database_name = sprintf(__('Add %s'), 'DROP DATABASE');
-$strConfigExport_sql_drop_table_name
-    = sprintf(__('Add %s'), 'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER');
+$strConfigExport_sql_drop_table_name = sprintf(
+    __('Add %s'), 'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER'
+);
 $strConfigExport_sql_create_table_name = sprintf(__('Add %s'), 'CREATE TABLE');
 $strConfigExport_sql_create_view_name = sprintf(__('Add %s'), 'CREATE VIEW');
 $strConfigExport_sql_create_trigger_name
     = sprintf(__('Add %s'), 'CREATE TRIGGER');
 $strConfigExport_sql_hex_for_binary_name = __('Use hexadecimal for BINARY & BLOB');
-$strConfigExport_sql_if_not_exists_name = sprintf(__('Add %s'), 'IF NOT EXISTS');
+$strConfigExport_sql_if_not_exists_name = __(
+    'Add IF NOT EXISTS (less efficient as indexes will be generated during'
+    . ' table creation)'
+);
 $strConfigExport_sql_ignore_name = __('Use ignore inserts');
 $strConfigExport_sql_include_comments_name = __('Comments');
 $strConfigExport_sql_insert_syntax_name = __('Syntax to use when inserting data');
@@ -206,6 +237,10 @@ $strConfigForeignKeyDropdownOrder_name = __('Foreign key dropdown order');
 $strConfigForeignKeyMaxLimit_desc
     = __('A dropdown will be used if fewer items are present.');
 $strConfigForeignKeyMaxLimit_name = __('Foreign key limit');
+$strConfigDefaultForeignKeyChecks_desc = __(
+    'Default value for foreign key checks checkbox for some queries.'
+);
+$strConfigDefaultForeignKeyChecks_name = __('Foreign key checks');
 $strConfigForm_Browse = __('Browse mode');
 $strConfigForm_Browse_desc = __('Customize browse mode.');
 $strConfigForm_CodeGen = 'CodeGen';
@@ -234,6 +269,8 @@ $strConfigForm_Navi_databases = __('Databases');
 $strConfigForm_Navi_databases_desc = __('Databases display options.');
 $strConfigForm_Navi_panel = __('Navigation panel');
 $strConfigForm_Navi_panel_desc = __('Customize appearance of the navigation panel.');
+$strConfigForm_Navi_tree = __('Navigation tree');
+$strConfigForm_Navi_tree_desc = __('Customize the navigation tree.');
 $strConfigForm_Navi_servers = __('Servers');
 $strConfigForm_Navi_servers_desc = __('Servers display options.');
 $strConfigForm_Navi_tables = __('Tables');
@@ -252,8 +289,6 @@ $strConfigForm_Page_titles_desc = __(
     . '[doc@faq6-27]documentation[/doc] for magic strings that can be used '
     . 'to get special values.'
 );
-$strConfigForm_Query_window = __('Query window');
-$strConfigForm_Query_window_desc = __('Customize query window options');
 $strConfigForm_Security = __('Security');
 $strConfigForm_Security_desc = __(
     'Please note that phpMyAdmin is just a user interface and its features do not '
@@ -305,6 +340,7 @@ $strConfigForm_DisplayRelationalSchema = __('Display relational schema');
 $strConfigForm_DisplayRelationalSchema_desc = '';
 $strConfigPDFDefaultPageSize_name = __('Paper size');
 $strConfigPDFDefaultPageSize_desc = '';
+$strConfigForm_Databases = __('Databases');
 $strConfigForm_Text_fields = __('Text fields');
 $strConfigForm_Text_fields_desc = __('Customize text input fields.');
 $strConfigForm_Texy = __('Texy! text');
@@ -335,7 +371,9 @@ $strConfigImport_csv_enclosed_name = __('Columns enclosed with');
 $strConfigImport_csv_escaped_name = __('Columns escaped with');
 $strConfigImport_csv_ignore_name = __('Do not abort on INSERT error');
 $strConfigImport_csv_replace_name = __('Add ON DUPLICATE KEY UPDATE');
-$strConfigImport_csv_replace_desc = __('Update data when duplicate keys found on import');
+$strConfigImport_csv_replace_desc = __(
+    'Update data when duplicate keys found on import'
+);
 $strConfigImport_csv_terminated_name = __('Columns terminated with');
 $strConfigImport_format_desc = __(
     'Default format; be aware that this list depends on location (database, table) '
@@ -347,7 +385,9 @@ $strConfigImport_ldi_escaped_name = __('Columns escaped with');
 $strConfigImport_ldi_ignore_name = __('Do not abort on INSERT error');
 $strConfigImport_ldi_local_option_name = __('Use LOCAL keyword');
 $strConfigImport_ldi_replace_name = __('Add ON DUPLICATE KEY UPDATE');
-$strConfigImport_ldi_replace_desc = __('Update data when duplicate keys found on import');
+$strConfigImport_ldi_replace_desc = __(
+    'Update data when duplicate keys found on import'
+);
 $strConfigImport_ldi_terminated_name = __('Columns terminated with');
 $strConfigImport_ods_col_names_name = __('Column names in first row');
 $strConfigImport_ods_empty_rows_name = __('Do not import empty rows');
@@ -417,18 +457,24 @@ $strConfigMaxRows_desc = __(
 );
 $strConfigMaxRows_name = __('Maximum number of rows to display');
 $strConfigMaxTableList_cmt = __('Users cannot set a higher value');
-$strConfigMaxTableList_desc = __('Maximum number of tables displayed in table list.');
+$strConfigMaxTableList_desc = __(
+    'Maximum number of tables displayed in table list.'
+);
 $strConfigMaxTableList_name = __('Maximum tables');
 $strConfigMemoryLimit_desc = __(
     'The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] '
-    . '([kbd]0[/kbd] for no limit).'
+    . '([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change).'
 );
 $strConfigMemoryLimit_name = __('Memory limit');
-$strConfigShowDatabasesNavigationAsTree_desc = __('In the navigation panel, replaces the database tree with a selector');
+$strConfigShowDatabasesNavigationAsTree_desc = __(
+    'In the navigation panel, replaces the database tree with a selector'
+);
 $strConfigShowDatabasesNavigationAsTree_name = __(
     'Show databases navigation as tree'
 );
-$strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlighting the current database or table.');
+$strConfigNavigationLinkWithMainPanel_desc = __(
+    'Link with main panel by highlighting the current database or table.'
+);
 $strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');
 $strConfigNavigationDisplayLogo_name = __('Display logo');
@@ -456,7 +502,8 @@ $strConfigNavigationTreeDisplayItemFilterMinimum_name
 $strConfigNavigationTreeDisplayDbFilterMinimum_name
     = __('Minimum number of databases to display the database filter box');
 $strConfigNavigationTreeEnableGrouping_desc = __(
-    'Group items in the navigation tree (determined by the separator defined in the Databases and Tables tabs above).'
+    'Group items in the navigation tree (determined by the separator defined in ' .
+    'the Databases and Tables tabs above).'
 );
 $strConfigNavigationTreeEnableGrouping_name = __('Group items in the tree');
 $strConfigNavigationTreeDbSeparator_desc
@@ -469,10 +516,26 @@ $strConfigNavigationTreeTableLevel_name = __('Maximum table tree depth');
 $strConfigNavigationTreePointerEnable_desc
     = __('Highlight server under the mouse cursor.');
 $strConfigNavigationTreePointerEnable_name = __('Enable highlighting');
-$strConfigNavigationTreeEnableExpansion_desc
-    = __('Whether to offer the possibility of tree expansion in the navigation panel.');
+$strConfigNavigationTreeEnableExpansion_desc = __(
+    'Whether to offer the possibility of tree expansion in the navigation panel.'
+);
 $strConfigNavigationTreeEnableExpansion_name
     = __('Enable navigation tree expansion');
+$strConfigNavigationTreeShowTables_name = __('Show tables in tree');
+$strConfigNavigationTreeShowTables_desc
+    = __('Whether to show tables under database in the navigation tree');
+$strConfigNavigationTreeShowViews_name = __('Show views in tree');
+$strConfigNavigationTreeShowViews_desc
+    = __('Whether to show views under database in the navigation tree');
+$strConfigNavigationTreeShowFunctions_name = __('Show functions in tree');
+$strConfigNavigationTreeShowFunctions_desc
+    = __('Whether to show functions under database in the navigation tree');
+$strConfigNavigationTreeShowProcedures_name = __('Show procedures in tree');
+$strConfigNavigationTreeShowProcedures_desc
+    = __('Whether to show procedures under database in the navigation tree');
+$strConfigNavigationTreeShowEvents_name = __('Show events in tree');
+$strConfigNavigationTreeShowEvents_desc
+    = __('Whether to show events under database in the navigation tree');
 $strConfigNumRecentTables_desc
     = __('Maximum number of recently used tables; set 0 to disable.');
 $strConfigNumFavoriteTables_desc
@@ -481,6 +544,10 @@ $strConfigNumRecentTables_name = __('Recently used tables');
 $strConfigNumFavoriteTables_name = __('Favorite tables');
 $strConfigRowActionLinks_desc = __('These are Edit, Copy and Delete links.');
 $strConfigRowActionLinks_name = __('Where to show the table row links');
+$strConfigRowActionLinksWithoutUnique_desc = __(
+    'Whether to show row links even in the absence of a unique key.'
+);
+$strConfigRowActionLinksWithoutUnique_name = __('Show row links anyway');
 $strConfigNaturalOrder_desc
     = __('Use natural order for sorting table and database names.');
 $strConfigNaturalOrder_name = __('Natural order');
@@ -536,7 +603,9 @@ $strConfigRecodingEngine_name = __('Recoding engine');
 $strConfigRememberSorting_desc
     = __('When browsing tables, the sorting of each table is remembered.');
 $strConfigRememberSorting_name = __('Remember table\'s sorting');
-$strConfigTablePrimaryKeyOrder_desc = __('Default sort order for tables with a primary key.');
+$strConfigTablePrimaryKeyOrder_desc = __(
+    'Default sort order for tables with a primary key.'
+);
 $strConfigTablePrimaryKeyOrder_name = __('Primary key default sort order');
 $strConfigRepeatCells_desc
     = __('Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature.');
@@ -555,7 +624,10 @@ $strConfigServers_AllowDeny_rules_name = __('Host authorization rules');
 $strConfigServers_AllowNoPassword_name = __('Allow logins without a password');
 $strConfigServers_AllowRoot_name = __('Allow root login');
 $strConfigServers_SessionTimeZone_name = __('Session timezone');
-$strConfigServers_SessionTimeZone_desc = __('Sets the effective timezone; possibly different than the one from your database server');
+$strConfigServers_SessionTimeZone_desc = __(
+    'Sets the effective timezone; possibly different than the one from your ' .
+    'database server'
+);
 $strConfigServers_auth_http_realm_desc
     = __('HTTP Basic Auth Realm name to display when doing HTTP Auth.');
 $strConfigServers_auth_http_realm_name = __('HTTP Realm');
@@ -601,7 +673,10 @@ $strConfigServers_controlport_desc = __(
 $strConfigServers_controlport_name = __('Control port');
 $strConfigServers_hide_db_desc
     = __('Hide databases matching regular expression (PCRE).');
-$strConfigServers_DisableIS_desc = __('More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]');
+$strConfigServers_DisableIS_desc = __(
+    'More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA ' .
+    'bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]'
+);
 $strConfigServers_DisableIS_name = __('Disable use of INFORMATION_SCHEMA');
 $strConfigServers_hide_db_name = __('Hide databases');
 $strConfigServers_history_desc = __(
@@ -622,6 +697,11 @@ $strConfigServers_savedsearches_name = __('QBE saved searches table');
 $strConfigServers_savedsearches_desc = __(
     'Leave blank for no QBE saved searches support, suggested: '
     . '[kbd]pma__savedsearches[/kbd].'
+);
+$strConfigServers_savedsearches_name = __('Export templates table');
+$strConfigServers_savedsearches_desc = __(
+    'Leave blank for no export template support, suggested: '
+    . '[kbd]pma__export_templates[/kbd].'
 );
 $strConfigServers_central_columns_name = __('Central columns table');
 $strConfigServers_central_columns_desc = __(
@@ -681,7 +761,9 @@ $strConfigServers_ssl_name = __('Use SSL');
 $strConfigServers_table_coords_desc = __(
     'Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/kbd].'
 );
-$strConfigServers_table_coords_name = __('Designer and PDF schema: table coordinates');
+$strConfigServers_table_coords_name = __(
+    'Designer and PDF schema: table coordinates'
+);
 $strConfigServers_table_info_desc = __(
     'Table to describe the display columns, leave blank for no support; '
     . 'suggested: [kbd]pma__table_info[/kbd].'
@@ -721,99 +803,203 @@ $strConfigServers_tracking_version_auto_create_desc = __(
 );
 $strConfigServers_tracking_version_auto_create_name
     = __('Automatically create versions');
-$strConfigServers_userconfig_desc = __('Leave blank for no user preferences storage in database, suggested: [kbd]pma__userconfig[/kbd].');
+$strConfigServers_userconfig_desc = __(
+    'Leave blank for no user preferences storage in database, suggested: ' .
+    '[kbd]pma__userconfig[/kbd].'
+);
 $strConfigServers_userconfig_name = __('User preferences storage table');
-$strConfigServers_users_desc = __('Both this table and the user groups table are required to enable the configurable menus feature; leaving either one of them blank will disable this feature, suggested: [kbd]pma__users[/kbd].');
+$strConfigServers_users_desc = __(
+    'Both this table and the user groups table are required to enable the ' .
+    'configurable menus feature; leaving either one of them blank will disable
+    this feature, suggested: [kbd]pma__users[/kbd].'
+);
 $strConfigServers_users_name = __('Users table');
-$strConfigServers_usergroups_desc = __('Both this table and the users table are required to enable the configurable menus feature; leaving either one of them blank will disable this feature, suggested: [kbd]pma__usergroups[/kbd].');
+$strConfigServers_usergroups_desc = __(
+    'Both this table and the users table are required to enable the configurable ' .
+    'menus feature; leaving either one of them blank will disable this feature, ' .
+    'suggested: [kbd]pma__usergroups[/kbd].'
+);
 $strConfigServers_usergroups_name = __('User groups table');
-$strConfigServers_navigationhiding_desc = __('Leave blank to disable the feature to hide and show navigation items, suggested: [kbd]pma__navigationhiding[/kbd].');
+$strConfigServers_navigationhiding_desc = __(
+    'Leave blank to disable the feature to hide and show navigation items, ' .
+    'suggested: [kbd]pma__navigationhiding[/kbd].'
+);
 $strConfigServers_navigationhiding_name = __('Hidden navigation items table');
 $strConfigServers_user_desc = __('Leave empty if not using config auth.');
 $strConfigServers_user_name = __('User for config auth');
-$strConfigServers_verbose_desc = __('A user-friendly description of this server. Leave blank to display the hostname instead.');
+$strConfigServers_verbose_desc = __(
+    'A user-friendly description of this server. Leave blank to display the ' .
+    'hostname instead.'
+);
 $strConfigServers_verbose_name = __('Verbose name of this server');
-$strConfigShowAll_desc = __('Whether a user should be displayed a "show all (rows)" button.');
+$strConfigShowAll_desc = __(
+    'Whether a user should be displayed a "show all (rows)" button.'
+);
 $strConfigShowAll_name = __('Allow to display all the rows');
-$strConfigShowChgPassword_desc = __('Please note that enabling this has no effect with [kbd]config[/kbd] authentication mode because the password is hard coded in the configuration file; this does not limit the ability to execute the same command directly.');
+$strConfigShowChgPassword_desc = __(
+    'Please note that enabling this has no effect with [kbd]config[/kbd] ' .
+    'authentication mode because the password is hard coded in the configuration ' .
+    'file; this does not limit the ability to execute the same command directly.'
+);
 $strConfigShowChgPassword_name = __('Show password change form');
 $strConfigShowCreateDb_name = __('Show create database form');
-$strConfigShowDbStructureCreation_desc = __('Show or hide a column displaying the Creation timestamp for all tables.');
-$strConfigShowDbStructureCreation_name = __('Show Creation timestamp');
-$strConfigShowDbStructureLastUpdate_desc = __('Show or hide a column displaying the Last update timestamp for all tables.');
-$strConfigShowDbStructureLastUpdate_name = __('Show Last update timestamp');
-$strConfigShowDbStructureLastCheck_desc = __('Show or hide a column displaying the Last check timestamp for all tables.');
-$strConfigShowDbStructureLastCheck_name = __('Show Last check timestamp');
-$strConfigShowFieldTypesInDataEditView_desc = __('Defines whether or not type fields should be initially displayed in edit/insert mode.');
+$strConfigShowDbStructureComment_desc = __(
+    'Show or hide a column displaying the comments for all tables.'
+);
+$strConfigShowDbStructureComment_name = __('Show table comments');
+$strConfigShowDbStructureCreation_desc = __(
+    'Show or hide a column displaying the Creation timestamp for all tables.'
+);
+$strConfigShowDbStructureCreation_name = __('Show creation timestamp');
+$strConfigShowDbStructureLastUpdate_desc = __(
+    'Show or hide a column displaying the Last update timestamp for all tables.'
+);
+$strConfigShowDbStructureLastUpdate_name = __('Show last update timestamp');
+$strConfigShowDbStructureLastCheck_desc = __(
+    'Show or hide a column displaying the Last check timestamp for all tables.'
+);
+$strConfigShowDbStructureLastCheck_name = __('Show last check timestamp');
+$strConfigShowFieldTypesInDataEditView_desc = __(
+    'Defines whether or not type fields should be initially displayed in ' .
+    'edit/insert mode.'
+);
 $strConfigShowFieldTypesInDataEditView_name = __('Show field types');
-$strConfigShowFunctionFields_desc = __('Display the function fields in edit/insert mode.');
+$strConfigShowFunctionFields_desc = __(
+    'Display the function fields in edit/insert mode.'
+);
 $strConfigShowFunctionFields_name = __('Show function fields');
 $strConfigShowHint_desc = __('Whether to show hint or not.');
 $strConfigShowHint_name = __('Show hint');
-$strConfigShowPhpInfo_desc = __('Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] output.');
+$strConfigShowPhpInfo_desc = __(
+    'Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] ' .
+    'output.'
+);
 $strConfigShowPhpInfo_name = __('Show phpinfo() link');
 $strConfigShowServerInfo_name = __('Show detailed MySQL server information');
-$strConfigShowSQL_desc = __('Defines whether SQL queries generated by phpMyAdmin should be displayed.');
+$strConfigShowSQL_desc = __(
+    'Defines whether SQL queries generated by phpMyAdmin should be displayed.'
+);
 $strConfigShowSQL_name = __('Show SQL queries');
-$strConfigRetainQueryBox_desc = __('Defines whether the query box should stay on-screen after its submission.');
+$strConfigRetainQueryBox_desc = __(
+    'Defines whether the query box should stay on-screen after its submission.'
+);
 $strConfigRetainQueryBox_name = __('Retain query box');
-$strConfigShowStats_desc = __('Allow to display database and table statistics (eg. space usage).');
+$strConfigShowStats_desc = __(
+    'Allow to display database and table statistics (eg. space usage).'
+);
 $strConfigShowStats_name = __('Show statistics');
-$strConfigSkipLockedTables_desc = __('Mark used tables and make it possible to show databases with locked tables.');
+$strConfigSkipLockedTables_desc = __(
+    'Mark used tables and make it possible to show databases with locked tables.'
+);
 $strConfigSkipLockedTables_name = __('Skip locked tables');
 $strConfigSQLQuery_Edit_name = __('Edit');
 $strConfigSQLQuery_Explain_name = __('Explain SQL');
 $strConfigSQLQuery_Refresh_name = __('Refresh');
-$strConfigSQLQuery_ShowAsPHP_name = __('Create PHP Code');
-$strConfigSuhosinDisableWarning_desc = __('A warning is displayed on the main page if Suhosin is detected.');
+$strConfigSQLQuery_ShowAsPHP_name = __('Create PHP code');
+$strConfigSuhosinDisableWarning_desc = __(
+    'Disable the default warning that is displayed on the main page if Suhosin is ' .
+    'detected.'
+);
 $strConfigSuhosinDisableWarning_name = __('Suhosin warning');
-$strConfigLoginCookieValidityDisableWarning_desc = __('Disable the default warning that is displayed on the main page if the value of the PHP setting session.gc_maxlifetime is less than the value of `LoginCookieValidity`.');
+$strConfigLoginCookieValidityDisableWarning_desc = __(
+    'Disable the default warning that is displayed on the main page if the value ' .
+    'of the PHP setting session.gc_maxlifetime is less than the value of ' .
+    '`LoginCookieValidity`.'
+);
 $strConfigLoginCookieValidityDisableWarning_name = __(
     'Login cookie validity warning'
 );
-$strConfigTextareaCols_desc = __('Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');
+$strConfigTextareaCols_desc = __(
+    'Textarea size (columns) in edit mode, this value will be emphasized for SQL ' .
+    'query textareas (*2).'
+);
 $strConfigTextareaCols_name = __('Textarea columns');
-$strConfigTextareaRows_desc = __('Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');
+$strConfigTextareaRows_desc = __(
+    'Textarea size (rows) in edit mode, this value will be emphasized for SQL ' .
+    'query textareas (*2).'
+);
 $strConfigTextareaRows_name = __('Textarea rows');
-$strConfigTitleDatabase_desc = __('Title of browser window when a database is selected.');
+$strConfigTitleDatabase_desc = __(
+    'Title of browser window when a database is selected.'
+);
 $strConfigTitleDatabase_name = __('Database');
-$strConfigTitleDefault_desc = __('Title of browser window when nothing is selected.');
+$strConfigTitleDefault_desc = __(
+    'Title of browser window when nothing is selected.'
+);
 $strConfigTitleDefault_name = __('Default title');
-$strConfigTitleServer_desc = __('Title of browser window when a server is selected.');
+$strConfigTitleServer_desc = __(
+    'Title of browser window when a server is selected.'
+);
 $strConfigTitleServer_name = __('Server');
 $strConfigTitleTable_desc = __('Title of browser window when a table is selected.');
 $strConfigTitleTable_name = __('Table');
-$strConfigTrustedProxies_desc = __('Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd].');
+$strConfigTrustedProxies_desc = __(
+    'Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example ' .
+    'specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR ' .
+    '(X-Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: ' .
+    'HTTP_X_FORWARDED_FOR[/kbd].'
+);
 $strConfigTrustedProxies_name = __('List of trusted proxies for IP allow/deny');
-$strConfigUploadDir_desc = __('Directory on server where you can upload files for import.');
+$strConfigUploadDir_desc = __(
+    'Directory on server where you can upload files for import.'
+);
 $strConfigUploadDir_name = __('Upload directory');
 $strConfigUseDbSearch_desc = __('Allow for searching inside the entire database.');
 $strConfigUseDbSearch_name = __('Use database search');
-$strConfigUserprefsDeveloperTab_desc = __('When disabled, users cannot set any of the options below, regardless of the checkbox on the right.');
+$strConfigUserprefsDeveloperTab_desc = __(
+    'When disabled, users cannot set any of the options below, regardless of the ' .
+    'checkbox on the right.'
+);
 $strConfigUserprefsDeveloperTab_name = __('Enable the Developer tab in settings');
 $strConfigVersionCheckLink = __('Check for latest version');
-$strConfigVersionCheck_desc = __('Enables check for latest version on main phpMyAdmin page.');
+$strConfigVersionCheck_desc = __(
+    'Enables check for latest version on main phpMyAdmin page.'
+);
 $strConfigVersionCheck_name = __('Version check');
-$strConfigProxyUrl_desc = __('The url of the proxy to be used when retrieving the information about the latest version of phpMyAdmin or when submitting error reports. You need this if the server where phpMyAdmin is installed does not have direct access to the internet. The format is: "hostname:portnumber".');
+$strConfigProxyUrl_desc = __(
+    'The url of the proxy to be used when retrieving the information about the ' .
+    'latest version of phpMyAdmin or when submitting error reports. You need this ' .
+    'if the server where phpMyAdmin is installed does not have direct access to ' .
+    'the internet. The format is: "hostname:portnumber".'
+);
 $strConfigProxyUrl_name = __('Proxy url');
-$strConfigProxyUser_desc = __('The username for authenticating with the proxy. By default, no authentication is performed. If a username is supplied, Basic Authentication will be performed. No other types of authentication are currently supported.');
+$strConfigProxyUser_desc = __(
+    'The username for authenticating with the proxy. By default, no ' .
+    'authentication is performed. If a username is supplied, Basic ' .
+    'Authentication will be performed. No other types of authentication are ' .
+    'currently supported.'
+);
 $strConfigProxyUser_name = __('Proxy username');
 $strConfigProxyPass_desc = __('The password for authenticating with the proxy.');
 $strConfigProxyPass_name = __('Proxy password');
 
-$strConfigZipDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations.');
+$strConfigZipDump_desc = __(
+    'Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] ' .
+    'compression for import and export operations.'
+);
 $strConfigZipDump_name = __('ZIP');
-$strConfigCaptchaLoginPublicKey_desc  = __('Enter your public key for your domain reCaptcha service.');
-$strConfigCaptchaLoginPublicKey_name  = __('Public key for reCaptcha');
-$strConfigCaptchaLoginPrivateKey_desc = __('Enter your private key for your domain reCaptcha service.');
+$strConfigCaptchaLoginPublicKey_desc = __(
+    'Enter your public key for your domain reCaptcha service.'
+);
+$strConfigCaptchaLoginPublicKey_name = __('Public key for reCaptcha');
+$strConfigCaptchaLoginPrivateKey_desc = __(
+    'Enter your private key for your domain reCaptcha service.'
+);
 $strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 
-$strConfigSendErrorReports_desc = __('Choose the default action when sending error reports.');
+$strConfigSendErrorReports_desc = __(
+    'Choose the default action when sending error reports.'
+);
 $strConfigSendErrorReports_name = __('Send error reports');
+
+$strConfigConsoleEnterExecutes_desc = __(
+    'Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines ' .
+    'will be inserted with Shift+Enter.'
+);
+$strConfigConsoleEnterExecutes_name = __('Enter executes queries in console');
+
 $strConfigZeroConf_desc = __(
     'Enable Zero Configuration mode which lets you setup phpMyAdmin '
     . 'configuration storage tables automatically.'
 );
 $strConfigZeroConf_name = __('Enable Zero Configuration mode');
-
-?>

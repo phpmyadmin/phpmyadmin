@@ -139,7 +139,7 @@ function PMA_getScriptContr()
         //echo "<br> INNO ";
         //print_r($row);
         if ($row !== false) {
-            foreach ($row['foreign_keys_data'] as $key => $one_key) {
+            foreach ($row['foreign_keys_data'] as $one_key) {
                 foreach ($one_key['index_list'] as $index => $one_field) {
                     $con['C_NAME'][$i] = '';
                     $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
@@ -312,7 +312,7 @@ function PMA_deletePage($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
-        return null;
+        return false;
     }
 
     $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
@@ -331,36 +331,82 @@ function PMA_deletePage($pg)
         );
     }
 
-    return $success;
+    return (boolean) $success;
 }
 
 /**
- * Returns the id of the first pdf page of the database
+ * Returns the id of the default pdf page of the database.
+ * Default page is the one which has the same name as the database.
  *
  * @param string $db database
  *
- * @return int id of the first pdf page, default is -1
+ * @return int id of the default pdf page for the database
  */
-function PMA_getFirstPage($db)
+function PMA_getDefaultPage($db)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
         return null;
     }
 
-    $query = "SELECT MIN(`page_nr`)"
+    $query = "SELECT `page_nr`"
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE `db_name` = '" . $db . "'";
+        . " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($db) . "'"
+        . " AND `page_descr` = '" .  PMA_Util::sqlAddSlashes($db) . "'";
 
-    $min_page_no = $GLOBALS['dbi']->fetchResult(
+    $default_page_no = $GLOBALS['dbi']->fetchResult(
         $query,
         null,
         null,
         $GLOBALS['controllink'],
         PMA_DatabaseInterface::QUERY_STORE
     );
-    return count($min_page_no[0]) ? $min_page_no[0] : -1;
+
+    if (count($default_page_no)) {
+        return $default_page_no[0];
+    }
+    return -1;
+}
+
+/**
+ * Get the id of the page to load. If a default page exists it will be returned.
+ * If no such exists, returns the id of the first page of the database.
+ *
+ * @param string $db database
+ *
+ * @return int id of the page to load
+ */
+function PMA_getLoadingPage($db)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (! $cfgRelation['pdfwork']) {
+        return null;
+    }
+
+    $page_no = -1;
+
+    $default_page_no = PMA_getDefaultPage($db);
+    if ($default_page_no != -1) {
+        $page_no = $default_page_no;
+    } else {
+        $query = "SELECT MIN(`page_nr`)"
+            . " FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
+            . " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+
+        $min_page_no = $GLOBALS['dbi']->fetchResult(
+            $query,
+            null,
+            null,
+            $GLOBALS['controllink'],
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+        if (count($min_page_no[0])) {
+            $page_no = $min_page_no[0];
+        }
+    }
+    return $page_no;
 }
 
 /**
@@ -396,21 +442,21 @@ function PMA_saveTablePositions($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
-        return null;
+        return false;
     }
 
-    $queury =  "DELETE FROM " . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+    $query =  "DELETE FROM " . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
         . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
         . " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "'"
         . " AND `pdf_page_number` = '" . PMA_Util::sqlAddSlashes($pg) . "'";
 
-    $res = PMA_queryAsControlUser($queury, true, PMA_DatabaseInterface::QUERY_STORE);
+    $res = PMA_queryAsControlUser($query, true, PMA_DatabaseInterface::QUERY_STORE);
 
     if ($res) {
         foreach ($_REQUEST['t_h'] as $key => $value) {
             list($DB, $TAB) = explode(".", $key);
             if ($value) {
-                $queury = "INSERT INTO "
+                $query = "INSERT INTO "
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                     . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
@@ -422,13 +468,13 @@ function PMA_saveTablePositions($pg)
                     . "'" . PMA_Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . "')";
 
                 $res = PMA_queryAsControlUser(
-                    $queury,  true, PMA_DatabaseInterface::QUERY_STORE
+                    $query,  true, PMA_DatabaseInterface::QUERY_STORE
                 );
             }
         }
     }
 
-    return $res;
+    return (boolean) $res;
 }
 
 /**
@@ -452,8 +498,8 @@ function PMA_saveDisplayField($db, $table, $field)
         $field = '';
     }
 
-    include_once 'libraries/tbl_relation.lib.php';
-    PMA_handleUpdateForDisplayField($disp, $field, $db, $table, $cfgRelation);
+    $upd_query = new PMA_Table($table, $db, $GLOBALS['dbi']);
+    $upd_query->updateDisplayField($disp, $field, $cfgRelation);
 
     return true;
 }
@@ -654,4 +700,61 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
 
     return array(true, __('Internal relation has been removed.'));
 }
-?>
+
+/**
+ * Save value for a designer setting
+ *
+ * @param string $index setting
+ * @param string $value value
+ *
+ * @return bool whether the operation succeeded
+ */
+function PMA_saveDesignerSetting($index, $value)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    $cfgDesigner = array(
+        'user'  => $GLOBALS['cfg']['Server']['user'],
+        'db'    => $cfgRelation['db'],
+        'table' => $cfgRelation['designer_settings']
+    );
+
+    $success = true;
+    if ($GLOBALS['cfgRelation']['designersettingswork']) {
+
+        $orig_data_query = "SELECT settings_data"
+            . " FROM " . PMA_Util::backquote($cfgDesigner['db'])
+            . "." . PMA_Util::backquote($cfgDesigner['table'])
+            . " WHERE username = '"
+            . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . "';";
+
+        $orig_data = $GLOBALS['dbi']->fetchSingleRow(
+            $orig_data_query, $GLOBALS['controllink']
+        );
+
+        if (! empty($orig_data)) {
+            $orig_data = json_decode($orig_data['settings_data'], true);
+            $orig_data[$index] = $value;
+            $orig_data = json_encode($orig_data);
+
+            $save_query = "UPDATE " . PMA_Util::backquote($cfgDesigner['db'])
+                . "." . PMA_Util::backquote($cfgDesigner['table'])
+                . " SET settings_data = '" . $orig_data . "'"
+                . " WHERE username = '"
+                . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . "';";
+
+            $success = PMA_queryAsControlUser($save_query);
+        } else {
+            $save_data = array($index => $value);
+
+            $query = "INSERT INTO " . PMA_Util::backquote($cfgDesigner['db'])
+                . "." . PMA_Util::backquote($cfgDesigner['table'])
+                . " (username, settings_data)"
+                . " VALUES('" . $cfgDesigner['user'] . "',"
+                . " '" . json_encode($save_data) . "');";
+
+            $success = PMA_queryAsControlUser($query);
+        }
+    }
+
+    return $success;
+}

@@ -31,19 +31,21 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
 
     if ($not_only_options) {
         $retval .= '<form method="post" action="'
-            . $GLOBALS['cfg']['DefaultTabServer'] . '" class="disableAjax">';
-        $retval .= PMA_getHiddenFields(array('token' => $_SESSION[' PMA_token ']));
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            )
+            . '" class="disableAjax">';
 
         if (! $omit_fieldset) {
             $retval .= '<fieldset>';
         }
         $retval .= '<label for="select_server">'
-            . __('Current Server:') . '</label> ';
+            . __('Current server:') . '</label> ';
 
         $retval .= '<select name="server" id="select_server" class="autosubmit">';
         $retval .= '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
     } elseif ($list) {
-        $retval .= __('Current Server:') . '<br />';
+        $retval .= __('Current server:') . '<br />';
         $retval .= '<ul id="list_server">';
     }
 
@@ -84,7 +86,9 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
             } else {
 
                 $retval .= '<a class="disableAjax item" href="'
-                    . $GLOBALS['cfg']['DefaultTabServer']
+                    . PMA_Util::getScriptNameForOption(
+                        $GLOBALS['cfg']['DefaultTabServer'], 'server'
+                    )
                     . PMA_URL_getCommon(array('server' => $key))
                     . '" >' . htmlspecialchars($label) . '</a>';
             }
@@ -108,4 +112,3 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
 
     return $retval;
 }
-?>

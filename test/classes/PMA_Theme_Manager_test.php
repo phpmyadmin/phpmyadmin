@@ -158,4 +158,3 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

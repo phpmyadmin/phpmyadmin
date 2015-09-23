@@ -115,4 +115,3 @@ if (isset($_GET["message"]) && $_GET["message"]) {
 } else {
     PMA_importAjaxStatus($_GET["id"]);
 }
-?>

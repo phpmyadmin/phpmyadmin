@@ -232,4 +232,3 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

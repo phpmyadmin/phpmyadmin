@@ -142,6 +142,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         global $cfg;
 
         $server_port = $GLOBALS['dbi']->getServerPort($server);
+        if ($server_port === null) {
+            $server_port = 0;
+        }
         $server_socket = $GLOBALS['dbi']->getServerSocket($server);
 
         if ($server) {
@@ -617,4 +620,3 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         return implode(' ', $flags);
     }
 }
-?>

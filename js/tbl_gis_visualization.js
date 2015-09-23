@@ -14,8 +14,8 @@ var defaultX = 0;
 var defaultY = 0;
 
 // Variables
-var x;
-var y;
+var x = 0;
+var y = 0;
 var scale = 1;
 
 var svg;
@@ -26,6 +26,9 @@ var svg;
 function zoomAndPan()
 {
     var g = svg.getElementById('groupPanel');
+    if (!g) {
+        return;
+    }
 
     g.setAttribute('transform', 'translate(' + x + ', ' + y + ') scale(' + scale + ')');
     var id;
@@ -104,7 +107,7 @@ function loadSVG() {
  */
 function addZoomPanControllers() {
     var $placeholder = $('#placeholder');
-    if ($("#placeholder svg").length > 0) {
+    if ($("#placeholder").find("svg").length > 0) {
         var pmaThemeImage = $('#pmaThemeImage').val();
         // add panning arrows
         $('<img class="button" id="left_arrow" src="' + pmaThemeImage + 'west-mini.png">').appendTo($placeholder);
@@ -249,10 +252,10 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
     });
 
     $(document).on('drag', 'svg', function (event, dd) {
-        newX = Math.round(dd.offsetX);
+        var newX = Math.round(dd.offsetX);
         x +=  newX - dragX;
         dragX = newX;
-        newY = Math.round(dd.offsetY);
+        var newY = Math.round(dd.offsetY);
         y +=  newY - dragY;
         dragY = newY;
         zoomAndPan();
@@ -272,8 +275,9 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         //zoom in
         scale *= zoomFactor;
 
-        width = $('#placeholder svg').attr('width');
-        height = $('#placeholder svg').attr('height');
+        var $placeholder = $('#placeholder').find('svg');
+        width = $placeholder.attr('width');
+        height = $placeholder.attr('height');
         // zooming in keeping the center unmoved.
         x = width / 2 - (width / 2 - x) * zoomFactor;
         y = height / 2 - (height / 2 - y) * zoomFactor;
@@ -293,8 +297,9 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         //zoom out
         scale /= zoomFactor;
 
-        width = $('#placeholder svg').attr('width');
-        height = $('#placeholder svg').attr('height');
+        var $placeholder = $('#placeholder').find('svg');
+        width = $placeholder.attr('width');
+        height = $placeholder.attr('height');
         // zooming out keeping the center unmoved.
         x = width / 2 - (width / 2 - x) / zoomFactor;
         y = height / 2 - (height / 2 - y) / zoomFactor;

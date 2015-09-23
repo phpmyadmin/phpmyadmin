@@ -45,8 +45,6 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
     {
         // see PMA_highlightSQL()
         $result = PMA_Util::formatSql($buffer);
-        // Need to clear error state not to break subsequent queries display.
-        PMA_SQP_resetError();
         return $result;
     }
 
@@ -64,4 +62,3 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
         return "SQL";
     }
 }
-?>

@@ -69,4 +69,3 @@ class PMA_Iconv_Wrapper_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

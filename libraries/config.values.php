@@ -36,19 +36,19 @@ $cfg_db['OBGzip'] = array('auto', true, false);
 $cfg_db['MemoryLimit'] = 'short_string';
 $cfg_db['NavigationLogoLinkWindow'] = array('main', 'new');
 $cfg_db['NavigationTreeDefaultTabTable'] = array(
-    'tbl_structure.php', // fields list
-    'tbl_sql.php',       // SQL form
-    'tbl_select.php',    // search page
-    'tbl_change.php',    // insert row page
-    'sql.php'            // browse page
+    'structure' => __('Structure'), // fields list
+    'sql' => __('SQL'),             // SQL form
+    'search' => __('Search'),       // search page
+    'insert' => __('Insert'),       // insert row page
+    'browse' => __('Browse')        // browse page
 );
 $cfg_db['NavigationTreeDefaultTabTable2'] = array(
-    '', //don't display
-    'tbl_structure.php', // fields list
-    'tbl_sql.php',       // SQL form
-    'tbl_select.php',    // search page
-    'tbl_change.php',    // insert row page
-    'sql.php'            // browse page
+    '' => '', //don't display
+    'structure' => __('Structure'), // fields list
+    'sql' => __('SQL'),             // SQL form
+    'search' => __('Search'),       // search page
+    'insert' => __('Insert'),       // insert row page
+    'browse' => __('Browse')        // browse page
 );
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['NavigationTreeTableSeparator'] = 'short_string';
@@ -99,24 +99,24 @@ $cfg_db['RelationalDisplay'] = array(
     'D' => __('display column')
 );
 $cfg_db['DefaultTabServer'] = array(
-    'index.php',               // the welcome page (recommended for multiuser setups)
-    'server_databases.php',    // list of databases
-    'server_status.php',       // runtime information
-    'server_variables.php',    // MySQL server variables
-    'server_privileges.php'    // user management
+    'welcome' => __('Welcome'),        // the welcome page (recommended for multiuser setups)
+    'databases' => __('Databases'),    // list of databases
+    'status' => __('Status'),          // runtime information
+    'variables' => __('Variables'),    // MySQL server variables
+    'privileges' => __('Privileges')   // user management
 );
 $cfg_db['DefaultTabDatabase'] = array(
-    'db_structure.php',   // tables list
-    'db_sql.php',         // SQL form
-    'db_search.php',      // search query
-    'db_operations.php'   // operations on database
+    'structure' => __('Structure'),   // tables list
+    'sql' => __('SQL'),               // SQL form
+    'search' => __('Search'),         // search query
+    'operations' => __('Operations')  // operations on database
 );
 $cfg_db['DefaultTabTable'] = array(
-    'tbl_structure.php', // fields list
-    'tbl_sql.php',       // SQL form
-    'tbl_select.php',    // search page
-    'tbl_change.php',    // insert row page
-    'sql.php'            // browse page
+    'structure' => __('Structure'),  // fields list
+    'sql' => __('SQL'),              // SQL form
+    'search' => __('Search'),        // search page
+    'insert' => __('Insert'),        // insert row page
+    'browse' => __('Browse')         // browse page
 );
 $cfg_db['InitialSlidersState'] = array(
     'open'     => __('Open'),
@@ -127,6 +127,11 @@ $cfg_db['SendErrorReports'] = array(
     'ask'     => __('Ask before sending error reports'),
     'always'   => __('Always send error reports'),
     'never' => __('Never send error reports')
+);
+$cfg_db['DefaultForeignKeyChecks'] = array(
+    'default'   => __('Server default'),
+    'enable'    => __('Enable'),
+    'disable'   => __('Disable')
 );
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV
@@ -140,13 +145,13 @@ $cfg_db['Import']['charset'] = array_merge(
 );
 $cfg_db['Import']['sql_compatibility']
     = $cfg_db['Export']['sql_compatibility'] = array(
-    'NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323',
-    'MYSQL40', 'MSSQL', 'ORACLE',
-    // removed; in MySQL 5.0.33, this produces exports that
-    // can't be read by POSTGRESQL (see our bug #1596328)
-    //'POSTGRESQL',
-    'TRADITIONAL'
-);
+        'NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323',
+        'MYSQL40', 'MSSQL', 'ORACLE',
+        // removed; in MySQL 5.0.33, this produces exports that
+        // can't be read by POSTGRESQL (see our bug #1596328)
+        //'POSTGRESQL',
+        'TRADITIONAL'
+    );
 $cfg_db['Import']['csv_terminated'] = 'short_string';
 $cfg_db['Import']['csv_enclosed'] = 'short_string';
 $cfg_db['Import']['csv_escaped'] = 'short_string';
@@ -162,7 +167,9 @@ $cfg_db['Export']['_sod_select'] = array(
 $cfg_db['Export']['method'] = array(
     'quick'          => __('Quick - display only the minimal options to configure'),
     'custom'         => __('Custom - display all possible options to configure'),
-    'custom-no-form' => __('Custom - like above, but without the quick/custom choice')
+    'custom-no-form' => __(
+        'Custom - like above, but without the quick/custom choice'
+    ),
 );
 $cfg_db['Export']['format'] = array(
     'codegen', 'csv', 'excel', 'htmlexcel','htmlword', 'latex', 'ods',
@@ -267,4 +274,3 @@ $cfg_db['_userValidators'] = array(
         array('validateUpperBound', 'value:QueryHistoryMax')
     )
 );
-?>

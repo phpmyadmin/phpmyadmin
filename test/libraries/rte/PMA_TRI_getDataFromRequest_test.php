@@ -28,7 +28,7 @@ class PMA_TRI_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider provider
      */
-    public function testgetDataFromRequest_empty($in, $out)
+    public function testgetDataFromRequestEmpty($in, $out)
     {
         global $_REQUEST;
 
@@ -42,7 +42,7 @@ class PMA_TRI_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testgetDataFromRequest_empty
+     * Data provider for testgetDataFromRequestEmpty
      *
      * @return array
      */
@@ -92,4 +92,3 @@ class PMA_TRI_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

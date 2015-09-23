@@ -248,11 +248,11 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $foreignData = array();
         $foreignData['disp_row'] = '';
         $fieldkey = 'bar';
-        $data = array();
+        $current_value = '';
         $_REQUEST['rownumber'] = 1;
         $_REQUEST['foreign_filter'] = '5';
         $result = PMA_getHtmlForRelationalFieldSelection(
-            $db, $table, $field, $foreignData, $fieldkey, $data
+            $db, $table, $field, $foreignData, $fieldkey, $current_value
         );
 
         $this->assertContains(
@@ -294,7 +294,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="text" name="foreign_filter" '
-             . 'id="input_foreign_filter" '
+            . 'id="input_foreign_filter" '
             . 'value="5" data-old="5" '
             . '/>',
             $result
@@ -319,7 +319,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $foreignData['the_total'] = 5;
         $GLOBALS['cfg']['ShowAll'] = false;
         $result = PMA_getHtmlForRelationalFieldSelection(
-            $db, $table, $field, $foreignData, $fieldkey, $data
+            $db, $table, $field, $foreignData, $fieldkey, $current_value
         );
 
         $this->assertContains(
@@ -334,4 +334,3 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
 
     }
 }
-?>

@@ -70,4 +70,3 @@ class PMA_ExportPluginProperties_Test extends PMA_ImportPluginProperties_Test
     }
 
 }
-?>

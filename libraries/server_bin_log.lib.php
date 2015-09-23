@@ -115,7 +115,7 @@ function PMA_getLogInfo($url_params)
 
     //html output
     $html  = PMA_Util::getMessage(PMA_Message::success(), $sql_query);
-    $html .= '<table cellpadding="2" cellspacing="1" id="binlogTable">'
+    $html .= '<table id="binlogTable">'
         . '<thead>'
         . '<tr>'
         . '<td colspan="6" class="center">';
@@ -225,20 +225,19 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
     $odd_row = true;
     while ($value = $GLOBALS['dbi']->fetchAssoc($result)) {
         $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
-            . '<td>&nbsp;' . $value['Log_name'] . '&nbsp;</td>'
-            . '<td class="right">&nbsp;' . $value['Pos'] . '&nbsp;</td>'
-            . '<td>&nbsp;' . $value['Event_type'] . '&nbsp;</td>'
-            . '<td class="right">&nbsp;' . $value['Server_id'] . '&nbsp;</td>'
-            . '<td class="right">&nbsp;'
+            . '<td>' . $value['Log_name'] . '</td>'
+            . '<td class="right">' . $value['Pos'] . '</td>'
+            . '<td>' . $value['Event_type'] . '</td>'
+            . '<td class="right">' . $value['Server_id'] . '</td>'
+            . '<td class="right">'
             . (isset($value['Orig_log_pos'])
             ? $value['Orig_log_pos'] : $value['End_log_pos'])
-            . '&nbsp;</td>'
-            . '<td>&nbsp;' . PMA_Util::formatSql($value['Info'], ! $dontlimitchars)
-            . '&nbsp;</td></tr>';
+            . '</td>'
+            . '<td>' . PMA_Util::formatSql($value['Info'], ! $dontlimitchars)
+            . '</td></tr>';
 
         $odd_row = !$odd_row;
     }
     return $html;
 }
 
-?>

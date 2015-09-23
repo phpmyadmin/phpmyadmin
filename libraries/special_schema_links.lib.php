@@ -65,7 +65,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'Db'
                     ),
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
             'column_name' => array(
                 'link_param' => 'field',
@@ -116,7 +118,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'database_name'
                     ),
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
             'index_name' => array(
                 'link_param' => 'index',
@@ -142,7 +146,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'database_name'
                     ),
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
         ),
         'proc' => array(
@@ -232,7 +238,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'Db'
                     ),
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
         ),
         'user' => array(
@@ -258,7 +266,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
             'column_name' => array(
                 'link_param' => 'field',
@@ -284,7 +294,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
             'column_name' => array(
                 'link_param' => 'field',
@@ -308,7 +320,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'referenced_table_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
             'referenced_column_name' => array(
                 'link_param' => 'field',
@@ -334,7 +348,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             )
         ),
         'processlist' => array(
@@ -358,7 +374,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
             'referenced_table_name' => array(
                 'link_param' => 'table',
@@ -368,7 +386,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             )
         ),
         'routines' => array(
@@ -390,7 +410,9 @@ $GLOBALS['special_schema_links'] = array(
         'schemata' => array(
             'schema_name' => array(
                 'link_param' => 'db',
-                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             )
         ),
         'statistics' => array(
@@ -402,7 +424,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
             'column_name' => array(
                 'link_param' => 'field',
@@ -428,7 +452,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
         ),
         'table_constraints' => array(
@@ -440,7 +466,9 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
         ),
         'views' => array(
@@ -452,10 +480,11 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+                'default_page' => PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
             ),
         ),
     )
 );
 
-?>

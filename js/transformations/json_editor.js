@@ -5,8 +5,8 @@
  * @package PhpMyAdmin
  */
 AJAX.registerOnload('transformations/json_editor.js', function() {
-    $.each($('textarea.transform_json_editor'), function (i, e) {
-        CodeMirror.fromTextArea(e, {
+    $('textarea.transform_json_editor').each(function () {
+        CodeMirror.fromTextArea(this, {
             lineNumbers: true,
             matchBrackets: true,
             indentUnit: 4,

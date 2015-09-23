@@ -12,6 +12,9 @@
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('Edit');
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
@@ -77,6 +80,8 @@ $scripts->addFile('sql.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('big_ints.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('jquery/jquery.validate.js');
+$scripts->addFile('jquery/additional-methods.js');
 $scripts->addFile('gis_data_editor.js');
 
 /**
@@ -87,9 +92,6 @@ $scripts->addFile('gis_data_editor.js');
 if (! empty($disp_message)) {
     $response->addHTML(PMA_Util::getMessage($disp_message, null));
 }
-
-// used as a global by PMA_Util::getDefaultFunctionForField()
-$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
 
 $table_columns = PMA_getTableColumns($db, $table);
 
@@ -189,7 +191,7 @@ foreach ($rows as $row_id => $current_row) {
     }
 
     $html_output .= PMA_getHtmlForInsertEditRow(
-        $url_params, $table_columns, $column, $comments_map, $timestamp_seen,
+        $url_params, $table_columns, $comments_map, $timestamp_seen,
         $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
         $current_row, $o_rows, $tabindex, $columns_cnt,
         $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
@@ -199,8 +201,6 @@ foreach ($rows as $row_id => $current_row) {
 } // end foreach on multi-edit
 $scripts->addFiles($GLOBALS['plugin_scripts']);
 unset($unsaved_values, $checked, $repopulate, $GLOBALS['plugin_scripts']);
-
-$html_output .= PMA_getHtmlForGisEditor();
 
 if (! isset($after_insert)) {
     $after_insert = 'back';
@@ -219,6 +219,8 @@ if ($biggest_max_file_size > 0) {
         ) . "\n";
 }
 $html_output .= '</form>';
+
+$html_output .= PMA_getHtmlForGisEditor();
 // end Insert/Edit form
 
 if ($insert_mode) {
@@ -229,4 +231,3 @@ if ($insert_mode) {
 }
 
 $response->addHTML($html_output);
-?>

@@ -315,8 +315,9 @@ class PMA_Validator
         if ($values['Servers/1/auth_type'] == 'config'
             && empty($values['Servers/1/user'])
         ) {
-            $result['Servers/1/user']
-                = __('Empty username while using [kbd]config[/kbd] authentication method!');
+            $result['Servers/1/user'] = __(
+                'Empty username while using [kbd]config[/kbd] authentication method!'
+            );
             $error = true;
         }
         if ($values['Servers/1/auth_type'] == 'signon'
@@ -331,8 +332,10 @@ class PMA_Validator
         if ($values['Servers/1/auth_type'] == 'signon'
             && empty($values['Servers/1/SignonURL'])
         ) {
-            $result['Servers/1/SignonURL']
-                = __('Empty signon URL while using [kbd]signon[/kbd] authentication method!');
+            $result['Servers/1/SignonURL'] = __(
+                'Empty signon URL while using [kbd]signon[/kbd] authentication '
+                . 'method!'
+            );
             $error = true;
         }
 
@@ -380,13 +383,17 @@ class PMA_Validator
 
         $result = array();
         if ($values['Servers/1/controluser'] == '') {
-            $result['Servers/1/controluser']
-                = __('Empty phpMyAdmin control user while using phpMyAdmin configuration storage!');
+            $result['Servers/1/controluser'] = __(
+                'Empty phpMyAdmin control user while using phpMyAdmin configuration '
+                . 'storage!'
+            );
             $error = true;
         }
         if ($values['Servers/1/controlpass'] == '') {
-            $result['Servers/1/controlpass']
-                = __('Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!');
+            $result['Servers/1/controlpass'] = __(
+                'Empty phpMyAdmin control user password while using phpMyAdmin '
+                . 'configuration storage!'
+            );
             $error = true;
         }
         if (! $error) {
@@ -621,4 +628,3 @@ class PMA_Validator
             : sprintf(__('Value must be equal or lower than %s!'), $max_value)));
     }
 }
-?>

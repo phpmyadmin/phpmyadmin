@@ -11,10 +11,10 @@
  */
 function changePluginOpts()
 {
-    $("#format_specific_opts div.format_specific_options").each(function () {
+    $("#format_specific_opts").find("div.format_specific_options").each(function () {
         $(this).hide();
     });
-    var selected_plugin_name = $("#plugins option:selected").val();
+    var selected_plugin_name = $("#plugins").find("option:selected").val();
     $("#" + selected_plugin_name + "_options").fadeIn('slow');
     if (selected_plugin_name == "csv") {
         $("#import_notification").text(PMA_messages.strImportCSV);
@@ -141,7 +141,7 @@ AJAX.registerOnload('import.js', function () {
      *  Javascript-disabled browsers
      */
     $("#scroll_to_options_msg").hide();
-    $("#format_specific_opts div.format_specific_options")
+    $("#format_specific_opts").find("div.format_specific_options")
     .css({
         "border": 0,
         "margin": 0,

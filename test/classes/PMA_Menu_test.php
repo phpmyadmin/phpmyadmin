@@ -47,9 +47,9 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['cfg']['DefaultTabServer'] = 'main.php';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
-        $GLOBALS['cfg']['DefaultTabTable'] = 'sql.php';
+        $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
+        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
         $GLOBALS['cfg']['OBGzip'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = true;
         $GLOBALS['cfg']['TabsMode'] = 'both';

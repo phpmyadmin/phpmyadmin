@@ -57,4 +57,3 @@ class PMA_Languages_Test extends PHPUnit_Framework_TestCase
         return $ret;
     }
 }
-?>

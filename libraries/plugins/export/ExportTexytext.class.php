@@ -101,7 +101,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         return true;
     }
@@ -111,7 +111,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         return true;
     }
@@ -124,7 +124,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
@@ -141,7 +141,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -149,12 +149,13 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db       Database name
-     * @param string $db_alias Alias of db
+     * @param string $db          Database name
+     * @param string $export_type 'server', 'database', 'table'
+     * @param string $db_alias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $db_alias = '')
+    public function exportDBCreate($db, $export_type, $db_alias = '')
     {
         return true;
     }
@@ -313,7 +314,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string resulting schema
      */
-    function getTableDef(
+    public function getTableDef(
         $db,
         $table,
         $crlf,
@@ -419,7 +420,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string Formatted triggers list
      */
-    function getTriggers($db, $table)
+    public function getTriggers($db, $table)
     {
         $dump = "|------\n";
         $dump .= '|' . __('Name');
@@ -469,7 +470,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    function exportStructure(
+    public function exportStructure(
         $db,
         $table,
         $crlf,
@@ -530,7 +531,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string Formatted column definition
      */
-    function formatOneColumnDefinition(
+    public function formatOneColumnDefinition(
         $column, $unique_keys, $col_alias = ''
     ) {
         if (empty($col_alias)) {
@@ -572,4 +573,3 @@ class ExportTexytext extends ExportPlugin
         return $definition;
     }
 }
-?>

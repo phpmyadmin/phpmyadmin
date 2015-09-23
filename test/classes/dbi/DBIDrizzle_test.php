@@ -32,7 +32,6 @@ function drizzle_version()
 require_once 'libraries/Util.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/database_interface.inc.php';
@@ -69,7 +68,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['ssl'] = false;
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION

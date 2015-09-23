@@ -145,7 +145,7 @@ class ZipFile
         $fr .= $zdata;
 
         // echo this entry on the fly, ...
-        if ( $this -> doWrite) {
+        if ($this -> doWrite) {
             echo $fr;
         } else {                     // ... OR add this entry to array
             $this -> datasec[] = $fr;
@@ -198,7 +198,7 @@ class ZipFile
             pack('V', $this -> old_offset) .       //offset to start of central dir
             "\x00\x00";                            //.zip file comment length
 
-        if ( $this -> doWrite ) { // Send central directory & end ctrl dir to STDOUT
+        if ($this -> doWrite) { // Send central directory & end ctrl dir to STDOUT
             echo $header;
             return "";            // Return empty string
         } else {                  // Return entire ZIP archive as string
@@ -208,4 +208,3 @@ class ZipFile
     } // end of the 'file()' method
 
 } // end of the 'ZipFile' class
-?>

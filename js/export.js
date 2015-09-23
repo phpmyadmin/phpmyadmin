@@ -27,34 +27,265 @@ function enable_dump_some_rows_sub_options()
 }
 
 /**
+ * Return template data as a json object
+ *
+ * @returns template data
+ */
+function getTemplateData()
+{
+    var $form = $('form[name="dump"]');
+    var blacklist = ['token', 'server', 'db', 'table', 'single_table',
+        'export_type', 'export_method', 'sql_query', 'template_id'];
+    var obj = {};
+    var arr = $form.serializeArray();
+    $.each(arr, function () {
+        if ($.inArray(this.name, blacklist) < 0) {
+            if (obj[this.name] !== undefined) {
+                if (! obj[this.name].push) {
+                    obj[this.name] = [obj[this.name]];
+                }
+                obj[this.name].push(this.value || '');
+            } else {
+                obj[this.name] = this.value || '';
+            }
+        }
+    });
+    // include unchecked checboxes (which are ignored by serializeArray()) with null
+    // to uncheck them when loading the template
+    $form.find('input[type="checkbox"]:not(:checked)').each(function () {
+        if (obj[this.name] === undefined) {
+            obj[this.name] = null;
+        }
+    });
+    // include empty multiselects
+    $form.find('select').each(function () {
+        if ($(this).find('option:selected').length == 0) {
+            obj[this.name] = [];
+        }
+    });
+    return obj;
+}
+
+/**
+ * Create a template with selected options
+ *
+ * @param name name of the template
+ */
+function createTemplate(name)
+{
+    var templateData = getTemplateData();
+
+    var params = {
+        ajax_request : true,
+        token : PMA_commonParams.get('token'),
+        server : PMA_commonParams.get('server'),
+        db : PMA_commonParams.get('db'),
+        table : PMA_commonParams.get('table'),
+        exportType : $('input[name="export_type"]').val(),
+        templateAction : 'create',
+        templateName : name,
+        templateData : JSON.stringify(templateData)
+    };
+
+    PMA_ajaxShowMessage();
+    $.post('tbl_export.php', params, function (response) {
+        if (response.success === true) {
+            $('#templateName').val('');
+            $('#template').html(response.data);
+            $("#template").find("option").each(function() {
+                if ($(this).text() == name) {
+                    $(this).prop('selected', true);
+                }
+            });
+            PMA_ajaxShowMessage(PMA_messages.strTemplateCreated);
+        } else {
+            PMA_ajaxShowMessage(response.error, false);
+        }
+    });
+}
+
+/**
+ * Loads a template
+ *
+ * @param id ID of the template to load
+ */
+function loadTemplate(id)
+{
+    var params = {
+        ajax_request : true,
+        token : PMA_commonParams.get('token'),
+        server : PMA_commonParams.get('server'),
+        db : PMA_commonParams.get('db'),
+        table : PMA_commonParams.get('table'),
+        exportType : $('input[name="export_type"]').val(),
+        templateAction : 'load',
+        templateId : id,
+    };
+
+    PMA_ajaxShowMessage();
+    $.post('tbl_export.php', params, function (response) {
+        if (response.success === true) {
+            var $form = $('form[name="dump"]');
+            var options = $.parseJSON(response.data);
+            $.each(options, function (key, value) {
+                var $element = $form.find('[name="' + key + '"]');
+                if ($element.length) {
+                    if (($element.is('input') && $element.attr('type') == 'checkbox') && value === null) {
+                        $element.prop('checked', false);
+                    } else {
+                        if (($element.is('input') && $element.attr('type') == 'checkbox') ||
+                            ($element.is('input') && $element.attr('type') == 'radio') ||
+                            ($element.is('select') && $element.attr('multiple') == 'multiple')) {
+                            if (! value.push) {
+                                value = [value];
+                            }
+                        }
+                        $element.val(value);
+                    }
+                    $element.trigger('change');
+                }
+            });
+            $('input[name="template_id"]').val(id);
+            PMA_ajaxShowMessage(PMA_messages.strTemplateLoaded);
+        } else {
+            PMA_ajaxShowMessage(response.error, false);
+        }
+    });
+}
+
+/**
+ * Updates an existing template with current options
+ *
+ * @param id ID of the template to update
+ */
+function updateTemplate(id)
+{
+    var templateData = getTemplateData();
+
+    var params = {
+        ajax_request : true,
+        token : PMA_commonParams.get('token'),
+        server : PMA_commonParams.get('server'),
+        db : PMA_commonParams.get('db'),
+        table : PMA_commonParams.get('table'),
+        exportType : $('input[name="export_type"]').val(),
+        templateAction : 'update',
+        templateId : id,
+        templateData : JSON.stringify(templateData)
+    };
+
+    PMA_ajaxShowMessage();
+    $.post('tbl_export.php', params, function (response) {
+        if (response.success === true) {
+            PMA_ajaxShowMessage(PMA_messages.strTemplateUpdated);
+        } else {
+            PMA_ajaxShowMessage(response.error, false);
+        }
+    });
+}
+
+/**
+ * Delete a template
+ *
+ * @param id ID of the template to delete
+ */
+function deleteTemplate(id)
+{
+    var params = {
+        ajax_request : true,
+        token : PMA_commonParams.get('token'),
+        server : PMA_commonParams.get('server'),
+        db : PMA_commonParams.get('db'),
+        table : PMA_commonParams.get('table'),
+        exportType : $('input[name="export_type"]').val(),
+        templateAction : 'delete',
+        templateId : id,
+    };
+
+    PMA_ajaxShowMessage();
+    $.post('tbl_export.php', params, function (response) {
+        if (response.success === true) {
+            $('#template').find('option[value="' + id + '"]').remove();
+            PMA_ajaxShowMessage(PMA_messages.strTemplateDeleted);
+        } else {
+            PMA_ajaxShowMessage(response.error, false);
+        }
+    });
+}
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('export.js', function () {
     $("#plugins").unbind('change');
     $("input[type='radio'][name='sql_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='latex_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='odt_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='texytext_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='htmlword_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='sql_structure_or_data']").unbind('change');
+    $("input[type='radio'][name$='_structure_or_data']").off('change');
     $("input[type='radio'][name='output_format']").unbind('change');
     $("#checkbox_sql_include_comments").unbind('change');
-    $("#plugins").unbind('change');
     $("input[type='radio'][name='quick_or_custom']").unbind('change');
     $("input[type='radio'][name='allrows']").unbind('change');
     $('#btn_alias_config').off('click');
     $('#db_alias_select').off('change');
     $('.table_alias_select').off('change');
+    $('input[name="table_select[]"]').off('change');
+    $('input[name="table_structure[]"]').off('change');
+    $('input[name="table_data[]"]').off('change');
+    $('#table_structure_all').off('change');
+    $('#table_data_all').off('change');
+    $('input[name="createTemplate"]').off('click');
+    $('select[name="template"]').off('change');
+    $('input[name="updateTemplate"]').off('click');
+    $('input[name="deleteTemplate"]').off('click');
 });
 
 AJAX.registerOnload('export.js', function () {
+
+    /**
+     * Export template handling code
+     */
+    // create a new template
+    $('input[name="createTemplate"]').on('click', function (e) {
+        e.preventDefault();
+        var name = $('input[name="templateName"]').val();
+        if (name.length) {
+            createTemplate(name);
+        }
+    });
+
+    // load an existing template
+    $('select[name="template"]').on('change', function (e) {
+        e.preventDefault();
+        var id = $(this).val();
+        if (id.length) {
+            loadTemplate(id);
+        }
+    });
+
+    // udpate an existing template with new criteria
+    $('input[name="updateTemplate"]').on('click', function (e) {
+        e.preventDefault();
+        var id = $('select[name="template"]').val();
+        if (id.length) {
+            updateTemplate(id);
+        }
+    });
+
+    // delete an existing template
+    $('input[name="deleteTemplate"]').on('click', function (e) {
+        e.preventDefault();
+        var id = $('select[name="template"]').val();
+        if (id.length) {
+            deleteTemplate(id);
+        }
+    });
+
     /**
      * Toggles the hiding and showing of each plugin's options
      * according to the currently selected plugin from the dropdown list
      */
     $("#plugins").change(function () {
-        $("#format_specific_opts div.format_specific_options").hide();
-        var selected_plugin_name = $("#plugins option:selected").val();
+        $("#format_specific_opts").find("div.format_specific_options").hide();
+        var selected_plugin_name = $("#plugins").find("option:selected").val();
         $("#" + selected_plugin_name + "_options").show();
     });
 
@@ -86,15 +317,79 @@ AJAX.registerOnload('export.js', function () {
             $("#checkbox_sql_auto_increment").removeProp('disabled').parent().fadeTo('fast', 1);
         }
     });
+
+    // For separate-file exports only ZIP compression is allowed
+    $('input[type="checkbox"][name="as_separate_files"]').change(function(){
+        if (! $(this).attr('checked')) {
+            $('#compression').val('zip');
+        }
+    });
+
+    $('#compression').change(function(){
+        if ($('option:selected').val() !== 'zip') {
+            $('input[type="checkbox"][name="as_separate_files"]').attr('checked', false);
+        }
+    });
+
 });
 
+function setup_table_structure_or_data() {
+    if ($("input[name='export_type']").val() != 'database') {
+        return;
+    }
+    var pluginName = $("#plugins").find("option:selected").val();
+    var formElemName = pluginName + "_structure_or_data";
+    var force_structure_or_data = !($("input[name='" + formElemName + "_default']").length);
+
+    if (force_structure_or_data === true) {
+        $('input[name="structure_or_data_forced"]').val(1);
+        $('.export_structure input[type="checkbox"], .export_data input[type="checkbox"]')
+            .prop('disabled', true);
+        $('.export_structure, .export_data').fadeTo('fast', 0.4);
+    } else {
+        $('input[name="structure_or_data_forced"]').val(0);
+        $('.export_structure input[type="checkbox"], .export_data input[type="checkbox"]')
+            .removeProp('disabled');
+        $('.export_structure, .export_data').fadeTo('fast', 1);
+
+        var structure_or_data = $('input[name="' + formElemName + '_default"]').val();
+
+        if (structure_or_data == 'structure') {
+            $('.export_data input[type="checkbox"]')
+                .prop('checked', false);
+        } else if (structure_or_data == 'data') {
+            $('.export_structure input[type="checkbox"]')
+                .prop('checked', false);
+        }
+        if (structure_or_data == 'structure' || structure_or_data == 'structure_and_data') {
+            if (!$('.export_structure input[type="checkbox"]:checked').length) {
+                $('input[name="table_select[]"]:checked')
+                    .closest('tr')
+                    .find('.export_structure input[type="checkbox"]')
+                    .prop('checked', true);
+            }
+        }
+        if (structure_or_data == 'data' || structure_or_data == 'structure_and_data') {
+            if (!$('.export_data input[type="checkbox"]:checked').length) {
+                $('input[name="table_select[]"]:checked')
+                    .closest('tr')
+                    .find('.export_data input[type="checkbox"]')
+                    .prop('checked', true);
+            }
+        }
+
+        check_selected_tables();
+        check_table_select_all();
+    }
+}
 
 /**
  * Toggles the hiding and showing of plugin structure-specific and data-specific
  * options
  */
-function toggle_structure_data_opts(pluginName)
+function toggle_structure_data_opts()
 {
+    var pluginName = $("select#plugins").val();
     var radioFormName = pluginName + "_structure_or_data";
     var dataDiv = "#" + pluginName + "_data";
     var structureDiv = "#" + pluginName + "_structure";
@@ -112,37 +407,20 @@ function toggle_structure_data_opts(pluginName)
     }
 }
 
-AJAX.registerOnload('export.js', function () {
-    $("input[type='radio'][name='latex_structure_or_data']").change(function () {
-        toggle_structure_data_opts("latex");
-    });
-    $("input[type='radio'][name='odt_structure_or_data']").change(function () {
-        toggle_structure_data_opts("odt");
-    });
-    $("input[type='radio'][name='texytext_structure_or_data']").change(function () {
-        toggle_structure_data_opts("texytext");
-    });
-    $("input[type='radio'][name='htmlword_structure_or_data']").change(function () {
-        toggle_structure_data_opts("htmlword");
-    });
-    $("input[type='radio'][name='sql_structure_or_data']").change(function () {
-        toggle_structure_data_opts("sql");
-    });
-});
-
 /**
  * Toggles the disabling of the "save to file" options
  */
 function toggle_save_to_file()
 {
+    var $ulSaveAsfile = $("#ul_save_asfile");
     if (!$("#radio_dump_asfile").prop("checked")) {
-        $("#ul_save_asfile > li").fadeTo('fast', 0.4);
-        $("#ul_save_asfile > li > input").prop('disabled', true);
-        $("#ul_save_asfile > li> select").prop('disabled', true);
+        $ulSaveAsfile.find("> li").fadeTo('fast', 0.4);
+        $ulSaveAsfile.find("> li > input").prop('disabled', true);
+        $ulSaveAsfile.find("> li > select").prop('disabled', true);
     } else {
-        $("#ul_save_asfile > li").fadeTo('fast', 1);
-        $("#ul_save_asfile > li > input").prop('disabled', false);
-        $("#ul_save_asfile > li> select").prop('disabled', false);
+        $ulSaveAsfile.find("> li").fadeTo('fast', 1);
+        $ulSaveAsfile.find("> li > input").prop('disabled', false);
+        $ulSaveAsfile.find("> li > select").prop('disabled', false);
     }
 }
 
@@ -157,19 +435,109 @@ AJAX.registerOnload('export.js', function () {
 function toggle_sql_include_comments()
 {
     $("#checkbox_sql_include_comments").change(function () {
+        var $ulIncludeComments = $("#ul_include_comments");
         if (!$("#checkbox_sql_include_comments").prop("checked")) {
-            $("#ul_include_comments > li").fadeTo('fast', 0.4);
-            $("#ul_include_comments > li > input").prop('disabled', true);
+            $ulIncludeComments.find("> li").fadeTo('fast', 0.4);
+            $ulIncludeComments.find("> li > input").prop('disabled', true);
         } else {
             // If structure is not being exported, the comment options for structure should not be enabled
             if ($("#radio_sql_structure_or_data_data").prop("checked")) {
                 $("#text_sql_header_comment").removeProp('disabled').parent("li").fadeTo('fast', 1);
             } else {
-                $("#ul_include_comments > li").fadeTo('fast', 1);
-                $("#ul_include_comments > li > input").removeProp('disabled');
+                $ulIncludeComments.find("> li").fadeTo('fast', 1);
+                $ulIncludeComments.find("> li > input").removeProp('disabled');
             }
         }
     });
+}
+
+function check_table_select_all() {
+    var total = $('input[name="table_select[]"]').length;
+    var str_checked = $('input[name="table_structure[]"]:checked').length;
+    var data_checked = $('input[name="table_data[]"]:checked').length;
+    var str_all = $('#table_structure_all');
+    var data_all = $('#table_data_all');
+
+    if (str_checked == total) {
+        str_all
+            .prop("indeterminate", false)
+            .prop('checked', true);
+    } else if (str_checked === 0) {
+        str_all
+            .prop("indeterminate", false)
+            .prop('checked', false);
+    } else {
+        str_all
+            .prop("indeterminate", true)
+            .prop('checked', false);
+    }
+
+    if (data_checked == total) {
+        data_all
+            .prop("indeterminate", false)
+            .prop('checked', true);
+    } else if (data_checked === 0) {
+        data_all
+            .prop("indeterminate", false)
+            .prop('checked', false);
+    } else {
+        data_all
+            .prop("indeterminate", true)
+            .prop('checked', false);
+    }
+}
+
+function toggle_table_select_all_str() {
+    var str_all = $('#table_structure_all').is(':checked');
+    if (str_all) {
+        $('input[name="table_structure[]"]').prop('checked', true);
+    } else {
+        $('input[name="table_structure[]"]').prop('checked', false);
+    }
+}
+
+function toggle_table_select_all_data() {
+    var data_all = $('#table_data_all').is(':checked');
+    if (data_all) {
+        $('input[name="table_data[]"]').prop('checked', true);
+    } else {
+        $('input[name="table_data[]"]').prop('checked', false);
+    }
+}
+
+function check_selected_tables(argument) {
+    $('.export_table_select tbody tr').each(function() {
+        check_table_selected(this);
+    });
+}
+
+function check_table_selected(row) {
+    var $row = $(row);
+    var table_select = $row.find('input[name="table_select[]"]');
+    var str_check = $row.find('input[name="table_structure[]"]');
+    var data_check = $row.find('input[name="table_data[]"]');
+
+    var data = data_check.is(':checked:not(:disabled)');
+    var structure = str_check.is(':checked:not(:disabled)');
+
+    if (data && structure) {
+        table_select.prop({checked: true, indeterminate: false});
+    } else if (data || structure) {
+        table_select.prop({checked: true, indeterminate: true});
+    } else {
+        table_select.prop({checked: false, indeterminate: false});
+    }
+}
+
+function toggle_table_select(row) {
+    var $row = $(row);
+    var table_selected = $row.find('input[name="table_select[]"]').is(':checked');
+
+    if (table_selected) {
+        $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', true);
+    } else {
+        $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', false);
+    }
 }
 
 AJAX.registerOnload('export.js', function () {
@@ -177,7 +545,7 @@ AJAX.registerOnload('export.js', function () {
      * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
      */
     var $create = $("#checkbox_sql_create_table_statements");
-    var $create_options = $("#ul_create_table_statements input");
+    var $create_options = $("#ul_create_table_statements").find("input");
     $create.change(function () {
         $create_options.prop('checked', $(this).prop("checked"));
     });
@@ -191,7 +559,7 @@ AJAX.registerOnload('export.js', function () {
      * Disables the view output as text option if the output must be saved as a file
      */
     $("#plugins").change(function () {
-        var active_plugin = $("#plugins option:selected").val();
+        var active_plugin = $("#plugins").find("option:selected").val();
         var force_file = $("#force_file_" + active_plugin).val();
         if (force_file == "true") {
             if ($("#radio_dump_asfile").prop('checked') !== true) {
@@ -203,6 +571,78 @@ AJAX.registerOnload('export.js', function () {
             $("#radio_view_as_text").prop('disabled', false).parent().fadeTo('fast', 1);
         }
     });
+
+    $("input[type='radio'][name$='_structure_or_data']").on('change', function () {
+        toggle_structure_data_opts();
+    });
+
+    $('input[name="table_select[]"]').on('change', function() {
+        toggle_table_select($(this).closest('tr'));
+        check_table_select_all();
+    });
+
+    $('input[name="table_structure[]"]').on('change', function() {
+        check_table_selected($(this).closest('tr'));
+        check_table_select_all();
+    });
+
+    $('input[name="table_data[]"]').on('change', function() {
+        check_table_selected($(this).closest('tr'));
+        check_table_select_all();
+    });
+
+    $('#table_structure_all').on('change', function() {
+        toggle_table_select_all_str();
+        check_selected_tables();
+    });
+
+    $('#table_data_all').on('change', function() {
+        toggle_table_select_all_data();
+        check_selected_tables();
+    });
+
+    if ($("input[name='export_type']").val() == 'database') {
+        // Hide structure or data radio buttons
+        $("input[type='radio'][name$='_structure_or_data']").each(function() {
+            var $this = $(this);
+            var name = $this.prop('name');
+            var val = $('input[name="' + name + '"]:checked').val();
+            var name_default = name + '_default';
+            if (!$('input[name="' + name_default + '"]').length) {
+                $this
+                    .after(
+                        $('<input type="hidden" name="' + name_default + '" value="' + val + '" disabled>')
+                    )
+                    .after(
+                        $('<input type="hidden" name="' + name + '" value="structure_and_data">')
+                    );
+                $this.parent().find('label').remove();
+            } else {
+                $this.parent().remove();
+            }
+        });
+        $("input[type='radio'][name$='_structure_or_data']").remove();
+
+        // Disable CREATE table checkbox for sql
+        var createTableCheckbox = $('#checkbox_sql_create_table');
+        createTableCheckbox.prop('checked', true);
+        var dummyCreateTable = $('#checkbox_sql_create_table')
+            .clone()
+            .removeAttr('id')
+            .attr('type', 'hidden');
+        createTableCheckbox
+            .prop('disabled', true)
+            .after(dummyCreateTable)
+            .parent()
+            .fadeTo('fast', 0.4);
+
+        setup_table_structure_or_data();
+    }
+
+    /**
+     * Handle force structure_or_data
+     */
+    $("#plugins").change(setup_table_structure_or_data);
 });
 
 /**
@@ -218,7 +658,7 @@ function toggle_quick_or_custom()
         $("#output").show();
         $("#format_specific_opts").show();
         $("#output_quick_export").hide();
-        var selected_plugin_name = $("#plugins option:selected").val();
+        var selected_plugin_name = $("#plugins").find("option:selected").val();
         $("#" + selected_plugin_name + "_options").show();
     } else { // quick
         $("#databases_and_tables").hide();
@@ -320,7 +760,7 @@ function createAliasModal(event) {
         });
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     };
-    $('#alias_modal input[type="text"]').prop('disabled', false);
+    $('#alias_modal').find('input[type="text"]').prop('disabled', false);
     $('#alias_modal').dialog({
         width: Math.min($(window).width() - 100, 700),
         maxHeight: $(window).height(),
@@ -353,17 +793,17 @@ AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
 
     $("#scroll_to_options_msg").hide();
-    $("#format_specific_opts div.format_specific_options")
-    .hide()
-    .css({
-        "border": 0,
-        "margin": 0,
-        "padding": 0
-    })
-    .find("h3")
-    .remove();
+    $("#format_specific_opts").find("div.format_specific_options")
+        .hide()
+        .css({
+            "border": 0,
+            "margin": 0,
+            "padding": 0
+        })
+        .find("h3")
+        .remove();
     toggle_quick_or_custom();
-    toggle_structure_data_opts($("select#plugins").val());
+    toggle_structure_data_opts();
     toggle_sql_include_comments();
 
     /**

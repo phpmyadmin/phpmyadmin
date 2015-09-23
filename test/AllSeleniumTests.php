@@ -52,4 +52,3 @@ class AllSeleniumTests
         return $suite;
     }
 }
-?>

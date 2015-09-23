@@ -56,4 +56,3 @@ class PMA_PrintableBitValueTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

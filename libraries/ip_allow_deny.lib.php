@@ -338,4 +338,3 @@ function PMA_allowDeny($type)
     return false;
 } // end of the "PMA_AllowDeny()" function
 
-?>

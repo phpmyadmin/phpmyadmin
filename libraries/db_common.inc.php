@@ -16,6 +16,9 @@ require_once './libraries/bookmark.lib.php';
 
 PMA_Util::checkParameters(array('db'));
 
+global $cfg;
+global $db;
+
 $is_show_stats = $cfg['ShowStats'];
 
 $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
@@ -27,7 +30,10 @@ if ($db_is_system_schema) {
  * Defines the urls to return to in case of error in a sql statement
  */
 $err_url_0 = 'index.php' . PMA_URL_getCommon();
-$err_url   = $cfg['DefaultTabDatabase']
+
+$err_url = PMA_Util::getScriptNameForOption(
+    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+)
     . PMA_URL_getCommon(array('db' => $db));
 
 /** @var PMA_String $pmaString */
@@ -89,7 +95,7 @@ if (isset($_REQUEST['submitcollation'])
      * db charset change action on db_operations.php.  If this causes a bug on
      * other pages, we might have to move this to a different location.
      */
-    if ( $GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true) {
         $response = PMA_Response::getInstance();
         $response->isSuccess($message->isSuccess());
         $response->addJSON('message', $message);
@@ -102,4 +108,3 @@ if (isset($_REQUEST['submitcollation'])
  */
 $url_query = PMA_URL_getCommon(array('db' => $db));
 
-?>

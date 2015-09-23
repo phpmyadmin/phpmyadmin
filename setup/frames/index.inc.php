@@ -22,6 +22,7 @@ require_once './setup/lib/index.lib.php';
 $all_languages = PMA_langList();
 uasort($all_languages, 'PMA_languageCmp');
 
+/** @var ConfigFile $cf */
 $cf = $GLOBALS['ConfigFile'];
 $separator = PMA_URL_getArgSeparator('html');
 
@@ -147,7 +148,7 @@ echo '</legend>';
 //
 // Display server list
 //
-PMA_displayFormTop(
+echo PMA_displayFormTop(
     'index.php', 'get',
     array(
         'page' => 'servers',
@@ -205,7 +206,7 @@ echo '</tr>';
 echo '</table>';
 echo '</div>';
 
-PMA_displayFormBottom();
+echo PMA_displayFormBottom();
 
 echo '</fieldset>';
 
@@ -216,7 +217,7 @@ echo '<fieldset class="simple"><legend>' . __('Configuration file') . '</legend>
 //
 $form_display = new FormDisplay($cf);
 
-PMA_displayFormTop('config.php');
+echo PMA_displayFormTop('config.php');
 echo '<table width="100%" cellspacing="0">';
 
 // Display language list
@@ -228,7 +229,7 @@ foreach ($all_languages as $each_lang_key => $each_lang) {
     $lang_name = PMA_languageName($each_lang);
     $opts['values'][$each_lang_key] = $lang_name;
 }
-PMA_displayInput(
+echo PMA_displayInput(
     'DefaultLang', __('Default language'), 'select',
     $cf->getValue('DefaultLang'), '', true, $opts
 );
@@ -253,7 +254,7 @@ if ($cf->getServerCount() > 0) {
     $opts['values']['1'] = __('- none -');
     $opts['values_escaped'] = true;
 }
-PMA_displayInput(
+echo PMA_displayInput(
     'ServerDefault', __('Default server'), 'select',
     $cf->getValue('ServerDefault'), '', true, $opts
 );
@@ -265,7 +266,7 @@ $opts = array(
         'win' => 'Windows (\r\n)'),
     'values_escaped' => true);
 $eol = PMA_ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
-PMA_displayInput(
+echo PMA_displayInput(
     'eol', __('End of line'), 'select',
     $eol, '', true, $opts
 );
@@ -301,7 +302,7 @@ echo '</td>';
 echo '</tr>';
 echo '</table>';
 
-PMA_displayFormBottom();
+echo PMA_displayFormBottom();
 
 echo '</fieldset>';
 echo '<div id="footer">';

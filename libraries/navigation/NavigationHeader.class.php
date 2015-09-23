@@ -9,6 +9,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/Template.class.php';
+use PMA\Template;
+
 /**
  * This class renders the logo, links, server selection,
  * which are then displayed at the top of the navigation panel
@@ -73,11 +76,10 @@ class PMA_NavigationHeader
      */
     private function _logo()
     {
-        $retval = '<!-- LOGO START -->';
         // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
         if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
-            $retval .= '<!-- LOGO END -->';
-            return $retval;
+            return Template::get('navigation/logo')
+                ->render(array('displayLogo' => false));
         }
 
         $logo = 'phpMyAdmin';
@@ -88,44 +90,56 @@ class PMA_NavigationHeader
             $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
                 . 'alt="' . $logo . '" id="imgpmalogo" />';
         }
-        $retval .= '<div id="pmalogo">';
-        if ($GLOBALS['cfg']['NavigationLogoLink']) {
-            $logo_link = trim(
-                htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
-            );
-            // prevent XSS, see PMASA-2013-9
-            // if link has protocol, allow only http and https
-            if (preg_match('/^[a-z]+:/i', $logo_link)
-                && ! preg_match('/^https?:/i', $logo_link)
-            ) {
-                $logo_link = 'index.php';
-            }
-            $retval .= '    <a href="' . $logo_link;
-            switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
-            case 'new':
-                $retval .= '" target="_blank"';
-                break;
-            case 'main':
-                // do not add our parameters for an external link
-                $host = parse_url(
-                    $GLOBALS['cfg']['NavigationLogoLink'], PHP_URL_HOST
-                );
-                if (empty($host)) {
-                    $retval .= PMA_URL_getCommon() . '"';
-                } else {
-                    $retval .= '" target="_blank"';
-                }
-            }
-            $retval .= '>';
-            $retval .= $logo;
-            $retval .= '</a>';
-        } else {
-            $retval .= $logo;
-        }
-        $retval .= '</div>';
 
-        $retval .= '<!-- LOGO END -->';
-        return $retval;
+        if (!$GLOBALS['cfg']['NavigationLogoLink']) {
+            return Template::get('navigation/logo')
+                ->render(
+                    array(
+                        'displayLogo' => true,
+                        'useLogoLink' => false,
+                        'logo' => $logo,
+                    )
+                );
+        }
+
+        $useLogoLink = true;
+        $linkAttriks = null;
+        $logoLink = trim(
+            htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
+        );
+        // prevent XSS, see PMASA-2013-9
+        // if link has protocol, allow only http and https
+        if (preg_match('/^[a-z]+:/i', $logoLink)
+            && ! preg_match('/^https?:/i', $logoLink)
+        ) {
+            $logoLink = 'index.php';
+        }
+        switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
+        case 'new':
+            $linkAttriks = 'target="_blank"';
+            break;
+        case 'main':
+            // do not add our parameters for an external link
+            $host = parse_url(
+                $GLOBALS['cfg']['NavigationLogoLink'], PHP_URL_HOST
+            );
+            if (empty($host)) {
+                $logoLink .= PMA_URL_getCommon();
+            } else {
+                $linkAttriks = 'target="_blank"';
+            }
+        }
+
+        return Template::get('navigation/logo')
+            ->render(
+                array(
+                    'displayLogo' => true,
+                    'useLogoLink' => $useLogoLink,
+                    'logoLink' => $logoLink,
+                    'linkAttribs' => $linkAttriks,
+                    'logo' => $logo,
+                )
+            );
     }
 
     /**
@@ -189,6 +203,17 @@ class PMA_NavigationHeader
         $retval .= PMA_Util::getNavigationLink(
             '#',
             $showText,
+            __('Navigation panel settings'),
+            $showIcon,
+            's_cog.png',
+            'pma_navigation_settings_icon',
+            false,
+            '',
+            defined('PMA_DISABLE_NAVI_SETTINGS') ? array('hide') : array()
+        );
+        $retval .= PMA_Util::getNavigationLink(
+            '#',
+            $showText,
             __('Reload navigation panel'),
             $showIcon,
             's_reload.png',
@@ -220,4 +245,3 @@ class PMA_NavigationHeader
         return $retval;
     }
 }
-?>

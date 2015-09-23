@@ -23,10 +23,10 @@ $config_exists = false;
 PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
 echo '<h2>' . __('Configuration file') . '</h2>';
 
-PMA_displayFormTop('config.php');
+echo PMA_displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
     . htmlspecialchars(PMA_ifSetOr($_GET['eol'], 'unix')) . '" />';
-PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
+echo PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
 echo '<tr>';
 echo '<td>';
 echo '<textarea cols="50" rows="20" name="textconfig" '
@@ -47,6 +47,5 @@ echo '/>';
 echo '</td>';
 echo '</tr>';
 
-PMA_displayFieldsetBottomSimple();
-PMA_displayFormBottom();
-?>
+echo PMA_displayFieldsetBottomSimple();
+echo PMA_displayFormBottom();

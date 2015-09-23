@@ -147,4 +147,3 @@ class PMA_String_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

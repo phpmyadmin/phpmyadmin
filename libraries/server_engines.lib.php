@@ -142,4 +142,3 @@ function PMA_getHtmlForSpecifiedServerEngines()
     return $html;
 }
 
-?>

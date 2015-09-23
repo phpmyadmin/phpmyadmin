@@ -1,0 +1,66 @@
+<?php
+$requested_sort = 'table';
+$requested_sort_order = $future_sort_order = $initial_sort_order;
+// If the user requested a sort
+if (isset($_REQUEST['sort'])) {
+    $requested_sort = $_REQUEST['sort'];
+    if (isset($_REQUEST['sort_order'])) {
+        $requested_sort_order = $_REQUEST['sort_order'];
+    }
+}
+$order_img = '';
+$order_link_params = array();
+$order_link_params['title'] = __('Sort');
+// If this column was requested to be sorted.
+if ($requested_sort == $sort) {
+    if ($requested_sort_order == 'ASC') {
+        $future_sort_order = 'DESC';
+        // current sort order is ASC
+        $order_img  = ' ' . PMA_Util::getImage(
+            's_asc.png',
+            __('Ascending'),
+            array('class' => 'sort_arrow', 'title' => '')
+        );
+        $order_img .= ' ' . PMA_Util::getImage(
+            's_desc.png',
+             __('Descending'),
+            array('class' => 'sort_arrow hide', 'title' => '')
+        );
+        // but on mouse over, show the reverse order (DESC)
+        $order_link_params['onmouseover'] = "$('.sort_arrow').toggle();";
+        // on mouse out, show current sort order (ASC)
+        $order_link_params['onmouseout'] = "$('.sort_arrow').toggle();";
+    } else {
+        $future_sort_order = 'ASC';
+        // current sort order is DESC
+        $order_img  = ' ' . PMA_Util::getImage(
+            's_asc.png',
+            __('Ascending'),
+            array('class' => 'sort_arrow hide', 'title' => '')
+        );
+        $order_img .= ' ' . PMA_Util::getImage(
+            's_desc.png',
+            __('Descending'),
+            array('class' => 'sort_arrow', 'title' => '')
+        );
+        // but on mouse over, show the reverse order (ASC)
+        $order_link_params['onmouseover'] = "$('.sort_arrow').toggle();";
+        // on mouse out, show current sort order (DESC)
+        $order_link_params['onmouseout'] = "$('.sort_arrow').toggle();";
+    }
+}
+$_url_params = array(
+    'db' => $_REQUEST['db'],
+);
+$url = 'db_structure.php' . PMA_URL_getCommon($_url_params);
+// We set the position back to 0 every time they sort.
+$url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
+if (! empty($_REQUEST['tbl_type'])) {
+    $url .= "&amp;tbl_type=" . $_REQUEST['tbl_type'];
+}
+if (! empty($_REQUEST['tbl_group'])) {
+    $url .= "&amp;tbl_group=" . $_REQUEST['tbl_group'];
+}
+echo PMA_Util::linkOrButton(
+    $url, $title . $order_img, $order_link_params
+);

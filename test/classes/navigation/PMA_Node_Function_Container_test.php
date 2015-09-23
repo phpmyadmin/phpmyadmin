@@ -48,4 +48,3 @@ class Node_Function_Container_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('functions', $parent->real_name);
     }
 }
-?>

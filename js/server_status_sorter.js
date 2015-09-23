@@ -72,18 +72,12 @@ $(function () {
     $.tablesorter.addWidget({
         id: "fast-zebra",
         format: function (table) {
-            if (table.config.debug) {
-                var time = new Date();
-            }
             $("tr:even", table.tBodies[0])
                 .removeClass(table.config.widgetZebra.css[0])
                 .addClass(table.config.widgetZebra.css[1]);
             $("tr:odd", table.tBodies[0])
                 .removeClass(table.config.widgetZebra.css[1])
                 .addClass(table.config.widgetZebra.css[0]);
-            if (table.config.debug) {
-                $.tablesorter.benchmark("Applying Fast-Zebra widget", time);
-            }
         }
     });
 });

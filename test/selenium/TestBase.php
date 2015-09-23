@@ -512,7 +512,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * Wrapper around alertText method to not use it on not supported
      * browsers.
      *
-     * @return void
+     * @return mixed
      */
     public function alertText()
     {
@@ -610,4 +610,3 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         );
     }
 }
-?>

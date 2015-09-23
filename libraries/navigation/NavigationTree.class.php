@@ -42,28 +42,28 @@ class PMA_NavigationTree
     private $_pos;
 
     /**
-     * @var int The names of the type of items that are being paginated on
-     *          the second level of the navigation tree. These may be
-     *          tables, views, functions, procedures or events.
+     * @var array The names of the type of items that are being paginated on
+     *            the second level of the navigation tree. These may be
+     *            tables, views, functions, procedures or events.
      */
     private $_pos2_name = array();
 
     /**
-     * @var int The positions of nodes in the lists of tables, views,
-     *          routines or events used for pagination
+     * @var array The positions of nodes in the lists of tables, views,
+     *            routines or events used for pagination
      */
     private $_pos2_value = array();
 
     /**
-     * @var int The names of the type of items that are being paginated
-     *          on the second level of the navigation tree.
-     *          These may be columns or indexes
+     * @var array The names of the type of items that are being paginated
+     *            on the second level of the navigation tree.
+     *            These may be columns or indexes
      */
     private $_pos3_name = array();
 
     /**
-     * @var int The positions of nodes in the lists of columns or indexes
-     *          used for pagination
+     * @var array The positions of nodes in the lists of columns or indexes
+     *            used for pagination
      */
     private $_pos3_value = array();
 
@@ -82,8 +82,8 @@ class PMA_NavigationTree
     private $_searchClause2 = '';
 
     /**
-     * @var string Whether a warning was raised for large item groups
-     *             which can affect performance.
+     * @var bool Whether a warning was raised for large item groups
+     *           which can affect performance.
      */
     private $_largeGroupWarning = false;
 
@@ -318,12 +318,20 @@ class PMA_NavigationTree
      */
     private function _buildPathPart($path, $type2, $pos2, $type3, $pos3)
     {
+        if (empty($pos2)) {
+            $pos2 = 0;
+        }
+        if (empty($pos3)) {
+            $pos3 = 0;
+        }
+
         $retval = true;
         if (count($path) <= 1) {
             return $retval;
         }
 
         array_shift($path); // remove 'root'
+        /* @var $db Node_Database */
         $db = $this->_tree->getChild($path[0]);
         $retval = $db;
 
@@ -411,6 +419,7 @@ class PMA_NavigationTree
             return $retval;
         }
 
+        /* @var $table Node_Table */
         $table = $container->getChild($path[0], true);
         if ($table === false) {
             if (!$db->getPresence('tables', $path[0])) {
@@ -487,14 +496,14 @@ class PMA_NavigationTree
      * References to existing children are returned
      * if this function is called twice on the same node
      *
-     * @param Node   $table The table node, new containers will be
-     *                      attached to this node
-     * @param int    $pos2  The position for the pagination of
-     *                      the branch at the second level of the tree
-     * @param string $type3 The type of item being paginated on
-     *                      the third level of the tree
-     * @param int    $pos3  The position for the pagination of
-     *                      the branch at the third level of the tree
+     * @param Node_Table $table The table node, new containers will be
+     *                          attached to this node
+     * @param int        $pos2  The position for the pagination of
+     *                          the branch at the second level of the tree
+     * @param string     $type3 The type of item being paginated on
+     *                          the third level of the tree
+     * @param int        $pos3  The position for the pagination of
+     *                          the branch at the third level of the tree
      *
      * @return array An array of new nodes
      */
@@ -542,40 +551,68 @@ class PMA_NavigationTree
      * References to existing children are returned
      * if this function is called twice on the same node
      *
-     * @param Node   $db   The database node, new containers will be
-     *                     attached to this node
-     * @param string $type The type of item being paginated on
-     *                     the second level of the tree
-     * @param int    $pos2 The position for the pagination of
-     *                     the branch at the second level of the tree
+     * @param Node_Database $db   The database node, new containers will be
+     *                            attached to this node
+     * @param string        $type The type of item being paginated on
+     *                            the second level of the tree
+     * @param int           $pos2 The position for the pagination of
+     *                            the branch at the second level of the tree
      *
      * @return array An array of new nodes
      */
     private function _addDbContainers($db, $type, $pos2)
     {
+        // Get items to hide
+        $hidden = $db->getHiddenItems('group');
+        if (!$GLOBALS['cfg']['NavigationTreeShowTables']
+            && !in_array('tables', $hidden)
+        ) {
+            $hidden[] = 'tables';
+        }
+        if (!$GLOBALS['cfg']['NavigationTreeShowViews']
+            && !in_array('views', $hidden)
+        ) {
+            $hidden[] = 'views';
+        }
+        if (!$GLOBALS['cfg']['NavigationTreeShowFunctions']
+            && !in_array('functions', $hidden)
+        ) {
+            $hidden[] = 'functions';
+        }
+        if (!$GLOBALS['cfg']['NavigationTreeShowProcedures']
+            && !in_array('procedures', $hidden)
+        ) {
+            $hidden[] = 'procedures';
+        }
+        if (!$GLOBALS['cfg']['NavigationTreeShowEvents']
+            && !in_array('events', $hidden)
+        ) {
+            $hidden[] = 'events';
+        }
+
         $retval = array();
         if ($db->hasChildren(true) == 0) {
-            if ($db->getPresence('tables')) {
+            if (!in_array('tables', $hidden) && $db->getPresence('tables')) {
                 $retval['tables'] = PMA_NodeFactory::getInstance(
                     'Node_Table_Container'
                 );
             }
-            if ($db->getPresence('views')) {
+            if (!in_array('views', $hidden) && $db->getPresence('views')) {
                 $retval['views'] = PMA_NodeFactory::getInstance(
                     'Node_View_Container'
                 );
             }
-            if ($db->getPresence('functions')) {
+            if (!in_array('functions', $hidden) && $db->getPresence('functions')) {
                 $retval['functions'] = PMA_NodeFactory::getInstance(
                     'Node_Function_Container'
                 );
             }
-            if ($db->getPresence('procedures')) {
+            if (!in_array('procedures', $hidden) && $db->getPresence('procedures')) {
                 $retval['procedures'] = PMA_NodeFactory::getInstance(
                     'Node_Procedure_Container'
                 );
             }
-            if ($db->getPresence('events')) {
+            if (!in_array('events', $hidden) && $db->getPresence('events')) {
                 $retval['events'] = PMA_NodeFactory::getInstance(
                     'Node_Event_Container'
                 );
@@ -663,9 +700,9 @@ class PMA_NavigationTree
                     }
                 }
                 //Bug #4375: Check if prefix is the name of a DB, to create a group.
-                foreach ($node->children as $child) {
-                    if (array_key_exists($child->name, $prefixes)) {
-                        $prefixes[$child->name]++;
+                foreach ($node->children as $otherChild) {
+                    if (array_key_exists($otherChild->name, $prefixes)) {
+                        $prefixes[$otherChild->name]++;
                     }
                 }
             }
@@ -676,24 +713,38 @@ class PMA_NavigationTree
                 }
             }
         }
+        // It is not a group if it has only one item
         foreach ($prefixes as $key => $value) {
             if ($value == 1) {
                 unset($prefixes[$key]);
-            } else if ($value > 500 && ! $this->_largeGroupWarning) {
-                trigger_error(
-                    __(
-                        'There are large item groups in navigation panel which '
-                        . 'may affect the performance. Consider disabling item '
-                        . 'grouping in the navigation panel.'
-                    ),
-                    E_USER_WARNING
-                );
-                $this->_largeGroupWarning = true;
+            }
+        }
+        // rfe #1634 Don't group if there's only one group and no other items
+        if (count($prefixes) == 1) {
+            $keys = array_keys($prefixes);
+            $key = $keys[0];
+            if ($prefixes[$key] == count($node->children) - 1) {
+                unset($prefixes[$key]);
             }
         }
         if (count($prefixes)) {
+            /** @var Node[] $groups */
             $groups = array();
             foreach ($prefixes as $key => $value) {
+
+                // warn about large groups
+                if ($value > 500 && ! $this->_largeGroupWarning) {
+                    trigger_error(
+                        __(
+                            'There are large item groups in navigation panel which '
+                            . 'may affect the performance. Consider disabling item '
+                            . 'grouping in the navigation panel.'
+                        ),
+                        E_USER_WARNING
+                    );
+                    $this->_largeGroupWarning = true;
+                }
+
                 $groups[$key] = new Node(
                     $key,
                     Node::CONTAINER,
@@ -955,7 +1006,7 @@ class PMA_NavigationTree
         if ($node->hasSiblings()
             || $node->realParent() === false
         ) {
-            if (   $node->type == Node::CONTAINER
+            if ($node->type == Node::CONTAINER
                 && count($node->children) == 0
                 && $GLOBALS['is_ajax_request'] != true
             ) {
@@ -1008,7 +1059,11 @@ class PMA_NavigationTree
                 $retval .= $this->_pos;
                 $retval .= "</span>";
                 $retval .= $this->_getPaginationParamsHtml($node);
-                $retval .= $node->getIcon($match);
+                if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
+                    || $parentName != 'root'
+                ) {
+                    $retval .= $node->getIcon($match);
+                }
 
                 $retval .= "</a>";
                 $retval .= "</div>";
@@ -1032,7 +1087,7 @@ class PMA_NavigationTree
                 'indexes'
             );
             $parent = $node->parents(false, true);
-            $isNewView = $parent[0]->real_name == 'views' && $node->isNew == true;
+            $isNewView = $parent[0]->real_name == 'views' && $node->isNew === true;
             if ($parent[0]->type == Node::CONTAINER
                 && (in_array($parent[0]->real_name, $haveAjax) || $isNewView)
             ) {
@@ -1100,10 +1155,10 @@ class PMA_NavigationTree
             } else {
                 $retval .= "&nbsp;{$node->name}";
             }
+            $retval .= $node->getHtmlForControlButtons();
             if ($node->type == Node::CONTAINER) {
                 $retval .= "</i>";
             }
-            $retval .= $node->getHtmlForControlButtons();
             $retval .= '<div class="clearfloat"></div>';
             $wrap = true;
         } else {
@@ -1114,7 +1169,7 @@ class PMA_NavigationTree
 
         if ($recursive) {
             $hide = '';
-            if ($node->visible == false) {
+            if (!$node->visible) {
                 $hide = " style='display: none;'";
             }
             $children = $node->children;
@@ -1178,9 +1233,9 @@ class PMA_NavigationTree
             'server' => $GLOBALS['server']
         );
         $retval .= '<div id="pma_navigation_db_select">';
-        $retval .= '<form action="db_structure.php">';
+        $retval .= '<form action="index.php">';
         $retval .= PMA_getHiddenFields($url_params);
-        $retval .= '<select name="db" id="navi_db_select">'
+        $retval .= '<select name="db" class="hide" id="navi_db_select">'
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";
         $selected = $GLOBALS['db'];
@@ -1205,11 +1260,20 @@ class PMA_NavigationTree
         }
         $retval .= '</select></form>';
         $retval .= '</div></div>';
-        $retval .= '<div id="pma_navigation_tree_content">';
-        $retval .= '<div style="margin:0.75em">';
-        $retval .= __('Please select a database.');
-        $retval .= '</div>';
-        $retval .= '</div>';
+        $retval .= '<div id="pma_navigation_tree_content"><ul>';
+        $children = $this->_tree->children;
+        usort($children, array('PMA_NavigationTree', 'sortNode'));
+        $this->_setVisibility();
+        for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
+            if ($i == 0) {
+                $retval .= $this->_renderNode($children[0], true, 'first');
+            } else if ($i + 1 != $nbChildren) {
+                $retval .= $this->_renderNode($children[$i], true);
+            } else {
+                $retval .= $this->_renderNode($children[$i], true, 'last');
+            }
+        }
+        $retval .= '</ul></div>';
         return $retval;
     }
 
@@ -1449,4 +1513,3 @@ class PMA_NavigationTree
         return $retval;
     }
 }
-?>

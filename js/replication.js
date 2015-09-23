@@ -41,6 +41,7 @@ AJAX.registerTeardown('replication.js', function () {
     $('#slave_errormanagement_href').unbind('click');
     $('#slave_synchronization_href').unbind('click');
     $('#db_reset_href').unbind('click');
+    $('#db_select_href').unbind('click');
 });
 
 AJAX.registerOnload('replication.js', function () {
@@ -68,6 +69,10 @@ AJAX.registerOnload('replication.js', function () {
     });
     $('#db_reset_href').click(function () {
         $('#db_select option:selected').prop('selected', false);
+        $('#db_select').trigger('change');
+    });
+    $('#db_select_href').click(function () {
+        $('#db_select option').prop('selected', true);
         $('#db_select').trigger('change');
     });
 });

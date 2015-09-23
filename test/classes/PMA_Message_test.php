@@ -380,7 +380,6 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider decodeBBDataProvider
      */
-
     public function testDecodeBB($actual, $expected)
     {
         unset($GLOBALS['server']);
@@ -691,4 +690,3 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
         $this->object->display();
     }
 }
-?>

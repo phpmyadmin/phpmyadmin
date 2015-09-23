@@ -44,4 +44,3 @@ class SchemaPluginProperties extends PluginPropertyItem
         return true;
     }
 }
-?>

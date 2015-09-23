@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `pma__history` (
   `username` varchar(64) NOT NULL default '',
   `db` varchar(64) NOT NULL default '',
   `table` varchar(64) NOT NULL default '',
-  `timevalue` timestamp NOT NULL,
+  `timevalue` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `sqlquery` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `username` (`username`,`db`,`table`,`timevalue`)
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `pma__tracking` (
 
 CREATE TABLE IF NOT EXISTS `pma__userconfig` (
   `username` varchar(64) NOT NULL,
-  `timevalue` timestamp NOT NULL,
+  `timevalue` timestamp NOT NULL default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `config_data` text NOT NULL,
   PRIMARY KEY  (`username`)
 )
@@ -320,4 +320,36 @@ CREATE TABLE IF NOT EXISTS `pma__central_columns` (
   PRIMARY KEY (`db_name`,`col_name`)
 )
   COMMENT='Central list of columns'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__designer_settings`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
+  `username` varchar(64) NOT NULL,
+  `settings_data` text NOT NULL,
+  PRIMARY KEY (`username`)
+)
+  COMMENT='Settings related to Designer'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__export_templates`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__export_templates` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) NOT NULL,
+  `export_type` varchar(10) NOT NULL,
+  `template_name` varchar(64) NOT NULL,
+  `template_data` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`)
+)
+  COMMENT='Saved export templates'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;

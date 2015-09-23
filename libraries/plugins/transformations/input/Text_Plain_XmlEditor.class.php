@@ -83,4 +83,3 @@ class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationsPlugin
         return "Plain";
     }
 }
-?>

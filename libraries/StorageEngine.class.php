@@ -268,10 +268,13 @@ class PMA_StorageEngine
 
         if (! $ret) {
             $ret = '<p>' . "\n"
-                 . '    '
-                 . __('There is no detailed status information available for this storage engine.')
-                 . "\n"
-                 . '</p>' . "\n";
+                . '    '
+                . __(
+                    'There is no detailed status information available for this '
+                    . 'storage engine.'
+                )
+                . "\n"
+                . '</p>' . "\n";
         } else {
             $ret = '<table class="data">' . "\n" . $ret . '</table>' . "\n";
         }
@@ -380,7 +383,9 @@ class PMA_StorageEngine
             break;
         case PMA_ENGINE_SUPPORT_NO:
         default:
-            $message = __('This MySQL server does not support the %s storage engine.');
+            $message = __(
+                'This MySQL server does not support the %s storage engine.'
+            );
         }
         return sprintf($message, htmlspecialchars($this->title));
     }
@@ -448,4 +453,3 @@ class PMA_StorageEngine
     }
 }
 
-?>

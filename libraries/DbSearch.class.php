@@ -243,7 +243,7 @@ class PMA_DbSearch
         } // end for
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
         $implode_str  = ($this->_criteriaSearchType == 1 ? ' OR ' : ' AND ');
-        if ( empty($likeClauses)) {
+        if (empty($likeClauses)) {
             // this could happen when the "inside column" does not exist
             // in any selected tables
             $where_clause = ' WHERE FALSE';
@@ -380,7 +380,7 @@ class PMA_DbSearch
     {
         $html_output = '<a id="db_search"></a>';
         $html_output .= '<form id="db_search_form"'
-            . ' class="ajax"'
+            . ' class="ajax lock-page"'
             . ' method="post" action="db_search.php" name="db_search">';
         $html_output .= PMA_URL_getHiddenInputs($GLOBALS['db']);
         $html_output .= '<fieldset>';
@@ -443,11 +443,11 @@ class PMA_DbSearch
         $alter_select = '<a href="#" '
             . 'onclick="setSelectOptions(\'db_search\','
             . ' \'criteriaTables[]\', true); return false;">'
-            . __('Select All') . '</a> &nbsp;/&nbsp;';
+            . __('Select all') . '</a> &nbsp;/&nbsp;';
         $alter_select .= '<a href="#" '
             . 'onclick="setSelectOptions(\'db_search\','
             . ' \'criteriaTables[]\', false); return false;">'
-            . __('Unselect All') . '</a>';
+            . __('Unselect all') . '</a>';
         $html_output .= '<tr><td class="right vbottom">'
             . $alter_select . '</td></tr>';
         // Inputbox for column name entry

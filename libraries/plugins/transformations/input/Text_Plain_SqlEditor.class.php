@@ -83,4 +83,3 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationsPlugin
         return "Plain";
     }
 }
-?>

@@ -50,6 +50,7 @@ function PMA_getSysInfo()
 
     if (in_array($php_os, $supported)) {
         $class_name = 'PMA_SysInfo' . $php_os;
+        /** @var PMA_SysInfo $ret */
         $ret = new $class_name();
         if ($ret->supported()) {
             return $ret;
@@ -176,7 +177,7 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
             $arrInstance = array();
             foreach ($arrProp as $propItem) {
                 $name = $propItem->Name;
-                if ( empty($strValue) || in_array($name, $strValue)) {
+                if (empty($strValue) || in_array($name, $strValue)) {
                     $value = $objItem->$name;
                     $arrInstance[$name] = trim($value);
                 }

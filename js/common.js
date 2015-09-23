@@ -140,7 +140,7 @@ var PMA_commonActions = {
      */
     refreshMain: function (url, callback) {
         if (! url) {
-            url = $('#selflink a').attr('href');
+            url = $('#selflink').find('a').attr('href');
             url = url.substring(0, url.indexOf('?'));
         }
         url += PMA_commonParams.getUrlQuery();
@@ -350,9 +350,10 @@ PMA_DROP_IMPORT = {
     _dragleave: function (event) {
         event.stopPropagation();
         event.preventDefault();
-        $(".pma_drop_handler").clearQueue().stop();
-        $(".pma_drop_handler").fadeOut();
-        $(".pma_drop_handler").html(PMA_messages.dropImportDropFiles);
+        var $pma_drop_handler = $(".pma_drop_handler");
+        $pma_drop_handler.clearQueue().stop();
+        $pma_drop_handler.fadeOut();
+        $pma_drop_handler.html(PMA_messages.dropImportDropFiles);
     },
     /**
      * Called when upload has finished
@@ -423,15 +424,17 @@ PMA_DROP_IMPORT = {
                 var ext  = (PMA_DROP_IMPORT._getExtension(files[i].name));
                 var hash = AJAX.hash(++PMA_DROP_IMPORT.uploadCount);
 
-                $(".pma_sql_import_status div").append('<li data-hash="' +hash +'">' +
+                var $pma_sql_import_status_div = $(".pma_sql_import_status div");
+                $pma_sql_import_status_div.append('<li data-hash="' +hash +'">' +
                     ((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ') +
                     escapeHtml(files[i].name) + '<span class="filesize" data-filename="' +
                     escapeHtml(files[i].name) +'">' +(files[i].size/1024).toFixed(2) +
                     ' kb</span></li>');
 
                 //scroll the UI to bottom
-                $(".pma_sql_import_status div").scrollTop(
-                    $(".pma_sql_import_status div").scrollTop() + 50);  //50 hardcoded for now
+                $pma_sql_import_status_div.scrollTop(
+                    $pma_sql_import_status_div.scrollTop() + 50
+                );  //50 hardcoded for now
 
                 if (ext !== '') {
                     // Increment liveUploadCount by one

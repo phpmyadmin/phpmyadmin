@@ -15,4 +15,3 @@ echo '<pre>';
 AllTests::main();
 echo '</pre>';
 
-?>

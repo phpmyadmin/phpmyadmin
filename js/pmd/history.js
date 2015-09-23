@@ -10,22 +10,7 @@
 var history_array = []; // Global array to store history objects
 var select_field = [];  // Global array to store informaation for columns which are used in select clause
 var g_index;
-
-/**
- * function for panel, hides and shows toggle_container <div>,which is for history elements uses {@link JQuery}.
- *
- * @param index has value 1 or 0,decides wheter to hide toggle_container on load.
-**/
-
-function panel(index)
-{
-    if (!index) {
-        $(".toggle_container").hide();
-    }
-    $("h2.tiger").click(function () {
-        $(this).toggleClass("active").next().slideToggle("slow");
-    });
-}
+var vqb_editor = null;
 
 /**
  * To display details of objects(where,rename,Having,aggregate,groupby,orderby,having)
@@ -51,7 +36,7 @@ function detail(index)
         str = 'GroupBy ' + history_array[index].get_column_name();
     }
     if (type == "OrderBy") {
-        str = 'OrderBy ' + history_array[index].get_column_name();
+        str = 'OrderBy ' + history_array[index].get_column_name() + ' ' + history_array[index].get_obj().get_order();
     }
     if (type == "Having") {
         str = 'Having ';
@@ -97,7 +82,7 @@ function display(init, finit)
     str = ''; // string to store Html code for history tab
     for (i = 0; i < history_array.length; i++) {
         temp = history_array[i].get_tab(); //+ '.' + history_array[i].get_obj_no(); for Self JOIN
-        str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';
+        str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
         str += '<div class="toggle_container">\n';
         while ((history_array[i].get_tab()) == temp) { //+ '.' + history_array[i].get_obj_no()) == temp) {
             str += '<div class="block"> <table width ="250">';
@@ -107,20 +92,27 @@ function display(init, finit)
             } else {
                 str += '<img src="' + pmaThemeImage + 'pmd/and_icon.png" onclick="and_or(' + i + ')" title="AND"/></td>';
             }
-            str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse.png', 'column name') + '</td><td width="175" style="padding-left: 5px">' + history_array[i].get_column_name();
+            str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse.png', 'column name') + '</td>' +
+                '<td width="175" style="padding-left: 5px">' + history_array[i].get_column_name() + '<td>';
             if (history_array[i].get_type() == "GroupBy" || history_array[i].get_type() == "OrderBy") {
-                str += '</td><td class="center">' + PMA_getImage('s_info.png', detail(i)) + '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', 'Delete') + '</td></tr></thead>';
+                str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
+                    '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
+                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
             } else {
-                str += '</td><td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td><td title="' + detail(i) + '">' + history_array[i].get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete(' + i + ')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>';
+                str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
+                    '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
+                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td>' +
+                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
             }
+            str += '</tr></thead>';
             i++;
             if (i >= history_array.length) {
                 break;
             }
-            str += '</table></div><br/>';
+            str += '</table></div>';
         }
         i--;
-        str += '</div><br/>';
+        str += '</div>';
     }
     return str;
 }
@@ -142,7 +134,7 @@ function and_or(index)
     }
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    panel(1);
+    $('#ab').accordion("refresh");
 }
 
 /**
@@ -163,7 +155,7 @@ function history_delete(index)
     history_array.splice(index, 1);
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    panel(1);
+    $('#ab').accordion("refresh");
 }
 
 /**
@@ -258,7 +250,7 @@ function edit(type)
     }
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    panel(1);
+    $('#ab').accordion("refresh");
 }
 
 /**
@@ -272,7 +264,7 @@ function edit(type)
  *
 **/
 
-function history(ncolumn_name, nobj, ntab, nobj_no, ntype)
+function history_obj(ncolumn_name, nobj, ntab, nobj_no, ntype)
 {
     var and_or;
     var obj;
@@ -355,6 +347,21 @@ var where = function (nrelation_operator, nquery) {
     this.setrelation_operator(nrelation_operator);
 };
 
+/**
+ * Orderby object closure
+ *
+ * @param norder order, ASC or DESC
+ */
+var orderby = function(norder) {
+    var order;
+    this.set_order = function(norder) {
+        order = norder;
+    };
+    this.get_order = function() {
+        return order;
+    };
+    this.set_order(norder);
+};
 
 /**
  * Having object closure, makes an object with all information of where
@@ -510,10 +517,10 @@ function query_groupby()
     var str = "";
     for (i = 0; i < history_array.length;i++) {
         if (history_array[i].get_type() == "GroupBy") {
-            str += history_array[i].get_column_name() + ", ";
+            str += '`' + history_array[i].get_column_name() + "`, ";
         }
     }
-    str = str.substr(0, str.length - 1);
+    str = str.substr(0, str.length - 2);
     return str;
 }
 
@@ -529,10 +536,10 @@ function query_having()
     for (i = 0; i < history_array.length;i++) {
         if (history_array[i].get_type() == "Having") {
             if (history_array[i].get_obj().get_operator() != 'None') {
-                and += history_array[i].get_obj().get_operator() + "(" + history_array[i].get_column_name() + " ) " + history_array[i].get_obj().getrelation_operator();
+                and += history_array[i].get_obj().get_operator() + "(`" + history_array[i].get_column_name() + "`) " + history_array[i].get_obj().getrelation_operator();
                 and += " " + history_array[i].get_obj().getquery() + ", ";
             } else {
-                and +=  history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ", ";
+                and += "`" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ", ";
             }
         }
     }
@@ -555,9 +562,12 @@ function query_orderby()
     var i;
     var str = "";
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == "OrderBy") { str += history_array[i].get_column_name() + " , "; }
+        if (history_array[i].get_type() == "OrderBy") {
+            str += "`" + history_array[i].get_column_name() + "` " +
+                history_array[i].get_obj().get_order() + ", ";
+        }
     }
-    str = str.substr(0, str.length - 1);
+    str = str.substr(0, str.length - 2);
     return str;
 }
 
@@ -575,10 +585,10 @@ function query_where()
     for (i = 0; i < history_array.length;i++) {
         if (history_array[i].get_type() == "Where") {
             if (history_array[i].get_and_or() === 0) {
-                and += "( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
+                and += "( `" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
                 and += " AND ";
             } else {
-                or += "( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
+                or += "( `" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
                 or += " OR ";
             }
         }
@@ -623,26 +633,6 @@ function check_rename(id_this)
     return "";
 }
 
-function gradient(id, level)
-{
-    var box = document.getElementById(id);
-    box.style.opacity = level;
-    box.style.MozOpacity = level;
-    box.style.KhtmlOpacity = level;
-    box.style.filter = "alpha(opacity=" + level * 100 + ")";
-    box.style.display = "block";
-}
-
-
-function fadein(id)
-{
-    var level = 0;
-    while (level <= 1) {
-        setTimeout("gradient('" + id + "'," + level + ")", (level * 1000) + 10);
-        level += 0.01;
-    }
-}
-
  /**
   * This function builds from clause of query
   * makes automatic joins.
@@ -674,7 +664,7 @@ function query_from()
     from_array = unique(from_array);
     tab_left = from_array;
     temp = tab_left.shift();
-    quer = temp;
+    quer = '`' + temp + '`';
     tab_used.push(temp);
     // if master table (key2) matches with tab used get all keys and check if tab_left matches
     // after this check if master table (key2) matches with tab left then check if any foreign matches with master .
@@ -688,7 +678,7 @@ function query_from()
                             parts1 = contr[K][key][key2][key3][0].split(".");
                             if (found(tab_left, parts1[1]) > 0) {
                                 query += "\n" + 'LEFT JOIN ';
-                                query += '`' + parts1[0] + '`.`' + parts1[1] + '` ON ';
+                                query += '`' + parts1[1] + '` ON ';
                                 query += '`' + parts[1] + '`.`' + key3 + '` = ';
                                 query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
                                 t_tab_left.push(parts1[1]);
@@ -712,7 +702,7 @@ function query_from()
                             parts1 = contr[K][key][key2][key3][0].split(".");
                             if (found(tab_used, parts1[1]) > 0) {
                                 query += "\n" + 'LEFT JOIN ';
-                                query += '`' + parts[0] + '`.`' + parts[1] + '` ON ';
+                                query += '`' + parts[1] + '` ON ';
                                 query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
                                 query += '`' + parts[1] + '`.`' + key3 + '` ';
                                 t_tab_left.push(parts[1]);
@@ -752,46 +742,91 @@ function build_query(formtitle, fadin)
 {
     var q_select = "SELECT ";
     var temp;
-    for (var i = 0;i < select_field.length; i++) {
-        temp = check_aggregate(select_field[i]);
-        if (temp !== "") {
-            q_select += temp;
-            temp = check_rename(select_field[i]);
-            q_select += temp + ",";
-        } else {
-            temp = check_rename(select_field[i]);
-            q_select += select_field[i] + temp + ",";
+    if (select_field.length > 0) {
+        for (var i = 0; i < select_field.length; i++) {
+            temp = check_aggregate(select_field[i]);
+            if (temp !== "") {
+                q_select += temp;
+                temp = check_rename(select_field[i]);
+                q_select += temp + ", ";
+            } else {
+                temp = check_rename(select_field[i]);
+                q_select += select_field[i] + temp + ", ";
+            }
         }
-    }
-    q_select = q_select.substring(0, q_select.length - 1);
-    q_select += " FROM " + query_from();
-    if (query_where() !== "") {
-        q_select += "\n WHERE";
-        q_select += query_where();
-    }
-    if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
-    if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
-    if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
-    var box = document.getElementById('box');
-    document.getElementById('filter').style.display = 'block';
-    var btitle = document.getElementById('boxtitle');
-    btitle.innerHTML = 'SELECT';//formtitle;
-    if (fadin) {
-        gradient("box", 0);
-        fadein("box");
+        q_select = q_select.substring(0, q_select.length - 2);
     } else {
-        box.style.display = 'block';
+        q_select += "* ";
     }
-    document.getElementById('textSqlquery').innerHTML = q_select;
-}
 
-function closebox()
-{
-    document.getElementById('box').style.display = 'none';
-    document.getElementById('filter').style.display = 'none';
+    q_select += "\nFROM " + query_from();
+
+    var q_where = query_where();
+    if (q_where !== "") {
+        q_select += "\nWHERE " + q_where;
+    }
+
+    var q_groupby = query_groupby();
+    if (q_groupby !== "") {
+        q_select += "\nGROUP BY " + q_groupby;
+    }
+
+    var q_having = query_having();
+    if (q_having !== "") {
+        q_select += "\nHAVING " + q_having;
+    }
+
+    var q_orderby = query_orderby();
+    if (q_orderby !== "") {
+        q_select += "\nORDER BY " + q_orderby;
+    }
+
+    /**
+     * @var button_options Object containing options
+     *                     for jQueryUI dialog buttons
+     */
+    var button_options = {};
+    button_options[PMA_messages.strClose] = function () {
+        $(this).dialog("close");
+    };
+    button_options[PMA_messages.strSubmit] = function () {
+        if (vqb_editor) {
+            var $elm = $ajaxDialog.find('textarea');
+            vqb_editor.save();
+            $elm.val(vqb_editor.getValue());
+        }
+        $('#vqb_form').submit();
+    };
+
+    var $ajaxDialog = $('#box').dialog({
+        appendTo: '#page_content',
+        width: 500,
+        buttons: button_options,
+        modal: true,
+        title: 'SELECT'
+    });
+    // Attach syntax highlighted editor to query dialog
+    /**
+     * @var $elm jQuery object containing the reference
+     *           to the query textarea.
+     */
+    var $elm = $ajaxDialog.find('textarea');
+    if (! vqb_editor) {
+        vqb_editor = PMA_getSQLEditor($elm);
+    }
+    if (vqb_editor) {
+        vqb_editor.setValue(q_select);
+        vqb_editor.focus();
+    } else {
+        $elm.val(q_select);
+        $elm.focus();
+    }
 }
 
 AJAX.registerTeardown('pmd/history.js', function () {
+    vqb_editor = null;
+    history_array = [];
+    select_field = [];
     $("#ok_edit_rename").unbind('click');
     $("#ok_edit_having").unbind('click');
     $("#ok_edit_Aggr").unbind('click');
@@ -811,4 +846,5 @@ AJAX.registerOnload('pmd/history.js', function () {
     $("#ok_edit_where").click(function() {
         edit('Where');
     });
+    $('#ab').accordion({collapsible : true, active : 'none'});
 });

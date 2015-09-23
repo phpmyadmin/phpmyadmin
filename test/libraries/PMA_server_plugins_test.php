@@ -17,7 +17,6 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
@@ -79,7 +78,6 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
          */
 
         $plugins = array();
-        $modules = array();
 
         $row = array();
         $row["plugin_name"] = "plugin_name1";
@@ -92,22 +90,10 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
         $row["module_description"] = "module_description1";
         $row["is_active"] = true;
         $plugins[$row['plugin_type']][] = $row;
-        $modules[$row['module_name']]['info'] = $row;
-        $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
 
-        $html = PMA_getPluginAndModuleInfo($plugins, $modules);
+        $html = PMA_getPluginTab($plugins);
 
-        //validate 1: PMA_getPluginTab
-        $this->assertContains(
-            '<a href="#plugins_plugins">Plugins</a>',
-            $html
-        );
-        //validate 2: PMA_getModuleTab
-        $this->assertContains(
-            '<a href="#plugins_modules">Modules</a>',
-            $html
-        );
-        //validate 3:Items
+        //validate 1:Items
         $this->assertContains(
             '<th>Plugin</th>',
             $html
@@ -117,15 +103,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<th>Plugin</th>',
-            $html
-        );
-        $this->assertContains(
             '<th>Library</th>',
-            $html
-        );
-        $this->assertContains(
-            '<th>Plugin</th>',
             $html
         );
         $this->assertContains(
@@ -141,9 +119,13 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 4: one Item HTML
+        //validate 2: one Item HTML
         $this->assertContains(
             '<th>plugin_name1</th>',
+            $html
+        );
+        $this->assertContains(
+            '<td>module_name1</td>',
             $html
         );
         $this->assertContains(
@@ -155,11 +137,11 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<td>module_description1</td>',
+            '<td>module_author1</td>',
             $html
         );
         $this->assertContains(
-            '<td>module_author1</td>',
+            '<td>module_license1</td>',
             $html
         );
     }

@@ -58,10 +58,12 @@ function reloadFieldForm() {
         var $temp_div = $("<div id='temp_div'><div>").append(form_data.message);
         $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
         $("#addColumns").replaceWith($temp_div.find("#addColumns"));
-        $('#move_columns_dialog ul').replaceWith($temp_div.find("#move_columns_dialog ul"));
+        $('#move_columns_dialog').find('ul').replaceWith($temp_div.find("#move_columns_dialog ul"));
         $("#moveColumns").removeClass("move-active");
         /* reinitialise the more options in table */
-        $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+        if ($('#fieldsForm').hasClass('HideStructureActions')) {
+            $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+        }
     });
     $('#page_content').show();
 }
@@ -80,8 +82,10 @@ AJAX.registerTeardown('tbl_structure.js', function () {
     $(document).off('click', "a.drop_column_anchor.ajax");
     $(document).off('click', "a.add_key.ajax");
     $(document).off('click', "#move_columns_anchor");
+    $(document).off('click', "#printView");
     $(document).off('submit', ".append_fields_form.ajax");
     $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
+    $(document).off('click', 'a[name^=partition_action].ajax');
 });
 
 AJAX.registerOnload('tbl_structure.js', function () {
@@ -91,6 +95,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     unique_indexes = [];
     indexes = [];
     fulltext_indexes = [];
+    spatial_indexes = [];
 
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
@@ -102,6 +107,54 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * @var    the_form    object referring to the export form
          */
         var $form = $(this);
+        var field_cnt = $form.find('input[name=orig_num_fields]').val();
+
+
+        function submitForm(){
+            $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
+                if ($(".sqlqueryresults").length !== 0) {
+                    $(".sqlqueryresults").remove();
+                } else if ($(".error:not(.tab)").length !== 0) {
+                    $(".error:not(.tab)").remove();
+                }
+                if (typeof data.success != 'undefined' && data.success === true) {
+                    $("#page_content")
+                        .empty()
+                        .append(data.message)
+                        .show();
+                    PMA_highlightSQL($('#page_content'));
+                    $(".result_query .notice").remove();
+                    reloadFieldForm();
+                    $form.remove();
+                    PMA_ajaxRemoveMessage($msg);
+                    PMA_init_slider();
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }); // end $.post()
+        }
+
+        function checkIfConfirmRequired($form, $field_cnt) {
+            var i = 0, id, elm, val, name_orig, elm_orig, val_orig;
+            var checkRequired = false;
+            for (i = 0; i < field_cnt; i++) {
+                id = "#field_" + i + "_5";
+                elm = $(id);
+                val = elm.val();
+
+                name_orig = "input[name=field_collation_orig\\[" + i + "\\]]";
+                elm_orig = $form.find(name_orig);
+                val_orig = elm_orig.val();
+
+                if (val && val_orig && val !== val_orig){
+                    checkRequired = true;
+                    break;
+                }
+            }
+            return checkRequired;
+        }
 
         /*
          * First validate the form; if there is a problem, avoid submitting it
@@ -110,34 +163,24 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * this is why we pass $form[0] as a parameter (the jQuery object
          * is actually an array of DOM elements)
          */
-        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
+        if (checkTableEditForm($form[0], field_cnt)) {
             // OK, form passed validation step
+
             PMA_prepareForAjaxRequest($form);
             if (PMA_checkReservedWordColumns($form)) {
                 //User wants to submit the form
-                $msg = PMA_ajaxShowMessage();
-                $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
-                    if ($(".sqlqueryresults").length !== 0) {
-                        $(".sqlqueryresults").remove();
-                    } else if ($(".error:not(.tab)").length !== 0) {
-                        $(".error:not(.tab)").remove();
-                    }
-                    if (typeof data.success != 'undefined' && data.success === true) {
-                        $("#page_content")
-                            .empty()
-                            .append(data.message)
-                            .show();
-                        PMA_highlightSQL($('#page_content'));
-                        $(".result_query .notice").remove();
-                        reloadFieldForm();
-                        $form.remove();
-                        PMA_ajaxRemoveMessage($msg);
-                        PMA_init_slider();
-                        PMA_reloadNavigation();
-                    } else {
-                        PMA_ajaxShowMessage(data.error, false);
-                    }
-                }); // end $.post()
+
+                // If Collation is changed, Warn and Confirm
+                if (checkIfConfirmRequired($form, field_cnt)){
+                    var question = sprintf(
+                        PMA_messages.strChangeColumnCollation, 'http://wiki.phpmyadmin.net/pma/Garbled_data'
+                    );
+                    $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                        submitForm();
+                    });
+                } else {
+                    submitForm();
+                }
             }
         }
     }); // end change table button "do_save_data"
@@ -207,12 +250,22 @@ AJAX.registerOnload('tbl_structure.js', function () {
     }); //end of Drop Column Anchor action
 
     /**
+     * Attach Event Handler for 'Print View'
+     */
+    $(document).on('click', "#printView", function (event) {
+        event.preventDefault();
+
+        // Print the page
+        printPage();
+    }); //end of Print View action
+
+    /**
      * Ajax Event handler for adding keys
      */
     $(document).on('click', "a.add_key.ajax", function (event) {
         event.preventDefault();
 
-        $this = $(this);
+        var $this = $(this);
         var curr_table_name = $this.closest('form').find('input[name=table]').val();
         var curr_column_name = $this.parents('tr').children('th').children('label').text();
 
@@ -282,7 +335,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         buttons: button_options_error
                     }); // end dialog options
                 } else {
-                    $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
+                    if ($('#fieldsForm').hasClass('HideStructureActions')) {
+                        $('#fieldsForm').find('ul.table-structure-actions').menuResizer('destroy');
+                    }
                     // sort the fields table
                     var $fields_table = $("table#tablestructure tbody");
                     // remove all existing rows and remember them
@@ -308,7 +363,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');
-                    $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+                    if ($('#fieldsForm').hasClass('HideStructureActions')) {
+                        $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+                    }
                 }
             });
         };
@@ -323,7 +380,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         var columns = [];
 
-        $("#tablestructure tbody tr").each(function () {
+        $("#tablestructure").find("tbody tr").each(function () {
             var col_name = $(this).find("input:checkbox").eq(0).val();
             var hidden_input = $("<input/>")
                 .prop({
@@ -337,17 +394,17 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 .append(hidden_input);
         });
 
-        var col_list = $("#move_columns_dialog ul")
+        var col_list = $("#move_columns_dialog").find("ul")
             .find("li").remove().end();
         for (var i in columns) {
             col_list.append(columns[i]);
         }
         col_list.sortable({
             axis: 'y',
-            containment: $("#move_columns_dialog div"),
+            containment: $("#move_columns_dialog").find("div"),
             tolerance: 'pointer'
         }).disableSelection();
-        var $form = $("#move_columns_dialog form");
+        var $form = $("#move_columns_dialog").find("form");
         $form.data("serialized-unmoved", $form.serialize());
 
         $("#move_columns_dialog").dialog({
@@ -370,28 +427,66 @@ AJAX.registerOnload('tbl_structure.js', function () {
     $('body').on('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
-        var $form = $button.parent('form');
+        var $form = $button.parents('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
+    });
+
+    /**
+     * Handles clicks on Action links in partition table
+     */
+    $(document).on('click', 'a[name^=partition_action].ajax', function (e) {
+        e.preventDefault();
+        var $link = $(this);
+
+        function submitPartitionAction(url) {
+            var submitData = '&ajax_request=true&ajax_page_request=true';
+            PMA_ajaxShowMessage();
+            AJAX.source = $link;
+            $.post(url, submitData, AJAX.responseHandler);
+        }
+
+        if ($link.is('#partition_action_DROP')) {
+            var question = PMA_messages.strDropPartitionWarning;
+            $link.PMA_confirm(question, $link.attr('href'), function (url) {
+                submitPartitionAction(url);
+            });
+        } else if ($link.is('#partition_action_TRUNCATE')) {
+            var question = PMA_messages.strTruncatePartitionWarning;
+            $link.PMA_confirm(question, $link.attr('href'), function (url) {
+                submitPartitionAction(url);
+            });
+        } else {
+            submitPartitionAction($link.attr('href'));
+        }
     });
 });
 
 /** Handler for "More" dropdown in structure table rows */
 AJAX.registerOnload('tbl_structure.js', function () {
     if ($('#fieldsForm').hasClass('HideStructureActions')) {
-        $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+        $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+    } else {
+        $('.table-structure-actions').width(function () {
+            var width = 5;
+            $(this).find('li').each(function () {
+                width += $(this).outerWidth(true);
+            });
+            return width;
+        });
     }
 });
 AJAX.registerTeardown('tbl_structure.js', function () {
-    $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
+    if ($('#fieldsForm').hasClass('HideStructureActions')) {
+        $('#fieldsForm').find('ul.table-structure-actions').menuResizer('destroy');
+    }
 });
 $(function () {
     $(window).resize($.throttle(function () {
-        var $list = $('#fieldsForm ul.table-structure-actions');
-        if ($list.length) {
-            $list.menuResizer('resize');
+        if ($('#fieldsForm').length && $('#fieldsForm').hasClass('HideStructureActions')) {
+            $('#fieldsForm').find('ul.table-structure-actions').menuResizer('resize');
         }
     }));
 });

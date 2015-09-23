@@ -1,0 +1,189 @@
+<?php
+function getImg($path)
+{
+    return $_SESSION['PMA_Theme']->getImgPath($path);
+}
+?>
+<?php if (!$visualBuilder) : ?>
+    <div id="name-panel" style="overflow:hidden">
+        <span id="page_name" style="border:none">
+            <?php echo $selected_page == null ? __("Untitled") : htmlspecialchars($selected_page); ?>
+        </span>
+        <span id="saved_state" style="border:none">
+            <?php echo $selected_page == null ? '*' : ''; ?>
+        </span>
+    </div>
+<?php endif; ?>
+<div class="pmd_header side-menu" id="side_menu">
+    <a class="M_butt" id="key_Show_left_menu" href="#">
+        <img title="<?php echo __('Show/Hide tables list'); ?>"
+             alt="v"
+             src="<?php echo getImg('pmd/downarrow2_m.png'); ?>"
+             data-down="<?php echo getImg('pmd/downarrow2_m.png'); ?>"
+             data-up="<?php echo getImg('pmd/uparrow2_m.png'); ?>" />
+        <span class="hide hidable">
+            <?php echo __('Show/Hide tables list'); ?>
+        </span>
+    </a>
+    <a href="#" id="toggleFullscreen" class="M_butt">
+        <img title="<?php echo __('View in fullscreen'); ?>"
+             src="<?php echo getImg('pmd/viewInFullscreen.png'); ?>"
+             data-enter="<?php echo getImg('pmd/viewInFullscreen.png'); ?>"
+             data-exit="<?php echo getImg('pmd/exitFullscreen.png'); ?>" />
+        <span class="hide hidable"
+              data-exit="<?php echo __('Exit fullscreen'); ?>"
+              data-enter="<?php echo __('View in fullscreen'); ?>">
+            <?php echo __('View in fullscreen'); ?>
+        </span>
+    </a>
+    <?php if (! $visualBuilder) : ?>
+        <a id="newPage" href="#" class="M_butt">
+            <img title="<?php echo __('New page'); ?>"
+                 alt=""
+                 src="<?php echo getImg('pmd/page_add.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('New page'); ?>
+            </span>
+        </a>
+        <a href="#" id="editPage" class="M_butt ajax">
+            <img title="<?php echo __('Open page'); ?>"
+                 src="<?php echo getImg('pmd/page_edit.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Open page'); ?>
+            </span>
+        </a>
+        <a href="#" id="savePos" class="M_butt">
+            <img title="<?php echo __('Save page'); ?>"
+                 src="<?php echo getImg('pmd/save.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Save page'); ?>
+            </span>
+        </a>
+        <a href="#" id="SaveAs" class="M_butt ajax">
+            <img title="<?php echo __('Save page as'); ?>"
+                 src="<?php echo getImg('pmd/save_as.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Save page as'); ?>
+            </span>
+        </a>
+        <a href="#" id="delPages" class="M_butt ajax">
+            <img title="<?php echo __('Delete pages'); ?>"
+                 src="<?php echo getImg('pmd/page_delete.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Delete pages'); ?>
+            </span>
+        </a>
+        <a href="#" id="StartTableNew" class="M_butt">
+            <img title="<?php echo __('Create table'); ?>"
+                 src="<?php echo getImg('pmd/table.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Create table'); ?>
+            </span>
+        </a>
+        <a href="#" class="M_butt" id="rel_button">
+            <img title="<?php echo __('Create relation'); ?>"
+                 src="<?php echo getImg('pmd/relation.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Create relation'); ?>
+            </span>
+        </a>
+        <a href="#" class="M_butt" id="display_field_button">
+            <img title="<?php echo __('Choose column to display'); ?>"
+                 src="<?php echo getImg('pmd/display_field.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Choose column to display'); ?>
+            </span>
+        </a>
+        <a href="#" id="reloadPage" class="M_butt">
+            <img title="<?php echo __('Reload'); ?>"
+                 src="<?php echo getImg('pmd/reload.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Reload'); ?>
+            </span>
+        </a>
+        <a href="<?php echo PMA_Util::getDocuLink('faq', 'faq6-31'); ?>"
+           target="documentation"
+           class="M_butt">
+            <img title="<?php echo __('Help'); ?>"
+                 src="<?php echo getImg('pmd/help.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Help'); ?>
+            </span>
+        </a>
+    <?php endif; ?>
+    <a href="#" class="<?php echo $params_array['angular_direct']; ?>" id="angular_direct_button">
+        <img title="<?php echo __('Angular links'); ?> / <?php echo __('Direct links'); ?>"
+             src="<?php echo getImg('pmd/ang_direct.png'); ?>" />
+        <span class="hide hidable">
+            <?php echo __('Angular links'); ?> / <?php echo __('Direct links'); ?>
+        </span>
+    </a>
+    <a href="#" class="<?php echo $params_array['snap_to_grid']; ?>" id="grid_button">
+        <img title="<?php echo __('Snap to grid'); ?>" src="<?php echo getImg('pmd/grid.png'); ?>" />
+        <span class="hide hidable">
+            <?php echo __('Snap to grid'); ?>
+        </span>
+    </a>
+    <a href="#" class="<?php echo $params_array['small_big_all']; ?>" id="key_SB_all">
+        <img title="<?php echo __('Small/Big All'); ?>"
+             alt="v"
+             src="<?php echo getImg('pmd/downarrow1.png'); ?>"
+             data-down="<?php echo getImg('pmd/downarrow1.png'); ?>"
+             data-right="<?php echo getImg('pmd/rightarrow1.png') ?>" />
+        <span class="hide hidable">
+            <?php echo __('Small/Big All'); ?>
+        </span>
+    </a>
+    <a href="#" id="SmallTabInvert" class="M_butt" >
+        <img title="<?php echo __('Toggle small/big'); ?>"
+             src="<?php echo getImg('pmd/bottom.png'); ?>" />
+        <span class="hide hidable">
+            <?php echo __('Toggle small/big'); ?>
+        </span>
+    </a>
+    <a href="#" id="relLineInvert" class="<?php echo $params_array['relation_lines']; ?>" >
+        <img title="<?php echo __('Toggle relation lines'); ?>"
+             src="<?php echo getImg('pmd/toggle_lines.png'); ?>" />
+        <span class="hide hidable">
+            <?php echo __('Toggle relation lines'); ?>
+        </span>
+    </a>
+    <?php if (! $visualBuilder) : ?>
+        <a href="#" id="exportPages" class="M_butt" >
+            <img title="<?php echo __('Export schema'); ?>"
+                 src="<?php echo getImg('pmd/export.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Export schema'); ?>
+            </span>
+        </a>
+    <?php else: ?>
+        <a class="M_butt"
+           href="#"
+           onclick="build_query('SQL Query on Database', 0)"
+           onmousedown="return false;"
+           class="M_butt">
+            <img title="<?php echo __('Build Query'); ?>"
+                 src="<?php echo getImg('pmd/query_builder.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Build Query'); ?>
+            </span>
+        </a>
+    <?php endif; ?>
+    <a href="#" class="<?php echo $params_array['side_menu']; ?>" id="key_Left_Right">
+        <img title="<?php echo __('Move Menu'); ?>" alt=">"
+             data-right="<?php echo getImg('pmd/2leftarrow_m.png'); ?>"
+             src="<?php echo getImg('pmd/2rightarrow_m.png'); ?>" />
+        <span class="hide hidable">
+            <?php echo __('Move Menu'); ?>
+        </span>
+    </a>
+    <a href="#" class="<?php echo $params_array['pin_text']; ?>" id="pin_Text">
+        <img title="<?php echo __('Pin text'); ?>"
+             alt=">"
+             data-right="<?php echo getImg('pmd/anchor.png'); ?>"
+             src="<?php echo getImg('pmd/anchor.png'); ?>" />
+        <span class="hide hidable">
+            <?php echo __('Pin text'); ?>
+        </span>
+    </a>
+</div>

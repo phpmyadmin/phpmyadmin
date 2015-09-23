@@ -12,55 +12,27 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/TableSearch.class.php';
+require_once 'libraries/tbl_common.inc.php';
+require_once 'libraries/tbl_info.inc.php';
+require_once 'libraries/di/Container.class.php';
+require_once 'libraries/Response.class.php';
+require_once 'libraries/controllers/TableSearchController.class.php';
 
-$response = PMA_Response::getInstance();
-$table_search = new PMA_TableSearch($db, $table, "replace");
+use PMA\DI;
 
-$connectionCharSet = $GLOBALS['dbi']->fetchValue(
-    "SHOW VARIABLES LIKE 'character_set_connection'", 0, 1
+$container = DI\Container::getDefaultContainer();
+$container->factory('PMA\Controllers\Table\TableSearchController');
+$container->alias(
+    'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
 );
-if (isset($_POST['find'])) {
-    $preview = $table_search->getReplacePreview(
-        $_POST['columnIndex'],
-        $_POST['find'],
-        $_POST['replaceWith'],
-        $_POST['useRegex'],
-        $connectionCharSet
-    );
-    $response->addJSON('preview', $preview);
-    exit;
-}
+$container->set('PMA_Response', PMA_Response::getInstance());
+$container->alias('response', 'PMA_Response');
 
-$header  = $response->getHeader();
-$scripts = $header->getScripts();
-$scripts->addFile('tbl_find_replace.js');
+$dependency_definitions = array(
+    'searchType' => 'replace',
+    'url_query' => &$url_query
+);
 
-// Show secondary level of tabs
-$htmlOutput  = $table_search->getSecondaryTabs();
-
-if (isset($_POST['replace'])) {
-    $htmlOutput .= $table_search->replace(
-        $_POST['columnIndex'],
-        $_POST['findString'],
-        $_POST['replaceWith'],
-        $_POST['useRegex'],
-        $connectionCharSet
-    );
-    $htmlOutput .= PMA_Util::getMessage(
-        __('Your SQL query has been executed successfully.'),
-        null, 'success'
-    );
-}
-
-if (! isset($goto)) {
-    $goto = $GLOBALS['cfg']['DefaultTabTable'];
-}
-// Defines the url to return to in case of error in the next sql statement
-$params = array('db' => $db, 'table' => $table);
-$err_url = $goto . '?' . PMA_URL_getCommon($params);
-// Displays the find and replace form
-$htmlOutput .= $table_search->getSelectionForm($goto);
-$response->addHTML($htmlOutput);
-
-?>
+/** @var PMA\Controllers\Table\TableSearchController $controller */
+$controller = $container->get('TableSearchController', $dependency_definitions);
+$controller->indexAction();

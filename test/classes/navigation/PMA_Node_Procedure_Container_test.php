@@ -48,4 +48,3 @@ class Node_Procedure_Container_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('procedures', $parent->real_name);
     }
 }
-?>

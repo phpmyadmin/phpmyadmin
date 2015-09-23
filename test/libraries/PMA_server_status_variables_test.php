@@ -18,7 +18,6 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
@@ -119,6 +118,32 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
                 $server_status
             ),
         );
+
+        $dbi->expects($this->at(0))
+            ->method('tryQuery')
+            ->with('SHOW GLOBAL STATUS')
+            ->will($this->returnValue(true));
+
+        $dbi->expects($this->at(1))
+            ->method('fetchRow')
+            ->will($this->returnValue(array("Aborted_clients", "0")));
+        $dbi->expects($this->at(2))
+            ->method('fetchRow')
+            ->will($this->returnValue(array("Aborted_connects", "0")));
+        $dbi->expects($this->at(3))
+            ->method('fetchRow')
+            ->will($this->returnValue(array("Com_delete_multi", "0")));
+        $dbi->expects($this->at(4))
+            ->method('fetchRow')
+            ->will($this->returnValue(array("Com_create_function", "0")));
+        $dbi->expects($this->at(5))
+            ->method('fetchRow')
+            ->will($this->returnValue(array("Com_empty_query", "0")));
+        $dbi->expects($this->at(6))
+            ->method('fetchRow')
+            ->will($this->returnValue(false));
+
+        $dbi->expects($this->at(7))->method('freeResult');
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));

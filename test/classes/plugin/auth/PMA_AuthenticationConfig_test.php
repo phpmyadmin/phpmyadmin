@@ -35,6 +35,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationConfig();
@@ -128,7 +129,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<strong>MySQL said: </strong><a href="./url.php?url=http%3A%2F%2F' .
-            'dev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Ferror-messages-server.html"' .
+            'dev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Ferror-messages-server.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
             'class="icon ic_b_help" /></a>',
@@ -151,4 +152,3 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
         }
     }
 }
-?>

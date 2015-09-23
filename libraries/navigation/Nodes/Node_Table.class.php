@@ -25,43 +25,44 @@ class Node_Table extends Node_DatabaseChild
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
-     *
-     * @return Node_Table
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
         $this->icon = array();
-        $this->_addIcon($GLOBALS['cfg']['NavigationTreeDefaultTabTable']);
-        $this->_addIcon($GLOBALS['cfg']['NavigationTreeDefaultTabTable2']);
-        switch($GLOBALS['cfg']['DefaultTabTable']) {
-        case 'tbl_structure.php':
-            $this->title = __('Structure');
-            break;
-        case 'tbl_select.php':
-            $this->title = __('Search');
-            break;
-        case 'tbl_change.php':
-            $this->title = __('Insert');
-            break;
-        case 'tbl_sql.php':
-            $this->title = __('SQL');
-            break;
-        case 'sql.php':
-            $this->title = __('Browse');
-            break;
-        }
+        $this->_addIcon(
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'
+            )
+        );
+        $this->_addIcon(
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'
+            )
+        );
+        $title = PMA_Util::getTitleForTarget(
+            $GLOBALS['cfg']['DefaultTabTable']
+        );
+        $this->title = $title;
+
+        $script_name = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+        );
         $this->links = array(
-            'text' => $GLOBALS['cfg']['DefaultTabTable']
+            'text' => $script_name
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
                     . '&amp;pos=0&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => array(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
+                PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'
+                )
                 . '?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s&amp;token='
                 . $_SESSION[' PMA_token '],
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2']
+                PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'
+                )
                 . '?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s&amp;token='
                 . $_SESSION[' PMA_token ']
@@ -180,12 +181,15 @@ class Node_Table extends Node_DatabaseChild
             }
 
             $count = 0;
-            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                if ($pos <= 0 && $count < $maxItems) {
-                    $retval[] = $arr['Field'];
-                    $count++;
+            if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($count < $maxItems) {
+                        $retval[] = $arr['Field'];
+                        $count++;
+                    } else {
+                        break;
+                    }
                 }
-                $pos--;
             }
             break;
         case 'indexes':
@@ -234,12 +238,15 @@ class Node_Table extends Node_DatabaseChild
             }
 
             $count = 0;
-            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                if ($pos <= 0 && $count < $maxItems) {
-                    $retval[] = $arr['Trigger'];
-                    $count++;
+            if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($count < $maxItems) {
+                        $retval[] = $arr['Trigger'];
+                        $count++;
+                    } else {
+                        break;
+                    }
                 }
-                $pos--;
             }
             break;
         default:
@@ -291,4 +298,3 @@ class Node_Table extends Node_DatabaseChild
     }
 }
 
-?>

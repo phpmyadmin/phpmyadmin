@@ -101,7 +101,7 @@ function PMA_getZipContents($file, $specific_entry = null)
  *
  * @return string the file name of the first file that matches the given regexp
  */
-function PMA_findFileFromZipArchive ($file_regexp, $file)
+function PMA_findFileFromZipArchive($file_regexp, $file)
 {
     $zip_handle = zip_open($file);
     if (is_resource($zip_handle)) {
@@ -192,4 +192,3 @@ function PMA_getZipError($code)
     }
     return $message;
 }
-?>

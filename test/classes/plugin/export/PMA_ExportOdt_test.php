@@ -402,7 +402,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
     public function testExportDBCreate()
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB')
+            $this->object->exportDBCreate('testDB', 'database')
         );
     }
 
@@ -746,6 +746,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -856,6 +857,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['odt_buffer'] = '';
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -1099,4 +1101,3 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

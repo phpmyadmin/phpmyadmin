@@ -48,7 +48,7 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
 
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
     }
 
     /**
@@ -105,7 +105,7 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
      * @param array   $column_order      Column order
      * @param array   $replication_types Replication types
      * @param array   $replication_info  Replication info
-     * @param array   $tags              Tags
+     * @param array   $html_segments     HTML segments
      *
      * @return void
      * @dataProvider providerForTestBuildHtmlForDb
@@ -158,7 +158,8 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
                 ),
                 array(
                     '<td class="tool">',
-                    '<input type="checkbox" name="selected_dbs[]" class="checkall" title="pma" value="pma"'
+                    '<input type="checkbox" name="selected_dbs[]"'
+                    . ' class="checkall" title="pma" value="pma"'
                 )
             ),
             array(
@@ -178,7 +179,9 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
                     )
                 ),
                 array(
-                    '<input type="checkbox" name="selected_dbs[]" class="checkall" title="INFORMATION_SCHEMA" value="INFORMATION_SCHEMA" disabled="disabled"'
+                    '<input type="checkbox" name="selected_dbs[]" class="checkall"'
+                    . ' title="INFORMATION_SCHEMA" value="INFORMATION_SCHEMA"'
+                    . ' disabled="disabled"'
                 )
             )
         );

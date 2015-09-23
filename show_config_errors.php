@@ -37,4 +37,3 @@ error_reporting(E_ALL);
 if (is_readable(CONFIG_FILE)) {
     include CONFIG_FILE;
 }
-?>

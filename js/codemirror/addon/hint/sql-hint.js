@@ -52,12 +52,9 @@
   function addMatches(result, search, wordlist, formatter) {
     for (var word in wordlist) {
       if (!wordlist.hasOwnProperty(word)) continue;
-      if (Array.isArray(wordlist)) {
-        word = wordlist[word];
-      }
-      if (match(search, word)) {
-        result.push(formatter(word));
-      }
+      if (wordlist.slice) word = wordlist[word];
+
+      if (match(search, word)) result.push(formatter(word));
     }
   }
 
@@ -115,21 +112,28 @@
     string = nameParts.pop();
     var table = nameParts.join(".");
 
+    var alias = false;
+    var aliasTable = table;
     // Check if table is available. If not, find table by Alias
-    if (!getItem(tables, table))
+    if (!getItem(tables, table)) {
+      var oldTable = table;
       table = findTableByAlias(table, editor);
+      if (table !== oldTable) alias = true;
+    }
 
     var columns = getItem(tables, table);
-    if (columns && Array.isArray(tables) && columns.columns)
+    if (columns && columns.columns)
       columns = columns.columns;
 
     if (columns) {
       addMatches(result, string, columns, function(w) {
+        var tableInsert = table;
+        if (alias == true) tableInsert = aliasTable;
         if (typeof w == "string") {
-          w = table + "." + w;
+          w = tableInsert + "." + w;
         } else {
           w = shallowClone(w);
-          w.text = table + "." + w.text;
+          w.text = tableInsert + "." + w.text;
         }
         return useBacktick ? insertBackticks(w) : w;
       });
@@ -208,6 +212,7 @@
   CodeMirror.registerHelper("hint", "sql", function(editor, options) {
     tables = (options && options.tables) || {};
     var defaultTableName = options && options.defaultTable;
+    var disableKeywords = options && options.disableKeywords;
     defaultTable = defaultTableName && getItem(tables, defaultTableName);
     keywords = keywords || getKeywords(editor);
 
@@ -216,7 +221,7 @@
 
     defaultTable = defaultTable || [];
 
-    if (Array.isArray(tables) && defaultTable.columns)
+    if (defaultTable.columns)
       defaultTable = defaultTable.columns;
 
     var cur = editor.getCursor();
@@ -240,7 +245,8 @@
     } else {
       addMatches(result, search, tables, function(w) {return w;});
       addMatches(result, search, defaultTable, function(w) {return w;});
-      addMatches(result, search, keywords, function(w) {return w.toUpperCase();});
+      if (!disableKeywords)
+        addMatches(result, search, keywords, function(w) {return w.toUpperCase();});
     }
 
     return {list: result, from: Pos(cur.line, start), to: Pos(cur.line, end)};

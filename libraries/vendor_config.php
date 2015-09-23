@@ -46,7 +46,7 @@ define('SQL_DIR', './sql/');
  * It is not used directly in code, just a convenient
  * define used further in this file.
  */
-define('CONFIG_DIR', './');
+define('CONFIG_DIR', '');
 
 /**
  * Filename of a configuration file.
@@ -85,9 +85,12 @@ define('TCPDF_INC', './libraries/tcpdf/tcpdf.php');
 define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
 
 /**
+ * Path to the udan11/sql-parser. Useful when you want to use system version.
+ */
+define('SQL_PARSER_AUTOLOAD', './libraries/sql-parser/autoload.php');
+
+/**
  * Avoid referring to nonexistent files (causes warnings when open_basedir
  * is used)
  */
 define('K_PATH_IMAGES', '');
-
-?>

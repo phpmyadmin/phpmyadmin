@@ -21,7 +21,7 @@ class Node_Database extends Node
      *
      * @var int
      */
-    private $_hiddenCount = 0;
+    protected $hiddenCount = 0;
 
     /**
      * Initialises the class
@@ -30,8 +30,6 @@ class Node_Database extends Node
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
-     *
-     * @return Node_Database
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
@@ -40,8 +38,12 @@ class Node_Database extends Node
             's_db.png',
             __('Database operations')
         );
+
+        $script_name = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        );
         $this->links = array(
-            'text' => $GLOBALS['cfg']['DefaultTabDatabase']
+            'text' => $script_name
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_operations.php?server=' . $GLOBALS['server']
@@ -92,7 +94,7 @@ class Node_Database extends Node
     /**
      * Returns the number of tables or views present inside this database
      *
-     * @param string  $which        tables|views 
+     * @param string  $which        tables|views
      * @param string  $searchClause A string used to filter the results of
      *                              the query
      * @param boolean $singleItem   Whether to get presence of a single known
@@ -334,7 +336,6 @@ class Node_Database extends Node
     public function getData($type, $pos, $searchClause = '')
     {
         $retval   = array();
-        $db       = $this->real_name;
         switch ($type) {
         case 'tables':
             $retval = $this->_getTables($pos, $searchClause);
@@ -357,35 +358,54 @@ class Node_Database extends Node
 
         // Remove hidden items so that they are not displayed in navigation tree
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
-            $navTable = PMA_Util::backquote($cfgRelation['db'])
-                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
-            $sqlQuery = "SELECT `item_name` FROM " . $navTable
-                . " WHERE `username`='" . $cfgRelation['user'] . "'"
-                . " AND `item_type`='" . substr($type, 0, -1)
-                . "'" . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
-            $result = PMA_queryAsControlUser($sqlQuery, false);
-            if ($result) {
-                $hiddenItems = array();
-                while ($row = $GLOBALS['dbi']->fetchArray($result)) {
-                    $hiddenItems[] = $row[0];
-                }
-                foreach ($retval as $key => $item) {
-                    if (in_array($item, $hiddenItems)) {
-                        unset($retval[$key]);
-                    }
+        if ($cfgRelation['navwork']) {
+            $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
+            foreach ($retval as $key => $item) {
+                if (in_array($item, $hiddenItems)) {
+                    unset($retval[$key]);
                 }
             }
-            $GLOBALS['dbi']->freeResult($result);
         }
 
         return $retval;
     }
 
     /**
+     * Return list of hidden items of given type
+     *
+     * @param string $type The type of items we are looking for
+     *                     ('table', 'function', 'group', etc.)
+     *
+     * @return array Array containing hidden items of given type
+     */
+    public function getHiddenItems($type)
+    {
+        $db = $this->real_name;
+        $cfgRelation = PMA_getRelationsParam();
+        if (empty($cfgRelation['navigationhiding'])) {
+            return array();
+        }
+        $navTable = PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+        $sqlQuery = "SELECT `item_name` FROM " . $navTable
+            . " WHERE `username`='" . $cfgRelation['user'] . "'"
+            . " AND `item_type`='" . $type
+            . "'" . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+        $result = PMA_queryAsControlUser($sqlQuery, false);
+        $hiddenItems = array();
+        if ($result) {
+            while ($row = $GLOBALS['dbi']->fetchArray($result)) {
+                $hiddenItems[] = $row[0];
+            }
+        }
+        $GLOBALS['dbi']->freeResult($result);
+        return $hiddenItems;
+    }
+
+    /**
      * Returns the list of tables or views inside this database
      *
-     * @param string $which        tables|views 
+     * @param string $which        tables|views
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
@@ -437,12 +457,15 @@ class Node_Database extends Node
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr[0];
-                        $count++;
+                if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($count < $maxItems) {
+                            $retval[] = $arr[0];
+                            $count++;
+                        } else {
+                            break;
+                        }
                     }
-                    $pos--;
                 }
             }
         }
@@ -478,7 +501,7 @@ class Node_Database extends Node
     /**
      * Returns the list of procedures or functions inside this database
      *
-     * @param string $routineType  PROCEDURE|FUNCTION 
+     * @param string $routineType  PROCEDURE|FUNCTION
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
@@ -519,12 +542,15 @@ class Node_Database extends Node
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr['Name'];
-                        $count++;
+                if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($count < $maxItems) {
+                            $retval[] = $arr['Name'];
+                            $count++;
+                        } else {
+                            break;
+                        }
                     }
-                    $pos--;
                 }
             }
         }
@@ -599,12 +625,15 @@ class Node_Database extends Node
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr['Name'];
-                        $count++;
+                if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($count < $maxItems) {
+                            $retval[] = $arr['Name'];
+                            $count++;
+                        } else {
+                            break;
+                        }
                     }
-                    $pos--;
                 }
             }
         }
@@ -612,16 +641,16 @@ class Node_Database extends Node
     }
 
     /**
-     * Returns HTML for show hidden button displayed infront of database node
+     * Returns HTML for control buttons displayed infront of a node
      *
-     * @return String HTML for show hidden button
+     * @return String HTML for control buttons
      */
     public function getHtmlForControlButtons()
     {
         $ret = '';
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
-            if ( $this->_hiddenCount > 0) {
+        if ($cfgRelation['navwork']) {
+            if ($this->hiddenCount > 0) {
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
                     . PMA_URL_getCommon()
@@ -633,6 +662,7 @@ class Node_Database extends Node
                     )
                     . '</a></span>';
             }
+
         }
         return $ret;
     }
@@ -646,7 +676,7 @@ class Node_Database extends Node
      */
     public function setHiddenCount($count)
     {
-        $this->_hiddenCount = $count;
+        $this->hiddenCount = $count;
     }
 
     /**
@@ -656,8 +686,7 @@ class Node_Database extends Node
      */
     public function getHiddenCount()
     {
-        return $this->_hiddenCount;
+        return $this->hiddenCount;
     }
 }
 
-?>

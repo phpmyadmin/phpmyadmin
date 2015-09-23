@@ -14,7 +14,6 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
 /**
@@ -233,7 +232,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     public function testExportDBCreate()
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB')
+            $this->object->exportDBCreate('testDB', 'database')
         );
     }
 
@@ -448,6 +447,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -659,4 +659,3 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

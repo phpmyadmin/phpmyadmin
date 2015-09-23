@@ -21,6 +21,7 @@ require_once './libraries/plugin_interface.lib.php';
 require_once './libraries/display_export.lib.php';
 
 /* Scan for plugins */
+/* @var $export_list ExportPlugin[] */
 $export_list = PMA_getPlugins(
     "export",
     'libraries/plugins/export/',
@@ -38,7 +39,14 @@ if (empty($export_list)) {
     exit;
 }
 
-$html = '<form method="post" action="export.php" '
+$html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
+
+$cfgRelation = PMA_getRelationsParam();
+if ($cfgRelation['exporttemplateswork']) {
+    $html .= PMA_getHtmlForExportTemplateLoading($export_type);
+}
+
+$html .= '<form method="post" action="export.php" '
     . ' name="dump" class="disableAjax">';
 
 //output Hidden Inputs

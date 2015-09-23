@@ -21,6 +21,9 @@ require_once 'libraries/plugins/TransformationsPlugin.class.php';
  */
 class Text_Plain_Json extends TransformationsPlugin
 {
+    /**
+     * No-arg constructor
+     */
     public function __construct()
     {
         if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
@@ -93,4 +96,3 @@ class Text_Plain_Json extends TransformationsPlugin
         return "JSON";
     }
 }
-?>

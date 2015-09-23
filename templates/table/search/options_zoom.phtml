@@ -1,0 +1,48 @@
+<table class="data">
+    <!-- Select options for data label -->
+    <tr>
+        <td>
+            <label for="dataLabel">
+                <?php echo __("Use this column to label each point"); ?>
+            </label>
+        </td>
+        <td>
+            <select name="dataLabel" id="dataLabel" >
+                <option value = "">
+                    <?php echo __('None'); ?>
+                </option>
+                <?php for ($j = 0, $nb = count($columnNames); $j < $nb; $j++): ?>
+                    <?php if (isset($dataLabel)
+                        && $dataLabel == htmlspecialchars($columnNames[$j])
+                    ): ?>
+                        <option value="<?php echo htmlspecialchars($columnNames[$j]); ?>"
+                                selected="selected">
+                            <?php echo htmlspecialchars($columnNames[$j]); ?>
+                        </option>
+                    <?php else: ?>
+                        <option value="<?php echo htmlspecialchars($columnNames[$j]); ?>" >
+                            <?php echo htmlspecialchars($columnNames[$j]); ?>
+                        </option>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            </select>
+        </td>
+    </tr>
+    <!-- Inputbox for changing default maximum rows to plot -->
+    <tr>
+        <td>
+            <label for="maxRowPlotLimit">
+                <?php echo __("Maximum rows to plot"); ?>
+            </label>
+        </td>
+        <td>
+            <input type="number"
+                   name="maxPlotLimit"
+                   id="maxRowPlotLimit"
+                   required="required"
+                   value="<?php echo ((! empty($_POST['maxPlotLimit']))
+                       ? htmlspecialchars($_POST['maxPlotLimit'])
+                       : $GLOBALS['cfg']['maxRowPlotLimit']); ?>" />
+        </td>
+    </tr>
+</table>

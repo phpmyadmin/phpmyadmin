@@ -16,7 +16,6 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 
 /**
  * Tests for PMA_DBQbe class
@@ -272,12 +271,10 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             . '</strong><input type="radio" name="criteriaAndOrColumn[1]" value='
             . '"and" checked="checked" /><br />Ins<input type="checkbox" name='
             . '"criteriaColumnInsert[1]" />&nbsp;&nbsp;Del<input type="checkbox" '
-            . 'name="criteriaColumnDelete[1]" /></td><td class="center"><strong>Or:'
-            . '</strong><input type="radio" name="criteriaAndOrColumn[2]" value="or"'
-            . ' />&nbsp;&nbsp;<strong>And:</strong><input type="radio" name="criter'
-            . 'iaAndOrColumn[2]" value="and" checked="checked" /><br />Ins<input '
-            . 'type="checkbox" name="criteriaColumnInsert[2]" />&nbsp;&nbsp;Del'
-            . '<input type="checkbox" name="criteriaColumnDelete[2]" /></td></tr>',
+            . 'name="criteriaColumnDelete[1]" /></td><td class="center"><br />Ins'
+            . '<input type="checkbox" name="criteriaColumnInsert[2]" />&nbsp;&nbsp;'
+            . 'Del<input type="checkbox" name="criteriaColumnDelete[2]" /></td>'
+            . '</tr>',
             $this->_callProtectedFunction(
                 '_getModifyColumnsRow',
                 array()

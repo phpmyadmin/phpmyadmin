@@ -18,42 +18,6 @@ require_once 'libraries/Util.class.php';
  */
 class PMA_Util_Test extends PHPUnit_Framework_TestCase
 {
-    /**
-     * Test for analyze Limit Clause
-     *
-     * @return void
-     */
-    public function testAnalyzeLimitClause()
-    {
-        $limit_data = PMA_Util::analyzeLimitClause("limit 2,4");
-        $this->assertEquals(
-            '2',
-            $limit_data['start']
-        );
-        $this->assertEquals(
-            '4',
-            $limit_data['length']
-        );
-
-        $limit_data = PMA_Util::analyzeLimitClause("limit 3");
-        $this->assertEquals(
-            '0',
-            $limit_data['start']
-        );
-        $this->assertEquals(
-            '3',
-            $limit_data['length']
-        );
-
-        $limit_data = PMA_Util::analyzeLimitClause("limit 3,2,5");
-        $this->assertFalse($limit_data);
-
-        $limit_data = PMA_Util::analyzeLimitClause("limit");
-        $this->assertFalse($limit_data);
-
-        $limit_data = PMA_Util::analyzeLimitClause("limit ");
-        $this->assertFalse($limit_data);
-    }
 
     /**
      * Test for createGISData
@@ -114,16 +78,17 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
      *
      * @group large
      */
-    /*
     public function testGetLatestVersion()
     {
-        $GLOBALS['cfg']['ProxyUrl'] = '';
-        $GLOBALS['cfg']['VersionCheckProxyUrl'] = '';
+        $GLOBALS['cfg']['ProxyUrl'] = PROXY_URL;
+        $GLOBALS['cfg']['ProxyUser'] = PROXY_USER;
+        $GLOBALS['cfg']['ProxyPass'] = PROXY_PASS;
+        $GLOBALS['cfg']['VersionCheck'] = true;
         $version = PMA_Util::getLatestVersion();
         $this->assertNotEmpty($version->version);
         $this->assertNotEmpty($version->date);
     }
-    */
+
     /**
      * Test version to int conversion.
      *
@@ -169,6 +134,35 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
             array('4.1.0', 4010050),
             array('4.0.1.3', 4000153),
             array('4.1-dev', 4010000),
+        );
+    }
+
+    /**
+     * Test for isForeignKeyCheck
+     *
+     * @return void
+     */
+    public function testIsForeignKeyCheck()
+    {
+        $GLOBALS['cfg']['DBG'] = array();
+        $GLOBALS['cfg']['DBG']['sql'] = false;
+
+        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
+        $this->assertEquals(
+            true,
+            PMA_Util::isForeignKeyCheck()
+        );
+
+        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
+        $this->assertEquals(
+            false,
+            PMA_Util::isForeignKeyCheck()
+        );
+
+        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
+        $this->assertEquals(
+            true,
+            PMA_Util::isForeignKeyCheck()
         );
     }
 

@@ -8,7 +8,7 @@
     "authors": [
         {
             "name": "The phpMyAdmin Team",
-            "email": "phpmyadmin-devel@lists.sourceforge.net",
+            "email": "developers@phpmyadmin.net",
             "homepage": "https://www.phpmyadmin.net/team/"
         }
     ],
@@ -23,7 +23,14 @@
     },
     "require-dev": {
         "satooshi/php-coveralls": ">=0.6",
-        "phpunit/phpunit": "<4.2",
-        "phpunit/phpunit-selenium": ">=1.2"
-    }
+        "phpunit/phpunit": ">=3.7",
+        "phpunit/phpunit-selenium": ">=1.2",
+        "squizlabs/php_codesniffer": "2.*"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://www.phpmyadmin.net"
+        }
+    ]
 }

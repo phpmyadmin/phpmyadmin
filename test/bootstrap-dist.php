@@ -21,6 +21,8 @@ set_include_path(
 define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
+define('PMA_MYSQL_STR_VERSION', '5.50.00');
+define('PMA_MYSQL_VERSION_COMMENT', 'MySQL Community Server (GPL)');
 
 // Selenium tests setup
 $test_defaults = array(
@@ -54,6 +56,19 @@ $CFG = new PMA_Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
+require_once 'libraries/sql-parser/autoload.php';
+
+// Set proxy information from env, if available
+$http_proxy = getenv('http_proxy');
+if ($http_proxy && ($url_info = parse_url($http_proxy))) {
+    define('PROXY_URL', $url_info['host'] . ':' . $url_info['port']);
+    define('PROXY_USER', empty($url_info['user']) ? '' : $url_info['user']);
+    define('PROXY_PASS', empty($url_info['pass']) ? '' : $url_info['pass']);
+} else {
+    define('PROXY_URL', '');
+    define('PROXY_USER', '');
+    define('PROXY_PASS', '');
+}
 
 // Ensure we have session started
 session_start();
@@ -149,4 +164,3 @@ function tearDownForTestsUsingDate()
         runkit_function_rename('test_date_override', 'date');
     }
 }
-?>

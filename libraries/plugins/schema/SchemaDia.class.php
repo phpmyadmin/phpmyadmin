@@ -110,8 +110,7 @@ class SchemaDia extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Dia_Relation_Schema();
+        $export = new PMA_Dia_Relation_Schema($db);
         $export->showOutput();
     }
 }
-?>

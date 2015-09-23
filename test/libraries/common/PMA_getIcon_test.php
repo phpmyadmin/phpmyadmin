@@ -94,7 +94,7 @@ class PMA_GetIcon_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" class="icon ic_b_comment" /> ' . $alternate_text . '</span>',
+            . '" class="icon ic_b_comment" />&nbsp;' . $alternate_text . '</span>',
             PMA_Util::getIcon('b_comment.png', $alternate_text, true, false)
         );
 

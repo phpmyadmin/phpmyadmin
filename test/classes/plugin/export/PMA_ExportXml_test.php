@@ -246,7 +246,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['xml_export_functions'] = 1;
         $GLOBALS['xml_export_contents'] = 1;
         $GLOBALS['output_charset_conversion'] = 1;
-        $GLOBALS['charset_of_file'] = 'iso-8859-1';
+        $GLOBALS['charset'] = 'iso-8859-1';
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -344,6 +344,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
                     'prdef'
                 )
             );
+
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'd<"b')));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -446,6 +450,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ->method('fetchResult')
             ->will($this->returnValue(false));
 
+        $dbi->expects($this->any())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'd<"b')));
+
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['tables'] = array('t1', 't2');
@@ -534,6 +542,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(2))
             ->method('fetchResult')
             ->will($this->returnValue(false));
+
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'd<b')));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -628,7 +640,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     public function testExportDBCreate()
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB')
+            $this->object->exportDBCreate('testDB', 'database')
         );
     }
 
@@ -714,4 +726,3 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

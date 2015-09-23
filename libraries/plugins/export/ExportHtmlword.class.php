@@ -102,9 +102,9 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
-        global $charset_of_file;
+        global $charset;
 
         return PMA_exportOutputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -116,7 +116,7 @@ class ExportHtmlword extends ExportPlugin
             <html>
             <head>
                 <meta http-equiv="Content-type" content="text/html;charset='
-            . (isset($charset_of_file) ? $charset_of_file : 'utf-8') . '" />
+            . (isset($charset) ? $charset : 'utf-8') . '" />
             </head>
             <body>'
         );
@@ -127,7 +127,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         return PMA_exportOutputHandler('</body></html>');
     }
@@ -140,7 +140,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
@@ -157,7 +157,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -165,12 +165,13 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db          Database name
+     * @param string $export_type 'server', 'database', 'table'
+     * @param string $db_alias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $db_alias = '')
+    public function exportDBCreate($db, $export_type, $db_alias = '')
     {
         return true;
     }
@@ -641,4 +642,3 @@ class ExportHtmlword extends ExportPlugin
         return $definition;
     }
 }
-?>

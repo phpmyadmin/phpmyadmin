@@ -40,7 +40,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 
     $retval .= '<script type="text/javascript">';
     $retval .= 'variableNames = [ ';
-    $i=0;
+    $i = 0;
     foreach ($ServerStatusData->status as $name=>$value) {
         if (is_numeric($value)) {
             if ($i++ > 0) {
@@ -230,7 +230,7 @@ function PMA_getHtmlForAddChartDialog()
     $retval .= ' | <a href="#submitClearSeries">' . __('Clear series') . '</a>';
     $retval .= '</span>';
     $retval .= '</p>';
-    $retval .= __('Series in Chart:');
+    $retval .= __('Series in chart:');
     $retval .= '<br/>';
     $retval .= '<span id="seriesPreview">';
     $retval .= '<i>' . __('None') . '</i>';
@@ -822,4 +822,3 @@ function PMA_getJsonForQueryAnalyzer()
     return $return;
 }
 
-?>

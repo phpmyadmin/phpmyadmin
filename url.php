@@ -16,9 +16,9 @@ require_once './libraries/common.inc.php';
  */
 require_once './libraries/js_escape.lib.php';
 
-if (! PMA_isValid($_GET['url'])
-    || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_GET['url'])
-    || ! PMA_isAllowedDomain($_GET['url'])
+if (! PMA_isValid($_REQUEST['url'])
+    || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_REQUEST['url'])
+    || ! PMA_isAllowedDomain($_REQUEST['url'])
 ) {
     header('Location: ' . $cfg['PmaAbsoluteUri']);
 } else {
@@ -28,11 +28,10 @@ if (! PMA_isValid($_GET['url'])
     //  external site.
     echo "<script type='text/javascript'>
             window.onload=function(){
-                window.location='" . PMA_escapeJsString($_GET['url']) . "';
+                window.location='" . PMA_escapeJsString($_REQUEST['url']) . "';
             }
         </script>";
     // Display redirecting msg on screen.
-    printf(__('Taking you to %s.'), htmlspecialchars($_GET['url']));
+    printf(__('Taking you to %s.'), htmlspecialchars($_REQUEST['url']));
 }
 die();
-?>

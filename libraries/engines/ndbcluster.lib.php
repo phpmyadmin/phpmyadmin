@@ -52,4 +52,3 @@ class PMA_StorageEngine_Ndbcluster extends PMA_StorageEngine
     }
 }
 
-?>

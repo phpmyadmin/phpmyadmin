@@ -26,19 +26,28 @@ class PMA_StorageEngine_Innodb extends PMA_StorageEngine
         return array(
             'innodb_data_home_dir' => array(
                 'title' => __('Data home directory'),
-                'desc'  => __('The common part of the directory path for all InnoDB data files.'),
+                'desc'  => __(
+                    'The common part of the directory path for all InnoDB data '
+                    . 'files.'
+                ),
             ),
             'innodb_data_file_path' => array(
                 'title' => __('Data files'),
             ),
             'innodb_autoextend_increment' => array(
                 'title' => __('Autoextend increment'),
-                'desc'  => __('The increment size for extending the size of an autoextending tablespace when it becomes full.'),
+                'desc'  => __(
+                    'The increment size for extending the size of an autoextending '
+                    . 'tablespace when it becomes full.'
+                ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
             ),
             'innodb_buffer_pool_size' => array(
                 'title' => __('Buffer pool size'),
-                'desc'  => __('The size of the memory buffer InnoDB uses to cache data and indexes of its tables.'),
+                'desc'  => __(
+                    'The size of the memory buffer InnoDB uses to cache data and '
+                    . 'indexes of its tables.'
+                ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ),
             'innodb_additional_mem_pool_size' => array(
@@ -321,10 +330,10 @@ class PMA_StorageEngine_Innodb extends PMA_StorageEngine
     public function getPageStatus()
     {
         return '<pre id="pre_innodb_status">' . "\n"
-            . htmlspecialchars(
-                $GLOBALS['dbi']->fetchValue('SHOW ENGINE INNODB STATUS;', 0, 'Status')
-            ) . "\n"
-            . '</pre>' . "\n";
+        . htmlspecialchars(
+            $GLOBALS['dbi']->fetchValue('SHOW ENGINE INNODB STATUS;', 0, 'Status')
+        ) . "\n"
+        . '</pre>' . "\n";
     }
 
     /**
@@ -389,4 +398,3 @@ class PMA_StorageEngine_Innodb extends PMA_StorageEngine
     }
 }
 
-?>

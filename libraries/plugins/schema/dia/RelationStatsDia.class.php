@@ -23,6 +23,7 @@ if (! defined('PHPMYADMIN')) {
  */
 class Relation_Stats_Dia
 {
+    protected $diagram;
     /**
      * Defines properties
      */
@@ -39,6 +40,7 @@ class Relation_Stats_Dia
     /**
      * The "Relation_Stats_Dia" constructor
      *
+     * @param object $diagram       The DIA diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name
@@ -46,9 +48,10 @@ class Relation_Stats_Dia
      *
      * @see Relation_Stats_Dia::_getXy
      */
-    function __construct($master_table, $master_field, $foreign_table,
-        $foreign_field
+    public function __construct(
+        $diagram, $master_table, $master_field, $foreign_table, $foreign_field
     ) {
+        $this->diagram = $diagram;
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         $this->srcConnPointsLeft = $src_pos[0];
@@ -101,23 +104,19 @@ class Relation_Stats_Dia
      *
      * @return boolean|void
      *
-     * @global object $dia The current Dia document
-     *
      * @access public
      * @see PMA_PDF
      */
     public function relationDraw($showColor)
     {
-        global $dia;
-
         PMA_Dia_Relation_Schema::$objectId += 1;
         /*
          * if source connection points and destination connection
         * points are same then return it false and don't draw that
         * relation
         */
-        if ( $this->srcConnPointsRight == $this->destConnPointsRight) {
-            if ( $this->srcConnPointsLeft == $this->destConnPointsLeft) {
+        if ($this->srcConnPointsRight == $this->destConnPointsRight) {
+            if ($this->srcConnPointsLeft == $this->destConnPointsLeft) {
                 return false;
             }
         }
@@ -134,7 +133,7 @@ class Relation_Stats_Dia
             $this->referenceColor = '#000000';
         }
 
-        $dia->writeRaw(
+        $this->diagram->writeRaw(
             '<dia:object type="Database - Reference" version="0" id="'
             . PMA_Dia_Relation_Schema::$objectId . '">
             <dia:attribute name="obj_pos">
@@ -213,4 +212,3 @@ class Relation_Stats_Dia
         );
     }
 }
-?>

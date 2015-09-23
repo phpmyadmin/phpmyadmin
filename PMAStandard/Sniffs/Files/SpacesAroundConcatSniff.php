@@ -76,5 +76,3 @@ class PMAStandard_Sniffs_Files_SpacesAroundConcatSniff implements PHP_CodeSniffe
 }//end class
 
 // }}}
-
-?>

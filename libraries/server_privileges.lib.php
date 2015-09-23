@@ -800,8 +800,8 @@ function PMA_getHtmlForRequires($row)
         . 'REQUIRE SUBJECT'
         . '</dfn></code></label>';
     $html_output .= '<input type="text" name="x509_subject" id="text_x509_subject" '
-        . 'value="' . (isset($row['x509_subject']) ? $row['x509_subject'] : '') . '" '
-        . 'size=80" title="'
+        . 'value="' . (isset($row['x509_subject']) ? $row['x509_subject'] : '')
+        . '" size=80" title="'
         . __(
             'Requires that a valid X509 certificate with this subject be presented.'
         )
@@ -837,7 +837,9 @@ function PMA_getHtmlForRequires($row)
             'Requires SSL-encrypted connections.'
         )
         . '"'
-        . ((isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY' || $row['ssl_type'] == ''))
+        . ((isset($row['ssl_type'])
+            && ($row['ssl_type'] == 'ANY'
+                || $row['ssl_type'] == ''))
             ? ' checked="checked"'
             : ''
         )
@@ -1086,53 +1088,29 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
            . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
            . 'title="';
 
-        $html_output .= (isset($GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
-                    )
-                ] )
-                ? $GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
-                    )
-                ]
-                : $GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
-                    ) . 'Tbl'
-                ]
+        $privGlobalName = 'strPrivDesc'
+            . /*overload*/mb_substr(
+                $tmp_current_grant,
+                0,
+                (/*overload*/mb_strlen($tmp_current_grant) - 5)
+            );
+        $html_output .= (isset($GLOBALS[$privGlobalName])
+                ? $GLOBALS[$privGlobalName]
+                : $GLOBALS[$privGlobalName . 'Tbl']
             )
             . '"/>' . "\n";
 
+        $privGlobalName1 = 'strPrivDesc'
+            . /*overload*/mb_substr(
+                $tmp_current_grant,
+                0,
+                - 5
+            );
         $html_output .= '<label for="checkbox_' . $current_grant
             . '"><code><dfn title="'
-            . (isset($GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        -5
-                    )
-                ])
-                ? $GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        -5
-                    )
-                ]
-                : $GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        -5
-                    ) . 'Tbl'
-                ]
+            . (isset($GLOBALS[$privGlobalName1])
+                ? $GLOBALS[$privGlobalName1]
+                : $GLOBALS[$privGlobalName1 . 'Tbl']
             )
             . '">'
             . /*overload*/mb_strtoupper(
@@ -1153,7 +1131,7 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
  *
  * @param string $db    the database
  * @param string $table the table
- * @param string $row   first row from result or boolean false
+ * @param array  $row   first row from result or boolean false
  *
  * @return string $html_output
  */
@@ -1193,8 +1171,8 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
     $html_output .= '<fieldset id="fieldset_user_global_rights">'
         . '<legend data-submenu-label="' . $menu_label . '">' . $legend
         . '<input type="checkbox" id="addUsersForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" /> '
-        . '<label for="addUsersForm_checkall">' . __('Check All') . '</label> '
+        . 'class="checkall_box" title="' . __('Check all') . '" /> '
+        . '<label for="addUsersForm_checkall">' . __('Check all') . '</label> '
         . '</legend>'
         . '<p><small><i>'
         . __('Note: MySQL privilege names are expressed in English.')
@@ -1403,7 +1381,13 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
     $html_output = '';
     foreach ($privTable as $i => $table) {
         $html_output .= '<fieldset>' . "\n"
-            . '<legend>' . $privTable_names[$i] . '</legend>' . "\n";
+            . '<legend>' . "\n"
+            . '<input type="checkbox" class="sub_checkall_box"'
+            . ' id="checkall_' . $privTable_names[$i] . '_priv"'
+            . ' title="' . __('Check all') . '"/>'
+            . '<label for="checkall_' . $privTable_names[$i] . '_priv">'
+            . $privTable_names[$i] . '</label>' . "\n"
+            . '</legend>' . "\n";
         foreach ($table as $priv) {
             $html_output .= '<div class="item">' . "\n"
                 . '<input type="checkbox" class="checkall"'
@@ -1431,16 +1415,21 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
  * Displays the fields used by the "new user" form as well as the
  * "change login information / copy user" form.
  *
- * @param string $mode are we creating a new user or are we just
- *                     changing  one? (allowed values: 'new', 'change')
+ * @param string $mode     are we creating a new user or are we just
+ *                         changing  one? (allowed values: 'new', 'change')
+ * @param string $username User name
+ * @param string $hostname Host name
  *
  * @global  array      $cfg     the phpMyAdmin configuration
  * @global  resource   $user_link the database connection
  *
  * @return string $html_output  a HTML snippet
  */
-function PMA_getHtmlForLoginInformationFields($mode = 'new')
-{
+function PMA_getHtmlForLoginInformationFields(
+    $mode = 'new',
+    $username = null,
+    $hostname = null
+) {
     list($username_length, $hostname_length) = PMA_getUsernameAndHostnameLength();
 
     if (isset($GLOBALS['username'])
@@ -1518,12 +1507,12 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_hostname">' . "\n"
-        . '    ' . __('Host:') . "\n"
+        . '    ' . __('Host name:') . "\n"
         . '</label>' . "\n";
 
     $html_output .= '<span class="options">' . "\n"
         . '    <select name="pred_hostname" id="select_pred_hostname" '
-        . 'title="' . __('Host') . '"' . "\n";
+        . 'title="' . __('Host name') . '"' . "\n";
     $_current_user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
     if (! empty($_current_user)) {
         $thishost = str_replace(
@@ -1625,8 +1614,9 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . $hostname_length . '" value="'
         // use default value of '%' to match with the default 'Any host'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
-        . '" title="' . __('Host')
-        . '" onchange="pred_hostname.value = \'userdefined\'; this.required = true;" '
+        . '" title="' . __('Host name')
+        . '" onchange="pred_hostname.value = \'userdefined\'; '
+        . 'this.required = true;" '
         . ((isset($GLOBALS['pred_hostname'])
                 && $GLOBALS['pred_hostname'] == 'userdefined'
             )
@@ -1640,6 +1630,10 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
             )
         )
         . '</div>' . "\n";
+
+    $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+        $mode, $username, $hostname
+    );
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_password">' . "\n"
@@ -1676,7 +1670,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . '</span>' . "\n"
         . '<input type="password" id="text_pma_pw" name="pma_pw" '
         . 'title="' . __('Password') . '" '
-        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; pma_pw2.required = true;" '
+        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; '
+        . 'pma_pw2.required = true;" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n";
@@ -1689,15 +1684,49 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . '<span class="options">&nbsp;</span>' . "\n"
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
         . 'title="' . __('Re-type') . '" '
-        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; pma_pw.required = true;" '
+        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; '
+        . 'pma_pw.required = true;" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
+        . '</div>' . "\n"
+        . '<div class="item" id="authentication_plugin_div">'
+        . '<label for="select_authentication_plugin" >'
+        . __('Authentication Plugin')
+        . '</label><span class="options">&nbsp;</span>' . "\n"
+        . '<select id="select_authentication_plugin" name="authentication_plugin" '
+        . 'title="' . __('Authentication Plugin') . '" >'
+        . '<option value="mysql_native_password" '
+        . ($orig_auth_plugin == 'mysql_native_password' ? 'selected ' : '')
+        . '>' . __('MySQL native password') . '</option>';
+
+    // sha256 auth plugin exists only for 5.6.6+
+    if (PMA_Util::getServerType() == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50606
+    ) {
+        $html_output .= '<option value="sha256_password" '
+        . ($orig_auth_plugin == 'sha256_password' ? ' selected ' : '')
+        . ' >' . __('SHA256 password') . '</option>';
+    }
+
+    $html_output .= '</select>'
+        . '<div id="ssl_reqd_warning" '
+        . ($orig_auth_plugin == 'sha256_password' ? '' : ' style="display:none"')
+        . ' >'
+        . PMA_Message::notice(
+            __(
+                'This method requires using an \'<i>SSL connection</i>\' '
+                . 'or an \'<i>unencrypted connection that encrypts the password '
+                . 'using RSA</i>\'; while connecting to the server.'
+            )
+            . PMA_Util::showMySQLDocu('sha256-authentication-plugin')
+        )->getDisplay()
+        . '</div>'
         . '</div>' . "\n"
        // Generate password added here via jQuery
        . '</fieldset>' . "\n";
 
     return $html_output;
-} // end of the 'PMA_displayUserAndHostFields()' function
+} // end of the 'PMA_getHtmlForLoginInformationFields()' function
 
 /**
  * Get username and hostname length
@@ -1725,6 +1754,61 @@ function PMA_getUsernameAndHostnameLength()
         }
     }
     return array($username_length, $hostname_length);
+}
+
+/**
+ * Get current authentication plugin in use - for a user or globally
+ *
+ * @param string $mode     are we creating a new user or are we just
+ *                         changing  one? (allowed values: 'new', 'change')
+ * @param string $username User name
+ * @param string $hostname Host name
+ *
+ * @return string authentication plugin in use
+ */
+function PMA_getCurrentAuthenticationPlugin(
+    $mode = 'new',
+    $username = null,
+    $hostname = null
+) {
+    /* Fallback (standard) value */
+    $authentication_plugin = 'mysql_native_password';
+
+    if (isset($username) && isset($hostname)
+        && $mode == 'change'
+    ) {
+        $row = $GLOBALS['dbi']->fetchSingleRow(
+            'SELECT `plugin` FROM `mysql`.`user` WHERE '
+            . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '" LIMIT 1'
+        );
+        // Table 'mysql'.'user' may not exist for some previous
+        // versions of MySQL - in that case consider fallback value
+        if (isset($row) && $row) {
+            $authentication_plugin = $row['plugin'];
+        }
+    } elseif ($mode == 'change') {
+        $row = $GLOBALS['dbi']->fetchSingleRow(
+            'SELECT CURRENT_USER() as user;'
+        );
+        if (isset($row) && $row) {
+            list($username, $hostname) = explode('@', $row['user']);
+        }
+
+        $row = $GLOBALS['dbi']->fetchSingleRow(
+            'SELECT `plugin` FROM `mysql`.`user` WHERE '
+            . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '"'
+        );
+        if (isset($row) && $row && ! empty($row['plugin'])) {
+            $authentication_plugin = $row['plugin'];
+        }
+    } elseif (PMA_MYSQL_INT_VERSION >= 50702) {
+        $row = $GLOBALS['dbi']->fetchSingleRow(
+            'SELECT @@default_authentication_plugin'
+        );
+        $authentication_plugin = $row['@@default_authentication_plugin'];
+    }
+
+    return $authentication_plugin;
 }
 
 /**
@@ -1780,10 +1864,18 @@ function PMA_updatePassword($err_url, $username, $hostname)
         if (PMA_Util::getServerType() == 'MySQL'
             && PMA_MYSQL_INT_VERSION >= 50706
         ) {
-            $query_prefix = "ALTER USER '"
-                . PMA_Util::sqlAddSlashes($username)
-                . "'@'" . PMA_Util::sqlAddSlashes($hostname) . "'"
-                . " IDENTIFIED BY '";
+            if (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] != 'old') {
+                $query_prefix = "ALTER USER '"
+                    . PMA_Util::sqlAddSlashes($username)
+                    . "'@'" . PMA_Util::sqlAddSlashes($hostname) . "'"
+                    . " IDENTIFIED WITH " . $_REQUEST['pw_hash']
+                    . " BY '";
+            } else {
+                $query_prefix = "ALTER USER '"
+                    . PMA_Util::sqlAddSlashes($username)
+                    . "'@'" . PMA_Util::sqlAddSlashes($hostname) . "'"
+                    . " IDENTIFIED BY '";
+            }
 
             // in $sql_query which will be displayed, hide the password
             $sql_query = $query_prefix . "*'";
@@ -1791,12 +1883,24 @@ function PMA_updatePassword($err_url, $username, $hostname)
             $local_query = $query_prefix
                 . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . "'";
         } else {
-            $hashing_function
-                = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old'
-                ? 'OLD_'
-                : ''
-            )
-            . 'PASSWORD';
+            if (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old') {
+                $hashing_function = 'OLD_PASSWORD';
+            } elseif (! empty($_REQUEST['pw_hash'])
+                && $_REQUEST['pw_hash'] == 'sha256_password'
+            ) {
+                $hashing_function = 'PASSWORD';
+
+                // Backup the old value, to be reset later
+                $row = $GLOBALS['dbi']->fetchSingleRow(
+                    'SELECT @@old_passwords;'
+                );
+                $orig_value = $row['@@old_passwords'];
+                // Set the hashing method used by PASSWORD()
+                // to be 'sha256_password' type
+                $GLOBALS['dbi']->tryQuery('SET old_passwords = 2;');
+            } else {
+                $hashing_function = 'PASSWORD';
+            }
 
             $sql_query        = 'SET PASSWORD FOR \''
                 . PMA_Util::sqlAddSlashes($username)
@@ -1824,6 +1928,11 @@ function PMA_updatePassword($err_url, $username, $hostname)
             '\'' . htmlspecialchars($username)
             . '\'@\'' . htmlspecialchars($hostname) . '\''
         );
+        if (isset($orig_value)) {
+            $GLOBALS['dbi']->tryQuery(
+                'SET `old_passwords` = ' . $orig_value . ';'
+            );
+        }
     }
     return $message;
 }
@@ -1872,7 +1981,7 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
 /**
  * Get REQUIRE cluase
  *
- * @return stirng REQUIRE clause
+ * @return string REQUIRE clause
  */
 function PMA_getRequireClause()
 {
@@ -1949,7 +2058,7 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
 function PMA_getHtmlForAddUser($dbname)
 {
     $html_output = '<h2>' . "\n"
-       . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
+       . PMA_Util::getIcon('b_usradd.png') . __('Add user account') . "\n"
        . '</h2>' . "\n"
        . '<form name="usersForm" id="addUsersForm"'
        . ' onsubmit="return checkAddUser(this);"'
@@ -1958,7 +2067,7 @@ function PMA_getHtmlForAddUser($dbname)
        . PMA_getHtmlForLoginInformationFields('new');
 
     $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
-        . '<legend>' . __('Database for user') . '</legend>' . "\n";
+        . '<legend>' . __('Database for user account') . '</legend>' . "\n";
 
     $html_output .= PMA_Util::getCheckbox(
         'createdb-1',
@@ -2079,7 +2188,9 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
             . '    '
             . sprintf(
                 __('Users having access to "%s"'),
-                '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+                '<a href="' . PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                )
                 . PMA_URL_getCommon(array('db' => $db)) . '">'
                 .  htmlspecialchars($db)
                 . '</a>'
@@ -2093,7 +2204,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $html_output .= '</table>';
 
-        $html_output .= '<div style="float:left;">';
+        $html_output .= '<div class="floatleft">';
         $html_output .= PMA_Util::getWithSelected(
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
         );
@@ -2143,7 +2254,9 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
             . PMA_Util::getIcon('b_usrcheck.png')
             . sprintf(
                 __('Users having access to "%s"'),
-                '<a href="' . $GLOBALS['cfg']['DefaultTabTable']
+                '<a href="' . PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
                 . PMA_URL_getCommon(
                     array(
                         'db' => $db,
@@ -2170,7 +2283,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $html_output .= '</table>';
 
-        $html_output .= '<div style="float:left;">';
+        $html_output .= '<div class="floatleft">';
         $html_output .= PMA_Util::getWithSelected(
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
         );
@@ -2253,8 +2366,8 @@ function PMA_getHtmlForPrivsTableHead()
     return '<thead>'
         . '<tr>'
         . '<th></th>'
-        . '<th>' . __('User') . '</th>'
-        . '<th>' . __('Host') . '</th>'
+        . '<th>' . __('User name') . '</th>'
+        . '<th>' . __('Host name') . '</th>'
         . '<th>' . __('Type') . '</th>'
         . '<th>' . __('Privileges') . '</th>'
         . '<th>' . __('Grant') . '</th>'
@@ -2302,8 +2415,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
     foreach ($privMap as $current_user => $val) {
         foreach ($val as $current_host => $current_privileges) {
             $nbPrivileges = count($current_privileges);
-            $html_output .= '<tr class="noclick '
-                . ($odd_row ? 'odd' : 'even') . '">';
+            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
 
             $value = htmlspecialchars($current_user . '&amp;#27;' . $current_host);
             $html_output .= '<td';
@@ -2311,7 +2423,8 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
                 $html_output .= ' rowspan="' . $nbPrivileges . '"';
             }
             $html_output .= '>';
-            $html_output .= '<input type="checkbox" class="checkall" name="selected_usr[]" '
+            $html_output .= '<input type="checkbox" class="checkall" '
+                . 'name="selected_usr[]" '
                 . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
                 . 'value="' . $value . '" /></td>' . "\n";
 
@@ -2512,7 +2625,7 @@ function PMA_getUserLink(
 
     switch($linktype) {
     case 'edit':
-        $html .= PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'));
+        $html .= PMA_Util::getIcon('b_usredit.png', __('Edit privileges'));
         break;
     case 'revoke':
         $html .= PMA_Util::getIcon('b_usrdrop.png', __('Revoke'));
@@ -2531,7 +2644,7 @@ function PMA_getUserLink(
  *
  * @param string $username User name
  *
- * @return HTML code with link
+ * @return string HTML code with link
  */
 function PMA_getUserGroupEditLink($username)
 {
@@ -2646,7 +2759,7 @@ function PMA_getExtraDataForAjaxBehavior(
                 . '</td>' . "\n";
         }
 
-        if (isset($cfgRelation['menuswork']) && $user_group_count > 0) {
+        if ($cfgRelation['menuswork'] && $user_group_count > 0) {
             $new_user_string .= '<td>'
                 . PMA_getUserGroupEditLink($username)
                 . '</td>' . "\n";
@@ -2741,13 +2854,13 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         . 'value="' . htmlspecialchars($hostname) . '" />' . "\n"
         . '<fieldset id="fieldset_change_copy_user">' . "\n"
         . '<legend data-submenu-label="' . __('Login Information') . '">' . "\n"
-        . __('Change Login Information / Copy User')
+        . __('Change login information / Copy user account')
         . '</legend>' . "\n"
-        . PMA_getHtmlForLoginInformationFields('change');
+        . PMA_getHtmlForLoginInformationFields('change', $username, $hostname);
 
     $html_output .= '<fieldset id="fieldset_mode">' . "\n"
         . ' <legend>'
-        . __('Create a new user with the same privileges and …')
+        . __('Create a new user account with the same privileges and …')
         . '</legend>' . "\n";
     $html_output .= PMA_Util::getRadioFields(
         'mode', $choices, '4', true
@@ -2777,7 +2890,9 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 {
     $html_output = '[ ' . __('Database')
-        . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        . ' <a href="' . PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        )
         . PMA_URL_getCommon(
             array(
                 'db' => $url_dbname,
@@ -2793,7 +2908,9 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 
     if (/*overload*/mb_strlen($tablename)) {
         $html_output .= ' [ ' . __('Table') . ' <a href="'
-            . $GLOBALS['cfg']['DefaultTabTable']
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            )
             . PMA_URL_getCommon(
                 array(
                     'db' => $url_dbname,
@@ -2965,7 +3082,7 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 : __('No'))
             . '</td>' . "\n"
             . '<td>';
-        if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
+        if (!empty($row['Table_privs']) || !empty($row['Column_priv'])) {
             $html_output .= __('Yes');
         } else {
             $html_output .= __('No');
@@ -3212,7 +3329,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . '<thead>' . "\n"
         . '<tr><th></th>' . "\n"
         . '<th>' . __('User name') . '</th>' . "\n"
-        . '<th>' . __('Host') . '</th>' . "\n"
+        . '<th>' . __('Host name') . '</th>' . "\n"
         . '<th>' . __('Password') . '</th>' . "\n"
         . '<th>' . __('Global privileges') . ' '
         . PMA_Util::showHint(
@@ -3233,7 +3350,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
     $html_output .= '</tbody>'
         . '</table>' . "\n";
 
-    $html_output .= '<div style="float:left;">'
+    $html_output .= '<div class="floatleft">'
         . PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "usersForm") . "\n";
 
     $html_output .= PMA_Util::getButtonOrImage(
@@ -3303,7 +3420,31 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 . '<td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
 
             $html_output .= '<td>';
-            switch ($host['Password']) {
+
+            $password_column = 'Password';
+
+            if (PMA_Util::getServerType() == 'MySQL'
+                && PMA_MYSQL_INT_VERSION >= 50606
+                && PMA_MYSQL_INT_VERSION < 50706
+            ) {
+                $check_plugin_query = "SELECT * FROM `mysql`.`user` WHERE "
+                    . "`User` = '" . $host['User'] . "' AND `Host` = '"
+                    . $host['Host'] . "'";
+                $res = $GLOBALS['dbi']->fetchSingleRow($check_plugin_query);
+                if (isset($res['plugin'])
+                    && $res['plugin'] == 'sha256_password'
+                    && isset($res['authentication_string'])
+                ) {
+                    $password_column = 'authentication_string';
+                    if (! empty($res['authentication_string'])) {
+                        $host[$password_column] = 'Y';
+                    } else {
+                        $host[$password_column] = 'N';
+                    }
+                }
+            }
+
+            switch ($host[$password_column]) {
             case 'Y':
                 $html_output .= __('Yes');
                 break;
@@ -3316,6 +3457,7 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 $html_output .= '--'; // in future version, replace by "not present"
                 break;
             } // end switch
+
             $html_output .= '</td>' . "\n";
 
             $html_output .= '<td><code>' . "\n"
@@ -3379,7 +3521,7 @@ function PMA_getFieldsetForAddDeleteUser()
     $html_output .= '<fieldset id="fieldset_delete_user">'
         . '<legend>' . "\n"
         . PMA_Util::getIcon('b_usrdrop.png')
-        . '            ' . __('Remove selected users') . '' . "\n"
+        . '            ' . __('Remove selected user accounts') . '' . "\n"
         . '</legend>' . "\n";
 
     $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
@@ -3680,6 +3822,27 @@ function PMA_getDataForChangeOrCopyUser()
             if (! isset($password) && isset($Password)) {
                 $password = $Password;
             }
+            if (PMA_Util::getServerType() == 'MySQL'
+                && PMA_MYSQL_INT_VERSION >= 50606
+                && PMA_MYSQL_INT_VERSION < 50706
+                && isset($password)
+                && empty($password)
+                && isset($plugin)
+                && $plugin == 'sha256_password'
+            ) {
+                $password = $authentication_string;
+            }
+
+            // Always use 'authentication_string' column
+            // for MySQL 5.7.6+ since it does not have
+            // the 'password' column at all
+            if (PMA_Util::getServerType() == 'MySQL'
+                && PMA_MYSQL_INT_VERSION >= 50706
+                && isset($authentication_string)
+            ) {
+                $password = $authentication_string;
+            }
+
             $queries = array();
         }
     }
@@ -3715,6 +3878,7 @@ function PMA_getDataForDeleteUsers($queries)
         $queries[] = 'DROP USER \''
             . PMA_Util::sqlAddSlashes($this_user)
             . '\'@\'' . PMA_Util::sqlAddSlashes($this_host) . '\';';
+        PMA_relationsCleanupUser($this_user);
 
         if (isset($_REQUEST['drop_users_db'])) {
             $queries[] = 'DROP DATABASE IF EXISTS '
@@ -3795,84 +3959,164 @@ function PMA_addUser(
     $queries_for_display = null;
     $sql_query = null;
 
-    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
-        $sql_query = '';
-        if ($_POST['pred_username'] == 'any') {
-            $username = '';
-        }
-        switch ($_POST['pred_hostname']) {
-        case 'any':
-            $hostname = '%';
-            break;
-        case 'localhost':
-            $hostname = 'localhost';
-            break;
-        case 'hosttable':
-            $hostname = '';
-            break;
-        case 'thishost':
-            $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-            $hostname = /*overload*/mb_substr(
-                $_user_name,
-                (/*overload*/mb_strrpos($_user_name, '@') + 1)
-            );
-            unset($_user_name);
-            break;
-        }
-        $sql = "SELECT '1' FROM `mysql`.`user`"
-            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
-        if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
-            $message = PMA_Message::error(__('The user %s already exists!'));
-            $message->addParam(
-                '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
-            );
-            $_REQUEST['adduser'] = true;
-            $_add_user_error = true;
-        } else {
-            list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-                = PMA_getSqlQueriesForDisplayAndAddUser(
-                    $username, $hostname, (isset ($password) ? $password : '')
-                );
+    if (!isset($_REQUEST['adduser_submit']) && !isset($_REQUEST['change_copy'])) {
+        return array(
+            $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+        );
+    }
 
-            if (empty($_REQUEST['change_copy'])) {
-                $_error = false;
+    if (!isset($_REQUEST['adduser_submit']) && !isset($_REQUEST['change_copy'])) {
+        return array(
+            $message,
+            $queries,
+            $queries_for_display,
+            $sql_query,
+            $_add_user_error
+        );
+    }
 
-                if (isset($create_user_real)) {
-                    if (! $GLOBALS['dbi']->tryQuery($create_user_real)) {
-                        $_error = true;
-                    }
-                    $sql_query = $create_user_show . $sql_query;
-                }
-                list($sql_query, $message) = PMA_addUserAndCreateDatabase(
-                    $_error, $real_sql_query, $sql_query, $username, $hostname,
-                    isset($dbname) ? $dbname : null
-                );
-                if (! empty($_REQUEST['userGroup']) && $is_menuwork) {
-                    PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
-                }
+    $sql_query = '';
+    if ($_POST['pred_username'] == 'any') {
+        $username = '';
+    }
+    switch ($_POST['pred_hostname']) {
+    case 'any':
+        $hostname = '%';
+        break;
+    case 'localhost':
+        $hostname = 'localhost';
+        break;
+    case 'hosttable':
+        $hostname = '';
+        break;
+    case 'thishost':
+        $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
+        $hostname = /*overload*/mb_substr(
+            $_user_name,
+            (/*overload*/mb_strrpos($_user_name, '@') + 1)
+        );
+        unset($_user_name);
+        break;
+    }
+    $sql = "SELECT '1' FROM `mysql`.`user`"
+        . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+        . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
+    if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
+        $message = PMA_Message::error(__('The user %s already exists!'));
+        $message->addParam(
+            '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
+        );
+        $_REQUEST['adduser'] = true;
+        $_add_user_error = true;
 
-            } else {
-                if (isset($create_user_real)) {
-                    $queries[] = $create_user_real;
-                }
-                $queries[] = $real_sql_query;
-                // we put the query containing the hidden password in
-                // $queries_for_display, at the same position occupied
-                // by the real query in $queries
-                $tmp_count = count($queries);
-                if (isset($create_user_real)) {
-                    $queries_for_display[$tmp_count - 2] = $create_user_show;
-                }
-                $queries_for_display[$tmp_count - 1] = $sql_query;
+        return array(
+            $message,
+            $queries,
+            $queries_for_display,
+            $sql_query,
+            $_add_user_error
+        );
+    }
+
+    list(
+        $create_user_real, $create_user_show, $real_sql_query, $sql_query,
+        $password_set_real, $password_set_show
+    ) = PMA_getSqlQueriesForDisplayAndAddUser(
+        $username, $hostname, (isset($password) ? $password : '')
+    );
+
+    if (empty($_REQUEST['change_copy'])) {
+        $_error = false;
+
+        if (isset($create_user_real)) {
+            if (!$GLOBALS['dbi']->tryQuery($create_user_real)) {
+                $_error = true;
             }
-            unset($real_sql_query);
+            if (isset($password_set_real) && !empty($password_set_real)
+                && isset($_REQUEST['authentication_plugin'])
+            ) {
+                PMA_setProperPasswordHashing(
+                    $_REQUEST['authentication_plugin']
+                );
+                if ($GLOBALS['dbi']->tryQuery($password_set_real)) {
+                    $sql_query .= $password_set_show;
+                }
+            }
+            $sql_query = $create_user_show . $sql_query;
         }
+
+        list($sql_query, $message) = PMA_addUserAndCreateDatabase(
+            $_error,
+            $real_sql_query,
+            $sql_query,
+            $username,
+            $hostname,
+            isset($dbname) ? $dbname : null
+        );
+        if (!empty($_REQUEST['userGroup']) && $is_menuwork) {
+            PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
+        }
+
+        return array(
+            $message,
+            $queries,
+            $queries_for_display,
+            $sql_query,
+            $_add_user_error
+        );
+    }
+
+    if (isset($create_user_real)) {
+        $queries[] = $create_user_real;
+    }
+    $queries[] = $real_sql_query;
+
+    if (isset($password_set_real) && ! empty($password_set_real)
+        && isset($_REQUEST['authentication_plugin'])
+    ) {
+        PMA_setProperPasswordHashing(
+            $_REQUEST['authentication_plugin']
+        );
+
+        $queries[] = $password_set_real;
+    }
+    // we put the query containing the hidden password in
+    // $queries_for_display, at the same position occupied
+    // by the real query in $queries
+    $tmp_count = count($queries);
+    if (isset($create_user_real)) {
+        $queries_for_display[$tmp_count - 2] = $create_user_show;
+    }
+    if (isset($password_set_real) && ! empty($password_set_real)) {
+        $queries_for_display[$tmp_count - 3] = $create_user_show;
+        $queries_for_display[$tmp_count - 2] = $sql_query;
+        $queries_for_display[$tmp_count - 1] = $password_set_show;
+    } else {
+        $queries_for_display[$tmp_count - 1] = $sql_query;
     }
 
     return array(
         $message, $queries, $queries_for_display, $sql_query, $_add_user_error
     );
+}
+
+/**
+ * Sets proper value of `old_passwords` according to
+ * the authentication plugin selected
+ *
+ * @param string $auth_plugin authentication plugin selected
+ *
+ * @return void
+ */
+function PMA_setProperPasswordHashing($auth_plugin)
+{
+    // Set the hashing method used by PASSWORD()
+    // to be of type depending upon $authentication_plugin
+    if ($auth_plugin == 'sha256_password') {
+        $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2');
+    } else {
+        $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 0');
+    }
 }
 
 /**
@@ -3888,10 +4132,10 @@ function PMA_getDataForDBInfo()
     $tablename = null;
     $dbname_is_wildcard = null;
 
-    if (isset ($_REQUEST['username'])) {
+    if (isset($_REQUEST['username'])) {
         $username = $_REQUEST['username'];
     }
-    if (isset ($_REQUEST['hostname'])) {
+    if (isset($_REQUEST['hostname'])) {
         $hostname = $_REQUEST['hostname'];
     }
     /**
@@ -3998,8 +4242,7 @@ function PMA_getDataForDBInfo()
  */
 function PMA_getListForExportUserDefinition($username, $hostname)
 {
-    $export = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
-        . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
+    $export = '<textarea class="export" cols="60" rows="15">';
 
     if (isset($_REQUEST['selected_usr'])) {
         // export privileges for selected users
@@ -4072,7 +4315,7 @@ function PMA_getAddUserHtmlFieldset($db = '', $table = '')
             : '')
         . '>' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
-        . '            ' . __('Add user') . '</a>' . "\n"
+        . '            ' . __('Add user account') . '</a>' . "\n"
         . '</fieldset>' . "\n";
 }
 
@@ -4093,8 +4336,8 @@ function PMA_getHtmlHeaderForUserProperties(
 ) {
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usredit.png')
-       . __('Edit Privileges:') . ' '
-       . __('User');
+       . __('Edit privileges:') . ' '
+       . __('User account');
 
     if (! empty($dbname)) {
         $html_output .= ' <i><a class="edit_user_anchor"'
@@ -4173,11 +4416,11 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
 {
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usrlist.png')
-       . __('Users overview') . "\n"
+       . __('User accounts overview') . "\n"
        . '</h2>' . "\n";
 
     $password_column = 'Password';
-    if (PMA_Util::getServerType() == 'MySQL' 
+    if (PMA_Util::getServerType() == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50706
     ) {
         $password_column = 'authentication_string';
@@ -4236,6 +4479,23 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         // for all initials, even non A-Z
         $array_initials = array();
 
+        foreach ($db_rights as $right) {
+            foreach ($right as $account) {
+                if (empty($account['User']) && $account['Host'] == 'localhost') {
+                    $html_output .= PMA_Message::notice(
+                        __(
+                            'A user account allowing any user from localhost to '
+                            . 'connect is present. This will prevent other users '
+                            . 'from connecting if the host part of their account '
+                            . 'allows a connection from any (%) host.'
+                        )
+                        . PMA_Util::showMySQLDocu('problems-connecting')
+                    )->getDisplay();
+                    break 2;
+                }
+            }
+        }
+
         /**
          * Displays the initials
          * Also not necessary if there is less than 20 privileges
@@ -4262,24 +4522,43 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         if (! $GLOBALS['is_ajax_request']
             || ! empty($_REQUEST['ajax_page_request'])
         ) {
-            $flushnote = new PMA_Message(
-                __(
-                    'Note: phpMyAdmin gets the users\' privileges directly '
-                    . 'from MySQL\'s privilege tables. The content of these tables '
-                    . 'may differ from the privileges the server uses, '
-                    . 'if they have been changed manually. In this case, '
-                    . 'you should %sreload the privileges%s before you continue.'
-                ),
-                PMA_Message::NOTICE
-            );
-            $flushLink = '<a href="server_privileges.php'
-                . PMA_URL_getCommon(array('flush_privileges' => 1))
-                . '" id="reload_privileges_anchor">';
-            $flushnote->addParam(
-                $flushLink,
-                false
-            );
-            $flushnote->addParam('</a>', false);
+            if (isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']) {
+                $flushnote = new PMA_Message(
+                    __(
+                        'Note: phpMyAdmin gets the users\' privileges directly '
+                        . 'from MySQL\'s privilege tables. The content of these '
+                        . 'tables may differ from the privileges the server uses, '
+                        . 'if they have been changed manually. In this case, '
+                        . 'you should %sreload the privileges%s before you continue.'
+                    ),
+                    PMA_Message::NOTICE
+                );
+                $flushLink = '<a href="server_privileges.php'
+                    . PMA_URL_getCommon(array('flush_privileges' => 1))
+                    . '" id="reload_privileges_anchor">';
+                $flushnote->addParam(
+                    $flushLink,
+                    false
+                );
+                $flushnote->addParam('</a>', false);
+            } else {
+                $flushnote = new PMA_Message(
+                    __(
+                        'Note: phpMyAdmin gets the users\' privileges directly '
+                        . 'from MySQL\'s privilege tables. The content of these '
+                        . 'tables may differ from the privileges the server uses, '
+                        . 'if they have been changed manually. In this case, '
+                        . 'the privileges have to be reloaded but currently, you '
+                        . 'don\'t have the RELOAD privilege.'
+                    )
+                    . PMA_Util::showMySQLDocu(
+                        'privileges-provided',
+                        false,
+                        'priv_reload'
+                    ),
+                    PMA_Message::NOTICE
+                );
+            }
             $html_output .= $flushnote->getDisplay();
         }
     }
@@ -4618,42 +4897,108 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
  * @param string $hostname host name
  * @param string $password password
  *
- * @return array ($create_user_real, $create_user_show,$real_sql_query, $sql_query)
+ * @return array ($create_user_real, $create_user_show,$real_sql_query, $sql_query
+ *                $password_set_real, $password_set_show)
  */
 function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 {
-    $create_user_real = 'CREATE USER \''
-        . PMA_Util::sqlAddSlashes($username) . '\'@\''
-        . PMA_Util::sqlAddSlashes($hostname) . '\'';
+    $slashedUsername = PMA_Util::sqlAddSlashes($username);
+    $slashedHostname = PMA_Util::sqlAddSlashes($hostname);
+    $slashedPassword = PMA_Util::sqlAddSlashes($password);
 
-    $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
-        . PMA_Util::sqlAddSlashes($username) . '\'@\''
-        . PMA_Util::sqlAddSlashes($hostname) . '\'';
+    $create_user_stmt = sprintf(
+        'CREATE USER \'%s\'@\'%s\'',
+        $slashedUsername,
+        $slashedHostname
+    );
 
-    if ($_POST['pred_password'] != 'none' && $_POST['pred_password'] != 'keep') {
-        $sql_query = $real_sql_query;
-        // Requires SELECT privilege on mysql database
-        // for using this with GRANT queries. It can be skipped.
-        if ($GLOBALS['is_superuser']) {
-            $sql_query .= ' IDENTIFIED BY \'***\'';
-            $real_sql_query .= ' IDENTIFIED BY \''
-                . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\'';
-        }
-        if (isset($create_user_real)) {
-            $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
-            $create_user_real .= ' IDENTIFIED BY \''
-                . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\'';
+    if (PMA_MYSQL_INT_VERSION >= 50507
+        && isset($_REQUEST['authentication_plugin'])
+    ) {
+        $create_user_stmt .= ' IDENTIFIED WITH '
+            . $_REQUEST['authentication_plugin'];
+    }
+    if (PMA_MYSQL_INT_VERSION >= 50707
+        && strpos($create_user_stmt, '%') !== false
+    ) {
+        $create_user_stmt = str_replace(
+            '%', '%%', $create_user_stmt
+        );
+    }
+    $create_user_real = $create_user_show = $create_user_stmt;
+
+    $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = PASSWORD(\'%s\')';
+    $password_set_show = sprintf(
+        $password_set_stmt,
+        $slashedUsername,
+        $slashedHostname,
+        '***'
+    );
+    $password_set_real = null;
+
+    $sql_query_stmt = sprintf(
+        'GRANT %s ON *.* TO \'%s\'@\'%s\'',
+        join(', ', PMA_extractPrivInfo()),
+        $slashedUsername,
+        $slashedHostname
+    );
+    $real_sql_query = $sql_query = $sql_query_stmt;
+
+    if (PMA_MYSQL_INT_VERSION < 50707) {
+        if ($_POST['pred_password'] == 'keep') {
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                $slashedPassword
+            );
+        } else if ($_POST['pred_password'] == 'none') {
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                null
+            );
+        } else {
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                $_POST['pma_pw']
+            );
         }
     } else {
-        if ($_POST['pred_password'] == 'keep' && ! empty($password)) {
-            $real_sql_query .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
-            if (isset($create_user_real)) {
-                $create_user_real .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
-            }
-        }
-        $sql_query = $real_sql_query;
-        if (isset($create_user_real)) {
-            $create_user_show = $create_user_real;
+        $password_set_real = null;
+        $create_user_stmt .= ' BY \'%s\'';
+        $create_user_real = $create_user_show = $create_user_stmt;
+
+        if ($_POST['pred_password'] == 'keep') {
+            $create_user_real = sprintf(
+                $create_user_stmt,
+                $password
+            );
+            $create_user_show = sprintf(
+                $create_user_stmt,
+                '***'
+            );
+        } else if ($_POST['pred_password'] == 'none') {
+            $create_user_real = sprintf(
+                $create_user_stmt,
+                null
+            );
+            $create_user_show = sprintf(
+                $create_user_stmt,
+                '***'
+            );
+        } else {
+            $create_user_real = sprintf(
+                $create_user_stmt,
+                $_POST['pma_pw']
+            );
+            $create_user_show = sprintf(
+                $create_user_stmt,
+                '***'
+            );
         }
     }
 
@@ -4683,10 +5028,21 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $sql_query = '';
     }
 
+    if (PMA_Util::getServerType() == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50700
+    ) {
+        $password_set_real = null;
+        $password_set_show = null;
+    } else {
+        $password_set_real .= ";";
+        $password_set_show .= ";";
+    }
+
     return array($create_user_real,
         $create_user_show,
         $real_sql_query,
-        $sql_query
+        $sql_query,
+        $password_set_real,
+        $password_set_show
     );
 }
-?>

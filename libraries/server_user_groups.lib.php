@@ -227,8 +227,8 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     $html_output .= '<fieldset id="fieldset_user_group_rights">';
     $html_output .= '<legend>' . __('User group menu assignments')
         . '&nbsp;&nbsp;&nbsp;'
-        . '<input type="checkbox" class="checkall_box" title="Check All">'
-        . '<label for="addUsersForm_checkall">' . __('Check All') . '</label>'
+        . '<input type="checkbox" class="checkall_box" title="Check all">'
+        . '<label for="addUsersForm_checkall">' . __('Check all') . '</label>'
         . '</legend>';
 
     if ($userGroup == null) {
@@ -357,4 +357,3 @@ function PMA_editUserGroup($userGroup, $new = false)
     $sql_query .= ";";
     PMA_queryAsControlUser($sql_query, true);
 }
-?>

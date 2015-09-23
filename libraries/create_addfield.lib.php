@@ -22,10 +22,11 @@ function PMA_getIndexedColumns()
     $field_index    = json_decode($_REQUEST['indexes'], true);
     $field_unique   = json_decode($_REQUEST['unique_indexes'], true);
     $field_fulltext = json_decode($_REQUEST['fulltext_indexes'], true);
+    $field_spatial = json_decode($_REQUEST['spatial_indexes'], true);
 
     return array(
         $field_cnt, $field_primary, $field_index, $field_unique,
-        $field_fulltext
+        $field_fulltext, $field_spatial
     );
 }
 
@@ -71,6 +72,12 @@ function PMA_buildColumnCreationStatement(
                     : false,
                     isset($_REQUEST['field_comments'][$i])
                     ? $_REQUEST['field_comments'][$i]
+                    : '',
+                    isset($_REQUEST['field_virtuality'][$i])
+                    ? $_REQUEST['field_virtuality'][$i]
+                    : '',
+                    isset($_REQUEST['field_expression'][$i])
+                    ? $_REQUEST['field_expression'][$i]
                     : ''
                 );
 
@@ -94,18 +101,18 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
     $is_create_tbl = true
 ) {
     // no suffix is needed if request is a table creation
-    $sql_suffix = " ";
+    $sql_suffix = ' ';
     if ($is_create_tbl) {
         return $sql_suffix;
     }
 
-    if ($_REQUEST['field_where'] == 'last') {
+    if ((string) $_REQUEST['field_where'] === 'last') {
         return $sql_suffix;
     }
 
     // Only the first field can be added somewhere other than at the end
-    if ($current_field_num == 0) {
-        if ($_REQUEST['field_where'] == 'first') {
+    if ((int) $current_field_num === 0) {
+        if ((string) $_REQUEST['field_where'] === 'first') {
             $sql_suffix .= ' FIRST';
         } else {
             $sql_suffix .= ' AFTER '
@@ -242,7 +249,7 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
 {
     $sql_statement = "";
     list($field_cnt, $field_primary, $field_index,
-            $field_unique, $field_fulltext
+            $field_unique, $field_fulltext, $field_spatial
             ) = PMA_getIndexedColumns();
     $definitions = PMA_buildColumnCreationStatement(
         $field_cnt, $is_create_tbl
@@ -269,6 +276,11 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
     // Builds the FULLTEXT statements
     $definitions = PMA_mergeIndexStatements(
         $definitions, $is_create_tbl, $field_fulltext, "FULLTEXT"
+    );
+
+    // Builds the SPATIAL statements
+    $definitions = PMA_mergeIndexStatements(
+        $definitions, $is_create_tbl, $field_spatial, "SPATIAL"
     );
 
     if (count($definitions)) {
@@ -377,4 +389,3 @@ function PMA_tryColumnCreationQuery($db, $table, $err_url)
     }
     return array($GLOBALS['dbi']->tryQuery($sql_query) , $sql_query);
 }
-?>

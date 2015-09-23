@@ -24,7 +24,6 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
 /**
@@ -329,32 +328,6 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getTableReferences
-     *
-     * @return void
-     */
-    function testPMAGetTableReferences()
-    {
-        $sql_query = 'UPDATE `table_1` AS t1, `table_2` t2, `table_3` AS t3 '
-            . 'SET `table_1`.`id` = `table_2`.`id` '
-            . 'WHERE 1';
-
-        $parsed_sql = PMA_SQP_parse($sql_query);
-        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-        $analyzed_sql_results = array(
-            'parsed_sql' => $parsed_sql,
-            'analyzed_sql' => $analyzed_sql
-        );
-
-        $table_references = PMA_getTableReferences($analyzed_sql_results);
-
-        $this->assertEquals(
-            ' `table_1` AS t1 , `table_2` t2 , `table_3` AS t3',
-            $table_references
-        );
-    }
-
-    /**
      * Test for PMA_getMatchedRows.
      *
      * @return void
@@ -370,10 +343,11 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
         $update_query = 'UPDATE `table_1` '
             . 'SET `id` = 20 '
             . 'WHERE `id` > 10';
-        $simulated_update_query = 'SELECT `id` FROM  `table_1` WHERE `id` > 10 ';
+        $simulated_update_query = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
+
         $delete_query = 'DELETE FROM `table_1` '
             . 'WHERE `id` > 10';
-        $simulated_delete_query = 'SELECT *  FROM  `table_1` WHERE `id` > 10 ';
+        $simulated_delete_query = 'SELECT * FROM `table_1` WHERE `id` > 10';
 
         $dbi->expects($this->any())
             ->method('numRows')
@@ -411,11 +385,11 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function simulatedQueryTest($sql_query, $simulated_query)
     {
-        $parsed_sql = PMA_SQP_parse($sql_query);
-        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+        $parser = new SqlParser\Parser($sql_query);
         $analyzed_sql_results = array(
-            'parsed_sql' => $parsed_sql,
-            'analyzed_sql' => $analyzed_sql
+            'query' => $sql_query,
+            'parser' => $parser,
+            'statement' => $parser->statements[0],
         );
 
         $simulated_data = PMA_getMatchedRows($analyzed_sql_results);
@@ -430,7 +404,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(
                 'sql_query' => PMA_Util::formatSql(
-                    $analyzed_sql_results['parsed_sql']['raw']
+                    $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,
                 'matched_rows_url' => $matched_rows_url

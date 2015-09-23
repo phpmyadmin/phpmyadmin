@@ -185,4 +185,3 @@ class PMA_String implements PMA_StringType
         return $this->_type->numberInRangeInclusive($num, $lower, $upper);
     }
 }
-?>

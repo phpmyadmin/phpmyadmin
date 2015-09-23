@@ -51,4 +51,3 @@ function PMA_langName($canonical_path, $type = 'name', $default = 'key')
         ? ($type == 'desc' ? PMA_lang($lang_key) : $GLOBALS["strConfig$lang_key"])
         : ($default == 'key' ? $lang_key : $default);
 }
-?>

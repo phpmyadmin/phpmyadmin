@@ -1,0 +1,99 @@
+<?php $odd_row = false; ?>
+<table id="tablerowstats" class="data">
+<caption class="tblHeaders"><?php echo __('Row statistics'); ?></caption>
+<tbody>
+    <?php if (isset($showtable['Row_format'])): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Format'); ?></th>
+        <?php if ($showtable['Row_format'] == 'Fixed'): ?>
+            <td class="value"><?php echo __('static'); ?></td>
+        <?php elseif ($showtable['Row_format'] == 'Dynamic'): ?>
+            <td class="value"><?php echo __('dynamic'); ?></td>
+        <?php else: ?>
+            <td class="value"><?php echo $showtable['Row_format']; ?></td>
+        <?php endif; ?>
+        </tr>
+    <?php endif; ?>
+
+    <?php if (! empty($showtable['Create_options'])): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Options'); ?></th>
+        <?php if ($showtable['Create_options'] == 'partitioned'): ?>
+            <td class="value"><?php echo __('partitioned'); ?></td>
+        <?php else: ?>
+            <td class="value"><?php echo $showtable['Create_options']; ?></td>
+        <?php endif; ?>
+        </tr>
+    <?php endif; ?>
+
+    <?php if (!empty($tbl_collation)): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Collation'); ?></th>
+        <td class="value">
+            <dfn title="<?php echo PMA_getCollationDescr($tbl_collation); ?>">
+                <?php echo $tbl_collation; ?>
+            </dfn>
+        </td>
+        </tr>
+    <?php endif; ?>
+
+    <?php if (!$is_innodb && isset($showtable['Rows'])): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Rows'); ?></th>
+        <td class="value"><?php echo PMA_Util::formatNumber($showtable['Rows'], 0); ?></td>
+        </tr>
+    <?php endif; ?>
+
+    <?php if (!$is_innodb
+        && isset($showtable['Avg_row_length'])
+        && $showtable['Avg_row_length'] > 0
+        ): ?>
+        <?php list($avg_row_length_value, $avg_row_length_unit)
+            = PMA_Util::formatByteDown($showtable['Avg_row_length'], 6, 1); ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Row length'); ?></th>
+        <td class="value"><?php echo ($avg_row_length_value . ' ' . $avg_row_length_unit); ?></td>
+        </tr>
+        <?php unset($avg_row_length_value, $avg_row_length_unit); ?>
+    <?php endif; ?>
+
+    <?php if (!$is_innodb
+            && isset($showtable['Data_length'])
+            && isset($showtable['Rows'])
+            && $showtable['Rows'] > 0
+            && $mergetable == false): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Row size'); ?></th>
+        <td class="value"><?php echo ($avg_size . ' ' . $avg_unit); ?></td>
+        </tr>
+    <?php endif; ?>
+
+    <?php if (isset($showtable['Auto_increment'])): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Next autoindex'); ?></th>
+        <td class="value"><?php echo PMA_Util::formatNumber($showtable['Auto_increment'], 0); ?></td>
+        </tr>
+    <?php endif; ?>
+
+    <?php if (isset($showtable['Create_time'])): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Creation'); ?></th>
+        <td class="value"><?php echo PMA_Util::localisedDate(strtotime($showtable['Create_time'])); ?></td>
+        </tr>
+    <?php endif; ?>
+
+    <?php if (isset($showtable['Update_time'])): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Last update'); ?></th>
+        <td class="value"><?php echo PMA_Util::localisedDate(strtotime($showtable['Update_time'])); ?></td>
+        </tr>
+    <?php endif; ?>
+
+    <?php if (isset($showtable['Check_time'])): ?>
+        <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <th class="name"><?php echo __('Last check'); ?></th>
+        <td class="value"><?php echo PMA_Util::localisedDate(strtotime($showtable['Check_time'])); ?></td>
+        </tr>
+    <?php endif; ?>
+</tbody>
+</table>

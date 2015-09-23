@@ -52,7 +52,9 @@ $item = '<a href="%1$s?%2$s" class="item">'
 echo '<div id="serverinfo">' . "\n";
 printf(
     $item,
-    $GLOBALS['cfg']['DefaultTabServer'],
+    PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabserver'], 'server'
+    ),
     PMA_URL_getCommon(),
     'Server',
     __('Server'),
@@ -62,7 +64,9 @@ printf(
 echo $separator;
 printf(
     $item,
-    $GLOBALS['cfg']['DefaultTabDatabase'],
+    PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+    ),
     '',
     'Database',
     __('Database'),
@@ -72,7 +76,9 @@ printf(
 echo $separator;
 printf(
     $item,
-    $GLOBALS['cfg']['DefaultTabTable'],
+    PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    ),
     '',
     'Table',
     (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']

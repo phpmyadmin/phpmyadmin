@@ -61,6 +61,7 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off("click", ".checkall_box");
     $(document).off('change', '#checkbox_SSL_priv');
     $(document).off('change', 'input[name="ssl_type"]');
+    $(document).off('change', '#select_authentication_plugin');
 });
 
 AJAX.registerOnload('server_privileges.js', function () {
@@ -92,6 +93,18 @@ AJAX.registerOnload('server_privileges.js', function () {
     });
 
     /**
+     * Display a notice if sha256_password is selected
+     */
+    $(document).on("change", "#select_authentication_plugin", function () {
+        var selected_plugin = $(this).val();
+        if (selected_plugin === 'sha256_password') {
+            $('#ssl_reqd_warning').show();
+        } else {
+            $('#ssl_reqd_warning').hide();
+        }
+    });
+
+    /**
      * AJAX handler for 'Revoke User'
      *
      * @see         PMA_ajaxShowMessage()
@@ -106,7 +119,7 @@ AJAX.registerOnload('server_privileges.js', function () {
 
         $thisButton.PMA_confirm(PMA_messages.strDropUserWarning, $form.attr('action'), function (url) {
 
-            $drop_users_db_checkbox = $("#checkbox_drop_users_db");
+            var $drop_users_db_checkbox = $("#checkbox_drop_users_db");
             if ($drop_users_db_checkbox.is(':checked')) {
                 var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + PMA_sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE'));
                 if (! is_confirmed) {
@@ -259,18 +272,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     });
                     PMA_ajaxRemoveMessage($msgbox);
                     // Attach syntax highlighted editor to export dialog
-                    if (typeof CodeMirror != 'undefined') {
-                        CodeMirror.fromTextArea(
-                            $ajaxDialog.find('textarea')[0],
-                            {
-                                lineNumbers: true,
-                                matchBrackets: true,
-                                indentUnit: 4,
-                                mode: "text/x-mysql",
-                                lineWrapping: true
-                            }
-                        );
-                    }
+                    PMA_getSQLEditor($ajaxDialog.find('textarea'));
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -278,18 +280,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         ); //end $.post
     });
     // if exporting non-ajax, highlight anyways
-    if ($("textarea.export").length > 0 && typeof CodeMirror != 'undefined') {
-        CodeMirror.fromTextArea(
-            $('textarea.export')[0],
-            {
-                lineNumbers: true,
-                matchBrackets: true,
-                indentUnit: 4,
-                mode: "text/x-mysql",
-                lineWrapping: true
-            }
-        );
-    }
+    PMA_getSQLEditor($('textarea.export'));
 
     $(document).on('click', "a.export_user_anchor.ajax", function (event) {
         event.preventDefault();
@@ -315,18 +306,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 });
                 PMA_ajaxRemoveMessage($msgbox);
                 // Attach syntax highlighted editor to export dialog
-                if (typeof CodeMirror != 'undefined') {
-                    CodeMirror.fromTextArea(
-                        $ajaxDialog.find('textarea')[0],
-                        {
-                            lineNumbers: true,
-                            matchBrackets: true,
-                            indentUnit: 4,
-                            mode: "text/x-mysql",
-                            lineWrapping: true
-                        }
-                    );
-                }
+                PMA_getSQLEditor($ajaxDialog.find('textarea'));
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }

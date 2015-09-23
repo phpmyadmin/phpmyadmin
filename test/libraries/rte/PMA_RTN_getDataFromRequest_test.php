@@ -224,4 +224,3 @@ class PMA_RTN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

@@ -373,4 +373,3 @@ abstract class PMA_GIS_Geometry
             . $srid . '"), map.getProjectionObject())';
     }
 }
-?>

@@ -19,7 +19,7 @@ then
   echo "Usages:"
   echo "  create-release.sh <version> <from_branch> [--tag] [--stable]"
   echo ""
-  echo "If --tag is specified, release tag is automatically created"
+  echo "If --tag is specified, release tag is automatically created (do not use this on pre-release versions)"
   echo "If --stable is specified, the STABLE branch is updated with this release"
   echo ""
   echo "Examples:"
@@ -218,17 +218,25 @@ for kit in $KITS ; do
                 echo "WARNING: ignoring compression '$comp', not known!"
                 ;;
         esac
-
-        # Cleanup
-        rm -f $name.tar
     done
 
+
+    # Cleanup
+    rm -f $name.tar
     # Remove directory with current dist set
     rm -rf $name
 done
 
 # Cleanup
 rm -rf phpMyAdmin-${version}
+
+# Signing of files with default GPG key
+echo "* Signing files"
+for file in *.gz *.zip *.xz *.bz2 *.7z ; do
+    gpg --detach-sign --armor $file
+    md5sum $file > $file.md5
+    sha1sum $file > $file.sha1
+done
 
 
 echo ""
@@ -237,7 +245,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.bz2 *.7z
+ls -la *.gz *.zip *.xz *.bz2 *.7z
 
 cd ..
 
@@ -279,23 +287,20 @@ Todo now:
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1
 
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
-    this release and paste into it the ChangeLog for this release
- 3. upload the files to SF, you can use scripts/upload-release, eg.:
+    this release and paste into it the ChangeLog for this release, followed
+    by the notes of all previous incremental versions (i.e. 4.4.9 through 4.4.0)
+ 3. upload the files to our file server, use scripts/upload-release, eg.:
 
-        ./scripts/upload-release \$USER $version release
- 4. if this is the latest stable version, visit https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin, pick the newly created version, expand the directory and use the I icons to mark that
-        - the -all-languages.zip file is the default for Windows and Others
-        - the -all-languages.tar.gz file is the default for Solaris
-        - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
- 5. add a SF news item to phpMyAdmin project; a good idea is to include a link to the release notes such as https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.3.7/phpMyAdmin-4.3.7-notes.html/view because this news item gets relayed via RSS to our Facebook page
- 6. send a short mail (with list of major changes) to
-        phpmyadmin-devel@lists.sourceforge.net
-        phpmyadmin-news@lists.sourceforge.net
+        ./scripts/upload-release $version release
+ 4. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
+ 5. send a short mail (with list of major changes) to
+        developers@phpmyadmin.net
+        news@phpmyadmin.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.
 
- 7. increment rc count or version in the repository :
+ 6. increment rc count or version in the repository :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
@@ -304,14 +309,14 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
+ 7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version and open a new one for the next minor release
 
- 9. tweet from @phpmya a link to the release notes (see item 5 above); your account should be added to TweetDeck to ease this posting
+ 8. if a maintenance version was released, delete the branch corresponding to the previous one; for example git push origin --delete MAINT_4_4_12
 
-10. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+ 9. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
-11. in case of a new major release, update the render.py in website repository to include the new major releases
+10. in case of a new major release, update the pmaweb/settings.py in website repository to include the new major releases
 
-12. the end :-)
+11. the end :-)
 
 END

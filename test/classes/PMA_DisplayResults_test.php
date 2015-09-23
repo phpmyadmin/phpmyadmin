@@ -94,15 +94,16 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testisSelect()
     {
-        $analyzed_sql = array(array());
-        $analyzed_sql[0]['select_expr'] = array();
-        $analyzed_sql[0]['queryflags']['select_from'] = 'pma';
-        $analyzed_sql[0]['table_ref'] = array('table_ref');
-
+        $parser = new \SqlParser\Parser('SELECT * FROM pma');
         $this->assertTrue(
             $this->_callPrivateFunction(
                 '_isSelect',
-                array($analyzed_sql)
+                array(
+                    array(
+                        'statement' => $parser->statements[0],
+                        'select_from' => true,
+                    ),
+                )
             )
         );
     }
@@ -168,17 +169,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for table navigation
      *
-     * @param integer $pos_next  the offset for the "next" page
-     * @param integer $pos_prev  the offset for the "previous" page
-     * @param boolean $is_innodb the table type is innoDb or not
-     * @param string  $output    output from the _getTableNavigation method
-     *
      * @return void
      *
      * @dataProvider providerForTestGetTableNavigation
      */
     public function testGetTableNavigation(
-        $pos_next, $pos_prev, $is_innodb, $output
+        // $pos_next, $pos_prev, $is_innodb, $output
     ) {
         $_SESSION['tmpval']['max_rows'] = '20';
         $_SESSION['tmpval']['pos'] = true;
@@ -247,12 +243,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getClassesForColumn
      *
-     * @param string  $grid_edit_class  the class for all editable columns
-     * @param string  $not_null_class   the class for not null columns
-     * @param string  $relation_class   the class for relations in a column
-     * @param string  $hide_class       the class for visibility of a column
-     * @param string  $field_type_class the class related to type of the field
-     * @param string  $output           output of__getResettedClassForInlineEdit
+     * @param string $grid_edit_class  the class for all editable columns
+     * @param string $not_null_class   the class for not null columns
+     * @param string $relation_class   the class for relations in a column
+     * @param string $hide_class       the class for visibility of a column
+     * @param string $field_type_class the class related to type of the field
+     * @param string $output           output of__getResettedClassForInlineEdit
      *
      * @return void
      *
@@ -326,75 +322,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testGetCheckBoxesForMultipleRowOperations
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForGetCheckBoxesForMultipleRowOperations()
-    {
-        return array(
-            array(
-                '_left',
-                array('edit_lnk' => null, 'del_lnk' => null),
-                //array('edit_lnk' => 'nn', 'del_lnk' => 'nn'),
-                '<td class="odd" class="center"><input type='
-                . '"checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" '
-                . 'class="multi_checkbox" value="%60cars%60.%60id%60+%3D+3"  />'
-                . '<input type="hidden" class="condition_array" value="{&quot;'
-                . '`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="even"'
-                . ' class="center"><input type="checkbox" '
-                . 'id="id_rows_to_delete1_left" name="rows_to_delete[1]" class='
-                . '"multi_checkbox" value="%60cars%60.%60id%60+%3D+9"  /><input '
-                . 'type="hidden" class="condition_array" value="{&quot;`cars`.'
-                . '`id`&quot;:&quot;= 9&quot;}" />    </td>'
-            )
-        );
-    }
-
-    /**
-     * Test for _getCheckBoxesForMultipleRowOperations
-     *
-     * @param string $dir          _left / _right
-     * @param array  $displayParts which parts to display
-     * @param string $output       output of _getCheckBoxesForMultipleRowOperations
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForGetCheckBoxesForMultipleRowOperations
-     */
-    public function testGetCheckBoxesForMultipleRowOperations(
-        $dir, $displayParts, $output
-    ) {
-        $vertical_display = array(
-            'row_delete' => array(
-                '<td class="odd" class="center"><input '
-                . 'type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" '
-                . 'name="rows_to_delete[0]" class="multi_checkbox" value="%60cars'
-                . '%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_'
-                . 'array" value="{&quot;`cars`.`id`&quot;:&quot;= 3&quot;}" />    '
-                . '</td>',
-                '<td class="even" class="center"><input '
-                . 'type="checkbox" id="id_rows_to_delete1[%_PMA_CHECKBOX_DIR_%]" '
-                . 'name="rows_to_delete[1]" class="multi_checkbox" value="%60cars'
-                . '%60.%60id%60+%3D+9"  /><input type="hidden" class="condition_'
-                . 'array" value="{&quot;`cars`.`id`&quot;:&quot;= 9&quot;}" />    '
-                . '</td>'
-            )
-        );
-
-        $this->object->__set('vertical_display', $vertical_display);
-
-        $_SESSION['tmpval']['repeat_cells'] = 0;
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getCheckBoxesForMultipleRowOperations',
-                array($dir, $displayParts)
-            )
-        );
-    }
-
-    /**
      * Test for _getOffsets - case 1
      *
      * @return void
@@ -424,57 +351,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testGetSortParams
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForGetSortParams()
-    {
-        return array(
-            array('', array(array(''), array(''), array(''))),
-            array(
-                '`a_sales`.`customer_id` ASC',
-                array(
-                    array('`a_sales`.`customer_id` ASC'),
-                    array('`a_sales`.`customer_id`'),
-                    array('ASC')
-                )
-            ),
-            array(
-                '`a_sales`.`customer_id` ASC, `b_sales`.`customer_id` DESC',
-                array(
-                    array(
-                        '`a_sales`.`customer_id` ASC',
-                        '`b_sales`.`customer_id` DESC'
-                    ),
-                    array('`a_sales`.`customer_id`', '`b_sales`.`customer_id`'),
-                    array('ASC', 'DESC')
-                )
-            ),
-        );
-    }
-
-    /**
-     * Test for _getSortParams
-     *
-     * @param string $order_by_clause the order by clause of the sql query
-     * @param string $output          output of _getSortParams
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForGetSortParams
-     */
-    public function testGetSortParams($order_by_clause, $output)
-    {
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getSortParams', array($order_by_clause)
-            )
-        );
-    }
-
-    /**
      * Data provider for testGetCheckboxForMultiRowSubmissions
      *
      * @return array parameters and output
@@ -495,7 +371,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -505,7 +380,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array('`new`.`id`' => '= 1'),
                 '[%_PMA_CHECKBOX_DIR_%]',
                 'odd',
-                '<td class="odd" class="center"><input type'
+                '<td class="odd" class="center print_ignore"><input type'
                 . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
                 . 'new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_'
@@ -566,7 +441,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '"Edit" class="icon ic_b_edit" /> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                '<td class="odd edit_row_anchor center"  >'
+                '<td class="odd edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -629,7 +504,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 'odd',
-                '<td class="odd center"  ><span class='
+                '<td class="odd center print_ignore"  ><span class='
                 . '"nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -694,7 +569,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'odd',
-                '<td class="odd center"  >' . "\n"
+                '<td class="odd center print_ignore"  >' . "\n"
                 . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
@@ -763,7 +638,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -790,11 +664,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_'
+                '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_delete0_'
                 . 'left" name="rows_to_delete[0]" class="multi_checkbox checkall" '
                 . 'value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class='
                 . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
-                . '}" />    </td><td class="edit_row_anchor center"  ><span class='
+                . '}" />    </td><td class="edit_row_anchor center print_ignore"  ><span class='
                 . '"nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -803,7 +677,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
-                . 'id%60+%3D+1" /></span></td><td class="center"  ><span class'
+                . 'id%60+%3D+1" /></span></td><td class="center print_ignore"  ><span class'
                 . '="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
@@ -812,7 +686,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="center"  >' . "\n"
+                . '%60+%3D+1" /></span></td><td class="center print_ignore"  >' . "\n"
                 . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
@@ -840,7 +714,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -867,7 +740,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td class="center"  >' . "\n"
+                '<td class="center print_ignore"  >' . "\n"
                 . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
@@ -878,7 +751,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
                 . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
                 . "\n" . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
-                . '`id` = 1</div></td><td class="center"  ><span class="nowrap">'
+                . '`id` = 1</div></td><td class="center print_ignore"  ><span class="nowrap">'
                 . "\n" . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
                 . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
@@ -886,7 +759,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="edit_row_anchor center"  >'
+                . '%60+%3D+1" /></span></td><td class="edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
@@ -895,7 +768,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
                 . '="icon ic_b_edit" /> Edit</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
-                . 'id%60+%3D+1" /></span></td><td  class="center"><input type='
+                . 'id%60+%3D+1" /></span></td><td  class="center print_ignore"><input type='
                 . '"checkbox" id="id_rows_to_delete0_right" name="rows_to_delete'
                 . '[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60'
                 . '+%3D+1"  /><input type="hidden" class="condition_array" value="'
@@ -915,7 +788,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -942,7 +814,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td  class="center"><input type="checkbox" id="id_rows_to_'
+                '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_'
                 . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
                 . 'checkall" value="%60new%60.%60id%60+%3D+1"  /><input type='
                 . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
@@ -1016,7 +888,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -1043,7 +914,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 null,
-                '<td  class="center"><input type="checkbox" id="id_rows_to_'
+                '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_'
                 . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
                 . 'checkall" value="%60new%60.%60id%60+%3D+1"  /><input type='
                 . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
@@ -1367,26 +1238,18 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function dataProviderForTestSetHighlightedColumnGlobalField()
     {
+        $parser = new SqlParser\Parser(
+            'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10'
+        );
         return array(
             array(
-                array(),
-                array()
-            ),
-            array(
+                array('statement' => $parser->statements[0]),
                 array(
-                    0 => array(
-                        'where_clause_identifiers' => array(
-                            0 => '`id`',
-                            1 => '`id`',
-                            2 => '`db_name`'
-                        )
-                    )
+                    'db_name' => 'true',
+                    'tbl' => 'true',
+                    'id' => 'true',
                 ),
-                array(
-                    '`id`' => 'true',
-                    '`db_name`' => 'true'
-                )
-            )
+            ),
         );
     }
 
@@ -1423,10 +1286,10 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function dataProviderForTestGetPartialText()
     {
         return array(
-            array('P', 10, 'foo', false),
-            array('P', 1, 'foo', true),
-            array('F', 10, 'foo', false),
-            array('F', 1, 'foo', false)
+            array('P', 10, 'foo', array(false, 'foo', 3)),
+            array('P', 1, 'foo', array(true, 'f...', 3)),
+            array('F', 10, 'foo', array(false, 'foo', 3)),
+            array('F', 1, 'foo', array(false, 'foo', 3))
         );
     }
 
@@ -1451,7 +1314,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $output,
             $this->_callPrivateFunction(
                 '_getPartialText',
-                array(&$str)
+                array($str)
             )
         );
     }
@@ -1677,6 +1540,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 0,
                 '<td data-decimals="0" data-type="string" '
+                . 'data-originallength="11" '
                 . 'class="grid_edit ">foo bar baz</td>' . "\n"
             )
         );
@@ -1698,7 +1562,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string  $default_function      the default transformation function
      * @param string  $transform_options     the transformation parameters
      * @param boolean $is_field_truncated    is data truncated due to LimitChars
-     * @param array   $analyzed_sql          the analyzed query
+     * @param array   $analyzed_sql_results  the analyzed query
      * @param integer $dt_result             the link id associated to the query
      *                                       which results have to be displayed
      * @param integer $col_index             the column index
@@ -1712,7 +1576,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $protectBinary, $column, $class, $meta, $map,
         $_url_params, $condition_field, $transformation_plugin,
         $default_function, $transform_options, $is_field_truncated,
-        $analyzed_sql, $dt_result, $col_index, $output
+        $analyzed_sql_results, $dt_result, $col_index, $output
     ) {
         $_SESSION['tmpval']['display_binary'] = true;
         $_SESSION['tmpval']['display_blob'] = false;
@@ -1726,7 +1590,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     $column, $class, $meta, $map, $_url_params, $condition_field,
                     $transformation_plugin, $default_function, $transform_options,
-                    $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
+                    $is_field_truncated, $analyzed_sql_results, &$dt_result, $col_index
                 )
             )
         );

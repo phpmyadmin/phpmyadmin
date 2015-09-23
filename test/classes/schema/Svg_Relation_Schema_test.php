@@ -11,7 +11,6 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/database_interface.inc.php';
@@ -55,6 +54,7 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
             'db' => "information_schema",
@@ -128,7 +128,7 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object = new PMA_Svg_Relation_Schema();
+        $this->object = new PMA_Svg_Relation_Schema('information_schema');
     }
 
     /**

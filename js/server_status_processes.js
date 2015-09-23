@@ -57,10 +57,9 @@ var processList = {
                 $tr.remove();
                 // As we just removed a row, reapply odd-even classes
                 // to keep table stripes consistent
-                $('#tableprocesslist > tbody > tr').filter(':even')
-                .removeClass('odd').addClass('even');
-                $('#tableprocesslist > tbody > tr').filter(':odd')
-                .removeClass('even').addClass('odd');
+                var $tableProcessListTr = $('#tableprocesslist').find('> tbody > tr');
+                $tableProcessListTr.filter(':even').removeClass('odd').addClass('even');
+                $tableProcessListTr.filter(':odd').removeClass('even').addClass('odd');
                 // Show process killed message
                 PMA_ajaxShowMessage(data.message, false);
             } else {

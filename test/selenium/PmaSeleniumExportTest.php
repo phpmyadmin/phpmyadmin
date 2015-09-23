@@ -171,7 +171,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->byCssSelector("label[for=radio_custom_export]")->click();
 
         if ($type == 'server') {
-            $this->byLinkText('Unselect All')->click();
+            $this->byLinkText('Unselect all')->click();
             $this->byCssSelector(
                 "option[value=" . $this->database_name . "]"
             )->click();

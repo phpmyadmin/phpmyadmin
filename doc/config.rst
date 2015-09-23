@@ -144,6 +144,17 @@ Basic settings
     set, and the :config:option:`$cfg['UserprefsDisallow']` directive should
     contain ``'SendErrorReports'`` in one of its array values.
 
+.. config:option:: $cfg['ConsoleEnterExecutes']
+
+    :type: boolean
+    :default: false
+
+    Setting this to ``true`` allows the user to execute queries by pressing Enter
+    instead of Ctrl+Enter. A new line can be inserted by pressing Shift + Enter.
+
+    The behaviour of the console can be temporarily changed using console's
+    settings interface.
+
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
     :type: boolean
@@ -159,7 +170,7 @@ Server connection settings
 .. config:option:: $cfg['Servers']
 
     :type: array
-    :default: one server array with settings listed bellow
+    :default: one server array with settings listed below
 
     Since version 1.4.2, phpMyAdmin supports the administration of multiple
     MySQL servers. Therefore, a :config:option:`$cfg['Servers']`-array has been
@@ -771,6 +782,22 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['central_columns']` (e.g.
       ``pma__central_columns``)
 
+.. _designer_settings:
+.. config:option:: $cfg['Servers'][$i]['designer_settings']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.5.0 your designer settings can be remembered.
+    Your choice regarding 'Angular/Direct Links', 'Snap to Grid', 'Toggle Relation Lines',
+    'Small/Big All', 'Move Menu' and 'Pin Text' can be remembered persistently.
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['designer_settings']` (e.g.
+      ``pma__designer_settings``)
+
 .. _savedsearches:
 .. config:option:: $cfg['Servers'][$i]['savedsearches']
 
@@ -784,6 +811,20 @@ Server connection settings
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['savedsearches']` (e.g.
       ``pma__savedsearches``)
+
+.. _export_templates:
+.. config:option:: $cfg['Servers'][$i]['export_templates']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.5.0 you can save and load export templates.
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['export_templates']` (e.g.
+      ``pma__export_templates``)
 
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
@@ -1100,8 +1141,8 @@ Generic settings
     :type: boolean
     :default: true
 
-    Enables check for latest versions using javascript on main phpMyAdmin
-    page.
+    Enables check for latest versions using JavaScript on the main phpMyAdmin
+    page or by directly accessing :file:`version_check.php`.
 
     .. note::
 
@@ -1149,8 +1190,7 @@ Generic settings
     :default: 250
 
     The maximum number of table names to be displayed in the main panel's
-    list (except on the Export page). This limit is also enforced in the
-    navigation panel when in Light mode.
+    list (except on the Export page).
 
 .. config:option:: $cfg['ShowHint']
 
@@ -1223,10 +1263,12 @@ Generic settings
     :default: ``'-1'``
 
     Set the number of bytes a script is allowed to allocate. If set to
-    ``'-1'``, no limit is imposed.
+    ``'-1'``, no limit is imposed. If set to ``'0'``, no change of the
+    memory limit is attempted and the :file:`php.ini` ``memory_limit`` is
+    used.
 
-    This setting is used while importing/exporting dump files and at some other
-    places in phpMyAdmin so you definitely don't want to put here a too low
+    This setting is used while importing/exporting dump files
+    so you definitely don't want to put here a too low
     value. It has no effect when PHP is running in safe mode.
 
     You can also use any string as in :file:`php.ini`, eg. '16M'. Ensure you
@@ -1265,6 +1307,16 @@ Generic settings
     CodeMirror provides syntax highlighting and line numbers.  However,
     middle-clicking for pasting the clipboard contents in some Linux
     distributions (such as Ubuntu) is not supported by all browsers.
+
+.. config:option:: $cfg['DefaultForeignKeyChecks']
+
+    :type: string
+    :default: ``'default'``
+
+    Default value of the checkbox for foreign key checks, to disable/enable
+    foreign key checks for certain queries. The possible values are ``'default'``,
+    ``'enable'`` or ``'disable'``. If set to ``'default'``, the value of the
+    MySQL variable ``FOREIGN_KEY_CHECKS`` is used.
 
 .. config:option:: $cfg['AllowUserDropDatabase']
 
@@ -1524,9 +1576,9 @@ Navigation panel setup
     :type: string
     :default: ``'index.php'``
 
-    Enter :term:`URL` where logo in the navigation panel will point to. 
+    Enter :term:`URL` where logo in the navigation panel will point to.
     For use especially with self made theme which changes this.
-    For external :term:`URL`s, you should include URL scheme as well.
+    For external URLs, you should include URL scheme as well.
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
@@ -1578,16 +1630,17 @@ Navigation panel setup
 .. config:option:: $cfg['NavigationTreeDefaultTabTable']
 
     :type: string
-    :default: ``'tbl_structure.php'``
+    :default: ``'structure'``
 
     Defines the tab displayed by default when clicking the small icon next
-    to each table name in the navigation panel. Possible values:
+    to each table name in the navigation panel. The possible values are the
+    localized equivalent of:
 
-    * ``tbl_structure.php``
-    * ``tbl_sql.php``
-    * ``tbl_select.php``
-    * ``tbl_change.php``
-    * ``sql.php``
+    * ``structure``
+    * ``sql``
+    * ``search``
+    * ``insert``
+    * ``browse``
 
 .. config:option:: $cfg['NavigationTreeDefaultTabTable2']
 
@@ -1595,14 +1648,15 @@ Navigation panel setup
     :default: null
 
     Defines the tab displayed by default when clicking the second small icon next
-    to each table name in the navigation panel. Possible values:
+    to each table name in the navigation panel. The possible values are the
+    localized equivalent of:
 
     * ``(empty)``
-    * ``tbl_structure.php``
-    * ``tbl_sql.php``
-    * ``tbl_select.php``
-    * ``tbl_change.php``
-    * ``sql.php``
+    * ``structure``
+    * ``sql``
+    * ``search``
+    * ``insert``
+    * ``browse``
 
 .. config:option:: $cfg['NavigationTreeEnableExpansion']
 
@@ -1610,6 +1664,42 @@ Navigation panel setup
     :default: false
 
     Whether to offer the possibility of tree expansion in the navigation panel.
+
+.. config:option:: $cfg['NavigationTreeShowTables']
+
+    :type: boolean
+    :default: true
+
+    Whether to show tables under database in the navigation panel.
+
+.. config:option:: $cfg['NavigationTreeShowViews']
+
+    :type: boolean
+    :default: true
+
+    Whether to show views under database in the navigation panel.
+
+.. config:option:: $cfg['NavigationTreeShowFunctions']
+
+    :type: boolean
+    :default: true
+
+    Whether to show functions under database in the navigation panel.
+
+.. config:option:: $cfg['NavigationTreeShowProcedures']
+
+    :type: boolean
+    :default: true
+
+    Whether to show procedures under database in the navigation panel.
+
+.. config:option:: $cfg['NavigationTreeShowEvents']
+
+    :type: boolean
+    :default: true
+
+    Whether to show events under database in the navigation panel.
+
 
 Main panel
 ----------
@@ -1664,6 +1754,23 @@ Main panel
     with config authentication mode: because of the hard coded password value
     in the configuration file, end users can't be allowed to change their
     passwords.
+
+.. config:option:: $cfg['ShowGitRevision']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to display informations about the current Git revision (if
+    applicable) on the main panel.
+
+.. config:option:: $cfg['MysqlMinVersion']
+
+    :type: array
+
+    Defines the minimum supported MySQL version. The default is chosen
+    by the phpMyAdmin team; however this directive was asked by a developer
+    of the Plesk control panel to ease integration with older MySQL servers
+    (where most of the phpMyAdmin features work).
 
 Database structure
 ------------------
@@ -1929,40 +2036,41 @@ Tabs display settings
 .. config:option:: $cfg['DefaultTabServer']
 
     :type: string
-    :default: ``'index.php'``
+    :default: ``'welcome'``
 
     Defines the tab displayed by default on server view. Possible values:
 
-    * ``main.php`` (recommended for multi-user setups)
-    * ``server_databases.php``,
-    * ``server_status.php``
-    * ``server_variables.php``
-    * ``server_privileges.php``
+    * ``welcome`` (recommended for multi-user setups)
+    * ``databases``,
+    * ``status``
+    * ``variables``
+    * ``privileges``
 
 .. config:option:: $cfg['DefaultTabDatabase']
 
     :type: string
-    :default: ``'db_structure.php'``
+    :default: ``'structure'``
 
     Defines the tab displayed by default on database view. Possible
     values:
 
-    * ``db_structure.php``
-    * ``db_sql.php``
-    * ``db_search.php``.
+    * ``structure``
+    * ``sql``
+    * ``search``
+    * ``operations``
 
 .. config:option:: $cfg['DefaultTabTable']
 
     :type: string
-    :default: ``'sql.php'``
+    :default: ``'browse'``
 
     Defines the tab displayed by default on table view. Possible values:
 
-    * ``tbl_structure.php``
-    * ``tbl_sql.php``
-    * ``tbl_select.php``
-    * ``tbl_change.php``
-    * ``sql.php``
+    * ``structure``
+    * ``sql``
+    * ``search``
+    * ``insert``
+    * ``browse``
 
 PDF Options
 -----------
@@ -2002,8 +2110,8 @@ Languages
     :default: ``'utf8_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
-    See the `MySQL documentation for charsets 
-    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_ 
+    See the `MySQL documentation for charsets
+    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
     for list of possible values. This setting is
     ignored when connected to Drizzle server.
 
@@ -2142,7 +2250,7 @@ Web server settings
     Additional string to include in allowed script and image sources in Content
     Security Policy header.
 
-    This can be useful when you want to include some external javascript files
+    This can be useful when you want to include some external JavaScript files
     in :file:`config.footer.inc.php` or :file:`config.header.inc.php`, which
     would be normally not allowed by Content Security Policy.
 
@@ -2336,6 +2444,16 @@ Design customization
     put when tables contents are displayed (you may have them displayed at
     the left side, right side, both sides or nowhere).
 
+.. config:option:: $cfg['RowActionLinksWithoutUnique']
+
+    :type: boolean
+    :default: false
+
+    Defines whether to show row links (Edit, Copy, Delete) and checkboxes
+    for multiple row operations even when the selection does not have a unique key.
+    Using row actions in the absence of a unique key may result in different/more
+    rows being affected since there is no guaranteed way to select the exact row(s).
+
 .. config:option:: $cfg['RememberSorting']
 
     :type: boolean
@@ -2444,6 +2562,14 @@ Text fields
 
     Defines if the whole textarea of the query box will be selected on
     click.
+
+.. config:option:: $cfg['EnableAutocompleteForTablesAndColumns']
+
+    :type: boolean
+    :default: true
+
+    Whether to enable autocomplete for table and column names in any
+    SQL query box.
 
 
 SQL query box settings
@@ -2783,7 +2909,7 @@ Developer
     :default: false
 
     Enable logging queries and execution times to be
-    displayed in the bottom of main page (right frame).
+    displayed in the console's Debug SQL tab.
 
 .. config:option:: $cfg['DBG']['demo']
 
@@ -2792,4 +2918,3 @@ Developer
 
     Enable to let server present itself as demo server.
     This is used for <http://demo.phpmyadmin.net/>.
-

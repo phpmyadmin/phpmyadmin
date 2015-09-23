@@ -201,7 +201,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $this->assertEquals(
-            '<a id="db_search"></a><form id="db_search_form" class="ajax" '
+            '<a id="db_search"></a><form id="db_search_form" class="ajax lock-page" '
             . 'method="post" action="db_search.php" name="db_search">'
             . '<input type="hidden" name="db" value="pma" />'
             . '<input type="hidden" name="lang" value="en" />'
@@ -229,7 +229,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
             . "\n" . '<input type="radio" name="criteriaSearchType" id="criteria'
             . 'SearchType_4" value="4" />' . "\n"
             . '<label for="criteriaSearchType_4">as regular expression <a href='
-            . '"./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen'
+            . '"./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen'
             . '%2Fregexp.html" target='
             . '"mysql_doc"><img src="themes/dot.gifb_help.png" title="Documentation"'
             . ' alt="Documentation" /></a></label><br />' . "\n"
@@ -239,9 +239,9 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
             . '<option value="table2">table2</option></select></td></tr><tr>'
             . '<td class="right vbottom"><a href="#" onclick="setSelectOptions'
             . '(\'db_search\', \'criteriaTables[]\', true); return false;">Select '
-            . 'All</a> &nbsp;/&nbsp;<a href="#" onclick="setSelectOptions'
+            . 'all</a> &nbsp;/&nbsp;<a href="#" onclick="setSelectOptions'
             . '(\'db_search\', \'criteriaTables[]\', false); return false;">Unselect'
-            . ' All</a></td></tr><tr><td class="right">Inside column:</td><td>'
+            . ' all</a></td></tr><tr><td class="right">Inside column:</td><td>'
             . '<input type="text" name="criteriaColumnName" size="60"value="" />'
             . '</td></tr></table></fieldset><fieldset class="tblFooters"><input '
             . 'type="submit" name="submit_search" value="Go" id="buttonGo" />'

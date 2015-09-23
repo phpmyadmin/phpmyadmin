@@ -10,7 +10,6 @@
  * Include to test.
  */
 require_once 'libraries/Table.class.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/database_interface.inc.php';
@@ -55,13 +54,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['pma'] = new DataBasePMAMock();
         $GLOBALS['pma']->databases = new DataBaseMock();
-
-        PMA_Table::$cache["PMA"]["PMA_BookMark"] = array(
-            'ENGINE' => true,
-            'Create_time' => true,
-            'TABLE_TYPE' => true,
-            'Comment' => true,
-        );
 
         $sql_isView_true =  "SELECT TABLE_NAME
             FROM information_schema.VIEWS
@@ -209,6 +201,13 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
+        $dbi->_table_cache["PMA"]["PMA_BookMark"] = array(
+            'ENGINE' => true,
+            'Create_time' => true,
+            'TABLE_TYPE' => true,
+            'Comment' => true,
+        );
+
         $databases = array();
         $database_name = 'PMA';
         $databases[$database_name]['SCHEMA_TABLES'] = 1;
@@ -251,7 +250,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('insertId')
             ->will($this->returnValue(10));
 
-        $value = array("key1" => "value1");
         $dbi->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(false));
 
@@ -259,7 +257,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($value));
 
-        $value = array("value1", "value2");
         $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue(false));
 
@@ -354,30 +351,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Set & Get
-     *
-     * @return void
-     */
-    public function testSetAndGet()
-    {
-        $table = new PMA_Table('table1', 'pma_test');
-        $table->set('production', 'Phpmyadmin');
-        $table->set('db', 'mysql');
-        $this->assertEquals(
-            "Phpmyadmin",
-            $table->get("production")
-        );
-        $this->assertEquals(
-            "mysql",
-            $table->get("db")
-        );
-        $this->assertEquals(
-            null,
-            $table->get("key_not_existed")
-        );
-    }
-
-    /**
      * Test getLastError & getLastMessage
      *
      * @return void
@@ -443,19 +416,23 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testIsView()
     {
+        $table = new PMA_Table(null, null);
         $this->assertEquals(
             false,
-            PMA_Table::isView()
+            $table->isView()
         );
 
         //validate that it is the same as DBI fetchResult
+        $table = new PMA_Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             true,
-            PMA_Table::isView('PMA', 'PMA_BookMark')
+            $table->isView()
         );
+
+        $table = new PMA_Table('PMA_BookMark_2', 'PMA');
         $this->assertEquals(
             false,
-            PMA_Table::isView('PMA', 'PMA_BookMark_2')
+            $table->isView()
         );
     }
 
@@ -476,14 +453,15 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $default_type = 'USER_DEFINED';
         $default_value = 12;
         $extra = 'AUTO_INCREMENT';
-
         $comment = 'PMA_comment';
+        $virtuality = '';
+        $expression = '';
         $move_to = '-first';
 
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $move_to
+            $virtuality, $expression, $move_to
         );
         $this->assertEquals(
             "`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b'10' "
@@ -496,7 +474,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $move_to
+            $virtuality, $expression, $move_to
         );
         $this->assertEquals(
             "`PMA_name` DOUBLE(12) PMA_attribute NULL DEFAULT '12' "
@@ -509,7 +487,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $move_to
+            $virtuality, $expression, $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE "
@@ -522,7 +500,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $move_to
+            $virtuality, $expression, $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL "
@@ -535,7 +513,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $move_to
+            $virtuality, $expression, $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP "
@@ -550,7 +528,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $move_to
+            $virtuality, $expression, $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT "
@@ -591,103 +569,112 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testIsUpdatableView()
     {
+        $table = new PMA_Table(null, null);
         $this->assertEquals(
             false,
-            PMA_Table::isUpdatableView()
+            $table->isUpdatableView()
         );
 
         //validate that it is the same as DBI fetchResult
+        $table = new PMA_Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             true,
-            PMA_Table::isUpdatableView('PMA', 'PMA_BookMark')
+            $table->isUpdatableView()
         );
+
+        $table = new PMA_Table('PMA_BookMark_2', 'PMA');
         $this->assertEquals(
             false,
-            PMA_Table::isUpdatableView('PMA', 'PMA_BookMark_2')
+            $table->isUpdatableView()
         );
     }
 
     /**
-     * Test for analyzeStructure
+     * Test for isMerge -- when there's no ENGINE info cached
      *
      * @return void
      */
-    public function testAnalyzeStructure()
+    public function testIsMergeCase1()
     {
-        $this->assertEquals(
-            false,
-            PMA_Table::analyzeStructure()
-        );
-
-        //validate that it is the same as DBI fetchResult
-        $show_create_table = PMA_Table::analyzeStructure('PMA', 'PMA_BookMark');
-        $this->assertEquals(
-            array('type'=>'DATA_TYPE'),
-            $show_create_table[0]['create_table_fields']['COLUMN_NAME']
-        );
-        //not a view
-        $show_create_table = PMA_Table::analyzeStructure('PMA', 'PMA_BookMark_2');
-        $this->assertEquals(
-            array('type'=>'INT', 'timestamp_not_null'=>false),
-            $show_create_table[0]['create_table_fields']['id']
-        );
-        $this->assertEquals(
-            array('type'=>'TEXT', 'timestamp_not_null'=>false),
-            $show_create_table[0]['create_table_fields']['username']
-        );
-
-    }
-
-    /**
-     * Test for isMerge
-     *
-     * @return void
-     */
-    public function testIsMerge()
-    {
-        $this->assertEquals(
-            false,
-            PMA_Table::isMerge()
-        );
-
-        //validate that it is Merge?
-        $result = PMA_Table::isMerge('PMA', 'PMA_BookMark');
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             '',
-            $result
+            $tableObj->isMerge()
         );
 
-        $table = 'PMA_BookMark';
-        $db = 'PMA';
-        PMA_Table::$cache[$db][$table] = array('table_name' => "PMA_BookMark");
-        $result = PMA_Table::isMerge($db, $table);
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValue(array('table_name' => "PMA_BookMark")));
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             false,
-            $result
+            $tableObj->isMerge()
         );
+    }
 
-        PMA_Table::$cache[$db][$table] = array('ENGINE' => "MERGE");
-        $result = PMA_Table::isMerge($db, $table);
+    /**
+     * Test for isMerge -- when ENGINE info is MERGE
+     *
+     * @return void
+     */
+    public function testIsMergeCase2()
+    {
+        $map = array(
+            array('PMA.PMA_BookMark', null, array('ENGINE' => "MERGE")),
+            array('PMA.PMA_BookMark.ENGINE', null, "MERGE")
+        );
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValueMap($map));
+
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             true,
-            $result
+            $tableObj->isMerge()
         );
+    }
 
-        unset(PMA_Table::$cache[$db][$table]);
-        PMA_Table::$cache[$db][$table] = array('ENGINE' => "MRG_MYISAM");
-        $result = PMA_Table::isMerge($db, $table);
+    /**
+     * Test for isMerge -- when ENGINE info is MRG_MYISAM
+     *
+     * @return void
+     */
+    public function testIsMergeCase3()
+    {
+        $map = array(
+            array('PMA.PMA_BookMark', null, array('ENGINE' => "MRG_MYISAM")),
+            array('PMA.PMA_BookMark.ENGINE', null, "MRG_MYISAM")
+        );
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValueMap($map));
+
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             true,
-            $result
+            $tableObj->isMerge()
         );
+    }
 
-        unset(PMA_Table::$cache[$db][$table]);
+    /**
+     * Test for isMerge -- when ENGINE info is ISDB
+     *
+     * @return void
+     */
+    public function testIsMergeCase4()
+    {
+        $map = array(
+            array('PMA.PMA_BookMark', null, array('ENGINE' => "ISDB")),
+            array('PMA.PMA_BookMark.ENGINE', null, "ISDB")
+        );
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValueMap($map));
 
-        PMA_Table::$cache[$db][$table] = array('ENGINE' => "ISDB");
-        $result = PMA_Table::isMerge($db, $table);
+        $tableObj = new PMA_Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             false,
-            $result
+            $tableObj->isMerge()
         );
     }
 
@@ -710,12 +697,14 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $default_value = 'VARCHAR';
         $extra = 'AUTO_INCREMENT';
         $comment = 'PMA comment';
+        $virtuality = '';
+        $expression = '';
         $move_to = 'new_name';
 
         $result = PMA_Table::generateAlter(
             $oldcol, $newcol, $type, $length,
             $attribute, $collation, $null, $default_type, $default_value,
-            $extra, $comment, $move_to
+            $extra, $comment, $virtuality, $expression, $move_to
         );
 
         $expect = "";
@@ -842,6 +831,97 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getColumnsMeta
+     *
+     * @return void
+     */
+    public function testGetColumnsMeta()
+    {
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with("SELECT * FROM `db`.`table` LIMIT 1")
+            ->will($this->returnValue('v1'));
+
+        $dbi->expects($this->once())
+            ->method('getFieldsMeta')
+            ->with("v1")
+            ->will($this->returnValue('movecols'));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $tableObj = new PMA_Table('table', 'db');
+
+        $this->assertEquals(
+            $tableObj->getColumnsMeta(),
+            'movecols'
+        );
+    }
+
+    /**
+     * Tests for _getSQLToCreateForeignKey() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetSQLToCreateForeignKey()
+    {
+        $table = "PMA_table";
+        $field = array("PMA_field1", "PMA_field2");
+        $foreignDb = "foreignDb";
+        $foreignTable = "foreignTable";
+        $foreignField = array("foreignField1", "foreignField2");
+
+        $class = new ReflectionClass('PMA_Table');
+        $method = $class->getMethod('_getSQLToCreateForeignKey');
+        $method->setAccessible(true);
+        $tableObj = new PMA_Table('PMA_table', 'db');
+
+        $sql = $method->invokeArgs(
+            $tableObj, array(
+                $table,
+                $field,
+                $foreignDb,
+                $foreignTable,
+                $foreignField
+            )
+        );
+        $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
+            . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
+            . '`foreignDb`.`foreignTable`(`foreignField1`, `foreignField2`);';
+        $this->assertEquals(
+            $sql_excepted,
+            $sql
+        );
+    }
+
+    /**
+     * Tests for getSqlQueryForIndexCreateOrEdit() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetSqlQueryForIndexCreateOrEdit()
+    {
+        $db = "pma_db";
+        $table = "pma_table";
+        $index = new PMA_Index();
+        $error = false;
+
+        $_REQUEST['old_index'] = "PRIMARY";
+
+        $table = new PMA_Table($table, $db);
+        $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
+
+        $this->assertEquals(
+            "ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;",
+            $sql
+        );
+    }
 
     /**
      * Test for getColumns
@@ -887,11 +967,23 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testCountRecords()
     {
+        $map = array(
+            array(
+                'PMA.PMA_BookMark',
+                null,
+                array('Comment' => "Comment222", 'TABLE_TYPE' => "VIEW"),
+            ),
+            array('PMA.PMA_BookMark.TABLE_TYPE', null, 'VIEW'),
+        );
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('getCachedTableContent')
+            ->will($this->returnValueMap($map));
+
         $table = 'PMA_BookMark';
         $db = 'PMA';
-        PMA_Table::$cache[$db][$table] = array('Comment' => "Comment222");
+        $tableObj = new PMA_Table($table, $db);
 
-        $return = PMA_Table::countRecords($db, $table, false, true);
+        $return = $tableObj->countRecords(true);
         $expect = 20;
         $this->assertEquals(
             $expect,
@@ -952,6 +1044,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $what = "dataonly";
         $move = true;
         $mode = "one_table";
+
+        $GLOBALS['dbi']->expects($this->any())->method('getTable')
+            ->will($this->returnValue(new PMA_Table($target_table, $target_db)));
 
         $_REQUEST['drop_if_exists'] = true;
 
@@ -1062,4 +1157,3 @@ Class DataBaseMock
         return true;
     }
 }
-?>

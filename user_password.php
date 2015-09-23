@@ -12,6 +12,11 @@
  */
 require_once './libraries/common.inc.php';
 
+/**
+ * Libraries needed for some functions
+ */
+require_once './libraries/server_privileges.lib.php';
+
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
@@ -62,6 +67,7 @@ if (isset($msg)) {
 }
 
 require_once './libraries/display_change_password.lib.php';
+
 echo PMA_getHtmlForChangePassword($username, $hostname);
 exit;
 
@@ -131,10 +137,48 @@ function PMA_changePassword($password, $message, $change_password_message)
     global $auth_plugin;
 
     $hashing_function = PMA_changePassHashingFunction();
-    $sql_query = 'SET password = '
-        . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+
+    $orig_auth_plugin = null;
+
+    $row = $GLOBALS['dbi']->fetchSingleRow('SELECT CURRENT_USER() as user');
+    $curr_user = $row['user'];
+    list($username, $hostname) = explode('@', $curr_user);
+
+    if (PMA_Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+
+        if (isset($_REQUEST['pw_hash']) && ! empty($_REQUEST['pw_hash'])) {
+            $orig_auth_plugin = $_REQUEST['pw_hash'];
+        } else {
+            $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+                'change', $username, $hostname
+            );
+        }
+
+        $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
+            . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
+            . (($password == '') ? '\'\'' : '\'***\'');
+    } else {
+        // For MySQL versions 5.6.6+,
+        // explicitly set value of `old_passwords` so that
+        // it does not give an error while using
+        // the PASSWORD() function
+        if (PMA_MYSQL_INT_VERSION >= 50606) {
+            $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+                'change', $username, $hostname
+            );
+            if ($orig_auth_plugin == 'sha256_password') {
+                $value = 2;
+            } else {
+                $value = 0;
+            }
+            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
+        }
+        $sql_query = 'SET password = '
+            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+    }
     PMA_changePassUrlParamsAndSubmitQuery(
-        $password, $sql_query, $hashing_function
+        $username, $hostname, $password,
+        $sql_query, $hashing_function, $orig_auth_plugin
     );
 
     $auth_plugin->handlePasswordChange($password);
@@ -160,19 +204,31 @@ function PMA_changePassHashingFunction()
 /**
  * Generate the error url and submit the query
  *
+ * @param string $username         Username
+ * @param string $hostname         Hostname
  * @param string $password         Password
  * @param string $sql_query        SQL query
  * @param string $hashing_function Hashing function
+ * @param string $auth_plugin      Authentication Plugin
  *
  * @return void
  */
 function PMA_changePassUrlParamsAndSubmitQuery(
-    $password, $sql_query, $hashing_function
+    $username, $hostname, $password, $sql_query, $hashing_function, $auth_plugin
 ) {
     $err_url = 'user_password.php' . PMA_URL_getCommon();
-    $local_query = 'SET password = ' . (($password == '')
-        ? '\'\''
-        : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
+    if (PMA_Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+        $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
+            . ' IDENTIFIED with ' . $auth_plugin . ' BY '
+            . (($password == '')
+            ? '\'\''
+            : '\'' . PMA_Util::sqlAddSlashes($password) . '\'');
+    } else {
+        $local_query = 'SET password = ' . (($password == '')
+            ? '\'\''
+            : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password)
+                . '\')');
+    }
     if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
         PMA_Util::mysqlDie($GLOBALS['dbi']->getError(), $sql_query, false, $err_url);
     }
@@ -197,4 +253,3 @@ function PMA_changePassDisplayPage($message, $sql_query)
         . '<strong>' . __('Back') . '</strong></a>';
     exit;
 }
-?>

@@ -27,7 +27,8 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'b_browse';
-        $GLOBALS['cfg']['DefaultTabTable'] = 'sql.php';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
+        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
         $GLOBALS['cfg']['MaxNavigationItems'] = 250;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
@@ -80,12 +81,11 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
     public function providerForTestIcon()
     {
         return array(
-            array('tbl_structure.php', 'b_props'),
-            array('tbl_select.php', 'b_search'),
-            array('tbl_change.php', 'b_insrow'),
-            array('tbl_sql.php', 'b_sql'),
-            array('sql.php', 'b_browse'),
+            array('structure', 'b_props'),
+            array('search', 'b_search'),
+            array('insert', 'b_insrow'),
+            array('sql', 'b_sql'),
+            array('browse', 'b_browse'),
         );
     }
 }
-?>

@@ -6,13 +6,13 @@ Requirements
 Web server
 ----------
 
-Since, phpMyAdmin's interface is based entirely in your browser, you'll need a
-web server (such as Apache, :term:`IIS`) to install phpMyAdmin's files into.
+Since phpMyAdmin's interface is based entirely in your browser, you'll need a
+web server (such as Apache, nginx, :term:`IIS`) to install phpMyAdmin's files into.
 
 PHP
 ---
 
-* You need PHP 5.3.7 or newer, with ``session`` support, the Standard PHP Library
+* You need PHP 5.5.0 or newer, with ``session`` support, the Standard PHP Library
   (SPL) extension, JSON support, and the ``mbstring`` extension.
 
 * To support uploading of ZIP files, you need the PHP ``zip`` extension.
@@ -49,6 +49,6 @@ phpMyAdmin supports MySQL-compatible databases.
 Web browser
 -----------
 
-To access phpMyAdmin you need a web browser with cookies and javascript
+To access phpMyAdmin you need a web browser with cookies and JavaScript
 enabled.
 

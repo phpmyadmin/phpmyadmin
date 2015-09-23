@@ -43,7 +43,7 @@ class PMA_MessagesIncTest extends PHPUnit_Framework_TestCase
         $strConfigSQLQuery_Explain_name = '';
         $strConfigSendErrorReports_name = '';
 
-        include_once 'libraries/config/messages.inc.php';
+        include 'libraries/config/messages.inc.php';
 
         $this->assertEquals(
             'Allow login to any MySQL server',
@@ -75,4 +75,3 @@ class PMA_MessagesIncTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

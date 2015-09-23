@@ -42,8 +42,8 @@ if (getcwd() == dirname(__FILE__)) {
  * Minimum PHP version; can't call PMA_fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
-if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
-    die('PHP 5.3+ is required');
+if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
+    die('PHP 5.5+ is required');
 }
 
 /**
@@ -376,7 +376,6 @@ $goto_whitelist = array(
     'db_structure.php',
     'db_import.php',
     'db_operations.php',
-    'db_printview.php',
     'db_search.php',
     'db_routines.php',
     'export.php',
@@ -408,7 +407,6 @@ $goto_whitelist = array(
     'tbl_create.php',
     'tbl_import.php',
     'tbl_indexes.php',
-    'tbl_printview.php',
     'tbl_sql.php',
     'tbl_export.php',
     'tbl_operations.php',
@@ -580,7 +578,10 @@ $GLOBALS['PMA_Config']->checkPermissions();
 if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
         . '[br][br]'
-        . __('This usually means there is a syntax error in it, please check any errors shown below.')
+        . __(
+            'This usually means there is a syntax error in it, '
+            . 'please check any errors shown below.'
+        )
         . '[br][br]'
         . '[conferr]';
     trigger_error($error, E_USER_ERROR);
@@ -641,7 +642,10 @@ if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
         if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
             trigger_error(
                 sprintf(
-                    __('Invalid hostname for server %1$s. Please review your configuration.'),
+                    __(
+                        'Invalid hostname for server %1$s. '
+                        . 'Please review your configuration.'
+                    ),
                     $server_index
                 ),
                 E_USER_ERROR
@@ -864,11 +868,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
         // todo: add plugin manager
         $plugin_manager = null;
+        /** @var AuthenticationPlugin $auth_plugin */
         $auth_plugin = new $auth_class($plugin_manager);
 
         if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
-            PMA_secureSession();
+            if ($token_provided) {
+                PMA_secureSession();
+            }
             $auth_plugin->auth();
         } else {
             $auth_plugin->authSetUser();
@@ -979,6 +986,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Connects to the server (validates user's login)
+        /** @var PMA_DatabaseInterface $userlink */
         $userlink = $GLOBALS['dbi']->connect(
             $cfg['Server']['user'], $cfg['Server']['password'], false
         );
@@ -986,13 +994,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // Set timestamp for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . PMA_Util::backquote('time_zone') . ' = '
-                . '\'' . PMA_Util::sqlAddSlashes($cfg['Server']['SessionTimeZone']) . '\'';
+                . '\''
+                . PMA_Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . '\'';
 
-            if(! $userlink->query($sql_query_tz)) {
-                $error_message_tz = sprintf(__('Unable to use timezone %1$s for server %2$d. '
-                    . 'Please check your configuration setting for '
-                    . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
-                    . 'phpMyAdmin is currently using the default time zone of the database server.'),
+            if (! $userlink->query($sql_query_tz)) {
+                $error_message_tz = sprintf(
+                    __(
+                        'Unable to use timezone %1$s for server %2$d. '
+                        . 'Please check your configuration setting for '
+                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
+                        . 'phpMyAdmin is currently using the default time zone '
+                        . 'of the database server.'
+                    ),
                     $cfg['Servers'][$GLOBALS['server']]['SessionTimeZone'],
                     $GLOBALS['server'],
                     $GLOBALS['server']
@@ -1017,10 +1031,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /* Log success */
         PMA_logUser($cfg['Server']['user']);
 
-        if (PMA_MYSQL_INT_VERSION < 50500) {
+        if (PMA_MYSQL_INT_VERSION < $cfg['MysqlMinVersion']['internal']) {
             PMA_fatalError(
                 __('You should upgrade to %s %s or later.'),
-                array('MySQL', '5.5.0')
+                array('MySQL', $cfg['MysqlMinVersion']['human'])
             );
         }
 
@@ -1042,9 +1056,32 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         /**
-         * SQL Parser code
+         * Charset information
          */
-        include_once './libraries/sqlparser.lib.php';
+        if (!PMA_DRIZZLE) {
+            include_once './libraries/mysql_charsets.inc.php';
+        }
+        if (!isset($mysql_charsets)) {
+            $mysql_charsets = array();
+            $mysql_collations_flat = array();
+        }
+
+        /**
+         * Initializes the SQL parsing library.
+         */
+        include_once SQL_PARSER_AUTOLOAD;
+
+        // Loads closest context to this version.
+        SqlParser\Context::loadClosest(
+            (PMA_DRIZZLE ? 'Drizzle' : 'MySql') . PMA_MYSQL_INT_VERSION
+        );
+
+        // Sets the default delimiter (if specified).
+        if (!empty($_REQUEST['sql_delimiter'])) {
+            SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
+        }
+
+        // TODO: Set SQL modes too.
 
         /**
          * the PMA_List_Database class
@@ -1200,4 +1237,7 @@ if (! defined('PMA_MINIMUM_COMMON')
         }
     }
 }
-?>
+
+if (! defined('PMA_MINIMUM_COMMON')) {
+    include_once 'libraries/config/page_settings.class.php';
+}

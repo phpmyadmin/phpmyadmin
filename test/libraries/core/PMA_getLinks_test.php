@@ -36,7 +36,7 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getPHPDocLink()
+    public function testGetPHPDocLink()
     {
         $lang = _pgettext('PHP documentation language', 'en');
         $this->assertEquals(
@@ -47,7 +47,7 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testPMA_linkURL
+     * Data provider for testLinkURL
      *
      * @return array
      */
@@ -73,7 +73,7 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerLinkURL
      */
-    public function testPMA_linkURL($link, $url)
+    public function testLinkURL($link, $url)
     {
         $this->assertEquals(PMA_linkURL($link), $url);
     }

@@ -202,4 +202,3 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
     }
 
 }
-?>

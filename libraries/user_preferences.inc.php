@@ -10,7 +10,7 @@ if (!defined('PHPMYADMIN')) {
 }
 // build user preferences menu
 
-$form_param = filter_input(INPUT_GET, 'form');
+$form_param = isset($_GET['form']) ? $_GET['form'] : null;
 if (! isset($forms[$form_param])) {
     $forms_keys = array_keys($forms);
     $form_param = array_shift($forms_keys);
@@ -22,14 +22,14 @@ $tabs_icons = array(
     'Main_panel'  => 'b_props.png',
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
-echo '<ul id="topmenu2">';
-echo PMA_Util::getHtmlTab(
+
+require_once './libraries/Template.class.php';
+$content = PMA_Util::getHtmlTab(
     array(
         'link' => 'prefs_manage.php',
         'text' => __('Manage your settings')
     )
 ) . "\n";
-echo '<li>&nbsp; &nbsp;</li>' . "\n";
 $script_name = basename($GLOBALS['PMA_PHP_SELF']);
 foreach (array_keys($forms) as $formset) {
     $tab = array(
@@ -37,9 +37,17 @@ foreach (array_keys($forms) as $formset) {
         'text' => PMA_lang('Form_' . $formset),
         'icon' => $tabs_icons[$formset],
         'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param));
-    echo PMA_Util::getHtmlTab($tab, array('form' => $formset)) . "\n";
+    $content .= PMA_Util::getHtmlTab($tab, array('form' => $formset)) . "\n";
 }
-echo '</ul><div class="clearfloat"></div>';
+echo PMA\Template::get('list/unordered')->render(
+    array(
+        'id' => 'topmenu2',
+        'class' => 'user_prefs_tabs',
+        'content' => $content,
+    )
+);
+echo '<div class="clearfloat"></div>';
+
 
 // show "configuration saved" message and reload navigation panel if needed
 if (!empty($_GET['saved'])) {
@@ -63,7 +71,10 @@ $msg->display();
 // warn about using session storage for settings
 $cfgRelation = PMA_getRelationsParam();
 if (! $cfgRelation['userconfigwork']) {
-    $msg = __('Your preferences will be saved for current session only. Storing them permanently requires %sphpMyAdmin configuration storage%s.');
+    $msg = __(
+        'Your preferences will be saved for current session only. Storing them '
+        . 'permanently requires %sphpMyAdmin configuration storage%s.'
+    );
     $msg = PMA_sanitize(
         sprintf($msg, '[doc@linked-tables]', '[/doc]')
     );

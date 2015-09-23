@@ -80,4 +80,3 @@ if (! isset($_REQUEST['repl_clear_scr'])) {
 if (isset($_REQUEST['sl_configure'])) {
     $response->addHTML(PMA_getHtmlForReplicationChangeMaster("slave_changemaster"));
 }
-?>

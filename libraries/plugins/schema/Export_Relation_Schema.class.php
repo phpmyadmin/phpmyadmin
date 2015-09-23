@@ -22,13 +22,19 @@ class PMA_Export_Relation_Schema
     /**
      * Constructor.
      *
-     * @see PMA_SVG
+     * @param string $db      database name
+     * @param object $diagram schema diagram
      */
-    function __construct()
+    public function __construct($db, $diagram)
     {
+        $this->db = $db;
+        $this->diagram = $diagram;
         $this->setPageNumber($_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
     }
+
+    protected $db;
+    protected $diagram;
 
     protected $showColor;
     protected $tableDimension;
@@ -46,8 +52,6 @@ class PMA_Export_Relation_Schema
      * @param integer $value Page Number of the document to be created
      *
      * @return void
-     *
-     * @access public
      */
     public function setPageNumber($value)
     {
@@ -92,8 +96,6 @@ class PMA_Export_Relation_Schema
      * @param boolean $value show table co-ordinates or not
      *
      * @return void
-     *
-     * @access public
      */
     public function setTableDimension($value)
     {
@@ -116,8 +118,6 @@ class PMA_Export_Relation_Schema
      * @param boolean $value set same width of all tables or not
      *
      * @return void
-     *
-     * @access public
      */
     public function setAllTablesSameWidth($value)
     {
@@ -240,7 +240,7 @@ class PMA_Export_Relation_Schema
     protected function getTablesFromRequest()
     {
         $tables = array();
-        $dbLength = mb_strlen($GLOBALS['db']);
+        $dbLength = mb_strlen($this->db);
         foreach ($_REQUEST['t_h'] as $key => $value) {
             if ($value) {
                 $tables[] = mb_substr($key, $dbLength + 1);
@@ -253,10 +253,12 @@ class PMA_Export_Relation_Schema
      * Returns the file name
      *
      * @param String $extension file extension
+     *
+     * @return string file name
      */
     protected function getFileName($extension)
     {
-        $filename = $GLOBALS['db'] . $extension;
+        $filename = $this->db . $extension;
         // Get the name of this page to use as filename
         if ($this->pageNumber != -1 && ! $this->offline) {
             $_name_sql = 'SELECT page_descr FROM '
@@ -298,4 +300,3 @@ class PMA_Export_Relation_Schema
         exit;
     }
 }
-?>

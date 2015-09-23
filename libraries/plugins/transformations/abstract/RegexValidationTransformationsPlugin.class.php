@@ -71,4 +71,3 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
         return "Regex Validation";
     }
 }
-?>

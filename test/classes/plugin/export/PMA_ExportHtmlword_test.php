@@ -244,7 +244,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
         // case 2
 
-        $GLOBALS['charset_of_file'] = 'ISO-8859-1';
+        $GLOBALS['charset'] = 'ISO-8859-1';
         ob_start();
         $this->object->exportHeader();
         $result = ob_get_clean();
@@ -327,7 +327,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
     public function testExportDBCreate()
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB')
+            $this->object->exportDBCreate('testDB', 'database')
         );
     }
 
@@ -544,6 +544,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation']['relation'] = true;
         $GLOBALS['controllink'] = null;
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -641,6 +642,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -709,6 +711,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'relwork' => false,
             'commwork' => false,
             'mimework' => false,
@@ -923,4 +926,3 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

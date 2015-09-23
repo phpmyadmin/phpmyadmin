@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  * @param boolean $show_error whether to display SQL error messages or not
  * @param int     $options    query options
  *
- * @return integer   the result set, or false if no result set
+ * @return resource|boolean the result set, or false if no result set
  *
  * @access  public
  *
@@ -59,7 +59,10 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam()
 {
-    if (empty($_SESSION['relation'][$GLOBALS['server']])) {
+    if (empty($_SESSION['relation'][$GLOBALS['server']])
+        || (empty($_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION']))
+        || $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] != PMA_VERSION
+    ) {
         $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
     }
 
@@ -79,7 +82,7 @@ function PMA_getRelationsParam()
  */
 function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
-    $retval = '';
+    $retval = '<br>';
 
     $messages = array();
     $messages['error'] = '<font color="red"><strong>'
@@ -101,8 +104,12 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
              . __('General relation features')
              . ' <font color="green">' . __('Disabled')
              . '</font>' . "\n";
-        if (! empty($GLOBALS['db']) && $GLOBALS['cfg']['ZeroConf']) {
-            $retval .= PMA_getHtmlFixPMATables(true);
+        if ($GLOBALS['cfg']['ZeroConf']) {
+            if (empty($GLOBALS['db'])) {
+                $retval .= PMA_getHtmlFixPMATables(true, true);
+            } else {
+                $retval .= PMA_getHtmlFixPMATables(true);
+            }
         }
     } else {
         $retval .= '<table>' . "\n";
@@ -307,7 +314,29 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Managing Central list of columns'),
-            'central_columnswork',
+            'centralcolumnswork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'designer_settings',
+            isset($cfgRelation['designer_settings']),
+            $messages,
+            'designer_settings'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Remembering Designer Settings'),
+            'designersettingswork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'export_templates',
+            isset($cfgRelation['export_templates']),
+            $messages,
+            'export_templates'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Saving export templates'),
+            'exporttemplateswork',
             $messages
         );
         $retval .= '</table>' . "\n";
@@ -316,35 +345,30 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 
             $retval .= '<p>' . __('Quick steps to setup advanced features:')
                 . '</p>';
-            $retval .= '<ul>';
-            $retval .= '<li>';
-            $retval .= sprintf(
+
+            $items = array();
+            $items[] = sprintf(
                 __(
                     'Create the needed tables with the '
                     . '<code>%screate_tables.sql</code>.'
                 ),
                 htmlspecialchars(SQL_DIR)
-            );
-            $retval .= ' ' . PMA_Util::showDocu('setup', 'linked-tables');
-            $retval .= '</li>';
-            $retval .= '<li>';
-            $retval .= __('Create a pma user and give access to these tables.');
-            $retval .= ' ' . PMA_Util::showDocu('config', 'cfg_Servers_controluser');
-            $retval .= '</li>';
-            $retval .= '<li>';
-            $retval .= __(
+            ) . ' ' . PMA_Util::showDocu('setup', 'linked-tables');
+            $items[] = __('Create a pma user and give access to these tables.') . ' '
+                . PMA_Util::showDocu('config', 'cfg_Servers_controluser');
+            $items[] = __(
                 'Enable advanced features in configuration file '
                 . '(<code>config.inc.php</code>), for example by '
                 . 'starting from <code>config.sample.inc.php</code>.'
-            );
-            $retval .= ' ' . PMA_Util::showDocu('setup', 'quick-install');
-            $retval .= '</li>';
-            $retval .= '<li>';
-            $retval .= __(
+            ) . ' ' . PMA_Util::showDocu('setup', 'quick-install');
+            $items[] = __(
                 'Re-login to phpMyAdmin to load the updated configuration file.'
             );
-            $retval .= '</li>';
-            $retval .= '</ul>';
+
+            include_once './libraries/Template.class.php';
+            $retval .= PMA\Template::get('list/unordered')->render(
+                array('items' => $items,)
+            );
         }
     }
 
@@ -419,6 +443,8 @@ function PMA_getDiagMessageForParameter($parameter,
 function PMA_checkRelationsParam()
 {
     $cfgRelation                   = array();
+    $cfgRelation['PMA_VERSION']    = PMA_VERSION;
+
     $cfgRelation['relwork']        = false;
     $cfgRelation['displaywork']    = false;
     $cfgRelation['bookmarkwork']   = false;
@@ -435,7 +461,9 @@ function PMA_checkRelationsParam()
     $cfgRelation['navwork']        = false;
     $cfgRelation['allworks']       = false;
     $cfgRelation['savedsearcheswork'] = false;
-    $cfgRelation['central_columnswork'] = false;
+    $cfgRelation['centralcolumnswork'] = false;
+    $cfgRelation['designersettingswork'] = false;
+    $cfgRelation['exporttemplateswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
@@ -509,6 +537,10 @@ function PMA_checkRelationsParam()
             $cfgRelation['savedsearches']    = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['central_columns']) {
             $cfgRelation['central_columns']    = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['designer_settings']) {
+            $cfgRelation['designer_settings'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['export_templates']) {
+            $cfgRelation['export_templates']    = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -572,7 +604,15 @@ function PMA_checkRelationsParam()
     }
 
     if (isset($cfgRelation['central_columns'])) {
-        $cfgRelation['central_columnswork']      = true;
+        $cfgRelation['centralcolumnswork']      = true;
+    }
+
+    if (isset($cfgRelation['designer_settings'])) {
+        $cfgRelation['designersettingswork']    = true;
+    }
+
+    if (isset($cfgRelation['export_templates'])) {
+        $cfgRelation['exporttemplateswork']      = true;
     }
 
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
@@ -580,9 +620,11 @@ function PMA_checkRelationsParam()
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
-        && $cfgRelation['bookmarkwork'] && $cfgRelation['central_columnswork']
+        && $cfgRelation['bookmarkwork'] && $cfgRelation['centralcolumnswork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
         && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
+        && $cfgRelation['designersettingswork']
+        && $cfgRelation['exporttemplateswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -692,15 +734,17 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 
     if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)
     ) {
-
-        $showCreateTableQuery = 'SHOW CREATE TABLE '
-            . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);
-        $show_create_table = $GLOBALS['dbi']->fetchValue(
-            $showCreateTableQuery, 0, 1
-        );
+        $tableObj = new PMA_Table($table, $db);
+        $show_create_table = $tableObj->showCreate();
         if ($show_create_table) {
-            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-            $foreign['foreign_keys_data'] = $analyzed_sql[0]['foreign_keys'];
+            $parser = new SqlParser\Parser($show_create_table);
+            /**
+             * @var CreateStatement $stmt
+             */
+            $stmt = $parser->statements[0];
+            $foreign['foreign_keys_data'] = SqlParser\Utils\Table::getForeignKeys(
+                $stmt
+            );
         }
     }
 
@@ -1255,7 +1299,6 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
  *
  * @access  public
  */
-
 function PMA_getForeignData(
     $foreigners, $field, $override_total, $foreign_filter, $foreign_limit
 ) {
@@ -1283,7 +1326,8 @@ function PMA_getForeignData(
         // We could also do the SELECT anyway, with a LIMIT, and ensure that
         // the current value of the field is one of the choices.
 
-        $the_total   = PMA_Table::countRecords($foreign_db, $foreign_table, true);
+        $the_total = $GLOBALS['dbi']->getTable($foreign_db, $foreign_table)
+            ->countRecords(true);
 
         if ($override_total == true
             || $the_total < $GLOBALS['cfg']['ForeignKeyMaxLimit']
@@ -1360,130 +1404,6 @@ function PMA_getForeignData(
     $foreignData['foreign_field'] = isset($foreign_field) ? $foreign_field : null;
     return $foreignData;
 } // end of 'PMA_getForeignData()' function
-
-/**
- * Finds all related tables
- *
- * @param array  $all_tables All the involved tables
- * @param string $master     The master table to form the LEFT JOIN clause
- *
- * @return string LEFT JOIN
- * @access  private
- */
-function PMA_getRelatives($all_tables, $master)
-{
-    $fromclause = '';
-    $left_joins = array();
-    $emerg = '';
-    $ignore_internal_relations = false;
-
-    // The list of tables that we still couldn't connect
-    $remaining_tables = $all_tables;
-    unset($remaining_tables[$master]);
-    // The list of already connected tables
-    $known_tables = array();
-    $known_tables[$master] = $master;
-    $run = 0;
-    while ($GLOBALS['cfgRelation']['relwork'] && count($remaining_tables) > 0) {
-        // Whether to go from master to foreign or vice versa
-        if ($run % 2 == 0) {
-            $from = 'master';
-            $to    = 'foreign';
-        } else {
-            $from = 'foreign';
-            $to    = 'master';
-        }
-        $in_know = '(\'' . implode('\', \'', $known_tables) . '\')';
-        $in_left = '(\'' . implode('\', \'', $remaining_tables) . '\')';
-        $rel_query = 'SELECT *'
-            . '  FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-            .       '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['relation'])
-            . ' WHERE ' . $from . '_db = \''
-            . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
-            . '   AND ' . $to   . '_db = \''
-            . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
-            . '   AND ' . $from . '_table IN ' . $in_know
-            . '   AND ' . $to   . '_table IN ' . $in_left;
-        $relations = @$GLOBALS['dbi']->query($rel_query, $GLOBALS['controllink']);
-        while ($row = $GLOBALS['dbi']->fetchAssoc($relations)) {
-            $found_table                = $row[$to . '_table'];
-            if (isset($remaining_tables[$found_table])) {
-                $left_join_with = PMA_Util::backquote($GLOBALS['db']) . '.'
-                        . PMA_Util::backquote($row[$to . '_table']);
-                $on_condition = PMA_Util::backquote($row[$from . '_table']) . '.'
-                    . PMA_Util::backquote($row[$from . '_field']) . ' = '
-                    . PMA_Util::backquote($row[$to . '_table']) . '.'
-                    . PMA_Util::backquote($row[$to . '_field']);
-
-                $left_joins[$left_join_with] = array(
-                    'left_join_with' => $left_join_with,
-                    'on_condition' => array($on_condition)
-                );
-
-                $known_tables[$found_table] = $found_table;
-                unset($remaining_tables[$found_table]);
-            }
-        } // end while
-        $run++;
-        if ($run > 5) {
-            foreach ($remaining_tables as $table) {
-                $emerg .= ', ' . PMA_Util::backquote($table);
-                unset($remaining_tables[$table]);
-            }
-        }
-    } // end while
-
-    // Generate 'LEFT JOIN's for InnoDB foreign keys.
-    $remaining_tables = $all_tables;
-    foreach ($remaining_tables as $one_table) {
-        $foreigners = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'foreign');
-        foreach ($foreigners['foreign_keys_data'] as $one_key) {
-            if (in_array($one_key['ref_table_name'], $all_tables)
-                && ! isset($one_key['ref_db_name'])
-                && ($one_key['ref_table_name'] == $master
-                || $one_key['ref_table_name'] == $one_table)
-            ) {
-                $left_join_with = PMA_Util::backquote($GLOBALS['db']) . '.'
-                    . PMA_Util::backquote($one_table);
-                if (! isset($left_joins[$left_join_with])) {
-                    $left_joins[$left_join_with] = array(
-                        'left_join_with' =>$left_join_with,
-                        'on_condition' => array()
-                    );
-                }
-
-                foreach ($one_key['ref_index_list'] as $key => $one_column) {
-                    $on_condition = PMA_Util::backquote($one_key['ref_table_name'])
-                    . '.' . PMA_Util::backquote($one_column) . ' = '
-                    . PMA_Util::backquote($one_table) . '.'
-                    . PMA_Util::backquote($one_key['index_list'][$key]);
-
-                    if (! in_array($on_condition, $left_joins[$left_join_with]['on_condition'])) {
-                        $left_joins[$left_join_with]['on_condition'][]
-                            = $on_condition;
-                    }
-                }
-                $ignore_internal_relations = true;
-                unset($remaining_tables[$one_table]);
-            }
-        }
-    }
-
-    if ($ignore_internal_relations) {
-        $emerg = '';
-    }
-
-    // Build the 'FROM' clause.
-    foreach ($left_joins as $one_join) {
-        $fromclause .= "\n" . ' LEFT JOIN '
-            . $one_join['left_join_with']
-            . ' ON '
-            . implode(' AND ', $one_join['on_condition']);
-    }
-
-    $fromclause = $emerg . $fromclause;
-    return $fromclause;
-} // end of the "PMA_getRelatives()" function
 
 /**
  * Rename a field in relation tables
@@ -1780,7 +1700,7 @@ function PMA_checkChildForeignReferences(
     ) {
         if (sizeof($child_references, 0) > 0) {
             $column_status['isReferenced'] = true;
-            foreach ($child_references as $row => $columns) {
+            foreach ($child_references as $columns) {
                 array_push(
                     $column_status['references'],
                     PMA_Util::backquote($columns['table_schema'])
@@ -1813,7 +1733,7 @@ function PMA_searchColumnInForeigners($foreigners, $column)
         return $foreigners[$column];
     } else {
         $foreigner = array();
-        foreach ($foreigners['foreign_keys_data'] as $key => $one_key) {
+        foreach ($foreigners['foreign_keys_data'] as $one_key) {
             $column_index = array_search($column, $one_key['index_list']);
             if ($column_index !== false) {
                 $foreigner['foreign_field']
@@ -1873,6 +1793,29 @@ function PMA_getDefaultPMATableNames()
 }
 
 /**
+ * Create a table named phpmyadmin to be used as configuration storage
+ *
+ * @return bool
+ */
+function PMA_createPMADatabase()
+{
+    $GLOBALS['dbi']->tryQuery("CREATE DATABASE IF NOT EXISTS `phpmyadmin`");
+    if ($error = $GLOBALS['dbi']->getError()) {
+        if ($GLOBALS['errno'] == 1044) {
+            $GLOBALS['message'] =    __(
+                'You do not have necessary privileges to create a database named'
+                . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
+                . ' database to set up the phpMyAdmin configuration storage there.'
+            );
+        } else {
+            $GLOBALS['message'] = $error;
+        }
+        return false;
+    }
+    return true;
+}
+
+/**
  * Creates PMA tables in the given db, updates if already exists.
  *
  * @param string  $db     database
@@ -1899,7 +1842,9 @@ function PMA_fixPMATables($db, $create = true)
         'pma__usergroups' => 'usergroups',
         'pma__navigationhiding' => 'navigationhiding',
         'pma__savedsearches' => 'savedsearches',
-        'pma__central_columns' => 'central_columns'
+        'pma__central_columns' => 'central_columns',
+        'pma__designer_settings' => 'designer_settings',
+        'pma__export_templates' => 'export_templates',
     );
 
     $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);
@@ -1918,6 +1863,7 @@ function PMA_fixPMATables($db, $create = true)
                     $GLOBALS['message'] = $error;
                     return;
                 }
+                $foundOne = true;
                 $GLOBALS['cfg']['Server'][$feature] = $table;
             }
         } else {
@@ -1960,22 +1906,33 @@ function PMA_fixPMATables($db, $create = true)
  * Get Html for PMA tables fixing anchor.
  *
  * @param boolean $allTables whether to create all tables
+ * @param boolean $createDb  whether to create the pmadb also
  *
  * @return string Html
  */
-function PMA_getHtmlFixPMATables($allTables)
+function PMA_getHtmlFixPMATables($allTables, $createDb = false)
 {
     $retval = '';
 
     $url_query = PMA_URL_getCommon(array('db' => $GLOBALS['db']));
     if ($allTables) {
-        $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
-        $message = PMA_Message::notice(
-            __(
-                '%sCreate%s the phpMyAdmin configuration storage in the '
-                . 'current database.'
-            )
-        );
+        if ($createDb) {
+            $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
+            $message = PMA_Message::notice(
+                __(
+                    '%sCreate%s a database named \'phpmyadmin\' and setup '
+                    . 'the phpMyAdmin configuration storage there.'
+                )
+            );
+        } else {
+            $url_query .= '&amp;goto=db_operations.php&amp;fixall_pmadb=1';
+            $message = PMA_Message::notice(
+                __(
+                    '%sCreate%s the phpMyAdmin configuration storage in the '
+                    . 'current database.'
+                )
+            );
+        }
     } else {
         $url_query .= '&amp;goto=db_operations.php&amp;fix_pmadb=1';
         $message = PMA_Message::notice(
@@ -2021,4 +1978,3 @@ function PMA_getRelationsAndStatus($condition, $db, $table)
     } // end if
     return(array($res_rel, $have_rel));
 }
-?>

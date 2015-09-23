@@ -106,6 +106,11 @@ class PMA_Drizzle extends Drizzle
  *
  * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
+ *
+ * @method string host() Get host
+ * @method int port() Get port
+ * @method int protocolVersion() Get protocol version
+ * @method resource selectDb(string $dbname) Select a DB
  */
 class PMA_DrizzleCon
 {
