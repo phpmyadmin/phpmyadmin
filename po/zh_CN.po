@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-24 08:55+0200\n"
+"PO-Revision-Date: 2015-09-24 10:56+0200\n"
 "Last-Translator: Yizhou Qiang <qyz.yswy@hotmail.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
@@ -2466,13 +2466,13 @@ msgstr "您真的要删除该书签吗？"
 
 #: js/messages.php:600
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "获取SQL调试信息时出错。"
 
 #: js/messages.php:601
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "已执行的查询"
+msgstr "%s条查询的执行时常：%s秒"
 
 #: js/messages.php:602
 #, php-format
