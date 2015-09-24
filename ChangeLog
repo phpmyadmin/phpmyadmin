@@ -12,6 +12,8 @@ phpMyAdmin - ChangeLog
 - issue #11486 Server variable edition in ANSI_QUOTES sql_mode: losing current value
 - issue #11491 Propose table structure broken
 - issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
+
+4.5.0.1 (2015-09-24)
 - issue #11492 AUTO_INCREMENT statements are partly missing from exports
 
 4.5.0.0 (2015-09-23)
