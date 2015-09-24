@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-24 10:56+0200\n"
-"Last-Translator: Yizhou Qiang <qyz.yswy@hotmail.com>\n"
+"PO-Revision-Date: 2015-09-24 16:29+0200\n"
+"Last-Translator: Zheng Dan <clanboy@163.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -2477,7 +2477,7 @@ msgstr "%s条查询的执行时常：%s秒"
 #: js/messages.php:602
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s 个参数已传递"
 
 #: js/messages.php:603
 #, fuzzy
