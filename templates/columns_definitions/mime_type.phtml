@@ -1,0 +1,17 @@
+<select id="field_<?php echo $columnNumber;?>_<?php echo($ci - $ci_offset); ?>"
+        size="1"
+        name="field_mimetype[<?php echo $columnNumber; ?>]">
+    <option value="">&nbsp;</option>
+    <?php if (isset($available_mime['mimetype'])
+                && is_array($available_mime['mimetype'])): ?>
+        <?php foreach ($available_mime['mimetype'] as $mimetype): ?>
+            <?php $checked = (isset($columnMeta['Field'])
+                             && isset($mime_map[$columnMeta['Field']]['mimetype'])
+                             && ($mime_map[$columnMeta['Field']]['mimetype'] == str_replace('/', '_', $mimetype))
+                                    ? 'selected ' : '');?>
+            <option value="<?php echo str_replace('/', '_', $mimetype)?>" <?php echo $checked; ?>>
+                <?php echo htmlspecialchars(strtolower($mimetype)); ?>
+            </option>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</select>

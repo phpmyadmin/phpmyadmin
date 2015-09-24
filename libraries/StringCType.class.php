@@ -107,4 +107,3 @@ class PMA_StringCType extends PMA_StringAbstractType
         return ctype_xdigit($c);
     } // end of the "isHexDigit()" function
 }
-?>

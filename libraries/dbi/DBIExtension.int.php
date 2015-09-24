@@ -35,8 +35,8 @@ interface PMA_DBI_Extension
     /**
      * selects given database
      *
-     * @param string $dbname database name to select
-     * @param object $link   connection object
+     * @param string   $dbname database name to select
+     * @param resource $link   connection object
      *
      * @return boolean
      */
@@ -45,21 +45,21 @@ interface PMA_DBI_Extension
     /**
      * runs a query and returns the result
      *
-     * @param string $query   query to execute
-     * @param object $link    connection object
-     * @param int    $options query options
+     * @param string   $query   query to execute
+     * @param resource $link    connection object
+     * @param int      $options query options
      *
-     * @return object|bool result
+     * @return mixed result
      */
     public function realQuery($query, $link, $options);
 
     /**
      * Run the multi query and output the results
      *
-     * @param object $link  connection object
-     * @param string $query multi query statement to execute
+     * @param resource $link  connection object
+     * @param string   $query multi query statement to execute
      *
-     * @return result collection | boolean(false)
+     * @return array|bool
      */
     public function realMultiQuery($link, $query);
 
@@ -112,7 +112,7 @@ interface PMA_DBI_Extension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return bool true or false
      */
@@ -121,7 +121,7 @@ interface PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return bool true or false
      */
@@ -130,7 +130,7 @@ interface PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
-     * @param object $link mysql link
+     * @param resource $link mysql link
      *
      * @return mixed false when empty results / result set when not empty
      */
@@ -139,7 +139,7 @@ interface PMA_DBI_Extension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param object $link mysql link
+     * @param resource $link mysql link
      *
      * @return string type of connection used
      */
@@ -148,7 +148,7 @@ interface PMA_DBI_Extension
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param object $link mysql link
+     * @param resource $link mysql link
      *
      * @return integer version of the MySQL protocol used
      */
@@ -164,7 +164,7 @@ interface PMA_DBI_Extension
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param object $link connection link
+     * @param resource $link connection link
      *
      * @return string|bool $error or false
      */
@@ -182,7 +182,7 @@ interface PMA_DBI_Extension
     /**
      * returns the number of rows affected by last query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return int
      */
@@ -259,4 +259,3 @@ function PMA_defineClientAPI($version)
         );
     }
 }
-?>

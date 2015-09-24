@@ -38,13 +38,14 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
  */
 $GLOBALS['showtable'] = array();
 
-// PMA_Table::sGetStatusInfo() does caching by default, but here
+// PMA_Table::getStatusInfo() does caching by default, but here
 // we force reading of the current table status
 // if $reread_info is true (for example, coming from tbl_operations.php
 // and we just changed the table's storage engine)
-$GLOBALS['showtable'] = PMA_Table::sGetStatusInfo(
+$GLOBALS['showtable'] = $GLOBALS['dbi']->getTable(
     $GLOBALS['db'],
-    $GLOBALS['table'],
+    $GLOBALS['table']
+)->getStatusInfo(
     null,
     (isset($reread_info) && $reread_info ? true : false)
 );
@@ -57,7 +58,7 @@ if ($showtable) {
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
-    if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
+    if ($GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])->isView()) {
         $tbl_is_view     = true;
         $tbl_storage_engine = __('View');
         $show_comment    = null;
@@ -76,9 +77,9 @@ if ($showtable) {
         : $showtable['Collation'];
 
     if (null === $showtable['Rows']) {
-        $showtable['Rows']   = PMA_Table::countRecords(
-            $GLOBALS['db'], $showtable['Name'], true
-        );
+        $showtable['Rows']   = $GLOBALS['dbi']
+            ->getTable($GLOBALS['db'], $showtable['Name'])
+            ->countRecords(true);
     }
     $table_info_num_rows = isset($showtable['Rows']) ? $showtable['Rows'] : 0;
     $row_format = isset($showtable['Row_format']) ? $showtable['Row_format'] : '';
@@ -106,4 +107,3 @@ if ($showtable) {
         : $pack_keys;
     unset($create_options, $each_create_option);
 } // end if
-?>

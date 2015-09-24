@@ -253,4 +253,3 @@ function PMA_URL_getArgSeparator($encode = 'none')
     }
 }
 
-?>

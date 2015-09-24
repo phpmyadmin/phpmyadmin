@@ -153,7 +153,7 @@ class ExportXml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         $this->initSpecificVariables();
         global $crlf, $cfg, $db;
@@ -168,7 +168,7 @@ class ExportXml extends ExportPlugin
         $export_data = isset($GLOBALS['xml_export_contents']) ? true : false;
 
         if ($GLOBALS['output_charset_conversion']) {
-            $charset = $GLOBALS['charset_of_file'];
+            $charset = $GLOBALS['charset'];
         } else {
             $charset = 'utf-8';
         }
@@ -237,7 +237,7 @@ class ExportXml extends ExportPlugin
                 );
                 $tbl =  $result[$table][1];
 
-                $is_view = PMA_Table::isView($db, $table);
+                $is_view = $GLOBALS['dbi']->getTable($db, $table)->isView();
 
                 if ($is_view) {
                     $type = 'view';
@@ -393,7 +393,7 @@ class ExportXml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         $foot = '</pma_xml_export>';
 
@@ -408,7 +408,7 @@ class ExportXml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         global $crlf;
 
@@ -437,7 +437,7 @@ class ExportXml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         global $crlf;
 
@@ -453,12 +453,13 @@ class ExportXml extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db          Database name
+     * @param string $export_type 'server', 'database', 'table'
+     * @param string $db_alias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $db_alias = '')
+    public function exportDBCreate($db, $export_type, $db_alias = '')
     {
         return true;
     }
@@ -581,4 +582,3 @@ class ExportXml extends ExportPlugin
         $this->_tables = $tables;
     }
 }
-?>

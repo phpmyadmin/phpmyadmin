@@ -317,65 +317,166 @@ class PMA_Types_MySQL extends PMA_Types
         $type = /*overload*/mb_strtoupper($type);
         switch ($type) {
         case 'TINYINT':
-            return __('A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255');
+            return __(
+                'A 1-byte integer, signed range is -128 to 127, unsigned range is ' .
+                '0 to 255'
+            );
         case 'SMALLINT':
-            return __('A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to 65,535');
+            return __(
+                'A 2-byte integer, signed range is -32,768 to 32,767, unsigned ' .
+                'range is 0 to 65,535'
+            );
         case 'MEDIUMINT':
-            return __('A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is 0 to 16,777,215');
+            return __(
+                'A 3-byte integer, signed range is -8,388,608 to 8,388,607, ' .
+                'unsigned range is 0 to 16,777,215'
+            );
         case 'INT':
-            return __('A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned range is 0 to 4,294,967,295');
+            return __(
+                'A 4-byte integer, signed range is ' .
+                '-2,147,483,648 to 2,147,483,647, unsigned range is 0 to ' .
+                '4,294,967,295'
+            );
         case 'BIGINT':
-            return __('An 8-byte integer, signed range is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615');
+            return __(
+                'An 8-byte integer, signed range is -9,223,372,036,854,775,808 ' .
+                'to 9,223,372,036,854,775,807, unsigned range is 0 to ' .
+                '18,446,744,073,709,551,615'
+            );
         case 'DECIMAL':
-            return __('A fixed-point number (M, D) - the maximum number of digits (M) is 65 (default 10), the maximum number of decimals (D) is 30 (default 0)');
+            return __(
+                'A fixed-point number (M, D) - the maximum number of digits (M) ' .
+                'is 65 (default 10), the maximum number of decimals (D) is 30 ' .
+                '(default 0)'
+            );
         case 'FLOAT':
-            return __('A small floating-point number, allowable values are -3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38');
+            return __(
+                'A small floating-point number, allowable values are ' .
+                '-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to ' .
+                '3.402823466E+38'
+            );
         case 'DOUBLE':
-            return __('A double-precision floating-point number, allowable values are -1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and 2.2250738585072014E-308 to 1.7976931348623157E+308');
+            return __(
+                'A double-precision floating-point number, allowable values are ' .
+                '-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and ' .
+                '2.2250738585072014E-308 to 1.7976931348623157E+308'
+            );
         case 'REAL':
-            return __('Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for FLOAT)');
+            return __(
+                'Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is ' .
+                'a synonym for FLOAT)'
+            );
         case 'BIT':
-            return __('A bit-field type (M), storing M of bits per value (default is 1, maximum is 64)');
+            return __(
+                'A bit-field type (M), storing M of bits per value (default is 1, ' .
+                'maximum is 64)'
+            );
         case 'BOOLEAN':
-            return __('A synonym for TINYINT(1), a value of zero is considered false, nonzero values are considered true');
+            return __(
+                'A synonym for TINYINT(1), a value of zero is considered false, ' .
+                'nonzero values are considered true'
+            );
         case 'SERIAL':
             return __('An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE');
         case 'DATE':
-            return sprintf(__('A date, supported range is %1$s to %2$s'), '1000-01-01', '9999-12-31');
+            return sprintf(
+                __('A date, supported range is %1$s to %2$s'), '1000-01-01',
+                '9999-12-31'
+            );
         case 'DATETIME':
-            return sprintf(__('A date and time combination, supported range is %1$s to %2$s'), '1000-01-01 00:00:00', '9999-12-31 23:59:59');
+            return sprintf(
+                __('A date and time combination, supported range is %1$s to %2$s'),
+                '1000-01-01 00:00:00', '9999-12-31 23:59:59'
+            );
         case 'TIMESTAMP':
-            return __('A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)');
+            return __(
+                'A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 ' .
+                '03:14:07 UTC, stored as the number of seconds since the epoch ' .
+                '(1970-01-01 00:00:00 UTC)'
+            );
         case 'TIME':
-            return sprintf(__('A time, range is %1$s to %2$s'), '-838:59:59', '838:59:59');
+            return sprintf(
+                __('A time, range is %1$s to %2$s'), '-838:59:59', '838:59:59'
+            );
         case 'YEAR':
-            return __("A year in four-digit (4, default) or two-digit (2) format, the allowable values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000");
+            return __(
+                "A year in four-digit (4, default) or two-digit (2) format, the " .
+                "allowable values are 70 (1970) to 69 (2069) or 1901 to 2155 and " .
+                "0000"
+            );
         case 'CHAR':
-            return __('A fixed-length (0-255, default 1) string that is always right-padded with spaces to the specified length when stored');
+            return __(
+                'A fixed-length (0-255, default 1) string that is always ' .
+                'right-padded with spaces to the specified length when stored'
+            );
         case 'VARCHAR':
-            return sprintf(__('A variable-length (%s) string, the effective maximum length is subject to the maximum row size'), '0-65,535');
+            return sprintf(
+                __(
+                    'A variable-length (%s) string, the effective maximum length ' .
+                    'is subject to the maximum row size'
+                ), '0-65,535'
+            );
         case 'TINYTEXT':
-            return __('A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with a one-byte prefix indicating the length of the value in bytes');
+            return __(
+                'A TEXT column with a maximum length of 255 (2^8 - 1) characters, ' .
+                'stored with a one-byte prefix indicating the length of the value ' .
+                'in bytes'
+            );
         case 'TEXT':
-            return __('A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored with a two-byte prefix indicating the length of the value in bytes');
+            return __(
+                'A TEXT column with a maximum length of 65,535 (2^16 - 1) ' .
+                'characters, stored with a two-byte prefix indicating the length ' .
+                'of the value in bytes'
+            );
         case 'MEDIUMTEXT':
-            return __('A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, stored with a three-byte prefix indicating the length of the value in bytes');
+            return __(
+                'A TEXT column with a maximum length of 16,777,215 (2^24 - 1) ' .
+                'characters, stored with a three-byte prefix indicating the ' .
+                'length of the value in bytes'
+            );
         case 'LONGTEXT':
-            return __('A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) characters, stored with a four-byte prefix indicating the length of the value in bytes');
+            return __(
+                'A TEXT column with a maximum length of 4,294,967,295 or 4GiB ' .
+                '(2^32 - 1) characters, stored with a four-byte prefix indicating ' .
+                'the length of the value in bytes'
+            );
         case 'BINARY':
-            return __('Similar to the CHAR type, but stores binary byte strings rather than non-binary character strings');
+            return __(
+                'Similar to the CHAR type, but stores binary byte strings rather ' .
+                'than non-binary character strings'
+            );
         case 'VARBINARY':
-            return __('Similar to the VARCHAR type, but stores binary byte strings rather than non-binary character strings');
+            return __(
+                'Similar to the VARCHAR type, but stores binary byte strings ' .
+                'rather than non-binary character strings'
+            );
         case 'TINYBLOB':
-            return __('A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a one-byte prefix indicating the length of the value');
+            return __(
+                'A BLOB column with a maximum length of 255 (2^8 - 1) bytes, ' .
+                'stored with a one-byte prefix indicating the length of the value'
+            );
         case 'MEDIUMBLOB':
-            return __('A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored with a three-byte prefix indicating the length of the value');
+            return __(
+                'A BLOB column with a maximum length of 16,777,215 (2^24 - 1) ' .
+                'bytes, stored with a three-byte prefix indicating the length of ' .
+                'the value'
+            );
         case 'BLOB':
-            return __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a two-byte prefix indicating the length of the value');
+            return __(
+                'A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, ' .
+                'stored with a two-byte prefix indicating the length of the value'
+            );
         case 'LONGBLOB':
-            return __('A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) bytes, stored with a four-byte prefix indicating the length of the value');
+            return __(
+                'A BLOB column with a maximum length of 4,294,967,295 or 4GiB ' .
+                '(2^32 - 1) bytes, stored with a four-byte prefix indicating the ' .
+                'length of the value'
+            );
         case 'ENUM':
-            return __("An enumeration, chosen from the list of up to 65,535 values or the special '' error value");
+            return __(
+                "An enumeration, chosen from the list of up to 65,535 values or " .
+                "the special '' error value"
+            );
         case 'SET':
             return __("A single value chosen from a set of up to 64 members");
         case 'GEOMETRY':
@@ -389,7 +490,9 @@ class PMA_Types_MySQL extends PMA_Types
         case 'MULTIPOINT':
             return __('A collection of points');
         case 'MULTILINESTRING':
-            return __('A collection of curves with linear interpolation between points');
+            return __(
+                'A collection of curves with linear interpolation between points'
+            );
         case 'MULTIPOLYGON':
             return __('A collection of polygons');
         case 'GEOMETRYCOLLECTION':
@@ -474,7 +577,7 @@ class PMA_Types_MySQL extends PMA_Types
     {
         switch ($class) {
         case 'CHAR':
-            return array(
+            $ret = array(
                 'AES_DECRYPT',
                 'AES_ENCRYPT',
                 'BIN',
@@ -487,6 +590,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'DES_ENCRYPT',
                 'ENCRYPT',
                 'HEX',
+                'INET6_NTOA',
                 'INET_NTOA',
                 'LOAD_FILE',
                 'LOWER',
@@ -509,6 +613,13 @@ class PMA_Types_MySQL extends PMA_Types
                 'UUID',
                 'VERSION',
             );
+
+            if ((PMA_MARIADB && PMA_MYSQL_INT_VERSION < 100012)
+                || PMA_MYSQL_INT_VERSION < 50603
+            ) {
+                $ret = array_diff($ret, array('INET6_NTOA'));
+            }
+            return $ret;
 
         case 'DATE':
             return array(
@@ -551,6 +662,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'EXP',
                 'FLOOR',
                 'HOUR',
+                'INET6_ATON',
                 'INET_ATON',
                 'LENGTH',
                 'LN',
@@ -583,6 +695,11 @@ class PMA_Types_MySQL extends PMA_Types
                 'WEEKOFYEAR',
                 'YEARWEEK',
             );
+            if ((PMA_MARIADB && PMA_MYSQL_INT_VERSION < 100012)
+                || PMA_MYSQL_INT_VERSION < 50603
+            ) {
+                $ret = array_diff($ret, array('INET6_ATON'));
+            }
             return $ret;
 
         case 'SPATIAL':
@@ -767,9 +884,16 @@ class PMA_Types_Drizzle extends PMA_Types
         case 'INTEGER':
             return __('A 4-byte integer, range is -2,147,483,648 to 2,147,483,647');
         case 'BIGINT':
-            return __('An 8-byte integer, range is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807');
+            return __(
+                'An 8-byte integer, range is -9,223,372,036,854,775,808 to ' .
+                '9,223,372,036,854,775,807'
+            );
         case 'DECIMAL':
-            return __('A fixed-point number (M, D) - the maximum number of digits (M) is 65 (default 10), the maximum number of decimals (D) is 30 (default 0)');
+            return __(
+                'A fixed-point number (M, D) - the maximum number of digits ' .
+                '(M) is 65 (default 10), the maximum number of decimals (D) ' .
+                'is 30 (default 0)'
+            );
         case 'DOUBLE':
             return __("A system's default double-precision floating-point number");
         case 'BOOLEAN':
@@ -779,24 +903,54 @@ class PMA_Types_Drizzle extends PMA_Types
         case 'UUID':
             return __('Stores a Universally Unique Identifier (UUID)');
         case 'DATE':
-            return sprintf(__('A date, supported range is %1$s to %2$s'), '0001-01-01', '9999-12-31');
+            return sprintf(
+                __('A date, supported range is %1$s to %2$s'), '0001-01-01',
+                '9999-12-31'
+            );
         case 'DATETIME':
-            return sprintf(__('A date and time combination, supported range is %1$s to %2$s'), '0001-01-01 00:00:0', '9999-12-31 23:59:59');
+            return sprintf(
+                __(
+                    'A date and time combination, supported range is %1$s to ' .
+                    '%2$s'
+                ), '0001-01-01 00:00:0', '9999-12-31 23:59:59'
+            );
         case 'TIMESTAMP':
-            return __("A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' UTC; TIMESTAMP(6) can store microseconds");
+            return __(
+                "A timestamp, range is '0001-01-01 00:00:00' UTC to " .
+                "'9999-12-31 23:59:59' UTC; TIMESTAMP(6) can store microseconds"
+            );
         case 'TIME':
-            return sprintf(__('A time, range is %1$s to %2$s'), '00:00:00', '23:59:59');
+            return sprintf(
+                __('A time, range is %1$s to %2$s'), '00:00:00', '23:59:59'
+            );
         case 'VARCHAR':
-            return sprintf(__('A variable-length (%s) string, the effective maximum length is subject to the maximum row size'), '0-16,383');
+            return sprintf(
+                __(
+                    'A variable-length (%s) string, the effective ' .
+                    'maximum length is subject to the maximum row size'
+                ), '0-16,383'
+            );
         case 'TEXT':
-            return __('A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored with a two-byte prefix indicating the length of the value in bytes');
+            return __(
+                'A TEXT column with a maximum length of 65,535 (2^16 - 1) ' .
+                'characters, stored with a two-byte prefix indicating the ' .
+                'length of the value in bytes'
+            );
         case 'VARBINARY':
-            return __('A variable-length (0-65,535) string, uses binary collation for all comparisons');
+            return __(
+                'A variable-length (0-65,535) string, uses binary collation ' .
+                'for all comparisons'
+            );
         case 'BLOB':
-            return __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a two-byte prefix indicating the length of the value');
+            return __(
+                'A BLOB column with a maximum length of 65,535 (2^16 - 1) ' .
+                'bytes, stored with a two-byte prefix indicating the length of ' .
+                'the value'
+            );
         case 'ENUM':
             return __("An enumeration, chosen from the list of defined values");
         }
+
         return '';
     }
 
@@ -1024,7 +1178,7 @@ class PMA_Types_Drizzle extends PMA_Types
             '-',
             'ENUM',
         );
-        if (PMA_MYSQL_INT_VERSION >= 20120130) {
+        if (PMA_MYSQL_INT_VERSION >= 70132) {
             $types_string[] = '-';
             $types_string[] = 'IPV6';
         }

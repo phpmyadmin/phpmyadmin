@@ -205,6 +205,8 @@ class PMA_Header
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
+        $this->_scripts->addFile('config.js');
+        $this->_scripts->addFile('page_settings.js');
         $this->_scripts->addCode($this->getJsParamsCode());
     }
 
@@ -228,7 +230,9 @@ class PMA_Header
 
         $params = array(
             'common_query' => PMA_URL_getCommon(array(), 'text'),
-            'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
+            'opendb_url' => PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            ),
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
@@ -252,7 +256,8 @@ class PMA_Header
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
-            'logged_in' => isset($GLOBALS['userlink']) ? true : false
+            'logged_in' => isset($GLOBALS['userlink']) ? true : false,
+            'PMA_VERSION' => PMA_VERSION
         );
         if (isset($GLOBALS['cfg']['Server'])
             && isset($GLOBALS['cfg']['Server']['auth_type'])
@@ -298,7 +303,7 @@ class PMA_Header
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = ($isAjax == true);
+        $this->_isAjax = !!$isAjax;
         $this->_console->setAjax($isAjax);
     }
 
@@ -403,7 +408,17 @@ class PMA_Header
                     $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
                     $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
                     $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
+                    if ($GLOBALS['cfg']['LintEnable']) {
+                        $this->_scripts->addFile('codemirror/addon/lint/lint.js');
+                        $this->_scripts->addFile(
+                            'codemirror/addon/lint/sql-lint.js'
+                        );
+                    }
                 }
+                $this->_scripts->addCode(
+                    'ConsoleEnterExecutes='
+                    . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')
+                );
                 $this->_scripts->addFiles($this->_console->getScripts());
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
@@ -439,7 +454,14 @@ class PMA_Header
                 $retval .= $this->_getWarnings();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
+                    $retval .= '<span id="page_nav_icons">';
                     $retval .= '<span id="lock_page_icon"></span>';
+                    $retval .= '<span id="page_settings_icon">'
+                        . PMA_Util::getImage(
+                            's_cog.png',
+                            __('Page-related settings')
+                        )
+                        . '</span>';
                     $retval .= sprintf(
                         '<a id="goto_pagetop" href="#">%s</a>',
                         PMA_Util::getImage(
@@ -447,6 +469,7 @@ class PMA_Header
                             __('Click on the bar to scroll to top of page')
                         )
                     );
+                    $retval .= '</span>';
                 }
                 $retval .= $this->_console->getDisplay();
                 $retval .= '<div id="page_content">';
@@ -629,18 +652,28 @@ class PMA_Header
         $basedir    = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
         $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
+        $v          = self::getVersionParameter();
 
         if ($this->_isPrintView) {
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'print.css" />';
+                . $basedir . 'print.css?' . $v . '" />';
         } else {
             // load jQuery's CSS prior to our theme's CSS, to let the theme
             // override jQuery's CSS
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/jquery/jquery-ui-1.11.2.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'js/codemirror/lib/codemirror.css?' . $v . '" />';
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'js/codemirror/addon/hint/show-hint.css?' . $v . '" />';
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'js/codemirror/addon/lint/lint.css?' . $v . '" />';
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php?'
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
+            // load Print view's CSS last, so that it overrides all other CSS while 'printing'
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $theme_path . '/css/printview.css?' . $v . '" />';
         }
 
         return $retval;
@@ -748,6 +781,16 @@ class PMA_Header
         }
         return $retval;
     }
+
+    /**
+     * Returns the phpMyAdmin version to be appended to the url to avoid caching
+     * between versions
+     *
+     * @return string urlenocded pma version as a parameter
+     */
+    public static function getVersionParameter()
+    {
+        return "v=" . urlencode(PMA_VERSION);
+    }
 }
 
-?>

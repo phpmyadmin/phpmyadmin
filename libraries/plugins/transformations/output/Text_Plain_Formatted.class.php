@@ -42,4 +42,3 @@ class Text_Plain_Formatted extends FormattedTransformationsPlugin
         return "Plain";
     }
 }
-?>

@@ -1,0 +1,35 @@
+<form action="error_report.php" method="post" name="report_frm" id="report_frm"
+      class="ajax">
+    <fieldset style="padding-top:0">
+
+        <p>
+            <?php echo __(
+                'phpMyAdmin has encountered an error. We have collected data about'
+                . ' this error as well as information about relevant configuration'
+                . ' settings to send to the phpMyAdmin team to help us in'
+                . ' debugging the problem.'
+            ) ?>
+        </p>
+
+        <div class="label"><label><p>
+            <?php echo __('You may examine the data in the error report:') ?>
+        </p></label></div>
+        <pre class="report-data"><?php echo htmlspecialchars($report_data) ?></pre>
+
+        <div class="label"><label><p>
+            <?php echo __('Please explain the steps that lead to the error:') ?>
+        </p></label>
+        </div>
+        <textarea class="report-description" name="description"
+                  id="report_description"></textarea>
+
+        <input type="checkbox" name="always_send" id="always_send_checkbox" />
+        <label for="always_send_checkbox">
+            <?php echo __('Automatically send report next time') ?>
+        </label>
+
+    </fieldset>
+
+    <?php echo $hidden_inputs ?>
+    <?php echo $hidden_fields ?>
+</form>

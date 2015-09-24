@@ -29,7 +29,6 @@ $scripts->addFile('server_privileges.js');
 
 if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
-    && isset($GLOBALS['cfgRelation']['menuswork'])
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     include_once 'libraries/server_users.lib.php';
@@ -242,6 +241,7 @@ if (isset($_REQUEST['change_pw'])) {
 if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
+    include_once 'libraries/relation_cleanup.lib.php';
     $queries = PMA_getDataForDeleteUsers($queries);
     if (empty($_REQUEST['change_copy'])) {
         list($sql_query, $message) = PMA_deleteUser($queries);
@@ -308,7 +308,19 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
     // Gets the database structure
     $sub_part = '_structure';
     ob_start();
-    include 'libraries/db_info.inc.php';
+
+    list(
+        $tables,
+        $num_tables,
+        $total_num_tables,
+        $sub_part,
+        $is_show_stats,
+        $db_is_system_schema,
+        $tooltip_truename,
+        $tooltip_aliasname,
+        $pos
+    ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+
     $content = ob_get_contents();
     ob_end_clean();
     $response->addHTML($content . "\n");
@@ -406,5 +418,3 @@ if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
 ) {
     $response->addHTML('</div>');
 }
-
-?>

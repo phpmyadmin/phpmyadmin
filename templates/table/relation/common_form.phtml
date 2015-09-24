@@ -1,0 +1,111 @@
+<form method="post" action="tbl_relation.php">
+    <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
+    <?php if ($cfgRelation['relwork']): ?>
+        <?php $save_row = array_values($columns);
+        $saved_row_cnt  = count($save_row);?>
+        <fieldset>
+            <legend><?php echo __('Internal relations'); ?></legend>
+            <table id="internal_relations" class="relationalTable">
+                <tr>
+                    <th><?php echo __('Column'); ?></th>
+                    <th><?php echo __('Internal relation'); ?>
+                        <?php if (PMA_Util::isForeignKeySupported($tbl_storage_engine)): ?>
+                            <?php echo PMA_Util::showHint(__(
+                                'An internal relation is not necessary when a corresponding'
+                                . ' FOREIGN KEY relation exists.')); ?>
+                        <?php endif; ?>
+                    </th>
+                    <?php $odd_row = true; ?>
+                    <?php for ($i = 0; $i < $saved_row_cnt; $i++): ?>
+                        <?php echo PMA\Template::get('table/relation/internal_relational_row')->render(
+                            array(
+                                'save_row' => $save_row,
+                                'i' => $i,
+                                'odd_row' => $odd_row,
+                                'existrel' => $existrel,
+                                'db' => $db
+                            )
+                        );
+                        $odd_row = ! $odd_row; ?>
+                    <?php endfor; ?>
+            </table>
+        </fieldset>
+    <?php endif; ?>
+    <!-- InnoDB  -->
+    <?php if (PMA_Util::isForeignKeySupported($tbl_storage_engine)): ?>
+        <fieldset>
+            <legend><?php echo __('Foreign key constraints'); ?></legend>
+            <table id="foreign_keys" class="relationalTable">
+                <tr>
+                    <th><?php echo __('Actions'); ?></th>
+                    <th><?php echo __('Constraint properties'); ?></th>
+                    <th><?php
+                        echo __('Column') . PMA_Util::showHint(__(
+                                'Only columns with index will be displayed. You can define an'
+                                . ' index below.'
+                            )) ?>
+                    </th>
+                    <th colspan="3">
+                        <?php echo __('Foreign key constraint'); ?> (<?php echo $tbl_storage_engine; ?>)
+                    </th>
+                </tr>
+                <?php $odd_row = true; $i = 0; ?>
+                <?php if (! empty($existrel_foreign)): ?>
+                    <?php foreach ($existrel_foreign as $key => $one_key): ?>
+                        <?php echo PMA\Template::get('table/relation/foreign_key_row')->render(
+                            array(
+                                'one_key' => $one_key,
+                                'odd_row' => $odd_row,
+                                'columns' => $columns,
+                                'i' => $i++,
+                                'options_array' => $options_array,
+                                'tbl_storage_engine' => $tbl_storage_engine,
+                                'db' => $db
+                            )
+                        );
+                        $odd_row = ! $odd_row;?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php echo PMA\Template::get('table/relation/foreign_key_row')->render(
+                    array(
+                        'one_key' => array(),
+                        'odd_row' => $odd_row,
+                        'columns' => $columns,
+                        'i' => $i++,
+                        'options_array' => $options_array,
+                        'tbl_storage_engine' => $tbl_storage_engine,
+                        'db' => $db
+                    )
+                ); ?>
+                <tr>
+                    <td colspan="5">
+                        <a class="formelement clearfloat add_foreign_key" href="">
+                            <?php echo __('+ Add constraint'); ?>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    <?php endif; ?>
+    <?php if ($cfgRelation['displaywork']): ?>
+        <?php $save_row = array_values($columns);?>
+        <?php $disp = PMA_getDisplayField($db, $table); ?>
+        <fieldset>
+            <label><?php echo __('Choose column to display:'); ?></label>
+            <select name="display_field">
+                <option value="">---</option>
+                <?php foreach ($save_row as $row): ?>
+                    <option value="<?php echo htmlspecialchars($row['Field']); ?>"
+                        <?php if (isset($disp) && $row['Field'] == $disp): ?>
+                            selected="selected"
+                        <?php endif; ?>>
+                        <?php echo htmlspecialchars($row['Field']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </fieldset>
+    <?php endif; ?>
+    <fieldset class="tblFooters">
+        <input type="button" class="preview_sql" value="<?php echo __('Preview SQL'); ?>" />
+        <input type="submit" value="<?php echo __('Save'); ?>" />
+    </fieldset>
+</form>

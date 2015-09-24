@@ -1,0 +1,44 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Manage logo display
+ *
+ * @package PhpMyAdmin-template
+ *
+ * @param bool   $displayLogo Display logo or not
+ * @param bool   $useLogoLink Use link on logo or not
+ * @param string $logoLink    Destination of link on logo
+ * @param string $linkAttribs Link's attributes
+ */
+$displayLogo = isset($displayLogo) ? $displayLogo : true;
+$useLogoLink = isset($useLogoLink) ? $useLogoLink : false;
+$logoLink = isset($logoLink) ? $logoLink : '#';
+$linkAttribs = isset($linkAttribs) ? $linkAttribs : null;
+if (!isset($logo)) {
+    $logo = null;
+    if (isset($GLOBALS['pmaThemeImage'])) {
+        $imgTag = '<img src="' . $GLOBALS['pmaThemeImage'] . '%s" '
+            . 'alt="phpMyAdmin" id="imgpmalogo" />';
+        if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
+            $logo = sprintf($imgTag, 'logo_left.png');
+        } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
+            $logo = sprintf($imgTag, 'pma_logo2.png');
+        }
+    }
+}
+?>
+<!-- LOGO START -->
+<?php if (false === $displayLogo) : ?>
+    <!-- LOGO END -->
+    <?php return; ?>
+<?php endif; ?>
+<div id="pmalogo">
+    <?php if (true === $useLogoLink) : ?>
+        <a href="<?php echo $logoLink; ?>"<?php echo isset($linkAttribs) ? ' ' . $linkAttribs : null; ?>>
+    <?php endif; ?>
+    <?php echo $logo; ?>
+    <?php if (true === $useLogoLink) : ?>
+        </a>
+    <?php endif; ?>
+</div>
+<!-- LOGO END -->

@@ -62,4 +62,3 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
         return "Formatted";
     }
 }
-?>

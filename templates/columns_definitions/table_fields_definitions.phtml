@@ -1,0 +1,133 @@
+<table id="table_columns" class="noclick">
+    <caption class="tblHeaders">
+        <?php echo __('Structure'); ?>
+        <?php echo PMA_Util::showMySQLDocu('CREATE_TABLE'); ?>
+    </caption>
+    <tr>
+        <th>
+            <?php echo __('Name'); ?>
+        </th>
+        <th>
+            <?php echo __('Type') . PMA_Util::showMySQLDocu('data-types'); ?>
+        </th>
+        <th>
+            <?php echo __('Length/Values') . PMA_Util::showHint(
+                    __(
+                        'If column type is "enum" or "set", please enter the values using'
+                        . ' this format: \'a\',\'b\',\'c\'…<br />If you ever need to put'
+                        . ' a backslash ("\") or a single quote ("\'") amongst those'
+                        . ' values, precede it with a backslash (for example \'\\\\xyz\''
+                        . ' or \'a\\\'b\').'
+                    )
+                ); ?>
+        </th>
+        <th>
+            <?php echo __('Default') . PMA_Util::showHint(
+                    __(
+                        'For default values, please enter just a single value,'
+                        . ' without backslash escaping or quotes, using this format: a'
+                    )
+                ); ?>
+        </th>
+        <th>
+            <?php echo __('Collation'); ?>
+        </th>
+        <th>
+            <?php echo __('Attributes'); ?>
+        </th>
+        <th>
+            <?php echo __('Null'); ?>
+        </th>
+
+        <!-- Only for 'Edit' Column(s) -->
+        <?php if (isset($_REQUEST['change_column'])
+            && ! empty($_REQUEST['change_column'])
+        ): ?>
+            <th>
+                <?php echo __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39'); ?>
+            </th>
+        <?php endif; ?>
+
+        <?php
+        // We could remove this 'if' and let the key information be shown and
+        // editable. However, for this to work, structure.lib.php must be modified
+        // to use the key fields, as tbl_addfield does.
+        if (!$is_backup): ?>
+            <th>
+                <?php echo __('Index'); ?>
+            </th>
+        <?php endif; ?>
+
+        <th>
+            <abbr title="AUTO_INCREMENT">A_I</abbr>
+        </th>
+        <th>
+            <?php echo __('Comments'); ?>
+        </th>
+
+        <?php if (PMA_Util::isVirtualColumnsSupported()): ?>
+            <th>
+                <?php echo __('Virtuality'); ?>
+            </th>
+        <?php endif; ?>
+
+        <?php if (isset($fields_meta)): ?>
+            <th>
+                <?php echo __('Move column'); ?>
+            </th>
+        <?php endif; ?>
+
+        <?php if ($mimework && $GLOBALS['cfg']['BrowseMIME']): ?>
+            <th>
+                <?php echo __('MIME type'); ?>
+            </th>
+            <th>
+                <a href="transformation_overview.php<?php echo PMA_URL_getCommon(); ?>#transformation"
+                   title="<?php echo __('List of available transformations and their options'); ?>"
+                   target="_blank">
+                    <?php echo __('Browser display transformation'); ?>
+                </a>
+            </th>
+            <th>
+                <?php echo __('Browser display transformation options'); ?>
+                <?php echo PMA_Util::showHint(
+                    __(
+                        'Please enter the values for transformation options using this'
+                        . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
+                        . ' a backslash ("\") or a single quote ("\'") amongst those'
+                        . ' values, precede it with a backslash (for example \'\\\\xyz\''
+                        . ' or \'a\\\'b\').'
+                    )
+                ); ?>
+            </th>
+            <th>
+                <a href="transformation_overview.php<?php echo PMA_URL_getCommon(); ?>#input_transformation"
+                   title="<?php echo __('List of available transformations and their options'); ?>"
+                   target="_blank">
+                    <?php echo __('Input transformation'); ?>
+                </a>
+            </th>
+            <th>
+                <?php echo __('Input transformation options'); ?>
+                <?php echo PMA_Util::showHint(
+                    __(
+                        'Please enter the values for transformation options using this'
+                        . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
+                        . ' a backslash ("\") or a single quote ("\'") amongst those'
+                        . ' values, precede it with a backslash (for example \'\\\\xyz\''
+                        . ' or \'a\\\'b\').'
+                    )
+                ); ?>
+            </th>
+        <?php endif; ?>
+    </tr>
+    <?php $odd_row = true;?>
+    <?php foreach($content_cells as $content_row): ?>
+        <tr class="<?php echo ($odd_row ? 'odd' : 'even'); ?>">
+            <?php $odd_row = !$odd_row; ?>
+            <?php echo PMA\Template::get('columns_definitions/column_attributes')
+                ->render($content_row); ?>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<br />

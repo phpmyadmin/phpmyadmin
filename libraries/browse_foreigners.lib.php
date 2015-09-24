@@ -10,19 +10,107 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Function to get html for one relational key
+ *
+ * @param integer $horizontal_count   the current horizontal count
+ * @param string  $header             table header
+ * @param boolean $odd_row            for the row background color
+ * @param array   $keys               all the keys
+ * @param integer $indexByKeyname     index by keyname
+ * @param array   $descriptions       descriptions
+ * @param integer $indexByDescription index by description
+ * @param string  $current_value      current value on the edit form
+ *
+ * @return string $html the generated html
+ */
+function PMA_getHtmlForOneKey($horizontal_count, $header, $odd_row, $keys,
+    $indexByKeyname, $descriptions, $indexByDescription, $current_value
+) {
+    $horizontal_count++;
+    $output = '';
+
+    // whether the key name corresponds to the selected value in the form
+    $rightKeynameIsSelected = false;
+    $leftKeynameIsSelected = false;
+
+    if ($GLOBALS['cfg']['RepeatCells'] > 0
+        && $horizontal_count > $GLOBALS['cfg']['RepeatCells']
+    ) {
+        $output .= $header;
+        $horizontal_count = 0;
+        $odd_row = true;
+    }
+
+    // key names and descriptions for the left section,
+    // sorted by key names
+    $leftKeyname = $keys[$indexByKeyname];
+    list(
+        $leftDescription,
+        $leftDescriptionTitle
+    ) = PMA_getDescriptionAndTitle($descriptions[$indexByKeyname]);
+
+    // key names and descriptions for the right section,
+    // sorted by descriptions
+    $rightKeyname = $keys[$indexByDescription];
+    list(
+        $rightDescription,
+        $rightDescriptionTitle
+    ) = PMA_getDescriptionAndTitle($descriptions[$indexByDescription]);
+
+    $indexByDescription++;
+
+    if (! empty($current_value)) {
+        $rightKeynameIsSelected = $rightKeyname == $current_value;
+        $leftKeynameIsSelected = $leftKeyname == $current_value;
+    }
+
+    $output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+    $odd_row = ! $odd_row;
+
+    $output .= PMA_getHtmlForColumnElement(
+        'class="nowrap"', $leftKeynameIsSelected,
+        $leftKeyname, $leftDescription,
+        $leftDescriptionTitle
+    );
+
+    $output .= PMA_getHtmlForColumnElement(
+        '', $leftKeynameIsSelected, $leftKeyname,
+        $leftDescription, $leftDescriptionTitle
+    );
+
+    $output .= '<td width="20%">'
+        . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png" alt=""'
+        . ' width="1" height="1" /></td>';
+
+    $output .= PMA_getHtmlForColumnElement(
+        '', $rightKeynameIsSelected, $rightKeyname,
+        $rightDescription, $rightDescriptionTitle
+    );
+
+    $output .= PMA_getHtmlForColumnElement(
+        'class="nowrap"', $rightKeynameIsSelected,
+        $rightKeyname, $rightDescription,
+        $rightDescriptionTitle
+    );
+    $output .= '</tr>';
+
+    return array($output, $horizontal_count, $odd_row, $indexByDescription);
+}
+
+/**
  * Function to get html for relational field selection
  *
- * @param string $db          current database
- * @param string $table       current table
- * @param string $field       field
- * @param array  $foreignData foreign column data
- * @param string $fieldkey    field key
- * @param array  $data        data
+ * @param string $db            current database
+ * @param string $table         current table
+ * @param string $field         field
+ * @param array  $foreignData   foreign column data
+ * @param string $fieldkey      field key
+ * @param string $current_value current columns's value
  *
  * @return string
  */
 function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignData,
-    $fieldkey, $data
+    $fieldkey, $current_value
 ) {
     $gotopage = PMA_getHtmlForGotoPage($foreignData);
     $showall = PMA_getHtmlForShowAll($foreignData);
@@ -93,78 +181,23 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 
     asort($keys);
 
-    $hcount = 0;
+    $horizontal_count = 0;
     $odd_row = true;
     $indexByDescription = 0;
 
-    // whether the key name corresponds to the selected value in the form
-    $rightKeynameIsSelected = false;
-    $leftKeynameIsSelected = false;
-
     foreach ($keys as $indexByKeyname => $value) {
-        $hcount++;
-
-        if ($GLOBALS['cfg']['RepeatCells'] > 0
-            && $hcount > $GLOBALS['cfg']['RepeatCells']
-        ) {
-            $output .= $header;
-            $hcount = 0;
-            $odd_row = true;
-        }
-
-        // key names and descriptions for the left section,
-        // sorted by key names
-        $leftKeyname = $keys[$indexByKeyname];
         list(
-            $leftDescription,
-            $leftDescriptionTitle
-        ) = PMA_getDescriptionAndTitle($descriptions[$indexByKeyname]);
-
-        // key names and descriptions for the right section,
-        // sorted by descriptions
-        $rightKeyname = $keys[$indexByDescription];
-        list(
-            $rightDescription,
-            $rightDescriptionTitle
-        ) = PMA_getDescriptionAndTitle($descriptions[$indexByDescription]);
-
-        $indexByDescription++;
-
-        if (! empty($data)) {
-            $rightKeynameIsSelected = $rightKeyname == $data;
-            $leftKeynameIsSelected = $leftKeyname == $data;
-        }
-
-        $output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
-        $odd_row = ! $odd_row;
-
-        $output .= PMA_getHtmlForColumnElement(
-            'class="nowrap"', $leftKeynameIsSelected,
-            $leftKeyname, $leftDescription,
-            $leftDescriptionTitle
+            $html,
+            $horizontal_count,
+            $odd_row,
+            $indexByDescription
+        ) = PMA_getHtmlForOneKey(
+            $horizontal_count, $header, $odd_row, $keys, $indexByKeyname,
+            $descriptions, $indexByDescription, $current_value
         );
+        $output .= $html;
+    }
 
-        $output .= PMA_getHtmlForColumnElement(
-            '', $leftKeynameIsSelected, $leftKeyname,
-            $leftDescription, $leftDescriptionTitle
-        );
-
-        $output .= '<td width="20%">'
-            . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png" alt=""'
-            . ' width="1" height="1" /></td>';
-
-        $output .= PMA_getHtmlForColumnElement(
-            '', $rightKeynameIsSelected, $rightKeyname,
-            $rightDescription, $rightDescriptionTitle
-        );
-
-        $output .= PMA_getHtmlForColumnElement(
-            'class="nowrap"', $rightKeynameIsSelected,
-            $rightKeyname, $rightDescription,
-            $rightDescriptionTitle
-        );
-        $output .= '</tr>';
-    } // end while
     $output .= '</tbody>'
         . '</table>';
 
@@ -313,4 +346,3 @@ function PMA_getForeignLimit($foreign_showAll)
     isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
     return 'LIMIT ' . $pos . ', ' . $GLOBALS['cfg']['MaxRows'] . ' ';
 }
-?>

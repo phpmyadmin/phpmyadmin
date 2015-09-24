@@ -312,7 +312,12 @@ class PMA_Response
                     $hashes = explode('-', $_REQUEST['menuHashes']);
                 }
                 if (! in_array($menuHash, $hashes)) {
-                    $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
+                    $this->addJSON(
+                        '_menu',
+                        $this->getHeader()
+                            ->getMenu()
+                            ->getDisplay()
+                    );
                 }
             }
 
@@ -321,7 +326,9 @@ class PMA_Response
             $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->_footer->getDebugMessage();
-            if (/*overload*/mb_strlen($debug)) {
+            if (empty($_REQUEST['no_debug'])
+                && /*overload*/mb_strlen($debug)
+            ) {
                 $this->addJSON('_debug', $debug);
             }
 
@@ -394,4 +401,3 @@ class PMA_Response
     }
 }
 
-?>

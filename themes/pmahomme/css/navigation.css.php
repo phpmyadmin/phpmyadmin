@@ -22,7 +22,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     top: 0;
     <?php echo $left; ?>: 0;
     height: 100%;
-    background: url(./themes/pmahomme/img/left_nav_bg.png) repeat-y right 0% <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    background: url(./themes/pmahomme/img/left_nav_bg.png) repeat-y right 0 <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     z-index: 800;
 }
@@ -77,7 +77,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation #databaseList,
 #pma_navigation div.pageselector.dbselector {
     text-align: center;
-    padding: 5px 10px 0px;
+    padding: 5px 10px 0;
     border: 0;
 }
 
@@ -108,7 +108,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_select_database {
     text-align: left;
-    padding: 0px 0px 0px;
+    padding: 0 0 0;
     border: 0;
     margin: 0;
 }
@@ -125,7 +125,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     border-top: 1px solid #bbb;
     color: #333;
     padding: 4px 6px;
-    margin: 0px 0px 0px;
+    margin: 0 0 0;
     width: 92%;
     font-size: 1.11em;
 }
@@ -318,7 +318,7 @@ html.ie.ie8 li.fast_filter input {
 }
 li.fast_filter.db_fast_filter {
     border: 0;
-    margin-left: 0px;
+    margin-left: 0;
     margin-right: 10px;
 }
 
@@ -359,7 +359,7 @@ li.fast_filter.db_fast_filter {
     text-align: center;
     cursor: pointer;
     z-index: 800;
-    text-shadow: 0px 1px 0px #fff;
+    text-shadow: 0 1px 0 #fff;
     filter: dropshadow(color=#fff, offx=0, offy=1);
     border: 1px solid #888;
 }

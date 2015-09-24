@@ -18,4 +18,3 @@ class PMA_StorageEngine_Merge extends PMA_StorageEngine
 {
 }
 
-?>

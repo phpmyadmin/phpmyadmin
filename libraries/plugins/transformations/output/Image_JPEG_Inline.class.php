@@ -42,4 +42,3 @@ class Image_JPEG_Inline extends InlineTransformationsPlugin
         return "JPEG";
     }
 }
-?>

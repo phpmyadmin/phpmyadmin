@@ -16,10 +16,10 @@ if (! isCanvasSupported()) {
         el.parentNode.replaceChild(newEl, el);
         el = newEl;
         el.getContext = function () {
-            if (this.cont) {
-                return this.cont;
+            if (! this.cont) {
+                this.cont = new PMD_2D(this);
             }
-            return this.cont = new PMD_2D(this);
+            return this.cont;
         };
 
         el.style.width = el.attributes.width.nodeValue + "px";

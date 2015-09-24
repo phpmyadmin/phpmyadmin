@@ -1,0 +1,11 @@
+<?php $cfgRelation = PMA_getRelationsParam(); ?>
+<form action="db_designer.php" method="post" name="edit_delete_pages" id="edit_delete_pages" class="ajax">
+    <?php echo PMA_URL_getHiddenInputs($db); ?>
+    <fieldset id="page_edit_delete_options">
+        <input type="hidden" name="operation" value="<?php echo $operation; ?>" />
+        <label for="selected_page">
+            <?php echo $operation == 'editPage' ? __("Page to open") : __("Page to delete"); ?>:
+        </label>
+        <?php echo PMA_getHtmlForPageSelector($cfgRelation, $db); ?>
+    </fieldset>
+</form>

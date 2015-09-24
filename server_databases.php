@@ -114,5 +114,3 @@ if ($databases_count > 0) {
 unset($databases_count);
 
 $response->addHTML($html);
-
-?>

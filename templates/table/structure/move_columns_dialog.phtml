@@ -1,0 +1,8 @@
+<div id="move_columns_dialog" title="<?php echo __('Move columns'); ?>" style="display: none">
+    <p><?php echo __('Move the columns by dragging them up and down.'); ?></p>
+    <form action="tbl_structure.php">
+        <div><?php echo PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
+            <ul></ul>
+        </div>
+    </form>
+</div>

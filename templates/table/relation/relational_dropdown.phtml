@@ -1,0 +1,18 @@
+<select name="<?php echo $name; ?>" title="<?php echo $title; ?>">
+    <option value=""></option>
+    <?php $seen_key = false; ?>
+    <?php foreach ($values as $value): ?>
+        <option value="<?php echo htmlspecialchars($value); ?>"
+                <?php if ($foreign && $value == $foreign): ?>
+                    selected="selected"
+                    <?php $seen_key = true; ?>
+                <?php endif; ?>>
+            <?php echo htmlspecialchars($value); ?>
+        </option>
+    <?php endforeach; ?>
+    <?php if (is_string($foreign) && ! $seen_key): ?>
+        <option value="<?php echo htmlspecialchars($foreign); ?>" selected="selected">
+            <?php echo htmlspecialchars($foreign); ?>
+        </option>
+    <?php endif; ?>
+</select>

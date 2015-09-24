@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/Template.class.php';
+
 /**
  * Common initialization for user preferences modification pages
  *
@@ -266,36 +268,23 @@ function PMA_userprefsRedirect($file_name,
  */
 function PMA_userprefsAutoloadGetHeader()
 {
-    $retval = '';
-
     if (isset($_REQUEST['prefs_autoload'])
         && $_REQUEST['prefs_autoload'] == 'hide'
     ) {
         $_SESSION['userprefs_autoload'] = true;
-    } else {
-        $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
-        $return_url = htmlspecialchars(
-            $script_name . '?' . http_build_query($_GET, '', '&')
-        );
-
-        $retval .= '<div id="prefs_autoload" class="notice" style="display:none">';
-        $retval .= '<form action="prefs_manage.php" method="post" class="disableAjax">';
-        $retval .= PMA_URL_getHiddenInputs();
-        $retval .= '<input type="hidden" name="json" value="" />';
-        $retval .= '<input type="hidden" name="submit_import" value="1" />';
-        $retval .= '<input type="hidden" name="return_url" value="'
-            . $return_url . '" />';
-        $retval .=  __(
-            'Your browser has phpMyAdmin configuration for this domain. '
-            . 'Would you like to import it for current session?'
-        );
-        $retval .= '<br />';
-        $retval .= '<a href="#yes">' . __('Yes') . '</a>';
-        $retval .= ' / ';
-        $retval .= '<a href="#no">' . __('No') . '</a>';
-        $retval .= '</form>';
-        $retval .= '</div>';
+        return '';
     }
-    return $retval;
+
+    $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
+    $return_url = htmlspecialchars(
+        $script_name . '?' . http_build_query($_GET, '', '&')
+    );
+
+    return PMA\Template::get('prefs_autoload')
+        ->render(
+            array(
+                'hiddenInputs' => PMA_URL_getHiddenInputs(),
+                'return_url' => $return_url,
+            )
+        );
 }
-?>

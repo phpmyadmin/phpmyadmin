@@ -145,4 +145,3 @@ if (! isset($_REQUEST['resize'])) {
     ImageDestroy($srcImage);
     ImageDestroy($destImage);
 }
-?>

@@ -25,8 +25,6 @@ class Node_Procedure extends Node_DatabaseChild
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
-     *
-     * @return Node_Procedure
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
@@ -35,10 +33,10 @@ class Node_Procedure extends Node_DatabaseChild
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
-                    . '&amp;execute_dialog=1&amp;token=' . $_SESSION[' PMA_token '],
+                    . '&amp;edit_item=1&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
-                    . '&amp;edit_item=1&amp;token=' . $_SESSION[' PMA_token ']
+                    . '&amp;execute_dialog=1&amp;token=' . $_SESSION[' PMA_token ']
         );
         $this->classes = 'procedure';
     }
@@ -54,4 +52,3 @@ class Node_Procedure extends Node_DatabaseChild
     }
 }
 
-?>

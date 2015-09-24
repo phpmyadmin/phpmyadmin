@@ -91,6 +91,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('stickycolumns', ".sqlqueryresults");
     $("#togglequerybox").unbind('click');
     $(document).off('click', "#button_submit_query");
+    $(document).off('change', '#id_bookmark');
     $("input[name=bookmark_variable]").unbind("keypress");
     $(document).off('submit', "#sqlqueryform.ajax");
     $(document).off('click', "input[name=navig].ajax");
@@ -100,6 +101,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'th.column_heading.marker');
     $(window).unbind('scroll');
     $(document).off("keyup", ".filter_rows");
+    $(document).off('click', "#printView");
     if (codemirror_editor) {
         codemirror_editor.off('change');
     } else {
@@ -191,6 +193,16 @@ AJAX.registerOnload('sql.js', function () {
     }).trigger('keyup');
 
     /**
+     * Attach Event Handler for 'Print View'
+     */
+    $(document).on('click', "#printView", function (event) {
+        event.preventDefault();
+
+        // Print the page
+        printPage();
+    }); //end of Print View action
+
+    /**
      * Attach the {@link makegrid} function to a custom event, which will be
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
@@ -269,6 +281,31 @@ AJAX.registerOnload('sql.js', function () {
         // import.php about what needs to be done
         $form.find("select[name=id_bookmark]").val("");
         // let normal event propagation happen
+    });
+
+    /**
+     * Event handler to show appropiate number of variable boxes
+     * based on the bookmarked query
+     */
+    $(document).on('change', '#id_bookmark', function (event) {
+
+        var varCount = $(this).find('option:selected').data('varcount');
+        if (typeof varCount == 'undefined') {
+            varCount = 0;
+        }
+
+        var $varDiv = $('#bookmark_variables');
+        $varDiv.empty();
+        for (var i = 1; i <= varCount; i++) {
+            $varDiv.append($('<label for="bookmark_variable_' + i + '">' + PMA_sprintf(PMA_messages.strBookmarkVariable, i) + '</label>'));
+            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"></input>'));
+        }
+
+        if (varCount == 0) {
+            $varDiv.parent('.formelement').hide();
+        } else {
+            $varDiv.parent('.formelement').show();
+        }
     });
 
     /**
@@ -351,10 +388,21 @@ AJAX.registerOnload('sql.js', function () {
                 PMA_highlightSQL($sqlqueryresultsouter);
 
                 if (data._menu) {
-                    AJAX.cache.menus.replace(data._menu);
-                    AJAX.cache.menus.add(data._menuHash, data._menu);
+                    if (history && history.pushState) {
+                        history.replaceState({
+                                menu : data._menu
+                            },
+                            null
+                        );
+                        AJAX.handleMenu.replace(data._menu);
+                    } else {
+                        PMA_Microhistory.menus.replace(data._menu);
+                        PMA_Microhistory.menus.add(data._menuHash, data._menu);
+                    }
                 } else if (data._menuHash) {
-                    AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
+                    if (! (history && history.pushState)) {
+                        PMA_Microhistory.menus.replace(PMA_Microhistory.menus.get(data._menuHash));
+                    }
                 }
 
                 if (data._params) {
@@ -463,7 +511,7 @@ AJAX.registerOnload('sql.js', function () {
     // Prompt to confirm on Show All
     $('body').on('click', '.navigation .showAllRows', function (e) {
         e.preventDefault();
-        $form = $(this).parents('form');
+        var $form = $(this).parents('form');
 
         if (! $(this).is(':checked')) { // already showing all rows
             submitShowAllForm();
@@ -538,7 +586,7 @@ AJAX.registerOnload('sql.js', function () {
                         dialog_content += response.message;
                     }
                     dialog_content += '</div>';
-                    $dialog_content = $(dialog_content);
+                    var $dialog_content = $(dialog_content);
                     var button_options = {};
                     button_options[PMA_messages.strClose] = function () {
                         $(this).dialog('close');
@@ -572,9 +620,10 @@ AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
-        var $form = $button.parent('form');
+        var $form = $button.closest('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
+        AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
 }); // end $()

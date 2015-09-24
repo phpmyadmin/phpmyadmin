@@ -89,4 +89,3 @@ class ExportExcel extends ExportCsv
         $this->properties = $exportPluginProperties;
     }
 }
-?>

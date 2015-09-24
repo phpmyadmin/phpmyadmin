@@ -13,28 +13,94 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Returns the html for plugin and module Info.
+ * Get the HTML for the sub tabs
  *
- * @param Array $plugins Plugin list
+ * @param string $activeUrl url of the active sub tab
  *
- * @param Array $modules Module list
- *
- * @return string
+ * @return string HTML for sub tabs
  */
-function PMA_getPluginAndModuleInfo($plugins, $modules)
+function PMA_getHtmlForPluginsSubTabs($activeUrl)
 {
-    $html  = '<script type="text/javascript">';
-    $html .= 'pma_theme_image = "' . $GLOBALS['pmaThemeImage'] . '"';
-    $html .= '</script>';
-    $html .= '<div id="pluginsTabs">';
-    $html .= '<ul>';
-    $html .= '<li><a href="#plugins_plugins">' . __('Plugins') . '</a></li>';
-    $html .= '<li><a href="#plugins_modules">' . __('Modules') . '</a></li>';
-    $html .= '</ul>';
-    $html .= PMA_getPluginTab($plugins);
-    $html .= PMA_getModuleTab($modules);
-    $html .= '</div>';
-    return $html;
+    $url_params = PMA_URL_getCommon();
+    $items = array(
+        array(
+            'name' => __('Plugins'),
+            'url' => 'server_plugins.php'
+        ),
+        array(
+            'name' => __('Modules'),
+            'url' => 'server_modules.php'
+        )
+    );
+
+    $retval  = '<ul id="topmenu2">';
+    foreach ($items as $item) {
+        $class = '';
+        if ($item['url'] === $activeUrl) {
+            $class = ' class="tabactive"';
+        }
+        $retval .= '<li>';
+        $retval .= '<a' . $class;
+        $retval .= ' href="' . $item['url'] . $url_params . '">';
+        $retval .= $item['name'];
+        $retval .= '</a>';
+        $retval .= '</li>';
+    }
+    $retval .= '</ul>';
+    $retval .= '<div class="clearfloat"></div>';
+
+    return $retval;
+}
+
+/**
+ * Returns the common SQL used to retrieve plugin and modules data
+ *
+ * @return string SQL
+ */
+function PMA_getServerPluginModuleSQL()
+{
+    return "SELECT p.plugin_name, p.plugin_type, p.is_active, m.module_name,
+            m.module_library, m.module_version, m.module_author,
+            m.module_description, m.module_license
+        FROM data_dictionary.plugins p
+            JOIN data_dictionary.modules m USING (module_name)
+        ORDER BY m.module_name, p.plugin_type, p.plugin_name";
+}
+
+/**
+ * Returns details about server plugins
+ *
+ * @return array server plugins data
+ */
+function PMA_getServerPlugins()
+{
+    $sql = PMA_getServerPluginModuleSQL();
+    $res = $GLOBALS['dbi']->query($sql);
+    $plugins = array();
+    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+        $plugins[$row['plugin_type']][] = $row;
+    }
+    $GLOBALS['dbi']->freeResult($res);
+    ksort($plugins);
+    return $plugins;
+}
+
+/**
+ * Returns details about server modules
+ *
+ * @return array server modules data
+ */
+function PMA_getServerModules()
+{
+    $sql = PMA_getServerPluginModuleSQL();
+    $res = $GLOBALS['dbi']->query($sql);
+    $modules = array();
+    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+        $modules[$row['module_name']]['info'] = $row;
+        $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
+    }
+    $GLOBALS['dbi']->freeResult($res);
+    return $modules;
 }
 
 /**
@@ -66,10 +132,6 @@ function PMA_getPluginTab($plugins)
 
         $html .= '<table class="data_full_width" id="' . $key . '">';
         $html .= '<caption class="tblHeaders">';
-        $html .= '<a class="top" href="#serverinfo">';
-        $html .=  __('Begin');
-        $html .=  PMA_Util::getImage('s_asc.png');
-        $html .= '</a>';
         $html .=  htmlspecialchars($plugin_type);
         $html .= '</caption>';
         $html .= '<thead>';
@@ -204,4 +266,3 @@ function PMA_getModuleList($modules)
     return $html;
 }
 
-?>

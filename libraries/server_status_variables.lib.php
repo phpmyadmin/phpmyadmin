@@ -57,7 +57,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval .= '<option value="">' . __('Filter by category…') . '</option>';
 
     foreach ($ServerStatusData->sections as $section_id => $section_name) {
-        if (isset($ServerStatusData->categoryUsed[$section_id])) {
+        if (isset($ServerStatusData->sectionUsed[$section_id])) {
             if (! empty($_REQUEST['filterCategory'])
                 && $_REQUEST['filterCategory'] == $section_id
             ) {
@@ -98,7 +98,7 @@ function PMA_getHtmlForLinkSuggestions($ServerStatusData)
     $retval .= '<p class="notice">' . __('Related links:');
     foreach ($ServerStatusData->links as $section_name => $section_links) {
         $retval .= '<span class="status_' . $section_name . '"> ';
-        $i=0;
+        $i = 0;
         foreach ($section_links as $link_name => $link_url) {
             if ($i > 0) {
                 $retval .= ', ';
@@ -762,4 +762,3 @@ function PMA_getStatusVariablesDescriptions()
     );
 }
 
-?>

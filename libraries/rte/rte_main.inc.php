@@ -28,7 +28,18 @@ if ($GLOBALS['is_ajax_request'] != true) {
     } else {
         $table = '';
         include_once './libraries/db_common.inc.php';
-        include_once './libraries/db_info.inc.php';
+
+        list(
+            $tables,
+            $num_tables,
+            $total_num_tables,
+            $sub_part,
+            $is_show_stats,
+            $db_is_system_schema,
+            $tooltip_truename,
+            $tooltip_aliasname,
+            $pos
+        ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
     }
 } else {
     /**
@@ -91,4 +102,3 @@ case 'EVN':
     break;
 }
 
-?>

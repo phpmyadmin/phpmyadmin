@@ -1,0 +1,140 @@
+<?php for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) :
+    $t_n = $GLOBALS['PMD']["TABLE_NAME"][$i];
+    $t_n_url = $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>
+    <input name="t_x[<?php echo $t_n_url; ?>]" type="hidden" id="t_x_<?php echo $t_n_url; ?>_" />
+    <input name="t_y[<?php echo $t_n_url; ?>]" type="hidden" id="t_y_<?php echo $t_n_url; ?>_" />
+    <input name="t_v[<?php echo $t_n_url; ?>]" type="hidden" id="t_v_<?php echo $t_n_url; ?>_" />
+    <input name="t_h[<?php echo $t_n_url; ?>]" type="hidden" id="t_h_<?php echo $t_n_url; ?>_" />
+    <!-- Why should we put styles here?! -->
+    <table id="<?php echo $t_n_url; ?>"
+           cellpadding="0"
+           cellspacing="0"
+           class="pmd_tab"
+           style="position:absolute; left:<?php echo (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700)); ?>px; top:<?php echo (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550)); ?>px; display:<?php echo (isset($tab_pos[$t_n]) || $display_page == -1) ? 'block;' : 'none';?>; z-index: 1;">
+        <thead>
+            <tr class="header">
+                <?php if (isset($_REQUEST['query'])) : ?>
+                    <td class="select_all">
+                        <input class="select_all_1"
+                               type="checkbox"
+                               style="margin: 0;"
+                               value="select_all_<?php echo htmlspecialchars($t_n_url); ?>"
+                               id="select_all_<?php echo htmlspecialchars($t_n_url); ?>"
+                               title="select all"
+                               pmd_url_table_name="<?php echo htmlspecialchars($t_n_url); ?>"
+                               pmd_out_owner="<?php echo htmlspecialchars($GLOBALS['PMD_OUT']['OWNER'][$i]); ?>">
+                    </td>
+                <?php endif; ?>
+                <td class="small_tab"
+                    title="<?php echo __('Show/hide columns'); ?>"
+                    id="id_hide_tbody_<?php echo $t_n_url; ?>"
+                    table_name="<?php echo htmlspecialchars($t_n_url); ?>"
+                    onmouseover="this.className='small_tab2';"
+                    onmouseout="this.className='small_tab';" ><?php echo (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) ? 'v' : '&gt;'; ?>
+                </td>
+                <td class="small_tab_pref small_tab_pref_1"
+                    table_name_small="<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>"
+                    onmouseover="this.className='small_tab_pref2 small_tab_pref_1';"
+                    onmouseout="this.className='small_tab_pref small_tab_pref_1';" >
+                    <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>"
+                         title="<?php echo __('See table structure'); ?>" />
+                </td>
+                <td id="id_zag_<?php echo htmlspecialchars($t_n_url); ?>"
+                    class="tab_zag nowrap tab_zag_noquery"
+                    onmousedown="cur_click=document.getElementById('<?php echo $t_n_url; ?>');"
+                    table_name="<?php echo htmlspecialchars($t_n_url); ?>"
+                    query_set="<?php echo isset($_REQUEST['query']) ? 1 : 0 ; ?>" >
+                    <span class="owner">
+                        <?php echo $GLOBALS['PMD_OUT']["OWNER"][$i]; ?>
+                    </span>
+                    <?php echo $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i]; ?>
+                </td>
+                <?php if (isset($_REQUEST['query'])) : ?>
+                    <td class="tab_zag tab_zag_query"
+                        id="id_zag_<?php echo htmlspecialchars($t_n_url); ?>_2"
+                        table_name="<?php echo htmlspecialchars($t_n_url); ?>"
+                        onmousedown="cur_click=document.getElementById('<?php echo htmlspecialchars($t_n_url); ?>');">
+                    </td>
+               <?php endif; ?>
+            </tr>
+        </thead>
+        <tbody id="id_tbody_<?php echo $t_n_url; ?>" style="<?php echo (isset($tab_pos[$t_n]) && empty($tab_pos[$t_n]["V"])) ? 'display: none' : ''; ?>">
+            <?php $display_field = PMA_getDisplayField(
+                $_GET['db'],
+                $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]
+            );
+            for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++) :
+                $tmpColumn = $t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j];
+                $click_field_param = array(
+                    $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i],
+                    urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])
+                );
+                if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+                    $click_field_param[] = isset($tables_pk_or_unique_keys[$tmpColumn]) ? 1 : 0;
+                } else {
+                    // if foreign keys are supported, it's not necessary that the
+                    // index is a primary key
+                    $click_field_param[] = isset($tables_all_keys[$tmpColumn]) ? 1 : 0;
+                }
+                ?>
+                <tr id="id_tr_<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>.<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
+                    <?php echo ($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) ? 'class="tab_field_3"' : 'class="tab_field"'; ?>
+                    onmouseover="old_class = this.className; this.className = 'tab_field_2';"
+                    onmouseout="this.className = old_class;"
+                    click_field_param="<?php echo implode($click_field_param, ','); ?>">
+                    <?php if (isset($_REQUEST['query'])) : ?>
+                        <td class="select_all">
+                            <input class="select_all_store_col"
+                                   value="<?php echo htmlspecialchars($t_n_url) . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
+                                   type="checkbox"
+                                   id="select_<?php echo htmlspecialchars($t_n_url); ?>._<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
+                                   style="margin: 0;"
+                                   title="select_<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
+                                   store_column_param="<?php echo urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]); ?>,<?php echo htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]); ?>,<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>">
+                        </td>
+                    <?php endif; ?>
+                    <td width="10px" colspan="3" id="<?php echo $t_n_url; ?>.<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>">
+                        <div class="nowrap">
+                            <?php if (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]])) : ?>
+                                <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/FieldKey_small.png'); ?>" alt="*" />
+                            <?php else :
+                                $type = 'pmd/Field_small';
+                                if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
+                                    || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
+                                ) {
+                                    $type .= '_char';
+                                } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
+                                    || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
+                                    || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
+                                    || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
+                                ) {
+                                    $type .= '_int';
+                                } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
+                                    || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
+                                    || strstr($tab_column[$t_n]["TYPE"][$j], 'year')
+                                ) {
+                                    $type .= '_date';
+                                }
+                                ?>
+                                <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath($type); ?>.png" alt="*" />
+                            <?php endif; ?>
+                            <?php echo htmlspecialchars(
+                                $tab_column[$t_n]["COLUMN_NAME"][$j] . " : "
+                                . $tab_column[$t_n]["TYPE"][$j],
+                                ENT_QUOTES
+                            ); ?>
+                        </div>
+                    </td>
+                    <?php if (isset($_REQUEST['query'])) : ?>
+                        <td class="small_tab_pref small_tab_pref_click_opt"
+                            onmouseover="this.className='small_tab_pref2 small_tab_pref_click_opt'"
+                            onmouseout="this.className='small_tab_pref small_tab_pref_click_opt'"
+                            Click_option_param="pmd_optionse,<?php echo urlencode($tab_column[$t_n]['COLUMN_NAME'][$j]); ?>,<?php echo $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i]; ?>" >
+                            <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>" title="options" />
+                        </td>
+                    <?php endif; ?>
+                </tr>
+            <?php endfor; ?>
+        </tbody>
+    </table>
+<?php endfor; ?>

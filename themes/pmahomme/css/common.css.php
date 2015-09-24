@@ -42,7 +42,7 @@ body#loginform {
     margin: 0;
 }
 
-#page_content, #session_debug {
+#page_content {
     margin: 0 .5em;
 }
 
@@ -325,12 +325,10 @@ input.button:disabled {
 textarea {
     overflow: visible;
     margin: 6px;
-    height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
 }
 
 textarea.char {
     margin: 6px;
-    height: <?php echo ceil($GLOBALS['cfg']['CharTextareaRows'] * 1.2); ?>em;
 }
 
 fieldset, .preview_sql {
@@ -471,6 +469,7 @@ th.center, td.center {
 
 th.right, td.right {
     text-align: right;
+    padding-right: 1em;
 }
 
 tr.vtop th, tr.vtop td, th.vtop, td.vtop {
@@ -895,6 +894,7 @@ form.login label {
 form.login input[type=text],
 form.login input[type=password],
 form.login select {
+    box-sizing: border-box;
     width: 14em;
 }
 
@@ -1140,20 +1140,30 @@ div#tablestatistics table {
     color: #fff;
 }
 
-#goto_pagetop, #lock_page_icon {
+#page_nav_icons {
     position: fixed;
-    padding: .25em .25em .2em;
     top: 0;
+    <?php echo $right; ?>: 0;
     z-index: 99;
+    padding: .25em 0;
+}
+
+#goto_pagetop, #lock_page_icon, #page_settings_icon {
+    padding: .25em;
     background: #888;
 }
 
-#goto_pagetop {
-    <?php echo $right; ?>: 0;
+#page_settings_icon {
+    cursor: pointer;
+    display: none;
 }
 
-#lock_page_icon {
-    <?php echo $right; ?>: 2em;
+#page_settings_modal {
+    display: none;
+}
+
+#pma_navigation_settings {
+    display: none;
 }
 
 #span_table_comment {
@@ -1364,7 +1374,7 @@ table#chartGrid div.monitorChart {
 div.tabLinks {
     margin-left: 0.3em;
     float: <?php echo $left; ?>;
-    padding: 5px 0px;
+    padding: 5px 0;
 }
 
 div.tabLinks a, div.tabLinks label {
@@ -1372,7 +1382,7 @@ div.tabLinks a, div.tabLinks label {
 }
 
 div.tabLinks .icon {
-    margin: -0.2em 0.3em 0px 0px;
+    margin: -0.2em 0.3em 0 0;
 }
 
 .popupContent {
@@ -1547,14 +1557,16 @@ div#profilingchart {
 /* end profiling */
 
 /* table charting */
-
 #resizer {
     border: 1px solid silver;
 }
 #inner-resizer { /* make room for the resize handle */
     padding: 10px;
 }
-
+.chartOption {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right;?>: 40px;
+}
 /* end table charting */
 
 /* querybox */
@@ -1621,6 +1633,7 @@ div#sqlquerycontainer {
 div#tablefieldscontainer {
     float: <?php echo $right; ?>;
     width: 29%;
+    margin-top: -20px;
     /* height: 15em; */
 }
 
@@ -1797,6 +1810,7 @@ div.sqlvalidate {
     margin-bottom: 0;
     max-height: 10em;
     overflow: auto;
+    direction: ltr;
 }
 
 .result_query div.sqlOuter {
@@ -1983,6 +1997,30 @@ select.invalid_value,
 /**
   * Export and Import styles
   */
+
+.export_table_list_container {
+    display: inline-block;
+    max-height: 20em;
+    overflow-y: scroll;
+}
+
+.export_table_select th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.export_table_select .all {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.export_structure, .export_data {
+    text-align: center;
+}
+
+.export_table_name {
+    vertical-align: middle;
+}
 
 .exportoptions h3,
 .importoptions h3 {
@@ -2461,6 +2499,7 @@ fieldset .disabled-field td {
 
 #prefs_autoload {
     margin-bottom: .5em;
+    margin-left: .5em;
 }
 
 #placeholder .button {
@@ -2531,6 +2570,17 @@ fieldset .disabled-field td {
 }
 .doubleFieldset div.wrap {
     padding: 1.5em;
+}
+
+#table_name_col_no_outer {
+    margin-top: 45px;
+}
+
+#table_name_col_no {
+    position: fixed;
+    top: 55px;
+    width: 100%;
+    background: #ffffff;
 }
 
 #table_columns input[type="text"],
@@ -2893,7 +2943,7 @@ body .ui-widget {
 
 /* over-riding jqplot-yaxis class */
 .jqplot-yaxis {
-    left:0px !important;
+    left:0 !important;
     min-width:25px;
     width:auto;
 }
@@ -2975,7 +3025,7 @@ table.show_create td {
     position: relative;
     margin-<?php echo $left; ?>: 240px;
 }
-#pma_console>.templates {
+#pma_console .templates {
     display: none;
 }
 #pma_console .mid_text,
@@ -3002,6 +3052,7 @@ table.show_create td {
 #pma_console .message span.text,
 #pma_console .message span.action,
 #pma_console .toolbar .button,
+#pma_console .toolbar .text,
 #pma_console .switch_button {
     padding: 0 3px;
     display: inline-block;
@@ -3013,13 +3064,19 @@ table.show_create td {
 }
 #pma_console .message span.action:hover,
 #pma_console .toolbar .button:hover,
-#pma_console .switch_button:hover {
+#pma_console .switch_button:hover,
+#pma_console .toolbar .button.active {
     background: #ddd;
 }
-#pma_console .toolbar .button {
+#pma_console .toolbar .text {
+    font-weight: bold;
+}
+#pma_console .toolbar .button,
+#pma_console .toolbar .text {
     margin-<?php echo $right; ?>: .4em;
 }
-#pma_console .toolbar .button {
+#pma_console .toolbar .button,
+#pma_console .toolbar .text {
     float: <?php echo $right; ?>;
 }
 #pma_console .content {
@@ -3029,6 +3086,26 @@ table.show_create td {
     border-top: solid 1px #aaa;
     background: #fff;
     padding-top: .4em;
+}
+#pma_console .content.console_dark_theme {
+    background: #000;
+    color: #fff;
+}
+#pma_console .content.console_dark_theme .CodeMirror-wrap {
+    background: #000;
+    color: #fff;
+}
+#pma_console .content.console_dark_theme .action_content {
+    color: #000;
+}
+#pma_console .content.console_dark_theme .message {
+    border-color: #373B41;
+}
+#pma_console .content.console_dark_theme .CodeMirror-cursor {
+    border-color: #fff;
+}
+#pma_console .content.console_dark_theme .cm-keyword {
+    color: #de935f;
 }
 #pma_console .message,
 #pma_console .query_input {
@@ -3041,7 +3118,7 @@ table.show_create td {
     border-bottom: solid 1px #ccc;
     padding-bottom: .2em;
 }
-#pma_console .message.expanded .action_content {
+#pma_console .message.expanded>.action_content {
     position: relative;
 }
 #pma_console .message:before,
@@ -3133,8 +3210,11 @@ html.ie8 #pma_console .message .action_content {
 #pma_console .message .text {
     background: #fff;
 }
-#pma_console .message.collapsed:not(:hover) .action_content {
+#pma_console .message.collapsed>.action_content {
     display: none;
+}
+#pma_console .message.collapsed:hover>.action_content {
+    display: block;
 }
 #pma_console .message .bookmark_label {
     padding: 0 4px;
@@ -3206,6 +3286,55 @@ html.ie7 #pma_console .query_input {
     margin: 0;
     padding: 2px 4px;
 }
+#pma_console .button.hide,
+#pma_console .message span.text.hide {
+    display: none;
+}
+#debug_console.grouped .ungroup_queries,
+#debug_console.ungrouped .group_queries {
+    display: inline-block;
+}
+#debug_console.ungrouped .ungroup_queries,
+#debug_console.ungrouped .sort_count,
+#debug_console.grouped .group_queries {
+    display: none;
+}
+#debug_console .count {
+    margin-right: 8px;
+}
+#debug_console .show_trace .trace,
+#debug_console .show_args .args {
+    display: block;
+}
+#debug_console .hide_trace .trace,
+#debug_console .hide_args .args,
+#debug_console .show_trace .action.dbg_show_trace,
+#debug_console .hide_trace .action.dbg_hide_trace,
+#debug_console .traceStep.hide_args .action.dbg_hide_args,
+#debug_console .traceStep.show_args .action.dbg_show_args {
+    display: none;
+}
+
+#debug_console .traceStep:after,
+#debug_console .trace.welcome:after,
+#debug_console .debug>.welcome:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#debug_console .debug_summary {
+    float: left;
+}
+#debug_console .trace.welcome .time {
+    float: right;
+}
+#debug_console .traceStep .file,
+#debug_console .script_name {
+    float: right;
+}
+#debug_console .traceStep .args pre {
+    margin: 0;
+}
 
 /* Code mirror console style*/
 
@@ -3229,7 +3358,6 @@ html.ie7 #pma_console .query_input {
     font-size: 120%;
 }
 .cm-s-pma .CodeMirror-scroll {
-    padding-bottom: 2em;
     cursor: text;
 }
 
@@ -3238,8 +3366,8 @@ html.ie7 #pma_console .query_input {
 .pma_drop_handler {
     display: none;
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
     height: 100%;
@@ -3253,7 +3381,7 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status {
     display: none;
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     right: 25px;
     width: 400px;
     border: 1px solid #999;
@@ -3302,13 +3430,13 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status h2 .minimize {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 .pma_sql_import_status h2 .close {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
     display: none;
 }
 
@@ -3336,7 +3464,7 @@ html.ie7 #pma_console .query_input {
     background: white;
     min-height: 300px;
     z-index: 800;
-    -webkit-box-shadow: 0px 0px 15px #999;
+    -webkit-box-shadow: 0 0 15px #999;
     border-radius: 10px;
     cursor: move;
 }
@@ -3344,7 +3472,7 @@ html.ie7 #pma_console .query_input {
 .pma_drop_result h2 .close {
     float: right;
     margin-right: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 .dependencies_box {
@@ -3399,3 +3527,18 @@ th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
 }
 /* end of styles of sortable tables */
+
+/* styles for jQuery-ui to support rtl languages */
+body .ui-dialog .ui-dialog-titlebar-close {
+    <?php echo $right; ?>: .3em;
+    <?php echo $left; ?>: initial;
+}
+
+body .ui-dialog .ui-dialog-title {
+    float: <?php echo $left; ?>;
+}
+
+body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    float: <?php echo $right; ?>;
+}
+/* end of styles for jQuery-ui to support rtl languages */

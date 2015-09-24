@@ -22,7 +22,7 @@ $cfgRelation = PMA_getRelationsParam();
 $savedSearchList = array();
 $savedSearch = null;
 $currentSearchId = null;
-if (isset($cfgRelation['savedsearcheswork']) && $cfgRelation['savedsearcheswork']) {
+if ($cfgRelation['savedsearcheswork']) {
     include 'libraries/SavedSearches.class.php';
     $header = $response->getHeader();
     $scripts = $header->getScripts();
@@ -80,15 +80,30 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
     if (! preg_match('@^SELECT@i', $sql_query)) {
         $message_to_display = true;
     } else {
-        $goto      = 'db_sql.php';
+        $goto = 'db_sql.php';
 
         // Parse and analyze the query
         include_once 'libraries/parse_analyze.inc.php';
 
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, false, $_REQUEST['db'], null, false, null, null,
-            false, null, null, null, $goto, $pmaThemeImage, null, null, null,
-            $sql_query, null, null
+            $analyzed_sql_results, // analyzed_sql_results
+            false, // is_gotofile
+            $_REQUEST['db'], // db
+            null, // table
+            false, // find_real_end
+            null, // sql_query_for_bookmark
+            null, // extra_data
+            null, // message_to_show
+            null, // message
+            null, // sql_data
+            $goto, // goto
+            $pmaThemeImage, // pmaThemeImage
+            null, // disp_query
+            null, // disp_message
+            null, // query_type
+            $sql_query, // sql_query
+            null, // selectedTables
+            null // complete_query
         );
     }
 }
@@ -97,7 +112,18 @@ $sub_part  = '_qbe';
 require 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
-require 'libraries/db_info.inc.php';
+
+list(
+    $tables,
+    $num_tables,
+    $total_num_tables,
+    $sub_part,
+    $is_show_stats,
+    $db_is_system_schema,
+    $tooltip_truename,
+    $tooltip_aliasname,
+    $pos
+) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 if ($message_to_display) {
     PMA_Message::error(__('You have to choose at least one column to display!'))
@@ -106,7 +132,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new PMA_DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
 $url = 'db_designer.php' . PMA_URL_getCommon(
     array_merge(
@@ -128,4 +154,3 @@ $response->addHTML(
  * Displays the Query by example form
  */
 $response->addHTML($db_qbe->getSelectionForm());
-?>

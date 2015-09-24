@@ -57,7 +57,7 @@ if (empty($is_table)
     // Not a valid table name -> back to the db_sql.php
 
     if (/*overload*/mb_strlen($table)) {
-        $is_table = isset(PMA_Table::$cache[$db][$table]);
+        $is_table = $GLOBALS['dbi']->getCachedTableContent("${db}.${table}", false);
 
         if (! $is_table) {
             $_result = $GLOBALS['dbi']->tryQuery(
@@ -103,4 +103,3 @@ if (empty($is_table)
         }
     }
 } // end if (ensures table exists)
-?>

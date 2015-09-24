@@ -9,17 +9,17 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild_Container.class.php';
+
 /**
  * Represents a container for view nodes in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_View_Container extends Node
+class Node_View_Container extends Node_DatabaseChild_Container
 {
     /**
      * Initialises the class
-     *
-     * @return Node_View_Container
      */
     public function __construct()
     {
@@ -33,12 +33,6 @@ class Node_View_Container extends Node
                     . '&amp;db=%1$s&amp;tbl_type=view'
                     . '&amp;token=' . $_SESSION[' PMA_token '],
         );
-        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
-            $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-            $this->separator_depth = (int)(
-                $GLOBALS['cfg']['NavigationTreeTableLevel']
-            );
-        }
         $this->classes   = 'viewContainer subContainer';
         $this->real_name = 'views';
 
@@ -57,4 +51,3 @@ class Node_View_Container extends Node
     }
 }
 
-?>

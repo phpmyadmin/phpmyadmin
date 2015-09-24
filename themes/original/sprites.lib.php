@@ -732,4 +732,3 @@ function PMA_sprites()
         ),
     );
 }
-?>

@@ -91,7 +91,19 @@ class SchemaPdf extends SchemaPlugin
 
         $leaf = new BoolPropertyItem();
         $leaf->setName('with_doc');
-        $leaf->setText(__('Data Dictionary'));
+        $leaf->setText(__('Data dictionary'));
+        $specificOptions->addProperty($leaf);
+
+        $leaf = new SelectPropertyItem();
+        $leaf->setName("table_order");
+        $leaf->setText(__('Order of the tables'));
+        $leaf->setValues(
+            array(
+                '' => __('None'),
+                'name_asc' => __('Name (Ascending)'),
+                'name_desc' => __('Name (Descending)'),
+            )
+        );
         $specificOptions->addProperty($leaf);
 
         // add the main group to the root group
@@ -125,8 +137,7 @@ class SchemaPdf extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Pdf_Relation_Schema();
+        $export = new PMA_Pdf_Relation_Schema($db);
         $export->showOutput();
     }
 }
-?>

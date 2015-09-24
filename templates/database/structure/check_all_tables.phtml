@@ -1,0 +1,43 @@
+<div class="clearfloat print_ignore">
+    <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>" width="38" height="22" alt="<?php __('With selected:'); ?>" />
+    <input type="checkbox" id="tablesForm_checkall" class="checkall_box" title="<?php echo __('Check all'); ?>" />
+    <label for="tablesForm_checkall"><?php echo __('Check all'); ?></label>
+    <?php if ($overhead_check != ''): ?>
+         / <a href="#" onclick="unMarkAllRows('tablesForm'); <?php echo $overhead_check; ?> return false;"><?php echo __('Check tables having overhead'); ?></a>
+    <?php endif; ?>
+    <select name="submit_mult" class="autosubmit" style="margin: 0 3em 0 3em;">
+        <option value="<?php echo __('With selected:'); ?>" selected="selected"><?php echo __('With selected:'); ?></option>
+        <option value="show_create" ><?php echo __('Show create'); ?></option>
+        <option value="export" ><?php echo __('Export'); ?></option>
+        <?php if (!$db_is_system_schema
+                    && !$GLOBALS['cfg']['DisableMultiTableMaintenance']): ?>
+            <optgroup label="<?php echo __('Delete data or table'); ?>">
+                <option value="empty_tbl" ><?php echo __('Empty'); ?></option>
+                <option value="drop_tbl" ><?php echo __('Drop'); ?></option>
+            </optgroup>
+            <optgroup label="<?php echo __('Table maintenance'); ?>">
+                <option value="analyze_tbl" ><?php echo __('Analyze table'); ?></option>
+                <option value="check_tbl" ><?php echo __('Check table'); ?></option>
+                <?php if (!PMA_DRIZZLE): ?>
+                    <option value="checksum_tbl" ><?php echo __('Checksum table'); ?></option>
+                    <option value="optimize_tbl" ><?php echo __('Optimize table'); ?></option>
+                    <option value="repair_tbl" ><?php echo __('Repair table'); ?></option>
+                <?php endif; ?>
+            </optgroup>
+            <optgroup label="<?php echo __('Prefix'); ?>">
+                <option value="add_prefix_tbl" ><?php echo __('Add prefix to table'); ?></option>
+                <option value="replace_prefix_tbl" ><?php echo __('Replace table prefix'); ?></option>
+                <option value="copy_tbl_change_prefix" ><?php echo __('Copy table with prefix'); ?></option>
+            </optgroup>
+        <?php endif; ?>
+        <?php if (isset($GLOBALS['cfgRelation']['centralcolumnswork'])
+                    && $GLOBALS['cfgRelation']['centralcolumnswork']): ?>
+            <optgroup label="<?php echo __('Central columns'); ?>">
+                <option value="sync_unique_columns_central_list" ><?php echo __('Add columns to central list'); ?></option>
+                <option value="delete_unique_columns_central_list" ><?php echo __('Remove columns from central list'); ?></option>
+                <option value="make_consistent_with_central_list" ><?php echo __('Make consistent with central list'); ?></option>
+            </optgroup>
+        <?php endif; ?>
+    </select>
+    <?php echo implode("\n", $hidden_fields); ?>
+</div>

@@ -30,7 +30,7 @@ class PMA_DIA extends XMLWriter
      *
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
      */
-    function __construct()
+    public function __construct()
     {
         $this->openMemory();
         /*
@@ -66,7 +66,7 @@ class PMA_DIA extends XMLWriter
      * @see XMLWriter::startElement(),XMLWriter::writeAttribute(),
      *      XMLWriter::writeRaw()
      */
-    function startDiaDoc($paper, $topMargin, $bottomMargin, $leftMargin,
+    public function startDiaDoc($paper, $topMargin, $bottomMargin, $leftMargin,
         $rightMargin, $orientation
     ) {
         if ($orientation == 'P') {
@@ -153,7 +153,7 @@ class PMA_DIA extends XMLWriter
      * @access public
      * @see XMLWriter::endElement(),XMLWriter::endDocument()
      */
-    function endDiaDoc()
+    public function endDiaDoc()
     {
         $this->endElement();
         $this->endDocument();
@@ -168,7 +168,7 @@ class PMA_DIA extends XMLWriter
      * @access public
      * @see XMLWriter::flush()
      */
-    function showOutput($fileName)
+    public function showOutput($fileName)
     {
         if (ob_get_clean()) {
             ob_end_clean();
@@ -202,9 +202,11 @@ class PMA_DIA extends XMLWriter
 class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
 {
     /**
-     * Defines properties
+     * @var Table_Stats_Dia[]|Table_Stats_Eps[]|Table_Stats_Pdf[]|Table_Stats_Svg[]
      */
     private $_tables = array();
+
+    /** @var Relation_Stats_Dia[] Relations */
     private $_relations = array();
     private $_topMargin = 2.8222000598907471;
     private $_bottomMargin = 2.8222000598907471;
@@ -218,21 +220,20 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This outputs the Dia XML document
      * that user can download
      *
+     * @param string $db database name
+     *
      * @see PMA_DIA,Table_Stats_Dia,Relation_Stats_Dia
      */
-    function __construct()
+    public function __construct($db)
     {
-        parent::__construct();
-
-        global $dia;
+        parent::__construct($db, new PMA_DIA());
 
         $this->setShowColor(isset($_REQUEST['dia_show_color']));
         $this->setShowKeys(isset($_REQUEST['dia_show_keys']));
         $this->setOrientation($_REQUEST['dia_orientation']);
         $this->setPaper($_REQUEST['dia_paper']);
 
-        $dia = new PMA_DIA();
-        $dia->startDiaDoc(
+        $this->diagram->startDiaDoc(
             $this->paper, $this->_topMargin, $this->_bottomMargin,
             $this->_leftMargin, $this->_rightMargin, $this->orientation
         );
@@ -242,14 +243,15 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Dia(
-                    $table, $this->pageNumber, $this->showKeys, $this->offline
+                    $this->diagram, $this->db, $table, $this->pageNumber,
+                    $this->showKeys, $this->offline
                 );
             }
         }
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
             if (!$exist_rel) {
                 continue;
             }
@@ -290,7 +292,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         if ($seen_a_relation) {
             $this->_drawRelations();
         }
-        $dia->endDiaDoc();
+        $this->diagram->endDiaDoc();
     }
 
     /**
@@ -299,10 +301,9 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      * @access public
      */
-    function showOutput()
+    public function showOutput()
     {
-        global $dia;
-        $dia->showOutput($this->getFileName('.dia'));
+        $this->diagram->showOutput($this->getFileName('.dia'));
     }
 
     /**
@@ -324,17 +325,20 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Dia(
-                $masterTable, $this->pageNumber, $showKeys
+                $this->diagram, $this->db, $masterTable, $this->pageNumber, $showKeys
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Dia(
-                $foreignTable, $this->pageNumber, $showKeys
+                $this->diagram, $this->db, $foreignTable, $this->pageNumber, $showKeys
             );
         }
         $this->_relations[] = new Relation_Stats_Dia(
-            $this->_tables[$masterTable], $masterField,
-            $this->_tables[$foreignTable], $foreignField
+            $this->diagram,
+            $this->_tables[$masterTable],
+            $masterField,
+            $this->_tables[$foreignTable],
+            $foreignField
         );
     }
 
@@ -375,4 +379,3 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         }
     }
 }
-?>

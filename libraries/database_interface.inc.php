@@ -10,7 +10,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/DatabaseInterface.class.php';
+require_once 'libraries/di/Container.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 
 if (defined('TESTSUITE')) {
     /**
@@ -23,6 +24,7 @@ if (defined('TESTSUITE')) {
     /**
      * First check for the mysqli extension, as it's the one recommended
      * for the MySQL server's version that we support
+     * (if PHP 7+, it's the only one supported)
      */
     $extension = 'mysqli';
     if (! PMA_DatabaseInterface::checkDbExtension($extension)) {
@@ -34,25 +36,34 @@ if (defined('TESTSUITE')) {
             '[/a]'
         );
 
-        $extension = 'mysql';
-        if (! PMA_DatabaseInterface::checkDbExtension($extension)) {
-            // warn about both extensions missing and exit
+        if (PMA_PHP_INT_VERSION < 70000) {
+            $extension = 'mysql';
+            if (! PMA_DatabaseInterface::checkDbExtension($extension)) {
+                // warn about both extensions missing and exit
+                PMA_warnMissingExtension(
+                    'mysqli|mysql',
+                    true,
+                    $doclink
+                );
+            } elseif (empty($_SESSION['mysqlwarning'])) {
+                trigger_error(
+                    __(
+                        'You are using the mysql extension which is deprecated in '
+                        . 'phpMyAdmin. Please consider installing the mysqli '
+                        . 'extension.'
+                    ) . ' ' . $doclink,
+                    E_USER_WARNING
+                );
+                // tell the user just once per session
+                $_SESSION['mysqlwarning'] = true;
+            }
+        } else {
+            // mysql extension is not part of PHP 7+, so warn and exit
             PMA_warnMissingExtension(
-                'mysqli|mysql',
+                'mysqli',
                 true,
                 $doclink
             );
-        } elseif (empty($_SESSION['mysqlwarning'])) {
-            trigger_error(
-                __(
-                    'You are using the mysql extension which is deprecated in '
-                    . 'phpMyAdmin. Please consider installing the mysqli '
-                    . 'extension.'
-                ) . ' ' . $doclink,
-                E_USER_WARNING
-            );
-            // tell the user just once per session
-            $_SESSION['mysqlwarning'] = true;
         }
     }
 
@@ -71,4 +82,7 @@ if (defined('TESTSUITE')) {
     }
 }
 $GLOBALS['dbi'] = new PMA_DatabaseInterface($extension);
-?>
+
+$container = \PMA\DI\Container::getDefaultContainer();
+$container->set('PMA_DatabaseInterface', $GLOBALS['dbi']);
+$container->alias('dbi', 'PMA_DatabaseInterface');

@@ -41,4 +41,3 @@ class Text_Plain_Substring extends SubstringTransformationsPlugin
         return "Plain";
     }
 }
-?>

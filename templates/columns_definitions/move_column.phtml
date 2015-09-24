@@ -1,0 +1,15 @@
+<select id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>"
+        name="field_move_to[<?php echo $columnNumber; ?>]"
+        size="1"
+        width="5em">
+    <option value="" selected="selected">&nbsp;</option>
+    <option value="-first" <?php echo ($current_index == 0 ? ' disabled="disabled"' : ''); ?>>
+        <?php echo __('first'); ?>
+    </option>
+    <?php for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++): ?>
+        <option value="<?php echo htmlspecialchars($move_columns[$mi]->name); ?>"
+                <?php echo (($current_index == $mi || $current_index == $mi + 1) ? ' disabled="disabled"' : '');?>>
+            <?php echo sprintf(__('after %s'), PMA_Util::backquote(htmlspecialchars($move_columns[$mi]->name))); ?>
+        </option>
+    <?php endfor; ?>
+</select>

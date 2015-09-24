@@ -22,7 +22,7 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
     $url_params = PMA_URL_getCommon();
     $items = array(
         array(
-            'name' => __('Users overview'),
+            'name' => __('User accounts overview'),
             'url' => 'server_privileges.php',
             'specific_params' => '&viewing_mode=server'
         )
@@ -55,4 +55,3 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
 
     return $retval;
 }
-?>

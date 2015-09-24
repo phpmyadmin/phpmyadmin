@@ -23,8 +23,13 @@ if (! $response->isAjax()) {
     exit;
 }
 
+if (isset($_REQUEST['getNaviSettings']) && $_REQUEST['getNaviSettings']) {
+    $response->addJSON('message', PMA_PageSettings::getNaviSettings());
+    exit();
+}
+
 $cfgRelation = PMA_getRelationsParam();
-if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+if ($cfgRelation['navwork']) {
     if (isset($_REQUEST['hideNavItem'])) {
         if (! empty($_REQUEST['itemName'])
             && ! empty($_REQUEST['itemType'])
@@ -68,4 +73,3 @@ if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
 
 // Do the magic
 $response->addJSON('message', $navigation->getDisplay());
-?>

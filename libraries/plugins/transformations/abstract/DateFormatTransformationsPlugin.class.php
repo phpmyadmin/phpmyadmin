@@ -161,4 +161,3 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         return "Date Format";
     }
 }
-?>

@@ -35,9 +35,15 @@ $url_params['table'] = $table;
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = $cfg['DefaultTabDatabase']
+$err_url_0 = PMA_Util::getScriptNameForOption(
+    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+)
     . PMA_URL_getCommon(array('db' => $db));
-$err_url   = $cfg['DefaultTabTable'] . PMA_URL_getCommon($url_params);
+
+$err_url = PMA_Util::getScriptNameForOption(
+    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+)
+    . PMA_URL_getCommon($url_params);
 
 
 /**
@@ -45,4 +51,3 @@ $err_url   = $cfg['DefaultTabTable'] . PMA_URL_getCommon($url_params);
  */
 require_once './libraries/db_table_exists.lib.php';
 
-?>

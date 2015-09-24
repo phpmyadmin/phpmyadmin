@@ -32,4 +32,3 @@ class MessageOnlyPropertyItem extends OptionsPropertyOneItem
         return "messageOnly";
     }
 }
-?>

@@ -74,7 +74,7 @@ class ExportPhparray extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         PMA_exportOutputHandler(
             '<?php' . $GLOBALS['crlf']
@@ -91,7 +91,7 @@ class ExportPhparray extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         return true;
     }
@@ -104,7 +104,7 @@ class ExportPhparray extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
@@ -124,7 +124,7 @@ class ExportPhparray extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -132,12 +132,13 @@ class ExportPhparray extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db          Database name
+     * @param string $export_type 'server', 'database', 'table'
+     * @param string $db_alias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $db_alias = '')
+    public function exportDBCreate($db, $export_type, $db_alias = '')
     {
         return true;
     }
@@ -188,7 +189,7 @@ class ExportPhparray extends ExportPlugin
             );
 
             // variable name must not start with a number or dash...
-            if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tablefixed) == false) {
+            if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tablefixed) === 0) {
                 $tablefixed = '_' . $tablefixed;
             }
         } else {
@@ -230,4 +231,3 @@ class ExportPhparray extends ExportPlugin
         return true;
     }
 }
-?>

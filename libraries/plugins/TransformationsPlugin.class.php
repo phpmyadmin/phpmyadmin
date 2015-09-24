@@ -57,7 +57,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
     {
         $result = array();
         foreach ($defaults as $key => $value) {
-            if ( isset($options[$key]) && $options[$key] !== '') {
+            if (isset($options[$key]) && $options[$key] !== '') {
                 $result[$key] = $options[$key];
             } else {
                 $result[$key] = $value;
@@ -66,4 +66,3 @@ abstract class TransformationsPlugin implements TransformationsInterface
         return $result;
     }
 }
-?>

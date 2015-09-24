@@ -123,7 +123,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation_select_database {
     text-align: left;
-    padding: 0px 0px 0px;
+    padding: 0 0 0;
     border: 0;
     margin: 0;
 }
@@ -140,7 +140,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     border-top: 1px solid #bbb;
     color: #333;
     padding: 4px 6px;
-    margin: 0px 0px 0px;
+    margin: 0 0 0;
     width: 92%;
     font-size: 1.11em;
 }
@@ -346,7 +346,7 @@ li.fast_filter.db_fast_filter {
     text-align: center;
     cursor: pointer;
     z-index: 800;
-    text-shadow: 0px 1px 0px #fff;
+    text-shadow: 0 1px 0 #fff;
     filter: dropshadow(color=#fff, offx=0, offy=1);
     border: 1px solid #888;
 }

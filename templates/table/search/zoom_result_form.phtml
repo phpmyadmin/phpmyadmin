@@ -1,0 +1,100 @@
+<form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" class="ajax">
+    <?php echo PMA_URL_getHiddenInputs($_db, $_table); ?>
+    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+    <input type="hidden" name="back" value="tbl_zoom_select.php" />
+
+    <fieldset id="displaySection">
+        <legend><?php echo __('Browse/Edit the points');?></legend>
+
+    <!-- JSON encode the data(query result) -->
+        <center>
+            <?php if (isset($_POST['zoom_submit']) && ! empty($data)): ?>
+                <div id="resizer">
+                    <center>
+                        <a href="#" onclick="displayHelp();">
+                            <?php echo __('How to use'); ?>
+                        </a>
+                    </center>
+                    <div id="querydata" style="display:none">
+                        <?php echo json_encode($data); ?>
+                    </div>
+                    <div id="querychart"></div>
+                    <button class="button-reset">
+                        <?php echo __('Reset zoom'); ?></button>
+                </div>
+            <?php endif; ?>
+        </center>
+
+    <!-- Displays rows in point edit form -->
+        <div id="dataDisplay" style="display:none">
+            <table>
+                <thead>
+                <tr>
+                    <th><?php echo __('Column'); ?> </th>
+                    <th><?php echo __('Null'); ?> </th>
+                    <th><?php echo __('Value'); ?> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php $odd_row = true; ?>
+                <?php for (
+                    $column_index = 0, $nb = count($_columnNames);
+                    $column_index < $nb;
+                    $column_index++
+                ): ?>
+                    <?php
+                    $foreignData = PMA_getForeignData(
+                        $_foreigners,
+                        $_columnNames[$column_index],
+                        false,
+                        '',
+                        ''
+                    ); ?>
+                <?php endfor; ?>
+                <?php for (
+                    $column_index = 0, $nb = count($_columnNames);
+                    $column_index < $nb;
+                    $column_index++
+                ): ?>
+                    <?php
+                        $fieldpopup = $_columnNames[$column_index];
+                        $foreignData = PMA_getForeignData($_foreigners, $fieldpopup, false, '', '' );?>
+                    <tr class="noclick <?php echo ($odd_row ? 'odd' : 'even'); ?>">
+                        <?php $odd_row = ! $odd_row; ?>
+                        <!-- Display column Names -->
+                        <th><?php echo htmlspecialchars($_columnNames[$column_index]); ?></th>
+                        <!-- Null checkbox if column can be null -->
+                        <th>
+                            <?php if ($_columnNullFlags[$column_index] == 'YES'): ?>
+                                <input type="checkbox" class="checkbox_null"
+                                       name="criteriaColumnNullFlags[<?php echo $column_index; ?>]"
+                                       id="edit_fields_null_id_'<?php echo $column_index;?>" />
+                            <?php endif; ?>
+                        </th>
+<!-- Column's Input box-->
+                        <th>
+                            <?php
+                            echo PMA\Template::get('table/search/input_box')->render(array(
+                                    'str' => '',
+                                    'column_type' => $_columnTypes[$column_index],
+                                    'column_id' => ($_columnTypes[$column_index]) ? 'edit_fieldID_' : 'fieldID_',
+                                    'in_zoom_search_edit' => true,
+                                    '_foreigners' => $_foreigners,
+                                    'column_name' => $fieldpopup,
+                                    'foreignData' => $foreignData,
+                                    'table' => $_table,
+                                    'column_index' => $column_index,
+                                    'foreignMaxLimit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+                                    'criteriaValues' => '',
+                                    'db' => $_db,
+                                    'titles' => $titles,
+                                    'in_fbs' => false
+                                ));?>
+                        </th>
+                    </tr>
+                <?php endfor; ?>
+                </tbody>
+            </table>
+        </div>
+        <input type="hidden" id="queryID" name="sql_query" />
+</form>

@@ -129,7 +129,7 @@ class PMA_Menu
     {
         $allowedTabs = PMA_Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['menuswork']) && $cfgRelation['menuswork']) {
+        if ($cfgRelation['menuswork']) {
             $groupTable = PMA_Util::backquote($cfgRelation['db'])
                 . "."
                 . PMA_Util::backquote($cfgRelation['usergroups']);
@@ -165,7 +165,8 @@ class PMA_Menu
     private function _getBreadcrumbs()
     {
         $retval = '';
-        $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
+        $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
+            ->isView();
         $server_info = ! empty($GLOBALS['cfg']['Server']['verbose'])
             ? $GLOBALS['cfg']['Server']['verbose']
             : $GLOBALS['cfg']['Server']['host'];
@@ -191,7 +192,9 @@ class PMA_Menu
         }
         $retval .= sprintf(
             $item,
-            $GLOBALS['cfg']['DefaultTabServer'],
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            ),
             PMA_URL_getCommon(),
             htmlspecialchars($server_info),
             __('Server')
@@ -208,7 +211,9 @@ class PMA_Menu
             }
             $retval .= sprintf(
                 $item,
-                $GLOBALS['cfg']['DefaultTabDatabase'],
+                PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                ),
                 PMA_URL_getCommon(array('db' => $this->_db)),
                 htmlspecialchars($this->_db),
                 __('Database')
@@ -231,7 +236,9 @@ class PMA_Menu
                 }
                 $retval .= sprintf(
                     $item,
-                    $GLOBALS['cfg']['DefaultTabTable'],
+                    PMA_Util::getScriptNameForOption(
+                        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    ),
                     PMA_URL_getCommon(
                         array(
                             'db' => $this->_db, 'table' => $this->_table
@@ -264,7 +271,7 @@ class PMA_Menu
                 $cfgRelation = PMA_getRelationsParam();
 
                 // Get additional information about tables for tooltip is done
-                // in libraries/db_info.inc.php only once
+                // in PMA_Util::getDbInfo() only once
                 if ($cfgRelation['commwork']) {
                     $comment = PMA_getDbComment($this->_db);
                     /**
@@ -292,7 +299,8 @@ class PMA_Menu
     private function _getTableTabs()
     {
         $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
-        $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
+        $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
+            ->isView();
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');
@@ -494,8 +502,7 @@ class PMA_Menu
         }
 
         if (! $db_is_system_schema
-            && isset($cfgRelation['central_columnswork'])
-            && $cfgRelation['central_columnswork']
+            && $cfgRelation['centralcolumnswork']
         ) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns.png';
@@ -558,7 +565,7 @@ class PMA_Menu
         if (($is_superuser || $isCreateOrGrantUser) && ! PMA_DRIZZLE) {
             $tabs['rights']['icon'] = 's_rights.png';
             $tabs['rights']['link'] = 'server_privileges.php';
-            $tabs['rights']['text'] = __('Users');
+            $tabs['rights']['text'] = __('User accounts');
             $tabs['rights']['active'] = in_array(
                 basename($GLOBALS['PMA_PHP_SELF']),
                 array('server_privileges.php', 'server_user_groups.php')
@@ -606,6 +613,13 @@ class PMA_Menu
             $tabs['plugins']['icon'] = 'b_engine.png';
             $tabs['plugins']['link'] = 'server_plugins.php';
             $tabs['plugins']['text'] = __('Plugins');
+            $tabs['plugins']['active'] = in_array(
+                basename($GLOBALS['PMA_PHP_SELF']),
+                array(
+                    'server_plugins.php',
+                    'server_modules.php',
+                )
+            );
         } else {
             $tabs['engine']['icon'] = 'b_engine.png';
             $tabs['engine']['link'] = 'server_engines.php';
@@ -628,4 +642,3 @@ class PMA_Menu
     }
 }
 
-?>

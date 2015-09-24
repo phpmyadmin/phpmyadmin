@@ -25,7 +25,7 @@ class PMA_Error_Handler
     /**
      * holds errors to be displayed or reported later ...
      *
-     * @var array of PMA_Error
+     * @var PMA_Error[]
      */
     protected $errors = array();
 
@@ -86,7 +86,7 @@ class PMA_Error_Handler
     /**
      * returns array with all errors
      *
-     * @return array PMA_Error_Handler::$_errors
+     * @return PMA_Error[]
      */
     protected function getErrors()
     {
@@ -98,7 +98,7 @@ class PMA_Error_Handler
     * returns the errors occurred in the current run only.
     * Does not include the errors save din the SESSION
     *
-    * @return array of current errors
+    * @return PMA_Error[]
     */
     public function getCurrentErrors()
     {
@@ -305,10 +305,7 @@ class PMA_Error_Handler
                         $retval .= $error->getDisplay();
                     }
                 } else {
-                    ob_start();
-                    var_dump($error);
-                    $retval .= ob_get_contents();
-                    ob_end_clean();
+                    $retval .= var_export($error, true);
                 }
             }
         } else {
@@ -334,25 +331,23 @@ class PMA_Error_Handler
                     . '<input type="hidden" name="send_error_report" value="1" />'
                     . '<input type="submit" value="'
                     . __('Report')
-                    . '" id="pma_report_errors" style="float: right; margin: 20px;">'
+                    . '" id="pma_report_errors" class="floatright">'
                     . '<input type="checkbox" name="always_send"'
                     . ' id="always_send_checkbox" value="true"/>'
                     . '<label for="always_send_checkbox">'
                     . __('Automatically send report next time')
-                    . '</label>'
-                    . '</form>';
+                    . '</label>';
 
             if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
-                        . '" id="pma_ignore_errors_bottom"'
-                        . ' style="float: right; margin: 20px;">';
+                        . '" id="pma_ignore_errors_bottom" class="floatright">';
             }
             $retval .= '<input type="submit" value="'
                     . __('Ignore All')
-                    . '" id="pma_ignore_all_errors_bottom"'
-                    . ' style="float: right; margin: 20px;">';
+                    . '" id="pma_ignore_all_errors_bottom" class="floatright">';
+            $retval .= '</form>';
         }
         return $retval;
     }
@@ -500,7 +495,6 @@ class PMA_Error_Handler
      *
      * @return void
      */
-
     public function reportErrors()
     {
         // if there're no actual errors,
@@ -541,11 +535,13 @@ class PMA_Error_Handler
                             function() {
                                 PMA_ignorePhpErrors(false)
                             });'
-                        . '$("#pma_ignore_errors_bottom").bind("click", function() {
+                        . '$("#pma_ignore_errors_bottom").bind("click", function(e) {
+                            e.preventDefaulut();
                             PMA_ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_bottom").bind("click",
-                            function() {
+                            function(e) {
+                                e.preventDefault();
                                 PMA_ignorePhpErrors(false)
                             });'
                         . '$("html, body").animate({
@@ -558,4 +554,3 @@ class PMA_Error_Handler
         $response->getFooter()->getScripts()->addCode($jsCode);
     }
 }
-?>

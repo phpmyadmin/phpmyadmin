@@ -440,9 +440,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     text += text.length > 0 ? '<br />' : '';
                     text += '- ' + g.strMultiSortHint;
                 }
-                if (g.showMarkHint && g.markHint
-                    && !g.showSortHint // we do not show mark hint, when sort hint is shown
-                    && g.showReorderHint && g.reorderHint
+                if (g.showMarkHint &&
+                    g.markHint &&
+                    ! g.showSortHint && // we do not show mark hint, when sort hint is shown
+                    g.showReorderHint &&
+                    g.reorderHint
                 ) {
                     text += text.length > 0 ? '<br />' : '';
                     text += '- ' + g.reorderHint;
@@ -575,9 +577,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if (!g.isCellEditActive) {
                     var $cell = $(cell);
 
-                    if (
-                        'string' === $cell.attr('data-type')
-                        || 'blob' === $cell.attr('data-type')
+                    if ('string' === $cell.attr('data-type') ||
+                        'blob' === $cell.attr('data-type')
                     ) {
                         g.cEdit = g.cEditTextarea;
                     } else {
@@ -603,8 +604,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     g.currentEditCell = cell;
                     $(g.cEdit).find('.edit_box').focus();
+                    moveCursorToEnd($(g.cEdit).find('.edit_box'));
                     $(g.cEdit).find('*').removeProp('disabled');
                 }
+            }
+
+            function moveCursorToEnd(input) {
+                var originalValue = input.val();
+                var originallength = originalValue.length;
+                input.val('');
+                input.blur().focus().val(originalValue);
+                input[0].setSelectionRange(originallength, originallength);
             }
         },
 
@@ -616,11 +626,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          *              or just specify "true", if we want to replace the edited field with the new value.
          * @param field Optional, the edited <td>. If not specified, the function will
          *              use currently edited <td> from g.currentEditCell.
+         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
+         *              and a <td> to which the grid_edit should move
          */
-        hideEditCell: function (force, data, field) {
+        hideEditCell: function (force, data, field, options) {
             if (g.isCellEditActive && !force) {
                 // cell is being edited, save or post the edited data
-                g.saveOrPostEditedCell();
+                if (options !== undefined) {
+                    g.saveOrPostEditedCell(options);
+                } else {
+                    g.saveOrPostEditedCell();
+                }
                 return;
             }
 
@@ -1040,10 +1056,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     datepicker_div.css({'top': 0, 'left': 0, 'position': 'relative'});
                     $(g.cEdit).append(datepicker_div);
 
-                    if (is_null){
-                        $(g.cEdit).find('.edit_area').hide();
-                    }
-
                     // cancel any click on the datepicker element
                     $editArea.find('> *').click(function (e) {
                         e.stopPropagation();
@@ -1057,7 +1069,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }
                 }
-                if ($editArea.children().length > 0 && !is_null) {
+                if ($editArea.children().length > 0) {
                     $editArea.show();
                 }
             }
@@ -1065,8 +1077,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
         /**
          * Post the content of edited cell.
+         *
+         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
+         *              and a <td> to which the grid_edit should move
          */
-        postEditedCell: function () {
+        postEditedCell: function (options) {
             if (g.isSaving) {
                 return;
             }
@@ -1273,7 +1288,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 .find('input').removeProp('disabled');  // enable the save button back
                         }
                         if (typeof data !== 'undefined' && data.success === true) {
-                            PMA_ajaxShowMessage(data.message);
+                            if (typeof options === 'undefined' || ! options.move) {
+                                PMA_ajaxShowMessage(data.message);
+                            }
 
                             // update where_clause related data in each edited row
                             $(g.t).find('td.to_be_saved').parents('tr').each(function () {
@@ -1315,7 +1332,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 var tools = $result_query.find('.tools').wrap('<p>').parent().html();
                                 // sqlOuter and tools will not be present if 'Show SQL queries' configuration is off
                                 if (typeof sqlOuter != 'undefined' && typeof tools != 'undefined') {
-                                    $existing_query = $(g.o).find('.result_query');
+                                    var $existing_query = $(g.o).find('.result_query');
                                     // If two query box exists update query in second else add a second box
                                     if ($existing_query.find('div.sqlOuter').length > 1) {
                                         $existing_query.children(":nth-child(4)").remove();
@@ -1347,6 +1364,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             }
                         }
                     }
+            }).done(function(){
+                if (options !== undefined && options.move) {
+                    g.showEditCell(options.cell);
+                }
             }); // end $.ajax()
         },
 
@@ -1430,20 +1451,54 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
         /**
          * Save or post currently edited cell, depending on the "saveCellsAtOnce" configuration.
+         *
+         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
+         *              and a <td> to which the grid_edit should move
          */
-        saveOrPostEditedCell: function () {
+        saveOrPostEditedCell: function (options) {
             var saved = g.saveEditedCell();
+            // Check if $cfg['SaveCellsAtOnce'] is false
             if (!g.saveCellsAtOnce) {
+                // Check if need_to_post is true
                 if (saved) {
-                    g.postEditedCell();
+                    // Check if this function called from 'move' functions
+                    if (options !== undefined && options.move) {
+                        g.postEditedCell(options);
+                    } else {
+                        g.postEditedCell();
+                    }
+                // need_to_post is false
                 } else {
-                    g.hideEditCell(true);
+                    // Check if this function called from 'move' functions
+                    if (options !== undefined && options.move) {
+                        g.hideEditCell(true);
+                        g.showEditCell(options.cell);
+                    // NOT called from 'move' functions
+                    } else {
+                        g.hideEditCell(true);
+                    }
                 }
+            // $cfg['SaveCellsAtOnce'] is true
             } else {
+                // If need_to_post
                 if (saved) {
-                    g.hideEditCell(true, true);
+                    // If this function called from 'move' functions
+                    if (options !== undefined && options.move) {
+                        g.hideEditCell(true, true, false, options);
+                        g.showEditCell(options.cell);
+                    // NOT called from 'move' functions
+                    } else {
+                        g.hideEditCell(true, true);
+                    }
                 } else {
-                    g.hideEditCell(true);
+                    // If this function called from 'move' functions
+                    if (options !== undefined && options.move) {
+                        g.hideEditCell(true, false, false, options);
+                        g.showEditCell(options.cell);
+                    // NOT called from 'move' functions
+                    } else {
+                        g.hideEditCell(true);
+                    }
                 }
             }
         },
@@ -1589,16 +1644,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // get data columns in the first row of the table
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
 
+            var i;
             // initialize column visibility
             var $col_visib = $(g.o).find('.col_visib');   // check if column visibility is passed from PHP
             if ($col_visib.length > 0) {
                 g.colVisib = $col_visib.val().split(',');
-                for (var i = 0; i < g.colVisib.length; i++) {
+                for (i = 0; i < g.colVisib.length; i++) {
                     g.colVisib[i] = parseInt(g.colVisib[i], 10);
                 }
             } else {
                 g.colVisib = [];
-                for (var i = 0; i < $firstRowCols.length; i++) {
+                for (i = 0; i < $firstRowCols.length; i++) {
                     g.colVisib.push(1);
                 }
             }
@@ -1638,7 +1694,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
                 };
 
-                for (var i = 0; i < $firstRowCols.length; i++) {
+                for (i = 0; i < $firstRowCols.length; i++) {
                     var currHeader = $firstRowCols[i];
                     var listElmt = document.createElement('div');
                     $(listElmt).text($(currHeader).text())
@@ -1679,6 +1735,187 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         },
 
         /**
+         * Move currently Editing Cell to Up
+         */
+        moveUp: function(e) {
+            e.preventDefault();
+            var $this_field = $(g.currentEditCell);
+            var field_name = getFieldName($(g.t), $this_field);
+
+            var where_clause = $this_field.parents('tr').first().find('.where_clause').val();
+            if (typeof where_clause === 'undefined') {
+                where_clause = '';
+            }
+            where_clause = PMA_urldecode(where_clause);
+            var found = false;
+            var $found_row;
+            var $prev_row;
+            var j = 0;
+
+            $this_field.parents('tr').first().parents('tbody').children().each(function(){
+                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                    found = true;
+                    $found_row = $(this);
+                }
+                if (!found) {
+                    $prev_row = $(this);
+                }
+            });
+
+            var new_cell;
+
+            if (found && $prev_row) {
+                $prev_row.children('td').each(function(){
+                    if (getFieldName($(g.t), $(this)) == field_name) {
+                        new_cell = this;
+                    }
+                });
+            }
+
+            if (new_cell) {
+                g.hideEditCell(false, false, false, {move : true, cell : new_cell});
+            }
+        },
+
+        /**
+         * Move currently Editing Cell to Down
+         */
+        moveDown: function(e) {
+            e.preventDefault();
+
+            var $this_field = $(g.currentEditCell);
+            var field_name = getFieldName($(g.t), $this_field);
+
+            var where_clause = $this_field.parents('tr').first().find('.where_clause').val();
+            if (typeof where_clause === 'undefined') {
+                where_clause = '';
+            }
+            where_clause = PMA_urldecode(where_clause);
+            var found = false;
+            var $found_row;
+            var $next_row;
+            var j = 0;
+            var next_row_found = false;
+            $this_field.parents('tr').first().parents('tbody').children().each(function(){
+                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                    found = true;
+                    $found_row = $(this);
+                }
+                if (found) {
+                    if (j >= 1 && ! next_row_found) {
+                        $next_row = $(this);
+                        next_row_found = true;
+                    } else {
+                        j++;
+                    }
+                }
+            });
+
+            var new_cell;
+            if (found && $next_row) {
+                $next_row.children('td').each(function(){
+                    if (getFieldName($(g.t), $(this)) == field_name) {
+                        new_cell = this;
+                    }
+                });
+            }
+
+            if (new_cell) {
+                g.hideEditCell(false, false, false, {move : true, cell : new_cell});
+            }
+        },
+
+        /**
+         * Move currently Editing Cell to Left
+         */
+        moveLeft: function(e) {
+            e.preventDefault();
+
+            var $this_field = $(g.currentEditCell);
+            var field_name = getFieldName($(g.t), $this_field);
+
+            var where_clause = $this_field.parents('tr').first().find('.where_clause').val();
+            if (typeof where_clause === 'undefined') {
+                where_clause = '';
+            }
+            where_clause = PMA_urldecode(where_clause);
+            var found = false;
+            var $found_row;
+            var j = 0;
+            $this_field.parents('tr').first().parents('tbody').children().each(function(){
+                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                    found = true;
+                    $found_row = $(this);
+                }
+            });
+
+            var left_cell;
+            var cell_found = false;
+            if (found) {
+                $found_row.children('td.grid_edit').each(function(){
+                    if (getFieldName($(g.t), $(this)) === field_name) {
+                        cell_found = true;
+                    }
+                    if (!cell_found) {
+                        left_cell = this;
+                    }
+                });
+            }
+
+            if (left_cell) {
+                g.hideEditCell(false, false, false, {move : true, cell : left_cell});
+            }
+        },
+
+        /**
+         * Move currently Editing Cell to Right
+         */
+        moveRight: function(e) {
+            e.preventDefault();
+
+            var $this_field = $(g.currentEditCell);
+            var field_name = getFieldName($(g.t), $this_field);
+
+            var where_clause = $this_field.parents('tr').first().find('.where_clause').val();
+            if (typeof where_clause === 'undefined') {
+                where_clause = '';
+            }
+            where_clause = PMA_urldecode(where_clause);
+            var found = false;
+            var $found_row;
+            var j = 0;
+            $this_field.parents('tr').first().parents('tbody').children().each(function(){
+                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                    found = true;
+                    $found_row = $(this);
+                }
+            });
+
+            var right_cell;
+            var cell_found = false;
+            var next_cell_found = false;
+            if (found) {
+                $found_row.children('td.grid_edit').each(function(){
+                    if (getFieldName($(g.t), $(this)) === field_name) {
+                        cell_found = true;
+                    }
+                    if (cell_found) {
+                        if (j >= 1 && ! next_cell_found) {
+                            right_cell = this;
+                            next_cell_found = true;
+                        } else {
+                            j++;
+                        }
+                    }
+                });
+            }
+
+            if (right_cell) {
+                g.hideEditCell(false, false, false, {move : true, cell : right_cell});
+            }
+        },
+
+        /**
          * Initialize grid editing feature.
          */
         initGridEdit: function () {
@@ -1690,6 +1927,18 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.showEditCell(cell);
                 }
                 e.stopPropagation();
+            }
+
+            function handleCtrlNavigation(e) {
+                if ((e.ctrlKey && e.which == 38 ) || (e.altKey && e.which == 38)) {
+                    g.moveUp(e);
+                } else if ((e.ctrlKey && e.which == 40)  || (e.altKey && e.which == 40)) {
+                    g.moveDown(e);
+                } else if ((e.ctrlKey && e.which == 37 ) || (e.altKey && e.which == 37)) {
+                    g.moveLeft(e);
+                } else if ((e.ctrlKey && e.which == 39)  || (e.altKey && e.which == 39)) {
+                    g.moveRight(e);
+                }
             }
 
             // create cell edit wrapper element
@@ -1729,7 +1978,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             $(g.t).find('td.data.click2')
                 .click(function (e) {
-                    $cell = $(this);
+                    var $cell = $(this);
                     // In the case of relational link, We want single click on the link
                     // to goto the link and double click to start grid-editing.
                     var $link = $(e.target);
@@ -1742,7 +1991,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         if (clicks == 1) {
                             // if there are no previous clicks,
                             // start the single click timer
-                            timer = setTimeout(function () {
+                            var timer = setTimeout(function () {
                                 // temporarily remove ajax class so the page loader will not handle it,
                                 // submit and then add it back
                                 $link.removeClass('ajax');
@@ -1770,6 +2019,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
                 });
 
+            $(g.cEditStd).on('keydown', 'input.edit_box, select', handleCtrlNavigation);
+
             $(g.cEditStd).find('.edit_box').focus(function (e) {
                 g.showEditArea();
             });
@@ -1786,6 +2037,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     e.preventDefault();
                 }
             });
+
+            $(g.cEditTextarea).on('keydown', 'textarea.edit_box, select', handleCtrlNavigation);
+
             $(g.cEditTextarea).find('.edit_box').focus(function (e) {
                 g.showEditArea();
             });
@@ -1846,7 +2100,15 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
      * Initialize grid
      ******************/
 
-    // wrap all data cells, except actions cell, with span
+    // wrap all truncated data cells with span indicating the original length
+    // todo update the original length after a grid edit
+    $(t).find('td.data.truncated:not(:has(span))')
+        .wrapInner(function() {
+            return '<span title="' + PMA_messages.strOriginalLength + ' ' +
+                $(this).data('originallength') + '"></span>';
+        });
+
+    // wrap remaining cells, except actions cell, with span
     $(t).find('th, td:not(:has(span))')
         .wrapInner('<span />');
 

@@ -10,6 +10,9 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+
+require_once 'libraries/Template.class.php';
+
 /**
  * build the html for columns of $colTypeCategory category
  * in form of given $listType in a table
@@ -20,7 +23,7 @@ if (! defined('PHPMYADMIN')) {
  *                                |Date and time using the _pgettext() format
  * @param string $listType        type of list to build, supported dropdown|checkbox
  *
- * @return HTML for list of columns in form of given list types
+ * @return string HTML for list of columns in form of given list types
  */
 function PMA_getHtmlForColumnsList(
     $db, $table, $colTypeCategory='all', $listType='dropdown'
@@ -31,7 +34,7 @@ function PMA_getHtmlForColumnsList(
         $columnTypeList = $types[$colTypeCategory];
     }
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
-    $columns = (array) $GLOBALS['dbi']->getColumns(
+    $columns = $GLOBALS['dbi']->getColumns(
         $db, $table, null,
         true, $GLOBALS['userlink']
     );
@@ -69,7 +72,7 @@ function PMA_getHtmlForColumnsList(
  * @param string  $table      current table
  * @param array   $columnMeta array containing default values for the fields
  *
- * @return HTML
+ * @return string HTML
  */
 function PMA_getHtmlForCreateNewColumn(
     $num_fields, $db, $table, $columnMeta=array()
@@ -78,25 +81,39 @@ function PMA_getHtmlForCreateNewColumn(
     $content_cells = array();
     $available_mime = array();
     $mime_map = array();
-    $header_cells = PMA_getHeaderCells(
-        true, null,
-        $cfgRelation['mimework'], $db, $table
-    );
     if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
         $mime_map = PMA_getMIME($db, $table);
         $available_mime = PMA_getAvailableMIMEtypes();
     }
     $comments_map = PMA_getComments($db, $table);
     for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
-        $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
-            $columnNumber, $columnMeta, '',
-            8, '', null, array(), null, null,
-            $comments_map, null, true,
-            array(), $cfgRelation,
-            isset($available_mime)?$available_mime:array(), $mime_map
+        $content_cells[$columnNumber] = array(
+            'columnNumber' => $columnNumber,
+            'columnMeta' => $columnMeta,
+            'type_upper' => '',
+            'length_values_input_size' => 8,
+            'length' => '',
+            'extracted_columnspec' => array(),
+            'submit_attribute' => null,
+            'comments_map' => $comments_map,
+            'fields_meta' => null,
+            'is_backup' => true,
+            'move_columns' => array(),
+            'cfgRelation' => $cfgRelation,
+            'available_mime' => isset($available_mime)?$available_mime:array(),
+            'mime_map' => $mime_map
         );
     }
-    return PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells);
+
+    return PMA\Template::get('columns_definitions/table_fields_definitions')
+        ->render(
+            array(
+            'is_backup' => true,
+            'fields_meta' => null,
+            'mimework' => $cfgRelation['mimework'],
+            'content_cells' => $content_cells
+            )
+        );
 }
 /**
  * build the html for step 1.1 of normalization
@@ -106,7 +123,7 @@ function PMA_getHtmlForCreateNewColumn(
  * @param string $normalizedTo up to which step normalization will go,
  * possible values 1nf|2nf|3nf
  *
- * @return HTML for step 1.1
+ * @return string HTML for step 1.1
  */
 function PMA_getHtmlFor1NFStep1($db, $table, $normalizedTo)
 {
@@ -159,7 +176,7 @@ function PMA_getHtmlFor1NFStep1($db, $table, $normalizedTo)
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for step 1.2
+ * @return string HTML contents for step 1.2
  */
 function PMA_getHtmlContentsFor1NFStep2($db, $table)
 {
@@ -193,8 +210,13 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
             . '<a href="#" id="addNewPrimary">'
             . __('+ Add a new primary key column') . '</a>';
     }
-    $res = array('legendText'=>$legendText, 'headText'=>$headText,
-        'subText'=>$subText, 'hasPrimaryKey'=>$hasPrimaryKey, 'extra'=>$extra);
+    $res = array(
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'hasPrimaryKey' => $hasPrimaryKey,
+        'extra' => $extra
+    );
     return $res;
 }
 
@@ -204,7 +226,7 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for step 1.4
+ * @return string HTML contents for step 1.4
  */
 function PMA_getHtmlContentsFor1NFStep4($db, $table)
 {
@@ -228,9 +250,11 @@ function PMA_getHtmlContentsFor1NFStep4($db, $table)
         . '" onclick="goToFinish1NF();"'
         . '/>';
     $res = array(
-            'legendText'=>$legendText, 'headText'=>$headText,
-            'subText'=>$subText, 'extra'=>$extra
-        );
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'extra' => $extra
+    );
     return $res;
 }
 
@@ -240,7 +264,7 @@ function PMA_getHtmlContentsFor1NFStep4($db, $table)
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for step 1.3
+ * @return string HTML contents for step 1.3
  */
 function PMA_getHtmlContentsFor1NFStep3($db, $table)
 {
@@ -272,9 +296,12 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
         $pk[] = $col->getName();
     }
     $res = array(
-            'legendText'=>$legendText, 'headText'=>$headText,
-            'subText'=>$subText, 'extra'=>$extra, 'primary_key'=> json_encode($pk)
-        );
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'extra' => $extra,
+        'primary_key' => json_encode($pk)
+    );
     return $res;
 }
 
@@ -284,7 +311,7 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for 2NF step 2.1
+ * @return string HTML contents for 2NF step 2.1
  */
 function PMA_getHtmlFor2NFstep1($db, $table)
 {
@@ -337,7 +364,7 @@ function PMA_getHtmlFor2NFstep1($db, $table)
                 . 'whose values combined together are sufficient'
                 . ' to determine the value of the column.'
             );
-            $cnt=0;
+            $cnt = 0;
             foreach ($columns as $column) {
                 if (!in_array($column, $pk)) {
                     $cnt++;
@@ -360,8 +387,11 @@ function PMA_getHtmlFor2NFstep1($db, $table)
         $extra = '<h3>' . __('Table is already in second normal form.') . '</h3>';
     }
     $res = array(
-        'legendText'=>$legendText, 'headText'=>$headText,
-        'subText'=>$subText,'extra'=>$extra, 'primary_key'=> $key
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'extra' => $extra,
+        'primary_key' => $key
     );
     return $res;
 }
@@ -372,7 +402,7 @@ function PMA_getHtmlFor2NFstep1($db, $table)
  * @param array  $partialDependencies array containing all the dependencies
  * @param string $table               current table
  *
- * @return HTML
+ * @return string HTML
  */
 function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
 {
@@ -384,7 +414,7 @@ function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
         ), htmlspecialchars($table)
     ) . '</b></p>';
     $tableName = $table;
-    $i=1;
+    $i = 1;
     foreach ($partialDependencies as $key=>$dependents) {
         $html .= '<p><input type="text" name="' . htmlspecialchars($key)
             . '" value="' . htmlspecialchars($tableName) . '"/>'
@@ -466,8 +496,10 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
         }
     }
     return array(
-        'legendText'=>__('End of step'), 'headText'=>$headText,
-        'queryError'=>$error, 'extra'=>$message
+        'legendText' => __('End of step'),
+        'headText' => $headText,
+        'queryError' => $error,
+        'extra' => $message
     );
 }
 
@@ -484,7 +516,7 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
 function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
 {
     $html = "";
-    $i=1;
+    $i = 1;
     $newTables = array();
     foreach ($tables as $table=>$arrDependson) {
         if (count(array_unique($arrDependson)) == 1) {
@@ -528,7 +560,7 @@ function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
             }
         }
     }
-    return array('html'=>$html, 'newTables'=>$newTables);
+    return array('html' => $html, 'newTables' => $newTables);
 }
 
 /**
@@ -609,8 +641,10 @@ function PMA_createNewTablesFor3NF($newTables, $db)
         }
     }
     return array(
-        'legendText'=>__('End of step'), 'headText'=>$headText,
-        'queryError'=>$error, 'extra'=>$message
+        'legendText' => __('End of step'),
+        'headText' => $headText,
+        'queryError' => $error,
+        'extra' => $message
     );
 }
 /**
@@ -672,7 +706,7 @@ function PMA_moveRepeatingGroup(
         }
     }
     return array(
-        'queryError'=>$error, 'message'=>$message
+        'queryError' => $error, 'message' => $message
     );
 }
 
@@ -700,8 +734,8 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
         . 'Note: A column may have no transitive dependency, '
         . 'in that case you don\'t have to select any.'
     );
-    $cnt=0;
-    foreach ($tables as $key=>$table) {
+    $cnt = 0;
+    foreach ($tables as $table) {
         $primary = PMA_Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $selectTdForm = "";
@@ -710,10 +744,10 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
             $pk[] = $col->getName();
         }
         $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
-            $columns = (array) $GLOBALS['dbi']->getColumnNames(
-                $db, $table, $GLOBALS['userlink']
-            );
-        if (count($columns)-count($pk)<=1) {
+        $columns = (array) $GLOBALS['dbi']->getColumnNames(
+            $db, $table, $GLOBALS['userlink']
+        );
+        if (count($columns) - count($pk) <= 1) {
             continue;
         }
         foreach ($columns as $column) {
@@ -747,15 +781,17 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
         $extra = "<h3>" . __("Table is already in Third normal form!") . "</h3>";
     }
     $res = array(
-        'legendText'=>$legendText, 'headText'=>$headText,
-        'subText'=>$subText,'extra'=>$extra
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'extra' => $extra
     );
     return $res;
 }
 /**
  * get html for options to normalize table
  *
- * @return HTML
+ * @return string HTML
  */
 function PMA_getHtmlForNormalizetable()
 {
@@ -768,7 +804,8 @@ function PMA_getHtmlForNormalizetable()
     $html_output .= '<fieldset>';
     $html_output .= '<legend>'
         . __('Improve table structure (Normalization):') . '</legend>';
-    $html_output .= '<h3>' . __('Select up to what step you want to normalize') . '</h3>';
+    $html_output .= '<h3>' . __('Select up to what step you want to normalize')
+        . '</h3>';
     $choices = array(
             '1nf' => __('First step of normalization (1NF)'),
             '2nf'      => __('Second step of normalization (1NF+2NF)'),
@@ -796,7 +833,7 @@ function PMA_getHtmlForNormalizetable()
  * @param string $table current table
  * @param string $db    current database
  *
- * @return HTML containing the list of all the possible partial dependencies
+ * @return string HTML containing the list of all the possible partial dependencies
  */
 function PMA_findPartialDependencies($table, $db)
 {

@@ -104,9 +104,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         // USE query changes the database, son need to track
         // while running multiple queries
         $is_use_query
-            = (/*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false)
-                ? true
-                : false;
+            = /*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false;
 
         $max_sql_len = max(
             $max_sql_len,
@@ -1006,10 +1004,11 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     if ($create_db) {
         if (PMA_DRIZZLE) {
             $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_Util::backquote($db_name)
-                . " COLLATE " . $collation;
+                . " COLLATE " . $collation . ";";
         } else {
             $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_Util::backquote($db_name)
-                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
+                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation
+                . ";";
         }
     }
 
@@ -1252,10 +1251,17 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     $db_ops_url = 'db_operations.php' . PMA_URL_getCommon($params);
 
     $message = '<br /><br />';
-    $message .= '<strong>' . __('The following structures have either been created or altered. Here you can:') . '</strong><br />';
-    $message .= '<ul><li>' . __("View a structure's contents by clicking on its name.") . '</li>';
-    $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link.') . '</li>';
-    $message .= '<li>' . __('Edit structure by following the "Structure" link.') . '</li>';
+    $message .= '<strong>' . __(
+        'The following structures have either been created or altered. Here you can:'
+    ) . '</strong><br />';
+    $message .= '<ul><li>' . __(
+        "View a structure's contents by clicking on its name."
+    ) . '</li>';
+    $message .= '<li>' . __(
+        'Change any of its settings by clicking the corresponding "Options" link.'
+    ) . '</li>';
+    $message .= '<li>' . __('Edit structure by following the "Structure" link.')
+        . '</li>';
     $message .= sprintf(
         '<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'
         . __('Options') . '</a>)</li>',
@@ -1288,9 +1294,12 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
         unset($params);
 
-        if (! PMA_Table::isView($db_name, $tables[$i][TBL_NAME])) {
+        $_table = new PMA_Table($tables[$i][TBL_NAME], $db_name);
+        if (! $_table->isView()) {
             $message .= sprintf(
-                '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Structure') . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
+                '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
+                    'Structure'
+                ) . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                 $tbl_url,
                 sprintf(
                     __('Go to table: %s'),
@@ -1388,33 +1397,33 @@ function PMA_handleSimulateDMLRequest()
             continue;
         }
 
-        // Parse and Analyze the query.
-        $parsed_sql = PMA_SQP_parse($sql_query);
-        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+        // Parsing the query.
+        $parser = new SqlParser\Parser($sql_query);
+
+        if (empty($parser->statements[0])) {
+            continue;
+        }
+
+        $statement = $parser->statements[0];
+
         $analyzed_sql_results = array(
-            'parsed_sql' => $parsed_sql,
-            'analyzed_sql' => $analyzed_sql
+            'query' => $sql_query,
+            'parser' => $parser,
+            'statement' => $statement,
         );
 
-        // Only UPDATE/DELETE queries accepted.
-        $query_type = $analyzed_sql_results['analyzed_sql'][0]['querytype'];
-        if ($query_type != 'UPDATE' && $query_type != 'DELETE') {
+        if ((!(($statement instanceof SqlParser\Statements\UpdateStatement)
+            || ($statement instanceof SqlParser\Statements\DeleteStatement)))
+            || (!empty($statement->join))
+        ) {
             $error = $error_msg;
             break;
         }
 
-        // Only single-table queries accepted.
-        $table_references = PMA_getTableReferences($analyzed_sql_results);
-        $table_references = $table_references ? $table_references : '';
-        if (preg_match('/JOIN/i', $table_references)) {
+        $tables = SqlParser\Utils\Query::getTables($statement);
+        if (count($tables) > 1) {
             $error = $error_msg;
             break;
-        } else {
-            $tables = explode(',', $table_references);
-            if (count($tables) > 1) {
-                $error = $error_msg;
-                break;
-            }
         }
 
         // Get the matched rows for the query.
@@ -1444,20 +1453,18 @@ function PMA_handleSimulateDMLRequest()
  */
 function PMA_getMatchedRows($analyzed_sql_results = array())
 {
-    // Get the query type.
-    $query_type = (isset($analyzed_sql_results['analyzed_sql'][0]['querytype']))
-        ? $analyzed_sql_results['analyzed_sql'][0]['querytype']
-        : '';
+    $statement = $analyzed_sql_results['statement'];
 
     $matched_row_query = '';
-    if ($query_type == 'DELETE') {
+    if ($statement instanceof SqlParser\Statements\DeleteStatement) {
         $matched_row_query = PMA_getSimulatedDeleteQuery($analyzed_sql_results);
-    } else if ($query_type == 'UPDATE') {
+    } elseif ($statement instanceof SqlParser\Statements\UpdateStatement) {
         $matched_row_query = PMA_getSimulatedUpdateQuery($analyzed_sql_results);
     }
 
     // Execute the query and get the number of matched rows.
     $matched_rows = PMA_executeMatchedRowQuery($matched_row_query);
+
     // URL to matched rows.
     $_url_params = array(
         'db'        => $GLOBALS['db'],
@@ -1466,9 +1473,7 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
     $matched_rows_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
 
     return array(
-        'sql_query' => PMA_Util::formatSql(
-            $analyzed_sql_results['parsed_sql']['raw']
-        ),
+        'sql_query' => PMA_Util::formatSql($analyzed_sql_results['query']),
         'matched_rows' => $matched_rows,
         'matched_rows_url' => $matched_rows_url
     );
@@ -1483,94 +1488,51 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
  */
 function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
 {
-    $where_clause = '';
-    $extra_where_clause = array();
-    $target_cols = array();
+    $table_references = SqlParser\Utils\Query::getTables(
+        $analyzed_sql_results['statement']
+    );
 
-    $prev_term = '';
-    $i = 0;
-    $in_function = 0;
-    foreach ($analyzed_sql_results['parsed_sql'] as $key => $term) {
-        if (! isset($get_set_expr)
-            && preg_match(
-                '/\bSET\b/i',
-                isset($term['data']) ? $term['data'] : ''
-            )
-        ) {
-            $get_set_expr = true;
-            continue;
-        }
+    $where = SqlParser\Utils\Query::getClause(
+        $analyzed_sql_results['statement'],
+        $analyzed_sql_results['parser']->list,
+        'WHERE'
+    );
 
-        if (isset($get_set_expr)) {
-            if (preg_match(
-                '/\bWHERE\b|\bORDER BY\b|\bLIMIT\b/i',
-                isset($term['data']) ? $term['data'] : ''
-            )
-            ) {
-                break;
-            }
-            if(!$in_function){
-                if ($term['type'] == 'punct_listsep') {
-                    $extra_where_clause[] = ' OR ';
-                } else if ($term['type'] == 'punct') {
-                    $extra_where_clause[] = ' <> ';
-                } else if($term['type'] == 'alpha_functionName') {
-                    array_pop($extra_where_clause);
-                    array_pop($extra_where_clause);
-                } else {
-                    $extra_where_clause[] = $term['data'];
-                }
-            }
-            else if($term['type'] == 'punct_bracket_close_round') {
-                $in_function--;
-            }
-
-            if($term['type'] == 'alpha_functionName') {
-                $in_function++;
-            }
-
-            // Get columns in SET expression.
-            if ($prev_term != 'punct') {
-                if ($term['type'] != 'punct_listsep'
-                    && $term['type'] != 'punct'
-                    && $term['type'] != 'punct_bracket_open_round'
-                    && $term['type'] != 'punct_bracket_close_round'
-                    && !$in_function
-                    && isset($term['data'])
-                ) {
-                    if (isset($target_cols[$i])) {
-                        $target_cols[$i] .= $term['data'];
-                    } else {
-                        $target_cols[$i] = $term['data'];
-                    }
-                }
-            } else {
-                $i++;
-            }
-
-            $prev_term = $term['type'];
-            continue;
-        }
+    if (empty($where)) {
+        $where = '1';
     }
 
-    // Get table_references.
-    $table_references = PMA_getTableReferences($analyzed_sql_results);
-    $target_cols = implode(', ', $target_cols);
-
-    // Get WHERE clause.
-    $where_clause .= $analyzed_sql_results['analyzed_sql'][0]['where_clause'];
-    if (empty($where_clause)) {
-        $where_clause = (!empty($extra_where_clause) && $extra_where_clause[0]) ? implode(' ',$extra_where_clause) : '1';
+    $columns = array();
+    $diff = array();
+    foreach ($analyzed_sql_results['statement']->set as $set) {
+        $columns[] = $set->column;
+        $diff[] = $set->column . ' <> ' . $set->value;
+    }
+    if (!empty($diff)) {
+        $where .= ' AND (' . implode(' OR ', $diff) . ')';
     }
 
-    $matched_row_query = 'SELECT '
-        . $target_cols
-        . ' FROM '
-        . $table_references
-        . ' WHERE '
-        . $where_clause;
+    $order_and_limit = '';
 
-    return $matched_row_query;
+    if (!empty($analyzed_sql_results['statement']->order)) {
+        $order_and_limit .= ' ORDER BY ' . SqlParser\Utils\Query::getClause(
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'ORDER BY'
+        );
+    }
+
+    if (!empty($analyzed_sql_results['statement']->limit)) {
+        $order_and_limit .= ' LIMIT ' . SqlParser\Utils\Query::getClause(
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'LIMIT'
+        );
+    }
+
+    return 'SELECT '  . implode(', ', $columns) .
+        ' FROM ' . implode(', ', $table_references) .
+        ' WHERE ' . $where . $order_and_limit;
 }
 
 /**
@@ -1582,115 +1544,40 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
  */
 function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
 {
-    $where_clause = '';
+    $table_references = SqlParser\Utils\Query::getTables(
+        $analyzed_sql_results['statement']
+    );
 
-    $where_clause .= $analyzed_sql_results['analyzed_sql'][0]['where_clause'];
-    if (empty($where_clause) && empty($extra_where_clause)) {
-        $where_clause = '1';
+    $where = SqlParser\Utils\Query::getClause(
+        $analyzed_sql_results['statement'],
+        $analyzed_sql_results['parser']->list,
+        'WHERE'
+    );
+
+    if (empty($where)) {
+        $where = '1';
     }
 
-    // Get the table_references.
-    $table_references = PMA_getTableReferences($analyzed_sql_results);
+    $order_and_limit = '';
 
-    $matched_row_query = 'SELECT * '
-        . ' FROM '
-        . $table_references
-        . ' WHERE '
-        . $where_clause;
-
-    return $matched_row_query;
-}
-
-/**
- * Finds table_references from a given query.
- * Queries Supported: INSERT, UPDATE, DELETE, REPLACE, ALTER, DROP, TRUNCATE
- *                    and RENAME.
- *
- * @param array $analyzed_sql_results Analyzed SQL results from parser
- *
- * @return string table_references
- */
-function PMA_getTableReferences($analyzed_sql_results)
-{
-    $table_references = '';
-    foreach ($analyzed_sql_results['parsed_sql'] as $key => $term) {
-        // Skip first KeyWord and other invalid keys.
-        if ($key == 0 || ! isset($term['data'])) {
-            continue;
-        }
-
-        // Get the query type.
-        $query_type = (isset($analyzed_sql_results['analyzed_sql'][0]['querytype']))
-            ? $analyzed_sql_results['analyzed_sql'][0]['querytype']
-            : '';
-
-        // Terms to 'ignore' from query for table_references.
-        $ignore_re = '/';
-        // Terminating condition for table_references.
-        $terminate_re = '/';
-
-        // Create relevant Regular Expressions.
-        switch ($query_type) {
-        case 'REPLACE':
-        case 'INSERT':
-            $ignore_re .= '\bINSERT\b|\bREPLACE\b|\bLOW_PRIORITY\b|\bDELAYED\b'
-                . '|\bHIGH_PRIORITY\b|\bIGNORE\b|\bINTO\b';
-            $terminate_re .= '\bPARTITION\b|\(|\bVALUE\b|\bVALUES\b|\bSELECT\b';
-            break;
-        case 'UPDATE':
-            $ignore_re .= '\bUPDATE\b|\bLOW_PRIORITY\b|\bIGNORE\b';
-            $terminate_re .= '\bSET\b|\bUSING\b';
-            break;
-        case 'DELETE':
-            $ignore_re .= '\bDELETE\b|\bLOW_PRIORITY\b|\bQUICK\b|\bIGNORE\b'
-                . '|\bFROM\b';
-            $terminate_re .= '\bPARTITION\b|\bWHERE\b|\bORDER\b|\bLIMIT\b|\bUSING\b';
-            break;
-        case 'ALTER':
-            $ignore_re .= '\bALTER\b|\bONLINE\b|\bOFFLINE\b|\bIGNORE\b|\bTABLE\b';
-            $terminate_re .= '\bADD\b|\bALTER\b|\bCHANGE\b|\bMODIFY\b|\bDROP\b'
-                . '|\bDISABLE\b|\bENABLE\b|\bRENAME\b|\bORDER\b|\bCONVERT\b'
-                . '|\bDEFAULT\b|\bDISCARD\b|\bIMPORT\b|\bCOALESCE\b|\bREORGANIZE\b'
-                . '|\bANALYZE\b|\bCHECK\b|\bOPTIMIZE\b|\bREBUILD\b|\bREPAIR\b'
-                . '|\bPARTITION\b|\bREMOVE\b|\bCHARACTER\b';
-            break;
-        case 'DROP':
-            $ignore_re .= '\bDROP\b|\bTEMPORARY\b|\bTABLE\b|\bIF\b|\bEXISTS\b';
-            $terminate_re .= '\bRESTRICT\b|\bCASCADE\b';
-            break;
-        case 'TRUNCATE':
-            $ignore_re .= '\bTRUNCATE\b|\bTABLE\b';
-            $terminate_re .= '';
-            break;
-        case 'RENAME':
-            $ignore_re .= '\bRENAME\b|\bTABLE\b';
-            $terminate_re .= '\bTO\b';
-            break;
-        default:
-            return false;
-        }
-
-        // Ignore 'case' in RegEx.
-        $ignore_re .= '/i';
-        $terminate_re .= '/i';
-
-        if ($query_type != 'TRUNCATE'
-            && preg_match($terminate_re, $term['data'])
-        ) {
-            break;
-        }
-
-        if (preg_match($ignore_re, $term['data'])
-            || ! is_numeric($key)
-            || $key == 0
-        ) {
-            continue;
-        }
-
-        $table_references .= ' ' . $term['data'];
+    if (!empty($analyzed_sql_results['statement']->order)) {
+        $order_and_limit .= ' ORDER BY ' . SqlParser\Utils\Query::getClause(
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'ORDER BY'
+        );
     }
 
-    return $table_references;
+    if (!empty($analyzed_sql_results['statement']->limit)) {
+        $order_and_limit .= ' LIMIT ' . SqlParser\Utils\Query::getClause(
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'LIMIT'
+        );
+    }
+
+    return 'SELECT * FROM ' . implode(', ', $table_references) .
+        ' WHERE ' . $where . $order_and_limit;
 }
 
 /**
@@ -1709,93 +1596,6 @@ function PMA_executeMatchedRowQuery($matched_row_query)
     $result = $GLOBALS['dbi']->numRows($result);
 
     return $result;
-}
-
-/**
- * Extracts unique table names from table_references.
- *
- * @param string $table_references table_references
- *
- * @return array $table_names
- */
-function PMA_getTableNamesFromTableReferences($table_references)
-{
-    $table_names = array();
-    $parsed_data = PMA_SQP_parse($table_references);
-
-    $prev_term = array(
-        'data' => '',
-        'type' => ''
-    );
-    $on_encountered = false;
-    $qualifier_encountered = false;
-    $i = 0;
-    foreach ($parsed_data as $key => $term) {
-        // To skip first 'raw' key and other invalid keys.
-        if (! is_numeric($key)
-            || ! isset($term['data'])
-            || ! isset($term['type'])
-        ) {
-            continue;
-        }
-
-        $add_to_table_names = true;
-
-        // Un-quote the data, if any.
-        if ($term['type'] == 'quote_backtick') {
-            $term['data'] = PMA_Util::unQuote($term['data']);
-            $term['type'] = 'alpha_identifier';
-        }
-
-        // New table name expected after 'JOIN' keyword.
-        if (preg_match('/\bJOIN\b/i', $term['data'])) {
-            $on_encountered = false;
-        }
-
-        // If term is a qualifier, set flag.
-        if ($term['type'] == 'punct_qualifier') {
-            $qualifier_encountered = true;
-        }
-
-        // Skip the JOIN conditions after 'ON' keyword.
-        if (preg_match('/\bON\b/i', $term['data'])) {
-            $on_encountered = true;
-        }
-
-        // If the word is not an 'identifier', skip it.
-        if ($term['type'] != 'alpha_identifier') {
-            $add_to_table_names = false;
-        }
-
-        // Skip table 'alias'.
-        if (preg_match('/\bAS\b/i', $prev_term['data'])
-            || $prev_term['type'] == 'alpha_identifier'
-        ) {
-            $add_to_table_names = false;
-        }
-
-        // Everything fine up to now, add name to list if 'unique'.
-        if ($add_to_table_names
-            && ! $on_encountered
-            && ! in_array($term['data'], $table_names)
-        ) {
-            if (! $qualifier_encountered) {
-                $table_names[] = PMA_Util::backquote($term['data']);
-                $i++;
-            } else {
-                // If qualifier encountered, concatenate DB name and table name.
-                $table_names[$i-1] = $table_names[$i-1]
-                    . '.'
-                    . PMA_Util::backquote($term['data']);
-                $qualifier_encountered = false;
-            }
-        }
-
-        // Update previous term.
-        $prev_term = $term;
-    }
-
-    return $table_names;
 }
 
 /**
@@ -1852,37 +1652,25 @@ function PMA_handleRollbackRequest($sql_query)
  */
 function PMA_checkIfRollbackPossible($sql_query)
 {
-    // Supported queries.
-    $supported_queries = array(
-        'INSERT',
-        'UPDATE',
-        'DELETE',
-        'REPLACE'
-    );
+    $parser = new SqlParser\Parser($sql_query);
 
-    // Parse and Analyze the query.
-    $parsed_sql = PMA_SQP_parse($sql_query);
-    $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-    $analyzed_sql_results = array(
-        'parsed_sql' => $parsed_sql,
-        'analyzed_sql' => $analyzed_sql
-    );
+    if (empty($parser->statements[0])) {
+        return false;
+    }
 
-    // Get the query type.
-    $query_type = (isset($analyzed_sql_results['analyzed_sql'][0]['querytype']))
-        ? $analyzed_sql_results['analyzed_sql'][0]['querytype']
-        : '';
+    $statement = $parser->statements[0];
 
     // Check if query is supported.
-    if (! in_array($query_type, $supported_queries)) {
+    if (!(($statement instanceof SqlParser\Statements\InsertStatement)
+        || ($statement instanceof SqlParser\Statements\UpdateStatement)
+        || ($statement instanceof SqlParser\Statements\DeleteStatement)
+        || ($statement instanceof SqlParser\Statements\ReplaceStatement))
+    ) {
         return false;
     }
 
     // Get table_references from the query.
-    $table_references = PMA_getTableReferences($analyzed_sql_results);
-    $table_references = $table_references ? $table_references : '';
-    // Get table names from table_references.
-    $tables = PMA_getTableNamesFromTableReferences($table_references);
+    $tables = SqlParser\Utils\Query::getTables($statement);
 
     // Check if each table is 'InnoDB'.
     foreach ($tables as $table) {
@@ -1951,4 +1739,3 @@ function PMA_isTableTransactional($table)
         return false;
     }
 }
-?>

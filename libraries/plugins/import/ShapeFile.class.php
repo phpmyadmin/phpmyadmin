@@ -27,7 +27,7 @@ class PMA_ShapeFile extends ShapeFile
      *
      * @return boolean whether the 'dbase' extension is loaded
      */
-    function _isDbaseLoaded()
+    private function _isDbaseLoaded()
     {
         return extension_loaded('dbase');
     }
@@ -41,7 +41,7 @@ class PMA_ShapeFile extends ShapeFile
      * @return void
      * @see ShapeFile::loadFromFile()
      */
-    function loadFromFile($FileName)
+    public function loadFromFile($FileName)
     {
         $this->_loadHeaders();
         $this->_loadRecords();
@@ -56,7 +56,7 @@ class PMA_ShapeFile extends ShapeFile
      * @return void
      * @see ShapeFile::_loadHeaders()
      */
-    function _loadHeaders()
+    public function _loadHeaders()
     {
         ImportShp::readFromBuffer(24);
         $this->fileLength = loadData("N", ImportShp::readFromBuffer(4));
@@ -81,7 +81,7 @@ class PMA_ShapeFile extends ShapeFile
      * @return boolean|void
      * @see ShapeFile::_loadRecords()
      */
-    function _loadRecords()
+    public function _loadRecords()
     {
         global $eof;
         ImportShp::readFromBuffer(32);
@@ -99,4 +99,3 @@ class PMA_ShapeFile extends ShapeFile
         }
     }
 }
-?>

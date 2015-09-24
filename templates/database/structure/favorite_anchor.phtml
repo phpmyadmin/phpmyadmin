@@ -1,0 +1,15 @@
+<?php
+// Check if current table is already in favorite list.
+$fav_params = array('db' => $db,
+    'ajax_request' => true,
+    'favorite_table' => $current_table['TABLE_NAME'],
+    (($already_favorite ? 'remove' : 'add') . '_favorite') => true
+);
+?>
+<a id="<?php echo md5($current_table['TABLE_NAME']); ?>_favorite_anchor"
+   class="ajax favorite_table_anchor"
+   href="<?php echo 'db_structure.php' . PMA_URL_getCommon($fav_params); ?>"
+   title="<?php echo $already_favorite ? __("Remove from Favorites") : __("Add to Favorites"); ?>"
+   data-favtargets="<?php echo md5($db . "." . $current_table['TABLE_NAME']); ?>" >
+    <?php echo !$already_favorite ? $titles['NoFavorite'] : $titles['Favorite']; ?>
+</a>

@@ -176,7 +176,7 @@ class Advisor
     public function translate($str, $param = null)
     {
         $string = _gettext(Advisor::escapePercent($str));
-        if ( ! is_null($param)) {
+        if (! is_null($param)) {
             $params = $this->ruleExprEvaluate('array(' . $param . ')');
         } else {
             $params = array();
@@ -522,5 +522,3 @@ function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
 {
     return implode(' ', PMA_Util::formatByteDown($value, $limes, $comma));
 }
-
-?>

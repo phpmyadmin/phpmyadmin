@@ -125,4 +125,3 @@ function PMA_convertAIXMapCharsets($in_charset, $out_charset)
     return array($in_charset, $out_charset);
 }
 
-?>

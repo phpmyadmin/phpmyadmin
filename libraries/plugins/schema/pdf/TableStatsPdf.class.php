@@ -33,6 +33,8 @@ class Table_Stats_Pdf extends TableStats
     /**
      * The "Table_Stats_Pdf" constructor
      *
+     * @param object  $diagram        The PDF diagram
+     * @param string  $db             The database name
      * @param string  $tableName      The table name
      * @param integer $fontSize       The font size
      * @param integer $pageNumber     The current page number (from the
@@ -43,17 +45,15 @@ class Table_Stats_Pdf extends TableStats
      * @param boolean $offline        Whether the coordinates are sent
      *                                from the browser
      *
-     * @global object $pdf         The current PDF document
-     *
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
      *     Table_Stats_Pdf::Table_Stats_setHeight
      */
-    function __construct($tableName, $fontSize, $pageNumber, &$sameWideWidth,
+    public function __construct(
+        $diagram, $db, $tableName, $fontSize, $pageNumber, &$sameWideWidth,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
-        global $pdf;
         parent::__construct(
-            $pdf, $GLOBALS['db'], $pageNumber, $tableName,
+            $diagram, $db, $pageNumber, $tableName,
             $showKeys, $tableDimension, $offline
         );
 
@@ -103,8 +103,6 @@ class Table_Stats_Pdf extends TableStats
      *
      * @param integer $fontSize The font size
      *
-     * @global object $pdf The current PDF document
-     *
      * @access private
      *
      * @return void
@@ -113,21 +111,19 @@ class Table_Stats_Pdf extends TableStats
      */
     private function _setWidth($fontSize)
     {
-        global $pdf;
-
         foreach ($this->fields as $field) {
-            $this->width = max($this->width, $pdf->GetStringWidth($field));
+            $this->width = max($this->width, $this->diagram->GetStringWidth($field));
         }
-        $this->width += $pdf->GetStringWidth('      ');
-        $pdf->SetFont($this->_ff, 'B', $fontSize);
+        $this->width += $this->diagram->GetStringWidth('      ');
+        $this->diagram->SetFont($this->_ff, 'B', $fontSize);
         /*
          * it is unknown what value must be added, because
          * table title is affected by the table width value
          */
-        while ($this->width < $pdf->GetStringWidth($this->getTitle())) {
+        while ($this->width < $this->diagram->GetStringWidth($this->getTitle())) {
             $this->width += 5;
         }
-        $pdf->SetFont($this->_ff, '', $fontSize);
+        $this->diagram->SetFont($this->_ff, '', $fontSize);
     }
 
     /**
@@ -149,8 +145,6 @@ class Table_Stats_Pdf extends TableStats
      * @param boolean         $withDoc  Whether to include links to documentation
      * @param boolean|integer $setColor Whether to display color
      *
-     * @global object $pdf The current PDF document
-     *
      * @access public
      *
      * @return void
@@ -159,21 +153,19 @@ class Table_Stats_Pdf extends TableStats
      */
     public function tableDraw($fontSize, $withDoc, $setColor = 0)
     {
-        global $pdf;
-
-        $pdf->setXyScale($this->x, $this->y);
-        $pdf->SetFont($this->_ff, 'B', $fontSize);
+        $this->diagram->setXyScale($this->x, $this->y);
+        $this->diagram->SetFont($this->_ff, 'B', $fontSize);
         if ($setColor) {
-            $pdf->SetTextColor(200);
-            $pdf->SetFillColor(0, 0, 128);
+            $this->diagram->SetTextColor(200);
+            $this->diagram->SetFillColor(0, 0, 128);
         }
         if ($withDoc) {
-            $pdf->SetLink($pdf->PMA_links['RT'][$this->tableName]['-'], -1);
+            $this->diagram->SetLink($this->diagram->PMA_links['RT'][$this->tableName]['-'], -1);
         } else {
-            $pdf->PMA_links['doc'][$this->tableName]['-'] = '';
+            $this->diagram->PMA_links['doc'][$this->tableName]['-'] = '';
         }
 
-        $pdf->cellScale(
+        $this->diagram->cellScale(
             $this->width,
             $this->heightCell,
             $this->getTitle(),
@@ -181,29 +173,29 @@ class Table_Stats_Pdf extends TableStats
             1,
             'C',
             $setColor,
-            $pdf->PMA_links['doc'][$this->tableName]['-']
+            $this->diagram->PMA_links['doc'][$this->tableName]['-']
         );
-        $pdf->setXScale($this->x);
-        $pdf->SetFont($this->_ff, '', $fontSize);
-        $pdf->SetTextColor(0);
-        $pdf->SetFillColor(255);
+        $this->diagram->setXScale($this->x);
+        $this->diagram->SetFont($this->_ff, '', $fontSize);
+        $this->diagram->SetTextColor(0);
+        $this->diagram->SetFillColor(255);
 
         foreach ($this->fields as $field) {
             if ($setColor) {
                 if (in_array($field, $this->primary)) {
-                    $pdf->SetFillColor(215, 121, 123);
+                    $this->diagram->SetFillColor(215, 121, 123);
                 }
                 if ($field == $this->displayfield) {
-                    $pdf->SetFillColor(142, 159, 224);
+                    $this->diagram->SetFillColor(142, 159, 224);
                 }
             }
             if ($withDoc) {
-                $pdf->SetLink($pdf->PMA_links['RT'][$this->tableName][$field], -1);
+                $this->diagram->SetLink($this->diagram->PMA_links['RT'][$this->tableName][$field], -1);
             } else {
-                $pdf->PMA_links['doc'][$this->tableName][$field] = '';
+                $this->diagram->PMA_links['doc'][$this->tableName][$field] = '';
             }
 
-            $pdf->cellScale(
+            $this->diagram->cellScale(
                 $this->width,
                 $this->heightCell,
                 ' ' . $field,
@@ -211,12 +203,11 @@ class Table_Stats_Pdf extends TableStats
                 1,
                 'L',
                 $setColor,
-                $pdf->PMA_links['doc'][$this->tableName][$field]
+                $this->diagram->PMA_links['doc'][$this->tableName][$field]
             );
-            $pdf->setXScale($this->x);
-            $pdf->SetFillColor(255);
+            $this->diagram->setXScale($this->x);
+            $this->diagram->SetFillColor(255);
         }
     }
 }
 
-?>

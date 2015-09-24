@@ -65,4 +65,3 @@ class ExportPluginProperties extends PluginPropertyItem
         $this->_forceFile = $forceFile;
     }
 }
-?>

@@ -1,0 +1,42 @@
+<form method="post"
+      action="tbl_find_replace.php"
+      name="previewForm"
+      id="previewForm">
+    <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
+    <input type="hidden" name="replace" value="true" />
+    <input type="hidden" name="columnIndex" value="<?php echo $columnIndex; ?>" />
+    <input type="hidden" name="findString" value="<?php echo htmlspecialchars($find); ?>" />
+    <input type="hidden" name="replaceWith" value="<?php echo htmlspecialchars($replaceWith); ?>" />
+    <input type="hidden" name="useRegex" value="<?php echo $useRegex; ?>" />
+
+    <fieldset id="fieldset_find_replace_preview">
+        <legend><?php echo __('Find and replace - preview'); ?></legend>
+        <table id="previewTable">
+            <thead>
+            <tr>
+                <th><?php echo __('Count'); ?></th>
+                <th><?php echo __('Original string'); ?></th>
+                <th><?php echo __('Replaced string'); ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php $odd = true; ?>
+            <?php if (is_array($result)): ?>
+                <?php foreach ($result as $row): ?>
+                    <?php $val = $row[0]; $replaced = $row[1]; $count = $row[2]; ?>
+                    <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
+                        <td class="right"><?php echo htmlspecialchars($count); ?></td>
+                        <td><?php echo htmlspecialchars($val); ?></td>
+                        <td><?php echo htmlspecialchars($replaced); ?></td>
+                    </tr>
+                    <?php $odd = ! $odd; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </fieldset>
+
+    <fieldset class="tblFooters">
+        <input type="submit" name="replace" value="<?php echo __('Replace'); ?>" />
+    </fieldset>
+</form>

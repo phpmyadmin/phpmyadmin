@@ -62,8 +62,8 @@ class Node
     public $parent;
 
     /**
-     * @var array An array of Node objects that are
-     *            direct children of this node
+     * @var Node[] An array of Node objects that are
+     *             direct children of this node
      */
     public $children = array();
 
@@ -101,7 +101,7 @@ class Node
     public $classes = '';
 
     /**
-     * @var string Whether this node is a link for creating new objects
+     * @var bool Whether this node is a link for creating new objects
      */
     public $isNew = false;
 
@@ -124,8 +124,6 @@ class Node
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
-     *
-     * @return Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
@@ -211,14 +209,14 @@ class Node
         $parents = array();
         if ($self
             && ($this->type != Node::CONTAINER || $containers)
-            && ($this->is_group != true || $groups)
+            && (!$this->is_group || $groups)
         ) {
             $parents[] = $this;
         }
         $parent = $this->parent;
         while (isset($parent)) {
-            if (   ($parent->type != Node::CONTAINER || $containers)
-                && ($parent->is_group != true || $groups)
+            if (($parent->type != Node::CONTAINER || $containers)
+                && (!$parent->is_group || $groups)
             ) {
                 $parents[] = $parent;
             }
@@ -386,16 +384,24 @@ class Node
                 $query = "SHOW DATABASES ";
                 $query .= $this->_getWhereClause('Database', $searchClause);
                 $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr[0];
-                            $count++;
-                        }
-                        $pos--;
+                if ($handle === false) {
+                    return $retval;
+                }
+
+                $count = 0;
+                if (!$GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                    return $retval;
+                }
+
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($count < $maxItems) {
+                        $retval[] = $arr[0];
+                        $count++;
+                    } else {
+                        break;
                     }
                 }
+
                 return $retval;
             }
 
@@ -795,7 +801,7 @@ class Node
     public function getNavigationHidingData()
     {
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+        if ($cfgRelation['navwork']) {
             $navTable = PMA_Util::backquote($cfgRelation['db'])
             . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT `db_name`, COUNT(*) AS `count` FROM " . $navTable
@@ -810,4 +816,3 @@ class Node
         return null;
     }
 }
-?>

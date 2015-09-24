@@ -1,0 +1,10 @@
+<input id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>"
+       type="text"
+       name="field_comments[<?php echo $columnNumber; ?>]"
+       size="12"
+       maxlength="<?php echo PMA_MYSQL_INT_VERSION >= 50503 ? 1024 : 255; ?>"
+       value="<?php if (isset($columnMeta['Field'])
+                            && is_array($comments_map)
+                            && isset($comments_map[$columnMeta['Field']]))
+           echo htmlspecialchars($comments_map[$columnMeta['Field']]); ?>"
+       class="textfield" />

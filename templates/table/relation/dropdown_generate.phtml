@@ -1,0 +1,12 @@
+<?php echo (! empty($dropdown_question)
+    ? htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;'
+    : ''); ?><select name="<?php echo htmlspecialchars($select_name); ?>">
+<?php foreach ($choices as $one_value => $one_label): ?>
+    <option value="<?php echo htmlspecialchars($one_value); ?>"
+            <?php if ($selected_value == $one_value): ?>
+                selected="selected"
+            <?php endif; ?>>
+        <?php echo htmlspecialchars($one_label); ?>
+    </option>
+<?php endforeach; ?>
+</select>

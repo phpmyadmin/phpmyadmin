@@ -1,0 +1,10 @@
+<select name="selected_page" id="selected_page">
+    <option value="0">-- <?php echo __('Select page'); ?> --</option>
+    <?php if ($cfgRelation['pdfwork']) : $pages = PMA_getPageIdsAndNames($db); ?>
+        <?php foreach ($pages as $nr => $desc) : ?>
+            <option value="<?php echo $nr; ?>">
+                <?php echo htmlspecialchars($desc); ?>
+            </option>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</select>

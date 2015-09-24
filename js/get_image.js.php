@@ -20,9 +20,11 @@ require_once './libraries/common.inc.php';
 require_once './libraries/OutputBuffering.class.php';
 $buffer = PMA_OutputBuffering::getInstance();
 $buffer->start();
-register_shutdown_function(function() {
-    echo PMA_OutputBuffering::getInstance()->getContents();
-});
+register_shutdown_function(
+    function () {
+        echo PMA_OutputBuffering::getInstance()->getContents();
+    }
+);
 
 // Get the data for the sprites, if it's available
 if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
@@ -136,7 +138,9 @@ function PMA_getImage(image, alternate, attributes) {
         if (i == 'src') {
             // do not allow to override the 'src' attribute
             continue;
-        } else if (i == 'class') {
+        }
+
+        if (i == 'class') {
             retval.attr(i, retval.attr('class') + ' ' + attributes[i]);
         } else {
             retval.attr(i, attributes[i]);
