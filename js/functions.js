@@ -2837,7 +2837,7 @@ AJAX.registerOnload('functions.js', function () {
                         // Redirect to table structure page on creation of new table
                         var params_12 = 'ajax_request=true&ajax_page_request=true';
                         if (! (history && history.pushState)) {
-                            params_12 += PMA_Microhistory.menus.getRequestParam();
+                            params_12 += PMA_MicroHistory.menus.getRequestParam();
                         }
                         tblStruct_url = 'tbl_structure.php?server=' + data._params.server +
                             '&db='+ data._params.db + '&token=' + data._params.token +

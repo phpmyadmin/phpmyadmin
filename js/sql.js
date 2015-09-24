@@ -396,12 +396,12 @@ AJAX.registerOnload('sql.js', function () {
                         );
                         AJAX.handleMenu.replace(data._menu);
                     } else {
-                        PMA_Microhistory.menus.replace(data._menu);
-                        PMA_Microhistory.menus.add(data._menuHash, data._menu);
+                        PMA_MicroHistory.menus.replace(data._menu);
+                        PMA_MicroHistory.menus.add(data._menuHash, data._menu);
                     }
                 } else if (data._menuHash) {
                     if (! (history && history.pushState)) {
-                        PMA_Microhistory.menus.replace(PMA_Microhistory.menus.get(data._menuHash));
+                        PMA_MicroHistory.menus.replace(PMA_MicroHistory.menus.get(data._menuHash));
                     }
                 }
 
