@@ -4841,7 +4841,7 @@ class PMA_Util
      * @return array $tables list of tables
      *
      */
-    public function getTablesWhenOpen($db, $db_info_result)
+    public static function getTablesWhenOpen($db, $db_info_result)
     {
         $sot_cache = $tables = array();
 

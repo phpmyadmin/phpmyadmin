@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #11491 Propose table structure broken
 - issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
 - issue #11495 'PMA_Microhistory' is undefined
+- issue #11496 Incorrect definition for getTablesWhenOpen()
 
 4.5.0.1 (2015-09-24)
 - issue #11492 AUTO_INCREMENT statements are partly missing from exports
