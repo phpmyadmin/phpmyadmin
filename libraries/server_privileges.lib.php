@@ -4905,6 +4905,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     $slashedUsername = PMA_Util::sqlAddSlashes($username);
     $slashedHostname = PMA_Util::sqlAddSlashes($hostname);
     $slashedPassword = PMA_Util::sqlAddSlashes($password);
+    $serverType = PMA_Util::getServerType();
 
     $create_user_stmt = sprintf(
         'CREATE USER \'%s\'@\'%s\'',
@@ -4913,14 +4914,14 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
 
     if (PMA_MYSQL_INT_VERSION >= 50507
-        && PMA_Util::getServerType() == 'MySQL'
+        && $serverType == 'MySQL'
         && isset($_REQUEST['authentication_plugin'])
     ) {
         $create_user_stmt .= ' IDENTIFIED WITH '
             . $_REQUEST['authentication_plugin'];
     }
     if (PMA_MYSQL_INT_VERSION >= 50707
-        && PMA_Util::getServerType() == 'MySQL'
+        && $serverType == 'MySQL'
         && strpos($create_user_stmt, '%') !== false
     ) {
         $create_user_stmt = str_replace(
@@ -4947,7 +4948,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     $real_sql_query = $sql_query = $sql_query_stmt;
 
     if (PMA_MYSQL_INT_VERSION < 50707
-        || PMA_Util::getServerType() != 'MySQL'
+        || $serverType != 'MySQL'
     ) {
         if ($_POST['pred_password'] == 'keep') {
             $password_set_real = sprintf(
@@ -5032,7 +5033,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $sql_query = '';
     }
 
-    if (PMA_Util::getServerType() == 'MySQL'
+    if ($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50700
     ) {
         $password_set_real = null;
