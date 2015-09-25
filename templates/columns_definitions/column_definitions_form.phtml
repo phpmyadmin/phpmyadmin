@@ -133,23 +133,16 @@
             </tr>
             <?php if (PMA_Partition::havePartitioning()): ?>
                 <tr class="vtop">
-                    <th>
+                    <th colspan="5">
                         <?php echo __('PARTITION definition:'); ?>
                         &nbsp;
                         <?php echo PMA_Util::showMySQLDocu('Partitioning'); ?>
                     </th>
                 </tr>
                 <tr>
-                    <td>
-                        <textarea name="partition_definition"
-                                  id="partitiondefinition"
-                                  cols="<?php echo $GLOBALS['cfg']['TextareaCols']; ?>"
-                                  rows="<?php echo $GLOBALS['cfg']['TextareaRows']; ?>"
-                                  dir="<?php echo $GLOBALS['text_dir']; ?>">
-
-                            <?php echo (isset($_REQUEST['partition_definition']) ? htmlspecialchars($_REQUEST['partition_definition']) : ''); ?>
-
-                        </textarea>
+                    <td colspan="5">
+                        <?php echo PMA\Template::get('columns_definitions/partitions_form')
+                            ->render(array('partitions' => $partitions)); ?>
                     </td>
                 </tr>
             <?php endif; ?>

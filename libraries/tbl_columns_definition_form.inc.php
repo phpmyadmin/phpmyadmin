@@ -121,7 +121,7 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
     }
 }
-if (isset($_REQUEST['submit_num_fields'])) {
+if (isset($_REQUEST['submit_num_fields']) || isset($_REQUEST['submit_partition_change'])) {
     //if adding new fields, set regenerate to keep the original values
     $regenerate = 1;
 }
@@ -409,6 +409,7 @@ $html = PMA\Template::get('columns_definitions/column_definitions_form')->render
         'action' => $action,
         'form_params' => $form_params,
         'content_cells' => $content_cells,
+        'partitions' => isset($partitions) ? $partitions : array()
     )
 );
 

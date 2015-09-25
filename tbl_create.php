@@ -100,6 +100,72 @@ if (isset($_REQUEST['do_save_data'])) {
 //This global variable needs to be reset for the headerclass to function properly
 $GLOBAL['table'] = '';
 
+if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
+    && $_REQUEST['partition_count'] > 0
+) {
+    $partitions = isset($_REQUEST['partitions']) ? $_REQUEST['partitions'] : array();
+    array_splice($partitions, $_REQUEST['partition_count']);
+
+    for ($i = 0; $i < $_REQUEST['partition_count']; $i++) {
+        if (! isset($partitions[$i])) {
+            $partitions[$i] = array(
+                'value_type' => '',
+                'value' => '',
+                'engine' => '',
+                'comment' => '',
+                'data_directory' => '',
+                'index_directory' => '',
+                'max_rows' => '',
+                'min_rows' => '',
+                'tablespace' => '',
+                'node_group' => '',
+            );
+        }
+
+        $partition =& $partitions[$i];
+        $partition['name'] = 'p' . $i;
+        $partition['prefix'] = 'partitions[' . $i . ']';
+        $partition['value_enabled'] = isset($_REQUEST['partition_by'])
+            && ($_REQUEST['partition_by'] == 'RANGE'
+            || $_REQUEST['partition_by'] == 'LIST');
+
+        if (PMA_isValid($_REQUEST['subpartition_count'], 'numeric')
+            && $_REQUEST['subpartition_count'] > 0
+        ) {
+            $partition['subpartition_count'] = $_REQUEST['subpartition_count'];
+
+            if (! isset($partition['subpartitions'])) {
+                $partition['subpartitions'] = array();
+            }
+            $subpartitions =& $partition['subpartitions'];
+            array_splice($subpartitions, $_REQUEST['subpartition_count']);
+
+            for ($j = 0; $j < $_REQUEST['subpartition_count']; $j++) {
+                if (! isset($subpartitions[$j])) {
+                    $subpartitions[$j] = array(
+                        'engine' => '',
+                        'comment' => '',
+                        'data_directory' => '',
+                        'index_directory' => '',
+                        'max_rows' => '',
+                        'min_rows' => '',
+                        'tablespace' => '',
+                        'node_group' => '',
+                    );
+                }
+
+                $subpartition =& $subpartitions[$j];
+                $subpartition['name'] = 'p' . $i . 's' . $j;
+                $subpartition['prefix'] = 'partitions[' . $i . ']'
+                    . '[subpartitions][' . $j . ']';
+            }
+        } else {
+            unset($partition['subpartitions']);
+            unset($partition['subpartition_count']);
+        }
+    }
+}
+
 /**
  * Displays the form used to define the structure of the table
  */

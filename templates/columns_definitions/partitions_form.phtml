@@ -1,0 +1,164 @@
+<?php
+$partitionOptions = array('', 'HASH', 'LINEAR HASH', 'KEY', 'LINEAR KEY', 'RANGE', 'LIST');
+$subPartitionOptions = array('', 'HASH', 'LINEAR HASH', 'KEY', 'LINEAR KEY');
+$valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
+?>
+
+<table id="partition_table">
+    <tr class="vmiddle">
+        <td><label for="partition_by"><?php echo __('Partition by:'); ?></label></td>
+        <td>
+            <select name="partition_by" id="partition_by">
+                <?php foreach ($partitionOptions as $option): ?>
+                    <option value="<?php echo $option?>"
+                        <?php if (isset($_REQUEST['partition_by']) && $_REQUEST['partition_by'] == $option): ?>
+                            selected="selected"
+                        <?php endif; ?>
+                    >
+                        <?php echo $option; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </td>
+        <td>(
+            <input name="partition_expr" type="text"
+                   placeholder="<?php echo __('Expression or column list'); ?>"
+                   value="<?php echo (isset($_REQUEST['partition_expr']) ? htmlspecialchars($_REQUEST['partition_expr']) : ''); ?>"/>
+        )</td>
+    </tr>
+    <tr class="vmiddle">
+        <td><label for="partition_count"><?php echo __('Partitions:'); ?></label></td>
+        <td>
+            <input name="partition_count" type="number" min="2"
+                   value="<?php echo (isset($_REQUEST['partition_count']) ? htmlspecialchars($_REQUEST['partition_count']) : ''); ?>" />
+        </td>
+    </tr>
+    <?php if (isset($_REQUEST['partition_count']) && $_REQUEST['partition_count'] > 1): ?>
+        <tr class="vmiddle">
+            <td><label for="subpartition_by"><?php echo __('Subpartition by:'); ?></label></td>
+            <td>
+                <select name="subpartition_by" id="subpartition_by">
+                    <?php foreach ($subPartitionOptions as $option): ?>
+                    <option value="<?php echo $option?>"
+                        <?php if (isset($_REQUEST['subpartition_by']) && $_REQUEST['subpartition_by'] == $option): ?>
+                            selected="selected"
+                        <?php endif; ?>
+                    >
+                        <?php echo $option; ?>
+                    </option>
+                <?php endforeach; ?>
+                </select>
+            </td>
+            <td>(
+                <input name="subpartition_expr" type="text"
+                       placeholder="<?php echo __('Expression or column list'); ?>"
+                       value="<?php echo (isset($_REQUEST['subpartition_expr']) ? htmlspecialchars($_REQUEST['subpartition_expr']) : ''); ?>"/>
+            )</td>
+        </tr>
+        <tr class="vmiddle">
+            <td><label for="subpartition_count"><?php echo __('Subpartitions:'); ?></label></td>
+            <td>
+                <input name="subpartition_count" type="number" min="2"
+                       value="<?php echo (isset($_REQUEST['subpartition_count']) ? htmlspecialchars($_REQUEST['subpartition_count']) : ''); ?>" />
+            </td>
+        </tr>
+    <?php endif; ?>
+</table>
+
+<?php if (isset($_REQUEST['partition_count']) && $_REQUEST['partition_count'] > 1): ?>
+    <table id="partition_definition_table">
+        <tr>
+            <th><?php echo __('Partition'); ?></th>
+            <th><?php echo __('Values'); ?></th>
+            <?php if (isset($_REQUEST['subpartition_count']) && $_REQUEST['subpartition_count'] > 1): ?>
+                <th><?php echo __('Subpartition'); ?></th>
+            <?php endif; ?>
+            <th><?php echo __('Engine'); ?></th>
+            <th><?php echo __('Comment'); ?></th>
+            <th><?php echo __('Data directory'); ?></th>
+            <th><?php echo __('Index directory'); ?></th>
+            <th><?php echo __('Max rows'); ?></th>
+            <th><?php echo __('Min rows'); ?></th>
+            <th><?php echo __('Table space'); ?></th>
+            <th><?php echo __('Node group'); ?></th>
+        </tr>
+        <?php $odd = true; ?>
+        <?php foreach ($partitions as $partition): ?>
+            <?php $rowspan = isset($partition['subpartition_count']) ? ($partition['subpartition_count'] + 1) : 2; ?>
+            <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
+                <th rowspan="<?php echo $rowspan; ?>" class="vmiddle">
+                    <?php echo htmlspecialchars($partition['name']); ?>
+                </th>
+                <td rowspan="<?php echo $rowspan; ?>" class="vmiddle">
+                    <select class="partition_value" name="<?php echo $partition['prefix']; ?>[value_type]" <?php echo (! $partition['value_enabled'] ? 'disabled' : ''); ?> >
+                        <?php foreach ($valueTypeOptions as $option): ?>
+                            <option value="<?php echo $option?>"
+                                <?php if (isset($partition['value_type']) && $partition['value_type'] == $option): ?>
+                                    selected="selected"
+                                <?php endif; ?>
+                            >
+                                <?php echo $option; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="text" class="partition_value" name="<?php echo $partition['prefix']; ?>[value]" <?php echo (! $partition['value_enabled'] ? 'disabled' : ''); ?> />
+                </td>
+            </tr>
+
+            <?php
+            if (isset($partition['subpartitions'])):
+                $subpartitions = $partition['subpartitions'];
+            else:
+                $subpartitions = array($partition);
+            endif;
+            ?>
+
+            <?php foreach ($subpartitions as $subpartition): ?>
+                <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
+                    <?php if (isset($partition['subpartitions'])): ?>
+                        <th class="vmiddle"><?php echo htmlspecialchars($subpartition['name']); ?></th>
+                    <?php endif; ?>
+                    <td>
+                        <?php echo PMA_StorageEngine::getHtmlSelect(
+                            $subpartition['prefix'] . '[engine]',
+                            null,
+                            $subpartition['engine'],
+                            false,
+                            true
+                        ); ?>
+                    </td>
+                    <td>
+                        <textarea name="<?php echo $subpartition['prefix']; ?>[comment]">
+                            <?php echo htmlspecialchars($subpartition['comment']); ?>
+                        </textarea>
+                    </td>
+                    <td>
+                        <input type="text" name="<?php echo $subpartition['prefix']; ?>[data_directory]"
+                               value="<?php echo htmlspecialchars($subpartition['data_directory']); ?>" />
+                    </td>
+                    <td>
+                        <input type="text" name="<?php echo $subpartition['prefix']; ?>[index_directory]"
+                               value="<?php echo htmlspecialchars($subpartition['index_directory']); ?>" />
+                    </td>
+                    <td>
+                        <input type="number" name="<?php echo $subpartition['prefix']; ?>[max_rows]"
+                               value="<?php echo htmlspecialchars($subpartition['max_rows']); ?>" />
+                    </td>
+                    <td>
+                        <input type="number" min="0" name="<?php echo $subpartition['prefix']; ?>[min_rows]"
+                               value="<?php echo htmlspecialchars($subpartition['min_rows']); ?>" />
+                    </td>
+                    <td>
+                        <input type="text" min="0" name="<?php echo $subpartition['prefix']; ?>[tablespace]"
+                               value="<?php echo htmlspecialchars($subpartition['tablespace']); ?>" />
+                    </td>
+                    <td>
+                        <input type="text" name="<?php echo $subpartition['prefix']; ?>[node_group]"
+                               value="<?php echo htmlspecialchars($subpartition['node_group']); ?>" />
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <?php $odd = !$odd; ?>
+        <?php endforeach; ?>
+    </table>
+<?php endif; ?>
