@@ -4913,12 +4913,14 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
 
     if (PMA_MYSQL_INT_VERSION >= 50507
+        && PMA_Util::getServerType() == 'MySQL'
         && isset($_REQUEST['authentication_plugin'])
     ) {
         $create_user_stmt .= ' IDENTIFIED WITH '
             . $_REQUEST['authentication_plugin'];
     }
     if (PMA_MYSQL_INT_VERSION >= 50707
+        && PMA_Util::getServerType() == 'MySQL'
         && strpos($create_user_stmt, '%') !== false
     ) {
         $create_user_stmt = str_replace(
@@ -4944,7 +4946,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
     $real_sql_query = $sql_query = $sql_query_stmt;
 
-    if (PMA_MYSQL_INT_VERSION < 50707) {
+    if (PMA_MYSQL_INT_VERSION < 50707
+        || PMA_Util::getServerType() != 'MySQL'
+    ) {
         if ($_POST['pred_password'] == 'keep') {
             $password_set_real = sprintf(
                 $password_set_stmt,
