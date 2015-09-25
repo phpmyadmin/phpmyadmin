@@ -11,6 +11,9 @@ phpMyAdmin - ChangeLog
 - issue #11495 'PMA_Microhistory' is undefined
 - issue #11496 Incorrect definition for getTablesWhenOpen()
 
+4.5.0.2 (2015-09-25)
+- issue #11497 Incorrect indexes when exporting
+
 4.5.0.1 (2015-09-24)
 - issue #11492 AUTO_INCREMENT statements are partly missing from exports
 
