@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-01-21 02:11+0200\n"
-"Last-Translator: Krystian Biesaga <krystian4842@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2015-09-25 14:07+0200\n"
+"Last-Translator: Andrzej <andrzej@kynu.pl>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.5\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -346,10 +346,9 @@ msgid ""
 msgstr "Wersja %1$s stworzona, śledzenie dla %2$s jest aktywne."
 
 #: db_tracking.php:91
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Żadna baza danych nie został wybrana."
+msgstr "Nie wybrano tabeli."
 
 #: db_tracking.php:145
 msgid "Database Log"
@@ -1978,14 +1977,14 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:354
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Zmienna"
+msgstr "Zmienna %d:"
 
 #: js/messages.php:357 libraries/normalization.lib.php:886
 msgid "Pick"
-msgstr ""
+msgstr "Wybierz"
 
 #: js/messages.php:358
 msgid "Column selector"
