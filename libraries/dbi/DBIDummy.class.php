@@ -638,7 +638,7 @@ $GLOBALS['dummy_queries'] = array(
             . "`CREATE_OPTIONS` AS `Create_options`, "
             . "`TABLE_COMMENT` AS `Comment` "
             . "FROM `information_schema`.`TABLES` t "
-            . "WHERE BINARY `TABLE_SCHEMA` IN ('db') "
+            . "WHERE `TABLE_SCHEMA` IN ('db') "
             . "AND t.`TABLE_NAME` = 'table' ORDER BY Name ASC",
         'result' => array()
     ),
@@ -648,6 +648,10 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => "SELECT @@have_partitioning;",
+        'result' => array()
+    ),
+    array(
+        'query' => "SELECT @@lower_case_table_names",
         'result' => array()
     )
 );
