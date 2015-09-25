@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
 - issue #11495 'PMA_Microhistory' is undefined
 - issue #11496 Incorrect definition for getTablesWhenOpen()
+- issue #11500 Error when creating new user on MariaDB 10.0.21
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
