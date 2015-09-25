@@ -45,9 +45,14 @@ class Table
                 continue;
             }
 
+            $columns = array();
+            foreach ($field->key->columns as $column) {
+                $columns[] = $column['name'];
+            }
+
             $tmp = array(
                 'constraint' => $field->name,
-                'index_list' => $field->key->columns,
+                'index_list' => $columns,
             );
 
             if (!empty($field->references)) {
