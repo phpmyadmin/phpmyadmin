@@ -20,7 +20,6 @@ if (!defined('TESTSUITE')) {
         define('PMA_BYPASS_GET_INSTANCE', 1);
     }
     include_once 'libraries/common.inc.php';
-    include_once 'libraries/zip.lib.php';
     include_once 'libraries/plugin_interface.lib.php';
     include_once 'libraries/export.lib.php';
 

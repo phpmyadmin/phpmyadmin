@@ -5,14 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\ZipFile;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/**
- * Load ZIP handler.
- */
-require_once './libraries/zip.lib.php';
 
 $GLOBALS['OpenDocumentNS']
     = 'xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" '

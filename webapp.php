@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  * @see     http://wiki.mozilla.org/Prism
  */
+use PMA\libraries\ZipFile;
 
 /**
  * @ignore
@@ -15,10 +16,6 @@ define('PMA_MINIMUM_COMMON', true);
  * Gets core libraries and defines some variables
  */
 require './libraries/common.inc.php';
-/**
- * ZIP file handler.
- */
-require './libraries/zip.lib.php';
 
 // ini file
 $parameters = array(
