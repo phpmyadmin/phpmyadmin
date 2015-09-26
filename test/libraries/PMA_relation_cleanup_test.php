@@ -389,7 +389,7 @@ class DBI_PMA_Relation_Cleanup extends DatabaseInterface
         }
 
         if (/*overload*/mb_stripos($sql, "table_info") !== false) {
-            unset ($this->values[$this->indexs['table_info']]);
+            unset($this->values[$this->indexs['table_info']]);
         }
 
         if (/*overload*/mb_stripos($sql, "table_coords") !== false) {

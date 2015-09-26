@@ -410,7 +410,7 @@ if (!defined('TESTSUITE')) {
         // Will we need relation & co. setup?
         $do_relation = isset($GLOBALS[$what . '_relation']);
         $do_comments = isset($GLOBALS[$what . '_include_comments'])
-            || isset($GLOBALS[$what . '_comments']) ;
+            || isset($GLOBALS[$what . '_comments']);
         $do_mime     = isset($GLOBALS[$what . '_mime']);
         if ($do_relation || $do_comments || $do_mime) {
             $cfgRelation = PMA_getRelationsParam();

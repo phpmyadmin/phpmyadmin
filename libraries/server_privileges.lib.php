@@ -4962,6 +4962,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     $slashedUsername = Util::sqlAddSlashes($username);
     $slashedHostname = Util::sqlAddSlashes($hostname);
     $slashedPassword = Util::sqlAddSlashes($password);
+    $serverType = Util::getServerType();
 
     $create_user_stmt = sprintf(
         'CREATE USER \'%s\'@\'%s\'',
@@ -4970,12 +4971,14 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
 
     if (PMA_MYSQL_INT_VERSION >= 50507
+        && $serverType == 'MySQL'
         && isset($_REQUEST['authentication_plugin'])
     ) {
         $create_user_stmt .= ' IDENTIFIED WITH '
             . $_REQUEST['authentication_plugin'];
     }
     if (PMA_MYSQL_INT_VERSION >= 50707
+        && $serverType == 'MySQL'
         && strpos($create_user_stmt, '%') !== false
     ) {
         $create_user_stmt = str_replace(
@@ -5000,7 +5003,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
     $real_sql_query = $sql_query = $sql_query_stmt;
 
-    if (PMA_MYSQL_INT_VERSION < 50707) {
+    if (PMA_MYSQL_INT_VERSION < 50707
+        || $serverType != 'MySQL'
+    ) {
         if ($_POST['pred_password'] == 'keep') {
             $password_set_real = sprintf(
                 $password_set_stmt,
@@ -5083,7 +5088,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $sql_query = '';
     }
 
-    if (Util::getServerType() == 'MySQL'
+    if ($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50700
     ) {
         $password_set_real = null;
@@ -5114,7 +5119,6 @@ function PMA_getRoutineType($dbname, $routineName)
 {
     $routineData = $GLOBALS['dbi']->getRoutines($dbname);
 
-    $routines = array();
     foreach ($routineData as $routine) {
         if ($routine['name'] === $routineName) {
             return $routine['type'];

@@ -161,7 +161,7 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
 
-        require_once 'libraries/replication.inc.php';
+        include_once 'libraries/replication.inc.php';
 
         PageSettings::showGroup('DbStructure');
 

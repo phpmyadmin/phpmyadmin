@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:31-0400\n"
-"PO-Revision-Date: 2015-08-27 13:57+0200\n"
+"PO-Revision-Date: 2015-09-24 18:03+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -652,10 +652,9 @@ msgstr ""
 "informació disponible a %s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
-msgstr "Paràmetres Generals"
+msgstr "Paràmetres generals"
 
 #: index.php:191 js/messages.php:525
 #: libraries/display_change_password.lib.php:50
@@ -668,7 +667,6 @@ msgid "Server connection collation"
 msgstr "Ordenació de la connexió del servidor"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Paràmetres d'aparença"
@@ -974,14 +972,19 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Aquesta operació intentarà convertir les seves dades al nou joc de "
+"caràcters. En casos estranys, especialment on un caràcter no existeix en el "
+"nou joc, aquest procés podria causar que les dades apareguin incorrectament; "
+"en aquest cas us suggerim tornar al  joc de caràcters original i indicar un "
+"consell "
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Dades confuses"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Estàs segur de voler canviar el joc de caràcters i convertir les dades?"
 
 #: js/messages.php:77
 msgid ""
@@ -992,15 +995,23 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Mitjançant aquesta operació, MySQL intenta assignar els valors de dades "
+"entre jocs de caràcters. Si els conjunts de caràcters són incompatibles, hi "
+"pot haver pèrdua de dades i aquesta pèrdua <b>no</b> es pot recuperar "
+"simplement canviant altra vegada el(s) joc(s) de caràcters de la columna. <b>"
+"Per convertir les dades existents, se suggereix utilitzar la característica "
+"d'edició de columnes  (l'enllaç de \"Canvi\") a la pàgina de l'estructura de "
+"taula.</b>"
 
 #: js/messages.php:85
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Estàs segur de voler canviar tots els jocs de caràcters de columna i "
+"convertir les dades?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Desa i tanca"
@@ -1012,10 +1023,9 @@ msgid "Reset"
 msgstr "Reinicia"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
-msgstr "Reinicia Tot"
+msgstr "Reinicia tot"
 
 #: js/messages.php:93
 msgid "Missing value in the form!"
@@ -1038,7 +1048,6 @@ msgid "Add index"
 msgstr "Afegir índex"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Editar índex"
@@ -1089,7 +1098,6 @@ msgstr "Consulta SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Valors Y"
@@ -1127,7 +1135,7 @@ msgstr "S'ha creat la plantilla."
 
 #: js/messages.php:130
 msgid "Template was loaded."
-msgstr ""
+msgstr "Plantilla carregada."
 
 #: js/messages.php:131
 msgid "Template was updated."
@@ -1187,7 +1195,6 @@ msgid "Query cache used"
 msgstr "Memòria cau de consultes utilitzada"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Ús de la CPU del sistema"
@@ -1225,25 +1232,21 @@ msgid "Used memory"
 msgstr "Memòria utilitzada"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "Intercanvi Total"
+msgstr "Intercanvi total"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Intercanvi en cau"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Intercanvi utilitzat"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Intercanvi lliure"
@@ -1662,7 +1665,6 @@ msgid "No files available on server for import!"
 msgstr "No hi ha arxius disponibles al servidor per importar!"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analitzar consulta"
@@ -1728,28 +1730,24 @@ msgid "Loading…"
 msgstr "Carregar…"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
-msgstr "Petició abortada!!"
+msgstr "Petició avortada!!"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
-msgstr "Petició de procés"
+msgstr "Processant petició"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
-msgstr "Petició Fallida!!"
+msgstr "Petició fallida!!"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Error processant a la petició:"
+msgstr "Error processant a la petició"
 
 #: js/messages.php:305
 #, php-format
@@ -1767,16 +1765,14 @@ msgid "No databases selected."
 msgstr "No s'han triat bases de dades."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Eliminació de columna"
+msgstr "Eliminant columna"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Afegir clau principal"
+msgstr "Afegint clau principal"
 
 #: js/messages.php:310
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1793,22 +1789,19 @@ msgid "Click to dismiss this notification"
 msgstr "Prem per rebutjar aquest avís"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Reanomenar bases de dades"
+msgstr "Reanomenant bases de dades"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Copiant base de dades"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
-msgstr "Canvi de Joc de Caràcters"
+msgstr "Canviant de joc de caràcters"
 
 #: js/messages.php:320 libraries/Util.class.php:3232
 msgid "Enable foreign key checks"
@@ -2198,16 +2191,14 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Cercle interior"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Cercle exterior:"
+msgstr "Cercle exterior"
 
 #: js/messages.php:445
 msgid "Do you want to copy encryption key?"
@@ -2455,13 +2446,11 @@ msgid "More"
 msgstr "Més"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Mostra el panell"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Amagar el panell"
@@ -2539,16 +2528,14 @@ msgid "Create view"
 msgstr "Crea una vista"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Enviar informes d'error"
+msgstr "Enviar informe d'error"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
-msgstr "Introduir informe d'error"
+msgstr "Presentar informe d'error"
 
 #: js/messages.php:559
 msgid ""
@@ -2558,16 +2545,14 @@ msgstr ""
 "S'ha produït un error fatal de JavaScript. Vols enviar un informe d'errors?"
 
 #: js/messages.php:561
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
-msgstr "Canviar les configuracions d'informes"
+msgstr "Canviar les configuracions de l'informe"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Mostra el detall dels informes"
+msgstr "Mostra el detall de l'informe"
 
 #: js/messages.php:565
 msgid ""
@@ -2614,7 +2599,7 @@ msgstr "Realment vols esborrar aquesta marca?"
 
 #: js/messages.php:600
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "S'ha produït algun error en obtenir informació de depuració SQL."
 
 #: js/messages.php:601
 #, php-format
@@ -2624,7 +2609,7 @@ msgstr "%s consultes executades %s vegades en %s segons."
 #: js/messages.php:602
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argument(s) correctes"
 
 #: js/messages.php:603
 msgid "Show arguments"
@@ -2636,7 +2621,7 @@ msgstr "Amaga els arguments"
 
 #: js/messages.php:605 libraries/Console.class.php:321
 msgid "Time taken:"
-msgstr ""
+msgstr "Temps dedicat:"
 
 #: js/messages.php:606
 msgid ""
@@ -3231,7 +3216,7 @@ msgstr "Ordre d'execució"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Temps dedicat"
 
 #: libraries/Console.class.php:298
 msgid "Order by:"
@@ -3343,7 +3328,7 @@ msgstr "Columna:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Àlies:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
@@ -3533,7 +3518,6 @@ msgstr "Dins les taules:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Desmarca tot"
@@ -3706,7 +3690,6 @@ msgstr "Amb marca:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Marcar-ho tot"
@@ -3925,11 +3908,13 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"L'anàlisi d'errors està desactivat per a aquesta consulta perquè supera la "
+"longitud màxima."
 
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (prop de <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
@@ -4791,7 +4776,7 @@ msgstr "Anàlisi estàtica:"
 #: libraries/Util.class.php:668
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "s'han trobat %d errors durant l'anàlisi."
 
 #: libraries/Util.class.php:730 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -4815,14 +4800,13 @@ msgstr "Salta l'explicació de l'SQL"
 #: libraries/Util.class.php:1189
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Analitzar Explain a %s"
 
 #: libraries/Util.class.php:1220
 msgid "Without PHP Code"
 msgstr "Sense codi PHP"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Crea codi PHP"
@@ -4953,7 +4937,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Comprova els permisos per la base de dades \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Comprova els permisos"
@@ -5669,6 +5652,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Troba errors a la consulta abans d'executar-la. Requereix que CodeMirror "
+"estigui habilitat."
 
 #: libraries/config/messages.inc.php:67
 msgid "Enable linter"
@@ -5750,6 +5735,8 @@ msgstr "Confirma les consultes de DROP"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Registre de consultes SQL i el seu temps d'execució, que es mostrarà a la "
+"consola"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
@@ -6030,6 +6017,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Afegir IF NOT EXISTS (menys eficient perquè els índexs es generaran durant "
+"la creació de la taula)"
 
 #: libraries/config/messages.inc.php:211
 msgid "Use ignore inserts"
@@ -6089,6 +6078,8 @@ msgstr "Límit de claus externes"
 #: libraries/config/messages.inc.php:241
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"El valor per defecte per a la clau externa activa el checkbox per a algunes "
+"consultes."
 
 #: libraries/config/messages.inc.php:243
 msgid "Foreign key checks"
@@ -6665,7 +6656,6 @@ msgid "Maximum tables"
 msgstr "Màxim de taules"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)."
@@ -6673,8 +6663,9 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"El nombre d'octets que una ordre està autoritzada a reservar, ex. [kbd]32M[/"
-"kbd] ([kbd]0[/kbd] per no posar límit)."
+"El nombre d'octets que una ordre està autoritzada a reservar, ex. "
+"[kbd]32M[/kbd] ([kbd]-1[/kbd] per no posar límit i [kbd]0[/kbd] per a no "
+"canviar)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -6827,6 +6818,7 @@ msgstr "Mostrar funcions en arbre"
 #: libraries/config/messages.inc.php:532
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
+"Si vols mostrar les funcions sota la base de dades a l'arbre de navegació"
 
 #: libraries/config/messages.inc.php:533
 msgid "Show procedures in tree"
@@ -6835,6 +6827,7 @@ msgstr "Mostrar procediments en arbre"
 #: libraries/config/messages.inc.php:535
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
+"Si es mostren els procediments sota la base de dades a l'arbre de navegació"
 
 #: libraries/config/messages.inc.php:536
 msgid "Show events in tree"
@@ -6867,10 +6860,11 @@ msgstr "Ón de mostrar els vincles de fila de taula"
 #: libraries/config/messages.inc.php:548
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
+"Si es mostren els enllaços de fila fins i tot en absència d'una clau única."
 
 #: libraries/config/messages.inc.php:550
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Mostrar els enllaços de fila sempre"
 
 #: libraries/config/messages.inc.php:552
 msgid "Use natural order for sorting table and database names."
@@ -7653,7 +7647,6 @@ msgstr ""
 "taules."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Mostra el temps de creació"
@@ -7666,7 +7659,6 @@ msgstr ""
 "actualització per a totes les taules."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Mostra data i hora de la darrera actualització"
@@ -7679,7 +7671,6 @@ msgstr ""
 "comprovació per a totes les taules."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Mostra el temps de la darrera comprovació"
@@ -8274,6 +8265,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Aquest mètode requereix l'ús d'una \"<i>connexió SSL</i>\" o una \"<i>"
+"connexió sense xifrar que xifra la contrasenya utilitzant RSA</i>\"; mentre "
+"es connecta al servidor."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -8353,10 +8347,9 @@ msgid "Custom - display all possible options"
 msgstr "Usuari - mostra totes les opcions possibles"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "Bases de dades"
+msgstr "Bases de dades:"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
@@ -8565,7 +8558,6 @@ msgstr ""
 "<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Arxiu a importar:"
@@ -8579,7 +8571,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "No es permet pujar arxius en aquest servidor."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Importació parcial:"
@@ -8611,7 +8602,6 @@ msgstr ""
 "formats), contant des de la primera:"
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Altres opcions:"
@@ -9354,7 +9344,7 @@ msgstr "Romanés"
 
 #: libraries/mysql_charsets.lib.php:239
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singalès"
 
 #: libraries/mysql_charsets.lib.php:242
 msgid "Slovak"
@@ -9955,7 +9945,6 @@ msgstr ""
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Ajusta els permisos"
@@ -10130,7 +10119,7 @@ msgstr "Repara"
 #: libraries/operations.lib.php:1609
 #: templates/table/structure/display_structure.phtml:186
 msgid "Truncate"
-msgstr ""
+msgstr "Truncar"
 
 #: libraries/operations.lib.php:1619
 msgid "Coalesce"
@@ -10568,6 +10557,7 @@ msgstr "Afegir instrucció %s"
 #: libraries/plugins/export/ExportSql.class.php:279
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(menys eficient perquè els índexs es generaran durant la creació de la taula)"
 
 #: libraries/plugins/export/ExportSql.class.php:288
 #, php-format
@@ -10948,10 +10938,9 @@ msgstr "Mostra graella"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
-msgstr "Diccionari de Dades"
+msgstr "Diccionari de dades"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
 msgid "Order of the tables"
@@ -11191,6 +11180,7 @@ msgstr ""
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
+"Converteix una adreça de xarxa d'Internet en format (IPv4/IPv6) a binari"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11700,10 +11690,9 @@ msgid "Re-type"
 msgstr "Reescriu"
 
 #: libraries/replication_gui.lib.php:895
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Genera una contrasenya"
+msgstr "Genera una contrasenya:"
 
 #: libraries/replication_gui.lib.php:933
 msgid "Replication started successfully."
@@ -11977,6 +11966,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"No tens prou permisos per realitzar aquesta operació; si us plau, consulta "
+"la documentació per a mes detalls"
 
 #: libraries/rte/rte_routines.lib.php:1026
 msgid "Security type"
@@ -12169,10 +12160,9 @@ msgid "Ignoring unsupported language code."
 msgstr "Ignorant codi d'idioma no suportat."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
-#, fuzzy
 #| msgid "Current server"
 msgid "Current server:"
-msgstr "Servidor actual"
+msgstr "Servidor actual:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12231,10 +12221,9 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
-msgstr "Activa Estadístiques"
+msgstr "Activa estadístiques"
 
 #: libraries/server_databases.lib.php:492
 #, php-format
@@ -12677,10 +12666,9 @@ msgid "table-specific"
 msgstr "específic de la taula"
 
 #: libraries/server_privileges.lib.php:2628
-#, fuzzy
 #| msgid "Edit privileges:"
 msgid "Edit privileges"
-msgstr "Edita permisos:"
+msgstr "Edita permisos"
 
 #: libraries/server_privileges.lib.php:2631
 msgid "Revoke"
@@ -12823,6 +12811,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Existeix un compte d'usuari que permet a qualsevol usuari de localhost "
+"connectar-se. Això evita que altres usuaris es connectin si la part del host "
+"del seu compte permet una connexió des de qualsevol host (%)."
 
 #: libraries/server_privileges.lib.php:4528
 #, php-format
@@ -13103,7 +13094,6 @@ msgid "Clear series"
 msgstr "Buidar sèrie"
 
 #: libraries/server_status_monitor.lib.php:233
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Series al gràfic:"
@@ -13167,7 +13157,7 @@ msgstr "Ordre"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "Progrés"
 
 #: libraries/server_status_processes.lib.php:252
 #: libraries/server_status_variables.lib.php:39
@@ -13999,12 +13989,12 @@ msgstr "Valor global"
 
 #: libraries/server_variables.lib.php:243
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Això és una variable de només lectura i no es pot editar"
 
 #: libraries/sql-parser/src/Component.php:63
 #: libraries/sql-parser/src/Component.php:83
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Encara no implementat."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:202
 msgid "Unrecognized alter operation."
@@ -14013,20 +14003,20 @@ msgstr "Operació de modificació no reconeguda."
 #: libraries/sql-parser/src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "S'esperaven %1$d valors, però s'han trobat %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "S'esperava un claudàtor d'obertura seguit per un conjunt de valors."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:103
 #: libraries/sql-parser/src/Components/CreateDefinition.php:204
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "S'esperava un claudàtor d'obertura."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:128
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "S'esperava una coma o un claudàtor de tancament"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:248
 msgid "A comma or a closing bracket was expected."
@@ -14034,25 +14024,25 @@ msgstr "S'esperava una coma o un claudàtor de tancament."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:264
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "S'esperava un claudàtor de tancament."
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tipus de dades desconegut."
 
 #: libraries/sql-parser/src/Components/Expression.php:234
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Claudàtor de tancament inesperat."
 
 #: libraries/sql-parser/src/Components/Expression.php:255
 #: libraries/sql-parser/src/Components/Expression.php:292
 #: libraries/sql-parser/src/Components/Expression.php:312
 msgid "An alias was previously found."
-msgstr ""
+msgstr "S'ha trobat un àlies anteriorment."
 
 #: libraries/sql-parser/src/Components/Expression.php:266
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Punt inesperat."
 
 #: libraries/sql-parser/src/Components/Expression.php:336
 msgid "An alias was expected."
@@ -14065,12 +14055,12 @@ msgstr "S'esperava una expressió."
 #: libraries/sql-parser/src/Components/Limit.php:92
 #: libraries/sql-parser/src/Components/Limit.php:114
 msgid "An offset was expected."
-msgstr ""
+msgstr "S'esperava un desplaçament."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Aquesta opció està en conflicte amb \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:104
 msgid "The old name of the table was expected."
@@ -14078,7 +14068,7 @@ msgstr "S'esperava el nom antic de la taula."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:114
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "S'esperava la paraula clau \"TO\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:131
 msgid "The new name of the table was expected."
@@ -14094,12 +14084,12 @@ msgstr "Caràcter no esperat."
 
 #: libraries/sql-parser/src/Lexer.php:307
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "S'esperava(en) espai(s) en blanc abans del delimitador."
 
 #: libraries/sql-parser/src/Lexer.php:325
 #: libraries/sql-parser/src/Lexer.php:341
 msgid "Expected delimiter."
-msgstr ""
+msgstr "S'esperava delimitador ."
 
 #: libraries/sql-parser/src/Lexer.php:788
 #, php-format
@@ -14116,11 +14106,11 @@ msgstr "Inici no esperat de declaració."
 
 #: libraries/sql-parser/src/Parser.php:421
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tipus de declaració no reconegut."
 
 #: libraries/sql-parser/src/Parser.php:505
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "No s'ha iniciat cap transacció anteriorment."
 
 #: libraries/sql-parser/src/Statement.php:212
 msgid "Unexpected token."
@@ -14128,16 +14118,18 @@ msgstr "Símbol (token) no esperat."
 
 #: libraries/sql-parser/src/Statement.php:250
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Aquest tipus de clàusula s'ha analitzat anteriorment."
 
 #: libraries/sql-parser/src/Statement.php:277
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"S'ha trobat una nova declaració, però no hi ha cap delimitador entre aquesta "
+"i la anterior."
 
 #: libraries/sql-parser/src/Statement.php:297
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Paraula clau no reconeguda."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:348
 msgid "The name of the entity was expected."
@@ -14149,7 +14141,7 @@ msgstr "S'esperava al menys la definició d'una columna."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:478
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "S'esperava una paraula clau \"RETURNS\"."
 
 #: libraries/sql.lib.php:224
 msgid "Detailed profile"
@@ -14609,16 +14601,14 @@ msgid "Username and hostname didn't change."
 msgstr "El nom d'usuari i de servidor no s'han canviat."
 
 #: server_status.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server status."
-msgstr "Permisos insuficients per veure usuaris."
+msgstr "Permisos insuficients per veure l'estat del servidor."
 
 #: server_status_advisor.php:39
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view the advisor."
-msgstr "Permisos insuficients per veure usuaris."
+msgstr "Permisos insuficients per veure l'assessor."
 
 #: server_status_processes.php:36
 #, php-format
@@ -14632,22 +14622,21 @@ msgid ""
 msgstr "phpMyAdmin no pot cancel.lar el fil %s. Probablement, ja és tancat."
 
 #: server_status_queries.php:55
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view query statistics."
-msgstr "Permisos insuficients per veure usuaris."
+msgstr "Permisos insuficients per veure estadístiques de consultes."
 
 #: server_status_variables.php:57
-#, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
-msgstr "Permisos insuficients per veure usuaris."
+msgstr "Permisos insuficients per veure variables d'estat."
 
 #: server_variables.php:83
-#, fuzzy, php-format
+#, php-format
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Permisos insuficients per veure usuaris."
+msgstr ""
+"Permisos insuficients per veure variables del servidor i configuracions. %s"
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:277
 msgid "Download"
@@ -14953,7 +14942,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualitat"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
@@ -15021,10 +15010,9 @@ msgid "Operator"
 msgstr "Operador"
 
 #: templates/database/designer/database_tables.phtml:29
-#, fuzzy
 #| msgid "Move columns"
 msgid "Show/hide columns"
-msgstr "Moure columnes"
+msgstr "Mostrar/amagar columnes"
 
 #: templates/database/designer/database_tables.phtml:40
 msgid "See table structure"
@@ -16004,6 +15992,9 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"La documentació de Percona és a <a href=\""
+"http://www.percona.com/software/documentation/\"> "
+"http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -16015,6 +16006,9 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"La documentació de Drizzle és a <a href=\""
+"http://www.drizzle.org/content/documentation/\"> "
+"http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format

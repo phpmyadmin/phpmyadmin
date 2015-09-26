@@ -128,7 +128,7 @@ AJAX.registerOnload('server_databases.js', function () {
                 dbStruct_url = dbStruct_url.replace(/amp;/ig, '');
                 var params = 'ajax_request=true&ajax_page_request=true';
                 if (! (history && history.pushState)) {
-                    params += PMA_Microhistory.menus.getRequestParam();
+                    params += PMA_MicroHistory.menus.getRequestParam();
                 }
                 $.get(dbStruct_url, params, AJAX.responseHandler);
             } else {

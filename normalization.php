@@ -105,7 +105,7 @@ if (isset($_REQUEST['step1'])) {
 } else if (isset($_REQUEST['step3'])) {
     $res = PMA_getHtmlContentsFor1NFStep3($db, $table);
     $response->addJSON($res);
-} else if (isset ($_REQUEST['step4'])) {
+} else if (isset($_REQUEST['step4'])) {
     $res = PMA_getHtmlContentsFor1NFStep4($db, $table);
     $response->addJSON($res);
 } else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 2.1) {

@@ -11,8 +11,18 @@ phpMyAdmin - ChangeLog
 - issue #11480 Notice Undefined index: drop_database
 - issue #11486 Server variable edition in ANSI_QUOTES sql_mode: losing current value
 - issue #11491 Propose table structure broken
+- issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
+- issue #11495 'PMA_Microhistory' is undefined
+- issue #11496 Incorrect definition for getTablesWhenOpen()
+- issue #11500 Error when creating new user on MariaDB 10.0.21
 
-4.5.0.0 (not yet released)
+4.5.0.2 (2015-09-25)
+- issue #11497 Incorrect indexes when exporting
+
+4.5.0.1 (2015-09-24)
+- issue #11492 AUTO_INCREMENT statements are partly missing from exports
+
+4.5.0.0 (2015-09-23)
 + rfe          Pagination for GIS visualization
 + issue #6207  Usability improvements for console
 + issue #6310  Access to Add columns text-box and Go button when creating table
@@ -112,7 +122,7 @@ phpMyAdmin - ChangeLog
 - issue #11448 Clarify doc about the MemoryLimit directive
 - issue #11489 Cannot copy a database under certain conditions
 
-4.4.15.0 (not yet released)
+4.4.15.0 (2015-09-20)
 - issue #11411 Undefined "replace" function on numeric scalar
 - issue #11421 Stored-proc / routine - broken parameter parsing
 - issue        Missing name for configuration read_as_multibytes

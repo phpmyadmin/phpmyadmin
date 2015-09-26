@@ -1190,10 +1190,9 @@ class DisplayResults
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
-            $condition_field = (isset($highlight_columns[$fields_meta[$i]->name])
-                || isset(
-                    $highlight_columns[Util::backquote($fields_meta[$i]->name)])
-                )
+            $name = $fields_meta[$i]->name;
+            $condition_field = (isset($highlight_columns[$name])
+                || isset($highlight_columns[Util::backquote($name)]))
                 ? true
                 : false;
 
