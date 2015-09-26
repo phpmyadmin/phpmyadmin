@@ -138,9 +138,9 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
-           ->method('evaluateVersionCondition')
-           ->with('PHP', '>=5.3')
-           ->will($this->returnValue(true));
+            ->method('evaluateVersionCondition')
+            ->with('PHP', '>=5.3')
+            ->will($this->returnValue(true));
 
         $mockVersionInfo->expects($this->at(1))
             ->method('evaluateVersionCondition')
@@ -175,9 +175,9 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
-           ->method('evaluateVersionCondition')
-           ->with('PHP', '>=5.3')
-           ->will($this->returnValue(true));
+            ->method('evaluateVersionCondition')
+            ->with('PHP', '>=5.3')
+            ->will($this->returnValue(true));
 
         $mockVersionInfo->expects($this->at(1))
             ->method('evaluateVersionCondition')
@@ -206,9 +206,9 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
-           ->method('evaluateVersionCondition')
-           ->with('PHP', '>=5.3')
-           ->will($this->returnValue(false));
+            ->method('evaluateVersionCondition')
+            ->with('PHP', '>=5.3')
+            ->will($this->returnValue(false));
 
         $mockVersionInfo->expects($this->at(1))
             ->method('evaluateVersionCondition')
@@ -242,8 +242,8 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
             ->getMock();
 
         $mockVersionInfo->expects($this->any())
-           ->method('getPHPVersion')
-           ->will($this->returnValue('5.2.4'));
+            ->method('getPHPVersion')
+            ->will($this->returnValue('5.2.4'));
 
         $this->assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<=5.3'));
         $this->assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<5.3'));
