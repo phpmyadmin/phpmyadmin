@@ -2472,7 +2472,7 @@ msgstr "获取SQL调试信息时出错。"
 #, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "%s条查询的执行时常：%s秒"
+msgstr "%s条查询的执行时常：%s秒 %s"
 
 #: js/messages.php:602
 #, php-format
