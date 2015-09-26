@@ -126,8 +126,7 @@ class ImportMediawiki extends ImportPlugin
             // If the reading is not finalised, the final line of the current chunk
             // will not be complete
             if (! $finished) {
-                $full_buffer_lines_count -= 1;
-                $last_chunk_line = $buffer_lines[$full_buffer_lines_count];
+                $last_chunk_line = $buffer_lines[--$full_buffer_lines_count];
             }
 
             for ($line_nr = 0; $line_nr < $full_buffer_lines_count; ++ $line_nr) {

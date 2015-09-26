@@ -3038,10 +3038,10 @@ class PMA_Util
             $i = 0;
             $printable = '';
             while ($value >= pow(2, $i)) {
-                $i++;
+                ++$i;
             }
             if ($i != 0) {
-                $i = $i - 1;
+                --$i;
             }
 
             while ($i >= 0) {
@@ -3051,7 +3051,7 @@ class PMA_Util
                     $printable = '1' . $printable;
                     $value = $value - pow(2, $i);
                 }
-                $i--;
+                --$i;
             }
             $printable = strrev($printable);
         }

@@ -509,7 +509,7 @@ class Advisor
                     /*overload*/mb_substr($line, 1)
                 );
                 $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
-                $ruleLine += 1;
+                ++$ruleLine;
             }
 
             // Rule complete
