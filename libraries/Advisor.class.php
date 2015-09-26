@@ -22,6 +22,8 @@ class Advisor
     protected $runResult;
 
     /**
+     * Get variables
+     *
      * @return mixed
      */
     public function getVariables()
@@ -30,7 +32,9 @@ class Advisor
     }
 
     /**
-     * @param mixed $variables
+     * Set variables
+     *
+     * @param array $variables Variables
      *
      * @return Advisor
      */
@@ -41,13 +45,24 @@ class Advisor
         return $this;
     }
 
-    public function setVariable($variable, $value) {
+    /**
+     * Set a variable and its value
+     *
+     * @param string|int $variable Variable to set
+     * @param mixed      $value    Value to set
+     *
+     * @return $this
+     */
+    public function setVariable($variable, $value)
+    {
         $this->variables[$variable] = $value;
 
         return $this;
     }
 
     /**
+     * Get parseResult
+     *
      * @return mixed
      */
     public function getParseResult()
@@ -56,7 +71,9 @@ class Advisor
     }
 
     /**
-     * @param mixed $parseResult
+     * Set parseResult
+     *
+     * @param array $parseResult Parse result
      *
      * @return Advisor
      */
@@ -68,6 +85,8 @@ class Advisor
     }
 
     /**
+     * Get runResult
+     *
      * @return mixed
      */
     public function getRunResult()
@@ -76,7 +95,9 @@ class Advisor
     }
 
     /**
-     * @param mixed $runResult
+     * Set runResult
+     *
+     * @param array $runResult Run result
      *
      * @return Advisor
      */
