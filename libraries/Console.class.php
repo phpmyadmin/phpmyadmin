@@ -339,7 +339,7 @@ class PMA_Console
                         . __('Add') . '</span></div>';
 
                 $output .= '</div><div class="content bookmark">';
-                $output .= $this->getBookmarkContent();
+                $output .= static::getBookmarkContent();
                 $output .= '</div>';
                     $output .= '<div class="mid_layer"></div>';
                     $output .= '<div class="card add">';

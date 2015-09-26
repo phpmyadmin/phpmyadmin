@@ -112,7 +112,7 @@ class Advisor
             = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
 
         // Step 2: Read and parse the list of rules
-        $this->setParseResult($this->parseRulesFile());
+        $this->setParseResult(static::parseRulesFile());
         // Step 3: Feed the variables to the rules and let them fire. Sets
         // $runResult
         $this->runRules();
