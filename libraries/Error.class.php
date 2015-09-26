@@ -90,13 +90,6 @@ class PMA_Error extends PMA_Message
     protected $backtrace = array();
 
     /**
-     * Unique id
-     *
-     * @var string
-     */
-    protected $hash = null;
-
-    /**
      * Constructor
      *
      * @param integer $errno   error number
