@@ -22,17 +22,6 @@ class ServiceItem extends ReflectorItem
     protected $instance;
 
     /**
-     * Constructor
-     *
-     * @param Container $container  Container
-     * @param mixed     $definition Definition
-     */
-    public function __construct(Container $container, $definition)
-    {
-        parent::__construct($container, $definition);
-    }
-
-    /**
      * Get the instance of the service
      *
      * @param array $params Parameters
