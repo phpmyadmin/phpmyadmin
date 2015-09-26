@@ -96,6 +96,13 @@ class Key extends Component
         $ret = new Key();
 
         /**
+         * Last parsed column.
+         *
+         * @var array
+         */
+        $lastColumn = array();
+
+        /**
          * The state of the parser.
          *
          * Below are the states of the parser.
@@ -135,12 +142,31 @@ class Key extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $ret->columns = ArrayObj::parse($parser, $list)->values;
                     $state = 2;
                 } else {
                     $ret->name = $token->value;
                 }
             } elseif ($state === 2) {
+                if ($token->type === Token::TYPE_OPERATOR) {
+                    if ($token->value === '(') {
+                        $state = 3;
+                    } elseif (($token->value === ',') || ($token->value === ')')) {
+                        $state = ($token->value === ',') ? 2 : 4;
+                        if (!empty($lastColumn)) {
+                            $ret->columns[] = $lastColumn;
+                            $lastColumn = array();
+                        }
+                    }
+                } else {
+                    $lastColumn['name'] = $token->value;
+                }
+            } elseif ($state === 3) {
+                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ')')) {
+                    $state = 2;
+                } else {
+                    $lastColumn['length'] = $token->value;
+                }
+            } elseif ($state === 4) {
                 $ret->options = OptionsArray::parse($parser, $list, static::$KEY_OPTIONS);
                 ++$list->idx;
                 break;
@@ -163,8 +189,17 @@ class Key extends Component
         if (!empty($component->name)) {
             $ret .= Context::escape($component->name) . ' ';
         }
-        $ret .= '(' . implode(',', Context::escape($component->columns)) . ') '
-            . $component->options;
+
+        $columns = array();
+        foreach ($component->columns as $column) {
+            $tmp = Context::escape($column['name']);
+            if (isset($column['length'])) {
+                $tmp .= '(' . $column['length'] . ')';
+            }
+            $columns[] = $tmp;
+        }
+
+        $ret .= '(' . implode(',', $columns) . ') ' . $component->options;
         return trim($ret);
     }
 }

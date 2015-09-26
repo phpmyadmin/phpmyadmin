@@ -830,7 +830,7 @@ function PMA_getHtmlForRequires($row)
         . 'size=80" title="'
         . __(
             'Requires that a valid X509 certificate issued by this CA be presented.'
-        ) .'"'
+        ) . '"'
         . (! $specified ? ' disabled' : '')
         . ' />';
     $html_output .= '</div>';
@@ -3266,7 +3266,6 @@ function PMA_getHtmlForAllTableSpecificRights(
         $privileges[] = $onePrivilege;
     }
 
-
     $data = $uiData[$type];
     $data['privileges'] = $privileges;
     $data['userName']   = $username;
@@ -4959,6 +4958,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     $slashedUsername = PMA_Util::sqlAddSlashes($username);
     $slashedHostname = PMA_Util::sqlAddSlashes($hostname);
     $slashedPassword = PMA_Util::sqlAddSlashes($password);
+    $serverType = PMA_Util::getServerType();
 
     $create_user_stmt = sprintf(
         'CREATE USER \'%s\'@\'%s\'',
@@ -4967,12 +4967,14 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
 
     if (PMA_MYSQL_INT_VERSION >= 50507
+        && $serverType == 'MySQL'
         && isset($_REQUEST['authentication_plugin'])
     ) {
         $create_user_stmt .= ' IDENTIFIED WITH '
             . $_REQUEST['authentication_plugin'];
     }
     if (PMA_MYSQL_INT_VERSION >= 50707
+        && $serverType == 'MySQL'
         && strpos($create_user_stmt, '%') !== false
     ) {
         $create_user_stmt = str_replace(
@@ -4997,7 +4999,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
     $real_sql_query = $sql_query = $sql_query_stmt;
 
-    if (PMA_MYSQL_INT_VERSION < 50707) {
+    if (PMA_MYSQL_INT_VERSION < 50707
+        || $serverType != 'MySQL'
+    ) {
         if ($_POST['pred_password'] == 'keep') {
             $password_set_real = sprintf(
                 $password_set_stmt,
@@ -5080,7 +5084,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $sql_query = '';
     }
 
-    if (PMA_Util::getServerType() == 'MySQL'
+    if ($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50700
     ) {
         $password_set_real = null;

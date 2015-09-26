@@ -38,10 +38,10 @@ if (! function_exists('openssl_encrypt')
     || ! function_exists('openssl_random_pseudo_bytes')
     || PHP_VERSION_ID < 50304
 ) {
-    require PHPSECLIB_INC_DIR . '/Crypt/Base.php';
-    require PHPSECLIB_INC_DIR . '/Crypt/Rijndael.php';
-    require PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-    require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+    include PHPSECLIB_INC_DIR . '/Crypt/Base.php';
+    include PHPSECLIB_INC_DIR . '/Crypt/Rijndael.php';
+    include PHPSECLIB_INC_DIR . '/Crypt/AES.php';
+    include PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 }
 
 /**
@@ -766,7 +766,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 true
             );
         }
-        if (mb_strlen($this->_cookie_iv,'8bit') < $this->getIVSize()) {
+        if (mb_strlen($this->_cookie_iv, '8bit') < $this->getIVSize()) {
                 $this->createIV();
         }
 
