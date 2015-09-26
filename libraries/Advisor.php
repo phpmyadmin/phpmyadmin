@@ -19,9 +19,75 @@ require_once 'libraries/advisor.lib.php';
  */
 class Advisor
 {
-    public $variables;
-    public $parseResult;
-    public $runResult;
+    protected $variables;
+    protected $parseResult;
+    protected $runResult;
+
+    /**
+     * @return mixed
+     */
+    public function getVariables()
+    {
+        return $this->variables;
+    }
+
+    /**
+     * @param mixed $variables
+     *
+     * @return Advisor
+     */
+    public function setVariables($variables)
+    {
+        $this->variables = $variables;
+
+        return $this;
+    }
+
+    public function setVariable($variable, $value) {
+        $this->variables[$variable] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParseResult()
+    {
+        return $this->parseResult;
+    }
+
+    /**
+     * @param mixed $parseResult
+     *
+     * @return Advisor
+     */
+    public function setParseResult($parseResult)
+    {
+        $this->parseResult = $parseResult;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRunResult()
+    {
+        return $this->runResult;
+    }
+
+    /**
+     * @param mixed $runResult
+     *
+     * @return Advisor
+     */
+    public function setRunResult($runResult)
+    {
+        $this->runResult = $runResult;
+
+        return $this;
+    }
 
     /**
      * Parses and executes advisor rules
@@ -33,9 +99,11 @@ class Advisor
         // HowTo: A simple Advisory system in 3 easy steps.
 
         // Step 1: Get some variables to evaluate on
-        $this->variables = array_merge(
-            $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1),
-            $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
+        $this->setVariables(
+            array_merge(
+                $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1),
+                $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
+            )
         );
 
         // Add total memory to variables as well
@@ -46,7 +114,7 @@ class Advisor
             = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
 
         // Step 2: Read and parse the list of rules
-        $this->parseResult = $this->parseRulesFile();
+        $this->setParseResult($this->parseRulesFile());
         // Step 3: Feed the variables to the rules and let them fire. Sets
         // $runResult
         $this->runRules();
@@ -82,11 +150,13 @@ class Advisor
      */
     public function runRules()
     {
-        $this->runResult = array(
-            'fired' => array(),
-            'notfired' => array(),
-            'unchecked'=> array(),
-            'errors' => array()
+        $this->setRunResult(
+            array(
+                'fired'     => array(),
+                'notfired'  => array(),
+                'unchecked' => array(),
+                'errors'    => array(),
+            )
         );
 
         foreach ($this->parseResult['rules'] as $rule) {
