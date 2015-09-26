@@ -5,9 +5,12 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Util;
+namespace PMA\libraries;
 
-if (! defined('PHPMYADMIN')) {
+use PMA\libraries\Util;
+use stdClass;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 

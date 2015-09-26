@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for methods in VersionInformation class
+ * Tests for methods in PMA\libraries\VersionInformation class
 *
 * @package PhpMyAdmin-test
 */
@@ -9,10 +9,10 @@
 /*
  * Include to test.
  */
-require_once 'libraries/VersionInformation.php';
+use PMA\libraries\VersionInformation;
 
 /**
- * Tests for methods in VersionInformation class
+ * Tests for methods in PMA\libraries\VersionInformation class
  *
  * @package PhpMyAdmin-test
  */
@@ -132,7 +132,7 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
             array()
         );
 
-        $mockVersionInfo = $this->getMockBuilder('VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder('PMA\libraries\VersionInformation')
             ->setMethods(array('evaluateVersionCondition'))
             ->getMock();
 
@@ -169,7 +169,7 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
             array()
         );
 
-        $mockVersionInfo = $this->getMockBuilder('VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder('PMA\libraries\VersionInformation')
             ->setMethods(array('evaluateVersionCondition'))
             ->getMock();
 
@@ -200,7 +200,7 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
             array()
         );
 
-        $mockVersionInfo = $this->getMockBuilder('VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder('PMA\libraries\VersionInformation')
             ->setMethods(array('evaluateVersionCondition'))
             ->getMock();
 
@@ -236,7 +236,7 @@ class VersionInformationTest extends PHPUnit_Framework_TestCase
      */
     public function testEvaluateVersionCondition()
     {
-        $mockVersionInfo = $this->getMockBuilder('VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder('PMA\libraries\VersionInformation')
             ->setMethods(array('getPHPVersion'))
             ->getMock();
 

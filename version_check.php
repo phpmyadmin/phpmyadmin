@@ -7,6 +7,8 @@
  */
 
 // Sets up the session
+use PMA\libraries\VersionInformation;
+
 define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
 require_once 'libraries/VersionInformation.php';
