@@ -248,7 +248,7 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
 
             // We processed one nibble, move to previous position
             $flexbits -= 4;
-            $pos -= 1;
+            --$pos;
         }
 
         // check if the IP to test is within the range

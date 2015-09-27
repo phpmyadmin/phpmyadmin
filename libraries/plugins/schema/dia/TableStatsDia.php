@@ -61,9 +61,8 @@ class TableStatsDia extends TableStats
         /**
          * Every object in Dia document needs an ID to identify
          * so, we used a static variable to keep the things unique
-         */
-        DiaRelationSchema::$objectId += 1;
-        $this->tableId = DiaRelationSchema::$objectId;
+        */
+        $this->tableId = ++DiaRelationSchema::$objectId;
     }
 
     /**

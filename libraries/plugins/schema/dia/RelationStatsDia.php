@@ -113,7 +113,7 @@ class RelationStatsDia
      */
     public function relationDraw($showColor)
     {
-        DiaRelationSchema::$objectId += 1;
+        ++DiaRelationSchema::$objectId;
         /*
          * if source connection points and destination connection
         * points are same then return it false and don't draw that
