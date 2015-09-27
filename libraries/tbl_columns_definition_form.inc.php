@@ -409,7 +409,7 @@ $html = PMA\Template::get('columns_definitions/column_definitions_form')->render
         'action' => $action,
         'form_params' => $form_params,
         'content_cells' => $content_cells,
-        'partitions' => isset($partitions) ? $partitions : array()
+        'partitionDetails' => isset($partitionDetails) ? $partitionDetails : array()
     )
 );
 

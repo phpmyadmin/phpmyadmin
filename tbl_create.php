@@ -100,6 +100,21 @@ if (isset($_REQUEST['do_save_data'])) {
 //This global variable needs to be reset for the headerclass to function properly
 $GLOBAL['table'] = '';
 
+$partitionDetails = array();
+$partitionParams = array(
+    'partition_by', 'partition_expr', 'partition_count',
+    'subpartition_by', 'subpartition_expr', 'subpartition_count'
+);
+foreach ($partitionParams as $partitionParam) {
+    $partitionDetails[$partitionParam] = isset($_REQUEST[$partitionParam])
+        ? $_REQUEST[$partitionParam] : '';
+}
+
+$partitionDetails['can_have_subpartitions'] = isset($_REQUEST['partition_count'])
+    && $_REQUEST['partition_count'] > 1
+    && isset($_REQUEST['partition_by'])
+    && ($_REQUEST['partition_by'] == 'RANGE' || $_REQUEST['partition_by'] == 'LIST');
+
 if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
     && $_REQUEST['partition_count'] > 0
 ) {
@@ -131,6 +146,7 @@ if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
 
         if (PMA_isValid($_REQUEST['subpartition_count'], 'numeric')
             && $_REQUEST['subpartition_count'] > 0
+            && $partition['value_enabled'] == true
         ) {
             $partition['subpartition_count'] = $_REQUEST['subpartition_count'];
 
@@ -164,6 +180,7 @@ if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
             unset($partition['subpartition_count']);
         }
     }
+    $partitionDetails['partitions'] = $partitions;
 }
 
 /**

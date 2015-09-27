@@ -2743,8 +2743,8 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', "form.create_table_form.ajax input[name=submit_num_fields]");
     $(document).off('keyup', "form.create_table_form.ajax input");
     $(document).off('change', "form.create_table_form.ajax input[name=partition_count]," +
-            "form.create_table_form.ajax input[name=subpartition_count]");
-    $(document).off('change', "form.create_table_form.ajax select[name=partition_by]");
+            "form.create_table_form.ajax input[name=subpartition_count]," +
+            "form.create_table_form.ajax select[name=partition_by]");
     $(document).off('change', "form.create_table_form.ajax select[name=subpartition_by]");
 });
 
@@ -2915,16 +2915,9 @@ AJAX.registerOnload('functions.js', function () {
      * Attach event handler to manage changes in number of partitions and subpartitions
      */
     $(document).on('change', "form.create_table_form.ajax input[name=partition_count]," +
-            "form.create_table_form.ajax input[name=subpartition_count]", function (event) {
+            "form.create_table_form.ajax input[name=subpartition_count]," +
+            "form.create_table_form.ajax select[name=partition_by]", function (event) {
         submitChangesInCreateTableForm('submit_partition_change=1');
-    });
-
-    $(document).on('change', "form.create_table_form.ajax select[name=partition_by]", function (event) {
-        var value = $(this).val();
-        $('input[name=partition_expr], input[name=partition_count]').prop('required', (value != ''));
-
-        var listOrRange = value == 'LIST' || value == 'RANGE';
-        $('.partition_value').val('').prop('disabled', ! listOrRange);
     });
 
     $(document).on('change', "form.create_table_form.ajax select[name=subpartition_by]", function (event) {

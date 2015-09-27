@@ -11,7 +11,7 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
             <select name="partition_by" id="partition_by">
                 <?php foreach ($partitionOptions as $option): ?>
                     <option value="<?php echo $option?>"
-                        <?php if (isset($_REQUEST['partition_by']) && $_REQUEST['partition_by'] == $option): ?>
+                        <?php if ($partitionDetails['partition_by'] == $option): ?>
                             selected="selected"
                         <?php endif; ?>
                     >
@@ -23,24 +23,24 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
         <td>(
             <input name="partition_expr" type="text"
                    placeholder="<?php echo __('Expression or column list'); ?>"
-                   value="<?php echo (isset($_REQUEST['partition_expr']) ? htmlspecialchars($_REQUEST['partition_expr']) : ''); ?>"/>
+                   value="<?php echo htmlspecialchars($partitionDetails['partition_expr']); ?>"/>
         )</td>
     </tr>
     <tr class="vmiddle">
         <td><label for="partition_count"><?php echo __('Partitions:'); ?></label></td>
         <td>
             <input name="partition_count" type="number" min="2"
-                   value="<?php echo (isset($_REQUEST['partition_count']) ? htmlspecialchars($_REQUEST['partition_count']) : ''); ?>" />
+                   value="<?php echo htmlspecialchars($partitionDetails['partition_count']); ?>" />
         </td>
     </tr>
-    <?php if (isset($_REQUEST['partition_count']) && $_REQUEST['partition_count'] > 1): ?>
+    <?php if ($partitionDetails['can_have_subpartitions']): ?>
         <tr class="vmiddle">
             <td><label for="subpartition_by"><?php echo __('Subpartition by:'); ?></label></td>
             <td>
                 <select name="subpartition_by" id="subpartition_by">
                     <?php foreach ($subPartitionOptions as $option): ?>
                     <option value="<?php echo $option?>"
-                        <?php if (isset($_REQUEST['subpartition_by']) && $_REQUEST['subpartition_by'] == $option): ?>
+                        <?php if ($partitionDetails['subpartition_by'] == $option): ?>
                             selected="selected"
                         <?php endif; ?>
                     >
@@ -52,25 +52,25 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
             <td>(
                 <input name="subpartition_expr" type="text"
                        placeholder="<?php echo __('Expression or column list'); ?>"
-                       value="<?php echo (isset($_REQUEST['subpartition_expr']) ? htmlspecialchars($_REQUEST['subpartition_expr']) : ''); ?>"/>
+                       value="<?php echo htmlspecialchars($partitionDetails['subpartition_expr']); ?>"/>
             )</td>
         </tr>
         <tr class="vmiddle">
             <td><label for="subpartition_count"><?php echo __('Subpartitions:'); ?></label></td>
             <td>
                 <input name="subpartition_count" type="number" min="2"
-                       value="<?php echo (isset($_REQUEST['subpartition_count']) ? htmlspecialchars($_REQUEST['subpartition_count']) : ''); ?>" />
+                       value="<?php echo htmlspecialchars($partitionDetails['subpartition_count']); ?>" />
             </td>
         </tr>
     <?php endif; ?>
 </table>
 
-<?php if (isset($_REQUEST['partition_count']) && $_REQUEST['partition_count'] > 1): ?>
+<?php if ($partitionDetails['partition_count'] > 1): ?>
     <table id="partition_definition_table">
         <tr>
             <th><?php echo __('Partition'); ?></th>
             <th><?php echo __('Values'); ?></th>
-            <?php if (isset($_REQUEST['subpartition_count']) && $_REQUEST['subpartition_count'] > 1): ?>
+            <?php if ($partitionDetails['subpartition_count'] > 1): ?>
                 <th><?php echo __('Subpartition'); ?></th>
             <?php endif; ?>
             <th><?php echo __('Engine'); ?></th>
@@ -83,7 +83,7 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
             <th><?php echo __('Node group'); ?></th>
         </tr>
         <?php $odd = true; ?>
-        <?php foreach ($partitions as $partition): ?>
+        <?php foreach ($partitionDetails['partitions'] as $partition): ?>
             <?php $rowspan = isset($partition['subpartition_count']) ? ($partition['subpartition_count'] + 1) : 2; ?>
             <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
                 <th rowspan="<?php echo $rowspan; ?>" class="vmiddle">
