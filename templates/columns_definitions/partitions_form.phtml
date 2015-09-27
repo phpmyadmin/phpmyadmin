@@ -84,16 +84,18 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
         </tr>
         <?php $odd = true; ?>
         <?php foreach ($partitionDetails['partitions'] as $partition): ?>
-            <?php $rowspan = isset($partition['subpartition_count']) ? ($partition['subpartition_count'] + 1) : 2; ?>
+            <?php $rowspan = ! empty($partition['subpartition_count']) ? ($partition['subpartition_count'] + 1) : 2; ?>
             <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
                 <th rowspan="<?php echo $rowspan; ?>" class="vmiddle">
                     <?php echo htmlspecialchars($partition['name']); ?>
                 </th>
                 <td rowspan="<?php echo $rowspan; ?>" class="vmiddle">
-                    <select class="partition_value" name="<?php echo $partition['prefix']; ?>[value_type]" <?php echo (! $partition['value_enabled'] ? 'disabled' : ''); ?> >
+                    <select class="partition_value"
+                            name="<?php echo $partition['prefix']; ?>[value_type]"
+                            <?php echo (! $partition['value_enabled'] ? 'disabled' : ''); ?> >
                         <?php foreach ($valueTypeOptions as $option): ?>
                             <option value="<?php echo $option?>"
-                                <?php if (isset($partition['value_type']) && $partition['value_type'] == $option): ?>
+                                <?php if ($partition['value_type'] == $option): ?>
                                     selected="selected"
                                 <?php endif; ?>
                             >
@@ -101,7 +103,10 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
                             </option>
                         <?php endforeach; ?>
                     </select>
-                    <input type="text" class="partition_value" name="<?php echo $partition['prefix']; ?>[value]" <?php echo (! $partition['value_enabled'] ? 'disabled' : ''); ?> />
+                    <input type="text" class="partition_value"
+                           name="<?php echo $partition['prefix']; ?>[value]"
+                           value="<?php echo $partition['value']; ?>"
+                           <?php echo (! $partition['value_enabled'] ? 'disabled' : ''); ?> />
                 </td>
             </tr>
 

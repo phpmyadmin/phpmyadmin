@@ -337,7 +337,7 @@ function PMA_getPartitionsDefinition()
  * Returns the definition of a partition/subpartition
  *
  * @param string  $name           name of the partition/subpartition
- * @param array   $partition      array of parition/subpartition detiails
+ * @param array   $partition      array of partition/subpartition detiails
  * @param boolean $isSubPartition whether a subpartition
  *
  * @return string partition/subpartition definition

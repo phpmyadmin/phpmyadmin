@@ -2745,7 +2745,6 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', "form.create_table_form.ajax input[name=partition_count]," +
             "form.create_table_form.ajax input[name=subpartition_count]," +
             "form.create_table_form.ajax select[name=partition_by]");
-    $(document).off('change', "form.create_table_form.ajax select[name=subpartition_by]");
 });
 
 /**
@@ -2918,11 +2917,6 @@ AJAX.registerOnload('functions.js', function () {
             "form.create_table_form.ajax input[name=subpartition_count]," +
             "form.create_table_form.ajax select[name=partition_by]", function (event) {
         submitChangesInCreateTableForm('submit_partition_change=1');
-    });
-
-    $(document).on('change', "form.create_table_form.ajax select[name=subpartition_by]", function (event) {
-        var value = $(this).val();
-        $('input[name=subpartition_expr], input[name=subpartition_count]').prop('required', (value != ''));
     });
 
     $("input[value=AUTO_INCREMENT]").change(function(){

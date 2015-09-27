@@ -101,6 +101,8 @@ if (isset($_REQUEST['do_save_data'])) {
 $GLOBAL['table'] = '';
 
 $partitionDetails = array();
+
+// Extract some partitioning and subpartitioning parameters from the request
 $partitionParams = array(
     'partition_by', 'partition_expr', 'partition_count',
     'subpartition_by', 'subpartition_expr', 'subpartition_count'
@@ -110,19 +112,23 @@ foreach ($partitionParams as $partitionParam) {
         ? $_REQUEST[$partitionParam] : '';
 }
 
+// Only LIST and RANGE type parameters allow subpartitioning
 $partitionDetails['can_have_subpartitions'] = isset($_REQUEST['partition_count'])
     && $_REQUEST['partition_count'] > 1
     && isset($_REQUEST['partition_by'])
     && ($_REQUEST['partition_by'] == 'RANGE' || $_REQUEST['partition_by'] == 'LIST');
 
 if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
-    && $_REQUEST['partition_count'] > 0
-) {
+    && $_REQUEST['partition_count'] > 1
+) { // Has partitions
     $partitions = isset($_REQUEST['partitions']) ? $_REQUEST['partitions'] : array();
+
+    // Remove details of the additional partitions
+    // when number of partitions have been reduced
     array_splice($partitions, $_REQUEST['partition_count']);
 
     for ($i = 0; $i < $_REQUEST['partition_count']; $i++) {
-        if (! isset($partitions[$i])) {
+        if (! isset($partitions[$i])) { // Newly added partition
             $partitions[$i] = array(
                 'value_type' => '',
                 'value' => '',
@@ -140,24 +146,33 @@ if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
         $partition =& $partitions[$i];
         $partition['name'] = 'p' . $i;
         $partition['prefix'] = 'partitions[' . $i . ']';
+
+        // Values are specified only for LIST and RANGE type partitions
         $partition['value_enabled'] = isset($_REQUEST['partition_by'])
             && ($_REQUEST['partition_by'] == 'RANGE'
             || $_REQUEST['partition_by'] == 'LIST');
+        if (! $partition['value_enabled']) {
+            $partition['value_type'] = '';
+            $partition['value'] = '';
+        }
 
         if (PMA_isValid($_REQUEST['subpartition_count'], 'numeric')
-            && $_REQUEST['subpartition_count'] > 0
-            && $partition['value_enabled'] == true
-        ) {
+            && $_REQUEST['subpartition_count'] > 1
+            && $partitionDetails['can_have_subpartitions'] == true
+        ) { // Has subpartitions
             $partition['subpartition_count'] = $_REQUEST['subpartition_count'];
 
             if (! isset($partition['subpartitions'])) {
                 $partition['subpartitions'] = array();
             }
             $subpartitions =& $partition['subpartitions'];
+
+            // Remove details of the additional subpartitions
+            // when number of subpartitions have been reduced
             array_splice($subpartitions, $_REQUEST['subpartition_count']);
 
             for ($j = 0; $j < $_REQUEST['subpartition_count']; $j++) {
-                if (! isset($subpartitions[$j])) {
+                if (! isset($subpartitions[$j])) { // Newly added subpartition
                     $subpartitions[$j] = array(
                         'engine' => '',
                         'comment' => '',
@@ -175,7 +190,7 @@ if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
                 $subpartition['prefix'] = 'partitions[' . $i . ']'
                     . '[subpartitions][' . $j . ']';
             }
-        } else {
+        } else { // No subpartitions
             unset($partition['subpartitions']);
             unset($partition['subpartition_count']);
         }
