@@ -727,7 +727,7 @@ function PMA_getHtmlForRequires($row)
     $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_NONE"'
         . ' value="NONE" title="'
         . __(
-            'Does not requires SSL-encrypted connections.'
+            'Does not require SSL-encrypted connections.'
         )
         . '"'
         . ((isset($row['ssl_type'])
