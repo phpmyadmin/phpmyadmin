@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-09-28 09:50-0400\n"
+"POT-Creation-Date: 2015-09-28 18:02-0400\n"
 "PO-Revision-Date: 2015-09-28 22:02+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4736,12 +4736,10 @@ msgid "Analyze Explain at %s"
 msgstr "Spiegazione Analisi a %s"
 
 #: libraries/Util.class.php:1222
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Senza codice PHP"
 
 #: libraries/Util.class.php:1234
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Invia query"
 
@@ -12401,8 +12399,9 @@ msgid "User group"
 msgstr "Gruppo utenti"
 
 #: libraries/server_privileges.lib.php:730
-#| msgid "Requires SSL-encrypted connections."
-msgid "Does not requires SSL-encrypted connections."
+#, fuzzy
+#| msgid "Does not requires SSL-encrypted connections."
+msgid "Does not require SSL-encrypted connections."
 msgstr "Non richiede connessioni SSL-encrypted (cifrate)."
 
 #: libraries/server_privileges.lib.php:751
@@ -12473,7 +12472,6 @@ msgstr "Limite di connessioni simultanee che un utente può fare."
 #: libraries/server_privileges.lib.php:3179
 #: libraries/server_privileges.lib.php:4437
 #: templates/privileges/edit_routine_privileges.phtml:11
-#| msgid "Routines"
 msgid "Routine"
 msgstr "Routine"
 
@@ -12486,12 +12484,10 @@ msgstr ""
 "privilegi."
 
 #: libraries/server_privileges.lib.php:1042
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
 msgstr "Permette l'alterazione e l'eliminazione di questa routine."
 
 #: libraries/server_privileges.lib.php:1047
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
 msgstr "Permette l'esecuzione di questa routine."
 
@@ -12698,7 +12694,6 @@ msgstr "Crea un nuovo account utente con gli stessi privilegi e …"
 
 #: libraries/server_privileges.lib.php:3178
 #: templates/privileges/edit_routine_privileges.phtml:12
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Privilegi specifici per la routine"
 
@@ -14910,78 +14905,63 @@ msgid "after %s"
 msgstr "dopo %s"
 
 #: templates/columns_definitions/partitions_form.phtml:9
-#| msgid "Partitioned by:"
 msgid "Partition by:"
 msgstr "Partizione da:"
 
 #: templates/columns_definitions/partitions_form.phtml:25
 #: templates/columns_definitions/partitions_form.phtml:54
-#| msgid "Values for column %s"
 msgid "Expression or column list"
 msgstr "Lista di espressioni o di campi"
 
 #: templates/columns_definitions/partitions_form.phtml:30
-#| msgid "Partitions"
 msgid "Partitions:"
 msgstr "Partizioni:"
 
 #: templates/columns_definitions/partitions_form.phtml:38
-#| msgid "Sub partitioned by:"
 msgid "Subpartition by:"
 msgstr "Sottopartizione da:"
 
 #: templates/columns_definitions/partitions_form.phtml:59
-#| msgid "Sub partitioned by:"
 msgid "Subpartitions:"
 msgstr "Sottopartizioni:"
 
 #: templates/columns_definitions/partitions_form.phtml:71
-#| msgid "Partitions"
 msgid "Partition"
 msgstr "Partizione"
 
 #: templates/columns_definitions/partitions_form.phtml:72
-#| msgid "Value"
 msgid "Values"
 msgstr "Valori"
 
 #: templates/columns_definitions/partitions_form.phtml:74
-#| msgid "partitioned"
 msgid "Subpartition"
 msgstr "Sottopartizione"
 
 #: templates/columns_definitions/partitions_form.phtml:76
-#| msgid "Engines"
 msgid "Engine"
 msgstr "Motore"
 
 #: templates/columns_definitions/partitions_form.phtml:78
-#| msgid "Data home directory"
 msgid "Data directory"
 msgstr "Cartella dei dati"
 
 #: templates/columns_definitions/partitions_form.phtml:79
-#| msgid "Save directory"
 msgid "Index directory"
 msgstr "Cartella indice"
 
 #: templates/columns_definitions/partitions_form.phtml:80
-#| msgid "Matched rows:"
 msgid "Max rows"
 msgstr "Numero Max. di righe"
 
 #: templates/columns_definitions/partitions_form.phtml:81
-#| msgid "rows"
 msgid "Min rows"
 msgstr "Numero Min. di righe"
 
 #: templates/columns_definitions/partitions_form.phtml:82
-#| msgid "Table search"
 msgid "Table space"
 msgstr "Spazio tabella"
 
 #: templates/columns_definitions/partitions_form.phtml:83
-#| msgid "User group"
 msgid "Node group"
 msgstr "Gruppo nodi"
 
@@ -15387,7 +15367,6 @@ msgstr ""
 "letterale."
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
 msgstr "Aggiungi privilegi sulla seguente routine:"
 

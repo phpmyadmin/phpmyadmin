@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-09-28 09:50-0400\n"
+"POT-Creation-Date: 2015-09-28 18:02-0400\n"
 "PO-Revision-Date: 2014-11-05 10:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12993,7 +12993,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:730
 #, fuzzy
 #| msgid "max. concurrent connections"
-msgid "Does not requires SSL-encrypted connections."
+msgid "Does not require SSL-encrypted connections."
 msgstr "ХИ. давхацсан холболтууд"
 
 #: libraries/server_privileges.lib.php:751

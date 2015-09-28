@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-09-28 09:50-0400\n"
+"POT-Creation-Date: 2015-09-28 18:02-0400\n"
 "PO-Revision-Date: 2015-09-14 09:27+0200\n"
 "Last-Translator: muhammad <esy_vb@yahoo.com>\n"
 "Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
@@ -12105,7 +12105,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:730
 #, fuzzy
 #| msgid "Compress connection"
-msgid "Does not requires SSL-encrypted connections."
+msgid "Does not require SSL-encrypted connections."
 msgstr "پەستانی پەیوەندی"
 
 #: libraries/server_privileges.lib.php:751
