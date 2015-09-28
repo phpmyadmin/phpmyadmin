@@ -301,6 +301,11 @@ class PMA_Menu
         $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
         $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
             ->isView();
+        $updatable_view = false;
+        if ($tbl_is_view) {
+            $updatable_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
+                ->isUpdatableView();
+        }
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');
@@ -332,7 +337,7 @@ class PMA_Menu
             array('tbl_select.php', 'tbl_zoom_select.php', 'tbl_find_replace.php')
         );
 
-        if (! $db_is_system_schema) {
+        if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
             $tabs['insert']['icon'] = 'b_insrow.png';
             $tabs['insert']['link'] = 'tbl_change.php';
             $tabs['insert']['text'] = __('Insert');
