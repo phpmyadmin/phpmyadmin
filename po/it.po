@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-28 09:50-0400\n"
-"PO-Revision-Date: 2015-09-28 18:17+0200\n"
+"PO-Revision-Date: 2015-09-28 22:02+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -12698,10 +12698,9 @@ msgstr "Crea un nuovo account utente con gli stessi privilegi e …"
 
 #: libraries/server_privileges.lib.php:3178
 #: templates/privileges/edit_routine_privileges.phtml:12
-#, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Privilegi relativi ai campi"
+msgstr "Privilegi specifici per la routine"
 
 #: libraries/server_privileges.lib.php:3561
 msgid "Remove selected user accounts"
@@ -14911,95 +14910,80 @@ msgid "after %s"
 msgstr "dopo %s"
 
 #: templates/columns_definitions/partitions_form.phtml:9
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition by:"
-msgstr "Partizionato da:"
+msgstr "Partizione da:"
 
 #: templates/columns_definitions/partitions_form.phtml:25
 #: templates/columns_definitions/partitions_form.phtml:54
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "Valori per il campo %s"
+msgstr "Lista di espressioni o di campi"
 
 #: templates/columns_definitions/partitions_form.phtml:30
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partitions:"
-msgstr "Partizioni"
+msgstr "Partizioni:"
 
 #: templates/columns_definitions/partitions_form.phtml:38
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartition by:"
-msgstr "Sotto-partizionato da:"
+msgstr "Sottopartizione da:"
 
 #: templates/columns_definitions/partitions_form.phtml:59
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartitions:"
-msgstr "Sotto-partizionato da:"
+msgstr "Sottopartizioni:"
 
 #: templates/columns_definitions/partitions_form.phtml:71
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partition"
-msgstr "Partizioni"
+msgstr "Partizione"
 
 #: templates/columns_definitions/partitions_form.phtml:72
-#, fuzzy
 #| msgid "Value"
 msgid "Values"
-msgstr "Valore"
+msgstr "Valori"
 
 #: templates/columns_definitions/partitions_form.phtml:74
-#, fuzzy
 #| msgid "partitioned"
 msgid "Subpartition"
-msgstr "partizionato"
+msgstr "Sottopartizione"
 
 #: templates/columns_definitions/partitions_form.phtml:76
-#, fuzzy
 #| msgid "Engines"
 msgid "Engine"
-msgstr "Motori"
+msgstr "Motore"
 
 #: templates/columns_definitions/partitions_form.phtml:78
-#, fuzzy
 #| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Home directory dei dati"
+msgstr "Cartella dei dati"
 
 #: templates/columns_definitions/partitions_form.phtml:79
-#, fuzzy
 #| msgid "Save directory"
 msgid "Index directory"
-msgstr "Salva cartella"
+msgstr "Cartella indice"
 
 #: templates/columns_definitions/partitions_form.phtml:80
-#, fuzzy
 #| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "Righe coinvolte:"
+msgstr "Numero Max. di righe"
 
 #: templates/columns_definitions/partitions_form.phtml:81
-#, fuzzy
 #| msgid "rows"
 msgid "Min rows"
-msgstr "Mostra"
+msgstr "Numero Min. di righe"
 
 #: templates/columns_definitions/partitions_form.phtml:82
-#, fuzzy
 #| msgid "Table search"
 msgid "Table space"
-msgstr "Ricerca nella Tabella"
+msgstr "Spazio tabella"
 
 #: templates/columns_definitions/partitions_form.phtml:83
-#, fuzzy
 #| msgid "User group"
 msgid "Node group"
-msgstr "Gruppo utenti"
+msgstr "Gruppo nodi"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 msgid ""
@@ -15403,10 +15387,9 @@ msgstr ""
 "letterale."
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "Aggiungi privilegi sulla seguente tabella:"
+msgstr "Aggiungi privilegi sulla seguente routine:"
 
 #: templates/privileges/add_privileges_table.phtml:3
 msgid "Add privileges on the following table:"
