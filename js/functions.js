@@ -2742,6 +2742,9 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('submit', "form.create_table_form.ajax");
     $(document).off('click', "form.create_table_form.ajax input[name=submit_num_fields]");
     $(document).off('keyup', "form.create_table_form.ajax input");
+    $(document).off('change', "form.create_table_form.ajax input[name=partition_count]," +
+            "form.create_table_form.ajax input[name=subpartition_count]," +
+            "form.create_table_form.ajax select[name=partition_by]");
 });
 
 /**
@@ -2855,24 +2858,21 @@ AJAX.registerOnload('functions.js', function () {
     }); // end create table form (save)
 
     /**
-     * Attach event handler for create table form (add fields)
+     * Submits the intermediate changes in the table creation form
+     * to refresh the UI accordingly
      */
-    $(document).on('click', "form.create_table_form.ajax input[name=submit_num_fields]", function (event) {
-        event.preventDefault();
+    function submitChangesInCreateTableForm (actionParam) {
+
         /**
          * @var    the_form    object referring to the create table form
          */
-        var $form = $(this).closest('form');
-
-        if (!checkFormElementInRange(this.form, 'added_fields', PMA_messages.strLeastColumnError, 1)) {
-            return;
-        }
+        var $form = $('form.create_table_form.ajax');
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
 
         //User wants to add more fields to the table
-        $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=1", function (data) {
+        $.post($form.attr('action'), $form.serialize() + "&" + actionParam, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 var $pageContent = $("#page_content");
                 $pageContent.html(data.message);
@@ -2884,6 +2884,19 @@ AJAX.registerOnload('functions.js', function () {
                 PMA_ajaxShowMessage(data.error);
             }
         }); //end $.post()
+    }
+
+    /**
+     * Attach event handler for create table form (add fields)
+     */
+    $(document).on('click', "form.create_table_form.ajax input[name=submit_num_fields]", function (event) {
+        event.preventDefault();
+
+        if (!checkFormElementInRange(this.form, 'added_fields', PMA_messages.strLeastColumnError, 1)) {
+            return;
+        }
+
+        submitChangesInCreateTableForm('submit_num_fields=1');
     }); // end create table form (add fields)
 
     $(document).on('keydown', "form.create_table_form.ajax input[name=added_fields]", function (event) {
@@ -2896,6 +2909,16 @@ AJAX.registerOnload('functions.js', function () {
                 .click();
         }
     });
+
+    /**
+     * Attach event handler to manage changes in number of partitions and subpartitions
+     */
+    $(document).on('change', "form.create_table_form.ajax input[name=partition_count]," +
+            "form.create_table_form.ajax input[name=subpartition_count]," +
+            "form.create_table_form.ajax select[name=partition_by]", function (event) {
+        submitChangesInCreateTableForm('submit_partition_change=1');
+    });
+
     $("input[value=AUTO_INCREMENT]").change(function(){
         if (this.checked) {
             var col = /\d/.exec($(this).attr('name'));

@@ -293,6 +293,106 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
 }
 
 /**
+ * Returns the partitioning clause
+ *
+ * @return string partitioning clause
+ */
+function PMA_getPartitionsDefinition()
+{
+    $sql_query = "";
+    if (! empty($_REQUEST['partition_by'])
+        && ! empty($_REQUEST['partition_expr'])
+        && ! empty($_REQUEST['partition_count'])
+        && $_REQUEST['partition_count'] > 1
+    ) {
+        $sql_query .= " PARTITION BY " . $_REQUEST['partition_by']
+            . " (" . $_REQUEST['partition_expr'] . ")"
+            . " PARTITIONS " . $_REQUEST['partition_count'];
+    }
+
+    if (! empty($_REQUEST['subpartition_by'])
+        && ! empty($_REQUEST['subpartition_expr'])
+        && ! empty($_REQUEST['subpartition_count'])
+        && $_REQUEST['subpartition_count'] > 1
+    ) {
+        $sql_query .= " SUBPARTITION BY " . $_REQUEST['subpartition_by']
+           . " (" . $_REQUEST['subpartition_expr'] . ")"
+           . " SUBPARTITIONS " . $_REQUEST['subpartition_count'];
+    }
+
+    if (! empty($_REQUEST['partitions'])) {
+        $i = 0;
+        $partitions = array();
+        foreach ($_REQUEST['partitions'] as $partition) {
+            $partitions[] = PMA_getPartitionDefinition('p' . $i, $partition);
+            $i++;
+        }
+        $sql_query .= " (" . implode(", ", $partitions) . ")";
+    }
+
+    return $sql_query;
+}
+
+/**
+ * Returns the definition of a partition/subpartition
+ *
+ * @param string  $name           name of the partition/subpartition
+ * @param array   $partition      array of partition/subpartition detiails
+ * @param boolean $isSubPartition whether a subpartition
+ *
+ * @return string partition/subpartition definition
+ */
+function PMA_getPartitionDefinition($name, $partition, $isSubPartition = false)
+{
+    $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION " . $name;
+
+    if (! empty($partition['value_type'])) {
+        $sql_query .= " VALUES " . $partition['value_type'];
+
+        if ($partition['value_type'] != 'LESS THAN MAXVALUE') {
+            $sql_query .= " (" . $partition['value'] . ")";
+        }
+    }
+
+    if (! empty($partition['engine'])) {
+        $sql_query .= " ENGINE = " . $partition['engine'];
+    }
+    if (! empty($partition['comment'])) {
+        $sql_query .= " COMMENT = '" . $partition['comment'] . "'";
+    }
+    if (! empty($partition['data_directory'])) {
+        $sql_query .= " DATA DIRECTORY = '" . $partition['data_directory'] . "'";
+    }
+    if (! empty($partition['index_directory'])) {
+        $sql_query .= " INDEX_DIRECTORY = '" . $partition['index_directory'] . "'";
+    }
+    if (! empty($partition['max_rows'])) {
+        $sql_query .= " MAX_ROWS = " . $partition['max_rows'];
+    }
+    if (! empty($partition['min_rows'])) {
+        $sql_query .= " MIN_ROWS = " . $partition['min_rows'];
+    }
+    if (! empty($partition['tablespace'])) {
+        $sql_query .= " TABLESPACE = " . $partition['tablespace'];
+    }
+    if (! empty($partition['node_group'])) {
+        $sql_query .= " NODEGROUP = " . $partition['node_group'];
+    }
+
+    if (! empty($partition['subpartitions'])) {
+        $j = 0;
+        $subpartitions = array();
+        foreach ($partition['subpartitions'] as $subpartition) {
+            $subpartitions[] = PMA_getPartitionDefinition($name . 's' . $j, $subpartition, true);
+            $j++;
+        }
+        $sql_query .= " (" . implode(", ", $subpartitions) . ")";
+    }
+
+    return $sql_query;
+}
+
+/**
  * Function to get table creation sql query
  *
  * @param string $db    database name
@@ -329,11 +429,7 @@ function PMA_getTableCreationQuery($db, $table)
         $sql_query .= ' COMMENT = \''
             . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
-    if (!empty($_REQUEST['partition_definition'])) {
-        $sql_query .= ' ' . PMA_Util::sqlAddSlashes(
-            $_REQUEST['partition_definition']
-        );
-    }
+    $sql_query .= PMA_getPartitionsDefinition();
     $sql_query .= ';';
 
     return $sql_query;
@@ -346,13 +442,15 @@ function PMA_getTableCreationQuery($db, $table)
  */
 function PMA_getNumberOfFieldsFromRequest()
 {
-    if (isset($_REQUEST['submit_num_fields'])) {
+    if (isset($_REQUEST['submit_num_fields'])) { // adding new fields
         $num_fields = $_REQUEST['orig_num_fields'] + $_REQUEST['added_fields'];
+    } elseif (isset($_REQUEST['orig_num_fields'])) { // retaining existing fields
+        $num_fields = $_REQUEST['orig_num_fields'];
     } elseif (isset($_REQUEST['num_fields'])
         && intval($_REQUEST['num_fields']) > 0
-    ) {
+    ) { // new table with specified number of fields
         $num_fields = (int) $_REQUEST['num_fields'];
-    } else {
+    } else { // new table with unspecified number of fields
         $num_fields = 4;
     }
 
