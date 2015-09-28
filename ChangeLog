@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - issue #11496 Incorrect definition for getTablesWhenOpen()
 - issue #11500 Error when creating new user on MariaDB 10.0.21
 - issue #11505 Notice on htmlspecialchars()
+- issue        Notice in Structure page of views
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
