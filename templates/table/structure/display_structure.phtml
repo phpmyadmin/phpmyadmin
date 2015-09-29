@@ -168,7 +168,7 @@ $rownum = 0; $odd_row = true; ?>
 <?php
 $partition_names = Partition::getPartitionNames($db, $table);
 // detect partitioning
-if (! is_null($partition_names[0])) {
+if (! empty($partition_names) && ! is_null($partition_names[0])) {
 
     $partitions = Partition::getPartitions($db, $table);
     $firstPartition = $partitions[0];

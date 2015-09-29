@@ -135,17 +135,23 @@ class StorageEngine
      * @param string  $selected                The selected engine
      * @param boolean $offerUnavailableEngines Should unavailable storage
      *                                         engines be offered?
+     * @param boolean $addEmpty                Whether to provide empty option
      *
      * @static
      * @return string html selectbox
      */
     static public function getHtmlSelect(
         $name = 'engine', $id = null,
-        $selected = null, $offerUnavailableEngines = false
+        $selected = null, $offerUnavailableEngines = false,
+        $addEmpty = false
     ) {
         $selected   = /*overload*/mb_strtolower($selected);
         $output     = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
+
+        if ($addEmpty) {
+            $output .= '<option value=""></option>';
+        }
 
         foreach (StorageEngine::getStorageEngines() as $key => $details) {
             // Don't show PERFORMANCE_SCHEMA engine (MySQL 5.5)
@@ -161,7 +167,7 @@ class StorageEngine
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
                 . (/*overload*/mb_strtolower($key) == $selected
-                    || (empty($selected) && $details['Support'] == 'DEFAULT')
+                    || (empty($selected) && $details['Support'] == 'DEFAULT' && ! $addEmpty)
                     ? ' selected="selected"' : '')
                 . '>' . "\n"
                 . '        ' . htmlspecialchars($details['Engine']) . "\n"

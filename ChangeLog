@@ -4,6 +4,8 @@ phpMyAdmin - ChangeLog
 4.6.0.0 (not yet released)
 + issue #11456 Disabled storage engines
 + issue #11479 Allow setting routine wise privileges
+- issue        Hide Insert tab for non-updatable views
++ issue #11490 UI for defining partitioning in create table window
 
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()
@@ -15,6 +17,9 @@ phpMyAdmin - ChangeLog
 - issue #11495 'PMA_Microhistory' is undefined
 - issue #11496 Incorrect definition for getTablesWhenOpen()
 - issue #11500 Error when creating new user on MariaDB 10.0.21
+- issue #11505 Notice on htmlspecialchars()
+- issue        Notice in Structure page of views
+- issue #11510 AUTO_INCREMENT always exported when IF NOT EXISTS is on
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
