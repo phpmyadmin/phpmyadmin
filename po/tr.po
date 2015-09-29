@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-28 18:02-0400\n"
-"PO-Revision-Date: 2015-09-28 20:21+0200\n"
+"PO-Revision-Date: 2015-09-29 07:19+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12279,7 +12279,6 @@ msgid "User group"
 msgstr "Kullanıcı grubu"
 
 #: libraries/server_privileges.lib.php:730
-#, fuzzy
 #| msgid "Does not requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
 msgstr "SSL-şifrelenmiş bağlantılar gerektirmez."
@@ -12358,16 +12357,14 @@ msgstr ""
 "eklenmesine izin verir."
 
 #: libraries/server_privileges.lib.php:1042
-#, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Saklanan yordamların değiştirilmesine ve kaldırılmasına izin verir."
+msgstr "Bu yordamın değiştirilmesine ve kaldırılmasına izin verir."
 
 #: libraries/server_privileges.lib.php:1047
-#, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Saklanan yordamların yürütülmesine izin verir."
+msgstr "Bu yordamın yürütülmesine izin verir."
 
 #: libraries/server_privileges.lib.php:1097
 #: libraries/server_privileges.lib.php:1266
@@ -12570,10 +12567,9 @@ msgstr "Aynı yetkilerle yeni bir kullanıcı hesabı oluştur ve …"
 
 #: libraries/server_privileges.lib.php:3178
 #: templates/privileges/edit_routine_privileges.phtml:12
-#, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Sütuna özgü yetkiler"
+msgstr "Yordama özgü yetkiler"
 
 #: libraries/server_privileges.lib.php:3561
 msgid "Remove selected user accounts"
@@ -14755,95 +14751,80 @@ msgid "after %s"
 msgstr "%s sonrasına"
 
 #: templates/columns_definitions/partitions_form.phtml:9
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition by:"
-msgstr "Bölüme ayıran:"
+msgstr "Bölümleyen:"
 
 #: templates/columns_definitions/partitions_form.phtml:25
 #: templates/columns_definitions/partitions_form.phtml:54
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "%s sütunu için değerler"
+msgstr "İfade veya sütun listesi"
 
 #: templates/columns_definitions/partitions_form.phtml:30
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partitions:"
-msgstr "Bölümler"
+msgstr "Bölümler:"
 
 #: templates/columns_definitions/partitions_form.phtml:38
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartition by:"
-msgstr "Alt bölüme ayıran:"
+msgstr "Alt bölümleyen:"
 
 #: templates/columns_definitions/partitions_form.phtml:59
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartitions:"
-msgstr "Alt bölüme ayıran:"
+msgstr "Alt bölümler:"
 
 #: templates/columns_definitions/partitions_form.phtml:71
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partition"
-msgstr "Bölümler"
+msgstr "Bölüm"
 
 #: templates/columns_definitions/partitions_form.phtml:72
-#, fuzzy
 #| msgid "Value"
 msgid "Values"
-msgstr "Değer"
+msgstr "Değerler"
 
 #: templates/columns_definitions/partitions_form.phtml:74
-#, fuzzy
 #| msgid "partitioned"
 msgid "Subpartition"
-msgstr "bölüme ayrıldı"
+msgstr "Alt bölüm"
 
 #: templates/columns_definitions/partitions_form.phtml:76
-#, fuzzy
 #| msgid "Engines"
 msgid "Engine"
-msgstr "Motorlar"
+msgstr "Motor"
 
 #: templates/columns_definitions/partitions_form.phtml:78
-#, fuzzy
 #| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Veri ana dizini"
+msgstr "Veri dizini"
 
 #: templates/columns_definitions/partitions_form.phtml:79
-#, fuzzy
 #| msgid "Save directory"
 msgid "Index directory"
-msgstr "Kayıt dizini"
+msgstr "İndeks dizini"
 
 #: templates/columns_definitions/partitions_form.phtml:80
-#, fuzzy
 #| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "Eşleşen satırlar:"
+msgstr "En fazla satırlar"
 
 #: templates/columns_definitions/partitions_form.phtml:81
-#, fuzzy
 #| msgid "rows"
 msgid "Min rows"
-msgstr "satırda bir başlıklar"
+msgstr "En az satırlar"
 
 #: templates/columns_definitions/partitions_form.phtml:82
-#, fuzzy
 #| msgid "Table search"
 msgid "Table space"
-msgstr "Tablo arama"
+msgstr "Tablo alanı"
 
 #: templates/columns_definitions/partitions_form.phtml:83
-#, fuzzy
 #| msgid "User group"
 msgid "Node group"
-msgstr "Kullanıcı grubu"
+msgstr "Düğüm grubu"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 msgid ""
@@ -15245,10 +15226,9 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun."
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "Aşağıdaki tabloya yetkileri ekle:"
+msgstr "Aşağıdaki yordama yetkileri ekle:"
 
 #: templates/privileges/add_privileges_table.phtml:3
 msgid "Add privileges on the following table:"
