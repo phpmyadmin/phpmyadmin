@@ -1683,7 +1683,8 @@ class ExportSql extends ExportPlugin
                 // Removing the `AUTO_INCREMENT` attribute from the `CREATE TABLE`
                 // too.
                 if (!empty($statement->entityOptions)
-                    && empty($GLOBALS['sql_if_not_exists'])
+                    && (empty($GLOBALS['sql_if_not_exists'])
+                    || empty($GLOBALS['sql_auto_increment']))
                 ) {
                     $statement->entityOptions->remove('AUTO_INCREMENT');
                 }
