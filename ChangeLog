@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 + issue #11479 Allow setting routine wise privileges
 - issue        Hide Insert tab for non-updatable views
 + issue #11490 UI for defining partitioning in create table window
++ issue #11438 Support JSON data type
 
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()

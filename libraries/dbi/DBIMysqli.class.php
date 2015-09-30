@@ -503,6 +503,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         //$typeAr[MYSQLI_TYPE_CHAR]        = 'string';
         $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'geometry';
         $typeAr[MYSQLI_TYPE_BIT]         = 'bit';
+        if (defined('MYSQLI_TYPE_JSON')) {
+            $typeAr[MYSQLI_TYPE_JSON]        = 'json';
+        }
 
         $fields = mysqli_fetch_fields($result);
 
