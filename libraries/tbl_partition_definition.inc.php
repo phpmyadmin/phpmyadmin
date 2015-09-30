@@ -53,7 +53,7 @@ if (!isset($partitionDetails)) {
             $partition['value_enabled'] = isset($_REQUEST['partition_by'])
                 && ($_REQUEST['partition_by'] == 'RANGE'
                 || $_REQUEST['partition_by'] == 'LIST');
-            if (! $partition['value_enabled']) {
+            if (! $partition['value_enabled'] || !isset($partition['value_type'])) {
                 $partition['value_type'] = '';
                 $partition['value'] = '';
             }
