@@ -214,8 +214,8 @@ class PartitionDefinition extends Component
                     ? '' : ' ' . PartitionDefinition::build($component->subpartitions);
                 return 'PARTITION ' . $component->name
                     . (empty($component->type)
-                        ? ' ' : ' VALUES ' . $component->type . ' ' . $component->expr)
-                    . $component->options . $subpartitions;
+                        ? '' : ' VALUES ' . $component->type . ' ' . $component->expr)
+                    .  ' ' .$component->options . $subpartitions;
             }
         }
     }
