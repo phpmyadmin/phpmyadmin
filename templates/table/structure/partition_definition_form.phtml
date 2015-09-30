@@ -1,0 +1,13 @@
+<form action="tbl_structure.php" method="post">
+
+    <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
+    <input type="hidden" name="edit_partitioning" value="true" />
+
+    <fieldset>
+        <legend><?php echo __('Edit partitioning'); ?></legend>
+        <?php include 'libraries/tbl_partition_definition.inc.php'; ?>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input type="submit" name="save_partitioning" value="<?php echo __('Save'); ?>">
+    </fieldset>
+</form>

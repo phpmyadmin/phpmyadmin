@@ -180,6 +180,16 @@ class TableStructureController extends TableController
         }
 
         /**
+         * Adding or editing partitioning of the table
+         */
+        if (isset($_REQUEST['edit_partitioning'])
+            && ! isset($_REQUEST['save_partitioning'])
+        ) {
+            $this->displayHtmlForPartitionChange();
+            return;
+        }
+
+        /**
          * handle multiple field commands if required
          *
          * submit_mult_*_x comes from IE if <input type="img" ...> is used
@@ -268,6 +278,13 @@ class TableStructureController extends TableController
                 // continue to show the table's structure
                 unset($_REQUEST['selected']);
             }
+        }
+
+        /**
+         * Modifications to the partitioning have been submitted -> updates the table
+         */
+        if (isset($_REQUEST['save_partitioning'])) {
+            $this->updatePartitioning();
         }
 
         /**
@@ -511,6 +528,224 @@ class TableStructureController extends TableController
          */
         include_once 'libraries/check_user_privileges.lib.php';
         include 'libraries/tbl_columns_definition_form.inc.php';
+    }
+
+    /**
+     * Displays HTML for partition change
+     *
+     * @return string HTML for partition change
+     */
+    protected function displayHtmlForPartitionChange()
+    {
+        $partitionDetails = null;
+        if (! isset($_REQUEST['partition_by'])) {
+            $partitionDetails = $this->_extractPartitionDetails();
+        }
+
+        include_once 'libraries/StorageEngine.class.php';
+        $this->response->addHTML(
+            Template::get('table/structure/partition_definition_form')
+                ->render(
+                    array(
+                        'db' => $this->db,
+                        'table' => $this->table,
+                        'partitionDetails' => $partitionDetails
+                    )
+                )
+        );
+    }
+
+    /**
+     * Extracts partition details from CREATE TABLE statement
+     *
+     * @return array[] array of partition details
+     */
+    private function _extractPartitionDetails()
+    {
+        $createTable = (new Table($this->table, $this->db))->showCreate();
+        if (! $createTable) {
+            return null;
+        }
+
+        $parser = new SqlParser\Parser($createTable);
+        /**
+         * @var $stmt SqlParser\Statements\CreateStatement
+         */
+        $stmt = $parser->statements[0];
+
+        $partitionDetails = array();
+
+        $partitionDetails['partition_by'] = '';
+        $partitionDetails['partition_expr'] = '';
+        $partitionDetails['partition_count'] = '';
+
+        if (! empty($stmt->partitionBy)) {
+            $openPos = strpos($stmt->partitionBy, "(");
+            $closePos = strrpos($stmt->partitionBy, ")");
+
+            $partitionDetails['partition_by']
+                = trim(substr($stmt->partitionBy, 0, $openPos));
+            $partitionDetails['partition_expr']
+                = trim(substr($stmt->partitionBy, $openPos + 1, $closePos - ($openPos + 1)));
+            if (isset($stmt->partitionsNum)) {
+                $count = $stmt->partitionsNum;
+            } else {
+                $count = count($stmt->partitions);
+            }
+            $partitionDetails['partition_count'] = $count;
+        }
+
+        $partitionDetails['subpartition_by'] = '';
+        $partitionDetails['subpartition_expr'] = '';
+        $partitionDetails['subpartition_count'] = '';
+
+        if (! empty($stmt->subpartitionBy)) {
+            $openPos = strpos($stmt->subpartitionBy, "(");
+            $closePos = strrpos($stmt->subpartitionBy, ")");
+
+            $partitionDetails['subpartition_by']
+                = trim(substr($stmt->subpartitionBy, 0, $openPos));
+            $partitionDetails['subpartition_expr']
+                = trim(substr($stmt->subpartitionBy, $openPos + 1, $closePos - ($openPos + 1)));
+            if (isset($stmt->subpartitionsNum)) {
+                $count = $stmt->subpartitionsNum;
+            } else {
+                $count = count($stmt->partitions[0]->subpartitions);
+            }
+            $partitionDetails['subpartition_count'] = $count;
+        }
+
+        // Only LIST and RANGE type parameters allow subpartitioning
+        $partitionDetails['can_have_subpartitions']
+            = $partitionDetails['partition_count'] > 1
+                && ($partitionDetails['partition_by'] == 'RANGE'
+                || $partitionDetails['partition_by'] == 'LIST');
+
+        $partitionDetails['partitions'] = array();
+
+        for ($i = 0; $i < intval($partitionDetails['partition_count']); $i++) {
+
+            if (! isset($stmt->partitions[$i])) {
+                $partitionDetails['partitions'][$i] = array(
+                    'value_type' => '',
+                    'value' => '',
+                    'engine' => '',
+                    'comment' => '',
+                    'data_directory' => '',
+                    'index_directory' => '',
+                    'max_rows' => '',
+                    'min_rows' => '',
+                    'tablespace' => '',
+                    'node_group' => '',
+                );
+            } else {
+                $p = $stmt->partitions[$i];
+                $type = $p->type;
+                $expr = trim($p->expr, '()');
+                if ($expr == 'MAXVALUE') {
+                    $type .= ' MAXVALUE';
+                    $expr = '';
+                }
+                $partitionDetails['partitions'][$i] = array(
+                    'value_type' => $type,
+                    'value' => $expr,
+                    'engine' => $p->options->has('ENGINE', true),
+                    'comment' => trim($p->options->has('COMMENT', true), "'"),
+                    'data_directory' => trim($p->options->has('DATA DIRECTORY', true), "'"),
+                    'index_directory' => trim($p->options->has('INDEX_DIRECTORY', true), "'"),
+                    'max_rows' => $p->options->has('MAX_ROWS', true),
+                    'min_rows' => $p->options->has('MIN_ROWS', true),
+                    'tablespace' => $p->options->has('TABLESPACE', true),
+                    'node_group' => $p->options->has('NODEGROUP', true),
+                );
+            }
+
+            $partition =& $partitionDetails['partitions'][$i];
+            $partition['name'] = 'p' . $i;
+            $partition['prefix'] = 'partitions[' . $i . ']';
+
+            // Values are specified only for LIST and RANGE type partitions
+            $partition['value_enabled'] = isset($partitionDetails['partition_by'])
+                && ($partitionDetails['partition_by'] == 'RANGE'
+                || $partitionDetails['partition_by'] == 'LIST');
+            if (! $partition['value_enabled']) {
+                $partition['value_type'] = '';
+                $partition['value'] = '';
+            }
+
+            if ($partitionDetails['subpartition_count'] > 1) {
+                $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
+                $partition['subpartitions'] = array();
+
+                for ($j = 0; $j < intval($partitionDetails['subpartition_count']); $j++) {
+                    if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
+                        $partition['subpartitions'][$j] = array(
+                            'engine' => '',
+                            'comment' => '',
+                            'data_directory' => '',
+                            'index_directory' => '',
+                            'max_rows' => '',
+                            'min_rows' => '',
+                            'tablespace' => '',
+                            'node_group' => '',
+                        );
+                    } else {
+                        $sp = $stmt->partitions[$i]->subpartitions[$j];
+                        $partition['subpartitions'][$j] = array(
+                            'engine' => $sp->options->has('ENGINE', true),
+                            'comment' => trim($sp->options->has('COMMENT', true), "'"),
+                            'data_directory' => trim($sp->options->has('DATA DIRECTORY', true), "'"),
+                            'index_directory' => trim($sp->options->has('INDEX_DIRECTORY', true), "'"),
+                            'max_rows' => $sp->options->has('MAX_ROWS', true),
+                            'min_rows' => $sp->options->has('MIN_ROWS', true),
+                            'tablespace' => $sp->options->has('TABLESPACE', true),
+                            'node_group' => $sp->options->has('NODEGROUP', true),
+                        );
+                    }
+
+                    $subpartition =& $partition['subpartitions'][$j];
+                    $subpartition['name'] = 'p' . $i . 's' . $j;
+                    $subpartition['prefix'] = 'partitions[' . $i . ']'
+                        . '[subpartitions][' . $j . ']';
+                }
+            }
+        }
+
+        return $partitionDetails;
+    }
+
+    /**
+     * Update the table's partitioning based on $_REQUEST
+     *
+     * @return void
+     */
+    protected function updatePartitioning()
+    {
+        require_once 'libraries/create_addfield.lib.php';
+
+        $sql_query = "ALTER TABLE " . Util::backquote($this->table) . " "
+            . PMA_getPartitionsDefinition();
+
+        // Execute alter query
+        $result = $this->dbi->tryQuery($sql_query);
+
+        if ($result !== false) {
+            $message = Message::success(
+                __('Table %1$s has been altered successfully.')
+            );
+            $message->addParam($this->table);
+            $this->response->addHTML(
+                Util::getMessage($message, $sql_query, 'success')
+            );
+        } else {
+            $this->response->isSuccess(false);
+            $this->response->addJSON(
+                'message',
+                Message::rawError(
+                    __('Query error') . ':<br />' . $this->dbi->getError()
+                )
+            );
+        }
     }
 
     /**

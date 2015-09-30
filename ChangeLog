@@ -6,6 +6,8 @@ phpMyAdmin - ChangeLog
 + issue #11479 Allow setting routine wise privileges
 - issue        Hide Insert tab for non-updatable views
 + issue #11490 UI for defining partitioning in create table window
++ issue #11438 Support JSON data type
++ issue        Editing partitions in table Structure
 
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()
@@ -20,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #11505 Notice on htmlspecialchars()
 - issue        Notice in Structure page of views
 - issue #11510 AUTO_INCREMENT always exported when IF NOT EXISTS is on
+- issue #11516 Some partitions are missing in copied table
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting

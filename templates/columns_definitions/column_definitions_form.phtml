@@ -146,8 +146,7 @@ use PMA\libraries\StorageEngine;
                 </tr>
                 <tr>
                     <td colspan="5">
-                        <?php echo PMA\Template::get('columns_definitions/partitions_form')
-                            ->render(array('partitionDetails' => $partitionDetails)); ?>
+                        <?php include 'libraries/tbl_partition_definition.inc.php'; ?>
                     </td>
                 </tr>
             <?php endif; ?>

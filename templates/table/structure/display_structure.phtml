@@ -1,5 +1,7 @@
 <?php
 use PMA\libraries\Partition;
+use PMA\libraries\Template;
+use PMA\libraries\Util;
 
 $rownum = 0; $odd_row = true; ?>
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" class="ajax<?php echo $HideStructureActions; ?>">
@@ -26,7 +28,7 @@ $rownum = 0; $odd_row = true; ?>
             <?php
                 $rownum++;
                 $columns_list[] = $row['Field'];
-                $extracted_columnspec = PMA\libraries\Util::extractColumnSpec($row['Type']);
+                $extracted_columnspec = Util::extractColumnSpec($row['Type']);
                 $attribute = $extracted_columnspec['attribute'];
 
                 // prepare a common variable to reuse below; however,
@@ -73,12 +75,12 @@ $rownum = 0; $odd_row = true; ?>
                 }
 
                 if ($primary && $primary->hasColumn($field_name)) {
-                    $displayed_field_name .= PMA\libraries\Util::getImage(
+                    $displayed_field_name .= Util::getImage(
                         'b_primary.png', __('Primary')
                     );
                 }
                 if (in_array($field_name, $columns_with_index)) {
-                    $displayed_field_name .= PMA\libraries\Util::getImage(
+                    $displayed_field_name .= Util::getImage(
                         'bd_primary.png', __('Index')
                     );
                 }
@@ -90,7 +92,7 @@ $rownum = 0; $odd_row = true; ?>
                     'row' => $row,
                     'rownum' => $rownum,
                     'displayed_field_name' => $displayed_field_name,
-                    'type_nowrap' => PMA\libraries\Util::getClassForType($extracted_columnspec['type']),
+                    'type_nowrap' => Util::getClassForType($extracted_columnspec['type']),
                     'extracted_columnspec' => $extracted_columnspec,
                     'attribute' => $attribute,
                     'tbl_is_view' => $tbl_is_view,
@@ -103,7 +105,7 @@ $rownum = 0; $odd_row = true; ?>
                 )
             ); ?>
             <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
-                <?php echo PMA\libraries\Template::get('table/structure/actions_in_table_structure')->render(
+                <?php echo Template::get('table/structure/actions_in_table_structure')->render(
                     array(
                         'extracted_columnspec' => $extracted_columnspec,
                         'type' => (!empty($extracted_columnspec['print_type'])) ? $extracted_columnspec['print_type'] : ' ',
@@ -123,7 +125,7 @@ $rownum = 0; $odd_row = true; ?>
         <?php endforeach; ?>
         </tbody>
     </table>
-    <?php echo PMA\libraries\Template::get('table/structure/check_all_table_column')->render(
+    <?php echo Template::get('table/structure/check_all_table_column')->render(
         array(
             'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
@@ -134,16 +136,16 @@ $rownum = 0; $odd_row = true; ?>
     ); ?>
 </form>
 <hr class="print_ignore"/>
-<?php echo PMA\libraries\Template::get('table/structure/move_columns_dialog')->render(); ?>
+<?php echo Template::get('table/structure/move_columns_dialog')->render(); ?>
 <!--Work on the table-->
 <div id="structure-action-links">
     <?php if ($tbl_is_view): ?>
-        <?php echo PMA\libraries\Util::linkOrButton(
+        <?php echo Util::linkOrButton(
             $edit_view_url,
-            PMA\libraries\Util::getIcon('b_edit.png', __('Edit view'), true)
+            Util::getIcon('b_edit.png', __('Edit view'), true)
         ); ?>
     <?php endif; ?>
-    <?php echo PMA\libraries\Template::get('table/structure/optional_action_links')->render(
+    <?php echo Template::get('table/structure/optional_action_links')->render(
         array(
             'url_query' => $url_query,
             'tbl_is_view' => $tbl_is_view,
@@ -153,7 +155,7 @@ $rownum = 0; $odd_row = true; ?>
 </div>
 <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
     <br />
-    <?php echo PMA\libraries\Template::get('table/structure/add_column')->render(
+    <?php echo Template::get('table/structure/add_column')->render(
         array('columns_list' => $columns_list)
     ); ?>
 <?php endif; ?>
@@ -165,58 +167,72 @@ $rownum = 0; $odd_row = true; ?>
 <?php endif; ?>
 
 <!--Display partition details-->
-<?php
-$partition_names = Partition::getPartitionNames($db, $table);
-// detect partitioning
-if (! empty($partition_names) && ! is_null($partition_names[0])) {
+<?php if (Partition::havePartitioning()):
+    $partition_names = Partition::getPartitionNames($db, $table);
 
-    $partitions = Partition::getPartitions($db, $table);
-    $firstPartition = $partitions[0];
-    $rangeOrList = $firstPartition->getMethod() == 'RANGE'
-        || $firstPartition->getMethod() == 'LIST';
-    $subParitions = $firstPartition->getSubPartitions();
-    $hasSubPartitions = $firstPartition->hasSubPartitions();
-    if ($hasSubPartitions) {
-        $firstSubPartition = $subParitions[0];
-    }
+    // detect partitioning
+    if (! empty($partition_names) && ! is_null($partition_names[0])):
 
-    $actionIcons = array(
-        'ANALYZE' => PMA\libraries\Util::getIcon('b_search.png', __('Analyze')),
-        'CHECK' => PMA\libraries\Util::getIcon('eye.png', __('Check')),
-        'OPTIMIZE' => PMA\libraries\Util::getIcon('normalize.png', __('Optimize')),
-        'REBUILD' => PMA\libraries\Util::getIcon('s_tbl.png', __('Rebuild')),
-        'REPAIR' => PMA\libraries\Util::getIcon('b_tblops.png', __('Repair')),
-        'TRUNCATE' => PMA\libraries\Util::getIcon('b_empty.png', __('Truncate')),
-    );
-    if ($rangeOrList) {
-        $actionIcons['DROP'] = PMA\libraries\Util::getIcon('b_drop.png', __('Drop'));
-    }
+        $partitions = Partition::getPartitions($db, $table);
+        $firstPartition = $partitions[0];
+        $rangeOrList = $firstPartition->getMethod() == 'RANGE'
+            || $firstPartition->getMethod() == 'LIST';
+        $subParitions = $firstPartition->getSubPartitions();
+        $hasSubPartitions = $firstPartition->hasSubPartitions();
+        if ($hasSubPartitions) {
+            $firstSubPartition = $subParitions[0];
+        }
 
-    echo PMA\libraries\Util::getDivForSliderEffect(
-        'partitions', __('Partitions')
-    );
+        $actionIcons = array(
+            'ANALYZE' => Util::getIcon('b_search.png', __('Analyze')),
+            'CHECK' => Util::getIcon('eye.png', __('Check')),
+            'OPTIMIZE' => Util::getIcon('normalize.png', __('Optimize')),
+            'REBUILD' => Util::getIcon('s_tbl.png', __('Rebuild')),
+            'REPAIR' => Util::getIcon('b_tblops.png', __('Repair')),
+            'TRUNCATE' => Util::getIcon('b_empty.png', __('Truncate')),
+        );
+        if ($rangeOrList) {
+            $actionIcons['DROP'] = Util::getIcon('b_drop.png', __('Drop'));
+        }
 
-    $tmp_partition_description = $firstPartition->getDescription();
+        echo Util::getDivForSliderEffect(
+            'partitions', __('Partitions')
+        );
 
-    echo PMA\libraries\Template::get('table/structure/display_partitions')->render(
-        array(
-            'table' => $table,
-            'url_query'  => $url_query,
-            'partitions' => $partitions,
-            'partitionMethod' => $firstPartition->getMethod(),
-            'partitionExpression' => $firstPartition->getExpression(),
-            'hasDescription' => ! empty($tmp_partition_description),
-            'hasSubPartitions' => $hasSubPartitions,
-            'subPartitionMethod' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
-            'subPartitionExpression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
-            'actionIcons' => $actionIcons,
-            'rangeOrList' => $rangeOrList,
-        )
-    );
-?>
-<!-- For closing Slider effect div-->
-</div>
-<?php } ?>
+        $tmp_partition_description = $firstPartition->getDescription();
+
+        $removeSQL = "ALTER TABLE " . Util::backquote($table) . " REMOVE PARTITIONING";
+        $removeUrl = 'sql.php' . $url_query . '&sql_query=' . urldecode($removeSQL);
+
+        echo Template::get('table/structure/display_partitions')->render(
+            array(
+                'db' => $db,
+                'table' => $table,
+                'url_query'  => $url_query,
+                'partitions' => $partitions,
+                'partitionMethod' => $firstPartition->getMethod(),
+                'partitionExpression' => $firstPartition->getExpression(),
+                'hasDescription' => ! empty($tmp_partition_description),
+                'hasSubPartitions' => $hasSubPartitions,
+                'subPartitionMethod' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
+                'subPartitionExpression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
+                'actionIcons' => $actionIcons,
+                'rangeOrList' => $rangeOrList,
+                'removeUrl' => $removeUrl,
+            )
+        );
+    else:
+        echo Template::get('table/structure/display_partitions')->render(
+            array(
+                'db' => $db,
+                'table' => $table,
+            )
+        );
+    endif;
+    ?>
+    <!-- For closing Slider effect div-->
+    </div>
+<?php endif; ?>
 
 <!--Displays Space usage and row statistics-->
 <?php if ($GLOBALS['cfg']['ShowStats']): ?>
