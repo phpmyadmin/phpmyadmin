@@ -36,7 +36,7 @@ class PartitionDefinition extends Component
      * @var array
      */
     public static $OPTIONS = array(
-        'STORAGE'                       => array(1, 'var'),
+        'ENGINE'                        => array(1, 'var'),
         'STORAGE ENGINE'                => array(1, 'var'),
         'COMMENT'                       => array(2, 'var'),
         'DATA DIRECTORY'                => array(3, 'var'),
@@ -108,6 +108,7 @@ class PartitionDefinition extends Component
          *      0 -------------[ PARTITION | SUBPARTITION ]------------> 1
          *
          *      1 -----------------------[ name ]----------------------> 2
+         *      1 -----------------------[ name ]----------------------> 5
          *
          *      2 ----------------------[ VALUES ]---------------------> 3
          *
@@ -148,7 +149,12 @@ class PartitionDefinition extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 $ret->name = $token->value;
-                $state = $ret->isSubpartition ? 5 : 2;
+                // Get next token
+                $nextToken = $list->getNext();
+                $nextToken = $list->getNext();
+                --$list->idx; --$list->idx; // Reset index
+                $isValue = ($nextToken->type === Token::TYPE_KEYWORD) && ($nextToken->value === 'VALUES');
+                $state = $isValue ? 2 : 5;
             } elseif ($state === 2) {
                 $state = 3;
             } elseif ($state === 3) {
@@ -202,13 +208,14 @@ class PartitionDefinition extends Component
             return "(\n" . implode(",\n", $component) . "\n)";
         } else {
             if ($component->isSubpartition) {
-                return 'SUBPARTITION ' . $component->name;
+                return 'SUBPARTITION ' . $component->name . ' ' . $component->options;
             } else {
                 $subpartitions = empty($component->subpartitions)
                     ? '' : ' ' . PartitionDefinition::build($component->subpartitions);
                 return 'PARTITION ' . $component->name
-                    . ' VALUES ' . $component->type . ' ' . $component->expr
-                    . $subpartitions;
+                    . (empty($component->type)
+                        ? ' ' : ' VALUES ' . $component->type . ' ' . $component->expr)
+                    . $component->options . $subpartitions;
             }
         }
     }
