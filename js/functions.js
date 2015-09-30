@@ -2742,9 +2742,7 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('submit', "form.create_table_form.ajax");
     $(document).off('click', "form.create_table_form.ajax input[name=submit_num_fields]");
     $(document).off('keyup', "form.create_table_form.ajax input");
-    $(document).off('change', "form.create_table_form.ajax input[name=partition_count]," +
-            "form.create_table_form.ajax input[name=subpartition_count]," +
-            "form.create_table_form.ajax select[name=partition_by]");
+    $(document).off('change', "input[name=partition_count],input[name=subpartition_count],select[name=partition_by]");
 });
 
 /**
@@ -2913,10 +2911,14 @@ AJAX.registerOnload('functions.js', function () {
     /**
      * Attach event handler to manage changes in number of partitions and subpartitions
      */
-    $(document).on('change', "form.create_table_form.ajax input[name=partition_count]," +
-            "form.create_table_form.ajax input[name=subpartition_count]," +
-            "form.create_table_form.ajax select[name=partition_by]", function (event) {
-        submitChangesInCreateTableForm('submit_partition_change=1');
+    $(document).on('change', "input[name=partition_count],input[name=subpartition_count],select[name=partition_by]", function (event) {
+        $this = $(this);
+        $form = $this.parents('form');
+        if ($form.is(".create_table_form.ajax")) {
+            submitChangesInCreateTableForm('submit_partition_change=1');
+        } else {
+            $form.submit();
+        }
     });
 
     $("input[value=AUTO_INCREMENT]").change(function(){

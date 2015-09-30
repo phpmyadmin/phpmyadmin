@@ -86,6 +86,7 @@ AJAX.registerTeardown('tbl_structure.js', function () {
     $(document).off('submit', ".append_fields_form.ajax");
     $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
     $(document).off('click', 'a[name^=partition_action].ajax');
+    $(document).off('click', '#remove_partitioning.ajax');
 });
 
 AJAX.registerOnload('tbl_structure.js', function () {
@@ -461,6 +462,21 @@ AJAX.registerOnload('tbl_structure.js', function () {
         } else {
             submitPartitionAction($link.attr('href'));
         }
+    });
+
+    /**
+     * Handles remove partitioning
+     */
+    $(document).on('click', '#remove_partitioning.ajax', function (e) {
+        e.preventDefault();
+        var $link = $(this);
+        var question = PMA_messages.strRemovePartitioningWarning;
+        $link.PMA_confirm(question, $link.attr('href'), function (url) {
+            var submitData = '&ajax_request=true&ajax_page_request=true';
+            PMA_ajaxShowMessage();
+            AJAX.source = $link;
+            $.post(url, submitData, AJAX.responseHandler);
+        });
     });
 });
 
