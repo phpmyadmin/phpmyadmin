@@ -1596,32 +1596,25 @@ div#profilingchart {
 #sectionlinks a,
 .buttonlinks a,
 a.button {
-    font-size: .88em;
     font-weight: bold;
     text-shadow: 0 1px 0 #fff;
     line-height: 35px;
     margin-<?php echo $left; ?>: 7px;
     border: 1px solid #aaa;
-    padding: 5px 10px;
-    color: #111;
+    padding: 3px 7px;
+    color: #111 !important;
     text-decoration: none;
     background: #ddd;
     white-space: nowrap;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
-    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px rgba(0,0,0,.5);
-    /*
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px rgba(0,0,0,.5);
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px rgba(0,0,0,.5);
-    text-shadow: #fff 0 1px 0;
-    */
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('f8f8f8', 'd8d8d8'); ?>
 }
 #sectionlinks a:hover,
 .buttonlinks a:hover,
 a.button:hover {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'dddddd'); ?>
 }
 
 div#sqlquerycontainer {

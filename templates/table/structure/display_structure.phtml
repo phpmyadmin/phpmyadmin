@@ -162,58 +162,72 @@
 <?php endif; ?>
 
 <!--Display partition details-->
-<?php
-$partition_names = PMA_Partition::getPartitionNames($db, $table);
-// detect partitioning
-if (! empty($partition_names) && ! is_null($partition_names[0])) {
+<?php if (PMA_Partition::havePartitioning()):
+    $partition_names = PMA_Partition::getPartitionNames($db, $table);
 
-    $partitions = PMA_Partition::getPartitions($db, $table);
-    $firstPartition = $partitions[0];
-    $rangeOrList = $firstPartition->getMethod() == 'RANGE'
-        || $firstPartition->getMethod() == 'LIST';
-    $subParitions = $firstPartition->getSubPartitions();
-    $hasSubPartitions = $firstPartition->hasSubPartitions();
-    if ($hasSubPartitions) {
-        $firstSubPartition = $subParitions[0];
-    }
+    // detect partitioning
+    if (! empty($partition_names) && ! is_null($partition_names[0])):
 
-    $actionIcons = array(
-        'ANALYZE' => PMA_Util::getIcon('b_search.png', __('Analyze')),
-        'CHECK' => PMA_Util::getIcon('eye.png', __('Check')),
-        'OPTIMIZE' => PMA_Util::getIcon('normalize.png', __('Optimize')),
-        'REBUILD' => PMA_Util::getIcon('s_tbl.png', __('Rebuild')),
-        'REPAIR' => PMA_Util::getIcon('b_tblops.png', __('Repair')),
-        'TRUNCATE' => PMA_Util::getIcon('b_empty.png', __('Truncate')),
-    );
-    if ($rangeOrList) {
-        $actionIcons['DROP'] = PMA_Util::getIcon('b_drop.png', __('Drop'));
-    }
+        $partitions = PMA_Partition::getPartitions($db, $table);
+        $firstPartition = $partitions[0];
+        $rangeOrList = $firstPartition->getMethod() == 'RANGE'
+            || $firstPartition->getMethod() == 'LIST';
+        $subParitions = $firstPartition->getSubPartitions();
+        $hasSubPartitions = $firstPartition->hasSubPartitions();
+        if ($hasSubPartitions) {
+            $firstSubPartition = $subParitions[0];
+        }
 
-    echo PMA_Util::getDivForSliderEffect(
-        'partitions', __('Partitions')
-    );
+        $actionIcons = array(
+            'ANALYZE' => PMA_Util::getIcon('b_search.png', __('Analyze')),
+            'CHECK' => PMA_Util::getIcon('eye.png', __('Check')),
+            'OPTIMIZE' => PMA_Util::getIcon('normalize.png', __('Optimize')),
+            'REBUILD' => PMA_Util::getIcon('s_tbl.png', __('Rebuild')),
+            'REPAIR' => PMA_Util::getIcon('b_tblops.png', __('Repair')),
+            'TRUNCATE' => PMA_Util::getIcon('b_empty.png', __('Truncate')),
+        );
+        if ($rangeOrList) {
+            $actionIcons['DROP'] = PMA_Util::getIcon('b_drop.png', __('Drop'));
+        }
 
-    $tmp_partition_description = $firstPartition->getDescription();
+        echo PMA_Util::getDivForSliderEffect(
+            'partitions', __('Partitions')
+        );
 
-    echo PMA\Template::get('table/structure/display_partitions')->render(
-        array(
-            'table' => $table,
-            'url_query'  => $url_query,
-            'partitions' => $partitions,
-            'partitionMethod' => $firstPartition->getMethod(),
-            'partitionExpression' => $firstPartition->getExpression(),
-            'hasDescription' => ! empty($tmp_partition_description),
-            'hasSubPartitions' => $hasSubPartitions,
-            'subPartitionMethod' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
-            'subPartitionExpression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
-            'actionIcons' => $actionIcons,
-            'rangeOrList' => $rangeOrList,
-        )
-    );
-?>
-<!-- For closing Slider effect div-->
-</div>
-<?php } ?>
+        $tmp_partition_description = $firstPartition->getDescription();
+
+        $removeSQL = "ALTER TABLE " . PMA_Util::backquote($table) . " REMOVE PARTITIONING";
+        $removeUrl = 'sql.php' . $url_query . '&sql_query=' . urldecode($removeSQL);
+
+        echo PMA\Template::get('table/structure/display_partitions')->render(
+            array(
+                'db' => $db,
+                'table' => $table,
+                'url_query'  => $url_query,
+                'partitions' => $partitions,
+                'partitionMethod' => $firstPartition->getMethod(),
+                'partitionExpression' => $firstPartition->getExpression(),
+                'hasDescription' => ! empty($tmp_partition_description),
+                'hasSubPartitions' => $hasSubPartitions,
+                'subPartitionMethod' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
+                'subPartitionExpression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
+                'actionIcons' => $actionIcons,
+                'rangeOrList' => $rangeOrList,
+                'removeUrl' => $removeUrl,
+            )
+        );
+    else:
+        echo PMA\Template::get('table/structure/display_partitions')->render(
+            array(
+                'db' => $db,
+                'table' => $table,
+            )
+        );
+    endif;
+    ?>
+    <!-- For closing Slider effect div-->
+    </div>
+<?php endif; ?>
 
 <!--Displays Space usage and row statistics-->
 <?php if ($GLOBALS['cfg']['ShowStats']): ?>
