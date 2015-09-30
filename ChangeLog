@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - issue        Hide Insert tab for non-updatable views
 + issue #11490 UI for defining partitioning in create table window
 + issue #11438 Support JSON data type
++ issue        Editing partitions in table Structure
 
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()
