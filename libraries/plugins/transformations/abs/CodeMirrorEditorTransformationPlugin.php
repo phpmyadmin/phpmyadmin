@@ -18,7 +18,7 @@ if (!defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Transformations
  */
-abstract class CodeMirrorEditorTransformationsPlugin extends IOTransformationsPlugin
+abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlugin
 {
     /**
      * Does the actual work of each specific transformations plugin.

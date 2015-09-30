@@ -8,7 +8,7 @@
  */
 namespace PMA\libraries\plugins\transformations\input;
 
-use PMA\libraries\plugins\transformations\abs\CodeMirrorEditorTransformationsPlugin;
+use PMA\libraries\plugins\transformations\abs\CodeMirrorEditorTransformationPlugin;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -20,7 +20,7 @@ if (!defined('PHPMYADMIN')) {
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
  */
-class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationsPlugin
+class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
