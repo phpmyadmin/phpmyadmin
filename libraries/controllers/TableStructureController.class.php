@@ -624,6 +624,11 @@ class TableStructureController extends TableController
                 && ($partitionDetails['partition_by'] == 'RANGE'
                 || $partitionDetails['partition_by'] == 'LIST');
 
+        // Values are specified only for LIST and RANGE type partitions
+        $partitionDetails['value_enabled'] = isset($partitionDetails['partition_by'])
+            && ($partitionDetails['partition_by'] == 'RANGE'
+            || $partitionDetails['partition_by'] == 'LIST');
+
         $partitionDetails['partitions'] = array();
 
         for ($i = 0; $i < intval($partitionDetails['partition_count']); $i++) {
@@ -666,15 +671,6 @@ class TableStructureController extends TableController
             $partition =& $partitionDetails['partitions'][$i];
             $partition['name'] = 'p' . $i;
             $partition['prefix'] = 'partitions[' . $i . ']';
-
-            // Values are specified only for LIST and RANGE type partitions
-            $partition['value_enabled'] = isset($partitionDetails['partition_by'])
-                && ($partitionDetails['partition_by'] == 'RANGE'
-                || $partitionDetails['partition_by'] == 'LIST');
-            if (! $partition['value_enabled']) {
-                $partition['value_type'] = '';
-                $partition['value'] = '';
-            }
 
             if ($partitionDetails['subpartition_count'] > 1) {
                 $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
