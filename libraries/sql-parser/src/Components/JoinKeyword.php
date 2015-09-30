@@ -35,7 +35,9 @@ class JoinKeyword extends Component
         'INNER JOIN'                    => 'INNER',
         'JOIN'                          => 'JOIN',
         'LEFT JOIN'                     => 'LEFT',
+        'LEFT OUTER JOIN'               => 'LEFT',
         'RIGHT JOIN'                    => 'RIGHT',
+        'RIGHT OUTER JOIN'              => 'RIGHT',
     );
 
     /**
@@ -98,7 +100,6 @@ class JoinKeyword extends Component
         }
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
@@ -132,7 +133,7 @@ class JoinKeyword extends Component
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'ON')) {
                     $state = 3;
                 }
-            } else if ($state === 3) {
+            } elseif ($state === 3) {
                 $expr->on = Condition::parse($parser, $list);
                 $ret[] = $expr;
                 $expr = new JoinKeyword();
@@ -160,7 +161,7 @@ class JoinKeyword extends Component
         $ret = array();
         foreach ($component as $c) {
             $ret[] = (($c->type === 'JOIN') ? 'JOIN ' : ($c->type . ' JOIN '))
-               . $c->expr . ' ON ' . Condition::build($c->on);
+                . $c->expr . ' ON ' . Condition::build($c->on);
         }
         return implode(' ', $ret);
     }

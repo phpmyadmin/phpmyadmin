@@ -109,7 +109,6 @@ abstract class Statement
         $query = '';
 
         foreach (static::$CLAUSES as $clause) {
-
             /**
              * The name of the clause.
              *
@@ -190,7 +189,6 @@ abstract class Statement
         $parsedOptions = empty(static::$OPTIONS);
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
@@ -247,7 +245,8 @@ abstract class Statement
             ) {
                 if (!empty($parsedClauses[$token->value])) {
                     $parser->error(
-                        __('This type of clause was previously parsed.'), $token
+                        __('This type of clause was previously parsed.'),
+                        $token
                     );
                     break;
                 }
