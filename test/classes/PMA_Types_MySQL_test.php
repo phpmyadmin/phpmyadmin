@@ -420,6 +420,9 @@ class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
                     'MULTILINESTRING',
                     'MULTIPOLYGON',
                     'GEOMETRYCOLLECTION',
+                ),
+                'JSON' => array(
+                    'JSON'
                 )
             ),
             $this->object->getColumns()
