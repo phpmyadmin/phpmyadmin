@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 - issue        Notice in Structure page of views
 - issue #11510 AUTO_INCREMENT always exported when IF NOT EXISTS is on
 - issue #11516 Some partitions are missing in copied table
+- issue #11521 Notice of undefined variable when performing SHOW CREATE
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
