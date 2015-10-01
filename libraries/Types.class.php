@@ -732,11 +732,6 @@ class PMA_Types_MySQL extends PMA_Types
                 'MPolyFromWKB',
             );
 
-        case 'JSON':
-            return array(
-                'JSON_ARRAY',
-                'JSON_OBJECT',
-            );
         }
         return array();
     }
