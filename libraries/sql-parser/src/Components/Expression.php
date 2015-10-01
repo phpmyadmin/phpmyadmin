@@ -160,7 +160,6 @@ class Expression extends Component
         $prev = null;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
@@ -274,7 +273,6 @@ class Expression extends Component
                         // field should be skipped; used to parse table names).
                         $field = (!empty($options['skipColumn'])) ? 'table' : 'column';
                         if (!empty($ret->$field)) {
-
                             // No alias is expected.
                             if (!empty($options['noAlias'])) {
                                 break;

@@ -23,6 +23,11 @@ phpMyAdmin - ChangeLog
 - issue        Notice in Structure page of views
 - issue #11510 AUTO_INCREMENT always exported when IF NOT EXISTS is on
 - issue #11516 Some partitions are missing in copied table
+- issue #11521 Notice of undefined variable when performing SHOW CREATE
+- issue #11509 Error exporting sql query results with table alias
+- issue #11512 SQL editing window does not recognise 'OUTER' keyword in 'LEFT OUTER JOIN'
+- issue #11518 "NOT IN" clause not recognized (MySQL 5.6 and 5.7)
+- issue #11524 Yellow star does not change in database Structure after add/remove from favorites
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting

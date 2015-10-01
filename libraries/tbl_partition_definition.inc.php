@@ -22,6 +22,11 @@ if (!isset($partitionDetails)) {
         && isset($_REQUEST['partition_by'])
         && ($_REQUEST['partition_by'] == 'RANGE' || $_REQUEST['partition_by'] == 'LIST');
 
+    // Values are specified only for LIST and RANGE type partitions
+    $partitionDetails['value_enabled'] = isset($_REQUEST['partition_by'])
+        && ($_REQUEST['partition_by'] == 'RANGE'
+        || $_REQUEST['partition_by'] == 'LIST');
+
     if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
         && $_REQUEST['partition_count'] > 1
     ) { // Has partitions
@@ -51,13 +56,19 @@ if (!isset($partitionDetails)) {
             $partition['name'] = 'p' . $i;
             $partition['prefix'] = 'partitions[' . $i . ']';
 
-            // Values are specified only for LIST and RANGE type partitions
-            $partition['value_enabled'] = isset($_REQUEST['partition_by'])
-                && ($_REQUEST['partition_by'] == 'RANGE'
-                || $_REQUEST['partition_by'] == 'LIST');
-            if (! $partition['value_enabled']) {
+            if (! isset($partition['value_type'])) { // Changing from HASH/KEY to RANGE/LIST
                 $partition['value_type'] = '';
                 $partition['value'] = '';
+            }
+            if (! isset($partition['engine'])) { // When removing subpartitioning
+                $partition['engine'] = '';
+                $partition['comment'] = '';
+                $partition['data_directory'] = '';
+                $partition['index_directory'] = '';
+                $partition['max_rows'] = '';
+                $partition['min_rows'] = '';
+                $partition['tablespace'] = '';
+                $partition['node_group'] = '';
             }
 
             if (PMA_isValid($_REQUEST['subpartition_count'], 'numeric')

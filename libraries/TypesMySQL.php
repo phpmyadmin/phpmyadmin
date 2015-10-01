@@ -442,11 +442,6 @@ class TypesMySQL extends Types
                 'MPolyFromWKB',
             );
 
-        case 'JSON':
-            return array(
-                'JSON_ARRAY',
-                'JSON_OBJECT',
-            );
         }
         return array();
     }

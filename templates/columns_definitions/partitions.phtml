@@ -69,8 +69,10 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
     <table id="partition_definition_table">
         <tr>
             <th><?php echo __('Partition'); ?></th>
-            <th><?php echo __('Values'); ?></th>
-            <?php if ($partitionDetails['subpartition_count'] > 1): ?>
+            <?php if ($partitionDetails['value_enabled']): ?>
+                <th><?php echo __('Values'); ?></th>
+            <?php endif; ?>
+            <?php if ($partitionDetails['can_have_subpartitions'] && $partitionDetails['subpartition_count'] > 1): ?>
                 <th><?php echo __('Subpartition'); ?></th>
             <?php endif; ?>
             <th><?php echo __('Engine'); ?></th>
@@ -89,25 +91,25 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
                 <th rowspan="<?php echo $rowspan; ?>" class="vmiddle">
                     <?php echo htmlspecialchars($partition['name']); ?>
                 </th>
-                <td rowspan="<?php echo $rowspan; ?>" class="vmiddle">
-                    <select class="partition_value"
-                            name="<?php echo $partition['prefix']; ?>[value_type]"
-                            <?php echo (! $partition['value_enabled'] ? 'disabled' : ''); ?> >
-                        <?php foreach ($valueTypeOptions as $option): ?>
-                            <option value="<?php echo $option?>"
-                                <?php if ($partition['value_type'] == $option): ?>
-                                    selected="selected"
-                                <?php endif; ?>
-                            >
-                                <?php echo $option; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <input type="text" class="partition_value"
-                           name="<?php echo $partition['prefix']; ?>[value]"
-                           value="<?php echo $partition['value']; ?>"
-                           <?php echo (! $partition['value_enabled'] ? 'disabled' : ''); ?> />
-                </td>
+                <?php if ($partitionDetails['value_enabled']): ?>
+                    <td rowspan="<?php echo $rowspan; ?>" class="vmiddle">
+                        <select class="partition_value"
+                                name="<?php echo $partition['prefix']; ?>[value_type]">
+                            <?php foreach ($valueTypeOptions as $option): ?>
+                                <option value="<?php echo $option?>"
+                                    <?php if ($partition['value_type'] == $option): ?>
+                                        selected="selected"
+                                    <?php endif; ?>
+                                >
+                                    <?php echo $option; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="text" class="partition_value"
+                               name="<?php echo $partition['prefix']; ?>[value]"
+                               value="<?php echo $partition['value']; ?>" />
+                    </td>
+                <?php endif; ?>
             </tr>
 
             <?php
@@ -120,7 +122,7 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
 
             <?php foreach ($subpartitions as $subpartition): ?>
                 <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
-                    <?php if (isset($partition['subpartitions'])): ?>
+                    <?php if ($partitionDetails['can_have_subpartitions'] && $partitionDetails['subpartition_count'] > 1): ?>
                         <th class="vmiddle"><?php echo htmlspecialchars($subpartition['name']); ?></th>
                     <?php endif; ?>
                     <td>

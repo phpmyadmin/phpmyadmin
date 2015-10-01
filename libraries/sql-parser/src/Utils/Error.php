@@ -78,14 +78,20 @@ class Error
      * @return array
      */
     public static function format(
-        $errors, $format = '#%1$d: %2$s (near "%4$s" at position %5$d)'
+        $errors,
+        $format = '#%1$d: %2$s (near "%4$s" at position %5$d)'
     ) {
         $ret = array();
 
         $i = 0;
         foreach ($errors as $key => $err) {
             $ret[$key] = sprintf(
-                $format, ++$i, $err[0], $err[1], $err[2], $err[3]
+                $format,
+                ++$i,
+                $err[0],
+                $err[1],
+                $err[2],
+                $err[3]
             );
         }
 

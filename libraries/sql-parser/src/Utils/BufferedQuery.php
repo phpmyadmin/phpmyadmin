@@ -186,7 +186,6 @@ class BufferedQuery
         $loopLen = $end ? $len : $len - 16;
 
         for (; $i < $loopLen; ++$i) {
-
             /*
              * Handling special parses statuses.
              */
@@ -285,7 +284,6 @@ class BufferedQuery
                 && (($this->query[$i + 8] === 'R') || ($this->query[$i + 8] === 'r'))
                 && (Context::isWhitespace($this->query[$i + 9]))
             ) {
-
                 // Saving the current index to be able to revert any parsing
                 // done in this block.
                 $iBak = $i;
@@ -307,14 +305,12 @@ class BufferedQuery
                     && ((($i < $len) && (Context::isWhitespace($this->query[$i])))
                     || (($i === $len) && ($end)))
                 ) {
-
                     // Saving the delimiter.
                     $this->setDelimiter($delimiter);
 
                     // Whether this statement should be returned or not.
                     $ret = '';
                     if (!empty($this->options['parse_delimiter'])) {
-
                         // Appending the `DELIMITER` statement that was just
                         // found to the current statement.
                         $ret = trim(
@@ -351,7 +347,6 @@ class BufferedQuery
                 && (($this->delimiterLen === 1)
                 || (substr($this->query, $i, $this->delimiterLen) === $this->delimiter))
             ) {
-
                 // Saving the statement that just ended.
                 $ret = $this->current;
 
