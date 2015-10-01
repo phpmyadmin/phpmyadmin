@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-28 19:52+0200\n"
+"PO-Revision-Date: 2015-10-01 20:31+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/hy/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -9707,7 +9707,7 @@ msgstr "Մասնաբաժին %s"
 
 #: libraries/operations.lib.php:1663
 msgid "Remove partitioning"
-msgstr "Հեռացնել մասնահատումը"
+msgstr "Հեռացնել մասնաբաժանումը"
 
 #: libraries/operations.lib.php:1689
 msgid "Check referential integrity:"
