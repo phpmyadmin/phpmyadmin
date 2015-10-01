@@ -464,7 +464,11 @@ abstract class Context
                 // If it didn't work, we are looking for a new one and skipping
                 // over to the next generation that will try the new context.
                 $context = preg_replace(
-                    '/[1-9](0*)$/', '0$1', $context, -1, $count
+                    '/[1-9](0*)$/',
+                    '0$1',
+                    $context,
+                    -1,
+                    $count
                 );
                 continue;
             }

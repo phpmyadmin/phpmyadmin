@@ -395,7 +395,6 @@ class CreateStatement extends Statement
              * Handles partitions.
              */
             for (; $list->idx < $list->count; ++$list->idx) {
-
                 /**
                  * Token parsed at this moment.
                  *
@@ -428,7 +427,6 @@ class CreateStatement extends Statement
                     --$list->idx; // `getNextOfType` also advances one position.
                     $this->subpartitionsNum = $token->value;
                 } elseif (!empty($field)) {
-
                     /*
                      * Handling the content of `PARTITION BY` and `SUBPARTITION BY`.
                      */
@@ -499,7 +497,7 @@ class CreateStatement extends Statement
                 $token = $list->tokens[$list->idx];
                 $this->body[] = $token;
             }
-        } else if ($this->options->has('VIEW')) {
+        } elseif ($this->options->has('VIEW')) {
             $token = $list->getNext(); // Skipping whitespaces and comments.
 
             // Parsing columns list.
@@ -518,7 +516,7 @@ class CreateStatement extends Statement
                 }
                 $this->body[] = $token;
             }
-        } else if ($this->options->has('TRIGGER')) {
+        } elseif ($this->options->has('TRIGGER')) {
             // Parsing the time and the event.
             $this->entityOptions = OptionsArray::parse(
                 $parser,

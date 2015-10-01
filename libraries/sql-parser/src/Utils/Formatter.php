@@ -257,7 +257,6 @@ class Formatter
         // `$prev` and `$curr` which store two consecutive tokens.
         // Actually, at every iteration the previous token is being used.
         for ($list->idx = 0; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
@@ -266,11 +265,9 @@ class Formatter
             $curr = $list->tokens[$list->idx];
 
             if ($curr->type === Token::TYPE_WHITESPACE) {
-
                 // Whitespaces are skipped because the formatter adds its own.
                 continue;
             } elseif ($curr->type === Token::TYPE_COMMENT) {
-
                 // Whether the comments should be parsed.
                 if (!empty($this->options['remove_comments'])) {
                     continue;
@@ -297,7 +294,6 @@ class Formatter
 
             // Checking if pointers were initialized.
             if ($prev !== null) {
-
                 // Checking if a new clause started.
                 if (static::isClause($prev) !== false) {
                     $lastClause = $prev->value;
@@ -428,7 +424,6 @@ class Formatter
             if (($token->type === $format['type'])
                 && (($token->flags & $format['flags']) === $format['flags'])
             ) {
-
                 // Running transformation function.
                 if (!empty($format['function'])) {
                     $func = $format['function'];

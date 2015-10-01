@@ -75,7 +75,9 @@ class DataType extends Component
      * @param array        $parameters The parameters (size or possible values).
      * @param OptionsArray $options    The options of this data type.
      */
-    public function __construct($name = null, array $parameters = array(),
+    public function __construct(
+        $name = null,
+        array $parameters = array(),
         $options = null
     ) {
         $this->name = $name;
@@ -108,7 +110,6 @@ class DataType extends Component
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
