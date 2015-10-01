@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-01 07:36-0400\n"
-"PO-Revision-Date: 2015-09-30 10:38+0200\n"
+"PO-Revision-Date: 2015-10-01 14:24+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -950,10 +950,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Kas sa soovid tõesti kärpida (TRUNCATE) valitud partitsioone?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Kas sa soovid tõesti kärpida (TRUNCATE) valitud partitsioone?"
+msgstr "Kas sa tõesti soovid loobuda partitsioneerimisest?"
 
 #: js/messages.php:68
 msgid ""
@@ -4622,6 +4621,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Salvestab ja lubab efektiivse juurdepääsu JSON (JavaScript Object Notation) "
+"dokumentides olevatele andmetele"
 
 #: libraries/Types.class.php:769
 msgctxt "numeric types"
@@ -15404,10 +15405,9 @@ msgid "Partitions"
 msgstr "Partitsioonid"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Indeksit pole määratud!"
+msgstr "Partitsioneerimine ei ole määratud!"
 
 #: templates/table/structure/display_partitions.phtml:10
 msgid "Partitioned by:"
@@ -15426,17 +15426,15 @@ msgid "Index length"
 msgstr "Indeksi pikkus"
 
 #: templates/table/structure/display_partitions.phtml:134
-#, fuzzy
 #| msgid "Partition by:"
 msgid "Partition table"
-msgstr "Partitsiooni tegi:"
+msgstr "Partitsioonide tabel"
 
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Eemalda partitsioneerimine"
+msgstr "Muuda partitsioneerimist"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
