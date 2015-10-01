@@ -1412,6 +1412,27 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
 }
 
 /**
+ * Gets the currently active authentication plugins
+ *
+ * @return array $result  array of plugin names and descriptions
+ */
+function PMA_getActiveAuthPlugins()
+{
+    $get_plugins_query = "SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION`"
+        . " FROM `information_schema`.`PLUGINS` "
+        . "WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';";
+    $resultset = $GLOBALS['dbi']->query($get_plugins_query);
+
+    $result = array();
+
+    while ($row = $GLOBALS['dbi']->fetchAssoc($resultset)) {
+        $result[] = $row;
+    }
+
+    return $result;
+}
+
+/**
  * Displays the fields used by the "new user" form as well as the
  * "change login information / copy user" form.
  *
@@ -1631,10 +1652,6 @@ function PMA_getHtmlForLoginInformationFields(
         )
         . '</div>' . "\n";
 
-    $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
-        $mode, $username, $hostname
-    );
-
     $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_password">' . "\n"
         . '    ' . __('Password:') . "\n"
@@ -1694,18 +1711,18 @@ function PMA_getHtmlForLoginInformationFields(
         . __('Authentication Plugin')
         . '</label><span class="options">&nbsp;</span>' . "\n"
         . '<select id="select_authentication_plugin" name="authentication_plugin" '
-        . 'title="' . __('Authentication Plugin') . '" >'
-        . '<option value="mysql_native_password" '
-        . ($orig_auth_plugin == 'mysql_native_password' ? 'selected ' : '')
-        . '>' . __('MySQL native password') . '</option>';
+        . 'title="' . __('Authentication Plugin') . '" >';
 
-    // sha256 auth plugin exists only for 5.6.6+
-    if (PMA_Util::getServerType() == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50606
-    ) {
-        $html_output .= '<option value="sha256_password" '
-        . ($orig_auth_plugin == 'sha256_password' ? ' selected ' : '')
-        . ' >' . __('SHA256 password') . '</option>';
+    $active_auth_plugins = PMA_getActiveAuthPlugins();
+
+    $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+        $mode, $username, $hostname
+    );
+
+    foreach ($active_auth_plugins as $plugin) {
+        $html_output .= '<option value="' . $plugin['PLUGIN_NAME'] . '"'
+            . ($orig_auth_plugin == $plugin['PLUGIN_NAME'] ? 'selected ' : '')
+            . '>' . __($plugin['PLUGIN_DESCRIPTION']) . '</option>';
     }
 
     $html_output .= '</select>'
@@ -3429,6 +3446,9 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                     . $host['Host'] . "'";
             $res = $GLOBALS['dbi']->fetchSingleRow($check_plugin_query);
 
+            // For MySQL 5.6.6+ to 5.7.6, mysql.user table has both
+            // `password` and `authentication_string` columns,
+            // We should use authentication_string for sha256_password
             if ($serverType == 'MySQL'
                 && PMA_MYSQL_INT_VERSION >= 50606
                 && PMA_MYSQL_INT_VERSION < 50706
@@ -3450,18 +3470,14 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
             // its password hash stored in `authentication_string` column
             if ($serverType == 'MariaDB'
                 && PMA_MYSQL_INT_VERSION >= 50200
+                && isset($res['plugin'])
+                && isset($res['authentication_string'])
+                && (! empty($res['authentication_string'])
+                || ! empty($res['Password']))
             ) {
-                if (isset($res['plugin'])
-                    && isset($res['authentication_string'])
-                ) {
-                    if (! empty($res['authentication_string'])
-                        || ! empty($res['Password'])
-                    ) {
-                        $host[$password_column] = 'Y';
-                    } else {
-                        $host[$password_column] = 'N';
-                    }
-                }
+                $host[$password_column] = 'Y';
+            } else {
+                $host[$password_column] = 'N';
             }
 
             switch ($host[$password_column]) {
