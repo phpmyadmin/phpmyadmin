@@ -73,7 +73,9 @@ class AlterStatement extends Statement
 
         // Parsing affected table.
         $this->table = Expression::parse(
-            $parser, $list, array(
+            $parser,
+            $list,
+            array(
             'noAlias' => true,
             'noBrackets' => true,
             )
@@ -94,7 +96,6 @@ class AlterStatement extends Statement
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
@@ -115,7 +116,7 @@ class AlterStatement extends Statement
             if ($state === 0) {
                 $this->altered[] = AlterOperation::parse($parser, $list);
                 $state = 1;
-            } else if ($state === 1) {
+            } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
                     $state = 0;
                 }
