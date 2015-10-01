@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-01 07:36-0400\n"
-"PO-Revision-Date: 2015-09-29 16:36+0200\n"
+"PO-Revision-Date: 2015-10-01 21:01+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.5\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -953,10 +953,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Ali res želite IZPRAZNITI izbrane razdelke?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Ali res želite IZPRAZNITI izbrane razdelke?"
+msgstr "Ali res želite odstraniti razdelitev?"
 
 #: js/messages.php:68
 msgid ""
@@ -4662,6 +4661,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Shrani in omogoča učinkovit dostop do podatkov v dokumentih JSON (JavaScript "
+"Object Notation)"
 
 #: libraries/Types.class.php:769
 msgctxt "numeric types"
@@ -15525,10 +15526,9 @@ msgid "Partitions"
 msgstr "Particije"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Ni definiranega indeksa!"
+msgstr "Opredeljena ni nobena razdelitev!"
 
 #: templates/table/structure/display_partitions.phtml:10
 msgid "Partitioned by:"
@@ -15547,17 +15547,15 @@ msgid "Index length"
 msgstr "Dolžina indeksa"
 
 #: templates/table/structure/display_partitions.phtml:134
-#, fuzzy
 #| msgid "Partition by:"
 msgid "Partition table"
-msgstr "Razdeli po:"
+msgstr "Tabela razdelitve"
 
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Odstrani particioniranje"
+msgstr "Uredi razdelitev"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
