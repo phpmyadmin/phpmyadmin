@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-01 07:36-0400\n"
-"PO-Revision-Date: 2015-09-06 16:42+0200\n"
+"PO-Revision-Date: 2015-10-01 18:23+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -960,10 +960,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Weet u zeker dat u de geselecteerde partitiie(s) wilt afbreken?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Weet u zeker dat u de geselecteerde partitiie(s) wilt afbreken?"
+msgstr "Weet u zeker dat u de partitionering wilt verwijderen?"
 
 #: js/messages.php:68
 msgid ""
@@ -4682,6 +4681,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Maakt efficiënte datatoegang beschikbaar en slaat het op in JSON (JavaScript "
+"Object Notation) documenten"
 
 #: libraries/Types.class.php:769
 msgctxt "numeric types"
@@ -4743,16 +4744,14 @@ msgid "Analyze Explain at %s"
 msgstr "Analyseer uitleg op %s"
 
 #: libraries/Util.class.php:1222
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
-msgstr "zonder PHP-code"
+msgstr "Zonder PHP-code"
 
 #: libraries/Util.class.php:1234
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
-msgstr "Query uitvoeren"
+msgstr "Query verzenden"
 
 #: libraries/Util.class.php:1245 libraries/config/messages.inc.php:898
 msgid "Create PHP code"
@@ -12388,10 +12387,9 @@ msgid "User group"
 msgstr "Gebruikersgroep"
 
 #: libraries/server_privileges.lib.php:730
-#, fuzzy
 #| msgid "Requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
-msgstr "Verbinding met SSL encryptie vereist."
+msgstr "Verbindingen zonder SSL encryptie toegestaan."
 
 #: libraries/server_privileges.lib.php:751
 msgid "Requires SSL-encrypted connections."
@@ -12462,10 +12460,9 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3179
 #: libraries/server_privileges.lib.php:4437
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine"
-msgstr "Routines"
+msgstr "Routine"
 
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:1409 server_privileges.php:71
@@ -12476,17 +12473,14 @@ msgstr ""
 "rechtentabel opnieuw op te vragen."
 
 #: libraries/server_privileges.lib.php:1042
-#, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr ""
-"Maakt het mogelijk om opgeslagen routines te bewerken en te verwijderen."
+msgstr "Staat het toe om deze routine te bewerken en te verwijderen."
 
 #: libraries/server_privileges.lib.php:1047
-#, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Maakt het mogelijk om opgeslagen routines uit te voeren."
+msgstr "Staat het toe deze routine uit te voeren."
 
 #: libraries/server_privileges.lib.php:1097
 #: libraries/server_privileges.lib.php:1266
@@ -12693,10 +12687,9 @@ msgstr "Een nieuwe gebruikersaccount aanmaken met dezelfde rechten en …"
 
 #: libraries/server_privileges.lib.php:3178
 #: templates/privileges/edit_routine_privileges.phtml:12
-#, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Kolom-specifieke rechten"
+msgstr "Routine-specifieke rechten"
 
 #: libraries/server_privileges.lib.php:3561
 msgid "Remove selected user accounts"
@@ -14909,95 +14902,80 @@ msgid "after %s"
 msgstr "na %s"
 
 #: templates/columns_definitions/partitions.phtml:9
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition by:"
-msgstr "Gepartitioneerd op:"
+msgstr "Partitie op:"
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "Waarden voor kolom %s"
+msgstr "Expressie of kolom lijst"
 
 #: templates/columns_definitions/partitions.phtml:30
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partitions:"
-msgstr "Partities %s"
+msgstr "Partities:"
 
 #: templates/columns_definitions/partitions.phtml:38
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartition by:"
-msgstr "Onderverdeling op:"
+msgstr "Onderpartitionering op:"
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartitions:"
-msgstr "Onderverdeling op:"
+msgstr "Onderpartitionering:"
 
 #: templates/columns_definitions/partitions.phtml:71
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partition"
-msgstr "Partities %s"
+msgstr "Partitie"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
 #| msgid "Value"
 msgid "Values"
-msgstr "Waarde"
+msgstr "Waarden"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
 #| msgid "partitioned"
 msgid "Subpartition"
-msgstr "gepartitioneerd"
+msgstr "Ondergepartitioneerd"
 
 #: templates/columns_definitions/partitions.phtml:78
-#, fuzzy
 #| msgid "Engines"
 msgid "Engine"
-msgstr "Engines"
+msgstr "Engine"
 
 #: templates/columns_definitions/partitions.phtml:80
-#, fuzzy
 #| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Data homemap"
+msgstr "Data map"
 
 #: templates/columns_definitions/partitions.phtml:81
-#, fuzzy
 #| msgid "Save directory"
 msgid "Index directory"
-msgstr "Opslagmap"
+msgstr "Index map"
 
 #: templates/columns_definitions/partitions.phtml:82
-#, fuzzy
 #| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "Overeenkomende rijen:"
+msgstr "Maximaal aantal rijen"
 
 #: templates/columns_definitions/partitions.phtml:83
-#, fuzzy
 #| msgid "rows"
 msgid "Min rows"
-msgstr "Verkennen"
+msgstr "Minimaal aantal rijen"
 
 #: templates/columns_definitions/partitions.phtml:84
-#, fuzzy
 #| msgid "Table search"
 msgid "Table space"
-msgstr "Tabel zoeken"
+msgstr "Tabel ruimte"
 
 #: templates/columns_definitions/partitions.phtml:85
-#, fuzzy
 #| msgid "User group"
 msgid "Node group"
-msgstr "Gebruikersgroep"
+msgstr "Node groep"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 msgid ""
@@ -15402,10 +15380,9 @@ msgstr ""
 "gebruiken."
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "Rechten toevoegen op de volgende tabel:"
+msgstr "Rechten toevoegen op de volgende routine:"
 
 #: templates/privileges/add_privileges_table.phtml:3
 msgid "Add privileges on the following table:"
@@ -15732,10 +15709,9 @@ msgid "Partitions"
 msgstr "Partities %s"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Geen index gedefinieerd!"
+msgstr "Geen partitionering gedefinieerd!"
 
 #: templates/table/structure/display_partitions.phtml:10
 msgid "Partitioned by:"
@@ -15754,17 +15730,15 @@ msgid "Index length"
 msgstr "Lengte van de index"
 
 #: templates/table/structure/display_partitions.phtml:134
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition table"
-msgstr "Gepartitioneerd op:"
+msgstr "Partitietabel"
 
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Partitionering verwijderen"
+msgstr "Partitionering bewerken"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
