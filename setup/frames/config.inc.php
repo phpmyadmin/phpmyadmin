@@ -15,6 +15,7 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Core libraries.
  */
+require_once './libraries/config/FormDisplay.tpl.php';
 require_once './setup/lib/index.lib.php';
 
 $config_readable = false;
