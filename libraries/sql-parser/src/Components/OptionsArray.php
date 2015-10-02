@@ -197,7 +197,7 @@ class OptionsArray extends Component
                 }
             } elseif ($state === 1) {
                 $state = 2;
-                if ($token->value === '=') {
+                if ($token->token === '=') {
                     $ret->options[$lastOptionId]['equals'] = true;
                     continue;
                 }
