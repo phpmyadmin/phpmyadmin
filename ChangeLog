@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - issue #11524 Yellow star does not change in database Structure after add/remove from favorites
 - issue #11531 Invalid SQL in table definition when exporting table
 - issue #11526 Foreign key to other database's tables fails
+- issue #11519 Bug while exporting results when a joined table field name is in SELECT query
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
