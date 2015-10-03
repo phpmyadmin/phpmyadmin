@@ -2632,11 +2632,12 @@ class ExportSql extends ExportPlugin
 
                 // References.
                 if (!empty($field->references)) {
-                    $ref_table = $field->references->table;
+                    $ref_table = $field->references->table->table;
                     // Replacing table.
                     if (!empty($aliases[$old_database]['tables'][$ref_table]['alias'])) {
-                        $field->references->table
+                        $field->references->table->table
                             = $aliases[$old_database]['tables'][$ref_table]['alias'];
+                        $field->references->table->expr = null;
                         $flag = true;
                     }
                     // Replacing column names.
