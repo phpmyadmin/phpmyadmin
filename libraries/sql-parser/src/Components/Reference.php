@@ -40,7 +40,7 @@ class Reference extends Component
     /**
      * The referenced table.
      *
-     * @var string
+     * @var Expression
      */
     public $table;
 
@@ -61,7 +61,7 @@ class Reference extends Component
     /**
      * Constructor.
      *
-     * @param string       $table   The name of the table referenced.
+     * @param Expression   $table   The name of the table referenced.
      * @param array        $columns The columns referenced.
      * @param OptionsArray $options The options.
      */
@@ -117,7 +117,15 @@ class Reference extends Component
             }
 
             if ($state === 0) {
-                $ret->table = $token->value;
+                $ret->table = Expression::parse(
+                    $parser,
+                    $list,
+                    array(
+                        'noAlias' => true,
+                        'skipColumn' => true,
+                        'noBrackets' => true,
+                    )
+                );
                 $state = 1;
             } elseif ($state === 1) {
                 $ret->columns = ArrayObj::parse($parser, $list)->values;
@@ -143,7 +151,7 @@ class Reference extends Component
     public static function build($component, array $options = array())
     {
         return trim(
-            Context::escape($component->table)
+            $component->table
             . ' (' . implode(', ', Context::escape($component->columns)) . ') '
             . $component->options
         );
