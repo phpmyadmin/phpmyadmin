@@ -1941,7 +1941,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             "  `p` tinyint(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
             "  `xyz` varchar(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
             "  `pphymdain` varchar(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
-            "  CONSTRAINT `fk_om_dept` FOREIGN KEY (`p`) REFERENCES `dept_master` (`baz`)\n" .
+            "  CONSTRAINT `fk_om_dept` FOREIGN KEY (`p`) REFERENCES dept_master (`baz`)\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
             $result
         );
@@ -1953,7 +1953,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             "  `baz` tinyint(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
             "  `xyz` varchar(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
             "  `pqr` varchar(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
-            "  CONSTRAINT `fk_om_dept` FOREIGN KEY (`baz`) REFERENCES `dept_master` (`baz`)\n" .
+            "  CONSTRAINT `fk_om_dept` FOREIGN KEY (`baz`) REFERENCES dept_master (`baz`)\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
             $result
         );
