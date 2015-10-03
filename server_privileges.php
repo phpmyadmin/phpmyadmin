@@ -139,7 +139,7 @@ if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
     $response->addHTML(
         PMA_Message::error(__('Username and hostname didn\'t change.'))->getDisplay()
     );
-    $response->isSuccess(false);
+    $response->setRequestStatus(false);
     exit;
 }
 
@@ -305,7 +305,7 @@ if ($GLOBALS['is_ajax_request']
 
     if (! empty($message) && $message instanceof PMA_Message) {
         $response = PMA_Response::getInstance();
-        $response->isSuccess($message->isSuccess());
+        $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON($extra_data);
         exit;

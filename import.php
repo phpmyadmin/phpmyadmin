@@ -357,7 +357,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             $message = PMA_Message::success(__('Showing bookmark'));
             $response = PMA_Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('message', $message);
             $response->addJSON('sql_query', $import_text);
             $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
@@ -372,7 +372,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             $message = PMA_Message::success(__('The bookmark has been deleted.'));
             $response = PMA_Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('message', $message);
             $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
             $response->addJSON('id_bookmark', $id_bookmark);
@@ -792,7 +792,7 @@ if ($go_sql) {
     }
 
     $response = PMA_Response::getInstance();
-    $response->isSuccess(true);
+    $response->setRequestStatus(true);
     $response->addJSON('message', PMA_Message::success($msg));
     $response->addJSON(
         'sql_query',
@@ -800,7 +800,7 @@ if ($go_sql) {
     );
 } else if ($result == false) {
     $response = PMA_Response::getInstance();
-    $response->isSuccess(false);
+    $response->setRequestStatus(false);
     $response->addJSON('message', PMA_Message::error($msg));
 } else {
     $active_page = $goto;

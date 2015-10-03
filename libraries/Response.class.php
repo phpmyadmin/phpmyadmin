@@ -142,7 +142,7 @@ class PMA_Response
      *
      * @return void
      */
-    public function isSuccess($state)
+    public function setRequestStatus($state)
     {
         $this->_isSuccess = ($state == true);
     }

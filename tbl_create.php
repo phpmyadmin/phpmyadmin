@@ -91,7 +91,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
     } else {
         $response = PMA_Response::getInstance();
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $GLOBALS['dbi']->getError());
     }
     exit;

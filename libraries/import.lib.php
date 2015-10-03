@@ -1367,7 +1367,7 @@ function PMA_stopImport( PMA_Message $error_message )
     $_SESSION['Import_message']['message'] = $msg;
 
     $response = PMA_Response::getInstance();
-    $response->isSuccess(false);
+    $response->setRequestStatus(false);
     $response->addJSON('message', PMA_Message::error($msg));
 
     exit;

@@ -182,7 +182,7 @@ function PMA_TRI_handleEditor()
                 $response->addJSON('message', $output);
             } else {
                 $response->addJSON('message', $message);
-                $response->isSuccess(false);
+                $response->setRequestStatus(false);
             }
             exit;
         }

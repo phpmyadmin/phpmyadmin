@@ -78,7 +78,7 @@ function PMA_RTE_sendEditor($type, $mode, $item, $title, $db, $operation = null)
         $message = PMA_message::error($message);
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             $response->addJSON('message', $message);
             exit;
         } else {

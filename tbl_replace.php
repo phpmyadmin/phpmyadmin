@@ -433,7 +433,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         = PMA_Util::getMessage($message, $GLOBALS['display_query']);
 
     $response = PMA_Response::getInstance();
-    $response->isSuccess($message->isSuccess());
+    $response->setRequestStatus($message->isSuccess());
     $response->addJSON('message', $message);
     $response->addJSON($extra_data);
     exit;

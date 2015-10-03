@@ -88,7 +88,7 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
         $response = PMA_Response::getInstance();
         if ($change_password_message['error']) {
             $response->addJSON('message', $change_password_message['msg']);
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
         } else {
             $sql_query = PMA_Util::getMessage(
                 $change_password_message['msg'],

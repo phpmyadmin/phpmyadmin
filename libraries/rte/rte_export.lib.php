@@ -45,7 +45,7 @@ function PMA_RTE_handleExport($export_data)
         $response = PMA_message::error($message);
         if ($GLOBALS['is_ajax_request'] == true) {
             $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             $response->addJSON('message', $message);
             exit;
         } else {

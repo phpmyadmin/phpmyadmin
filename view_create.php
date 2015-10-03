@@ -97,7 +97,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
                 . $GLOBALS['dbi']->getError()
             )
         );
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         exit;
     }
 
@@ -141,7 +141,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
             'message',
             PMA_Util::getMessage(PMA_Message::success(), $sql_query)
         );
-        $response->isSuccess(true);
+        $response->setRequestStatus(true);
     }
 
     exit;

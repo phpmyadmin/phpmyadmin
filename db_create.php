@@ -52,7 +52,7 @@ if (! $result) {
      */
     if ($GLOBALS['is_ajax_request'] == true) {
         $response = PMA_Response::getInstance();
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $message);
     } else {
         include_once 'index.php';

@@ -762,7 +762,7 @@ class PMA_Util
          */
         if (!empty($GLOBALS['is_ajax_request'])) {
             $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             $response->addJSON('message', $error_msg);
             exit;
         }

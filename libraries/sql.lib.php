@@ -679,7 +679,7 @@ function PMA_setColumnProperty($pmatable, $request_index)
     );
     if (gettype($retval) != 'boolean') {
         $response = PMA_Response::getInstance();
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $retval->getString());
         exit;
     }
@@ -711,7 +711,7 @@ function PMA_setColumnOrderOrVisibility($table, $db)
     }
 
     $response = PMA_Response::getInstance();
-    $response->isSuccess($retval == true);
+    $response->setRequestStatus($retval == true);
     exit;
 }
 
@@ -739,7 +739,7 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
             $response->addJSON('message', $msg);
         } else {
             $msg = PMA_message::error(__('Bookmark not created!'));
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             $response->addJSON('message', $msg);
         }
         exit;
@@ -906,7 +906,7 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
     if ($is_gotofile) {
         $message = PMA_Message::rawError($error);
         $response = PMA_Response::getInstance();
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $message);
     } else {
         PMA_Util::mysqlDie($error, $full_sql_query, '', '');

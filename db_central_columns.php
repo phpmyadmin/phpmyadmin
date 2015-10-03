@@ -78,7 +78,7 @@ if (isset($_REQUEST['edit_central_columns_page'])) {
 if (isset($_POST['multi_edit_central_column_save'])) {
     $message = PMA_updateMultipleColumn();
     if (!is_bool($message)) {
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $message);
     }
 }

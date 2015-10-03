@@ -173,7 +173,7 @@ class TableIndexesController extends TableController
                 include 'tbl_structure.php';
             }
         } else {
-            $this->response->isSuccess(false);
+            $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $error);
         }
     }

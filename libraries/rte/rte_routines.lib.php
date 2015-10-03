@@ -159,7 +159,7 @@ function PMA_RTN_handleEditor()
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
                 $response = PMA_Response::getInstance();
-                $response->isSuccess(false);
+                $response->setRequestStatus(false);
                 $response->addJSON('message', $message);
                 exit;
             } else {
@@ -281,7 +281,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
 
     $response = PMA_Response::getInstance();
     if (!$message->isSuccess()) {
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $output);
         exit;
     }
@@ -1287,7 +1287,7 @@ function PMA_RTN_handleExecute()
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
                 $response = PMA_Response::getInstance();
-                $response->isSuccess(false);
+                $response->setRequestStatus(false);
                 $response->addJSON('message', $message);
                 exit;
             } else {
@@ -1453,7 +1453,7 @@ function PMA_RTN_handleExecute()
         // Print/send output
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('message', $message->getDisplay() . $output);
             $response->addJSON('dialog', false);
             exit;
@@ -1500,7 +1500,7 @@ function PMA_RTN_handleExecute()
             $message = PMA_message::error($message);
 
             $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             $response->addJSON('message', $message);
             exit;
         }

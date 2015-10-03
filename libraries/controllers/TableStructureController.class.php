@@ -155,7 +155,7 @@ class TableStructureController extends TableController
                     $reserved_keywords_names[] = trim($this->table);
                 }
                 if (count($reserved_keywords_names) == 0) {
-                    $this->response->isSuccess(false);
+                    $this->response->setRequestStatus(false);
                 }
                 $this->response->addJSON(
                     'message', sprintf(
@@ -168,7 +168,7 @@ class TableStructureController extends TableController
                     )
                 );
             } else {
-                $this->response->isSuccess(false);
+                $this->response->setRequestStatus(false);
             }
             return;
         }
@@ -247,7 +247,7 @@ class TableStructureController extends TableController
                     );
                 }
             } else {
-                $this->response->isSuccess(false);
+                $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', __('No column selected.'));
             }
         }
@@ -466,7 +466,7 @@ class TableStructureController extends TableController
             array_splice($column_names, $i, 0, $column);
         }
         if (empty($changes)) { // should never happen
-            $this->response->isSuccess(false);
+            $this->response->setRequestStatus(false);
             return;
         }
         // move columns
@@ -479,7 +479,7 @@ class TableStructureController extends TableController
         );
         $tmp_error = $this->dbi->getError();
         if ($tmp_error) {
-            $this->response->isSuccess(false);
+            $this->response->setRequestStatus(false);
             $this->response->addJSON('message', PMA_Message::error($tmp_error));
         } else {
             $message = PMA_Message::success(
@@ -737,7 +737,7 @@ class TableStructureController extends TableController
                 PMA_Util::getMessage($message, $sql_query, 'success')
             );
         } else {
-            $this->response->isSuccess(false);
+            $this->response->setRequestStatus(false);
             $this->response->addJSON(
                 'message',
                 PMA_Message::rawError(
@@ -1009,7 +1009,7 @@ class TableStructureController extends TableController
                 // Column reverted back to original
                 $this->dbi->query($revert_query);
 
-                $this->response->isSuccess(false);
+                $this->response->setRequestStatus(false);
                 $this->response->addJSON(
                     'message',
                     PMA_Message::rawError(

@@ -191,7 +191,7 @@ function PMA_EVN_handleEditor()
                 $response->addJSON('insert', ! empty($event));
                 $response->addJSON('message', $output);
             } else {
-                $response->isSuccess(false);
+                $response->setRequestStatus(false);
                 $response->addJSON('message', $message);
             }
             exit;

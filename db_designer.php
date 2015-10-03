@@ -37,7 +37,7 @@ if (isset($_REQUEST['operation'])) {
 
     if ($_REQUEST['operation'] == 'deletePage') {
         $success = PMA_deletePage($_REQUEST['selected_page']);
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'savePage') {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
@@ -46,12 +46,12 @@ if (isset($_REQUEST['operation'])) {
             $response->addJSON('id', $page);
         }
         $success = PMA_saveTablePositions($page);
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'setDisplayField') {
         PMA_saveDisplayField(
             $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['field']
         );
-        $response->isSuccess(true);
+        $response->setRequestStatus(true);
     } elseif ($_REQUEST['operation'] == 'addNewRelation') {
         list($success, $message) = PMA_addNewRelation(
             $_REQUEST['db'],
@@ -62,7 +62,7 @@ if (isset($_REQUEST['operation'])) {
             $_REQUEST['on_delete'],
             $_REQUEST['on_update']
         );
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'removeRelation') {
         list($success, $message) = PMA_removeRelation(
@@ -71,11 +71,11 @@ if (isset($_REQUEST['operation'])) {
             $_REQUEST['T2'],
             $_REQUEST['F2']
         );
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'save_setting_value') {
         $success = PMA_saveDesignerSetting($_REQUEST['index'], $_REQUEST['value']);
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
     }
 
     return;

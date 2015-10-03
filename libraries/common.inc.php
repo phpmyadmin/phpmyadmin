@@ -1132,7 +1132,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * an ajax request if there is a token mismatch
      */
     if (isset($response) && $response->isAjax() && $token_mismatch) {
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON(
             'message',
             PMA_Message::error(__('Error: Token mismatch'))

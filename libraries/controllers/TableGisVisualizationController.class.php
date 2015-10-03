@@ -96,7 +96,7 @@ class TableGisVisualizationController extends TableController
     {
         // Throw error if no sql query is set
         if (! isset($this->sql_query) || $this->sql_query == '') {
-            $this->response->isSuccess(false);
+            $this->response->setRequestStatus(false);
             $this->response->addHTML(
                 PMA_Message::error(__('No SQL query was set to fetch data.'))
             );

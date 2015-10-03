@@ -180,7 +180,7 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
      */
     if ($GLOBALS['is_ajax_request'] == true) {
         $response = PMA_Response::getInstance();
-        $response->isSuccess($message->isSuccess());
+        $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON('newname', $_REQUEST['newname']);
         $response->addJSON(
