@@ -7,10 +7,6 @@
  */
 use PMA\libraries\Util;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Generate charset dropdown box
  *

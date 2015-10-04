@@ -8,9 +8,6 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Get Ajax return when $_REQUEST['type'] === 'getval'

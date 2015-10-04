@@ -10,10 +10,6 @@
  */
 use PMA\libraries\Message;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Returns the html for Database List
  *

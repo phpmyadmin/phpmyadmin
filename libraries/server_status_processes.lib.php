@@ -12,10 +12,6 @@ use PMA\libraries\Message;
 use PMA\libraries\ServerStatusData;
 use PMA\libraries\Util;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Prints html for auto refreshing processes list
  *

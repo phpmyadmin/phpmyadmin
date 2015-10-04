@@ -8,13 +8,8 @@
  *
  * @package PhpMyAdmin
  */
-
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ImportPlugin;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Prints Html For Display Import Hidden Input

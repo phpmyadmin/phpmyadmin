@@ -6,15 +6,10 @@
  *
  * @package PhpMyAdmin
  */
-
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
 use PMA\libraries\ZipFile;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Sets a session variable upon a possible fatal error during export

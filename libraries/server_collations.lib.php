@@ -8,9 +8,6 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Returns the html for server Character Sets and Collations.

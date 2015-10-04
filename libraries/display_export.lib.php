@@ -10,10 +10,6 @@ use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Outputs appropriate checked statement for checkbox.
  *

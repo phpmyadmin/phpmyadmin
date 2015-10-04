@@ -10,10 +10,6 @@
  */
 use PMA\libraries\ServerStatusData;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Returns the html for the list filter
  *

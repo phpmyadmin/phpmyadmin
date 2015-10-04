@@ -6,10 +6,6 @@
  * @package PhpMyAdmin
  */
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Return HTML to list the users belonging to a given user group
  *

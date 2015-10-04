@@ -10,10 +10,6 @@
  */
 use PMA\libraries\StorageEngine;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * setup HTML for server Engines information
  *

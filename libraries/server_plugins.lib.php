@@ -8,9 +8,6 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Returns the common SQL used to retrieve plugin data

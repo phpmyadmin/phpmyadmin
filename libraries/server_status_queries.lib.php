@@ -10,10 +10,6 @@
  */
 use PMA\libraries\ServerStatusData;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Returns the html content for the query statistics
  *

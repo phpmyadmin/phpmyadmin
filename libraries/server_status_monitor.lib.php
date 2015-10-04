@@ -11,10 +11,6 @@
 use PMA\libraries\ServerStatusData;
 use PMA\libraries\Util;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Prints html with monitor
  *

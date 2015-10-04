@@ -6,10 +6,6 @@
  * @package PhpMyAdmin
  */
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Get HTML for secondary level menu tabs on 'Users' page
  *

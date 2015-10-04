@@ -5,13 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-
 use PMA\libraries\Message;
 use PMA\libraries\plugins\TransformationsPlugin;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Retrieve form parameters for insert/edit form

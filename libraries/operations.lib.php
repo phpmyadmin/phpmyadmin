@@ -16,10 +16,6 @@ use PMA\libraries\StorageEngine;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Get HTML output for database comment
  *

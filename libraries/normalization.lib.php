@@ -1,18 +1,12 @@
 <?php
-
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * set of functions used for normalization
  *
  * @package PhpMyAdmin
  */
-
 use PMA\libraries\Message;
 use PMA\libraries\Util;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * build the html for columns of $colTypeCategory category

@@ -8,9 +8,6 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Returns html with PMA\libraries\Advisor

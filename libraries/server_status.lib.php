@@ -10,10 +10,6 @@
  */
 use PMA\libraries\ServerStatusData;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Prints server status information: processes, connections and traffic
  *
