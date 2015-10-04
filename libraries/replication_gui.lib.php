@@ -920,7 +920,7 @@ function PMA_handleControlRequest()
 {
     if (isset($_REQUEST['sr_take_action'])) {
         $refresh = false;
-        $result = null;
+        $result = false;
         $messageSuccess = null;
         $messageError = null;
 
