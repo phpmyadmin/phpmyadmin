@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-09-28 11:58+0200\n"
-"Last-Translator: whh <whhlcj@126.com>\n"
+"PO-Revision-Date: 2015-10-04 04:17+0200\n"
+"Last-Translator: Terry Weng <wengshiyu@gmail.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -2983,10 +2983,9 @@ msgid "No bookmarks"
 msgstr "没有书签"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "忽略当前错误"
+msgstr "在当前会话期间"
 
 #: libraries/Console.class.php:215
 #| msgid "Explain SQL"
@@ -3240,10 +3239,9 @@ msgid "Sort:"
 msgstr "排序："
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "排序："
+msgstr "排序规则："
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -3419,7 +3417,6 @@ msgstr "于下列表："
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "全不选"
@@ -3593,7 +3590,6 @@ msgstr "选中项："
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "全选"
@@ -3678,10 +3674,9 @@ msgid "Error while moving uploaded file."
 msgstr "移动已上传的文件时发生错误。"
 
 #: libraries/File.class.php:497
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "无法读取（移动后的）上传文件。"
+msgstr "无法读取上传的文件。"
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -3810,7 +3805,7 @@ msgstr "索引 %1$s 和 %2$s 似乎是相同的，可以删除其中一个。"
 #: libraries/Linter.class.php:96
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr ""
+msgstr "由于超出最大长度本次查询的链接已禁用。"
 
 #: libraries/Linter.class.php:162
 #, php-format
@@ -3941,7 +3936,6 @@ msgstr "设计器"
 
 #: libraries/Menu.class.php:507 libraries/Util.class.php:4300
 #: templates/database/structure/check_all_tables.phtml:35
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
 msgstr "文本框列"
@@ -3955,10 +3949,9 @@ msgid "Databases"
 msgstr "数据库"
 
 #: libraries/Menu.class.php:568
-#, fuzzy
 #| msgid "Users"
 msgid "User accounts"
-msgstr "用户"
+msgstr "用户账户"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
 #: libraries/Util.class.php:4279 libraries/server_common.lib.php:36
@@ -4631,15 +4624,14 @@ msgid "Max: %s%s"
 msgstr "最大限制：%s %s"
 
 #: libraries/Util.class.php:665
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "静态数据"
+msgstr "静态分析："
 
 #: libraries/Util.class.php:668
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "分析时发现%d个错误。"
 
 #: libraries/Util.class.php:730 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -4663,24 +4655,22 @@ msgstr "略过解析 SQL"
 #: libraries/Util.class.php:1189
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "分析解释了%s"
 
 #: libraries/Util.class.php:1220
 msgid "Without PHP Code"
 msgstr "无 PHP 代码"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "创建 PHP 代码"
 
 #: libraries/Util.class.php:1292
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "编辑索引"
+msgstr "编辑内嵌"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1638
@@ -4802,7 +4792,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "检查数据库 \"%s\" 的权限。"
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "检查权限"
@@ -4811,38 +4800,36 @@ msgstr "检查权限"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "设置存储未准备好列的中心表功能。"
 
 #: libraries/central_columns.lib.php:283
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "%1$s 已存在中央列表无法添加！"
 
 #: libraries/central_columns.lib.php:298
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "无法保存设置"
+msgstr "无法添加列！"
 
 #: libraries/central_columns.lib.php:373
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "无法删除不存在中央列的 %1$s 列！"
 
 #: libraries/central_columns.lib.php:385
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
-msgstr "无法保存最近使用的表！"
+msgstr "无法移除列！"
 
 #: libraries/central_columns.lib.php:530
 msgid "YES"
-msgstr ""
+msgstr "好的"
 
 #: libraries/central_columns.lib.php:530
 msgid "NO"
-msgstr ""
+msgstr "不好"
 
 #: libraries/central_columns.lib.php:695
 #: libraries/central_columns.lib.php:1383
@@ -4868,7 +4855,6 @@ msgid "Length/Values"
 msgstr "长度/值"
 
 #: libraries/central_columns.lib.php:706
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
 msgstr "属性"
@@ -4879,7 +4865,6 @@ msgid "A_I"
 msgstr ""
 
 #: libraries/central_columns.lib.php:750
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "选择表"
@@ -4890,16 +4875,14 @@ msgid "Add column"
 msgstr "添加字段"
 
 #: libraries/central_columns.lib.php:816
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "选择两列"
+msgstr "选择字段。"
 
 #: libraries/central_columns.lib.php:1263
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "添加字段"
+msgstr "添加新字段"
 
 #: libraries/central_columns.lib.php:1384
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1003
@@ -4956,6 +4939,8 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"无法为服务器 %2$d 设置时区 %1$s 。请检查您的配置中 "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] 字段。服务器当前使用默认时区。"
 
 #: libraries/common.inc.php:1036
 #, php-format
@@ -5021,19 +5006,17 @@ msgstr "已禁用"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "键值"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "显示字段表"
+msgstr "显示字段"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "欢迎使用 %s"
+msgstr "欢迎使用"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5056,22 +5039,19 @@ msgid "Never send error reports"
 msgstr "从不发送错误报告"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Server default"
-msgstr "恢复默认"
+msgstr "服务器默认"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "已启用"
+msgstr "启用"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "已禁用"
+msgstr "禁用"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -5229,7 +5209,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "短语密码应包含字母、数字[em]和[/em]特殊字符。"
 
 #: libraries/config/ServerConfigChecks.class.php:382
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5243,8 +5223,8 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"该%s选项%s应该被关闭以防止有人尝试暴力破解 MySQL 服务器。如果有必要，您可以使"
-"用%s可信代理表%s。但如果您和许多人共用一个 IP 地址，该措施的安全性将下降。"
+"该 %s选项%s 应该被关闭以防止有人尝试暴力破解 MySQL 服务器。如果有必要，您可以使用 %s可信代理表%s 。但如果您和许多人共用一个 IP "
+"地址，该措施的安全性将下降。"
 
 #: libraries/config/ServerConfigChecks.class.php:402
 msgid ""
@@ -5407,13 +5387,12 @@ msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
-msgstr ""
+msgstr "限制用户可以登录到任意启用了通过正则表达式匹配IP或主机名登录的MySQL服务器。"
 
 #: libraries/config/messages.inc.php:26
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "无法登录 MySQL 服务器"
+msgstr "限制登录到 MySQL 服务器"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -5498,13 +5477,12 @@ msgstr "启用 CodeMirror"
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr ""
+msgstr "查询前查找错误。需要启用镜像代码功能。"
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "启用 SQL 校验器"
+msgstr "启用代码检查"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5576,7 +5554,7 @@ msgstr "删除语句确认"
 #: libraries/config/messages.inc.php:97
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "记录SQL查询和执行时间，显示在控制台中。"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
@@ -5603,16 +5581,14 @@ msgid "Default table tab"
 msgstr "表默认标签页"
 
 #: libraries/config/messages.inc.php:110
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "给表名及字段名加上反引号"
+msgstr "自动补全SQL查询中的表名和字段名。"
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "给表名及字段名加上反引号"
+msgstr "启用自动补全表名和字段名"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
@@ -5651,10 +5627,10 @@ msgid "Maximum execution time"
 msgstr "最长执行时间"
 
 #: libraries/config/messages.inc.php:132 libraries/display_export.lib.php:796
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "添加 %s 语句"
+msgstr "使用 %s 语句"
 
 #: libraries/config/messages.inc.php:134 prefs_manage.php:318
 msgid "Save as file"
@@ -5794,10 +5770,9 @@ msgid "Overwrite existing file(s)"
 msgstr "覆盖现有文件"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "导出表头"
+msgstr "导出为单独的文件"
 
 #: libraries/config/messages.inc.php:185
 msgid "Remember file name template"
@@ -5836,10 +5811,9 @@ msgid "Export views as tables"
 msgstr "将视图作为表导出"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "丢失 phpMyAdmin 高级功能数据表"
+msgstr "从phpMyAdmin设置存储中导出相关元数据"
 
 #: libraries/config/messages.inc.php:197 libraries/config/messages.inc.php:198
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:202
@@ -5858,7 +5832,7 @@ msgstr "使用十六进制表示 BINARY 和 BLOB 数据"
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
-msgstr ""
+msgstr "添加IF NOT EXISTS语句（效率更低因为创建表时索引会自动生成）"
 
 #: libraries/config/messages.inc.php:211
 msgid "Use ignore inserts"
