@@ -1,12 +1,10 @@
 <?php
-
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * set of functions with the operations section in pma
  *
  * @package PhpMyAdmin
  */
-
 use PMA\libraries\engines\Innodb;
 use PMA\libraries\Message;
 use PMA\libraries\Partition;
