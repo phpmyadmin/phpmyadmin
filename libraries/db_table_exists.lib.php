@@ -27,7 +27,7 @@ if (empty($is_db)) {
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             $response = PMA\libraries\Response::getInstance();
             if ($response->isAjax()) {
-                $response->isSuccess(false);
+                $response->setRequestStatus(false);
                 $response->addJSON(
                     'message',
                     Message::error(__('No databases selected.'))

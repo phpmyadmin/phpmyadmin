@@ -498,9 +498,9 @@ function PMA_dropMultiDatabases()
             $message->addParam($number_of_databases);
         }
     }
-    if ($GLOBALS['is_ajax_request'] && $message instanceof Message) {
+    if ($GLOBALS['is_ajax_request'] && $message instanceof PMA\libraries\Message) {
         $response = PMA\libraries\Response::getInstance();
-        $response->isSuccess($message->isSuccess());
+        $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         exit;
     }

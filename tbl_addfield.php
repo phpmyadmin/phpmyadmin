@@ -100,7 +100,7 @@ if (isset($_REQUEST['do_save_data'])) {
     } else {
         $error_message_html = PMA\libraries\Util::mysqlDie('', '', false, $err_url, false);
         $response->addHTML($error_message_html);
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         exit;
     }
 } // end do alter table

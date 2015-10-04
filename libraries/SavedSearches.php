@@ -243,7 +243,7 @@ class SavedSearches
                 __('Please provide a name for this bookmarked search.')
             );
             $response = Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchName');
             $response->addJSON('message', $message);
             exit;
@@ -258,7 +258,7 @@ class SavedSearches
                 __('Missing information to save the bookmarked search.')
             );
             $response = Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('message', $message);
             exit;
         }
@@ -280,7 +280,7 @@ class SavedSearches
                     __('An entry with this name already exists.')
                 );
                 $response = Response::getInstance();
-                $response->isSuccess($message->isSuccess());
+                $response->setRequestStatus($message->isSuccess());
                 $response->addJSON('fieldWithError', 'searchName');
                 $response->addJSON('message', $message);
                 exit;
@@ -317,7 +317,7 @@ class SavedSearches
                 __('An entry with this name already exists.')
             );
             $response = Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchName');
             $response->addJSON('message', $message);
             exit;
@@ -344,7 +344,7 @@ class SavedSearches
                 __('Missing information to delete the search.')
             );
             $response = Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchId');
             $response->addJSON('message', $message);
             exit;
@@ -372,7 +372,7 @@ class SavedSearches
                 __('Missing information to load the search.')
             );
             $response = Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchId');
             $response->addJSON('message', $message);
             exit;
@@ -390,7 +390,7 @@ class SavedSearches
         if (false === ($oneResult = $GLOBALS['dbi']->fetchArray($resList))) {
             $message = Message::error(__('Error while loading the search.'));
             $response = Response::getInstance();
-            $response->isSuccess($message->isSuccess());
+            $response->setRequestStatus($message->isSuccess());
             $response->addJSON('fieldWithError', 'searchId');
             $response->addJSON('message', $message);
             exit;

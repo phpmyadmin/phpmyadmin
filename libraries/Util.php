@@ -779,7 +779,7 @@ class Util
          */
         if (!empty($GLOBALS['is_ajax_request'])) {
             $response = Response::getInstance();
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             $response->addJSON('message', $error_msg);
             exit;
         }

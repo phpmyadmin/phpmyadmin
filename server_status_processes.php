@@ -29,7 +29,7 @@ if ($response->isAjax() && !empty($_REQUEST['kill'])) {
     $query = $GLOBALS['dbi']->getKillQuery((int)$_REQUEST['kill']);
     if ($GLOBALS['dbi']->tryQuery($query)) {
         $message = PMA\libraries\Message::success(__('Thread %s was successfully killed.'));
-        $response->isSuccess(true);
+        $response->setRequestStatus(true);
     } else {
         $message = PMA\libraries\Message::error(
             __(
@@ -37,7 +37,7 @@ if ($response->isAjax() && !empty($_REQUEST['kill'])) {
                 . ' It probably has already been closed.'
             )
         );
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
     }
     $message->addParam($_REQUEST['kill']);
     $response->addJSON('message', $message);

@@ -71,12 +71,12 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
     $response = PMA\libraries\Response::getInstance();
     if (! $result) {
         $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $error);
         exit;
     }
 
-    $response->isSuccess(true);
+    $response->setRequestStatus(true);
     if ('create' == $_REQUEST['templateAction']) {
         $response->addJSON(
             'data',

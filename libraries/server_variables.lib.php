@@ -110,7 +110,7 @@ function PMA_getAjaxReturnForSetVal($variable_doc_links)
             )
         );
     } else {
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON(
             'error',
             __('Setting variable failed')

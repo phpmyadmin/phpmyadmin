@@ -231,7 +231,7 @@ if (isset($result) && empty($message_to_show)) {
             && $GLOBALS['ajax_request'] == true
         ) {
             $response = PMA\libraries\Response::getInstance();
-            $response->isSuccess($_message->isSuccess());
+            $response->setRequestStatus($_message->isSuccess());
             $response->addJSON('message', $_message);
             $response->addJSON(
                 'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
@@ -245,7 +245,7 @@ if (isset($result) && empty($message_to_show)) {
         $_message->isError(true);
         if ($GLOBALS['ajax_request'] == true) {
             $response = PMA\libraries\Response::getInstance();
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
             exit;
         }

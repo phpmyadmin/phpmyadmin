@@ -71,7 +71,7 @@ class TableChartController extends TableController
 
         // Throw error if no sql query is set
         if (!isset($this->sql_query) || $this->sql_query == '') {
-            $this->response->isSuccess(false);
+            $this->response->setRequestStatus(false);
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))
             );
@@ -144,7 +144,7 @@ class TableChartController extends TableController
         }
 
         if ($numeric_column_count == 0) {
-            $this->response->isSuccess(false);
+            $this->response->setRequestStatus(false);
             $this->response->addJSON(
                 'message',
                 __('No numeric columns present in the table to plot.')
@@ -208,7 +208,7 @@ class TableChartController extends TableController
         }
 
         if (empty($data)) {
-            $this->response->isSuccess(false);
+            $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No data to display'));
             return;
         }
@@ -223,7 +223,7 @@ class TableChartController extends TableController
             }
             $sanitized_data[] = $tmp_row;
         }
-        $this->response->isSuccess(true);
+        $this->response->setRequestStatus(true);
         $this->response->addJSON('message', null);
         $this->response->addJSON('chartData', json_encode($sanitized_data));
     }

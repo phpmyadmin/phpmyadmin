@@ -67,7 +67,7 @@ if (! isset($is_db) || ! $is_db) {
     if (!/*overload*/mb_strlen($db) || ! $is_db) {
         $response = PMA\libraries\Response::getInstance();
         if ($response->isAjax()) {
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             $response->addJSON(
                 'message',
                 Message::error(__('No databases selected.'))
@@ -101,7 +101,7 @@ if (isset($_REQUEST['submitcollation'])
      */
     if ($GLOBALS['is_ajax_request'] == true) {
         $response = PMA\libraries\Response::getInstance();
-        $response->isSuccess($message->isSuccess());
+        $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         exit;
     }

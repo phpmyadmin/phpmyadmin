@@ -71,7 +71,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $response = Response::getInstance();
         if ($response->isAjax()) {
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
             // redirect_flag redirects to the login page
             $response->addJSON('redirect_flag', '1');
             if (defined('TESTSUITE')) {

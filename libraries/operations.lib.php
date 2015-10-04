@@ -2164,7 +2164,7 @@ function PMA_moveOrCopyTable($db, $table)
         if ($message->isSuccess()) {
             $response->addJSON('db', $GLOBALS['db']);
         } else {
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
         }
         exit;
     }

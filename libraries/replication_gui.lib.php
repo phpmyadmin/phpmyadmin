@@ -955,7 +955,7 @@ function PMA_handleControlRequest()
         if ($refresh) {
             $response = PMA\libraries\Response::getInstance();
             if ($response->isAjax()) {
-                $response->isSuccess($result);
+                $response->setRequestStatus($result);
                 $response->addJSON(
                     'message',
                     $result

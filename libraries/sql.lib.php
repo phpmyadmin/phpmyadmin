@@ -683,7 +683,7 @@ function PMA_setColumnProperty($pmatable, $request_index)
     );
     if (gettype($retval) != 'boolean') {
         $response = PMA\libraries\Response::getInstance();
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $retval->getString());
         exit;
     }
@@ -715,7 +715,7 @@ function PMA_setColumnOrderOrVisibility($table, $db)
     }
 
     $response = PMA\libraries\Response::getInstance();
-    $response->isSuccess($retval == true);
+    $response->setRequestStatus($retval == true);
     exit;
 }
 
@@ -742,8 +742,8 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
             $msg->addParam($_POST['bkm_fields']['bkm_label']);
             $response->addJSON('message', $msg);
         } else {
-            $msg = Message::error(__('Bookmark not created!'));
-            $response->isSuccess(false);
+            $msg = PMA\libraries\message::error(__('Bookmark not created!'));
+            $response->setRequestStatus(false);
             $response->addJSON('message', $msg);
         }
         exit;
@@ -908,9 +908,9 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
 function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 {
     if ($is_gotofile) {
-        $message = Message::rawError($error);
+        $message = PMA\libraries\Message::rawError($error);
         $response = PMA\libraries\Response::getInstance();
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', $message);
     } else {
         PMA\libraries\Util::mysqlDie($error, $full_sql_query, '', '');

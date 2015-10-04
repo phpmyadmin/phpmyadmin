@@ -67,7 +67,7 @@ if (!empty($submit_mult)) {
         || ! is_array($_REQUEST['rows_to_delete']))
     ) {
         $response = PMA\libraries\Response::getInstance();
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         $response->addJSON('message', __('No row selected.'));
     }
 

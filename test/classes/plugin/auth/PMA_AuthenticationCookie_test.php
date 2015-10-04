@@ -76,7 +76,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'isSuccess', 'addJSON'))
+            ->setMethods(array('isAjax', 'setRequestStatus', 'addJSON'))
             ->getMock();
 
         $mockResponse->expects($this->once())
@@ -85,7 +85,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
 
         $mockResponse->expects($this->once())
-            ->method('isSuccess')
+            ->method('setRequestStatus')
             ->with(false);
 
         $mockResponse->expects($this->once())

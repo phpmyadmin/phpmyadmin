@@ -18,7 +18,7 @@ function PMA_printGitRevision()
 {
     if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
         $response = PMA\libraries\Response::getInstance();
-        $response->isSuccess(false);
+        $response->setRequestStatus(false);
         return;
     }
 

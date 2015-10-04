@@ -224,8 +224,8 @@ function PMA_fatalError(
 
     if ($GLOBALS['is_ajax_request']) {
         $response = PMA\libraries\Response::getInstance();
-        $response->isSuccess(false);
-        $response->addJSON('message', Message::error($error_message));
+        $response->setRequestStatus(false);
+        $response->addJSON('message', PMA\libraries\Message::error($error_message));
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
 
