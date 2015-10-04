@@ -756,5 +756,5 @@ function PMA_saveDesignerSetting($index, $value)
         }
     }
 
-    return $success;
+    return (bool) $success;
 }
