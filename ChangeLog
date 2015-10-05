@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 - issue #11519 Bug while exporting results when a joined table field name is in SELECT query
 - issue #11522 Strange behavior on table rename
 - issue #11539 Rename table does not result in refresh in left panel
+- issue #11541 Missing arguments for PMA_Table::generateAlter()
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
