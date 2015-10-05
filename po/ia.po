@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-01 07:36-0400\n"
-"PO-Revision-Date: 2015-09-29 22:16+0200\n"
+"PO-Revision-Date: 2015-10-05 13:18+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -965,10 +965,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Tu vermente vole TRUNCAR le partition(es) seligite?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Tu vermente vole TRUNCAR le partition(es) seligite?"
+msgstr "Tu vermente vole remover le partitionemento?"
 
 #: js/messages.php:68
 msgid ""
@@ -15259,10 +15258,9 @@ msgid "Partitions"
 msgstr "Partitiones"
 
 #: templates/table/structure/display_partitions.phtml:7
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Necun indice definite!"
+msgstr "Necun partitionemento definite!"
 
 #: templates/table/structure/display_partitions.phtml:10
 msgid "Partitioned by:"
@@ -15281,17 +15279,15 @@ msgid "Index length"
 msgstr "Longessa de Indice"
 
 #: templates/table/structure/display_partitions.phtml:134
-#, fuzzy
 #| msgid "Partition by:"
 msgid "Partition table"
-msgstr "Partition per:"
+msgstr "Tabella de partition"
 
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Remove partitionemento"
+msgstr "Modifica partitionemento"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
