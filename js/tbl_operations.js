@@ -117,6 +117,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
                         $('#page_content').html(data.message);
                         PMA_highlightSQL($('#page_content'));
                     });
+                    // Refresh navigation when the table is renamed
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
