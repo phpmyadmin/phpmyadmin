@@ -765,6 +765,8 @@ class TableStructureController extends TableController
                             $_REQUEST['field_default_value_orig'][$i],
                             Util\get($_REQUEST, "field_extra_orig.${i}", false),
                             Util\get($_REQUEST, "field_comments_orig.${i}", ''),
+                            Util\get($_REQUEST, "field_virtuality_orig.${i}", ''),
+                            Util\get($_REQUEST, "field_expression_orig.${i}", ''),
                             Util\get($_REQUEST, "field_move_to_orig.${i}", '')
                         );
                     }
