@@ -1938,9 +1938,9 @@ class PMA_Table
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
                     . '.' . PMA_Util::backquote($cfgRelation['table_info'])
                     . ' WHERE db_name  = \''
-                    . PMA_Util::sqlAddSlashes($this->db_name) . '\''
+                    . PMA_Util::sqlAddSlashes($this->_db_name) . '\''
                     . ' AND table_name = \''
-                    . PMA_Util::sqlAddSlashes($this->name) . '\'';
+                    . PMA_Util::sqlAddSlashes($this->_name) . '\'';
             } elseif ($disp != $display_field) {
                 $upd_query = 'UPDATE '
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
@@ -1948,9 +1948,9 @@ class PMA_Table
                     . ' SET display_field = \''
                     . PMA_Util::sqlAddSlashes($display_field) . '\''
                     . ' WHERE db_name  = \''
-                    . PMA_Util::sqlAddSlashes($this->db_name) . '\''
+                    . PMA_Util::sqlAddSlashes($this->_db_name) . '\''
                     . ' AND table_name = \''
-                    . PMA_Util::sqlAddSlashes($this->name) . '\'';
+                    . PMA_Util::sqlAddSlashes($this->_name) . '\'';
             }
         } elseif ($display_field != '') {
             $upd_query = 'INSERT INTO '
@@ -2040,9 +2040,9 @@ class PMA_Table
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
                     . '.' . PMA_Util::backquote($cfgRelation['relation'])
                     . ' WHERE master_db  = \''
-                    . PMA_Util::sqlAddSlashes($this->db_name) . '\''
+                    . PMA_Util::sqlAddSlashes($this->_db_name) . '\''
                     . ' AND master_table = \''
-                    . PMA_Util::sqlAddSlashes($this->name) . '\''
+                    . PMA_Util::sqlAddSlashes($this->_name) . '\''
                     . ' AND master_field = \''
                     . PMA_Util::sqlAddSlashes($master_field) . '\'';
             } // end if... else....
