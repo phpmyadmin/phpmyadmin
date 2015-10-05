@@ -89,7 +89,6 @@ AJAX.registerOnload('tbl_operations.js', function () {
         if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
             // reload page and navigation if the table has been renamed
             PMA_prepareForAjaxRequest($form);
-            var tbl = $tblNameField.val();
 
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
                 $form.PMA_confirm(question, $form.attr('action'), function (url) {
@@ -112,11 +111,13 @@ AJAX.registerOnload('tbl_operations.js', function () {
         function submitOptionsForm() {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_commonParams.set('table', tbl);
+                    PMA_commonParams.set('table', data._params['table']);
                     PMA_commonActions.refreshMain(false, function () {
                         $('#page_content').html(data.message);
                         PMA_highlightSQL($('#page_content'));
                     });
+                    // Refresh navigation when the table is renamed
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
