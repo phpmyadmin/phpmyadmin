@@ -702,6 +702,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     {
         $table = 'PMA_BookMark';
         $db = 'PMA';
+        PMA_Util::cacheSet('lower_case_table_names', false);
 
         $table = new PMA_Table($table, $db);
 
