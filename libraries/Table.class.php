@@ -1262,6 +1262,18 @@ class PMA_Table
      */
     function rename($new_name, $new_db = null)
     {
+        $lowerCaseTableNames = PMA_Util::cacheGet(
+            'lower_case_table_names',
+            function () {
+                return $GLOBALS['dbi']->fetchValue(
+                    "SELECT @@lower_case_table_names"
+                );
+            }
+        );
+        if ($lowerCaseTableNames) {
+            $new_name = strtolower($new_name);
+        }
+
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
             if (! $GLOBALS['pma']->databases->exists($new_db)) {
