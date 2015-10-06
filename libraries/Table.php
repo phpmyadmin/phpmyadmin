@@ -1257,7 +1257,7 @@ class Table
      */
     function rename($new_name, $new_db = null)
     {
-        $lowerCaseTableNames = PMA_Util::cacheGet(
+        $lowerCaseTableNames = Util::cacheGet(
             'lower_case_table_names',
             function () {
                 return $GLOBALS['dbi']->fetchValue(
