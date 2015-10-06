@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-10-06 06:30+0200\n"
-"Last-Translator: disorderman <disorderman@qq.com>\n"
+"PO-Revision-Date: 2015-10-06 07:18+0200\n"
+"Last-Translator: Terry Weng <wengshiyu@gmail.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -5881,7 +5881,7 @@ msgstr "外键下拉框顺序"
 #: libraries/config/messages.inc.php:238
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "下拉框中选项个数的限制。"
+msgstr "下拉框将在选项少时使用。"
 
 #: libraries/config/messages.inc.php:239
 msgid "Foreign key limit"
@@ -5889,7 +5889,7 @@ msgstr "外键限制"
 
 #: libraries/config/messages.inc.php:241
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "外键约束默认值复选框。"
 
 #: libraries/config/messages.inc.php:243
 #| msgid "Foreign key check:"
@@ -6279,11 +6279,11 @@ msgstr "忽略插入错误"
 
 #: libraries/config/messages.inc.php:373 libraries/config/messages.inc.php:387
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "重复的键更新时添加"
 
 #: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:389
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "导入发现重复键时更新数据"
 
 #: libraries/config/messages.inc.php:379
 #| msgid ""
@@ -6509,7 +6509,7 @@ msgstr "内存限制"
 
 #: libraries/config/messages.inc.php:470
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "导航栏使用数据库选择器替代树形列表"
 
 #: libraries/config/messages.inc.php:473
 #| msgid "Show hidden navigation tree items."
@@ -6518,7 +6518,7 @@ msgstr "以树状显示数据库导航面板"
 
 #: libraries/config/messages.inc.php:476
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "高亮当前数据库或表链接到主面板。"
 
 #: libraries/config/messages.inc.php:479
 #| msgid "Show logo in navigation panel"
@@ -6630,7 +6630,7 @@ msgstr "启用高亮"
 #: libraries/config/messages.inc.php:520
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "是否允许在导航栏中展开导航树。"
 
 #: libraries/config/messages.inc.php:523
 #| msgid "Table navigation bar"
@@ -6664,7 +6664,7 @@ msgstr "在导航树显示函数"
 
 #: libraries/config/messages.inc.php:532
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "是否显示导航树中数据库下级功能"
 
 #: libraries/config/messages.inc.php:533
 #| msgid "Show processes"
@@ -6673,7 +6673,7 @@ msgstr "在导航树显示进程"
 
 #: libraries/config/messages.inc.php:535
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "是否在导航树中显示数据库进程"
 
 #: libraries/config/messages.inc.php:536
 #| msgid "Show versions"
@@ -6710,7 +6710,7 @@ msgstr "表行链接显示位置"
 
 #: libraries/config/messages.inc.php:548
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "缺少唯一键时是否显示行链接。"
 
 #: libraries/config/messages.inc.php:550
 msgid "Show row links anyway"
