@@ -982,7 +982,7 @@ class TableStructureController extends TableController
                 $orig_error = $this->dbi->getError();
                 $changes_revert = array();
 
-                // Change back to Orignal Collation and data type
+                // Change back to Original Collation and data type
                 for ($i = 0; $i < $field_cnt; $i++) {
                     if ($changedToBlob[$i]) {
                         $changes_revert[] = 'CHANGE ' . PMA_Table::generateAlter(
