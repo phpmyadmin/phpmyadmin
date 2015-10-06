@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue #11539 Rename table does not result in refresh in left panel
 - issue #11541 Missing arguments for PMA_Table::generateAlter()
 - issue #11544 Notices about undefined indexes on structure pages of information_schema tables
+- issue        Change minimum PHP version for Composer
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
