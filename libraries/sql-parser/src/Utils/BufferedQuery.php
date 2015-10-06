@@ -186,19 +186,31 @@ class BufferedQuery
         $loopLen = $end ? $len : $len - 16;
 
         for (; $i < $loopLen; ++$i) {
+            /**
+             * Handling backslash.
+             *
+             * Even if the next character is a special character that should be
+             * treated differently, because of the preceding backslash, it will
+             * be ignored.
+             */
+            if ($this->query[$i] === '\\') {
+                $this->current .= $this->query[$i] . $this->query[++$i];
+                continue;
+            }
+
             /*
              * Handling special parses statuses.
              */
             if ($this->status === static::STATUS_STRING_SINGLE_QUOTES) {
                 // Single-quoted strings like 'foo'.
-                if (($this->query[$i - 1] != '\\') && ($this->query[$i] === '\'')) {
+                if ($this->query[$i] === '\'') {
                     $this->status = 0;
                 }
                 $this->current .= $this->query[$i];
                 continue;
             } elseif ($this->status === static::STATUS_STRING_DOUBLE_QUOTES) {
                 // Double-quoted strings like "bar".
-                if (($this->query[$i - 1] != '\\') && ($this->query[$i] === '"')) {
+                if ($this->query[$i] === '"') {
                     $this->status = 0;
                 }
                 $this->current .= $this->query[$i];
