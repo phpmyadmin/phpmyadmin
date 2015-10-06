@@ -384,7 +384,7 @@ class PMA_Menu
             $tabs['operation']['text'] = __('Operations');
         }
 
-        if (PMA_Tracker::isActive()) {
+        if (PMA_Tracker::isActive() && ! $db_is_system_schema) {
             $tabs['tracking']['icon'] = 'eye.png';
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['link'] = 'tbl_tracking.php';
@@ -489,7 +489,7 @@ class PMA_Menu
             }
         }
 
-        if (PMA_Tracker::isActive()) {
+        if (PMA_Tracker::isActive() && ! $db_is_system_schema) {
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['icon'] = 'eye.png';
             $tabs['tracking']['link'] = 'db_tracking.php';
