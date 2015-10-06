@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-10-06 07:18+0200\n"
-"Last-Translator: Terry Weng <wengshiyu@gmail.com>\n"
+"PO-Revision-Date: 2015-10-06 11:30+0200\n"
+"Last-Translator: disorderman <disorderman@qq.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -3336,7 +3336,7 @@ msgstr "服务器没有响应。"
 
 #: libraries/DatabaseInterface.class.php:2532
 msgid "Please check privileges of directory containing database."
-msgstr "请检查数据库文件夹的权限。"
+msgstr "请检查数据库所在文件夹的权限。"
 
 #: libraries/DatabaseInterface.class.php:2542
 msgid "Details…"
@@ -8120,11 +8120,11 @@ msgid "The columns have been moved successfully."
 msgstr "已成功移动字段。"
 
 #: libraries/controllers/TableStructureController.class.php:732
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "已成功修改表 %1$s。"
+msgstr "已成功修改表 %1$s。已调整权限。"
 
 #: libraries/controllers/TableStructureController.class.php:785
 #: libraries/tracking.lib.php:1094
@@ -9915,21 +9915,19 @@ msgstr "将数据库改名为"
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:967
 #: libraries/operations.lib.php:1321
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "权限不足！"
+msgstr "您的权限不足以执行此操作，请参考说明文档了解详情"
 
 #: libraries/operations.lib.php:102 libraries/operations.lib.php:249
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust privileges"
-msgstr "编辑权限"
+msgstr "调整权限"
 
 #: libraries/operations.lib.php:134
 #, php-format
@@ -10139,16 +10137,16 @@ msgid "Can't copy table to same one!"
 msgstr "目标数据表不能为源数据表！"
 
 #: libraries/operations.lib.php:2135
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "已将数据表 %s 移动到 %s。"
+msgstr "已将数据表 %s 移动到 %s。已调整权限。"
 
 #: libraries/operations.lib.php:2142
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "已将数据表 %s 复制为 %s。"
+msgstr "已将数据表 %s 复制为 %s。已调整权限。"
 
 #: libraries/operations.lib.php:2151
 #, php-format
@@ -11433,7 +11431,7 @@ msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
-msgstr ""
+msgstr "您没有权限建立名为“phpmyadmin”的数据库。您可能需要到任一数据库的“操作”页面设置 phpMyAdmin的储存位置 。"
 
 #: libraries/relation.lib.php:1923
 #, fuzzy, php-format
@@ -11989,10 +11987,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "抱歉，恢复已删除的程序失败。"
 
 #: libraries/rte/rte_routines.lib.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "已修改程序 %1$s 。"
+msgstr "已修改程序 %1$s 。已调整权限。"
 
 #: libraries/rte/rte_routines.lib.php:444
 #, php-format
@@ -12039,7 +12037,7 @@ msgstr "是否固定"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr ""
+msgstr "您没有足够的权限执行此操作，请参考说明文档了解详情"
 
 #: libraries/rte/rte_routines.lib.php:1026
 msgid "Security type"
@@ -12301,7 +12299,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "启用统计"
@@ -12625,7 +12622,7 @@ msgstr "允许删除数据表。"
 #: libraries/server_privileges.lib.php:1311 server_privileges.php:71
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
-msgstr "允许添加用户和权限，而不允许重新载入权限表。"
+msgstr "允许添加用户和权限而不重新载入权限表。"
 
 #: libraries/server_privileges.lib.php:1441
 #: libraries/server_privileges.lib.php:2856
@@ -12682,16 +12679,14 @@ msgstr "您已撤销 %s 的权限。"
 
 #: libraries/server_privileges.lib.php:2061
 #: libraries/server_privileges.lib.php:4318
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
-msgstr "添加用户"
+msgstr "新增用户账户"
 
 #: libraries/server_privileges.lib.php:2070
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
-msgstr "用户数据库"
+msgstr "用户账户数据库"
 
 #: libraries/server_privileges.lib.php:2074
 msgid "Create database with same name and grant all privileges."
@@ -12756,10 +12751,9 @@ msgid "table-specific"
 msgstr "按数据库指定"
 
 #: libraries/server_privileges.lib.php:2628
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
-msgstr "编辑权限"
+msgstr "修改权限"
 
 #: libraries/server_privileges.lib.php:2631
 msgid "Revoke"
@@ -12791,42 +12785,37 @@ msgid ""
 msgstr "… 从用户表中删除旧用户，然后重新载入权限。"
 
 #: libraries/server_privileges.lib.php:2857
-#, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "修改登录信息/复制用户"
+msgstr "修改登录信息/复制用户账户"
 
 #: libraries/server_privileges.lib.php:2863
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "创建具有相同权限的新用户然后 …"
+msgstr "创建具有相同权限的新用户账户然后 …"
 
 #: libraries/server_privileges.lib.php:3165
 msgid "Column-specific privileges"
 msgstr "按字段指定权限"
 
 #: libraries/server_privileges.lib.php:3220
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
-msgstr "在下列数据库添加权限"
+msgstr "在下列数据库添加权限："
 
 #: libraries/server_privileges.lib.php:3244
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "要使用通配符 _ 和 % 本身，应使用 \\ 转义。"
 
 #: libraries/server_privileges.lib.php:3262
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "在下列数据表添加权限"
+msgstr "在下列数据表添加权限："
 
 #: libraries/server_privileges.lib.php:3524
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "删除选中的用户"
+msgstr "删除选中的用户账户"
 
 #: libraries/server_privileges.lib.php:3530
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12886,28 +12875,25 @@ msgid "New"
 msgstr "新建"
 
 #: libraries/server_privileges.lib.php:4339
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "编辑权限"
+msgstr "修改权限："
 
 #: libraries/server_privileges.lib.php:4340
-#, fuzzy
 #| msgid "Users"
 msgid "User account"
-msgstr "用户"
+msgstr "用户账户"
 
 #: libraries/server_privileges.lib.php:4399
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr ""
+msgstr "注意：您正在尝试修改您正在使用的账号的权限。"
 
 #: libraries/server_privileges.lib.php:4419 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "用户概况"
+msgstr "用户账户概况"
 
 #: libraries/server_privileges.lib.php:4487
 msgid ""
@@ -12929,7 +12915,6 @@ msgstr ""
 "限%s。"
 
 #: libraries/server_privileges.lib.php:4547
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12942,9 +12927,8 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
-"限%s。"
+"注意：phpMyAdmin 直接由 MySQL "
+"权限表取得用户权限。如果用户手动更改权限表，表内容将可能与服务器使用的用户权限有异。在这种情况下，应当重新载入权限表，但您没有RELOAD权限。"
 
 #: libraries/server_privileges.lib.php:4597
 msgid "The selected user was not found in the privilege table."
@@ -12999,7 +12983,6 @@ msgid "Sent"
 msgstr "已发送"
 
 #: libraries/server_status.lib.php:243
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "最大并发连接数"
@@ -13227,15 +13210,13 @@ msgid "Reset to default"
 msgstr "恢复默认"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
-msgstr ""
-"注意：在此启用数据库统计可能导致网站服务器和 MySQL 服务器之间的流量骤增。"
+msgstr "注意：在此启用自动刷新可能导致网站服务器和 MySQL 服务器之间的流量骤增。"
 
 #: libraries/server_status_processes.lib.php:68
 msgid "ID"
@@ -13247,7 +13228,7 @@ msgstr "命令"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "进度"
 
 #: libraries/server_status_processes.lib.php:252
 #: libraries/server_status_variables.lib.php:39
@@ -13256,10 +13237,9 @@ msgid "Filters"
 msgstr "过滤器"
 
 #: libraries/server_status_processes.lib.php:260
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "仅显示报警值"
+msgstr "仅显示活跃的"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13267,16 +13247,14 @@ msgid "Questions since startup: %s"
 msgstr "自启动以来的内部查询: %s"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "每小时"
+msgstr "每小时："
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "每分钟"
+msgstr "每分钟："
 
 #: libraries/server_status_queries.lib.php:54
 #, fuzzy
