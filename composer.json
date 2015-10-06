@@ -19,7 +19,7 @@
         "source": "https://github.com/phpmyadmin/phpmyadmin"
     },
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.5.0"
     },
     "require-dev": {
         "satooshi/php-coveralls": ">=0.6",
