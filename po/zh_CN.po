@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-01 07:36-0400\n"
-"PO-Revision-Date: 2015-10-06 11:39+0200\n"
+"PO-Revision-Date: 2015-10-06 11:54+0200\n"
 "Last-Translator: disorderman <disorderman@qq.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
@@ -1050,7 +1050,7 @@ msgstr "SQL 查询："
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:119
 msgid "Y values"
-msgstr "纵值"
+msgstr "纵轴值"
 
 #: js/messages.php:122
 msgid "The host name is empty!"
@@ -6823,20 +6823,18 @@ msgid "Grid editing: save all edited cells at once"
 msgstr "立刻存储所有已编辑的单元格"
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
-msgstr "服务器上用来保存导出文件的文件夹"
+msgstr "服务器上用来保存导出文件的文件夹。"
 
 #: libraries/config/messages.inc.php:619
 msgid "Save directory"
 msgstr "保存文件夹"
 
 #: libraries/config/messages.inc.php:620
-#, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
-msgstr "不使用请留空"
+msgstr "不使用请留空。"
 
 #: libraries/config/messages.inc.php:621
 msgid "Host authorization order"
@@ -13046,7 +13044,7 @@ msgstr "状态变量"
 
 #: libraries/server_status_monitor.lib.php:183
 msgid "Select series:"
-msgstr "选择数据:"
+msgstr "选择数据："
 
 #: libraries/server_status_monitor.lib.php:185
 msgid "Commonly monitored"
@@ -13077,10 +13075,9 @@ msgid "Clear series"
 msgstr "清除所有数据"
 
 #: libraries/server_status_monitor.lib.php:231
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
-msgstr "图表中的数据:"
+msgstr "图表中的数据系列："
 
 #: libraries/server_status_monitor.lib.php:252
 msgid "Start Monitor"
@@ -15464,10 +15461,9 @@ msgid "Column-specific privileges"
 msgstr "按字段指定权限"
 
 #: templates/startAndNumberOfRowsPanel.phtml:3
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "起始行"
+msgstr "起始行："
 
 #: templates/table/chart/tbl_chart.phtml:17
 msgctxt "Chart type"
@@ -15492,7 +15488,7 @@ msgstr "曲线图"
 #: templates/table/chart/tbl_chart.phtml:33
 msgctxt "Chart type"
 msgid "Area"
-msgstr "图标类型"
+msgstr "面积图"
 
 #: templates/table/chart/tbl_chart.phtml:37
 msgctxt "Chart type"
@@ -15519,7 +15515,7 @@ msgstr "横坐标:"
 
 #: templates/table/chart/tbl_chart.phtml:72
 msgid "Series:"
-msgstr "数据:"
+msgstr "数据系列："
 
 #: templates/table/chart/tbl_chart.phtml:102
 msgid "X-Axis label:"
@@ -15535,23 +15531,21 @@ msgstr "纵坐标名称:"
 
 #: templates/table/chart/tbl_chart.phtml:109
 msgid "Y Values"
-msgstr "纵值"
+msgstr "纵轴值"
 
 #: templates/table/chart/tbl_chart.phtml:115
 msgid "Series names are in a column"
-msgstr ""
+msgstr "数据系列名称位于一个字段中"
 
 #: templates/table/chart/tbl_chart.phtml:118
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "包含字段："
+msgstr "数据系列字段："
 
 #: templates/table/chart/tbl_chart.phtml:130
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value Column:"
-msgstr "字段 %s 的值"
+msgstr "数据值字段："
 
 #: templates/table/chart/tbl_chart.phtml:150
 #, fuzzy
