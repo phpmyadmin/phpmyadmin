@@ -1257,6 +1257,18 @@ class Table
      */
     function rename($new_name, $new_db = null)
     {
+        $lowerCaseTableNames = PMA_Util::cacheGet(
+            'lower_case_table_names',
+            function () {
+                return $GLOBALS['dbi']->fetchValue(
+                    "SELECT @@lower_case_table_names"
+                );
+            }
+        );
+        if ($lowerCaseTableNames) {
+            $new_name = strtolower($new_name);
+        }
+
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
             if (! $GLOBALS['pma']->databases->exists($new_db)) {
@@ -1920,9 +1932,9 @@ class Table
                     . Util::backquote($GLOBALS['cfgRelation']['db'])
                     . '.' . Util::backquote($cfgRelation['table_info'])
                     . ' WHERE db_name  = \''
-                    . Util::sqlAddSlashes($this->db_name) . '\''
+                    . Util::sqlAddSlashes($this->_db_name) . '\''
                     . ' AND table_name = \''
-                    . Util::sqlAddSlashes($this->name) . '\'';
+                    . Util::sqlAddSlashes($this->_name) . '\'';
             } elseif ($disp != $display_field) {
                 $upd_query = 'UPDATE '
                     . Util::backquote($GLOBALS['cfgRelation']['db'])
@@ -1930,9 +1942,9 @@ class Table
                     . ' SET display_field = \''
                     . Util::sqlAddSlashes($display_field) . '\''
                     . ' WHERE db_name  = \''
-                    . Util::sqlAddSlashes($this->db_name) . '\''
+                    . Util::sqlAddSlashes($this->_db_name) . '\''
                     . ' AND table_name = \''
-                    . Util::sqlAddSlashes($this->name) . '\'';
+                    . Util::sqlAddSlashes($this->_name) . '\'';
             }
         } elseif ($display_field != '') {
             $upd_query = 'INSERT INTO '
@@ -2022,9 +2034,9 @@ class Table
                     . Util::backquote($GLOBALS['cfgRelation']['db'])
                     . '.' . Util::backquote($cfgRelation['relation'])
                     . ' WHERE master_db  = \''
-                    . Util::sqlAddSlashes($this->db_name) . '\''
+                    . Util::sqlAddSlashes($this->_db_name) . '\''
                     . ' AND master_table = \''
-                    . Util::sqlAddSlashes($this->name) . '\''
+                    . Util::sqlAddSlashes($this->_name) . '\''
                     . ' AND master_field = \''
                     . Util::sqlAddSlashes($master_field) . '\'';
             } // end if... else....

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-01 07:36-0400\n"
-"PO-Revision-Date: 2015-10-04 21:22+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-10-06 11:54+0200\n"
+"Last-Translator: disorderman <disorderman@qq.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -42,7 +42,7 @@ msgstr "已创建数据库 %1$s。"
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "数据库注释："
+msgstr "数据库备注"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -309,7 +309,7 @@ msgstr "已将数据库 %1$s 复制至 %2$s。"
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "phpMyAdmin 高级功能尚未激活。%s查看原因%s。"
+msgstr "phpMyAdmin 设置存储功能已停用。%s查看原因%s。"
 
 #: db_qbe.php:129
 msgid "You have to choose at least one column to display!"
@@ -755,8 +755,8 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"没有找到 PHP 扩展 mbstring，而您现在好像在使用多字节字符集。没有 mbstring 扩"
-"展的 phpMyAdmin 不能正确分割字符串并可能产生意料之外的结果。"
+"没有找到 PHP 扩展 mbstring，而您现在正在使用多字节字符集。没有 mbstring 扩展的 phpMyAdmin "
+"不能正确分割字符串并可能产生意料之外的结果。"
 
 #: index.php:498
 msgid ""
@@ -1050,7 +1050,7 @@ msgstr "SQL 查询："
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:119
 msgid "Y values"
-msgstr "纵值"
+msgstr "纵轴值"
 
 #: js/messages.php:122
 msgid "The host name is empty!"
@@ -2474,7 +2474,7 @@ msgstr "获取SQL调试信息时出错。"
 #: js/messages.php:602
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "%s查询在%s秒内执行%s次数"
+msgstr "%s查询已执行%s次，耗时%s秒。"
 
 #: js/messages.php:603
 #, php-format
@@ -3292,7 +3292,7 @@ msgstr "服务器没有响应。"
 
 #: libraries/DatabaseInterface.class.php:2198
 msgid "Please check privileges of directory containing database."
-msgstr "请检查数据库文件夹的权限。"
+msgstr "请检查数据库所在文件夹的权限。"
 
 #: libraries/DatabaseInterface.class.php:2208
 msgid "Details…"
@@ -3454,10 +3454,9 @@ msgid "Relational key"
 msgstr "关联键"
 
 #: libraries/DisplayResults.class.php:1744
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "显示外键的关系"
+msgstr "显示关联的字段"
 
 #: libraries/DisplayResults.class.php:1757
 msgid "Show binary contents"
@@ -3577,10 +3576,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "错误信息太多，部分未显示。"
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "导入"
+msgstr "报告"
 
 #: libraries/Error_Handler.class.php:338 templates/error/report_form.phtml:28
 msgid "Automatically send report next time"
@@ -3761,12 +3759,12 @@ msgstr "索引 %1$s 和 %2$s 似乎是相同的，可以删除其中一个。"
 #: libraries/Linter.class.php:96
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr "由于超出最大长度本次查询的链接已禁用。"
+msgstr "由于超出最大长度，本次查询结果的归整化已禁用。"
 
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (<code>%2$s</code> 附近)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:425
 #: libraries/config/messages.inc.php:933
@@ -4788,7 +4786,7 @@ msgstr "属性"
 #: libraries/central_columns.lib.php:710
 #: libraries/central_columns.lib.php:1384
 msgid "A_I"
-msgstr ""
+msgstr "自增"
 
 #: libraries/central_columns.lib.php:750
 #| msgid "Select Tables"
@@ -5135,7 +5133,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "短语密码应包含字母、数字[em]和[/em]特殊字符。"
 
 #: libraries/config/ServerConfigChecks.class.php:382
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5149,8 +5147,8 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"该 %s选项%s 应该被关闭以防止有人尝试暴力破解 MySQL 服务器。如果有必要，您可以使用 %s可信代理表%s 。但如果您和许多人共用一个 IP "
-"地址，该措施的安全性将下降。"
+"该 %s选项%s 应该被关闭以防止有人尝试暴力破解 MySQL 服务器。如果有必要，您可以使用 %s限制登录到MySQL服务器%s或%s 可信代理表%s "
+"。但如果您和许多人共用一个 IP 地址，该措施的安全性将下降。"
 
 #: libraries/config/ServerConfigChecks.class.php:402
 msgid ""
@@ -5474,7 +5472,7 @@ msgstr "删除语句确认"
 #: libraries/config/messages.inc.php:97
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "记录SQL查询和执行时间，显示在控制台中。"
+msgstr "记录SQL查询和执行时间以显示在控制台中"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
@@ -5801,10 +5799,9 @@ msgid "Foreign key dropdown order"
 msgstr "外键下拉框顺序"
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "下拉框中选项个数的限制"
+msgstr "下拉框将在选项少时使用。"
 
 #: libraries/config/messages.inc.php:239
 msgid "Foreign key limit"
@@ -5812,23 +5809,21 @@ msgstr "外键限制"
 
 #: libraries/config/messages.inc.php:241
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "外键约束默认值复选框。"
 
 #: libraries/config/messages.inc.php:243
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "外键约束："
+msgstr "外键约束"
 
 #: libraries/config/messages.inc.php:244
 msgid "Browse mode"
 msgstr "浏览模式"
 
 #: libraries/config/messages.inc.php:245
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "自定义浏览模式"
+msgstr "自定义浏览模式。"
 
 #: libraries/config/messages.inc.php:247 libraries/config/messages.inc.php:249
 #: libraries/config/messages.inc.php:267 libraries/config/messages.inc.php:280
@@ -5885,52 +5880,46 @@ msgid "Import defaults"
 msgstr "导入选项"
 
 #: libraries/config/messages.inc.php:262
-#, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "自定义默认导入选项"
+msgstr "自定义默认导入选项。"
 
 #: libraries/config/messages.inc.php:263
 msgid "Import / export"
 msgstr "导入 / 导出"
 
 #: libraries/config/messages.inc.php:265
-#, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr "设置导入和导出文件夹以及压缩选项"
+msgstr "设置导入和导出文件夹以及压缩选项。"
 
 #: libraries/config/messages.inc.php:266
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "数据库显示选项"
+msgstr "数据库显示选项。"
 
 #: libraries/config/messages.inc.php:270 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
 msgstr "导航面板"
 
 #: libraries/config/messages.inc.php:271
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "自定义导航面板"
+msgstr "自定义导航面板。"
 
 #: libraries/config/messages.inc.php:272
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "导航面板"
+msgstr "导航树"
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "自定义导航面板"
+msgstr "自定义导航树。"
 
 #: libraries/config/messages.inc.php:274 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:146
@@ -5938,16 +5927,14 @@ msgid "Servers"
 msgstr "服务器"
 
 #: libraries/config/messages.inc.php:275
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "服务器显示选项"
+msgstr "服务器显示选项。"
 
 #: libraries/config/messages.inc.php:277
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "表显示选项"
+msgstr "表显示选项。"
 
 #: libraries/config/messages.inc.php:278 setup/frames/menu.inc.php:25
 msgid "Main panel"
@@ -5962,17 +5949,15 @@ msgid "Other core settings"
 msgstr "其它核心设置"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "暂时没有明确分类的设置"
+msgstr "无明确分类的设置。"
 
 #: libraries/config/messages.inc.php:286
 msgid "Page titles"
 msgstr "页面标题"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
 #| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
@@ -5980,23 +5965,20 @@ msgstr "页面标题"
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
-msgstr ""
-"设置浏览器标题栏所显示的文字。参见[doc@cfg_TitleTable]文档[/doc]中关于可以取"
-"得特殊值的魔术字符串。"
+msgstr "设置浏览器标题栏所显示的文字。参见[doc@faq_TitleTable]文档[/doc]中关于可以取得特殊值的魔术字符串。"
 
 #: libraries/config/messages.inc.php:292
 msgid "Security"
 msgstr "安全"
 
 #: libraries/config/messages.inc.php:294
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
-msgstr "请注意 phpMyAdmin 只是提供了一个用户界面，其功能不会对 MySQL 造成限制"
+msgstr "请注意 phpMyAdmin 只是提供了一个用户界面，其功能不会对 MySQL 造成限制。"
 
 #: libraries/config/messages.inc.php:297
 msgid "Basic settings"
@@ -6007,37 +5989,33 @@ msgid "Authentication"
 msgstr "认证"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "认证设置"
+msgstr "认证设置。"
 
 #: libraries/config/messages.inc.php:300
 msgid "Server configuration"
 msgstr "服务器设置"
 
 #: libraries/config/messages.inc.php:302
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
-msgstr "高级服务器设置，如果您不知道这些选项是什么意思，请不要修改"
+msgstr "服务器高级设置，如果您不知道这些选项的用途，请不要修改。"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "请输入服务器连接参数"
+msgstr "请输入服务器连接参数。"
 
 #: libraries/config/messages.inc.php:306
 msgid "Configuration storage"
 msgstr "高级功能"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
 #| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
@@ -6047,8 +6025,7 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"设置 phpMyAdmin 高级功能以获得更多功能，参见文档 [doc@linked-"
-"tables]phpMyAdmin 高级功能[/doc]"
+"设置 phpMyAdmin 高级功能以获得更多功能，参见文档 [doc@linked-tables]phpMyAdmin 高级功能[/doc]。"
 
 #: libraries/config/messages.inc.php:312
 msgid "Changes tracking"
@@ -6086,38 +6063,34 @@ msgid "SQL Query box"
 msgstr "SQL 查询框"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "自定义在 SQL 查询框中显示的链接"
+msgstr "自定义在 SQL 查询框中显示的链接。"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "SQL 查询设置"
+msgstr "SQL 查询设置。"
 
 #: libraries/config/messages.inc.php:329
 msgid "Startup"
 msgstr "首页"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "自定义首页"
+msgstr "自定义首页。"
 
 #: libraries/config/messages.inc.php:331
 msgid "Database structure"
 msgstr "数据库结构"
 
 #: libraries/config/messages.inc.php:333
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr "设置在数据库结构（表列表）中显示哪些细节"
+msgstr "设置在数据库结构（表列表）中显示哪些细节。"
 
 #: libraries/config/messages.inc.php:334
 #: libraries/plugins/export/ExportPdf.class.php:280
@@ -6126,20 +6099,18 @@ msgid "Table structure"
 msgstr "表结构"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
-msgstr "表结构（字段列表）的设置"
+msgstr "表结构（字段列表）的设置。"
 
 #: libraries/config/messages.inc.php:337
 msgid "Tabs"
 msgstr "标签"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "设置您希望的标签行为"
+msgstr "设置您希望的标签行为。"
 
 #: libraries/config/messages.inc.php:339
 msgid "Display relational schema"
@@ -6156,10 +6127,9 @@ msgid "Text fields"
 msgstr "文本字段"
 
 #: libraries/config/messages.inc.php:345
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "自定义文本输入框"
+msgstr "自定义文本输入框。"
 
 #: libraries/config/messages.inc.php:346
 msgid "Texy! text"
@@ -6174,21 +6144,18 @@ msgid "Warnings"
 msgstr "警告"
 
 #: libraries/config/messages.inc.php:350
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "禁止部分 phpMyAdmin 发出的警告"
+msgstr "禁止部分 phpMyAdmin 发出的警告。"
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations."
-msgstr ""
-"允许在导入和导出时使用 [a@http://zh.wikipedia.org/wiki/Gzip]gzip[/a] 压缩"
+msgstr "允许在导入和导出时使用 [a@http://zh.wikipedia.org/wiki/Gzip]gzip[/a] 压缩。"
 
 #: libraries/config/messages.inc.php:355
 msgid "GZip"
@@ -6199,15 +6166,13 @@ msgid "Extra parameters for iconv"
 msgstr "iconv 的额外参数"
 
 #: libraries/config/messages.inc.php:358
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
-msgstr ""
-"若启用，在执行多语句查询时即使有错误发生，phpMyAdmin 也会继续执行其它语句"
+msgstr "若启用，在执行多语句查询时即使有错误发生，phpMyAdmin 也会继续执行其它语句。"
 
 #: libraries/config/messages.inc.php:361
 msgid "Ignore multiple statement errors"
@@ -6234,23 +6199,20 @@ msgstr "忽略插入错误"
 
 #: libraries/config/messages.inc.php:373 libraries/config/messages.inc.php:387
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "重复的键更新时添加"
 
 #: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:389
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "导入发现重复键时更新数据"
 
 #: libraries/config/messages.inc.php:379
-#, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
 #| "table) and only SQL is always available"
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
-msgstr ""
-"默认格式；请注意根据位置（数据库或表）的不同该列表将有所变化，只有 SQL 是一直"
-"可用的"
+msgstr "默认格式；请注意根据位置（数据库或表）的不同该列表将有所变化，只有 SQL 是一直可用的。"
 
 #: libraries/config/messages.inc.php:382
 msgid "Format of imported file"
@@ -6280,10 +6242,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "导入百分数为小数（12.00% 将被导入为 .12）"
 
 #: libraries/config/messages.inc.php:398
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
-msgstr "要跳过的查询数量"
+msgstr "要跳过的查询数量。"
 
 #: libraries/config/messages.inc.php:399
 msgid "Partial import: skip queries"
@@ -6294,33 +6255,30 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "值为零时不自增"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "读缺失数"
+msgstr "以多字节读取"
 
 #: libraries/config/messages.inc.php:406
 msgid "Initial state for sliders"
 msgstr "滑动区域初始状态"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "一次可以插入的行数"
+msgstr "一次可以插入的行数。"
 
 #: libraries/config/messages.inc.php:408
 msgid "Number of inserted rows"
 msgstr "插入的行数"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "Maximum number of characters shown in any non-numeric column on browse "
 #| "view"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
-msgstr "浏览非数字字段时最多显示的字数"
+msgstr "浏览非数字字段时最多显示的字数。"
 
 #: libraries/config/messages.inc.php:412
 msgid "Limit column characters"
@@ -6341,14 +6299,13 @@ msgid "Delete all cookies on logout"
 msgstr "退出时删除所有 cookies"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr "设置在 cookie 认证下是否能自动重复上次登录。"
+msgstr "设置在 [kbd]cookie[/kbd] 认证下是否显示上次登录的账号。"
 
 #: libraries/config/messages.inc.php:423
 msgid "Recall user name"
@@ -6369,30 +6326,27 @@ msgid "Login cookie store"
 msgstr "登录 cookie 存储"
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "设置登录 cookie 的有效期（单位：秒）"
+msgstr "设置登录 cookie 的有效期（单位：秒）。"
 
 #: libraries/config/messages.inc.php:433
 msgid "Login cookie validity"
 msgstr "登录 cookie 有效期"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "将 LONGTEXT 字段的文本框放大一倍"
+msgstr "将 LONGTEXT 字段的文本框放大一倍。"
 
 #: libraries/config/messages.inc.php:436
 msgid "Bigger textarea for LONGTEXT"
 msgstr "放大 LONGTEXT 的文本框"
 
 #: libraries/config/messages.inc.php:438
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "显示 SQL 语句时的最大字数"
+msgstr "显示 SQL 语句时的最大字数。"
 
 #: libraries/config/messages.inc.php:439
 msgid "Maximum displayed SQL length"
@@ -6404,40 +6358,36 @@ msgid "Users cannot set a higher value"
 msgstr "用户设置不能超过该值"
 
 #: libraries/config/messages.inc.php:442
-#, fuzzy
 #| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "在数据库列表中最多显示的数据库个数"
+msgstr "在数据库列表中最多显示的数据库个数。"
 
 #: libraries/config/messages.inc.php:443
 msgid "Maximum databases"
 msgstr "最大数据库数量"
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr "每页导航树所能显示的最大项数"
+msgstr "每页导航树所能显示的第一层的最大项数。"
 
 #: libraries/config/messages.inc.php:448
-#, fuzzy
 #| msgid "Maximum items in branch"
 msgid "Maximum items on first level"
-msgstr "节点中最大项数"
+msgstr "第一层节点的最大项数"
 
 #: libraries/config/messages.inc.php:450
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "每页导航树所能显示的最大项数"
+msgstr "每页导航树所能显示的最大项数。"
 
 #: libraries/config/messages.inc.php:452
 msgid "Maximum items in branch"
@@ -6456,24 +6406,22 @@ msgid "Maximum number of rows to display"
 msgstr "显示的最多行数"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "在表列表中最多显示的表个数"
+msgstr "在表列表中最多显示的表个数。"
 
 #: libraries/config/messages.inc.php:463
 msgid "Maximum tables"
 msgstr "最大表数量"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
-msgstr "一个脚本可分配的内存大小，如 [kbd]32MB[/kbd]（[kbd]0[/kbd] 为无限制）"
+msgstr "一个脚本可分配的内存大小，如 [kbd]32MB[/kbd]（[kbd]-1[/kbd] 为无限制，[kbd]0[/kbd] 为不做变更）。"
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -6481,57 +6429,52 @@ msgstr "内存限制"
 
 #: libraries/config/messages.inc.php:470
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "导航栏使用数据库选择器替代树形列表"
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "显示隐藏的导航树节点。"
+msgstr "以树状显示数据库导航面板"
 
 #: libraries/config/messages.inc.php:476
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "高亮当前数据库或表链接到主面板。"
 
 #: libraries/config/messages.inc.php:479
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show logo in navigation panel."
-msgstr "在导航面板中显示徽标"
+msgstr "在导航面板中显示图示。"
 
 #: libraries/config/messages.inc.php:480
 msgid "Display logo"
 msgstr "显示徽标"
 
 #: libraries/config/messages.inc.php:482
-#, fuzzy
 #| msgid "URL where logo in the navigation panel will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "导航面板中徽标指向的链接地址"
+msgstr "导航面板中图示指向的链接地址。"
 
 #: libraries/config/messages.inc.php:483
 msgid "Logo link URL"
 msgstr "徽标链接地址"
 
 #: libraries/config/messages.inc.php:485
-#, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 #| "([kbd]new[/kbd])"
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
-msgstr "在主窗口（[kbd]main[/kbd]）或新窗口（[kbd]new[/kbd]）打开目标页面"
+msgstr "在主窗口（[kbd]main[/kbd]）或新窗口（[kbd]new[/kbd]）打开目标页面。"
 
 #: libraries/config/messages.inc.php:488
 msgid "Logo link target"
 msgstr "徽标链接目标"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Display server choice at the top of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "在导航面板顶部显示可选的服务器"
+msgstr "在导航面板顶部显示可选的服务器。"
 
 #: libraries/config/messages.inc.php:491
 msgid "Display servers selection"
@@ -6542,10 +6485,9 @@ msgid "Target for quick access icon"
 msgstr "快速访问图标的目标"
 
 #: libraries/config/messages.inc.php:494
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "快速访问图标的目标"
+msgstr "第二快速访问图标的目标页面"
 
 #: libraries/config/messages.inc.php:497
 msgid ""
@@ -6562,34 +6504,31 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "设置达到多少个数据库时将显示数据库筛选框"
 
 #: libraries/config/messages.inc.php:505
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
-msgstr "将导航树中的项分组（根据下面设置的分隔符分组）"
+msgstr "将导航树中的项分组（根据上面 数据库与数据表 页面设置的分隔符分组）。"
 
 #: libraries/config/messages.inc.php:508
 msgid "Group items in the tree"
 msgstr "分组树中的项"
 
 #: libraries/config/messages.inc.php:510
-#, fuzzy
 #| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
-msgstr "将数据库分为不同层级的字符串"
+msgstr "将数据库分为不同层级的字符串。"
 
 #: libraries/config/messages.inc.php:511
 msgid "Database tree separator"
 msgstr "数据库树分隔符"
 
 #: libraries/config/messages.inc.php:513
-#, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
-msgstr "将表分为不同层级的字符串"
+msgstr "将表分为不同层级的字符串。"
 
 #: libraries/config/messages.inc.php:514
 msgid "Table tree separator"
@@ -6600,10 +6539,9 @@ msgid "Maximum table tree depth"
 msgstr "表树最大深度"
 
 #: libraries/config/messages.inc.php:517
-#, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
-msgstr "高亮鼠标指针所在位置的服务器"
+msgstr "高亮鼠标指针所在位置的服务器。"
 
 #: libraries/config/messages.inc.php:518
 msgid "Enable highlighting"
@@ -6612,91 +6550,79 @@ msgstr "启用高亮"
 #: libraries/config/messages.inc.php:520
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "是否允许在导航栏中展开导航树。"
 
 #: libraries/config/messages.inc.php:523
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "表导航条"
+msgstr "启用表导航条展开功能"
 
 #: libraries/config/messages.inc.php:524
-#, fuzzy
 #| msgid "Showing tables"
 msgid "Show tables in tree"
-msgstr "正在显示表"
+msgstr "在导航树显示表"
 
 #: libraries/config/messages.inc.php:526
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "显示隐藏的导航树节点。"
+msgstr "在导航树是否在数据库下显示数据表节点"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "查看版本"
+msgstr "在导航树显示视图"
 
 #: libraries/config/messages.inc.php:529
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
-msgstr "显示隐藏的导航树节点。"
+msgstr "在导航树中是否在数据库下显示视图节点"
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "显示函数列"
+msgstr "在导航树显示函数"
 
 #: libraries/config/messages.inc.php:532
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "是否显示导航树中数据库下级功能"
 
 #: libraries/config/messages.inc.php:533
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "显示进程"
+msgstr "在导航树显示进程"
 
 #: libraries/config/messages.inc.php:535
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "是否在导航树中显示数据库进程"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "查看版本"
+msgstr "在导航树显示事件"
 
 #: libraries/config/messages.inc.php:538
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Whether to show events under database in the navigation tree"
-msgstr "显示隐藏的导航树节点。"
+msgstr "在导航树中数据库下是否显示事件节点"
 
 #: libraries/config/messages.inc.php:540
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "最近使用的表的最大数量；设为 0 为禁用"
+msgstr "最近使用的表的最大数量；设为 0 为禁用。"
 
 #: libraries/config/messages.inc.php:542
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "最近使用的表的最大数量；设为 0 为禁用"
+msgstr "收藏表的最大数量；设为 0 为禁用。"
 
 #: libraries/config/messages.inc.php:543
 msgid "Recently used tables"
 msgstr "最近使用的表"
 
 #: libraries/config/messages.inc.php:545
-#, fuzzy
 #| msgid "These are Edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links."
-msgstr "它们是编辑、复制和删除链接"
+msgstr "这些是编辑、复制和删除链接。"
 
 #: libraries/config/messages.inc.php:546
 msgid "Where to show the table row links"
@@ -6704,17 +6630,16 @@ msgstr "表行链接显示位置"
 
 #: libraries/config/messages.inc.php:548
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "缺少唯一键时是否显示行链接。"
 
 #: libraries/config/messages.inc.php:550
 msgid "Show row links anyway"
 msgstr ""
 
 #: libraries/config/messages.inc.php:552
-#, fuzzy
 #| msgid "Use natural order for sorting table and database names"
 msgid "Use natural order for sorting table and database names."
-msgstr "为表和数据库名使用自然排序"
+msgstr "为表和数据库名使用自然排序。"
 
 #: libraries/config/messages.inc.php:553
 msgid "Natural order"
@@ -6722,53 +6647,46 @@ msgstr "自然排序"
 
 #: libraries/config/messages.inc.php:554 libraries/config/messages.inc.php:585
 #: libraries/config/messages.inc.php:587
-#, fuzzy
 #| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
-msgstr "仅使用图标、文字或都有"
+msgstr "仅使用图标、文字或都使用。"
 
 #: libraries/config/messages.inc.php:555
 msgid "Table navigation bar"
 msgstr "表导航条"
 
 #: libraries/config/messages.inc.php:557
-#, fuzzy
 #| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
-msgstr "使用 GZip 输出缓冲以加快 HTTP 传输速度"
+msgstr "使用 GZip 输出缓冲以加快 HTTP 传输速度。"
 
 #: libraries/config/messages.inc.php:558
 msgid "GZip output buffering"
 msgstr "GZip 输出缓冲"
 
 #: libraries/config/messages.inc.php:560
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
-msgstr ""
-"[kbd]SMART[/kbd] - 即对 TIME、DATE、DATETIME 和 TIMESTAMP 类型的字段递减排"
-"序，其它字段递增"
+msgstr "[kbd]SMART[/kbd] - 即对 TIME、DATE、DATETIME 和 TIMESTAMP 类型的字段递减排序，其它字段递增。"
 
 #: libraries/config/messages.inc.php:563
 msgid "Default sorting order"
 msgstr "默认排序"
 
 #: libraries/config/messages.inc.php:565
-#, fuzzy
 #| msgid "Use persistent connections to MySQL databases"
 msgid "Use persistent connections to MySQL databases."
-msgstr "在连接到 MySQL 数据库时使用持久连接"
+msgstr "在连接到 MySQL 数据库时使用持久连接。"
 
 #: libraries/config/messages.inc.php:566
 msgid "Persistent connections"
 msgstr "持久连接"
 
 #: libraries/config/messages.inc.php:568
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -6777,35 +6695,33 @@ msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
-msgstr "禁止在缺少 phpMyAdmin 高级功能所需数据表时在数据库结构页中显示默认警告"
+msgstr "禁止在缺少 phpMyAdmin 高级功能所需数据表时在数据库结构页中显示默认警告。"
 
 #: libraries/config/messages.inc.php:573
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "丢失 phpMyAdmin 高级功能数据表"
 
 #: libraries/config/messages.inc.php:575
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if a difference between the "
 #| "MySQL library and server is detected"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected."
-msgstr "禁止显示检测到MySQL库版本与服务器版本不同时的默认警告"
+msgstr "禁止显示检测到MySQL库版本与服务器版本不同时的默认警告。"
 
 #: libraries/config/messages.inc.php:579
 msgid "Server/library difference warning"
 msgstr "服务器/程序库版本不同警告"
 
 #: libraries/config/messages.inc.php:581
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words"
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
-msgstr "禁止在列名包含 MySQL 保留字时在数据库结构页中显示默认警告"
+msgstr "禁止在字段名包含 MySQL 保留字时在数据库结构页中显示默认警告。"
 
 #: libraries/config/messages.inc.php:584
 msgid "MySQL reserved word warning"
@@ -6820,10 +6736,9 @@ msgid "How to display various action links"
 msgstr "显示动作链接的方式"
 
 #: libraries/config/messages.inc.php:589
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY columns from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "禁止编辑 BLOB 和 BINARY 类型字段"
+msgstr "禁止编辑 BLOB 和 BINARY 类型字段。"
 
 #: libraries/config/messages.inc.php:590
 msgid "Protect binary columns"
@@ -6843,30 +6758,27 @@ msgid "Permanent query history"
 msgstr "持久查询历史"
 
 #: libraries/config/messages.inc.php:598
-#, fuzzy
 #| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
-msgstr "记录查询历史的数量"
+msgstr "查询历史的保存数量。"
 
 #: libraries/config/messages.inc.php:599
 msgid "Query history length"
 msgstr "查询历史个数"
 
 #: libraries/config/messages.inc.php:601
-#, fuzzy
 #| msgid "Select which functions will be used for character set conversion"
 msgid "Select which functions will be used for character set conversion."
-msgstr "选择进行字符集转换时使用的函数"
+msgstr "选择进行字符集转换时使用的函数。"
 
 #: libraries/config/messages.inc.php:602
 msgid "Recoding engine"
 msgstr "记录引擎"
 
 #: libraries/config/messages.inc.php:604
-#, fuzzy
 #| msgid "When browsing tables, the sorting of each table is remembered"
 msgid "When browsing tables, the sorting of each table is remembered."
-msgstr "当浏览表时，会记住每个表的排序方式"
+msgstr "当浏览表时使用上次的排序方式。"
 
 #: libraries/config/messages.inc.php:605
 msgid "Remember table's sorting"
@@ -6877,18 +6789,16 @@ msgid "Default sort order for tables with a primary key."
 msgstr ""
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "默认排序"
+msgstr "主键默认排序"
 
 #: libraries/config/messages.inc.php:611
-#, fuzzy
 #| msgid ""
 #| "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr "每 X 单元格重复表头，要禁止此功能请设为 [kbd]0[/kbd]"
+msgstr "每 X 单元格重复表头，要禁止此功能请设为 [kbd]0[/kbd]。"
 
 #: libraries/config/messages.inc.php:612
 msgid "Repeat headers"
@@ -6899,36 +6809,32 @@ msgid "Grid editing: trigger action"
 msgstr "单元格编辑：触发操作"
 
 #: libraries/config/messages.inc.php:615
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "关联显示字段"
+msgstr "关联显示"
 
 #: libraries/config/messages.inc.php:616
-#, fuzzy
 #| msgid "Servers display options"
 msgid "For display Options"
-msgstr "服务器显示选项"
+msgstr "显示选项"
 
 #: libraries/config/messages.inc.php:617
 msgid "Grid editing: save all edited cells at once"
 msgstr "立刻存储所有已编辑的单元格"
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
-msgstr "服务器上用来保存导出文件的文件夹"
+msgstr "服务器上用来保存导出文件的文件夹。"
 
 #: libraries/config/messages.inc.php:619
 msgid "Save directory"
 msgstr "保存文件夹"
 
 #: libraries/config/messages.inc.php:620
-#, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
-msgstr "不使用请留空"
+msgstr "不使用请留空。"
 
 #: libraries/config/messages.inc.php:621
 msgid "Host authorization order"
@@ -8139,11 +8045,11 @@ msgid "Query error"
 msgstr "查询错误"
 
 #: libraries/controllers/TableStructureController.class.php:963
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "已成功修改表 %1$s。"
+msgstr "已成功修改表 %1$s。已调整权限。"
 
 #: libraries/controllers/TableStructureController.class.php:1180
 #: templates/table/structure/check_all_table_column.phtml:11
@@ -9557,7 +9463,6 @@ msgid "Show hidden items"
 msgstr "显示提示"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:34
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
@@ -9922,21 +9827,19 @@ msgstr "将数据库改名为"
 #: libraries/operations.lib.php:860 libraries/operations.lib.php:952
 #: libraries/operations.lib.php:1304
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "权限不足！"
+msgstr "您的权限不足以执行此操作，请参考说明文档了解详情"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:246
 #: libraries/operations.lib.php:866 libraries/operations.lib.php:958
 #: libraries/operations.lib.php:1310 libraries/rte/rte_routines.lib.php:992
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust privileges"
-msgstr "编辑权限"
+msgstr "调整权限"
 
 #: libraries/operations.lib.php:132
 #, php-format
@@ -9994,7 +9897,7 @@ msgstr "(逐一)"
 
 #: libraries/operations.lib.php:824
 msgid "Move table to (database<b>.</b>table)"
-msgstr "将数据表移动到(数据库名<b>.</b>数据表名)："
+msgstr "将数据表移动到(数据库名<b>.</b>数据表名)"
 
 #: libraries/operations.lib.php:934
 msgid "Rename table to"
@@ -10018,7 +9921,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1248
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "将数据表复制到(数据库名<b>.</b>数据表名)："
+msgstr "将数据表复制到(数据库名<b>.</b>数据表名)"
 
 #: libraries/operations.lib.php:1325
 msgid "Switch to copied table"
@@ -10147,16 +10050,16 @@ msgid "Can't copy table to same one!"
 msgstr "目标数据表不能为源数据表！"
 
 #: libraries/operations.lib.php:2109
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "已将数据表 %s 移动到 %s。"
+msgstr "已将数据表 %s 移动到 %s。已调整权限。"
 
 #: libraries/operations.lib.php:2116
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "已将数据表 %s 复制为 %s。"
+msgstr "已将数据表 %s 复制为 %s。已调整权限。"
 
 #: libraries/operations.lib.php:2125
 #, php-format
@@ -10863,7 +10766,7 @@ msgstr "MediaWiki 表"
 #: libraries/plugins/import/ImportMediawiki.class.php:278
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "第 %s 行mediawiki输入格式有错."
+msgstr "mediawiki输入在此行存在格式错误:<br />%s。"
 
 #: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -11441,7 +11344,7 @@ msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
-msgstr ""
+msgstr "您没有权限建立名为“phpmyadmin”的数据库。您可能需要到任一数据库的“操作”页面设置 phpMyAdmin的储存位置 。"
 
 #: libraries/relation.lib.php:1912
 #, fuzzy, php-format
@@ -11997,10 +11900,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "抱歉，恢复已删除的程序失败。"
 
 #: libraries/rte/rte_routines.lib.php:433
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "已修改程序 %1$s 。"
+msgstr "已修改程序 %1$s 。已调整权限。"
 
 #: libraries/rte/rte_routines.lib.php:438
 #, php-format
@@ -12047,7 +11950,7 @@ msgstr "是否固定"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr ""
+msgstr "您没有足够的权限执行此操作，请参考说明文档了解详情"
 
 #: libraries/rte/rte_routines.lib.php:1018
 msgid "Security type"
@@ -12294,7 +12197,7 @@ msgstr "存储引擎"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
-msgstr "字符集和整理"
+msgstr "字符集和排序规则"
 
 #: libraries/server_common.lib.php:45
 msgid "Databases statistics"
@@ -12309,7 +12212,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "启用统计"
@@ -12589,7 +12491,7 @@ msgstr "程序"
 #: libraries/server_privileges.lib.php:1409 server_privileges.php:71
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
-msgstr "允许添加用户和权限，而不允许重新载入权限表。"
+msgstr "允许添加用户和权限而不重新载入权限表。"
 
 #: libraries/server_privileges.lib.php:1042
 #, fuzzy
@@ -12703,16 +12605,14 @@ msgstr "您已撤销 %s 的权限。"
 
 #: libraries/server_privileges.lib.php:2158
 #: libraries/server_privileges.lib.php:4366
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
-msgstr "添加用户"
+msgstr "新增用户账户"
 
 #: libraries/server_privileges.lib.php:2167
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
-msgstr "用户数据库"
+msgstr "用户账户数据库"
 
 #: libraries/server_privileges.lib.php:2171
 msgid "Create database with same name and grant all privileges."
@@ -12777,10 +12677,9 @@ msgid "table-specific"
 msgstr "按数据库指定"
 
 #: libraries/server_privileges.lib.php:2729
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
-msgstr "编辑权限"
+msgstr "修改权限"
 
 #: libraries/server_privileges.lib.php:2732
 msgid "Revoke"
@@ -12812,16 +12711,14 @@ msgid ""
 msgstr "… 从用户表中删除旧用户，然后重新载入权限。"
 
 #: libraries/server_privileges.lib.php:2959
-#, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "修改登录信息/复制用户"
+msgstr "修改登录信息/复制用户账户"
 
 #: libraries/server_privileges.lib.php:2965
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "创建具有相同权限的新用户然后 …"
+msgstr "创建具有相同权限的新用户账户然后 …"
 
 #: libraries/server_privileges.lib.php:3178
 #: templates/privileges/edit_routine_privileges.phtml:12
@@ -12831,10 +12728,9 @@ msgid "Routine-specific privileges"
 msgstr "按字段指定权限"
 
 #: libraries/server_privileges.lib.php:3561
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "删除选中的用户"
+msgstr "删除选中的用户账户"
 
 #: libraries/server_privileges.lib.php:3567
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12894,28 +12790,25 @@ msgid "New"
 msgstr "新建"
 
 #: libraries/server_privileges.lib.php:4387
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "编辑权限"
+msgstr "修改权限："
 
 #: libraries/server_privileges.lib.php:4388
-#, fuzzy
 #| msgid "Users"
 msgid "User account"
-msgstr "用户"
+msgstr "用户账户"
 
 #: libraries/server_privileges.lib.php:4462
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr ""
+msgstr "注意：您正在尝试修改您正在使用的账号的权限。"
 
 #: libraries/server_privileges.lib.php:4482 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "用户概况"
+msgstr "用户账户概况"
 
 #: libraries/server_privileges.lib.php:4550
 msgid ""
@@ -12937,7 +12830,6 @@ msgstr ""
 "限%s。"
 
 #: libraries/server_privileges.lib.php:4610
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12950,9 +12842,8 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
-"限%s。"
+"注意：phpMyAdmin 直接由 MySQL "
+"权限表取得用户权限。如果用户手动更改权限表，表内容将可能与服务器使用的用户权限有异。在这种情况下，应当重新载入权限表，但您没有RELOAD权限。"
 
 #: libraries/server_privileges.lib.php:4660
 msgid "The selected user was not found in the privilege table."
@@ -13007,7 +12898,6 @@ msgid "Sent"
 msgstr "已发送"
 
 #: libraries/server_status.lib.php:243
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "最大并发连接数"
@@ -13154,7 +13044,7 @@ msgstr "状态变量"
 
 #: libraries/server_status_monitor.lib.php:183
 msgid "Select series:"
-msgstr "选择数据:"
+msgstr "选择数据："
 
 #: libraries/server_status_monitor.lib.php:185
 msgid "Commonly monitored"
@@ -13185,10 +13075,9 @@ msgid "Clear series"
 msgstr "清除所有数据"
 
 #: libraries/server_status_monitor.lib.php:231
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
-msgstr "图表中的数据:"
+msgstr "图表中的数据系列："
 
 #: libraries/server_status_monitor.lib.php:252
 msgid "Start Monitor"
@@ -13235,15 +13124,13 @@ msgid "Reset to default"
 msgstr "恢复默认"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
-msgstr ""
-"注意：在此启用数据库统计可能导致网站服务器和 MySQL 服务器之间的流量骤增。"
+msgstr "注意：在此启用自动刷新可能导致网站服务器和 MySQL 服务器之间的流量骤增。"
 
 #: libraries/server_status_processes.lib.php:68
 msgid "ID"
@@ -13255,7 +13142,7 @@ msgstr "命令"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "进度"
 
 #: libraries/server_status_processes.lib.php:225
 #: libraries/server_status_variables.lib.php:39
@@ -13264,10 +13151,9 @@ msgid "Filters"
 msgstr "过滤器"
 
 #: libraries/server_status_processes.lib.php:233
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "仅显示报警值"
+msgstr "仅显示活跃的"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13275,16 +13161,14 @@ msgid "Questions since startup: %s"
 msgstr "自启动以来的内部查询: %s"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "每小时"
+msgstr "每小时："
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "每分钟"
+msgstr "每分钟："
 
 #: libraries/server_status_queries.lib.php:54
 #, fuzzy
@@ -15553,10 +15437,9 @@ msgid ""
 msgstr "你的浏览器中有当前域的 phpMyAdmin 设置。是否导入到当前会话中？"
 
 #: templates/privileges/add_privileges_database.phtml:1
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
-msgstr "在下列数据库添加权限"
+msgstr "在下列数据库添加权限："
 
 #: templates/privileges/add_privileges_database.phtml:15
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -15569,25 +15452,23 @@ msgid "Add privileges on the following routine:"
 msgstr "在下列数据表添加权限"
 
 #: templates/privileges/add_privileges_table.phtml:3
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "在下列数据表添加权限"
+msgstr "在下列数据表添加权限："
 
 #: templates/privileges/privileges_summary.phtml:20
 msgid "Column-specific privileges"
 msgstr "按字段指定权限"
 
 #: templates/startAndNumberOfRowsPanel.phtml:3
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "起始行"
+msgstr "起始行："
 
 #: templates/table/chart/tbl_chart.phtml:17
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "柱状图"
+msgstr "条状图"
 
 #: templates/table/chart/tbl_chart.phtml:21
 msgctxt "Chart type"
@@ -15607,7 +15488,7 @@ msgstr "曲线图"
 #: templates/table/chart/tbl_chart.phtml:33
 msgctxt "Chart type"
 msgid "Area"
-msgstr "图标类型"
+msgstr "面积图"
 
 #: templates/table/chart/tbl_chart.phtml:37
 msgctxt "Chart type"
@@ -15622,7 +15503,7 @@ msgstr "时间线"
 #: templates/table/chart/tbl_chart.phtml:45
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "散点图"
 
 #: templates/table/chart/tbl_chart.phtml:50
 msgid "Stacked"
@@ -15634,7 +15515,7 @@ msgstr "横坐标:"
 
 #: templates/table/chart/tbl_chart.phtml:72
 msgid "Series:"
-msgstr "数据:"
+msgstr "数据系列："
 
 #: templates/table/chart/tbl_chart.phtml:102
 msgid "X-Axis label:"
@@ -15650,23 +15531,21 @@ msgstr "纵坐标名称:"
 
 #: templates/table/chart/tbl_chart.phtml:109
 msgid "Y Values"
-msgstr "纵值"
+msgstr "纵轴值"
 
 #: templates/table/chart/tbl_chart.phtml:115
 msgid "Series names are in a column"
-msgstr ""
+msgstr "数据系列名称位于一个字段中"
 
 #: templates/table/chart/tbl_chart.phtml:118
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "包含字段："
+msgstr "数据系列字段："
 
 #: templates/table/chart/tbl_chart.phtml:130
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value Column:"
-msgstr "字段 %s 的值"
+msgstr "数据值字段："
 
 #: templates/table/chart/tbl_chart.phtml:150
 #, fuzzy
@@ -15998,10 +15877,9 @@ msgid "Improve table structure"
 msgstr "规划表结构"
 
 #: templates/table/structure/optional_action_links.phtml:29
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "追踪表"
+msgstr "显示追逐"
 
 #: templates/table/structure/row_stats_table.phtml:3
 #, fuzzy

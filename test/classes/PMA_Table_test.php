@@ -11,6 +11,7 @@
  */
 use PMA\libraries\Table;
 use PMA\libraries\Theme;
+use PMA\libraries\Util;
 
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/database_interface.inc.php';
@@ -701,6 +702,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     {
         $table = 'PMA_BookMark';
         $db = 'PMA';
+        Util::cacheSet('lower_case_table_names', false);
 
         $table = new Table($table, $db);
 
