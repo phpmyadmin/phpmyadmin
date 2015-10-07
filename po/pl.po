@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-01 07:36-0400\n"
-"PO-Revision-Date: 2015-09-25 14:07+0200\n"
-"Last-Translator: Andrzej <andrzej@kynu.pl>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2015-10-07 13:56+0200\n"
+"Last-Translator: Przemo <info@opsbielany.waw.pl>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -335,17 +335,16 @@ msgid "Access denied!"
 msgstr "Odmowa dostępu!"
 
 #: db_tracking.php:51 db_tracking.php:76
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Śledzenie definicją danych pomyślnie usunięte"
+msgstr "Dane śledzenia zostały poprawnie usunięte."
 
 #: db_tracking.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Wersja %1$s stworzona, śledzenie dla %2$s jest aktywne."
+msgstr "Wersja %1$s została utworzona, śledzenie dla %2$s włączone."
 
 #: db_tracking.php:91
 msgid "No tables selected."
@@ -534,7 +533,7 @@ msgstr "Sukces"
 
 #: import.php:58 js/messages.php:502
 msgid "Failed"
-msgstr ""
+msgstr "Nieudane"
 
 #: import.php:62
 msgid "Incomplete params"
@@ -563,6 +562,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Wczytywany plik nie może być przeniesiony, ponieważ serwer ma aktywną "
+"zmienną open_basedir, ale tymczasowy dostęp do %s jest niemożliwy."
 
 #: import.php:486 import.php:563 libraries/File.class.php:426
 #: libraries/File.class.php:522
@@ -604,7 +605,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import zakończony sukcesem, wykonano %d zapytań."
 
 #: import.php:701
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
