@@ -3,7 +3,7 @@
 <label for="text_routinename"><?php echo __('Add privileges on the following routine:'); ?></label>
 
 <?php if (! empty($routines)) : ?>
-    <select name="pred_routinename" 'class="autosubmit">
+    <select name="pred_routinename" class="autosubmit">
         <option value="" selected="selected"><?php echo __('Use text field'); ?>:</option>
         <?php foreach ($routines as $routine) : ?>
             <option value="<?php echo htmlspecialchars($routine); ?>"><?php echo htmlspecialchars($routine); ?></option>
