@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-10-06 16:42+0200\n"
+"PO-Revision-Date: 2015-10-07 13:23+0200\n"
 "Last-Translator: disorderman <disorderman@qq.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
@@ -6921,10 +6921,9 @@ msgid "Host authorization order"
 msgstr "主机认证模式"
 
 #: libraries/config/messages.inc.php:622
-#, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
-msgstr "默认请留空"
+msgstr "默认请留空。"
 
 #: libraries/config/messages.inc.php:623
 msgid "Host authorization rules"
@@ -6939,10 +6938,9 @@ msgid "Allow root login"
 msgstr "允许 root 用户登录"
 
 #: libraries/config/messages.inc.php:626
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "会话值"
+msgstr "会话时区"
 
 #: libraries/config/messages.inc.php:628
 msgid ""
@@ -6951,17 +6949,15 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:632
-#, fuzzy
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
-msgstr "使用 HTTP 基本认证时显示给用户的提示信息"
+msgstr "使用 HTTP 基本认证时显示给用户的提示信息。"
 
 #: libraries/config/messages.inc.php:633
 msgid "HTTP Realm"
 msgstr "HTTP 提示信息"
 
 #: libraries/config/messages.inc.php:635
-#, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
 #| "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6971,18 +6967,17 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)."
 msgstr ""
-"[a@http://swekey.com]SweKey 硬件认证 (外链，英文)[/a]的配置文件路径 (请勿置于"
-"你的文档根文件夹，推荐使用：/etc/swekey.conf)"
+"[a@http://swekey.com]SweKey 硬件认证 (外链，英文)[/a]的配置文件路径 "
+"(请勿置于你的文档根文件夹，推荐使用：/etc/swekey.conf)。"
 
 #: libraries/config/messages.inc.php:639
 msgid "SweKey config file"
 msgstr "SweKey 配置文件"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
-msgstr "要使用的认证方式"
+msgstr "要使用的认证方式。"
 
 #: libraries/config/messages.inc.php:641 setup/frames/index.inc.php:164
 msgid "Authentication type"
@@ -7001,34 +6996,31 @@ msgid "Bookmark table"
 msgstr "书签表"
 
 #: libraries/config/messages.inc.php:648
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
-msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma__column_info[/kbd]"
+msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma__column_info[/kbd]。"
 
 #: libraries/config/messages.inc.php:651
 msgid "Column information table"
 msgstr "列信息表"
 
 #: libraries/config/messages.inc.php:652
-#, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "压缩连接到 MySQL 服务器"
+msgstr "压缩连接到 MySQL 服务器。"
 
 #: libraries/config/messages.inc.php:653
 msgid "Compress connection"
 msgstr "压缩连接"
 
 #: libraries/config/messages.inc.php:655
-#, fuzzy
 #| msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
-msgstr "怎样连接到服务器，如果不确定，请选择 [kbd]tcp[/kbd]"
+msgstr "怎样连接到服务器，如果不确定，请选择 [kbd]tcp[/kbd]。"
 
 #: libraries/config/messages.inc.php:656
 msgid "Connection type"
@@ -7039,7 +7031,6 @@ msgid "Control user password"
 msgstr "控制用户的密码"
 
 #: libraries/config/messages.inc.php:659
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7048,29 +7039,27 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
-"一个特殊的被限制权限的 MySQL 用户，参见 [a@http://wiki.phpmyadmin.net/pma/"
-"controluser]wiki (外链，英文)[/a]"
+"一个特殊的被限制权限的 MySQL 用户，参见 [a@http://wiki.phpmyadmin.net/pma/controluser]wiki "
+"(外链，英文)[/a]。"
 
 #: libraries/config/messages.inc.php:662
 msgid "Control user"
 msgstr "控制用户"
 
 #: libraries/config/messages.inc.php:664
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
-msgstr "一个会变的主机被设置在了设置文件中，你可以留空以使用已经定义了的主机"
+msgstr "设置存储设置的备选主机位置，若无备选主机请留空。"
 
 #: libraries/config/messages.inc.php:667
 msgid "Control host"
 msgstr "控制主机"
 
 #: libraries/config/messages.inc.php:669
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -7078,17 +7067,16 @@ msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
-msgstr "一个会变的主机被设置在了设置文件中，你可以留空以使用已经定义了的主机"
+msgstr "设置存储设置的备选主机端口号，若使用默认值或没有备选主机请留空。"
 
 #: libraries/config/messages.inc.php:673
 msgid "Control port"
 msgstr "控制端口"
 
 #: libraries/config/messages.inc.php:675
-#, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr "该正则表达式 (PCRE，Perl 兼容) 所匹配的数据库将被隐藏"
+msgstr "该正则表达式 (PCRE，Perl 兼容) 所匹配的数据库将被隐藏。"
 
 #: libraries/config/messages.inc.php:677
 msgid ""
@@ -10729,16 +10717,14 @@ msgid "Indexes for table"
 msgstr "于下列表："
 
 #: libraries/plugins/export/ExportSql.class.php:1726
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "值为零时不自增"
+msgstr "在导出的表使用AUTO_INCREMENT"
 
 #: libraries/plugins/export/ExportSql.class.php:1727
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "添加自增值"
+msgstr "使用表AUTO_INCREMENT"
 
 #: libraries/plugins/export/ExportSql.class.php:1799
 msgid "MIME TYPES FOR TABLE"
@@ -15487,7 +15473,7 @@ msgstr "图例项（系列）："
 
 #: templates/table/chart/tbl_chart.phtml:102
 msgid "X-Axis label:"
-msgstr "横坐标名称:"
+msgstr "横坐标标签："
 
 #: templates/table/chart/tbl_chart.phtml:104
 msgid "X Values"
@@ -15495,7 +15481,7 @@ msgstr "横值"
 
 #: templates/table/chart/tbl_chart.phtml:107
 msgid "Y-Axis label:"
-msgstr "纵坐标名称:"
+msgstr "纵坐标标签："
 
 #: templates/table/chart/tbl_chart.phtml:109
 msgid "Y Values"
@@ -15503,12 +15489,12 @@ msgstr "纵轴值"
 
 #: templates/table/chart/tbl_chart.phtml:115
 msgid "Series names are in a column"
-msgstr "数据系列名称位于一个字段中"
+msgstr "图例项（系列）为一个字段中的数据而非字段名"
 
 #: templates/table/chart/tbl_chart.phtml:118
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "水平（分类）轴标签字段："
+msgstr "图例项（系列）所在字段："
 
 #: templates/table/chart/tbl_chart.phtml:130
 #| msgid "Values for column %s"
@@ -15720,10 +15706,9 @@ msgid "Reset zoom"
 msgstr "重置缩放"
 
 #: templates/table/secondary_tabs.phtml:14
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "关系查看"
+msgstr "关联视图"
 
 #: templates/table/structure/actions_in_table_structure.phtml:14
 #, php-format
