@@ -31,7 +31,7 @@ class NodeFactory
             $class = 'Node';
             trigger_error(
                 sprintf(
-                /* l10n: The word "Node" must not be translated here */
+                    /* l10n: The word "Node" must not be translated here */
                     __('Invalid class name "%1$s", using default of "Node"'),
                     $class
                 ),

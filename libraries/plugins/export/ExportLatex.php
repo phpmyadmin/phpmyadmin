@@ -570,10 +570,7 @@ class ExportLatex extends ExportPlugin
 
         $fields = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($fields as $row) {
-            $extracted_columnspec
-                = Util::extractColumnSpec(
-                $row['Type']
-            );
+            $extracted_columnspec = Util::extractColumnSpec($row['Type']);
             $type = $extracted_columnspec['print_type'];
             if (empty($type)) {
                 $type = ' ';

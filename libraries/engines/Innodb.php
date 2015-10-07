@@ -394,16 +394,13 @@ class Innodb extends StorageEngine
      */
     public function supportsFilePerTable()
     {
-        if ($GLOBALS['dbi']->fetchValue(
+        return (
+            $GLOBALS['dbi']->fetchValue(
                 "SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';",
                 0,
                 1
             ) == 'ON'
-        ) {
-            return true;
-        } else {
-            return false;
-        }
+        );
     }
 }
 

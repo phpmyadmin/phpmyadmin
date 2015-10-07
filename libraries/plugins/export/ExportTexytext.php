@@ -401,13 +401,13 @@ class ExportTexytext extends ExportPlugin
             $field_name = $column['Field'];
             if ($do_relation && $have_rel) {
                 $text_output .= '|' . htmlspecialchars(
-                        $this->getRelationString(
-                            $res_rel,
-                            $field_name,
-                            $db,
-                            $aliases
-                        )
-                    );
+                    $this->getRelationString(
+                        $res_rel,
+                        $field_name,
+                        $db,
+                        $aliases
+                    )
+                );
             }
             if ($do_comments && $cfgRelation['commwork']) {
                 $text_output .= '|'

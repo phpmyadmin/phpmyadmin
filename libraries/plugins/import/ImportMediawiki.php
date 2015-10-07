@@ -110,9 +110,7 @@ class ImportMediawiki extends ImportPlugin
                 unset($data);
                 // Don't parse string if we're not at the end
                 // and don't have a new line inside
-                if (/*overload*/
-                    mb_strpos($buffer, $mediawiki_new_line) === false
-                ) {
+                if (/*overload*/mb_strpos($buffer, $mediawiki_new_line) === false) {
                     continue;
                 }
             }
@@ -145,19 +143,16 @@ class ImportMediawiki extends ImportPlugin
                 $matches = array();
 
                 // Check beginning of comment
-                if (!strcmp(/*overload*/
-                    mb_substr($cur_buffer_line, 0, 4),
-                    "<!--"
-                )
-                ) {
+                if (!strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "<!--")) {
                     $inside_comment = true;
                     continue;
                 } elseif ($inside_comment) {
                     // Check end of comment
-                    if (!strcmp(/*overload*/
-                        mb_substr($cur_buffer_line, 0, 4),
-                        "-->"
-                    )
+                    if (
+                        !strcmp(
+                            /*overload*/mb_substr($cur_buffer_line, 0, 4),
+                            "-->"
+                        )
                     ) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
@@ -184,8 +179,8 @@ class ImportMediawiki extends ImportPlugin
 
                             $inside_structure_comment
                                 = $this->_mngInsideStructComm(
-                                $inside_structure_comment
-                            );
+                                    $inside_structure_comment
+                                );
                         } elseif (preg_match(
                             "/^Table structure for `(.*)`$/",
                             $cur_buffer_line,
@@ -606,12 +601,8 @@ class ImportMediawiki extends ImportPlugin
      */
     private function _getCellContent($cell, $col_start_char)
     {
-        if (/*overload*/
-            mb_strpos($cell, $col_start_char) === 0
-        ) {
-            $cell = trim(/*overload*/
-                mb_substr($cell, 1)
-            );
+        if (/*overload*/mb_strpos($cell, $col_start_char) === 0) {
+            $cell = trim(/*overload*/mb_substr($cell, 1));
         }
 
         return $cell;

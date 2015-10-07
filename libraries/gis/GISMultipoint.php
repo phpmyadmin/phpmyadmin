@@ -61,12 +61,10 @@ class GISMultipoint extends GISGeometry
     {
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 11,
-                /*overload*/
-                mb_strlen($spatial) - 12
+                /*overload*/mb_strlen($spatial) - 12
             );
 
         return $this->setMinMax($multipoint, array());
@@ -93,25 +91,17 @@ class GISMultipoint extends GISGeometry
     ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(/*overload*/
-            mb_substr($point_color, 1, 2)
-        );
-        $green = hexdec(/*overload*/
-            mb_substr($point_color, 3, 2)
-        );
-        $blue = hexdec(/*overload*/
-            mb_substr($point_color, 4, 2)
-        );
+        $red = hexdec(/*overload*/mb_substr($point_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
+        $blue = hexdec(/*overload*/mb_substr($point_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 11,
-                /*overload*/
-                mb_strlen($spatial) - 12
+                /*overload*/mb_strlen($spatial) - 12
             );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
@@ -158,25 +148,17 @@ class GISMultipoint extends GISGeometry
         $pdf
     ) {
         // allocate colors
-        $red = hexdec(/*overload*/
-            mb_substr($point_color, 1, 2)
-        );
-        $green = hexdec(/*overload*/
-            mb_substr($point_color, 3, 2)
-        );
-        $blue = hexdec(/*overload*/
-            mb_substr($point_color, 4, 2)
-        );
+        $red = hexdec(/*overload*/mb_substr($point_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
+        $blue = hexdec(/*overload*/mb_substr($point_color, 4, 2));
         $line = array('width' => 1.25, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 11,
-                /*overload*/
-                mb_strlen($spatial) - 12
+                /*overload*/mb_strlen($spatial) - 12
             );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
@@ -221,12 +203,10 @@ class GISMultipoint extends GISGeometry
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 11,
-                /*overload*/
-                mb_strlen($spatial) - 12
+                /*overload*/mb_strlen($spatial) - 12
             );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
@@ -282,12 +262,10 @@ class GISMultipoint extends GISGeometry
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 11,
-                /*overload*/
-                mb_strlen($spatial) - 12
+                /*overload*/mb_strlen($spatial) - 12
             );
         $points_arr = $this->extractPoints($multipoint, null);
 
@@ -327,11 +305,10 @@ class GISMultipoint extends GISGeometry
         }
 
         $wkt
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $wkt,
-                0, /*overload*/
-                mb_strlen($wkt) - 1
+                0,
+                /*overload*/mb_strlen($wkt) - 1
             );
         $wkt .= ')';
 
@@ -355,11 +332,10 @@ class GISMultipoint extends GISGeometry
         }
 
         $wkt
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $wkt,
-                0, /*overload*/
-                mb_strlen($wkt) - 1
+                0,
+                /*overload*/mb_strlen($wkt) - 1
             );
         $wkt .= ')';
 
@@ -390,11 +366,10 @@ class GISMultipoint extends GISGeometry
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $points
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $wkt,
-                11, /*overload*/
-                mb_strlen($wkt) - 12
+                11,
+                /*overload*/mb_strlen($wkt) - 12
             );
         $points_arr = $this->extractPoints($points, null);
 
@@ -427,15 +402,9 @@ class GISMultipoint extends GISGeometry
             }
         }
 
-        $olArrayLength
-            = /*overload*/
-            mb_strlen($ol_array);
-        if (/*overload*/
-            mb_substr($ol_array, $olArrayLength - 2) == ', '
-        ) {
-            $ol_array
-                = /*overload*/
-                mb_substr($ol_array, 0, $olArrayLength - 2);
+        $olArrayLength = /*overload*/mb_strlen($ol_array);
+        if (/*overload*/mb_substr($ol_array, $olArrayLength - 2) == ', ') {
+            $ol_array = /*overload*/mb_substr($ol_array, 0, $olArrayLength - 2);
         }
         $ol_array .= ')';
 

@@ -8,6 +8,7 @@
 
 namespace PMA\libraries\gis;
 
+use PMA\libraries\Util;
 use \TCPDF;
 
 if (!defined('PHPMYADMIN')) {
@@ -170,31 +171,31 @@ class GISVisualization
         $modified_query = 'SELECT ';
         // If label column is chosen add it to the query
         if (!empty($this->_userSpecifiedSettings['labelColumn'])) {
-            $modified_query .= PMA\libraries\Util::backquote(
-                    $this->_userSpecifiedSettings['labelColumn']
-                )
-                . ', ';
+            $modified_query .= Util::backquote(
+                $this->_userSpecifiedSettings['labelColumn']
+            )
+            . ', ';
         }
         // Wrap the spatial column with 'ASTEXT()' function and add it
         $modified_query .= 'ASTEXT('
-            . PMA\libraries\Util::backquote(
+            . Util::backquote(
                 $this->_userSpecifiedSettings['spatialColumn']
             )
-            . ') AS ' . PMA\libraries\Util::backquote(
+            . ') AS ' . Util::backquote(
                 $this->_userSpecifiedSettings['spatialColumn']
             )
             . ', ';
 
         // Get the SRID
         $modified_query .= 'SRID('
-            . PMA\libraries\Util::backquote(
+            . Util::backquote(
                 $this->_userSpecifiedSettings['spatialColumn']
             )
-            . ') AS ' . PMA\libraries\Util::backquote('srid') . ' ';
+            . ') AS ' . Util::backquote('srid') . ' ';
 
         // Append the original query as the inner query
         $modified_query .= 'FROM (' . $sql_query . ') AS '
-            . PMA\libraries\Util::backquote('temp_gis');
+            . Util::backquote('temp_gis');
 
         // LIMIT clause
         if (is_numeric($rows) && $rows > 0) {

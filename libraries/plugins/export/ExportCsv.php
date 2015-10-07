@@ -249,10 +249,7 @@ class ExportCsv extends ExportPlugin
                 }
                 $schema_insert .= $csv_separator;
             } // end for
-            $schema_insert = trim(
-            /*overload*/
-                mb_substr($schema_insert, 0, -1)
-            );
+            $schema_insert = trim(/*overload*/mb_substr($schema_insert, 0, -1));
             if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }

@@ -61,8 +61,7 @@ class GISPolygon extends GISGeometry
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 9,
                 /*overload*/
@@ -70,9 +69,7 @@ class GISPolygon extends GISGeometry
             );
 
         // If the polygon doesn't have an inner ring, use polygon itself
-        if (/*overload*/
-            mb_strpos($polygon, "),(") === false
-        ) {
+        if (/*overload*/mb_strpos($polygon, "),(") === false) {
             $ring = $polygon;
         } else {
             // Separate outer ring and use it to determine min-max
@@ -104,15 +101,9 @@ class GISPolygon extends GISGeometry
     ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(/*overload*/
-            mb_substr($fill_color, 1, 2)
-        );
-        $green = hexdec(/*overload*/
-            mb_substr($fill_color, 3, 2)
-        );
-        $blue = hexdec(/*overload*/
-            mb_substr($fill_color, 4, 2)
-        );
+        $red = hexdec(/*overload*/mb_substr($fill_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($fill_color, 3, 2));
+        $blue = hexdec(/*overload*/mb_substr($fill_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
@@ -126,9 +117,7 @@ class GISPolygon extends GISGeometry
             );
 
         // If the polygon doesn't have an inner polygon
-        if (/*overload*/
-            mb_strpos($polygon, "),(") === false
-        ) {
+        if (/*overload*/mb_strpos($polygon, "),(") === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
@@ -178,31 +167,21 @@ class GISPolygon extends GISGeometry
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
         // allocate colors
-        $red = hexdec(/*overload*/
-            mb_substr($fill_color, 1, 2)
-        );
-        $green = hexdec(/*overload*/
-            mb_substr($fill_color, 3, 2)
-        );
-        $blue = hexdec(/*overload*/
-            mb_substr($fill_color, 4, 2)
-        );
+        $red = hexdec(/*overload*/mb_substr($fill_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($fill_color, 3, 2));
+        $blue = hexdec(/*overload*/mb_substr($fill_color, 4, 2));
         $color = array($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            = /*overload*/
-            mb_substr(
-                $spatial,
-                9,
-                /*overload*/
-                mb_strlen($spatial) - 11
-            );
+        $polygon = /*overload*/mb_substr(
+            $spatial,
+            9,
+            /*overload*/
+            mb_strlen($spatial) - 11
+        );
 
         // If the polygon doesn't have an inner polygon
-        if (/*overload*/
-            mb_strpos($polygon, "),(") === false
-        ) {
+        if (/*overload*/mb_strpos($polygon, "),(") === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons

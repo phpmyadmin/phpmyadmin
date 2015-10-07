@@ -63,24 +63,18 @@ class GISGeometrycollection extends GISGeometry
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 19,
-                /*overload*/
-                mb_strlen($spatial) - 20
+                /*overload*/mb_strlen($spatial) - 20
             );
 
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos
-                = /*overload*/
-                mb_stripos($sub_part, '(');
-            $type
-                = /*overload*/
-                mb_substr($sub_part, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($sub_part, '(');
+            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
@@ -129,23 +123,17 @@ class GISGeometrycollection extends GISGeometry
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 19,
-                /*overload*/
-                mb_strlen($spatial) - 20
+                /*overload*/mb_strlen($spatial) - 20
             );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos
-                = /*overload*/
-                mb_stripos($sub_part, '(');
-            $type
-                = /*overload*/
-                mb_substr($sub_part, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($sub_part, '(');
+            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
@@ -179,23 +167,17 @@ class GISGeometrycollection extends GISGeometry
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 19,
-                /*overload*/
-                mb_strlen($spatial) - 20
+                /*overload*/mb_strlen($spatial) - 20
             );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos
-                = /*overload*/
-                mb_stripos($sub_part, '(');
-            $type
-                = /*overload*/
-                mb_substr($sub_part, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($sub_part, '(');
+            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
@@ -230,23 +212,17 @@ class GISGeometrycollection extends GISGeometry
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 19,
-                /*overload*/
-                mb_strlen($spatial) - 20
+                /*overload*/mb_strlen($spatial) - 20
             );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos
-                = /*overload*/
-                mb_stripos($sub_part, '(');
-            $type
-                = /*overload*/
-                mb_substr($sub_part, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($sub_part, '(');
+            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
@@ -282,23 +258,17 @@ class GISGeometrycollection extends GISGeometry
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 19,
-                /*overload*/
-                mb_strlen($spatial) - 20
+                /*overload*/mb_strlen($spatial) - 20
             );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos
-                = /*overload*/
-                mb_stripos($sub_part, '(');
-            $type
-                = /*overload*/
-                mb_substr($sub_part, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($sub_part, '(');
+            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
@@ -337,8 +307,7 @@ class GISGeometrycollection extends GISGeometry
                 $br_count--;
                 if ($br_count == 0) {
                     $sub_parts[]
-                        = /*overload*/
-                        mb_substr(
+                        = /*overload*/mb_substr(
                             $geom_col,
                             $start,
                             ($count + 1 - $start)
@@ -379,11 +348,10 @@ class GISGeometrycollection extends GISGeometry
         }
         if (isset($gis_data[0]['gis_type'])) {
             $wkt
-                = /*overload*/
-                mb_substr(
+                = /*overload*/mb_substr(
                     $wkt,
-                    0, /*overload*/
-                    mb_strlen($wkt) - 1
+                    0,
+                    /*overload*/mb_strlen($wkt) - 1
                 );
         }
         $wkt .= ')';
@@ -408,12 +376,10 @@ class GISGeometrycollection extends GISGeometry
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $wkt,
                 19,
-                /*overload*/
-                mb_strlen($wkt) - 20
+                /*overload*/mb_strlen($wkt) - 20
             );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
@@ -421,12 +387,8 @@ class GISGeometrycollection extends GISGeometry
 
         $i = 0;
         foreach ($sub_parts as $sub_part) {
-            $type_pos
-                = /*overload*/
-                mb_stripos($sub_part, '(');
-            $type
-                = /*overload*/
-                mb_substr($sub_part, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($sub_part, '(');
+            $type = /*overload*/mb_substr($sub_part, 0, $type_pos);
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
                 continue;

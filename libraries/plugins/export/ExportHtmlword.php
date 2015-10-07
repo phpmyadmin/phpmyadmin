@@ -623,8 +623,7 @@ class ExportHtmlword extends ExportPlugin
         }
         $definition = '<tr class="print-category">';
 
-        $extracted_columnspec
-            = Util::extractColumnSpec($column['Type']);
+        $extracted_columnspec = Util::extractColumnSpec($column['Type']);
 
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         if (empty($type)) {
@@ -649,19 +648,14 @@ class ExportHtmlword extends ExportPlugin
         }
         $definition .= '<td class="print">' . $fmt_pre
             . htmlspecialchars($col_alias) . $fmt_post . '</td>';
-        $definition .= '<td class="print">' . htmlspecialchars($type)
-            . '</td>';
+        $definition .= '<td class="print">' . htmlspecialchars($type) . '</td>';
         $definition .= '<td class="print">'
             . (($column['Null'] == '' || $column['Null'] == 'NO')
                 ? __('No')
                 : __('Yes'))
             . '</td>';
         $definition .= '<td class="print">'
-            . htmlspecialchars(
-                isset($column['Default'])
-                    ? $column['Default']
-                    : ''
-            )
+            . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '')
             . '</td>';
 
         return $definition;

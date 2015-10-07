@@ -122,10 +122,10 @@ class NodeDatabase extends Node
             $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
             if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause,
-                        $singleItem,
-                        'TABLE_NAME'
-                    );
+                    $searchClause,
+                    $singleItem,
+                    'TABLE_NAME'
+                );
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
@@ -134,10 +134,10 @@ class NodeDatabase extends Node
             $query .= " WHERE `Table_type`" . $condition . "'BASE TABLE' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause,
-                        $singleItem,
-                        'Tables_in_' . $db
-                    );
+                    $searchClause,
+                    $singleItem,
+                    'Tables_in_' . $db
+                );
             }
             $retval = $GLOBALS['dbi']->numRows(
                 $GLOBALS['dbi']->tryQuery($query)
@@ -207,10 +207,10 @@ class NodeDatabase extends Node
             $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause,
-                        $singleItem,
-                        'ROUTINE_NAME'
-                    );
+                    $searchClause,
+                    $singleItem,
+                    'ROUTINE_NAME'
+                );
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
@@ -218,10 +218,10 @@ class NodeDatabase extends Node
             $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause,
-                        $singleItem,
-                        'Name'
-                    );
+                    $searchClause,
+                    $singleItem,
+                    'Name'
+                );
             }
             $retval = $GLOBALS['dbi']->numRows(
                 $GLOBALS['dbi']->tryQuery($query)
@@ -253,10 +253,10 @@ class NodeDatabase extends Node
             $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause,
-                        $singleItem,
-                        'ROUTINE_NAME'
-                    );
+                    $searchClause,
+                    $singleItem,
+                    'ROUTINE_NAME'
+                );
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
@@ -264,10 +264,10 @@ class NodeDatabase extends Node
             $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause,
-                        $singleItem,
-                        'Name'
-                    );
+                    $searchClause,
+                    $singleItem,
+                    'Name'
+                );
             }
             $retval = $GLOBALS['dbi']->numRows(
                 $GLOBALS['dbi']->tryQuery($query)
@@ -298,10 +298,10 @@ class NodeDatabase extends Node
                 . Util::getCollateForIS() . "='$db' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause,
-                        $singleItem,
-                        'EVENT_NAME'
-                    );
+                    $searchClause,
+                    $singleItem,
+                    'EVENT_NAME'
+                );
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
@@ -309,10 +309,10 @@ class NodeDatabase extends Node
             $query = "SHOW EVENTS FROM $db ";
             if (!empty($searchClause)) {
                 $query .= "WHERE " . $this->_getWhereClauseForSearch(
-                        $searchClause,
-                        $singleItem,
-                        'Name'
-                    );
+                    $searchClause,
+                    $singleItem,
+                    'Name'
+                );
             }
             $retval = $GLOBALS['dbi']->numRows(
                 $GLOBALS['dbi']->tryQuery($query)
@@ -474,12 +474,12 @@ class NodeDatabase extends Node
             $query .= " WHERE `Table_type`" . $condition . "'BASE TABLE' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . Util::backquote(
-                        "Tables_in_" . $db
-                    );
+                    "Tables_in_" . $db
+                );
                 $query .= " LIKE '%" . Util::sqlAddSlashes(
-                        $searchClause,
-                        true
-                    );
+                    $searchClause,
+                    true
+                );
                 $query .= "%'";
             }
             $handle = $GLOBALS['dbi']->tryQuery($query);
