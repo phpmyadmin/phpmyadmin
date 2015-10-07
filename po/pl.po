@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-01 07:36-0400\n"
-"PO-Revision-Date: 2015-10-07 13:56+0200\n"
-"Last-Translator: Przemo <info@opsbielany.waw.pl>\n"
+"PO-Revision-Date: 2015-10-07 15:19+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Polish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
@@ -45,7 +45,7 @@ msgstr "Baza danych %1$s została utworzona."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Komentarz bazy danych:"
+msgstr "Komentarz bazy danych"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -344,7 +344,8 @@ msgstr "Dane śledzenia zostały poprawnie usunięte."
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Wersja %1$s została utworzona, śledzenie dla %2$s włączone."
+msgstr ""
+"Wersja %1$s została utworzona dla wybranej tabeli, śledzenie jest aktywne."
 
 #: db_tracking.php:91
 msgid "No tables selected."
@@ -613,8 +614,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Limit czasu wykonania skryptu minął. Aby ukończyć import, proszę ponownie "
-"przesłać ten sam plik, a import zostanie wznowiony."
+"Limit czasu wykonania skryptu minął. Aby ukończyć import, proszę %sponownie "
+"przesłać ten sam plik%s, a import zostanie wznowiony."
 
 #: import.php:711
 msgid ""
@@ -10347,7 +10348,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:76
 msgid "Rename database to"
-msgstr "Zmień nazwę bazy danych na:"
+msgstr "Zmień nazwę bazy danych na"
 
 #: libraries/operations.lib.php:94 libraries/operations.lib.php:240
 #: libraries/operations.lib.php:860 libraries/operations.lib.php:952
@@ -10399,7 +10400,7 @@ msgstr "Tylko dane"
 
 #: libraries/operations.lib.php:200
 msgid "Copy database to"
-msgstr "Kopiuj bazę danych do:"
+msgstr "Kopiuj bazę danych do"
 
 #: libraries/operations.lib.php:213
 msgid "CREATE DATABASE before copying"
@@ -10423,7 +10424,7 @@ msgstr "(pojedynczo)"
 
 #: libraries/operations.lib.php:824
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Przenieś tabelę do (bazadanych<b>.</b>tabela):"
+msgstr "Przenieś tabelę do (bazadanych<b>.</b>tabela)"
 
 #: libraries/operations.lib.php:934
 msgid "Rename table to"
@@ -10447,7 +10448,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1248
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopiuj tabelę do (bazadanych<b>.</b>tabela):"
+msgstr "Kopiuj tabelę do (bazadanych<b>.</b>tabela)"
 
 #: libraries/operations.lib.php:1325
 msgid "Switch to copied table"
