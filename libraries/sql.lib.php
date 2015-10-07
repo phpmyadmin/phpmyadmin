@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\DisplayResults;
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\Response;
@@ -658,8 +659,8 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
 /**
  * Function to set a column property
  *
- * @param Table $pmatable      Table instance
- * @param string    $request_index col_order|col_visib
+ * @param Table  $pmatable      Table instance
+ * @param string $request_index col_order|col_visib
  *
  * @return boolean $retval
  */
@@ -1341,13 +1342,13 @@ function PMA_getMessageForNoRowsReturned($message_to_show,
  * 6-> When searching using the SEARCH tab which returns zero results
  * 7-> When changing the structure of the table except change operation
  *
- * @param array              $analyzed_sql_results analyzed sql results
- * @param string             $db                   current database
- * @param string             $table                current table
- * @param string             $message_to_show      message to show
- * @param int                $num_rows             number of rows
- * @param PMA\libraries\DisplayResults $displayResultsObject DisplayResult instance
- * @param array              $extra_data           extra data
+ * @param array          $analyzed_sql_results analyzed sql results
+ * @param string         $db                   current database
+ * @param string         $table                current table
+ * @param string         $message_to_show      message to show
+ * @param int            $num_rows             number of rows
+ * @param DisplayResults $displayResultsObject DisplayResult instance
+ * @param array          $extra_data           extra data
  *
  * @return string html
  */
@@ -1419,17 +1420,14 @@ function PMA_sendResponseForGridEdit($result)
 /**
  * Function to get html for the sql query results div
  *
- * @param string      $previous_update_query_html html for the previously
- *                                                executed query
- * @param string      $profiling_chart_html       html for profiling
- * @param PMA\libraries\Message $missing_unique_column_msg  message for the missing
- *                                                unique column
- * @param PMA\libraries\Message $bookmark_created_msg       message for bookmark creation
- * @param string      $table_html                 html for the table for
- *                                                displaying sql results
- * @param string      $indexes_problems_html      html for displaying errors
- *                                                in indexes
- * @param string      $bookmark_support_html      html for displaying bookmark form
+ * @param string  $previous_update_query_html html for the previously executed query
+ * @param string  $profiling_chart_html       html for profiling
+ * @param Message $missing_unique_column_msg  message for the missing unique column
+ * @param Message $bookmark_created_msg       message for bookmark creation
+ * @param string  $table_html                 html for the table for displaying sql
+ *                                            results
+ * @param string  $indexes_problems_html      html for displaying errors in indexes
+ * @param string  $bookmark_support_html      html for displaying bookmark form
  *
  * @return string $html_output
  */
@@ -1477,17 +1475,17 @@ function PMA_getBookmarkCreatedMessage()
 /**
  * Function to get html for the sql query results table
  *
- * @param PMA\libraries\DisplayResults $displayResultsObject instance of DisplayResult
- * @param string             $pmaThemeImage        theme image uri
- * @param string             $url_query            url query
- * @param array              $displayParts         the parts to display
- * @param bool               $editable             whether the result table is
- *                                                 editable or not
- * @param int                $unlim_num_rows       unlimited number of rows
- * @param int                $num_rows             number of rows
- * @param bool               $showtable            whether to show table or not
- * @param object             $result               result of the executed query
- * @param array              $analyzed_sql_results analyzed sql results
+ * @param DisplayResults $displayResultsObject instance of DisplayResult
+ * @param string         $pmaThemeImage        theme image uri
+ * @param string         $url_query            url query
+ * @param array          $displayParts         the parts to display
+ * @param bool           $editable             whether the result table is
+ *                                             editable or not
+ * @param int            $unlim_num_rows       unlimited number of rows
+ * @param int            $num_rows             number of rows
+ * @param bool           $showtable            whether to show table or not
+ * @param object         $result               result of the executed query
+ * @param array          $analyzed_sql_results analyzed sql results
  *
  * @return String
  */
@@ -1701,28 +1699,27 @@ function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
 /**
  * Function to display results when the executed query returns non empty results
  *
- * @param object             $result               executed query results
- * @param array              $analyzed_sql_results analysed sql results
- * @param string             $db                   current database
- * @param string             $table                current table
- * @param string             $message              message to show
- * @param array              $sql_data             sql data
- * @param PMA\libraries\DisplayResults $displayResultsObject Instance of DisplayResults
- * @param string             $pmaThemeImage        uri of the theme image
- * @param int                $unlim_num_rows       unlimited number of rows
- * @param int                $num_rows             number of rows
- * @param string             $disp_query           display query
- * @param string             $disp_message         display message
- * @param array              $profiling_results    profiling results
- * @param string             $query_type           query type
- * @param array|null         $selectedTables       array of table names selected
- *                                                 from
- *                                                 the database structure page, for
- *                                                 an action like check table,
- *                                                 optimize table, analyze table or
- *                                                 repair table
- * @param string             $sql_query            sql query
- * @param string             $complete_query       complete sql query
+ * @param object         $result               executed query results
+ * @param array          $analyzed_sql_results analysed sql results
+ * @param string         $db                   current database
+ * @param string         $table                current table
+ * @param string         $message              message to show
+ * @param array          $sql_data             sql data
+ * @param DisplayResults $displayResultsObject Instance of DisplayResults
+ * @param string         $pmaThemeImage        uri of the theme image
+ * @param int            $unlim_num_rows       unlimited number of rows
+ * @param int            $num_rows             number of rows
+ * @param string         $disp_query           display query
+ * @param string         $disp_message         display message
+ * @param array          $profiling_results    profiling results
+ * @param string         $query_type           query type
+ * @param array|null     $selectedTables       array of table names selected
+ *                                             from the database structure page, for
+ *                                             an action like check table,
+ *                                             optimize table, analyze table or
+ *                                             repair table
+ * @param string         $sql_query            sql query
+ * @param string         $complete_query       complete sql query
  *
  * @return string html
  */

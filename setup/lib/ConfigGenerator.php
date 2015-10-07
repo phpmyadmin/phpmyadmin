@@ -148,7 +148,7 @@ class ConfigGenerator
     /**
      * Generate server part of config file
      *
-     * @param \PMA\libraries\config\ConfigFile $cf      Config file
+     * @param ConfigFile $cf      Config file
      * @param string     $crlf    Carriage return char
      * @param array      $servers Servers list
      *

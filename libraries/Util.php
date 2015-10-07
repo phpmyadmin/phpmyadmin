@@ -1068,8 +1068,8 @@ class Util
      * usually the message is the result of the query executed
      *
      * @param Message|string $message   the message to display
-     * @param string             $sql_query the query to display
-     * @param string             $type      the type (level) of the message
+     * @param string         $sql_query the query to display
+     * @param string         $type      the type (level) of the message
      *
      * @return string
      *

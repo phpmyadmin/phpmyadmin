@@ -72,8 +72,8 @@ class Table
     /**
      * Constructor
      *
-     * @param string                $table_name table name
-     * @param string                $db_name    database name
+     * @param string            $table_name table name
+     * @param string            $db_name    database name
      * @param DatabaseInterface $dbi        database interface for the table
      */
     function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
@@ -1809,7 +1809,7 @@ class Table
      * Function to get the sql query for index creation or edit
      *
      * @param Index $index  current index
-     * @param bool      &$error whether error occurred or not
+     * @param bool  &$error whether error occurred or not
      *
      * @return string
      */

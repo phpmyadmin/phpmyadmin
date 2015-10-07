@@ -1,8 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Holds the Autoloader class
+ *
+ * @package PhpMyAdmin
+ */
 
 namespace PMA;
 
+/**
+ * Holds the Autoloader class
+ *
+ * @package PhpMyAdmin
+ */
 class Psr4Autoloader
 {
     protected static $instance = null;
@@ -13,10 +23,6 @@ class Psr4Autoloader
      * @var array
      */
     protected $prefixes = array();
-
-    protected function __construct()
-    {
-    }
 
     /**
      * Get instance
@@ -44,12 +50,13 @@ class Psr4Autoloader
     /**
      * Adds a base directory for a namespace prefix.
      *
-     * @param string $prefix The namespace prefix.
+     * @param string $prefix   The namespace prefix.
      * @param string $base_dir A base directory for class files in the
-     * namespace.
-     * @param bool $prepend If true, prepend the base directory to the stack
-     * instead of appending it; this causes it to be searched first rather
-     * than last.
+     *                         namespace.
+     * @param bool   $prepend  If true, prepend the base directory to the stack
+     *                         instead of appending it; this causes it to be
+     *                         searched first rather than last.
+     *
      * @return void
      */
     public function addNamespace($prefix, $base_dir, $prepend = false)

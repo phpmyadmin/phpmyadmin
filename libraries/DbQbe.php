@@ -240,8 +240,8 @@ class DbQbe
     /**
      * Public Constructor
      *
-     * @param string            $dbname          Database name
-     * @param array             $savedSearchList List of saved searches
+     * @param string        $dbname          Database name
+     * @param array         $savedSearchList List of saved searches
      * @param SavedSearches $currentSearch   Current search id
      */
     public function __construct(

@@ -297,12 +297,12 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Imports data from a single table
      *
-     * @param array $table   containing all table info:
-     *                       <code>
-     *                       $table[0] - string containing table name
-     *                       $table[1] - array[]   of table headers
-     *                       $table[2] - array[][] of table content rows
-     *                       </code>
+     * @param array $table containing all table info:
+     *                     <code>
+     *                     $table[0] - string containing table name
+     *                     $table[1] - array[]   of table headers
+     *                     $table[2] - array[][] of table content rows
+     *                     </code>
      *
      * @global bool $analyze whether to scan for column types
      *
@@ -374,17 +374,17 @@ class ImportMediawiki extends ImportPlugin
      * Sets the database name and additional options and calls PMA_buildSQL()
      * Used in PMA_importDataAllTables() and $this->_importDataOneTable()
      *
-     * @param array   &$tables   structure:
-     *                           array(
-     *                           array(table_name, array() column_names, array()()
-     *                           rows)
-     *                           )
-     * @param array   &$analyses structure:
-     *                           $analyses = array(
-     *                           array(array() column_types, array() column_sizes)
-     *                           )
+     * @param array &$tables   structure:
+     *                         array(
+     *                         array(table_name, array() column_names, array()()
+     *                         rows)
+     *                         )
+     * @param array &$analyses structure:
+     *                         $analyses = array(
+     *                         array(array() column_types, array() column_sizes)
+     *                         )
      *
-     * @global string $db        name of the database to import in
+     * @global string $db      name of the database to import in
      *
      * @return void
      */

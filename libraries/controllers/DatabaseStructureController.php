@@ -787,8 +787,8 @@ class DatabaseStructureController extends DatabaseController
      *
      *
      * @param RecentFavoriteTable $fav_instance    Instance of this class
-     * @param string                  $user            The user hash
-     * @param array                   $favorite_tables Existing favorites
+     * @param string              $user            The user hash
+     * @param array               $favorite_tables Existing favorites
      *
      * @return void
      */

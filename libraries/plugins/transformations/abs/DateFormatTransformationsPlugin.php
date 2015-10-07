@@ -45,9 +45,9 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer text to be transformed
+     * @param string $buffer  text to be transformed
      * @param array  $options transformation options
-     * @param string $meta meta information
+     * @param string $meta    meta information
      *
      * @return string
      */

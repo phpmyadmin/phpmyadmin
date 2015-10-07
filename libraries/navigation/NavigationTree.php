@@ -503,13 +503,13 @@ class NavigationTree
      * if this function is called twice on the same node
      *
      * @param NodeTable $table The table node, new containers will be
-     *                          attached to this node
-     * @param int        $pos2  The position for the pagination of
-     *                          the branch at the second level of the tree
-     * @param string     $type3 The type of item being paginated on
-     *                          the third level of the tree
-     * @param int        $pos3  The position for the pagination of
-     *                          the branch at the third level of the tree
+     *                         attached to this node
+     * @param int       $pos2  The position for the pagination of
+     *                         the branch at the second level of the tree
+     * @param string    $type3 The type of item being paginated on
+     *                         the third level of the tree
+     * @param int       $pos3  The position for the pagination of
+     *                         the branch at the third level of the tree
      *
      * @return array An array of new nodes
      */
@@ -559,11 +559,11 @@ class NavigationTree
      * if this function is called twice on the same node
      *
      * @param NodeDatabase $db   The database node, new containers will be
-     *                            attached to this node
-     * @param string        $type The type of item being paginated on
-     *                            the second level of the tree
-     * @param int           $pos2 The position for the pagination of
-     *                            the branch at the second level of the tree
+     *                           attached to this node
+     * @param string       $type The type of item being paginated on
+     *                           the second level of the tree
+     * @param int          $pos2 The position for the pagination of
+     *                           the branch at the second level of the tree
      *
      * @return array An array of new nodes
      */
