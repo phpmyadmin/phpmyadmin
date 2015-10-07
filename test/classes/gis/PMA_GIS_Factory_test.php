@@ -1,26 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_GIS_Factory
+ * Test for PMA\libraries\gis\GISFactory
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/gis/GIS_Geometry.class.php';
-require_once 'libraries/gis/GIS_Linestring.class.php';
-require_once 'libraries/gis/GIS_Multilinestring.class.php';
-require_once 'libraries/gis/GIS_Point.class.php';
-require_once 'libraries/gis/GIS_Multipoint.class.php';
-require_once 'libraries/gis/GIS_Polygon.class.php';
-require_once 'libraries/gis/GIS_Multipolygon.class.php';
-require_once 'libraries/gis/GIS_Geometrycollection.class.php';
-
-/*
- * Include to test
- */
-require_once 'libraries/gis/GIS_Factory.class.php';
+use PMA\libraries\gis\GISFactory;
 
 /**
- * Test class for PMA_GIS_Factory
+ * Test class for PMA\libraries\gis\GISFactory
  *
  * @package PhpMyAdmin-test
  */
@@ -38,7 +26,7 @@ class PMA_GIS_FactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testFactory($type, $geom)
     {
-        $this->assertInstanceOf($geom, PMA_GIS_Factory::factory($type));
+        $this->assertInstanceOf($geom, GISFactory::factory($type));
     }
 
     /**
@@ -51,31 +39,31 @@ class PMA_GIS_FactoryTest extends PHPUnit_Framework_TestCase
         return array(
             array(
                 'MULTIPOLYGON',
-                'PMA_GIS_Multipolygon'
+                'PMA\libraries\gis\GISMultipolygon'
             ),
             array(
                 'POLYGON',
-                'PMA_GIS_Polygon'
+                'PMA\libraries\gis\GISPolygon'
             ),
             array(
                 'MULTILINESTRING',
-                'PMA_GIS_Multilinestring'
+                'PMA\libraries\gis\GISMultilinestring'
             ),
             array(
                 'LINESTRING',
-                'PMA_GIS_Linestring'
+                'PMA\libraries\gis\GISLinestring'
             ),
             array(
                 'MULTIPOINT',
-                'PMA_GIS_Multipoint'
+                'PMA\libraries\gis\GISMultipoint'
             ),
             array(
                 'POINT',
-                'PMA_GIS_Point'
+                'PMA\libraries\gis\GISPoint'
             ),
             array(
                 'GEOMETRYCOLLECTION',
-                'PMA_GIS_Geometrycollection'
+                'PMA\libraries\gis\GISGeometrycollection'
             ),
         );
     }

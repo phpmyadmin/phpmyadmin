@@ -7,16 +7,17 @@
  */
 
 // Include common functionalities
+use PMA\libraries\config\PageSettings;
+use PMA\libraries\navigation\Navigation;
+
 require_once './libraries/common.inc.php';
 
 // Also initialises the collapsible tree class
-require_once './libraries/navigation/Navigation.class.php';
-
-$response = PMA_Response::getInstance();
-$navigation = new PMA_Navigation();
+$response = PMA\libraries\Response::getInstance();
+$navigation = new Navigation();
 if (! $response->isAjax()) {
     $response->addHTML(
-        PMA_Message::error(
+        PMA\libraries\Message::error(
             __('Fatal error: The navigation can only be accessed via AJAX')
         )
     );
@@ -24,7 +25,7 @@ if (! $response->isAjax()) {
 }
 
 if (isset($_REQUEST['getNaviSettings']) && $_REQUEST['getNaviSettings']) {
-    $response->addJSON('message', PMA_PageSettings::getNaviSettings());
+    $response->addJSON('message', PageSettings::getNaviSettings());
     exit();
 }
 

@@ -1,17 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Node_Event class
+ * Tests for PMA\libraries\navigation\nodes\NodeEvent class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/navigation/NodeFactory.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
+use PMA\libraries\navigation\NodeFactory;
+use PMA\libraries\Theme;
+
+require_once 'libraries/navigation/NodeFactory.php';
+
+
 
 /**
- * Tests for Node_Event class
+ * Tests for PMA\libraries\navigation\nodes\NodeEvent class
  *
  * @package PhpMyAdmin-test
  */
@@ -25,7 +28,7 @@ class Node_Event_Test extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 0;
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**
@@ -35,7 +38,7 @@ class Node_Event_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Event');
+        $parent = NodeFactory::getInstance('NodeEvent');
         $this->assertArrayHasKey(
             'text',
             $parent->links

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\DatabaseInterface;
 
 /**
  * requirements
@@ -26,7 +27,7 @@ $binary_logs = $GLOBALS['dbi']->fetchResult(
     'Log_name',
     null,
     null,
-    PMA_DatabaseInterface::QUERY_STORE
+    DatabaseInterface::QUERY_STORE
 );
 
 if (! isset($_REQUEST['log'])
@@ -41,7 +42,7 @@ if (!empty($_REQUEST['dontlimitchars'])) {
     $url_params['dontlimitchars'] = 1;
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 
 $response->addHTML(PMA_getHtmlForSubPageHeader('binlog'));
 $response->addHTML(PMA_getLogSelector($binary_logs, $url_params));

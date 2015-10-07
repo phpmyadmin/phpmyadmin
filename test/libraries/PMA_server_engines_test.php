@@ -9,17 +9,20 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+use PMA\libraries\StorageEngine;
+use PMA\libraries\Theme;
+
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_engines.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Tracker.class.php';
+
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Message.class.php';
+
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/StorageEngine.class.php';
+
 
 /**
  * PMA_ServerEngines_Test class
@@ -56,8 +59,8 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -118,7 +121,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     {
         $_REQUEST['engine'] = "FEDERATED";
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -155,11 +158,11 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForSpecifiedServerEngines()
     {
-        $_REQUEST['engine'] = "pbxt";
+        $_REQUEST['engine'] = "Pbxt";
         $_REQUEST['page'] = "page";
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -167,7 +170,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
 
         //test PMA_getHtmlForSpecifiedServerEngines
         $html = PMA_getHtmlForSpecifiedServerEngines();
-        $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
+        $engine_plugin = StorageEngine::getEngine($_REQUEST['engine']);
 
         //validate 1: Engine title
         $this->assertContains(
@@ -177,7 +180,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
 
         //validate 2: Engine Mysql Help Page
         $this->assertContains(
-            PMA_Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
+            PMA\libraries\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
             $html
         );
 
@@ -215,7 +218,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StorageEngine::getEngine
+     * Test for StorageEngine::getEngine
      *
      * @param string $expectedClass Class that should be selected
      * @param string $engineName    Engine name
@@ -227,7 +230,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     public function testGetEngine($expectedClass, $engineName)
     {
         $this->assertInstanceOf(
-            $expectedClass, PMA_StorageEngine::getEngine($engineName)
+            $expectedClass, StorageEngine::getEngine($engineName)
         );
     }
 
@@ -239,19 +242,19 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     public function providerGetEngine()
     {
         return array(
-            array('PMA_StorageEngine', 'unknown engine'),
-            array('PMA_StorageEngine_Bdb', 'bdb'),
-            array('PMA_StorageEngine_Berkeleydb', 'berkeleydb'),
-            array('PMA_StorageEngine_Binlog', 'binlog'),
-            array('PMA_StorageEngine_Innobase', 'innobase'),
-            array('PMA_StorageEngine_Innodb', 'innodb'),
-            array('PMA_StorageEngine_Memory', 'memory'),
-            array('PMA_StorageEngine_Merge', 'merge'),
-            array('PMA_StorageEngine_MrgMyisam', 'mrg_myisam'),
-            array('PMA_StorageEngine_Myisam', 'myisam'),
-            array('PMA_StorageEngine_Ndbcluster', 'ndbcluster'),
-            array('PMA_StorageEngine_Pbxt', 'pbxt'),
-            array('PMA_StorageEngine_PerformanceSchema', 'performance_schema'),
+            array('PMA\libraries\StorageEngine', 'unknown engine'),
+            array('PMA\libraries\engines\Bdb', 'Bdb'),
+            array('PMA\libraries\engines\Berkeleydb', 'Berkeleydb'),
+            array('PMA\libraries\engines\Binlog', 'Binlog'),
+            array('PMA\libraries\engines\Innobase', 'Innobase'),
+            array('PMA\libraries\engines\Innodb', 'Innodb'),
+            array('PMA\libraries\engines\Memory', 'Memory'),
+            array('PMA\libraries\engines\Merge', 'Merge'),
+            array('PMA\libraries\engines\Mrg_Myisam', 'Mrg_Myisam'),
+            array('PMA\libraries\engines\Myisam', 'Myisam'),
+            array('PMA\libraries\engines\Ndbcluster', 'Ndbcluster'),
+            array('PMA\libraries\engines\Pbxt', 'Pbxt'),
+            array('PMA\libraries\engines\Performance_Schema', 'Performance_Schema'),
         );
     }
 }

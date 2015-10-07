@@ -1,4 +1,4 @@
-<?php echo PMA\Template::get('table/search/form_tag')
+<?php echo PMA\libraries\Template::get('table/search/form_tag')
     ->render(array(
         'searchType' => $searchType,
         'db' => $db,
@@ -11,7 +11,7 @@
             <legend>
                 <?php echo __('Do a "query by example" (wildcard: "%") for two different columns'); ?>
             </legend>
-            <?php echo PMA\Template::get('table/search/fields_table')
+            <?php echo PMA\libraries\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
                     'searchType' => $searchType,
@@ -20,7 +20,7 @@
                     'columnTypes' => $columnTypes,
                     'columnCollations' => $columnCollations
                 ));
-            echo PMA\Template::get('table/search/options_zoom')
+            echo PMA\libraries\Template::get('table/search/options_zoom')
                 ->render(array(
                     'dataLabel' => $dataLabel,
                     'columnNames' => $columnNames
@@ -33,7 +33,7 @@
             <legend>
                 <?php echo __('Do a "query by example" (wildcard: "%")'); ?>
             </legend>
-            <?php echo PMA\Template::get('table/search/fields_table')
+            <?php echo PMA\libraries\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
                     'searchType' => $searchType,
@@ -47,7 +47,7 @@
             <div id="popup_background">
             </div>
         </fieldset>
-        <?php echo PMA\Template::get('table/search/options')
+        <?php echo PMA\libraries\Template::get('table/search/options')
             ->render(array(
                 'columnNames' => $columnNames
             )); ?>
@@ -58,7 +58,7 @@
             <legend>
                 <?php echo __('Find and replace'); ?>
             </legend>
-            <?php echo PMA\Template::get('table/search/search_and_replace')
+            <?php echo PMA\libraries\Template::get('table/search/search_and_replace')
                 ->render(array(
                     'columnNames' => $columnNames,
                     'columnTypes' => $columnTypes

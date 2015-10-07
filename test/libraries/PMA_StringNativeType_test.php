@@ -9,7 +9,9 @@
 /*
  * Include to test.
  */
-require_once 'libraries/StringNativeType.class.php';
+use PMA\libraries\StringNativeType;
+
+
 
 /**
  * Tests for Specialized String Class (Native) for phpMyAdmin
@@ -28,7 +30,7 @@ class PMA_StringNativeType_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->_object = new PMA_StringNativeType();
+        $this->_object = new StringNativeType();
     }
 
     /**

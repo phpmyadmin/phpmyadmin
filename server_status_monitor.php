@@ -6,9 +6,10 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\ServerStatusData;
+
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/ServerStatusData.class.php';
 require_once 'libraries/server_status_monitor.lib.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
@@ -25,7 +26,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         switch($_REQUEST['type']) {
         case 'chartgrid': // Data for the monitor
             $ret = PMA_getJsonForChartingData();
-            PMA_Response::getInstance()->addJSON('message', $ret);
+            PMA\libraries\Response::getInstance()->addJSON('message', $ret);
             exit;
         }
     }
@@ -37,26 +38,26 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         if ($_REQUEST['type'] == 'slow') {
             $return = PMA_getJsonForLogDataTypeSlow($start, $end);
-            PMA_Response::getInstance()->addJSON('message', $return);
+            PMA\libraries\Response::getInstance()->addJSON('message', $return);
             exit;
         }
 
         if ($_REQUEST['type'] == 'general') {
             $return = PMA_getJsonForLogDataTypeGeneral($start, $end);
-            PMA_Response::getInstance()->addJSON('message', $return);
+            PMA\libraries\Response::getInstance()->addJSON('message', $return);
             exit;
         }
     }
 
     if (isset($_REQUEST['logging_vars'])) {
         $loggingVars = PMA_getJsonForLoggingVars();
-        PMA_Response::getInstance()->addJSON('message', $loggingVars);
+        PMA\libraries\Response::getInstance()->addJSON('message', $loggingVars);
         exit;
     }
 
     if (isset($_REQUEST['query_analyzer'])) {
         $return = PMA_getJsonForQueryAnalyzer();
-        PMA_Response::getInstance()->addJSON('message', $return);
+        PMA\libraries\Response::getInstance()->addJSON('message', $return);
         exit;
     }
 }
@@ -91,7 +92,7 @@ $scripts->addFile('server_status_sorter.js');
 /**
  * start output
  */
-$ServerStatusData = new PMA_ServerStatusData();
+$ServerStatusData = new ServerStatusData();
 
 /**
  * Output

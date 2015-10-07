@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_Export_Relation_Schema class
+ * Tests for PMA\libraries\plugins\schema\ExportRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,15 +8,16 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+
+use PMA\libraries\plugins\schema\ExportRelationSchema;
+
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 
 /**
- * Tests for PMA_Export_Relation_Schema class
+ * Tests for PMA\libraries\plugins\schema\ExportRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
@@ -37,7 +38,7 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $_REQUEST['page_number'] = 33;
-        $this->object = new PMA_Export_Relation_Schema('information_schema', null);
+        $this->object = new ExportRelationSchema('information_schema', null);
     }
 
     /**

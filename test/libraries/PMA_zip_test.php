@@ -5,11 +5,7 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-
-require_once 'libraries/zip.lib.php';
+use PMA\libraries\ZipFile;
 
 /**
  * Tests for displaying results

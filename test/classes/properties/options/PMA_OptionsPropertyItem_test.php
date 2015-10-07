@@ -1,15 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for OptionsPropertyItem class
+ * tests for PMA\libraries\properties\options\OptionsPropertyItem class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/properties/options/OptionsPropertyItem.class.php';
-
 /**
- * Tests for OptionsPropertyItem class
+ * Tests for PMA\libraries\properties\options\OptionsPropertyItem class
  *
  * @package PhpMyAdmin-test
  */
@@ -24,7 +22,7 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
      */
     protected function setup()
     {
-        $this->stub = $this->getMockForAbstractClass('OptionsPropertyItem');
+        $this->stub = $this->getMockForAbstractClass('PMA\libraries\properties\options\OptionsPropertyItem');
     }
 
     /**
@@ -39,8 +37,8 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - OptionsPropertyItem::getName
-     *     - OptionsPropertyItem::setName
+     *     - PMA\libraries\properties\options\OptionsPropertyItem::getName
+     *     - PMA\libraries\properties\options\OptionsPropertyItem::setName
      *
      * @return void
      */
@@ -56,8 +54,8 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - OptionsPropertyItem::getText
-     *     - OptionsPropertyItem::setText
+     *     - PMA\libraries\properties\options\OptionsPropertyItem::getText
+     *     - PMA\libraries\properties\options\OptionsPropertyItem::setText
      *
      * @return void
      */
@@ -73,8 +71,8 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - OptionsPropertyItem::getForce
-     *     - OptionsPropertyItem::setForce
+     *     - PMA\libraries\properties\options\OptionsPropertyItem::getForce
+     *     - PMA\libraries\properties\options\OptionsPropertyItem::setForce
      *
      * @return void
      */
@@ -89,7 +87,7 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for OptionsPropertyItem::getPropertyType
+     * Test for PMA\libraries\properties\options\OptionsPropertyItem::getPropertyType
      *
      * @return void
      */

@@ -6,6 +6,8 @@
  * @package PhpMyAdmin-Setup
  */
 
+use PMA\libraries\VersionInformation;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }

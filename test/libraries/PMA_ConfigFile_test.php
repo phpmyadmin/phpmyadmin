@@ -9,7 +9,8 @@
 /*
  * Include to test.
  */
-require_once 'libraries/config/ConfigFile.class.php';
+use PMA\libraries\config\ConfigFile;
+
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**

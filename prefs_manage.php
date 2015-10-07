@@ -5,6 +5,12 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\ConfigFile;
+use PMA\libraries\config\FormDisplay;
+use PMA\libraries\Message;
+use PMA\libraries\Response;
+use PMA\libraries\PMA_String;
+use PMA\libraries\Util;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -13,9 +19,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/user_preferences.lib.php';
 require_once 'libraries/config/config_functions.lib.php';
 require_once 'libraries/config/messages.inc.php';
-require_once 'libraries/config/ConfigFile.class.php';
-require_once 'libraries/config/Form.class.php';
-require_once 'libraries/config/FormDisplay.class.php';
 require 'libraries/config/user_preferences.forms.php';
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
@@ -27,7 +30,7 @@ if (isset($_POST['submit_export'])
     && $_POST['export_type'] == 'text_file'
 ) {
     // export to JSON file
-    PMA_Response::getInstance()->disable();
+    PMA\libraries\Response::getInstance()->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
     PMA_downloadHeader($filename, 'application/json');
     $settings = PMA_loadUserprefs();
@@ -35,7 +38,7 @@ if (isset($_POST['submit_export'])
     exit;
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_loadUserprefs();
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     $response->addJSON('prefs', json_encode($settings['config_data']));
     $response->addJSON('mtime', $settings['mtime']);
     exit;
@@ -112,7 +115,7 @@ if (isset($_POST['submit_export'])
         if (!$all_ok) {
             // mimic original form and post json in a hidden field
             include 'libraries/user_preferences.inc.php';
-            $msg = PMA_Message::error(
+            $msg = Message::error(
                 __('Configuration contains incorrect data for some fields.')
             );
             $msg->display();
@@ -174,7 +177,7 @@ if (isset($_POST['submit_export'])
                 $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
                 $return_url = parse_url($return_url, PHP_URL_PATH);
 
-                /** @var PMA_String $pmaString */
+                /** @var String $pmaString */
                 $pmaString = $GLOBALS['PMA_String'];
 
                 foreach ($query as $q) {
@@ -213,15 +216,15 @@ if (isset($_POST['submit_export'])
     exit;
 }
 
-$response = PMA_Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('config.js');
 
 require 'libraries/user_preferences.inc.php';
 if ($error) {
-    if (!$error instanceof PMA_Message) {
-        $error = PMA_Message::error($error);
+    if (!$error instanceof Message) {
+        $error = Message::error($error);
     }
     $error->display();
 }
@@ -238,7 +241,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
 echo '<h2>' . __('Import') . '</h2>'
     . '<form class="group-cnt prefs-form disableAjax" name="prefs_import"'
     . ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
-    . PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
+    . Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
     . PMA_URL_getHiddenInputs()
     . '<input type="hidden" name="json" value="" />'
     . '<input type="radio" id="import_text_file" name="import_type"'
@@ -260,11 +263,11 @@ echo '<h2>' . __('Import') . '</h2>'
     . __('Saved on: @DATE@')
     . '</div>'
     . '<div class="localStorage-empty">';
-PMA_Message::notice(__('You have no saved settings!'))->display();
+Message::notice(__('You have no saved settings!'))->display();
 echo  '</div>'
     . '</div>'
     . '<div class="localStorage-unsupported">';
-PMA_Message::notice(
+Message::notice(
     __('This feature is not supported by your web browser')
 )->display();
 echo '</div>'
@@ -290,7 +293,7 @@ if (file_exists('setup/index.php')) {
                         'You can set more settings by modifying config.inc.php, eg. '
                         . 'by using %sSetup script%s.'
                     ), '<a href="setup/index.php" target="_blank">', '</a>'
-                ) . PMA_Util::showDocu('setup', 'setup-script');
+                ) . PMA\libraries\Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
             </div>
@@ -303,7 +306,7 @@ if (file_exists('setup/index.php')) {
             <h2><?php echo __('Export'); ?></h2>
             <div class="click-hide-message group-cnt" style="display:none">
                 <?php
-                PMA_Message::rawSuccess(
+                Message::rawSuccess(
                     __('Configuration has been saved.')
                 )->display();
                 ?>
@@ -343,7 +346,7 @@ if (file_exists('setup/index.php')) {
                     </span>
                     <div class="localStorage-unsupported">
                         <?php
-                        PMA_Message::notice(
+                        Message::notice(
                             __('This feature is not supported by your web browser')
                         )->display();
                         ?>

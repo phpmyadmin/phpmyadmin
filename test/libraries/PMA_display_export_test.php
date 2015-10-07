@@ -9,17 +9,16 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Table.class.php';
-require_once 'libraries/Advisor.class.php';
+use PMA\libraries\Theme;
+
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/ServerStatusData.class.php';
+
 require_once 'libraries/display_export.lib.php';
-require_once 'libraries/Theme.class.php';
+
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/charset_conversion.lib.php';
-require_once 'libraries/Message.class.php';
 require_once 'libraries/plugin_interface.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
@@ -67,11 +66,11 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = "PMA";
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'][$GLOBALS['server']] = "";
 
-        $pmaconfig = $this->getMockBuilder('PMA_Config')
+        $pmaconfig = $this->getMockBuilder('PMA\libraries\Config')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -149,7 +148,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
                 'COLUMN_NAME' => 'test_column2'
             )
         );
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -216,7 +215,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             '<input type="checkbox" name="onserver" value="saveit" ',
             $html
         );
-        $dir = htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']));
+        $dir = htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']));
         $this->assertContains(
             'Save on server in the directory <b>' . $dir . '</b>',
             $html
@@ -290,7 +289,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

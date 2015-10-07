@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_Eps_Relation_Schema class
+ * Tests for EpsRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,16 +8,15 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+use PMA\libraries\plugins\schema\eps\EpsRelationSchema;
+
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Index.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/plugins/schema/eps/Eps_Relation_Schema.class.php';
 
 /**
- * Tests for PMA_Eps_Relation_Schema class
+ * Tests for EpsRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
@@ -65,7 +64,7 @@ class PMA_Eps_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         );
         PMA_getRelationsParam();
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -129,7 +128,7 @@ class PMA_Eps_Relation_Schema_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object = new PMA_Eps_Relation_Schema('information_schema');
+        $this->object = new EpsRelationSchema('information_schema');
     }
 
     /**

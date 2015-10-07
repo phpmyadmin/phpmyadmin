@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA_Theme_Manager class
+ * tests for ThemeManager class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,16 +9,14 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+use PMA\libraries\ThemeManager;
+
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Theme_Manager.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/core.lib.php';
 
 /**
- * tests for PMA_Theme_Manager class
+ * tests for ThemeManager class
  *
  * @package PhpMyAdmin-test
  */
@@ -36,41 +34,41 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
     }
 
     /**
-     * Test for PMA_Theme_Manager::getThemeCookieName
+     * Test for ThemeManager::getThemeCookieName
      *
      * @return void
      */
     public function testCookieName()
     {
-        $tm = new PMA_Theme_Manager();
+        $tm = new ThemeManager();
         $this->assertEquals('pma_theme', $tm->getThemeCookieName());
     }
 
     /**
-     * Test for PMA_Theme_Manager::getThemeCookieName
+     * Test for ThemeManager::getThemeCookieName
      *
      * @return void
      */
     public function testPerServerCookieName()
     {
-        $tm = new PMA_Theme_Manager();
+        $tm = new ThemeManager();
         $tm->setThemePerServer(true);
         $this->assertEquals('pma_theme-99', $tm->getThemeCookieName());
     }
 
     /**
-     * Test for PMA_Theme_Manager::getHtmlSelectBox
+     * Test for ThemeManager::getHtmlSelectBox
      *
      * @return void
      */
     public function testHtmlSelectBox()
     {
-        $tm = new PMA_Theme_Manager();
+        $tm = new ThemeManager();
         $this->assertContains(
             '<option value="pmahomme" selected="selected">',
             $tm->getHtmlSelectBox()
@@ -84,7 +82,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetThemeCookie()
     {
-        $tm = new PMA_Theme_Manager();
+        $tm = new ThemeManager();
         $this->assertTrue(
             $tm->setThemeCookie()
         );
@@ -97,7 +95,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
      */
     public function testCheckConfig()
     {
-        $tm = new PMA_Theme_Manager();
+        $tm = new ThemeManager();
         $this->assertNull(
             $tm->checkConfig()
         );
@@ -110,7 +108,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
      */
     public function testMakeBc()
     {
-        $tm = new PMA_Theme_Manager();
+        $tm = new ThemeManager();
         $this->assertNull(
             $tm->makeBc()
         );
@@ -127,7 +125,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPrintPreviews()
     {
-        $tm = new PMA_Theme_Manager();
+        $tm = new ThemeManager();
         $this->assertEquals(
             '<div class="theme_preview"><h2>Original (2.9) </h2><p><a class='
             . '"take_theme" name="original" href="index.php?set_theme=original'
@@ -151,9 +149,9 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetFallBackTheme()
     {
-        $tm = new PMA_Theme_Manager();
+        $tm = new ThemeManager();
         $this->assertInstanceOf(
-            'PMA_theme',
+            'PMA\libraries\Theme',
             $tm->getFallBackTheme()
         );
     }

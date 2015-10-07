@@ -1,26 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportSql class
+ * tests for PMA\libraries\plugins\export\ExportSql class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportSql.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+use PMA\libraries\plugins\export\ExportSql;
+use PMA\libraries\Table;
+
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Table.class.php';
 require_once 'libraries/charset_conversion.lib.php';
 require_once 'export.php';
+
 /**
- * tests for ExportSql class
+ * tests for PMA\libraries\plugins\export\ExportSql class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -60,7 +58,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::setProperties
+     * Test for PMA\libraries\plugins\export\ExportSql::setProperties
      *
      * @return void
      * @group medium
@@ -72,11 +70,11 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['mimework'] = true;
 
-        $method = new ReflectionMethod('ExportSql', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportSql', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportSql', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -85,7 +83,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         // test with hide structure and hide sql as false
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -103,7 +101,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -115,7 +113,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -124,7 +122,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -133,12 +131,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($properties);
 
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property->getSubgroupHeader()
         );
 
@@ -146,55 +144,55 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'SelectPropertyItem',
+            'PMA\libraries\properties\options\items\SelectPropertyItem',
             $property
         );
 
@@ -208,19 +206,19 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'RadioPropertyItem',
+            'PMA\libraries\properties\options\items\RadioPropertyItem',
             $property->getSubgroupHeader()
         );
 
         $structureOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $structureOptions
         );
 
@@ -229,12 +227,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($properties);
 
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'MessageOnlyPropertyItem',
+            'PMA\libraries\properties\options\items\MessageOnlyPropertyItem',
             $property->getSubgroupHeader()
         );
 
@@ -242,13 +240,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
@@ -260,7 +258,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $leaf
         );
 
@@ -270,37 +268,37 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $leaf
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $dataOptions = array_shift($generalOptionsArray);
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $dataOptions
         );
 
@@ -318,7 +316,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportRoutines
+     * Test for PMA\libraries\plugins\export\ExportSql::exportRoutines
      *
      * @return void
      */
@@ -327,7 +325,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_drop_table'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -368,13 +366,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::_exportComment
+     * Test for PMA\libraries\plugins\export\ExportSql::_exportComment
      *
      * @return void
      */
     public function testExportComment()
     {
-        $method = new ReflectionMethod('ExportSql', '_exportComment');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_exportComment');
         $method->setAccessible(true);
 
         $GLOBALS['crlf'] = '##';
@@ -406,13 +404,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::_possibleCRLF
+     * Test for PMA\libraries\plugins\export\ExportSql::_possibleCRLF
      *
      * @return void
      */
     public function testPossibleCRLF()
     {
-        $method = new ReflectionMethod('ExportSql', '_possibleCRLF');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_possibleCRLF');
         $method->setAccessible(true);
 
         $GLOBALS['crlf'] = '##';
@@ -444,7 +442,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportSql::exportFooter
      *
      * @return void
      */
@@ -459,7 +457,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['asfile'] = 'yes';
         $GLOBALS['output_charset_conversion'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -482,7 +480,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportSql::exportHeader
      *
      * @return void
      */
@@ -508,7 +506,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['charset'] = 'utf-8';
         $GLOBALS['mysql_charset_map']['utf-8'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -564,7 +562,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportSql::exportDBCreate
      *
      * @return void
      */
@@ -578,7 +576,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_create_view'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -616,7 +614,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         unset($GLOBALS['sql_backquotes']);
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -650,7 +648,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportSql::exportDBHeader
      *
      * @return void
      */
@@ -689,7 +687,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportEvents
+     * Test for PMA\libraries\plugins\export\ExportSql::exportEvents
      *
      * @return void
      */
@@ -710,7 +708,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -766,7 +764,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportSql::exportDBFooter
      *
      * @return void
      */
@@ -788,7 +786,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -811,7 +809,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::getTableDefStandIn
+     * Test for PMA\libraries\plugins\export\ExportSql::getTableDefStandIn
      *
      * @return void
      */
@@ -820,7 +818,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -849,7 +847,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::_getTableDefForView
+     * Test for PMA\libraries\plugins\export\ExportSql::_getTableDefForView
      *
      * @return void
      */
@@ -859,7 +857,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['cfg']['LimitChars'] = 40;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -900,7 +898,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
-        $method = new ReflectionMethod('ExportSql', '_getTableDefForView');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_getTableDefForView');
         $method->setAccessible(true);
         $result = $method->invoke(
             $this->object, 'db', 'view', "\n"
@@ -929,7 +927,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
 
     /**
-     * Test for ExportSql::getTableDef
+     * Test for PMA\libraries\plugins\export\ExportSql::getTableDef
      *
      * @return void
      * @group medium
@@ -951,7 +949,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -959,7 +957,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->method('query')
             ->with(
                 'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA_DatabaseInterface::QUERY_STORE
+                PMA\libraries\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('res'));
 
@@ -1024,7 +1022,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1100,7 +1098,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::getTableDef
+     * Test for PMA\libraries\plugins\export\ExportSql::getTableDef
      *
      * @return void
      */
@@ -1122,7 +1120,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1130,7 +1128,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->method('query')
             ->with(
                 'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA_DatabaseInterface::QUERY_STORE
+                PMA\libraries\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('res'));
 
@@ -1174,7 +1172,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1190,7 +1188,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::_getTableComments
+     * Test for PMA\libraries\plugins\export\ExportSql::_getTableComments
      *
      * @return void
      */
@@ -1208,7 +1206,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1240,7 +1238,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
-        $method = new ReflectionMethod('ExportSql', '_getTableComments');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_getTableComments');
         $method->setAccessible(true);
         $result = $method->invoke(
             $this->object, 'db', '', "\n", true, true
@@ -1262,7 +1260,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportStructure
+     * Test for PMA\libraries\plugins\export\ExportSql::exportStructure
      *
      * @return void
      * @group medium
@@ -1270,7 +1268,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     public function testExportStructure()
     {
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1285,7 +1283,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $this->object = $this->getMockBuilder('ExportSql')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportSql')
             ->setMethods(array('getTableDef', 'getTriggers', 'getTableDefStandIn'))
             ->getMock();
 
@@ -1382,7 +1380,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 4
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1431,14 +1429,14 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportData
+     * Test for PMA\libraries\plugins\export\ExportSql::exportData
      *
      * @return void
      * @group medium
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1497,7 +1495,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->with(
                 "SELECT a FROM b WHERE 1",
                 null,
-                PMA_DatabaseInterface::QUERY_UNBUFFERED
+                PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
             )
             ->will($this->returnValue('res'));
 
@@ -1515,7 +1513,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $_table = new PMA_Table('table', 'db');
+        $_table = new Table('table', 'db');
 
         $dbi->expects($this->once())
             ->method('getTable')
@@ -1570,14 +1568,14 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportData
+     * Test for PMA\libraries\plugins\export\ExportSql::exportData
      *
      * @return void
      * @group medium
      */
     public function testExportDataWithUpdate()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1619,7 +1617,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->with(
                 "SELECT a FROM b WHERE 1",
                 null,
-                PMA_DatabaseInterface::QUERY_UNBUFFERED
+                PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
             )
             ->will($this->returnValue('res'));
 
@@ -1639,7 +1637,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1669,17 +1667,17 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportData
+     * Test for PMA\libraries\plugins\export\ExportSql::exportData
      *
      * @return void
     */
     public function testExportDataWithIsView()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $_table = $this->getMockBuilder('PMA_Table')
+        $_table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -1714,13 +1712,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::exportData
+     * Test for PMA\libraries\plugins\export\ExportSql::exportData
      *
      * @return void
     */
     public function testExportDataWithError()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1730,7 +1728,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1751,7 +1749,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::_makeCreateTableMSSQLCompatible
+     * Test for PMA\libraries\plugins\export\ExportSql::_makeCreateTableMSSQLCompatible
      *
      * @return void
      */
@@ -1776,7 +1774,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             " \" double NOT NULL DEFAULT '213'\n";
 
         $method = new ReflectionMethod(
-            'ExportSql', '_makeCreateTableMSSQLCompatible'
+            'PMA\libraries\plugins\export\ExportSql', '_makeCreateTableMSSQLCompatible'
         );
         $method->setAccessible(true);
         $result = $method->invoke(
@@ -1808,7 +1806,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::initAlias
+     * Test for PMA\libraries\plugins\export\ExportSql::initAlias
      *
      * @return void
     */
@@ -1850,7 +1848,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::getAlias
+     * Test for PMA\libraries\plugins\export\ExportSql::getAlias
      *
      * @return void
     */
@@ -1895,7 +1893,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::replaceWithAlias
+     * Test for PMA\libraries\plugins\export\ExportSql::replaceWithAlias
      *
      * @return void
     */

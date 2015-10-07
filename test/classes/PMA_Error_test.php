@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Error.class.php
+ * Tests for Error.php
  *
  * @package PhpMyAdmin-test
  */
@@ -10,11 +10,9 @@
  * Include to test.
  */
 
-require_once 'libraries/Error.class.php';
-require_once 'libraries/Message.class.php';
+use PMA\libraries\Theme;
+
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
 
 /**
  * Error class testing.
@@ -37,11 +35,11 @@ class PMA_Error_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Error('2', 'Compile Error', 'error.txt', 15);
+        $this->object = new PMA\libraries\Error('2', 'Compile Error', 'error.txt', 15);
 
         $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

@@ -5,17 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Linter;
 
 /**
  * Loading common files. Used to check for authorization, localization and to
  * load the parsing library.
  */
 require_once 'libraries/common.inc.php';
-
-/**
- * Loads the linter.
- */
-require_once 'libraries/Linter.class.php';
 
 /**
  * The SQL query to be analyzed.
@@ -31,7 +27,7 @@ require_once 'libraries/Linter.class.php';
 $sql_query = !empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 
 // Disabling standard response.
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->disable();
 
-echo json_encode(PMA_Linter::lint($sql_query));
+echo json_encode(Linter::lint($sql_query));

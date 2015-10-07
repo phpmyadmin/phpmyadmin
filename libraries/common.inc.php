@@ -30,6 +30,20 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Config;
+use PMA\libraries\DatabaseInterface;
+use PMA\libraries\ErrorHandler;
+use PMA\libraries\Message;
+use PMA\libraries\plugins\AuthenticationPlugin;
+use PMA\libraries\PMA;
+use PMA\libraries\PMA_String;
+use PMA\libraries\Theme;
+use PMA\libraries\ThemeManager;
+use PMA\libraries\Tracker;
+use PMA\libraries\Response;
+use PMA\libraries\TypesDrizzle;
+use PMA\libraries\TypesMySQL;
+use PMA\libraries\Util;
 
 /**
  * block attempts to directly run this script
@@ -51,22 +65,20 @@ if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
  */
 define('PHPMYADMIN', true);
 
+/**
+ * Activate autoloader
+ */
+require_once './libraries/autoloader.php';
 
 /**
  * String handling (security)
  */
-require_once './libraries/String.class.php';
 $PMA_String = new PMA_String();
-
-/**
- * the error handler
- */
-require './libraries/Error_Handler.class.php';
 
 /**
  * initialize the error handler
  */
-$GLOBALS['error_handler'] = new PMA_Error_Handler();
+$GLOBALS['error_handler'] = new ErrorHandler();
 
 /**
  * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
@@ -97,45 +109,11 @@ if (! function_exists('mb_detect_encoding')) {
 }
 
 /**
- * the PMA_Theme class
- */
-require './libraries/Theme.class.php';
-
-/**
- * the PMA_Theme_Manager class
- */
-require './libraries/Theme_Manager.class.php';
-
-/**
- * the PMA_Config class
- */
-require './libraries/Config.class.php';
-
-/**
  * the relation lib, tracker needs it
  */
 require './libraries/relation.lib.php';
 
-/**
- * the PMA_Tracker class
- */
-require './libraries/Tracker.class.php';
-
-/**
- * the PMA_Table class
- */
-require './libraries/Table.class.php';
-
-/**
- * the PMA_Types class
- */
-require './libraries/Types.class.php';
-
 if (! defined('PMA_MINIMUM_COMMON')) {
-    /**
-     * common functions
-     */
-    include_once './libraries/Util.class.php';
 
     /**
      * JavaScript escaping.
@@ -146,11 +124,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Include URL/hidden inputs generating.
      */
     include_once './libraries/url_generating.lib.php';
-
-    /**
-     * Used to generate the page
-     */
-    include_once 'libraries/Response.class.php';
 }
 
 /******************************************************************************/
@@ -293,11 +266,11 @@ if (! function_exists('json_encode')) {
 }
 
 /**
- * @global PMA_Config $GLOBALS['PMA_Config']
+ * @global Config $GLOBALS['PMA_Config']
  * force reading of config file, because we removed sensitive values
  * in the previous iteration
  */
-$GLOBALS['PMA_Config'] = new PMA_Config(CONFIG_FILE);
+$GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     $GLOBALS['PMA_Config']->checkPmaAbsoluteUri();
@@ -458,10 +431,10 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  *
  * remember that some objects in the session with session_start and __wakeup()
  * could access this variables before we reach this point
- * f.e. PMA_Config: fontsize
+ * f.e. PMA\libraries\Config: fontsize
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, collation_connection in PMA_Config
+ * f.e. lang, server, collation_connection in PMA\libraries\Config
  */
 $token_mismatch = true;
 $token_provided = false;
@@ -615,8 +588,8 @@ $GLOBALS['server'] = 0;
 
 /**
  * Servers array fixups.
- * $default_server comes from PMA_Config::enableBc()
- * @todo merge into PMA_Config
+ * $default_server comes from PMA\libraries\Config::enableBc()
+ * @todo merge into PMA\libraries\Config
  */
 // Do we have some server?
 if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
@@ -678,10 +651,10 @@ unset($default_server);
 /* setup themes                                          LABEL_theme_setup    */
 
 /**
- * @global PMA_Theme_Manager $_SESSION['PMA_Theme_Manager']
+ * @global ThemeManager $_SESSION['ThemeManager']
  */
 if (! isset($_SESSION['PMA_Theme_Manager'])) {
-    $_SESSION['PMA_Theme_Manager'] = new PMA_Theme_Manager;
+    $_SESSION['PMA_Theme_Manager'] = new ThemeManager;
 } else {
     /**
      * @todo move all __wakeup() functionality into session.inc.php
@@ -700,7 +673,7 @@ if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
     unset($tmp);
 }
 /**
- * @todo move into PMA_Theme_Manager::__wakeup()
+ * @todo move into ThemeManager::__wakeup()
  */
 if (isset($_REQUEST['set_theme'])) {
     // if user selected a theme
@@ -709,7 +682,8 @@ if (isset($_REQUEST['set_theme'])) {
 
 /**
  * the theme object
- * @global PMA_Theme $_SESSION['PMA_Theme']
+ *
+*@global Theme $_SESSION['PMA_Theme']
  */
 $_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
 
@@ -807,7 +781,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     /**
      * save some settings in cookies
-     * @todo should be done in PMA_Config
+     * @todo should be done in PMA\libraries\Config
      */
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
     if (isset($GLOBALS['collation_connection'])) {
@@ -830,7 +804,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
-        // need to be kept for processing in PMA_Config::loadUserPreferences()
+        // need to be kept for processing in PMA\libraries\Config::loadUserPreferences()
         $cache_key = 'server_' . $GLOBALS['server'];
         if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])
         ) {
@@ -855,7 +829,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
         if (! file_exists(
             './libraries/plugins/auth/'
-            . $auth_class . '.class.php'
+            . $auth_class . '.php'
         )) {
             PMA_fatalError(
                 __('Invalid authentication method set in configuration:')
@@ -865,11 +839,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($_REQUEST['pma_password'])) {
             $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
         }
-        include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
+        $fqnAuthClass = 'PMA\libraries\plugins\auth\\' . $auth_class;
         // todo: add plugin manager
         $plugin_manager = null;
         /** @var AuthenticationPlugin $auth_plugin */
-        $auth_plugin = new $auth_class($plugin_manager);
+        $auth_plugin = new $fqnAuthClass($plugin_manager);
 
         if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
@@ -986,16 +960,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Connects to the server (validates user's login)
-        /** @var PMA_DatabaseInterface $userlink */
+        /** @var DatabaseInterface $userlink */
         $userlink = $GLOBALS['dbi']->connect(
             $cfg['Server']['user'], $cfg['Server']['password'], false
         );
 
         // Set timestamp for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
-            $sql_query_tz = 'SET ' . PMA_Util::backquote('time_zone') . ' = '
+            $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
                 . '\''
-                . PMA_Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
                 . '\'';
 
             if (! $userlink->query($sql_query_tz)) {
@@ -1041,7 +1015,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Type handling object.
          */
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         /**
          * Charset information
@@ -1069,9 +1043,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // TODO: Set SQL modes too.
 
         /**
-         * the PMA_List_Database class
+         * the ListDatabase class
          */
-        include_once './libraries/PMA.php';
         $pma = new PMA;
         $pma->userlink = $userlink;
         $pma->controllink = $controllink;
@@ -1089,7 +1062,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     } else { // end server connecting
         // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
         // applies only to initial login
-        $response = PMA_Response::getInstance();
+        $response = Response::getInstance();
         $response->getHeader()->disableMenuAndConsole();
         $response->getFooter()->setMinimal();
     }
@@ -1099,7 +1072,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
      */
     if (isset($_REQUEST['profiling'])
-        && PMA_Util::profilingSupported()
+        && Util::profilingSupported()
     ) {
         $_SESSION['profiling'] = true;
     } elseif (isset($_REQUEST['profiling_form'])) {
@@ -1115,7 +1088,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * pages like sql, tbl_sql, db_sql, tbl_select
      */
     if (! defined('PMA_BYPASS_GET_INSTANCE')) {
-        $response = PMA_Response::getInstance();
+        $response = Response::getInstance();
     }
     if (isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
@@ -1135,7 +1108,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $response->setRequestStatus(false);
         $response->addJSON(
             'message',
-            PMA_Message::error(__('Error: Token mismatch'))
+            Message::error(__('Error: Token mismatch'))
         );
         exit;
     }
@@ -1150,7 +1123,7 @@ $GLOBALS['PMA_Config']->set('Servers', '');
 $GLOBALS['PMA_Config']->set('default_server', '');
 
 /* Tell tracker that it can actually work */
-PMA_Tracker::enable();
+Tracker::enable();
 
 /**
  * @global boolean $GLOBALS['is_ajax_request']
@@ -1224,5 +1197,7 @@ if (! defined('PMA_MINIMUM_COMMON')
 }
 
 if (! defined('PMA_MINIMUM_COMMON')) {
-    include_once 'libraries/config/page_settings.class.php';
+    include_once 'libraries/config/messages.inc.php';
+    include 'libraries/config/user_preferences.forms.php';
+    include_once 'libraries/config/page_settings.forms.php';
 }

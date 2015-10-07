@@ -8,6 +8,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\StorageEngine;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -24,7 +26,7 @@ function PMA_getHtmlForServerEngines()
      */
     $html = '';
     if (empty($_REQUEST['engine'])
-        || ! PMA_StorageEngine::isValid($_REQUEST['engine'])
+        || ! StorageEngine::isValid($_REQUEST['engine'])
     ) {
         $html .= PMA_getHtmlForAllServerEngines();
     } else {
@@ -56,7 +58,7 @@ function PMA_getHtmlForAllServerEngines()
      * Listing the storage engines
      */
     $odd_row = true;
-    foreach (PMA_StorageEngine::getStorageEngines() as $engine => $details) {
+    foreach (StorageEngine::getStorageEngines() as $engine => $details) {
         $html .= '<tr class="'
             . ($odd_row ? 'odd' : 'even')
             . ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
@@ -90,11 +92,11 @@ function PMA_getHtmlForSpecifiedServerEngines()
      * Displays details about a given Storage Engine
      */
     $html = '';
-    $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
+    $engine_plugin = StorageEngine::getEngine($_REQUEST['engine']);
     $html .= '<h2>' . "\n"
-        . PMA_Util::getImage('b_engine.png')
+        . PMA\libraries\Util::getImage('b_engine.png')
         . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
-        . '    ' . PMA_Util::showMySQLDocu($engine_plugin->getMysqlHelpPage())
+        . '    ' . PMA\libraries\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage())
         . "\n" . '</h2>' . "\n\n";
     $html .= '<p>' . "\n"
         . '    <em>' . "\n"

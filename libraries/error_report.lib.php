@@ -6,12 +6,6 @@
  * @package PhpMyAdmin
  */
 
-/*
- * Include for handleContext() and configureCurl in PMA_sendErrorReport()
- */
-require_once 'libraries/Util.class.php';
-
-
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -102,7 +96,7 @@ function PMA_getReportData($exception_type = 'js')
             return array();
         }
         foreach ($_SESSION['prev_errors'] as $errorObj) {
-            /* @var $errorObj PMA_Error */
+            /* @var $errorObj PMA\libraries\Error */
             if ($errorObj->getLine()
                 && $errorObj->getType()
                 && $errorObj->getNumber() != E_USER_WARNING
@@ -197,7 +191,7 @@ function PMA_sendErrorReport($report)
                 'header' => "Content-Type: multipart/form-data\r\n",
             )
         );
-        $context = PMA_Util::handleContext($context);
+        $context = PMA\libraries\Util::handleContext($context);
         $response = @file_get_contents(
             SUBMISSION_URL,
             false,
@@ -214,7 +208,7 @@ function PMA_sendErrorReport($report)
     if ($curl_handle === false) {
         return null;
     }
-    $curl_handle = PMA_Util::configureCurl($curl_handle);
+    $curl_handle = PMA\libraries\Util::configureCurl($curl_handle);
     curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
     curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
@@ -354,8 +348,7 @@ function PMA_getErrorReportForm()
         $datas['hidden_fields'] = PMA_getHiddenFields($reportData);
     }
 
-    include_once './libraries/Template.class.php';
-    return PMA\Template::get('error/report_form')
+    return PMA\libraries\Template::get('error/report_form')
         ->render($datas);
 }
 

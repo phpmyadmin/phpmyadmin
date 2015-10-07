@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_Index class
+ * Test for Index class
  *
  * @package PhpMyAdmin-test
  */
@@ -10,10 +10,9 @@
  * Include to test.
  */
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Index.class.php';
 
 /**
- * Test for PMA_Index class
+ * Test for Index class
  *
  * @package PhpMyAdmin-test
  */
@@ -62,7 +61,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $index = new PMA_Index($this->_params);
+        $index = new PMA\libraries\Index($this->_params);
         $this->assertEquals(
             'PMA_Index_comment',
             $index->getComment()
@@ -105,7 +104,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetIndexChoices()
     {
-        $index_choices = PMA_Index::getIndexChoices();
+        $index_choices = PMA\libraries\Index::getIndexChoices();
         $this->assertEquals(
             5,
             count($index_choices)
@@ -124,7 +123,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
     public function testIsUniquer()
     {
         $this->_params['Non_unique'] = "0";
-        $index = new PMA_Index($this->_params);
+        $index = new PMA\libraries\Index($this->_params);
         $this->assertTrue(
             $index->isUnique()
         );
@@ -141,7 +140,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     public function testAddColumns()
     {
-        $index = new PMA_Index();
+        $index = new PMA\libraries\Index();
         $index->addColumns($this->_params['columns']);
         $this->assertTrue($index->hasColumn("column1"));
         $this->assertTrue($index->hasColumn("column2"));
@@ -159,7 +158,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     public function testName()
     {
-        $index = new PMA_Index();
+        $index = new PMA\libraries\Index();
         $index->setName('PMA_name');
         $this->assertEquals(
             'PMA_name',
@@ -168,13 +167,13 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Index_Column
+     * Test for PMA\libraries\Index_Column
      *
      * @return void
      */
     public function testColumns()
     {
-        $index = new PMA_Index();
+        $index = new PMA\libraries\Index();
         $index->addColumns($this->_params['columns']);
 
         $index_columns = $index->getColumns();

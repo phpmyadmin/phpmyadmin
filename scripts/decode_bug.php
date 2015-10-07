@@ -10,6 +10,7 @@
  *
  * @package PhpMyAdmin-debug
  */
+use PMA\libraries\PMA_String;
 
 /**
  * Displays the form
@@ -82,7 +83,7 @@ if (!empty($bug_encoded) && is_string($bug_encoded)) {
         $bug_encoded = stripslashes($bug_encoded);
     }
 
-    /** @var PMA_String $pmaString */
+    /** @var String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
     $bug_encoded     = preg_replace('/[[:space:]]/', '', $bug_encoded);

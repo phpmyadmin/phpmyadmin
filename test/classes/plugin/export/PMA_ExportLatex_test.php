@@ -1,23 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportLatex class
+ * tests for PMA\libraries\plugins\export\ExportLatex class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportLatex.class.php';
+use PMA\libraries\plugins\export\ExportLatex;
+
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
 /**
- * tests for ExportLatex class
+ * tests for PMA\libraries\plugins\export\ExportLatex class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -57,7 +54,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::setProperties
+     * Test for PMA\libraries\plugins\export\ExportLatex::setProperties
      *
      * @return void
      */
@@ -67,16 +64,16 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['mimework'] = true;
 
-        $method = new ReflectionMethod('ExportLatex', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportLatex', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportLatex', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportLatex', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -103,7 +100,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -117,7 +114,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -131,7 +128,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -148,7 +145,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -167,7 +164,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'RadioPropertyItem',
+            'PMA\libraries\properties\options\items\RadioPropertyItem',
             $property
         );
 
@@ -189,7 +186,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -213,7 +210,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -235,7 +232,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -257,7 +254,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -279,7 +276,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -296,7 +293,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -313,7 +310,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -331,7 +328,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -355,7 +352,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -372,7 +369,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -394,7 +391,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -416,7 +413,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -438,7 +435,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -468,7 +465,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportHeader
      *
      * @return void
      */
@@ -495,7 +492,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportFooter
      *
      * @return void
      */
@@ -507,7 +504,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBHeader
      *
      * @return void
      */
@@ -525,7 +522,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBFooter
      *
      * @return void
      */
@@ -537,7 +534,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBCreate
      *
      * @return void
      */
@@ -549,7 +546,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportData
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportData
      *
      * @return void
      */
@@ -563,7 +560,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['latex_null'] = 'null';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['verbose'] = 'verb';
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -619,7 +616,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
         // case 2
         unset($GLOBALS['latex_columns']);
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -663,13 +660,13 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::exportStructure
+     * Test for PMA\libraries\plugins\export\ExportLatex::exportStructure
      *
      * @return void
      */
     public function testExportStructure()
     {
-        // $this->object = $this->getMockBuilder('ExportHtmlword')
+        // $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
         //     ->setMethods(array('formatOneColumnDefinition'))
         //     ->getMock();
 
@@ -686,7 +683,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
         // case 1
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -810,7 +807,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
         // case 2
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -907,7 +904,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
         // case 3
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -996,7 +993,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportLatex::texEscape
+     * Test for PMA\libraries\plugins\export\ExportLatex::texEscape
      *
      * @return void
      */

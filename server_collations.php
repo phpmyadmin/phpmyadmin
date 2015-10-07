@@ -23,7 +23,7 @@ require_once 'libraries/server_collations.lib.php';
  */
 require_once 'libraries/mysql_charsets.inc.php';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 
 $response->addHTML(PMA_getHtmlForSubPageHeader('collations'));
 $response->addHTML(

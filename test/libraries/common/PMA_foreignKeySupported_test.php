@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+
 
 /**
  * Test for supporting foreign key
@@ -47,7 +47,7 @@ class PMA_IsForeignKeySupportedTest extends PHPUnit_Framework_TestCase
     public function testForeignkeySupported($a, $e)
     {
         $this->assertEquals(
-            $e, PMA_Util::isForeignKeySupported($a)
+            $e, PMA\libraries\Util::isForeignKeySupported($a)
         );
     }
 }

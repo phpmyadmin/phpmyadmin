@@ -87,7 +87,7 @@ function PMA_buildHtmlForDb(
         $out .= ' /></td>';
     }
     $out .= '<td class="name">'
-           . '<a href="' . PMA_Util::getScriptNameForOption(
+           . '<a href="' . PMA\libraries\Util::getScriptNameForOption(
                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
            )
            . $url_query . '&amp;db='
@@ -108,11 +108,11 @@ function PMA_buildHtmlForDb(
                 $column_order[$stat_name]['footer'] += $current[$stat_name];
             }
             if ($stat['format'] === 'byte') {
-                list($value, $unit) = PMA_Util::formatByteDown(
+                list($value, $unit) = PMA\libraries\Util::formatByteDown(
                     $current[$stat_name], 3, 1
                 );
             } elseif ($stat['format'] === 'number') {
-                $value = PMA_Util::formatNumber(
+                $value = PMA\libraries\Util::formatNumber(
                     $current[$stat_name], 0
                 );
             } else {
@@ -143,7 +143,7 @@ function PMA_buildHtmlForDb(
                 $replication_info[$type]['Ignore_DB']
             );
             if (/*overload*/mb_strlen($key) > 0) {
-                $out .= PMA_Util::getIcon('s_cancel.png',  __('Not replicated'));
+                $out .= PMA\libraries\Util::getIcon('s_cancel.png',  __('Not replicated'));
             } else {
                 $key = array_search(
                     $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
@@ -155,7 +155,7 @@ function PMA_buildHtmlForDb(
                     && count($replication_info[$type]['Do_DB']) == 1)
                 ) {
                     // if ($key != null) did not work for index "0"
-                    $out .= PMA_Util::getIcon('s_success.png', __('Replicated'));
+                    $out .= PMA\libraries\Util::getIcon('s_success.png', __('Replicated'));
                 }
             }
 
@@ -178,7 +178,7 @@ function PMA_buildHtmlForDb(
                )
                . '">'
                . ' '
-               . PMA_Util::getIcon('s_rights.png', __('Check privileges'))
+               . PMA\libraries\Util::getIcon('s_rights.png', __('Check privileges'))
                . '</a></td>';
     }
     return array($column_order, $out);

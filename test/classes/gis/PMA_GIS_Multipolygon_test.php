@@ -1,26 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_GIS_Multipolygon
+ * Test for PMA\libraries\gis\GISMultipolygon
  *
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\gis\GISMultipolygon;
+
 require_once 'PMA_GIS_Geom_test.php';
-require_once 'libraries/gis/GIS_Geometry.class.php';
-require_once 'libraries/gis/GIS_Multipolygon.class.php';
 require_once 'libraries/tcpdf/tcpdf.php';
-require_once 'libraries/Util.class.php';
+
 
 /**
- * Tests for PMA_GIS_Multipolygon class
+ * Tests for PMA\libraries\gis\GISMultipolygon class
  *
  * @package PhpMyAdmin-test
  */
 class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
 {
     /**
-     * @var    PMA_GIS_Multipolygon
+     * @var    GISMultipolygon
      * @access protected
      */
     protected $object;
@@ -34,7 +34,7 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
      */
     protected function setUp()
     {
-        $this->object = PMA_GIS_Multipolygon::singleton();
+        $this->object = GISMultipolygon::singleton();
     }
 
     /**

@@ -8,6 +8,10 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+use PMA\libraries\ServerStatusData;
+use PMA\libraries\Util;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -19,7 +23,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getHtmlForProcessListAutoRefresh()
 {
-    $notice = PMA_Message::notice(
+    $notice = Message::notice(
         __(
             'Note: Enabling the auto refresh here might cause '
             . 'heavy traffic between the web server and the MySQL server.'
@@ -27,14 +31,14 @@ function PMA_getHtmlForProcessListAutoRefresh()
     )->getDisplay();
     $retval  = $notice . '<div class="tabLinks">';
     $retval .= '<label>' . __('Refresh rate') . ': ';
-    $retval .= PMA_ServerStatusData::getHtmlForRefreshList(
+    $retval .= ServerStatusData::getHtmlForRefreshList(
         'refreshRate',
         5,
         Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
     );
     $retval .= '</label>';
     $retval .= '<a id="toggleRefresh" href="#">';
-    $retval .= PMA_Util::getImage('play.png') . __('Start auto refresh');
+    $retval .= Util::getImage('play.png') . __('Start auto refresh');
     $retval .= '</a>';
     $retval .= '</div>';
     return $retval;
@@ -117,7 +121,7 @@ function PMA_getHtmlForServerProcesslist()
     }
     if (!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order'])) {
         $sql_query .= ' ORDER BY '
-            . PMA_Util::backquote($_REQUEST['order_by_field'])
+            . Util::backquote($_REQUEST['order_by_field'])
             . ' ' . $_REQUEST['sort_order'];
     }
 
@@ -170,12 +174,12 @@ function PMA_getHtmlForServerProcesslist()
         if (0 === --$sortableColCount) {
             $retval .= '<a href="' . $full_text_link . '">';
             if ($show_full_sql) {
-                $retval .= PMA_Util::getImage(
+                $retval .= Util::getImage(
                     's_partialtext.png',
                     __('Truncate Shown Queries')
                 );
             } else {
-                $retval .= PMA_Util::getImage(
+                $retval .= Util::getImage(
                     's_fulltext.png',
                     __('Show Full Queries')
                 );
@@ -291,7 +295,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     if (empty($process['Info'])) {
         $retval .= '---';
     } else {
-        $retval .= PMA_Util::formatSql($process['Info'], ! $show_full_sql);
+        $retval .= Util::formatSql($process['Info'], ! $show_full_sql);
     }
     $retval .= '</td>';
     $retval .= '</tr>';

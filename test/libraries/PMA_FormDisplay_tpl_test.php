@@ -6,11 +6,9 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/config/ConfigFile.class.php';
+use PMA\libraries\Theme;
+
 require_once 'libraries/config/FormDisplay.tpl.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/user_preferences.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
@@ -152,7 +150,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Cannot modify constant');
         }
 
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemeImage'] = 'testImage';
         $GLOBALS['_FormDislayGroup'] = 1;
         $opts = array();

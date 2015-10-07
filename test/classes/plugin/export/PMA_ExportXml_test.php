@@ -1,23 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportXml class
+ * tests for PMA\libraries\plugins\export\ExportXml class
  *
  * @package PhpMyAdmin-test
  */
+use PMA\libraries\plugins\export\ExportXml;
+use PMA\libraries\Table;
+
 $GLOBALS['db'] = 'db';
-require_once 'libraries/plugins/export/ExportXml.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
+
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Table.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
+
 /**
- * tests for ExportXml class
+ * tests for PMA\libraries\plugins\export\ExportXml class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -56,23 +55,23 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportXml::setProperties
+     * Test for PMA\libraries\plugins\export\ExportXml::setProperties
      *
      * @return void
      * @group medium
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportXml', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportXml', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportXml', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportXml', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -94,7 +93,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -108,7 +107,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -122,14 +121,14 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'HiddenPropertyItem',
+            'PMA\libraries\properties\options\items\HiddenPropertyItem',
             $property
         );
 
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -143,42 +142,42 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -192,13 +191,13 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
     }
 
     /**
-     * Test for ExportXml::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportXml::exportHeader
      *
      * @return void
      * @group medium
@@ -231,7 +230,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ),
             'table' => array(null, '"tbl"')
         );
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -313,7 +312,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'd<"b')));
+            ->will($this->returnValue(new Table('table', 'd<"b')));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -369,7 +368,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
             )
         );
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -418,7 +417,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue(new PMA_Table('table', 'd<"b')));
+            ->will($this->returnValue(new Table('table', 'd<"b')));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -442,7 +441,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportXml::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportXml::exportFooter
      *
      * @return void
      */
@@ -457,7 +456,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportXml::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportXml::exportDBHeader
      *
      * @return void
      */
@@ -484,7 +483,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportXml::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportXml::exportDBFooter
      *
      * @return void
      */
@@ -511,7 +510,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportXml::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportXml::exportDBCreate
      *
      * @return void
      */
@@ -523,7 +522,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportXml::exportData
+     * Test for PMA\libraries\plugins\export\ExportXml::exportData
      *
      * @return void
      */
@@ -531,13 +530,13 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['xml_export_contents'] = true;
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

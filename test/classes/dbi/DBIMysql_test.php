@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_DBI_Mysql class
+ * Tests for PMA\libraries\dbi\DBIMysql class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,16 +8,17 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+
+use PMA\libraries\dbi\DBIMysql;
+
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Index.class.php';
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/dbi/DBIMysql.class.php';
 
 /**
- * Tests for PMA_DBI_Mysql class
+ * Tests for PMA\libraries\dbi\DBIMysql class
  *
  * @package PhpMyAdmin-test
  */
@@ -43,7 +44,7 @@ class PMA_DBI_Mysql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['ssl'] = true;
         $GLOBALS['cfg']['PersistentConnections'] = false;
         $GLOBALS['cfg']['Server']['compress'] = true;
-        $this->object = new PMA_DBI_Mysql();
+        $this->object = new DBIMysql();
     }
 
     /**

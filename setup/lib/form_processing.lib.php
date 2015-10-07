@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-Setup
  */
+use PMA\libraries\config\FormDisplay;
 
 /**
  * Processes forms registered in $form_display, handles error correction

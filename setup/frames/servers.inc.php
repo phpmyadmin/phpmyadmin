@@ -6,6 +6,9 @@
  * @package PhpMyAdmin-Setup
  */
 
+use PMA\libraries\config\ConfigFile;
+use PMA\libraries\config\FormDisplay;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }
@@ -13,8 +16,6 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Core libraries.
  */
-require_once './libraries/config/Form.class.php';
-require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/form_processing.lib.php';
 
 require './libraries/config/setup.forms.php';

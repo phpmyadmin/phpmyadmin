@@ -7,6 +7,9 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+use PMA\libraries\PMA_String;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -15,7 +18,6 @@ if (! defined('PHPMYADMIN')) {
  * String handling (security)
  */
 require_once 'libraries/string.lib.php';
-require_once 'libraries/String.class.php';
 $PMA_String = new PMA_String();
 
 /**
@@ -221,9 +223,9 @@ function PMA_fatalError(
     }
 
     if ($GLOBALS['is_ajax_request']) {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->setRequestStatus(false);
-        $response->addJSON('message', PMA_Message::error($error_message));
+        $response->addJSON('message', PMA\libraries\Message::error($error_message));
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
 
@@ -341,8 +343,8 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 function PMA_getTableCount($db)
 {
     $tables = $GLOBALS['dbi']->tryQuery(
-        'SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';',
-        null, PMA_DatabaseInterface::QUERY_STORE
+        'SHOW TABLES FROM ' . PMA\libraries\Util::backquote($db) . ';',
+        null, PMA\libraries\DatabaseInterface::QUERY_STORE
     );
     if ($tables) {
         $num_tables = $GLOBALS['dbi']->numRows($tables);
@@ -588,11 +590,9 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
     if (PMA_IS_IIS && /*overload*/mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
-        PMA_Response::getInstance()->disable();
+        PMA\libraries\Response::getInstance()->disable();
 
-        include_once './libraries/Template.class.php';
-
-        echo PMA\Template::get('header_location')
+        echo PMA\libraries\Template::get('header_location')
             ->render(array('uri' => $uri));
 
         return;
@@ -866,7 +866,7 @@ function PMA_isAllowedDomain($url)
 
 
 /**
- * Adds JS code snippets to be displayed by the PMA_Response class.
+ * Adds JS code snippets to be displayed by the PMA\libraries\Response class.
  * Adds a newline to each snippet.
  *
  * @param string $str Js code to be added (e.g. "token=1234;")
@@ -875,7 +875,7 @@ function PMA_isAllowedDomain($url)
  */
 function PMA_addJSCode($str)
 {
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
     $scripts->addCode($str);
@@ -883,7 +883,7 @@ function PMA_addJSCode($str)
 
 /**
  * Adds JS code snippet for variable assignment
- * to be displayed by the PMA_Response class.
+ * to be displayed by the PMA\libraries\Response class.
  *
  * @param string $key    Name of value to set
  * @param mixed  $value  Value to set, can be either string or array of strings
@@ -927,13 +927,13 @@ function PMA_previewSQL($query_data)
         $retval .= __('No change');
     } elseif (is_array($query_data)) {
         foreach ($query_data as $query) {
-            $retval .= PMA_Util::formatSql($query);
+            $retval .= PMA\libraries\Util::formatSql($query);
         }
     } else {
-        $retval .= PMA_Util::formatSql($query_data);
+        $retval .= PMA\libraries\Util::formatSql($query_data);
     }
     $retval .= '</div>';
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     $response->addJSON('sql_data', $retval);
     exit;
 }

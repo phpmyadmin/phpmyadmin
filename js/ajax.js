@@ -747,7 +747,7 @@ $(function () {
                 //TODO: Check if sometimes menu is not retrieved from server,
                 // Not sure but it seems menu was missing only for printview which
                 // been removed lately, so if it's right some dead menu checks/fallbacks
-                // may need to be removed from this file and Header.class.php
+                // may need to be removed from this file and Header.php
                 //AJAX.handleMenu.replace(event.originalEvent.state.menu);
             }
         });

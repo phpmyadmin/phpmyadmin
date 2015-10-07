@@ -9,9 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/dbi/DBIDummy.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/SystemDatabase.class.php';
+require_once 'libraries/dbi/DBIDummy.php';
 
 /**
  * Tests basic functionality of dummy dbi driver
@@ -30,8 +28,8 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        //$extension = new PMA_DBI_Dummy();
-        $extension = $this->getMockBuilder('PMA_DBI_Dummy')
+        //$extension = new DBIDummy();
+        $extension = $this->getMockBuilder('DBIDummy')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -57,7 +55,7 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $this->_dbi = new PMA_DatabaseInterface($extension);
+        $this->_dbi = new PMA\libraries\DatabaseInterface($extension);
     }
 
     /**
@@ -104,7 +102,7 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
     public function testGetSystemDatabase()
     {
         $sd = $this->_dbi->getSystemDatabase();
-        $this->assertInstanceOf('PMA\\SystemDatabase', $sd);
+        $this->assertInstanceOf('PMA\libraries\SystemDatabase', $sd);
     }
 }
 

@@ -1,18 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Node_Table class
+ * Tests for PMA\libraries\navigation\nodes\NodeTable class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/navigation/NodeFactory.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
+use PMA\libraries\navigation\NodeFactory;
+use PMA\libraries\Theme;
+
+require_once 'libraries/navigation/NodeFactory.php';
+
+
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- * Tests for Node_Table class
+ * Tests for PMA\libraries\navigation\nodes\NodeTable class
  *
  * @package PhpMyAdmin-test
  */
@@ -34,7 +37,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
         $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '__';
         $GLOBALS['cfg']['NavigationTreeTableLevel'] = 1;
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
 
@@ -45,7 +48,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Table');
+        $parent = NodeFactory::getInstance('NodeTable');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -69,7 +72,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
     public function testIcon($target, $imageName)
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
-        $node = PMA_NodeFactory::getInstance('Node_Table');
+        $node = NodeFactory::getInstance('NodeTable');
         $this->assertContains($imageName, $node->icon[0]);
     }
 

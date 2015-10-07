@@ -8,12 +8,13 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage [TransformationName]
  */
+namespace PMA\libraries\plugins\transformations\abs;
+
+use PMA\libraries\plugins\IOTransformationsPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the transformations interface */
-require_once 'libraries/plugins/TransformationsPlugin.class.php';
 
 /**
  * Provides common methods for all of the [TransformationName] transformations plugins.

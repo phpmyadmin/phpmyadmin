@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_Menu class
+ * Test for Menu class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,21 +9,19 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Menu;
+use PMA\libraries\Theme;
+
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Menu.class.php';
-require_once 'libraries/Table.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/select_lang.lib.php';
 require_once 'libraries/relation.lib.php';
 
 /**
- * Test for PMA_Menu class
+ * Test for Menu class
  *
  * @package PhpMyAdmin-test
  */
@@ -44,7 +42,7 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'both';
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
@@ -67,7 +65,7 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
      */
     function testServer()
     {
-        $menu = new PMA_Menu('server', '', '');
+        $menu = new Menu('server', '', '');
         $this->assertContains(
             'floating_menubar',
             $menu->getDisplay()
@@ -81,7 +79,7 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
      */
     function testDatabase()
     {
-        $menu = new PMA_Menu('server', 'pma_test', '');
+        $menu = new Menu('server', 'pma_test', '');
         $this->assertContains(
             'floating_menubar',
             $menu->getDisplay()
@@ -95,7 +93,7 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
      */
     function testTable()
     {
-        $menu = new PMA_Menu('server', 'pma_test', 'table1');
+        $menu = new Menu('server', 'pma_test', 'table1');
         $this->assertContains(
             'floating_menubar',
             $menu->getDisplay()
@@ -109,7 +107,7 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
      */
     function testTableDisplay()
     {
-        $menu = new PMA_Menu('server', 'pma_test', '');
+        $menu = new Menu('server', 'pma_test', '');
         $this->expectOutputString(
             $menu->getDisplay()
         );
@@ -124,7 +122,7 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
      */
     function testSetTable()
     {
-        $menu = new PMA_Menu('server', 'pma_test', '');
+        $menu = new Menu('server', 'pma_test', '');
         $menu->setTable('table1');
         $this->assertContains(
             'table1',

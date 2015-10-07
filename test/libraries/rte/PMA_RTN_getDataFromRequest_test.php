@@ -6,9 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/Util.class.php';
+use PMA\libraries\TypesMySQL;
+
 require_once 'libraries/php-gettext/gettext.inc';
-require_once './libraries/Types.class.php';
+
 
 /*
  * Include to test.
@@ -33,7 +34,7 @@ class PMA_RTN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
 
         $cfg['ShowFunctionFields'] = false;
 
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
     }
 
     /**

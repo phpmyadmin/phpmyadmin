@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA_Util::getCheckbox from Util.class.php
+ ** Test for PMA\libraries\Util::getCheckbox from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,10 +10,10 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+
 
 /**
- ** Test for PMA_Util::getCheckbox from Util.class.php
+ ** Test for PMA\libraries\Util::getCheckbox from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -31,7 +31,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_Util::getCheckbox($name, $label, false, false, $name),
+            PMA\libraries\Util::getCheckbox($name, $label, false, false, $name),
             '<input type="checkbox" name="' . $name . '" id="' . $name
             . '" /><label for="' . $name . '">' . $label
             . '</label>'
@@ -49,7 +49,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_Util::getCheckbox($name, $label, true, false, $name),
+            PMA\libraries\Util::getCheckbox($name, $label, true, false, $name),
             '<input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" /><label for="' . $name . '">' . $label
             . '</label>'
@@ -67,7 +67,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_Util::getCheckbox($name, $label, false, true, $name),
+            PMA\libraries\Util::getCheckbox($name, $label, false, true, $name),
             '<input type="checkbox" name="' . $name . '" id="' . $name
             . '" class="autosubmit" /><label for="' . $name . '">' . $label
             . '</label>'
@@ -85,7 +85,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_Util::getCheckbox($name, $label, true, true, $name),
+            PMA\libraries\Util::getCheckbox($name, $label, true, true, $name),
             '<input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" class="autosubmit" /><label for="' . $name
             . '">' . $label . '</label>'

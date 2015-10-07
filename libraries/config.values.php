@@ -219,7 +219,7 @@ $cfg_db['Export']['texytext_null'] = 'short_string';
 $cfg_db['_overrides'] = array();
 
 /**
- * Basic validator assignments (functions from libraries/config/Validator.class.php
+ * Basic validator assignments (functions from libraries/config/Validator.php
  * and 'validators' object in js/config.js)
  * Use only full paths and form ids
  */

@@ -37,10 +37,10 @@ TN="`echo $TN`"
 TN="`echo $TN |  sed -e 's/_./\U&\E/g'`"
 
 # define the name of the main class file and of its template
-ClassFile=$MT\_$MS\_$TN.class.php
+ClassFile=$MT\_$MS\_$TN.php
 Template=TEMPLATE
 # define the name of the abstract class file and its template
-AbstractClassFile=abstract/"$TN"TransformationsPlugin.class.php
+AbstractClassFile=abs/"$TN"TransformationsPlugin.php
 AbstractTemplate=TEMPLATE_ABSTRACT
 # replace template names with argument names
 sed "s/\[MIMEType]/$MT/; s/\[MIMESubtype\]/$MS/; s/\[TransformationName\]/$TN/;" < $Template > $ClassFile

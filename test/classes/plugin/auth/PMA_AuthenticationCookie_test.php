@@ -1,29 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for AuthenticationCookie class
+ * tests for PMA\libraries\plugins\auth\AuthenticationCookie class
  *
  * @package PhpMyAdmin-test
  */
 
-$GLOBALS['PMA_Config'] = new PMA_Config();
+use PMA\libraries\plugins\auth\AuthenticationCookie;
+use PMA\libraries\Theme;
 
-require_once 'libraries/plugins/auth/AuthenticationCookie.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Message.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+$GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
-require_once 'libraries/Error_Handler.class.php';
-require_once 'libraries/Response.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/select_lang.lib.php';
+require_once 'libraries/plugins/auth/AuthenticationCookie.php';
 
 /**
- * tests for AuthenticationCookie class
+ * tests for PMA\libraries\plugins\auth\AuthenticationCookie class
  *
  * @package PhpMyAdmin-test
  */
@@ -52,8 +49,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table';
         $this->object = new AuthenticationCookie();
 
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -67,17 +64,17 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::auth
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::auth
      *
      * @return void
      * @group medium
      */
     public function testAuth()
     {
-        $restoreInstance = PMA_Response::getInstance();
+        $restoreInstance = PMA\libraries\Response::getInstance();
         // Case 1
 
-        $mockResponse = $this->getMockBuilder('PMA_Response')
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'setRequestStatus', 'addJSON'))
             ->getMock();
@@ -98,7 +95,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
                 '1'
             );
 
-        $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
         $GLOBALS['conn_error'] = true;
@@ -109,7 +106,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // Case 2
 
-        $mockResponse = $this->getMockBuilder('PMA_Response')
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'getFooter', 'getHeader'))
             ->getMock();
@@ -126,7 +123,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pma_auth_server'] = 'localhost';
 
         // mock footer
-        $mockFooter = $this->getMockBuilder('PMA_Footer')
+        $mockFooter = $this->getMockBuilder('PMA\libraries\Footer')
             ->disableOriginalConstructor()
             ->setMethods(array('setMinimal'))
             ->getMock();
@@ -137,7 +134,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // mock header
 
-        $mockHeader = $this->getMockBuilder('PMA_Header')
+        $mockHeader = $this->getMockBuilder('PMA\libraries\Header')
             ->disableOriginalConstructor()
             ->setMethods(
                 array(
@@ -177,7 +174,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->with()
             ->will($this->returnValue($mockHeader));
 
-        $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
@@ -196,7 +193,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // mock error handler
 
-        $mockErrorHandler = $this->getMockBuilder('PMA_Error_Handler')
+        $mockErrorHandler = $this->getMockBuilder('PMA\libraries\ErrorHandler')
             ->disableOriginalConstructor()
             ->setMethods(array('hasDisplayErrors', 'dispErrors'))
             ->getMock();
@@ -278,7 +275,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // case 3
 
-        $mockResponse = $this->getMockBuilder('PMA_Response')
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'getFooter', 'getHeader'))
             ->getMock();
@@ -291,17 +288,17 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $mockResponse->expects($this->once())
             ->method('getFooter')
             ->with()
-            ->will($this->returnValue(new PMA_Footer()));
+            ->will($this->returnValue(new PMA\libraries\Footer()));
 
         $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue(new PMA_Header()));
+            ->will($this->returnValue(new PMA\libraries\Header()));
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
 
-        $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
@@ -313,7 +310,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['error_handler'] = new PMA_Error_Handler;
+        $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler;
 
         ob_start();
         $this->object->auth();
@@ -358,7 +355,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::auth with headers
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::auth with headers
      *
      * @return void
      */
@@ -370,9 +367,9 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             );
         }
 
-        $restoreInstance = PMA_Response::getInstance();
+        $restoreInstance = PMA\libraries\Response::getInstance();
 
-        $mockResponse = $this->getMockBuilder('PMA_Response')
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax'))
             ->getMock();
@@ -382,7 +379,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->with()
             ->will($this->returnValue(false));
 
-        $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
@@ -402,7 +399,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authCheck
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
      *
      * @return void
      */
@@ -549,7 +546,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authCheck with constant modifications
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck with constant modifications
      *
      * @return void
      */
@@ -596,7 +593,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authCheck (mock blowfish functions reqd)
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck (mock blowfish functions reqd)
      *
      * @return void
      */
@@ -615,7 +612,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
 
         // mock for blowfish function
-        $this->object = $this->getMockBuilder('AuthenticationCookie')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('cookieDecrypt'))
             ->getMock();
@@ -635,7 +632,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authCheck (mocking blowfish functions)
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck (mocking blowfish functions)
      *
      * @return void
      */
@@ -656,7 +653,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
 
         // mock for blowfish function
-        $this->object = $this->getMockBuilder('AuthenticationCookie')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('cookieDecrypt'))
             ->getMock();
@@ -681,7 +678,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authCheck (mocking the object itself)
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck (mocking the object itself)
      *
      * @return void
      */
@@ -701,7 +698,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LoginCookieValidity'] = 0;
         $_SESSION['last_access_time'] = -1;
         // mock for blowfish function
-        $this->object = $this->getMockBuilder('AuthenticationCookie')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('authFails'))
             ->getMock();
@@ -719,7 +716,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authSetUser
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authSetUser
      *
      * @return void
      */
@@ -776,7 +773,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authSetUser (check for headers redirect)
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authSetUser (check for headers redirect)
      *
      * @return void
      */
@@ -811,9 +808,9 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['PmaAbsoluteUri'] = 'http://phpmyadmin.net/';
         $GLOBALS['collation_connection'] = 'utf-8';
 
-        $restoreInstance = PMA_Response::getInstance();
+        $restoreInstance = PMA\libraries\Response::getInstance();
 
-        $mockResponse = $this->getMockBuilder('PMA_Response')
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('disable'))
             ->getMock();
@@ -821,7 +818,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $mockResponse->expects($this->at(0))
             ->method('disable');
 
-        $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
@@ -851,7 +848,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authFails
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authFails
      *
      * @return void
      */
@@ -863,7 +860,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             );
         }
 
-        $this->object = $this->getMockBuilder('AuthenticationCookie')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();
@@ -921,7 +918,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // case 4
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -956,14 +953,14 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::_getEncryptionSecret
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::_getEncryptionSecret
      *
      * @return void
      */
     public function testGetEncryptionSecret()
     {
         $method = new \ReflectionMethod(
-            'AuthenticationCookie',
+            'PMA\libraries\plugins\auth\AuthenticationCookie',
             '_getEncryptionSecret'
         );
         $method->setAccessible(true);
@@ -998,7 +995,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::cookieEncrypt
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieEncrypt
      *
      * @return void
      */
@@ -1013,7 +1010,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::cookieDecrypt
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
      *
      * @return void
      */

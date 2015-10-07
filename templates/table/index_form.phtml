@@ -13,8 +13,8 @@
                 <div class="label">
                     <strong>
                         <label for="input_index_name">
-                            <?php echo __('Index name:') . PMA_Util::showHint(
-                                PMA_Message::notice(
+                            <?php echo __('Index name:') . PMA\libraries\Util::showHint(
+                                PMA\libraries\Message::notice(
                                     __(
                                         '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'
                                     )
@@ -37,7 +37,7 @@
                 <div class="label">
                     <strong>
                         <label for="select_index_choice">
-                            <?php echo __('Index choice:') . PMA_Util::showMySQLDocu('ALTER_TABLE'); ?>
+                            <?php echo __('Index choice:') . PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'); ?>
                         </label>
                     </strong>
                 </div>
@@ -45,7 +45,7 @@
                 <?php echo $index->generateIndexChoiceSelector(isset($_REQUEST['create_edit_table'])); ?>
             </div>
 
-            <?php echo PMA_Util::getDivForSliderEffect(
+            <?php echo PMA\libraries\Util::getDivForSliderEffect(
                 'indexoptions', __('Options')
             ); ?>
 
@@ -71,7 +71,7 @@
                 <div class="label">
                     <strong>
                         <label for="select_index_type">
-                            <?php echo __('Index type:') . PMA_Util::showMySQLDocu('ALTER_TABLE'); ?>
+                            <?php echo __('Index type:') . PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'); ?>
                         </label>
                     </strong>
                 </div>
@@ -141,7 +141,7 @@
             ); ?>
             <tbody>
 
-                <?php /* @var $column PMA_Index_Column */
+                <?php /* @var $column PMA\libraries\IndexColumn */
                 foreach ($index->getColumns() as $column): ?>
 
                     <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>noclick">

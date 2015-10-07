@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_Header class
+ * Test for PMA\libraries\Header class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,15 +9,11 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Theme;
+
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/Header.class.php';
-require_once 'libraries/Table.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Config.class.php';
-require_once 'libraries/Theme.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/select_lang.lib.php';
@@ -25,7 +21,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
- * Test for PMA_Header class
+ * Test for PMA\libraries\Header class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -45,14 +41,14 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['is_ajax_request'] = false;
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table1';
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
@@ -67,7 +63,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisable()
     {
-        $header = new PMA_Header();
+        $header = new PMA\libraries\Header();
         $header->disable();
         $this->assertEquals(
             '',
@@ -82,7 +78,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetBodyId()
     {
-        $header = new PMA_Header();
+        $header = new PMA\libraries\Header();
         $header->setBodyId('PMA_header_id');
         $this->assertContains(
             'PMA_header_id',
@@ -97,7 +93,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      */
     public function testPrintView()
     {
-        $header = new PMA_Header();
+        $header = new PMA\libraries\Header();
         $header->enablePrintView();
         $this->assertContains(
             'Print view',
@@ -112,7 +108,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetJsParams()
     {
-        $header = new PMA_Header();
+        $header = new PMA\libraries\Header();
         $this->assertArrayHasKey(
             'common_query',
             $header->getJsParams()
@@ -126,7 +122,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetJsParamsCode()
     {
-        $header = new PMA_Header();
+        $header = new PMA\libraries\Header();
         $this->assertContains(
             'PMA_commonParams.setAll',
             $header->getJsParamsCode()
@@ -140,7 +136,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetMessage()
     {
-        $header = new PMA_Header();
+        $header = new PMA\libraries\Header();
         $this->assertContains(
             'phpmyadminmessage',
             $header->getMessage()
@@ -155,7 +151,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisableWarnings()
     {
-        $header = new PMA_Header();
+        $header = new PMA\libraries\Header();
         $header->disableWarnings();
         $this->assertAttributeEquals(
             false,
@@ -173,11 +169,11 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
     public function testGetWarningsWithWarningsDisabled()
     {
         $method = new ReflectionMethod(
-            'PMA_Header', '_getWarnings'
+            'PMA\libraries\Header', '_getWarnings'
         );
         $method->setAccessible(true);
 
-        $header = new PMA_Header();
+        $header = new PMA\libraries\Header();
         $header->disableWarnings();
         $this->assertEmpty($method->invoke($header));
     }

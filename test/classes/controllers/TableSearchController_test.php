@@ -9,17 +9,12 @@
 /*
  * Include to test.
  */
-use PMA\Controllers\Table\TableSearchController;
-use PMA\DI\Container;
+use PMA\libraries\controllers\table\TableSearchController;
+use PMA\libraries\di\Container;
+use PMA\libraries\Theme;
+use PMA\libraries\TypesMySQL;
 
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Tracker.class.php';
-require_once 'libraries/Types.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
-require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableSearchController.class.php';
 
 /**
  * Tests for PMA_TableSearch
@@ -29,7 +24,7 @@ require_once 'libraries/controllers/TableSearchController.class.php';
 class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PMA\Test\Stubs\PMA_Response
+     * @var PMA\Test\Stubs\Response
      */
     private $response;
 
@@ -44,7 +39,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         /**
          * SET these to avoid undefined index error
          */
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $_POST['zoom_submit'] = 'zoom';
 
         $GLOBALS['server'] = 1;
@@ -52,7 +47,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['maxRowPlotLimit'] = 500;
@@ -64,7 +59,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['cfg']['TabsMode'] = 'text';
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -101,7 +96,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->response = new PMA\Test\Stubs\PMA_Response();
+        $this->response = new PMA\Test\Stubs\Response();
 
         $container = Container::getDefaultContainer();
         $container->set('db', 'PMA');
@@ -163,7 +158,7 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
         $_POST['order'] = "asc";
         $_POST['customWhereClause'] = "name='pma'";
 
-        $class = new ReflectionClass('PMA\Controllers\Table\TableSearchController');
+        $class = new ReflectionClass('PMA\libraries\controllers\table\TableSearchController');
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
         $tableSearch = new TableSearchController("zoom", null);
@@ -255,9 +250,9 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableSearchController');
+        $container->factory('PMA\libraries\controllers\table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -279,21 +274,21 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGenerateWhereClause()
     {
-        $types = $this->getMockBuilder('PMA_Types')
+        $types = $this->getMockBuilder('PMA\libraries\Types')
             ->disableOriginalConstructor()
             ->getMock();
         $types->expects($this->any())->method('isUnaryOperator')
             ->will($this->returnValue(false));
         $GLOBALS['PMA_Types'] = $types;
 
-        $class = new ReflectionClass('\PMA\Controllers\Table\TableSearchController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\Table\TableSearchController');
         $method = $class->getMethod('_generateWhereClause');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('\PMA\Controllers\Table\TableSearchController');
+        $container->factory('\PMA\libraries\controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -370,9 +365,9 @@ class PMA_TableSearchController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('\PMA\Controllers\Table\TableSearchController');
+        $container->factory('\PMA\libraries\controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 

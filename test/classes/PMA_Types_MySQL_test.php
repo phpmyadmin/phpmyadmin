@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Types.class.php
+ * Tests for Types.php
  *
  * @package PhpMyAdmin-test
  */
@@ -9,7 +9,8 @@
  * Include to test.
  */
 
-require_once 'libraries/Types.class.php';
+use PMA\libraries\TypesMySQL;
+
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
@@ -20,7 +21,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PMA_Types
+     * @var PMA\libraries\Types
      */
     protected $object;
 
@@ -32,7 +33,7 @@ class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Types_MySQL();
+        $this->object = new TypesMySQL();
     }
 
     /**

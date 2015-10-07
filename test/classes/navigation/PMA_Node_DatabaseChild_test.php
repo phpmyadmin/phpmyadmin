@@ -1,29 +1,28 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for Node_DatabaseChild
+ * Test for PMA\libraries\navigation\nodes\NodeDatabaseChild
  *
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\navigation\NodeFactory;
+use PMA\libraries\navigation\nodes\NodeDatabaseChild;
+use PMA\libraries\Theme;
+
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/navigation/Nodes/Node.class.php';
-require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
-require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- * Tests for Node_DatabaseChild class
+ * Tests for PMA\libraries\navigation\nodes\NodeDatabaseChild class
  *
  * @package PhpMyAdmin-test
  */
 class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var Node_DatabaseChild
+     * @var NodeDatabaseChild
      */
     protected $object;
 
@@ -35,7 +34,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
@@ -44,7 +43,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
         $_SESSION['relation'][1]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][1]['navwork'] = true;
         $this->object = $this->getMockForAbstractClass(
-            'Node_DatabaseChild', array('child')
+            'PMA\libraries\navigation\nodes\NodeDatabaseChild', array('child')
         );
     }
 
@@ -67,7 +66,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForControlButtons()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Database', 'parent');
+        $parent = NodeFactory::getInstance('NodeDatabase', 'parent');
         $parent->addChild($this->object);
         $this->object->expects($this->once())
             ->method('getItemType')

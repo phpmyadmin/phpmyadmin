@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\gis\GISFactory;
+use PMA\libraries\gis\GISVisualization;
+use PMA\libraries\PMA_String;
 
 /**
  * Escapes special characters if the variable is set.
@@ -20,8 +23,6 @@ function escape($variable)
 }
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/gis/GIS_Factory.class.php';
-require_once 'libraries/gis/GIS_Visualization.class.php';
 
 // Get data if any posted
 $gis_data = array();
@@ -39,7 +40,7 @@ $gis_types = array(
     'GEOMETRYCOLLECTION'
 );
 
-/** @var PMA_String $pmaString */
+/** @var String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
 
 // Extract type from the initial call and make sure that it's a valid one.
@@ -65,7 +66,7 @@ if (! isset($gis_data['gis_type'])) {
 $geom_type = $gis_data['gis_type'];
 
 // Generate parameters from value passed.
-$gis_obj = PMA_GIS_Factory::factory($geom_type);
+$gis_obj = GISFactory::factory($geom_type);
 if (isset($_REQUEST['value'])) {
     $gis_data = array_merge(
         $gis_data, $gis_obj->generateParams($_REQUEST['value'])
@@ -88,10 +89,10 @@ $visualizationSettings = array(
     'spatialColumn' => 'wkt'
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
-$visualization = PMA_GIS_Visualization::getByData($data, $visualizationSettings)
+$visualization = GISVisualization::getByData($data, $visualizationSettings)
     ->toImage($format);
 
-$open_layers = PMA_GIS_Visualization::getByData($data, $visualizationSettings)
+$open_layers = GISVisualization::getByData($data, $visualizationSettings)
     ->asOl();
 
 // If the call is to update the WKT and visualization make an AJAX response
@@ -101,7 +102,7 @@ if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
         'visualization' => $visualization,
         'openLayers'    => $open_layers,
     );
-    $response = PMA_Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
     $response->addJSON($extra_data);
     exit;
 }
@@ -424,5 +425,5 @@ echo '</div>';
 echo '</div>';
 echo '</form>';
 
-PMA_Response::getInstance()->addJSON('gis_editor', ob_get_contents());
+PMA\libraries\Response::getInstance()->addJSON('gis_editor', ob_get_contents());
 ob_end_clean();

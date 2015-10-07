@@ -3,7 +3,7 @@ $options = array(
     ''           =>  '',
     'VIRTUAL'    => 'VIRTUAL',
 );
-$serverType = PMA_Util::getServerType();
+$serverType = PMA\libraries\Util::getServerType();
 if ($serverType == 'MariaDB') {
     $options['PERSISTENT'] = 'PERSISTENT';
 } else {

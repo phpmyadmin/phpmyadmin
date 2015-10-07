@@ -10,7 +10,7 @@
  * Gets core libraries and defines some variables
  */
 require_once 'libraries/common.inc.php';
-PMA_Response::getInstance()->disable();
+PMA\libraries\Response::getInstance()->disable();
 
 /**
  * Displays PHP information

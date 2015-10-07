@@ -1,24 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for AuthenticationHttp class
+ * tests for PMA\libraries\plugins\auth\AuthenticationHttp class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/plugins/auth/AuthenticationHttp.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Message.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+use PMA\libraries\plugins\auth\AuthenticationHttp;
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
-require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/sanitizing.lib.php';
 
 /**
- * tests for AuthenticationHttp class
+ * tests for PMA\libraries\plugins\auth\AuthenticationHttp class
  *
  * @package PhpMyAdmin-test
  */
@@ -36,7 +31,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA_Config;
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
@@ -61,7 +56,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationHttp::auth
+     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::auth
      *
      * @return void
      */
@@ -87,10 +82,10 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
         // case 2
 
-        $restoreInstance = PMA_Response::getInstance();
+        $restoreInstance = PMA\libraries\Response::getInstance();
 
         // mock footer
-        $mockFooter = $this->getMockBuilder('PMA_Footer')
+        $mockFooter = $this->getMockBuilder('PMA\libraries\Footer')
             ->disableOriginalConstructor()
             ->setMethods(array('setMinimal'))
             ->getMock();
@@ -101,7 +96,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
         // mock header
 
-        $mockHeader = $this->getMockBuilder('PMA_Header')
+        $mockHeader = $this->getMockBuilder('PMA\libraries\Header')
             ->disableOriginalConstructor()
             ->setMethods(
                 array('setBodyId', 'setTitle', 'disableMenuAndConsole', 'addHTML')
@@ -121,7 +116,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             ->with();
 
         // set mocked headers and footers
-        $mockResponse = $this->getMockBuilder('PMA_Response')
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('getHeader', 'getFooter', 'addHTML'))
             ->getMock();
@@ -140,7 +135,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             ->method('addHTML')
             ->with();
 
-        $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
@@ -201,7 +196,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationHttp::authCheck
+     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::authCheck
      *
      * @param string $user           test username
      * @param string $pass           test password
@@ -303,7 +298,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationHttp::authSetUser
+     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::authSetUser
      *
      * @return void
      */
@@ -411,7 +406,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationHttp::authSetFails
+     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::authSetFails
      *
      * @return void
      *
@@ -420,7 +415,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
     public function testAuthFails()
     {
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -448,7 +443,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $this->object = $this->getMockBuilder('AuthenticationHttp')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationHttp')
             ->disableOriginalConstructor()
             ->setMethods(array('authForm'))
             ->getMock();

@@ -1,20 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportExcel class
+ * tests for PMA\libraries\plugins\export\ExportExcel class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportExcel.class.php';
+use PMA\libraries\plugins\export\ExportExcel;
+
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
 /**
- * tests for ExportExcel class
+ * tests for PMA\libraries\plugins\export\ExportExcel class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -45,22 +43,22 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportExcel::setProperties
+     * Test for PMA\libraries\plugins\export\ExportExcel::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportExcel', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportExcel', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportExcel', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportExcel', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -87,7 +85,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -100,7 +98,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -114,7 +112,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -131,7 +129,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -148,7 +146,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -165,7 +163,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'SelectPropertyItem',
+            'PMA\libraries\properties\options\items\SelectPropertyItem',
             $property
         );
 
@@ -191,7 +189,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'HiddenPropertyItem',
+            'PMA\libraries\properties\options\items\HiddenPropertyItem',
             $property
         );
 

@@ -12,7 +12,7 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/transformations.lib.php';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $header->disableMenuAndConsole();
 

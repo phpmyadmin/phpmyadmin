@@ -15,13 +15,12 @@ require_once 'libraries/common.inc.php';
  * Does the common work
  */
 require 'libraries/server_common.inc.php';
-require 'libraries/StorageEngine.class.php';
 require 'libraries/server_engines.lib.php';
 
 /**
  * Displays the sub-page heading
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML(PMA_getHtmlForSubPageHeader('engines'));
 
 /**

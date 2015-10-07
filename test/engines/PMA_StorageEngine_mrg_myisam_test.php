@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_StorageEngine_MrgMyisam
+ * Tests for PMA\libraries\engines\Mrg_Myisam
  *
  * @package PhpMyAdmin-test
  */
@@ -9,13 +9,12 @@
  * Include to test.
  */
 
-require_once 'libraries/StorageEngine.class.php';
-require_once 'libraries/engines/mrg_myisam.lib.php';
+use PMA\libraries\engines\Mrg_Myisam;
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
 
 /**
- * Tests for PMA_StorageEngine_MrgMyisam
+ * Tests for PMA\libraries\engines\Mrg_Myisam
  *
  * @package PhpMyAdmin-test
  */
@@ -35,7 +34,7 @@ class PMA_StorageEngine_MrgMyisam_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_MrgMyisam('mrg_myisam');
+        $this->object = new Mrg_Myisam('mrg_myisam');
     }
 
     /**

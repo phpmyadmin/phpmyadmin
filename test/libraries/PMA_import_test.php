@@ -20,8 +20,8 @@ $GLOBALS['server'] = 0;
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Tracker.class.php';
+
+
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'libraries/url_generating.lib.php';
@@ -336,7 +336,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -403,7 +403,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'sql_query' => PMA_Util::formatSql(
+                'sql_query' => PMA\libraries\Util::formatSql(
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,
@@ -422,7 +422,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

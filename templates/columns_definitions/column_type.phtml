@@ -3,5 +3,5 @@
         id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>"
         <?php if (isset($columnMeta['column_status']) && !$columnMeta['column_status']['isEditable'])
             echo 'disabled="disabled"'; ?>>
-    <?php echo PMA_Util::getSupportedDatatypes(true, $type_upper); ?>
+    <?php echo PMA\libraries\Util::getSupportedDatatypes(true, $type_upper); ?>
 </select>

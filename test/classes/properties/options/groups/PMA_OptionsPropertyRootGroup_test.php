@@ -1,16 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for OptionsPropertyRootGroup class
+ * tests for PMA\libraries\properties\options\groups\OptionsPropertyRootGroup class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/properties/options/groups/'
-    . 'OptionsPropertyRootGroup.class.php';
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 
 /**
- * tests for OptionsPropertyRootGroup class
+ * tests for PMA\libraries\properties\options\groups\OptionsPropertyRootGroup class
  *
  * @package PhpMyAdmin-test
  */
@@ -39,7 +38,7 @@ class PMA_OptionsPropertyRootGroup_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for OptionsPropertyRootGroup::getItemType
+     * Test for PMA\libraries\properties\options\groups\OptionsPropertyRootGroup::getItemType
      *
      * @return void
      */

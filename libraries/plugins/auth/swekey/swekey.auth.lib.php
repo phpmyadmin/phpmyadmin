@@ -6,6 +6,8 @@
  * @package Swekey
  */
 
+use PMA\libraries\Message;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -252,7 +254,7 @@ function Swekey_login($input_name, $input_go)
 {
     $swekeyErr = Swekey_Auth_error();
     if ($swekeyErr != null) {
-        PMA_Message::error($swekeyErr)->display();
+        Message::error($swekeyErr)->display();
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div>';
             $GLOBALS['error_handler']->dispErrors();

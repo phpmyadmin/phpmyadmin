@@ -5,7 +5,6 @@
  *
  * @package PhpMyAdmin
  */
-
 namespace PMA\Util;
 
 if (! defined('PHPMYADMIN')) {

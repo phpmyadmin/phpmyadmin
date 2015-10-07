@@ -18,10 +18,10 @@
         <?php else: ?>
             "
         <?php endif; ?> href="tbl_structure.php<?php echo $url_query; ?>&amp;add_key=1&amp;sql_query=<?php echo urlencode(
-                'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
+                'ALTER TABLE ' . PMA\libraries\Util::backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
                 . ' ' . $syntax . '('
-                . PMA_Util::backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf($message, htmlspecialchars($row['Field']))); ?>" >
+                . PMA\libraries\Util::backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf($message, htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles[$action]; ?>
     </a>
 <?php endif; ?>

@@ -1,23 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for AuthenticationConfig class
+ * tests for PMA\libraries\plugins\auth\AuthenticationConfig class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/plugins/auth/AuthenticationConfig.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+use PMA\libraries\plugins\auth\AuthenticationConfig;
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/Error_Handler.class.php';
-require_once 'libraries/Response.class.php';
+
 /**
- * tests for AuthenticationConfig class
+ * tests for PMA\libraries\plugins\auth\AuthenticationConfig class
  *
  * @package PhpMyAdmin-test
  */
@@ -32,7 +28,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
@@ -52,7 +48,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::auth
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::auth
      *
      * @return void
      */
@@ -64,7 +60,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authCheck
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
      *
      * @return void
      */
@@ -76,7 +72,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authSetUser
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authSetUser
      *
      * @return void
      */
@@ -88,14 +84,14 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::authFails
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authFails
      *
      * @return void
      */
     public function testAuthFails()
     {
         $removeConstant = false;
-        $GLOBALS['error_handler'] = new PMA_Error_Handler;
+        $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler;
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['allowDeny_forbidden'] = false;
         if (!defined('PMA_USR_BROWSER_AGENT')) {
@@ -108,7 +104,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
             }
         }
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

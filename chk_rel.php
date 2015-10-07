@@ -26,7 +26,7 @@ if (isset($_REQUEST['fix_pmadb'])) {
     PMA_fixPMATables($cfgRelation['db']);
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML(
     PMA_getRelationsParamDiagnostic($cfgRelation)
 );

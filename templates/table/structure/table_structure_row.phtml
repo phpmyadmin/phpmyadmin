@@ -25,7 +25,7 @@
 <td class="nowrap">
     <?php if (isset($row['Default'])): ?>
         <?php if ($extracted_columnspec['type'] == 'bit'): ?>
-            <?php echo PMA_Util::convertBitDefaultValue($row['Default']); ?>
+            <?php echo PMA\libraries\Util::convertBitDefaultValue($row['Default']); ?>
         <?php else: ?>
             <?php echo $row['Default']; ?>
         <?php endif;?>
@@ -42,8 +42,8 @@
     </td>
     <td class="drop center print_ignore">
         <a class="drop_column_anchor ajax" href="sql.php<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode(
-                'ALTER TABLE ' . PMA_Util::backquote($table)
-                . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo $field_encoded; ?>&amp;purge=1&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped.'), htmlspecialchars($row['Field']))) ?>" >
+                'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                . ' DROP ' . PMA\libraries\Util::backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo $field_encoded; ?>&amp;purge=1&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped.'), htmlspecialchars($row['Field']))) ?>" >
             <?php echo $titles['Drop']; ?>
         </a>
     </td>

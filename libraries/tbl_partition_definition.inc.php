@@ -1,5 +1,7 @@
 <?php
 
+use PMA\libraries\Template;
+
 if (!isset($partitionDetails)) {
 
     $partitionDetails = array();
@@ -112,5 +114,5 @@ if (!isset($partitionDetails)) {
     }
 }
 
-echo PMA\Template::get('columns_definitions/partitions')
+echo Template::get('columns_definitions/partitions')
     ->render(array('partitionDetails' => $partitionDetails));

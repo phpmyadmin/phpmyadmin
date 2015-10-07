@@ -8,6 +8,9 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+use PMA\libraries\Util;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -41,7 +44,7 @@ function PMA_getLogSelector($binary_logs, $url_params)
                 $html .= ' ('
                     . implode(
                         ' ',
-                        PMA_Util::formatByteDown(
+                        Util::formatByteDown(
                             $each_log['File_size'], 3, 2
                         )
                     )
@@ -53,7 +56,7 @@ function PMA_getLogSelector($binary_logs, $url_params)
         $html .= count($binary_logs) . ' ' . __('Files') . ', ';
         if ($full_size > 0) {
             $html .= implode(
-                ' ', PMA_Util::formatByteDown($full_size)
+                ' ', Util::formatByteDown($full_size)
             );
         }
         $html .= '</fieldset>';
@@ -114,7 +117,7 @@ function PMA_getLogInfo($url_params)
     }
 
     //html output
-    $html  = PMA_Util::getMessage(PMA_Message::success(), $sql_query);
+    $html  = Util::getMessage(Message::success(), $sql_query);
     $html .= '<table id="binlogTable">'
         . '<thead>'
         . '<tr>'
@@ -166,7 +169,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
 
         $html .= '<a href="server_binlog.php'
             . PMA_URL_getCommon($this_url_params) . '"';
-        if (PMA_Util::showIcons('TableNavigationLinksMode')) {
+        if (Util::showIcons('TableNavigationLinksMode')) {
             $html .= ' title="' . _pgettext('Previous page', 'Previous') . '">';
         } else {
             $html .= '>' . _pgettext('Previous page', 'Previous');
@@ -200,7 +203,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         $html .= ' - <a href="server_binlog.php'
             . PMA_URL_getCommon($this_url_params)
             . '"';
-        if (PMA_Util::showIcons('TableNavigationLinksMode')) {
+        if (Util::showIcons('TableNavigationLinksMode')) {
             $html .= ' title="' . _pgettext('Next page', 'Next') . '">';
         } else {
             $html .= '>' . _pgettext('Next page', 'Next');
@@ -233,7 +236,7 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
             . (isset($value['Orig_log_pos'])
             ? $value['Orig_log_pos'] : $value['End_log_pos'])
             . '</td>'
-            . '<td>' . PMA_Util::formatSql($value['Info'], ! $dontlimitchars)
+            . '<td>' . Util::formatSql($value['Info'], ! $dontlimitchars)
             . '</td></tr>';
 
         $odd_row = !$odd_row;

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -82,7 +84,7 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     );
 
     // See http://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-5.html
-    if (PMA_Util::getServerType() == 'MySQL'
+    if (PMA\libraries\Util::getServerType() == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50705
     ) {
         $html .= '<tr class="vmiddle">'
@@ -113,7 +115,7 @@ function PMA_getHtmlForChangePassword($username, $hostname)
             . '</label>'
             . '</td>'
             . '</tr>';
-    } elseif (PMA_Util::getServerType() == 'MySQL'
+    } elseif (PMA\libraries\Util::getServerType() == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50606
     ) {
         $html .= '<tr class="vmiddle" id="tr_element_before_generate_password">'
@@ -149,13 +151,13 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     $html .= '<div '
         . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
         . ' id="ssl_reqd_warning_cp">'
-        . PMA_Message::notice(
+        . Message::notice(
             __(
                 'This method requires using an \'<i>SSL connection</i>\' '
                 . 'or an \'<i>unencrypted connection that encrypts the password '
                 . 'using RSA</i>\'; while connecting to the server.'
             )
-            . PMA_Util::showMySQLDocu('sha256-authentication-plugin')
+            . PMA\libraries\Util::showMySQLDocu('sha256-authentication-plugin')
         )
             ->getDisplay()
         . '</div>';

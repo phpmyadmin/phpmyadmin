@@ -1,24 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for AuthenticationSignon class
+ * tests for PMA\libraries\plugins\auth\AuthenticationSignon class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/plugins/auth/AuthenticationSignon.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Message.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+use PMA\libraries\plugins\auth\AuthenticationSignon;
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Error_Handler.class.php';
 
 /**
- * tests for AuthenticationSignon class
+ * tests for PMA\libraries\plugins\auth\AuthenticationSignon class
  *
  * @package PhpMyAdmin-test
  */
@@ -33,7 +28,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA_Config;
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $this->object = new AuthenticationSignon();
@@ -50,7 +45,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationSignon::auth
+     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::auth
      *
      * @return void
      */
@@ -104,7 +99,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationSignon::authCheck
+     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authCheck
      *
      * @return void
      */
@@ -216,7 +211,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationSignon::authSetUser
+     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authSetUser
      *
      * @return void
      */
@@ -241,7 +236,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationSignon::authFails
+     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authFails
      *
      * @return void
      */
@@ -250,7 +245,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('AuthenticationSignon')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationSignon')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();
@@ -297,7 +292,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
         // case 4
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

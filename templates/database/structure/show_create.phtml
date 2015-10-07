@@ -13,7 +13,7 @@
     ?>
     <?php if (! empty($tables)): ?>
         <?php
-            echo PMA\Template::get('database/structure/show_create_row')->render(
+            echo PMA\libraries\Template::get('database/structure/show_create_row')->render(
               array(
                   'db' => $db,
                   'title' => __('Tables'),
@@ -26,7 +26,7 @@
 
     <?php if (! empty($views)): ?>
         <?php
-        echo PMA\Template::get('database/structure/show_create_row')->render(
+        echo PMA\libraries\Template::get('database/structure/show_create_row')->render(
             array(
                 'db' => $db,
                 'title' => __('Views'),

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA_Util::convertBitDefaultValue from common.lib
+ ** Test for PMA\libraries\Util::convertBitDefaultValue from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,10 +10,10 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+
 
 /**
- ** Test for PMA_Util::convertBitDefaultValue from common.lib
+ ** Test for PMA\libraries\Util::convertBitDefaultValue from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -50,7 +50,7 @@ class PMA_ConvertBitDefaultValueTest extends PHPUnit_Framework_TestCase
     public function testConvertBitDefaultValueTest($bit, $val)
     {
         $this->assertEquals(
-            $val, PMA_Util::convertBitDefaultValue($bit)
+            $val, PMA\libraries\Util::convertBitDefaultValue($bit)
         );
 
     }

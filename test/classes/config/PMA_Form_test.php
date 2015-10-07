@@ -6,11 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/config/ConfigFile.class.php';
-require_once 'libraries/config/Form.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
+use PMA\libraries\Config;
+use PMA\libraries\config\ConfigFile;
+use PMA\libraries\config\Form;
+use PMA\libraries\Theme;
+
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
@@ -32,10 +32,10 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $this->object = new Form(
@@ -82,7 +82,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetOptionType()
     {
-        $attrFieldsTypes = new \ReflectionProperty('Form', '_fieldsTypes');
+        $attrFieldsTypes = new \ReflectionProperty('PMA\libraries\config\Form', '_fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
@@ -138,7 +138,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
      */
     public function testReadFormPathsCallBack()
     {
-        $reflection = new \ReflectionClass('Form');
+        $reflection = new \ReflectionClass('PMA\libraries\config\Form');
         $method = $reflection->getMethod('_readFormPathsCallback');
         $method->setAccessible(true);
 
@@ -190,7 +190,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
      */
     public function testReadFormPaths()
     {
-        $reflection = new \ReflectionClass('Form');
+        $reflection = new \ReflectionClass('PMA\libraries\config\Form');
         $method = $reflection->getMethod('readFormPaths');
         $method->setAccessible(true);
 
@@ -245,7 +245,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
      */
     public function testReadTypes()
     {
-        $reflection = new \ReflectionClass('Form');
+        $reflection = new \ReflectionClass('PMA\libraries\config\Form');
         $method = $reflection->getMethod('readTypes');
         $method->setAccessible(true);
 
@@ -279,7 +279,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
      */
     public function testLoadForm()
     {
-        $this->object = $this->getMockBuilder('Form')
+        $this->object = $this->getMockBuilder('PMA\libraries\config\Form')
             ->disableOriginalConstructor()
             ->setMethods(array('readFormPaths', 'readTypes'))
             ->getMock();

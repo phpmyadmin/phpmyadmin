@@ -1,18 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_Util class
+ * Test for PMA\libraries\Util class
  *
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-require_once 'libraries/Util.class.php';
-
 /**
- * Test for PMA_Util class
+ * Test for PMA\libraries\Util class
  *
  * @package PhpMyAdmin-test
  */
@@ -28,11 +23,11 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "abc",
-            PMA_Util::createGISData("abc")
+            PMA\libraries\Util::createGISData("abc")
         );
         $this->assertEquals(
             "GeomFromText('POINT()',10)",
-            PMA_Util::createGISData("'POINT()',10")
+            PMA\libraries\Util::createGISData("'POINT()',10")
         );
     }
 
@@ -43,7 +38,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetGISFunctions()
     {
-        $funcs = PMA_Util::getGISFunctions();
+        $funcs = PMA\libraries\Util::getGISFunctions();
         $this->assertArrayHasKey(
             'Dimension',
             $funcs
@@ -67,7 +62,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertContains(
             '<select class="pageselector ajax" name="pma" >',
-            PMA_Util::pageselector("pma", 3)
+            PMA\libraries\Util::pageselector("pma", 3)
         );
     }
 
@@ -84,19 +79,19 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
         $this->assertEquals(
             true,
-            PMA_Util::isForeignKeyCheck()
+            PMA\libraries\Util::isForeignKeyCheck()
         );
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
         $this->assertEquals(
             false,
-            PMA_Util::isForeignKeyCheck()
+            PMA\libraries\Util::isForeignKeyCheck()
         );
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
         $this->assertEquals(
             true,
-            PMA_Util::isForeignKeyCheck()
+            PMA\libraries\Util::isForeignKeyCheck()
         );
     }
 

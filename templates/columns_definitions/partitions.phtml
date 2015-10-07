@@ -126,7 +126,7 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
                         <th class="vmiddle"><?php echo htmlspecialchars($subpartition['name']); ?></th>
                     <?php endif; ?>
                     <td>
-                        <?php echo PMA_StorageEngine::getHtmlSelect(
+                        <?php echo PMA\libraries\StorageEngine::getHtmlSelect(
                             $subpartition['prefix'] . '[engine]',
                             null,
                             $subpartition['engine'],

@@ -1,17 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Node_Trigger class
+ * Tests for PMA\libraries\navigation\nodes\NodeTrigger class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/navigation/NodeFactory.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
+use PMA\libraries\navigation\NodeFactory;
+use PMA\libraries\Theme;
+
+require_once 'libraries/navigation/NodeFactory.php';
+
+
 
 /**
- * Tests for Node_Trigger class
+ * Tests for PMA\libraries\navigation\nodes\NodeTrigger class
  *
  * @package PhpMyAdmin-test
  */
@@ -25,7 +28,7 @@ class Node_Trigger_Test extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 0;
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
 
@@ -36,7 +39,7 @@ class Node_Trigger_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Trigger');
+        $parent = NodeFactory::getInstance('NodeTrigger');
         $this->assertArrayHasKey(
             'text',
             $parent->links

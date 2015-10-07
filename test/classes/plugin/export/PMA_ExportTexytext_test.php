@@ -1,23 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportTexytext class
+ * tests for PMA\libraries\plugins\export\ExportTexytext class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportTexytext.class.php';
+use PMA\libraries\plugins\export\ExportTexytext;
+
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
-require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
+
 /**
- * tests for ExportTexytext class
+ * tests for PMA\libraries\plugins\export\ExportTexytext class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -56,22 +54,22 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::setProperties
+     * Test for PMA\libraries\plugins\export\ExportTexytext::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportTexytext', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportTexytext', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportTexytext', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportTexytext', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -93,7 +91,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -107,7 +105,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -126,14 +124,14 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'RadioPropertyItem',
+            'PMA\libraries\properties\options\items\RadioPropertyItem',
             $property
         );
 
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -147,7 +145,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -159,7 +157,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -170,7 +168,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportTexytext::exportHeader
      *
      * @return void
      */
@@ -182,7 +180,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportTexytext::exportFooter
      *
      * @return void
      */
@@ -194,7 +192,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportTexytext::exportDBHeader
      *
      * @return void
      */
@@ -209,7 +207,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportTexytext::exportDBFooter
      *
      * @return void
      */
@@ -221,7 +219,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportTexytext::exportDBCreate
      *
      * @return void
      */
@@ -233,19 +231,19 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::exportData
+     * Test for PMA\libraries\plugins\export\ExportTexytext::exportData
      *
      * @return void
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -296,13 +294,13 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::getTableDefStandIn
+     * Test for PMA\libraries\plugins\export\ExportTexytext::getTableDefStandIn
      *
      * @return void
      */
     public function testGetTableDefStandIn()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -333,7 +331,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object = $this->getMockBuilder('ExportTexytext')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportTexytext')
             ->disableOriginalConstructor()
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
@@ -357,19 +355,19 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::getTableDef
+     * Test for PMA\libraries\plugins\export\ExportTexytext::getTableDef
      *
      * @return void
      */
     public function testGetTableDef()
     {
-        $this->object = $this->getMockBuilder('ExportTexytext')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportTexytext')
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
 
         // case 1
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -469,13 +467,13 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
      /**
-     * Test for ExportTexytext::getTriggers
+     * Test for PMA\libraries\plugins\export\ExportTexytext::getTriggers
      *
      * @return void
      */
     public function testGetTriggers()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -510,14 +508,14 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::exportStructure
+     * Test for PMA\libraries\plugins\export\ExportTexytext::exportStructure
      *
      * @return void
      */
     public function testExportStructure()
     {
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -526,7 +524,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
             ->with('db', 't&bl')
             ->will($this->returnValue(1));
 
-        $this->object = $this->getMockBuilder('ExportTexytext')
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportTexytext')
             ->setMethods(array('getTableDef', 'getTriggers', 'getTableDefStandIn'))
             ->getMock();
 
@@ -613,7 +611,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportTexytext::formatOneColumnDefinition
+     * Test for PMA\libraries\plugins\export\ExportTexytext::formatOneColumnDefinition
      *
      * @return void
      */

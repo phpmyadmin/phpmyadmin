@@ -1,21 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportOds class
+ * tests for PMA\libraries\plugins\export\ExportOds class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportOds.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+use PMA\libraries\plugins\export\ExportOds;
+
+//ExportOds required because of initialisation inside
+require_once 'libraries/plugins/export/ExportOds.php';
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
+require_once 'libraries/opendocument.lib.php';
+
 /**
- * tests for ExportOds class
+ * tests for PMA\libraries\plugins\export\ExportOds class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -51,22 +52,22 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::setProperties
+     * Test for PMA\libraries\plugins\export\ExportOds::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportOds', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportOds', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportOds', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportOds', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -97,7 +98,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -110,7 +111,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -124,7 +125,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'TextPropertyItem',
+            'PMA\libraries\properties\options\items\TextPropertyItem',
             $property
         );
 
@@ -141,7 +142,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -158,7 +159,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'HiddenPropertyItem',
+            'PMA\libraries\properties\options\items\HiddenPropertyItem',
             $property
         );
 
@@ -170,7 +171,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportOds::exportHeader
      *
      * @return void
      */
@@ -186,7 +187,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportOds::exportFooter
      *
      * @return void
      */
@@ -223,7 +224,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportOds::exportDBHeader
      *
      * @return void
      */
@@ -235,7 +236,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportOds::exportDBFooter
      *
      * @return void
      */
@@ -247,7 +248,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportOds::exportDBCreate
      *
      * @return void
      */
@@ -259,13 +260,13 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportData
+     * Test for PMA\libraries\plugins\export\ExportOds::exportData
      *
      * @return void
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -325,7 +326,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -384,13 +385,13 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportOds::exportData
+     * Test for PMA\libraries\plugins\export\ExportOds::exportData
      *
      * @return void
      */
     public function testExportDataWithFieldNames()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -407,7 +408,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -455,7 +456,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
         );
 
         // with no row count
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -468,7 +469,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

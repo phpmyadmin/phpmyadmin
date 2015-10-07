@@ -1,17 +1,17 @@
 <table class="data" <?php if ($searchType == 'zoom') echo 'id="tableFieldsId"'; ?>>
-    <?php echo PMA\Template::get('table/search/table_header')
+    <?php echo PMA\libraries\Template::get('table/search/table_header')
         ->render(array(
             'geomColumnFlag' => $geomColumnFlag
         )); ?>
     <tbody>
     <?php if ($searchType == 'zoom'): ?>
-        <?php echo PMA\Template::get('table/search/rows_zoom')
+        <?php echo PMA\libraries\Template::get('table/search/rows_zoom')
             ->render(array(
                 'self' => $self,
                 'columnNames' => $columnNames
             )); ?>
     <?php else: ?>
-        <?php echo PMA\Template::get('table/search/rows_normal')
+        <?php echo PMA\libraries\Template::get('table/search/rows_normal')
             ->render(array(
                 'self' => $self,
                 'geomColumnFlag' => $geomColumnFlag,

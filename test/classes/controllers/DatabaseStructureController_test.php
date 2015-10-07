@@ -11,17 +11,13 @@
 /*
  * Include to test.
  */
-use PMA\Controllers\DatabaseStructureController;
-use PMA\DI\Container;
+use PMA\libraries\controllers\DatabaseStructureController;
+use PMA\libraries\di\Container;
+use PMA\libraries\Table;
+use PMA\libraries\Theme;
 
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Message.class.php';
-require_once 'libraries/Table.class.php';
-require_once 'libraries/di/Container.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
-require_once 'libraries/controllers/DatabaseStructureController.class.php';
 
 /**
  * DatabaseStructureController_Test class
@@ -33,7 +29,7 @@ require_once 'libraries/controllers/DatabaseStructureController.class.php';
 class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var \PMA\Test\Stubs\PMA_Response
+     * @var \PMA\Test\Stubs\Response
      */
     private $response;
 
@@ -64,10 +60,10 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
-        $table = $this->getMockBuilder('PMA_Table')
+        $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Expect the table will have 6 rows
@@ -76,7 +72,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $table->expects($this->any())->method('countRecords')
             ->will($this->returnValue(6));
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('getTable')
@@ -88,9 +84,9 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new \PMA\Test\Stubs\PMA_Response();
-        $container->set('PMA_Response', $this->response);
-        $container->alias('response', 'PMA_Response');
+        $this->response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->response);
+        $container->alias('response', 'PMA\libraries\Response');
     }
 
     /**
@@ -105,11 +101,11 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $response = new \PMA\Test\Stubs\PMA_Response();
-        $container->set('PMA_Response', $response);
-        $container->alias('response', 'PMA_Response');
+        $response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $response);
+        $container->alias('response', 'PMA\libraries\Response');
 
-        $class = new ReflectionClass('PMA\Controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
         $method = $class->getMethod('getValuesForInnodbTable');
         $method->setAccessible(true);
         // Showing statistics
@@ -195,7 +191,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetValuesForAriaTable()
     {
-        $class = new ReflectionClass('PMA\Controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
 
@@ -258,7 +254,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testHasTable()
     {
-        $class = new ReflectionClass('PMA\Controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
         $method = $class->getMethod('hasTable');
         $method->setAccessible(true);
 
@@ -305,7 +301,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testCheckFavoriteTable()
     {
-        $class = new ReflectionClass('PMA\Controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
@@ -342,7 +338,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
      */
     public function testSynchronizeFavoriteTables()
     {
-        $fav_instance = $this->getMockBuilder('PMA_RecentFavoriteTable')
+        $fav_instance = $this->getMockBuilder('PMA\libraries\RecentFavoriteTable')
             ->disableOriginalConstructor()
             ->getMock();
         $fav_instance->expects($this->at(1))->method('getTables')
@@ -357,7 +353,7 @@ class DatabaseStructureController_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $class = new ReflectionClass('PMA\Controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
         $method = $class->getMethod('synchronizeFavoriteTables');
         $method->setAccessible(true);
 

@@ -118,7 +118,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 
         for ($i = 0; $i < 31; $i++) {
             if ($i < $regs[5] - 1) {
-                $maskl = $maskl + PMA_Util::pow(2, (30 - $i));
+                $maskl = $maskl + PMA\libraries\Util::pow(2, (30 - $i));
             } // end if
         } // end for
 

@@ -6,13 +6,14 @@
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
+use PMA\libraries\Theme;
 
 // unplanned execution path
 if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     exit();
 }
 
-/** @var PMA_Theme $pmaTheme */
+/** @var Theme $pmaTheme */
 $pmaTheme = $_SESSION['PMA_Theme'];
 $headerImg = $pmaTheme->getImgPath('pmd/Header.png');
 $headerLinkedImg = $pmaTheme->getImgPath('pmd/Header_Linked.png');

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Script.class.php
+ * Tests for Script.php
  *
  * @package PhpMyAdmin-test
  */
@@ -10,12 +10,13 @@
  * Include to test.
  */
 
-require_once 'libraries/Scripts.class.php';
+use PMA\libraries\Scripts;
+
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
 /**
- * Tests for Script.class.php
+ * Tests for Script.php
  *
  * @package PhpMyAdmin-test
  */
@@ -35,7 +36,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Scripts();
+        $this->object = new Scripts();
         if (! defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         }
@@ -63,7 +64,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
      */
     private function _callPrivateFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA_Scripts');
+        $class = new ReflectionClass('PMA\libraries\Scripts');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -171,7 +172,7 @@ $(function() {});
     public function testAddFile()
     {
         // Assert empty _files property of
-        // PMA_Scripts
+        // Scripts
         $this->assertAttributeEquals(
             array(),
             '_files',

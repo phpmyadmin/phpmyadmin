@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_ServerStatusData class
+ * Test for ServerStatusData class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,14 +9,14 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+use PMA\libraries\ServerStatusData;
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/ServerStatusData.class.php';
 require_once 'libraries/database_interface.inc.php';
 
 /**
- * Test for PMA_ServerStatusData class
+ * Test for ServerStatusData class
  *
  * @package PhpMyAdmin-test
  */
@@ -41,11 +41,11 @@ class PMA_ServerStatusData_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['replication_types'] = array();
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when PMA_ServerStatusData constructs
+        //this data is needed when ServerStatusData constructs
         $server_status = array(
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
@@ -103,7 +103,7 @@ class PMA_ServerStatusData_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object = new PMA_ServerStatusData();
+        $this->object = new ServerStatusData();
     }
 
     /**

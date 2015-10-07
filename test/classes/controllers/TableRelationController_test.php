@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/controllers/TableRelationController.class.php
+ * Tests for libraries/controllers/TableRelationController.php
  *
  * @package PhpMyAdmin-test
  */
@@ -9,27 +9,24 @@
 /*
  * Include to test.
  */
-use PMA\DI\Container;
+use PMA\libraries\di\Container;
+use PMA\libraries\Theme;
 
-require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/di/Container.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
-require_once 'libraries/controllers/TableRelationController.class.php';
 
 /**
- * Tests for libraries/controllers/TableRelationController.class.php
+ * Tests for libraries/controllers/TableRelationController.php
  *
  * @package PhpMyAdmin-test
  */
 class TableRelationController_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var \PMA\Test\Stubs\PMA_Response
+     * @var \PMA\Test\Stubs\Response
      */
     private $response;
 
@@ -44,8 +41,8 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['ShowHint'] = true;
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         $_REQUEST['foreignDb'] = 'db';
         $_REQUEST['foreignTable'] = 'table';
@@ -53,7 +50,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pma'] = new DataBasePMAMockForTblRelation();
         $GLOBALS['pma']->databases = new DataBaseMockForTblRelation();
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -63,9 +60,9 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new \PMA\Test\Stubs\PMA_Response();
-        $container->set('PMA_Response', $this->response);
-        $container->alias('response', 'PMA_Response');
+        $this->response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->response);
+        $container->alias('response', 'PMA\libraries\Response');
     }
 
     /**
@@ -82,7 +79,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $viewColumns = array(
             'viewCol', 'viewCol2', 'viewCol3'
         );
-        $tableMock = $this->getMockBuilder('PMA_Table')
+        $tableMock = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -96,13 +93,13 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         /**
-         * @var PMA\Controllers\Table\TableRelationController
+         * @var PMA\libraries\controllers\table\TableRelationController
          */
         $ctrl = $container->get('TableRelationController');
 
@@ -128,7 +125,7 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
         $indexedColumns = array(
             'primaryTableCol'
         );
-        $tableMock = $this->getMockBuilder('PMA_Table')
+        $tableMock = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -142,10 +139,10 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         $ctrl = $container->get('TableRelationController');
 
@@ -184,10 +181,10 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',
@@ -230,10 +227,10 @@ class TableRelationController_Test extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\Controllers\Table\TableRelationController');
+        $container->factory('PMA\libraries\controllers\table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\Controllers\Table\TableRelationController'
+            'PMA\libraries\controllers\table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',

@@ -1,3 +1,4 @@
+<?php use PMA\libraries\Template; ?>
 <form class="submenu-item" action="server_privileges.php" id="<?php echo $formId; ?>" method="post">
     <?php echo PMA_URL_getHiddenInputs(); ?>
     <input type="hidden" name="username" value="<?php echo htmlspecialchars($userName); ?>" />
@@ -32,7 +33,7 @@
                 <?php else : ?>
                     <?php $odd = true; ?>
                     <?php foreach ($privileges as $privilege) : ?>
-                        <?php echo PMA\Template::get('privileges/privileges_summary_row')
+                        <?php echo Template::get('privileges/privileges_summary_row')
                                 ->render(
                                     array_merge(
                                         $privilege,
@@ -49,13 +50,13 @@
         </table>
 
         <?php if ($type == 'database') : ?>
-            <?php echo PMA\Template::get('privileges/add_privileges_database')
+            <?php echo Template::get('privileges/add_privileges_database')
                     ->render(array('databases' => $databases)); ?>
         <?php elseif ($type == 'table') : ?>
-            <?php echo PMA\Template::get('privileges/add_privileges_table')
+            <?php echo Template::get('privileges/add_privileges_table')
                     ->render(array('database' => $database, 'tables' => $tables)); ?>
         <?php else: // routine ?>
-            <?php echo PMA\Template::get('privileges/add_privileges_routine')
+            <?php echo Template::get('privileges/add_privileges_routine')
                     ->render(array('database' => $database, 'routines' => $routines)); ?>
         <?php endif; ?>
 

@@ -24,14 +24,12 @@ require_once './libraries/common.inc.php';
 session_write_close();
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
-require_once './libraries/Util.class.php';
 
-require_once './libraries/OutputBuffering.class.php';
-$buffer = PMA_OutputBuffering::getInstance();
+$buffer = PMA\libraries\OutputBuffering::getInstance();
 $buffer->start();
 register_shutdown_function(
     function () {
-        echo PMA_OutputBuffering::getInstance()->getContents();
+        echo PMA\libraries\OutputBuffering::getInstance()->getContents();
     }
 );
 
@@ -618,7 +616,7 @@ echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage']
 /* Image path */
 echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
 
-echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
+echo "var mysql_doc_template = '" . PMA\libraries\Util::getMySQLDocuURL('%s') . "';\n";
 
 //Max input vars allowed by PHP.
 $maxInputVars = ini_get('max_input_vars');

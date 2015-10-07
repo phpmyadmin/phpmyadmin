@@ -1,21 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportCodegen class
+ * tests for PMA\libraries\plugins\export\ExportCodegen class
  *
  * @package PhpMyAdmin-test
  */
+use PMA\libraries\plugins\export\ExportCodegen;
+
 require_once 'libraries/export.lib.php';
-require_once 'libraries/plugins/export/ExportCodegen.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
 /**
- * tests for ExportCodegen class
+ * tests for PMA\libraries\plugins\export\ExportCodegen class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -46,21 +43,21 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::initSpecificVariables
+     * Test for PMA\libraries\plugins\export\ExportCodegen::initSpecificVariables
      *
      * @return void
      */
     public function testInitSpecificVariables()
     {
 
-        $method = new ReflectionMethod('ExportCodegen', 'initSpecificVariables');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportCodegen', 'initSpecificVariables');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrCgFormats = new ReflectionProperty('ExportCodegen', '_cgFormats');
+        $attrCgFormats = new ReflectionProperty('PMA\libraries\plugins\export\ExportCodegen', '_cgFormats');
         $attrCgFormats->setAccessible(true);
 
-        $attrCgHandlers = new ReflectionProperty('ExportCodegen', '_cgHandlers');
+        $attrCgHandlers = new ReflectionProperty('PMA\libraries\plugins\export\ExportCodegen', '_cgHandlers');
         $attrCgHandlers->setAccessible(true);
 
         $this->assertEquals(
@@ -81,22 +78,22 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::setProperties
+     * Test for PMA\libraries\plugins\export\ExportCodegen::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportCodegen', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportCodegen', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportCodegen', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportCodegen', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -123,7 +120,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -136,7 +133,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -150,7 +147,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $hidden = $generalProperties[0];
 
         $this->assertInstanceOf(
-            'HiddenPropertyItem',
+            'PMA\libraries\properties\options\items\HiddenPropertyItem',
             $hidden
         );
 
@@ -162,7 +159,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $select = $generalProperties[1];
 
         $this->assertInstanceOf(
-            'SelectPropertyItem',
+            'PMA\libraries\properties\options\items\SelectPropertyItem',
             $select
         );
 
@@ -186,7 +183,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportCodegen::exportHeader
      *
      * @return void
      */
@@ -198,7 +195,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportCodegen::exportFooter
      *
      * @return void
      */
@@ -210,7 +207,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportCodegen::exportDBHeader
      *
      * @return void
      */
@@ -222,7 +219,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportCodegen::exportDBFooter
      *
      * @return void
      */
@@ -234,7 +231,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::exportData
+     * Test for PMA\libraries\plugins\export\ExportCodegen::exportData
      *
      * @return void
      */
@@ -246,7 +243,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -290,7 +287,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::cgMakeIdentifier
+     * Test for PMA\libraries\plugins\export\ExportCodegen::cgMakeIdentifier
      *
      * @return void
      */
@@ -313,13 +310,13 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::_handleNHibernateCSBody
+     * Test for PMA\libraries\plugins\export\ExportCodegen::_handleNHibernateCSBody
      *
      * @return void
      */
     public function testHandleNHibernateCSBody()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -339,7 +336,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
-        $method = new ReflectionMethod('ExportCodegen', '_handleNHibernateCSBody');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportCodegen', '_handleNHibernateCSBody');
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'table', "\n");
 
@@ -378,13 +375,13 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportCodegen::_handleNHibernateXMLBody
+     * Test for PMA\libraries\plugins\export\ExportCodegen::_handleNHibernateXMLBody
      *
      * @return void
      */
     public function testHandleNHibernateXMLBody()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -409,7 +406,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
-        $method = new ReflectionMethod('ExportCodegen', '_handleNHibernateXMLBody');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportCodegen', '_handleNHibernateXMLBody');
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'table', "\n");
 
@@ -434,14 +431,14 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - ExportCodegen::_getCgFormats
-     *     - ExportCodegen::_setCgFormats
+     *     - PMA\libraries\plugins\export\ExportCodegen::_getCgFormats
+     *     - PMA\libraries\plugins\export\ExportCodegen::_setCgFormats
      *
      * @return void
      */
     public function testSetGetCgFormats()
     {
-        $reflection = new ReflectionClass('ExportCodegen');
+        $reflection = new ReflectionClass('PMA\libraries\plugins\export\ExportCodegen');
 
         $getter = $reflection->getMethod('_getCgFormats');
         $setter = $reflection->getMethod('_setCgFormats');
@@ -459,14 +456,14 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - ExportCodegen::_getCgHandlers
-     *     - ExportCodegen::_setCgHandlers
+     *     - PMA\libraries\plugins\export\ExportCodegen::_getCgHandlers
+     *     - PMA\libraries\plugins\export\ExportCodegen::_setCgHandlers
      *
      * @return void
      */
     public function testSetGetCgHandlers()
     {
-        $reflection = new ReflectionClass('ExportCodegen');
+        $reflection = new ReflectionClass('PMA\libraries\plugins\export\ExportCodegen');
 
         $getter = $reflection->getMethod('_getCgHandlers');
         $setter = $reflection->getMethod('_setCgHandlers');

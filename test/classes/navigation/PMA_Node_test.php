@@ -6,9 +6,13 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/navigation/NodeFactory.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
+use PMA\libraries\navigation\NodeFactory;
+use PMA\libraries\navigation\nodes\Node;
+use PMA\libraries\Theme;
+
+require_once 'libraries/navigation/NodeFactory.php';
+
+
 require_once 'libraries/database_interface.inc.php';
 
 /**
@@ -27,7 +31,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**
@@ -37,8 +41,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testAddNode()
     {
-        $parent = PMA_NodeFactory::getInstance('Node', 'parent');
-        $child = PMA_NodeFactory::getInstance('Node', 'child');
+        $parent = NodeFactory::getInstance('Node', 'parent');
+        $child = NodeFactory::getInstance('Node', 'child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
@@ -57,7 +61,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetChildError()
     {
-        $parent = PMA_NodeFactory::getInstance('Node', 'parent');
+        $parent = NodeFactory::getInstance('Node', 'parent');
         $this->assertEquals(
             $parent->getChild("foo"),
             false
@@ -75,8 +79,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testRemoveNode()
     {
-        $parent = PMA_NodeFactory::getInstance('Node', 'parent');
-        $child = PMA_NodeFactory::getInstance('Node', 'child');
+        $parent = NodeFactory::getInstance('Node', 'parent');
+        $child = NodeFactory::getInstance('Node', 'child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
@@ -96,11 +100,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testNodeHasChildren()
     {
-        $parent = PMA_NodeFactory::getInstance();
-        $empty_container = PMA_NodeFactory::getInstance(
+        $parent = NodeFactory::getInstance();
+        $empty_container = NodeFactory::getInstance(
             'Node', 'empty', Node::CONTAINER
         );
-        $child = PMA_NodeFactory::getInstance();
+        $child = NodeFactory::getInstance();
         // test with no children
         $this->assertEquals(
             $parent->hasChildren(true),
@@ -140,27 +144,27 @@ class Node_Test extends PHPUnit_Framework_TestCase
     public function testNumChildren()
     {
         // start with root node only
-        $parent = PMA_NodeFactory::getInstance();
+        $parent = NodeFactory::getInstance();
         $this->assertEquals($parent->numChildren(), 0);
         // add a child
-        $child = PMA_NodeFactory::getInstance();
+        $child = NodeFactory::getInstance();
         $parent->addChild($child);
         $this->assertEquals($parent->numChildren(), 1);
         // add a direct grandchild, this one doesn't count as
         // it's not enclosed in a CONTAINER
-        $child->addChild(PMA_NodeFactory::getInstance());
+        $child->addChild(NodeFactory::getInstance());
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
-        $container = PMA_NodeFactory::getInstance(
+        $container = NodeFactory::getInstance(
             'Node', 'default', Node::CONTAINER
         );
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
         // add a grandchild to container, this one counts
-        $container->addChild(PMA_NodeFactory::getInstance());
+        $container->addChild(NodeFactory::getInstance());
         $this->assertEquals($parent->numChildren(), 2);
         // add another grandchild to container, this one counts
-        $container->addChild(PMA_NodeFactory::getInstance());
+        $container->addChild(NodeFactory::getInstance());
         $this->assertEquals($parent->numChildren(), 3);
     }
 
@@ -171,11 +175,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testParents()
     {
-        $parent = PMA_NodeFactory::getInstance();
+        $parent = NodeFactory::getInstance();
         $this->assertEquals($parent->parents(), array()); // exclude self
         $this->assertEquals($parent->parents(true), array($parent)); // include self
 
-        $child = PMA_NodeFactory::getInstance();
+        $child = NodeFactory::getInstance();
         $parent->addChild($child);
 
         $this->assertEquals($child->parents(), array($parent)); // exclude self
@@ -192,10 +196,10 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testRealParent()
     {
-        $parent = PMA_NodeFactory::getInstance();
+        $parent = NodeFactory::getInstance();
         $this->assertEquals($parent->realParent(), false);
 
-        $child = PMA_NodeFactory::getInstance();
+        $child = NodeFactory::getInstance();
         $parent->addChild($child);
         $this->assertEquals($child->realParent(), $parent);
     }
@@ -209,8 +213,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testHasSiblingsWithNoSiblings()
     {
-        $parent = PMA_NodeFactory::getInstance();
-        $child = PMA_NodeFactory::getInstance();
+        $parent = NodeFactory::getInstance();
+        $child = NodeFactory::getInstance();
         $parent->addChild($child);
         $this->assertEquals(false, $child->hasSiblings());
     }
@@ -224,25 +228,25 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testHasSiblingsWithSiblings()
     {
-        $parent = PMA_NodeFactory::getInstance();
-        $firstChild = PMA_NodeFactory::getInstance();
+        $parent = NodeFactory::getInstance();
+        $firstChild = NodeFactory::getInstance();
         $parent->addChild($firstChild);
-        $secondChild = PMA_NodeFactory::getInstance();
+        $secondChild = NodeFactory::getInstance();
         $parent->addChild($secondChild);
         // Normal case; two Node:NODE type siblings
         $this->assertEquals(true, $firstChild->hasSiblings());
 
-        $parent = PMA_NodeFactory::getInstance();
-        $firstChild = PMA_NodeFactory::getInstance();
+        $parent = NodeFactory::getInstance();
+        $firstChild = NodeFactory::getInstance();
         $parent->addChild($firstChild);
-        $secondChild = PMA_NodeFactory::getInstance(
+        $secondChild = NodeFactory::getInstance(
             'Node', 'default', Node::CONTAINER
         );
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
         $this->assertEquals(false, $firstChild->hasSiblings());
 
-        $grandChild = PMA_NodeFactory::getInstance();
+        $grandChild = NodeFactory::getInstance();
         $secondChild->addChild($grandChild);
         // Node::CONTAINER type nodes with children are counted for hasSiblings()
         $this->assertEquals(true, $firstChild->hasSiblings());
@@ -257,12 +261,12 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testHasSiblingsForNodesAtLevelThree()
     {
-        $parent = PMA_NodeFactory::getInstance();
-        $child = PMA_NodeFactory::getInstance();
+        $parent = NodeFactory::getInstance();
+        $child = NodeFactory::getInstance();
         $parent->addChild($child);
-        $grandChild = PMA_NodeFactory::getInstance();
+        $grandChild = NodeFactory::getInstance();
         $child->addChild($grandChild);
-        $greatGrandChild = PMA_NodeFactory::getInstance();
+        $greatGrandChild = NodeFactory::getInstance();
         $grandChild->addChild($greatGrandChild);
 
         // Should return false for node that are two levels deeps
@@ -280,12 +284,12 @@ class Node_Test extends PHPUnit_Framework_TestCase
     public function testGetWhereClause()
     {
         $method = new ReflectionMethod(
-            'Node', '_getWhereClause'
+            'PMA\libraries\navigation\nodes\Node', '_getWhereClause'
         );
         $method->setAccessible(true);
 
         // Vanilla case
-        $node = PMA_NodeFactory::getInstance();
+        $node = NodeFactory::getInstance();
         $this->assertEquals(
             "WHERE TRUE ", $method->invoke($node, 'SCHEMA_NAME')
         );
@@ -368,9 +372,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
 
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
-        $node = PMA_NodeFactory::getInstance();
+        $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -406,9 +410,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
 
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
-        $node = PMA_NodeFactory::getInstance();
+        $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -438,9 +442,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
-        $node = PMA_NodeFactory::getInstance();
+        $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -502,9 +506,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
 
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
-        $node = PMA_NodeFactory::getInstance();
+        $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -530,8 +534,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
         $query .= "WHERE TRUE ";
 
-        $node = PMA_NodeFactory::getInstance();
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $node = NodeFactory::getInstance();
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -553,10 +557,10 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
 
-        $node = PMA_NodeFactory::getInstance();
+        $node = NodeFactory::getInstance();
 
         // test with no search clause
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -566,7 +570,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $node->getPresence();
 
         // test with a search clause
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())

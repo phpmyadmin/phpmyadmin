@@ -6,8 +6,6 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/gis/GIS_Geometry.class.php';
-
 /**
  * Abstract parent class for all PMA_GIS_<Geom_type> test classes
  *
@@ -20,7 +18,7 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
      * test generateParams method
      *
      * @param string $wkt    point in WKT form
-     * @param index  $index  index
+     * @param int    $index  index
      * @param array  $params expected output array
      *
      * @dataProvider providerForTestGenerateParams

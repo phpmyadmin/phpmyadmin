@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA_Util::extractColumnSpec from Util.class.php
+ ** Test for PMA\libraries\Util::extractColumnSpec from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,10 +10,10 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+
 
 /**
- ** Test for PMA_Util::extractColumnSpec function.
+ ** Test for PMA\libraries\Util::extractColumnSpec function.
  *
  * @package PhpMyAdmin-test
  */
@@ -42,7 +42,7 @@ class PMA_ExtractColumnSpec_Test extends PHPUnit_Framework_TestCase
     public function testParsing($in, $out)
     {
         $this->assertEquals(
-            $out, PMA_Util::extractColumnSpec($in)
+            $out, PMA\libraries\Util::extractColumnSpec($in)
         );
     }
 

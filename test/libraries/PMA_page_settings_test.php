@@ -5,11 +5,10 @@
  *
  * @package PhpMyAdmin-test
  */
+use PMA\libraries\config\PageSettings;
 
-/*
- * Include to test.
- */
-require_once 'libraries/config/page_settings.class.php';
+require_once 'libraries/config/user_preferences.forms.php';
+require_once 'libraries/config/page_settings.forms.php';
 
 /**
  * Tests for Page-related settings
@@ -35,7 +34,7 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
      */
     public function testShowGroupNonExistent()
     {
-        $object = PMA_PageSettings::showGroup('NonExistent');
+        $object = PageSettings::showGroup('NonExistent');
 
         $this->assertEquals('', $object->getHTML());
     }
@@ -47,7 +46,7 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
      */
     public function testShowGroupBrowse()
     {
-        $object = PMA_PageSettings::showGroup('Browse');
+        $object = PageSettings::showGroup('Browse');
 
         $html = $object->getHTML();
 
@@ -81,7 +80,7 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
      */
     function testGetNaviSettings()
     {
-        $html = PMA_PageSettings::getNaviSettings();
+        $html = PageSettings::getNaviSettings();
 
         // Test some sample parts
         $this->assertContains(

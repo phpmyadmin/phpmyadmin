@@ -66,12 +66,13 @@ if (!empty($submit_mult)) {
         && (! isset($_REQUEST['rows_to_delete'])
         || ! is_array($_REQUEST['rows_to_delete']))
     ) {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', __('No row selected.'));
     }
 
     switch($submit_mult) {
+    /** @noinspection PhpMissingBreakStatementInspection */
     case 'row_copy':
         $_REQUEST['default_action'] = 'insert';
         // no break to allow for fallthough

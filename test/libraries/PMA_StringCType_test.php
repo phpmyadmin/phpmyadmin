@@ -9,7 +9,9 @@
 /*
  * Include to test.
  */
-require_once 'libraries/StringCType.class.php';
+use PMA\libraries\StringCType;
+
+
 
 /**
  * Tests for Specialized String Class (CType) for phpMyAdmin
@@ -33,7 +35,7 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
                 "ctype extension not present."
             );
         }
-        $this->_object = new PMA_StringCType();
+        $this->_object = new StringCType();
     }
 
     /**

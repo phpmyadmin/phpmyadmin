@@ -1,21 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportMediawiki class
+ * tests for PMA\libraries\plugins\export\ExportMediawiki class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportMediawiki.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+use PMA\libraries\plugins\export\ExportMediawiki;
+
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
+
 /**
- * tests for ExportMediawiki class
+ * tests for PMA\libraries\plugins\export\ExportMediawiki class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -51,22 +49,22 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportMediawiki::setProperties
+     * Test for PMA\libraries\plugins\export\ExportMediawiki::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportMediawiki', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportMediawiki', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportMediawiki', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportMediawiki', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -93,7 +91,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -106,7 +104,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -125,7 +123,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'OptionsPropertySubgroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
             $property
         );
 
@@ -142,7 +140,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $sgHeader = $property->getSubGroupHeader();
 
         $this->assertInstanceOf(
-            'RadioPropertyItem',
+            'PMA\libraries\properties\options\items\RadioPropertyItem',
             $sgHeader
         );
 
@@ -163,7 +161,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -180,7 +178,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'BoolPropertyItem',
+            'PMA\libraries\properties\options\items\BoolPropertyItem',
             $property
         );
 
@@ -196,7 +194,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportMediawiki::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportHeader
      *
      * @return void
      */
@@ -208,7 +206,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportMediawiki::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportFooter
      *
      * @return void
      */
@@ -220,7 +218,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportMediawiki::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportDBHeader
      *
      * @return void
      */
@@ -232,7 +230,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportMediawiki::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportDBFooter
      *
      * @return void
      */
@@ -244,7 +242,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportMediawiki::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportDBCreate
      *
      * @return void
      */
@@ -262,7 +260,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
      */
     public function testExportStructure()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -346,13 +344,13 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         */
     }
     /**
-     * Test for ExportMediawiki::exportData
+     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportData
      *
      * @return void
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -363,7 +361,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

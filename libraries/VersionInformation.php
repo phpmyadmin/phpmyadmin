@@ -5,7 +5,12 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries;
+
+use PMA\libraries\Util;
+use stdClass;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -50,7 +55,7 @@ class VersionInformation
                         'timeout' => $connection_timeout,
                     )
                 );
-                $context = PMA_Util::handleContext($context);
+                $context = Util::handleContext($context);
                 if (! defined('TESTSUITE')) {
                     session_write_close();
                 }
@@ -64,7 +69,7 @@ class VersionInformation
                 if ($curl_handle === false) {
                     return null;
                 }
-                $curl_handle = PMA_Util::configureCurl($curl_handle);
+                $curl_handle = Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_HEADER,
@@ -264,7 +269,7 @@ class VersionInformation
      */
     protected function getMySQLVersion()
     {
-        return PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION');
+        return Util::cacheGet('PMA_MYSQL_STR_VERSION');
     }
 }
 ?>

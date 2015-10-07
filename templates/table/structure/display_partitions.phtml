@@ -1,10 +1,12 @@
+<?php use PMA\libraries\Message;
+use PMA\libraries\Util; ?>
 <div id="partitions">
     <fieldset>
         <legend><?php echo __('Partitions')
-            . PMA_Util::showMySQLDocu('partitioning'); ?>
+            . Util::showMySQLDocu('partitioning'); ?>
         </legend>
         <?php if (empty($partitions)): ?>
-            <?php echo PMA_Message::notice(__('No partitioning defined!'))->getDisplay(); ?>
+            <?php echo Message::notice(__('No partitioning defined!'))->getDisplay(); ?>
         <?php else: ?>
             <p>
                 <?php echo __('Partitioned by:');?>
@@ -58,7 +60,7 @@
                         <?php endif; ?>
                         <td class="value"><?php echo $partition->getRows(); ?></td>
                         <td class="value"><?php
-                            list($value, $unit) = PMA_Util::formatByteDown(
+                            list($value, $unit) = Util::formatByteDown(
                                 $partition->getDataLength(), 3, 1
                             );
                             ?>
@@ -66,7 +68,7 @@
                             <span class="unit"><?php echo $unit; ?></span>
                         </td>
                         <td class="value"><?php
-                            list($value, $unit) = PMA_Util::formatByteDown(
+                            list($value, $unit) = Util::formatByteDown(
                                 $partition->getIndexLength(), 3, 1
                             );
                             ?>
@@ -77,7 +79,7 @@
                         <?php foreach ($actionIcons as $action => $icon): ?>
                             <td>
                                 <a  href="tbl_structure.php<?php echo $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?php echo urlencode(
-                                        "ALTER TABLE " . PMA_Util::backquote($table) . $action . " PARTITION " . $partition->getName()
+                                        "ALTER TABLE " . Util::backquote($table) . $action . " PARTITION " . $partition->getName()
                                     ) ?>"
                                     id="partition_action_<?php echo $action; ?>"
                                     name="partition_action_<?php echo $action; ?>"
@@ -99,7 +101,7 @@
                                     <?php endif; ?>
                                     <td class="value"><?php echo $subParition->getRows(); ?></td>
                                     <td class="value"><?php
-                                        list($value, $unit) = PMA_Util::formatByteDown(
+                                        list($value, $unit) = Util::formatByteDown(
                                             $subParition->getDataLength(), 3, 1
                                         );
                                         ?>
@@ -107,7 +109,7 @@
                                         <span class="unit"><?php echo $unit; ?></span>
                                     </td>
                                     <td class="value"><?php
-                                        list($value, $unit) = PMA_Util::formatByteDown(
+                                        list($value, $unit) = Util::formatByteDown(
                                             $subParition->getIndexLength(), 3, 1
                                         );
                                         ?>
@@ -133,7 +135,7 @@
             <?php if (empty($partitions)): ?>
                 <input type="submit" name="edit_partitioning" value="<?php echo __('Partition table'); ?>" />
             <?php else: ?>
-                <?php echo PMA_Util::linkOrButton($removeUrl, __('Remove partitioning'), ['class' => 'button ajax', 'id' => 'remove_partitioning'])?>
+                <?php echo Util::linkOrButton($removeUrl, __('Remove partitioning'), ['class' => 'button ajax', 'id' => 'remove_partitioning'])?>
                 <input type="submit" name="edit_partitioning" value="<?php echo __('Edit partitioning'); ?>" />
             <?php endif; ?>
         </form>

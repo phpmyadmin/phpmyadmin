@@ -23,13 +23,6 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return string   string with input fields
  *
- * @global  string   the current language
- * @global  string   the current conversion charset
- * @global  string   the current connection collation
- * @global  string   the current server
- * @global  array    the configuration array
- * @global  boolean  whether recoding is allowed or not
- *
  * @access  public
  */
 function PMA_URL_getHiddenInputs($db = '', $table = '',

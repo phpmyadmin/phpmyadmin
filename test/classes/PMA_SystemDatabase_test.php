@@ -1,15 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/SystemDatabase.class.php
+ * Tests for libraries/SystemDatabase.php
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/SystemDatabase.class.php';
-
 /**
- * Tests for libraries/SystemDatabase.class.php
+ * Tests for libraries/SystemDatabase.php
  *
  * @package PhpMyAdmin-test
  */
@@ -29,7 +27,7 @@ class PMA_SystemDatabaseTest extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -66,7 +64,7 @@ class PMA_SystemDatabaseTest extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $this->sysDb = new PMA\SystemDatabase($dbi);
+        $this->sysDb = new PMA\libraries\SystemDatabase($dbi);
     }
 
     /**

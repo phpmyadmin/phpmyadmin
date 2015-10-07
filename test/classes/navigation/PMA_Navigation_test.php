@@ -1,28 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_Navigation class
+ * Test for PMA\libraries\navigation\Navigation class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
+use PMA\libraries\Theme;
+
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/navigation/Navigation.class.php';
 
 /**
- * Tests for PMA_Navigation class
+ * Tests for PMA\libraries\navigation\Navigation class
  *
  * @package PhpMyAdmin-test
  */
 class PMA_NavigationTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PMA_Navigation
+     * @var PMA\libraries\navigation\Navigation
      */
     protected $object;
 
@@ -34,15 +33,15 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Navigation();
+        $this->object = new PMA\libraries\navigation\Navigation();
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
         $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -67,7 +66,7 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "INSERT INTO `pmadb`.`navigationhiding`"
             . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
             . " VALUES ('user','itemName','itemType','db','')";
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -88,7 +87,7 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "DELETE FROM `pmadb`.`navigationhiding`"
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -109,7 +108,7 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "SELECT `item_name`, `item_type`"
             . " FROM `pmadb`.`navigationhiding`"
             . " WHERE `username`='user' AND `db_name`='db' AND `table_name`=''";
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())

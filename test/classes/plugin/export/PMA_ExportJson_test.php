@@ -1,21 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportJson class
+ * tests for PMA\libraries\plugins\export\ExportJson class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportJson.class.php';
+use PMA\libraries\plugins\export\ExportJson;
+
 require_once 'libraries/export.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Config.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
 /**
- * tests for ExportJson class
+ * tests for PMA\libraries\plugins\export\ExportJson class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -51,22 +48,22 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::setProperties
+     * Test for PMA\libraries\plugins\export\ExportJson::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportJson', 'setProperties');
+        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportJson', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportJson', 'properties');
+        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportJson', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'ExportPluginProperties',
+            'PMA\libraries\properties\plugins\ExportPluginProperties',
             $properties
         );
 
@@ -93,7 +90,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'OptionsPropertyRootGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -106,7 +103,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'OptionsPropertyMainGroup',
+            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -120,7 +117,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'HiddenPropertyItem',
+            'PMA\libraries\properties\options\items\HiddenPropertyItem',
             $property
         );
 
@@ -132,7 +129,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::exportHeader
+     * Test for PMA\libraries\plugins\export\ExportJson::exportHeader
      *
      * @return void
      */
@@ -153,7 +150,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::exportFooter
+     * Test for PMA\libraries\plugins\export\ExportJson::exportFooter
      *
      * @return void
      */
@@ -165,7 +162,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::exportDBHeader
+     * Test for PMA\libraries\plugins\export\ExportJson::exportDBHeader
      *
      * @return void
      */
@@ -183,7 +180,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::exportDBFooter
+     * Test for PMA\libraries\plugins\export\ExportJson::exportDBFooter
      *
      * @return void
      */
@@ -195,7 +192,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::exportDBCreate
+     * Test for PMA\libraries\plugins\export\ExportJson::exportDBCreate
      *
      * @return void
      */
@@ -207,13 +204,13 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::exportData
+     * Test for PMA\libraries\plugins\export\ExportJson::exportData
      *
      * @return void
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

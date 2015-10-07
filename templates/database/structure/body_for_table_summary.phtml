@@ -4,7 +4,7 @@
 <th class="tbl_num nowrap">
     <?php
     printf(_ngettext('%s table', '%s tables', $num_tables),
-        PMA_Util::formatNumber($num_tables, 0)); ?>
+        PMA\libraries\Util::formatNumber($num_tables, 0)); ?>
 </th>
 <?php if ($server_slave_status): ?>
     <th> <?php echo __('Replication'); ?> </th>
@@ -16,7 +16,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] == 0) {
 } ?>
 <th colspan="<?php echo $sum_colspan; ?>" class="print_ignore" ><?php echo __('Sum'); ?></th>
 <?php
-$row_count_sum = PMA_Util::formatNumber($sum_entries, 0);
+$row_count_sum = PMA\libraries\Util::formatNumber($sum_entries, 0);
 // If a table shows approximate rows count, display update-all-real-count anchor.
 $row_sum_url = array();
 if (isset($approx_rows)) {
@@ -60,11 +60,11 @@ $cell_text = ($approx_rows)
 <?php endif; ?>
 <?php if ($is_show_stats): ?>
     <?php
-        list($sum_formatted, $unit) = PMA_Util::formatByteDown(
+        list($sum_formatted, $unit) = PMA\libraries\Util::formatByteDown(
             $sum_size, 3, 1
         );
         list($overhead_formatted, $overhead_unit)
-            = PMA_Util::formatByteDown($overhead_size, 3, 1);
+            = PMA\libraries\Util::formatByteDown($overhead_size, 3, 1);
     ?>
     <th class="value tbl_size"><?php echo $sum_formatted . ' ' . $unit; ?></th>
     <th class="value tbl_overhead"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
@@ -75,18 +75,18 @@ $cell_text = ($approx_rows)
 <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']): ?>
     <th class="value tbl_creation">
         <?php echo ($create_time_all
-                ? PMA_Util::localisedDate(strtotime($create_time_all))
+                ? PMA\libraries\Util::localisedDate(strtotime($create_time_all))
                 : '-'); ?>
     </th>
 <?php endif; ?>
 <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']): ?>
     <th class="value tbl_last_update"><?php echo ($update_time_all
-                ? PMA_Util::localisedDate(strtotime($update_time_all))
+                ? PMA\libraries\Util::localisedDate(strtotime($update_time_all))
                 : '-'); ?></th>
 <?php endif; ?>
 <?php if ($GLOBALS['cfg']['ShowDbStructureLastCheck']): ?>
     <th class="value tbl_last_check"><?php echo ($check_time_all
-                ? PMA_Util::localisedDate(strtotime($check_time_all))
+                ? PMA\libraries\Util::localisedDate(strtotime($check_time_all))
                 : '-');?></th>
 <?php endif; ?>
 </tr>

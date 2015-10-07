@@ -1,34 +1,33 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/controllers/TableIndexesController.class.php
+ * Tests for libraries/controllers/TableIndexesController.php
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\Controllers\Table\TableIndexesController;
-use PMA\DI\Container;
+use PMA\libraries\controllers\table\TableIndexesController;
+use PMA\libraries\di\Container;
+use PMA\libraries\Theme;
 
 /*
  * Include to test.
  */
-require_once 'libraries/Template.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Table.class.php';
-require_once 'libraries/Index.class.php';
-require_once 'libraries/Message.class.php';
+
+
+
+
+
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Theme.class.php';
+
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableIndexesController.class.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 
 /**
- * Tests for libraries/controllers/TableIndexesController.class.php
+ * Tests for libraries/controllers/TableIndexesController.php
  *
  * @package PhpMyAdmin-test
  */
@@ -55,7 +54,7 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
             'server' => 1
         );
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -83,8 +82,8 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -97,7 +96,7 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
     {
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
-        $table = $this->getMockBuilder('PMA_Table')
+        $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
@@ -110,9 +109,9 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $response = new \PMA\Test\Stubs\PMA_Response();
-        $container->set('PMA_Response', $response);
-        $container->alias('response', 'PMA_Response');
+        $response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $response);
+        $container->alias('response', 'PMA\libraries\Response');
 
         $ctrl = new TableIndexesController(null);
 
@@ -144,7 +143,7 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testDisplayFormAction()
     {
-        $table = $this->getMockBuilder('PMA_Table')
+        $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getStatusInfo')
@@ -161,10 +160,10 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $response = new \PMA\Test\Stubs\PMA_Response();
-        $container->set('PMA_Response', $response);
-        $container->alias('response', 'PMA_Response');
-        $index = new PMA_Index();
+        $response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $response);
+        $container->alias('response', 'PMA\libraries\Response');
+        $index = new PMA\libraries\Index();
 
         $ctrl = new TableIndexesController($index);
 
@@ -185,8 +184,8 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $doc_html = PMA_Util::showHint(
-            PMA_Message::notice(
+        $doc_html = PMA\libraries\Util::showHint(
+            PMA\libraries\Message::notice(
                 __(
                     '"PRIMARY" <b>must</b> be the name of'
                     . ' and <b>only of</b> a primary key!'
@@ -199,13 +198,13 @@ class PMA_TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            PMA_Util::showMySQLDocu('ALTER_TABLE'),
+            PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'),
             $html
         );
 
         // generateIndexSelector
         $this->assertContains(
-            PMA\Template::trim($index->generateIndexChoiceSelector(false)),
+            PMA\libraries\Template::trim($index->generateIndexChoiceSelector(false)),
             $html
         );
 

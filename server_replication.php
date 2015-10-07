@@ -18,7 +18,7 @@ require_once 'libraries/replication_gui.lib.php';
 /**
  * Does the common work
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
@@ -29,7 +29,7 @@ $scripts->addFile('replication.js');
  */
 if (! $is_superuser) {
     $html  = PMA_getHtmlForSubPageHeader('replication');
-    $html .= PMA_Message::error(__('No Privileges'))->getDisplay();
+    $html .= PMA\libraries\Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
 }

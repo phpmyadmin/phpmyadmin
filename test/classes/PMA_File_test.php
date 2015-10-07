@@ -1,19 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA_File class
+ * tests for PMA\libraries\File class
  *
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/File.class.php';
-
 /**
- * tests for PMA_File class
+ * tests for PMA\libraries\File class
  *
  * @package PhpMyAdmin-test
  */
@@ -33,7 +27,7 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_File::getCompression
+     * Test for PMA\libraries\File::getCompression
      *
      * @param string $file file string
      * @param string $mime expected mime
@@ -43,12 +37,12 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
      */
     public function testMIME($file, $mime)
     {
-        $arr = new PMA_File($file);
+        $arr = new PMA\libraries\File($file);
         $this->assertEquals($mime, $arr->getCompression());
     }
 
     /**
-     * Test for PMA_File::getContent
+     * Test for PMA\libraries\File::getContent
      *
      * @param string $file file string
      *
@@ -58,7 +52,7 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
     public function testBinaryContent($file)
     {
         $data = '0x' . bin2hex(file_get_contents($file));
-        $file = new PMA_File($file);
+        $file = new PMA\libraries\File($file);
         $this->assertEquals($data, $file->getContent());
     }
 

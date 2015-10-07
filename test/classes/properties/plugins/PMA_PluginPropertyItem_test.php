@@ -1,15 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PluginPropertyItem class
+ * tests for PMA\libraries\properties\plugins\PluginPropertyItem class
  *
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/properties/plugins/PluginPropertyItem.class.php';
-
 /**
- * Tests for PluginPropertyItem class
+ * Tests for PMA\libraries\properties\plugins\PluginPropertyItem class
  *
  * @package PhpMyAdmin-test
  */
@@ -24,7 +22,7 @@ class PMA_PluginPropertyItem_Test extends PHPUnit_Framework_TestCase
      */
     protected function setup()
     {
-        $this->stub = $this->getMockForAbstractClass('PluginPropertyItem');
+        $this->stub = $this->getMockForAbstractClass('PMA\libraries\properties\plugins\PluginPropertyItem');
     }
 
     /**
@@ -38,7 +36,7 @@ class PMA_PluginPropertyItem_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PluginPropertyItem::getPropertyType
+     * Test for PMA\libraries\properties\plugins\PluginPropertyItem::getPropertyType
      *
      * @return void
      */
