@@ -178,9 +178,7 @@ class GISVisualization
         }
         // Wrap the spatial column with 'ASTEXT()' function and add it
         $modified_query .= 'ASTEXT('
-            . Util::backquote(
-                $this->_userSpecifiedSettings['spatialColumn']
-            )
+            . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
             . ') AS ' . Util::backquote(
                 $this->_userSpecifiedSettings['spatialColumn']
             )
@@ -188,9 +186,7 @@ class GISVisualization
 
         // Get the SRID
         $modified_query .= 'SRID('
-            . Util::backquote(
-                $this->_userSpecifiedSettings['spatialColumn']
-            )
+            . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
             . ') AS ' . Util::backquote('srid') . ' ';
 
         // Append the original query as the inner query
@@ -260,21 +256,15 @@ class GISVisualization
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
         $extension_start_pos
-            = /*overload*/
-            mb_strlen($file_name)
-            - /*overload*/
-            mb_strlen($ext) - 1;
+            = /*overload*/mb_strlen($file_name) - /*overload*/mb_strlen($ext) - 1;
         $user_extension
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $file_name,
-                $extension_start_pos, /*overload*/
-                mb_strlen($file_name)
+                $extension_start_pos,
+                /*overload*/mb_strlen($file_name)
             );
         $required_extension = "." . $ext;
-        if (/*overload*/
-            mb_strtolower($user_extension) != $required_extension
-        ) {
+        if (/*overload*/mb_strtolower($user_extension) != $required_extension) {
             $file_name .= $required_extension;
         }
 

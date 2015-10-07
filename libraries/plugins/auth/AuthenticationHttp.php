@@ -223,7 +223,7 @@ class AuthenticationHttp extends AuthenticationPlugin
             for ($i = 1; $i <= $servers_cnt; $i++) {
                 if (isset($cfg['Servers'][$i])
                     && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host']
-                        && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)
+                    && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)
                 ) {
                     $server = $i;
                     $cfg['Server'] = $cfg['Servers'][$i];

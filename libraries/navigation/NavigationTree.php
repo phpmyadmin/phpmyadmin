@@ -347,8 +347,7 @@ class NavigationTree
 
         array_shift($path); // remove db
 
-        if ((count($path) <= 0
-                || !array_key_exists($path[0], $containers))
+        if ((count($path) <= 0 || !array_key_exists($path[0], $containers))
             && count($containers) != 1
         ) {
             return $retval;
@@ -692,12 +691,9 @@ class NavigationTree
             foreach ($node->children as $child) {
                 $prefix_pos = false;
                 foreach ($separators as $separator) {
-                    $sep_pos
-                        = /*overload*/
-                        mb_strpos($child->name, $separator);
+                    $sep_pos = /*overload*/mb_strpos($child->name, $separator);
                     if ($sep_pos != false
-                        && $sep_pos != /*overload*/
-                        mb_strlen($child->name)
+                        && $sep_pos != /*overload*/mb_strlen($child->name)
                         && $sep_pos != 0
                         && ($prefix_pos == false || $sep_pos < $prefix_pos)
                     ) {
@@ -787,18 +783,15 @@ class NavigationTree
                     // FIXME: this could be more efficient
                     foreach ($node->children as $child) {
                         $keySeparatorLength
-                            = /*overload*/
-                            mb_strlen($key)
-                            + $separatorLength;
+                            = /*overload*/mb_strlen($key) + $separatorLength;
                         $name_substring
-                            = /*overload*/
-                            mb_substr(
+                            = /*overload*/mb_substr(
                                 $child->name,
                                 0,
                                 $keySeparatorLength
                             );
                         if (($name_substring != $key . $separator
-                                && $child->name != $key)
+                            && $child->name != $key)
                             || $child->type != Node::OBJECT
                         ) {
                             continue;
@@ -1378,43 +1371,42 @@ class NavigationTree
             $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
             $retval .= "</form>";
             $retval .= "</li>";
-        } else {
-            if (($node->type == Node::CONTAINER
-                    && ($node->real_name == 'tables'
-                        || $node->real_name == 'views'
-                        || $node->real_name == 'functions'
-                        || $node->real_name == 'procedures'
-                        || $node->real_name == 'events'))
-                && method_exists($node->realParent(), 'getPresence')
-                && $node->realParent()
-                    ->getPresence($node->real_name) >= $filter_item_min
-            ) {
-                $paths = $node->getPaths();
-                $url_params = array(
-                    'pos'        => $this->_pos,
-                    'aPath'      => $paths['aPath'],
-                    'vPath'      => $paths['vPath'],
-                    'pos2_name'  => $node->real_name,
-                    'pos2_value' => 0,
-                );
-                $retval .= "<li class='fast_filter'>";
-                $retval .= "<form class='ajax fast_filter'>";
-                $retval .= PMA_getHiddenFields($url_params);
-                $retval .= "<input class='searchClause' type='text'";
-                $retval .= " name='searchClause2'";
-                // allow html5 placeholder attribute
-                $placeholder_key = 'value';
-                if (PMA_USR_BROWSER_AGENT !== 'IE'
-                    || PMA_USR_BROWSER_VER > 9
-                ) {
-                    $placeholder_key = 'placeholder';
-                }
-                $retval .= " $placeholder_key='"
-                    . __('Filter by name or regex') . "' />";
-                $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
-                $retval .= "</form>";
-                $retval .= "</li>";
+
+            return $retval;
+        }
+
+        if (($node->type == Node::CONTAINER
+            && ($node->real_name == 'tables'
+            || $node->real_name == 'views'
+            || $node->real_name == 'functions'
+            || $node->real_name == 'procedures'
+            || $node->real_name == 'events'))
+            && method_exists($node->realParent(), 'getPresence')
+            && $node->realParent()->getPresence($node->real_name) >= $filter_item_min
+        ) {
+            $paths = $node->getPaths();
+            $url_params = array(
+                'pos'        => $this->_pos,
+                'aPath'      => $paths['aPath'],
+                'vPath'      => $paths['vPath'],
+                'pos2_name'  => $node->real_name,
+                'pos2_value' => 0,
+            );
+            $retval .= "<li class='fast_filter'>";
+            $retval .= "<form class='ajax fast_filter'>";
+            $retval .= PMA_getHiddenFields($url_params);
+            $retval .= "<input class='searchClause' type='text'";
+            $retval .= " name='searchClause2'";
+            // allow html5 placeholder attribute
+            $placeholder_key = 'value';
+            if (PMA_USR_BROWSER_AGENT !== 'IE' || PMA_USR_BROWSER_VER > 9) {
+                $placeholder_key = 'placeholder';
             }
+            $retval .= " $placeholder_key='"
+                . __('Filter by name or regex') . "' />";
+            $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
+            $retval .= "</form>";
+            $retval .= "</li>";
         }
 
         return $retval;

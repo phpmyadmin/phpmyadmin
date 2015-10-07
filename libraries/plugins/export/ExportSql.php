@@ -1446,8 +1446,7 @@ class ExportSql extends ExportPlugin
 
         // no need to generate a DROP VIEW here, it was done earlier
         if (!empty($sql_drop_table)
-            && !$GLOBALS['dbi']->getTable($db, $table)
-                ->isView()
+            && !$GLOBALS['dbi']->getTable($db, $table)->isView()
         ) {
             $schema_create .= 'DROP TABLE IF EXISTS '
                 . Util::backquote($table_alias, $sql_backquotes) . ';'
@@ -1467,7 +1466,7 @@ class ExportSql extends ExportPlugin
         // results below. Nonetheless, we got 2 user reports about this
         // (see bug 1562533) so I removed the unbuffered mode.
         // $result = $GLOBALS['dbi']->query('SHOW CREATE TABLE ' . backquote($db)
-        // . '.' . backquote($table), null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED);
+        // . '.' . backquote($table), null, DatabaseInterface::QUERY_UNBUFFERED);
         //
         // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
         // produce a displayable result for the default value of a BIT
@@ -1492,17 +1491,11 @@ class ExportSql extends ExportPlugin
 
             // Convert end of line chars to one that we want (note that MySQL
             // doesn't return query it will accept in all cases)
-            if (/*overload*/
-            mb_strpos($create_query, "(\r\n ")
-            ) {
+            if (/*overload*/mb_strpos($create_query, "(\r\n ")) {
                 $create_query = str_replace("\r\n", $crlf, $create_query);
-            } elseif (/*overload*/
-            mb_strpos($create_query, "(\n ")
-            ) {
+            } elseif (/*overload*/mb_strpos($create_query, "(\n ")) {
                 $create_query = str_replace("\n", $crlf, $create_query);
-            } elseif (/*overload*/
-            mb_strpos($create_query, "(\r ")
-            ) {
+            } elseif (/*overload*/mb_strpos($create_query, "(\r ")) {
                 $create_query = str_replace("\r", $crlf, $create_query);
             }
 
@@ -2149,8 +2142,7 @@ class ExportSql extends ExportPlugin
 
         // Do not export data for a VIEW, unless asked to export the view as a table
         // (For a VIEW, this is called only when exporting a single VIEW)
-        if ($GLOBALS['dbi']->getTable($db, $table)
-                ->isView()
+        if ($GLOBALS['dbi']->getTable($db, $table)->isView()
             && empty($GLOBALS['sql_views_as_tables'])
         ) {
             $head = $this->_possibleCRLF()
@@ -2301,9 +2293,9 @@ class ExportSql extends ExportPlugin
         $current_row = 0;
         $query_size = 0;
         if (($GLOBALS['sql_insert_syntax'] == 'extended'
-                || $GLOBALS['sql_insert_syntax'] == 'both')
+            || $GLOBALS['sql_insert_syntax'] == 'both')
             && (!isset($GLOBALS['sql_type'])
-                || $GLOBALS['sql_type'] != 'UPDATE')
+            || $GLOBALS['sql_type'] != 'UPDATE')
         ) {
             $separator = ',';
             $schema_insert .= $crlf;
@@ -2782,12 +2774,10 @@ class ExportSql extends ExportPlugin
                 // Replacing only symbols (that are not variables) and unknown
                 // identifiers.
                 if ((($token->type === Token::TYPE_SYMBOL)
-                        && (!($token->flags
-                            & Token::FLAG_SYMBOL_VARIABLE)))
+                    && (!($token->flags & Token::FLAG_SYMBOL_VARIABLE)))
                     || ((($token->type === Token::TYPE_KEYWORD)
-                            && (!($token->flags
-                                & Token::FLAG_KEYWORD_RESERVED)))
-                        || ($token->type === Token::TYPE_NONE))
+                    && (!($token->flags & Token::FLAG_KEYWORD_RESERVED)))
+                    || ($token->type === Token::TYPE_NONE))
                 ) {
                     $alias = $this->getAlias($aliases, $token->value);
                     if (!empty($alias)) {

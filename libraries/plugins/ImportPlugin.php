@@ -19,7 +19,7 @@ use PMA\libraries\properties\plugins\ImportPluginProperties;
 abstract class ImportPlugin
 {
     /**
-     * PMA\libraries\properties\plugins\ImportPluginProperties object containing the import plugin properties
+     * ImportPluginProperties object containing the import plugin properties
      *
      * @var ImportPluginProperties
      */
@@ -63,9 +63,7 @@ abstract class ImportPlugin
      */
     protected function getDbnameAndOptions($currentDb, $defaultDb)
     {
-        if (/*overload*/
-        mb_strlen($currentDb)
-        ) {
+        if (/*overload*/mb_strlen($currentDb)) {
             $db_name = $currentDb;
             $options = array('create_db' => false);
         } else {

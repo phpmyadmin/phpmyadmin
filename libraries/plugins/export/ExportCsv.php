@@ -129,8 +129,7 @@ class ExportCsv extends ExportPlugin
             }
         } else {
             if (empty($csv_terminated)
-                || /*overload*/
-                mb_strtolower($csv_terminated) == 'auto'
+                || /*overload*/mb_strtolower($csv_terminated) == 'auto'
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {

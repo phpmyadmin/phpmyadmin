@@ -64,8 +64,7 @@ class GISPolygon extends GISGeometry
             = /*overload*/mb_substr(
                 $spatial,
                 9,
-                /*overload*/
-                mb_strlen($spatial) - 11
+                /*overload*/mb_strlen($spatial) - 11
             );
 
         // If the polygon doesn't have an inner ring, use polygon itself
@@ -176,8 +175,7 @@ class GISPolygon extends GISGeometry
         $polygon = /*overload*/mb_substr(
             $spatial,
             9,
-            /*overload*/
-            mb_strlen($spatial) - 11
+            /*overload*/mb_strlen($spatial) - 11
         );
 
         // If the polygon doesn't have an inner polygon
@@ -237,20 +235,16 @@ class GISPolygon extends GISGeometry
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon
-            = /*overload*/
-            mb_substr(
+            = /*overload*/mb_substr(
                 $spatial,
                 9,
-                /*overload*/
-                mb_strlen($spatial) - 11
+                /*overload*/mb_strlen($spatial) - 11
             );
 
         $row = '<path d="';
 
         // If the polygon doesn't have an inner polygon
-        if (/*overload*/
-            mb_strpos($polygon, "),(") === false
-        ) {
+        if (/*overload*/mb_strpos($polygon, "),(") === false) {
             $row .= $this->_drawPath($polygon, $scale_data);
         } else {
             // Separate outer and inner polygons
