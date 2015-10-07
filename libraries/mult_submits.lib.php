@@ -67,7 +67,7 @@ function PMA_getUrlParams(
 }
 
 /**
- * Gets query results from
+ * Builds or execute queries for multiple elements, depending on $query_type
  *
  * @param string $query_type  query type
  * @param array  $selected    selected tables
@@ -80,7 +80,7 @@ function PMA_getUrlParams(
  *
  * @return array
  */
-function PMA_getQueryStrFromSelected(
+function PMA_buildOrExecuteQueryForMulti(
     $query_type, $selected, $db, $table, $views, $primary,
     $from_prefix, $to_prefix
 ) {
@@ -92,7 +92,7 @@ function PMA_getQueryStrFromSelected(
     // whether to run query after each pass
     $run_parts = false;
     // whether to execute the query at the end (to display results)
-    $use_sql = false;
+    $execute_query_later = false;
     $result = null;
 
     if ($query_type == 'drop_tbl') {
@@ -135,31 +135,31 @@ function PMA_getQueryStrFromSelected(
         case 'check_tbl':
             $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
                        . PMA_Util::backquote($selected[$i]);
-            $use_sql    = true;
+            $execute_query_later = true;
             break;
 
         case 'optimize_tbl':
             $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
                        . PMA_Util::backquote($selected[$i]);
-            $use_sql    = true;
+            $execute_query_later = true;
             break;
 
         case 'analyze_tbl':
             $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
                        . PMA_Util::backquote($selected[$i]);
-            $use_sql    = true;
+            $execute_query_later = true;
             break;
 
         case 'checksum_tbl':
             $sql_query .= (empty($sql_query) ? 'CHECKSUM TABLE ' : ', ')
                        . PMA_Util::backquote($selected[$i]);
-            $use_sql    = true;
+            $execute_query_later = true;
             break;
 
         case 'repair_tbl':
             $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
                        . PMA_Util::backquote($selected[$i]);
-            $use_sql    = true;
+            $execute_query_later = true;
             break;
 
         case 'empty_tbl':
@@ -295,7 +295,7 @@ function PMA_getQueryStrFromSelected(
 
     return array(
         $result, $rebuild_database_list, $reload,
-        $run_parts, $use_sql, $sql_query, $sql_query_views
+        $run_parts, $execute_query_later, $sql_query, $sql_query_views
     );
 }
 

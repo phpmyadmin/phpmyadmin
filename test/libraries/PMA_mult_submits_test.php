@@ -259,11 +259,11 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getQueryStrFromSelected
+     * Test for PMA_buildOrExecuteQueryForMulti
      *
      * @return void
      */
-    public function testPMAGetQueryStrFromSelected()
+    public function testPMABuildOrExecuteQueryForMulti()
     {
         $query_type = 'row_delete';
         $db = "PMA_db";
@@ -282,8 +282,8 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         list(
             $result, $rebuild_database_list, $reload_ret,
-            $run_parts, $use_sql,,
-        ) = PMA_getQueryStrFromSelected(
+            $run_parts, $execute_query_later,,
+        ) = PMA_buildOrExecuteQueryForMulti(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
         );
@@ -314,22 +314,16 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         $query_type = 'analyze_tbl';
         list(
-            ,,,, $use_sql,,
-        ) = PMA_getQueryStrFromSelected(
+            ,,,, $execute_query_later,,
+        ) = PMA_buildOrExecuteQueryForMulti(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
         );
 
-        //validate 5: $use_sql
+        //validate 5: $execute_query_later
         $this->assertEquals(
             true,
-            $use_sql
-        );
-
-        //validate 6: $use_sql
-        $this->assertEquals(
-            true,
-            $use_sql
+            $execute_query_later
         );
     }
 

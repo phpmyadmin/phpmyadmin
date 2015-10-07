@@ -228,8 +228,8 @@ if (!empty($submit_mult) && !empty($what)) {
 
     list(
         $result, $rebuild_database_list, $reload_ret,
-        $run_parts, $use_sql, $sql_query, $sql_query_views
-    ) = PMA_getQueryStrFromSelected(
+        $run_parts, $execute_query_later, $sql_query, $sql_query_views
+    ) = PMA_buildOrExecuteQueryForMulti(
         $query_type, $selected, $db, $table, $views,
         isset($primary) ? $primary : null,
         isset($from_prefix) ? $from_prefix : null,
@@ -249,7 +249,7 @@ if (!empty($submit_mult) && !empty($what)) {
         }
     }
 
-    if ($use_sql) {
+    if ($execute_query_later) {
 
         /**
          * Parse and analyze the query
