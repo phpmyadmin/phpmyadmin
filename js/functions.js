@@ -2671,7 +2671,7 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
         }
     ];
 
-    $('<div/>', {'id': 'confirm_dialog'})
+    $('<div/>', {'id': 'confirm_dialog', 'title': PMA_messages.strConfirm})
     .prepend(question)
     .dialog({
         buttons: button_options,
