@@ -289,7 +289,7 @@ $GLOBALS['PMA_Config']->enableBc();
 $pma_cookie_version = 5;
 if (isset($_COOKIE)) {
     if (! isset($_COOKIE['pmaCookieVer'])
-        || $_COOKIE['pmaCookieVer'] < $pma_cookie_version
+        || $_COOKIE['pmaCookieVer'] != $pma_cookie_version
     ) {
         // delete all cookies
         foreach ($_COOKIE as $cookie_name => $tmp) {
