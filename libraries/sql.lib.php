@@ -956,13 +956,13 @@ function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
 }
 
 /**
- * Function to execute the SQL query and set the execution time
+ * Executes the SQL query and measures its execution time
  *
  * @param String $full_sql_query the full sql query
  *
- * @return mixed  $result the results after running the query
+ * @return array ($result, $querytime)
  */
-function PMA_executeQueryAndStoreResults($full_sql_query)
+function PMA_executeQueryAndMeasureTime($full_sql_query)
 {
     // close session in case the query takes too long
     session_write_close();
@@ -978,9 +978,7 @@ function PMA_executeQueryAndStoreResults($full_sql_query)
     // reopen session
     session_start();
 
-    $GLOBALS['querytime'] = $querytime_after - $querytime_before;
-
-    return $result;
+    return array($result, $querytime_after - $querytime_before);
 }
 
 /**
@@ -1167,7 +1165,10 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
             $GLOBALS['dbi']->query('SET PROFILING=1;');
         }
 
-        $result = PMA_executeQueryAndStoreResults($full_sql_query);
+        list(
+            $result,
+            $GLOBALS['querytime']
+        ) = PMA_executeQueryAndMeasureTime($full_sql_query);
 
         // Displays an error message if required and stop parsing the script
         $error = $GLOBALS['dbi']->getError();
