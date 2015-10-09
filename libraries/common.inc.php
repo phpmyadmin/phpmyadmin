@@ -41,7 +41,6 @@ use PMA\libraries\Theme;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
 use PMA\libraries\Response;
-use PMA\libraries\TypesDrizzle;
 use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
 
