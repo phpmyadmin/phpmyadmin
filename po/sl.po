@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-09 12:00-0400\n"
-"PO-Revision-Date: 2015-10-01 21:01+0200\n"
+"PO-Revision-Date: 2015-10-09 22:58+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
@@ -949,10 +949,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Ali res želite odstraniti razdelitev?"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Ali res želite izvesti \"%s\"?"
+msgstr "Ali res želite RESET SLAVE?"
 
 #: js/messages.php:67
 msgid ""
@@ -9396,10 +9395,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Neveljavno ime razreda \"%1$s\"; uporabljam privzeto \"Node\""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Ne morem dodati stolpcev!"
+msgstr "Ne morem naložiti razreda \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -10896,7 +10895,6 @@ msgstr ""
 "možnost prazna."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:32
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10923,13 +10921,12 @@ msgstr ""
 "SAMO ZA LINUX: Zažene zunanjo aplikacijo in podaja podatke stopcev prek "
 "standardnega vhoda. Vrne standardni izhod aplikacije. Privzeto je Tidy, za "
 "lep izpis kode HTML. Zaradi varnostnih razlogov morate ročno urediti "
-"datoteko libraries/plugins/output/transformations/Text_Plain_External.class."
-"php in navesti orodja, ki jih želite omogočiti. Prva možnost je številka "
-"programa, ki ga želite uporabiti, druga možnost pa so parametri programa. Če "
-"tretji parameter nastavite na 1, bo s pomočjo htmlspecialchars() pretvoril "
-"izhod (Privzeto 1). Če nastavite četrti parameter na 1, bo preprečil "
-"prelamljanje in zagotovil, da se celotni izhod prikaže v eni vrstici "
-"(Privzeto 1)."
+"datoteko libraries/plugins/output/transformations/Text_Plain_External.php in "
+"navesti orodja, ki jih želite omogočiti. Prva možnost je številka programa, "
+"ki ga želite uporabiti, druga možnost pa so parametri programa. Če tretji "
+"parameter nastavite na 1, bo s pomočjo htmlspecialchars() pretvoril izhod ("
+"Privzeto 1). Če nastavite četrti parameter na 1, bo preprečil prelamljanje "
+"in zagotovil, da se celotni izhod prikaže v eni vrstici (Privzeto 1)."
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:32
 msgid ""
