@@ -53,7 +53,6 @@ define('PHPMYADMIN', 1);
 require_once 'libraries/autoloader.php';
 require_once 'libraries/core.lib.php';
 
-include './libraries/Advisor.php';
 $rules = PMA\libraries\Advisor::parseRulesFile();
 
 foreach($rules['rules'] as $idx => $rule) {
