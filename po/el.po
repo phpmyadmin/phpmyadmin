@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-09 12:00-0400\n"
-"PO-Revision-Date: 2015-10-02 17:31+0200\n"
+"PO-Revision-Date: 2015-10-09 22:42+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -957,10 +957,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Θέλετε πραγματικά να απομακρύνετε τη(ις) κατάτμηση(εις);"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Θέλετε να εκτελέσετε το ακόλουθο το «%s»;"
+msgstr "Θέλετε, σίγουρα, να εκτελέσετε την εντολή RESET SLAVE;"
 
 #: js/messages.php:67
 msgid ""
@@ -9483,10 +9482,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Μη έγκυρο όνομα κλάσης «%1$s», χρήση της προεπιλογής του «Node»"
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Αδύνατη η προσθήκη στηλών!"
+msgstr "Αδύνατη η φόρτωση κλάσης «%1$s»"
 
 #: libraries/navigation/nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -11006,7 +11005,6 @@ msgstr ""
 "επιλογή ως κενό."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:32
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -11030,16 +11028,16 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
-"«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
+"ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω «"
+"βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
 "τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
-"ασφαλείας, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
-"transformations/output/text_plain__external.inc.php και να εισάγετε τα "
+"ασφαλείας, πρέπει χειροκίνητα να αλλάξετε το αρχείο "
+"libraries/transformations/output/text_plain__external.php και να εισάγετε τα "
 "εργαλεία που εσείς θέλετε να είναι διαθέσιμα. Η πρώτη επιλογή είναι ο "
 "αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή "
 "είναι οι παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το "
-"αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη "
-"τιμή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί "
+"αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη τιμή:"
+" 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί "
 "περιεχομένου ούτως ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην "
 "διάταξη (Προεπιλεγμένη τιμή: 1)."
 
