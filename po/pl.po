@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-09 12:00-0400\n"
-"PO-Revision-Date: 2015-10-07 15:19+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2015-10-09 23:32+0200\n"
+"Last-Translator: Michał VonFlynee <vonflynee@gmail.com>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -616,7 +616,7 @@ msgstr ""
 
 #: import_status.php:102
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nie można wczytać postępu importu."
 
 #: import_status.php:111 js/messages.php:378 libraries/Util.php:797
 #: libraries/export.lib.php:523
@@ -750,7 +750,6 @@ msgid "List of changes"
 msgstr "Lista zmian"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -764,7 +763,7 @@ msgid ""
 msgstr ""
 "Twój plik konfiguracyjny zawiera ustawienia (root bez hasła), które "
 "odpowiadają domyślnie uprzywilejowanemu koncie MySQL. Twój serwer MySQL "
-"działa z tym domyślnie jest otwarty na włamania, i naprawdę powinieś "
+"działa z tym domyślnie jest otwarty na włamania, i naprawdę powinieneś "
 "naprawić tę lukę w zabezpieczeniach poprzez ustawienie hasła dla użytkownika "
 "'root'."
 
@@ -847,6 +846,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Możesz też przejść do karty 'Operacje' dowolnej bazy danych, by "
+"skonfigurować tą opcję tylko dla tej bazy."
 
 #: index.php:613
 #, php-format
@@ -892,34 +893,29 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Masz zamiar WYCIĄĆ całą bazę danych!"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Usuń dane śledzące tę tabelę"
+msgstr "Czy usunąć dane śledzenia dla tej tabeli?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Usuń dane śledzące tę tabelę"
+msgstr "Czy usunąć dane śledzenia dla wybranych tabel?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Usuń dane śledzące tę tabelę"
+msgstr "Usunąć dane śledzące dla tej wersji?"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Usuń dane śledzące tę tabelę"
+msgstr "Usunąć dane śledzące dla wybranych wersji?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Usuń wiersz śledzenia danych z raportu"
+msgstr "Usunąć wpis śledzenia z raportu?"
 
 #: js/messages.php:52
 msgid "Deleting tracking data"
@@ -952,34 +948,32 @@ msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tą stronę?"
 
 #: js/messages.php:59
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
+msgstr "Czy na pewno chcesz usunąć wybranego(ych) użytkownika(ów)?"
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Czy na pewno chcesz usunąć tę zakładkę?"
+msgstr "Czy na pewno chcesz usunąć tę kolumnę centralną?"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
+msgstr "Czy na pewno chcesz usunąć wybrane elementy?"
 
 #: js/messages.php:62
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Czy naprawdę chcesz skasować (DROP) wybraną(e) partycję(e)? Ta operacja "
+"usunie (DELETE) również dane powiązane z wybraną(ymi) partycją(ami)!"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
+msgstr "Czy na pewno chcesz obciąć (TRUNCATE) wybraną(e) partycję(e)?"
 
 #: js/messages.php:64
 #, fuzzy
@@ -988,10 +982,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Czy na pewno chcesz wykonać \"%s\"?"
+msgstr "Czy na pewno chcesz wykonać RESET SLAVE?"
 
 #: js/messages.php:67
 msgid ""
@@ -1001,14 +994,19 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Ta operacja poskutkuje przekonwertowaniem danych do nowego sortowania. W "
+"rzadkich wypadkach (jeśli znak nie istnieje w wybranym sortowaniu) ten "
+"proces może skutkować niepoprawnym wyświetlaniem danych w nowym sortowaniu. "
+"W takim wypadku sugerujemy powrót do poprzedniego sortowania oraz "
+"zastosowania się do wskazówek z "
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Nieczytelne dane"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Czy jesteś pewien, że chcesz zmienić sortowanie i przekonwertować dane?"
 
 #: js/messages.php:77
 msgid ""
@@ -1019,12 +1017,19 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"W trakcie tej operacji MySQL zmapuje wartości pomiędzy sortowaniami. Jeśli "
+"zestawy znaków są niekompatybilne, może nastąpić utrata danych i dane, które "
+"zostały utracone, mogą <b>NIE BYĆ ODZYSKIWALNE</b> przy pomocy zmiany "
+"sortowania kolumn(y). <b> By przekonwertować dane, sugerujemy użycia funkcji "
+"edycji kolumn (link \"Zmień\") na stronie struktury tabeli.</b>"
 
 #: js/messages.php:85
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Czy jesteś pewien, że chcesz zmienić sortowanie kolumn i przekonwertować "
+"dane?"
 
 #: js/messages.php:88
 #, fuzzy
@@ -1050,7 +1055,7 @@ msgstr "W formularzu brakuje wartości!"
 
 #: js/messages.php:94
 msgid "Select at least one of the options!"
-msgstr "Wybierz co najmniej jedną z opcję!"
+msgstr "Wybierz co najmniej jedną opcję!"
 
 #: js/messages.php:95
 msgid "Please enter a valid number!"
