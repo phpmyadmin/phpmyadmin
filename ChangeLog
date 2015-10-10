@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
 - issue #11542 Import parser and backslash
 - issue #11546 "Visualize GIS data" seems to be broken
 - issue #11548 Confirm box on "Reset slave" option
+- issue        Fix cookies clearing on version change
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
