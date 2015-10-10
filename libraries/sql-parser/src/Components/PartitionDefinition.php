@@ -10,7 +10,6 @@
  */
 namespace SqlParser\Components;
 
-use SqlParser\Context;
 use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;

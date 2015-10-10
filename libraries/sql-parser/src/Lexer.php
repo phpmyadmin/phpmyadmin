@@ -171,7 +171,7 @@ class Lexer
      */
     public static function getTokens($str, $strict = false, $delimiter = null)
     {
-        $lexer = new Lexer($str);
+        $lexer = new Lexer($str, $strict, $delimiter);
         return $lexer->list;
     }
 
