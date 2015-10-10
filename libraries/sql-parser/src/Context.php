@@ -524,5 +524,5 @@ abstract class Context
     }
 }
 
-// Initialing the default context.
+// Initializing the default context.
 Context::load();
