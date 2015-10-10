@@ -643,12 +643,12 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             );
         $this->assertEquals(
             "CREATE USER 'pma_username'@'pma_hostname' "
-            . "IDENTIFIED WITH mysql_native_password BY 'pma_password';",
+            . "IDENTIFIED WITH mysql_native_password AS 'pma_password';",
             $create_user_real
         );
         $this->assertEquals(
             "CREATE USER 'pma_username'@'pma_hostname' "
-            . "IDENTIFIED WITH mysql_native_password BY '***';",
+            . "IDENTIFIED WITH mysql_native_password AS '***';",
             $create_user_show
         );
         $this->assertEquals(
@@ -694,7 +694,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $ret_message->getMessage()
         );
         $this->assertEquals(
-            "CREATE USER ''@'localhost' IDENTIFIED WITH mysql_native_password BY '***';"
+            "CREATE USER ''@'localhost' IDENTIFIED WITH mysql_native_password AS '***';"
             . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
             . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
             $sql_query
@@ -939,8 +939,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $username = "PMA_username";
         $hostname = "PMA_hostname";
-        $password = "PMA_password";
+        $password = "pma_password";
         $_POST['pred_password'] = 'keep';
+        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
         $dbname = "PMA_db";
 
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
@@ -948,13 +949,15 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 1: $create_user_real
         $this->assertEquals(
-            "CREATE USER 'PMA_username'@'PMA_hostname' BY 'PMA_password';",
+            "CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED "
+                . "WITH mysql_native_password AS 'pma_password';",
             $create_user_real
         );
 
         //validate 2: $create_user_show
         $this->assertEquals(
-            "CREATE USER 'PMA_username'@'PMA_hostname' BY '***';",
+            "CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED "
+                . "WITH mysql_native_password AS '***';",
             $create_user_show
         );
 

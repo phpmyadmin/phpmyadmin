@@ -3463,26 +3463,21 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
             $html_output .= '<td>';
 
             $password_column = 'Password';
+            $serverType = Util::getServerType();
 
-            if (Util::getServerType() == 'MySQL'
-                && PMA_MYSQL_INT_VERSION >= 50606
-                && PMA_MYSQL_INT_VERSION < 50706
+            $check_plugin_query = "SELECT * FROM `mysql`.`user` WHERE "
+                . "`User` = '" . $host['User'] . "' AND `Host` = '"
+                . $host['Host'] . "'";
+            $res = $GLOBALS['dbi']->fetchSingleRow($check_plugin_query);
+
+            if ((isset($res['authentication_string'])
+                && ! empty($res['authentication_string']))
+                || (isset($res['Password'])
+                && ! empty($res['Password']))
             ) {
-                $check_plugin_query = "SELECT * FROM `mysql`.`user` WHERE "
-                    . "`User` = '" . $host['User'] . "' AND `Host` = '"
-                    . $host['Host'] . "'";
-                $res = $GLOBALS['dbi']->fetchSingleRow($check_plugin_query);
-                if (isset($res['plugin'])
-                    && $res['plugin'] == 'sha256_password'
-                    && isset($res['authentication_string'])
-                ) {
-                    $password_column = 'authentication_string';
-                    if (! empty($res['authentication_string'])) {
-                        $host[$password_column] = 'Y';
-                    } else {
-                        $host[$password_column] = 'N';
-                    }
-                }
+                $host[$password_column] = 'Y';
+            } else {
+                $host[$password_column] = 'N';
             }
 
             switch ($host[$password_column]) {
@@ -4948,6 +4943,25 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
 }
 
 /**
+ * Get the hashed string for password
+ *
+ * @param string $password password
+ *
+ * @return string $hashedPassword
+ */
+function PMA_getHashedPassword($password)
+{
+    $result = $GLOBALS['dbi']->fetchSingleRow(
+        "SELECT PASSWORD('" . $password . "') AS `password`;"
+    );
+
+    $hashedPassword = $result['password'];
+
+    return $hashedPassword;
+}
+
+
+/**
  * Get SQL queries for Display and Add user
  *
  * @param string $username username
@@ -4970,21 +4984,26 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $slashedHostname
     );
 
-    if (PMA_MYSQL_INT_VERSION >= 50507
-        && $serverType == 'MySQL'
+    // 'IDENTIFIED WITH auth_plugin AS hash_string'
+    // is supported by MySQL 5.5.7+
+    if ($serverType == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50507
         && isset($_REQUEST['authentication_plugin'])
     ) {
         $create_user_stmt .= ' IDENTIFIED WITH '
             . $_REQUEST['authentication_plugin'];
     }
-    if (PMA_MYSQL_INT_VERSION >= 50707
-        && $serverType == 'MySQL'
-        && strpos($create_user_stmt, '%') !== false
+
+    // 'IDENTIFIED VIA auth_plugin USING hash_string'
+    // is supported by MariaDB 5.2+
+    if ($serverType == 'MariaDB'
+        && PMA_MYSQL_INT_VERSION >= 50200
+        && isset($_REQUEST['authentication_plugin'])
     ) {
-        $create_user_stmt = str_replace(
-            '%', '%%', $create_user_stmt
-        );
+        $create_user_stmt .= ' IDENTIFIED VIA '
+            . $_REQUEST['authentication_plugin'];
     }
+
     $create_user_real = $create_user_show = $create_user_stmt;
 
     $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = PASSWORD(\'%s\')';
@@ -5003,9 +5022,21 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
     $real_sql_query = $sql_query = $sql_query_stmt;
 
-    if (PMA_MYSQL_INT_VERSION < 50707
-        || $serverType != 'MySQL'
+    // Use 'SET PASSWORD' for lower versions
+    if (($serverType == 'MySQL'
+        && PMA_MYSQL_INT_VERSION < 50507)
+        || ($serverType == 'MariaDB'
+        && PMA_MYSQL_INT_VERSION < 50200)
     ) {
+        // Set proper password hashing method
+        if (isset($_REQUEST['authentication_plugin'])
+            && ! empty($_REQUEST['authentication_plugin'])
+        ) {
+            PMA_setProperPasswordHashing(
+                $_REQUEST['authentication_plugin']
+            );
+        }
+
         if ($_POST['pred_password'] == 'keep') {
             $password_set_real = sprintf(
                 $password_set_stmt,
@@ -5030,12 +5061,31 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         }
     } else {
         $password_set_real = null;
-        $create_user_stmt .= ' BY \'%s\'';
+
+        // Set the proper hasing method
+        PMA_setProperPasswordHashing(
+            $_REQUEST['authentication_plugin']
+        );
+
+        // Required for binding '%' with '%s'
+        $create_user_stmt = str_replace(
+            '%', '%%', $create_user_stmt
+        );
+
+        // MariaDB uses 'USING' whereas MySQL uses 'AS'
+        if ($serverType == 'MariaDB') {
+            $create_user_stmt .= ' USING \'%s\'';
+        } else {
+            $create_user_stmt .= ' AS \'%s\'';
+        }
+
+        $create_user_real = $create_user_show = $create_user_stmt;
 
         if ($_POST['pred_password'] == 'keep') {
+            $hashedPassword = PMA_getHashedPassword($password);
             $create_user_real = sprintf(
                 $create_user_stmt,
-                $password
+                $hashedPassword
             );
             $create_user_show = sprintf(
                 $create_user_stmt,
@@ -5051,9 +5101,10 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 '***'
             );
         } else {
+            $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
             $create_user_real = sprintf(
                 $create_user_stmt,
-                $_POST['pma_pw']
+                $hashedPassword
             );
             $create_user_show = sprintf(
                 $create_user_stmt,
@@ -5088,8 +5139,11 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $sql_query = '';
     }
 
-    if ($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50700
+    // 'SET PASSWORD' is only used in lower versions
+    if (($serverType == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50507)
+        || ($serverType == 'MariaDB'
+        && PMA_MYSQL_INT_VERSION >= 50200)
     ) {
         $password_set_real = null;
         $password_set_show = null;
