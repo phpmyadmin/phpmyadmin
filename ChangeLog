@@ -32,7 +32,7 @@ phpMyAdmin - ChangeLog
 - issue #11546 "Visualize GIS data" seems to be broken
 - issue #11548 Confirm box on "Reset slave" option
 - issue        Fix cookies clearing on version change
-- issue #11558 Cannot execute SQL with subquery (fix for part 1)
+- issue #11558 Cannot execute SQL with subquery
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
