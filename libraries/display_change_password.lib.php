@@ -77,88 +77,74 @@ function PMA_getHtmlForChangePassword($username, $hostname)
         . $chg_evt_handler . '="nopass[1].checked = true" />'
         . '</td>'
         . '</tr>';
-    $default_auth_plugin = PMA_getCurrentAuthenticationPlugin(
-        'change', $username, $hostname
-    );
 
-    // See http://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-5.html
-    if (PMA_Util::getServerType() == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50705
+    $html .= '<tr class="vmiddle">'
+        . '<td>' . __('Password Hashing:') . '</td>';
+
+    $serverType = PMA_Util::getServerType();
+    if (($serverType == 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50507)
+        || ($serverType == 'MariaDB'
+        && PMA_MYSQL_INT_VERSION >= 50200)
     ) {
-        $html .= '<tr class="vmiddle">'
-            . '<td>' . __('Password Hashing:') . '</td>'
-            . '<td>'
-            . '<input type="radio" name="pw_hash" id="radio_pw_hash_mysql_native" '
-            . 'value="mysql_native_password"';
-        if ($default_auth_plugin == 'mysql_native_password') {
-            $html .= '" checked="checked"';
-        }
-        $html .= ' />'
-            . '<label for="radio_pw_hash_mysql_native">'
-            . __('MySQL native password')
-            . '</label>'
-            . '</td>'
-            . '</tr>'
-            . '<tr id="tr_element_before_generate_password">'
-            . '<td>&nbsp;</td>'
-            . '<td>'
-            . '<input type="radio" name="pw_hash" id="radio_pw_hash_sha256" '
-            . 'value="sha256_password"';
-        if ($default_auth_plugin == 'sha256_password') {
-            $html .= '" checked="checked"';
-        }
-        $html .= ' />'
-            . '<label for="radio_pw_hash_sha256">'
-            . __('SHA256 password')
-            . '</label>'
-            . '</td>'
-            . '</tr>';
-    } elseif (PMA_Util::getServerType() == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50606
-    ) {
-        $html .= '<tr class="vmiddle" id="tr_element_before_generate_password">'
-            . '<td>' . __('Password Hashing:') . '</td>'
-            . '<td>'
-            . '<input type="radio" name="pw_hash" id="radio_pw_hash_new" '
-            . 'value="' . $default_auth_plugin . '" checked="checked" />'
-            . '<label for="radio_pw_hash_new">' . $default_auth_plugin . '</label>'
-            . '</td>'
-            . '</tr>';
-    } else {
-        $html .= '<tr class="vmiddle">'
-            . '<td>' . __('Password Hashing:') . '</td>'
-            . '<td>'
-            . '<input type="radio" name="pw_hash" id="radio_pw_hash_new" '
-            . 'value="mysql_native_password" checked="checked" />'
-            . '<label for="radio_pw_hash_new">mysql_native_password</label>'
-            . '</td>'
-            . '</tr>'
-            . '<tr id="tr_element_before_generate_password" >'
-            . '<td>&nbsp;</td>'
-            . '<td>'
-            . '<input type="radio" name="pw_hash" id="radio_pw_hash_old" '
-            . 'value="old" />'
-            . '<label for="radio_pw_hash_old">' . __('MySQL 4.0 compatible')
-            . '</label>'
-            . '</td>'
-            . '</tr>';
-    }
 
-    $html .=  '</table>';
+        $active_auth_plugins = PMA_getActiveAuthPlugins();
 
-    $html .= '<div '
-        . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
-        . ' id="ssl_reqd_warning_cp">'
-        . PMA_Message::notice(
-            __(
-                'This method requires using an \'<i>SSL connection</i>\' '
-                . 'or an \'<i>unencrypted connection that encrypts the password '
-                . 'using RSA</i>\'; while connecting to the server.'
+        $default_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+            'change', $username, $hostname
+        );
+
+        $iter = 0;
+        $total_plugins = count($active_auth_plugins);
+        foreach ($active_auth_plugins as $plugin) {
+            if ($plugin['PLUGIN_NAME'] == 'mysql_old_password') {
+                continue;
+            }
+
+            if ($iter != 0) {
+                $html .= '<td>&nbsp;</td>';
+            }
+            $html .= '<td>'
+                . '<input type="radio" name="pw_hash" value="'
+                . $plugin['PLUGIN_NAME'] . '"'
+                . ($default_auth_plugin == $plugin['PLUGIN_NAME'] ? 'checked="checked" ' : '')
+                . ' id="radio_pw_hash_' . $plugin['PLUGIN_NAME'] . '" />'
+                . '<label for="radio_pw_hash_' . $plugin['PLUGIN_NAME'] . '" >'
+                . __($plugin['PLUGIN_DESCRIPTION']) . ' </label></td></tr>';
+
+            if ($iter == $total_plugins - 2) {
+                $html .= '<tr id="tr_element_before_generate_password">';
+            } else if ($iter != $total_plugins - 1) {
+                $html .= '<tr>';
+            }
+            $iter++;
+        }
+
+        $html .= '</tr>';
+        $html .=  '</table>';
+
+        $html .= '<div '
+            . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
+            . ' id="ssl_reqd_warning_cp">'
+            . PMA_Message::notice(
+                __(
+                    'This method requires using an \'<i>SSL connection</i>\' '
+                    . 'or an \'<i>unencrypted connection that encrypts the password '
+                    . 'using RSA</i>\'; while connecting to the server.'
+                )
+                . PMA_Util::showMySQLDocu('sha256-authentication-plugin')
             )
-            . PMA_Util::showMySQLDocu('sha256-authentication-plugin')
-        )
-            ->getDisplay()
-        . '</div>';
+                ->getDisplay()
+            . '</div>';
+    } else {
+        $html .= '<td>'
+            . '<input type="radio" name="pw_hash" value="mysql_native_password"'
+            . 'checked="checked" id="radio_pw_hash_native" />'
+            . '<label for="radio_pw_hash_native" >'
+            . __('MySQL Native Authentication') . ' </label></td></tr>'
+            . '<tr id="tr_element_before_generate_password"></tr>'
+            . '</table>';
+    }
 
     $html .= '</fieldset>'
         . '<fieldset id="fieldset_change_password_footer" class="tblFooters">'
