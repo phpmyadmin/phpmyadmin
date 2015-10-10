@@ -40,6 +40,7 @@ class Condition extends Component
     public static $OPERATORS = array(
         'AND'                           => 1,
         'BETWEEN'                       => 1,
+        'EXISTS'                        => 1,
         'IN'                            => 1,
         'IS'                            => 1,
         'LIKE'                          => 1,
