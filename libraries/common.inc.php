@@ -314,16 +314,17 @@ $GLOBALS['PMA_Config']->enableBc();
  * when changing something related to PMA cookies, increment the cookie version
  */
 $pma_cookie_version = 4;
-if (isset($_COOKIE)
-    && (isset($_COOKIE['pmaCookieVer'])
-    && $_COOKIE['pmaCookieVer'] < $pma_cookie_version)
-) {
-    // delete all cookies
-    foreach ($_COOKIE as $cookie_name => $tmp) {
-        $GLOBALS['PMA_Config']->removeCookie($cookie_name);
+if (isset($_COOKIE)) {
+    if (! isset($_COOKIE['pmaCookieVer'])
+        || $_COOKIE['pmaCookieVer'] != $pma_cookie_version
+    ) {
+        // delete all cookies
+        foreach ($_COOKIE as $cookie_name => $tmp) {
+            $GLOBALS['PMA_Config']->removeCookie($cookie_name);
+        }
+        $_COOKIE = array();
+        $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
     }
-    $_COOKIE = array();
-    $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
 }
 
 
