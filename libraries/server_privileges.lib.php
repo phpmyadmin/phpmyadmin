@@ -3463,7 +3463,6 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
             $html_output .= '<td>';
 
             $password_column = 'Password';
-            $serverType = Util::getServerType();
 
             $check_plugin_query = "SELECT * FROM `mysql`.`user` WHERE "
                 . "`User` = '" . $host['User'] . "' AND `Host` = '"
