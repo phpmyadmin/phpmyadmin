@@ -4927,7 +4927,10 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $slashedHostname
     );
 
-    // 'IDENTIFIED WITH auth_plugin AS hash_string'
+    // See https://github.com/phpmyadmin/phpmyadmin/pull/11560#issuecomment-147158219
+    // for details regarding details of syntax usage for various versions
+
+    // 'IDENTIFIED WITH auth_plugin'
     // is supported by MySQL 5.5.7+
     if ($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50507
@@ -4937,7 +4940,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
             . $_REQUEST['authentication_plugin'];
     }
 
-    // 'IDENTIFIED VIA auth_plugin USING hash_string'
+    // 'IDENTIFIED VIA auth_plugin'
     // is supported by MariaDB 5.2+
     if ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200
@@ -4966,21 +4969,13 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     );
     $real_sql_query = $sql_query = $sql_query_stmt;
 
-    // Use 'SET PASSWORD' for lower versions
+    // Use 'SET PASSWORD' for pre-5.7.6 MySQL versions
+    // and pre-5.2.0 MariaDB
     if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION < 50507)
+        && PMA_MYSQL_INT_VERSION < 50706)
         || ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION < 50200)
     ) {
-        // Set proper password hashing method
-        if (isset($_REQUEST['authentication_plugin'])
-            && ! empty($_REQUEST['authentication_plugin'])
-        ) {
-            PMA_setProperPasswordHashing(
-                $_REQUEST['authentication_plugin']
-            );
-        }
-
         if ($_POST['pred_password'] == 'keep') {
             $password_set_real = sprintf(
                 $password_set_stmt,
@@ -5083,9 +5078,10 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $sql_query = '';
     }
 
-    // 'SET PASSWORD' is only used in lower versions
+    // Use 'SET PASSWORD' for pre-5.7.6 MySQL versions
+    // and pre-5.2.0 MariaDB
     if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50507)
+        && PMA_MYSQL_INT_VERSION >= 50706)
         || ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200)
     ) {
