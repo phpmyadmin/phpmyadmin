@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-09 07:21-0400\n"
-"PO-Revision-Date: 2015-09-20 20:15+0200\n"
+"PO-Revision-Date: 2015-10-11 10:15+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-5/sk/"
-">\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -953,10 +953,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Naozaj chcete SKRÁTIŤ vybrané oddiely?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Skutočne chcete vykonať príkaz \"%s\"?"
+msgstr "Skutočne chcete RESET SLAVE (resetnúť podriadený server)?"
 
 #: js/messages.php:68
 msgid ""
@@ -9772,10 +9771,9 @@ msgstr "Skontrolovať tabuľku"
 
 #: libraries/operations.lib.php:1438
 #: templates/database/structure/check_all_tables.phtml:22
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Skontrolovať tabuľku"
+msgstr "Vytvoriť kontrolný súčet tabuľky"
 
 #: libraries/operations.lib.php:1453
 msgid "Defragment table"
@@ -10218,10 +10216,9 @@ msgid "Report title:"
 msgstr "Názov výpisu:"
 
 #: libraries/plugins/export/ExportPdf.class.php:231
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Sťahujem dáta pre tabuľku"
+msgstr "Vypisujem dáta"
 
 #: libraries/plugins/export/ExportPdf.class.php:286
 msgid "View structure"
@@ -12195,19 +12192,17 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1510
-#, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
-msgstr "Meno používateľa:"
+msgstr "Názov počítača:"
 
 #: libraries/server_privileges.lib.php:1515
 #: libraries/server_privileges.lib.php:1617
 #: libraries/server_privileges.lib.php:2370
 #: libraries/server_privileges.lib.php:3332
-#, fuzzy
 #| msgid "Log name"
 msgid "Host name"
-msgstr "Názov logu"
+msgstr "Názov počítača"
 
 #: libraries/server_privileges.lib.php:1657
 msgid "Do not change the password"
@@ -12234,10 +12229,9 @@ msgid "Add user account"
 msgstr "Pridať používateľský účet"
 
 #: libraries/server_privileges.lib.php:2070
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
-msgstr "Databáza pre používateľa"
+msgstr "Databáza pre účet používateľa"
 
 #: libraries/server_privileges.lib.php:2074
 msgid "Create database with same name and grant all privileges."
@@ -12334,16 +12328,14 @@ msgstr ""
 "oprávnenia."
 
 #: libraries/server_privileges.lib.php:2857
-#, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "Zmeniť informácie o používateľovi / Kopírovať používateľa"
+msgstr "Zmeniť prihlasovacie informácie  / Kopírovať účet používateľa"
 
 #: libraries/server_privileges.lib.php:2863
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "Vytvoriť nového používateľa s rovnakými právami a …"
+msgstr "Vytvoriť nový účet používateľa s rovnakými právami a …"
 
 #: libraries/server_privileges.lib.php:3165
 msgid "Column-specific privileges"
@@ -12364,10 +12356,9 @@ msgid "Add privileges on the following table:"
 msgstr "Pridať oprávnenia pre nasledujúcu tabuľku:"
 
 #: libraries/server_privileges.lib.php:3524
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "Odstrániť vybraných používateľov"
+msgstr "Odstrániť vybrané účty používateľov"
 
 #: libraries/server_privileges.lib.php:3530
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12428,16 +12419,14 @@ msgid "New"
 msgstr "Nový"
 
 #: libraries/server_privileges.lib.php:4339
-#, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "Upraviť oprávnenia:"
 
 #: libraries/server_privileges.lib.php:4340
-#, fuzzy
 #| msgid "User groups"
 msgid "User account"
-msgstr "Užívateľské skupiny"
+msgstr "Užívateľský účet"
 
 #: libraries/server_privileges.lib.php:4399
 msgid ""
@@ -12446,10 +12435,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4419 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "Zoznam používatelov"
+msgstr "Prehľad účtov používateľov"
 
 #: libraries/server_privileges.lib.php:4487
 msgid ""
@@ -12548,10 +12536,9 @@ msgid "Sent"
 msgstr "Odoslané"
 
 #: libraries/server_status.lib.php:243
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
-msgstr "max. súčasných pripojení"
+msgstr "Max. súčasných pripojení"
 
 #: libraries/server_status.lib.php:253
 msgid "Failed attempts"
@@ -12710,7 +12697,6 @@ msgid "Clear series"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:233
-#, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Série v grafe:"
@@ -13594,10 +13580,9 @@ msgid "Not implemented yet."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:201
-#, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Zobrazenie ikon pre operácie s tabuľkami"
+msgstr "Nerozpoznaná aktualizačná operácia."
 
 #: libraries/sql-parser/src/Components/Array2d.php:92
 #, php-format
@@ -13618,10 +13603,9 @@ msgid "A comma or a closing bracket was expected"
 msgstr ""
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:251
-#, fuzzy
 #| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Neboli vybrané žiadne tabuľky."
+msgstr "Bola očakávaná čiarka alebo uzatváracia zátvorka."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:267
 msgid "A closing bracket was expected."
@@ -13646,16 +13630,14 @@ msgid "Unexpected dot."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:334
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Neboli vybrané žiadne tabuľky."
+msgstr "Bol očakávaný alias."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:97
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Nie je vybraná verzia."
+msgstr "Bol očakávaný výraz."
 
 #: libraries/sql-parser/src/Components/Limit.php:91
 #: libraries/sql-parser/src/Components/Limit.php:113
@@ -13668,20 +13650,18 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:103
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Počet práve otvorených tabuliek."
+msgstr "Bolo očakávané staré meno tabuľky."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:113
 msgid "Keyword \"TO\" was expected."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:130
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Počet práve otvorených tabuliek."
+msgstr "Bolo očakávané nové meno tabuľky."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:148
 #, fuzzy
@@ -15247,10 +15227,9 @@ msgid "Data length"
 msgstr "Dĺžka riadku"
 
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "Dĺžka riadku"
+msgstr "Dĺžka kľúča"
 
 #: templates/table/structure/display_structure.phtml:140 view_create.php:181
 msgid "Edit view"
