@@ -5057,7 +5057,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     } else {
         $password_set_real = null;
 
-        // Set the proper hasing method
+        // Set the proper hashing method
         PMA_setProperPasswordHashing(
             $_REQUEST['authentication_plugin']
         );
