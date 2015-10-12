@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-09 12:00-0400\n"
-"PO-Revision-Date: 2015-10-11 10:15+0200\n"
+"PO-Revision-Date: 2015-10-12 18:54+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -4670,13 +4670,11 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/Util.php:1252
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Bez PHP kódu"
 
 #: libraries/Util.php:1264
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Odošli dopyt"
@@ -9248,10 +9246,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Nepodarilo sa pridať stĺpce!"
+msgstr "Nemôžem načítať triedu \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -10674,7 +10672,6 @@ msgstr ""
 "Ak použijete druhú možnosť, prvé pole musí byť prázdne."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:32
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10700,14 +10697,14 @@ msgid ""
 msgstr ""
 "LEN PRE LINUX: Spustí externú aplikáciu a na štandardný vstup pošle pole a "
 "zobrazí výstup programu. Predvolený program je Tidy, ktorý pekne sformátuje "
-"HTML. Z bezpečnostných dôvodov musíte ručne upraviť obsah súboru libraries/"
-"plugins/transformations/output/Text_Plain_External.class.php a pridať do "
+"HTML. Z bezpečnostných dôvodov musíte ručne upraviť obsah súboru "
+"libraries/plugins/transformations/output/Text_Plain_External.php a pridať do "
 "neho povolené aplikácie. Prvý parameter je číslo aplikácie, ktorú chcete "
 "použiť a druhý parametre sú parametre tejto aplikácie. Ak je tretí parameter "
-"nastavený na 1, výstup bude skonvertovaný funkciou htmlspecialchars() "
-"(predvolený je 1). Štvrtý parameter v prípade, že je nastavený na 1 pridá k "
-"výstupnému textu parameter NOWRAP, čím zabezpečí zachovanie formátovania "
-"(predvolený je 1)."
+"nastavený na 1, výstup bude skonvertovaný funkciou htmlspecialchars() ("
+"predvolený je 1). Štvrtý parameter v prípade, že je nastavený na 1 pridá k "
+"výstupnému textu parameter NOWRAP, čím zabezpečí zachovanie formátovania ("
+"predvolený je 1)."
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:32
 msgid ""
@@ -12025,10 +12022,9 @@ msgid "User group"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:735
-#, fuzzy
 #| msgid "Requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
-msgstr "Vyžaduje SSL šifrované spojenia."
+msgstr "Nevyžaduje SSL šifrované spojenia."
 
 #: libraries/server_privileges.lib.php:756
 msgid "Requires SSL-encrypted connections."
@@ -12092,10 +12088,9 @@ msgstr "Obmedzuje počet simultánnych pripojení používateľa."
 #: libraries/server_privileges.lib.php:3184
 #: libraries/server_privileges.lib.php:4442
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine"
-msgstr "Rutiny"
+msgstr "Rutina"
 
 #: libraries/server_privileges.lib.php:1040
 #: libraries/server_privileges.lib.php:1414 server_privileges.php:71
