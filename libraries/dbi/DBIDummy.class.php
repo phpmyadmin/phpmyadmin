@@ -653,6 +653,11 @@ $GLOBALS['dummy_queries'] = array(
     array(
         'query' => "SELECT @@lower_case_table_names",
         'result' => array()
+    ),
+    array(
+        'query' => "SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` "
+            . "FROM `information_schema`.`PLUGINS` WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';",
+        'result' => array()
     )
 );
 /**
