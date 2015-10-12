@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix cookies clearing on version change
 - issue #11558 Cannot execute SQL with subquery
 - issue #11520 Incorrect syntax creating a user using mysql_native_password with MariaDB
+- issue #11561 Cannot use third party auth plugins
 
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
