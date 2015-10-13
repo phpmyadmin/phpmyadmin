@@ -4791,7 +4791,7 @@ AJAX.registerOnload('functions.js', function(){
      * method is selected
      * Used in user_password.php (Change Password link on index.php)
      */
-    $(document).on("change", 'input[type=radio][name="pw_hash"]', function() {
+    $(document).on("change", 'select#select_authentication_plugin_cp', function() {
         if (this.value === 'sha256_password') {
             $('#ssl_reqd_warning_cp').show();
         } else {

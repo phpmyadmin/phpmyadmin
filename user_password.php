@@ -144,10 +144,16 @@ function PMA_changePassword($password, $message, $change_password_message)
     $curr_user = $row['user'];
     list($username, $hostname) = explode('@', $curr_user);
 
-    if (PMA\libraries\Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+    $serverType = PMA\libraries\Util::getServerType();
 
-        if (isset($_REQUEST['pw_hash']) && ! empty($_REQUEST['pw_hash'])) {
-            $orig_auth_plugin = $_REQUEST['pw_hash'];
+    if ($serverType === 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50706
+    ) {
+
+        if (isset($_REQUEST['authentication_plugin'])
+            && ! empty($_REQUEST['authentication_plugin'])
+        ) {
+            $orig_auth_plugin = $_REQUEST['authentication_plugin'];
         } else {
             $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
                 'change', $username, $hostname
@@ -158,11 +164,15 @@ function PMA_changePassword($password, $message, $change_password_message)
             . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
             . (($password == '') ? '\'\'' : '\'***\'');
     } else {
-        // For MySQL versions 5.6.6+,
+        // For MySQL versions 5.5.7+ and MariaDB versions 5.2+,
         // explicitly set value of `old_passwords` so that
         // it does not give an error while using
         // the PASSWORD() function
-        if (PMA_MYSQL_INT_VERSION >= 50606) {
+        if (($serverType == 'MySQL'
+            && PMA_MYSQL_INT_VERSION >= 50507)
+            || ($serverType == 'MariaDB'
+            && PMA_MYSQL_INT_VERSION >= 50200)
+        ) {
             $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
                 'change', $username, $hostname
             );
