@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-09 07:21-0400\n"
-"PO-Revision-Date: 2015-08-12 17:17+0200\n"
-"Last-Translator: Lari Oesch <lari@oesch.me>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"PO-Revision-Date: 2015-10-13 12:48+0200\n"
+"Last-Translator: Juha <jremes@outlook.com>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -21,8 +21,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Tiedostoa %s ei löydy tästä järjestelmästä, osoitteessa www.phpmyadmin.net "
-"on lisätietoja."
+"Tiedostoa %s ei löydy tästä järjestelmästä, saadaksesi lisätietoja ole hyvä "
+"ja käy osoitteessa www.phpmyadmin.net."
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
@@ -44,7 +44,7 @@ msgstr "Tietokanta %1$s on luotu."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Tietokannan kommentti:"
+msgstr "Tietokannan kommentti"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -288,7 +288,6 @@ msgstr "Tietoa"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:379
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Valitse kaikki"
@@ -648,7 +647,6 @@ msgstr ""
 "linkissä%s."
 
 #: index.php:163
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Yleiset asetukset"
@@ -664,10 +662,9 @@ msgid "Server connection collation"
 msgstr "Palvelinyhteyden aakkosjärjestys"
 
 #: index.php:229
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "Ulkoasuasetukset"
+msgstr "Ulkoasun asetukset"
 
 #: index.php:259 prefs_manage.php:285
 msgid "More settings"
@@ -788,7 +785,6 @@ msgstr ""
 "merkkijonoja oikein, ja tästä saattaa koitua odottamattomia seurauksia."
 
 #: index.php:501
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -800,10 +796,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parametri [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] on matalampi kuin "
-"phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi erääntyy "
-"nopeammin kuin phpMyAdminissa on määritetty."
+"PHP-parametri "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] on matalampi kuin "
+"phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi saattaa "
+"erääntyä nopeammin kuin phpMyAdminissa on määritetty."
 
 #: index.php:520
 msgid ""
@@ -906,10 +903,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Haluatko poistaa näiden versioiden seurantatiedot?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
-msgstr "Poista tämän taulun seurantatiedot"
+msgstr "Poista tämän taulun seurantatiedot?"
 
 #: js/messages.php:54
 msgid "Deleting tracking data"
@@ -948,13 +944,11 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Haluatko varmasti peruuttaa valittujen käyttäjien oikeudet?"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
 msgstr "Haluatko varmasti poistaa tämän kirjanmerkin?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
 msgstr "Haluatko varmasti poistaa haun ”%s”?"
@@ -964,18 +958,19 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Haluatko varmasti suorittaa komennon DROP seuraaville osituksille? Otathan "
+"huomioon että tämä toiminto myös poistaa (DELETE) kaiken ositukseen "
+"liittyvän datan!"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Haluatko varmasti poistaa haun ”%s”?"
+msgstr "Haluatko varmasti poistaa osituksen ”%s”?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Haluatko varmasti suorittaa \"%s\"?"
+msgstr "Haluatko varmasti suorittaa RESET SLAVE - toiminnon?"
 
 #: js/messages.php:68
 msgid ""
@@ -985,14 +980,18 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Tämä operaatio yrittää kääntää datasi uuteen kollaatioon. Joissakin "
+"harvinaisissa tapauksissa missä merkki ei esiinny uudessa kollaatiossa "
+"prosessi voi aiheuttaa datan ilmaantumisen väärin. Tässä tapauksessa "
+"suosittelemme datan palauttamista alkuperäiseen kollaatioon. "
 
 #: js/messages.php:74
 msgid "Garbled Data"
-msgstr ""
+msgstr "Vääristynyt data"
 
 #: js/messages.php:76
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Oletko varma että haluat vaihtaa kollaatiota ja kääntää datan?"
 
 #: js/messages.php:78
 msgid ""
@@ -1003,15 +1002,21 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Tässä operaatiossa MySQL yrittää kartoittaa data-arvot kollaatioiden "
+"välillä. Mikäli merkistöt eivät ole yhteensopivia, saattaa seurauksena olla "
+"datan menettäminen ja tätä menetettyädataa <b>EI</b> voi palauttaa "
+"vaihtamalla takaisin sarakekollaatioon. <b> Kääntääksesi olemassa olevan "
+"datan on ehdotettu että käytät sarakkeen muokkausominaisuutta  taulun "
+"rakennesivulla. </b>"
 
 #: js/messages.php:86
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Oletko varma että haluat vaihtaa sarakekollaatiota ja kääntää kaiken datan?"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Tallenna & sulje"
@@ -1023,7 +1028,6 @@ msgid "Reset"
 msgstr "Palauta"
 
 #: js/messages.php:91
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Palauta kaikki"
@@ -1049,7 +1053,6 @@ msgid "Add index"
 msgstr "Lisää indeksi"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Muokkaa indeksiä"
@@ -1100,10 +1103,9 @@ msgstr "SQL-kysely:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
-msgstr "Y Arvot"
+msgstr "Y-Arvot"
 
 #: js/messages.php:122
 msgid "The host name is empty!"
@@ -1133,26 +1135,23 @@ msgid "Close"
 msgstr "Sulje"
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Luotujen sivujen määrä."
+msgstr "Malli on luotu."
 
 #: js/messages.php:131
 msgid "Template was loaded."
-msgstr ""
+msgstr "Malli on ladattu."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profiili on päivitetty."
+msgstr "Malli on päivitetty."
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Rivi on nyt poistettu."
+msgstr "Malli on poistettu."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:136 libraries/ServerStatusData.class.php:133
@@ -1203,10 +1202,9 @@ msgid "Query cache used"
 msgstr "Kyselyvälimuistia käytetty"
 
 #: js/messages.php:152
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "Järjestelmän prosessorin käyttö"
+msgstr "Järjestelmän prosessorikuormitus"
 
 #: js/messages.php:153
 msgid "System memory"
@@ -1241,28 +1239,24 @@ msgid "Used memory"
 msgstr "Käytetty muisti"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "Yhteensä sivutusmuistia"
+msgstr "Sivumuistia yhteensä"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Välimuistissa oleva sivutus"
+msgstr "Välimuistissa oleva sivumuisti"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Käytetty sivutusmuisti"
+msgstr "Käytössä oleva sivutusmuisti"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Vapaata sivutusmuistia"
+msgstr "Vapaa sivutusmuisti"
 
 #: js/messages.php:168
 msgid "Bytes sent"
@@ -1465,10 +1459,9 @@ msgid "Current settings"
 msgstr "Nykyiset asetukset"
 
 #: js/messages.php:220 templates/table/chart/tbl_chart.phtml:53
-#, fuzzy
 #| msgid "Report title"
 msgid "Chart title"
-msgstr "Raportin otsikko"
+msgstr "Kaavion otsikko"
 
 #. l10n: As in differential values
 #: js/messages.php:222
@@ -1676,7 +1669,6 @@ msgid "No files available on server for import!"
 msgstr "Tuotavia tiedostoja ei ole saatavilla palvelimella!"
 
 #: js/messages.php:276
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analysoi kysely"
@@ -1715,7 +1707,7 @@ msgstr "Testaa"
 
 #: js/messages.php:290
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "Formatoidaan SQL-kyselyä…"
 
 #: js/messages.php:294 libraries/server_variables.lib.php:159
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1729,10 +1721,9 @@ msgid "Cancel"
 msgstr "Peruuta"
 
 #: js/messages.php:297 libraries/Header.class.php:462
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Muuta asetuksia"
+msgstr "Sivuun liittyvät asetukset"
 
 #: js/messages.php:298 libraries/config/FormDisplay.tpl.php:421
 msgid "Apply"
@@ -1744,25 +1735,21 @@ msgid "Loading…"
 msgstr "Lataa…"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Pyyntö keskeytetty!"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Pyyntöä käsitellään"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
-msgstr "Pyyntö keskeytetty!"
+msgstr "Pyyntö epäonnistui!"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Virhe pyynnön käsittelyssä"
@@ -1783,16 +1770,14 @@ msgid "No databases selected."
 msgstr "Yhtään tietokantaa ei ole valittu."
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Sarakkeen poisto"
+msgstr "Saraketta poistetaan"
 
 #: js/messages.php:310
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Lisää pääavain"
+msgstr "Lisätään pääavain"
 
 #: js/messages.php:311
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1809,28 +1794,24 @@ msgid "Click to dismiss this notification"
 msgstr "Poista tämä huomautus napsauttamalla"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Muuta tietokantojen nimiä"
+msgstr "Uudelleennimetään tietokantoja"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
-msgstr "Tietokannan kopiointi"
+msgstr "Kopioidaan tietokantoja"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
-msgstr "Merkistökoodauksen vaihtaminen"
+msgstr "Vaihdetaan merkistökoodausta"
 
 #: js/messages.php:321 libraries/Util.class.php:3232
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Älä tarkista viiteavaimia"
+msgstr "Kytke viiteavaimien tarkistus päälle"
 
 #: js/messages.php:324
 msgid "Failed to get real row count."
@@ -1954,13 +1935,13 @@ msgstr "Selaa viitearvoja"
 
 #: js/messages.php:354
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Ei automaattisesti tallennettuja kyselyitä"
 
 #: js/messages.php:355
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Muuttuja"
+msgstr "Muuttuja %d:"
 
 #: js/messages.php:358 libraries/normalization.lib.php:886
 msgid "Pick"
@@ -2216,16 +2197,14 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "Sisäympyrä"
+msgstr "Sisäkehä"
 
 #: js/messages.php:442
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Ulkokehä:"
+msgstr "Ulkokehä"
 
 #: js/messages.php:446
 msgid "Do you want to copy encryption key?"
@@ -2240,6 +2219,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Olet tehnyt muutoksia tähän sivuun; sinua pyydetään vahvistamaan ennen kuin "
+"hylkäät muutokset"
 
 #: js/messages.php:456
 msgid "Select referenced key"
@@ -2277,10 +2258,9 @@ msgstr "Tallenna sivu"
 
 #: js/messages.php:466 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Tallenna sivu"
+msgstr "Tallenna sivu nimellä"
 
 #: js/messages.php:467 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2407,10 +2387,9 @@ msgstr ""
 "selaimesi."
 
 #: js/messages.php:497
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Alkuperäinen merkkijono"
+msgstr "Alkuperäinen pituus"
 
 #: js/messages.php:500
 msgid "cancel"
@@ -2474,13 +2453,11 @@ msgid "More"
 msgstr "Lisää"
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Näytä paneeli"
 
 #: js/messages.php:533
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Piilota paneeli"
@@ -2501,41 +2478,37 @@ msgstr "Poista pääpaneelin linkki"
 #: js/messages.php:537
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Suodattaaksesi kaikki palvelimen tietokannat, paina Enter hakutermin jälkeen"
 
 #: js/messages.php:538
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr ""
+msgstr "Suodattaaksesi kaikki %s tietokannassa, paina Enter hakutermin jälkeen"
 
 #: js/messages.php:539
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Taulut"
+msgstr "taulut"
 
 #: js/messages.php:540
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Näkymät"
+msgstr "näkymät"
 
 #: js/messages.php:541
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Proseduurit"
+msgstr "proseduurit"
 
 #: js/messages.php:542
-#, fuzzy
 #| msgid "Event"
 msgid "events"
-msgstr "Tapahtuma"
+msgstr "tapahtumat"
 
 #: js/messages.php:543
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Funktiot"
+msgstr "funktiot"
 
 #: js/messages.php:546
 msgid "The requested page was not found in the history, it may have expired."
@@ -2565,13 +2538,11 @@ msgid "Create view"
 msgstr "Luo näkymä"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error report"
-msgstr "Palvelinportti"
+msgstr "Lähetä virheraportti"
 
 #: js/messages.php:558
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Lähetä virheraportti"
@@ -2583,16 +2554,14 @@ msgid ""
 msgstr "Tapahtui vakava JavaScript-virhe. Haluatko lähettää virheraportin?"
 
 #: js/messages.php:562
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Muuta raportin asetuksia"
 
 #: js/messages.php:563
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Näytä raportin tarkat tiedot"
+msgstr "Näytä raportin tarkemmat tiedot"
 
 #: js/messages.php:566
 msgid ""
@@ -2640,33 +2609,31 @@ msgstr "Haluatko varmasti poistaa tämän kirjanmerkin?"
 
 #: js/messages.php:601
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "SQL-virheenkorjauksen tietoja haettaessa tapahtui virhe."
 
 #: js/messages.php:602
-#, fuzzy, php-format
+#, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "SQL-kyselyt"
+msgstr "%s SQL-kyselyä suoritettu %s kertaa %s sekunnissa."
 
 #: js/messages.php:603
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argumenttia syötetty"
 
 #: js/messages.php:604
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Taulun kommentit"
+msgstr "Näytä argumentit"
 
 #: js/messages.php:605
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Piilota hakutulokset"
+msgstr "Piilota argumentit"
 
 #: js/messages.php:606 libraries/Console.class.php:321
 msgid "Time taken:"
-msgstr ""
+msgstr "Aikaa kului:"
 
 #: js/messages.php:607
 msgid ""
@@ -2933,105 +2900,90 @@ msgstr "Sekunti"
 
 #: js/messages.php:776
 msgid "This field is required"
-msgstr ""
+msgstr "Kenttä on pakollinen"
 
 #: js/messages.php:777
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Käytä tekstikenttää"
+msgstr "Ole hyvä ja korjaa tämä kenttä"
 
 #: js/messages.php:778
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Annathan kelvollisen sivun nimen"
+msgstr "Ole hyvä ja anna pätevä sähköpostiosoite"
 
 #: js/messages.php:779
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Annathan kelvollisen porttinumeron!"
+msgstr "Ole hyvä ja anna pätevä URL"
 
 #: js/messages.php:780
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Annathan kelvollisen sivun nimen"
+msgstr "Ole hyvä ja anna pätevä päivämäärä"
 
 #: js/messages.php:781
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Annathan kelvollisen sivun nimen"
+msgstr "Ole hyvä ja anna pätevä päivämäärä (ISO)"
 
 #: js/messages.php:782
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Annathan kelvollisen porttinumeron!"
+msgstr "Ole hyvä ja anna pätevä numero"
 
 #: js/messages.php:783
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Annathan kelvollisen porttinumeron!"
+msgstr "Ole hyvä ja anna pätevä luottokortin numero"
 
 #: js/messages.php:784
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Annathan kelvollisen pituuden!"
+msgstr "Ole hyvä ja kirjoita vain numeroita"
 
 #: js/messages.php:785
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Annathan kelvollisen sivun nimen"
+msgstr "Ole hyvä ja annat saman arvon uudelleen"
 
 #: js/messages.php:786
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Ole hyvä ja kirjoita maksimissaan {0} merkkiä"
 
 #: js/messages.php:787
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
-msgstr "Annathan kelvollisen sivun nimen"
+msgstr "Ole hyvä ja kirjoita vähintään {0} merkkiä"
 
 #: js/messages.php:788
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Ole hyvä ja anna arvo joka on pituudeltaan {0} ja {1} merkin välillä"
 
 #: js/messages.php:789
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Annathan kelvollisen sivun nimen"
+msgstr "Ole hyvä ja kirjoita arvo väliltä {0} ja {1}"
 
 #: js/messages.php:790
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Annathan kelvollisen pituuden!"
+msgstr "Ole hyvä ja anna arvo joka on enintään {0}"
 
 #: js/messages.php:791
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Annathan kelvollisen sivun nimen"
+msgstr "Ole hyvä ja kirjoita arvo joka on vähintään {0}"
 
 #: js/messages.php:793
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Annathan kelvollisen sivun nimen"
+msgstr "Ole hyvä ja anna pätevä päivämäärä tai aika"
 
 #: js/messages.php:794
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Annathan kelvollisen porttinumeron!"
+msgstr "Ole hyvä ja anna pätevä heksadesimaalinen arvo"
 
 #: js/messages.php:795 libraries/Message.class.php:199
 #: libraries/Util.class.php:657 libraries/core.lib.php:245
@@ -3265,28 +3217,24 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Suorita kysely painamalla Ctrl+Enter"
 
 #: libraries/Console.class.php:259
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Suorita kysely painamalla Ctrl+Enter"
+msgstr "Paina Enter suorittaaksesi kyselyn"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Nouseva"
+msgstr "nouseva"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Laskeva"
+msgstr "laskeva"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Other"
 msgid "Order:"
-msgstr "Toinen"
+msgstr "Järjestys:"
 
 #: libraries/Console.class.php:289
 #: templates/table/search/replace_preview.phtml:17
@@ -3294,50 +3242,43 @@ msgid "Count"
 msgstr "Laske"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Execution order"
-msgstr "Suorita kysely kirjanmerkeistä"
+msgstr "Suoritusjärjestys"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Aikaa kului"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Other"
 msgid "Order by:"
-msgstr "Toinen"
+msgstr "Järjestä mukaan:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "SQL-kyselyt"
+msgstr "Ryhmäkyselyt"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "SQL-kyselyt"
+msgstr "Pura ryhmäkyselyt"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
-msgstr "Näytä värit"
+msgstr "Näytä seuranta"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Piilota paneeli"
+msgstr "Piilota seuranta"
 
 #: libraries/Console.class.php:319
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Laske"
+msgstr "Luku:"
 
 #: libraries/Console.class.php:336 libraries/Util.class.php:1249
 #: libraries/config/messages.inc.php:897
@@ -3387,12 +3328,13 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Suorita hakukyselyt painamalla Enter ja lisää uusi rivi painamalla Shift + "
+"Enter. Mikäli haluat tehdä tästä pysyvän, katso asetukset."
 
 #: libraries/Console.class.php:389
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Siirry kopioituun tauluun"
+msgstr "Vaihda tummaan teemaan"
 
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1478
 #: libraries/DisplayResults.class.php:2268
@@ -3425,17 +3367,16 @@ msgstr "Sarake:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "Järjestä:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Järjestä:"
+msgstr "Järjestys:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -3616,7 +3557,6 @@ msgstr "Tauluissa:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:381
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Poista valinta kaikista"
