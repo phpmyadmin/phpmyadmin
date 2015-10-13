@@ -1545,9 +1545,20 @@ function PMA_getHtmlForAuthPluginsDropdown(
             if ($plugin['PLUGIN_NAME'] == 'mysql_old_password') {
                 continue;
             }
+            // if description is known, enable its translation
+            if ('Native MySQL authentication' == $plugin['PLUGIN_DESCRIPTION']) {
+                $description = __('Native MySQL authentication');
+            } elseif ('SHA256 password authentication' == $plugin['PLUGIN_DESCRIPTION']) {
+                $description = __('SHA256 password authentication');
+            } else {
+                // but there can be other auth plugins, see
+                // https://github.com/phpmyadmin/phpmyadmin/issues/11561
+                $description = $plugin['PLUGIN_DESCRIPTION'];
+            }
+
             $html_output .= '<option value="' . $plugin['PLUGIN_NAME'] . '"'
                 . ($orig_auth_plugin == $plugin['PLUGIN_NAME'] ? 'selected ' : '')
-                . '>' . __($plugin['PLUGIN_DESCRIPTION']) . '</option>';
+                . '>' . $description . '</option>';
         }
         $html_output .= '</select>';
     } else {
