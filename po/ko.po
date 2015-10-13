@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-09 07:21-0400\n"
+"POT-Creation-Date: 2015-10-13 11:34-0400\n"
 "PO-Revision-Date: 2015-09-07 03:23+0200\n"
 "Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/"
@@ -95,7 +95,7 @@ msgstr "컬럼명"
 #: libraries/rte/rte_routines.lib.php:893
 #: libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_routines.lib.php:1584
-#: libraries/server_privileges.lib.php:2371 libraries/tracking.lib.php:880
+#: libraries/server_privileges.lib.php:2499 libraries/tracking.lib.php:880
 #: libraries/tracking.lib.php:972
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -186,13 +186,13 @@ msgstr "기본"
 #: libraries/plugins/export/ExportOdt.class.php:756
 #: libraries/plugins/export/ExportTexytext.class.php:568
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1077
-#: libraries/server_privileges.lib.php:2548
-#: libraries/server_privileges.lib.php:2732
-#: libraries/server_privileges.lib.php:2752
-#: libraries/server_privileges.lib.php:3082
-#: libraries/server_privileges.lib.php:3088
-#: libraries/server_privileges.lib.php:3452
-#: libraries/server_privileges.lib.php:3475 libraries/tracking.lib.php:933
+#: libraries/server_privileges.lib.php:2676
+#: libraries/server_privileges.lib.php:2860
+#: libraries/server_privileges.lib.php:2880
+#: libraries/server_privileges.lib.php:3210
+#: libraries/server_privileges.lib.php:3216
+#: libraries/server_privileges.lib.php:3574
+#: libraries/server_privileges.lib.php:3597 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1010 libraries/tracking.lib.php:1015
 #: prefs_manage.php:140 templates/prefs_autoload.phtml:15
 #: templates/table/structure/table_structure_row.phtml:24
@@ -219,13 +219,13 @@ msgstr "아니오"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1078
 #: libraries/server_databases.lib.php:475
 #: libraries/server_databases.lib.php:485
-#: libraries/server_privileges.lib.php:2548
-#: libraries/server_privileges.lib.php:2729
-#: libraries/server_privileges.lib.php:2750
-#: libraries/server_privileges.lib.php:3081
-#: libraries/server_privileges.lib.php:3086
-#: libraries/server_privileges.lib.php:3449
-#: libraries/server_privileges.lib.php:3475 libraries/tracking.lib.php:933
+#: libraries/server_privileges.lib.php:2676
+#: libraries/server_privileges.lib.php:2857
+#: libraries/server_privileges.lib.php:2878
+#: libraries/server_privileges.lib.php:3209
+#: libraries/server_privileges.lib.php:3214
+#: libraries/server_privileges.lib.php:3571
+#: libraries/server_privileges.lib.php:3597 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1008 libraries/tracking.lib.php:1013
 #: prefs_manage.php:138 templates/prefs_autoload.phtml:14
 #: templates/table/structure/table_structure_row.phtml:24
@@ -467,7 +467,7 @@ msgstr "공간 데이터를 추가"
 #: gis_data_editor.php:409 js/messages.php:293
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1802
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:166
+#: libraries/display_change_password.lib.php:131
 #: libraries/display_export.lib.php:399 libraries/display_export.lib.php:405
 #: libraries/display_import.lib.php:394 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
@@ -485,10 +485,10 @@ msgstr "공간 데이터를 추가"
 #: libraries/rte/rte_routines.lib.php:1672
 #: libraries/rte/rte_triggers.lib.php:396 libraries/server_bin_log.lib.php:61
 #: libraries/server_privileges.lib.php:705
-#: libraries/server_privileges.lib.php:2108
-#: libraries/server_privileges.lib.php:2874
-#: libraries/server_privileges.lib.php:3555
-#: libraries/server_privileges.lib.php:4655
+#: libraries/server_privileges.lib.php:2236
+#: libraries/server_privileges.lib.php:3002
+#: libraries/server_privileges.lib.php:3677
+#: libraries/server_privileges.lib.php:4779
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:429
 #: libraries/tracking.lib.php:533 libraries/tracking.lib.php:653
@@ -621,7 +621,7 @@ msgstr "가져오기에 필요한 절차를 로드할 수 없습니다."
 #: import_status.php:112 js/messages.php:379 libraries/Util.class.php:780
 #: libraries/export.lib.php:518
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:298
-#: user_password.php:253
+#: user_password.php:263
 msgid "Back"
 msgstr "뒤로"
 
@@ -645,7 +645,7 @@ msgstr "일반 설정"
 
 #: index.php:191 js/messages.php:526
 #: libraries/display_change_password.lib.php:50
-#: libraries/display_change_password.lib.php:53 user_password.php:247
+#: libraries/display_change_password.lib.php:53 user_password.php:257
 msgid "Change password"
 msgstr "암호 변경"
 
@@ -1074,12 +1074,12 @@ msgstr "호스트명이 없습니다!"
 msgid "The user name is empty!"
 msgstr "사용자명이 없습니다!"
 
-#: js/messages.php:124 libraries/server_privileges.lib.php:1858
+#: js/messages.php:124 libraries/server_privileges.lib.php:1943
 #: user_password.php:116
 msgid "The password is empty!"
 msgstr "암호가 없습니다!"
 
-#: js/messages.php:125 libraries/server_privileges.lib.php:1856
+#: js/messages.php:125 libraries/server_privileges.lib.php:1941
 #: user_password.php:119
 msgid "The passwords aren't the same!"
 msgstr "암호가 동일하지 않습니다!"
@@ -1294,7 +1294,7 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 #: libraries/config.values.php:69 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.class.php:2090
 #: libraries/plugins/schema/SchemaPdf.class.php:102
-#: libraries/server_privileges.lib.php:3049
+#: libraries/server_privileges.lib.php:3177
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:308
 #: templates/columns_definitions/transformation.phtml:4
@@ -1779,10 +1779,10 @@ msgstr "저장 함수의 정의는 RETURN문을 포함해야 합니다!"
 #: libraries/Util.class.php:4276 libraries/Util.class.php:4291
 #: libraries/Util.class.php:4308 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:146
-#: libraries/server_privileges.lib.php:2213
-#: libraries/server_privileges.lib.php:2292
-#: libraries/server_privileges.lib.php:2634
-#: libraries/server_privileges.lib.php:3358
+#: libraries/server_privileges.lib.php:2341
+#: libraries/server_privileges.lib.php:2420
+#: libraries/server_privileges.lib.php:2762
+#: libraries/server_privileges.lib.php:3486
 #: libraries/server_status_monitor.lib.php:322 prefs_manage.php:303
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
@@ -2274,7 +2274,7 @@ msgstr "칼럼보이기 여부를 바꾸려면<br />드롭다운 화살표를 �
 #: js/messages.php:493 libraries/DisplayResults.class.php:1017
 #: libraries/browse_foreigners.lib.php:290
 #: libraries/browse_foreigners.lib.php:343
-#: libraries/server_privileges.lib.php:3620
+#: libraries/server_privileges.lib.php:3742
 msgid "Show all"
 msgstr "모두 보기"
 
@@ -2963,10 +2963,10 @@ msgstr "다시 쿼리하기"
 #: libraries/plugins/export/ExportTexytext.class.php:133
 #: libraries/server_databases.lib.php:303
 #: libraries/server_privileges.lib.php:1166
-#: libraries/server_privileges.lib.php:2892
-#: libraries/server_privileges.lib.php:3146
-#: libraries/server_privileges.lib.php:3158
-#: libraries/server_privileges.lib.php:4360
+#: libraries/server_privileges.lib.php:3020
+#: libraries/server_privileges.lib.php:3274
+#: libraries/server_privileges.lib.php:3286
+#: libraries/server_privileges.lib.php:4484
 #: libraries/server_status_processes.lib.php:80
 #: templates/table/relation/foreign_key_row.phtml:165
 #: templates/table/relation/internal_relational_row.phtml:55
@@ -3703,9 +3703,9 @@ msgstr "인덱스"
 #: libraries/Index.class.php:693 libraries/central_columns.lib.php:687
 #: libraries/rte/rte_list.lib.php:74 libraries/rte/rte_list.lib.php:89
 #: libraries/rte/rte_list.lib.php:102 libraries/server_databases.lib.php:409
-#: libraries/server_privileges.lib.php:2374
-#: libraries/server_privileges.lib.php:3168
-#: libraries/server_privileges.lib.php:3344
+#: libraries/server_privileges.lib.php:2502
+#: libraries/server_privileges.lib.php:3296
+#: libraries/server_privileges.lib.php:3472
 #: libraries/server_user_groups.lib.php:82
 #: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793 libraries/tracking.lib.php:1475
@@ -3817,10 +3817,10 @@ msgstr "뷰"
 #: libraries/plugins/export/ExportXml.class.php:499
 #: libraries/rte/rte_list.lib.php:87 libraries/rte/rte_triggers.lib.php:331
 #: libraries/server_privileges.lib.php:1169
-#: libraries/server_privileges.lib.php:2910
-#: libraries/server_privileges.lib.php:3147
-#: libraries/server_privileges.lib.php:3158
-#: libraries/server_privileges.lib.php:4374 libraries/tracking.lib.php:1474
+#: libraries/server_privileges.lib.php:3038
+#: libraries/server_privileges.lib.php:3275
+#: libraries/server_privileges.lib.php:3286
+#: libraries/server_privileges.lib.php:4498 libraries/tracking.lib.php:1474
 #: libraries/tracking.lib.php:1616
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/foreign_key_row.phtml:176
@@ -3863,9 +3863,9 @@ msgstr "삽입"
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:467
 #: libraries/Util.class.php:4294 libraries/Util.class.php:4310
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
-#: libraries/server_privileges.lib.php:2372
-#: libraries/server_privileges.lib.php:3160
-#: libraries/server_privileges.lib.php:4249
+#: libraries/server_privileges.lib.php:2500
+#: libraries/server_privileges.lib.php:3288
+#: libraries/server_privileges.lib.php:4373
 msgid "Privileges"
 msgstr "사용권한"
 
@@ -3931,7 +3931,7 @@ msgstr "중심 열"
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.class.php:1240
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4360
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4484
 msgid "Databases"
 msgstr "데이터베이스"
 
@@ -4888,11 +4888,11 @@ msgstr "새 컬럼 추가"
 msgid "Attributes"
 msgstr "보기"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:580
 msgid "Failed to read configuration file!"
 msgstr "설정 파일을 읽는데 실패했습니다!"
 
-#: libraries/common.inc.php:582
+#: libraries/common.inc.php:583
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4900,38 +4900,38 @@ msgstr ""
 "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
 "시오."
 
-#: libraries/common.inc.php:591
+#: libraries/common.inc.php:592
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:600
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
 "환경설정 파일에 [code]$cfg['PmaAbsoluteUri'][/code] 변수가 정의되어야 합니다!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:635
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "잘못된 서버 인덱스: %s"
 
-#: libraries/common.inc.php:646
+#: libraries/common.inc.php:647
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "서버 %1$s의 호스트 이름이 잘못되었습니다. 설정을 확인하십시오."
 
-#: libraries/common.inc.php:664
+#: libraries/common.inc.php:665
 #, php-format
 msgid "Server %d"
 msgstr "서버 %d"
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:862
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
-#: libraries/common.inc.php:1004
+#: libraries/common.inc.php:1005
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4939,24 +4939,24 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:1036
+#: libraries/common.inc.php:1037
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:1153
+#: libraries/common.inc.php:1154
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: libraries/common.inc.php:1185
+#: libraries/common.inc.php:1186
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: libraries/common.inc.php:1192
+#: libraries/common.inc.php:1193
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
-#: libraries/common.inc.php:1201
+#: libraries/common.inc.php:1202
 msgid "numeric key detected"
 msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다"
 
@@ -8022,49 +8022,29 @@ msgstr ""
 
 #: libraries/display_change_password.lib.php:60
 #: libraries/replication_gui.lib.php:877
-#: libraries/server_privileges.lib.php:1664
+#: libraries/server_privileges.lib.php:1736
 msgid "No Password"
 msgstr "암호 없음"
 
 #: libraries/display_change_password.lib.php:68
 #: libraries/plugins/auth/AuthenticationCookie.class.php:203
 #: libraries/replication_gui.lib.php:424 libraries/replication_gui.lib.php:864
-#: libraries/server_privileges.lib.php:1640
+#: libraries/server_privileges.lib.php:1712
 msgid "Password:"
 msgstr "암호:"
 
 #: libraries/display_change_password.lib.php:74
 #: libraries/replication_gui.lib.php:888
-#: libraries/server_privileges.lib.php:1682
+#: libraries/server_privileges.lib.php:1754
 msgid "Re-type:"
 msgstr "재입력:"
 
-#: libraries/display_change_password.lib.php:89
-#: libraries/display_change_password.lib.php:120
-#: libraries/display_change_password.lib.php:129
+#: libraries/display_change_password.lib.php:82
 msgid "Password Hashing:"
 msgstr "비밀번호 해싱:"
 
-#: libraries/display_change_password.lib.php:98
-#: libraries/server_privileges.lib.php:1700
-#, fuzzy
-#| msgid "Generate password"
-msgid "MySQL native password"
-msgstr "암호 생성"
-
-#: libraries/display_change_password.lib.php:112
-#: libraries/server_privileges.lib.php:1708
-#, fuzzy
-#| msgid "Change password"
-msgid "SHA256 password"
-msgstr "암호 변경"
-
-#: libraries/display_change_password.lib.php:141
-msgid "MySQL 4.0 compatible"
-msgstr "MySQL 4.0 호환성"
-
-#: libraries/display_change_password.lib.php:154
-#: libraries/server_privileges.lib.php:1717
+#: libraries/display_change_password.lib.php:110
+#: libraries/server_privileges.lib.php:1800
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -11320,24 +11300,24 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:798
-#: libraries/server_privileges.lib.php:1444
+#: libraries/server_privileges.lib.php:1520
 msgid "User name:"
 msgstr "사용자명:"
 
 #: libraries/replication_gui.lib.php:418 libraries/replication_gui.lib.php:802
 #: libraries/replication_gui.lib.php:818
-#: libraries/server_privileges.lib.php:1449
-#: libraries/server_privileges.lib.php:1481
-#: libraries/server_privileges.lib.php:2369
-#: libraries/server_privileges.lib.php:3331
+#: libraries/server_privileges.lib.php:1525
+#: libraries/server_privileges.lib.php:1557
+#: libraries/server_privileges.lib.php:2497
+#: libraries/server_privileges.lib.php:3459
 msgid "User name"
 msgstr "사용자명"
 
 #: libraries/replication_gui.lib.php:429 libraries/replication_gui.lib.php:868
 #: libraries/replication_gui.lib.php:884
-#: libraries/server_privileges.lib.php:1644
-#: libraries/server_privileges.lib.php:1672
-#: libraries/server_privileges.lib.php:3333
+#: libraries/server_privileges.lib.php:1716
+#: libraries/server_privileges.lib.php:1744
+#: libraries/server_privileges.lib.php:3461
 msgid "Password"
 msgstr "암호"
 
@@ -11376,38 +11356,38 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:755
-#: libraries/server_privileges.lib.php:1573
+#: libraries/server_privileges.lib.php:1649
 msgid "Any host"
 msgstr "아무데서나"
 
 #: libraries/replication_gui.lib.php:760
-#: libraries/server_privileges.lib.php:1581
+#: libraries/server_privileges.lib.php:1657
 msgid "Local"
 msgstr "로컬"
 
 #: libraries/replication_gui.lib.php:767
-#: libraries/server_privileges.lib.php:1590
+#: libraries/server_privileges.lib.php:1666
 msgid "This Host"
 msgstr "현재 호스트"
 
 #: libraries/replication_gui.lib.php:809
-#: libraries/server_privileges.lib.php:1465
+#: libraries/server_privileges.lib.php:1541
 msgid "Any user"
 msgstr "아무나"
 
 #: libraries/replication_gui.lib.php:814 libraries/replication_gui.lib.php:847
 #: libraries/replication_gui.lib.php:880
-#: libraries/server_privileges.lib.php:1609
+#: libraries/server_privileges.lib.php:1685
 msgid "Use text field:"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:841
-#: libraries/server_privileges.lib.php:1600
+#: libraries/server_privileges.lib.php:1676
 msgid "Use Host Table"
 msgstr "호스트 테이블 사용"
 
 #: libraries/replication_gui.lib.php:857
-#: libraries/server_privileges.lib.php:1628
+#: libraries/server_privileges.lib.php:1704
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -11416,7 +11396,7 @@ msgstr ""
 "사용됩니다."
 
 #: libraries/replication_gui.lib.php:892
-#: libraries/server_privileges.lib.php:1686
+#: libraries/server_privileges.lib.php:1758
 msgid "Re-type"
 msgstr "재입력"
 
@@ -12174,7 +12154,7 @@ msgstr "없음"
 
 #: libraries/server_privileges.lib.php:527
 #: libraries/server_privileges.lib.php:554
-#: libraries/server_privileges.lib.php:3340
+#: libraries/server_privileges.lib.php:3468
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr ""
@@ -12242,14 +12222,14 @@ msgstr "Limits the number of new connections the user may open per hour."
 
 #: libraries/server_privileges.lib.php:999
 #: libraries/server_privileges.lib.php:1168
-#: libraries/server_privileges.lib.php:3152
-#: libraries/server_privileges.lib.php:3164
+#: libraries/server_privileges.lib.php:3280
+#: libraries/server_privileges.lib.php:3292
 msgid "Table-specific privileges"
 msgstr "테이블에 관한 권한"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:1178
-#: libraries/server_privileges.lib.php:3336
+#: libraries/server_privileges.lib.php:3464
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "주의: MySQL 권한 이름은 영어로 표시됩니다."
 
@@ -12258,7 +12238,7 @@ msgid "Administration"
 msgstr "관리"
 
 #: libraries/server_privileges.lib.php:1162
-#: libraries/server_privileges.lib.php:3334
+#: libraries/server_privileges.lib.php:3462
 msgid "Global privileges"
 msgstr "전체적 권한"
 
@@ -12267,7 +12247,7 @@ msgid "Global"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1165
-#: libraries/server_privileges.lib.php:3151
+#: libraries/server_privileges.lib.php:3279
 msgid "Database-specific privileges"
 msgstr "데이터베이스에 관한 권한"
 
@@ -12284,295 +12264,318 @@ msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "권한 테이블을 갱신하지 않고 사용자와 권한 추가하기 허용."
 
-#: libraries/server_privileges.lib.php:1441
-#: libraries/server_privileges.lib.php:2856
+#: libraries/server_privileges.lib.php:1447
+#, fuzzy
+#| msgid "Cookie authentication"
+msgid "Native MySQL authentication"
+msgstr "쿠키 인증"
+
+#: libraries/server_privileges.lib.php:1449
+#, fuzzy
+#| msgid "Signon authentication"
+msgid "SHA256 password authentication"
+msgstr "Signon 인증"
+
+#: libraries/server_privileges.lib.php:1463
+#, fuzzy
+#| msgid "Authentication"
+msgid "MySQL Native Authentication"
+msgstr "인증"
+
+#: libraries/server_privileges.lib.php:1517
+#: libraries/server_privileges.lib.php:2984
 msgid "Login Information"
 msgstr "로그인 정보"
 
-#: libraries/server_privileges.lib.php:1474
-#: libraries/server_privileges.lib.php:1667
-#: libraries/server_privileges.lib.php:3284
+#: libraries/server_privileges.lib.php:1550
+#: libraries/server_privileges.lib.php:1739
+#: libraries/server_privileges.lib.php:3412
 msgid "Use text field"
 msgstr "텍스트 입력 필드를 사용"
 
-#: libraries/server_privileges.lib.php:1501
+#: libraries/server_privileges.lib.php:1577
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1510
+#: libraries/server_privileges.lib.php:1586
 #, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
 msgstr "사용자명:"
 
-#: libraries/server_privileges.lib.php:1515
-#: libraries/server_privileges.lib.php:1617
-#: libraries/server_privileges.lib.php:2370
-#: libraries/server_privileges.lib.php:3332
+#: libraries/server_privileges.lib.php:1591
+#: libraries/server_privileges.lib.php:1693
+#: libraries/server_privileges.lib.php:2498
+#: libraries/server_privileges.lib.php:3460
 #, fuzzy
 #| msgid "Log name"
 msgid "Host name"
 msgstr "로그 이름"
 
-#: libraries/server_privileges.lib.php:1657
+#: libraries/server_privileges.lib.php:1729
 msgid "Do not change the password"
 msgstr "암호를 변경하지 않음"
 
-#: libraries/server_privileges.lib.php:1694
-#: libraries/server_privileges.lib.php:1697
+#: libraries/server_privileges.lib.php:1780
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "인증"
 
-#: libraries/server_privileges.lib.php:1925
+#: libraries/server_privileges.lib.php:1787
+#, fuzzy
+#| msgid "Password Hashing:"
+msgid "Password Hashing Method"
+msgstr "비밀번호 해싱:"
+
+#: libraries/server_privileges.lib.php:2053
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s 의 암호가 바뀌었습니다."
 
-#: libraries/server_privileges.lib.php:1971
+#: libraries/server_privileges.lib.php:2099
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s의 권한을 제거했습니다."
 
-#: libraries/server_privileges.lib.php:2061
-#: libraries/server_privileges.lib.php:4318
+#: libraries/server_privileges.lib.php:2189
+#: libraries/server_privileges.lib.php:4442
 #, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "사용자 추가"
 
-#: libraries/server_privileges.lib.php:2070
+#: libraries/server_privileges.lib.php:2198
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
 msgstr "유저 전용 데이터베이스"
 
-#: libraries/server_privileges.lib.php:2074
+#: libraries/server_privileges.lib.php:2202
 msgid "Create database with same name and grant all privileges."
 msgstr "동명의 데이터베이스를 생성하고 모든 권한을 부여."
 
-#: libraries/server_privileges.lib.php:2080
+#: libraries/server_privileges.lib.php:2208
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2089
+#: libraries/server_privileges.lib.php:2217
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr "데이터베이스 \"%s\"에 대한 모든 권한을 부여."
 
-#: libraries/server_privileges.lib.php:2190
-#: libraries/server_privileges.lib.php:2256
+#: libraries/server_privileges.lib.php:2318
+#: libraries/server_privileges.lib.php:2384
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "\"%s\" 에 접근할 수 있는 사용자들"
 
-#: libraries/server_privileges.lib.php:2225
+#: libraries/server_privileges.lib.php:2353
 msgid "User has been added."
 msgstr "사용자가 추가되었습니다."
 
-#: libraries/server_privileges.lib.php:2373
-#: libraries/server_privileges.lib.php:3161
-#: libraries/server_privileges.lib.php:3342
+#: libraries/server_privileges.lib.php:2501
+#: libraries/server_privileges.lib.php:3289
+#: libraries/server_privileges.lib.php:3470
 msgid "Grant"
 msgstr "허용"
 
-#: libraries/server_privileges.lib.php:2388
+#: libraries/server_privileges.lib.php:2516
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2408
-#: libraries/server_privileges.lib.php:3814
+#: libraries/server_privileges.lib.php:2536
+#: libraries/server_privileges.lib.php:3936
 msgid "No user found."
 msgstr "사용자가 없습니다."
 
-#: libraries/server_privileges.lib.php:2439
-#: libraries/server_privileges.lib.php:2722
-#: libraries/server_privileges.lib.php:3418
+#: libraries/server_privileges.lib.php:2567
+#: libraries/server_privileges.lib.php:2850
+#: libraries/server_privileges.lib.php:3546
 msgid "Any"
 msgstr "누구나"
 
-#: libraries/server_privileges.lib.php:2490
+#: libraries/server_privileges.lib.php:2618
 msgid "global"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2493
+#: libraries/server_privileges.lib.php:2621
 msgid "database-specific"
 msgstr "데이터베이스 고유"
 
-#: libraries/server_privileges.lib.php:2495
+#: libraries/server_privileges.lib.php:2623
 msgid "wildcard"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2501
+#: libraries/server_privileges.lib.php:2629
 #, fuzzy
 #| msgid "Databases"
 msgid "table-specific"
 msgstr "데이터베이스"
 
-#: libraries/server_privileges.lib.php:2628
+#: libraries/server_privileges.lib.php:2756
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges"
 msgstr "권한 수정:"
 
-#: libraries/server_privileges.lib.php:2631
+#: libraries/server_privileges.lib.php:2759
 msgid "Revoke"
 msgstr "제거"
 
-#: libraries/server_privileges.lib.php:2655
+#: libraries/server_privileges.lib.php:2783
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
 msgstr "서버 수정"
 
-#: libraries/server_privileges.lib.php:2835
+#: libraries/server_privileges.lib.php:2963
 msgid "… keep the old one."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2836
+#: libraries/server_privileges.lib.php:2964
 #, fuzzy
 #| msgid "Delete the matches for the %s table?"
 msgid "… delete the old one from the user tables."
 msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?"
 
-#: libraries/server_privileges.lib.php:2838
+#: libraries/server_privileges.lib.php:2966
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "... 이전 버전의 모든 활성화된 권한을 취소한 후 이전 버전을 삭제합니다."
 
-#: libraries/server_privileges.lib.php:2842
+#: libraries/server_privileges.lib.php:2970
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 "... 사용자 테이블로부터 이전 것을 삭제하고, 권한 정보를 새로고침 합니다."
 
-#: libraries/server_privileges.lib.php:2857
+#: libraries/server_privileges.lib.php:2985
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "로그인 정보 변경 / 사용자 복사"
 
-#: libraries/server_privileges.lib.php:2863
+#: libraries/server_privileges.lib.php:2991
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "새로운 사용자를 동일한 권한으로 생성하고 …"
 
-#: libraries/server_privileges.lib.php:3165
+#: libraries/server_privileges.lib.php:3293
 msgid "Column-specific privileges"
 msgstr "열(칼럼)에 관한 권한"
 
-#: libraries/server_privileges.lib.php:3220
+#: libraries/server_privileges.lib.php:3348
 msgid "Add privileges on the following database(s):"
 msgstr "다음 데이터베이스들에 대한 권한 추가:"
 
-#: libraries/server_privileges.lib.php:3244
+#: libraries/server_privileges.lib.php:3372
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "%와 _는 와일드카드입니다. 일반 문자처럼 사용하려면 \\를 앞에 붙이세요."
 
-#: libraries/server_privileges.lib.php:3262
+#: libraries/server_privileges.lib.php:3390
 msgid "Add privileges on the following table:"
 msgstr "다음 테이블에 대한 권한 추가:"
 
-#: libraries/server_privileges.lib.php:3524
+#: libraries/server_privileges.lib.php:3646
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "선택한 사용자를 삭제"
 
-#: libraries/server_privileges.lib.php:3530
+#: libraries/server_privileges.lib.php:3652
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "모든 활성화된 권한을 박탈하고 사용자를 삭제함."
 
-#: libraries/server_privileges.lib.php:3538
-#: libraries/server_privileges.lib.php:3544
-#: libraries/server_privileges.lib.php:3547
+#: libraries/server_privileges.lib.php:3660
+#: libraries/server_privileges.lib.php:3666
+#: libraries/server_privileges.lib.php:3669
 msgid "Drop the databases that have the same names as the users."
 msgstr "사용자명과 같은 이름의 데이터베이스를 삭제합니다."
 
-#: libraries/server_privileges.lib.php:3688
+#: libraries/server_privileges.lib.php:3810
 msgid "No users selected for deleting!"
 msgstr "삭제할 사용자를 선택하세요!"
 
-#: libraries/server_privileges.lib.php:3691
+#: libraries/server_privileges.lib.php:3813
 msgid "Reloading the privileges"
 msgstr "사용권한을 갱신합니다(Reloading the privileges)"
 
-#: libraries/server_privileges.lib.php:3710
+#: libraries/server_privileges.lib.php:3832
 msgid "The selected users have been deleted successfully."
 msgstr "선택한 사용자들을 삭제했습니다."
 
-#: libraries/server_privileges.lib.php:3784
+#: libraries/server_privileges.lib.php:3906
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s 의 권한을 업데이트했습니다."
 
-#: libraries/server_privileges.lib.php:3874
+#: libraries/server_privileges.lib.php:3996
 #, php-format
 msgid "Deleting %s"
 msgstr "%s 을 삭제합니다"
 
-#: libraries/server_privileges.lib.php:3904
+#: libraries/server_privileges.lib.php:4026
 msgid "The privileges were reloaded successfully."
 msgstr "권한을 다시 로딩했습니다."
 
-#: libraries/server_privileges.lib.php:4005
+#: libraries/server_privileges.lib.php:4127
 #, php-format
 msgid "The user %s already exists!"
 msgstr "사용자 %s 가 이미 존재합니다!"
 
-#: libraries/server_privileges.lib.php:4260
+#: libraries/server_privileges.lib.php:4384
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s에 대한 권한"
 
-#: libraries/server_privileges.lib.php:4269
+#: libraries/server_privileges.lib.php:4393
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "사용자"
 
-#: libraries/server_privileges.lib.php:4310
+#: libraries/server_privileges.lib.php:4434
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4339
+#: libraries/server_privileges.lib.php:4463
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "권한 수정:"
 
-#: libraries/server_privileges.lib.php:4340
+#: libraries/server_privileges.lib.php:4464
 #, fuzzy
 #| msgid "Users"
 msgid "User account"
 msgstr "사용자"
 
-#: libraries/server_privileges.lib.php:4399
+#: libraries/server_privileges.lib.php:4523
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4419 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4543 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "사용자 개요"
 
-#: libraries/server_privileges.lib.php:4487
+#: libraries/server_privileges.lib.php:4611
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4528
+#: libraries/server_privileges.lib.php:4652
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12584,7 +12587,7 @@ msgstr ""
 "다. 만약 수동으로 서버의 권한 정보를 수정하였다면, 서버의 정보와 맞지 않을 "
 "수 있습니다. 이 경우, %sreload the privileges%s를 먼저 수행하세요."
 
-#: libraries/server_privileges.lib.php:4547
+#: libraries/server_privileges.lib.php:4671
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12602,11 +12605,11 @@ msgstr ""
 "다. 만약 수동으로 서버의 권한 정보를 수정하였다면, 서버의 정보와 맞지 않을 "
 "수 있습니다. 이 경우, %sreload the privileges%s를 먼저 수행하세요."
 
-#: libraries/server_privileges.lib.php:4597
+#: libraries/server_privileges.lib.php:4721
 msgid "The selected user was not found in the privilege table."
 msgstr "선택한 사용자는 사용권한 테이블에 존재하지 않습니다."
 
-#: libraries/server_privileges.lib.php:4829
+#: libraries/server_privileges.lib.php:4953
 msgid "You have added a new user."
 msgstr "새 사용자를 추가했습니다."
 
@@ -13782,22 +13785,22 @@ msgstr ""
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:210
+#: libraries/sql-parser/src/Statement.php:233
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
 msgstr "%s 라인에 알 수 없는 문자가 있습니다."
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:271
 msgid "This type of clause was previously parsed."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:276
+#: libraries/sql-parser/src/Statement.php:299
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:296
+#: libraries/sql-parser/src/Statement.php:319
 msgid "Unrecognized keyword."
 msgstr ""
 
@@ -16734,6 +16737,19 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#, fuzzy
+#~| msgid "Generate password"
+#~ msgid "MySQL native password"
+#~ msgstr "암호 생성"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "SHA256 password"
+#~ msgstr "암호 변경"
+
+#~ msgid "MySQL 4.0 compatible"
+#~ msgstr "MySQL 4.0 호환성"
 
 #~ msgid "Add Index"
 #~ msgstr "인덱스 추가"

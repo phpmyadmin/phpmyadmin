@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-09 07:21-0400\n"
+"POT-Creation-Date: 2015-10-13 11:34-0400\n"
 "PO-Revision-Date: 2015-10-13 17:13+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
-"Language-Team: Finnish "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
+"fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +95,7 @@ msgstr "Sarake"
 #: libraries/rte/rte_routines.lib.php:893
 #: libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_routines.lib.php:1584
-#: libraries/server_privileges.lib.php:2371 libraries/tracking.lib.php:880
+#: libraries/server_privileges.lib.php:2499 libraries/tracking.lib.php:880
 #: libraries/tracking.lib.php:972
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -186,13 +186,13 @@ msgstr "Perusavain"
 #: libraries/plugins/export/ExportOdt.class.php:756
 #: libraries/plugins/export/ExportTexytext.class.php:568
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1077
-#: libraries/server_privileges.lib.php:2548
-#: libraries/server_privileges.lib.php:2732
-#: libraries/server_privileges.lib.php:2752
-#: libraries/server_privileges.lib.php:3082
-#: libraries/server_privileges.lib.php:3088
-#: libraries/server_privileges.lib.php:3452
-#: libraries/server_privileges.lib.php:3475 libraries/tracking.lib.php:933
+#: libraries/server_privileges.lib.php:2676
+#: libraries/server_privileges.lib.php:2860
+#: libraries/server_privileges.lib.php:2880
+#: libraries/server_privileges.lib.php:3210
+#: libraries/server_privileges.lib.php:3216
+#: libraries/server_privileges.lib.php:3574
+#: libraries/server_privileges.lib.php:3597 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1010 libraries/tracking.lib.php:1015
 #: prefs_manage.php:140 templates/prefs_autoload.phtml:15
 #: templates/table/structure/table_structure_row.phtml:24
@@ -219,13 +219,13 @@ msgstr "Ei"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1078
 #: libraries/server_databases.lib.php:475
 #: libraries/server_databases.lib.php:485
-#: libraries/server_privileges.lib.php:2548
-#: libraries/server_privileges.lib.php:2729
-#: libraries/server_privileges.lib.php:2750
-#: libraries/server_privileges.lib.php:3081
-#: libraries/server_privileges.lib.php:3086
-#: libraries/server_privileges.lib.php:3449
-#: libraries/server_privileges.lib.php:3475 libraries/tracking.lib.php:933
+#: libraries/server_privileges.lib.php:2676
+#: libraries/server_privileges.lib.php:2857
+#: libraries/server_privileges.lib.php:2878
+#: libraries/server_privileges.lib.php:3209
+#: libraries/server_privileges.lib.php:3214
+#: libraries/server_privileges.lib.php:3571
+#: libraries/server_privileges.lib.php:3597 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1008 libraries/tracking.lib.php:1013
 #: prefs_manage.php:138 templates/prefs_autoload.phtml:14
 #: templates/table/structure/table_structure_row.phtml:24
@@ -288,7 +288,6 @@ msgstr "Tietoa"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:379
-#| msgid "Select All"
 msgid "Select all"
 msgstr "Valitse kaikki"
 
@@ -471,7 +470,7 @@ msgstr "Lisää geometria"
 #: gis_data_editor.php:409 js/messages.php:293
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1802
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:166
+#: libraries/display_change_password.lib.php:131
 #: libraries/display_export.lib.php:399 libraries/display_export.lib.php:405
 #: libraries/display_import.lib.php:394 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
@@ -489,10 +488,10 @@ msgstr "Lisää geometria"
 #: libraries/rte/rte_routines.lib.php:1672
 #: libraries/rte/rte_triggers.lib.php:396 libraries/server_bin_log.lib.php:61
 #: libraries/server_privileges.lib.php:705
-#: libraries/server_privileges.lib.php:2108
-#: libraries/server_privileges.lib.php:2874
-#: libraries/server_privileges.lib.php:3555
-#: libraries/server_privileges.lib.php:4655
+#: libraries/server_privileges.lib.php:2236
+#: libraries/server_privileges.lib.php:3002
+#: libraries/server_privileges.lib.php:3677
+#: libraries/server_privileges.lib.php:4779
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:429
 #: libraries/tracking.lib.php:533 libraries/tracking.lib.php:653
@@ -627,7 +626,7 @@ msgstr "Tuonnin tilaa ei voitu ladata."
 #: import_status.php:112 js/messages.php:379 libraries/Util.class.php:780
 #: libraries/export.lib.php:518
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:298
-#: user_password.php:253
+#: user_password.php:263
 msgid "Back"
 msgstr "Takaisin"
 
@@ -647,13 +646,12 @@ msgstr ""
 "linkissä%s."
 
 #: index.php:163
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "Yleiset asetukset"
 
 #: index.php:191 js/messages.php:526
 #: libraries/display_change_password.lib.php:50
-#: libraries/display_change_password.lib.php:53 user_password.php:247
+#: libraries/display_change_password.lib.php:53 user_password.php:257
 msgid "Change password"
 msgstr "Vaihda salasana"
 
@@ -662,7 +660,6 @@ msgid "Server connection collation"
 msgstr "Palvelinyhteyden aakkosjärjestys"
 
 #: index.php:229
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Ulkoasun asetukset"
 
@@ -785,20 +782,14 @@ msgstr ""
 "merkkijonoja oikein, ja tästä saattaa koitua odottamattomia seurauksia."
 
 #: index.php:501
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-#| "than cookie validity configured in phpMyAdmin, because of this, your "
-#| "login will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parametri "
-"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] on matalampi kuin "
+"PHP-parametri [a@http://php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] on matalampi kuin "
 "phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi saattaa "
 "erääntyä nopeammin kuin phpMyAdminissa on määritetty."
 
@@ -903,7 +894,6 @@ msgid "Delete tracking data for these versions?"
 msgstr "Haluatko poistaa näiden versioiden seurantatiedot?"
 
 #: js/messages.php:53
-#| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
 msgstr "Poista tämän taulun seurantatiedot?"
 
@@ -944,12 +934,10 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Haluatko varmasti peruuttaa valittujen käyttäjien oikeudet?"
 
 #: js/messages.php:62
-#| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
 msgstr "Haluatko varmasti poistaa tämän kirjanmerkin?"
 
 #: js/messages.php:63
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
 msgstr "Haluatko varmasti poistaa haun ”%s”?"
 
@@ -963,12 +951,10 @@ msgstr ""
 "liittyvän datan!"
 
 #: js/messages.php:65
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Haluatko varmasti poistaa osituksen ”%s”?"
 
 #: js/messages.php:66
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
 msgstr "Haluatko varmasti suorittaa RESET SLAVE - toiminnon?"
 
@@ -1017,7 +1003,6 @@ msgstr ""
 "Oletko varma että haluat vaihtaa sarakekollaatiota ja kääntää kaiken datan?"
 
 #: js/messages.php:89
-#| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Tallenna & sulje"
 
@@ -1028,7 +1013,6 @@ msgid "Reset"
 msgstr "Palauta"
 
 #: js/messages.php:91
-#| msgid "Reset All"
 msgid "Reset all"
 msgstr "Palauta kaikki"
 
@@ -1053,7 +1037,6 @@ msgid "Add index"
 msgstr "Lisää indeksi"
 
 #: js/messages.php:99
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Muokkaa indeksiä"
 
@@ -1103,7 +1086,6 @@ msgstr "SQL-kysely:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:119
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Y-Arvot"
 
@@ -1115,12 +1097,12 @@ msgstr "Palvelimen nimi puuttuu!"
 msgid "The user name is empty!"
 msgstr "Käyttäjän nimi puuttuu!"
 
-#: js/messages.php:124 libraries/server_privileges.lib.php:1858
+#: js/messages.php:124 libraries/server_privileges.lib.php:1943
 #: user_password.php:116
 msgid "The password is empty!"
 msgstr "Salasana puuttuu!"
 
-#: js/messages.php:125 libraries/server_privileges.lib.php:1856
+#: js/messages.php:125 libraries/server_privileges.lib.php:1941
 #: user_password.php:119
 msgid "The passwords aren't the same!"
 msgstr "Salasanat eivät ole samat!"
@@ -1135,7 +1117,6 @@ msgid "Close"
 msgstr "Sulje"
 
 #: js/messages.php:130
-#| msgid "The number of pages created."
 msgid "Template was created."
 msgstr "Malli on luotu."
 
@@ -1144,12 +1125,10 @@ msgid "Template was loaded."
 msgstr "Malli on ladattu."
 
 #: js/messages.php:132
-#| msgid "The profile has been updated."
 msgid "Template was updated."
 msgstr "Malli on päivitetty."
 
 #: js/messages.php:133
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "Malli on poistettu."
 
@@ -1202,7 +1181,6 @@ msgid "Query cache used"
 msgstr "Kyselyvälimuistia käytetty"
 
 #: js/messages.php:152
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Järjestelmän prosessorikuormitus"
 
@@ -1239,22 +1217,18 @@ msgid "Used memory"
 msgstr "Käytetty muisti"
 
 #: js/messages.php:163
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Sivumuistia yhteensä"
 
 #: js/messages.php:164
-#| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Välimuistissa oleva sivumuisti"
 
 #: js/messages.php:165
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Käytössä oleva sivutusmuisti"
 
 #: js/messages.php:166
-#| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Vapaa sivutusmuisti"
 
@@ -1344,7 +1318,7 @@ msgstr "Lisää sarjaan vähintään yksi muuttuja!"
 #: libraries/config.values.php:69 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.class.php:2090
 #: libraries/plugins/schema/SchemaPdf.class.php:102
-#: libraries/server_privileges.lib.php:3049
+#: libraries/server_privileges.lib.php:3177
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:308
 #: templates/columns_definitions/transformation.phtml:4
@@ -1459,7 +1433,6 @@ msgid "Current settings"
 msgstr "Nykyiset asetukset"
 
 #: js/messages.php:220 templates/table/chart/tbl_chart.phtml:53
-#| msgid "Report title"
 msgid "Chart title"
 msgstr "Kaavion otsikko"
 
@@ -1669,7 +1642,6 @@ msgid "No files available on server for import!"
 msgstr "Tuotavia tiedostoja ei ole saatavilla palvelimella!"
 
 #: js/messages.php:276
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analysoi kysely"
 
@@ -1721,7 +1693,6 @@ msgid "Cancel"
 msgstr "Peruuta"
 
 #: js/messages.php:297 libraries/Header.class.php:462
-#| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "Sivuun liittyvät asetukset"
 
@@ -1735,22 +1706,18 @@ msgid "Loading…"
 msgstr "Lataa…"
 
 #: js/messages.php:302
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Pyyntö keskeytetty!"
 
 #: js/messages.php:303
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Pyyntöä käsitellään"
 
 #: js/messages.php:304
-#| msgid "Request Aborted!!"
 msgid "Request failed!!"
 msgstr "Pyyntö epäonnistui!"
 
 #: js/messages.php:305
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Virhe pyynnön käsittelyssä"
 
@@ -1770,12 +1737,10 @@ msgid "No databases selected."
 msgstr "Yhtään tietokantaa ei ole valittu."
 
 #: js/messages.php:309
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Saraketta poistetaan"
 
 #: js/messages.php:310
-#| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Lisätään pääavain"
 
@@ -1794,22 +1759,18 @@ msgid "Click to dismiss this notification"
 msgstr "Poista tämä huomautus napsauttamalla"
 
 #: js/messages.php:315
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Uudelleennimetään tietokantoja"
 
 #: js/messages.php:316
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopioidaan tietokantoja"
 
 #: js/messages.php:317
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Vaihdetaan merkistökoodausta"
 
 #: js/messages.php:321 libraries/Util.class.php:3232
-#| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
 msgstr "Kytke viiteavaimien tarkistus päälle"
 
@@ -1848,10 +1809,10 @@ msgstr "Tallennettavan funktion määritelmässä tulee olla RETURN-lause!"
 #: libraries/Util.class.php:4276 libraries/Util.class.php:4291
 #: libraries/Util.class.php:4308 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:146
-#: libraries/server_privileges.lib.php:2213
-#: libraries/server_privileges.lib.php:2292
-#: libraries/server_privileges.lib.php:2634
-#: libraries/server_privileges.lib.php:3358
+#: libraries/server_privileges.lib.php:2341
+#: libraries/server_privileges.lib.php:2420
+#: libraries/server_privileges.lib.php:2762
+#: libraries/server_privileges.lib.php:3486
 #: libraries/server_status_monitor.lib.php:322 prefs_manage.php:303
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
@@ -1939,7 +1900,6 @@ msgstr "Ei automaattisesti tallennettuja kyselyitä"
 
 #: js/messages.php:355
 #, php-format
-#| msgid "Variable"
 msgid "Variable %d:"
 msgstr "Muuttuja %d:"
 
@@ -2197,12 +2157,10 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: js/messages.php:441
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Sisäkehä"
 
 #: js/messages.php:442
-#| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "Ulkokehä"
 
@@ -2258,7 +2216,6 @@ msgstr "Tallenna sivu"
 
 #: js/messages.php:466 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#| msgid "Save page"
 msgid "Save page as"
 msgstr "Tallenna sivu nimellä"
 
@@ -2359,7 +2316,7 @@ msgstr "Muuta sarakkeen näkyvyyttä<br />napsauttamalla pudotusvalikon nuolta."
 #: js/messages.php:493 libraries/DisplayResults.class.php:1017
 #: libraries/browse_foreigners.lib.php:290
 #: libraries/browse_foreigners.lib.php:343
-#: libraries/server_privileges.lib.php:3620
+#: libraries/server_privileges.lib.php:3742
 msgid "Show all"
 msgstr "Näytä kaikki"
 
@@ -2387,7 +2344,6 @@ msgstr ""
 "selaimesi."
 
 #: js/messages.php:497
-#| msgid "Original string"
 msgid "Original length"
 msgstr "Alkuperäinen pituus"
 
@@ -2453,12 +2409,10 @@ msgid "More"
 msgstr "Lisää"
 
 #: js/messages.php:532
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Näytä paneeli"
 
 #: js/messages.php:533
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Piilota paneeli"
 
@@ -2486,27 +2440,22 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr "Suodattaaksesi kaikki %s tietokannassa, paina Enter hakutermin jälkeen"
 
 #: js/messages.php:539
-#| msgid "Tables"
 msgid "tables"
 msgstr "taulut"
 
 #: js/messages.php:540
-#| msgid "Views"
 msgid "views"
 msgstr "näkymät"
 
 #: js/messages.php:541
-#| msgid "Procedures"
 msgid "procedures"
 msgstr "proseduurit"
 
 #: js/messages.php:542
-#| msgid "Event"
 msgid "events"
 msgstr "tapahtumat"
 
 #: js/messages.php:543
-#| msgid "Functions"
 msgid "functions"
 msgstr "funktiot"
 
@@ -2538,12 +2487,10 @@ msgid "Create view"
 msgstr "Luo näkymä"
 
 #: js/messages.php:557
-#| msgid "Server port"
 msgid "Send error report"
 msgstr "Lähetä virheraportti"
 
 #: js/messages.php:558
-#| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Lähetä virheraportti"
 
@@ -2554,12 +2501,10 @@ msgid ""
 msgstr "Tapahtui vakava JavaScript-virhe. Haluatko lähettää virheraportin?"
 
 #: js/messages.php:562
-#| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Muuta raportin asetuksia"
 
 #: js/messages.php:563
-#| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Näytä raportin tarkemmat tiedot"
 
@@ -2622,12 +2567,10 @@ msgid "%s argument(s) passed"
 msgstr "%s argumenttia syötetty"
 
 #: js/messages.php:604
-#| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Näytä argumentit"
 
 #: js/messages.php:605
-#| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "Piilota argumentit"
 
@@ -2903,47 +2846,38 @@ msgid "This field is required"
 msgstr "Kenttä on pakollinen"
 
 #: js/messages.php:777
-#| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Ole hyvä ja korjaa tämä kenttä"
 
 #: js/messages.php:778
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
 msgstr "Ole hyvä ja anna pätevä sähköpostiosoite"
 
 #: js/messages.php:779
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "Ole hyvä ja anna pätevä URL"
 
 #: js/messages.php:780
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
 msgstr "Ole hyvä ja anna pätevä päivämäärä"
 
 #: js/messages.php:781
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
 msgstr "Ole hyvä ja anna pätevä päivämäärä (ISO)"
 
 #: js/messages.php:782
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
 msgstr "Ole hyvä ja anna pätevä numero"
 
 #: js/messages.php:783
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
 msgstr "Ole hyvä ja anna pätevä luottokortin numero"
 
 #: js/messages.php:784
-#| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "Ole hyvä ja kirjoita vain numeroita"
 
 #: js/messages.php:785
-#| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
 msgstr "Ole hyvä ja annat saman arvon uudelleen"
 
@@ -2952,7 +2886,6 @@ msgid "Please enter no more than {0} characters"
 msgstr "Ole hyvä ja kirjoita maksimissaan {0} merkkiä"
 
 #: js/messages.php:787
-#| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
 msgstr "Ole hyvä ja kirjoita vähintään {0} merkkiä"
 
@@ -2961,27 +2894,22 @@ msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Ole hyvä ja anna arvo joka on pituudeltaan {0} ja {1} merkin välillä"
 
 #: js/messages.php:789
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
 msgstr "Ole hyvä ja kirjoita arvo väliltä {0} ja {1}"
 
 #: js/messages.php:790
-#| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Ole hyvä ja anna arvo joka on enintään {0}"
 
 #: js/messages.php:791
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Ole hyvä ja kirjoita arvo joka on vähintään {0}"
 
 #: js/messages.php:793
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
 msgstr "Ole hyvä ja anna pätevä päivämäärä tai aika"
 
 #: js/messages.php:794
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
 msgstr "Ole hyvä ja anna pätevä heksadesimaalinen arvo"
 
@@ -3096,10 +3024,10 @@ msgstr "Suorita hakulause uudelleen"
 #: libraries/plugins/export/ExportTexytext.class.php:133
 #: libraries/server_databases.lib.php:303
 #: libraries/server_privileges.lib.php:1166
-#: libraries/server_privileges.lib.php:2892
-#: libraries/server_privileges.lib.php:3146
-#: libraries/server_privileges.lib.php:3158
-#: libraries/server_privileges.lib.php:4360
+#: libraries/server_privileges.lib.php:3020
+#: libraries/server_privileges.lib.php:3274
+#: libraries/server_privileges.lib.php:3286
+#: libraries/server_privileges.lib.php:4484
 #: libraries/server_status_processes.lib.php:80
 #: templates/table/relation/foreign_key_row.phtml:165
 #: templates/table/relation/internal_relational_row.phtml:55
@@ -3217,22 +3145,18 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Suorita kysely painamalla Ctrl+Enter"
 
 #: libraries/Console.class.php:259
-#| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
 msgstr "Paina Enter suorittaaksesi kyselyn"
 
 #: libraries/Console.class.php:277
-#| msgid "Ascending"
 msgid "ascending"
 msgstr "nouseva"
 
 #: libraries/Console.class.php:280
-#| msgid "Descending"
 msgid "descending"
 msgstr "laskeva"
 
 #: libraries/Console.class.php:283
-#| msgid "Other"
 msgid "Order:"
 msgstr "Järjestys:"
 
@@ -3242,7 +3166,6 @@ msgid "Count"
 msgstr "Laske"
 
 #: libraries/Console.class.php:292
-#| msgid "Execute bookmarked query"
 msgid "Execution order"
 msgstr "Suoritusjärjestys"
 
@@ -3251,32 +3174,26 @@ msgid "Time taken"
 msgstr "Aikaa kului"
 
 #: libraries/Console.class.php:298
-#| msgid "Other"
 msgid "Order by:"
 msgstr "Järjestä mukaan:"
 
 #: libraries/Console.class.php:301
-#| msgid "SQL queries"
 msgid "Group queries"
 msgstr "Ryhmäkyselyt"
 
 #: libraries/Console.class.php:304
-#| msgid "SQL queries"
 msgid "Ungroup queries"
 msgstr "Pura ryhmäkyselyt"
 
 #: libraries/Console.class.php:315
-#| msgid "Show color"
 msgid "Show trace"
 msgstr "Näytä seuranta"
 
 #: libraries/Console.class.php:317
-#| msgid "Hide Panel"
 msgid "Hide trace"
 msgstr "Piilota seuranta"
 
 #: libraries/Console.class.php:319
-#| msgid "Count"
 msgid "Count:"
 msgstr "Luku:"
 
@@ -3332,7 +3249,6 @@ msgstr ""
 "Enter. Mikäli haluat tehdä tästä pysyvän, katso asetukset."
 
 #: libraries/Console.class.php:389
-#| msgid "Switch to copied table"
 msgid "Switch to dark theme"
 msgstr "Vaihda tummaan teemaan"
 
@@ -3374,7 +3290,6 @@ msgid "Sort:"
 msgstr "Järjestä:"
 
 #: libraries/DBQbe.class.php:630
-#| msgid "Sort:"
 msgid "Sort order:"
 msgstr "Järjestys:"
 
@@ -3557,7 +3472,6 @@ msgstr "Tauluissa:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:381
-#| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Poista valinta kaikista"
 
@@ -3638,7 +3552,6 @@ msgid "Relational key"
 msgstr "Relaatioavain"
 
 #: libraries/DisplayResults.class.php:1745
-#| msgid "Display foreign key relationships"
 msgid "Display column for relations"
 msgstr "Näytä sarakkeet relaatioille"
 
@@ -3731,7 +3644,6 @@ msgstr "Valitut:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#| msgid "Check All"
 msgid "Check all"
 msgstr "Valitse kaikki"
 
@@ -3818,7 +3730,6 @@ msgid "Error while moving uploaded file."
 msgstr "Virhe siirrettäessä ladattua tiedostoa."
 
 #: libraries/File.class.php:497
-#| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "Ladattua tiedostoa ei voi lukea."
 
@@ -3860,9 +3771,9 @@ msgstr "Indeksit"
 #: libraries/Index.class.php:693 libraries/central_columns.lib.php:687
 #: libraries/rte/rte_list.lib.php:74 libraries/rte/rte_list.lib.php:89
 #: libraries/rte/rte_list.lib.php:102 libraries/server_databases.lib.php:409
-#: libraries/server_privileges.lib.php:2374
-#: libraries/server_privileges.lib.php:3168
-#: libraries/server_privileges.lib.php:3344
+#: libraries/server_privileges.lib.php:2502
+#: libraries/server_privileges.lib.php:3296
+#: libraries/server_privileges.lib.php:3472
 #: libraries/server_user_groups.lib.php:82
 #: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793 libraries/tracking.lib.php:1475
@@ -3977,10 +3888,10 @@ msgstr "Näkymä"
 #: libraries/plugins/export/ExportXml.class.php:499
 #: libraries/rte/rte_list.lib.php:87 libraries/rte/rte_triggers.lib.php:331
 #: libraries/server_privileges.lib.php:1169
-#: libraries/server_privileges.lib.php:2910
-#: libraries/server_privileges.lib.php:3147
-#: libraries/server_privileges.lib.php:3158
-#: libraries/server_privileges.lib.php:4374 libraries/tracking.lib.php:1474
+#: libraries/server_privileges.lib.php:3038
+#: libraries/server_privileges.lib.php:3275
+#: libraries/server_privileges.lib.php:3286
+#: libraries/server_privileges.lib.php:4498 libraries/tracking.lib.php:1474
 #: libraries/tracking.lib.php:1616
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/foreign_key_row.phtml:176
@@ -4023,9 +3934,9 @@ msgstr "Lisää rivi"
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:467
 #: libraries/Util.class.php:4294 libraries/Util.class.php:4310
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
-#: libraries/server_privileges.lib.php:2372
-#: libraries/server_privileges.lib.php:3160
-#: libraries/server_privileges.lib.php:4249
+#: libraries/server_privileges.lib.php:2500
+#: libraries/server_privileges.lib.php:3288
+#: libraries/server_privileges.lib.php:4373
 msgid "Privileges"
 msgstr "Käyttöoikeudet"
 
@@ -4091,12 +4002,11 @@ msgstr "Keskisarakkeet"
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.class.php:1240
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4360
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4484
 msgid "Databases"
 msgstr "Tietokannat"
 
 #: libraries/Menu.class.php:568
-#| msgid "Users"
 msgid "User accounts"
 msgstr "Käyttäjätilit"
 
@@ -4804,7 +4714,6 @@ msgid "Max: %s%s"
 msgstr "Enimmäiskoko: %s%s"
 
 #: libraries/Util.class.php:665
-#| msgid "Static data"
 msgid "Static analysis:"
 msgstr "Staattinen analyysi:"
 
@@ -5071,11 +4980,11 @@ msgstr "Lisää uusi sarake"
 msgid "Attributes"
 msgstr "Attribuutit"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:580
 msgid "Failed to read configuration file!"
 msgstr "Asetustiedoston lukeminen epäonnistui!"
 
-#: libraries/common.inc.php:582
+#: libraries/common.inc.php:583
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -5083,38 +4992,38 @@ msgstr ""
 "Tämä johtuu tavallisesti siinä olevasta syntaksivirheestä, tarkista kaikki "
 "alla näkyvät virheet."
 
-#: libraries/common.inc.php:591
+#: libraries/common.inc.php:592
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:600
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
 "[code]$cfg['PmaAbsoluteUri'][/code] täytyy määritellä asetustiedostossa!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:635
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Virheellinen palvelimen indeksi: %s"
 
-#: libraries/common.inc.php:646
+#: libraries/common.inc.php:647
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Palvelimella %1$s virheellinen nimi. Tarkista asetukset."
 
-#: libraries/common.inc.php:664
+#: libraries/common.inc.php:665
 #, php-format
 msgid "Server %d"
 msgstr "Palvelin %d"
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:862
 msgid "Invalid authentication method set in configuration:"
 msgstr "Asetuksissa on virheellinen todennustapa:"
 
-#: libraries/common.inc.php:1004
+#: libraries/common.inc.php:1005
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5122,24 +5031,24 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:1036
+#: libraries/common.inc.php:1037
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Sinun tulisi päivittää versioon %s %s tai sitä uudempaan."
 
-#: libraries/common.inc.php:1153
+#: libraries/common.inc.php:1154
 msgid "Error: Token mismatch"
 msgstr "Virhe: Tunnus ei täsmää"
 
-#: libraries/common.inc.php:1185
+#: libraries/common.inc.php:1186
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS ylikirjoitus yritys"
 
-#: libraries/common.inc.php:1192
+#: libraries/common.inc.php:1193
 msgid "possible exploit"
 msgstr "mahdollinen turva-aukko"
 
-#: libraries/common.inc.php:1201
+#: libraries/common.inc.php:1202
 msgid "numeric key detected"
 msgstr "numeerinen avain tunnistettu"
 
@@ -8663,49 +8572,29 @@ msgstr ""
 
 #: libraries/display_change_password.lib.php:60
 #: libraries/replication_gui.lib.php:877
-#: libraries/server_privileges.lib.php:1664
+#: libraries/server_privileges.lib.php:1736
 msgid "No Password"
 msgstr "Ei salasanaa"
 
 #: libraries/display_change_password.lib.php:68
 #: libraries/plugins/auth/AuthenticationCookie.class.php:203
 #: libraries/replication_gui.lib.php:424 libraries/replication_gui.lib.php:864
-#: libraries/server_privileges.lib.php:1640
+#: libraries/server_privileges.lib.php:1712
 msgid "Password:"
 msgstr "Salasana:"
 
 #: libraries/display_change_password.lib.php:74
 #: libraries/replication_gui.lib.php:888
-#: libraries/server_privileges.lib.php:1682
+#: libraries/server_privileges.lib.php:1754
 msgid "Re-type:"
 msgstr "Kirjoita uudelleen:"
 
-#: libraries/display_change_password.lib.php:89
-#: libraries/display_change_password.lib.php:120
-#: libraries/display_change_password.lib.php:129
+#: libraries/display_change_password.lib.php:82
 msgid "Password Hashing:"
 msgstr "Salasanan salaus:"
 
-#: libraries/display_change_password.lib.php:98
-#: libraries/server_privileges.lib.php:1700
-#, fuzzy
-#| msgid "Generate password"
-msgid "MySQL native password"
-msgstr "Keksi salasana"
-
-#: libraries/display_change_password.lib.php:112
-#: libraries/server_privileges.lib.php:1708
-#, fuzzy
-#| msgid "Change password"
-msgid "SHA256 password"
-msgstr "Vaihda salasana"
-
-#: libraries/display_change_password.lib.php:141
-msgid "MySQL 4.0 compatible"
-msgstr "MySQL 4.0 -yhteensopiva"
-
-#: libraries/display_change_password.lib.php:154
-#: libraries/server_privileges.lib.php:1717
+#: libraries/display_change_password.lib.php:110
+#: libraries/server_privileges.lib.php:1800
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -12228,7 +12117,7 @@ msgstr ""
 "Jos ei ole, lisää seuraava rivi [mysqld]-osaan:"
 
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:798
-#: libraries/server_privileges.lib.php:1444
+#: libraries/server_privileges.lib.php:1520
 #, fuzzy
 #| msgid "User name"
 msgid "User name:"
@@ -12236,18 +12125,18 @@ msgstr "Käyttäjänimi"
 
 #: libraries/replication_gui.lib.php:418 libraries/replication_gui.lib.php:802
 #: libraries/replication_gui.lib.php:818
-#: libraries/server_privileges.lib.php:1449
-#: libraries/server_privileges.lib.php:1481
-#: libraries/server_privileges.lib.php:2369
-#: libraries/server_privileges.lib.php:3331
+#: libraries/server_privileges.lib.php:1525
+#: libraries/server_privileges.lib.php:1557
+#: libraries/server_privileges.lib.php:2497
+#: libraries/server_privileges.lib.php:3459
 msgid "User name"
 msgstr "Käyttäjänimi"
 
 #: libraries/replication_gui.lib.php:429 libraries/replication_gui.lib.php:868
 #: libraries/replication_gui.lib.php:884
-#: libraries/server_privileges.lib.php:1644
-#: libraries/server_privileges.lib.php:1672
-#: libraries/server_privileges.lib.php:3333
+#: libraries/server_privileges.lib.php:1716
+#: libraries/server_privileges.lib.php:1744
+#: libraries/server_privileges.lib.php:3461
 msgid "Password"
 msgstr "Salasana"
 
@@ -12290,40 +12179,40 @@ msgstr ""
 "host=host_name."
 
 #: libraries/replication_gui.lib.php:755
-#: libraries/server_privileges.lib.php:1573
+#: libraries/server_privileges.lib.php:1649
 msgid "Any host"
 msgstr "Mikä tahansa palvelin"
 
 #: libraries/replication_gui.lib.php:760
-#: libraries/server_privileges.lib.php:1581
+#: libraries/server_privileges.lib.php:1657
 msgid "Local"
 msgstr "Paikallinen"
 
 #: libraries/replication_gui.lib.php:767
-#: libraries/server_privileges.lib.php:1590
+#: libraries/server_privileges.lib.php:1666
 msgid "This Host"
 msgstr "Tämä isäntä"
 
 #: libraries/replication_gui.lib.php:809
-#: libraries/server_privileges.lib.php:1465
+#: libraries/server_privileges.lib.php:1541
 msgid "Any user"
 msgstr "Kuka tahansa käyttäjä"
 
 #: libraries/replication_gui.lib.php:814 libraries/replication_gui.lib.php:847
 #: libraries/replication_gui.lib.php:880
-#: libraries/server_privileges.lib.php:1609
+#: libraries/server_privileges.lib.php:1685
 #, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
 msgstr "Käytä tekstikenttää"
 
 #: libraries/replication_gui.lib.php:841
-#: libraries/server_privileges.lib.php:1600
+#: libraries/server_privileges.lib.php:1676
 msgid "Use Host Table"
 msgstr "Käytä isäntätaulua"
 
 #: libraries/replication_gui.lib.php:857
-#: libraries/server_privileges.lib.php:1628
+#: libraries/server_privileges.lib.php:1704
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -12332,7 +12221,7 @@ msgstr ""
 "käytetään Host-taulussa olevia tietoja."
 
 #: libraries/replication_gui.lib.php:892
-#: libraries/server_privileges.lib.php:1686
+#: libraries/server_privileges.lib.php:1758
 msgid "Re-type"
 msgstr "Kirjoita uudelleen"
 
@@ -13195,7 +13084,7 @@ msgstr "Ei mitään"
 
 #: libraries/server_privileges.lib.php:527
 #: libraries/server_privileges.lib.php:554
-#: libraries/server_privileges.lib.php:3340
+#: libraries/server_privileges.lib.php:3468
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr ""
@@ -13265,14 +13154,14 @@ msgstr "Rajoittaa käyttäjän yhtäaikaisten yhteyksien määrän."
 
 #: libraries/server_privileges.lib.php:999
 #: libraries/server_privileges.lib.php:1168
-#: libraries/server_privileges.lib.php:3152
-#: libraries/server_privileges.lib.php:3164
+#: libraries/server_privileges.lib.php:3280
+#: libraries/server_privileges.lib.php:3292
 msgid "Table-specific privileges"
 msgstr "Taulukohtaiset käyttöoikeudet"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:1178
-#: libraries/server_privileges.lib.php:3336
+#: libraries/server_privileges.lib.php:3464
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
@@ -13283,7 +13172,7 @@ msgid "Administration"
 msgstr "Hallinta"
 
 #: libraries/server_privileges.lib.php:1162
-#: libraries/server_privileges.lib.php:3334
+#: libraries/server_privileges.lib.php:3462
 msgid "Global privileges"
 msgstr "Globaalit käyttöoikeudet"
 
@@ -13294,7 +13183,7 @@ msgid "Global"
 msgstr "globaali"
 
 #: libraries/server_privileges.lib.php:1165
-#: libraries/server_privileges.lib.php:3151
+#: libraries/server_privileges.lib.php:3279
 msgid "Database-specific privileges"
 msgstr "Tietokantakohtaiset käyttöoikeudet"
 
@@ -13313,171 +13202,194 @@ msgstr ""
 "Sallii käyttäjien ja käyttöoikeuksien lisäämisen lataamatta "
 "käyttöoikeustauluja uudestaan."
 
-#: libraries/server_privileges.lib.php:1441
-#: libraries/server_privileges.lib.php:2856
+#: libraries/server_privileges.lib.php:1447
+#, fuzzy
+#| msgid "Cookie authentication"
+msgid "Native MySQL authentication"
+msgstr "Eväste tunnistautuminen"
+
+#: libraries/server_privileges.lib.php:1449
+#, fuzzy
+#| msgid "Signon authentication"
+msgid "SHA256 password authentication"
+msgstr "Sisäänkirjatumistunnitautuminen"
+
+#: libraries/server_privileges.lib.php:1463
+#, fuzzy
+#| msgid "Authentication"
+msgid "MySQL Native Authentication"
+msgstr "Todennus"
+
+#: libraries/server_privileges.lib.php:1517
+#: libraries/server_privileges.lib.php:2984
 msgid "Login Information"
 msgstr "Kirjautumistiedot"
 
-#: libraries/server_privileges.lib.php:1474
-#: libraries/server_privileges.lib.php:1667
-#: libraries/server_privileges.lib.php:3284
+#: libraries/server_privileges.lib.php:1550
+#: libraries/server_privileges.lib.php:1739
+#: libraries/server_privileges.lib.php:3412
 msgid "Use text field"
 msgstr "Käytä tekstikenttää"
 
-#: libraries/server_privileges.lib.php:1501
+#: libraries/server_privileges.lib.php:1577
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1510
+#: libraries/server_privileges.lib.php:1586
 #, fuzzy
 #| msgid "User name"
 msgid "Host name:"
 msgstr "Käyttäjänimi"
 
-#: libraries/server_privileges.lib.php:1515
-#: libraries/server_privileges.lib.php:1617
-#: libraries/server_privileges.lib.php:2370
-#: libraries/server_privileges.lib.php:3332
+#: libraries/server_privileges.lib.php:1591
+#: libraries/server_privileges.lib.php:1693
+#: libraries/server_privileges.lib.php:2498
+#: libraries/server_privileges.lib.php:3460
 #, fuzzy
 #| msgid "Log name"
 msgid "Host name"
 msgstr "Lokin nimi"
 
-#: libraries/server_privileges.lib.php:1657
+#: libraries/server_privileges.lib.php:1729
 msgid "Do not change the password"
 msgstr "Älä vaihda salasanaa"
 
-#: libraries/server_privileges.lib.php:1694
-#: libraries/server_privileges.lib.php:1697
+#: libraries/server_privileges.lib.php:1780
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "Todennus"
 
-#: libraries/server_privileges.lib.php:1925
+#: libraries/server_privileges.lib.php:1787
+#, fuzzy
+#| msgid "Password Hashing:"
+msgid "Password Hashing Method"
+msgstr "Salasanan salaus:"
+
+#: libraries/server_privileges.lib.php:2053
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Käyttäjän %s salasanan vaihto onnistui."
 
-#: libraries/server_privileges.lib.php:1971
+#: libraries/server_privileges.lib.php:2099
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Käyttäjän %s käyttöoikeudet on poistettu."
 
-#: libraries/server_privileges.lib.php:2061
-#: libraries/server_privileges.lib.php:4318
+#: libraries/server_privileges.lib.php:2189
+#: libraries/server_privileges.lib.php:4442
 #, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "Lisää käyttäjä"
 
-#: libraries/server_privileges.lib.php:2070
+#: libraries/server_privileges.lib.php:2198
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
 msgstr "Tietokanta käyttäjälle"
 
-#: libraries/server_privileges.lib.php:2074
+#: libraries/server_privileges.lib.php:2202
 msgid "Create database with same name and grant all privileges."
 msgstr "Luo samanniminen tietokanta ja anna kaikki oikeudet."
 
-#: libraries/server_privileges.lib.php:2080
+#: libraries/server_privileges.lib.php:2208
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Anna kaikki oikeudet tietokannalle käyttäen korvausmerkkiä (username\\_%)."
 
-#: libraries/server_privileges.lib.php:2089
+#: libraries/server_privileges.lib.php:2217
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr "Anna tietokannalle \"%s\" kaikki oikeudet."
 
-#: libraries/server_privileges.lib.php:2190
-#: libraries/server_privileges.lib.php:2256
+#: libraries/server_privileges.lib.php:2318
+#: libraries/server_privileges.lib.php:2384
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Käyttäjät, joilla on oikeus käyttää kohdetta \"%s\""
 
-#: libraries/server_privileges.lib.php:2225
+#: libraries/server_privileges.lib.php:2353
 #, fuzzy
 #| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "Näkymä %s on poistettu"
 
-#: libraries/server_privileges.lib.php:2373
-#: libraries/server_privileges.lib.php:3161
-#: libraries/server_privileges.lib.php:3342
+#: libraries/server_privileges.lib.php:2501
+#: libraries/server_privileges.lib.php:3289
+#: libraries/server_privileges.lib.php:3470
 msgid "Grant"
 msgstr "Valtuudet (GRANT)"
 
-#: libraries/server_privileges.lib.php:2388
+#: libraries/server_privileges.lib.php:2516
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2408
-#: libraries/server_privileges.lib.php:3814
+#: libraries/server_privileges.lib.php:2536
+#: libraries/server_privileges.lib.php:3936
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Käyttäjiä ei ole."
 
-#: libraries/server_privileges.lib.php:2439
-#: libraries/server_privileges.lib.php:2722
-#: libraries/server_privileges.lib.php:3418
+#: libraries/server_privileges.lib.php:2567
+#: libraries/server_privileges.lib.php:2850
+#: libraries/server_privileges.lib.php:3546
 msgid "Any"
 msgstr "Mikä tahansa"
 
-#: libraries/server_privileges.lib.php:2490
+#: libraries/server_privileges.lib.php:2618
 msgid "global"
 msgstr "globaali"
 
-#: libraries/server_privileges.lib.php:2493
+#: libraries/server_privileges.lib.php:2621
 msgid "database-specific"
 msgstr "tietokantakohtainen"
 
-#: libraries/server_privileges.lib.php:2495
+#: libraries/server_privileges.lib.php:2623
 msgid "wildcard"
 msgstr "korvausmerkki"
 
-#: libraries/server_privileges.lib.php:2501
+#: libraries/server_privileges.lib.php:2629
 #, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
 msgstr "tietokantakohtainen"
 
-#: libraries/server_privileges.lib.php:2628
+#: libraries/server_privileges.lib.php:2756
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "Muokkaa käyttöoikeuksia"
 
-#: libraries/server_privileges.lib.php:2631
+#: libraries/server_privileges.lib.php:2759
 msgid "Revoke"
 msgstr "Pura käyttöoikeudet"
 
-#: libraries/server_privileges.lib.php:2655
+#: libraries/server_privileges.lib.php:2783
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
 msgstr "Muokkaa palvelinta"
 
-#: libraries/server_privileges.lib.php:2835
+#: libraries/server_privileges.lib.php:2963
 msgid "… keep the old one."
 msgstr "… säilytä vanha käyttäjä."
 
-#: libraries/server_privileges.lib.php:2836
+#: libraries/server_privileges.lib.php:2964
 msgid "… delete the old one from the user tables."
 msgstr "… poista vanha käyttäjä käyttäjätauluista."
 
-#: libraries/server_privileges.lib.php:2838
+#: libraries/server_privileges.lib.php:2966
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 "… peruuta kaikki vanhan käyttäjän aktiiviset käyttöoikeudet ja tuhoa "
 "käyttäjä sen jälkeen."
 
-#: libraries/server_privileges.lib.php:2842
+#: libraries/server_privileges.lib.php:2970
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -13485,137 +13397,137 @@ msgstr ""
 "… poista käyttäjätauluista vanha käyttäjä ja päivitä sen jälkeen "
 "käyttöoikeudet."
 
-#: libraries/server_privileges.lib.php:2857
+#: libraries/server_privileges.lib.php:2985
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "Vaihda kirjautumistietoja / Kopioi käyttäjä"
 
-#: libraries/server_privileges.lib.php:2863
+#: libraries/server_privileges.lib.php:2991
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Luo uusi käyttäjä samoilla käyttöoikeuksilla ja …"
 
-#: libraries/server_privileges.lib.php:3165
+#: libraries/server_privileges.lib.php:3293
 msgid "Column-specific privileges"
 msgstr "Sarakekohtaiset käyttöoikeudet"
 
-#: libraries/server_privileges.lib.php:3220
+#: libraries/server_privileges.lib.php:3348
 #, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
 msgstr "Lisää käyttöoikeudet seuraavaan tietokantaan"
 
-#: libraries/server_privileges.lib.php:3244
+#: libraries/server_privileges.lib.php:3372
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Korvausmerkkien _ ja % eteen on lisättävä \\-merkki, jotta ne näkyisivät "
 "oikein."
 
-#: libraries/server_privileges.lib.php:3262
+#: libraries/server_privileges.lib.php:3390
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
 msgstr "Lisää käyttöoikeudet seuraavaan tauluun"
 
-#: libraries/server_privileges.lib.php:3524
+#: libraries/server_privileges.lib.php:3646
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "Poista valitut käyttäjät"
 
-#: libraries/server_privileges.lib.php:3530
+#: libraries/server_privileges.lib.php:3652
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Pura kaikki käyttäjän aktiiviset käyttöoikeudet, ja poista ne sen jälkeen."
 
-#: libraries/server_privileges.lib.php:3538
-#: libraries/server_privileges.lib.php:3544
-#: libraries/server_privileges.lib.php:3547
+#: libraries/server_privileges.lib.php:3660
+#: libraries/server_privileges.lib.php:3666
+#: libraries/server_privileges.lib.php:3669
 msgid "Drop the databases that have the same names as the users."
 msgstr "Poista tietokannat, joilla on sama nimi kuin käyttäjillä."
 
-#: libraries/server_privileges.lib.php:3688
+#: libraries/server_privileges.lib.php:3810
 msgid "No users selected for deleting!"
 msgstr "Yhtään käyttäjää ei valittu poistettavaksi!"
 
-#: libraries/server_privileges.lib.php:3691
+#: libraries/server_privileges.lib.php:3813
 msgid "Reloading the privileges"
 msgstr "Ladataan käyttöoikeuksia uudelleen"
 
-#: libraries/server_privileges.lib.php:3710
+#: libraries/server_privileges.lib.php:3832
 msgid "The selected users have been deleted successfully."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
-#: libraries/server_privileges.lib.php:3784
+#: libraries/server_privileges.lib.php:3906
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Käyttäjän %s käyttöoikeudet on päivitetty."
 
-#: libraries/server_privileges.lib.php:3874
+#: libraries/server_privileges.lib.php:3996
 #, php-format
 msgid "Deleting %s"
 msgstr "Poistetaan: %s"
 
-#: libraries/server_privileges.lib.php:3904
+#: libraries/server_privileges.lib.php:4026
 msgid "The privileges were reloaded successfully."
 msgstr "Käyttöoikeuksien uudelleenlataus onnistui."
 
-#: libraries/server_privileges.lib.php:4005
+#: libraries/server_privileges.lib.php:4127
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Käyttäjä %s on jo olemassa!"
 
-#: libraries/server_privileges.lib.php:4260
+#: libraries/server_privileges.lib.php:4384
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Käyttöoikeudet"
 
-#: libraries/server_privileges.lib.php:4269
+#: libraries/server_privileges.lib.php:4393
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "Käyttäjä"
 
-#: libraries/server_privileges.lib.php:4310
+#: libraries/server_privileges.lib.php:4434
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4339
+#: libraries/server_privileges.lib.php:4463
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
 msgstr "Muokkaa käyttöoikeuksia"
 
-#: libraries/server_privileges.lib.php:4340
+#: libraries/server_privileges.lib.php:4464
 #, fuzzy
 #| msgid "Users"
 msgid "User account"
 msgstr "Käyttäjät"
 
-#: libraries/server_privileges.lib.php:4399
+#: libraries/server_privileges.lib.php:4523
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4419 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4543 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "User overview"
 msgid "User accounts overview"
 msgstr "Käyttäjien yleiskatsaus"
 
-#: libraries/server_privileges.lib.php:4487
+#: libraries/server_privileges.lib.php:4611
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4528
+#: libraries/server_privileges.lib.php:4652
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -13628,7 +13540,7 @@ msgstr ""
 "käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. "
 "Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista."
 
-#: libraries/server_privileges.lib.php:4547
+#: libraries/server_privileges.lib.php:4671
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13647,11 +13559,11 @@ msgstr ""
 "käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. "
 "Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista."
 
-#: libraries/server_privileges.lib.php:4597
+#: libraries/server_privileges.lib.php:4721
 msgid "The selected user was not found in the privilege table."
 msgstr "Valittua käyttäjää ei löytynyt käyttöoikeustaulusta."
 
-#: libraries/server_privileges.lib.php:4829
+#: libraries/server_privileges.lib.php:4953
 msgid "You have added a new user."
 msgstr "Uusi käyttäjä lisätty."
 
@@ -14982,22 +14894,22 @@ msgstr ""
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:210
+#: libraries/sql-parser/src/Statement.php:233
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
 msgstr "Odottamattomia merkkejä rivillä %s."
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:271
 msgid "This type of clause was previously parsed."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:276
+#: libraries/sql-parser/src/Statement.php:299
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:296
+#: libraries/sql-parser/src/Statement.php:319
 msgid "Unrecognized keyword."
 msgstr ""
 
@@ -18091,6 +18003,19 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert on asetettu arvoon 0"
+
+#, fuzzy
+#~| msgid "Generate password"
+#~ msgid "MySQL native password"
+#~ msgstr "Keksi salasana"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "SHA256 password"
+#~ msgstr "Vaihda salasana"
+
+#~ msgid "MySQL 4.0 compatible"
+#~ msgstr "MySQL 4.0 -yhteensopiva"
 
 #~ msgid "Add Index"
 #~ msgstr "Lisää indeksi"
