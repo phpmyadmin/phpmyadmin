@@ -1034,14 +1034,14 @@ function PMA_getMetadataTypesToExport()
 /**
  * Returns the checked clause, depending on the presence of key in array
  *
- * @param array  $array array to verify
  * @param string $key   the key to look for
+ * @param array  $array array to verify
  *
  * @return string the checked clause
  */
-function PMA_getCheckedClause($array, $key)
+function PMA_getCheckedClause($key, $array)
 {
-    if (in_array($array, $key)) {
+    if (in_array($key, $array)) {
         return ' checked="checked"';
     } else {
         return '';
