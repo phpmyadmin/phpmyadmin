@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-10-09 22:42+0200\n"
+"PO-Revision-Date: 2015-10-13 22:30+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12523,22 +12523,19 @@ msgid "Allows dropping tables."
 msgstr "Επιτρέπει τη διαγραφή πινάκων."
 
 #: libraries/server_privileges.lib.php:1550
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Πιστοποίηση Cookie"
+msgstr "Γηγενής πιστοποίηση MySQL"
 
 #: libraries/server_privileges.lib.php:1552
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Σειρά επικύρωσης"
+msgstr "Πιστοποίηση κωδικού πρόσβασης SHA256"
 
 #: libraries/server_privileges.lib.php:1566
-#, fuzzy
 #| msgid "Authentication"
 msgid "MySQL Native Authentication"
-msgstr "Πιστοποιίηση"
+msgstr "Γηγενής Πιστοποίησης MySQL"
 
 #: libraries/server_privileges.lib.php:1620
 #: libraries/server_privileges.lib.php:3091
@@ -12580,10 +12577,9 @@ msgid "Authentication Plugin"
 msgstr "Πρόσθετο Πιστοποιίησης"
 
 #: libraries/server_privileges.lib.php:1890
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Μείγμα κωδικού πρόσβασης:"
+msgstr "Μέθοδος Μείγματος Κωδικού Πρόσβασης"
 
 #: libraries/server_privileges.lib.php:2156
 #, php-format
