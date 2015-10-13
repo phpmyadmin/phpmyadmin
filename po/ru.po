@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-09 12:00-0400\n"
+"POT-Creation-Date: 2015-10-13 11:35-0400\n"
 "PO-Revision-Date: 2015-09-06 06:59+0200\n"
 "Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -95,7 +95,7 @@ msgstr "Столбец"
 #: libraries/rte/rte_routines.lib.php:890
 #: libraries/rte/rte_routines.lib.php:919
 #: libraries/rte/rte_routines.lib.php:1579
-#: libraries/server_privileges.lib.php:2473 libraries/tracking.lib.php:883
+#: libraries/server_privileges.lib.php:2601 libraries/tracking.lib.php:883
 #: libraries/tracking.lib.php:975
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -185,11 +185,11 @@ msgstr "Первичный"
 #: libraries/plugins/export/ExportOdt.php:787
 #: libraries/plugins/export/ExportTexytext.php:606
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:710
-#: libraries/server_privileges.lib.php:2650
-#: libraries/server_privileges.lib.php:2838
-#: libraries/server_privileges.lib.php:2858
-#: libraries/server_privileges.lib.php:3493
-#: libraries/server_privileges.lib.php:3516 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:2778
+#: libraries/server_privileges.lib.php:2966
+#: libraries/server_privileges.lib.php:2986
+#: libraries/server_privileges.lib.php:3615
+#: libraries/server_privileges.lib.php:3638 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1013 libraries/tracking.lib.php:1018
 #: prefs_manage.php:143 templates/prefs_autoload.phtml:15
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -219,11 +219,11 @@ msgstr "Нет"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:711
 #: libraries/server_databases.lib.php:476
 #: libraries/server_databases.lib.php:486
-#: libraries/server_privileges.lib.php:2650
-#: libraries/server_privileges.lib.php:2835
-#: libraries/server_privileges.lib.php:2856
-#: libraries/server_privileges.lib.php:3490
-#: libraries/server_privileges.lib.php:3516 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:2778
+#: libraries/server_privileges.lib.php:2963
+#: libraries/server_privileges.lib.php:2984
+#: libraries/server_privileges.lib.php:3612
+#: libraries/server_privileges.lib.php:3638 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1011 libraries/tracking.lib.php:1016
 #: prefs_manage.php:141 templates/prefs_autoload.phtml:14
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -464,7 +464,7 @@ msgstr "Добавить геометрию"
 
 #: gis_data_editor.php:410 js/messages.php:292 libraries/DbSearch.php:462
 #: libraries/DisplayResults.php:1798 libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:168
+#: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:401 libraries/display_export.lib.php:407
 #: libraries/display_import.lib.php:397 libraries/index.lib.php:42
 #: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1584
@@ -482,9 +482,9 @@ msgstr "Добавить геометрию"
 #: libraries/rte/rte_routines.lib.php:1667
 #: libraries/rte/rte_triggers.lib.php:398 libraries/server_bin_log.lib.php:64
 #: libraries/server_privileges.lib.php:710
-#: libraries/server_privileges.lib.php:2210
-#: libraries/server_privileges.lib.php:2981
-#: libraries/server_privileges.lib.php:3597
+#: libraries/server_privileges.lib.php:2338
+#: libraries/server_privileges.lib.php:3109
+#: libraries/server_privileges.lib.php:3719
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:429
 #: libraries/tracking.lib.php:536 libraries/tracking.lib.php:656
@@ -612,7 +612,7 @@ msgstr "Не удалось загрузить прогресс (ход) имп�
 
 #: import_status.php:111 js/messages.php:378 libraries/Util.php:797
 #: libraries/export.lib.php:523
-#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:253
+#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:263
 msgid "Back"
 msgstr "Назад"
 
@@ -637,7 +637,7 @@ msgstr "Основные настройки"
 
 #: index.php:189 js/messages.php:525
 #: libraries/display_change_password.lib.php:52
-#: libraries/display_change_password.lib.php:55 user_password.php:247
+#: libraries/display_change_password.lib.php:55 user_password.php:257
 msgid "Change password"
 msgstr "Изменить пароль"
 
@@ -1090,12 +1090,12 @@ msgstr "Пустое имя хоста!"
 msgid "The user name is empty!"
 msgstr "Пустое имя пользователя!"
 
-#: js/messages.php:123 libraries/server_privileges.lib.php:1961
+#: js/messages.php:123 libraries/server_privileges.lib.php:2046
 #: user_password.php:116
 msgid "The password is empty!"
 msgstr "Пустой пароль!"
 
-#: js/messages.php:124 libraries/server_privileges.lib.php:1959
+#: js/messages.php:124 libraries/server_privileges.lib.php:2044
 #: user_password.php:119
 msgid "The passwords aren't the same!"
 msgstr "Некорректное подтверждение пароля!"
@@ -1801,10 +1801,10 @@ msgstr "Определение хранимой функции должно со
 #: libraries/Util.php:3710 libraries/Util.php:4328 libraries/Util.php:4343
 #: libraries/Util.php:4360 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:148
-#: libraries/server_privileges.lib.php:2315
-#: libraries/server_privileges.lib.php:2394
-#: libraries/server_privileges.lib.php:2740
-#: libraries/server_privileges.lib.php:3399
+#: libraries/server_privileges.lib.php:2443
+#: libraries/server_privileges.lib.php:2522
+#: libraries/server_privileges.lib.php:2868
+#: libraries/server_privileges.lib.php:3527
 #: libraries/server_status_monitor.lib.php:321 prefs_manage.php:306
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
@@ -2308,7 +2308,7 @@ msgstr "Кликните выпадающую стрелку<br />для пер�
 #: js/messages.php:492 libraries/DisplayResults.php:1018
 #: libraries/browse_foreigners.lib.php:290
 #: libraries/browse_foreigners.lib.php:343
-#: libraries/server_privileges.lib.php:3662
+#: libraries/server_privileges.lib.php:3784
 msgid "Show all"
 msgstr "Показать все"
 
@@ -3001,10 +3001,10 @@ msgstr "Повторный запрос"
 #: libraries/plugins/export/ExportTexytext.php:131
 #: libraries/server_databases.lib.php:305
 #: libraries/server_privileges.lib.php:1269
-#: libraries/server_privileges.lib.php:2999
-#: libraries/server_privileges.lib.php:3170
-#: libraries/server_privileges.lib.php:3172
-#: libraries/server_privileges.lib.php:4413
+#: libraries/server_privileges.lib.php:3127
+#: libraries/server_privileges.lib.php:3298
+#: libraries/server_privileges.lib.php:3300
+#: libraries/server_privileges.lib.php:4537
 #: libraries/server_status_processes.lib.php:84
 #: templates/table/relation/foreign_key_row.phtml:147
 #: templates/table/relation/internal_relational_row.phtml:57
@@ -3743,8 +3743,8 @@ msgstr "Индексы"
 #: libraries/Index.php:691 libraries/central_columns.lib.php:688
 #: libraries/rte/rte_list.lib.php:76 libraries/rte/rte_list.lib.php:91
 #: libraries/rte/rte_list.lib.php:104 libraries/server_databases.lib.php:410
-#: libraries/server_privileges.lib.php:2476
-#: libraries/server_privileges.lib.php:3385
+#: libraries/server_privileges.lib.php:2604
+#: libraries/server_privileges.lib.php:3513
 #: libraries/server_user_groups.lib.php:82
 #: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:283
 #: libraries/tracking.lib.php:796 libraries/tracking.lib.php:1478
@@ -3855,10 +3855,10 @@ msgstr "Представление"
 #: libraries/plugins/export/ExportXml.php:501
 #: libraries/rte/rte_list.lib.php:89 libraries/rte/rte_triggers.lib.php:333
 #: libraries/server_privileges.lib.php:1272
-#: libraries/server_privileges.lib.php:3017
-#: libraries/server_privileges.lib.php:3176
-#: libraries/server_privileges.lib.php:3178
-#: libraries/server_privileges.lib.php:4427 libraries/tracking.lib.php:1477
+#: libraries/server_privileges.lib.php:3145
+#: libraries/server_privileges.lib.php:3304
+#: libraries/server_privileges.lib.php:3306
+#: libraries/server_privileges.lib.php:4551 libraries/tracking.lib.php:1477
 #: libraries/tracking.lib.php:1619
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/foreign_key_row.phtml:158
@@ -3896,8 +3896,8 @@ msgstr "Вставить"
 
 #: libraries/Menu.php:365 libraries/Menu.php:469 libraries/Util.php:4346
 #: libraries/Util.php:4362 libraries/config.values.php:106
-#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2474
-#: libraries/server_privileges.lib.php:4302
+#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2602
+#: libraries/server_privileges.lib.php:4426
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Привилегии"
@@ -3961,7 +3961,7 @@ msgstr "Центральные столбцы"
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.php:1273
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4413
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4537
 msgid "Databases"
 msgstr "Базы данных"
 
@@ -8142,49 +8142,30 @@ msgstr ""
 
 #: libraries/display_change_password.lib.php:62
 #: libraries/replication_gui.lib.php:879
-#: libraries/server_privileges.lib.php:1767
+#: libraries/server_privileges.lib.php:1839
 msgid "No Password"
 msgstr "Без пароля"
 
 #: libraries/display_change_password.lib.php:70
 #: libraries/plugins/auth/AuthenticationCookie.php:203
 #: libraries/replication_gui.lib.php:426 libraries/replication_gui.lib.php:866
-#: libraries/server_privileges.lib.php:1743
+#: libraries/server_privileges.lib.php:1815
 msgid "Password:"
 msgstr "Пароль:"
 
 #: libraries/display_change_password.lib.php:76
 #: libraries/replication_gui.lib.php:890
-#: libraries/server_privileges.lib.php:1785
+#: libraries/server_privileges.lib.php:1857
 msgid "Re-type:"
 msgstr "Подтверждение:"
 
-#: libraries/display_change_password.lib.php:91
-#: libraries/display_change_password.lib.php:122
-#: libraries/display_change_password.lib.php:131
+#: libraries/display_change_password.lib.php:84
 msgid "Password Hashing:"
 msgstr "Хеширование пароля:"
 
-#: libraries/display_change_password.lib.php:100
-#: libraries/server_privileges.lib.php:1803
-#, fuzzy
-#| msgid "Generate password"
-msgid "MySQL native password"
-msgstr "Создать пароль"
-
-#: libraries/display_change_password.lib.php:114
-#: libraries/server_privileges.lib.php:1811
-#, fuzzy
-#| msgid "Change password"
-msgid "SHA256 password"
-msgstr "Изменить пароль"
-
-#: libraries/display_change_password.lib.php:143
-msgid "MySQL 4.0 compatible"
-msgstr "Совместимо с MySQL 4.0"
-
-#: libraries/display_change_password.lib.php:156
-#: libraries/server_privileges.lib.php:1820
+#: libraries/display_change_password.lib.php:112
+#: libraries/display_change_password.lib.php:126
+#: libraries/server_privileges.lib.php:1903
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -11512,24 +11493,24 @@ msgstr ""
 "server-id. При необходимости, добавьте следующую строку в раздел [mysqld]:"
 
 #: libraries/replication_gui.lib.php:414 libraries/replication_gui.lib.php:800
-#: libraries/server_privileges.lib.php:1547
+#: libraries/server_privileges.lib.php:1623
 msgid "User name:"
 msgstr "Имя пользователя:"
 
 #: libraries/replication_gui.lib.php:420 libraries/replication_gui.lib.php:804
 #: libraries/replication_gui.lib.php:820
-#: libraries/server_privileges.lib.php:1552
-#: libraries/server_privileges.lib.php:1584
-#: libraries/server_privileges.lib.php:2471
-#: libraries/server_privileges.lib.php:3372
+#: libraries/server_privileges.lib.php:1628
+#: libraries/server_privileges.lib.php:1660
+#: libraries/server_privileges.lib.php:2599
+#: libraries/server_privileges.lib.php:3500
 msgid "User name"
 msgstr "Имя пользователя"
 
 #: libraries/replication_gui.lib.php:431 libraries/replication_gui.lib.php:870
 #: libraries/replication_gui.lib.php:886
-#: libraries/server_privileges.lib.php:1747
-#: libraries/server_privileges.lib.php:1775
-#: libraries/server_privileges.lib.php:3374
+#: libraries/server_privileges.lib.php:1819
+#: libraries/server_privileges.lib.php:1847
+#: libraries/server_privileges.lib.php:3502
 msgid "Password"
 msgstr "Пароль"
 
@@ -11570,38 +11551,38 @@ msgstr ""
 "видимы в данном списке."
 
 #: libraries/replication_gui.lib.php:757
-#: libraries/server_privileges.lib.php:1676
+#: libraries/server_privileges.lib.php:1752
 msgid "Any host"
 msgstr "Любой хост"
 
 #: libraries/replication_gui.lib.php:762
-#: libraries/server_privileges.lib.php:1684
+#: libraries/server_privileges.lib.php:1760
 msgid "Local"
 msgstr "Локальный"
 
 #: libraries/replication_gui.lib.php:769
-#: libraries/server_privileges.lib.php:1693
+#: libraries/server_privileges.lib.php:1769
 msgid "This Host"
 msgstr "Этот хост"
 
 #: libraries/replication_gui.lib.php:811
-#: libraries/server_privileges.lib.php:1568
+#: libraries/server_privileges.lib.php:1644
 msgid "Any user"
 msgstr "Любой пользователь"
 
 #: libraries/replication_gui.lib.php:816 libraries/replication_gui.lib.php:849
 #: libraries/replication_gui.lib.php:882
-#: libraries/server_privileges.lib.php:1712
+#: libraries/server_privileges.lib.php:1788
 msgid "Use text field:"
 msgstr "Использовать текстовое поле:"
 
 #: libraries/replication_gui.lib.php:843
-#: libraries/server_privileges.lib.php:1703
+#: libraries/server_privileges.lib.php:1779
 msgid "Use Host Table"
 msgstr "Использовать таблицу хостов"
 
 #: libraries/replication_gui.lib.php:859
-#: libraries/server_privileges.lib.php:1731
+#: libraries/server_privileges.lib.php:1807
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -11610,7 +11591,7 @@ msgstr ""
 "берутся из прописанных при конфигурации."
 
 #: libraries/replication_gui.lib.php:894
-#: libraries/server_privileges.lib.php:1789
+#: libraries/server_privileges.lib.php:1861
 msgid "Re-type"
 msgstr "Подтверждение"
 
@@ -12341,7 +12322,7 @@ msgstr "Нет"
 
 #: libraries/server_privileges.lib.php:532
 #: libraries/server_privileges.lib.php:559
-#: libraries/server_privileges.lib.php:3381
+#: libraries/server_privileges.lib.php:3509
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr "Группа пользователей"
@@ -12413,9 +12394,9 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Максимальное количество одновременных подключений одного пользователя."
 
 #: libraries/server_privileges.lib.php:1008
-#: libraries/server_privileges.lib.php:3182
-#: libraries/server_privileges.lib.php:3184
-#: libraries/server_privileges.lib.php:4442
+#: libraries/server_privileges.lib.php:3310
+#: libraries/server_privileges.lib.php:3312
+#: libraries/server_privileges.lib.php:4566
 #: templates/privileges/edit_routine_privileges.phtml:11
 #, fuzzy
 #| msgid "Routines"
@@ -12444,14 +12425,14 @@ msgstr "Разрешает выполнение хранимых процеду�
 
 #: libraries/server_privileges.lib.php:1102
 #: libraries/server_privileges.lib.php:1271
-#: libraries/server_privileges.lib.php:3177
+#: libraries/server_privileges.lib.php:3305
 #: templates/privileges/privileges_summary.phtml:19
 msgid "Table-specific privileges"
 msgstr "Привилегии уровня таблицы"
 
 #: libraries/server_privileges.lib.php:1105
 #: libraries/server_privileges.lib.php:1281
-#: libraries/server_privileges.lib.php:3377
+#: libraries/server_privileges.lib.php:3505
 #: templates/privileges/edit_routine_privileges.phtml:16
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Примечание: типы привилегий MySQL отображаются по-английски."
@@ -12461,7 +12442,7 @@ msgid "Administration"
 msgstr "Администрирование"
 
 #: libraries/server_privileges.lib.php:1265
-#: libraries/server_privileges.lib.php:3375
+#: libraries/server_privileges.lib.php:3503
 msgid "Global privileges"
 msgstr "Глобальные привилегии"
 
@@ -12470,7 +12451,7 @@ msgid "Global"
 msgstr "Глобальный"
 
 #: libraries/server_privileges.lib.php:1268
-#: libraries/server_privileges.lib.php:3171
+#: libraries/server_privileges.lib.php:3299
 msgid "Database-specific privileges"
 msgstr "Привилегии уровня базы данных"
 
@@ -12482,19 +12463,37 @@ msgstr "Разрешает создание новых таблиц."
 msgid "Allows dropping tables."
 msgstr "Разрешает удаление таблиц."
 
-#: libraries/server_privileges.lib.php:1544
-#: libraries/server_privileges.lib.php:2963
+#: libraries/server_privileges.lib.php:1550
+#, fuzzy
+#| msgid "Cookie authentication"
+msgid "Native MySQL authentication"
+msgstr "Авторизация с помощью cookie"
+
+#: libraries/server_privileges.lib.php:1552
+#, fuzzy
+#| msgid "Signon authentication"
+msgid "SHA256 password authentication"
+msgstr "Авторизация с помощью Signon"
+
+#: libraries/server_privileges.lib.php:1566
+#, fuzzy
+#| msgid "Authentication"
+msgid "MySQL Native Authentication"
+msgstr "Идентификация"
+
+#: libraries/server_privileges.lib.php:1620
+#: libraries/server_privileges.lib.php:3091
 msgid "Login Information"
 msgstr "Информация учётной записи"
 
-#: libraries/server_privileges.lib.php:1577
-#: libraries/server_privileges.lib.php:1770
+#: libraries/server_privileges.lib.php:1653
+#: libraries/server_privileges.lib.php:1842
 #: templates/privileges/add_privileges_routine.phtml:7
 #: templates/privileges/add_privileges_table.phtml:7
 msgid "Use text field"
 msgstr "Использовать текстовое поле"
 
-#: libraries/server_privileges.lib.php:1604
+#: libraries/server_privileges.lib.php:1680
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
@@ -12502,226 +12501,231 @@ msgstr ""
 "Учётная запись с данным именем пользователя, но, возможно, иным именем хоста "
 "уже существует."
 
-#: libraries/server_privileges.lib.php:1613
+#: libraries/server_privileges.lib.php:1689
 msgid "Host name:"
 msgstr "Имя хоста:"
 
-#: libraries/server_privileges.lib.php:1618
-#: libraries/server_privileges.lib.php:1720
-#: libraries/server_privileges.lib.php:2472
-#: libraries/server_privileges.lib.php:3373
+#: libraries/server_privileges.lib.php:1694
+#: libraries/server_privileges.lib.php:1796
+#: libraries/server_privileges.lib.php:2600
+#: libraries/server_privileges.lib.php:3501
 msgid "Host name"
 msgstr "Имя хоста"
 
-#: libraries/server_privileges.lib.php:1760
+#: libraries/server_privileges.lib.php:1832
 msgid "Do not change the password"
 msgstr "Не менять пароль"
 
-#: libraries/server_privileges.lib.php:1797
-#: libraries/server_privileges.lib.php:1800
+#: libraries/server_privileges.lib.php:1883
 msgid "Authentication Plugin"
 msgstr "Модуль аутентификации"
 
-#: libraries/server_privileges.lib.php:2028
+#: libraries/server_privileges.lib.php:1890
+#, fuzzy
+#| msgid "Password Hashing:"
+msgid "Password Hashing Method"
+msgstr "Хеширование пароля:"
+
+#: libraries/server_privileges.lib.php:2156
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Пароль для %s был успешно изменён."
 
-#: libraries/server_privileges.lib.php:2075
+#: libraries/server_privileges.lib.php:2203
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Вы отменили привилегии для %s."
 
-#: libraries/server_privileges.lib.php:2163
-#: libraries/server_privileges.lib.php:4371
+#: libraries/server_privileges.lib.php:2291
+#: libraries/server_privileges.lib.php:4495
 msgid "Add user account"
 msgstr "Добавить учетную запись пользователя"
 
-#: libraries/server_privileges.lib.php:2172
+#: libraries/server_privileges.lib.php:2300
 msgid "Database for user account"
 msgstr "База данных для учетных записей пользователей"
 
-#: libraries/server_privileges.lib.php:2176
+#: libraries/server_privileges.lib.php:2304
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Создать базу данных с таким же именем и предоставить на неё все привилегии."
 
-#: libraries/server_privileges.lib.php:2182
+#: libraries/server_privileges.lib.php:2310
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Предоставить все привилегии на то, что подпадает под шаблон (имя пользователя"
 "\\_%)."
 
-#: libraries/server_privileges.lib.php:2191
+#: libraries/server_privileges.lib.php:2319
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr "Предоставить все привилегии на базу данных \"%s\"."
 
-#: libraries/server_privileges.lib.php:2292
-#: libraries/server_privileges.lib.php:2358
+#: libraries/server_privileges.lib.php:2420
+#: libraries/server_privileges.lib.php:2486
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Пользователи с правами доступа к \"%s\""
 
-#: libraries/server_privileges.lib.php:2327
+#: libraries/server_privileges.lib.php:2455
 msgid "User has been added."
 msgstr "Пользователь был добавлен."
 
-#: libraries/server_privileges.lib.php:2475
-#: libraries/server_privileges.lib.php:3383
+#: libraries/server_privileges.lib.php:2603
+#: libraries/server_privileges.lib.php:3511
 #: templates/privileges/privileges_summary.phtml:17
 msgid "Grant"
 msgstr "Предоставить"
 
-#: libraries/server_privileges.lib.php:2490
+#: libraries/server_privileges.lib.php:2618
 msgid "Not enough privilege to view users."
 msgstr "Недостаточно прав для просмотра пользователей."
 
-#: libraries/server_privileges.lib.php:2510
-#: libraries/server_privileges.lib.php:3857
+#: libraries/server_privileges.lib.php:2638
+#: libraries/server_privileges.lib.php:3979
 msgid "No user found."
 msgstr "Пользователь не найден."
 
-#: libraries/server_privileges.lib.php:2541
-#: libraries/server_privileges.lib.php:2828
-#: libraries/server_privileges.lib.php:3459
+#: libraries/server_privileges.lib.php:2669
+#: libraries/server_privileges.lib.php:2956
+#: libraries/server_privileges.lib.php:3587
 msgid "Any"
 msgstr "Любой"
 
-#: libraries/server_privileges.lib.php:2592
+#: libraries/server_privileges.lib.php:2720
 msgid "global"
 msgstr "глобальный"
 
-#: libraries/server_privileges.lib.php:2595
+#: libraries/server_privileges.lib.php:2723
 msgid "database-specific"
 msgstr "уровень базы данных"
 
-#: libraries/server_privileges.lib.php:2597
+#: libraries/server_privileges.lib.php:2725
 msgid "wildcard"
 msgstr "шаблон"
 
-#: libraries/server_privileges.lib.php:2603
+#: libraries/server_privileges.lib.php:2731
 msgid "table-specific"
 msgstr "уровень таблицы"
 
-#: libraries/server_privileges.lib.php:2734
+#: libraries/server_privileges.lib.php:2862
 msgid "Edit privileges"
 msgstr "Редактировать привилегии"
 
-#: libraries/server_privileges.lib.php:2737
+#: libraries/server_privileges.lib.php:2865
 msgid "Revoke"
 msgstr "Отменить"
 
-#: libraries/server_privileges.lib.php:2761
+#: libraries/server_privileges.lib.php:2889
 msgid "Edit user group"
 msgstr "Редактировать группу пользователей"
 
-#: libraries/server_privileges.lib.php:2942
+#: libraries/server_privileges.lib.php:3070
 msgid "… keep the old one."
 msgstr "… сохранить предыдущего."
 
-#: libraries/server_privileges.lib.php:2943
+#: libraries/server_privileges.lib.php:3071
 msgid "… delete the old one from the user tables."
 msgstr "… удалить предыдущего из таблиц пользователей."
 
-#: libraries/server_privileges.lib.php:2945
+#: libraries/server_privileges.lib.php:3073
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… отменить все активные привилегии предыдущего и затем удалить его."
 
-#: libraries/server_privileges.lib.php:2949
+#: libraries/server_privileges.lib.php:3077
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 "… удалить предыдущего из таблиц пользователей и перезагрузить привилегии."
 
-#: libraries/server_privileges.lib.php:2964
+#: libraries/server_privileges.lib.php:3092
 msgid "Change login information / Copy user account"
 msgstr ""
 "Изменить регистрационные данные / Копировать учетную запись пользователя"
 
-#: libraries/server_privileges.lib.php:2970
+#: libraries/server_privileges.lib.php:3098
 msgid "Create a new user account with the same privileges and …"
 msgstr "Создать новую учетную запись пользователя с такими же привилегиями и …"
 
-#: libraries/server_privileges.lib.php:3183
+#: libraries/server_privileges.lib.php:3311
 #: templates/privileges/edit_routine_privileges.phtml:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Привилегии уровня столбца"
 
-#: libraries/server_privileges.lib.php:3566
+#: libraries/server_privileges.lib.php:3688
 msgid "Remove selected user accounts"
 msgstr "Удалить выбранные учетные записи пользователей"
 
-#: libraries/server_privileges.lib.php:3572
+#: libraries/server_privileges.lib.php:3694
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Отменить все активные привилегии пользователей и затем удалить их."
 
-#: libraries/server_privileges.lib.php:3580
-#: libraries/server_privileges.lib.php:3586
-#: libraries/server_privileges.lib.php:3589
+#: libraries/server_privileges.lib.php:3702
+#: libraries/server_privileges.lib.php:3708
+#: libraries/server_privileges.lib.php:3711
 msgid "Drop the databases that have the same names as the users."
 msgstr "Удалить базы данных, имена которых совпадают с именами пользователей."
 
-#: libraries/server_privileges.lib.php:3730
+#: libraries/server_privileges.lib.php:3852
 msgid "No users selected for deleting!"
 msgstr "Не выбраны пользователи, подлежащие удалению!"
 
-#: libraries/server_privileges.lib.php:3733
+#: libraries/server_privileges.lib.php:3855
 msgid "Reloading the privileges"
 msgstr "Перезагрузка привилегий"
 
-#: libraries/server_privileges.lib.php:3752
+#: libraries/server_privileges.lib.php:3874
 msgid "The selected users have been deleted successfully."
 msgstr "Выбранные пользователи были успешно удалены."
 
-#: libraries/server_privileges.lib.php:3827
+#: libraries/server_privileges.lib.php:3949
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Вы обновили привилегии для %s."
 
-#: libraries/server_privileges.lib.php:3917
+#: libraries/server_privileges.lib.php:4039
 #, php-format
 msgid "Deleting %s"
 msgstr "Удаление %s"
 
-#: libraries/server_privileges.lib.php:3947
+#: libraries/server_privileges.lib.php:4069
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегии были успешно перезагружены."
 
-#: libraries/server_privileges.lib.php:4048
+#: libraries/server_privileges.lib.php:4170
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Пользователь %s уже существует!"
 
-#: libraries/server_privileges.lib.php:4313
+#: libraries/server_privileges.lib.php:4437
 #, php-format
 msgid "Privileges for %s"
 msgstr "Привилегии для %s"
 
-#: libraries/server_privileges.lib.php:4322
+#: libraries/server_privileges.lib.php:4446
 #: libraries/server_status_processes.lib.php:76
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "Пользователь"
 
-#: libraries/server_privileges.lib.php:4363
+#: libraries/server_privileges.lib.php:4487
 msgctxt "Create new user"
 msgid "New"
 msgstr "Новый"
 
-#: libraries/server_privileges.lib.php:4392
+#: libraries/server_privileges.lib.php:4516
 msgid "Edit privileges:"
 msgstr "Редактировать привилегии:"
 
-#: libraries/server_privileges.lib.php:4393
+#: libraries/server_privileges.lib.php:4517
 msgid "User account"
 msgstr "Учетная запись пользователя"
 
-#: libraries/server_privileges.lib.php:4467
+#: libraries/server_privileges.lib.php:4591
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
@@ -12729,18 +12733,18 @@ msgstr ""
 "Примечание: Вы пытаетесь изменить привилегии пользователя, под именем "
 "которого вы в настоящее время вошли в систему."
 
-#: libraries/server_privileges.lib.php:4487 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4611 libraries/server_users.lib.php:25
 msgid "User accounts overview"
 msgstr "Обзор учетных записей пользователей"
 
-#: libraries/server_privileges.lib.php:4555
+#: libraries/server_privileges.lib.php:4679
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4596
+#: libraries/server_privileges.lib.php:4720
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12753,7 +12757,7 @@ msgstr ""
 "отличаться от привилегий, используемых сервером, если они были изменены "
 "вручную. В этом случае необходимо %sперезагрузить привилегии%s."
 
-#: libraries/server_privileges.lib.php:4615
+#: libraries/server_privileges.lib.php:4739
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12772,11 +12776,11 @@ msgstr ""
 "отличаться от привилегий, используемых сервером, если они были изменены "
 "вручную. В этом случае необходимо %sперезагрузить привилегии%s."
 
-#: libraries/server_privileges.lib.php:4665
+#: libraries/server_privileges.lib.php:4789
 msgid "The selected user was not found in the privilege table."
 msgstr "Выбранный пользователь не найден в таблице привилегий."
 
-#: libraries/server_privileges.lib.php:4886
+#: libraries/server_privileges.lib.php:5010
 msgid "You have added a new user."
 msgstr "Вы добавили нового пользователя."
 
@@ -14038,20 +14042,20 @@ msgstr ""
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:210
+#: libraries/sql-parser/src/Statement.php:233
 msgid "Unexpected token."
 msgstr "Неожиданный токен."
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:271
 msgid "This type of clause was previously parsed."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:276
+#: libraries/sql-parser/src/Statement.php:299
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:296
+#: libraries/sql-parser/src/Statement.php:319
 msgid "Unrecognized keyword."
 msgstr "Неизвестное ключевое слово."
 
@@ -17124,6 +17128,19 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert установлен в 0"
+
+#, fuzzy
+#~| msgid "Generate password"
+#~ msgid "MySQL native password"
+#~ msgstr "Создать пароль"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "SHA256 password"
+#~ msgstr "Изменить пароль"
+
+#~ msgid "MySQL 4.0 compatible"
+#~ msgstr "Совместимо с MySQL 4.0"
 
 #~ msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 #~ msgstr "Невозможно включить класс \"%1$s\", файл \"%2$s\" не найден"

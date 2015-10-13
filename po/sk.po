@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-09 12:00-0400\n"
+"POT-Creation-Date: 2015-10-13 11:35-0400\n"
 "PO-Revision-Date: 2015-10-12 18:54+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,7 +94,7 @@ msgstr "Stĺpec"
 #: libraries/rte/rte_routines.lib.php:890
 #: libraries/rte/rte_routines.lib.php:919
 #: libraries/rte/rte_routines.lib.php:1579
-#: libraries/server_privileges.lib.php:2473 libraries/tracking.lib.php:883
+#: libraries/server_privileges.lib.php:2601 libraries/tracking.lib.php:883
 #: libraries/tracking.lib.php:975
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -184,11 +184,11 @@ msgstr "Primárny"
 #: libraries/plugins/export/ExportOdt.php:787
 #: libraries/plugins/export/ExportTexytext.php:606
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:710
-#: libraries/server_privileges.lib.php:2650
-#: libraries/server_privileges.lib.php:2838
-#: libraries/server_privileges.lib.php:2858
-#: libraries/server_privileges.lib.php:3493
-#: libraries/server_privileges.lib.php:3516 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:2778
+#: libraries/server_privileges.lib.php:2966
+#: libraries/server_privileges.lib.php:2986
+#: libraries/server_privileges.lib.php:3615
+#: libraries/server_privileges.lib.php:3638 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1013 libraries/tracking.lib.php:1018
 #: prefs_manage.php:143 templates/prefs_autoload.phtml:15
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -218,11 +218,11 @@ msgstr "Nie"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:711
 #: libraries/server_databases.lib.php:476
 #: libraries/server_databases.lib.php:486
-#: libraries/server_privileges.lib.php:2650
-#: libraries/server_privileges.lib.php:2835
-#: libraries/server_privileges.lib.php:2856
-#: libraries/server_privileges.lib.php:3490
-#: libraries/server_privileges.lib.php:3516 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:2778
+#: libraries/server_privileges.lib.php:2963
+#: libraries/server_privileges.lib.php:2984
+#: libraries/server_privileges.lib.php:3612
+#: libraries/server_privileges.lib.php:3638 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1011 libraries/tracking.lib.php:1016
 #: prefs_manage.php:141 templates/prefs_autoload.phtml:14
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -468,7 +468,7 @@ msgstr "Pridať geometriu"
 
 #: gis_data_editor.php:410 js/messages.php:292 libraries/DbSearch.php:462
 #: libraries/DisplayResults.php:1798 libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:168
+#: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:401 libraries/display_export.lib.php:407
 #: libraries/display_import.lib.php:397 libraries/index.lib.php:42
 #: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1584
@@ -486,9 +486,9 @@ msgstr "Pridať geometriu"
 #: libraries/rte/rte_routines.lib.php:1667
 #: libraries/rte/rte_triggers.lib.php:398 libraries/server_bin_log.lib.php:64
 #: libraries/server_privileges.lib.php:710
-#: libraries/server_privileges.lib.php:2210
-#: libraries/server_privileges.lib.php:2981
-#: libraries/server_privileges.lib.php:3597
+#: libraries/server_privileges.lib.php:2338
+#: libraries/server_privileges.lib.php:3109
+#: libraries/server_privileges.lib.php:3719
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:429
 #: libraries/tracking.lib.php:536 libraries/tracking.lib.php:656
@@ -618,7 +618,7 @@ msgstr "Nemôžem načítať priebeh importu."
 
 #: import_status.php:111 js/messages.php:378 libraries/Util.php:797
 #: libraries/export.lib.php:523
-#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:253
+#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:263
 msgid "Back"
 msgstr "Späť"
 
@@ -642,7 +642,7 @@ msgstr "Všeobecné nastavenia"
 
 #: index.php:189 js/messages.php:525
 #: libraries/display_change_password.lib.php:52
-#: libraries/display_change_password.lib.php:55 user_password.php:247
+#: libraries/display_change_password.lib.php:55 user_password.php:257
 msgid "Change password"
 msgstr "Zmeniť heslo"
 
@@ -948,7 +948,6 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Naozaj chcete SKRÁTIŤ vybrané oddiely?"
 
 #: js/messages.php:65
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
 msgstr "Skutočne chcete RESET SLAVE (resetnúť podriadený server)?"
 
@@ -1080,12 +1079,12 @@ msgstr "Názov hostiteľa je prázdny!"
 msgid "The user name is empty!"
 msgstr "Meno používateľa je prázdne!"
 
-#: js/messages.php:123 libraries/server_privileges.lib.php:1961
+#: js/messages.php:123 libraries/server_privileges.lib.php:2046
 #: user_password.php:116
 msgid "The password is empty!"
 msgstr "Heslo je prázdne!"
 
-#: js/messages.php:124 libraries/server_privileges.lib.php:1959
+#: js/messages.php:124 libraries/server_privileges.lib.php:2044
 #: user_password.php:119
 msgid "The passwords aren't the same!"
 msgstr "Heslá sa nezhodujú!"
@@ -1791,10 +1790,10 @@ msgstr "Definícia uloženej funkcie musí obsahovať príkaz RETURN!"
 #: libraries/Util.php:3710 libraries/Util.php:4328 libraries/Util.php:4343
 #: libraries/Util.php:4360 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:148
-#: libraries/server_privileges.lib.php:2315
-#: libraries/server_privileges.lib.php:2394
-#: libraries/server_privileges.lib.php:2740
-#: libraries/server_privileges.lib.php:3399
+#: libraries/server_privileges.lib.php:2443
+#: libraries/server_privileges.lib.php:2522
+#: libraries/server_privileges.lib.php:2868
+#: libraries/server_privileges.lib.php:3527
 #: libraries/server_status_monitor.lib.php:321 prefs_manage.php:306
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
@@ -2288,7 +2287,7 @@ msgstr ""
 #: js/messages.php:492 libraries/DisplayResults.php:1018
 #: libraries/browse_foreigners.lib.php:290
 #: libraries/browse_foreigners.lib.php:343
-#: libraries/server_privileges.lib.php:3662
+#: libraries/server_privileges.lib.php:3784
 msgid "Show all"
 msgstr "Zobraziť všetko"
 
@@ -2967,10 +2966,10 @@ msgstr "Znovu spustiť dopyt"
 #: libraries/plugins/export/ExportTexytext.php:131
 #: libraries/server_databases.lib.php:305
 #: libraries/server_privileges.lib.php:1269
-#: libraries/server_privileges.lib.php:2999
-#: libraries/server_privileges.lib.php:3170
-#: libraries/server_privileges.lib.php:3172
-#: libraries/server_privileges.lib.php:4413
+#: libraries/server_privileges.lib.php:3127
+#: libraries/server_privileges.lib.php:3298
+#: libraries/server_privileges.lib.php:3300
+#: libraries/server_privileges.lib.php:4537
 #: libraries/server_status_processes.lib.php:84
 #: templates/table/relation/foreign_key_row.phtml:147
 #: templates/table/relation/internal_relational_row.phtml:57
@@ -3698,8 +3697,8 @@ msgstr "Indexy"
 #: libraries/Index.php:691 libraries/central_columns.lib.php:688
 #: libraries/rte/rte_list.lib.php:76 libraries/rte/rte_list.lib.php:91
 #: libraries/rte/rte_list.lib.php:104 libraries/server_databases.lib.php:410
-#: libraries/server_privileges.lib.php:2476
-#: libraries/server_privileges.lib.php:3385
+#: libraries/server_privileges.lib.php:2604
+#: libraries/server_privileges.lib.php:3513
 #: libraries/server_user_groups.lib.php:82
 #: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:283
 #: libraries/tracking.lib.php:796 libraries/tracking.lib.php:1478
@@ -3812,10 +3811,10 @@ msgstr "Pohľad"
 #: libraries/plugins/export/ExportXml.php:501
 #: libraries/rte/rte_list.lib.php:89 libraries/rte/rte_triggers.lib.php:333
 #: libraries/server_privileges.lib.php:1272
-#: libraries/server_privileges.lib.php:3017
-#: libraries/server_privileges.lib.php:3176
-#: libraries/server_privileges.lib.php:3178
-#: libraries/server_privileges.lib.php:4427 libraries/tracking.lib.php:1477
+#: libraries/server_privileges.lib.php:3145
+#: libraries/server_privileges.lib.php:3304
+#: libraries/server_privileges.lib.php:3306
+#: libraries/server_privileges.lib.php:4551 libraries/tracking.lib.php:1477
 #: libraries/tracking.lib.php:1619
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/foreign_key_row.phtml:158
@@ -3853,8 +3852,8 @@ msgstr "Vložiť"
 
 #: libraries/Menu.php:365 libraries/Menu.php:469 libraries/Util.php:4346
 #: libraries/Util.php:4362 libraries/config.values.php:106
-#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2474
-#: libraries/server_privileges.lib.php:4302
+#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2602
+#: libraries/server_privileges.lib.php:4426
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Oprávnenia"
@@ -3918,7 +3917,7 @@ msgstr "Centrálne stĺpce"
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.php:1273
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4413
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4537
 msgid "Databases"
 msgstr "Databázy"
 
@@ -4670,12 +4669,10 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/Util.php:1252
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Bez PHP kódu"
 
 #: libraries/Util.php:1264
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Odošli dopyt"
 
@@ -7990,45 +7987,30 @@ msgstr ""
 
 #: libraries/display_change_password.lib.php:62
 #: libraries/replication_gui.lib.php:879
-#: libraries/server_privileges.lib.php:1767
+#: libraries/server_privileges.lib.php:1839
 msgid "No Password"
 msgstr "Žiadne heslo"
 
 #: libraries/display_change_password.lib.php:70
 #: libraries/plugins/auth/AuthenticationCookie.php:203
 #: libraries/replication_gui.lib.php:426 libraries/replication_gui.lib.php:866
-#: libraries/server_privileges.lib.php:1743
+#: libraries/server_privileges.lib.php:1815
 msgid "Password:"
 msgstr "Heslo:"
 
 #: libraries/display_change_password.lib.php:76
 #: libraries/replication_gui.lib.php:890
-#: libraries/server_privileges.lib.php:1785
+#: libraries/server_privileges.lib.php:1857
 msgid "Re-type:"
 msgstr "Potvrdiť:"
 
-#: libraries/display_change_password.lib.php:91
-#: libraries/display_change_password.lib.php:122
-#: libraries/display_change_password.lib.php:131
+#: libraries/display_change_password.lib.php:84
 msgid "Password Hashing:"
 msgstr "Hashovanie hesla:"
 
-#: libraries/display_change_password.lib.php:100
-#: libraries/server_privileges.lib.php:1803
-msgid "MySQL native password"
-msgstr "Natívne heslo MySQL"
-
-#: libraries/display_change_password.lib.php:114
-#: libraries/server_privileges.lib.php:1811
-msgid "SHA256 password"
-msgstr "SHA256 heslo"
-
-#: libraries/display_change_password.lib.php:143
-msgid "MySQL 4.0 compatible"
-msgstr "Kompatibilné s MySQL 4.0"
-
-#: libraries/display_change_password.lib.php:156
-#: libraries/server_privileges.lib.php:1820
+#: libraries/display_change_password.lib.php:112
+#: libraries/display_change_password.lib.php:126
+#: libraries/server_privileges.lib.php:1903
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -9247,7 +9229,6 @@ msgstr ""
 
 #: libraries/navigation/NodeFactory.php:63
 #, php-format
-#| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
 msgstr "Nemôžem načítať triedu \"%1$s\""
 
@@ -9725,7 +9706,6 @@ msgstr "Skontrolovať tabuľku"
 
 #: libraries/operations.lib.php:1426
 #: templates/database/structure/check_all_tables.phtml:21
-#| msgid "Check table"
 msgid "Checksum table"
 msgstr "Vytvoriť kontrolný súčet tabuľky"
 
@@ -10171,7 +10151,6 @@ msgid "Report title:"
 msgstr "Názov výpisu:"
 
 #: libraries/plugins/export/ExportPdf.php:233
-#| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "Vypisujem dáta"
 
@@ -10672,17 +10651,6 @@ msgstr ""
 "Ak použijete druhú možnosť, prvé pole musí byť prázdne."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:32
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.class.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10697,14 +10665,14 @@ msgid ""
 msgstr ""
 "LEN PRE LINUX: Spustí externú aplikáciu a na štandardný vstup pošle pole a "
 "zobrazí výstup programu. Predvolený program je Tidy, ktorý pekne sformátuje "
-"HTML. Z bezpečnostných dôvodov musíte ručne upraviť obsah súboru "
-"libraries/plugins/transformations/output/Text_Plain_External.php a pridať do "
-"neho povolené aplikácie. Prvý parameter je číslo aplikácie, ktorú chcete "
-"použiť a druhý parametre sú parametre tejto aplikácie. Ak je tretí parameter "
-"nastavený na 1, výstup bude skonvertovaný funkciou htmlspecialchars() ("
-"predvolený je 1). Štvrtý parameter v prípade, že je nastavený na 1 pridá k "
-"výstupnému textu parameter NOWRAP, čím zabezpečí zachovanie formátovania ("
-"predvolený je 1)."
+"HTML. Z bezpečnostných dôvodov musíte ručne upraviť obsah súboru libraries/"
+"plugins/transformations/output/Text_Plain_External.php a pridať do neho "
+"povolené aplikácie. Prvý parameter je číslo aplikácie, ktorú chcete použiť a "
+"druhý parametre sú parametre tejto aplikácie. Ak je tretí parameter "
+"nastavený na 1, výstup bude skonvertovaný funkciou htmlspecialchars() "
+"(predvolený je 1). Štvrtý parameter v prípade, že je nastavený na 1 pridá k "
+"výstupnému textu parameter NOWRAP, čím zabezpečí zachovanie formátovania "
+"(predvolený je 1)."
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:32
 msgid ""
@@ -11195,24 +11163,24 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:414 libraries/replication_gui.lib.php:800
-#: libraries/server_privileges.lib.php:1547
+#: libraries/server_privileges.lib.php:1623
 msgid "User name:"
 msgstr "Meno používateľa:"
 
 #: libraries/replication_gui.lib.php:420 libraries/replication_gui.lib.php:804
 #: libraries/replication_gui.lib.php:820
-#: libraries/server_privileges.lib.php:1552
-#: libraries/server_privileges.lib.php:1584
-#: libraries/server_privileges.lib.php:2471
-#: libraries/server_privileges.lib.php:3372
+#: libraries/server_privileges.lib.php:1628
+#: libraries/server_privileges.lib.php:1660
+#: libraries/server_privileges.lib.php:2599
+#: libraries/server_privileges.lib.php:3500
 msgid "User name"
 msgstr "Meno používateľa"
 
 #: libraries/replication_gui.lib.php:431 libraries/replication_gui.lib.php:870
 #: libraries/replication_gui.lib.php:886
-#: libraries/server_privileges.lib.php:1747
-#: libraries/server_privileges.lib.php:1775
-#: libraries/server_privileges.lib.php:3374
+#: libraries/server_privileges.lib.php:1819
+#: libraries/server_privileges.lib.php:1847
+#: libraries/server_privileges.lib.php:3502
 msgid "Password"
 msgstr "Heslo"
 
@@ -11251,38 +11219,38 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:757
-#: libraries/server_privileges.lib.php:1676
+#: libraries/server_privileges.lib.php:1752
 msgid "Any host"
 msgstr "Akýkoľvek hostiteľ"
 
 #: libraries/replication_gui.lib.php:762
-#: libraries/server_privileges.lib.php:1684
+#: libraries/server_privileges.lib.php:1760
 msgid "Local"
 msgstr "Lokálny"
 
 #: libraries/replication_gui.lib.php:769
-#: libraries/server_privileges.lib.php:1693
+#: libraries/server_privileges.lib.php:1769
 msgid "This Host"
 msgstr "Tento počítač"
 
 #: libraries/replication_gui.lib.php:811
-#: libraries/server_privileges.lib.php:1568
+#: libraries/server_privileges.lib.php:1644
 msgid "Any user"
 msgstr "Akýkoľvek používateľ"
 
 #: libraries/replication_gui.lib.php:816 libraries/replication_gui.lib.php:849
 #: libraries/replication_gui.lib.php:882
-#: libraries/server_privileges.lib.php:1712
+#: libraries/server_privileges.lib.php:1788
 msgid "Use text field:"
 msgstr "Použiť textové pole:"
 
 #: libraries/replication_gui.lib.php:843
-#: libraries/server_privileges.lib.php:1703
+#: libraries/server_privileges.lib.php:1779
 msgid "Use Host Table"
 msgstr "Použiť tabuľku s hostiteľmi"
 
 #: libraries/replication_gui.lib.php:859
-#: libraries/server_privileges.lib.php:1731
+#: libraries/server_privileges.lib.php:1807
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -11291,7 +11259,7 @@ msgstr ""
 "použijú hodnoty z tabuľky Host."
 
 #: libraries/replication_gui.lib.php:894
-#: libraries/server_privileges.lib.php:1789
+#: libraries/server_privileges.lib.php:1861
 msgid "Re-type"
 msgstr "Potvrdiť"
 
@@ -12016,13 +11984,12 @@ msgstr "Žiadny"
 
 #: libraries/server_privileges.lib.php:532
 #: libraries/server_privileges.lib.php:559
-#: libraries/server_privileges.lib.php:3381
+#: libraries/server_privileges.lib.php:3509
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:735
-#| msgid "Requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
 msgstr "Nevyžaduje SSL šifrované spojenia."
 
@@ -12084,11 +12051,10 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Obmedzuje počet simultánnych pripojení používateľa."
 
 #: libraries/server_privileges.lib.php:1008
-#: libraries/server_privileges.lib.php:3182
-#: libraries/server_privileges.lib.php:3184
-#: libraries/server_privileges.lib.php:4442
+#: libraries/server_privileges.lib.php:3310
+#: libraries/server_privileges.lib.php:3312
+#: libraries/server_privileges.lib.php:4566
 #: templates/privileges/edit_routine_privileges.phtml:11
-#| msgid "Routines"
 msgid "Routine"
 msgstr "Rutina"
 
@@ -12112,14 +12078,14 @@ msgstr "Umožňuje spúšťať uložené procedúry."
 
 #: libraries/server_privileges.lib.php:1102
 #: libraries/server_privileges.lib.php:1271
-#: libraries/server_privileges.lib.php:3177
+#: libraries/server_privileges.lib.php:3305
 #: templates/privileges/privileges_summary.phtml:19
 msgid "Table-specific privileges"
 msgstr "Oprávnenia pre jednotlivé tabuľky"
 
 #: libraries/server_privileges.lib.php:1105
 #: libraries/server_privileges.lib.php:1281
-#: libraries/server_privileges.lib.php:3377
+#: libraries/server_privileges.lib.php:3505
 #: templates/privileges/edit_routine_privileges.phtml:16
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Poznámka: názvy MySQL oprávnení sú uvádzané po anglicky."
@@ -12129,7 +12095,7 @@ msgid "Administration"
 msgstr "Administrácia"
 
 #: libraries/server_privileges.lib.php:1265
-#: libraries/server_privileges.lib.php:3375
+#: libraries/server_privileges.lib.php:3503
 msgid "Global privileges"
 msgstr "Globálne práva"
 
@@ -12138,7 +12104,7 @@ msgid "Global"
 msgstr "Globálny"
 
 #: libraries/server_privileges.lib.php:1268
-#: libraries/server_privileges.lib.php:3171
+#: libraries/server_privileges.lib.php:3299
 msgid "Database-specific privileges"
 msgstr "Oprávnenia pre jednotlivé databázy"
 
@@ -12150,153 +12116,173 @@ msgstr "Povolí vytváranie nových tabuliek."
 msgid "Allows dropping tables."
 msgstr "Povolí odstraňovanie tabuliek."
 
-#: libraries/server_privileges.lib.php:1544
-#: libraries/server_privileges.lib.php:2963
+#: libraries/server_privileges.lib.php:1550
+#, fuzzy
+#| msgid "Cookie authentication"
+msgid "Native MySQL authentication"
+msgstr "Overovanie pomocou cookie"
+
+#: libraries/server_privileges.lib.php:1552
+#, fuzzy
+#| msgid "Signon authentication"
+msgid "SHA256 password authentication"
+msgstr "Overovanie signon"
+
+#: libraries/server_privileges.lib.php:1566
+#, fuzzy
+#| msgid "Authentication"
+msgid "MySQL Native Authentication"
+msgstr "Overenie"
+
+#: libraries/server_privileges.lib.php:1620
+#: libraries/server_privileges.lib.php:3091
 msgid "Login Information"
 msgstr "Prihlasovacie informácie"
 
-#: libraries/server_privileges.lib.php:1577
-#: libraries/server_privileges.lib.php:1770
+#: libraries/server_privileges.lib.php:1653
+#: libraries/server_privileges.lib.php:1842
 #: templates/privileges/add_privileges_routine.phtml:7
 #: templates/privileges/add_privileges_table.phtml:7
 msgid "Use text field"
 msgstr "Požiť textové pole"
 
-#: libraries/server_privileges.lib.php:1604
+#: libraries/server_privileges.lib.php:1680
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1613
-#| msgid "User name:"
+#: libraries/server_privileges.lib.php:1689
 msgid "Host name:"
 msgstr "Názov počítača:"
 
-#: libraries/server_privileges.lib.php:1618
-#: libraries/server_privileges.lib.php:1720
-#: libraries/server_privileges.lib.php:2472
-#: libraries/server_privileges.lib.php:3373
-#| msgid "Log name"
+#: libraries/server_privileges.lib.php:1694
+#: libraries/server_privileges.lib.php:1796
+#: libraries/server_privileges.lib.php:2600
+#: libraries/server_privileges.lib.php:3501
 msgid "Host name"
 msgstr "Názov počítača"
 
-#: libraries/server_privileges.lib.php:1760
+#: libraries/server_privileges.lib.php:1832
 msgid "Do not change the password"
 msgstr "Nezmeniť heslo"
 
-#: libraries/server_privileges.lib.php:1797
-#: libraries/server_privileges.lib.php:1800
+#: libraries/server_privileges.lib.php:1883
 msgid "Authentication Plugin"
 msgstr "Rozšírenie pre prihlasovanie"
 
-#: libraries/server_privileges.lib.php:2028
+#: libraries/server_privileges.lib.php:1890
+#, fuzzy
+#| msgid "Password Hashing:"
+msgid "Password Hashing Method"
+msgstr "Hashovanie hesla:"
+
+#: libraries/server_privileges.lib.php:2156
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Heslo pre %s bolo úspešne zmenené."
 
-#: libraries/server_privileges.lib.php:2075
+#: libraries/server_privileges.lib.php:2203
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Boli zrušené oprávnenia pre %s."
 
-#: libraries/server_privileges.lib.php:2163
-#: libraries/server_privileges.lib.php:4371
+#: libraries/server_privileges.lib.php:2291
+#: libraries/server_privileges.lib.php:4495
 msgid "Add user account"
 msgstr "Pridať používateľský účet"
 
-#: libraries/server_privileges.lib.php:2172
-#| msgid "Database for user"
+#: libraries/server_privileges.lib.php:2300
 msgid "Database for user account"
 msgstr "Databáza pre účet používateľa"
 
-#: libraries/server_privileges.lib.php:2176
+#: libraries/server_privileges.lib.php:2304
 msgid "Create database with same name and grant all privileges."
 msgstr "Vytvoriť databázu s rovnakým menom a prideliť všetky oprávnenia."
 
-#: libraries/server_privileges.lib.php:2182
+#: libraries/server_privileges.lib.php:2310
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Prideliť všetky oprávnenia pomocou masky (používateľ\\_%)."
 
-#: libraries/server_privileges.lib.php:2191
+#: libraries/server_privileges.lib.php:2319
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr "Prideliť všetky oprávnenia na databázu \"%s\"."
 
-#: libraries/server_privileges.lib.php:2292
-#: libraries/server_privileges.lib.php:2358
+#: libraries/server_privileges.lib.php:2420
+#: libraries/server_privileges.lib.php:2486
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Používatelia majúci prístup k \"%s\""
 
-#: libraries/server_privileges.lib.php:2327
+#: libraries/server_privileges.lib.php:2455
 msgid "User has been added."
 msgstr "Užívateľ bol pridaný."
 
-#: libraries/server_privileges.lib.php:2475
-#: libraries/server_privileges.lib.php:3383
+#: libraries/server_privileges.lib.php:2603
+#: libraries/server_privileges.lib.php:3511
 #: templates/privileges/privileges_summary.phtml:17
 msgid "Grant"
 msgstr "Prideliť"
 
-#: libraries/server_privileges.lib.php:2490
+#: libraries/server_privileges.lib.php:2618
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2510
-#: libraries/server_privileges.lib.php:3857
+#: libraries/server_privileges.lib.php:2638
+#: libraries/server_privileges.lib.php:3979
 msgid "No user found."
 msgstr "Nebol nájdený žiadny používateľ."
 
-#: libraries/server_privileges.lib.php:2541
-#: libraries/server_privileges.lib.php:2828
-#: libraries/server_privileges.lib.php:3459
+#: libraries/server_privileges.lib.php:2669
+#: libraries/server_privileges.lib.php:2956
+#: libraries/server_privileges.lib.php:3587
 msgid "Any"
 msgstr "Akýkoľvek"
 
-#: libraries/server_privileges.lib.php:2592
+#: libraries/server_privileges.lib.php:2720
 msgid "global"
 msgstr "globálny"
 
-#: libraries/server_privileges.lib.php:2595
+#: libraries/server_privileges.lib.php:2723
 msgid "database-specific"
 msgstr "závislé na databáze"
 
-#: libraries/server_privileges.lib.php:2597
+#: libraries/server_privileges.lib.php:2725
 msgid "wildcard"
 msgstr "nahradzujúci znak"
 
-#: libraries/server_privileges.lib.php:2603
+#: libraries/server_privileges.lib.php:2731
 msgid "table-specific"
 msgstr "závislé na tabuľke"
 
-#: libraries/server_privileges.lib.php:2734
+#: libraries/server_privileges.lib.php:2862
 msgid "Edit privileges"
 msgstr "Upraviť oprávnenia"
 
-#: libraries/server_privileges.lib.php:2737
+#: libraries/server_privileges.lib.php:2865
 msgid "Revoke"
 msgstr "Zrušiť"
 
-#: libraries/server_privileges.lib.php:2761
+#: libraries/server_privileges.lib.php:2889
 msgid "Edit user group"
 msgstr "Upraviť užívateľské skupiny"
 
-#: libraries/server_privileges.lib.php:2942
+#: libraries/server_privileges.lib.php:3070
 msgid "… keep the old one."
 msgstr "… zachovať pôvodného používateľa."
 
-#: libraries/server_privileges.lib.php:2943
+#: libraries/server_privileges.lib.php:3071
 msgid "… delete the old one from the user tables."
 msgstr "… zmazať pôvodného používateľa z tabuliek používateľov."
 
-#: libraries/server_privileges.lib.php:2945
+#: libraries/server_privileges.lib.php:3073
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 "… odobrať všetky oprávnenia pôvodnému používateľovi a následne ho zmazať."
 
-#: libraries/server_privileges.lib.php:2949
+#: libraries/server_privileges.lib.php:3077
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -12304,115 +12290,109 @@ msgstr ""
 "… zmazať pôvodného používateľa z tabuliek používateľov a potom znovunačítať "
 "oprávnenia."
 
-#: libraries/server_privileges.lib.php:2964
-#| msgid "Change Login Information / Copy User"
+#: libraries/server_privileges.lib.php:3092
 msgid "Change login information / Copy user account"
 msgstr "Zmeniť prihlasovacie informácie  / Kopírovať účet používateľa"
 
-#: libraries/server_privileges.lib.php:2970
-#| msgid "Create a new user with the same privileges and …"
+#: libraries/server_privileges.lib.php:3098
 msgid "Create a new user account with the same privileges and …"
 msgstr "Vytvoriť nový účet používateľa s rovnakými právami a …"
 
-#: libraries/server_privileges.lib.php:3183
+#: libraries/server_privileges.lib.php:3311
 #: templates/privileges/edit_routine_privileges.phtml:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Oprávnenia pre jednotlivé stĺpce"
 
-#: libraries/server_privileges.lib.php:3566
-#| msgid "Remove selected users"
+#: libraries/server_privileges.lib.php:3688
 msgid "Remove selected user accounts"
 msgstr "Odstrániť vybrané účty používateľov"
 
-#: libraries/server_privileges.lib.php:3572
+#: libraries/server_privileges.lib.php:3694
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Odobranie všetkých aktívnych práv používateľom a ich následné odstránenie."
 
-#: libraries/server_privileges.lib.php:3580
-#: libraries/server_privileges.lib.php:3586
-#: libraries/server_privileges.lib.php:3589
+#: libraries/server_privileges.lib.php:3702
+#: libraries/server_privileges.lib.php:3708
+#: libraries/server_privileges.lib.php:3711
 msgid "Drop the databases that have the same names as the users."
 msgstr "Odstrániť databázy s rovnakým menom ako majú používatelia."
 
-#: libraries/server_privileges.lib.php:3730
+#: libraries/server_privileges.lib.php:3852
 msgid "No users selected for deleting!"
 msgstr "Na odstránenie neboli vybraní žiadni používatelia!"
 
-#: libraries/server_privileges.lib.php:3733
+#: libraries/server_privileges.lib.php:3855
 msgid "Reloading the privileges"
 msgstr "Znovunačítanie práv"
 
-#: libraries/server_privileges.lib.php:3752
+#: libraries/server_privileges.lib.php:3874
 msgid "The selected users have been deleted successfully."
 msgstr "Vybraní používatelia bol úspešne odstránený."
 
-#: libraries/server_privileges.lib.php:3827
+#: libraries/server_privileges.lib.php:3949
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Boli aktualizované oprávnenia pre %s."
 
-#: libraries/server_privileges.lib.php:3917
+#: libraries/server_privileges.lib.php:4039
 #, php-format
 msgid "Deleting %s"
 msgstr "Odstraňuje sa %s"
 
-#: libraries/server_privileges.lib.php:3947
+#: libraries/server_privileges.lib.php:4069
 msgid "The privileges were reloaded successfully."
 msgstr "Práva boli úspešne znovunačítané."
 
-#: libraries/server_privileges.lib.php:4048
+#: libraries/server_privileges.lib.php:4170
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Používateľ %s už existuje!"
 
-#: libraries/server_privileges.lib.php:4313
+#: libraries/server_privileges.lib.php:4437
 #, php-format
 msgid "Privileges for %s"
 msgstr "Oprávnenia pre %s"
 
-#: libraries/server_privileges.lib.php:4322
+#: libraries/server_privileges.lib.php:4446
 #: libraries/server_status_processes.lib.php:76
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "Používateľ"
 
-#: libraries/server_privileges.lib.php:4363
+#: libraries/server_privileges.lib.php:4487
 msgctxt "Create new user"
 msgid "New"
 msgstr "Nový"
 
-#: libraries/server_privileges.lib.php:4392
-#| msgid "Edit Privileges:"
+#: libraries/server_privileges.lib.php:4516
 msgid "Edit privileges:"
 msgstr "Upraviť oprávnenia:"
 
-#: libraries/server_privileges.lib.php:4393
-#| msgid "User groups"
+#: libraries/server_privileges.lib.php:4517
 msgid "User account"
 msgstr "Užívateľský účet"
 
-#: libraries/server_privileges.lib.php:4467
+#: libraries/server_privileges.lib.php:4591
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4487 libraries/server_users.lib.php:25
-#| msgid "Users overview"
+#: libraries/server_privileges.lib.php:4611 libraries/server_users.lib.php:25
 msgid "User accounts overview"
 msgstr "Prehľad účtov používateľov"
 
-#: libraries/server_privileges.lib.php:4555
+#: libraries/server_privileges.lib.php:4679
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4596
+#: libraries/server_privileges.lib.php:4720
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12425,7 +12405,7 @@ msgstr ""
 "tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
 "%sznovunačítanie práv%s predtým ako budete pokračovať."
 
-#: libraries/server_privileges.lib.php:4615
+#: libraries/server_privileges.lib.php:4739
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12444,11 +12424,11 @@ msgstr ""
 "tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
 "%sznovunačítanie práv%s predtým ako budete pokračovať."
 
-#: libraries/server_privileges.lib.php:4665
+#: libraries/server_privileges.lib.php:4789
 msgid "The selected user was not found in the privilege table."
 msgstr "Zvolený používateľ nebol nájdený v tabuľke práv."
 
-#: libraries/server_privileges.lib.php:4886
+#: libraries/server_privileges.lib.php:5010
 msgid "You have added a new user."
 msgstr "Používateľ bol pridaný."
 
@@ -12502,7 +12482,6 @@ msgid "Sent"
 msgstr "Odoslané"
 
 #: libraries/server_status.lib.php:245
-#| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "Max. súčasných pripojení"
 
@@ -12663,7 +12642,6 @@ msgid "Clear series"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:234
-#| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Série v grafe:"
 
@@ -13546,7 +13524,6 @@ msgid "Not implemented yet."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:201
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
 msgstr "Nerozpoznaná aktualizačná operácia."
 
@@ -13569,7 +13546,6 @@ msgid "A comma or a closing bracket was expected"
 msgstr ""
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:251
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
 msgstr "Bola očakávaná čiarka alebo uzatváracia zátvorka."
 
@@ -13596,12 +13572,10 @@ msgid "Unexpected dot."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:334
-#| msgid "No tables selected."
 msgid "An alias was expected."
 msgstr "Bol očakávaný alias."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:97
-#| msgid "No versions selected."
 msgid "An expression was expected."
 msgstr "Bol očakávaný výraz."
 
@@ -13616,7 +13590,6 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:103
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
 msgstr "Bolo očakávané staré meno tabuľky."
 
@@ -13625,7 +13598,6 @@ msgid "Keyword \"TO\" was expected."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:130
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
 msgstr "Bolo očakávané nové meno tabuľky."
 
@@ -13676,22 +13648,22 @@ msgstr ""
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:210
+#: libraries/sql-parser/src/Statement.php:233
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
 msgstr "Neočakávané znaky na riadku %s."
 
-#: libraries/sql-parser/src/Statement.php:248
+#: libraries/sql-parser/src/Statement.php:271
 msgid "This type of clause was previously parsed."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:276
+#: libraries/sql-parser/src/Statement.php:299
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:296
+#: libraries/sql-parser/src/Statement.php:319
 msgid "Unrecognized keyword."
 msgstr ""
 
@@ -15314,7 +15286,6 @@ msgid "Data length"
 msgstr "Dĺžka riadku"
 
 #: templates/table/structure/display_partitions.phtml:31
-#| msgid "Row length"
 msgid "Index length"
 msgstr "Dĺžka kľúča"
 
@@ -16525,6 +16496,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
+
+#~ msgid "MySQL native password"
+#~ msgstr "Natívne heslo MySQL"
+
+#~ msgid "SHA256 password"
+#~ msgstr "SHA256 heslo"
+
+#~ msgid "MySQL 4.0 compatible"
+#~ msgstr "Kompatibilné s MySQL 4.0"
 
 #~ msgid ""
 #~ "Cannot convert file's character set without character set conversion "
