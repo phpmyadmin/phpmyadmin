@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-09 07:21-0400\n"
-"PO-Revision-Date: 2015-10-13 12:48+0200\n"
+"PO-Revision-Date: 2015-10-13 17:13+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/fi/>\n"
@@ -3638,10 +3638,9 @@ msgid "Relational key"
 msgstr "Relaatioavain"
 
 #: libraries/DisplayResults.class.php:1745
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Näytä viiteavaimien suhteet"
+msgstr "Näytä sarakkeet relaatioille"
 
 #: libraries/DisplayResults.class.php:1758
 msgid "Show binary contents"
@@ -3732,7 +3731,6 @@ msgstr "Valitut:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Valitse kaikki"
@@ -3820,10 +3818,9 @@ msgid "Error while moving uploaded file."
 msgstr "Virhe siirrettäessä ladattua tiedostoa."
 
 #: libraries/File.class.php:497
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Ladattua (ja siirrettyä) tiedostoa ei voi lukea."
+msgstr "Ladattua tiedostoa ei voi lukea."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -3955,11 +3952,13 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Koodin analysointi on kytketty pois päältä tälle hakukyselylle koska "
+"hakukysely ylittää maksimipituuden."
 
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (lähellä <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
@@ -4097,10 +4096,9 @@ msgid "Databases"
 msgstr "Tietokannat"
 
 #: libraries/Menu.class.php:568
-#, fuzzy
 #| msgid "Users"
 msgid "User accounts"
-msgstr "Käyttäjät"
+msgstr "Käyttäjätilit"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
 #: libraries/Util.class.php:4279 libraries/server_common.lib.php:36
@@ -4806,15 +4804,14 @@ msgid "Max: %s%s"
 msgstr "Enimmäiskoko: %s%s"
 
 #: libraries/Util.class.php:665
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Staattinen data"
+msgstr "Staattinen analyysi:"
 
 #: libraries/Util.class.php:668
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d virhettä havaittu analyysin aikana."
 
 #: libraries/Util.class.php:730 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
