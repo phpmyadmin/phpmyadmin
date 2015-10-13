@@ -81,52 +81,31 @@ function PMA_getHtmlForChangePassword($username, $hostname)
         . '</tr>';
 
     $html .= '<tr class="vmiddle">'
-        . '<td>' . __('Password Hashing:') . '</td>';
+        . '<td>' . __('Password Hashing:') . '</td><td>';
 
     $serverType = PMA\libraries\Util::getServerType(); 
+    $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+        'change',
+        $username,
+        $hostname
+    );
+
     if (($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50507)
         || ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200)
     ) {
-
-        $active_auth_plugins = PMA_getActiveAuthPlugins();
-
-        $default_auth_plugin = PMA_getCurrentAuthenticationPlugin(
-            'change', $username, $hostname
+        $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
+            $username, $hostname, $orig_auth_plugin, 'change_pw', 'new'
         );
 
-        $iter = 0;
-        $total_plugins = count($active_auth_plugins);
-        foreach ($active_auth_plugins as $plugin) {
-            if ($plugin['PLUGIN_NAME'] == 'mysql_old_password') {
-                continue;
-            }
-
-            if ($iter != 0) {
-                $html .= '<td>&nbsp;</td>';
-            }
-            $html .= '<td>'
-                . '<input type="radio" name="pw_hash" value="'
-                . $plugin['PLUGIN_NAME'] . '"'
-                . ($default_auth_plugin == $plugin['PLUGIN_NAME'] ? 'checked="checked" ' : '')
-                . ' id="radio_pw_hash_' . $plugin['PLUGIN_NAME'] . '" />'
-                . '<label for="radio_pw_hash_' . $plugin['PLUGIN_NAME'] . '" >'
-                . __($plugin['PLUGIN_DESCRIPTION']) . ' </label></td></tr>';
-
-            if ($iter == $total_plugins - 2) {
-                $html .= '<tr id="tr_element_before_generate_password">';
-            } else if ($iter != $total_plugins - 1) {
-                $html .= '<tr>';
-            }
-            $iter++;
-        }
-
-        $html .= '</tr>';
+        $html .= $auth_plugin_dropdown;
+        $html .= '</td></tr>';
+        $html .= '<tr id="tr_element_before_generate_password"></tr>';
         $html .=  '</table>';
 
     $html .= '<div '
-        . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
+        . ($orig_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
         . ' id="ssl_reqd_warning_cp">'
         . Message::notice(
             __(
@@ -140,7 +119,7 @@ function PMA_getHtmlForChangePassword($username, $hostname)
         . '</div>';
 
         $html .= '<div '
-            . ($default_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
+            . ($orig_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
             . ' id="ssl_reqd_warning_cp">'
             . Message::notice(
                 __(
@@ -153,11 +132,11 @@ function PMA_getHtmlForChangePassword($username, $hostname)
                 ->getDisplay()
             . '</div>';
     } else {
-        $html .= '<td>'
-            . '<input type="radio" name="pw_hash" value="mysql_native_password"'
-            . 'checked="checked" id="radio_pw_hash_native" />'
-            . '<label for="radio_pw_hash_native" >'
-            . __('MySQL Native Authentication') . ' </label></td></tr>'
+        $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
+            $username, $hostname, $orig_auth_plugin, 'change_pw', 'old'
+        );
+
+        $html .= $auth_plugin_dropdown . '</td></tr>'
             . '<tr id="tr_element_before_generate_password"></tr>'
             . '</table>';
     }

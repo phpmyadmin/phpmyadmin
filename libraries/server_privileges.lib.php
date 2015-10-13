@@ -1517,6 +1517,61 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
 /**
  * Gets the currently active authentication plugins
  *
+ * @param string $username         User name
+ * @param string $hostname         Host name
+ * @param string $orig_auth_plugin Default Authentication plugin
+ * @param string $mode             are we creating a new user or are we just
+ *                                 changing  one?
+ *                                 (allowed values: 'new', 'edit', 'change_pw')
+ * @param string $versions         Is MySQL version newer or older than 5.5.7
+ *
+ * @return string $html_output
+ */
+function PMA_getHtmlForAuthPluginsDropdown(
+    $username,
+    $hostname,
+    $orig_auth_plugin,
+    $mode = 'new',
+    $versions = 'new'
+) {
+    $html_output = '<select '
+        . 'id="select_authentication_plugin'
+        . ($mode =='change_pw' ? '_cp' : '') . '" '
+        . 'name="authentication_plugin" >';
+    if ($versions == 'new') {
+        $active_auth_plugins = PMA_getActiveAuthPlugins();
+
+        foreach ($active_auth_plugins as $plugin) {
+            if ($plugin['PLUGIN_NAME'] == 'mysql_old_password') {
+                continue;
+            }
+            // if description is known, enable its translation
+            if ('Native MySQL authentication' == $plugin['PLUGIN_DESCRIPTION']) {
+                $description = __('Native MySQL authentication');
+            } elseif ('SHA256 password authentication' == $plugin['PLUGIN_DESCRIPTION']) {
+                $description = __('SHA256 password authentication');
+            } else {
+                // but there can be other auth plugins, see
+                // https://github.com/phpmyadmin/phpmyadmin/issues/11561
+                $description = $plugin['PLUGIN_DESCRIPTION'];
+            }
+
+            $html_output .= '<option value="' . $plugin['PLUGIN_NAME'] . '"'
+                . ($orig_auth_plugin == $plugin['PLUGIN_NAME'] ? 'selected ' : '')
+                . '>' . $description . '</option>';
+        }
+        $html_output .= '</select>';
+    } else {
+        $html_output .= '<option value="mysql_native_password" >'
+            . __('MySQL Native Authentication') . '</option>'
+            . '</select>';
+    }
+
+    return $html_output;
+}
+/**
+ * Gets the currently active authentication plugins
+ *
  * @return array $result  array of plugin names and descriptions
  */
 function PMA_getActiveAuthPlugins()
@@ -1813,6 +1868,12 @@ function PMA_getHtmlForLoginInformationFields(
         . '<label for="select_authentication_plugin" >';
 
     $serverType = Util::getServerType();
+    $auth_plugin_dropdown = '';
+    $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+        $mode,
+        $username,
+        $hostname
+    );
 
     if (($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50507)
@@ -1820,49 +1881,36 @@ function PMA_getHtmlForLoginInformationFields(
         && PMA_MYSQL_INT_VERSION >= 50200)
     ) {
         $html_output .= __('Authentication Plugin')
-        . '</label><span class="options">&nbsp;</span>' . "\n"
-        . '<select id="select_authentication_plugin" name="authentication_plugin" >';
+        . '</label><span class="options">&nbsp;</span>' . "\n";
 
-        $active_auth_plugins = PMA_getActiveAuthPlugins();
-
-        $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
-            $mode, $username, $hostname
+        $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
+            $username, $hostname, $orig_auth_plugin, $mode, 'new'
         );
-
-        foreach ($active_auth_plugins as $plugin) {
-            if ($plugin['PLUGIN_NAME'] == 'mysql_old_password') {
-                continue;
-            }
-
-            $html_output .= '<option value="' . $plugin['PLUGIN_NAME'] . '"'
-                . ($orig_auth_plugin == $plugin['PLUGIN_NAME'] ? 'selected ' : '')
-                . '>' . __($plugin['PLUGIN_DESCRIPTION']) . '</option>';
-        }
-
-        $html_output .= '</select>'
-            . '<div id="ssl_reqd_warning" '
-            . ($orig_auth_plugin == 'sha256_password' ? '' : ' style="display:none"')
-            . ' >'
-            . Message::notice(
-                __(
-                    'This method requires using an \'<i>SSL connection</i>\' '
-                    . 'or an \'<i>unencrypted connection that encrypts the password '
-                    . 'using RSA</i>\'; while connecting to the server.'
-                )
-                . Util::showMySQLDocu('sha256-authentication-plugin')
-            )->getDisplay()
-            . '</div>';
     } else {
         $html_output .= __('Password Hashing Method')
-            . '</label><span class="options">&nbsp;</span>' . "\n"
-            . '<select id="select_authentication_plugin" '
-            . 'name="authentication_plugin" >'
-            . '<option value="mysql_native_password" >'
-            . __('MySQL Native Authentication') . '</option>'
-            . '</select>';
+            . '</label><span class="options">&nbsp;</span>' . "\n";
+        $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
+            $username, $hostname, $orig_auth_plugin, $mode, 'old'
+        );
     }
+    $html_output .= $auth_plugin_dropdown;
+
+    $html_output .= '<div '
+        . ($orig_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
+        . ' id="ssl_reqd_warning">'
+        . Message::notice(
+            __(
+                'This method requires using an \'<i>SSL connection</i>\' '
+                . 'or an \'<i>unencrypted connection that encrypts the password '
+                . 'using RSA</i>\'; while connecting to the server.'
+            )
+            . Util::showMySQLDocu('sha256-authentication-plugin')
+        )
+            ->getDisplay()
+        . '</div>';
+
     $html_output .= '</div>' . "\n"
-       // Generate password added here via jQuery
+        // Generate password added here via jQuery
        . '</fieldset>' . "\n";
 
     return $html_output;
@@ -2001,14 +2049,19 @@ function PMA_updatePassword($err_url, $username, $hostname)
 
     // here $nopass could be == 1
     if (empty($message)) {
+        $hashing_function = 'PASSWORD';
+
         if (Util::getServerType() == 'MySQL'
             && PMA_MYSQL_INT_VERSION >= 50706
         ) {
-            if (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] != 'old') {
+            if (isset($_REQUEST['authentication_plugin'])
+                && $_REQUEST['authentication_plugin'] != 'mysql_old_password'
+            ) {
                 $query_prefix = "ALTER USER '"
                     . Util::sqlAddSlashes($username)
                     . "'@'" . Util::sqlAddSlashes($hostname) . "'"
-                    . " IDENTIFIED WITH " . $_REQUEST['pw_hash']
+                    . " IDENTIFIED WITH "
+                    . $_REQUEST['authentication_plugin']
                     . " BY '";
             } else {
                 $query_prefix = "ALTER USER '"
@@ -2022,28 +2075,64 @@ function PMA_updatePassword($err_url, $username, $hostname)
 
             $local_query = $query_prefix
                 . Util::sqlAddSlashes($_POST['pma_pw']) . "'";
-        } else {
-            if (! empty($_REQUEST['pw_hash'])
-                && $_REQUEST['pw_hash'] == 'mysql_old_password'
-            ) {
-                $hashing_function = 'OLD_PASSWORD';
-            } elseif (! empty($_REQUEST['pw_hash'])
-                && $_REQUEST['pw_hash'] == 'sha256_password'
-            ) {
-                $hashing_function = 'PASSWORD';
+        } else if ((Util::getServerType() == 'MySQL'
+            && PMA_MYSQL_INT_VERSION >= 50507)
+            || (Util::getServerType() == 'MariaDB'
+            && PMA_MYSQL_INT_VERSION >= 50200)
+        ) {
+            // Backup the old value, to be reset later
+            $row = $GLOBALS['dbi']->fetchSingleRow(
+                'SELECT @@old_passwords;'
+            );
+            $orig_value = $row['@@old_passwords'];
 
-                // Backup the old value, to be reset later
-                $row = $GLOBALS['dbi']->fetchSingleRow(
-                    'SELECT @@old_passwords;'
-                );
-                $orig_value = $row['@@old_passwords'];
+            if (isset($_REQUEST['authentication_plugin'])
+                && $_REQUEST['authentication_plugin'] == 'mysql_native_password'
+            ) {
+                // Set the hashing method used by PASSWORD()
+                // to be 'mysql_native_password' type
+                $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
+
+            } else if (isset($_REQUEST['authentication_plugin'])
+                && $_REQUEST['authentication_plugin'] == 'sha256_password'
+            ) {
                 // Set the hashing method used by PASSWORD()
                 // to be 'sha256_password' type
-                $GLOBALS['dbi']->tryQuery('SET old_passwords = 2;');
-            } else {
-                $hashing_function = 'PASSWORD';
+                $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
             }
 
+            $update_plugin_query = "UPDATE `mysql`.`user` SET"
+                . " `plugin` = '" . $_REQUEST['authentication_plugin'] . "'"
+                . " WHERE `User` = '" . $username . "' AND Host = '"
+                . $hostname . "';";
+
+            // Update the plugin for the user
+            $GLOBALS['dbi']->tryQuery($update_plugin_query)
+                or PMA_Util::mysqlDie(
+                    $GLOBALS['dbi']->getError(),
+                    $update_plugin_query,
+                    false, $err_url
+                );
+
+            $sql_query        = 'SET PASSWORD FOR \''
+                . PMA_Util::sqlAddSlashes($username)
+                . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
+                . (($_POST['pma_pw'] == '')
+                    ? '\'\''
+                    : $hashing_function . '(\''
+                    . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
+
+            $local_query      = 'SET PASSWORD FOR \''
+                . PMA_Util::sqlAddSlashes($username)
+                . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
+                . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
+                . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
+        } else {
+            if (isset($_REQUEST['authentication_plugin'])
+                && $_REQUEST['authentication_plugin'] == 'mysql_native_password'
+            ) {
+                $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 0;');
+            }
             $sql_query        = 'SET PASSWORD FOR \''
                 . Util::sqlAddSlashes($username)
                 . '\'@\'' . Util::sqlAddSlashes($hostname) . '\' = '
