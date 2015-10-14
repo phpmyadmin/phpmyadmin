@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-10-01 20:31+0200\n"
+"PO-Revision-Date: 2015-10-14 19:19+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
-"hy/>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -966,10 +966,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Իսկապե՞ս եք ցանկանում ԴԱՏԱՐԿԵԼ ընտրած մասնաբաժին(ներ)ը։"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Իսկապե՞ս եք ցանկանում կատարել \"%s\"։"
+msgstr "Իսկապե՞ս եք ցանկանում ՎԵՐԱԿԱՅԵԼ ԵՆԹԱՐԿՎՈՂ ՍՊԱՍԱՐԿԻՉԸ։"
 
 #: js/messages.php:68
 msgid ""
@@ -4668,7 +4667,7 @@ msgstr "Ճիշտ/Սխալ"
 
 #: libraries/Types.class.php:902
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Այլանուն՝ BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:904
 msgid "Stores a Universally Unique Identifier (UUID)"
@@ -11926,22 +11925,19 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1447
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Թխուկներով վավերացում"
+msgstr "MySQL-ի բնականոն վավերացումը"
 
 #: libraries/server_privileges.lib.php:1449
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Signon-ով վավերացում"
+msgstr "SHA256 գաղտնաբառով վավերացումը"
 
 #: libraries/server_privileges.lib.php:1463
-#, fuzzy
 #| msgid "Authentication"
 msgid "MySQL Native Authentication"
-msgstr "Վավերացում"
+msgstr "MySQL-ի բնականոն վավերացումը"
 
 #: libraries/server_privileges.lib.php:1517
 #: libraries/server_privileges.lib.php:2984
