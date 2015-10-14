@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-10-14 14:05+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-10-14 19:43+0200\n"
+"Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
@@ -5267,7 +5267,7 @@ msgstr ""
 "Avaimen pitäisi sisältää kirjaimia, numeroita [em]ja[/em] erikoismerkkejä."
 
 #: libraries/config/ServerConfigChecks.php:383
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -5279,8 +5279,8 @@ msgstr ""
 "kirjautua mihin tahansa MySQL-palvelimeen käyttämällä bruteforce-hyökkäystä. "
 "Jos tätä valintaa on pakko käyttää, käytä %sluotettujen välipalvelimien "
 "luetteloa%s. IP-osoitteeseen perustuva suojaus ei kuitenkaan ole täysin "
-"luotettava, mikäli IP-osoite kuuluu Internet-palveluntarjoajalle, johon "
-"sinun lisäksesi tuhannet käyttäjät ovat yhteydessä."
+"luotettava mikäli IP-osoite kuuluu Internet-palveluntarjoajalle, johon sinun "
+"lisäksesi tuhannet käyttäjät ovat yhteydessä."
 
 #: libraries/config/ServerConfigChecks.php:403
 msgid ""
@@ -7183,7 +7183,6 @@ msgid "HTTP Realm"
 msgstr "HTTP alue"
 
 #: libraries/config/messages.inc.php:635
-#, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
 #| "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -7193,18 +7192,17 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)."
 msgstr ""
-"[a@http://swekey.com]SweKey-laitteistotodennuksen[/a] asetustiedoston polku "
-"(ei dokumenttijuuressa; suositeltu: /etc/swekey.conf)"
+"[a@http://swekey.com]SweKey-laitteistotodennuksen[/a] asetustiedoston polku ("
+"ei dokumenttijuuressa; suositeltu: /etc/swekey.conf)."
 
 #: libraries/config/messages.inc.php:639
 msgid "SweKey config file"
 msgstr "SweKey-asetustiedosto"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
-msgstr "Käytettävä todennustyyppi"
+msgstr "Käytettävä todennustyyppi."
 
 #: libraries/config/messages.inc.php:641 setup/frames/index.inc.php:167
 msgid "Authentication type"
@@ -7223,7 +7221,6 @@ msgid "Bookmark table"
 msgstr "Kirjanmerkkitaulu"
 
 #: libraries/config/messages.inc.php:648
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]"
@@ -7231,29 +7228,27 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua sarakkeiden kommentteja ja mime-tyyppejä, "
-"oletusarvo: [kbd]pma_column__info[/kbd]"
+"Jätä tyhjäksi jos et halua sarakkeiden kommentteja ja mime-tyyppejä, "
+"oletusarvo: [kbd]pma_column__info[/kbd]."
 
 #: libraries/config/messages.inc.php:651
 msgid "Column information table"
 msgstr "Saraketietojen taulu"
 
 #: libraries/config/messages.inc.php:652
-#, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "Pakkaa MySQL-palvelimen yhteys"
+msgstr "Pakkaa yhteys MySQL-palvelimeen."
 
 #: libraries/config/messages.inc.php:653
 msgid "Compress connection"
 msgstr "Pakkaa yhteys"
 
 #: libraries/config/messages.inc.php:655
-#, fuzzy
 #| msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
 msgstr ""
-"Kuinka palvelimeen yhdistetään; käytä [kbd]tcp[/kbd]:tä, jos olet epävarma"
+"Kuinka palvelimeen yhdistetään, käytä [kbd]tcp[/kbd]:tä, jos olet epävarma."
 
 #: libraries/config/messages.inc.php:656
 msgid "Connection type"
@@ -7264,7 +7259,6 @@ msgid "Control user password"
 msgstr "Hallintakäyttäjän salasana"
 
 #: libraries/config/messages.inc.php:659
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7273,9 +7267,9 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
-"Erityinen MySQL-käyttäjä, jolle on määritetty rajatut käyttöoikeudet; "
-"lisätietoja saatavilla [a@http://wiki.phpmyadmin.net/pma/"
-"controluser]wikissä[/a]"
+"Erityinen MySQL-käyttäjä, jolle on määritetty rajatut käyttöoikeudet, "
+"lisätietoja saatavilla "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wikissä[/a]."
 
 #: libraries/config/messages.inc.php:662
 msgid "Control user"
@@ -7286,6 +7280,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
+"Vaihtoehtoinen isäntä konfiguraatiomuistille; jätä tyhjästä käyttääksesi jo "
+"määriteltyä isäntää."
 
 #: libraries/config/messages.inc.php:667
 msgid "Control host"
@@ -7297,16 +7293,18 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"Vaihtoehtoinen portti konfiguraatiomuistin isäntäpalvelimen yhteydelle; jätä "
+"tyhjäksi käyttääksesi oletusporttia, mikäli olet jo määritellyt portin tai "
+"mikäli ohjausisäntä on sama kuin isäntä."
 
 #: libraries/config/messages.inc.php:673
 msgid "Control port"
 msgstr "Hallinta portti"
 
 #: libraries/config/messages.inc.php:675
-#, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr "Piilota tietokannat, jotka vastaavat säännöllistä lauseketta (PCRE)"
+msgstr "Piilota tietokannat, jotka vastaavat säännöllistä lauseketta (PCRE)."
 
 #: libraries/config/messages.inc.php:677
 msgid ""
@@ -7326,7 +7324,6 @@ msgid "Hide databases"
 msgstr "Piilota tietokannat"
 
 #: libraries/config/messages.inc.php:683
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
 #| "[kbd]pma__history[/kbd]"
@@ -7334,18 +7331,17 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea, oletusarvo: "
-"[kbd]pma__history[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-hakukyselyhistorian tukea, oletusarvo: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:686
 msgid "SQL query history table"
 msgstr "SQL-kyselyhistorian taulu"
 
 #: libraries/config/messages.inc.php:687
-#, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
-msgstr "MySQL-palvelimen verkkonimi"
+msgstr "MySQL-palvelimen verkkonimi."
 
 #: libraries/config/messages.inc.php:688
 msgid "Server hostname"
@@ -7360,19 +7356,19 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"Rajoittaa tietokantaan tallennettujen taulun asetuksien lukumäärää, "
+"vanhimmat kirjaukset poistetaan automaattisesti."
 
 #: libraries/config/messages.inc.php:695
 msgid "Maximal number of table preferences to store"
 msgstr "Tallennettavien taulumääritysten maksimi määrä"
 
 #: libraries/config/messages.inc.php:696
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Näytä alipalvelimen tilan taulu"
+msgstr "Tallennettujen QBE-hakujen taulu"
 
 #: libraries/config/messages.inc.php:698
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
@@ -7380,17 +7376,15 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Jätä tyhjäksi, jos et halua QBE-tallennettujen hakujen tukea, oletusarvo: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:701
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Vie näkymiä tauluina"
+msgstr "Vie mallien taulu"
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
@@ -7398,17 +7392,15 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Jätä tyhjäksi jos et halua vietyjen mallien tukea, oletusarvo: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:706
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Keskisarakkeet"
+msgstr "Keskisarakkeiden taulu"
 
 #: libraries/config/messages.inc.php:708
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]"
@@ -7416,14 +7408,13 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: "
-"[kbd]pma__table_coords[/kbd]"
+"Jätä tyhjäksi jos et halua keskisarakkeiden tukea, oletusarvo: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:711
-#, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
-msgstr "Yritä yhdistää ilman salasanaa"
+msgstr "Yritä yhdistää ilman salasanaa."
 
 #: libraries/config/messages.inc.php:712
 msgid "Connect without password"
@@ -7444,32 +7435,29 @@ msgid "Show only listed databases"
 msgstr "Näytä vain luetteloidut tietokannat"
 
 #: libraries/config/messages.inc.php:719 libraries/config/messages.inc.php:828
-#, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
-msgstr "Jätä tyhjäksi, jot et käytä config-todennusta"
+msgstr "Jätä tyhjäksi, jot et käytä config-todennusta."
 
 #: libraries/config/messages.inc.php:720
 msgid "Password for config auth"
 msgstr "Config-todennuksen salasana"
 
 #: libraries/config/messages.inc.php:722
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Jätä tyhjäksi jos et halua PDF-kaavioiden tukea, oletusarvo: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:724
 msgid "PDF schema: pages table"
 msgstr "PDF-kaavio: sivujen taulu"
 
 #: libraries/config/messages.inc.php:726
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7480,8 +7468,9 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Relaatioihin, kirjanmerkkeihin ja PDF-ominaisuuksiin käytettävä tietokanta. "
-"Katso täydet tiedot aiheesta [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
-"a]. Jätä tyhjäksi, jos et halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]"
+"Katso täydet tiedot aiheesta "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Jätä tyhjäksi jos et "
+"halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:730
 #: libraries/display_create_database.lib.php:31
@@ -7489,18 +7478,16 @@ msgid "Database name"
 msgstr "tietokannan nimi"
 
 #: libraries/config/messages.inc.php:732
-#, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
-"Portti, jota MySQL-palvelin kuuntelee; käytä oletusarvoa jättämällä tyhjäksi"
+"Portti jota MySQL-palvelin kuuntelee, käytä oletusarvoa jättämällä tyhjäksi."
 
 #: libraries/config/messages.inc.php:733
 msgid "Server port"
 msgstr "Palvelinportti"
 
 #: libraries/config/messages.inc.php:735
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
@@ -7508,8 +7495,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea, oletusarvo: "
-"[kbd]pma__recent[/kbd]"
+"Jätä tyhjäksi jos et halua \"pysyvää\" viimeksi käytettyjä tauluja yli "
+"kaikkien sessioiden, oletusarvo: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:738
 msgid "Recently used table"
