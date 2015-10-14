@@ -1808,7 +1808,6 @@ div.sqlvalidate {
 
 .result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    padding: 1em;
 }
 
 #PMA_slidingMessage code.sql,
