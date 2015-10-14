@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-10-01 20:31+0200\n"
+"PO-Revision-Date: 2015-10-14 19:19+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -957,10 +957,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Իսկապե՞ս եք ցանկանում վերացնել մասնաբաժանումը։"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Իսկապե՞ս եք ցանկանում կատարել \"%s\"։"
+msgstr "Իսկապե՞ս եք ցանկանում ՎԵՐԱԿԱՅԵԼ ԵՆԹԱՐԿՎՈՂ ՍՊԱՍԱՐԿԻՉԸ։"
 
 #: js/messages.php:67
 msgid ""
@@ -4359,10 +4358,9 @@ msgid "True or false"
 msgstr "Ճիշտ/Սխալ"
 
 #: libraries/TypesDrizzle.php:47
-#, fuzzy
 #| msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr "Այլանուն՝ BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
+msgstr "Այլանուն՝ BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/TypesDrizzle.php:49
 msgid "Stores a Universally Unique Identifier (UUID)"
@@ -9044,10 +9042,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Չհաջողվեց ավելացնել սյունակներ։"
+msgstr "Չհաջողվեց բեռնել \"%1$s\" դասը"
 
 #: libraries/navigation/nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -11882,22 +11880,19 @@ msgid "Allows dropping tables."
 msgstr "Թույլատրում է աղյուսակների ջնջումը։"
 
 #: libraries/server_privileges.lib.php:1550
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Թխուկներով վավերացում"
+msgstr "MySQL-ի բնականոն վավերացումը"
 
 #: libraries/server_privileges.lib.php:1552
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Signon-ով վավերացում"
+msgstr "SHA256 գաղտնաբառով վավերացումը"
 
 #: libraries/server_privileges.lib.php:1566
-#, fuzzy
 #| msgid "Authentication"
 msgid "MySQL Native Authentication"
-msgstr "Վավերացում"
+msgstr "MySQL-ի բնականոն վավերացումը"
 
 #: libraries/server_privileges.lib.php:1620
 #: libraries/server_privileges.lib.php:3091
