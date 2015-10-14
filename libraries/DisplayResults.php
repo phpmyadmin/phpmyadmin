@@ -1250,6 +1250,7 @@ class DisplayResults
      *
      * @param array   &$displayParts               which elements to display
      * @param array   $analyzed_sql_results        analyzed sql results
+     * @param string  $unsorted_sql_query          the unsorted sql query
      * @param array   $sort_expression             sort expression
      * @param string  $sort_expression_nodirection sort expression
      *                                             without direction
@@ -1264,9 +1265,9 @@ class DisplayResults
      * @see    getTable()
      */
     private function _getTableHeaders(
-        &$displayParts, $analyzed_sql_results, $sort_expression = array(),
-        $sort_expression_nodirection = '', $sort_direction = '',
-        $is_limited_display = false, $unsorted_sql_query
+        &$displayParts, $analyzed_sql_results, $unsorted_sql_query,
+        $sort_expression = array(), $sort_expression_nodirection = '',
+        $sort_direction = '', $is_limited_display = false
     ) {
 
         $table_headers_html = '';
@@ -4389,11 +4390,11 @@ class DisplayResults
         $table_html .= $this->_getTableHeaders(
             $displayParts,
             $analyzed_sql_results,
+            $unsorted_sql_query,
             $sort_expression,
             $sort_expression_nodirection,
             $sort_direction,
-            $is_limited_display,
-            $unsorted_sql_query
+            $is_limited_display
         );
 
         $table_html .= '<tbody>' . "\n";
