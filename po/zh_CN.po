@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-10-14 14:55+0200\n"
+"PO-Revision-Date: 2015-10-14 14:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
@@ -6756,7 +6756,7 @@ msgstr "会话时区"
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
-msgstr ""
+msgstr "设置生效时区；可能会与数据库服务器不同"
 
 #: libraries/config/messages.inc.php:632
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -6884,24 +6884,22 @@ msgid "Hide databases"
 msgstr "隐藏数据库"
 
 #: libraries/config/messages.inc.php:683
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
 #| "[kbd]pma__history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
-msgstr "不使用 SQL 查询历史功能请留空，推荐: [kbd]pma__history[/kbd]"
+msgstr "不使用 SQL 查询历史功能请留空，推荐: [kbd]pma__history[/kbd]。"
 
 #: libraries/config/messages.inc.php:686
 msgid "SQL query history table"
 msgstr "SQL 查询历史表"
 
 #: libraries/config/messages.inc.php:687
-#, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
-msgstr "MySQL 服务器的主机名"
+msgstr "MySQL 服务器的主机名。"
 
 #: libraries/config/messages.inc.php:688
 msgid "Server hostname"
@@ -6912,50 +6910,45 @@ msgid "Logout URL"
 msgstr "退出地址"
 
 #: libraries/config/messages.inc.php:691
-#, fuzzy
 #| msgid ""
 #| "Limits number of table preferences which are stored in database, the "
 #| "oldest records are automatically removed"
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
-msgstr "限制保存在数据库中的表设置数量，旧设置将被自动删除"
+msgstr "限制保存在数据库中的表设置数量，旧设置将被自动删除。"
 
 #: libraries/config/messages.inc.php:695
 msgid "Maximal number of table preferences to store"
 msgstr "最多保存的表设置数量"
 
 #: libraries/config/messages.inc.php:696
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "查看从服务器状态"
+msgstr "QBE已保存的搜索表"
 
 #: libraries/config/messages.inc.php:698
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
-msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__pdf_pages[/kbd]"
+msgstr "留空为无QBE已保存的搜索表，推荐：[kbd]pma__savedsearches[/kbd]。"
 
 #: libraries/config/messages.inc.php:701
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "将视图作为表导出"
+msgstr "导出模板表"
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
-msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__pdf_pages[/kbd]"
+msgstr "不使用导出模板功能请留空，推荐: [kbd]pma__export_templates[/kbd]。"
 
 #: libraries/config/messages.inc.php:706
 #, fuzzy
@@ -6974,10 +6967,9 @@ msgid ""
 msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:711
-#, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
-msgstr "尝试用空密码连接"
+msgstr "尝试用空密码连接。"
 
 #: libraries/config/messages.inc.php:712
 msgid "Connect without password"
@@ -6997,30 +6989,27 @@ msgid "Show only listed databases"
 msgstr "仅显示列出的数据库"
 
 #: libraries/config/messages.inc.php:719 libraries/config/messages.inc.php:828
-#, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
-msgstr "如果不使用 config 认证方式，请留空"
+msgstr "如果不使用 config 认证方式，请留空。"
 
 #: libraries/config/messages.inc.php:720
 msgid "Password for config auth"
 msgstr "config 认证方式的密码"
 
 #: libraries/config/messages.inc.php:722
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
-msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__pdf_pages[/kbd]"
+msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__pdf_pages[/kbd]。"
 
 #: libraries/config/messages.inc.php:724
 msgid "PDF schema: pages table"
 msgstr "PDF 大纲: 数据表页"
 
 #: libraries/config/messages.inc.php:726
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7030,8 +7019,8 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"关系、书签、PDF 功能所用的数据库。参见 [a@http://wiki.phpmyadmin.net/pma/"
-"pmadb]pmadb (外链，英文)[/a]。不使用请留空。推荐:  [kbd]phpmyadmin[/kbd]"
+"关系、书签、PDF 功能所用的数据库。参见 [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb "
+"(外链，英文)[/a]。不使用请留空。推荐:  [kbd]phpmyadmin[/kbd]。"
 
 #: libraries/config/messages.inc.php:730
 #: libraries/display_create_database.lib.php:31
@@ -7039,47 +7028,42 @@ msgid "Database name"
 msgstr "数据库名"
 
 #: libraries/config/messages.inc.php:732
-#, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr "MySQL 服务器监听的端口，留空为默认"
+msgstr "MySQL 服务器监听的端口，留空为默认。"
 
 #: libraries/config/messages.inc.php:733
 msgid "Server port"
 msgstr "服务器端口"
 
 #: libraries/config/messages.inc.php:735
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
-msgstr "不需要 \"持久\" 最近使用的表请留空，推荐: [kbd]pma__recent[/kbd]"
+msgstr "不需要 \"持久\" 最近使用的表请留空，推荐: [kbd]pma__recent[/kbd]。"
 
 #: libraries/config/messages.inc.php:738
 msgid "Recently used table"
 msgstr "最近使用的表"
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
-msgstr "不需要 \"持久\" 最近使用的表请留空，推荐: [kbd]pma__recent[/kbd]"
+msgstr "不需要 \"持久\" 收藏的表请留空，推荐: [kbd]pma__favorite[/kbd]。"
 
 #: libraries/config/messages.inc.php:743
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "表收藏夹"
+msgstr "收藏的表"
 
 #: libraries/config/messages.inc.php:745
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
@@ -7087,15 +7071,14 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
-"能请留空，推荐: [kbd]pma__relation[/kbd]"
+"不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功能请留空，推荐: "
+"[kbd]pma__relation[/kbd]。"
 
 #: libraries/config/messages.inc.php:749
 msgid "Relation table"
 msgstr "关系表"
 
 #: libraries/config/messages.inc.php:751
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
@@ -7103,8 +7086,7 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"参见[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)"
-"[/a]中的例子"
+"参见[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)[/a]中的例子。"
 
 #: libraries/config/messages.inc.php:754
 msgid "Signon session name"
@@ -7115,34 +7097,31 @@ msgid "Signon URL"
 msgstr "登录地址"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
-msgstr "MySQL 服务器监听的套接字，留空为默认"
+msgstr "MySQL 服务器监听的套接字，留空为默认。"
 
 #: libraries/config/messages.inc.php:758
 msgid "Server socket"
 msgstr "服务器套接字 (socket)"
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
-msgstr "使用 SSL 连接到 MySQL 服务器"
+msgstr "使用 SSL 连接到 MySQL 服务器。"
 
 #: libraries/config/messages.inc.php:760
 msgid "Use SSL"
 msgstr "使用 SSL"
 
 #: libraries/config/messages.inc.php:762
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
-msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__table_coords[/kbd]"
+msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__table_coords[/kbd]。"
 
 #: libraries/config/messages.inc.php:765
 #, fuzzy
@@ -7151,28 +7130,26 @@ msgid "Designer and PDF schema: table coordinates"
 msgstr "PDF 大纲: 数据表并发"
 
 #: libraries/config/messages.inc.php:768
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma__table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
-msgstr "描述显示字段的表，不使用请留空，推荐: [kbd]pma__table_info[/kbd]"
+msgstr "描述显示字段的表，不使用请留空，推荐: [kbd]pma__table_info[/kbd]。"
 
 #: libraries/config/messages.inc.php:771
 msgid "Display columns table"
 msgstr "显示字段表"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
-msgstr "不需要 \"持久\" 表界面设置请留空，推荐: [kbd]pma__table_uiprefs[/kbd]"
+msgstr "不需要 \"持久\" 表界面设置请留空，推荐: [kbd]pma__table_uiprefs[/kbd]。"
 
 #: libraries/config/messages.inc.php:776
 msgid "UI preferences table"
@@ -7217,14 +7194,13 @@ msgid "Statements to track"
 msgstr "要追踪的命令"
 
 #: libraries/config/messages.inc.php:796
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: "
 #| "[kbd]pma__tracking[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
-msgstr "不使用 SQL 查询追踪功能请留空，推荐: [kbd]pma__tracking[/kbd]"
+msgstr "不使用 SQL 查询追踪功能请留空，推荐: [kbd]pma__tracking[/kbd]。"
 
 #: libraries/config/messages.inc.php:799
 msgid "SQL query tracking table"
@@ -7241,14 +7217,13 @@ msgid "Automatically create versions"
 msgstr "自动创建版本"
 
 #: libraries/config/messages.inc.php:807
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
-msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
+msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]。"
 
 #: libraries/config/messages.inc.php:810
 msgid "User preferences storage table"
