@@ -4351,8 +4351,6 @@ class DisplayResults
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 $is_innodb
             );
-        } elseif (! isset($printview) || ($printview != '1')) {
-            $table_html .= "\n" . '<br /><br />' . "\n";
         }
 
         // 2b ----- Get field references from Database -----
