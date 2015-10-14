@@ -800,9 +800,10 @@ class DisplayResults
     /**
      * Get a navigation bar to browse among the results of a SQL query
      *
-     * @param integer $pos_next  the offset for the "next" page
-     * @param integer $pos_prev  the offset for the "previous" page
-     * @param boolean $is_innodb whether its InnoDB or not
+     * @param integer $pos_next         the offset for the "next" page
+     * @param integer $pos_prev         the offset for the "previous" page
+     * @param boolean $is_innodb        whether its InnoDB or not
+     * @param string  $sort_by_key_html the sort by key dialog
      *
      * @return string                            html content
      *
@@ -811,7 +812,7 @@ class DisplayResults
      * @see     _getTable()
      */
     private function _getTableNavigation(
-        $pos_next, $pos_prev, $is_innodb
+        $pos_next, $pos_prev, $is_innodb, $sort_by_key_html
     ) {
 
         $table_navigation_html = '';
@@ -946,8 +947,11 @@ class DisplayResults
             . '<input type="text" class="filter_rows"'
             . ' placeholder="' . __('Search this table') . '"'
             . ' data-for="' . $this->__get('unique_id') . '" />'
-            . '</td>'
-            . '<td class="navigation_separator"></td>'
+            . '</td>';
+
+        $table_navigation_html .= '<td>' . $sort_by_key_html . '</td>';
+
+        $table_navigation_html .= '<td class="navigation_separator"></td>'
             . '</tr>'
             . '</table>';
 
@@ -1262,7 +1266,7 @@ class DisplayResults
     private function _getTableHeaders(
         &$displayParts, $analyzed_sql_results, $sort_expression = array(),
         $sort_expression_nodirection = '', $sort_direction = '',
-        $is_limited_display = false
+        $is_limited_display = false, $unsorted_sql_query
     ) {
 
         $table_headers_html = '';
@@ -1270,24 +1274,6 @@ class DisplayResults
         // use with array indexes/safe use in foreach
         $printview = $this->__get('printview');
         $display_params = $this->__get('display_params');
-
-        // can the result be sorted?
-        if ($displayParts['sort_lnk'] == '1') {
-
-            // At this point, $sort_expression is an array but we only verify
-            // the first element in case we could find that the table is
-            // sorted by one of the choices listed in the
-            // "Sort by key" drop-down
-            list($unsorted_sql_query, $drop_down_html)
-                = $this->_getUnsortedSqlAndSortByKeyDropDown(
-                    $analyzed_sql_results, $sort_expression[0]
-                );
-
-            $table_headers_html .= $drop_down_html;
-
-        } else {
-            $unsorted_sql_query = '';
-        }
 
         // Output data needed for grid editing
         $table_headers_html .= '<input class="save_cells_at_once" type="hidden"'
@@ -1472,8 +1458,7 @@ class DisplayResults
                 . '"' . ($local_order == $asc_sort
                     ? ' selected="selected"'
                     : '')
-                . '>' . htmlspecialchars($index->getName()) . ' ('
-                . __('Ascending') . ')</option>';
+                . '>' . htmlspecialchars($index->getName()) . ' (ASC)</option>';
 
             $drop_down_html .= '<option value="'
                 . htmlspecialchars(
@@ -1484,8 +1469,7 @@ class DisplayResults
                 . '"' . ($local_order == $desc_sort
                     ? ' selected="selected"'
                     : '')
-                . '>' . htmlspecialchars($index->getName()) . ' ('
-                . __('Descending') . ')</option>';
+                . '>' . htmlspecialchars($index->getName()) . ' (DESC)</option>';
         }
 
         $drop_down_html .= '<option value="' . htmlspecialchars($unsorted_sql_query)
@@ -4346,10 +4330,26 @@ class DisplayResults
 
         }
 
+        // can the result be sorted?
+        if ($displayParts['sort_lnk'] == '1') {
+
+            // At this point, $sort_expression is an array but we only verify
+            // the first element in case we could find that the table is
+            // sorted by one of the choices listed in the
+            // "Sort by key" drop-down
+            list($unsorted_sql_query, $sort_by_key_html)
+                = $this->_getUnsortedSqlAndSortByKeyDropDown(
+                    $analyzed_sql_results, $sort_expression[0]
+                );
+
+        } else {
+            $sort_by_key_html = $unsorted_sql_query = '';
+        }
+
         if (($displayParts['nav_bar'] == '1') && (empty($statement->limit))) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
-                $is_innodb
+                $is_innodb, $sort_by_key_html
             );
         }
 
@@ -4392,7 +4392,8 @@ class DisplayResults
             $sort_expression,
             $sort_expression_nodirection,
             $sort_direction,
-            $is_limited_display
+            $is_limited_display,
+            $unsorted_sql_query
         );
 
         $table_html .= '<tbody>' . "\n";
@@ -4427,7 +4428,7 @@ class DisplayResults
         if (($displayParts['nav_bar'] == '1') && empty($statement->limit)) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
-                $is_innodb
+                $is_innodb, $sort_by_key_html
             );
         } elseif (! isset($printview) || ($printview != '1')) {
             $table_html .= "\n" . '<br /><br />' . "\n";
@@ -4876,10 +4877,11 @@ class DisplayResults
     /**
      * Prepare table navigation bar at the top or bottom
      *
-     * @param integer $pos_next  the offset for the "next" page
-     * @param integer $pos_prev  the offset for the "previous" page
-     * @param string  $place     the place to show navigation
-     * @param boolean $is_innodb whether its InnoDB or not
+     * @param integer $pos_next         the offset for the "next" page
+     * @param integer $pos_prev         the offset for the "previous" page
+     * @param string  $place            the place to show navigation
+     * @param boolean $is_innodb        whether its InnoDB or not
+     * @param string  $sort_by_key_html the sort by key dialog
      *
      * @return  string  html content of navigation bar
      *
@@ -4888,7 +4890,7 @@ class DisplayResults
      * @see     _getTable()
      */
     private function _getPlacedTableNavigations(
-        $pos_next, $pos_prev, $place, $is_innodb
+        $pos_next, $pos_prev, $place, $is_innodb, $sort_by_key_html
     ) {
 
         $navigation_html = '';
@@ -4898,7 +4900,7 @@ class DisplayResults
         }
 
         $navigation_html .= $this->_getTableNavigation(
-            $pos_next, $pos_prev, $is_innodb
+            $pos_next, $pos_prev, $is_innodb, $sort_by_key_html
         );
 
         if ($place == self::PLACE_TOP_DIRECTION_DROPDOWN) {
