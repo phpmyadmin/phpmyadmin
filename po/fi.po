@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-10-14 19:43+0200\n"
+"PO-Revision-Date: 2015-10-14 20:01+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
@@ -7503,7 +7503,6 @@ msgid "Recently used table"
 msgstr "Viimeisimmäksi käytetty taulu"
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
@@ -7511,17 +7510,15 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea, oletusarvo: "
-"[kbd]pma__recent[/kbd]"
+"Jätä tyhjäksi jos et halua pysyvää suosikkitaulujen luetteloa yli kaikkien "
+"sessioiden, oletusarvo: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:743
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Suosikkitaulut"
 
 #: libraries/config/messages.inc.php:745
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
@@ -7529,15 +7526,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relaatiolinkki[/a]tukea, oletusarvo: [kbd]pma__relation[/kbd]"
+"Jätä tyhjäksi jos et halua "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relaatiolinkkien[/a]tukea, "
+"oletusarvo: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:749
 msgid "Relation table"
 msgstr "Relaatiotaulu"
 
 #: libraries/config/messages.inc.php:751
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
@@ -7545,8 +7542,8 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Katso [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyyppien[/"
-"a] esimerkit"
+"Katso [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyypit[/a] "
+"esimerkkinä."
 
 #: libraries/config/messages.inc.php:754
 msgid "Signon session name"
@@ -7557,29 +7554,26 @@ msgid "Signon URL"
 msgstr "Signon-kirjautumisen verkko-osoite"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
-"Palvelinpistoke, jota MySQL-palvelin kuuntelee; käytä oletusarvoa jättämällä "
-"tyhjäksi"
+"Palvelinpistoke jota MySQL-palvelin kuuntelee, käytä oletusarvoa jättämällä "
+"tyhjäksi."
 
 #: libraries/config/messages.inc.php:758
 msgid "Server socket"
 msgstr "Palvelinpistoke"
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
-msgstr "Yhdistä MySQL-palvelimeen käyttäen SSL-yhteyttä"
+msgstr "Yhdistä MySQL-palvelimeen käyttäen SSL-yhteyttä."
 
 #: libraries/config/messages.inc.php:760
 msgid "Use SSL"
 msgstr "Käytä SSL-yhteyttä"
 
 #: libraries/config/messages.inc.php:762
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]"
@@ -7587,17 +7581,15 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: "
-"[kbd]pma__table_coords[/kbd]"
+"Jätä tyhjäksi jos et halua PDF-kaavioiden tukea, oletusarvo: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "PDF-kaavio: taulun koordinaatit"
+msgstr "Suunnittelija ja PDF-kaavio: taulun koordinaatit"
 
 #: libraries/config/messages.inc.php:768
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma__table_info[/kbd]"
@@ -7606,14 +7598,13 @@ msgid ""
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
 "Taulukko kuvaamaan näytettäviä sarakkeita, jätä tyhjäksi jos et halua tukea; "
-"oletusarvo: [kbd]pma__table_info[/kbd]"
+"oletusarvo: [kbd]pma__table_info[/kbd]."
 
 #: libraries/config/messages.inc.php:771
 msgid "Display columns table"
 msgstr "Näyttökenttien taulu"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -7622,7 +7613,7 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Jätä tyhjäksi, ei \"pysyviä\" taulukoita käyttöliittymäasetuksiin eri "
-"istuntoihin, oletusarvo: [kbd]pma__table_uiprefs[/kbd]"
+"istuntoihin, oletusarvo: [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:776
 msgid "UI preferences table"
@@ -7633,41 +7624,46 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"Mikäli DROP DATABASE IF EXISTS lauseke lisätään ensimmäiseksi riviksi lokiin "
+"tietokantaa luotaessa."
 
 #: libraries/config/messages.inc.php:781
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Lisää DROP DATABASE"
 
 #: libraries/config/messages.inc.php:783
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"Mikäli DROP TABLE IF EXISTS lauseke lisätään ensimmäiseksi riviksi lokiin "
+"taulua luotaessa."
 
 #: libraries/config/messages.inc.php:786
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Lisää DROP TABLE"
 
 #: libraries/config/messages.inc.php:788
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"Mikäli DROP VIEW IF EXISTS lauseke lisätään ensimmäiseksi riviksi lokiin "
+"näkymää luotaessa."
 
 #: libraries/config/messages.inc.php:791
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Lisää DROP VIEW"
 
 #: libraries/config/messages.inc.php:793
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr ""
+msgstr "Määrittää listan lausekkeista joita käytetään uusissa versioissa."
 
 #: libraries/config/messages.inc.php:794
 msgid "Statements to track"
 msgstr "Jäljitettävä lauseke"
 
 #: libraries/config/messages.inc.php:796
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: "
 #| "[kbd]pma__tracking[/kbd]"
@@ -7675,8 +7671,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kysely seuranta tukea, oletusarvo: "
-"[kbd]pma__history[/kbd]"
+"Jätä tyhjäksi jos et halua SQL-kyselyiden seurantatukea, oletusarvo: "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:799
 msgid "SQL query tracking table"
@@ -7687,13 +7683,13 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Mikäli seurantamekanismi luo versiot tauluille ja näkymille automaattisesti."
 
 #: libraries/config/messages.inc.php:805
 msgid "Automatically create versions"
 msgstr "Automaattisesti luodut versiot"
 
 #: libraries/config/messages.inc.php:807
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -7701,12 +7697,12 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"Jätä tyhjäksi,jos ei käyttäjän asetuksia varastoida tietokantaan, "
-"oletusarvo: [kbd]pma__userconfig[/kbd]"
+"Jätä tyhjäksi jos käyttäjän asetuksia ei varastoida tietokantaan, oletusarvo:"
+" [kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:810
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Taulu käyttäjän asetuksille"
 
 #: libraries/config/messages.inc.php:812
 msgid ""
@@ -7714,6 +7710,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable\n"
 "    this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Sekä tämän taulun että käyttäjäryhmien osalta tulee kytkeä päälle "
+"konfiguroitavien valikoiden ominaisuus; jättämällä jompi kumpi tyhjäksi "
+"kytkee ominaisuuden pois päältä, oletusarvo: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:816
 msgid "Users table"
