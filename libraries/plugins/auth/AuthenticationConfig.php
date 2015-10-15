@@ -50,6 +50,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
             return false;
         }
+        $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['cfg']['Server']['user'];
 
         return true;
     }
