@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-07-14 11:09+0200\n"
+"PO-Revision-Date: 2015-10-15 11:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bn/>\n"
+"Language-Team: Bengali "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -45,7 +45,7 @@ msgstr "ডাটাবেইজ %1$s তৈরী করা হয়েছে।"
 
 #: db_datadict.php:57 libraries/operations.lib.php:40
 msgid "Database comment"
-msgstr "ডাটাবেইজের মন্তব্য:"
+msgstr "ডাটাবেইজের মন্তব্য"
 
 #: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:601
 #: templates/columns_definitions/column_definitions_form.phtml:84
@@ -411,7 +411,7 @@ msgstr "ওপেনস্ট্রীটম্যাপ প্রধান স�
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
 msgid "SRID:"
-msgstr "এসআরআইডি"
+msgstr "এসআরআইডি:"
 
 #: gis_data_editor.php:192
 #, php-format
@@ -450,7 +450,7 @@ msgstr "লাইনস্ট্র্রিং %d:"
 
 #: gis_data_editor.php:273 gis_data_editor.php:350
 msgid "Outer ring:"
-msgstr "আউটার রিং"
+msgstr "আউটার রিং:"
 
 #: gis_data_editor.php:275 gis_data_editor.php:352
 #, php-format
@@ -3541,7 +3541,7 @@ msgstr "অধ মুখী"
 
 #: libraries/DbQbe.php:469 templates/table/search/search_and_replace.phtml:6
 msgid "Column:"
-msgstr "স্তম্ভ"
+msgstr "স্তম্ভ:"
 
 #: libraries/DbQbe.php:515
 msgid "Alias:"
@@ -4077,7 +4077,7 @@ msgstr "মন্তব্য"
 
 #: libraries/Index.php:729
 msgid "The primary key has been dropped."
-msgstr "প্রাথমিক কী মুছা হয়েছে"
+msgstr "প্রাথমিক কী মুছা হয়েছে।"
 
 #: libraries/Index.php:738
 #, php-format
@@ -5846,7 +5846,7 @@ msgstr "গোপন Blowfish"
 
 #: libraries/config/messages.inc.php:40
 msgid "Highlight selected rows."
-msgstr "নির্বাচিত রোগুলো উজ্জ্বল কর"
+msgstr "নির্বাচিত রোগুলো উজ্জ্বল কর।"
 
 #: libraries/config/messages.inc.php:41
 msgid "Row marker"
@@ -5940,7 +5940,7 @@ msgstr "CHAR textarea'র স্তম্ভ"
 
 #: libraries/config/messages.inc.php:82
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR textarea'র রো সংখ্যা"
+msgstr "CHAR/VARCHAR textarea'র রো সংখ্যা।"
 
 #: libraries/config/messages.inc.php:83
 msgid "CHAR textarea rows"
@@ -6034,7 +6034,7 @@ msgstr "টেবল গঠনের কার্যাবলী লুকাও
 
 #: libraries/config/messages.inc.php:119
 msgid "Show server listing as a list instead of a drop down."
-msgstr "সার্ভারের তালিকা ড্রপ ডাউনের পরিবর্তে একটি তালিকা হিসাবে দেখাবে"
+msgstr "সার্ভারের তালিকা ড্রপ ডাউনের পরিবর্তে একটি তালিকা হিসাবে দেখাবে।"
 
 #: libraries/config/messages.inc.php:120
 msgid "Display servers as a list"
@@ -6987,7 +6987,7 @@ msgstr "দ্রুত প্রবেশের আইকনের লক্ষ
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "টেবল ফিল্টার বক্সে প্রদর্শনের জন্য নুন্যতম সংখ্যা"
+msgstr "টেবল ফিল্টার বক্সে প্রদর্শনের জন্য নুন্যতম সংখ্যা।"
 
 #: libraries/config/messages.inc.php:501
 msgid "Minimum number of items to display the filter box"
@@ -7240,9 +7240,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"যদি DB-based অনুসন্ধান হিস্টোরী চান তবে কার্যকর করেন (phpMyAdmin কনফিগারেশনের "
-"storage)লাগবে, অন্যথায় অনুসন্ধান হিস্টোরী দেখানোর জন্য JS-routines ব্যবহৃত হবে। "
-"( উইন্ডো বন্ধ করলে যা নষ্ট হয়ে যাবে)"
+"যদি DB-based অনুসন্ধান হিস্টোরী চান তবে কার্যকর করেন (phpMyAdmin কনফিগারেশনে"
+"র storage)লাগবে, অন্যথায় অনুসন্ধান হিস্টোরী দেখানোর জন্য JS-routines ব্যবহৃত "
+"হবে। ( উইন্ডো বন্ধ করলে যা নষ্ট হয়ে যাবে)।"
 
 #: libraries/config/messages.inc.php:596
 msgid "Permanent query history"
@@ -8316,7 +8316,7 @@ msgstr "ওপেন অফিস টেক্সট"
 #: tbl_operations.php:378
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "টেবিল %s খালি করা হয়েছে"
+msgstr "টেবিল %s খালি করা হয়েছে।"
 
 #: libraries/controllers/DatabaseStructureController.php:432
 #: tbl_operations.php:396 view_operations.php:120
@@ -8349,7 +8349,7 @@ msgstr[1] "স্তম্ভের নাম '%s'টি MySQL'র সংরক�
 
 #: libraries/controllers/TableStructureController.php:250
 msgid "No column selected."
-msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই"
+msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই।"
 
 #: libraries/controllers/TableStructureController.php:484
 msgid "The columns have been moved successfully."
@@ -10175,7 +10175,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:83
 msgid "Rename database to"
-msgstr "ডাটাবেজ পুনঃনামকরন:"
+msgstr "ডাটাবেজ পুনঃনামকরন"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:247
 #: libraries/operations.lib.php:867 libraries/operations.lib.php:959
@@ -10227,7 +10227,7 @@ msgstr "শুধুমাত্র তথ্য"
 
 #: libraries/operations.lib.php:207
 msgid "Copy database to"
-msgstr "ডাটাবেজ কপি কর:"
+msgstr "ডাটাবেজ কপি কর"
 
 #: libraries/operations.lib.php:220
 msgid "CREATE DATABASE before copying"
@@ -10251,7 +10251,7 @@ msgstr "(একক ভাবে)"
 
 #: libraries/operations.lib.php:831
 msgid "Move table to (database<b>.</b>table)"
-msgstr "টেবিলটি (ডাটাবেইজ<b>.</b>টেবল)এ সরানো হয়েছে:"
+msgstr "টেবিলটি (ডাটাবেইজ<b>.</b>টেবল)এ সরানো হয়েছে"
 
 #: libraries/operations.lib.php:941
 msgid "Rename table to"
@@ -10275,7 +10275,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1255
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "(ডাটাবেইজ<b>.</b>টেবল)এ টেবিলটির প্রতিলিপ কর:"
+msgstr "(ডাটাবেইজ<b>.</b>টেবল)এ টেবিলটির প্রতিলিপ কর"
 
 #: libraries/operations.lib.php:1332
 msgid "Switch to copied table"
@@ -12024,7 +12024,7 @@ msgstr "সফল।"
 
 #: libraries/replication_gui.lib.php:949
 msgid "Error."
-msgstr "ভুল"
+msgstr "ভুল।"
 
 #: libraries/replication_gui.lib.php:994
 msgid "Unknown error"
@@ -14828,7 +14828,7 @@ msgstr "আপনার সেটিংস রক্ষণাবেক্ষণ 
 
 #: libraries/user_preferences.inc.php:55 prefs_manage.php:310
 msgid "Configuration has been saved."
-msgstr "কনফিগারেশন সংরক্ষন করা হয়েছে"
+msgstr "কনফিগারেশন সংরক্ষন করা হয়েছে।"
 
 #: libraries/user_preferences.inc.php:76
 #, php-format
@@ -14868,7 +14868,7 @@ msgstr "কনফিগারেশন আমদানি করা যায়ন
 
 #: prefs_manage.php:119
 msgid "Configuration contains incorrect data for some fields."
-msgstr "কিছু ক্ষেত্রে কনফিগারেশনে ভুল তথ্য আছে"
+msgstr "কিছু ক্ষেত্রে কনফিগারেশনে ভুল তথ্য আছে।"
 
 #: prefs_manage.php:138
 msgid "Do you want to import remaining settings?"
@@ -14888,7 +14888,7 @@ msgstr "ব্রাউজারের মজুদ স্থান থেকে
 
 #: prefs_manage.php:260
 msgid "Settings will be imported from your browser's local storage."
-msgstr "আপনার ব্রাউজার থেকে সেটিংস আমদানি করা হবে"
+msgstr "আপনার ব্রাউজার থেকে সেটিংস আমদানি করা হবে।"
 
 #: prefs_manage.php:266
 msgid "You have no saved settings!"
@@ -14926,8 +14926,8 @@ msgstr "পূর্ববতী সেটিংস এর উপর লেখ�
 #: prefs_manage.php:369
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
-"আপনি সমস্ত সেটিংস পুর্বাবস্থায় ফিরিয়ে নিতে পারেন এবং স্বাভাবিক অবস্থায় ফিরে যেতে "
-"পারেন"
+"আপনি সমস্ত সেটিংস পুর্বাবস্থায় ফিরিয়ে নিতে পারেন এবং স্বাভাবিক অবস্থায় ফিরে "
+"যেতে পারেন।"
 
 #: server_databases.php:107
 msgid "No databases"
@@ -15107,7 +15107,7 @@ msgstr "দাখিলকৃত ফর্মে ভুল আছে"
 
 #: setup/lib/form_processing.lib.php:53
 msgid "Try to revert erroneous fields to their default values"
-msgstr "ভুল থাকা ক্ষেত্রগুলোর মান স্বাভাবিক মানে সেট করার চেষ্টা করেছি।"
+msgstr "ভুল থাকা ক্ষেত্রগুলোর মান স্বাভাবিক মানে সেট করার চেষ্টা করেছি"
 
 #: setup/lib/form_processing.lib.php:58
 msgid "Ignore errors"
@@ -15126,7 +15126,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:144
 msgid "Got invalid version string from server"
-msgstr "সার্ভার থেকে অকার্যকর সংস্করন পাওয়া গেছে।"
+msgstr "সার্ভার থেকে অকার্যকর সংস্করন পাওয়া গেছে"
 
 #: setup/lib/index.lib.php:157
 msgid "Unparsable version string"
@@ -15143,7 +15143,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:184
 msgid "No newer stable version is available"
-msgstr "কোন নতুন সুস্থিত সংস্করন পাওয়া যায়নি।"
+msgstr "কোন নতুন সুস্থিত সংস্করন পাওয়া যায়নি"
 
 #: setup/validate.php:24
 msgid "Wrong data"
@@ -16114,7 +16114,7 @@ msgstr "সর্ম্পক ভিউ"
 #: templates/table/structure/actions_in_table_structure.phtml:16
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "%s একটি প্রাইমারি কী যোগ করা হয়েছে"
+msgstr "%s একটি প্রাইমারি কী যোগ করা হয়েছে।"
 
 #: templates/table/structure/actions_in_table_structure.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:56
@@ -16122,7 +16122,7 @@ msgstr "%s একটি প্রাইমারি কী যোগ করা �
 #: templates/table/structure/actions_in_table_structure.phtml:103
 #, php-format
 msgid "An index has been added on %s."
-msgstr "%s এ একটি ইনডেক্স যোগ করা হয়েছে"
+msgstr "%s এ একটি ইনডেক্স যোগ করা হয়েছে।"
 
 #: templates/table/structure/actions_in_table_structure.phtml:131
 #: templates/table/structure/check_all_table_column.phtml:52
@@ -16267,7 +16267,7 @@ msgstr "পরবর্তী অটোইনডেক্স"
 #: templates/table/structure/table_structure_row.phtml:46
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "স্বম্ভ %s মুছা হয়েছে"
+msgstr "স্বম্ভ %s মুছা হয়েছে।"
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
@@ -16474,7 +16474,7 @@ msgstr "প্রকাশিত ধারাবাহিক"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr "সার্ভার সংস্করনটি ৫.১ এর ছোট"
+msgstr "সার্ভার সংস্করনটি ৫.১ এর ছোট।"
 
 #: libraries/advisory_rules.txt:104
 msgid ""
@@ -16496,7 +16496,7 @@ msgstr "ছোট সংস্করন"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "সংস্করনটি ৫.১.৩০ এর ছোট (৫.১ এর প্রথম জিএ সংস্করন)"
+msgstr "সংস্করনটি ৫.১.৩০ এর ছোট (৫.১ এর প্রথম জিএ সংস্করন)।"
 
 #: libraries/advisory_rules.txt:111
 msgid ""
@@ -16508,7 +16508,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "সংস্করনটি ৫.৫.৮ এর ছোট (৫.৫ এর প্রথম জিএ সংস্করন)"
+msgstr "সংস্করনটি ৫.৫.৮ এর ছোট (৫.৫ এর প্রথম জিএ সংস্করন)।"
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5"
@@ -16611,10 +16611,10 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"আপনি অনেক ব্যবহৃত একটি ডাটাবেইজে MySQL অনুসন্ধান ক্যাশ ব্যবহার করছেন। এটি অনেক "
-"মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\"http://dev.mysql.com/"
-"doc/refman/5.5/en/ha-memcached.html\">memcached</a> ব্যবহার করতে পারেন, "
-"বিশেষত আপনার যদি অনেকগুলো slave থাকে"
+"আপনি অনেক ব্যবহৃত একটি ডাটাবেইজে MySQL অনুসন্ধান ক্যাশ ব্যবহার করছেন। এটি অনে"
+"ক মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\""
+"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> "
+"ব্যবহার করতে পারেন, বিশেষত আপনার যদি অনেকগুলো slave থাকে।"
 
 #: libraries/advisory_rules.txt:158
 #, php-format
@@ -16835,7 +16835,7 @@ msgstr "ইনডেক্স বিহীন জোড়ার হার"
 
 #: libraries/advisory_rules.txt:229
 msgid "There are too many joins without indexes."
-msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী"
+msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী।"
 
 #: libraries/advisory_rules.txt:230
 msgid ""
@@ -16909,7 +16909,7 @@ msgstr "টেবলের পরবর্তী রো পড়ার হার"
 
 #: libraries/advisory_rules.txt:250
 msgid "The rate of reading the next table row is high."
-msgstr "টেবলের পরবর্তী রো পড়ার হার বেশী"
+msgstr "টেবলের পরবর্তী রো পড়ার হার বেশী।"
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -17124,7 +17124,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "{open_files_limit} এর পরিমান বাড়ান এবং সার্ভার পুনরায় চালু করার সময় ভুলের লগ "
-"পরীক্ষা করে দেখুন"
+"পরীক্ষা করে দেখুন।"
 
 #: libraries/advisory_rules.txt:332
 #, php-format
@@ -17201,7 +17201,7 @@ msgstr "থ্রেড ক্যাশ দক্ষ নয়।"
 
 #: libraries/advisory_rules.txt:366
 msgid "Increase {thread_cache_size}."
-msgstr "{thread_cache_size} বাড়ান"
+msgstr "{thread_cache_size} বাড়ান।"
 
 #: libraries/advisory_rules.txt:367
 #, php-format
@@ -17210,7 +17210,7 @@ msgstr "থ্রেড ক্যাশ হিট রেট: %s%%,এই মা�
 
 #: libraries/advisory_rules.txt:369
 msgid "Threads that are slow to launch"
-msgstr "থ্রেড গুলো কাজের জন্য ধীর।"
+msgstr "থ্রেড গুলো কাজের জন্য ধীর"
 
 #: libraries/advisory_rules.txt:372
 msgid "There are too many threads that are slow to launch."
@@ -17356,7 +17356,7 @@ msgstr "InnoDB কার্যকর করা হয়নি।"
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "টেবলের জন্য InnoDB সাধারনত ভাল ব্যবস্থা"
+msgstr "টেবলের জন্য InnoDB সাধারনত ভাল ব্যবস্থা।"
 
 #: libraries/advisory_rules.txt:427
 msgid "have_innodb is set to 'value'"
