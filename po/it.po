@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-10-14 14:55+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-10-15 16:10+0200\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
@@ -9472,10 +9472,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Nome classe \"%1$s\" invalido, utilizzo il valore predefinito \"Node\""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Impossibile aggiungere colonne!"
+msgstr "Impossibile caricare la classe \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -11002,7 +11002,6 @@ msgstr ""
 "seconda opzione, dovete avere la prima opzione settata ad una stringa vuota."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:32
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -11030,12 +11029,12 @@ msgstr ""
 "tramite lo standard input. Restituisce lo standard output dell'applicazione. "
 "L'impostazione predefinita è Tidy, per stampare in maniera corretta il "
 "codice HTML. Per motivi di sicurezza, dovete editare manualmente il file "
-"libraries/plugins/transformations/output/Text_Plain_External.class.php e "
-"inserire gli strumenti che permettete di utilizzare. La prima opzione è il "
-"numero del programma che volete utilizzare e la seconda sono i parametri per "
-"il programma. Il terzo parametro, se impostato a 1 convertirà l'output "
-"utilizzando htmlspecialchars() (Predefinito: 1). Un quarto parametro, se "
-"impostato a 1 inserirà un NOWRAP al contenuto della cella così che l'intero "
+"libraries/plugins/transformations/output/Text_Plain_External.php e inserire "
+"gli strumenti che volete rendere disponibili. La prima opzione è il numero "
+"del programma che volete utilizzare e la seconda sono i parametri per il "
+"programma. La terza opzione, se impostata a 1, convertirà l'output "
+"utilizzando htmlspecialchars() (Predefinito: 1). Una quarta opzione, se "
+"impostata a 1, inserirà un NOWRAP al contenuto della cella così che l'intero "
 "output sarà mostrato sulla stessa riga (Predefinito: 1)."
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:32
