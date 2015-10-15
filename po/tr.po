@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-10-13 20:28+0200\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2015-10-15 11:09+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/tr/>\n"
 "Language: tr\n"
@@ -44,7 +44,7 @@ msgstr "Veritabanı %1$s oluşturuldu."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Veritabanı yorumu:"
+msgstr "Veritabanı yorumu"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -9839,7 +9839,7 @@ msgstr "Bulunan kısmi bağımlılıklar yok!"
 
 #: libraries/operations.lib.php:76
 msgid "Rename database to"
-msgstr "Veritabanını şuna yeniden adlandır:"
+msgstr "Veritabanını şuna yeniden adlandır"
 
 #: libraries/operations.lib.php:95 libraries/operations.lib.php:243
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:967
@@ -9889,7 +9889,7 @@ msgstr "Sadece veri"
 
 #: libraries/operations.lib.php:202
 msgid "Copy database to"
-msgstr "Veritabanını şuraya kopyala:"
+msgstr "Veritabanını şuraya kopyala"
 
 #: libraries/operations.lib.php:215
 msgid "CREATE DATABASE before copying"
@@ -9913,7 +9913,7 @@ msgstr "(birer birer)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Tabloyu şuna (veritabanı<b>.</b>tablo) taşı:"
+msgstr "Tabloyu şuna (veritabanı<b>.</b>tablo) taşı"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -9937,7 +9937,7 @@ msgstr "Tüm sütun karşılaştırmalarını değiştir"
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Tabloyu şuna (veritabanı<b>.</b>tablo) kopyala:"
+msgstr "Tabloyu şuna (veritabanı<b>.</b>tablo) kopyala"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
