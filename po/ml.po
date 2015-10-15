@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2014-02-27 10:56+0200\n"
+"PO-Revision-Date: 2015-10-15 11:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ml/>\n"
+"Language-Team: Malayalam "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/ml/>\n"
 "Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -44,7 +44,7 @@ msgstr "വിവരശേഖരം(ങ്ങൾ) %1$s സൃഷ്ടിച്�
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "വിവരശേഖര അഭിപ്രായം:"
+msgstr "വിവരശേഖര അഭിപ്രായം"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
