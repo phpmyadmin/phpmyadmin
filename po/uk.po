@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-08-26 15:10+0200\n"
+"PO-Revision-Date: 2015-10-15 11:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -45,7 +45,7 @@ msgstr "Базу даних %1$s створено."
 
 #: db_datadict.php:57 libraries/operations.lib.php:40
 msgid "Database comment"
-msgstr "Коментар бази даних:"
+msgstr "Коментар бази даних"
 
 #: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:601
 #: templates/columns_definitions/column_definitions_form.phtml:84
@@ -10009,7 +10009,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:83
 msgid "Rename database to"
-msgstr "Перейменувати базу даних на:"
+msgstr "Перейменувати базу даних на"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:247
 #: libraries/operations.lib.php:867 libraries/operations.lib.php:959
@@ -10061,7 +10061,7 @@ msgstr "Лише дані"
 
 #: libraries/operations.lib.php:207
 msgid "Copy database to"
-msgstr "Копіювати базу даних в:"
+msgstr "Копіювати базу даних в"
 
 #: libraries/operations.lib.php:220
 msgid "CREATE DATABASE before copying"
@@ -10085,7 +10085,7 @@ msgstr "(окремо)"
 
 #: libraries/operations.lib.php:831
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Перенести таблицю в (база даних<b>.</b>таблиця):"
+msgstr "Перенести таблицю в (база даних<b>.</b>таблиця)"
 
 #: libraries/operations.lib.php:941
 msgid "Rename table to"
@@ -10109,7 +10109,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1255
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Скопіювати таблицю в (база даних<b>.</b>таблиця):"
+msgstr "Скопіювати таблицю в (база даних<b>.</b>таблиця)"
 
 #: libraries/operations.lib.php:1332
 msgid "Switch to copied table"
