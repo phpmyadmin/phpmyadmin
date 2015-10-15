@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-10-15 07:06+0200\n"
+"PO-Revision-Date: 2015-10-15 11:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/fi/>\n"
@@ -10279,7 +10279,7 @@ msgstr "(yksitellen)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Siirrä taulu toiseen tauluun (tietokanta<b>.</b>taulu):"
+msgstr "Siirrä taulu toiseen tauluun (tietokanta<b>.</b>taulu)"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -10303,7 +10303,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopioi taulu toiseen tauluun nimellä (tietokanta<b>.</b>taulu):"
+msgstr "Kopioi taulu toiseen tauluun nimellä (tietokanta<b>.</b>taulu)"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
