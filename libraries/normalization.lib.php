@@ -147,7 +147,7 @@ function PMA_getHtmlFor1NFStep1($db, $table, $normalizedTo)
         ) . " </a>)</h4>"
         . "<p class='cm-em'>" . __(
             'Select a column which can be split into more '
-            . 'than one. (on select of \'no such column\', it\'ll move to next step)'
+            . 'than one (on select of \'no such column\', it\'ll move to next step).'
         )
         . "</p>"
         . "<div id='extra'>"

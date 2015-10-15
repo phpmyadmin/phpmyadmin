@@ -1539,7 +1539,7 @@ function PMA_getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_val
     . PMA\libraries\Util::showHint(
         __(
             'Use TAB key to move from value to value,'
-            . ' or CTRL+arrows to move anywhere'
+            . ' or CTRL+arrows to move anywhere.'
         )
     )
     . '</td>'
