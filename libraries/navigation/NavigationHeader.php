@@ -165,16 +165,26 @@ class NavigationHeader
         );
         // if we have chosen server
         if ($GLOBALS['server'] != 0) {
+            $link = 'index.php' . $GLOBALS['url_query'];
+            $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $link = 'index.php' . $GLOBALS['url_query'];
-                $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
                 $retval .= PMA\libraries\Util::getNavigationLink(
                     $link,
                     $showText,
                     __('Log out'),
                     $showIcon,
                     's_loggoff.png',
+                    '',
+                    true
+                );
+            } else {
+                $retval .= PMA\libraries\Util::getNavigationLink(
+                    $link,
+                    $showText,
+                    __('Empty session data'),
+                    $showIcon,
+                    'b_empty.png',
                     '',
                     true
                 );

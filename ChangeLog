@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 + issue #11438 Support JSON data type
 + issue        Editing partitions in table Structure
 - issue        Tracking does not make sense for information_schema
++ issue #11565 No UI to relog when using auth_type = config
 
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()

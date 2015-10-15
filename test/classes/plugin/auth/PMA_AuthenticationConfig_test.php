@@ -32,6 +32,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
+        $GLOBALS['cfg']['Server'] = array('user' => 'user');
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationConfig();
