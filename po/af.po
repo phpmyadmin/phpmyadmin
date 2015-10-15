@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2014-03-28 11:05+0200\n"
+"PO-Revision-Date: 2015-10-15 11:30+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/af/>\n"
+"Language-Team: Afrikaans "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/af/>\n"
 "Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -45,7 +45,7 @@ msgstr "Databasis %1$s is geskep."
 
 #: db_datadict.php:57 libraries/operations.lib.php:40
 msgid "Database comment"
-msgstr "Databasis kommentaar:"
+msgstr "Databasis kommentaar"
 
 #: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:601
 #: templates/columns_definitions/column_definitions_form.phtml:84
@@ -10057,7 +10057,7 @@ msgstr "(afsonderlik)"
 
 #: libraries/operations.lib.php:831
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Skuif tabel na (databasis<b>.</b>tabel):"
+msgstr "Skuif tabel na (databasis<b>.</b>tabel)"
 
 #: libraries/operations.lib.php:941
 msgid "Rename table to"
@@ -10081,7 +10081,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1255
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopieer tabel na (databasis<b>.</b>tabel):"
+msgstr "Kopieer tabel na (databasis<b>.</b>tabel)"
 
 #: libraries/operations.lib.php:1332
 msgid "Switch to copied table"
@@ -17909,10 +17909,6 @@ msgstr ""
 #~ msgstr "Die skaal faktor is te klein om die skema op een bladsy te pas"
 
 #~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Geen"
-
-#~ msgctxt ""
 #~ msgid "None"
 #~ msgstr "Geen"
 
