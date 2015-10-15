@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-09-16 19:34+0200\n"
-"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
-"gl/>\n"
+"PO-Revision-Date: 2015-10-15 11:45+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Galician "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -586,7 +586,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Non é posíbel converter o xogo de caracteres do ficheiro sen a biblioteca "
-"correspondente."
+"correspondente!"
 
 #: import.php:634 libraries/display_import.lib.php:656
 msgid "Could not load import plugins, please check your installation!"
@@ -911,7 +911,7 @@ msgstr "Eliminar a chaves primaria/Índice"
 
 #: js/messages.php:56
 msgid "Dropping Foreign key."
-msgstr "Abandoner unha chave externa"
+msgstr "Abandoner unha chave externa."
 
 #: js/messages.php:57
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1727,7 +1727,7 @@ msgstr "Fallou a petición!"
 
 #: js/messages.php:305
 msgid "Error in processing request"
-msgstr "Produciuse un erro ao procesar a petición:"
+msgstr "Produciuse un erro ao procesar a petición"
 
 #: js/messages.php:306
 #, php-format
@@ -1842,7 +1842,7 @@ msgstr "Valores para a nova columna"
 
 #: js/messages.php:341
 msgid "Enter each value in a separate field."
-msgstr "Introduza cada valor nun campo separado"
+msgstr "Introduza cada valor nun campo separado."
 
 #: js/messages.php:342
 #, php-format
@@ -2166,7 +2166,7 @@ msgstr "Anel interno"
 
 #: js/messages.php:442
 msgid "Outer ring"
-msgstr "Anel externo:"
+msgstr "Anel externo"
 
 #: js/messages.php:446
 msgid "Do you want to copy encryption key?"
@@ -2394,7 +2394,7 @@ msgstr "Ir á ligazón:"
 
 #: js/messages.php:520
 msgid "Copy column name."
-msgstr "Copiar o nome da columna:"
+msgstr "Copiar o nome da columna."
 
 #: js/messages.php:521
 msgid "Right-click the column name to copy it to your clipboard."
@@ -4102,11 +4102,11 @@ msgstr "Eliminar a gráfica"
 
 #: libraries/RecentFavoriteTable.class.php:234
 msgid "There are no recent tables."
-msgstr "Non hai táboas recentes"
+msgstr "Non hai táboas recentes."
 
 #: libraries/RecentFavoriteTable.class.php:235
 msgid "There are no favorite tables."
-msgstr "Non hai táboas favoritas"
+msgstr "Non hai táboas favoritas."
 
 #: libraries/RecentFavoriteTable.class.php:250
 msgid "Recent tables"
@@ -5492,7 +5492,7 @@ msgstr ""
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Atopouse un URL de acceso baleiro ao empregar o método de autenticación "
-"mediante [dbd]rexistro de acceso[/kbd]!"
+"mediante [kbd]rexistro de acceso[/kbd]!"
 
 #: libraries/config/Validator.class.php:387
 msgid ""
@@ -6081,7 +6081,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:243
 msgid "Foreign key checks"
-msgstr "Comprobacións das chaves externas:"
+msgstr "Comprobacións das chaves externas"
 
 #: libraries/config/messages.inc.php:244
 msgid "Browse mode"
@@ -6181,7 +6181,7 @@ msgstr "Árbore de navegación"
 
 #: libraries/config/messages.inc.php:273
 msgid "Customize the navigation tree."
-msgstr "Personalizar a árbore de navegación"
+msgstr "Personalizar a árbore de navegación."
 
 #: libraries/config/messages.inc.php:274 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:146
@@ -6576,7 +6576,7 @@ msgstr "Almacenar as cookies de rexistro"
 
 #: libraries/config/messages.inc.php:432
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "Definir o tempo (en segundos) durante o que é válida unha cookie"
+msgstr "Definir o tempo (en segundos) durante o que é válida unha cookie."
 
 #: libraries/config/messages.inc.php:433
 msgid "Login cookie validity"
@@ -6665,7 +6665,7 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "O número de bytes que se permite asignar a un script, p.ex. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] para non o limitar)."
+"([kbd]-1[/kbd] para non o limitar and [kbd]0[/kbd] for no change)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -7333,7 +7333,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:701
 msgid "Export templates table"
-msgstr "Exportar a táboa de modelos."
+msgstr "Exportar a táboa de modelos"
 
 #: libraries/config/messages.inc.php:703
 msgid ""
