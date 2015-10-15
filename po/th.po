@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-02-09 16:12+0200\n"
-"Last-Translator: mrnonz <nontawat39@gmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"th/>\n"
+"PO-Revision-Date: 2015-10-15 11:31+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-5/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -43,7 +43,7 @@ msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบ
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "หมายเหตุของฐานข้อมูล:"
+msgstr "หมายเหตุของฐานข้อมูล"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -10284,7 +10284,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "คัดลอกตารางไปยัง (ฐานข้อมูล<b>.</b>ตาราง):"
+msgstr "คัดลอกตารางไปยัง (ฐานข้อมูล<b>.</b>ตาราง)"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
@@ -18533,10 +18533,6 @@ msgstr "concurrent_insert ถูกตั้งค่าไว้ที่ 0"
 #~ msgstr "อัตราย่อน้อยเกินไป ที่จะจัดให้สกีมาอยู่ในหน้าเดียว"
 
 #~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "ไม่มี"
-
-#~ msgctxt ""
 #~ msgid "None"
 #~ msgstr "ไม่มี"
 
