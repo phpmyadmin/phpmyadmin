@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-03-27 10:17+0200\n"
-"Last-Translator: Ahmed Saleh Abd El-Raouf Ismae <a.saleh.ismael@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2015-10-15 11:24+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -45,7 +45,7 @@ msgstr "تم إنشاء قاعدة البيانات %1$s."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "ملاحظة قاعدة البيانات:"
+msgstr "ملاحظة قاعدة البيانات"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -10273,7 +10273,7 @@ msgstr "(فردي)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "نقل جدول إلى (قاعدة بيانات<b>.</b>جدول):"
+msgstr "نقل جدول إلى (قاعدة بيانات<b>.</b>جدول)"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
