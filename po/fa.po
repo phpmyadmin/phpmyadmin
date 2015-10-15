@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-09-07 14:51+0200\n"
-"Last-Translator: ashkan shirian <ashkan.shirian@gmail.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fa/>\n"
+"PO-Revision-Date: 2015-10-15 11:32+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Persian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -10157,7 +10157,7 @@ msgstr "(تنها)"
 
 #: libraries/operations.lib.php:831
 msgid "Move table to (database<b>.</b>table)"
-msgstr "انتقال جدول به (پايگاه داده<b>.</b>جدول):"
+msgstr "انتقال جدول به (پايگاه داده<b>.</b>جدول)"
 
 #: libraries/operations.lib.php:941
 msgid "Rename table to"
@@ -10181,7 +10181,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1255
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "كپي كردن جدول به (پايگاه داده<b>.</b>جدول):"
+msgstr "كپي كردن جدول به (پايگاه داده<b>.</b>جدول)"
 
 #: libraries/operations.lib.php:1332
 msgid "Switch to copied table"
