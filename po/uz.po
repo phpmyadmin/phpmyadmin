@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2014-11-14 19:09+0200\n"
+"PO-Revision-Date: 2015-10-15 11:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"uz/>\n"
+"Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/4-5/uz/>"
+"\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -47,7 +47,7 @@ msgstr "%1$s маълумотлар базаси тузилди."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Маълумотлар базасига изоҳ:"
+msgstr "Маълумотлар базасига изоҳ"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -9392,7 +9392,7 @@ msgstr "Привилегиялар йўқ"
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Экспорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг libraries/"
-"export каталогини текширинг."
+"export каталогини текширинг!"
 
 #: libraries/display_export.lib.php:172
 #, fuzzy
@@ -11217,7 +11217,7 @@ msgstr "(устун)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Жадвални (маълумотлар базаси<b>.</b>жадвал) га кўчириш:"
+msgstr "Жадвални (маълумотлар базаси<b>.</b>жадвал) га кўчириш"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -11241,7 +11241,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Жадвалдан (маълумотлар омбори<b>.</b>жадвал) га нусха кўчириш:"
+msgstr "Жадвалдан (маълумотлар омбори<b>.</b>жадвал) га нусха кўчириш"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
