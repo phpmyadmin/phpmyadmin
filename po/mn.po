@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2014-11-05 10:28+0200\n"
+"PO-Revision-Date: 2015-10-15 11:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/mn/>\n"
+"Language-Team: Mongolian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/mn/>\n"
 "Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -45,15 +45,14 @@ msgstr "%1$s өгөгдлийн сан үүслээ."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "ӨС-ийн тайлбар:"
+msgstr "ӨС-ийн тайлбар"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
 #: templates/columns_definitions/column_definitions_form.phtml:79
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Хүснэгтийн тайлбар"
+msgstr "Хүснэгтийн тайлбар:"
 
 #: db_datadict.php:114 libraries/Index.class.php:699
 #: libraries/insert_edit.lib.php:1565
@@ -10422,7 +10421,7 @@ msgstr "(дан)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Хүснэгтийг зөөх (өгөгдлийн сан<b>.</b>хүснэгт):"
+msgstr "Хүснэгтийг зөөх (өгөгдлийн сан<b>.</b>хүснэгт)"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -10446,7 +10445,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Хүснэгт хуулах(өгөгдлийн сан<b>.</b>хүснэгт):"
+msgstr "Хүснэгт хуулах(өгөгдлийн сан<b>.</b>хүснэгт)"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
@@ -18812,10 +18811,6 @@ msgstr "ХИ. давхацсан холболтууд"
 #~ msgstr "Хэт жижиг схемийг нэг хуудсанд дүүргэх"
 
 #~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Байхгүй"
-
-#~ msgctxt ""
 #~ msgid "None"
 #~ msgstr "Байхгүй"
 
