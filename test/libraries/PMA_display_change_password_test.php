@@ -48,6 +48,7 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['user'] = "pma_user";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['PMA_PHP_SELF'] = "server_privileges.php";
         $GLOBALS['server'] = 0;
         $GLOBALS['pmaThemeImage'] = 'image';
@@ -69,7 +70,7 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
         $hostname = "pma_hostname";
 
         //Call the test function
-        $html = PMA_getHtmlForChangePassword($username, $hostname);
+        $html = PMA_getHtmlForChangePassword('change_pw', $username, $hostname);
 
         //PMA_PHP_SELF
         $this->assertContains(

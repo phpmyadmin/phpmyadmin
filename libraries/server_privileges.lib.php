@@ -1932,6 +1932,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
 {
     // similar logic in user_password.php
     $message = '';
+    $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
     if (empty($_REQUEST['nopass'])
         && isset($_POST['pma_pw'])
@@ -1947,8 +1948,9 @@ function PMA_updatePassword($err_url, $username, $hostname)
     // here $nopass could be == 1
     if (empty($message)) {
         $hashing_function = 'PASSWORD';
+        $serverType = PMA_Util::getServerType();
 
-        if (PMA_Util::getServerType() == 'MySQL'
+        if ($serverType == 'MySQL'
             && PMA_MYSQL_INT_VERSION >= 50706
         ) {
             if (isset($_REQUEST['authentication_plugin'])
@@ -1972,16 +1974,32 @@ function PMA_updatePassword($err_url, $username, $hostname)
 
             $local_query = $query_prefix
                 . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . "'";
-        } else if ((PMA_Util::getServerType() == 'MySQL'
+        } else if (($serverType == 'MySQL'
             && PMA_MYSQL_INT_VERSION >= 50507)
-            || (PMA_Util::getServerType() == 'MariaDB'
+            || ($serverType == 'MariaDB'
             && PMA_MYSQL_INT_VERSION >= 50200)
+            && $is_superuser
         ) {
             // Backup the old value, to be reset later
             $row = $GLOBALS['dbi']->fetchSingleRow(
                 'SELECT @@old_passwords;'
             );
             $orig_value = $row['@@old_passwords'];
+
+            $update_plugin_query = "UPDATE `mysql`.`user` SET"
+                . " `plugin` = '" . $_REQUEST['authentication_plugin'] . "'"
+                . " WHERE `User` = '" . $username . "' AND Host = '"
+                . $hostname . "';";
+
+            // Update the plugin for the user
+            $GLOBALS['dbi']->tryQuery($update_plugin_query)
+                or PMA_Util::mysqlDie(
+                    $GLOBALS['dbi']->getError(),
+                    $update_plugin_query,
+                    false, $err_url
+                );
+
+            $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
 
             if (isset($_REQUEST['authentication_plugin'])
                 && $_REQUEST['authentication_plugin'] == 'mysql_native_password'
@@ -1997,19 +2015,6 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 // to be 'sha256_password' type
                 $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
             }
-
-            $update_plugin_query = "UPDATE `mysql`.`user` SET"
-                . " `plugin` = '" . $_REQUEST['authentication_plugin'] . "'"
-                . " WHERE `User` = '" . $username . "' AND Host = '"
-                . $hostname . "';";
-
-            // Update the plugin for the user
-            $GLOBALS['dbi']->tryQuery($update_plugin_query)
-                or PMA_Util::mysqlDie(
-                    $GLOBALS['dbi']->getError(),
-                    $update_plugin_query,
-                    false, $err_url
-                );
 
             $sql_query        = 'SET PASSWORD FOR \''
                 . PMA_Util::sqlAddSlashes($username)
@@ -4721,7 +4726,6 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
             __('The selected user was not found in the privilege table.')
         )->getDisplay();
         $html_output .= PMA_getHtmlForLoginInformationFields();
-            //exit;
     }
 
     $_params = array(
@@ -4793,7 +4797,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         && ! $user_does_not_exists
     ) {
         //change login information
-        $html_output .= PMA_getHtmlForChangePassword($username, $hostname);
+        $html_output .= PMA_getHtmlForChangePassword('edit_other', $username, $hostname);
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);
     }
     $html_output .= '</div>';
