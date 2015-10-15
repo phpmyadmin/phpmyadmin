@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2014-11-05 10:33+0200\n"
+"PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uz%40latin/>\n"
+"Language-Team: Uzbek (latin) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/uz%40latin/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -45,15 +45,14 @@ msgstr "%1$s ma`lumotlar bazasi tuzildi."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Ma`lumotlar bazasiga izoh:"
+msgstr "Ma`lumotlar bazasiga izoh"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
 #: templates/columns_definitions/column_definitions_form.phtml:79
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Jadval izohi"
+msgstr "Jadval izohi:"
 
 #: db_datadict.php:114 libraries/Index.class.php:699
 #: libraries/insert_edit.lib.php:1565
@@ -11264,7 +11263,7 @@ msgstr "(ustun)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Jadvalni (ma`lumotlar bazasi<b>.</b>jadval) ga ko‘chirish:"
+msgstr "Jadvalni (ma`lumotlar bazasi<b>.</b>jadval) ga ko‘chirish"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -11288,7 +11287,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Jadvaldan (ma`lumotlar ombori<b>.</b>jadval) ga nusxa ko‘chirish:"
+msgstr "Jadvaldan (ma`lumotlar ombori<b>.</b>jadval) ga nusxa ko‘chirish"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
@@ -16782,7 +16781,7 @@ msgid ""
 "escaping or quotes, using this format: a"
 msgstr ""
 "\"Andozaviy\" maydonlar qiymatlarida teskari egri chiziq va qo‘shtirnoqlarni "
-"ishlatmang."
+"ishlatmang: a"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
