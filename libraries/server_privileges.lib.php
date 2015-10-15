@@ -1563,7 +1563,7 @@ function PMA_getHtmlForAuthPluginsDropdown(
         $html_output .= '</select>';
     } else {
         $html_output .= '<option value="mysql_native_password" >'
-            . __('MySQL Native Authentication') . '</option>'
+            . __('Native MySQL Authentication') . '</option>'
             . '</select>';
     }
 
