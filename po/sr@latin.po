@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-13 11:35-0400\n"
+"POT-Creation-Date: 2015-10-15 14:30-0400\n"
 "PO-Revision-Date: 2015-10-15 11:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Serbian (latin) "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/sr%40latin/>\n"
+"Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
+"phpmyadmin/master/sr%40latin/>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
@@ -100,7 +100,7 @@ msgstr "Kolona"
 #: libraries/rte/rte_routines.lib.php:890
 #: libraries/rte/rte_routines.lib.php:919
 #: libraries/rte/rte_routines.lib.php:1579
-#: libraries/server_privileges.lib.php:2601 libraries/tracking.lib.php:883
+#: libraries/server_privileges.lib.php:2606 libraries/tracking.lib.php:883
 #: libraries/tracking.lib.php:975
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -190,11 +190,11 @@ msgstr "Primarni"
 #: libraries/plugins/export/ExportOdt.php:787
 #: libraries/plugins/export/ExportTexytext.php:606
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:710
-#: libraries/server_privileges.lib.php:2778
-#: libraries/server_privileges.lib.php:2966
-#: libraries/server_privileges.lib.php:2986
-#: libraries/server_privileges.lib.php:3615
-#: libraries/server_privileges.lib.php:3638 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:2783
+#: libraries/server_privileges.lib.php:2971
+#: libraries/server_privileges.lib.php:2991
+#: libraries/server_privileges.lib.php:3620
+#: libraries/server_privileges.lib.php:3643 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1013 libraries/tracking.lib.php:1018
 #: prefs_manage.php:143 templates/prefs_autoload.phtml:15
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -224,11 +224,11 @@ msgstr "Ne"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:711
 #: libraries/server_databases.lib.php:476
 #: libraries/server_databases.lib.php:486
-#: libraries/server_privileges.lib.php:2778
-#: libraries/server_privileges.lib.php:2963
-#: libraries/server_privileges.lib.php:2984
-#: libraries/server_privileges.lib.php:3612
-#: libraries/server_privileges.lib.php:3638 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:2783
+#: libraries/server_privileges.lib.php:2968
+#: libraries/server_privileges.lib.php:2989
+#: libraries/server_privileges.lib.php:3617
+#: libraries/server_privileges.lib.php:3643 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1011 libraries/tracking.lib.php:1016
 #: prefs_manage.php:141 templates/prefs_autoload.phtml:14
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -490,7 +490,7 @@ msgid "Add geometry"
 msgstr "Dodaj geometriju"
 
 #: gis_data_editor.php:410 js/messages.php:292 libraries/DbSearch.php:462
-#: libraries/DisplayResults.php:1798 libraries/browse_foreigners.lib.php:142
+#: libraries/DisplayResults.php:1783 libraries/browse_foreigners.lib.php:142
 #: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:401 libraries/display_export.lib.php:407
 #: libraries/display_import.lib.php:397 libraries/index.lib.php:42
@@ -509,9 +509,9 @@ msgstr "Dodaj geometriju"
 #: libraries/rte/rte_routines.lib.php:1667
 #: libraries/rte/rte_triggers.lib.php:398 libraries/server_bin_log.lib.php:64
 #: libraries/server_privileges.lib.php:710
-#: libraries/server_privileges.lib.php:2338
-#: libraries/server_privileges.lib.php:3109
-#: libraries/server_privileges.lib.php:3719
+#: libraries/server_privileges.lib.php:2343
+#: libraries/server_privileges.lib.php:3114
+#: libraries/server_privileges.lib.php:3724
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:429
 #: libraries/tracking.lib.php:536 libraries/tracking.lib.php:656
@@ -654,7 +654,7 @@ msgstr ""
 
 #: import_status.php:111 js/messages.php:378 libraries/Util.php:797
 #: libraries/export.lib.php:523
-#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:263
+#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:259
 msgid "Back"
 msgstr "Nazad"
 
@@ -679,8 +679,8 @@ msgid "General settings"
 msgstr "Opšta podešavanja"
 
 #: index.php:189 js/messages.php:525
-#: libraries/display_change_password.lib.php:52
-#: libraries/display_change_password.lib.php:55 user_password.php:257
+#: libraries/display_change_password.lib.php:54
+#: libraries/display_change_password.lib.php:57 user_password.php:253
 msgid "Change password"
 msgstr "Promeni lozinku"
 
@@ -1192,12 +1192,12 @@ msgstr "Ime domaćina je prazno!"
 msgid "The user name is empty!"
 msgstr "Ime korisnika nije uneto!"
 
-#: js/messages.php:123 libraries/server_privileges.lib.php:2046
+#: js/messages.php:123 libraries/server_privileges.lib.php:2047
 #: user_password.php:116
 msgid "The password is empty!"
 msgstr "Lozinka je prazna!"
 
-#: js/messages.php:124 libraries/server_privileges.lib.php:2044
+#: js/messages.php:124 libraries/server_privileges.lib.php:2045
 #: user_password.php:119
 msgid "The passwords aren't the same!"
 msgstr "Lozinke nisu identične!"
@@ -1430,7 +1430,7 @@ msgstr "Dodaj grafikon na grid"
 msgid "Please add at least one variable to the series!"
 msgstr "Molimo vas da dodate bar jednu promenljivu u seriju podataka"
 
-#: js/messages.php:189 libraries/DisplayResults.php:1492
+#: js/messages.php:189 libraries/DisplayResults.php:1477
 #: libraries/config.values.php:69 libraries/display_export.lib.php:693
 #: libraries/plugins/export/ExportSql.php:2151
 #: libraries/plugins/schema/SchemaPdf.php:101
@@ -1943,15 +1943,15 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definicija uskladištene funkcije mora imati RETURN iskaz!"
 
 #: js/messages.php:334 libraries/DisplayResults.php:4832
-#: libraries/DisplayResults.php:5090 libraries/Menu.php:347
+#: libraries/DisplayResults.php:5091 libraries/Menu.php:347
 #: libraries/Menu.php:448 libraries/Menu.php:574 libraries/Util.php:3709
 #: libraries/Util.php:3710 libraries/Util.php:4328 libraries/Util.php:4343
 #: libraries/Util.php:4360 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:148
-#: libraries/server_privileges.lib.php:2443
-#: libraries/server_privileges.lib.php:2522
-#: libraries/server_privileges.lib.php:2868
-#: libraries/server_privileges.lib.php:3527
+#: libraries/server_privileges.lib.php:2448
+#: libraries/server_privileges.lib.php:2527
+#: libraries/server_privileges.lib.php:2873
+#: libraries/server_privileges.lib.php:3532
 #: libraries/server_status_monitor.lib.php:321 prefs_manage.php:306
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
@@ -1998,7 +1998,7 @@ msgid "Show query box"
 msgstr "Prikažiokvir sa upitima"
 
 #: js/messages.php:349 libraries/Console.php:88 libraries/Console.php:214
-#: libraries/DisplayResults.php:3472 libraries/DisplayResults.php:4816
+#: libraries/DisplayResults.php:3457 libraries/DisplayResults.php:4816
 #: libraries/Index.php:721 libraries/Util.php:727 libraries/Util.php:1238
 #: libraries/Util.php:3707 libraries/Util.php:3708
 #: libraries/central_columns.lib.php:852
@@ -2011,7 +2011,7 @@ msgid "Edit"
 msgstr "Promeni"
 
 #: js/messages.php:350 libraries/Console.php:89 libraries/DbSearch.php:360
-#: libraries/DisplayResults.php:3541 libraries/DisplayResults.php:4800
+#: libraries/DisplayResults.php:3526 libraries/DisplayResults.php:4800
 #: libraries/central_columns.lib.php:854
 #: libraries/central_columns.lib.php:1200 libraries/display_export.lib.php:227
 #: libraries/server_user_groups.lib.php:129
@@ -2021,8 +2021,8 @@ msgstr "Promeni"
 msgid "Delete"
 msgstr "Obriši"
 
-#: js/messages.php:351 libraries/DisplayResults.php:914
-#: libraries/DisplayResults.php:922
+#: js/messages.php:351 libraries/DisplayResults.php:915
+#: libraries/DisplayResults.php:923
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nije ispravan broj reda."
@@ -2303,7 +2303,7 @@ msgstr "Sadržaj tačke podataka"
 msgid "Ignore"
 msgstr "Ignoriši"
 
-#: js/messages.php:432 libraries/DisplayResults.php:3475
+#: js/messages.php:432 libraries/DisplayResults.php:3460
 #: libraries/DisplayResults.php:4821
 msgid "Copy"
 msgstr "Kopiraj"
@@ -2320,7 +2320,7 @@ msgstr "Linija teksta"
 msgid "Polygon"
 msgstr "Poligon"
 
-#: js/messages.php:439 libraries/DisplayResults.php:1782
+#: js/messages.php:439 libraries/DisplayResults.php:1767
 msgid "Geometry"
 msgstr "Geometrija"
 
@@ -2509,10 +2509,10 @@ msgstr "Kopiraj ime kolone"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Kliknite strelici na dole<br />da bi ste izmenili vidljivost kolone"
 
-#: js/messages.php:492 libraries/DisplayResults.php:1018
+#: js/messages.php:492 libraries/DisplayResults.php:1022
 #: libraries/browse_foreigners.lib.php:290
 #: libraries/browse_foreigners.lib.php:343
-#: libraries/server_privileges.lib.php:3784
+#: libraries/server_privileges.lib.php:3789
 msgid "Show all"
 msgstr "Prikaži sve"
 
@@ -2711,7 +2711,7 @@ msgstr ", poslednja stabilna verzija:"
 msgid "up to date"
 msgstr "Ažurno"
 
-#: js/messages.php:553 libraries/DisplayResults.php:4937 view_create.php:180
+#: js/messages.php:553 libraries/DisplayResults.php:4938 view_create.php:180
 msgid "Create view"
 msgstr "Napravi pogled"
 
@@ -3273,10 +3273,10 @@ msgstr "podupit"
 #: libraries/plugins/export/ExportTexytext.php:131
 #: libraries/server_databases.lib.php:305
 #: libraries/server_privileges.lib.php:1269
-#: libraries/server_privileges.lib.php:3127
-#: libraries/server_privileges.lib.php:3298
-#: libraries/server_privileges.lib.php:3300
-#: libraries/server_privileges.lib.php:4537
+#: libraries/server_privileges.lib.php:3132
+#: libraries/server_privileges.lib.php:3303
+#: libraries/server_privileges.lib.php:3305
+#: libraries/server_privileges.lib.php:4542
 #: libraries/server_status_processes.lib.php:84
 #: templates/table/relation/foreign_key_row.phtml:147
 #: templates/table/relation/internal_relational_row.phtml:57
@@ -3367,7 +3367,7 @@ msgid "History"
 msgstr "SQL istorijat"
 
 #: libraries/Console.php:240 libraries/Console.php:370
-#: libraries/DisplayResults.php:1719 libraries/import.lib.php:1265
+#: libraries/DisplayResults.php:1704 libraries/import.lib.php:1265
 #: libraries/import.lib.php:1300 libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3581,10 +3581,9 @@ msgstr ""
 "Konekcija za controluser-a, onako kako je definisana u vašoj konfiguraciji, "
 "nije uspela."
 
-#: libraries/DbQbe.php:407 libraries/DisplayResults.php:1476
-#: libraries/DisplayResults.php:2264 libraries/DisplayResults.php:2270
-#: libraries/config.values.php:70 libraries/operations.lib.php:799
-#: libraries/server_databases.lib.php:309
+#: libraries/DbQbe.php:407 libraries/DisplayResults.php:2249
+#: libraries/DisplayResults.php:2255 libraries/config.values.php:70
+#: libraries/operations.lib.php:799 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337
 #: libraries/server_status_processes.lib.php:168
 #: templates/database/structure/sortable_header.phtml:21
@@ -3593,10 +3592,9 @@ msgstr ""
 msgid "Ascending"
 msgstr "Rastući"
 
-#: libraries/DbQbe.php:410 libraries/DisplayResults.php:1488
-#: libraries/DisplayResults.php:2260 libraries/DisplayResults.php:2274
-#: libraries/config.values.php:71 libraries/operations.lib.php:802
-#: libraries/server_databases.lib.php:309
+#: libraries/DbQbe.php:410 libraries/DisplayResults.php:2245
+#: libraries/DisplayResults.php:2259 libraries/config.values.php:71
+#: libraries/operations.lib.php:802 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337
 #: libraries/server_status_processes.lib.php:165
 #: templates/database/structure/sortable_header.phtml:26
@@ -3810,121 +3808,121 @@ msgstr "ništa"
 msgid "Inside column:"
 msgstr "Unutar kolone::"
 
-#: libraries/DisplayResults.php:891
+#: libraries/DisplayResults.php:892
 msgid "Save edited data"
 msgstr "Snimi izmenjene podatke"
 
-#: libraries/DisplayResults.php:897
+#: libraries/DisplayResults.php:898
 msgid "Restore column order"
 msgstr "Vrati redosled kolone"
 
-#: libraries/DisplayResults.php:945 libraries/central_columns.lib.php:663
+#: libraries/DisplayResults.php:946 libraries/central_columns.lib.php:663
 #, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
 msgstr "Filteri"
 
-#: libraries/DisplayResults.php:947 libraries/central_columns.lib.php:665
+#: libraries/DisplayResults.php:948 libraries/central_columns.lib.php:665
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "Pretraživanje baze"
 
-#: libraries/DisplayResults.php:975 libraries/Util.php:2606
+#: libraries/DisplayResults.php:979 libraries/Util.php:2606
 #: libraries/Util.php:2609
 msgctxt "First page"
 msgid "Begin"
 msgstr "Početak"
 
-#: libraries/DisplayResults.php:978 libraries/Util.php:2607
+#: libraries/DisplayResults.php:982 libraries/Util.php:2607
 #: libraries/Util.php:2610 libraries/server_bin_log.lib.php:173
 #: libraries/server_bin_log.lib.php:175
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Prethodna"
 
-#: libraries/DisplayResults.php:1044 libraries/Util.php:2638
+#: libraries/DisplayResults.php:1048 libraries/Util.php:2638
 #: libraries/Util.php:2648 libraries/server_bin_log.lib.php:207
 #: libraries/server_bin_log.lib.php:209
 msgctxt "Next page"
 msgid "Next"
 msgstr "Sledeća"
 
-#: libraries/DisplayResults.php:1074 libraries/Util.php:2639
+#: libraries/DisplayResults.php:1078 libraries/Util.php:2639
 #: libraries/Util.php:2649
 msgctxt "Last page"
 msgid "End"
 msgstr "Kraj"
 
-#: libraries/DisplayResults.php:1117
+#: libraries/DisplayResults.php:1121
 msgid "All"
 msgstr "Sve"
 
-#: libraries/DisplayResults.php:1127 libraries/display_export.lib.php:436
+#: libraries/DisplayResults.php:1131 libraries/display_export.lib.php:436
 #: templates/startAndNumberOfRowsPanel.phtml:10
 msgid "Number of rows:"
 msgstr "Broj redova:"
 
-#: libraries/DisplayResults.php:1434
+#: libraries/DisplayResults.php:1421
 msgid "Sort by key"
 msgstr "Sortiraj po ključu"
 
-#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1831
+#: libraries/DisplayResults.php:1710 libraries/DisplayResults.php:1816
 msgid "Partial texts"
 msgstr "Parcijalni tekstovi"
 
-#: libraries/DisplayResults.php:1726 libraries/DisplayResults.php:1835
+#: libraries/DisplayResults.php:1711 libraries/DisplayResults.php:1820
 msgid "Full texts"
 msgstr "Potpuni tekstovi"
 
-#: libraries/DisplayResults.php:1742
+#: libraries/DisplayResults.php:1727
 msgid "Relational key"
 msgstr "Relacioni ključ"
 
-#: libraries/DisplayResults.php:1743
+#: libraries/DisplayResults.php:1728
 #, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
 msgstr "Prikaži relacije stranih ključeva"
 
-#: libraries/DisplayResults.php:1756
+#: libraries/DisplayResults.php:1741
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1762
+#: libraries/DisplayResults.php:1747
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1774
+#: libraries/DisplayResults.php:1759
 msgid "Hide browser transformation"
 msgstr "Sakrij transformacije pregledača"
 
-#: libraries/DisplayResults.php:1783
+#: libraries/DisplayResults.php:1768
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.php:1784
+#: libraries/DisplayResults.php:1769
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.php:3517 libraries/DisplayResults.php:3532
+#: libraries/DisplayResults.php:3502 libraries/DisplayResults.php:3517
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Red je obrisan"
 
-#: libraries/DisplayResults.php:3568 libraries/DisplayResults.php:4800
+#: libraries/DisplayResults.php:3553 libraries/DisplayResults.php:4800
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
 msgstr "Obustavi"
 
-#: libraries/DisplayResults.php:4260
+#: libraries/DisplayResults.php:4245
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Može biti približno. Vidite [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.php:4330 libraries/Message.php:181
+#: libraries/DisplayResults.php:4315 libraries/Message.php:181
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:651
 #: libraries/rte/rte_routines.lib.php:1418 libraries/sql_query_form.lib.php:89
@@ -3987,25 +3985,25 @@ msgstr "Označeno:"
 msgid "Check all"
 msgstr "Označi sve"
 
-#: libraries/DisplayResults.php:4983 libraries/Header.php:378
+#: libraries/DisplayResults.php:4984 libraries/Header.php:378
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print view"
 msgstr "Za štampu"
 
-#: libraries/DisplayResults.php:5015
+#: libraries/DisplayResults.php:5016
 msgid "Query results operations"
 msgstr "Operacije na rezultatima upita"
 
-#: libraries/DisplayResults.php:5103 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5104 templates/table/chart/tbl_chart.phtml:12
 msgid "Display chart"
 msgstr "Prikaži grafikon"
 
-#: libraries/DisplayResults.php:5128
+#: libraries/DisplayResults.php:5129
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.php:5305
+#: libraries/DisplayResults.php:5306
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -4124,8 +4122,8 @@ msgstr "Indeksi"
 #: libraries/Index.php:691 libraries/central_columns.lib.php:688
 #: libraries/rte/rte_list.lib.php:76 libraries/rte/rte_list.lib.php:91
 #: libraries/rte/rte_list.lib.php:104 libraries/server_databases.lib.php:410
-#: libraries/server_privileges.lib.php:2604
-#: libraries/server_privileges.lib.php:3513
+#: libraries/server_privileges.lib.php:2609
+#: libraries/server_privileges.lib.php:3518
 #: libraries/server_user_groups.lib.php:82
 #: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:283
 #: libraries/tracking.lib.php:796 libraries/tracking.lib.php:1478
@@ -4238,10 +4236,10 @@ msgstr "Pogled"
 #: libraries/plugins/export/ExportXml.php:501
 #: libraries/rte/rte_list.lib.php:89 libraries/rte/rte_triggers.lib.php:333
 #: libraries/server_privileges.lib.php:1272
-#: libraries/server_privileges.lib.php:3145
-#: libraries/server_privileges.lib.php:3304
-#: libraries/server_privileges.lib.php:3306
-#: libraries/server_privileges.lib.php:4551 libraries/tracking.lib.php:1477
+#: libraries/server_privileges.lib.php:3150
+#: libraries/server_privileges.lib.php:3309
+#: libraries/server_privileges.lib.php:3311
+#: libraries/server_privileges.lib.php:4556 libraries/tracking.lib.php:1477
 #: libraries/tracking.lib.php:1619
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/foreign_key_row.phtml:158
@@ -4279,8 +4277,8 @@ msgstr "Novi zapis"
 
 #: libraries/Menu.php:365 libraries/Menu.php:469 libraries/Util.php:4346
 #: libraries/Util.php:4362 libraries/config.values.php:106
-#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2602
-#: libraries/server_privileges.lib.php:4426
+#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2607
+#: libraries/server_privileges.lib.php:4431
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Privilegije"
@@ -4346,7 +4344,7 @@ msgstr "Kolone tekstulanih polja"
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.php:1273
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4537
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4542
 msgid "Databases"
 msgstr "Baze"
 
@@ -8701,20 +8699,20 @@ msgstr ""
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Ne mogu da učitam dodatke za uvoz, molim proverite svoju instalaciju!"
 
-#: libraries/display_change_password.lib.php:62
+#: libraries/display_change_password.lib.php:64
 #: libraries/replication_gui.lib.php:879
 #: libraries/server_privileges.lib.php:1839
 msgid "No Password"
 msgstr "Nema lozinke"
 
-#: libraries/display_change_password.lib.php:70
+#: libraries/display_change_password.lib.php:72
 #: libraries/plugins/auth/AuthenticationCookie.php:203
 #: libraries/replication_gui.lib.php:426 libraries/replication_gui.lib.php:866
 #: libraries/server_privileges.lib.php:1815
 msgid "Password:"
 msgstr "Lozinka:"
 
-#: libraries/display_change_password.lib.php:76
+#: libraries/display_change_password.lib.php:78
 #: libraries/replication_gui.lib.php:890
 #: libraries/server_privileges.lib.php:1857
 #, fuzzy
@@ -8722,14 +8720,14 @@ msgstr "Lozinka:"
 msgid "Re-type:"
 msgstr "Ponovite unos"
 
-#: libraries/display_change_password.lib.php:84
+#: libraries/display_change_password.lib.php:109
+#: libraries/display_change_password.lib.php:138
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
 msgstr "Heširanje lozinke"
 
-#: libraries/display_change_password.lib.php:112
-#: libraries/display_change_password.lib.php:126
+#: libraries/display_change_password.lib.php:120
 #: libraries/server_privileges.lib.php:1903
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -12125,8 +12123,8 @@ msgstr "Ime korisnika"
 #: libraries/replication_gui.lib.php:820
 #: libraries/server_privileges.lib.php:1628
 #: libraries/server_privileges.lib.php:1660
-#: libraries/server_privileges.lib.php:2599
-#: libraries/server_privileges.lib.php:3500
+#: libraries/server_privileges.lib.php:2604
+#: libraries/server_privileges.lib.php:3505
 msgid "User name"
 msgstr "Ime korisnika"
 
@@ -12134,7 +12132,7 @@ msgstr "Ime korisnika"
 #: libraries/replication_gui.lib.php:886
 #: libraries/server_privileges.lib.php:1819
 #: libraries/server_privileges.lib.php:1847
-#: libraries/server_privileges.lib.php:3502
+#: libraries/server_privileges.lib.php:3507
 msgid "Password"
 msgstr "Lozinka"
 
@@ -12970,7 +12968,7 @@ msgstr "Nema"
 
 #: libraries/server_privileges.lib.php:532
 #: libraries/server_privileges.lib.php:559
-#: libraries/server_privileges.lib.php:3509
+#: libraries/server_privileges.lib.php:3514
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr ""
@@ -13039,9 +13037,9 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Ograničava broj istovremenih konekcija koje korisnik može da ima."
 
 #: libraries/server_privileges.lib.php:1008
-#: libraries/server_privileges.lib.php:3310
-#: libraries/server_privileges.lib.php:3312
-#: libraries/server_privileges.lib.php:4566
+#: libraries/server_privileges.lib.php:3315
+#: libraries/server_privileges.lib.php:3317
+#: libraries/server_privileges.lib.php:4571
 #: templates/privileges/edit_routine_privileges.phtml:11
 #, fuzzy
 #| msgid "Routines"
@@ -13070,14 +13068,14 @@ msgstr "Dozvoljava izvršavanje sačuvanih rutina."
 
 #: libraries/server_privileges.lib.php:1102
 #: libraries/server_privileges.lib.php:1271
-#: libraries/server_privileges.lib.php:3305
+#: libraries/server_privileges.lib.php:3310
 #: templates/privileges/privileges_summary.phtml:19
 msgid "Table-specific privileges"
 msgstr "Privilegije vezane za tabele"
 
 #: libraries/server_privileges.lib.php:1105
 #: libraries/server_privileges.lib.php:1281
-#: libraries/server_privileges.lib.php:3505
+#: libraries/server_privileges.lib.php:3510
 #: templates/privileges/edit_routine_privileges.phtml:16
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
@@ -13089,7 +13087,7 @@ msgid "Administration"
 msgstr "Administracija"
 
 #: libraries/server_privileges.lib.php:1265
-#: libraries/server_privileges.lib.php:3503
+#: libraries/server_privileges.lib.php:3508
 msgid "Global privileges"
 msgstr "Globalne privilegije"
 
@@ -13100,7 +13098,7 @@ msgid "Global"
 msgstr "globalno"
 
 #: libraries/server_privileges.lib.php:1268
-#: libraries/server_privileges.lib.php:3299
+#: libraries/server_privileges.lib.php:3304
 msgid "Database-specific privileges"
 msgstr "Privilegije vezane za bazu"
 
@@ -13127,11 +13125,11 @@ msgstr "Promeni lozinku"
 #: libraries/server_privileges.lib.php:1566
 #, fuzzy
 #| msgid "Authentication"
-msgid "MySQL Native Authentication"
+msgid "Native MySQL Authentication"
 msgstr "Autentikacija"
 
 #: libraries/server_privileges.lib.php:1620
-#: libraries/server_privileges.lib.php:3091
+#: libraries/server_privileges.lib.php:3096
 msgid "Login Information"
 msgstr "Podaci o prijavi"
 
@@ -13156,8 +13154,8 @@ msgstr "Ime korisnika"
 
 #: libraries/server_privileges.lib.php:1694
 #: libraries/server_privileges.lib.php:1796
-#: libraries/server_privileges.lib.php:2600
-#: libraries/server_privileges.lib.php:3501
+#: libraries/server_privileges.lib.php:2605
+#: libraries/server_privileges.lib.php:3506
 #, fuzzy
 #| msgid "Log name"
 msgid "Host name"
@@ -13179,241 +13177,241 @@ msgstr "Autentikacija"
 msgid "Password Hashing Method"
 msgstr "Heširanje lozinke"
 
-#: libraries/server_privileges.lib.php:2156
+#: libraries/server_privileges.lib.php:2161
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Lozinka za %s je uspešno promenjena."
 
-#: libraries/server_privileges.lib.php:2203
+#: libraries/server_privileges.lib.php:2208
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Zabranili ste privilegije za %s."
 
-#: libraries/server_privileges.lib.php:2291
-#: libraries/server_privileges.lib.php:4495
+#: libraries/server_privileges.lib.php:2296
+#: libraries/server_privileges.lib.php:4500
 #, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "Dodaj korisnika"
 
-#: libraries/server_privileges.lib.php:2300
+#: libraries/server_privileges.lib.php:2305
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
 msgstr "Baza za korisnika"
 
-#: libraries/server_privileges.lib.php:2304
+#: libraries/server_privileges.lib.php:2309
 msgid "Create database with same name and grant all privileges."
 msgstr "Napravi bazu sa istim imenom i dodaj sve privilegije."
 
-#: libraries/server_privileges.lib.php:2310
+#: libraries/server_privileges.lib.php:2315
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Daj sve privilegije na imenu sa džokerima (korisničko_ime\\_%)."
 
-#: libraries/server_privileges.lib.php:2319
+#: libraries/server_privileges.lib.php:2324
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr "Dodeli sva prava pristupa za bazu \"%s\"."
 
-#: libraries/server_privileges.lib.php:2420
-#: libraries/server_privileges.lib.php:2486
+#: libraries/server_privileges.lib.php:2425
+#: libraries/server_privileges.lib.php:2491
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Korisnici koji imaju pristup \"%s\""
 
-#: libraries/server_privileges.lib.php:2455
+#: libraries/server_privileges.lib.php:2460
 msgid "User has been added."
 msgstr "Korisnik je dodat."
 
-#: libraries/server_privileges.lib.php:2603
-#: libraries/server_privileges.lib.php:3511
+#: libraries/server_privileges.lib.php:2608
+#: libraries/server_privileges.lib.php:3516
 #: templates/privileges/privileges_summary.phtml:17
 msgid "Grant"
 msgstr "Omogući"
 
-#: libraries/server_privileges.lib.php:2618
+#: libraries/server_privileges.lib.php:2623
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2638
-#: libraries/server_privileges.lib.php:3979
+#: libraries/server_privileges.lib.php:2643
+#: libraries/server_privileges.lib.php:3984
 msgid "No user found."
 msgstr "Ni jedan korisnik nije pronađen."
 
-#: libraries/server_privileges.lib.php:2669
-#: libraries/server_privileges.lib.php:2956
-#: libraries/server_privileges.lib.php:3587
+#: libraries/server_privileges.lib.php:2674
+#: libraries/server_privileges.lib.php:2961
+#: libraries/server_privileges.lib.php:3592
 msgid "Any"
 msgstr "Bilo koji"
 
-#: libraries/server_privileges.lib.php:2720
+#: libraries/server_privileges.lib.php:2725
 msgid "global"
 msgstr "globalno"
 
-#: libraries/server_privileges.lib.php:2723
+#: libraries/server_privileges.lib.php:2728
 msgid "database-specific"
 msgstr "Specifično za bazu"
 
-#: libraries/server_privileges.lib.php:2725
+#: libraries/server_privileges.lib.php:2730
 msgid "wildcard"
 msgstr "džoker"
 
-#: libraries/server_privileges.lib.php:2731
+#: libraries/server_privileges.lib.php:2736
 #, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
 msgstr "Specifično za bazu"
 
-#: libraries/server_privileges.lib.php:2862
+#: libraries/server_privileges.lib.php:2867
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "Promeni privilegije"
 
-#: libraries/server_privileges.lib.php:2865
+#: libraries/server_privileges.lib.php:2870
 msgid "Revoke"
 msgstr "Zabrani"
 
-#: libraries/server_privileges.lib.php:2889
+#: libraries/server_privileges.lib.php:2894
 #, fuzzy
 #| msgid "Edit next row"
 msgid "Edit user group"
 msgstr "Uredi sledeći red"
 
-#: libraries/server_privileges.lib.php:3070
+#: libraries/server_privileges.lib.php:3075
 msgid "… keep the old one."
 msgstr "… sačuvaj stare."
 
-#: libraries/server_privileges.lib.php:3071
+#: libraries/server_privileges.lib.php:3076
 msgid "… delete the old one from the user tables."
 msgstr "… obriši stare iz tabela korisnika."
 
-#: libraries/server_privileges.lib.php:3073
+#: libraries/server_privileges.lib.php:3078
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… obustavi sve privilegije starog korisnika i zatim ga obriši."
 
-#: libraries/server_privileges.lib.php:3077
+#: libraries/server_privileges.lib.php:3082
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "… obriši starog iz tabele korisnika i zatim ponovo učitaj privilegije."
 
-#: libraries/server_privileges.lib.php:3092
+#: libraries/server_privileges.lib.php:3097
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "Promeni informacije o prijavi / Kopiraj korisnika"
 
-#: libraries/server_privileges.lib.php:3098
+#: libraries/server_privileges.lib.php:3103
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Napravi novog korisnika sa istim privilegijama i …"
 
-#: libraries/server_privileges.lib.php:3311
+#: libraries/server_privileges.lib.php:3316
 #: templates/privileges/edit_routine_privileges.phtml:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Privilegije vezane za kolone"
 
-#: libraries/server_privileges.lib.php:3688
+#: libraries/server_privileges.lib.php:3693
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "Ukloni izabrane korisnike"
 
-#: libraries/server_privileges.lib.php:3694
+#: libraries/server_privileges.lib.php:3699
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Obustavi sve aktivne privilegije korisnika i zatim ih obriši."
 
-#: libraries/server_privileges.lib.php:3702
-#: libraries/server_privileges.lib.php:3708
-#: libraries/server_privileges.lib.php:3711
+#: libraries/server_privileges.lib.php:3707
+#: libraries/server_privileges.lib.php:3713
+#: libraries/server_privileges.lib.php:3716
 msgid "Drop the databases that have the same names as the users."
 msgstr "Odbaci baze koje se zovu isto kao korisnici."
 
-#: libraries/server_privileges.lib.php:3852
+#: libraries/server_privileges.lib.php:3857
 msgid "No users selected for deleting!"
 msgstr "Nijedan korisnik nije odabran za brisanje!"
 
-#: libraries/server_privileges.lib.php:3855
+#: libraries/server_privileges.lib.php:3860
 msgid "Reloading the privileges"
 msgstr "Ponovo učitavam privilegije"
 
-#: libraries/server_privileges.lib.php:3874
+#: libraries/server_privileges.lib.php:3879
 msgid "The selected users have been deleted successfully."
 msgstr "Izabrani korisnici su uspešno obrisani."
 
-#: libraries/server_privileges.lib.php:3949
+#: libraries/server_privileges.lib.php:3954
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ažurirali ste privilegije za %s."
 
-#: libraries/server_privileges.lib.php:4039
+#: libraries/server_privileges.lib.php:4044
 #, php-format
 msgid "Deleting %s"
 msgstr "Brišem %s"
 
-#: libraries/server_privileges.lib.php:4069
+#: libraries/server_privileges.lib.php:4074
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegije su uspešno ponovo učitane."
 
-#: libraries/server_privileges.lib.php:4170
+#: libraries/server_privileges.lib.php:4175
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Korisnik %s već postoji!"
 
-#: libraries/server_privileges.lib.php:4437
+#: libraries/server_privileges.lib.php:4442
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilegije"
 
-#: libraries/server_privileges.lib.php:4446
+#: libraries/server_privileges.lib.php:4451
 #: libraries/server_status_processes.lib.php:76
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "Korisnik"
 
-#: libraries/server_privileges.lib.php:4487
+#: libraries/server_privileges.lib.php:4492
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4516
+#: libraries/server_privileges.lib.php:4521
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
 msgstr "Promeni privilegije"
 
-#: libraries/server_privileges.lib.php:4517
+#: libraries/server_privileges.lib.php:4522
 #, fuzzy
 #| msgid "Users"
 msgid "User account"
 msgstr "Korisnici"
 
-#: libraries/server_privileges.lib.php:4591
+#: libraries/server_privileges.lib.php:4596
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4611 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4616 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "Pregled korisnika"
 
-#: libraries/server_privileges.lib.php:4679
+#: libraries/server_privileges.lib.php:4684
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4720
+#: libraries/server_privileges.lib.php:4725
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -13426,7 +13424,7 @@ msgstr ""
 "server koristi ako su vršene ručne izmene. U tom slučaju %sponovo učitajte "
 "privilegije%s pre nego što nastavite."
 
-#: libraries/server_privileges.lib.php:4739
+#: libraries/server_privileges.lib.php:4744
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13445,11 +13443,11 @@ msgstr ""
 "server koristi ako su vršene ručne izmene. U tom slučaju %sponovo učitajte "
 "privilegije%s pre nego što nastavite."
 
-#: libraries/server_privileges.lib.php:4789
+#: libraries/server_privileges.lib.php:4794
 msgid "The selected user was not found in the privilege table."
 msgstr "Izabrani korisnik nije pronađen u tabeli privilegija."
 
-#: libraries/server_privileges.lib.php:5010
+#: libraries/server_privileges.lib.php:5014
 msgid "You have added a new user."
 msgstr "Dodali ste novog korisnika."
 
@@ -17747,6 +17745,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je postavljeno na 0"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "MySQL Native Authentication"
+#~ msgstr "Autentikacija"
 
 #, fuzzy
 #~| msgid "Generate password"
