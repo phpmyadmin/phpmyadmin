@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2014-11-05 10:33+0200\n"
+"PO-Revision-Date: 2015-10-15 11:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/mk/>\n"
+"Language-Team: Macedonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -43,14 +43,13 @@ msgstr "Базата на податоци %1$s е креирана."
 
 #: db_datadict.php:57 libraries/operations.lib.php:40
 msgid "Database comment"
-msgstr "Коментар на базата на податоци:"
+msgstr "Коментар на базата на податоци"
 
 #: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:601
 #: templates/columns_definitions/column_definitions_form.phtml:84
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Коментар на табелата"
+msgstr "Коментар на табелата:"
 
 #: db_datadict.php:113 libraries/Index.php:697
 #: libraries/insert_edit.lib.php:1568
@@ -10281,7 +10280,7 @@ msgstr "(по едно поле)"
 
 #: libraries/operations.lib.php:831
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Премести ја табелата во (база<b>.</b>табела):"
+msgstr "Премести ја табелата во (база<b>.</b>табела)"
 
 #: libraries/operations.lib.php:941
 msgid "Rename table to"
@@ -10305,7 +10304,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1255
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Копирај ја табелата во (база<b>.</b>табела):"
+msgstr "Копирај ја табелата во (база<b>.</b>табела)"
 
 #: libraries/operations.lib.php:1332
 msgid "Switch to copied table"
@@ -18721,10 +18720,6 @@ msgstr ""
 #~ "страница"
 
 #~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "нема"
-
-#~ msgctxt ""
 #~ msgid "None"
 #~ msgstr "нема"
 
