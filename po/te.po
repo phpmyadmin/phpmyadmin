@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2014-02-27 10:56+0200\n"
+"PO-Revision-Date: 2015-10-15 11:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"te/>\n"
+"Language-Team: Telugu "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/te/>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -46,7 +46,7 @@ msgstr "%1$s డేటాబేసు సృష్టించబడింది
 
 #: db_datadict.php:57 libraries/operations.lib.php:40
 msgid "Database comment"
-msgstr "డేటాబేస్ వ్యాఖ్య:"
+msgstr "డేటాబేస్ వ్యాఖ్య"
 
 #: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:601
 #: templates/columns_definitions/column_definitions_form.phtml:84
