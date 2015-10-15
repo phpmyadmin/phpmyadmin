@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-15 14:30-0400\n"
-"PO-Revision-Date: 2015-10-15 23:49+0200\n"
+"PO-Revision-Date: 2015-10-15 23:50+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
@@ -9244,7 +9244,7 @@ msgstr "večjezično"
 
 #: libraries/mysql_charsets.lib.php:263
 msgid "Vietnamese"
-msgstr "vietnamščina"
+msgstr "Vietnamsko"
 
 #: libraries/mysql_charsets.lib.php:291
 msgid "Central European"
