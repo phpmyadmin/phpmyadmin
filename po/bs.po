@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2014-03-31 14:23+0200\n"
+"PO-Revision-Date: 2015-10-15 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bosnian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bs/>\n"
+"Language-Team: Bosnian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/bs/>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -44,7 +44,7 @@ msgstr "Baza %1$s je kreirana."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Komentar baze:"
+msgstr "Komentar baze"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -10225,7 +10225,7 @@ msgstr "(po jednom polju)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Pomjeri tabelu u (baza<b>.</b>tabela):"
+msgstr "Pomjeri tabelu u (baza<b>.</b>tabela)"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -10249,7 +10249,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopiraj tabelu u (baza<b>.</b>tabela):"
+msgstr "Kopiraj tabelu u (baza<b>.</b>tabela)"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
@@ -18304,10 +18304,6 @@ msgstr ""
 #~ msgstr "Faktor umanjenja je premali da bi shema stala na jednu stranu"
 
 #~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "nema"
-
-#~ msgctxt ""
 #~ msgid "None"
 #~ msgstr "nema"
 
