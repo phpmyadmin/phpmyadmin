@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-10-13 23:21+0200\n"
+"PO-Revision-Date: 2015-10-15 18:12+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/it/>\n"
@@ -11357,11 +11357,11 @@ msgstr "Gestione lista Centrale dei campi"
 
 #: libraries/relation.lib.php:327
 msgid "Remembering Designer Settings"
-msgstr "Ricordando le impostazioni del Designer"
+msgstr "Memorizzazione Impostazioni Designer"
 
 #: libraries/relation.lib.php:338
 msgid "Saving export templates"
-msgstr "Salvattaggio template esportazione"
+msgstr "Salvataggio template esportazione"
 
 #: libraries/relation.lib.php:346
 msgid "Quick steps to setup advanced features:"
