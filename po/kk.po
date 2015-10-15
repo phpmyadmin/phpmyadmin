@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-13 11:34-0400\n"
+"POT-Creation-Date: 2015-10-15 14:29-0400\n"
 "PO-Revision-Date: 2015-10-15 11:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Kazakh "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/kk/>\n"
+"Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/4-5/kk/"
+">\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,7 +101,7 @@ msgstr "Бағана"
 #: libraries/rte/rte_routines.lib.php:893
 #: libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_routines.lib.php:1584
-#: libraries/server_privileges.lib.php:2499 libraries/tracking.lib.php:880
+#: libraries/server_privileges.lib.php:2504 libraries/tracking.lib.php:880
 #: libraries/tracking.lib.php:972
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -192,13 +192,13 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:756
 #: libraries/plugins/export/ExportTexytext.class.php:568
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1077
-#: libraries/server_privileges.lib.php:2676
-#: libraries/server_privileges.lib.php:2860
-#: libraries/server_privileges.lib.php:2880
-#: libraries/server_privileges.lib.php:3210
-#: libraries/server_privileges.lib.php:3216
-#: libraries/server_privileges.lib.php:3574
-#: libraries/server_privileges.lib.php:3597 libraries/tracking.lib.php:933
+#: libraries/server_privileges.lib.php:2681
+#: libraries/server_privileges.lib.php:2865
+#: libraries/server_privileges.lib.php:2885
+#: libraries/server_privileges.lib.php:3215
+#: libraries/server_privileges.lib.php:3221
+#: libraries/server_privileges.lib.php:3579
+#: libraries/server_privileges.lib.php:3602 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1010 libraries/tracking.lib.php:1015
 #: prefs_manage.php:140 templates/prefs_autoload.phtml:15
 #: templates/table/structure/table_structure_row.phtml:24
@@ -225,13 +225,13 @@ msgstr "Жоқ"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1078
 #: libraries/server_databases.lib.php:475
 #: libraries/server_databases.lib.php:485
-#: libraries/server_privileges.lib.php:2676
-#: libraries/server_privileges.lib.php:2857
-#: libraries/server_privileges.lib.php:2878
-#: libraries/server_privileges.lib.php:3209
+#: libraries/server_privileges.lib.php:2681
+#: libraries/server_privileges.lib.php:2862
+#: libraries/server_privileges.lib.php:2883
 #: libraries/server_privileges.lib.php:3214
-#: libraries/server_privileges.lib.php:3571
-#: libraries/server_privileges.lib.php:3597 libraries/tracking.lib.php:933
+#: libraries/server_privileges.lib.php:3219
+#: libraries/server_privileges.lib.php:3576
+#: libraries/server_privileges.lib.php:3602 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1008 libraries/tracking.lib.php:1013
 #: prefs_manage.php:138 templates/prefs_autoload.phtml:14
 #: templates/table/structure/table_structure_row.phtml:24
@@ -497,7 +497,7 @@ msgstr "Геометрияны қосу"
 #: gis_data_editor.php:409 js/messages.php:293
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1802
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:131
+#: libraries/display_change_password.lib.php:145
 #: libraries/display_export.lib.php:399 libraries/display_export.lib.php:405
 #: libraries/display_import.lib.php:394 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
@@ -515,10 +515,10 @@ msgstr "Геометрияны қосу"
 #: libraries/rte/rte_routines.lib.php:1672
 #: libraries/rte/rte_triggers.lib.php:396 libraries/server_bin_log.lib.php:61
 #: libraries/server_privileges.lib.php:705
-#: libraries/server_privileges.lib.php:2236
-#: libraries/server_privileges.lib.php:3002
-#: libraries/server_privileges.lib.php:3677
-#: libraries/server_privileges.lib.php:4779
+#: libraries/server_privileges.lib.php:2241
+#: libraries/server_privileges.lib.php:3007
+#: libraries/server_privileges.lib.php:3682
+#: libraries/server_privileges.lib.php:4783
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:429
 #: libraries/tracking.lib.php:533 libraries/tracking.lib.php:653
@@ -652,7 +652,7 @@ msgstr ""
 #: import_status.php:112 js/messages.php:379 libraries/Util.class.php:780
 #: libraries/export.lib.php:518
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:298
-#: user_password.php:263
+#: user_password.php:259
 msgid "Back"
 msgstr "Артқа"
 
@@ -675,8 +675,8 @@ msgid "General settings"
 msgstr "Баптауын өзгерту"
 
 #: index.php:191 js/messages.php:526
-#: libraries/display_change_password.lib.php:50
-#: libraries/display_change_password.lib.php:53 user_password.php:257
+#: libraries/display_change_password.lib.php:52
+#: libraries/display_change_password.lib.php:55 user_password.php:253
 msgid "Change password"
 msgstr ""
 
@@ -1142,12 +1142,12 @@ msgstr "Хост аты бос тұр!"
 msgid "The user name is empty!"
 msgstr "Қолданушы аты бос тұр!"
 
-#: js/messages.php:124 libraries/server_privileges.lib.php:1943
+#: js/messages.php:124 libraries/server_privileges.lib.php:1944
 #: user_password.php:116
 msgid "The password is empty!"
 msgstr "Құпия сөз бос тұр!"
 
-#: js/messages.php:125 libraries/server_privileges.lib.php:1941
+#: js/messages.php:125 libraries/server_privileges.lib.php:1942
 #: user_password.php:119
 msgid "The passwords aren't the same!"
 msgstr "Құпия сөздер бір-біріне ұқсамайды!"
@@ -1374,7 +1374,7 @@ msgstr "Тәңiр жарылқасын, ең болмаса топтамаға �
 #: libraries/config.values.php:69 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.class.php:2090
 #: libraries/plugins/schema/SchemaPdf.class.php:102
-#: libraries/server_privileges.lib.php:3177
+#: libraries/server_privileges.lib.php:3182
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:308
 #: templates/columns_definitions/transformation.phtml:4
@@ -1863,10 +1863,10 @@ msgstr ""
 #: libraries/Util.class.php:4276 libraries/Util.class.php:4291
 #: libraries/Util.class.php:4308 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:146
-#: libraries/server_privileges.lib.php:2341
-#: libraries/server_privileges.lib.php:2420
-#: libraries/server_privileges.lib.php:2762
-#: libraries/server_privileges.lib.php:3486
+#: libraries/server_privileges.lib.php:2346
+#: libraries/server_privileges.lib.php:2425
+#: libraries/server_privileges.lib.php:2767
+#: libraries/server_privileges.lib.php:3491
 #: libraries/server_status_monitor.lib.php:322 prefs_manage.php:303
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
@@ -2391,7 +2391,7 @@ msgstr ""
 #: js/messages.php:493 libraries/DisplayResults.class.php:1017
 #: libraries/browse_foreigners.lib.php:290
 #: libraries/browse_foreigners.lib.php:343
-#: libraries/server_privileges.lib.php:3742
+#: libraries/server_privileges.lib.php:3747
 msgid "Show all"
 msgstr "Бәрін көрсету"
 
@@ -3115,10 +3115,10 @@ msgstr ""
 #: libraries/plugins/export/ExportTexytext.class.php:133
 #: libraries/server_databases.lib.php:303
 #: libraries/server_privileges.lib.php:1166
-#: libraries/server_privileges.lib.php:3020
-#: libraries/server_privileges.lib.php:3274
-#: libraries/server_privileges.lib.php:3286
-#: libraries/server_privileges.lib.php:4484
+#: libraries/server_privileges.lib.php:3025
+#: libraries/server_privileges.lib.php:3279
+#: libraries/server_privileges.lib.php:3291
+#: libraries/server_privileges.lib.php:4489
 #: libraries/server_status_processes.lib.php:80
 #: templates/table/relation/foreign_key_row.phtml:165
 #: templates/table/relation/internal_relational_row.phtml:55
@@ -3944,9 +3944,9 @@ msgstr "Индекстер"
 #: libraries/Index.class.php:693 libraries/central_columns.lib.php:687
 #: libraries/rte/rte_list.lib.php:74 libraries/rte/rte_list.lib.php:89
 #: libraries/rte/rte_list.lib.php:102 libraries/server_databases.lib.php:409
-#: libraries/server_privileges.lib.php:2502
-#: libraries/server_privileges.lib.php:3296
-#: libraries/server_privileges.lib.php:3472
+#: libraries/server_privileges.lib.php:2507
+#: libraries/server_privileges.lib.php:3301
+#: libraries/server_privileges.lib.php:3477
 #: libraries/server_user_groups.lib.php:82
 #: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793 libraries/tracking.lib.php:1475
@@ -4057,10 +4057,10 @@ msgstr "Түр"
 #: libraries/plugins/export/ExportXml.class.php:499
 #: libraries/rte/rte_list.lib.php:87 libraries/rte/rte_triggers.lib.php:331
 #: libraries/server_privileges.lib.php:1169
-#: libraries/server_privileges.lib.php:3038
-#: libraries/server_privileges.lib.php:3275
-#: libraries/server_privileges.lib.php:3286
-#: libraries/server_privileges.lib.php:4498 libraries/tracking.lib.php:1474
+#: libraries/server_privileges.lib.php:3043
+#: libraries/server_privileges.lib.php:3280
+#: libraries/server_privileges.lib.php:3291
+#: libraries/server_privileges.lib.php:4503 libraries/tracking.lib.php:1474
 #: libraries/tracking.lib.php:1616
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/foreign_key_row.phtml:176
@@ -4103,9 +4103,9 @@ msgstr ""
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:467
 #: libraries/Util.class.php:4294 libraries/Util.class.php:4310
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
-#: libraries/server_privileges.lib.php:2500
-#: libraries/server_privileges.lib.php:3288
-#: libraries/server_privileges.lib.php:4373
+#: libraries/server_privileges.lib.php:2505
+#: libraries/server_privileges.lib.php:3293
+#: libraries/server_privileges.lib.php:4378
 msgid "Privileges"
 msgstr ""
 
@@ -4173,7 +4173,7 @@ msgstr "Бағаналар қосу"
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.class.php:1240
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4484
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4489
 msgid "Databases"
 msgstr "Дерекқоры"
 
@@ -8084,32 +8084,33 @@ msgstr ""
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:60
+#: libraries/display_change_password.lib.php:62
 #: libraries/replication_gui.lib.php:877
 #: libraries/server_privileges.lib.php:1736
 msgid "No Password"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:68
+#: libraries/display_change_password.lib.php:70
 #: libraries/plugins/auth/AuthenticationCookie.class.php:203
 #: libraries/replication_gui.lib.php:424 libraries/replication_gui.lib.php:864
 #: libraries/server_privileges.lib.php:1712
 msgid "Password:"
 msgstr "Құпия сөз:"
 
-#: libraries/display_change_password.lib.php:74
+#: libraries/display_change_password.lib.php:76
 #: libraries/replication_gui.lib.php:888
 #: libraries/server_privileges.lib.php:1754
 msgid "Re-type:"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:82
+#: libraries/display_change_password.lib.php:107
+#: libraries/display_change_password.lib.php:136
 #, fuzzy
 #| msgid "Password:"
 msgid "Password Hashing:"
 msgstr "Құпия сөз:"
 
-#: libraries/display_change_password.lib.php:110
+#: libraries/display_change_password.lib.php:118
 #: libraries/server_privileges.lib.php:1800
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
@@ -11320,8 +11321,8 @@ msgstr "Қолданушы:"
 #: libraries/replication_gui.lib.php:818
 #: libraries/server_privileges.lib.php:1525
 #: libraries/server_privileges.lib.php:1557
-#: libraries/server_privileges.lib.php:2497
-#: libraries/server_privileges.lib.php:3459
+#: libraries/server_privileges.lib.php:2502
+#: libraries/server_privileges.lib.php:3464
 msgid "User name"
 msgstr ""
 
@@ -11329,7 +11330,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:884
 #: libraries/server_privileges.lib.php:1716
 #: libraries/server_privileges.lib.php:1744
-#: libraries/server_privileges.lib.php:3461
+#: libraries/server_privileges.lib.php:3466
 msgid "Password"
 msgstr ""
 
@@ -12139,7 +12140,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:527
 #: libraries/server_privileges.lib.php:554
-#: libraries/server_privileges.lib.php:3468
+#: libraries/server_privileges.lib.php:3473
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr ""
@@ -12206,14 +12207,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:999
 #: libraries/server_privileges.lib.php:1168
-#: libraries/server_privileges.lib.php:3280
-#: libraries/server_privileges.lib.php:3292
+#: libraries/server_privileges.lib.php:3285
+#: libraries/server_privileges.lib.php:3297
 msgid "Table-specific privileges"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:1178
-#: libraries/server_privileges.lib.php:3464
+#: libraries/server_privileges.lib.php:3469
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
 
@@ -12222,7 +12223,7 @@ msgid "Administration"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1162
-#: libraries/server_privileges.lib.php:3462
+#: libraries/server_privileges.lib.php:3467
 msgid "Global privileges"
 msgstr ""
 
@@ -12231,7 +12232,7 @@ msgid "Global"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1165
-#: libraries/server_privileges.lib.php:3279
+#: libraries/server_privileges.lib.php:3284
 msgid "Database-specific privileges"
 msgstr ""
 
@@ -12259,17 +12260,17 @@ msgid "SHA256 password authentication"
 msgstr "Құпия сөз:"
 
 #: libraries/server_privileges.lib.php:1463
-msgid "MySQL Native Authentication"
+msgid "Native MySQL Authentication"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1517
-#: libraries/server_privileges.lib.php:2984
+#: libraries/server_privileges.lib.php:2989
 msgid "Login Information"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1550
 #: libraries/server_privileges.lib.php:1739
-#: libraries/server_privileges.lib.php:3412
+#: libraries/server_privileges.lib.php:3417
 msgid "Use text field"
 msgstr ""
 
@@ -12287,8 +12288,8 @@ msgstr "Қолданушы:"
 
 #: libraries/server_privileges.lib.php:1591
 #: libraries/server_privileges.lib.php:1693
-#: libraries/server_privileges.lib.php:2498
-#: libraries/server_privileges.lib.php:3460
+#: libraries/server_privileges.lib.php:2503
+#: libraries/server_privileges.lib.php:3465
 #, fuzzy
 #| msgid "Add constraints"
 msgid "Host name"
@@ -12310,237 +12311,237 @@ msgstr "Ағымдағы баптау"
 msgid "Password Hashing Method"
 msgstr "Құпия сөз:"
 
-#: libraries/server_privileges.lib.php:2053
+#: libraries/server_privileges.lib.php:2058
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2099
+#: libraries/server_privileges.lib.php:2104
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2189
-#: libraries/server_privileges.lib.php:4442
+#: libraries/server_privileges.lib.php:2194
+#: libraries/server_privileges.lib.php:4447
 #, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "Қолданушыны қосу"
 
-#: libraries/server_privileges.lib.php:2198
+#: libraries/server_privileges.lib.php:2203
 #, fuzzy
 #| msgid "Database comment"
 msgid "Database for user account"
 msgstr "Дерекқорына түсініктеме: "
 
-#: libraries/server_privileges.lib.php:2202
+#: libraries/server_privileges.lib.php:2207
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2208
+#: libraries/server_privileges.lib.php:2213
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2217
+#: libraries/server_privileges.lib.php:2222
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2318
-#: libraries/server_privileges.lib.php:2384
+#: libraries/server_privileges.lib.php:2323
+#: libraries/server_privileges.lib.php:2389
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2353
+#: libraries/server_privileges.lib.php:2358
 msgid "User has been added."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2501
-#: libraries/server_privileges.lib.php:3289
-#: libraries/server_privileges.lib.php:3470
+#: libraries/server_privileges.lib.php:2506
+#: libraries/server_privileges.lib.php:3294
+#: libraries/server_privileges.lib.php:3475
 msgid "Grant"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2516
+#: libraries/server_privileges.lib.php:2521
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2536
-#: libraries/server_privileges.lib.php:3936
+#: libraries/server_privileges.lib.php:2541
+#: libraries/server_privileges.lib.php:3941
 msgid "No user found."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2567
-#: libraries/server_privileges.lib.php:2850
-#: libraries/server_privileges.lib.php:3546
+#: libraries/server_privileges.lib.php:2572
+#: libraries/server_privileges.lib.php:2855
+#: libraries/server_privileges.lib.php:3551
 msgid "Any"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2618
+#: libraries/server_privileges.lib.php:2623
 msgid "global"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2621
+#: libraries/server_privileges.lib.php:2626
 msgid "database-specific"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2623
+#: libraries/server_privileges.lib.php:2628
 msgid "wildcard"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2629
+#: libraries/server_privileges.lib.php:2634
 msgid "table-specific"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2756
+#: libraries/server_privileges.lib.php:2761
 #, fuzzy
 #| msgid "Reloading Privileges"
 msgid "Edit privileges"
 msgstr "Артықшылықтардың қайта қосылуы"
 
-#: libraries/server_privileges.lib.php:2759
+#: libraries/server_privileges.lib.php:2764
 msgid "Revoke"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2783
+#: libraries/server_privileges.lib.php:2788
 msgid "Edit user group"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2963
+#: libraries/server_privileges.lib.php:2968
 msgid "… keep the old one."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2964
+#: libraries/server_privileges.lib.php:2969
 msgid "… delete the old one from the user tables."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2966
+#: libraries/server_privileges.lib.php:2971
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2970
+#: libraries/server_privileges.lib.php:2975
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2985
+#: libraries/server_privileges.lib.php:2990
 msgid "Change login information / Copy user account"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2991
+#: libraries/server_privileges.lib.php:2996
 msgid "Create a new user account with the same privileges and …"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3293
+#: libraries/server_privileges.lib.php:3298
 msgid "Column-specific privileges"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3348
+#: libraries/server_privileges.lib.php:3353
 msgid "Add privileges on the following database(s):"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3372
+#: libraries/server_privileges.lib.php:3377
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3390
+#: libraries/server_privileges.lib.php:3395
 msgid "Add privileges on the following table:"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3646
+#: libraries/server_privileges.lib.php:3651
 #, fuzzy
 #| msgid "Removing Selected Users"
 msgid "Remove selected user accounts"
 msgstr "Таңдалынған қолдаушыларды жою"
 
-#: libraries/server_privileges.lib.php:3652
+#: libraries/server_privileges.lib.php:3657
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3660
-#: libraries/server_privileges.lib.php:3666
-#: libraries/server_privileges.lib.php:3669
+#: libraries/server_privileges.lib.php:3665
+#: libraries/server_privileges.lib.php:3671
+#: libraries/server_privileges.lib.php:3674
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3810
+#: libraries/server_privileges.lib.php:3815
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3813
+#: libraries/server_privileges.lib.php:3818
 msgid "Reloading the privileges"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3832
+#: libraries/server_privileges.lib.php:3837
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3906
+#: libraries/server_privileges.lib.php:3911
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3996
+#: libraries/server_privileges.lib.php:4001
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4026
+#: libraries/server_privileges.lib.php:4031
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4127
+#: libraries/server_privileges.lib.php:4132
 #, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4384
+#: libraries/server_privileges.lib.php:4389
 #, php-format
 msgid "Privileges for %s"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4393
+#: libraries/server_privileges.lib.php:4398
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4434
+#: libraries/server_privileges.lib.php:4439
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4463
+#: libraries/server_privileges.lib.php:4468
 #, fuzzy
 #| msgid "Reloading Privileges"
 msgid "Edit privileges:"
 msgstr "Артықшылықтардың қайта қосылуы"
 
-#: libraries/server_privileges.lib.php:4464
+#: libraries/server_privileges.lib.php:4469
 msgid "User account"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4523
+#: libraries/server_privileges.lib.php:4528
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4543 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4548 libraries/server_users.lib.php:25
 msgid "User accounts overview"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4611
+#: libraries/server_privileges.lib.php:4616
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4652
+#: libraries/server_privileges.lib.php:4657
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12549,7 +12550,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4671
+#: libraries/server_privileges.lib.php:4676
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12558,11 +12559,11 @@ msgid ""
 "privilege."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4721
+#: libraries/server_privileges.lib.php:4726
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4953
+#: libraries/server_privileges.lib.php:4957
 msgid "You have added a new user."
 msgstr ""
 
