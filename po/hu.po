@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:35-0400\n"
-"PO-Revision-Date: 2015-10-14 14:56+0200\n"
+"PO-Revision-Date: 2015-10-15 11:09+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
@@ -9907,7 +9907,7 @@ msgstr "Nem található részleges függőség!"
 
 #: libraries/operations.lib.php:83
 msgid "Rename database to"
-msgstr "Adatbázis átnevezése:"
+msgstr "Adatbázis átnevezése"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:247
 #: libraries/operations.lib.php:867 libraries/operations.lib.php:959
@@ -9959,7 +9959,7 @@ msgstr "Csak az adatok"
 
 #: libraries/operations.lib.php:207
 msgid "Copy database to"
-msgstr "Adatbázis másolása ide:"
+msgstr "Adatbázis másolása ide"
 
 #: libraries/operations.lib.php:220
 msgid "CREATE DATABASE before copying"
@@ -9983,7 +9983,7 @@ msgstr "(egyenként)"
 
 #: libraries/operations.lib.php:831
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Tábla áthelyezése (adatbázis<b>.</b>tábla):"
+msgstr "Tábla áthelyezése (adatbázis<b>.</b>tábla)"
 
 #: libraries/operations.lib.php:941
 msgid "Rename table to"
@@ -10007,7 +10007,7 @@ msgstr "Minden oszlopillesztés módosítása"
 
 #: libraries/operations.lib.php:1255
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Tábla másolása (adatbázis<b>.</b>tábla):"
+msgstr "Tábla másolása (adatbázis<b>.</b>tábla)"
 
 #: libraries/operations.lib.php:1332
 msgid "Switch to copied table"
@@ -10491,7 +10491,7 @@ msgstr "Szerkezet megtekintése"
 
 #: libraries/plugins/export/ExportPdf.php:291
 msgid "Stand in"
-msgstr "Ebből áll:"
+msgstr "Ebből áll"
 
 #: libraries/plugins/export/ExportSql.php:93
 msgid ""
