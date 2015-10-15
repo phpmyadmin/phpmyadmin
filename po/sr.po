@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-13 11:34-0400\n"
-"PO-Revision-Date: 2015-07-13 00:25+0200\n"
-"Last-Translator: Smart Kid <kidsmart33@gmail.com>\n"
-"Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sr/>\n"
+"PO-Revision-Date: 2015-10-15 11:25+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Serbian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/sr/>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -46,7 +46,7 @@ msgstr "База %1$s је креирана."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Коментар базе:"
+msgstr "Коментар базе"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -10455,7 +10455,7 @@ msgstr "(по једном пољу)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Помери табелу у (база<b>.</b>табела):"
+msgstr "Помери табелу у (база<b>.</b>табела)"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -10479,7 +10479,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Копирај табелу у (база<b>.</b>табела):"
+msgstr "Копирај табелу у (база<b>.</b>табела)"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
