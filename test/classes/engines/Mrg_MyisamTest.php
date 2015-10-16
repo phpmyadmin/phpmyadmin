@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_StorageEngine_ndbcluster
+ * Tests for PMA\libraries\engines\Mrg_Myisam
  *
  * @package PhpMyAdmin-test
  */
@@ -9,17 +9,16 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Ndbcluster;
+use PMA\libraries\engines\Mrg_Myisam;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
 /**
- * Tests for PMA_StorageEngine_ndbcluster
+ * Tests for PMA\libraries\engines\Mrg_Myisam
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StorageEngine_Ndbcluster_Test extends PHPUnit_Framework_TestCase
+class Mrg_MyisamTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -35,7 +34,9 @@ class PMA_StorageEngine_Ndbcluster_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Ndbcluster('nbdcluster');
+    	$GLOBALS['cfg']['DBG']['sql'] = false;
+    	$GLOBALS['server'] = 0;
+        $this->object = new Mrg_Myisam('mrg_myisam');
     }
 
     /**
@@ -51,35 +52,6 @@ class PMA_StorageEngine_Ndbcluster_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for getVariables
-     *
-     * @return void
-     */
-    public function testGetVariables()
-    {
-        $this->assertEquals(
-            $this->object->getVariables(),
-            array(
-                'ndb_connectstring' => array(
-                ),
-            )
-        );
-    }
-
-    /**
-     * Test for getVariablesLikePattern
-     *
-     * @return void
-     */
-    public function testGetVariablesLikePattern()
-    {
-        $this->assertEquals(
-            $this->object->getVariablesLikePattern(),
-            'ndb\\_%'
-        );
-    }
-
-    /**
      * Test for getMysqlHelpPage
      *
      * @return void
@@ -88,7 +60,7 @@ class PMA_StorageEngine_Ndbcluster_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
-            'ndbcluster'
+            'merge-storage-engine'
         );
 
     }

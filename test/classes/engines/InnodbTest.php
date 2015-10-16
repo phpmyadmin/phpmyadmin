@@ -15,11 +15,11 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
 /**
- * Tests for PMA_StorageEngine_innodb
+ * Tests for PMA\libraries\engines\Innodb
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
+class InnodbTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -35,6 +35,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+    	$GLOBALS['cfg']['DBG']['sql'] = false;
+    	$GLOBALS['server'] = 0;
         $this->object = new Innodb('innodb');
     }
 

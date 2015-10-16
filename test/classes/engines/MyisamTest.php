@@ -15,11 +15,11 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
 /**
- * Tests for PMA_StorageEngine_myisam
+ * Tests for PMA\libraries\engines\Myisam
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StorageEngine_Myisam_Test extends PHPUnit_Framework_TestCase
+class MyisamTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -35,6 +35,8 @@ class PMA_StorageEngine_Myisam_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+    	$GLOBALS['cfg']['DBG']['sql'] = false;
+    	$GLOBALS['server'] = 0;
         $this->object = new Myisam('myisam');
     }
 

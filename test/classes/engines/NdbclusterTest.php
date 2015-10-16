@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_StorageEngine_binlog
+ * Tests for PMA_StorageEngine_ndbcluster
  *
  * @package PhpMyAdmin-test
  */
@@ -9,17 +9,17 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Binlog;
+use PMA\libraries\engines\Ndbcluster;
 
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
-
 /**
- * Tests for PMA_StorageEngine_binlog
+ * Tests for PMA\libraries\engines\Ndbcluster
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StorageEngine_Binlog_Test extends PHPUnit_Framework_TestCase
+class NdbclusterTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -35,7 +35,9 @@ class PMA_StorageEngine_Binlog_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Binlog('binlog');
+    	$GLOBALS['cfg']['DBG']['sql'] = false;
+    	$GLOBALS['server'] = 0;
+        $this->object = new Ndbcluster('nbdcluster');
     }
 
     /**
@@ -50,6 +52,34 @@ class PMA_StorageEngine_Binlog_Test extends PHPUnit_Framework_TestCase
         unset($this->object);
     }
 
+    /**
+     * Test for getVariables
+     *
+     * @return void
+     */
+    public function testGetVariables()
+    {
+        $this->assertEquals(
+            $this->object->getVariables(),
+            array(
+                'ndb_connectstring' => array(
+                ),
+            )
+        );
+    }
+
+    /**
+     * Test for getVariablesLikePattern
+     *
+     * @return void
+     */
+    public function testGetVariablesLikePattern()
+    {
+        $this->assertEquals(
+            $this->object->getVariablesLikePattern(),
+            'ndb\\_%'
+        );
+    }
 
     /**
      * Test for getMysqlHelpPage
@@ -60,7 +90,8 @@ class PMA_StorageEngine_Binlog_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
-            'binary-log'
+            'ndbcluster'
         );
+
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\engines\Mrg_Myisam
+ * Tests for PMA_StorageEngine_memory
  *
  * @package PhpMyAdmin-test
  */
@@ -9,16 +9,18 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Mrg_Myisam;
+use PMA\libraries\engines\Memory;
 
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
+
 /**
- * Tests for PMA\libraries\engines\Mrg_Myisam
+ * Tests for PMA\libraries\engines\Memory
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StorageEngine_MrgMyisam_Test extends PHPUnit_Framework_TestCase
+class MemoryTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -34,7 +36,9 @@ class PMA_StorageEngine_MrgMyisam_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Mrg_Myisam('mrg_myisam');
+    	$GLOBALS['cfg']['DBG']['sql'] = false;
+    	$GLOBALS['server'] = 0;
+        $this->object = new Memory('memory');
     }
 
     /**
@@ -50,16 +54,19 @@ class PMA_StorageEngine_MrgMyisam_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for getMysqlHelpPage
+     * Test for getVariables
      *
      * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetVariables()
     {
         $this->assertEquals(
-            $this->object->getMysqlHelpPage(),
-            'merge-storage-engine'
+            $this->object->getVariables(),
+            array(
+                'max_heap_table_size' => array(
+                                            'type'  => 1,
+                                         )
+                )
         );
-
     }
 }

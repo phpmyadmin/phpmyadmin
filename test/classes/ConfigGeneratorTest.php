@@ -18,11 +18,11 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
- * tests for methods under Config file generator
+ * Tests for PMA\setup\lib\ConfigGenerator
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
+class ConfigGeneratorTest extends PHPUnit_Framework_TestCase
 {
 
     /**

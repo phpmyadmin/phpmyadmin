@@ -18,7 +18,7 @@ require_once 'libraries/php-gettext/gettext.inc';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
+class ConfigFileTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Any valid key that exists in config.default.php and isn't empty

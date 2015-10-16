@@ -20,7 +20,7 @@ require_once 'libraries/database_interface.inc.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StorageEngine_Bdb_Test extends PHPUnit_Framework_TestCase
+class BdbTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -36,6 +36,8 @@ class PMA_StorageEngine_Bdb_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+    	$GLOBALS['cfg']['DBG']['sql'] = false;
+    	$GLOBALS['server'] = 0;
         $this->object = new Bdb('bdb');
     }
 

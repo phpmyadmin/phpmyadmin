@@ -17,11 +17,11 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
 
 /**
- * Tests for PMA_StorageEngine_pbxt
+ * Tests for PMA\libraries\engines\Pbxt;
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StorageEngine_Pbxt_Test extends PHPUnit_Framework_TestCase
+class PbxtTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -37,6 +37,8 @@ class PMA_StorageEngine_Pbxt_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+    	$GLOBALS['cfg']['DBG']['sql'] = false;
+    	$GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
     }
 

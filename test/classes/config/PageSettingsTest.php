@@ -11,11 +11,11 @@ require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
 /**
- * Tests for Page-related settings
+ * Tests for PMA\libraries\config\PageSettings
  *
  * @package PhpMyAdmin-test
  */
-class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
+class PageSettingsTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Setup tests
@@ -24,6 +24,7 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+    	$GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['server'] = 1;
     }
 
