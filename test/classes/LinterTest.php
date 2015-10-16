@@ -11,14 +11,12 @@
  */
 use PMA\libraries\Linter;
 
-
-
 /**
- * Tests for Linter.php.
+ * Tests for PMA\libraries\Linter
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Linter_Test extends PHPUnit_Framework_TestCase
+class LinterTest extends PHPUnit_Framework_TestCase
 {
 
     /**

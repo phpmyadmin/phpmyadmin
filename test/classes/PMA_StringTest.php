@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Specialized String Functions for phpMyAdmin
+ * Tests for PMA\libraries\PMA_String
  *
  * @package PhpMyAdmin-test
  */
@@ -11,14 +11,12 @@
  */
 use PMA\libraries\PMA_String;
 
-
-
 /**
- * Tests for Specialized String Functions for phpMyAdmin
+ * Tests for PMA\libraries\PMA_String
  *
  * @package PhpMyAdmin-test
  */
-class PMA_String_Test extends PHPUnit_Framework_TestCase
+class PMA_StringTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var String

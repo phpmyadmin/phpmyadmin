@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for displaying results
+ * Tests PMA\libraries\ZipFile
  *
  * @package PhpMyAdmin-test
  */
@@ -8,11 +8,11 @@
 use PMA\libraries\ZipFile;
 
 /**
- * Tests for displaying results
+ * Tests for PMA\libraries\ZipFile
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Zip_Test extends PHPUnit_Framework_TestCase
+class ZipFileTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

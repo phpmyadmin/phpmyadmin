@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Specialized String Class (CType) for phpMyAdmin
+ * Tests for PMA\libraries\StringNativeType
  *
  * @package PhpMyAdmin-test
  */
@@ -9,16 +9,14 @@
 /*
  * Include to test.
  */
-use PMA\libraries\StringCType;
-
-
+use PMA\libraries\StringNativeType;
 
 /**
- * Tests for Specialized String Class (CType) for phpMyAdmin
+ * Tests for PMA\libraries\StringNativeType
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
+class StringNativeTypeTest extends PHPUnit_Framework_TestCase
 {
     private $_object;
 
@@ -30,12 +28,7 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (!@extension_loaded('ctype')) {
-            $this->markTestSkipped(
-                "ctype extension not present."
-            );
-        }
-        $this->_object = new StringCType();
+        $this->_object = new StringNativeType();
     }
 
     /**
@@ -64,8 +57,10 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     public function isAlnumData()
     {
         return array(
-            array(true, "AbCd1zyZ9"),
-            array(false, "foo!#bar")
+            array(true, "A"),
+            array(false, "."),
+            array(true, "a"),
+            array(true, "2")
         );
     }
 
@@ -95,8 +90,8 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     public function isAlphaData()
     {
         return array(
-            array(true, "kJW"),
-            array(false, "k12"),
+            array(true, "k"),
+            array(false, "1"),
         );
     }
 
@@ -126,9 +121,9 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     public function isDigitData()
     {
         return array(
-            array(false, "kJW"),
-            array(false, "?.foo!#21"),
-            array(true, "12"),
+            array(false, "k"),
+            array(false, "?"),
+            array(true, "1"),
         );
     }
 
@@ -158,9 +153,9 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     public function isUpperData()
     {
         return array(
-            array(true, "ABCD"),
-            array(false, "AbCD"),
-            array(false, "ABCD12!3")
+            array(true, "A"),
+            array(false, "b"),
+            array(false, "1")
         );
     }
 
@@ -190,9 +185,9 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     public function isLowerData()
     {
         return array(
-            array(true, "abcd"),
-            array(false, "aBcd"),
-            array(false, "abcd12!3")
+            array(true, "a"),
+            array(false, "B"),
+            array(false, "1")
         );
     }
 
@@ -223,9 +218,9 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(true, " "),
-            array(false, '\n\r\t'),
-            array(true, "\n\r\t"),
-            array(false, "\ntest"),
+            array(false, '\n'),
+            array(true, "\n"),
+            array(false, "t"),
         );
     }
 
@@ -255,9 +250,9 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     public function isHexDigitData()
     {
         return array(
-            array(true, "AB10BC99"),
-            array(false, "AR1012"),
-            array(true, "ab12bc99")
+            array(true, "A"),
+            array(false, "R"),
+            array(true, "a")
         );
     }
 

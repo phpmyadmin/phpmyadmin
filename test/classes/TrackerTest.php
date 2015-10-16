@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Tracking changes on databases, tables and views
+ * Tests for PMA\libraries\Tracker
  *
  * @package PhpMyAdmin-test
  */
@@ -16,11 +16,11 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 
 /**
- * Tests for Tracking changes on databases, tables and views
+ * Tests for PMA\libraries\Tracker
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
+class TrackerTest extends PHPUnit_Framework_TestCase
 {
 
     /**
