@@ -38,6 +38,7 @@ class PMA_TRI_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $GLOBALS['db'] = 'pma_test';
+        $GLOBALS['cfg']['DBG']['sql'] = false;
     }
 
     /**

@@ -20,6 +20,16 @@ require_once 'libraries/core.lib.php';
  */
 class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Prepares environment for the test.
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+    }
 
     /**
      * Test for process_formset()

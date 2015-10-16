@@ -33,6 +33,8 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['PDFPageSizes'] = array('A3', 'A4');
         $GLOBALS['cfg']['PDFDefaultPageSize'] = 'A4';
+        $GLOBALS['cfg']['Schema']['pdf_orientation'] = 'L';
+        $GLOBALS['cfg']['Schema']['pdf_paper'] = 'A4';
 
         $_SESSION = array(
             'relation' => array(

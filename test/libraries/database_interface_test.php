@@ -28,6 +28,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
+        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
     }
 

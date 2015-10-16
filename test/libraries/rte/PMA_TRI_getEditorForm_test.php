@@ -31,6 +31,7 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $GLOBALS['cfg']['ServerDefault'] = '';
+        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['db'] = 'pma_test';
     }
 
