@@ -61,6 +61,9 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DefaultTabDatabase'] = "structure";
         $GLOBALS['cfg']['RetainQueryBox'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
+        $GLOBALS['cfg']['CodemirrorEnable'] = true;
+        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
 
         //_SESSION
         $_SESSION['relation'][0] = array(

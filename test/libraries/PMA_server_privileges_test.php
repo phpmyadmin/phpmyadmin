@@ -70,9 +70,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['PmaAbsoluteUri'] = "PmaAbsoluteUri";
         $GLOBALS['cfg']['DefaultTabTable'] = "structure";
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "structure";
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = "";
         $GLOBALS['cfg']['Confirm'] = "Confirm";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
+        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
 
         $GLOBALS['cfgRelation'] = array();
         $GLOBALS['cfgRelation']['menuswork'] = false;

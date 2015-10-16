@@ -42,6 +42,7 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
 
         $cfg['ShowFunctionFields'] = false;
         $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['DBG']['sql'] = false;
         $cfg['ServerDefault'] = 1;
 
         $GLOBALS['PMA_Types'] = new TypesMySQL();
