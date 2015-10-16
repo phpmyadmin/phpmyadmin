@@ -9,6 +9,8 @@
 use PMA\libraries\Theme;
 
 $GLOBALS['server'] = 0;
+$GLOBALS['cfg']['Server']['DisableIS'] = false;
+$GLOBALS['cfg']['DBG']['sql'] = false;
 /*
  * Include to test.
  */

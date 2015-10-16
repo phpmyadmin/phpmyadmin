@@ -61,6 +61,17 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TextareaCols'] = 4;
         $GLOBALS['cfg']['CharTextareaRows'] = 5;
         $GLOBALS['cfg']['CharTextareaCols'] = 6;
+        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
+        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
+        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
+        $GLOBALS['cfg']['PmaAbsoluteUri'] = '';
+        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
+        $GLOBALS['cfg']['Confirm'] = true;
+        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
     }
 
     /**

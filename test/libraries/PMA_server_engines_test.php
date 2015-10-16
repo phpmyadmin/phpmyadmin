@@ -45,6 +45,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
+        $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['RememberSorting'] = true;
