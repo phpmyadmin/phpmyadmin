@@ -24,7 +24,7 @@ class PageSettingsTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-    	$GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['server'] = 1;
     }
 

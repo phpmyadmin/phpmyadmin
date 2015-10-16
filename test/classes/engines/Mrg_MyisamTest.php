@@ -34,8 +34,8 @@ class Mrg_MyisamTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-    	$GLOBALS['cfg']['DBG']['sql'] = false;
-    	$GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['DBG']['sql'] = false;
+        $GLOBALS['server'] = 0;
         $this->object = new Mrg_Myisam('mrg_myisam');
     }
 
