@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-10-15 23:50+0200\n"
+"PO-Revision-Date: 2015-10-18 01:18+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/sl/>\n"
@@ -982,7 +982,7 @@ msgstr "Popačeni podatki"
 #: js/messages.php:76
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
-"Ste preričani, da želite spremeniti pravilo za razvrščanje znakov in "
+"Ste prepričani, da želite spremeniti pravilo za razvrščanje znakov in "
 "pretvoriti podatke?"
 
 #: js/messages.php:78
@@ -1006,7 +1006,7 @@ msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Ste preričani, da želite spremeniti vsa pravila za razvrščanje znakov v "
+"Ste prepričani, da želite spremeniti vsa pravila za razvrščanje znakov v "
 "stolpcih in pretvoriti podatke?"
 
 #: js/messages.php:89
