@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-15 14:30-0400\n"
-"PO-Revision-Date: 2015-09-23 03:11+0200\n"
+"PO-Revision-Date: 2015-10-17 16:16+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -957,17 +957,14 @@ msgstr ""
 "Möchten Sie wirklich die ausgewählten Partitionen unwiderruflich leeren?"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr ""
-"Möchten Sie wirklich die ausgewählten Partitionen unwiderruflich leeren?"
+msgstr "Möchten Sie wirklich die Partitionierung entfernen?"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Möchten Sie die Abfrage \"%s\" wirklich ausführen?"
+msgstr "Möchten Sie die Abfrage „RESET SLAVE“ wirklich ausführen?"
 
 #: js/messages.php:67
 msgid ""
@@ -4718,6 +4715,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Speichert und erlaubt effizienten Zugriff auf Daten in JSON (JavaScript "
+"Object Notation)-Dokumenten"
 
 #: libraries/TypesMySQL.php:527
 msgctxt "spatial types"
@@ -4763,13 +4762,11 @@ msgid "Analyze Explain at %s"
 msgstr "Explain auf %s analysieren"
 
 #: libraries/Util.php:1252
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "ohne PHP-Code"
 
 #: libraries/Util.php:1264
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "SQL-Befehl ausführen"
@@ -9490,10 +9487,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Ungültiger Klassenname \"%1$s\", verwende standardmäßig \"Node\""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Fehler beim Hinzufügen der Spalten!"
+msgstr "Fehler beim Laden der Klasse „%1$s“"
 
 #: libraries/navigation/nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -11028,7 +11025,6 @@ msgstr ""
 "zu setzen."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:32
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -11055,15 +11051,15 @@ msgstr ""
 "NUR FÜR LINUX: Startet ein externes Programm und verwendet die Daten der "
 "Spalte für die Standardeingabe. Gibt die Standardausgabe der Anwendung "
 "zurück. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu "
-"formatieren. Aus Sicherheitsgründen müssen Sie die Datei libraries/plugins/"
-"transformations/output/Text_Plain_External.class.php von Hand bearbeiten, um "
-"weitere Programme verfügbar zu machen. Die erste Option ist die Nummer des "
-"dort hinterlegten Programmes und die zweite Option legt die Parameter für "
-"das externe Programm fest. Die dritte Option bestimmt, falls auf 1 gesetzt, "
-"dass die Ausgabe mit htmlspecialchars() formatiert wird (Standard: 1). Die "
-"vierte Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter der "
-"Tabellenzelle hinzugefügt wird, um einen automatischen Umbruch der "
-"Standardausgabe zu verhindern (Standard: 1)."
+"formatieren. Aus Sicherheitsgründen müssen Sie die Datei "
+"libraries/plugins/transformations/output/Text_Plain_External.php von Hand "
+"bearbeiten, um weitere Programme verfügbar zu machen. Die erste Option ist "
+"die Nummer des dort hinterlegten Programmes und die zweite Option legt die "
+"Parameter für das externe Programm fest. Die dritte Option bestimmt, falls "
+"auf 1 gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird "
+"(Standard: 1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein "
+"NOWRAP-Parameter der Tabellenzelle hinzugefügt wird, um einen automatischen "
+"Umbruch der Standardausgabe zu verhindern (Standard: 1)."
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:32
 msgid ""
@@ -12450,10 +12446,9 @@ msgid "User group"
 msgstr "Benutzergruppe"
 
 #: libraries/server_privileges.lib.php:735
-#, fuzzy
 #| msgid "Requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
-msgstr "Benötigt SSL-verschlüsselte Verbindungen."
+msgstr "Erfordert keine SSL-verschlüsselte Verbindung."
 
 #: libraries/server_privileges.lib.php:756
 msgid "Requires SSL-encrypted connections."
@@ -12525,10 +12520,9 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3317
 #: libraries/server_privileges.lib.php:4571
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine"
-msgstr "Routinen"
+msgstr "Routine"
 
 #: libraries/server_privileges.lib.php:1040
 #: libraries/server_privileges.lib.php:1414 server_privileges.php:71
@@ -12539,16 +12533,14 @@ msgstr ""
 "Benutzerprofile neu laden zu müssen."
 
 #: libraries/server_privileges.lib.php:1047
-#, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Erlaubt das Verändern und Löschen von gespeicherten Routinen."
+msgstr "Erlaubt das Verändern und Löschen dieser gespeicherten Routine."
 
 #: libraries/server_privileges.lib.php:1052
-#, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Erlaubt das Ausführen von gespeicherten Routinen."
+msgstr "Erlaubt das Ausführen dieser gespeicherten Routine."
 
 #: libraries/server_privileges.lib.php:1102
 #: libraries/server_privileges.lib.php:1271
@@ -12591,22 +12583,19 @@ msgid "Allows dropping tables."
 msgstr "Erlaubt das Löschen ganzer Tabellen."
 
 #: libraries/server_privileges.lib.php:1550
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Cookie-Authentifizierung"
+msgstr "Native MySQL-Authentifizierung"
 
 #: libraries/server_privileges.lib.php:1552
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Signon-Authentifizierung"
+msgstr "SHA256-Passwort-Authentifizierung"
 
 #: libraries/server_privileges.lib.php:1566
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL Authentication"
-msgstr "Cookie-Authentifizierung"
+msgstr "Native MySQL-Authentifizierung"
 
 #: libraries/server_privileges.lib.php:1620
 #: libraries/server_privileges.lib.php:3096
@@ -12648,10 +12637,9 @@ msgid "Authentication Plugin"
 msgstr "Authentifizierungs Plugin"
 
 #: libraries/server_privileges.lib.php:1890
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Passwortverschlüsselung:"
+msgstr "Passwort­verschlüsselungs­methode"
 
 #: libraries/server_privileges.lib.php:2161
 #, php-format
@@ -12775,10 +12763,9 @@ msgstr "Erstelle einen neuen Benutzerkonto mit identischen Rechten und …"
 
 #: libraries/server_privileges.lib.php:3316
 #: templates/privileges/edit_routine_privileges.phtml:12
-#, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Spaltenspezifische Rechte"
+msgstr "Routinenspezifische Rechte"
 
 #: libraries/server_privileges.lib.php:3693
 msgid "Remove selected user accounts"
@@ -15003,95 +14990,80 @@ msgid "after %s"
 msgstr "nach %s"
 
 #: templates/columns_definitions/partitions.phtml:9
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition by:"
-msgstr "partitioniert von:"
+msgstr "Partitioniere nach:"
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "Werte für die Spalte %s"
+msgstr "Ausdruck oder Spaltenliste"
 
 #: templates/columns_definitions/partitions.phtml:30
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partitions:"
-msgstr "Partitionen"
+msgstr "Partitionen:"
 
 #: templates/columns_definitions/partitions.phtml:38
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartition by:"
-msgstr "Unterpartitioniert von:"
+msgstr "Unterpartitioniere nach:"
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartitions:"
-msgstr "Unterpartitioniert von:"
+msgstr "Unterpartitionen:"
 
 #: templates/columns_definitions/partitions.phtml:71
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partition"
-msgstr "Partitionen"
+msgstr "Partition"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
 #| msgid "Value"
 msgid "Values"
-msgstr "Wert"
+msgstr "Werte"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
 #| msgid "partitioned"
 msgid "Subpartition"
-msgstr "partitioniert"
+msgstr "Unterpartition"
 
 #: templates/columns_definitions/partitions.phtml:78
-#, fuzzy
 #| msgid "Engines"
 msgid "Engine"
-msgstr "Formate"
+msgstr "Format"
 
 #: templates/columns_definitions/partitions.phtml:80
-#, fuzzy
 #| msgid "Data home directory"
 msgid "Data directory"
 msgstr "Pfad für Datendateien"
 
 #: templates/columns_definitions/partitions.phtml:81
-#, fuzzy
 #| msgid "Save directory"
 msgid "Index directory"
-msgstr "Speicher Verzeichnis"
+msgstr "Indexverzeichnis"
 
 #: templates/columns_definitions/partitions.phtml:82
-#, fuzzy
 #| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "Gefundene Zeilen:"
+msgstr "Maximale Zeilenanzahl"
 
 #: templates/columns_definitions/partitions.phtml:83
-#, fuzzy
 #| msgid "rows"
 msgid "Min rows"
-msgstr "Anzeigen"
+msgstr "Minimale Zeilenanzahl"
 
 #: templates/columns_definitions/partitions.phtml:84
-#, fuzzy
 #| msgid "Table search"
 msgid "Table space"
-msgstr "Tabellensuche"
+msgstr "Tabellenspeicherplatz"
 
 #: templates/columns_definitions/partitions.phtml:85
-#, fuzzy
 #| msgid "User group"
 msgid "Node group"
-msgstr "Benutzergruppe"
+msgstr "Gruppe von Knoten"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 msgid ""
@@ -15496,10 +15468,9 @@ msgstr ""
 "Sonderzeichen einzubinden."
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "Rechte zu folgender Tabelle hinzufügen:"
+msgstr "Rechte zu folgender Routine hinzufügen:"
 
 #: templates/privileges/add_privileges_table.phtml:3
 msgid "Add privileges on the following table:"
@@ -15824,10 +15795,9 @@ msgid "Partitions"
 msgstr "Partitionen"
 
 #: templates/table/structure/display_partitions.phtml:9
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Kein Index definiert!"
+msgstr "Keine Partitionierung definiert!"
 
 #: templates/table/structure/display_partitions.phtml:12
 msgid "Partitioned by:"
@@ -15846,17 +15816,15 @@ msgid "Index length"
 msgstr "Indexlänge"
 
 #: templates/table/structure/display_partitions.phtml:136
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition table"
-msgstr "partitioniert von:"
+msgstr "Partitioniere Tabelle"
 
 #: templates/table/structure/display_partitions.phtml:139
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Entferne die Partitionierung"
+msgstr "Bearbeite die Partitionierung"
 
 #: templates/table/structure/display_structure.phtml:145 view_create.php:180
 msgid "Edit view"
