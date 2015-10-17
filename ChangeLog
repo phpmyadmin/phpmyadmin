@@ -10,6 +10,8 @@ phpMyAdmin - ChangeLog
 + issue        Editing partitions in table Structure
 - issue        Tracking does not make sense for information_schema
 
+4.5.2.0 (not yet released)
+
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()
 - issue        array_key_exists() expects parameter 2 to be array
