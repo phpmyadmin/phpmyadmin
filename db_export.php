@@ -91,7 +91,7 @@ foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
 }
 
 foreach ($tables as $each_table) {
-    if (isset($_GET['table_select'])) {
+    if (isset($_GET['table_select']) && is_array($_GET['table_select'])) {
         $is_checked = PMA_getCheckedClause(
             $each_table['Name'], $_GET['table_select']
         );
@@ -102,7 +102,7 @@ foreach ($tables as $each_table) {
     } else {
         $is_checked = ' checked="checked"';
     }
-    if (isset($_GET['table_structure'])) {
+    if (isset($_GET['table_structure']) && is_array($_GET['table_structure'])) {
         $structure_checked = PMA_getCheckedClause(
             $each_table['Name'], $_GET['table_structure']
         );
