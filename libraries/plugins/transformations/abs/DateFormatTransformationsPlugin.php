@@ -91,10 +91,8 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         } else {
             if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
 
-                if (/*overload*/
-                    mb_strlen($buffer) == 14
-                    || /*overload*/
-                    mb_strlen($buffer) == 8
+                if (/*overload*/mb_strlen($buffer) == 14
+                    || /*overload*/mb_strlen($buffer) == 8
                 ) {
                     $offset = 4;
                 } else {

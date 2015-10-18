@@ -119,8 +119,9 @@ class Psr4Autoloader
     /**
      * Load the mapped file for a namespace prefix and relative class.
      *
-     * @param string $prefix The namespace prefix.
+     * @param string $prefix         The namespace prefix.
      * @param string $relative_class The relative class name.
+     *
      * @return mixed Boolean false if no mapped file can be loaded, or the
      * name of the mapped file that was loaded.
      */

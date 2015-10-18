@@ -1,4 +1,10 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Run autoloader
+ *
+ * @package PhpMyAdmin
+ */
 
 require_once './libraries/Psr4Autoloader.php';
 

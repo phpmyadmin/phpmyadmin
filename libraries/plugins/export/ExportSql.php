@@ -243,13 +243,12 @@ class ExportSql extends ExportPlugin
                 }
 
                 if ($plugin_param['export_type'] == 'table') {
-                    if ($GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])
-                        ->isView()
-                    ) {
-                        $drop_clause = '<code>DROP VIEW</code>';
-                    } else {
-                        $drop_clause = '<code>DROP TABLE</code>';
-                    }
+                    $drop_clause = $GLOBALS['dbi']->getTable(
+                        $GLOBALS['db'],
+                        $GLOBALS['table']
+                    )->isView()
+                        ? '<code>DROP VIEW</code>'
+                        : '<code>DROP TABLE</code>';
                 } else {
                     $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE'
                         . ' / FUNCTION / EVENT</code>';

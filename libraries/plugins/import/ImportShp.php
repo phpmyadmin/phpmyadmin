@@ -269,9 +269,7 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (/*overload*/
-        mb_strlen($db)
-        ) {
+        if (/*overload*/mb_strlen($db)) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
@@ -289,9 +287,7 @@ class ImportShp extends ImportPlugin
         $analyses[$table_no][FORMATTEDSQL][$spatial_col] = true;
 
         // Set database name to the currently selected one, if applicable
-        if (/*overload*/
-        mb_strlen($db)
-        ) {
+        if (/*overload*/mb_strlen($db)) {
             $db_name = $db;
             $options = array('create_db' => false);
         } else {
