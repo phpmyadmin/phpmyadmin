@@ -82,7 +82,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . '</td>'
         . '</tr>';
 
-    $serverType = PMA\libraries\Util::getServerType(); 
+    $serverType = PMA\libraries\Util::getServerType();
     $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
         'change',
         $username,

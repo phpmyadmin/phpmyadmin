@@ -4,7 +4,6 @@
  * Hold PMA\libraries\SysInfo class
  *
  * @package PMA
- * @subpackage libraries
  */
 namespace PMA\libraries;
 

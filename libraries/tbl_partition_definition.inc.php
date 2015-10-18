@@ -1,4 +1,10 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Table partition definition
+ *
+ * @package PhpMyAdmin
+ */
 
 use PMA\libraries\Template;
 
@@ -20,7 +26,8 @@ if (!isset($partitionDetails)) {
     $partitionDetails['can_have_subpartitions'] = isset($_REQUEST['partition_count'])
         && $_REQUEST['partition_count'] > 1
         && isset($_REQUEST['partition_by'])
-        && ($_REQUEST['partition_by'] == 'RANGE' || $_REQUEST['partition_by'] == 'LIST');
+        && ($_REQUEST['partition_by'] == 'RANGE'
+        || $_REQUEST['partition_by'] == 'LIST');
 
     // Values are specified only for LIST and RANGE type partitions
     $partitionDetails['value_enabled'] = isset($_REQUEST['partition_by'])
@@ -30,7 +37,9 @@ if (!isset($partitionDetails)) {
     if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
         && $_REQUEST['partition_count'] > 1
     ) { // Has partitions
-        $partitions = isset($_REQUEST['partitions']) ? $_REQUEST['partitions'] : array();
+        $partitions = isset($_REQUEST['partitions'])
+            ? $_REQUEST['partitions']
+            : array();
 
         // Remove details of the additional partitions
         // when number of partitions have been reduced
@@ -56,7 +65,8 @@ if (!isset($partitionDetails)) {
             $partition['name'] = 'p' . $i;
             $partition['prefix'] = 'partitions[' . $i . ']';
 
-            if (! isset($partition['value_type'])) { // Changing from HASH/KEY to RANGE/LIST
+            // Changing from HASH/KEY to RANGE/LIST
+            if (! isset($partition['value_type'])) {
                 $partition['value_type'] = '';
                 $partition['value'] = '';
             }

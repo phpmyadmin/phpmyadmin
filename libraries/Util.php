@@ -76,21 +76,21 @@ class Util
         }
 
         switch ($use_function) {
-            case 'bcpow' :
-                // bcscale() needed for testing pow() with base values < 1
-                bcscale(10);
-                $pow = bcpow($base, $exp);
-                break;
-            case 'gmp_pow' :
-                 $pow = gmp_strval(gmp_pow($base, $exp));
-                break;
-            case 'pow' :
-                $base = (float) $base;
-                $exp = (int) $exp;
-                $pow = pow($base, $exp);
-                break;
-            default:
-                $pow = $use_function($base, $exp);
+        case 'bcpow' :
+            // bcscale() needed for testing pow() with base values < 1
+            bcscale(10);
+            $pow = bcpow($base, $exp);
+            break;
+        case 'gmp_pow' :
+             $pow = gmp_strval(gmp_pow($base, $exp));
+            break;
+        case 'pow' :
+            $base = (float) $base;
+            $exp = (int) $exp;
+            $pow = pow($base, $exp);
+            break;
+        default:
+            $pow = $use_function($base, $exp);
         }
 
         return $pow;
@@ -1026,12 +1026,12 @@ class Util
 
         // @todo add more compatibility cases (ORACLE for example)
         switch ($compatibility) {
-            case 'MSSQL':
-                $quote = '"';
-                break;
-            default:
-                $quote = "`";
-                break;
+        case 'MSSQL':
+            $quote = '"';
+            break;
+        default:
+            $quote = "`";
+            break;
         }
 
         // '0' is also empty for php :-(

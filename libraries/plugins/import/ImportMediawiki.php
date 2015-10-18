@@ -148,11 +148,7 @@ class ImportMediawiki extends ImportPlugin
                     continue;
                 } elseif ($inside_comment) {
                     // Check end of comment
-                    if (
-                        !strcmp(
-                            /*overload*/mb_substr($cur_buffer_line, 0, 4),
-                            "-->"
-                        )
+                    if (!strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "-->")
                     ) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
@@ -209,12 +205,9 @@ class ImportMediawiki extends ImportPlugin
                     $in_table_header = false;
                     // End processing because the current line does not
                     // contain any column information
-                } elseif (/*overload*/
-                    mb_substr($cur_buffer_line, 0, 2) === '|-'
-                    || /*overload*/
-                    mb_substr($cur_buffer_line, 0, 2) === '|+'
-                    || /*overload*/
-                    mb_substr($cur_buffer_line, 0, 2) === '|}'
+                } elseif (/*overload*/mb_substr($cur_buffer_line, 0, 2) === '|-'
+                    || /*overload*/mb_substr($cur_buffer_line, 0, 2) === '|+'
+                    || /*overload*/mb_substr($cur_buffer_line, 0, 2) === '|}'
                 ) {
                     // Check begin row or end table
 
@@ -236,9 +229,7 @@ class ImportMediawiki extends ImportPlugin
                     $cur_temp_line = array();
 
                     // No more processing required at the end of the table
-                    if (/*overload*/
-                        mb_substr($cur_buffer_line, 0, 2) === '|}'
-                    ) {
+                    if (/*overload*/mb_substr($cur_buffer_line, 0, 2) === '|}') {
                         $current_table = array(
                             $cur_table_name,
                             $cur_temp_table_headers,
@@ -561,9 +552,7 @@ class ImportMediawiki extends ImportPlugin
 
         // A '|' inside an invalid link should not
         // be mistaken as delimiting cell parameters
-        if (/*overload*/
-            mb_strpos($cell_data[0], '[[') === false
-        ) {
+        if (/*overload*/mb_strpos($cell_data[0], '[[') === false) {
             return $cell;
         }
 

@@ -117,9 +117,7 @@ class ImportCsv extends AbstractImportCsv
         $csv_new_line = strtr($csv_new_line, $replacements);
 
         $param_error = false;
-        if (/*overload*/
-            mb_strlen($csv_terminated) < 1
-        ) {
+        if (/*overload*/mb_strlen($csv_terminated) < 1) {
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
@@ -134,9 +132,7 @@ class ImportCsv extends AbstractImportCsv
             // confuses this script.
             // But the parser won't work correctly with strings so we allow just
             // one character.
-        } elseif (/*overload*/
-            mb_strlen($csv_enclosed) > 1
-        ) {
+        } elseif (/*overload*/mb_strlen($csv_enclosed) > 1) {
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
@@ -147,17 +143,14 @@ class ImportCsv extends AbstractImportCsv
             // confuses this script.
             // But the parser won't work correctly with strings so we allow just
             // one character.
-        } elseif (/*overload*/
-            mb_strlen($csv_escaped) > 1
-        ) {
+        } elseif (/*overload*/mb_strlen($csv_escaped) > 1) {
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
             $message->addParam(__('Columns escaped with'), false);
             $error = true;
             $param_error = true;
-        } elseif (/*overload*/
-            mb_strlen($csv_new_line) != 1
+        } elseif (/*overload*/mb_strlen($csv_new_line) != 1
             && $csv_new_line != 'auto'
         ) {
             $message = PMA\libraries\Message::error(
@@ -285,13 +278,10 @@ class ImportCsv extends AbstractImportCsv
                 // Do not parse string when we're not at the end
                 // and don't have new line inside
                 if (($csv_new_line == 'auto'
-                        && /*overload*/
-                        mb_strpos($buffer, "\r") === false
-                        && /*overload*/
-                        mb_strpos($buffer, "\n") === false)
+                    && /*overload*/mb_strpos($buffer, "\r") === false
+                    && /*overload*/mb_strpos($buffer, "\n") === false)
                     || ($csv_new_line != 'auto'
-                        && /*overload*/
-                        mb_strpos($buffer, $csv_new_line) === false)
+                    && /*overload*/mb_strpos($buffer, $csv_new_line) === false)
                 ) {
                     continue;
                 }
@@ -400,9 +390,9 @@ class ImportCsv extends AbstractImportCsv
                             }
                             if ($csv_enclosed == $csv_escaped
                                 && ($ch == $csv_terminated
-                                    || $ch == $csv_new_line
-                                    || ($csv_new_line == 'auto'
-                                        && ($ch == "\r" || $ch == "\n")))
+                                || $ch == $csv_new_line
+                                || ($csv_new_line == 'auto'
+                                && ($ch == "\r" || $ch == "\n")))
                             ) {
                                 break;
                             }
@@ -639,9 +629,7 @@ class ImportCsv extends AbstractImportCsv
                 }
             }
 
-            if (/*overload*/
-            mb_strlen($db)
-            ) {
+            if (/*overload*/mb_strlen($db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE ' . (count($result) + 1);
             } else {
