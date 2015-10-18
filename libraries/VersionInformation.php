@@ -272,4 +272,3 @@ class VersionInformation
         return Util::cacheGet('PMA_MYSQL_STR_VERSION');
     }
 }
-?>
