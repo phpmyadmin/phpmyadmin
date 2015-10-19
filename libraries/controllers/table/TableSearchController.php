@@ -622,11 +622,14 @@ class TableSearchController extends TableController
      */
     public function findAction()
     {
+        $useRegex = array_key_exists('useRegex', $_POST)
+            && $_POST['useRegex'] == 'on';
+
         $preview = $this->getReplacePreview(
             $_POST['columnIndex'],
             $_POST['find'],
             $_POST['replaceWith'],
-            $_POST['useRegex'],
+            $useRegex,
             $this->_connectionCharSet
         );
         $this->response->addJSON('preview', $preview);

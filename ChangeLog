@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 + issue #11438 Support JSON data type
 + issue        Editing partitions in table Structure
 - issue        Tracking does not make sense for information_schema
+- issue #11550 Regression in Find and replace
 
 4.5.2.0 (not yet released)
 
