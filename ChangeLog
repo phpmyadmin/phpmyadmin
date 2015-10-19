@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #11550 Regression in Find and replace
 
 4.5.2.0 (not yet released)
+- issue #11589 Incorrect parameter in mysqli_fetch_fields()
 
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()
