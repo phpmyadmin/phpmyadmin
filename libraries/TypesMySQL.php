@@ -209,8 +209,8 @@ class TypesMySQL extends Types
             return __('A collection of geometry objects of any type');
         case 'JSON':
             return __(
-               'Stores and enables efficient access to data in JSON' .
-               ' (JavaScript Object Notation) documents'
+                'Stores and enables efficient access to data in JSON'
+                . ' (JavaScript Object Notation) documents'
             );
         }
         return '';

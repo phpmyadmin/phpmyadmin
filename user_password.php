@@ -116,7 +116,9 @@ function PMA_setChangePasswordMsg()
             $message = PMA\libraries\Message::error(__('The password is empty!'));
             $error = true;
         } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
-            $message = PMA\libraries\Message::error(__('The passwords aren\'t the same!'));
+            $message = PMA\libraries\Message::error(
+                __('The passwords aren\'t the same!')
+            );
             $error = true;
         }
     }
@@ -223,7 +225,9 @@ function PMA_changePassUrlParamsAndSubmitQuery(
     $username, $hostname, $password, $sql_query, $hashing_function, $auth_plugin
 ) {
     $err_url = 'user_password.php' . PMA_URL_getCommon();
-    if (PMA\libraries\Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+    if (PMA\libraries\Util::getServerType() === 'MySQL'
+        && PMA_MYSQL_INT_VERSION >= 50706
+    ) {
         $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
             . ' IDENTIFIED with ' . $auth_plugin . ' BY '
             . (($password == '')
@@ -232,11 +236,16 @@ function PMA_changePassUrlParamsAndSubmitQuery(
     } else {
         $local_query = 'SET password = ' . (($password == '')
             ? '\'\''
-            : $hashing_function . '(\'' . PMA\libraries\Util::sqlAddSlashes($password)
-                . '\')');
+            : $hashing_function . '(\''
+                . PMA\libraries\Util::sqlAddSlashes($password) . '\')');
     }
     if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
-        PMA\libraries\Util::mysqlDie($GLOBALS['dbi']->getError(), $sql_query, false, $err_url);
+        PMA\libraries\Util::mysqlDie(
+            $GLOBALS['dbi']->getError(),
+            $sql_query,
+            false,
+            $err_url
+        );
     }
 }
 

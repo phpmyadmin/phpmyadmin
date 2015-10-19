@@ -5,7 +5,6 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
 
 /**
  * Get some core libraries
@@ -94,11 +93,18 @@ if (isset($_REQUEST['do_save_data'])) {
         );
         $message->addParam($table);
         $response->addJSON(
-            'message', PMA\libraries\Util::getMessage($message, $sql_query, 'success')
+            'message',
+            PMA\libraries\Util::getMessage($message, $sql_query, 'success')
         );
         exit;
     } else {
-        $error_message_html = PMA\libraries\Util::mysqlDie('', '', false, $err_url, false);
+        $error_message_html = PMA\libraries\Util::mysqlDie(
+            '',
+            '',
+            false,
+            $err_url,
+            false
+        );
         $response->addHTML($error_message_html);
         $response->setRequestStatus(false);
         exit;

@@ -171,7 +171,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
         include_once 'libraries/select_server.lib.php';
-        echo PMA\libraries\Util::getImage('s_host.png') . " " . PMA_selectServer(true, true);
+        echo PMA\libraries\Util::getImage('s_host.png') . " "
+            . PMA_selectServer(true, true);
         echo '</li>';
     }
 
@@ -186,7 +187,9 @@ if ($server > 0 || count($cfg['Servers']) > 1
             if ($cfg['ShowChgPassword']) {
                 $conditional_class = 'ajax';
                 PMA_printListItem(
-                    PMA\libraries\Util::getImage('s_passwd.png') . "&nbsp;" . __('Change password'),
+                    PMA\libraries\Util::getImage('s_passwd.png') . "&nbsp;" . __(
+                        'Change password'
+                    ),
                     'li_change_password',
                     'user_password.php' . $common_url_query,
                     null,
@@ -201,8 +204,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . PMA\libraries\Util::getImage('s_asci.png') . "&nbsp;"
-                               . __('Server connection collation') . "\n"
+           . '                ' . PMA\libraries\Util::getImage('s_asci.png')
+            . "&nbsp;" . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA\libraries\Util::showMySQLDocu('Charset-connection')
            . ': ' .  "\n"
@@ -231,7 +234,8 @@ echo '  <ul>';
 if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
     echo '<li id="li_select_lang" class="no_bullets">';
     include_once 'libraries/display_select_lang.lib.php';
-    echo PMA\libraries\Util::getImage('s_lang.png') . " " . PMA_getLanguageSelectorHtml();
+    echo PMA\libraries\Util::getImage('s_lang.png') . " "
+        . PMA_getLanguageSelectorHtml();
     echo '</li>';
 }
 
@@ -254,7 +258,9 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     PMA_printListItem(
-        PMA\libraries\Util::getImage('b_tblops.png') . "&nbsp;" . __('More settings'),
+        PMA\libraries\Util::getImage('b_tblops.png') . "&nbsp;" . __(
+            'More settings'
+        ),
         'li_user_preferences',
         'prefs_manage.php' . $common_url_query,
         null,

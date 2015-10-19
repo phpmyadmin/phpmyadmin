@@ -28,7 +28,9 @@ $response = PMA\libraries\Response::getInstance();
 if ($response->isAjax() && !empty($_REQUEST['kill'])) {
     $query = $GLOBALS['dbi']->getKillQuery((int)$_REQUEST['kill']);
     if ($GLOBALS['dbi']->tryQuery($query)) {
-        $message = PMA\libraries\Message::success(__('Thread %s was successfully killed.'));
+        $message = PMA\libraries\Message::success(
+            __('Thread %s was successfully killed.')
+        );
         $response->setRequestStatus(true);
     } else {
         $message = PMA\libraries\Message::error(

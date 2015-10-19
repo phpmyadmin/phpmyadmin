@@ -324,10 +324,14 @@ list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
         = PMA_executeSqlQuery($url_params, $query);
 
 if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
-    $message = PMA\libraries\Message::getMessageForInsertedRows($total_affected_rows);
+    $message = PMA\libraries\Message::getMessageForInsertedRows(
+        $total_affected_rows
+    );
     $unsaved_values = array_values($unsaved_values);
 } else {
-    $message = PMA\libraries\Message::getMessageForAffectedRows($total_affected_rows);
+    $message = PMA\libraries\Message::getMessageForAffectedRows(
+        $total_affected_rows
+    );
 }
 if ($row_skipped) {
     $goto_include = 'tbl_change.php';

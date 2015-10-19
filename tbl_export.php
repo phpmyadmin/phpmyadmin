@@ -45,9 +45,10 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
             . " `template_name`, `template_data`"
             . ") VALUES ("
             . "'" . $user . "', "
-            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['exportType']) . "', "
-            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateName']) . "', "
-            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData']) . "');";
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['exportType'])
+            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateName'])
+            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData'])
+            . "');";
         break;
     case 'load':
         $query = "SELECT `template_data` FROM " . $templateTable

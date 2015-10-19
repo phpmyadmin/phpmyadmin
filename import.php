@@ -157,7 +157,9 @@ if (! empty($sql_query)) {
         $rename_table_names
     )) {
         $ajax_reload['reload'] = true;
-        $ajax_reload['table_name'] = PMA\libraries\Util::unQuote($rename_table_names[2]);
+        $ajax_reload['table_name'] = PMA\libraries\Util::unQuote(
+            $rename_table_names[2]
+        );
     }
 
     $sql_query = '';
@@ -371,7 +373,9 @@ if (! empty($_REQUEST['id_bookmark'])) {
         $import_text = PMA_Bookmark_get($db, $id_bookmark);
         PMA_Bookmark_delete($id_bookmark);
         if ($GLOBALS['is_ajax_request'] == true) {
-            $message = PMA\libraries\Message::success(__('The bookmark has been deleted.'));
+            $message = PMA\libraries\Message::success(
+                __('The bookmark has been deleted.')
+            );
             $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus($message->isSuccess());
             $response->addJSON('message', $message);

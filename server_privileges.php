@@ -125,7 +125,10 @@ if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
-    $response->addHTML(PMA\libraries\Message::error(__('No Privileges'))->getDisplay());
+    $response->addHTML(
+        PMA\libraries\Message::error(__('No Privileges'))
+            ->getDisplay()
+    );
     exit;
 }
 
@@ -137,7 +140,8 @@ if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
     && $hostname == $_REQUEST['old_hostname']
 ) {
     $response->addHTML(
-        PMA\libraries\Message::error(__('Username and hostname didn\'t change.'))->getDisplay()
+        PMA\libraries\Message::error(__('Username and hostname didn\'t change.'))
+            ->getDisplay()
     );
     $response->setRequestStatus(false);
     exit;

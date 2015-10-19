@@ -952,14 +952,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //validate 1: $create_user_real
         $this->assertEquals(
             "CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED "
-                . "WITH mysql_native_password AS 'pma_password';",
+            . "WITH mysql_native_password AS 'pma_password';",
             $create_user_real
         );
 
         //validate 2: $create_user_show
         $this->assertEquals(
             "CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED "
-                . "WITH mysql_native_password AS '***';",
+            . "WITH mysql_native_password AS '***';",
             $create_user_show
         );
 

@@ -67,7 +67,8 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         }
     }
 
-    $sql_query .= $sep . ' VIEW ' . PMA\libraries\Util::backquote($_REQUEST['view']['name']);
+    $sql_query .= $sep . ' VIEW '
+        . PMA\libraries\Util::backquote($_REQUEST['view']['name']);
 
     if (! empty($_REQUEST['view']['column_names'])) {
         $sql_query .= $sep . ' (' . $_REQUEST['view']['column_names'] . ')';
@@ -138,7 +139,10 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
-            PMA\libraries\Util::getMessage(PMA\libraries\Message::success(), $sql_query)
+            PMA\libraries\Util::getMessage(
+                PMA\libraries\Message::success(),
+                $sql_query
+            )
         );
         $response->setRequestStatus(true);
     }

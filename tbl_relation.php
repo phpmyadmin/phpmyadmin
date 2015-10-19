@@ -29,7 +29,8 @@ require_once 'libraries/common.inc.php';
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\table\TableRelationController');
 $container->alias(
-    'TableRelationController', 'PMA\libraries\controllers\table\TableRelationController'
+    'TableRelationController',
+    'PMA\libraries\controllers\table\TableRelationController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');

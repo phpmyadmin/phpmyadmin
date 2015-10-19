@@ -17,7 +17,8 @@ require_once 'libraries/common.inc.php';
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\table\TableIndexesController');
 $container->alias(
-    'TableIndexesController', 'PMA\libraries\controllers\table\TableIndexesController'
+    'TableIndexesController',
+    'PMA\libraries\controllers\table\TableIndexesController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');

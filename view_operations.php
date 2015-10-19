@@ -112,7 +112,9 @@ $url_params['back'] = 'view_operations.php';
 $drop_view_url_params = array_merge(
     $url_params,
     array(
-        'sql_query' => 'DROP VIEW ' . PMA\libraries\Util::backquote($GLOBALS['table']),
+        'sql_query' => 'DROP VIEW ' . PMA\libraries\Util::backquote(
+            $GLOBALS['table']
+        ),
         'goto' => 'tbl_structure.php',
         'reload' => '1',
         'purge' => '1',
