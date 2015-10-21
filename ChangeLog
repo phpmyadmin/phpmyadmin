@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.5.2.0 (not yet released)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
 - issue #11592 Missing headers in zipped export
+- issue #11590 Parser: Array to string conversion
 
 4.5.1.0 (not yet released)
 - issue        Invalid argument supplied for foreach()
