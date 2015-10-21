@@ -396,14 +396,14 @@ if (!defined('TESTSUITE')) {
     // Fake loop just to allow skip of remain of this code by break, I'd really
     // need exceptions here :-)
     do {
+        // Re - initialize
+        $dump_buffer = '';
+        $dump_buffer_len = 0;
 
         // Add possibly some comments to export
         if (! $export_plugin->exportHeader()) {
             break;
         }
-        // Re - initialize
-        $dump_buffer = '';
-        $dump_buffer_len = 0;
 
         // Will we need relation & co. setup?
         $do_relation = isset($GLOBALS[$what . '_relation']);
