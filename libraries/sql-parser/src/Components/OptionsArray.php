@@ -145,7 +145,9 @@ class OptionsArray extends Component
                         $parser->error(
                             sprintf(
                                 __('This option conflicts with "%1$s".'),
-                                $ret->options[$lastOptionId]
+                                is_array($ret->options[$lastOptionId])
+                                    ? $ret->options[$lastOptionId]['name']
+                                    : $ret->options[$lastOptionId]
                             ),
                             $token
                         );
