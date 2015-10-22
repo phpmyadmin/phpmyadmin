@@ -528,7 +528,14 @@ class TableSearchController extends TableController
         /**
          * Parse and analyze the query
          */
-        include_once 'libraries/parse_analyze.inc.php';
+        include_once 'libraries/parse_analyze.lib.php';
+        list(
+            $analyzed_sql_results,
+            $db,
+            $table
+        ) = PMA_parseAnalyze($sql_query, $db);
+        // @todo: possibly refactor
+        extract($analyzed_sql_results);
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results

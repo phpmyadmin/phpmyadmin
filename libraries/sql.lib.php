@@ -28,8 +28,14 @@ function PMA_parseAndAnalyze($sql_query, $db = null)
         $db = $GLOBALS['db'];
     }
 
-    // `$sql_query` is being used inside `parse_analyze.inc.php`.
-    return include 'libraries/parse_analyze.inc.php';
+    include_once 'libraries/parse_analyze.lib.php';
+    list(
+        $analyzed_sql_results,
+        $db,
+        $table
+    ) = PMA_parseAnalyze($sql_query, $db);
+
+    return $analyzed_sql_results; 
 }
 
 /**

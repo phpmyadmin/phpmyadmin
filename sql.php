@@ -145,7 +145,14 @@ if (empty($sql_query) && $tableLength && $dbLength) {
 /**
  * Parse and analyze the query
  */
-require_once 'libraries/parse_analyze.inc.php';
+require_once 'libraries/parse_analyze.lib.php';
+list(
+    $analyzed_sql_results,
+    $db,
+    $table
+) = PMA_parseAnalyze($sql_query, $db);
+// @todo: possibly refactor
+extract($analyzed_sql_results);
 
 
 /**

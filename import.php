@@ -732,7 +732,15 @@ if (isset($message)) {
 //  can choke on it so avoid parsing)
 $sqlLength = /*overload*/mb_strlen($sql_query);
 if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-    include_once 'libraries/parse_analyze.inc.php';
+    include_once 'libraries/parse_analyze.lib.php';
+
+    list(
+        $analyzed_sql_results,
+        $db,
+        $table
+    ) = PMA_parseAnalyze($sql_query, $db);
+    // @todo: possibly refactor
+    extract($analyzed_sql_results);
 }
 
 // There was an error?
@@ -755,8 +763,16 @@ if ($go_sql) {
 
     $html_output = '';
     foreach ($sql_queries as $sql_query) {
+
         // parse sql query
-        include 'libraries/parse_analyze.inc.php';
+        include_once 'libraries/parse_analyze.lib.php';
+        list(
+            $analyzed_sql_results,
+            $db,
+            $table
+        ) = PMA_parseAnalyze($sql_query, $db);
+        // @todo: possibly refactor
+        extract($analyzed_sql_results);
 
         $html_output .= PMA_executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results

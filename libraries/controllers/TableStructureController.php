@@ -801,9 +801,15 @@ class TableStructureController extends TableController
         );
 
         // Parse and analyze the query
-        // @todo Refactor parse_analyze.inc to protected function
         $db = &$this->db;
-        include_once 'libraries/parse_analyze.inc.php';
+        include_once 'libraries/parse_analyze.lib.php';
+        list(
+            $analyzed_sql_results,
+            $db,
+            $table
+        ) = PMA_parseAnalyze($sql_query, $db);
+        // @todo: possibly refactor
+        extract($analyzed_sql_results);
 
         include_once 'libraries/sql.lib.php';
 
