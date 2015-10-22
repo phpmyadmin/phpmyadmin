@@ -878,37 +878,191 @@ Documentation translators
 
 Following people have contributed to translation of phpMyAdmin documentation:
 
+* Albanian
+
+    * Arben Çokaj <acokaj\_at\_shkoder.net>
+
+
+* Arabic
+
+    * Ahmed El Azzabi <ahmedtek1993\_at\_gmail.com>
+    * Omar Essam <omar_2412\_at\_live.com>
+
+
+* Armenian
+
+    * Andrey Aleksanyants <aaleksanyants\_at\_yahoo.com>
+
+
+* Azerbaijani
+
+    * Mircəlal <01youknowme\_at\_gmail.com>
+    * Sevdimali İsa <sevdimaliisayev\_at\_mail.ru>
+
+
+* Catalan
+
+    * josep constanti <jconstanti\_at\_yahoo.es>
+    * Joan Montané <joan\_at\_montane.cat>
+    * Xavier Navarro <xvnavarro\_at\_gmail.com>
+
+
+* Chinese (China)
+
+    * Vincent Lau <3092849\_at\_qq.com>
+    * 罗攀登 <6375lpd\_at\_gmail.com>
+    * disorderman <disorderman\_at\_qq.com>
+    * ITXiaoPang <djh1017555\_at\_126.com>
+    * tunnel213 <tunnel213\_at\_aliyun.com>
+    * Terry Weng <wengshiyu\_at\_gmail.com>
+    * whh <whhlcj\_at\_126.com>
+
+
+* Chinese (Taiwan)
+
+    * Chien Wei Lin <cwlin0416\_at\_gmail.com>
+    * Peter Dave Hello <xs910203\_at\_gmail.com>
+
+
 * Czech
 
-  * Michal Čihař <michal\_at\_cihar.com>
+    * Aleš Hakl <ales\_at\_hakl.net>
+    * Michal Čihař <michal\_at\_cihar.com>
+    * Jan Palider <palider\_at\_seznam.cz>
+    * Petr Kateřiňák <petr.katerinak\_at\_gmail.com>
 
-* Greek
 
-  * Panagiotis Papazoglou <papaz_p\_at\_yahoo.com>
+* Danish
 
-* English (United Kingdom)
+    * Aputsiaĸ Niels Janussen <aj\_at\_isit.gl>
+    * Claus Svalekjaer <just.my.smtp.server\_at\_gmail.com>
 
-  * Robert Readman <robert_readman\_at\_hotmail.com>
+
+* Dutch
+
+    * A. Voogt <a.voogt\_at\_hccnet.nl>
+    * dingo thirteen <dingo13\_at\_gmail.com>
+    * Dries Verschuere <dries.verschuere\_at\_outlook.com>
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+    * Stefan Koolen <nast3zz\_at\_gmail.com>
+    * Ray Borggreve <ray\_at\_datahuis.net>
+    * Dieter Adriaenssens <ruleant\_at\_users.sourceforge.net>
+    * Tom Hofman <tom.hofman\_at\_gmail.com>
+
+
+* Estonian
+
+    * Kristjan Räts <kristjanrats\_at\_gmail.com>
+
+
+* Finnish
+
+    * Juha <jremes\_at\_outlook.com>
+
 
 * French
 
-  * Cédric Corazza <cedric.corazza\_at\_wanadoo.fr>
+    * Cédric Corazza <cedric.corazza\_at\_wanadoo.fr>
+    * Étienne Gilli <etienne.gilli\_at\_gmail.com>
+    * Marc Delisle <marc\_at\_infomarc.info>
+    * Donavan_Martin <mart.donavan\_at\_hotmail.com>
+
+
+* Frisian
+
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+
+
+* Galician
+
+    * Xosé Calvo <xosecalvo\_at\_gmail.com>
+
+
+* German
+
+    * Daniel <d.gnauk89\_at\_googlemail.com>
+    * JH M <janhenrikm\_at\_yahoo.de>
+    * Lasse Goericke <lasse\_at\_mydom.de>
+    * Michael Koch <michael.koch\_at\_enough.de>
+    * Ann + J.M. <phpMyAdmin\_at\_ZweiSteinSoft.de>
+    * Niemand Jedermann <predatorix\_at\_web.de>
+    * Phillip Rohmberger <rohmberger\_at\_hotmail.de>
+    * Hauke Henningsen <sqrt\_at\_entless.org>
+
+
+* Greek
+
+    * Παναγιώτης Παπάζογλου <papaz_p\_at\_yahoo.com>
+
+
+* Hungarian
+
+    * Balázs Úr <urbalazs\_at\_gmail.com>
+
+
+* Italian
+
+    * Francesco Saverio Giacobazzi <francesco.giacobazzi\_at\_ferrania.it>
+    * Marco Pozzato <ironpotts\_at\_gmail.com>
+    * Stefano Martinelli <stefano.ste.martinelli\_at\_gmail.com>
+    * TWS <tablettws\_at\_gmail.com>
+
 
 * Japanese
 
-  * Yuichiro Takahashi <yuichiro\_at\_pop07.odn.ne.jp>
+    * Eshin Kunishima <ek\_at\_luna.miko.im>
+    * Hiroshi Chiyokawa <hiroshi.chiyokawa\_at\_gmail.com>
 
-* Polish
 
-  * Stanisław Krukowski <stankruk\_at\_neostrada.pl>
+* Lithuanian
+
+    * Jur Kis <atvejis\_at\_gmail.com>
+    * Dovydas <dovy.buz\_at\_gmail.com>
+
+
+* Norwegian Bokmål
+
+    * Tor Stokkan <danorse\_at\_gmail.com>
+    * Kurt Eilertsen <kurt\_at\_kheds.com>
+
 
 * Portuguese (Brazil)
 
-  * mjaning <mjaning\_at\_gmail.com>
+    * Alexandre Moretti <alemoretti2010\_at\_hotmail.com>
+    * Douglas Rafael Morais Kollar <douglas.kollar\_at\_pg.df.gov.br>
+    * Guilherme Seibt <gui\_at\_webseibt.net>
+    * Helder Santana <helder.bs.santana\_at\_gmail.com>
+    * Michal Čihař <michal\_at\_cihar.com>
+    * Michel Souza <michel.ekio\_at\_gmail.com>
+    * Danilo Azevedo <mrdaniloazevedo\_at\_gmail.com>
+    * Thiago Casotti <thiago.casotti\_at\_uol.com.br>
+    * Vinícius Araújo <vinipitta\_at\_gmail.com>
+    * Yan Gabriel <yansilvagabriel\_at\_gmail.com>
+
+
+* Slovak
+
+    * Martin Lacina <martin\_at\_whistler.sk>
+    * Michal Čihař <michal\_at\_cihar.com>
+    * Jozef Pistej <pistej2\_at\_gmail.com>
+
 
 * Slovenian
 
-  * Domen <dbc334\_at\_gmail.com>
+    * Domen <mitenem\_at\_outlook.com>
+
+
+* Spanish
+
+    * Luis García Sevillano <floss.dev\_at\_gmail.com>
+    * Franco <fulanodetal.github1\_at\_openaliasbox.org>
+    * Matías Bellone <matiasbellone+weblate\_at\_gmail.com>
+    * Ronnie Simon <ronniesimonf\_at\_gmail.com>
+
+
+* Turkish
+
+    * Burak Yavuz <hitowerdigit\_at\_hotmail.com>
 
 Original Credits of Version 2.1.0
 +++++++++++++++++++++++++++++++++
