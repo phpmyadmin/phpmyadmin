@@ -65,7 +65,6 @@ class Limit extends Component
         $offset = false;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *

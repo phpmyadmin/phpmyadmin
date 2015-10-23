@@ -249,7 +249,8 @@ function PMA_getHtmlForSlaveConfiguration(
                    $server_slave_replication[0]['Slave_SQL_Running'] == 'No')
                  ? __('Full start')
                  : __('Full stop')) . ' </a></li>';
-        $html .= '   <li><a href="' . $slave_control_reset_link . '">';
+        $html .= '   <li><a class="ajax" id="reset_slave"'
+            . ' href="' . $slave_control_reset_link . '">';
         $html .= __('Reset slave') . '</a></li>';
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             $html .= '   <li><a href="' . $slave_control_sql_link . '">';

@@ -301,6 +301,7 @@ class TableStructureController extends TableController
         $db = &$this->db;
         $table = &$this->table;
         include_once 'libraries/tbl_common.inc.php';
+        $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = $url_query
             . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
         $url_params['goto'] = 'tbl_structure.php';
@@ -765,6 +766,8 @@ class TableStructureController extends TableController
                             $_REQUEST['field_default_value_orig'][$i],
                             Util\get($_REQUEST, "field_extra_orig.${i}", false),
                             Util\get($_REQUEST, "field_comments_orig.${i}", ''),
+                            Util\get($_REQUEST, "field_virtuality_orig.${i}", ''),
+                            Util\get($_REQUEST, "field_expression_orig.${i}", ''),
                             Util\get($_REQUEST, "field_move_to_orig.${i}", '')
                         );
                     }
@@ -969,7 +972,7 @@ class TableStructureController extends TableController
         /**
          * Work on the table
          */
-        if ($this->_tbl_is_view) {
+        if ($this->_tbl_is_view && ! $this->_db_is_system_schema) {
             $item = $this->dbi->fetchSingleRow(
                 sprintf(
                     "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,

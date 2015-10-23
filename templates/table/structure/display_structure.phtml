@@ -134,7 +134,7 @@
 <?php echo PMA\Template::get('table/structure/move_columns_dialog')->render(); ?>
 <!--Work on the table-->
 <div id="structure-action-links">
-    <?php if ($tbl_is_view): ?>
+    <?php if ($tbl_is_view && ! $db_is_system_schema): ?>
         <?php echo PMA_Util::linkOrButton(
             $edit_view_url,
             PMA_Util::getIcon('b_edit.png', __('Edit view'), true)
@@ -165,7 +165,7 @@
 <?php
 $partition_names = PMA_Partition::getPartitionNames($db, $table);
 // detect partitioning
-if (! is_null($partition_names[0])) {
+if (! empty($partition_names) && ! is_null($partition_names[0])) {
 
     $partitions = PMA_Partition::getPartitions($db, $table);
     $firstPartition = $partitions[0];

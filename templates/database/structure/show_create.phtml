@@ -15,6 +15,7 @@
         <?php
             echo PMA\Template::get('database/structure/show_create_row')->render(
               array(
+                  'db' => $db,
                   'title' => __('Tables'),
                   'raw_title' => 'Table',
                   'db_objects' => $tables
@@ -27,6 +28,7 @@
         <?php
         echo PMA\Template::get('database/structure/show_create_row')->render(
             array(
+                'db' => $db,
                 'title' => __('Views'),
                 'raw_title' => 'View',
                 'db_objects' => $views

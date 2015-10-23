@@ -75,8 +75,11 @@ class Key extends Component
      * @param string       $type    The type of this key.
      * @param OptionsArray $options The options of this key.
      */
-    public function __construct($name = null, array $columns = array(),
-        $type = null, $options = null
+    public function __construct(
+        $name = null,
+        array $columns = array(),
+        $type = null,
+        $options = null
     ) {
         $this->name = $name;
         $this->columns = $columns;
@@ -119,7 +122,6 @@ class Key extends Component
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *

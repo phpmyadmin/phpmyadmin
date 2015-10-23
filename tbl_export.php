@@ -126,25 +126,8 @@ if (! empty($sql_query)) {
             }
         }
 
-        // Replacing the aliases in select expressions.
-        foreach ($parser->statements[0]->expr as $expr) {
-            if ((!empty($expr->table)) && (!empty($aliases[$expr->table]))) {
-                // Changing the table to null (leave the MySQL to find the
-                // right table).
-                // This is possible because exporting selected rows is only
-                // allowed for queries involing a single table.
-                $expr->table = null;
-                $expr->expr = null; // Force rebuild.
-            }
-        }
-
         // Rebuilding the SELECT and FROM clauses.
         $replaces = array(
-            array(
-                'SELECT', 'SELECT ' . SqlParser\Components\ExpressionArray::build(
-                    $parser->statements[0]->expr
-                ),
-            ),
             array(
                 'FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build(
                     $parser->statements[0]->from
@@ -168,6 +151,25 @@ if (! empty($sql_query)) {
             $parser->list,
             $replaces
         );
+
+        // Removing the aliases by finding the alias followed by a dot.
+        $tokens = SqlParser\Lexer::getTokens($sql_query);
+        foreach ($aliases as $alias => $table) {
+            $tokens = SqlParser\Utils\Tokens::replaceTokens(
+                $tokens,
+                array(
+                    array(
+                        'value_str' => $alias,
+                    ),
+                    array(
+                        'type' => SqlParser\Token::TYPE_OPERATOR,
+                        'value_str' => '.',
+                    )
+                ),
+                array()
+            );
+        }
+        $sql_query = SqlParser\TokensList::build($tokens);
     }
 
     echo PMA_Util::getMessage(PMA_Message::success());

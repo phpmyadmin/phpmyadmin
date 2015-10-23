@@ -126,8 +126,12 @@ class CreateDefinition extends Component
      * @param bool         $isConstraint Whether this field is a constraint or not.
      * @param Reference    $references   References.
      */
-    public function __construct($name = null, $options = null, $type = null,
-        $isConstraint = false, $references = null
+    public function __construct(
+        $name = null,
+        $options = null,
+        $type = null,
+        $isConstraint = false,
+        $references = null
     ) {
         $this->name = $name;
         $this->options = $options;
@@ -178,7 +182,6 @@ class CreateDefinition extends Component
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *

@@ -56,7 +56,7 @@ class ArrayObj extends Component
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return mixed
+     * @return ArrayObj|Component[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
@@ -79,7 +79,6 @@ class ArrayObj extends Component
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *

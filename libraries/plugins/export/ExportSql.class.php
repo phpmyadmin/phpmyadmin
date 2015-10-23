@@ -1730,7 +1730,8 @@ class ExportSql extends ExportPlugin
                 // Removing the `AUTO_INCREMENT` attribute from the `CREATE TABLE`
                 // too.
                 if (!empty($statement->entityOptions)
-                    && empty($GLOBALS['sql_if_not_exists'])
+                    && (empty($GLOBALS['sql_if_not_exists'])
+                    || empty($GLOBALS['sql_auto_increment']))
                 ) {
                     $statement->entityOptions->remove('AUTO_INCREMENT');
                 }
@@ -2631,11 +2632,12 @@ class ExportSql extends ExportPlugin
 
                 // References.
                 if (!empty($field->references)) {
-                    $ref_table = $field->references->table;
+                    $ref_table = $field->references->table->table;
                     // Replacing table.
                     if (!empty($aliases[$old_database]['tables'][$ref_table]['alias'])) {
-                        $field->references->table
+                        $field->references->table->table
                             = $aliases[$old_database]['tables'][$ref_table]['alias'];
+                        $field->references->table->expr = null;
                         $flag = true;
                     }
                     // Replacing column names.

@@ -99,7 +99,6 @@ class OptionsArray extends Component
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
@@ -198,7 +197,7 @@ class OptionsArray extends Component
                 }
             } elseif ($state === 1) {
                 $state = 2;
-                if ($token->value === '=') {
+                if ($token->token === '=') {
                     $ret->options[$lastOptionId]['equals'] = true;
                     continue;
                 }

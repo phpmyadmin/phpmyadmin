@@ -1,19 +1,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.0-beta2\n"
+"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-09-06 07:29-0400\n"
-"PO-Revision-Date: 2015-07-14 11:09+0200\n"
+"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"PO-Revision-Date: 2015-10-15 11:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
+"bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -45,7 +45,7 @@ msgstr "ডাটাবেইজ %1$s তৈরী করা হয়েছে।"
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "ডাটাবেইজের মন্তব্য:"
+msgstr "ডাটাবেইজের মন্তব্য"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:968
@@ -96,7 +96,7 @@ msgstr "স্তম্ভ"
 #: libraries/rte/rte_routines.lib.php:893
 #: libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_routines.lib.php:1584
-#: libraries/server_privileges.lib.php:2371 libraries/tracking.lib.php:880
+#: libraries/server_privileges.lib.php:2504 libraries/tracking.lib.php:880
 #: libraries/tracking.lib.php:972
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -168,8 +168,8 @@ msgid "Comments"
 msgstr "মন্তব্য"
 
 #: db_datadict.php:156
-#: libraries/controllers/TableStructureController.class.php:953
-#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:956
+#: libraries/controllers/TableStructureController.class.php:961
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -177,39 +177,39 @@ msgstr "মন্তব্য"
 msgid "Primary"
 msgstr "প্রাথমিক"
 
-#: db_datadict.php:166 js/messages.php:317 libraries/Index.class.php:567
+#: db_datadict.php:166 js/messages.php:318 libraries/Index.class.php:567
 #: libraries/Index.class.php:606 libraries/Index.class.php:1021
 #: libraries/central_columns.lib.php:966
-#: libraries/config/FormDisplay.tpl.php:273 libraries/mult_submits.lib.php:403
+#: libraries/config/FormDisplay.tpl.php:279 libraries/mult_submits.lib.php:403
 #: libraries/mult_submits.lib.php:417
 #: libraries/plugins/export/ExportHtmlword.class.php:631
 #: libraries/plugins/export/ExportLatex.class.php:590
 #: libraries/plugins/export/ExportOdt.class.php:756
 #: libraries/plugins/export/ExportTexytext.class.php:568
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1077
-#: libraries/server_privileges.lib.php:2548
-#: libraries/server_privileges.lib.php:2732
-#: libraries/server_privileges.lib.php:2752
-#: libraries/server_privileges.lib.php:3082
-#: libraries/server_privileges.lib.php:3088
-#: libraries/server_privileges.lib.php:3452
-#: libraries/server_privileges.lib.php:3475 libraries/tracking.lib.php:933
+#: libraries/server_privileges.lib.php:2681
+#: libraries/server_privileges.lib.php:2865
+#: libraries/server_privileges.lib.php:2885
+#: libraries/server_privileges.lib.php:3215
+#: libraries/server_privileges.lib.php:3221
+#: libraries/server_privileges.lib.php:3579
+#: libraries/server_privileges.lib.php:3602 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1010 libraries/tracking.lib.php:1015
 #: prefs_manage.php:140 templates/prefs_autoload.phtml:15
 #: templates/table/structure/table_structure_row.phtml:24
 msgid "No"
 msgstr "না"
 
-#: db_datadict.php:166 js/messages.php:444 libraries/Index.class.php:568
+#: db_datadict.php:166 js/messages.php:445 libraries/Index.class.php:568
 #: libraries/Index.class.php:605 libraries/Index.class.php:1021
 #: libraries/central_columns.lib.php:966
-#: libraries/config/FormDisplay.tpl.php:273
-#: libraries/controllers/TableStructureController.class.php:541
-#: libraries/controllers/TableStructureController.class.php:1204
-#: libraries/controllers/TableStructureController.class.php:1213
-#: libraries/controllers/TableStructureController.class.php:1218
-#: libraries/controllers/TableStructureController.class.php:1223
-#: libraries/controllers/TableStructureController.class.php:1228
+#: libraries/config/FormDisplay.tpl.php:279
+#: libraries/controllers/TableStructureController.class.php:542
+#: libraries/controllers/TableStructureController.class.php:1207
+#: libraries/controllers/TableStructureController.class.php:1216
+#: libraries/controllers/TableStructureController.class.php:1221
+#: libraries/controllers/TableStructureController.class.php:1226
+#: libraries/controllers/TableStructureController.class.php:1231
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:195
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -220,13 +220,13 @@ msgstr "না"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1078
 #: libraries/server_databases.lib.php:475
 #: libraries/server_databases.lib.php:485
-#: libraries/server_privileges.lib.php:2548
-#: libraries/server_privileges.lib.php:2729
-#: libraries/server_privileges.lib.php:2750
-#: libraries/server_privileges.lib.php:3081
-#: libraries/server_privileges.lib.php:3086
-#: libraries/server_privileges.lib.php:3449
-#: libraries/server_privileges.lib.php:3475 libraries/tracking.lib.php:933
+#: libraries/server_privileges.lib.php:2681
+#: libraries/server_privileges.lib.php:2862
+#: libraries/server_privileges.lib.php:2883
+#: libraries/server_privileges.lib.php:3214
+#: libraries/server_privileges.lib.php:3219
+#: libraries/server_privileges.lib.php:3576
+#: libraries/server_privileges.lib.php:3602 libraries/tracking.lib.php:933
 #: libraries/tracking.lib.php:1008 libraries/tracking.lib.php:1013
 #: prefs_manage.php:138 templates/prefs_autoload.phtml:14
 #: templates/table/structure/table_structure_row.phtml:24
@@ -250,7 +250,7 @@ msgstr "ডাটাবেইজে কোন টেবিল নাই।"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: templates/database/structure/show_create.phtml:18
+#: templates/database/structure/show_create.phtml:19
 msgid "Tables"
 msgstr "টেবল"
 
@@ -288,7 +288,7 @@ msgid "Data"
 msgstr "তথ্য"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
-#: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:378
+#: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:379
 #, fuzzy
 #| msgid "Select All"
 msgid "Select all"
@@ -414,7 +414,7 @@ msgstr "ওপেনস্ট্রীটম্যাপ প্রধান স�
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
 msgid "SRID:"
-msgstr "এসআরআইডি"
+msgstr "এসআরআইডি:"
 
 #: gis_data_editor.php:191
 #, php-format
@@ -426,23 +426,23 @@ msgid "Point:"
 msgstr "পয়েন্ট:"
 
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
-#: gis_data_editor.php:370 js/messages.php:433
+#: gis_data_editor.php:370 js/messages.php:434
 msgid "X"
 msgstr "এক্স"
 
 #: gis_data_editor.php:217 gis_data_editor.php:245 gis_data_editor.php:301
-#: gis_data_editor.php:376 js/messages.php:434
+#: gis_data_editor.php:376 js/messages.php:435
 msgid "Y"
 msgstr "ওয়াই"
 
 #: gis_data_editor.php:239 gis_data_editor.php:295 gis_data_editor.php:368
-#: js/messages.php:436
+#: js/messages.php:437
 #, php-format
 msgid "Point %d"
 msgstr "পয়েন্ট %d"
 
 #: gis_data_editor.php:252 gis_data_editor.php:308 gis_data_editor.php:386
-#: js/messages.php:442
+#: js/messages.php:443
 msgid "Add a point"
 msgstr "পয়েন্ট যোগ কর"
 
@@ -453,7 +453,7 @@ msgstr "লাইনস্ট্র্রিং %d:"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
 msgid "Outer ring:"
-msgstr "আউটার রিং"
+msgstr "আউটার রিং:"
 
 #: gis_data_editor.php:274 gis_data_editor.php:351
 #, php-format
@@ -464,7 +464,7 @@ msgstr "ইনার রিং %d:"
 msgid "Add a linestring"
 msgstr "একটি লাইন স্ট্রিং যোগ কর"
 
-#: gis_data_editor.php:312 gis_data_editor.php:391 js/messages.php:443
+#: gis_data_editor.php:312 gis_data_editor.php:391 js/messages.php:444
 msgid "Add an inner ring"
 msgstr "একটি ভিতরের গোলক যোগ কর"
 
@@ -481,10 +481,10 @@ msgstr "একটি পলিগন যোগ কর"
 msgid "Add geometry"
 msgstr "জ্যামিতি যোগ কর"
 
-#: gis_data_editor.php:409 js/messages.php:292
+#: gis_data_editor.php:409 js/messages.php:293
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1802
 #: libraries/browse_foreigners.lib.php:142
-#: libraries/display_change_password.lib.php:166
+#: libraries/display_change_password.lib.php:145
 #: libraries/display_export.lib.php:399 libraries/display_export.lib.php:405
 #: libraries/display_import.lib.php:394 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
@@ -494,18 +494,18 @@ msgstr "জ্যামিতি যোগ কর"
 #: libraries/operations.lib.php:811 libraries/operations.lib.php:884
 #: libraries/operations.lib.php:933 libraries/operations.lib.php:1347
 #: libraries/operations.lib.php:1668
-#: libraries/plugins/auth/AuthenticationCookie.class.php:248
+#: libraries/plugins/auth/AuthenticationCookie.class.php:239
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:161
-#: libraries/replication_gui.lib.php:325 libraries/replication_gui.lib.php:462
-#: libraries/replication_gui.lib.php:907 libraries/rte/rte_events.lib.php:509
+#: libraries/replication_gui.lib.php:326 libraries/replication_gui.lib.php:463
+#: libraries/replication_gui.lib.php:908 libraries/rte/rte_events.lib.php:509
 #: libraries/rte/rte_routines.lib.php:1060
 #: libraries/rte/rte_routines.lib.php:1672
 #: libraries/rte/rte_triggers.lib.php:396 libraries/server_bin_log.lib.php:61
 #: libraries/server_privileges.lib.php:705
-#: libraries/server_privileges.lib.php:2108
-#: libraries/server_privileges.lib.php:2874
-#: libraries/server_privileges.lib.php:3555
-#: libraries/server_privileges.lib.php:4655
+#: libraries/server_privileges.lib.php:2241
+#: libraries/server_privileges.lib.php:3007
+#: libraries/server_privileges.lib.php:3682
+#: libraries/server_privileges.lib.php:4783
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:429
 #: libraries/tracking.lib.php:533 libraries/tracking.lib.php:653
@@ -542,7 +542,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "সফল।"
 
-#: import.php:58 js/messages.php:501
+#: import.php:58 js/messages.php:502
 msgid "Failed"
 msgstr ""
 
@@ -614,7 +614,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন!"
 
-#: import.php:676 libraries/sql.lib.php:736 libraries/sql.lib.php:1462
+#: import.php:676 libraries/sql.lib.php:737 libraries/sql.lib.php:1463
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -647,10 +647,10 @@ msgstr ""
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: import_status.php:112 js/messages.php:378 libraries/Util.class.php:780
+#: import_status.php:112 js/messages.php:379 libraries/Util.class.php:780
 #: libraries/export.lib.php:518
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:298
-#: user_password.php:253
+#: user_password.php:259
 msgid "Back"
 msgstr "পিছনে"
 
@@ -674,9 +674,9 @@ msgstr ""
 msgid "General settings"
 msgstr "সাধারন সেটিংস"
 
-#: index.php:191 js/messages.php:525
-#: libraries/display_change_password.lib.php:50
-#: libraries/display_change_password.lib.php:53 user_password.php:247
+#: index.php:191 js/messages.php:526
+#: libraries/display_change_password.lib.php:52
+#: libraries/display_change_password.lib.php:55 user_password.php:253
 msgid "Change password"
 msgstr "পাসওয়ার্ড পরিবর্তন"
 
@@ -754,7 +754,7 @@ msgstr "সংস্করন সম্পর্কিত তথ্য:"
 #: libraries/config/FormDisplay.tpl.php:162
 #: libraries/display_export.lib.php:574 libraries/engines/pbxt.lib.php:162
 #: libraries/navigation/NavigationHeader.class.php:196
-#: libraries/server_variables.lib.php:160
+#: libraries/server_variables.lib.php:162
 msgid "Documentation"
 msgstr "সহায়িকা"
 
@@ -1010,7 +1010,13 @@ msgstr ""
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "আপনি কি নিশ্চিত ভাবে \"%s\" ব্যাবহারকরী দল মুছতে চান?"
 
-#: js/messages.php:67
+#: js/messages.php:66
+#, fuzzy
+#| msgid "Do you really want to execute \"%s\"?"
+msgid "Do you really want to RESET SLAVE?"
+msgstr "আপনি কি নিশ্চিত ভাবে \"%s\" কার্যকর করতে চান?"
+
+#: js/messages.php:68
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -1019,15 +1025,15 @@ msgid ""
 "refer to the tips at "
 msgstr ""
 
-#: js/messages.php:73
+#: js/messages.php:74
 msgid "Garbled Data"
 msgstr ""
 
-#: js/messages.php:75
+#: js/messages.php:76
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
 
-#: js/messages.php:77
+#: js/messages.php:78
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -1037,197 +1043,197 @@ msgid ""
 "</b>"
 msgstr ""
 
-#: js/messages.php:85
+#: js/messages.php:86
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
 
-#: js/messages.php:88
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save & close"
 msgstr "ফাইল এর মত সংরক্ষন"
 
-#: js/messages.php:89 libraries/config/FormDisplay.tpl.php:417
+#: js/messages.php:90 libraries/config/FormDisplay.tpl.php:423
 #: libraries/insert_edit.lib.php:1548 prefs_manage.php:361
 #: prefs_manage.php:372
 msgid "Reset"
 msgstr "পূর্বাবস্থায়"
 
-#: js/messages.php:90
+#: js/messages.php:91
 #, fuzzy
 #| msgid "Select All"
 msgid "Reset all"
 msgstr "সবগুলো নির্বাচন"
 
-#: js/messages.php:93
+#: js/messages.php:94
 msgid "Missing value in the form!"
 msgstr "র্ফমে কোন তথ্য নাই!"
 
-#: js/messages.php:94
+#: js/messages.php:95
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
 msgstr "অবশ্যই যে কোন একটি শব্দ"
 
-#: js/messages.php:95
+#: js/messages.php:96
 msgid "Please enter a valid number!"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:96
+#: js/messages.php:97
 msgid "Please enter a valid length!"
 msgstr "একটি কার্যকর দৈর্ঘ্য দিন!"
 
-#: js/messages.php:97
+#: js/messages.php:98
 msgid "Add index"
 msgstr "ইনডেক্স যোগ কর"
 
-#: js/messages.php:98
+#: js/messages.php:99
 #, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "ইনডেক্স সম্পাদনা"
 
-#: js/messages.php:99 templates/table/index_form.phtml:232
+#: js/messages.php:100 templates/table/index_form.phtml:232
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "%s স্বম্ভ ইনডেক্সে যোগ কর"
 
-#: js/messages.php:100
+#: js/messages.php:101
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
 msgstr "Server version"
 
-#: js/messages.php:101
+#: js/messages.php:102
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
 msgstr "Server version"
 
-#: js/messages.php:102
+#: js/messages.php:103
 #, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
 msgstr "স্তম্ভ সীমিত করা হবে:"
 
-#: js/messages.php:103
+#: js/messages.php:104
 #, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
 msgstr "%s স্বম্ভ ইনডেক্সে যোগ কর"
 
-#: js/messages.php:106 templates/table/structure/add_column.phtml:1
+#: js/messages.php:107 templates/table/structure/add_column.phtml:1
 msgid "You have to add at least one column."
 msgstr "আপনাকে অন্তত একটি স্বম্ভ যোগ করতে হবে।"
 
-#: js/messages.php:109 libraries/insert_edit.lib.php:1546
+#: js/messages.php:110 libraries/insert_edit.lib.php:1546
 #: templates/columns_definitions/column_definitions_form.phtml:162
 #: templates/table/index_form.phtml:237
 #: templates/table/relation/common_form.phtml:108
 msgid "Preview SQL"
 msgstr ""
 
-#: js/messages.php:112
+#: js/messages.php:113
 #, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
 msgstr "অনুসন্ধানের মধ্য"
 
-#: js/messages.php:113
+#: js/messages.php:114
 #, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "প্রভাবিত রোসমুহ:"
 
-#: js/messages.php:114 libraries/Util.class.php:681
+#: js/messages.php:115 libraries/Util.class.php:681
 msgid "SQL query:"
 msgstr "SQL অনুসন্ধান:"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:118
+#: js/messages.php:119
 #, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y এর মানসমূহ"
 
-#: js/messages.php:121
+#: js/messages.php:122
 msgid "The host name is empty!"
 msgstr "হোষ্ট নামটি শুন্য!"
 
-#: js/messages.php:122
+#: js/messages.php:123
 msgid "The user name is empty!"
 msgstr "ব্যাবহারকারী নামটি শুন্য!"
 
-#: js/messages.php:123 libraries/server_privileges.lib.php:1858
+#: js/messages.php:124 libraries/server_privileges.lib.php:1944
 #: user_password.php:116
 msgid "The password is empty!"
 msgstr "পাসওয়ার্ডটি শুন্য!"
 
-#: js/messages.php:124 libraries/server_privileges.lib.php:1856
+#: js/messages.php:125 libraries/server_privileges.lib.php:1942
 #: user_password.php:119
 msgid "The passwords aren't the same!"
 msgstr "পাসওর্য়াডগুলো এক নয়!"
 
-#: js/messages.php:125
+#: js/messages.php:126
 msgid "Removing Selected Users"
 msgstr "নির্বাচিত ব্যবহারকারীদের মুছে ফেলা হচ্ছে"
 
-#: js/messages.php:126 js/messages.php:187 libraries/tracking.lib.php:458
+#: js/messages.php:127 js/messages.php:188 libraries/tracking.lib.php:458
 #: libraries/tracking.lib.php:828
 msgid "Close"
 msgstr "বন্ধ"
 
-#: js/messages.php:129
+#: js/messages.php:130
 #, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
 msgstr "প্রস্তুতকৃত পাতার সংখ্যা।"
 
-#: js/messages.php:130
+#: js/messages.php:131
 msgid "Template was loaded."
 msgstr ""
 
-#: js/messages.php:131
+#: js/messages.php:132
 #, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
 msgstr "প্রোফাইল আপডেট করা হয়েছে।"
 
-#: js/messages.php:132
+#: js/messages.php:133
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "রো টি মুছা হয়েছে।"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:135 libraries/ServerStatusData.class.php:133
+#: js/messages.php:136 libraries/ServerStatusData.class.php:133
 #: libraries/server_status_queries.lib.php:146
 msgid "Other"
 msgstr "অন্যান্য"
 
 #. l10n: Thousands separator
-#: js/messages.php:137 libraries/Util.class.php:1450
+#: js/messages.php:138 libraries/Util.class.php:1450
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:139 libraries/Util.class.php:1452
+#: js/messages.php:140 libraries/Util.class.php:1452
 msgid "."
 msgstr "."
 
-#: js/messages.php:141
+#: js/messages.php:142
 msgid "Connections / Processes"
 msgstr "সংযোগসমূহ/প্রক্রিয়াসমূহ"
 
-#: js/messages.php:144
+#: js/messages.php:145
 #, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
 msgstr "স্থানীয় পর্যবেক্ষক কনফিগারেশন উপযুক্ত নয়"
 
-#: js/messages.php:145
+#: js/messages.php:146
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1238,167 +1244,167 @@ msgstr ""
 "কনফিগারেশন কাজ করবে না মনে হয়। আপনার কনফিগরেশন <i>Settings</i> ম্যানু থেকে "
 "স্বাভাবিকে নির্ধারন করন।"
 
-#: js/messages.php:147
+#: js/messages.php:148
 msgid "Query cache efficiency"
 msgstr "অনুসন্ধান ক্যাশের দক্ষতা"
 
-#: js/messages.php:148
+#: js/messages.php:149
 msgid "Query cache usage"
 msgstr "অনুসন্ধান ক্যাশের ব্যবহার"
 
-#: js/messages.php:149
+#: js/messages.php:150
 msgid "Query cache used"
 msgstr "ব্যাবহৃত অনুসন্ধান ক্যাশ"
 
-#: js/messages.php:151
+#: js/messages.php:152
 #, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "সিস্টেম সিপিইউর ব্যবহার"
 
-#: js/messages.php:152
+#: js/messages.php:153
 msgid "System memory"
 msgstr "সিস্টেম মেমোরী"
 
-#: js/messages.php:153
+#: js/messages.php:154
 msgid "System swap"
 msgstr "সিস্টেম সোআপ"
 
-#: js/messages.php:155
+#: js/messages.php:156
 msgid "Average load"
 msgstr "গড় লোড"
 
-#: js/messages.php:156
+#: js/messages.php:157
 msgid "Total memory"
 msgstr "মোট মেমরী"
 
-#: js/messages.php:157
+#: js/messages.php:158
 msgid "Cached memory"
 msgstr "ক্যাশড মেমোরী"
 
-#: js/messages.php:158
+#: js/messages.php:159
 msgid "Buffered memory"
 msgstr "বাফারড মেমোরী"
 
-#: js/messages.php:159
+#: js/messages.php:160
 msgid "Free memory"
 msgstr "উন্মুক্ত মেমোরী"
 
-#: js/messages.php:160
+#: js/messages.php:161
 msgid "Used memory"
 msgstr "ব্যবহৃত মেমোরী"
 
-#: js/messages.php:162
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "মোট সোআপ"
 
-#: js/messages.php:163
+#: js/messages.php:164
 #, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "ক্যাশড সো্‌আপ"
 
-#: js/messages.php:164
+#: js/messages.php:165
 #, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "ব্যবহৃত সোআপ"
 
-#: js/messages.php:165
+#: js/messages.php:166
 #, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "মুক্ত সোআপ"
 
-#: js/messages.php:167
+#: js/messages.php:168
 msgid "Bytes sent"
 msgstr "প্রেরিত বাইট"
 
-#: js/messages.php:168
+#: js/messages.php:169
 msgid "Bytes received"
 msgstr "গৃহীত বাইট"
 
-#: js/messages.php:169 libraries/server_status.lib.php:235
+#: js/messages.php:170 libraries/server_status.lib.php:235
 msgid "Connections"
 msgstr "সংযোগসমূহ"
 
-#: js/messages.php:170 libraries/ServerStatusData.class.php:446
+#: js/messages.php:171 libraries/ServerStatusData.class.php:446
 #: libraries/server_status_processes.lib.php:157
 msgid "Processes"
 msgstr "প্রক্রিয়াসমূহ"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:173 libraries/Util.class.php:1394
+#: js/messages.php:174 libraries/Util.class.php:1394
 msgid "B"
 msgstr "বি"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:174 libraries/Util.class.php:1396
+#: js/messages.php:175 libraries/Util.class.php:1396
 #: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "কিবা"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:175 libraries/Util.class.php:1398
+#: js/messages.php:176 libraries/Util.class.php:1398
 #: libraries/display_export.lib.php:842
 #: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "মেবা"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:176 libraries/Util.class.php:1400
+#: js/messages.php:177 libraries/Util.class.php:1400
 msgid "GiB"
 msgstr "জিবি"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:177 libraries/Util.class.php:1402
+#: js/messages.php:178 libraries/Util.class.php:1402
 msgid "TiB"
 msgstr "টিবি"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:178 libraries/Util.class.php:1404
+#: js/messages.php:179 libraries/Util.class.php:1404
 msgid "PiB"
 msgstr "পিবি"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:179 libraries/Util.class.php:1406
+#: js/messages.php:180 libraries/Util.class.php:1406
 msgid "EiB"
 msgstr "ইবি"
 
-#: js/messages.php:180
+#: js/messages.php:181
 #, php-format
 msgid "%d table(s)"
 msgstr "%d টেবিল"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:183
+#: js/messages.php:184
 msgid "Questions"
 msgstr "প্রশ্নসমূহ"
 
-#: js/messages.php:184 libraries/server_status.lib.php:143
+#: js/messages.php:185 libraries/server_status.lib.php:143
 msgid "Traffic"
 msgstr "গমনাগমন"
 
-#: js/messages.php:185 libraries/Menu.class.php:586
+#: js/messages.php:186 libraries/Menu.class.php:586
 #: libraries/Util.class.php:4278 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "সেটিংস"
 
-#: js/messages.php:186
+#: js/messages.php:187
 msgid "Add chart to grid"
 msgstr "গ্রিডে চিত্র যোগকর"
 
-#: js/messages.php:188
+#: js/messages.php:189
 msgid "Please add at least one variable to the series!"
 msgstr "সিরিজে অন্তত একটি চলক যোগ করুন!"
 
-#: js/messages.php:189 libraries/DisplayResults.class.php:1494
+#: js/messages.php:190 libraries/DisplayResults.class.php:1494
 #: libraries/config.values.php:69 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.class.php:2090
 #: libraries/plugins/schema/SchemaPdf.class.php:102
-#: libraries/server_privileges.lib.php:3049
+#: libraries/server_privileges.lib.php:3182
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:308
 #: templates/columns_definitions/transformation.phtml:4
@@ -1408,47 +1414,47 @@ msgstr "সিরিজে অন্তত একটি চলক যোগ ক�
 msgid "None"
 msgstr "কিছু না"
 
-#: js/messages.php:190
+#: js/messages.php:191
 msgid "Resume monitor"
 msgstr "র্পযবেক্ষন পুনরায় শুরু কর"
 
-#: js/messages.php:191
+#: js/messages.php:192
 msgid "Pause monitor"
 msgstr "পর্যবেক্ষন বিরতি"
 
-#: js/messages.php:192 libraries/server_status_processes.lib.php:37
+#: js/messages.php:193 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
 msgstr ""
 
-#: js/messages.php:193
+#: js/messages.php:194
 msgid "Stop auto refresh"
 msgstr ""
 
-#: js/messages.php:195
+#: js/messages.php:196
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log এবং slow_query_log কার্যকর করা হয়েছে।"
 
-#: js/messages.php:196
+#: js/messages.php:197
 msgid "general_log is enabled."
 msgstr "general_log কার্যকর করা হয়েছে।"
 
-#: js/messages.php:197
+#: js/messages.php:198
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log কার্যকর করা হয়েছে।"
 
-#: js/messages.php:198
+#: js/messages.php:199
 msgid "slow_query_log and general_log are disabled."
 msgstr "general_log এবং slow_query_log অকার্যকর করা হয়েছে।"
 
-#: js/messages.php:199
+#: js/messages.php:200
 msgid "log_output is not set to TABLE."
 msgstr "log_output টেবলে নির্ধারন করা হয়নি।"
 
-#: js/messages.php:200
+#: js/messages.php:201
 msgid "log_output is set to TABLE."
 msgstr "log_output টেবলে নির্ধারন করা হয়েছে।"
 
-#: js/messages.php:201
+#: js/messages.php:202
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1459,12 +1465,12 @@ msgstr ""
 "সার্ভার শুধু এগুলোই লগ করছে। সিস্টেমের উপর নির্ভর করে long_query_time ০-২ সেকেন্ডে "
 "নির্ধারন করা ভাল।"
 
-#: js/messages.php:202
+#: js/messages.php:203
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time %d সেকেন্ডে নির্ধারন করা হয়েছে।"
 
-#: js/messages.php:203
+#: js/messages.php:204
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -1473,30 +1479,30 @@ msgstr ""
 "করবে। আবার চালু করুন:"
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:205
+#: js/messages.php:206
 #, php-format
 msgid "Set log_output to %s"
 msgstr "log_output %s নির্ধারন কর"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:207
+#: js/messages.php:208
 #, php-format
 msgid "Enable %s"
 msgstr "সক্রিয় %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:209
+#: js/messages.php:210
 #, php-format
 msgid "Disable %s"
 msgstr "নিক্রিয় %s"
 
 #. l10n: %d seconds
-#: js/messages.php:211
+#: js/messages.php:212
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "long_query_time %d সেকেন্ড নির্ধারন কর।"
 
-#: js/messages.php:213
+#: js/messages.php:214
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -1504,57 +1510,57 @@ msgstr ""
 "আপনি এই চলকগুলো পরিবর্তন করতে পারবেন না। রুট হিসাবে লগইন করুন বা ডাটাবেইজ "
 "প্রশাসকের সংগে যোগাযোগ করুন।"
 
-#: js/messages.php:216
+#: js/messages.php:217
 msgid "Change settings"
 msgstr "সেটিংস পরিবর্তন"
 
-#: js/messages.php:217
+#: js/messages.php:218
 msgid "Current settings"
 msgstr "বর্তমান সেটিংস"
 
-#: js/messages.php:219 templates/table/chart/tbl_chart.phtml:53
+#: js/messages.php:220 templates/table/chart/tbl_chart.phtml:53
 msgid "Chart title"
 msgstr "চিত্রের নাম"
 
 #. l10n: As in differential values
-#: js/messages.php:221
+#: js/messages.php:222
 msgid "Differential"
 msgstr "পৃথকিকরণ"
 
-#: js/messages.php:222
+#: js/messages.php:223
 #, php-format
 msgid "Divided by %s"
 msgstr "%s দ্বার ভাগ করা হয়েছে"
 
-#: js/messages.php:223
+#: js/messages.php:224
 msgid "Unit"
 msgstr "একক"
 
-#: js/messages.php:225
+#: js/messages.php:226
 msgid "From slow log"
 msgstr "ধীর লগ থেকে"
 
-#: js/messages.php:226
+#: js/messages.php:227
 msgid "From general log"
 msgstr "সাধারন লগ থেকে"
 
-#: js/messages.php:228
+#: js/messages.php:229
 msgid "The database name is not known for this query in the server's logs."
 msgstr "এই অনুসন্ধানের ডাটাবেইজ নামটি সার্ভার লগে নাই।"
 
-#: js/messages.php:230
+#: js/messages.php:231
 msgid "Analysing logs"
 msgstr "লগ বিশ্লেষন করছি"
 
-#: js/messages.php:231
+#: js/messages.php:232
 msgid "Analysing & loading logs. This may take a while."
 msgstr "লগসমূহ বিশ্লেষন এবং লোড করছি। কিছু সময লাগবে।"
 
-#: js/messages.php:232
+#: js/messages.php:233
 msgid "Cancel request"
 msgstr "অনুরোধ বাতিল"
 
-#: js/messages.php:233
+#: js/messages.php:234
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1564,7 +1570,7 @@ msgstr ""
 "SQL অনুসন্ধানটিই ব্যবহৃত হয়েছে। অনুসন্ধানগুলোর অন্যান্য বিষয়, যেমন আরম্ভের সময় ইত্যাদি "
 "পার্থক্য হতে পারে।"
 
-#: js/messages.php:234
+#: js/messages.php:235
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -1573,31 +1579,31 @@ msgstr ""
 "দলবদ্ধ করার জন্য INSERT অনুসন্ধান নির্বাচন করা হয়েছে,একই টেবলের INSERT "
 "অনুসন্ধানগুলোও insert করা তথ্যগুলো বাদে দলবদ্ধ করা হয়েছে।"
 
-#: js/messages.php:235
+#: js/messages.php:236
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "লগের তথ্য লোড করা হয়েছে। এই সময়ের মধ্য সম্পাদনকৃত অনুসন্ধানসমূহ:"
 
-#: js/messages.php:237
+#: js/messages.php:238
 msgid "Jump to Log table"
 msgstr "লগ টেবিলে যাও"
 
-#: js/messages.php:238
+#: js/messages.php:239
 msgid "No data found"
 msgstr "কোন তথ্য পাওয়া যায় নাই"
 
-#: js/messages.php:239
+#: js/messages.php:240
 msgid "Log analysed, but no data found in this time span."
 msgstr "লগ বিশ্লেষন করা হয়েছে, কিন্তু এই সময়ের মধ্যে কোন তথ্য পাওয়া যায়নি।"
 
-#: js/messages.php:241
+#: js/messages.php:242
 msgid "Analyzing…"
 msgstr "বিশ্লেষন করছি…"
 
-#: js/messages.php:242
+#: js/messages.php:243
 msgid "Explain output"
 msgstr "আউটপুটের ব্যাখা"
 
-#: js/messages.php:243 libraries/Menu.class.php:552
+#: js/messages.php:244 libraries/Menu.class.php:552
 #: libraries/Util.class.php:4274 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:279
@@ -1605,7 +1611,7 @@ msgstr "আউটপুটের ব্যাখা"
 msgid "Status"
 msgstr "অবস্থা"
 
-#: js/messages.php:244 js/messages.php:761
+#: js/messages.php:245 js/messages.php:762
 #: libraries/plugins/export/ExportHtmlword.class.php:472
 #: libraries/plugins/export/ExportOdt.class.php:588
 #: libraries/plugins/export/ExportTexytext.class.php:427
@@ -1615,58 +1621,58 @@ msgstr "অবস্থা"
 msgid "Time"
 msgstr "সময়"
 
-#: js/messages.php:245
+#: js/messages.php:246
 msgid "Total time:"
 msgstr "মোট সময়:"
 
-#: js/messages.php:246
+#: js/messages.php:247
 msgid "Profiling results"
 msgstr "প্রোফাইলিং এর ফলাফল"
 
-#: js/messages.php:247
+#: js/messages.php:248
 msgctxt "Display format"
 msgid "Table"
 msgstr "টেবল"
 
-#: js/messages.php:248
+#: js/messages.php:249
 msgid "Chart"
 msgstr "চিত্র"
 
 #. l10n: A collection of available filters
-#: js/messages.php:251
+#: js/messages.php:252
 msgid "Log table filter options"
 msgstr "লগ টেবল ফিল্টার অপশন"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:253
+#: js/messages.php:254
 msgid "Filter"
 msgstr "ফিল্টার"
 
-#: js/messages.php:254
+#: js/messages.php:255
 msgid "Filter queries by word/regexp:"
 msgstr "অনুসন্ধান word/regexp দ্বারা ফিল্টার কর:"
 
-#: js/messages.php:255
+#: js/messages.php:256
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "WHERE এর তথ্য উপেক্ষা করে অনুসন্ধান দলবদ্ধ কর"
 
-#: js/messages.php:256
+#: js/messages.php:257
 msgid "Sum of grouped rows:"
 msgstr "দলবদ্ধকৃত রো'র সংখ্যা:"
 
-#: js/messages.php:257
+#: js/messages.php:258
 msgid "Total:"
 msgstr "মোট:"
 
-#: js/messages.php:259
+#: js/messages.php:260
 msgid "Loading logs"
 msgstr "লোডিং লগ"
 
-#: js/messages.php:260
+#: js/messages.php:261
 msgid "Monitor refresh failed"
 msgstr "পযবেক্ষক রিফ্রশ ব্যার্থ"
 
-#: js/messages.php:261
+#: js/messages.php:262
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1675,26 +1681,26 @@ msgstr ""
 "নতুন চিত্রের চেষ্টায় সার্ভার অকার্যকর সাড়া দিয়াছে। মনে হয় আপনার সেশন শেষ হয়ে "
 "গেছে। পাতাটি রিলোড এবং আবার লগইন হয়ত সাহায্য করবে।"
 
-#: js/messages.php:262
+#: js/messages.php:263
 msgid "Reload page"
 msgstr "পাতাটি রিলোড"
 
-#: js/messages.php:264
+#: js/messages.php:265
 msgid "Affected rows:"
 msgstr "প্রভাবিত রোসমুহ:"
 
-#: js/messages.php:267
+#: js/messages.php:268
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr "কনফিগ ফাইলটি পড়তে ব্যর্থ। এটা মনে হয় কার্যকর JSON কোড নয়।"
 
-#: js/messages.php:269
+#: js/messages.php:270
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "আমদানি করা কনফিগারেশন দিয়ে চিত্র তৈরী করতে ব্যর্থ হয়েছি। কনফিগারেশন স্বাভাবিক "
 "অবস্থায় সেট করা হচ্ছে…"
 
-#: js/messages.php:270 libraries/Menu.class.php:352
+#: js/messages.php:271 libraries/Menu.class.php:352
 #: libraries/Menu.class.php:455 libraries/Menu.class.php:582
 #: libraries/Util.class.php:4277 libraries/Util.class.php:4292
 #: libraries/Util.class.php:4309 libraries/config/messages.inc.php:260
@@ -1704,61 +1710,61 @@ msgstr ""
 msgid "Import"
 msgstr "আমদানি"
 
-#: js/messages.php:271
+#: js/messages.php:272
 msgid "Import monitor configuration"
 msgstr "পর্যবেক্ষকের কনফিগারেশন আমাদনি কর"
 
-#: js/messages.php:272
+#: js/messages.php:273
 msgid "Please select the file you want to import."
 msgstr "আমদানি করার জন্য ফাইলটি নির্বাচন করুন।"
 
-#: js/messages.php:273
+#: js/messages.php:274
 msgid "No files available on server for import!"
 msgstr ""
 
-#: js/messages.php:275
+#: js/messages.php:276
 #, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "অনুসন্ধান বিশ্লেষন"
 
-#: js/messages.php:279
+#: js/messages.php:280
 msgid "Advisor system"
 msgstr "উপদেষ্টা ব্যবস্থা"
 
-#: js/messages.php:280
+#: js/messages.php:281
 msgid "Possible performance issues"
 msgstr "সাম্ভাব্য কার্যকারিতার বিষয়"
 
-#: js/messages.php:281
+#: js/messages.php:282
 msgid "Issue"
 msgstr "ইস্যু"
 
-#: js/messages.php:282
+#: js/messages.php:283
 msgid "Recommendation"
 msgstr "সুপারিশ"
 
-#: js/messages.php:283
+#: js/messages.php:284
 msgid "Rule details"
 msgstr "বিশদ নিয়মাবলী"
 
-#: js/messages.php:284
+#: js/messages.php:285
 msgid "Justification"
 msgstr "যৌক্তিকতা"
 
-#: js/messages.php:285
+#: js/messages.php:286
 msgid "Used variable / formula"
 msgstr "ব্যবহৃত চলক / ফর্মূলা"
 
-#: js/messages.php:286
+#: js/messages.php:287
 msgid "Test"
 msgstr "টেষ্ট"
 
-#: js/messages.php:289
+#: js/messages.php:290
 msgid "Formatting SQL…"
 msgstr ""
 
-#: js/messages.php:293 libraries/server_variables.lib.php:157
+#: js/messages.php:294 libraries/server_variables.lib.php:159
 #: templates/database/designer/aggregate_query_panel.phtml:63
 #: templates/database/designer/delete_relation_panel.phtml:28
 #: templates/database/designer/having_query_panel.phtml:117
@@ -1769,73 +1775,73 @@ msgstr ""
 msgid "Cancel"
 msgstr "বাতিল"
 
-#: js/messages.php:296 libraries/Header.class.php:462
+#: js/messages.php:297 libraries/Header.class.php:462
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "সেটিংস পরিবর্তন"
 
-#: js/messages.php:297 libraries/config/FormDisplay.tpl.php:415
+#: js/messages.php:298 libraries/config/FormDisplay.tpl.php:421
 msgid "Apply"
 msgstr "প্রয়োগ"
 
-#: js/messages.php:300 libraries/navigation/NavigationHeader.class.php:60
+#: js/messages.php:301 libraries/navigation/NavigationHeader.class.php:60
 #: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
 msgstr "লোডিং…"
 
-#: js/messages.php:301
+#: js/messages.php:302
 #, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "অনুরোধ বাতিল করা হয়েছে!!"
 
-#: js/messages.php:302
+#: js/messages.php:303
 #, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "প্রক্রিয়াকরন চলছে"
 
-#: js/messages.php:303
+#: js/messages.php:304
 #, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
 msgstr "অনুরোধ বাতিল করা হয়েছে!!"
 
-#: js/messages.php:304
+#: js/messages.php:305
 #, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
 msgstr "নির্দেশ প্রক্রিয়া করনে সমস্যা হয়েছে:"
 
-#: js/messages.php:305
+#: js/messages.php:306
 #, php-format
 msgid "Error code: %s"
 msgstr "ভুল নং:%s"
 
-#: js/messages.php:306
+#: js/messages.php:307
 #, php-format
 msgid "Error text: %s"
 msgstr "ভুলটি : %s"
 
-#: js/messages.php:307 libraries/db_common.inc.php:69
+#: js/messages.php:308 libraries/db_common.inc.php:69
 #: libraries/db_table_exists.lib.php:30 libraries/server_databases.lib.php:461
 msgid "No databases selected."
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
 
-#: js/messages.php:308
+#: js/messages.php:309
 #, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "স্তম্ভ মুছছি"
 
-#: js/messages.php:309
+#: js/messages.php:310
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "প্রাইমারি কী যোগ কর"
 
-#: js/messages.php:310
+#: js/messages.php:311
 #: templates/database/designer/aggregate_query_panel.phtml:59
 #: templates/database/designer/having_query_panel.phtml:113
 #: templates/database/designer/new_relation_panel.phtml:87
@@ -1845,117 +1851,117 @@ msgstr "প্রাইমারি কী যোগ কর"
 msgid "OK"
 msgstr "ওকে"
 
-#: js/messages.php:311
+#: js/messages.php:312
 msgid "Click to dismiss this notification"
 msgstr "এই বার্তাটি বন্ধ করতে ক্লীক করুন"
 
-#: js/messages.php:314
+#: js/messages.php:315
 #, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "ডাটাবেইজসমূহের নাম পরিবর্তন করছি"
 
-#: js/messages.php:315
+#: js/messages.php:316
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "ডাটাবেইজের প্রতিলিপি করছি"
 
-#: js/messages.php:316
+#: js/messages.php:317
 #, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "বর্ণ রাশি পরিবর্তন করছি"
 
-#: js/messages.php:320 libraries/Util.class.php:3232
+#: js/messages.php:321 libraries/Util.class.php:3232
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
 msgstr "foreign key পরীক্ষা অকার্যকর কর"
 
-#: js/messages.php:323
+#: js/messages.php:324
 #, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
 msgstr "হেডার নিয়ে আসতে ব্যর্থ হয়েছে"
 
-#: js/messages.php:326
+#: js/messages.php:327
 msgid "Searching"
 msgstr "খোজঁছি"
 
-#: js/messages.php:327
+#: js/messages.php:328
 msgid "Hide search results"
 msgstr "খোজাঁর ফলাফল লুকাও"
 
-#: js/messages.php:328
+#: js/messages.php:329
 msgid "Show search results"
 msgstr "খোজাঁর ফলাফল দেখাও"
 
-#: js/messages.php:329
+#: js/messages.php:330
 msgid "Browsing"
 msgstr "দেখছি"
 
-#: js/messages.php:330
+#: js/messages.php:331
 msgid "Deleting"
 msgstr "মুছছি"
 
-#: js/messages.php:333
+#: js/messages.php:334
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "সঞ্চিত ফাংশনে অবশ্যই একটি রির্টান থাকতে হবে!"
 
-#: js/messages.php:334 libraries/DisplayResults.class.php:4837
+#: js/messages.php:335 libraries/DisplayResults.class.php:4837
 #: libraries/DisplayResults.class.php:5095 libraries/Menu.class.php:344
 #: libraries/Menu.class.php:446 libraries/Menu.class.php:578
 #: libraries/Util.class.php:3653 libraries/Util.class.php:3654
 #: libraries/Util.class.php:4276 libraries/Util.class.php:4291
 #: libraries/Util.class.php:4308 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:146
-#: libraries/server_privileges.lib.php:2213
-#: libraries/server_privileges.lib.php:2292
-#: libraries/server_privileges.lib.php:2634
-#: libraries/server_privileges.lib.php:3358
+#: libraries/server_privileges.lib.php:2346
+#: libraries/server_privileges.lib.php:2425
+#: libraries/server_privileges.lib.php:2767
+#: libraries/server_privileges.lib.php:3491
 #: libraries/server_status_monitor.lib.php:322 prefs_manage.php:303
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Export"
 msgstr "রফতানী"
 
-#: js/messages.php:337 libraries/rte/rte_routines.lib.php:743
+#: js/messages.php:338 libraries/rte/rte_routines.lib.php:743
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET সম্পাদক"
 
-#: js/messages.php:338
+#: js/messages.php:339
 #, php-format
 msgid "Values for column %s"
 msgstr "%s স্তম্ভের জন্য তথ্য"
 
-#: js/messages.php:339
+#: js/messages.php:340
 msgid "Values for a new column"
 msgstr "নতুন স্তম্ভের জন্য তথ্য"
 
-#: js/messages.php:340
+#: js/messages.php:341
 msgid "Enter each value in a separate field."
 msgstr "আলাদা আলাদা ক্ষেত্রে তথ্য দিন।"
 
-#: js/messages.php:341
+#: js/messages.php:342
 #, php-format
 msgid "Add %d value(s)"
 msgstr "%d মান যোগ কর"
 
-#: js/messages.php:344
+#: js/messages.php:345
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "টিকা: যদি ফাইলটিতে একাধিক টেবিল থাকে, ওই গুলো একটিতে পরিনত হবে।"
 
-#: js/messages.php:347
+#: js/messages.php:348
 msgid "Hide query box"
 msgstr "অনুসন্ধান বক্সটি লুকাও"
 
-#: js/messages.php:348
+#: js/messages.php:349
 msgid "Show query box"
 msgstr "অনুসন্ধান বক্সটি দেখাও"
 
-#: js/messages.php:349 libraries/Console.class.php:88
+#: js/messages.php:350 libraries/Console.class.php:88
 #: libraries/Console.class.php:214 libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:4821 libraries/Index.class.php:723
 #: libraries/Util.class.php:710 libraries/Util.class.php:1207
@@ -1964,113 +1970,113 @@ msgstr "অনুসন্ধান বক্সটি দেখাও"
 #: libraries/central_columns.lib.php:1194
 #: libraries/config/messages.inc.php:895
 #: libraries/server_user_groups.lib.php:119
-#: libraries/server_variables.lib.php:240
-#: libraries/server_variables.lib.php:245 setup/frames/index.inc.php:180
+#: libraries/server_variables.lib.php:242
+#: libraries/server_variables.lib.php:247 setup/frames/index.inc.php:181
 msgid "Edit"
 msgstr "সম্পাদনা"
 
-#: js/messages.php:350 libraries/Console.class.php:89
+#: js/messages.php:351 libraries/Console.class.php:89
 #: libraries/DbSearch.class.php:365 libraries/DisplayResults.class.php:3546
 #: libraries/DisplayResults.class.php:4805
 #: libraries/central_columns.lib.php:853
 #: libraries/central_columns.lib.php:1199 libraries/display_export.lib.php:225
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:416 libraries/tracking.lib.php:477
-#: setup/frames/index.inc.php:184 setup/frames/index.inc.php:292
+#: setup/frames/index.inc.php:185 setup/frames/index.inc.php:293
 #: templates/database/designer/delete_relation_panel.phtml:27
 msgid "Delete"
 msgstr "মুছ"
 
-#: js/messages.php:351 libraries/DisplayResults.class.php:913
+#: js/messages.php:352 libraries/DisplayResults.class.php:913
 #: libraries/DisplayResults.class.php:921
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d বৈধ রো নাম্বার নয়।"
 
-#: js/messages.php:352
+#: js/messages.php:353
 #: libraries/controllers/TableSearchController.class.php:437
 #: libraries/controllers/TableSearchController.class.php:914
 #: libraries/sql.lib.php:186 tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "ফরেন মান দেখা"
 
-#: js/messages.php:353
+#: js/messages.php:354
 msgid "No auto-saved query"
 msgstr ""
 
-#: js/messages.php:354
+#: js/messages.php:355
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "চলক"
 
-#: js/messages.php:357 libraries/normalization.lib.php:886
+#: js/messages.php:358 libraries/normalization.lib.php:886
 msgid "Pick"
 msgstr ""
 
-#: js/messages.php:358
+#: js/messages.php:359
 #, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
 msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই"
 
-#: js/messages.php:359
+#: js/messages.php:360
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "ডাটাবেইজে খোঁজ"
 
-#: js/messages.php:360
+#: js/messages.php:361
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: js/messages.php:361
+#: js/messages.php:362
 #, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "উন্মুক্ত মেমোরী"
 
-#: js/messages.php:362
+#: js/messages.php:363
 msgid "Are you sure?"
 msgstr ""
 
-#: js/messages.php:363
+#: js/messages.php:364
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
 
-#: js/messages.php:364
+#: js/messages.php:365
 #, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
 msgstr "সহায়তা করুন"
 
-#: js/messages.php:367
+#: js/messages.php:368
 msgid "Add primary key"
 msgstr "প্রাইমারি কী যোগ কর"
 
-#: js/messages.php:368
+#: js/messages.php:369
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "%s একটি প্রাইমারি কী যোগ করা হয়েছে"
 
-#: js/messages.php:369 libraries/normalization.lib.php:191
+#: js/messages.php:370 libraries/normalization.lib.php:191
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "ট্রেকিং প্রতিবেদন"
 
-#: js/messages.php:370
+#: js/messages.php:371
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: js/messages.php:371 libraries/normalization.lib.php:452
+#: js/messages.php:372 libraries/normalization.lib.php:452
 #: libraries/normalization.lib.php:499 libraries/normalization.lib.php:584
 #: libraries/normalization.lib.php:644
 #, fuzzy
@@ -2078,251 +2084,251 @@ msgstr ""
 msgid "End of step"
 msgstr "লাইনের শেষ"
 
-#: js/messages.php:372
+#: js/messages.php:373
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:373 js/messages.php:630 libraries/normalization.lib.php:288
+#: js/messages.php:374 js/messages.php:631 libraries/normalization.lib.php:288
 msgid "Done"
 msgstr "সম্পন্ন"
 
-#: js/messages.php:374
+#: js/messages.php:375
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: js/messages.php:375
+#: js/messages.php:376
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:376
+#: js/messages.php:377
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: js/messages.php:377
+#: js/messages.php:378
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
 
-#: js/messages.php:379
+#: js/messages.php:380
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: js/messages.php:380
+#: js/messages.php:381
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: js/messages.php:381
+#: js/messages.php:382
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: js/messages.php:382
+#: js/messages.php:383
 msgid "Step"
 msgstr ""
 
-#: js/messages.php:383
+#: js/messages.php:384
 msgid "The following actions will be performed:"
 msgstr ""
 
-#: js/messages.php:384
+#: js/messages.php:385
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: js/messages.php:385
+#: js/messages.php:386
 #, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
 msgstr "নিচের টেবিল এ সুবিধাসমূহ যোগ কর:"
 
-#: js/messages.php:388
+#: js/messages.php:389
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: js/messages.php:389
+#: js/messages.php:390
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: js/messages.php:390
+#: js/messages.php:391
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:391
+#: js/messages.php:392
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
 
-#: js/messages.php:394 libraries/central_columns.lib.php:1215
-#: libraries/insert_edit.lib.php:1456 libraries/server_variables.lib.php:155
-#: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
+#: js/messages.php:395 libraries/central_columns.lib.php:1215
+#: libraries/insert_edit.lib.php:1456 libraries/server_variables.lib.php:157
+#: setup/frames/config.inc.php:42 setup/frames/index.inc.php:281
 #: templates/columns_definitions/column_definitions_form.phtml:165
 #: templates/table/gis_visualization/gis_visualization.phtml:48
 #: templates/table/relation/common_form.phtml:109
 msgid "Save"
 msgstr "সংরক্ষন"
 
-#: js/messages.php:397
+#: js/messages.php:398
 msgid "Hide search criteria"
 msgstr "খোজাঁর শর্ত লুকাও"
 
-#: js/messages.php:398
+#: js/messages.php:399
 msgid "Show search criteria"
 msgstr "খোজাঁর শর্ত দেখাও"
 
-#: js/messages.php:399
+#: js/messages.php:400
 #, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
 msgstr "টেবিলে খোজাঁ"
 
-#: js/messages.php:400
+#: js/messages.php:401
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
 msgstr "স্তম্ভের নাম: "
 
-#: js/messages.php:401
+#: js/messages.php:402
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
 msgstr "স্তম্ভের নাম: "
 
-#: js/messages.php:402
+#: js/messages.php:403
 #, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
 msgstr "টেবলের সর্বোচ্চ সংখ্যা"
 
-#: js/messages.php:403
+#: js/messages.php:404
 #, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
 msgstr "টেবলের সর্বোচ্চ সংখ্যা"
 
-#: js/messages.php:406
+#: js/messages.php:407
 msgid "Hide find and replace criteria"
 msgstr "পাওয়া এবং প্রতিস্থাপনের শর্ত লুকাও"
 
-#: js/messages.php:407
+#: js/messages.php:408
 msgid "Show find and replace criteria"
 msgstr "পাওয়া এবং প্রতিস্থাপনের শর্ত দেখাও"
 
-#: js/messages.php:411
+#: js/messages.php:412
 msgid "Each point represents a data row."
 msgstr "প্রতিটি পয়েন্ট একটি তথ্য সারি।"
 
-#: js/messages.php:413
+#: js/messages.php:414
 msgid "Hovering over a point will show its label."
 msgstr "একটি পয়েন্টের উপর মাউস আনলে তার লেবেল দেখাবে।"
 
-#: js/messages.php:415
+#: js/messages.php:416
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "বড় করে দেখার জন্য, অংশটির একটি অংশ মাউজ দ্বারা নির্বাচন করন।"
 
-#: js/messages.php:417
+#: js/messages.php:418
 msgid "Click reset zoom button to come back to original state."
 msgstr "মুল অবস্থায় ফিরিয়ে নেওয়ার জন্য জুম রিসেট এ ক্লীক করুন।"
 
-#: js/messages.php:419
+#: js/messages.php:420
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "দেখার জন্য একটি তথ্য পয়েন্ট এ ক্লীক করুন এবং প্রয়োজনে তথ্য সারিটি সম্পাদনা করুন।"
 
-#: js/messages.php:421
+#: js/messages.php:422
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "নীচের ডান কোণার দিকে টেনে এই অংশটির আকৃতি পরিবর্তন করা যাবে।"
 
-#: js/messages.php:424
+#: js/messages.php:425
 msgid "Select two columns"
 msgstr "দুইটি স্তম্ভ নির্বাচন করুন"
 
-#: js/messages.php:426
+#: js/messages.php:427
 msgid "Select two different columns"
 msgstr "ভিন্ন ভিন্ন দুইটি স্তম্ভ নির্বাচন করুন"
 
-#: js/messages.php:428
+#: js/messages.php:429
 msgid "Data point content"
 msgstr "প্রতিটি পয়েন্টের বিষয়"
 
-#: js/messages.php:431 js/messages.php:563 js/messages.php:580
+#: js/messages.php:432 js/messages.php:564 js/messages.php:581
 #: libraries/Error_Handler.class.php:344 libraries/insert_edit.lib.php:2572
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:194
 msgid "Ignore"
 msgstr "উপেক্ষা"
 
-#: js/messages.php:432 libraries/DisplayResults.class.php:3480
+#: js/messages.php:433 libraries/DisplayResults.class.php:3480
 #: libraries/DisplayResults.class.php:4826
 msgid "Copy"
 msgstr "প্রতিলিপি"
 
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "Point"
 msgstr "পয়েন্ট"
 
-#: js/messages.php:437
+#: js/messages.php:438
 msgid "Linestring"
 msgstr "লাইনস্ট্রিং"
 
-#: js/messages.php:438
+#: js/messages.php:439
 msgid "Polygon"
 msgstr "পলি্গন (বহুভুজ)"
 
-#: js/messages.php:439 libraries/DisplayResults.class.php:1785
+#: js/messages.php:440 libraries/DisplayResults.class.php:1785
 msgid "Geometry"
 msgstr "জ্যামিতি"
 
-#: js/messages.php:440
+#: js/messages.php:441
 #, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "ভিতরের গোলক"
 
-#: js/messages.php:441
+#: js/messages.php:442
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "আউটার রিং"
 
-#: js/messages.php:445
+#: js/messages.php:446
 #, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
 msgstr "আপনি কি অন্যান্য সেটিংস আমদানি করতে চান?"
 
-#: js/messages.php:446
+#: js/messages.php:447
 msgid "Encryption key"
 msgstr ""
 
-#: js/messages.php:450
+#: js/messages.php:451
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:455
+#: js/messages.php:456
 msgid "Select referenced key"
 msgstr "রেফারেন্সড কী নির্বাচন করুন"
 
-#: js/messages.php:456
+#: js/messages.php:457
 msgid "Select Foreign Key"
 msgstr "ফরেন কী নির্বাচন করুন"
 
-#: js/messages.php:457
+#: js/messages.php:458
 msgid "Please select the primary key or a unique key!"
 msgstr "অনুগ্রহ করে প্রাথমিক কী বা একটি অনন্য কী নির্বাচন করুন!"
 
-#: js/messages.php:458 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:459 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "দেখানোর জন্য স্বম্ভ পছন্দ করেন"
 
-#: js/messages.php:460
+#: js/messages.php:461
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2330,97 +2336,97 @@ msgstr ""
 "আপনি নকশার পরিবর্তন সংরক্ষন করেন নাই। সংরক্ষন না করলে ওগুলো নষ্ট হয়ে যাবে। আপনি "
 "কি এগুতে চান?"
 
-#: js/messages.php:463
+#: js/messages.php:464
 msgid "Page name"
 msgstr "পাতার নাম"
 
-#: js/messages.php:464 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:465 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page"
 msgstr "পাতা নির্বাচন"
 
-#: js/messages.php:465 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:466 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
 msgstr "পাতা নির্বাচন"
 
-#: js/messages.php:466 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:467 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
 msgstr "মুক্ত পাতাসমূহ"
 
-#: js/messages.php:467
+#: js/messages.php:468
 #, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
 msgstr "পাতা নির্বাচন"
 
-#: js/messages.php:468 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:469 templates/database/designer/side_menu.phtml:10
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
 msgstr "একক"
 
-#: js/messages.php:469
+#: js/messages.php:470
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "সম্পাদনার জন্য একটি পাতা পছন্দ করেন"
 
-#: js/messages.php:470
+#: js/messages.php:471
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:471
+#: js/messages.php:472
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:472
+#: js/messages.php:473
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:473
+#: js/messages.php:474
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "আন্তসম্পর্কীয় গঠনের আকৃতি সম্পাদনা বা রফতানী কর"
 
-#: js/messages.php:474
+#: js/messages.php:475
 msgid "Modifications have been saved"
 msgstr "পরিবর্তন সংরক্ষন করা হয়েছে"
 
-#: js/messages.php:477
+#: js/messages.php:478
 #, fuzzy, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
 msgstr "স্তম্ভের জন্য একটি অপশন যোগ কর "
 
-#: js/messages.php:478
+#: js/messages.php:479
 #, fuzzy, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
 msgstr "%d অবজেক্ট তৈরী করা হয়েছে"
 
-#: js/messages.php:479 libraries/mult_submits.lib.php:340
+#: js/messages.php:480 libraries/mult_submits.lib.php:340
 #: libraries/mult_submits.lib.php:373 libraries/sql_query_form.lib.php:408
 msgid "Submit"
 msgstr "জমা"
 
-#: js/messages.php:482
+#: js/messages.php:483
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
 msgstr "সম্পাদনা বাতিল করতে এস্কেপ কী চাপুন"
 
-#: js/messages.php:483
+#: js/messages.php:484
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2428,49 +2434,49 @@ msgstr ""
 "আপনি কিছু তথ্য সম্পাদনা করেছেন এবং ওগুলো সংরক্ষিত নয়। আপিন কি নিশ্চন্ত যে সংরক্ষনের "
 "পূর্বে আপনি পাতাটি ত্যাগ করতে চান?"
 
-#: js/messages.php:484
+#: js/messages.php:485
 #, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "পুনবিন্যাসের জন্য টানুন"
 
-#: js/messages.php:485
+#: js/messages.php:486
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:486
+#: js/messages.php:487
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:487
+#: js/messages.php:488
 #, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "চিহ্নিত/অচিহ্নিত করার জন্য ক্লীক করুন"
 
-#: js/messages.php:488
+#: js/messages.php:489
 #, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
 msgstr "স্তম্ভের নাম প্রতিলিপ করার জন্য দুইবার ক্লীক করুন"
 
-#: js/messages.php:490
+#: js/messages.php:491
 #, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "স্তম্ভ খোলা বন্ধ করতে চাইলে তীর চিহ্নটি ক্লীক করুন"
 
-#: js/messages.php:492 libraries/DisplayResults.class.php:1017
+#: js/messages.php:493 libraries/DisplayResults.class.php:1017
 #: libraries/browse_foreigners.lib.php:290
 #: libraries/browse_foreigners.lib.php:343
-#: libraries/server_privileges.lib.php:3620
+#: libraries/server_privileges.lib.php:3747
 msgid "Show all"
 msgstr "সব দেখাও"
 
-#: js/messages.php:493
+#: js/messages.php:494
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2478,167 +2484,167 @@ msgstr ""
 "এই টেবিলে কোন অনন্য স্তম্ভ নাই। সংরক্ষনের পরে সম্পাদনা, চেকবক্স, প্রতিলিপি এবং মুছার "
 "জন্য সংযোগগুলো কাজ করবে না।"
 
-#: js/messages.php:494
+#: js/messages.php:495
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:495
+#: js/messages.php:496
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:496
+#: js/messages.php:497
 #, fuzzy
 #| msgid "Original string"
 msgid "Original length"
 msgstr "প্রকৃত লেখা"
 
-#: js/messages.php:499
+#: js/messages.php:500
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "বাতিল"
 
-#: js/messages.php:500 libraries/server_status.lib.php:280
+#: js/messages.php:501 libraries/server_status.lib.php:280
 msgid "Aborted"
 msgstr "বাতিলকৃত"
 
-#: js/messages.php:502
+#: js/messages.php:503
 #, fuzzy
 #| msgid "Success."
 msgid "Success"
 msgstr "সফল।"
 
-#: js/messages.php:503
+#: js/messages.php:504
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "আমদানি সর্ম্পকিত স্বাভাবিক"
 
-#: js/messages.php:504 libraries/navigation/Navigation.class.php:112
+#: js/messages.php:505 libraries/navigation/Navigation.class.php:112
 #, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "লগ ফাইলের স্থান"
 
-#: js/messages.php:505
+#: js/messages.php:506
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "টেবল নির্বাচন"
 
-#: js/messages.php:510
+#: js/messages.php:511
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr "আপনি প্রায় সমস্ত তথ্য দুই বার ক্লীক করে সরাসরি সম্পাদনা করতে পারবেন।"
 
-#: js/messages.php:513
+#: js/messages.php:514
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "আপনি প্রায় তথ্য সরাসরি ক্লীক করে সম্পাদনা করতে পারবেন।"
 
-#: js/messages.php:518
+#: js/messages.php:519
 #, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
 msgstr "সংযোগে যাও"
 
-#: js/messages.php:519
+#: js/messages.php:520
 #, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
 msgstr "স্তম্ভের নাম প্রতিলিপি"
 
-#: js/messages.php:520
+#: js/messages.php:521
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "স্তম্ভের নামটির উপর ডান ক্লীক করুন ওটা ক্লীপর্বোডে প্রতিলিপি করার জন্য।"
 
-#: js/messages.php:523
+#: js/messages.php:524
 msgid "Generate password"
 msgstr "পাসওর্য়াড উৎপাদন কর"
 
-#: js/messages.php:524 libraries/replication_gui.lib.php:899
+#: js/messages.php:525 libraries/replication_gui.lib.php:900
 msgid "Generate"
 msgstr "উৎপাদন কর"
 
-#: js/messages.php:528
+#: js/messages.php:529
 msgid "More"
 msgstr "অধিক"
 
-#: js/messages.php:531
+#: js/messages.php:532
 #, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "প্যানেল দেখাও"
 
-#: js/messages.php:532
+#: js/messages.php:533
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "ইনডেক্স প্যানেল"
 
-#: js/messages.php:533
+#: js/messages.php:534
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items."
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
 
-#: js/messages.php:534 libraries/config/messages.inc.php:478
+#: js/messages.php:535 libraries/config/messages.inc.php:478
 #: libraries/navigation/NavigationTree.class.php:1399
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
 msgstr "প্রধান ফ্রেম পরিবর্তন"
 
-#: js/messages.php:535 libraries/navigation/NavigationTree.class.php:1402
+#: js/messages.php:536 libraries/navigation/NavigationTree.class.php:1402
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
 msgstr "প্রধান ফ্রেম পরিবর্তন"
 
-#: js/messages.php:536
+#: js/messages.php:537
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
 
-#: js/messages.php:537
+#: js/messages.php:538
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
-#: js/messages.php:538
+#: js/messages.php:539
 #, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "টেবল"
 
-#: js/messages.php:539
+#: js/messages.php:540
 #, fuzzy
 #| msgid "Views"
 msgid "views"
 msgstr "ভিউসমূহ"
 
-#: js/messages.php:540
+#: js/messages.php:541
 #, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "প্রোসিডিউরস"
 
-#: js/messages.php:541
+#: js/messages.php:542
 #, fuzzy
 #| msgid "event"
 msgid "events"
 msgstr "ইভেন্ট"
 
-#: js/messages.php:542
+#: js/messages.php:543
 #, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "ফাংশনসমূহ"
 
-#: js/messages.php:545
+#: js/messages.php:546
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "পাতাটি হিস্টোরীতে পাওয়া যায়নি, সম্ভবত নষ্ট হয়েগেছে।"
 
-#: js/messages.php:548 setup/lib/index.lib.php:160
+#: js/messages.php:549 setup/lib/index.lib.php:167
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2648,485 +2654,485 @@ msgstr ""
 "%s, বেরিয়েছে %s।"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:550
+#: js/messages.php:551
 msgid ", latest stable version:"
 msgstr ", সর্বশেষ সুস্থিত সংস্করন:"
 
-#: js/messages.php:551
+#: js/messages.php:552
 msgid "up to date"
 msgstr "তারিখ পর্যন্ত"
 
-#: js/messages.php:553 libraries/DisplayResults.class.php:4942
+#: js/messages.php:554 libraries/DisplayResults.class.php:4942
 #: view_create.php:181
 msgid "Create view"
 msgstr "ভিউ তৈরী"
 
-#: js/messages.php:556
+#: js/messages.php:557
 #, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
 msgstr "ভুল সর্ম্পকিত প্রতিবেদন দাখিল কর"
 
-#: js/messages.php:557
+#: js/messages.php:558
 #, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "ভুলের প্রতিবেদন দাখিল"
 
-#: js/messages.php:559
+#: js/messages.php:560
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "একটি মারাত্মক জাভা স্ত্রিপট ভুল হয়েছে। আপনি কি এর প্রতিবেদন পাঠাতে চান?"
 
-#: js/messages.php:561
+#: js/messages.php:562
 #, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "প্রতিবেদন সেটিংস পরিবর্তন"
 
-#: js/messages.php:562
+#: js/messages.php:563
 #, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "প্রতিবেদনের বিশদ দেখাও"
 
-#: js/messages.php:565
+#: js/messages.php:566
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:569
+#: js/messages.php:570
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:575 js/messages.php:588
+#: js/messages.php:576 js/messages.php:589
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:577
+#: js/messages.php:578
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:583 libraries/Error_Handler.class.php:348
+#: js/messages.php:584 libraries/Error_Handler.class.php:348
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "উপেক্ষা"
 
-#: js/messages.php:590
+#: js/messages.php:591
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:598
+#: js/messages.php:599
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "এই অনুসন্ধানটি আবার দেখাও"
 
-#: js/messages.php:599
+#: js/messages.php:600
 #, fuzzy
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "আপনি কি নিশ্চিত ভাবে \"%s\" ব্যাবহারকরী দল মুছতে চান?"
 
-#: js/messages.php:600
+#: js/messages.php:601
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:601
+#: js/messages.php:602
 #, fuzzy, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "SQL query"
 
-#: js/messages.php:602
+#: js/messages.php:603
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:603
+#: js/messages.php:604
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "টেবলের মন্তব্য"
 
-#: js/messages.php:604
+#: js/messages.php:605
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "খোজাঁর ফলাফল লুকাও"
 
-#: js/messages.php:605 libraries/Console.class.php:321
+#: js/messages.php:606 libraries/Console.class.php:321
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:606
+#: js/messages.php:607
 msgid ""
 "Your web browser does not support local storage of settings or the quota "
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:634
+#: js/messages.php:635
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "পূর্ববর্তী"
 
-#: js/messages.php:639
+#: js/messages.php:640
 msgctxt "Next month"
 msgid "Next"
 msgstr "পরবর্তী"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:642
+#: js/messages.php:643
 msgid "Today"
 msgstr "আজ"
 
-#: js/messages.php:646
+#: js/messages.php:647
 msgid "January"
 msgstr "জানুয়ারী"
 
-#: js/messages.php:647
+#: js/messages.php:648
 msgid "February"
 msgstr "ফেব্রুয়ারী"
 
-#: js/messages.php:648
+#: js/messages.php:649
 msgid "March"
 msgstr "মার্চ"
 
-#: js/messages.php:649
+#: js/messages.php:650
 msgid "April"
 msgstr "এপ্রিল"
 
-#: js/messages.php:650
+#: js/messages.php:651
 msgid "May"
 msgstr "মে"
 
-#: js/messages.php:651
+#: js/messages.php:652
 msgid "June"
 msgstr "জুন"
 
-#: js/messages.php:652
+#: js/messages.php:653
 msgid "July"
 msgstr "জুলাই"
 
-#: js/messages.php:653
+#: js/messages.php:654
 msgid "August"
 msgstr "অগাষ্ট"
 
-#: js/messages.php:654
+#: js/messages.php:655
 msgid "September"
 msgstr "সেপ্টেম্বর"
 
-#: js/messages.php:655
+#: js/messages.php:656
 msgid "October"
 msgstr "অক্টোবর"
 
-#: js/messages.php:656
+#: js/messages.php:657
 msgid "November"
 msgstr "নভেম্বর"
 
-#: js/messages.php:657
+#: js/messages.php:658
 msgid "December"
 msgstr "ডিসেম্বর"
 
 #. l10n: Short month name
-#: js/messages.php:664 libraries/Util.class.php:1613
+#: js/messages.php:665 libraries/Util.class.php:1613
 msgid "Jan"
 msgstr "জান"
 
 #. l10n: Short month name
-#: js/messages.php:666 libraries/Util.class.php:1615
+#: js/messages.php:667 libraries/Util.class.php:1615
 msgid "Feb"
 msgstr "ফেব"
 
 #. l10n: Short month name
-#: js/messages.php:668 libraries/Util.class.php:1617
+#: js/messages.php:669 libraries/Util.class.php:1617
 msgid "Mar"
 msgstr "মার"
 
 #. l10n: Short month name
-#: js/messages.php:670 libraries/Util.class.php:1619
+#: js/messages.php:671 libraries/Util.class.php:1619
 msgid "Apr"
 msgstr "এপ্রি"
 
 #. l10n: Short month name
-#: js/messages.php:672 libraries/Util.class.php:1621
+#: js/messages.php:673 libraries/Util.class.php:1621
 msgctxt "Short month name"
 msgid "May"
 msgstr "মে"
 
 #. l10n: Short month name
-#: js/messages.php:674 libraries/Util.class.php:1623
+#: js/messages.php:675 libraries/Util.class.php:1623
 msgid "Jun"
 msgstr "জুন"
 
 #. l10n: Short month name
-#: js/messages.php:676 libraries/Util.class.php:1625
+#: js/messages.php:677 libraries/Util.class.php:1625
 msgid "Jul"
 msgstr "জুল"
 
 #. l10n: Short month name
-#: js/messages.php:678 libraries/Util.class.php:1627
+#: js/messages.php:679 libraries/Util.class.php:1627
 msgid "Aug"
 msgstr "আগ"
 
 #. l10n: Short month name
-#: js/messages.php:680 libraries/Util.class.php:1629
+#: js/messages.php:681 libraries/Util.class.php:1629
 msgid "Sep"
 msgstr "সেপ"
 
 #. l10n: Short month name
-#: js/messages.php:682 libraries/Util.class.php:1631
+#: js/messages.php:683 libraries/Util.class.php:1631
 msgid "Oct"
 msgstr "অক্ট"
 
 #. l10n: Short month name
-#: js/messages.php:684 libraries/Util.class.php:1633
+#: js/messages.php:685 libraries/Util.class.php:1633
 msgid "Nov"
 msgstr "নভে"
 
 #. l10n: Short month name
-#: js/messages.php:686 libraries/Util.class.php:1635
+#: js/messages.php:687 libraries/Util.class.php:1635
 msgid "Dec"
 msgstr "ডিসে"
 
-#: js/messages.php:692
+#: js/messages.php:693
 msgid "Sunday"
 msgstr "রবিবার"
 
-#: js/messages.php:693
+#: js/messages.php:694
 msgid "Monday"
 msgstr "সোমবার"
 
-#: js/messages.php:694
+#: js/messages.php:695
 msgid "Tuesday"
 msgstr "মঙ্গলবার"
 
-#: js/messages.php:695
+#: js/messages.php:696
 msgid "Wednesday"
 msgstr "বুধবার"
 
-#: js/messages.php:696
+#: js/messages.php:697
 msgid "Thursday"
 msgstr "বৃহস্পতিবার"
 
-#: js/messages.php:697
+#: js/messages.php:698
 msgid "Friday"
 msgstr "শুক্রবার"
 
-#: js/messages.php:698
+#: js/messages.php:699
 msgid "Saturday"
 msgstr "শনিবার"
 
 #. l10n: Short week day name
-#: js/messages.php:705
+#: js/messages.php:706
 msgid "Sun"
 msgstr "রবি"
 
 #. l10n: Short week day name
-#: js/messages.php:707 libraries/Util.class.php:1640
+#: js/messages.php:708 libraries/Util.class.php:1640
 msgid "Mon"
 msgstr "সোম"
 
 #. l10n: Short week day name
-#: js/messages.php:709 libraries/Util.class.php:1642
+#: js/messages.php:710 libraries/Util.class.php:1642
 msgid "Tue"
 msgstr "মঙ্গল"
 
 #. l10n: Short week day name
-#: js/messages.php:711 libraries/Util.class.php:1644
+#: js/messages.php:712 libraries/Util.class.php:1644
 msgid "Wed"
 msgstr "বৃধ"
 
 #. l10n: Short week day name
-#: js/messages.php:713 libraries/Util.class.php:1646
+#: js/messages.php:714 libraries/Util.class.php:1646
 msgid "Thu"
 msgstr "বৃহস্পতি"
 
 #. l10n: Short week day name
-#: js/messages.php:715 libraries/Util.class.php:1648
+#: js/messages.php:716 libraries/Util.class.php:1648
 msgid "Fri"
 msgstr "শুক্র"
 
 #. l10n: Short week day name
-#: js/messages.php:717 libraries/Util.class.php:1650
+#: js/messages.php:718 libraries/Util.class.php:1650
 msgid "Sat"
 msgstr "শনি"
 
 #. l10n: Minimal week day name
-#: js/messages.php:724
+#: js/messages.php:725
 msgid "Su"
 msgstr "রবি"
 
 #. l10n: Minimal week day name
-#: js/messages.php:726
+#: js/messages.php:727
 msgid "Mo"
 msgstr "সোম"
 
 #. l10n: Minimal week day name
-#: js/messages.php:728
+#: js/messages.php:729
 msgid "Tu"
 msgstr "মঙ্গ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:730
+#: js/messages.php:731
 msgid "We"
 msgstr "বুধ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:732
+#: js/messages.php:733
 msgid "Th"
 msgstr "বৃহ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:734
+#: js/messages.php:735
 msgid "Fr"
 msgstr "শুক্র"
 
 #. l10n: Minimal week day name
-#: js/messages.php:736
+#: js/messages.php:737
 msgid "Sa"
 msgstr "শনি"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:740
+#: js/messages.php:741
 msgid "Wk"
 msgstr "সপ্তাহ"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:747
+#: js/messages.php:748
 msgid "calendar-month-year"
 msgstr "বর্ষপঞ্জি-মাস-বছর"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:750
+#: js/messages.php:751
 msgctxt "Year suffix"
 msgid "none"
 msgstr "- কিছু না -"
 
-#: js/messages.php:762
+#: js/messages.php:763
 msgid "Hour"
 msgstr "ঘন্টা"
 
-#: js/messages.php:763
+#: js/messages.php:764
 msgid "Minute"
 msgstr "মিনিট"
 
-#: js/messages.php:764
+#: js/messages.php:765
 msgid "Second"
 msgstr "সেকেন্ড"
 
-#: js/messages.php:775
+#: js/messages.php:776
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:776
+#: js/messages.php:777
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "আক্ষরীক ক্ষেত্র ব্যবহার করুন"
 
-#: js/messages.php:777
+#: js/messages.php:778
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid email address"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:778
+#: js/messages.php:779
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:779
+#: js/messages.php:780
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:780
+#: js/messages.php:781
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date ( ISO )"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:781
+#: js/messages.php:782
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:782
+#: js/messages.php:783
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:783
+#: js/messages.php:784
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "একটি কার্যকর দৈর্ঘ্য দিন!"
 
-#: js/messages.php:784
+#: js/messages.php:785
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter the same value again"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:785
+#: js/messages.php:786
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:786
+#: js/messages.php:787
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter at least {0} characters"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:787
+#: js/messages.php:788
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:788
+#: js/messages.php:789
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a value between {0} and {1}"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:789
+#: js/messages.php:790
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "একটি কার্যকর দৈর্ঘ্য দিন!"
 
-#: js/messages.php:790
+#: js/messages.php:791
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:792
+#: js/messages.php:793
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date or time"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:793
+#: js/messages.php:794
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: js/messages.php:794 libraries/Message.class.php:199
+#: js/messages.php:795 libraries/Message.class.php:199
 #: libraries/Util.class.php:657 libraries/core.lib.php:245
 #: libraries/import.lib.php:181 libraries/insert_edit.lib.php:1170
 #: tbl_operations.php:229 view_operations.php:63
@@ -3233,10 +3239,10 @@ msgstr "সহ-অনুসন্ধান"
 #: libraries/plugins/export/ExportTexytext.class.php:133
 #: libraries/server_databases.lib.php:303
 #: libraries/server_privileges.lib.php:1166
-#: libraries/server_privileges.lib.php:2892
-#: libraries/server_privileges.lib.php:3146
-#: libraries/server_privileges.lib.php:3158
-#: libraries/server_privileges.lib.php:4360
+#: libraries/server_privileges.lib.php:3025
+#: libraries/server_privileges.lib.php:3279
+#: libraries/server_privileges.lib.php:3291
+#: libraries/server_privileges.lib.php:4489
 #: libraries/server_status_processes.lib.php:80
 #: templates/table/relation/foreign_key_row.phtml:165
 #: templates/table/relation/internal_relational_row.phtml:55
@@ -3318,7 +3324,7 @@ msgid "Console"
 msgstr ""
 
 #: libraries/Console.class.php:234 libraries/sql_query_form.lib.php:244
-#: setup/frames/index.inc.php:299
+#: setup/frames/index.inc.php:300
 msgid "Clear"
 msgstr "পরিস্কার"
 
@@ -3547,7 +3553,7 @@ msgstr "অধ মুখী"
 #: libraries/DBQbe.class.php:467
 #: templates/table/search/search_and_replace.phtml:6
 msgid "Column:"
-msgstr "স্তম্ভ"
+msgstr "স্তম্ভ:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
@@ -3654,26 +3660,26 @@ msgstr "বুকর্মাক দেখাচ্ছে"
 msgid "Delete bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/DatabaseInterface.class.php:2522
+#: libraries/DatabaseInterface.class.php:2523
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "সার্ভারটি সাড়া দিচ্ছে না। (বা স্থানীয় সার্ভারটির সকেট সঠিকভাবে কনফিগার করা হয়নি)।"
 
-#: libraries/DatabaseInterface.class.php:2527
+#: libraries/DatabaseInterface.class.php:2528
 msgid "The server is not responding."
 msgstr "সার্ভারটি সাড়া দিচ্ছে না।"
 
-#: libraries/DatabaseInterface.class.php:2532
+#: libraries/DatabaseInterface.class.php:2533
 msgid "Please check privileges of directory containing database."
 msgstr "ডাটাবেইজ ডিরেক্টরির অধিকারসমূহ পরীক্ষা করুন।"
 
-#: libraries/DatabaseInterface.class.php:2542
+#: libraries/DatabaseInterface.class.php:2543
 msgid "Details…"
 msgstr "বিশদ…"
 
-#: libraries/DatabaseInterface.class.php:2762
+#: libraries/DatabaseInterface.class.php:2763
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "নিয়ন্ত্রক ব্যবহারকারীর জন্য নির্ধারিত কনফিগারেশন সংযোগে ব্যার্থ হয়েছে।"
 
@@ -3749,7 +3755,7 @@ msgid "Inside tables:"
 msgstr "টেবিলের ভিতরে:"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
-#: libraries/replication_gui.lib.php:380
+#: libraries/replication_gui.lib.php:381
 #, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
@@ -3908,22 +3914,22 @@ msgstr "মোট %1$d, অনুসন্ধানে %2$d"
 msgid "%d total"
 msgstr "%d মোট"
 
-#: libraries/DisplayResults.class.php:4708 libraries/sql.lib.php:1314
+#: libraries/DisplayResults.class.php:4708 libraries/sql.lib.php:1315
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ."
 
 #: libraries/DisplayResults.class.php:4810
-#: libraries/DisplayResults.class.php:4817 libraries/Util.class.php:4727
-#: libraries/Util.class.php:4733 libraries/mult_submits.inc.php:50
+#: libraries/DisplayResults.class.php:4817 libraries/Util.class.php:4574
+#: libraries/Util.class.php:4580 libraries/mult_submits.inc.php:50
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
 msgid "With selected:"
 msgstr "নিবার্চিত গুলো নিয়ে:"
 
 #: libraries/DisplayResults.class.php:4814
-#: libraries/DisplayResults.class.php:4816 libraries/Util.class.php:4729
-#: libraries/Util.class.php:4730 libraries/server_privileges.lib.php:1174
+#: libraries/DisplayResults.class.php:4816 libraries/Util.class.php:4576
+#: libraries/Util.class.php:4577 libraries/server_privileges.lib.php:1174
 #: libraries/server_privileges.lib.php:1175
 #: libraries/server_privileges.lib.php:1387
 #: libraries/server_user_groups.lib.php:231
@@ -4057,11 +4063,11 @@ msgstr "ইনডেক্সসমূহ"
 #: libraries/Index.class.php:693 libraries/central_columns.lib.php:687
 #: libraries/rte/rte_list.lib.php:74 libraries/rte/rte_list.lib.php:89
 #: libraries/rte/rte_list.lib.php:102 libraries/server_databases.lib.php:409
-#: libraries/server_privileges.lib.php:2374
-#: libraries/server_privileges.lib.php:3168
-#: libraries/server_privileges.lib.php:3344
+#: libraries/server_privileges.lib.php:2507
+#: libraries/server_privileges.lib.php:3301
+#: libraries/server_privileges.lib.php:3477
 #: libraries/server_user_groups.lib.php:82
-#: libraries/server_variables.lib.php:192 libraries/tracking.lib.php:280
+#: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:280
 #: libraries/tracking.lib.php:793 libraries/tracking.lib.php:1475
 #: libraries/tracking.lib.php:1621
 #: templates/database/structure/table_header.phtml:30
@@ -4076,8 +4082,8 @@ msgid "Keyname"
 msgstr "কী'র নাম"
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/TableStructureController.class.php:955
-#: libraries/controllers/TableStructureController.class.php:960
+#: libraries/controllers/TableStructureController.class.php:958
+#: libraries/controllers/TableStructureController.class.php:963
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -4116,7 +4122,7 @@ msgstr "মন্তব্য"
 
 #: libraries/Index.class.php:731
 msgid "The primary key has been dropped."
-msgstr "প্রাথমিক কী মুছা হয়েছে"
+msgstr "প্রাথমিক কী মুছা হয়েছে।"
 
 #: libraries/Index.class.php:740
 #, php-format
@@ -4125,8 +4131,8 @@ msgstr "ইনডেক্স %s মুছা হয়েছে।"
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3647
 #: libraries/Util.class.php:3648
-#: libraries/controllers/TableStructureController.class.php:951
-#: libraries/controllers/TableStructureController.class.php:952
+#: libraries/controllers/TableStructureController.class.php:954
+#: libraries/controllers/TableStructureController.class.php:955
 #: libraries/operations.lib.php:1617 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
 #: templates/database/structure/check_all_tables.phtml:16
@@ -4170,10 +4176,10 @@ msgstr "দেখা"
 #: libraries/plugins/export/ExportXml.class.php:499
 #: libraries/rte/rte_list.lib.php:87 libraries/rte/rte_triggers.lib.php:331
 #: libraries/server_privileges.lib.php:1169
-#: libraries/server_privileges.lib.php:2910
-#: libraries/server_privileges.lib.php:3147
-#: libraries/server_privileges.lib.php:3158
-#: libraries/server_privileges.lib.php:4374 libraries/tracking.lib.php:1474
+#: libraries/server_privileges.lib.php:3043
+#: libraries/server_privileges.lib.php:3280
+#: libraries/server_privileges.lib.php:3291
+#: libraries/server_privileges.lib.php:4503 libraries/tracking.lib.php:1474
 #: libraries/tracking.lib.php:1616
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/foreign_key_row.phtml:176
@@ -4216,9 +4222,9 @@ msgstr "ইনর্সাট"
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:467
 #: libraries/Util.class.php:4294 libraries/Util.class.php:4310
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
-#: libraries/server_privileges.lib.php:2372
-#: libraries/server_privileges.lib.php:3160
-#: libraries/server_privileges.lib.php:4249
+#: libraries/server_privileges.lib.php:2505
+#: libraries/server_privileges.lib.php:3293
+#: libraries/server_privileges.lib.php:4378
 msgid "Privileges"
 msgstr "অধিকারসমূহ"
 
@@ -4286,7 +4292,7 @@ msgstr "টেক্সএরিয়া স্তম্ভ"
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.class.php:1240
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4360
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4489
 msgid "Databases"
 msgstr "ডাটাবেইজ"
 
@@ -4593,31 +4599,31 @@ msgstr "মূল ডাটাবেইজ `%s` পাওয়া যায়নি!
 msgid "Target database `%s` was not found!"
 msgstr "কাংখিত %s ডাটাবেইজ পাওয়া যায়নি!"
 
-#: libraries/Table.class.php:1268
+#: libraries/Table.class.php:1280
 msgid "Invalid database:"
 msgstr "অকার্যকর ডাটাবেজ:"
 
-#: libraries/Table.class.php:1282
+#: libraries/Table.class.php:1294
 msgid "Invalid table name:"
 msgstr "অকার্যকর টেবিলের নাম:"
 
-#: libraries/Table.class.php:1317
+#: libraries/Table.class.php:1329
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "টেবিল %1$s টি %2$s নাম করনে ব্যাথ্য হয়েছে!"
 
-#: libraries/Table.class.php:1336
+#: libraries/Table.class.php:1348
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "টেবিল %1$s থেকে %2$s এ নামকরন করা হয়েছে।"
 
-#: libraries/Table.class.php:1516
+#: libraries/Table.class.php:1528
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "টেবলের UI পছন্দ সংরক্ষন করা যায়নি"
 
-#: libraries/Table.class.php:1546
+#: libraries/Table.class.php:1558
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4626,7 +4632,7 @@ msgstr ""
 "টেবলের UI পছন্দ পরিস্কার করতে ব্যার্থ হয়েছি ($cfg['Servers'][$i] "
 "['MaxTableUiprefs'] %s দেখুন)"
 
-#: libraries/Table.class.php:1701
+#: libraries/Table.class.php:1713
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4636,19 +4642,19 @@ msgstr ""
 "UI পছন্দের তথ্য \"%s\" সংরক্ষন করা যায়নি। পরিবর্তন গুলো এই পাতাটি রিফ্রেশ করলে "
 "থাকবে না। টেবলের গঠন পরিবর্তীত হয়েছে কিনা পরীক্ষা করে দেখুন।"
 
-#: libraries/Table.class.php:1838
+#: libraries/Table.class.php:1850
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "প্রাথমিক কী'র নাম অবশ্যই \"PRIMARY\" হতে হবে!"
 
-#: libraries/Table.class.php:1849
+#: libraries/Table.class.php:1861
 msgid "Can't rename index to PRIMARY!"
 msgstr "ইনডেক্সটি PRIMARY হিসাবে নাম করন করা যাবে না!"
 
-#: libraries/Table.class.php:1871
+#: libraries/Table.class.php:1883
 msgid "No index parts defined!"
 msgstr "ইনডেক্সের অংশ দেওয়া হয়নি!"
 
-#: libraries/Table.class.php:2185
+#: libraries/Table.class.php:2197
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s এ ফরেন কী তৈরী করতে সমস্যা হচ্ছে (তথ্যের ধরন পরীক্ষা করুন)"
@@ -5233,7 +5239,7 @@ msgstr ""
 #: libraries/plugins/export/PMA_ExportPdf.class.php:307
 #: libraries/rte/rte_list.lib.php:73 libraries/rte/rte_list.lib.php:85
 #: libraries/rte/rte_list.lib.php:100 libraries/rte/rte_routines.lib.php:921
-#: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:163
+#: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:164
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
 #: templates/table/structure/display_partitions.phtml:20
@@ -5290,50 +5296,50 @@ msgstr "স্বম্ভ যোগ করা"
 msgid "Attributes"
 msgstr "গুনাবলী"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:580
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/common.inc.php:582
+#: libraries/common.inc.php:583
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "ইহা সাধারনত বাক্যে ভুল বোঝায়, কোন ভুল আছে কিনা পরীক্ষা করুন।"
 
-#: libraries/common.inc.php:591
+#: libraries/common.inc.php:592
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "স্বাভাবিক কনফিগারেশন লোড করা যাচ্ছে না:%1$s"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:600
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
 "আপনার কনফিগারেশন ফাইলে অবশ্যই [code]$cfg['PmaAbsoluteUri'][/code] থাকতে হবে!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:635
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "অকার্যকর সার্ভার ইনডেক্স:%s"
 
-#: libraries/common.inc.php:646
+#: libraries/common.inc.php:647
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "অকার্যকর হোষ্টের নাম %1$s। কনফিগারেশন আবার দেখুন।"
 
-#: libraries/common.inc.php:664
+#: libraries/common.inc.php:665
 #, php-format
 msgid "Server %d"
 msgstr "সার্ভার %d"
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:862
 msgid "Invalid authentication method set in configuration:"
 msgstr "কনফিগারেশনে অকার্যকর প্রমাণীকরন পদ্ধতি:"
 
-#: libraries/common.inc.php:1004
+#: libraries/common.inc.php:1005
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5341,24 +5347,24 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:1036
+#: libraries/common.inc.php:1037
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "আপনি অবশ্যই %s %s বা পরের কোন সংস্করনে আপগ্রেড করবেন।"
 
-#: libraries/common.inc.php:1153
+#: libraries/common.inc.php:1154
 msgid "Error: Token mismatch"
 msgstr "ভুল: টোকেন মিলে নাই"
 
-#: libraries/common.inc.php:1185
+#: libraries/common.inc.php:1186
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS পুন লিখনের চেষ্টা"
 
-#: libraries/common.inc.php:1192
+#: libraries/common.inc.php:1193
 msgid "possible exploit"
 msgstr "সাম্ভাব্য বিপদের সুযোগ"
 
-#: libraries/common.inc.php:1201
+#: libraries/common.inc.php:1202
 msgid "numeric key detected"
 msgstr "সংখ্যা কী সনাক্ত করা গেছে"
 
@@ -5591,17 +5597,17 @@ msgstr "সর্বোচ্চ %s"
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "এই সেটিংস অকার্যকর করা আছে, আপনার কনফিগারেশনে প্রয়োগ করা যাবে না।"
 
-#: libraries/config/FormDisplay.tpl.php:324
+#: libraries/config/FormDisplay.tpl.php:330
 #, php-format
 msgid "Set value: %s"
 msgstr "মান সেট কর:%s"
 
-#: libraries/config/FormDisplay.tpl.php:329
+#: libraries/config/FormDisplay.tpl.php:335
 #: libraries/config/messages.inc.php:613
 msgid "Restore default value"
 msgstr "স্বাভাবিক মান ফিরিয়ে আন"
 
-#: libraries/config/FormDisplay.tpl.php:343
+#: libraries/config/FormDisplay.tpl.php:349
 msgid "Allow users to customize this value"
 msgstr "ব্যাবহারকারীদেরকে এই মান পছন্দ করার অনুমতি দিন"
 
@@ -5875,7 +5881,7 @@ msgstr "গোপন Blowfish"
 
 #: libraries/config/messages.inc.php:40
 msgid "Highlight selected rows."
-msgstr "নির্বাচিত রোগুলো উজ্জ্বল কর"
+msgstr "নির্বাচিত রোগুলো উজ্জ্বল কর।"
 
 #: libraries/config/messages.inc.php:41
 msgid "Row marker"
@@ -5969,7 +5975,7 @@ msgstr "CHAR textarea'র স্তম্ভ"
 
 #: libraries/config/messages.inc.php:82
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR textarea'র রো সংখ্যা"
+msgstr "CHAR/VARCHAR textarea'র রো সংখ্যা।"
 
 #: libraries/config/messages.inc.php:83
 msgid "CHAR textarea rows"
@@ -5992,7 +5998,7 @@ msgid "Compress on the fly"
 msgstr "কাজের মধ্যই সংকুচিত কর"
 
 #: libraries/config/messages.inc.php:90 setup/frames/config.inc.php:24
-#: setup/frames/index.inc.php:213
+#: setup/frames/index.inc.php:214
 msgid "Configuration file"
 msgstr "কনফিগারেশন ফাইল"
 
@@ -6063,7 +6069,7 @@ msgstr "টেবল গঠনের কার্যাবলী লুকাও
 
 #: libraries/config/messages.inc.php:119
 msgid "Show server listing as a list instead of a drop down."
-msgstr "সার্ভারের তালিকা ড্রপ ডাউনের পরিবর্তে একটি তালিকা হিসাবে দেখাবে"
+msgstr "সার্ভারের তালিকা ড্রপ ডাউনের পরিবর্তে একটি তালিকা হিসাবে দেখাবে।"
 
 #: libraries/config/messages.inc.php:120
 msgid "Display servers as a list"
@@ -6470,7 +6476,7 @@ msgid "Customize the navigation tree."
 msgstr "চলাচলের ফ্রেম পরিবর্তন"
 
 #: libraries/config/messages.inc.php:274 libraries/select_server.lib.php:46
-#: setup/frames/index.inc.php:145
+#: setup/frames/index.inc.php:146
 msgid "Servers"
 msgstr "সার্ভার"
 
@@ -7016,7 +7022,7 @@ msgstr "দ্রুত প্রবেশের আইকনের লক্ষ
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "টেবল ফিল্টার বক্সে প্রদর্শনের জন্য নুন্যতম সংখ্যা"
+msgstr "টেবল ফিল্টার বক্সে প্রদর্শনের জন্য নুন্যতম সংখ্যা।"
 
 #: libraries/config/messages.inc.php:501
 msgid "Minimum number of items to display the filter box"
@@ -7271,7 +7277,7 @@ msgid ""
 msgstr ""
 "যদি DB-based অনুসন্ধান হিস্টোরী চান তবে কার্যকর করেন (phpMyAdmin কনফিগারেশনের "
 "storage)লাগবে, অন্যথায় অনুসন্ধান হিস্টোরী দেখানোর জন্য JS-routines ব্যবহৃত হবে। "
-"( উইন্ডো বন্ধ করলে যা নষ্ট হয়ে যাবে)"
+"( উইন্ডো বন্ধ করলে যা নষ্ট হয়ে যাবে)।"
 
 #: libraries/config/messages.inc.php:596
 msgid "Permanent query history"
@@ -7411,7 +7417,7 @@ msgstr "SweKey কনফিগ ফাইল"
 msgid "Authentication method to use."
 msgstr "ব্যবহারের জন্য প্রমাণীকরনের পদ্ধতী।"
 
-#: libraries/config/messages.inc.php:641 setup/frames/index.inc.php:164
+#: libraries/config/messages.inc.php:641 setup/frames/index.inc.php:165
 msgid "Authentication type"
 msgstr "প্রমাণীকরণের ধরন"
 
@@ -8184,7 +8190,7 @@ msgstr ""
 msgid "Enable the Developer tab in settings"
 msgstr "সেটিংসে উন্নয়নকারী টেবটি কার্যকর করুন"
 
-#: libraries/config/messages.inc.php:954 setup/frames/index.inc.php:313
+#: libraries/config/messages.inc.php:954 setup/frames/index.inc.php:314
 msgid "Check for latest version"
 msgstr "সর্বশেষ সংস্করনের জন্য খুঁজে দেখ"
 
@@ -8192,10 +8198,10 @@ msgstr "সর্বশেষ সংস্করনের জন্য খুঁ
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "নতুন কোন সংস্করন আছে কিনা তা phpMyAdmin page এ পরীক্ষা করে দেখবে।"
 
-#: libraries/config/messages.inc.php:958 setup/lib/index.lib.php:117
-#: setup/lib/index.lib.php:134 setup/lib/index.lib.php:147
-#: setup/lib/index.lib.php:159 setup/lib/index.lib.php:167
-#: setup/lib/index.lib.php:174
+#: libraries/config/messages.inc.php:958 setup/lib/index.lib.php:118
+#: setup/lib/index.lib.php:141 setup/lib/index.lib.php:154
+#: setup/lib/index.lib.php:166 setup/lib/index.lib.php:174
+#: setup/lib/index.lib.php:181
 msgid "Version check"
 msgstr "সংস্করন পরীক্ষা"
 
@@ -8351,7 +8357,7 @@ msgstr "ওপেন অফিস টেক্সট"
 #: tbl_operations.php:382
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "টেবিল %s খালি করা হয়েছে"
+msgstr "টেবিল %s খালি করা হয়েছে।"
 
 #: libraries/controllers/DatabaseStructureController.class.php:436
 #: tbl_operations.php:400 view_operations.php:119
@@ -8365,11 +8371,11 @@ msgstr "ভিউ %s মুছা হয়েছে।"
 msgid "Table %s has been dropped."
 msgstr "টেবল %s মুছা হয়েছে।"
 
-#: libraries/controllers/DatabaseStructureController.class.php:743
+#: libraries/controllers/DatabaseStructureController.class.php:745
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/controllers/DatabaseStructureController.class.php:957
+#: libraries/controllers/DatabaseStructureController.class.php:960
 #: libraries/mysql_charsets.lib.php:363 libraries/mysql_charsets.lib.php:370
 msgid "unknown"
 msgstr "অজানা"
@@ -8388,7 +8394,7 @@ msgid "No data to display"
 msgstr "প্রর্দশনের কোন তথ্য নাই"
 
 #: libraries/controllers/TableIndexesController.class.php:160
-#: libraries/controllers/TableStructureController.class.php:738
+#: libraries/controllers/TableStructureController.class.php:739
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8435,31 +8441,31 @@ msgstr[1] "স্তম্ভের নাম '%s'টি MySQL'র সংরক�
 
 #: libraries/controllers/TableStructureController.class.php:241
 msgid "No column selected."
-msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই"
+msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই।"
 
-#: libraries/controllers/TableStructureController.class.php:469
+#: libraries/controllers/TableStructureController.class.php:470
 msgid "The columns have been moved successfully."
 msgstr "স্তম্ভগুলো সফলভাবে সরানো হয়েছে।"
 
-#: libraries/controllers/TableStructureController.class.php:732
+#: libraries/controllers/TableStructureController.class.php:733
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
-#: libraries/controllers/TableStructureController.class.php:785
+#: libraries/controllers/TableStructureController.class.php:788
 #: libraries/tracking.lib.php:1094
 msgid "Query error"
 msgstr "অনুসন্ধানে ভুল"
 
-#: libraries/controllers/TableStructureController.class.php:950
+#: libraries/controllers/TableStructureController.class.php:953
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "পরিবর্তন"
 
-#: libraries/controllers/TableStructureController.class.php:954
-#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:957
+#: libraries/controllers/TableStructureController.class.php:962
 #: libraries/navigation/Nodes/Node_Index.class.php:30
 #: libraries/tracking.lib.php:926
 #: templates/columns_definitions/column_indexes.phtml:16
@@ -8470,20 +8476,20 @@ msgstr "পরিবর্তন"
 msgid "Index"
 msgstr "ইনডেক্স"
 
-#: libraries/controllers/TableStructureController.class.php:956
-#: libraries/controllers/TableStructureController.class.php:961
+#: libraries/controllers/TableStructureController.class.php:959
+#: libraries/controllers/TableStructureController.class.php:964
 #: templates/columns_definitions/column_indexes.phtml:27
 msgid "Spatial"
 msgstr "স্পাটিয়াল"
 
-#: libraries/controllers/TableStructureController.class.php:957
-#: libraries/controllers/TableStructureController.class.php:962
+#: libraries/controllers/TableStructureController.class.php:960
+#: libraries/controllers/TableStructureController.class.php:965
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:40
 msgid "Fulltext"
 msgstr "ফুলটেক্সট"
 
-#: libraries/controllers/TableStructureController.class.php:965
+#: libraries/controllers/TableStructureController.class.php:968
 msgid "Distinct values"
 msgstr "স্বতন্ত্র মানগুলো"
 
@@ -8527,53 +8533,34 @@ msgstr "বাফার করা হয়নি এমন ফলাফল পা�
 msgid "Can't count rows in an unbuffered result set"
 msgstr "বাফার করা হয়নি এমন ফলাফলের রো গণনা করা যাবে না"
 
-#: libraries/display_change_password.lib.php:60
-#: libraries/replication_gui.lib.php:876
-#: libraries/server_privileges.lib.php:1664
+#: libraries/display_change_password.lib.php:62
+#: libraries/replication_gui.lib.php:877
+#: libraries/server_privileges.lib.php:1736
 msgid "No Password"
 msgstr "পাসওর্য়াড নাই"
 
-#: libraries/display_change_password.lib.php:68
+#: libraries/display_change_password.lib.php:70
 #: libraries/plugins/auth/AuthenticationCookie.class.php:203
-#: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:863
-#: libraries/server_privileges.lib.php:1640
+#: libraries/replication_gui.lib.php:424 libraries/replication_gui.lib.php:864
+#: libraries/server_privileges.lib.php:1712
 msgid "Password:"
 msgstr "পাসওর্য়াড:"
 
-#: libraries/display_change_password.lib.php:74
-#: libraries/replication_gui.lib.php:887
-#: libraries/server_privileges.lib.php:1682
+#: libraries/display_change_password.lib.php:76
+#: libraries/replication_gui.lib.php:888
+#: libraries/server_privileges.lib.php:1754
 msgid "Re-type:"
 msgstr "আবার দিন:"
 
-#: libraries/display_change_password.lib.php:89
-#: libraries/display_change_password.lib.php:120
-#: libraries/display_change_password.lib.php:129
+#: libraries/display_change_password.lib.php:107
+#: libraries/display_change_password.lib.php:136
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
 msgstr "Password Hashing"
 
-#: libraries/display_change_password.lib.php:98
-#: libraries/server_privileges.lib.php:1700
-#, fuzzy
-#| msgid "Generate password"
-msgid "MySQL native password"
-msgstr "পাসওর্য়াড উৎপাদন কর"
-
-#: libraries/display_change_password.lib.php:112
-#: libraries/server_privileges.lib.php:1708
-#, fuzzy
-#| msgid "Change password"
-msgid "SHA256 password"
-msgstr "পাসওয়ার্ড পরিবর্তন"
-
-#: libraries/display_change_password.lib.php:141
-msgid "MySQL 4.0 compatible"
-msgstr "MySQL 4.0 উপযুক্ত"
-
-#: libraries/display_change_password.lib.php:154
-#: libraries/server_privileges.lib.php:1717
+#: libraries/display_change_password.lib.php:118
+#: libraries/server_privileges.lib.php:1800
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -8980,7 +8967,7 @@ msgid "The file is being processed, please be patient."
 msgstr "ফাইলটি প্রক্রিয়াধীন, ধৈয্য ধরুন।"
 
 #: libraries/display_select_lang.lib.php:56
-#: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:98
+#: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:99
 msgid "Language"
 msgstr "ভাষা"
 
@@ -9344,12 +9331,12 @@ msgid "Dump has been saved to file %s."
 msgstr "স্তুপকৃত তথ্য %s ফাইলে সংরক্ষন করা হয়েছে।"
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1308
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1309
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)।"
 
-#: libraries/import.lib.php:263 libraries/sql.lib.php:1322
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1323
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9504,7 +9491,7 @@ msgstr ""
 "ট্যাব কি দিয়ে মান থেকে মানে যাওয়া যাবে বা CTRL+arrows দিয়ে যে কোন জায়গায় "
 "যাওয়া যাবে।"
 
-#: libraries/insert_edit.lib.php:1575 libraries/replication_gui.lib.php:543
+#: libraries/insert_edit.lib.php:1575 libraries/replication_gui.lib.php:544
 #: libraries/rte/rte_routines.lib.php:1588
 #: libraries/server_status_variables.lib.php:220
 #: templates/database/designer/having_query_panel.phtml:100
@@ -9516,11 +9503,11 @@ msgstr ""
 msgid "Value"
 msgstr "মান"
 
-#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1305
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1306
 msgid "Showing SQL query"
 msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছে"
 
-#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1283
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1284
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "প্রবেশকৃত রো আইডি: %1$d"
@@ -9941,7 +9928,7 @@ msgstr "নতুন"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: templates/database/structure/show_create.phtml:30
+#: templates/database/structure/show_create.phtml:32
 msgid "Views"
 msgstr "ভিউসমূহ"
 
@@ -10236,7 +10223,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:76
 msgid "Rename database to"
-msgstr "ডাটাবেজ পুনঃনামকরন:"
+msgstr "ডাটাবেজ পুনঃনামকরন"
 
 #: libraries/operations.lib.php:95 libraries/operations.lib.php:243
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:967
@@ -10288,7 +10275,7 @@ msgstr "শুধুমাত্র তথ্য"
 
 #: libraries/operations.lib.php:202
 msgid "Copy database to"
-msgstr "ডাটাবেজ কপি কর:"
+msgstr "ডাটাবেজ কপি কর"
 
 #: libraries/operations.lib.php:215
 msgid "CREATE DATABASE before copying"
@@ -10312,7 +10299,7 @@ msgstr "(একক ভাবে)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
-msgstr "টেবিলটি (ডাটাবেইজ<b>.</b>টেবল)এ সরানো হয়েছে:"
+msgstr "টেবিলটি (ডাটাবেইজ<b>.</b>টেবল)এ সরানো হয়েছে"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
@@ -10336,7 +10323,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "(ডাটাবেইজ<b>.</b>টেবল)এ টেবিলটির প্রতিলিপ কর:"
+msgstr "(ডাটাবেইজ<b>.</b>টেবল)এ টেবিলটির প্রতিলিপ কর"
 
 #: libraries/operations.lib.php:1343
 msgid "Switch to copied table"
@@ -10572,15 +10559,15 @@ msgstr "নাম:"
 msgid "Server Choice:"
 msgstr "পছন্দের সার্ভার:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:390
+#: libraries/plugins/auth/AuthenticationCookie.class.php:370
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:400
+#: libraries/plugins/auth/AuthenticationCookie.class.php:374
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:427
+#: libraries/plugins/auth/AuthenticationCookie.class.php:400
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10765,7 +10752,7 @@ msgstr "প্রথম সারিতে স্তম্ভের নাম �
 #: libraries/plugins/export/ExportLatex.class.php:205
 #: libraries/plugins/export/ExportSql.class.php:682
 #: libraries/plugins/export/ExportXml.class.php:182
-#: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:704
+#: libraries/replication_gui.lib.php:435 libraries/replication_gui.lib.php:705
 msgid "Host:"
 msgstr "হোষ্ট:"
 
@@ -11039,11 +11026,11 @@ msgstr "স্তুপকৃত টেবলের ইনডেক্স"
 msgid "Indexes for table"
 msgstr "টেবিলের ইনডেক্সসমুহ"
 
-#: libraries/plugins/export/ExportSql.class.php:1726
+#: libraries/plugins/export/ExportSql.class.php:1725
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "স্তুপকৃত টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)"
 
-#: libraries/plugins/export/ExportSql.class.php:1727
+#: libraries/plugins/export/ExportSql.class.php:1726
 msgid "AUTO_INCREMENT for table"
 msgstr "টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)"
 
@@ -11769,7 +11756,7 @@ msgstr "phpMyAdmin কনফিগারেশনের storage table পাও�
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:344
+#: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:345
 #: libraries/server_databases.lib.php:398
 msgid "Master replication"
 msgstr "প্রধান প্রতিলিপি"
@@ -11782,7 +11769,7 @@ msgstr "প্রতিলিপির প্রধান হিসাবে এ
 msgid "Show connected slaves"
 msgstr "সংযোগকারী সহায়কগুলো দেখাও"
 
-#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:700
+#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:701
 msgid "Add slave replication user"
 msgstr "সহায়ক প্রতিলিপ তৈরীর ব্যবহারকারী যোগকর"
 
@@ -11876,31 +11863,31 @@ msgstr "সম্পুর্ন আরম্ভ"
 msgid "Full stop"
 msgstr "সম্পুর্ন বন্ধ"
 
-#: libraries/replication_gui.lib.php:253
+#: libraries/replication_gui.lib.php:254
 msgid "Reset slave"
 msgstr "সহায়কটি পুর্বাবস্থায় নিয়ে যাও"
 
-#: libraries/replication_gui.lib.php:256
+#: libraries/replication_gui.lib.php:257
 msgid "Start SQL Thread only"
 msgstr "শুধু এসকিউএল প্রক্রিয়া চালু কর"
 
-#: libraries/replication_gui.lib.php:259
+#: libraries/replication_gui.lib.php:260
 msgid "Stop SQL Thread only"
 msgstr "শুধু  এসকিউএল প্রক্রিয়া বন্ধ কর"
 
-#: libraries/replication_gui.lib.php:263
+#: libraries/replication_gui.lib.php:264
 msgid "Start IO Thread only"
 msgstr "শুধু IO প্রক্রিয়া চালু কর"
 
-#: libraries/replication_gui.lib.php:266
+#: libraries/replication_gui.lib.php:267
 msgid "Stop IO Thread only"
 msgstr "শুধু IO প্রক্রিয়া বন্ধ কর"
 
-#: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:402
+#: libraries/replication_gui.lib.php:276 libraries/replication_gui.lib.php:403
 msgid "Change or reconfigure master server"
 msgstr "প্রধান সার্ভারের পরিবর্তন বা রিকনফিগার করুন"
 
-#: libraries/replication_gui.lib.php:286
+#: libraries/replication_gui.lib.php:287
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -11909,24 +11896,24 @@ msgstr ""
 "সার্ভারটি প্রতিলিপির সহায়ক হিসাবে কনফিগার করা হয় নাই। আপিন কি <a href=\"%s"
 "\">configure</a> করতে চান?"
 
-#: libraries/replication_gui.lib.php:308
+#: libraries/replication_gui.lib.php:309
 msgid "Error management:"
 msgstr "ভূলের ব্যবস্থাপনা:"
 
-#: libraries/replication_gui.lib.php:311
+#: libraries/replication_gui.lib.php:312
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "ভূলসমূহ এড়িয়ে গেলে প্রধান এবং সহায়ক মধ্য সামঞ্জস্য নষ্ট হতে পারে!"
 
-#: libraries/replication_gui.lib.php:315
+#: libraries/replication_gui.lib.php:316
 msgid "Skip current error"
 msgstr "বর্তমান ভুলটি এড়িয়ে যাও"
 
-#: libraries/replication_gui.lib.php:320
+#: libraries/replication_gui.lib.php:321
 #, php-format
 msgid "Skip next %s errors."
 msgstr "পরবর্তী %s টি ভুল এড়িয়ে যাও।"
 
-#: libraries/replication_gui.lib.php:347
+#: libraries/replication_gui.lib.php:348
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -11935,11 +11922,11 @@ msgstr ""
 "এই সার্ভারটি প্রতিলিপির প্রধান হিসাবে কনফিগার করা হয় নাই. আপনি কি ইহা <a href="
 "\"%s\">configure</a> করতে চান?"
 
-#: libraries/replication_gui.lib.php:401
+#: libraries/replication_gui.lib.php:402
 msgid "Slave configuration"
 msgstr "সহায়কের কনফিগারেশন"
 
-#: libraries/replication_gui.lib.php:404
+#: libraries/replication_gui.lib.php:405
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -11947,95 +11934,95 @@ msgstr ""
 "নিশ্চিত করুন,আপনার কনফিগারেশন ফাইলে (my.cnf) অনন্য server-id আছে। না থাকলে "
 "নিন্মের লাইনগুলো [mysqld] অংশে যোগ করুন:"
 
-#: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:797
-#: libraries/server_privileges.lib.php:1444
+#: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:798
+#: libraries/server_privileges.lib.php:1520
 msgid "User name:"
 msgstr "ব্যাবহারকারীর নাম:"
 
-#: libraries/replication_gui.lib.php:417 libraries/replication_gui.lib.php:801
-#: libraries/replication_gui.lib.php:817
-#: libraries/server_privileges.lib.php:1449
-#: libraries/server_privileges.lib.php:1481
-#: libraries/server_privileges.lib.php:2369
-#: libraries/server_privileges.lib.php:3331
+#: libraries/replication_gui.lib.php:418 libraries/replication_gui.lib.php:802
+#: libraries/replication_gui.lib.php:818
+#: libraries/server_privileges.lib.php:1525
+#: libraries/server_privileges.lib.php:1557
+#: libraries/server_privileges.lib.php:2502
+#: libraries/server_privileges.lib.php:3464
 msgid "User name"
 msgstr "ব্যবহারকারীর নাম"
 
-#: libraries/replication_gui.lib.php:428 libraries/replication_gui.lib.php:867
-#: libraries/replication_gui.lib.php:883
-#: libraries/server_privileges.lib.php:1644
-#: libraries/server_privileges.lib.php:1672
-#: libraries/server_privileges.lib.php:3333
+#: libraries/replication_gui.lib.php:429 libraries/replication_gui.lib.php:868
+#: libraries/replication_gui.lib.php:884
+#: libraries/server_privileges.lib.php:1716
+#: libraries/server_privileges.lib.php:1744
+#: libraries/server_privileges.lib.php:3466
 msgid "Password"
 msgstr "পাসওর্য়াড"
 
-#: libraries/replication_gui.lib.php:446
+#: libraries/replication_gui.lib.php:447
 msgid "Port:"
 msgstr "পোর্ট:"
 
-#: libraries/replication_gui.lib.php:530
+#: libraries/replication_gui.lib.php:531
 msgid "Master status"
 msgstr "প্রধানের অবস্থা"
 
-#: libraries/replication_gui.lib.php:533
+#: libraries/replication_gui.lib.php:534
 msgid "Slave status"
 msgstr "সহায়কের অবস্থা"
 
-#: libraries/replication_gui.lib.php:542
+#: libraries/replication_gui.lib.php:543
 #: libraries/server_status_variables.lib.php:219
-#: libraries/server_variables.lib.php:193
+#: libraries/server_variables.lib.php:195
 msgid "Variable"
 msgstr "চলক"
 
-#: libraries/replication_gui.lib.php:619 libraries/server_bin_log.lib.php:131
+#: libraries/replication_gui.lib.php:620 libraries/server_bin_log.lib.php:131
 msgid "Server ID"
 msgstr "সার্ভার আইডি"
 
-#: libraries/replication_gui.lib.php:620 libraries/replication_gui.lib.php:708
-#: libraries/replication_gui.lib.php:852
+#: libraries/replication_gui.lib.php:621 libraries/replication_gui.lib.php:709
+#: libraries/replication_gui.lib.php:853
 #: libraries/server_status_processes.lib.php:76
 msgid "Host"
 msgstr "হোষ্ট"
 
-#: libraries/replication_gui.lib.php:640
+#: libraries/replication_gui.lib.php:641
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr "শুধু সহায়কটি --report-host=host_name সহ আরম্ভ হয়েছে।"
 
-#: libraries/replication_gui.lib.php:754
-#: libraries/server_privileges.lib.php:1573
+#: libraries/replication_gui.lib.php:755
+#: libraries/server_privileges.lib.php:1649
 msgid "Any host"
 msgstr "যে কোন হোষ্ট"
 
-#: libraries/replication_gui.lib.php:759
-#: libraries/server_privileges.lib.php:1581
+#: libraries/replication_gui.lib.php:760
+#: libraries/server_privileges.lib.php:1657
 msgid "Local"
 msgstr "স্থানীয়"
 
-#: libraries/replication_gui.lib.php:766
-#: libraries/server_privileges.lib.php:1590
+#: libraries/replication_gui.lib.php:767
+#: libraries/server_privileges.lib.php:1666
 msgid "This Host"
 msgstr "এই হোষ্ট"
 
-#: libraries/replication_gui.lib.php:808
-#: libraries/server_privileges.lib.php:1465
+#: libraries/replication_gui.lib.php:809
+#: libraries/server_privileges.lib.php:1541
 msgid "Any user"
 msgstr "যে কোন ব্যবহারকারী"
 
-#: libraries/replication_gui.lib.php:813 libraries/replication_gui.lib.php:846
-#: libraries/replication_gui.lib.php:879
-#: libraries/server_privileges.lib.php:1609
+#: libraries/replication_gui.lib.php:814 libraries/replication_gui.lib.php:847
+#: libraries/replication_gui.lib.php:880
+#: libraries/server_privileges.lib.php:1685
 msgid "Use text field:"
 msgstr "আক্ষরিক ক্ষেত্র ব্যবহার কর:"
 
-#: libraries/replication_gui.lib.php:840
-#: libraries/server_privileges.lib.php:1600
+#: libraries/replication_gui.lib.php:841
+#: libraries/server_privileges.lib.php:1676
 msgid "Use Host Table"
 msgstr "হোষ্ট টেবল ব্যবহার কর"
 
-#: libraries/replication_gui.lib.php:856
-#: libraries/server_privileges.lib.php:1628
+#: libraries/replication_gui.lib.php:857
+#: libraries/server_privileges.lib.php:1704
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -12043,70 +12030,70 @@ msgstr ""
 "যখন হোষ্ট টেবল ব্যবহার করা হবে তখন এই ক্ষেত্রটি অকার্যকর থাকবে এবং হোষ্ট টেবলে "
 "রক্ষিত মানসমূহ ব্যবহার করা হবে।"
 
-#: libraries/replication_gui.lib.php:891
-#: libraries/server_privileges.lib.php:1686
+#: libraries/replication_gui.lib.php:892
+#: libraries/server_privileges.lib.php:1758
 msgid "Re-type"
 msgstr "পুনরায় লিখুন"
 
-#: libraries/replication_gui.lib.php:895
+#: libraries/replication_gui.lib.php:896
 #, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
 msgstr "পাসওর্য়াড উৎপাদন কর"
 
-#: libraries/replication_gui.lib.php:933
+#: libraries/replication_gui.lib.php:934
 msgid "Replication started successfully."
 msgstr "প্রতিলিপির প্রস্তুত কাজ সফলভাবে শুরু হয়েছে।"
 
-#: libraries/replication_gui.lib.php:934
+#: libraries/replication_gui.lib.php:935
 msgid "Error starting replication."
 msgstr "প্রতিলিপি তৈরীরকাজে সমস্যা হয়েছে।"
 
-#: libraries/replication_gui.lib.php:937
+#: libraries/replication_gui.lib.php:938
 msgid "Replication stopped successfully."
 msgstr "প্রতিলিপি সফলভাবে বন্ধ হয়েছে।"
 
-#: libraries/replication_gui.lib.php:938
+#: libraries/replication_gui.lib.php:939
 msgid "Error stopping replication."
 msgstr "প্রতিলিপি বন্ধে সমস্যা হয়েছে।"
 
-#: libraries/replication_gui.lib.php:941
+#: libraries/replication_gui.lib.php:942
 msgid "Replication resetting successfully."
 msgstr "প্রতিলিপি সফলভাবে পুনস্থাপন করা হয়েছে।"
 
-#: libraries/replication_gui.lib.php:942
+#: libraries/replication_gui.lib.php:943
 msgid "Error resetting replication."
 msgstr "প্রতিলিপি পুনস্থাপনে সমস্যা হয়েছে।"
 
-#: libraries/replication_gui.lib.php:945
+#: libraries/replication_gui.lib.php:946
 msgid "Success."
 msgstr "সফল।"
 
-#: libraries/replication_gui.lib.php:946
+#: libraries/replication_gui.lib.php:947
 msgid "Error."
-msgstr "ভুল"
+msgstr "ভুল।"
 
-#: libraries/replication_gui.lib.php:991
+#: libraries/replication_gui.lib.php:992
 msgid "Unknown error"
 msgstr "অজ্ঞাত ভুল"
 
-#: libraries/replication_gui.lib.php:1001
+#: libraries/replication_gui.lib.php:1002
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "প্রধান %s সহিত সংযোগ করা যায়নি."
 
-#: libraries/replication_gui.lib.php:1012
+#: libraries/replication_gui.lib.php:1013
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr "প্রধান লগ পড়া যায়নি। প্রধান লগে অধিকার সমস্যা."
 
-#: libraries/replication_gui.lib.php:1030
+#: libraries/replication_gui.lib.php:1031
 #, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
 msgstr "প্রধানটি পরিবর্তন করা যায়নি"
 
-#: libraries/replication_gui.lib.php:1034
+#: libraries/replication_gui.lib.php:1035
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
@@ -12810,7 +12797,7 @@ msgstr "কিছু না"
 
 #: libraries/server_privileges.lib.php:527
 #: libraries/server_privileges.lib.php:554
-#: libraries/server_privileges.lib.php:3340
+#: libraries/server_privileges.lib.php:3473
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr "ব্যাবহারকারীর দল"
@@ -12880,14 +12867,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:999
 #: libraries/server_privileges.lib.php:1168
-#: libraries/server_privileges.lib.php:3152
-#: libraries/server_privileges.lib.php:3164
+#: libraries/server_privileges.lib.php:3285
+#: libraries/server_privileges.lib.php:3297
 msgid "Table-specific privileges"
 msgstr "টেবিলের নির্দিষ্ট অধিকার"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:1178
-#: libraries/server_privileges.lib.php:3336
+#: libraries/server_privileges.lib.php:3469
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
@@ -12898,7 +12885,7 @@ msgid "Administration"
 msgstr "প্রশাসন"
 
 #: libraries/server_privileges.lib.php:1162
-#: libraries/server_privileges.lib.php:3334
+#: libraries/server_privileges.lib.php:3467
 msgid "Global privileges"
 msgstr "সর্বময় অধিকারসমূহ"
 
@@ -12907,7 +12894,7 @@ msgid "Global"
 msgstr "সর্বময়"
 
 #: libraries/server_privileges.lib.php:1165
-#: libraries/server_privileges.lib.php:3151
+#: libraries/server_privileges.lib.php:3284
 msgid "Database-specific privileges"
 msgstr "ডাটাবেইজ নির্ধারিত অধিকারসমূহ"
 
@@ -12924,290 +12911,313 @@ msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "অধিকার টেবল রিলোড না করে ব্যবহারকারী এবং তাদের অধিকার যোগ করার অনুমোদন।"
 
-#: libraries/server_privileges.lib.php:1441
-#: libraries/server_privileges.lib.php:2856
+#: libraries/server_privileges.lib.php:1447
+#, fuzzy
+#| msgid "Cookie authentication"
+msgid "Native MySQL authentication"
+msgstr "কুকি প্রমাণীকরণ"
+
+#: libraries/server_privileges.lib.php:1449
+#, fuzzy
+#| msgid "Signon authentication"
+msgid "SHA256 password authentication"
+msgstr "সাইনঅন প্রমাণীকরণ"
+
+#: libraries/server_privileges.lib.php:1463
+#, fuzzy
+#| msgid "Cookie authentication"
+msgid "Native MySQL Authentication"
+msgstr "কুকি প্রমাণীকরণ"
+
+#: libraries/server_privileges.lib.php:1517
+#: libraries/server_privileges.lib.php:2989
 msgid "Login Information"
 msgstr "লগইন তথ্যাবলী"
 
-#: libraries/server_privileges.lib.php:1474
-#: libraries/server_privileges.lib.php:1667
-#: libraries/server_privileges.lib.php:3284
+#: libraries/server_privileges.lib.php:1550
+#: libraries/server_privileges.lib.php:1739
+#: libraries/server_privileges.lib.php:3417
 msgid "Use text field"
 msgstr "আক্ষরীক ক্ষেত্র ব্যবহার করুন"
 
-#: libraries/server_privileges.lib.php:1501
+#: libraries/server_privileges.lib.php:1577
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1510
+#: libraries/server_privileges.lib.php:1586
 #, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
 msgstr "ব্যাবহারকারীর নাম:"
 
-#: libraries/server_privileges.lib.php:1515
-#: libraries/server_privileges.lib.php:1617
-#: libraries/server_privileges.lib.php:2370
-#: libraries/server_privileges.lib.php:3332
+#: libraries/server_privileges.lib.php:1591
+#: libraries/server_privileges.lib.php:1693
+#: libraries/server_privileges.lib.php:2503
+#: libraries/server_privileges.lib.php:3465
 #, fuzzy
 #| msgid "Log name"
 msgid "Host name"
 msgstr "লগের নাম"
 
-#: libraries/server_privileges.lib.php:1657
+#: libraries/server_privileges.lib.php:1729
 msgid "Do not change the password"
 msgstr "পাসওর্য়াডটি পরিবর্তন করবেন না"
 
-#: libraries/server_privileges.lib.php:1694
-#: libraries/server_privileges.lib.php:1697
+#: libraries/server_privileges.lib.php:1780
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "প্রমাণীকরণ"
 
-#: libraries/server_privileges.lib.php:1925
+#: libraries/server_privileges.lib.php:1787
+#, fuzzy
+#| msgid "Password Hashing"
+msgid "Password Hashing Method"
+msgstr "Password Hashing"
+
+#: libraries/server_privileges.lib.php:2058
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s এর পাসওর্য়াডটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
-#: libraries/server_privileges.lib.php:1971
+#: libraries/server_privileges.lib.php:2104
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s অধিকার সমূহ বাতিল করা হয়েছে।"
 
-#: libraries/server_privileges.lib.php:2061
-#: libraries/server_privileges.lib.php:4318
+#: libraries/server_privileges.lib.php:2194
+#: libraries/server_privileges.lib.php:4447
 #, fuzzy
 #| msgid "Add user group"
 msgid "Add user account"
 msgstr "ব্যবহারকারীর দল যোগ কর"
 
-#: libraries/server_privileges.lib.php:2070
+#: libraries/server_privileges.lib.php:2203
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
 msgstr "ব্যবহারকারীর ডাটাবেইজ"
 
-#: libraries/server_privileges.lib.php:2074
+#: libraries/server_privileges.lib.php:2207
 msgid "Create database with same name and grant all privileges."
 msgstr "একই নামে ডাটাবেইজ তৈরী কর এবং সব অধীকার দাও।"
 
-#: libraries/server_privileges.lib.php:2080
+#: libraries/server_privileges.lib.php:2213
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "সমস্ত অধিকার সব ব্যবহারকারীকে দাও (username\\_%)।"
 
-#: libraries/server_privileges.lib.php:2089
+#: libraries/server_privileges.lib.php:2222
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr "\"%s\" ডাটাবেইজে সমস্ত অধিকার দাও।"
 
-#: libraries/server_privileges.lib.php:2190
-#: libraries/server_privileges.lib.php:2256
+#: libraries/server_privileges.lib.php:2323
+#: libraries/server_privileges.lib.php:2389
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "ব্যবহারকারীরা \"%s\" প্রবেশাধীকার পাবে"
 
-#: libraries/server_privileges.lib.php:2225
+#: libraries/server_privileges.lib.php:2358
 msgid "User has been added."
 msgstr "ব্যবহারকারী যোগ করা হয়েছে।"
 
-#: libraries/server_privileges.lib.php:2373
-#: libraries/server_privileges.lib.php:3161
-#: libraries/server_privileges.lib.php:3342
+#: libraries/server_privileges.lib.php:2506
+#: libraries/server_privileges.lib.php:3294
+#: libraries/server_privileges.lib.php:3475
 msgid "Grant"
 msgstr "অনুমোদন"
 
-#: libraries/server_privileges.lib.php:2388
+#: libraries/server_privileges.lib.php:2521
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2408
-#: libraries/server_privileges.lib.php:3814
+#: libraries/server_privileges.lib.php:2541
+#: libraries/server_privileges.lib.php:3941
 msgid "No user found."
 msgstr "ব্যবহারকারী নাই।"
 
-#: libraries/server_privileges.lib.php:2439
-#: libraries/server_privileges.lib.php:2722
-#: libraries/server_privileges.lib.php:3418
+#: libraries/server_privileges.lib.php:2572
+#: libraries/server_privileges.lib.php:2855
+#: libraries/server_privileges.lib.php:3551
 msgid "Any"
 msgstr "যে কোন"
 
-#: libraries/server_privileges.lib.php:2490
+#: libraries/server_privileges.lib.php:2623
 msgid "global"
 msgstr "সর্বময়"
 
-#: libraries/server_privileges.lib.php:2493
+#: libraries/server_privileges.lib.php:2626
 msgid "database-specific"
 msgstr "নির্দিষ্ট ডাটবেইজে"
 
-#: libraries/server_privileges.lib.php:2495
+#: libraries/server_privileges.lib.php:2628
 msgid "wildcard"
 msgstr "ওয়াইল্ডকার্ড"
 
-#: libraries/server_privileges.lib.php:2501
+#: libraries/server_privileges.lib.php:2634
 msgid "table-specific"
 msgstr "নির্দিষ্ট টেবলে"
 
-#: libraries/server_privileges.lib.php:2628
+#: libraries/server_privileges.lib.php:2761
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges"
 msgstr "সুবিধাসমূহ সম্পাদনা:"
 
-#: libraries/server_privileges.lib.php:2631
+#: libraries/server_privileges.lib.php:2764
 msgid "Revoke"
 msgstr "বাতিল"
 
-#: libraries/server_privileges.lib.php:2655
+#: libraries/server_privileges.lib.php:2788
 msgid "Edit user group"
 msgstr "ব্যবহারকারী দল সম্পাদনা"
 
-#: libraries/server_privileges.lib.php:2835
+#: libraries/server_privileges.lib.php:2968
 msgid "… keep the old one."
 msgstr "… পুরাতনটি রাখ।"
 
-#: libraries/server_privileges.lib.php:2836
+#: libraries/server_privileges.lib.php:2969
 msgid "… delete the old one from the user tables."
 msgstr "… ব্যবহারকারী টেবল থেকে পুরাতনটি মুছে ফেল।"
 
-#: libraries/server_privileges.lib.php:2838
+#: libraries/server_privileges.lib.php:2971
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… পুরাতন সমস্ত অধিকার বাতিল কর এবং পরবর্তীগুলো মুছে ফেল।"
 
-#: libraries/server_privileges.lib.php:2842
+#: libraries/server_privileges.lib.php:2975
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "পুরাতনটি ব্যবহারকারী টেবল থেকে মুছে ফেল এবং অধিকারগুলো পুনারায় চালু কর।"
 
-#: libraries/server_privileges.lib.php:2857
+#: libraries/server_privileges.lib.php:2990
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "লগইন তথ্য পরিবর্তন/ব্যবহারকারীর অনুলিপি"
 
-#: libraries/server_privileges.lib.php:2863
+#: libraries/server_privileges.lib.php:2996
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "একই অধিকারসহ একজন নতুন ব্যবহারকারী তৈরী কর এবং…"
 
-#: libraries/server_privileges.lib.php:3165
+#: libraries/server_privileges.lib.php:3298
 msgid "Column-specific privileges"
 msgstr "স্বম্ভ সম্পকির্ত অধিকার"
 
-#: libraries/server_privileges.lib.php:3220
+#: libraries/server_privileges.lib.php:3353
 #, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
 msgstr "নিচের ডাটাবেইজ এ সুবিধাসমূহ যোগ কর:"
 
-#: libraries/server_privileges.lib.php:3244
+#: libraries/server_privileges.lib.php:3377
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "ওয়াইল্ডকার্ড % এবং _ ব্যবহারের জন্য \\ দিয়ে এস্কেপ করতে হবে।"
 
-#: libraries/server_privileges.lib.php:3262
+#: libraries/server_privileges.lib.php:3395
 msgid "Add privileges on the following table:"
 msgstr "নিচের টেবিল এ সুবিধাসমূহ যোগ কর:"
 
-#: libraries/server_privileges.lib.php:3524
+#: libraries/server_privileges.lib.php:3651
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "নির্বাচিত ব্যবহারকারীদের মুছ"
 
-#: libraries/server_privileges.lib.php:3530
+#: libraries/server_privileges.lib.php:3657
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "এই ব্যবহারকারীদের অধিকার বাতিল কর এবং মুছে ফেল।"
 
-#: libraries/server_privileges.lib.php:3538
-#: libraries/server_privileges.lib.php:3544
-#: libraries/server_privileges.lib.php:3547
+#: libraries/server_privileges.lib.php:3665
+#: libraries/server_privileges.lib.php:3671
+#: libraries/server_privileges.lib.php:3674
 msgid "Drop the databases that have the same names as the users."
 msgstr "এই ব্যবহারকারীর নামের সাথে মিল আছে এমন সব ডাটাবেইজ মুছে ফেল।"
 
-#: libraries/server_privileges.lib.php:3688
+#: libraries/server_privileges.lib.php:3815
 msgid "No users selected for deleting!"
 msgstr "মুছার জন্য কোন ব্যবহারকারী নির্বাচন করা হয়নি!"
 
-#: libraries/server_privileges.lib.php:3691
+#: libraries/server_privileges.lib.php:3818
 msgid "Reloading the privileges"
 msgstr "অধিকারসমূহ পুনরায় পূর্ণ করা হয়েছে"
 
-#: libraries/server_privileges.lib.php:3710
+#: libraries/server_privileges.lib.php:3837
 msgid "The selected users have been deleted successfully."
 msgstr "নির্বাচিত ব্যবহরকারীগনকে সফলভাবে মুছা হয়েছে।"
 
-#: libraries/server_privileges.lib.php:3784
+#: libraries/server_privileges.lib.php:3911
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s এর অধীকার সমূহ আধুনিকায়ন করা হয়েছে।"
 
-#: libraries/server_privileges.lib.php:3874
+#: libraries/server_privileges.lib.php:4001
 #, php-format
 msgid "Deleting %s"
 msgstr "%s মুছছি"
 
-#: libraries/server_privileges.lib.php:3904
+#: libraries/server_privileges.lib.php:4031
 msgid "The privileges were reloaded successfully."
 msgstr "অধিকারসমূহ সফলভাবে পুনরায় পূর্ণকরা হয়েছে।"
 
-#: libraries/server_privileges.lib.php:4005
+#: libraries/server_privileges.lib.php:4132
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ব্যবহারকারী %s পূর্ব থেকেই আছে!"
 
-#: libraries/server_privileges.lib.php:4260
+#: libraries/server_privileges.lib.php:4389
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s এর অধিকারসমূহ"
 
-#: libraries/server_privileges.lib.php:4269
+#: libraries/server_privileges.lib.php:4398
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "ব্যবহারকারী"
 
-#: libraries/server_privileges.lib.php:4310
+#: libraries/server_privileges.lib.php:4439
 msgctxt "Create new user"
 msgid "New"
 msgstr "নতুন"
 
-#: libraries/server_privileges.lib.php:4339
+#: libraries/server_privileges.lib.php:4468
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "সুবিধাসমূহ সম্পাদনা:"
 
-#: libraries/server_privileges.lib.php:4340
+#: libraries/server_privileges.lib.php:4469
 #, fuzzy
 #| msgid "User group"
 msgid "User account"
 msgstr "ব্যাবহারকারীর দল"
 
-#: libraries/server_privileges.lib.php:4399
+#: libraries/server_privileges.lib.php:4528
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4419 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4548 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "একনজরে ব্যবহারকারীগণ"
 
-#: libraries/server_privileges.lib.php:4487
+#: libraries/server_privileges.lib.php:4616
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4528
+#: libraries/server_privileges.lib.php:4657
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -13220,7 +13230,7 @@ msgstr ""
 "হতে পারে যদি তা পরিবর্তীত হয়ে থাকে। এরুপ ক্ষেত্রে %sreload the privileges%s করতে "
 "হবে।"
 
-#: libraries/server_privileges.lib.php:4547
+#: libraries/server_privileges.lib.php:4676
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13239,11 +13249,11 @@ msgstr ""
 "হতে পারে যদি তা পরিবর্তীত হয়ে থাকে। এরুপ ক্ষেত্রে %sreload the privileges%s করতে "
 "হবে।"
 
-#: libraries/server_privileges.lib.php:4597
+#: libraries/server_privileges.lib.php:4726
 msgid "The selected user was not found in the privilege table."
 msgstr "অধিকার টেবিলে এই ব্যবহারকারী সর্ম্পকে কোন তথ্য নাই।"
 
-#: libraries/server_privileges.lib.php:4829
+#: libraries/server_privileges.lib.php:4957
 msgid "You have added a new user."
 msgstr "একজন নতুন ব্যবহারকারী যোগ করেছেন।"
 
@@ -13542,7 +13552,7 @@ msgstr ""
 
 #: libraries/server_status_processes.lib.php:252
 #: libraries/server_status_variables.lib.php:39
-#: libraries/server_variables.lib.php:182
+#: libraries/server_variables.lib.php:184
 msgid "Filters"
 msgstr "ফিল্টারসমূহ"
 
@@ -13579,7 +13589,7 @@ msgid "#"
 msgstr ""
 
 #: libraries/server_status_variables.lib.php:44
-#: libraries/server_variables.lib.php:184
+#: libraries/server_variables.lib.php:186
 msgid "Containing the word:"
 msgstr "এই শব্দটি আছে:"
 
@@ -14310,179 +14320,179 @@ msgstr "ডাটাবেইজ লেভেল ট্যাব"
 msgid "Table-level tabs"
 msgstr "টেবলের লেবেল ট্যাব"
 
-#: libraries/server_variables.lib.php:114
+#: libraries/server_variables.lib.php:116
 msgid "Setting variable failed"
 msgstr "চলক সেটিং ব্যার্থ হয়েছে"
 
-#: libraries/server_variables.lib.php:195
-#: libraries/server_variables.lib.php:279
+#: libraries/server_variables.lib.php:197
+#: libraries/server_variables.lib.php:281
 msgid "Session value"
 msgstr "সেশনের মান"
 
-#: libraries/server_variables.lib.php:195
+#: libraries/server_variables.lib.php:197
 msgid "Global value"
 msgstr "সার্বিক মান"
 
-#: libraries/server_variables.lib.php:243
+#: libraries/server_variables.lib.php:245
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: libraries/sql-parser/src/Component.php:63
-#: libraries/sql-parser/src/Component.php:83
+#: libraries/sql-parser/src/Component.php:48
+#: libraries/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/AlterOperation.php:202
+#: libraries/sql-parser/src/Components/AlterOperation.php:201
 msgid "Unrecognized alter operation."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Array2d.php:93
+#: libraries/sql-parser/src/Components/Array2d.php:92
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Array2d.php:116
+#: libraries/sql-parser/src/Components/Array2d.php:115
 msgid "An opening bracket followed by a set of values was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/ArrayObj.php:103
-#: libraries/sql-parser/src/Components/CreateDefinition.php:204
+#: libraries/sql-parser/src/Components/ArrayObj.php:102
+#: libraries/sql-parser/src/Components/CreateDefinition.php:207
 msgid "An opening bracket was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/ArrayObj.php:128
+#: libraries/sql-parser/src/Components/ArrayObj.php:127
 msgid "A comma or a closing bracket was expected"
 msgstr ""
 
-#: libraries/sql-parser/src/Components/CreateDefinition.php:248
+#: libraries/sql-parser/src/Components/CreateDefinition.php:251
 #, fuzzy
 #| msgid "No databases selected."
 msgid "A comma or a closing bracket was expected."
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
 
-#: libraries/sql-parser/src/Components/CreateDefinition.php:264
+#: libraries/sql-parser/src/Components/CreateDefinition.php:267
 msgid "A closing bracket was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/DataType.php:127
+#: libraries/sql-parser/src/Components/DataType.php:128
 msgid "Unrecognized data type."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:234
+#: libraries/sql-parser/src/Components/Expression.php:233
 msgid "Unexpected closing bracket."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:255
-#: libraries/sql-parser/src/Components/Expression.php:292
-#: libraries/sql-parser/src/Components/Expression.php:312
+#: libraries/sql-parser/src/Components/Expression.php:254
+#: libraries/sql-parser/src/Components/Expression.php:290
+#: libraries/sql-parser/src/Components/Expression.php:310
 msgid "An alias was previously found."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:266
+#: libraries/sql-parser/src/Components/Expression.php:265
 msgid "Unexpected dot."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:336
+#: libraries/sql-parser/src/Components/Expression.php:334
 #, fuzzy
 #| msgid "No databases selected."
 msgid "An alias was expected."
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
 
-#: libraries/sql-parser/src/Components/ExpressionArray.php:98
+#: libraries/sql-parser/src/Components/ExpressionArray.php:97
 #, fuzzy
 #| msgid "No rows selected"
 msgid "An expression was expected."
 msgstr "কোন রো নির্বাচন করা হয় নাই"
 
-#: libraries/sql-parser/src/Components/Limit.php:92
-#: libraries/sql-parser/src/Components/Limit.php:114
+#: libraries/sql-parser/src/Components/Limit.php:91
+#: libraries/sql-parser/src/Components/Limit.php:113
 msgid "An offset was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/OptionsArray.php:148
+#: libraries/sql-parser/src/Components/OptionsArray.php:147
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/RenameOperation.php:104
+#: libraries/sql-parser/src/Components/RenameOperation.php:103
 #, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
 msgstr "খোলা টেবিলের সংখ্যা।"
 
-#: libraries/sql-parser/src/Components/RenameOperation.php:114
+#: libraries/sql-parser/src/Components/RenameOperation.php:113
 msgid "Keyword \"TO\" was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/RenameOperation.php:131
+#: libraries/sql-parser/src/Components/RenameOperation.php:130
 #, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
 msgstr "খোলা টেবিলের সংখ্যা।"
 
-#: libraries/sql-parser/src/Components/RenameOperation.php:149
+#: libraries/sql-parser/src/Components/RenameOperation.php:148
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "A rename operation was expected."
 msgstr "রো টি মুছা হয়েছে।"
 
-#: libraries/sql-parser/src/Lexer.php:270
+#: libraries/sql-parser/src/Lexer.php:267
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
 msgstr "%s লাইনে অপ্রত্যাশিত চিহ্ন।"
 
-#: libraries/sql-parser/src/Lexer.php:307
+#: libraries/sql-parser/src/Lexer.php:304
 msgid "Expected whitespace(s) before delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:325
-#: libraries/sql-parser/src/Lexer.php:341
+#: libraries/sql-parser/src/Lexer.php:322
+#: libraries/sql-parser/src/Lexer.php:338
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:788
+#: libraries/sql-parser/src/Lexer.php:784
 #, fuzzy, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "ইভেন্ট %1$s তৈরী হয়েছে।"
 
-#: libraries/sql-parser/src/Lexer.php:828
+#: libraries/sql-parser/src/Lexer.php:824
 #, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
 msgstr "টেবলের নামের নকশা"
 
-#: libraries/sql-parser/src/Parser.php:402
+#: libraries/sql-parser/src/Parser.php:392
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
 msgstr "টেবিলের শুরুতে"
 
-#: libraries/sql-parser/src/Parser.php:421
+#: libraries/sql-parser/src/Parser.php:411
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:505
+#: libraries/sql-parser/src/Parser.php:493
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:212
+#: libraries/sql-parser/src/Statement.php:233
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
 msgstr "%s লাইনে অপ্রত্যাশিত চিহ্ন।"
 
-#: libraries/sql-parser/src/Statement.php:250
+#: libraries/sql-parser/src/Statement.php:271
 msgid "This type of clause was previously parsed."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:277
+#: libraries/sql-parser/src/Statement.php:299
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:297
+#: libraries/sql-parser/src/Statement.php:319
 msgid "Unrecognized keyword."
 msgstr ""
 
@@ -14498,7 +14508,7 @@ msgstr "খোলা টেবিলের সংখ্যা।"
 msgid "At least one column definition was expected."
 msgstr "রো টি মুছা হয়েছে।"
 
-#: libraries/sql-parser/src/Statements/CreateStatement.php:478
+#: libraries/sql-parser/src/Statements/CreateStatement.php:476
 msgid "A \"RETURNS\" keyword was expected."
 msgstr ""
 
@@ -14546,22 +14556,22 @@ msgstr "লেবেল:"
 msgid "Let every user access this bookmark"
 msgstr "পূর্ববর্তী সব ব্যবহারকারী এই বুকমার্কটি ব্যবহার করেছে।"
 
-#: libraries/sql.lib.php:740
+#: libraries/sql.lib.php:741
 #, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
 msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
 
-#: libraries/sql.lib.php:847
+#: libraries/sql.lib.php:848
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "বুকমার্ক \"%s\" দেখার জন্য স্বাভাবিক অনুসন্ধান হিসাবে ব্যবহৃত হচ্ছে।"
 
-#: libraries/sql.lib.php:1302
+#: libraries/sql.lib.php:1303
 msgid "Showing as PHP code"
 msgstr "পিএইছপি কোড দেখাচ্ছে"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1635
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14573,7 +14583,7 @@ msgstr ""
 "এই নির্বাচনে কোন অনন্য স্তম্ভ নাই। সম্পাদনা, চেকবক্স, প্রতিলিপি এবং মুছার ব্যবস্থা কাজ "
 "করবে না।"
 
-#: libraries/sql.lib.php:1645
+#: libraries/sql.lib.php:1646
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14585,7 +14595,7 @@ msgstr ""
 "এই নির্বাচনে কোন অনন্য স্তম্ভ নাই। সম্পাদনা, চেকবক্স, প্রতিলিপি এবং মুছার ব্যবস্থা কাজ "
 "করবে না।"
 
-#: libraries/sql.lib.php:1684
+#: libraries/sql.lib.php:1685
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "টেবল `%s` এর ইনডেক্সে সমস্যা আছে"
@@ -14863,7 +14873,7 @@ msgstr "আপনার সেটিংস রক্ষণাবেক্ষণ 
 
 #: libraries/user_preferences.inc.php:54 prefs_manage.php:307
 msgid "Configuration has been saved."
-msgstr "কনফিগারেশন সংরক্ষন করা হয়েছে"
+msgstr "কনফিগারেশন সংরক্ষন করা হয়েছে।"
 
 #: libraries/user_preferences.inc.php:75
 #, php-format
@@ -14903,7 +14913,7 @@ msgstr "কনফিগারেশন আমদানি করা যায়ন
 
 #: prefs_manage.php:116
 msgid "Configuration contains incorrect data for some fields."
-msgstr "কিছু ক্ষেত্রে কনফিগারেশনে ভুল তথ্য আছে"
+msgstr "কিছু ক্ষেত্রে কনফিগারেশনে ভুল তথ্য আছে।"
 
 #: prefs_manage.php:135
 msgid "Do you want to import remaining settings?"
@@ -14923,7 +14933,7 @@ msgstr "ব্রাউজারের মজুদ স্থান থেকে
 
 #: prefs_manage.php:257
 msgid "Settings will be imported from your browser's local storage."
-msgstr "আপনার ব্রাউজার থেকে সেটিংস আমদানি করা হবে"
+msgstr "আপনার ব্রাউজার থেকে সেটিংস আমদানি করা হবে।"
 
 #: prefs_manage.php:263
 msgid "You have no saved settings!"
@@ -14962,7 +14972,7 @@ msgstr "পূর্ববতী সেটিংস এর উপর লেখ�
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 "আপনি সমস্ত সেটিংস পুর্বাবস্থায় ফিরিয়ে নিতে পারেন এবং স্বাভাবিক অবস্থায় ফিরে যেতে "
-"পারেন"
+"পারেন।"
 
 #: server_databases.php:112
 msgid "No databases"
@@ -15010,7 +15020,7 @@ msgstr ""
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr "সার্ভারের চলকসমূহ এবং সেটিংস"
 
-#: setup/frames/config.inc.php:41 setup/frames/index.inc.php:277
+#: setup/frames/config.inc.php:41 setup/frames/index.inc.php:278
 msgid "Download"
 msgstr "ডাউনলোড"
 
@@ -15021,11 +15031,11 @@ msgstr "ডাউনলোড"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr "ফর্মসেট ঠিক নাই, setup/frames/form.inc.php এ  $formsets পরীক্ষা করুন"
 
-#: setup/frames/index.inc.php:54
+#: setup/frames/index.inc.php:55
 msgid "Cannot load or save configuration"
 msgstr "কনফিগারেশন লোড বা সংরক্ষন করতে পারছি না"
 
-#: setup/frames/index.inc.php:57
+#: setup/frames/index.inc.php:58
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
@@ -15035,7 +15045,7 @@ msgstr ""
 "ডিরেক্টরীতে যেভাবে [doc@setup_script]documentation[/doc] বর্ণনা করা হয়েছে। "
 "অন্যথায় আপনি শুধু ইহা ডাউনলোড বা প্রর্দশন করতে পারবেন।"
 
-#: setup/frames/index.inc.php:72
+#: setup/frames/index.inc.php:73
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -15043,7 +15053,7 @@ msgstr ""
 "আপনি নিরাপদ সংযোগ ব্যবহার করছেন না; সমস্ত তথ্য (গুরুত্বপূর্ণ তথ্য, যেমন "
 "পাসওয়ার্ড)আনএনক্রিপটেড স্থানান্তর করা হবে।"
 
-#: setup/frames/index.inc.php:84
+#: setup/frames/index.inc.php:85
 #, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
@@ -15052,15 +15062,15 @@ msgstr ""
 "আপনার সার্ভার যদি HTTPS সংযোগের জন্য কনফিগারড হয় তবে নিরাপদ সংযোগের  জন্য [a@"
 "%s]this link[/a] ব্যবহার করেন।"
 
-#: setup/frames/index.inc.php:91
+#: setup/frames/index.inc.php:92
 msgid "Insecure connection"
 msgstr "নিরাপত্তাহীন সংযোগ"
 
-#: setup/frames/index.inc.php:120
+#: setup/frames/index.inc.php:121
 msgid "Configuration saved."
 msgstr "কনফিগারেশন সংরক্ষন করা হয়েছে।"
 
-#: setup/frames/index.inc.php:123
+#: setup/frames/index.inc.php:124
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
@@ -15068,55 +15078,55 @@ msgstr ""
 "কনফিগারেশন config/config.inc.php ফাইলে সংরক্ষন করা হয়েছে। এটি প্রধান "
 "ডিরেক্টরীতে কপি করে config ডিরেক্টরীটি মুছে ফেলুন।"
 
-#: setup/frames/index.inc.php:134 setup/frames/menu.inc.php:19
+#: setup/frames/index.inc.php:135 setup/frames/menu.inc.php:19
 msgid "Overview"
 msgstr "একনজরে দেখা"
 
-#: setup/frames/index.inc.php:141
+#: setup/frames/index.inc.php:142
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr "গোপন বার্তা দেখাও (#MSG_COUNT)"
 
-#: setup/frames/index.inc.php:194
+#: setup/frames/index.inc.php:195
 msgid "There are no configured servers"
 msgstr "কনফিগার করা কোন সার্ভার নাই"
 
-#: setup/frames/index.inc.php:203
+#: setup/frames/index.inc.php:204
 msgid "New server"
 msgstr "নতুন সার্ভার"
 
-#: setup/frames/index.inc.php:233
+#: setup/frames/index.inc.php:234
 msgid "Default language"
 msgstr "স্বাভাবিক ভাষা"
 
-#: setup/frames/index.inc.php:243
+#: setup/frames/index.inc.php:244
 msgid "let the user choose"
 msgstr "ব্যবহারকারী পছন্দ করুক"
 
-#: setup/frames/index.inc.php:254
+#: setup/frames/index.inc.php:255
 msgid "- none -"
 msgstr "- কিছু না -"
 
-#: setup/frames/index.inc.php:258
+#: setup/frames/index.inc.php:259
 msgid "Default server"
 msgstr "স্বভাবিক সার্ভার"
 
-#: setup/frames/index.inc.php:270
+#: setup/frames/index.inc.php:271
 msgid "End of line"
 msgstr "লাইনের শেষ"
 
-#: setup/frames/index.inc.php:276
+#: setup/frames/index.inc.php:277
 msgid "Display"
 msgstr "দেখাও"
 
-#: setup/frames/index.inc.php:286
+#: setup/frames/index.inc.php:287
 msgid "Load"
 msgstr "লোড"
 
-#: setup/frames/index.inc.php:309
+#: setup/frames/index.inc.php:310
 msgid "phpMyAdmin homepage"
 msgstr "প্রধান পাতা"
 
-#: setup/frames/index.inc.php:311
+#: setup/frames/index.inc.php:312
 msgid "Donate"
 msgstr "দান করা"
 
@@ -15142,7 +15152,7 @@ msgstr "দাখিলকৃত ফর্মে ভুল আছে"
 
 #: setup/lib/form_processing.lib.php:52
 msgid "Try to revert erroneous fields to their default values"
-msgstr "ভুল থাকা ক্ষেত্রগুলোর মান স্বাভাবিক মানে সেট করার চেষ্টা করেছি।"
+msgstr "ভুল থাকা ক্ষেত্রগুলোর মান স্বাভাবিক মানে সেট করার চেষ্টা করেছি"
 
 #: setup/lib/form_processing.lib.php:57
 msgid "Ignore errors"
@@ -15152,22 +15162,22 @@ msgstr "ভুল উপেক্ষা কর"
 msgid "Show form"
 msgstr "ফর্ম দেখাও"
 
-#: setup/lib/index.lib.php:119
+#: setup/lib/index.lib.php:120
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
 "সংস্করন পাঠ ব্যাথ্য হয়েছে। সম্ভবত আপনি অফলাইন বা উন্নতকরন সার্ভারটি সাড়া দিচ্ছে না।"
 
-#: setup/lib/index.lib.php:135
+#: setup/lib/index.lib.php:142
 msgid "Got invalid version string from server"
-msgstr "সার্ভার থেকে অকার্যকর সংস্করন পাওয়া গেছে।"
+msgstr "সার্ভার থেকে অকার্যকর সংস্করন পাওয়া গেছে"
 
-#: setup/lib/index.lib.php:148
+#: setup/lib/index.lib.php:155
 msgid "Unparsable version string"
 msgstr "অগ্রহন যোগ্য সংস্করন"
 
-#: setup/lib/index.lib.php:168
+#: setup/lib/index.lib.php:175
 #, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
@@ -15176,9 +15186,9 @@ msgstr ""
 "আপনি Git সংস্করন ব্যবহার করছেন,[kbd]git pull[/kbd] চালান :-)[br] সর্বশেষ সুস্থিত "
 "সংস্করন হল %s, বেরিয়েছে %s।"
 
-#: setup/lib/index.lib.php:175
+#: setup/lib/index.lib.php:182
 msgid "No newer stable version is available"
-msgstr "কোন নতুন সুস্থিত সংস্করন পাওয়া যায়নি।"
+msgstr "কোন নতুন সুস্থিত সংস্করন পাওয়া যায়নি"
 
 #: setup/validate.php:24
 msgid "Wrong data"
@@ -16034,7 +16044,7 @@ msgstr "সর্ম্পক ভিউ"
 #: templates/table/structure/actions_in_table_structure.phtml:14
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "%s একটি প্রাইমারি কী যোগ করা হয়েছে"
+msgstr "%s একটি প্রাইমারি কী যোগ করা হয়েছে।"
 
 #: templates/table/structure/actions_in_table_structure.phtml:34
 #: templates/table/structure/actions_in_table_structure.phtml:54
@@ -16042,7 +16052,7 @@ msgstr "%s একটি প্রাইমারি কী যোগ করা �
 #: templates/table/structure/actions_in_table_structure.phtml:101
 #, php-format
 msgid "An index has been added on %s."
-msgstr "%s এ একটি ইনডেক্স যোগ করা হয়েছে"
+msgstr "%s এ একটি ইনডেক্স যোগ করা হয়েছে।"
 
 #: templates/table/structure/actions_in_table_structure.phtml:130
 #: templates/table/structure/check_all_table_column.phtml:52
@@ -16168,7 +16178,7 @@ msgstr "পরবর্তী অটোইনডেক্স"
 #: templates/table/structure/table_structure_row.phtml:46
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "স্বম্ভ %s মুছা হয়েছে"
+msgstr "স্বম্ভ %s মুছা হয়েছে।"
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
@@ -16375,7 +16385,7 @@ msgstr "প্রকাশিত ধারাবাহিক"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr "সার্ভার সংস্করনটি ৫.১ এর ছোট"
+msgstr "সার্ভার সংস্করনটি ৫.১ এর ছোট।"
 
 #: libraries/advisory_rules.txt:104
 msgid ""
@@ -16397,7 +16407,7 @@ msgstr "ছোট সংস্করন"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "সংস্করনটি ৫.১.৩০ এর ছোট (৫.১ এর প্রথম জিএ সংস্করন)"
+msgstr "সংস্করনটি ৫.১.৩০ এর ছোট (৫.১ এর প্রথম জিএ সংস্করন)।"
 
 #: libraries/advisory_rules.txt:111
 msgid ""
@@ -16409,7 +16419,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "সংস্করনটি ৫.৫.৮ এর ছোট (৫.৫ এর প্রথম জিএ সংস্করন)"
+msgstr "সংস্করনটি ৫.৫.৮ এর ছোট (৫.৫ এর প্রথম জিএ সংস্করন)।"
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5"
@@ -16527,7 +16537,7 @@ msgstr ""
 "আপনি অনেক ব্যবহৃত একটি ডাটাবেইজে MySQL অনুসন্ধান ক্যাশ ব্যবহার করছেন। এটি অনেক "
 "মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\"http://dev.mysql.com/"
 "doc/refman/5.5/en/ha-memcached.html\">memcached</a> ব্যবহার করতে পারেন, "
-"বিশেষত আপনার যদি অনেকগুলো slave থাকে"
+"বিশেষত আপনার যদি অনেকগুলো slave থাকে।"
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -16748,7 +16758,7 @@ msgstr "ইনডেক্স বিহীন জোড়ার হার"
 
 #: libraries/advisory_rules.txt:236
 msgid "There are too many joins without indexes."
-msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী"
+msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী।"
 
 #: libraries/advisory_rules.txt:237
 msgid ""
@@ -16822,7 +16832,7 @@ msgstr "টেবলের পরবর্তী রো পড়ার হার"
 
 #: libraries/advisory_rules.txt:257
 msgid "The rate of reading the next table row is high."
-msgstr "টেবলের পরবর্তী রো পড়ার হার বেশী"
+msgstr "টেবলের পরবর্তী রো পড়ার হার বেশী।"
 
 #: libraries/advisory_rules.txt:258
 msgid ""
@@ -17037,7 +17047,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "{open_files_limit} এর পরিমান বাড়ান এবং সার্ভার পুনরায় চালু করার সময় ভুলের লগ "
-"পরীক্ষা করে দেখুন"
+"পরীক্ষা করে দেখুন।"
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -17114,7 +17124,7 @@ msgstr "থ্রেড ক্যাশ দক্ষ নয়।"
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
-msgstr "{thread_cache_size} বাড়ান"
+msgstr "{thread_cache_size} বাড়ান।"
 
 #: libraries/advisory_rules.txt:374
 #, php-format
@@ -17123,7 +17133,7 @@ msgstr "থ্রেড ক্যাশ হিট রেট: %s%%,এই মা�
 
 #: libraries/advisory_rules.txt:376
 msgid "Threads that are slow to launch"
-msgstr "থ্রেড গুলো কাজের জন্য ধীর।"
+msgstr "থ্রেড গুলো কাজের জন্য ধীর"
 
 #: libraries/advisory_rules.txt:379
 msgid "There are too many threads that are slow to launch."
@@ -17269,7 +17279,7 @@ msgstr "InnoDB কার্যকর করা হয়নি।"
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "টেবলের জন্য InnoDB সাধারনত ভাল ব্যবস্থা"
+msgstr "টেবলের জন্য InnoDB সাধারনত ভাল ব্যবস্থা।"
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
@@ -17436,6 +17446,24 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "MySQL Native Authentication"
+#~ msgstr "প্রমাণীকরণ"
+
+#, fuzzy
+#~| msgid "Generate password"
+#~ msgid "MySQL native password"
+#~ msgstr "পাসওর্য়াড উৎপাদন কর"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "SHA256 password"
+#~ msgstr "পাসওয়ার্ড পরিবর্তন"
+
+#~ msgid "MySQL 4.0 compatible"
+#~ msgstr "MySQL 4.0 উপযুক্ত"
 
 #~ msgid "Add Index"
 #~ msgstr "ইনডেক্স্ যোগকর"

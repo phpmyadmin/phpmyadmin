@@ -719,6 +719,7 @@ class DatabaseStructureController extends DatabaseController
             if ($already_favorite) {
                 // If already in favorite list, remove it.
                 $fav_instance->remove($this->db, $favorite_table);
+                $already_favorite = false; // for favorite_anchor template
             }
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (!$already_favorite) {
@@ -728,6 +729,7 @@ class DatabaseStructureController extends DatabaseController
                 } else {
                     // Otherwise add to favorite list.
                     $fav_instance->add($this->db, $favorite_table);
+                    $already_favorite = true;  // for favorite_anchor template
                 }
             }
         }
@@ -758,7 +760,8 @@ class DatabaseStructureController extends DatabaseController
                             'current_table' => array(
                                 'TABLE_NAME' => $favorite_table
                             ),
-                            'titles' => $titles
+                            'titles' => $titles,
+                            'already_favorite' => $already_favorite
                         )
                     )
             )

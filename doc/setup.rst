@@ -642,7 +642,7 @@ are always ways to make your installation more secure:
      AuthUserFile /usr/share/phpmyadmin/passwd
      Require valid-user
 
-  Once you have changed configuration, you need to create list of users which
+  Once you have changed the configuration, you need to create a list of users which
   can authenticate. This can be done using the :program:`htpasswd` utility:
 
   .. code-block:: sh

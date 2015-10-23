@@ -2041,7 +2041,7 @@ on its own. By selecting this option, phpMyAdmin will adjust the privilege
 table so that users have the same privileges on the new items.
 
 For example: A user 'bob'@'localhost' has a 'SELECT' privilege on a
-column named 'id'. Now, if this column is renamed to 'id_new'; MySQL,
+column named 'id'. Now, if this column is renamed to 'id_new', MySQL,
 on its own, would **not** adjust the column privileges to the new column name.
 phpMyAdmin can make this adjustment for you automatically.
 

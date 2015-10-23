@@ -250,8 +250,14 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'short_text':
-        $htmlOutput .= '<input type="text" size="25" ' . $name_id . $field_class
-            . ' value="' . htmlspecialchars($value) . '" />';
+        // As seen in the reporting server (#15042) we sometimes receive
+        // an array here. No clue about its origin nor content, so let's avoid
+        // a notice on htmlspecialchars().
+        if (! is_array($value)) {
+            $htmlOutput .= '<input type="text" size="25" ' . $name_id
+                . $field_class . ' value="' . htmlspecialchars($value)
+                . '" />';
+        }
         break;
     case 'number_text':
         $htmlOutput .= '<input type="number" ' . $name_id . $field_class

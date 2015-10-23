@@ -1,6 +1,41 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.5.1.0 (2015-10-23)
+- issue        Invalid argument supplied for foreach()
+- issue        array_key_exists() expects parameter 2 to be array
+- issue #11480 Notice Undefined index: drop_database
+- issue #11486 Server variable edition in ANSI_QUOTES sql_mode: losing current value
+- issue #11491 Propose table structure broken
+- issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
+- issue #11495 'PMA_Microhistory' is undefined
+- issue #11496 Incorrect definition for getTablesWhenOpen()
+- issue #11500 Error when creating new user on MariaDB 10.0.21
+- issue #11505 Notice on htmlspecialchars()
+- issue        Notice in Structure page of views
+- issue #11510 AUTO_INCREMENT always exported when IF NOT EXISTS is on
+- issue #11516 Some partitions are missing in copied table
+- issue #11521 Notice of undefined variable when performing SHOW CREATE
+- issue #11509 Error exporting sql query results with table alias
+- issue #11512 SQL editing window does not recognise 'OUTER' keyword in 'LEFT OUTER JOIN'
+- issue #11518 "NOT IN" clause not recognized (MySQL 5.6 and 5.7)
+- issue #11524 Yellow star does not change in database Structure after add/remove from favorites
+- issue #11531 Invalid SQL in table definition when exporting table
+- issue #11526 Foreign key to other database's tables fails
+- issue #11519 Bug while exporting results when a joined table field name is in SELECT query
+- issue #11522 Strange behavior on table rename
+- issue #11539 Rename table does not result in refresh in left panel
+- issue #11541 Missing arguments for PMA_Table::generateAlter()
+- issue #11544 Notices about undefined indexes on structure pages of information_schema tables
+- issue        Change minimum PHP version for Composer
+- issue #11542 Import parser and backslash
+- issue #11546 "Visualize GIS data" seems to be broken
+- issue #11548 Confirm box on "Reset slave" option
+- issue        Fix cookies clearing on version change
+- issue #11558 Cannot execute SQL with subquery
+- issue #11520 Incorrect syntax creating a user using mysql_native_password with MariaDB
+- issue #11561 Cannot use third party auth plugins
+
 4.5.0.2 (2015-09-25)
 - issue #11497 Incorrect indexes when exporting
 
@@ -107,7 +142,11 @@ phpMyAdmin - ChangeLog
 - issue #11448 Clarify doc about the MemoryLimit directive
 - issue #11489 Cannot copy a database under certain conditions
 
-4.4.15.0 (not yet released)
+4.4.15.1 (2015-10-23)
+- issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
+- issue        [security] Content spoofing on url.php
+
+4.4.15.0 (2015-09-20)
 - issue #11411 Undefined "replace" function on numeric scalar
 - issue #11421 Stored-proc / routine - broken parameter parsing
 - issue        Missing name for configuration read_as_multibytes
@@ -118,6 +157,8 @@ phpMyAdmin - ChangeLog
 - issue #11458 Invalid UTF-8 sequence in argument
 - issue #11457 Request URI too large
 - issue        Invalid argument supplied for foreach()
+- issue #11461 Foreign key constraints for InnoDB tables with upper-case letters disabled
+- issue #11487 Warning when entering Query page
 
 4.4.14.1 (2015-09-08)
 - issue        [security] reCaptcha bypass
