@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:30-0400\n"
+"POT-Creation-Date: 2015-10-23 09:40-0400\n"
 "PO-Revision-Date: 2015-09-06 06:59+0200\n"
 "Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -166,8 +166,8 @@ msgstr "Ссылки на"
 msgid "Comments"
 msgstr "Комментарии"
 
-#: db_datadict.php:155 libraries/controllers/TableStructureController.php:1183
-#: libraries/controllers/TableStructureController.php:1188
+#: db_datadict.php:155 libraries/controllers/TableStructureController.php:1189
+#: libraries/controllers/TableStructureController.php:1194
 #: libraries/tracking.lib.php:925
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -204,11 +204,11 @@ msgstr "Нет"
 #: libraries/central_columns.lib.php:967
 #: libraries/config/FormDisplay.tpl.php:280
 #: libraries/controllers/TableStructureController.php:770
-#: libraries/controllers/TableStructureController.php:1434
-#: libraries/controllers/TableStructureController.php:1443
-#: libraries/controllers/TableStructureController.php:1448
-#: libraries/controllers/TableStructureController.php:1453
-#: libraries/controllers/TableStructureController.php:1458
+#: libraries/controllers/TableStructureController.php:1440
+#: libraries/controllers/TableStructureController.php:1449
+#: libraries/controllers/TableStructureController.php:1454
+#: libraries/controllers/TableStructureController.php:1459
+#: libraries/controllers/TableStructureController.php:1464
 #: libraries/mult_submits.inc.php:86 libraries/mult_submits.inc.php:199
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -310,11 +310,11 @@ msgid ""
 msgstr ""
 "Хранилище конфигурации phpMyAdmin неактивно. %sДля определения причины%s."
 
-#: db_qbe.php:128
+#: db_qbe.php:135
 msgid "You have to choose at least one column to display!"
 msgstr "Необходимо выбрать хотя бы один столбец для отображения!"
 
-#: db_qbe.php:145
+#: db_qbe.php:152
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Переключиться на %sвизуальный составитель запросов%s"
@@ -495,7 +495,7 @@ msgstr "Добавить геометрию"
 #: templates/startAndNumberOfRowsPanel.phtml:14
 #: templates/table/index_form.phtml:238
 #: templates/table/search/selection_form.phtml:75
-#: templates/table/structure/add_column.phtml:25 view_create.php:274
+#: templates/table/structure/add_column.phtml:25 view_create.php:278
 #: view_operations.php:107
 msgid "Go"
 msgstr "Вперёд"
@@ -524,7 +524,7 @@ msgstr "Ошибка"
 msgid "Incomplete params"
 msgstr "Неполные параметры"
 
-#: import.php:181
+#: import.php:183
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -533,15 +533,15 @@ msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
 
-#: import.php:359 import.php:662
+#: import.php:361 import.php:666
 msgid "Showing bookmark"
 msgstr "Отображение закладки"
 
-#: import.php:374 import.php:658
+#: import.php:377 import.php:662
 msgid "The bookmark has been deleted."
 msgstr "Закладка удалена."
 
-#: import.php:471
+#: import.php:475
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -550,11 +550,11 @@ msgstr ""
 "Загруженный файл невозможно переместить, т. к. параметр open_basedir на "
 "сервере включен без доступа к каталогу %s (для временных файлов)."
 
-#: import.php:487 import.php:564 libraries/File.php:424 libraries/File.php:520
+#: import.php:491 import.php:568 libraries/File.php:424 libraries/File.php:520
 msgid "File could not be read!"
 msgstr "Ошибка при чтении файла!"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:502 import.php:517 import.php:542 import.php:557
 #: libraries/File.php:587
 #, php-format
 msgid ""
@@ -564,7 +564,7 @@ msgstr ""
 "Загружаемый файл сжат методом (%s), который не поддерживается. Поддержка "
 "данного метода ещё нереализована либо отключена при настройке."
 
-#: import.php:571
+#: import.php:575
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -574,21 +574,21 @@ msgstr ""
 "импортируемого файла превышает максимально допустимый, заданный в настройках "
 "PHP. Смотрите [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:623 libraries/display_import.lib.php:659
+#: import.php:627 libraries/display_import.lib.php:659
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Не удалось загрузить модули импорта. Пожалуйста, проверьте установку!"
 
-#: import.php:665 libraries/sql.lib.php:742 libraries/sql.lib.php:1466
+#: import.php:669 libraries/sql.lib.php:748 libraries/sql.lib.php:1472
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладка %s создана."
 
-#: import.php:674
+#: import.php:678
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Импорт успешно завершён, выполнено %d запросов."
 
-#: import.php:702
+#: import.php:706
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -597,7 +597,7 @@ msgstr ""
 "Достигнут временной лимит выполнения скрипта. Для завершения импорта, "
 "пожалуйста %sповторно отправьте тот же файл%s и импорт будет возобновлен."
 
-#: import.php:712
+#: import.php:716
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -612,7 +612,7 @@ msgstr "Не удалось загрузить прогресс (ход) имп�
 
 #: import_status.php:111 js/messages.php:378 libraries/Util.php:797
 #: libraries/export.lib.php:523
-#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:259
+#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:268
 msgid "Back"
 msgstr "Назад"
 
@@ -635,79 +635,79 @@ msgstr ""
 msgid "General settings"
 msgstr "Основные настройки"
 
-#: index.php:189 js/messages.php:525
+#: index.php:191 js/messages.php:525
 #: libraries/display_change_password.lib.php:54
-#: libraries/display_change_password.lib.php:57 user_password.php:253
+#: libraries/display_change_password.lib.php:57 user_password.php:262
 msgid "Change password"
 msgstr "Изменить пароль"
 
-#: index.php:205
+#: index.php:208
 msgid "Server connection collation"
 msgstr "Сопоставление кодировки соединения"
 
-#: index.php:227
+#: index.php:230
 msgid "Appearance settings"
 msgstr "Настройки внешнего вида"
 
-#: index.php:257 prefs_manage.php:288
+#: index.php:262 prefs_manage.php:288
 msgid "More settings"
 msgstr "Дополнительные настройки"
 
-#: index.php:278
+#: index.php:284
 msgid "Database server"
 msgstr "Сервер баз данных"
 
-#: index.php:281 libraries/plugins/auth/AuthenticationCookie.php:185
+#: index.php:287 libraries/plugins/auth/AuthenticationCookie.php:185
 msgid "Server:"
 msgstr "Сервер:"
 
-#: index.php:285
+#: index.php:291
 msgid "Server type:"
 msgstr "Тип сервера:"
 
-#: index.php:289 libraries/plugins/export/ExportLatex.php:209
-#: libraries/plugins/export/ExportSql.php:690
+#: index.php:295 libraries/plugins/export/ExportLatex.php:209
+#: libraries/plugins/export/ExportSql.php:689
 #: libraries/plugins/export/ExportXml.php:183
 msgid "Server version:"
 msgstr "Версия сервера:"
 
-#: index.php:295
+#: index.php:301
 msgid "Protocol version:"
 msgstr "Версия протокола:"
 
-#: index.php:299
+#: index.php:305
 msgid "User:"
 msgstr "Пользователь:"
 
-#: index.php:304
+#: index.php:310
 msgid "Server charset:"
 msgstr "Кодировка сервера:"
 
-#: index.php:316
+#: index.php:322
 msgid "Web server"
 msgstr "Веб-сервер"
 
-#: index.php:327
+#: index.php:333
 msgid "Database client version:"
 msgstr "Версия клиента базы данных:"
 
-#: index.php:331
+#: index.php:337
 msgid "PHP extension:"
 msgstr "PHP расширение:"
 
-#: index.php:345
+#: index.php:351
 msgid "PHP version:"
 msgstr "Версия PHP:"
 
-#: index.php:356
+#: index.php:362
 msgid "Show PHP information"
 msgstr "Показать информацию PHP"
 
-#: index.php:379
+#: index.php:385
 msgid "Version information:"
 msgstr "Информация о версии:"
 
-#: index.php:388 libraries/Util.php:445 libraries/Util.php:511
+#: index.php:394 libraries/Util.php:445 libraries/Util.php:511
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:576 libraries/engines/Pbxt.php:170
 #: libraries/navigation/NavigationHeader.php:196
@@ -715,27 +715,27 @@ msgstr "Информация о версии:"
 msgid "Documentation"
 msgstr "Документация"
 
-#: index.php:395
+#: index.php:401
 msgid "Wiki"
 msgstr "Вики"
 
-#: index.php:404
+#: index.php:410
 msgid "Official Homepage"
 msgstr "Официальная страница phpMyAdmin"
 
-#: index.php:411
+#: index.php:417
 msgid "Contribute"
 msgstr "Пожертвовать"
 
-#: index.php:418
+#: index.php:424
 msgid "Get support"
 msgstr "Получить помощь"
 
-#: index.php:425
+#: index.php:431
 msgid "List of changes"
 msgstr "Список изменений"
 
-#: index.php:447
+#: index.php:453
 msgid ""
 "You are connected as 'root' with no password, which corresponds to the "
 "default MySQL privileged account. Your MySQL server is running with this "
@@ -747,7 +747,7 @@ msgstr ""
 "открыт для вторжений. Вам следует исправить данную погрешность, установив "
 "пароль для пользователя 'root'."
 
-#: index.php:464
+#: index.php:470
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -757,7 +757,7 @@ msgstr ""
 "func_overload. Для предотвращения возможной потери данных данный параметр "
 "должен быть выключен!"
 
-#: index.php:479
+#: index.php:485
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -767,7 +767,7 @@ msgstr ""
 "mbstring phpMyAdmin не в состоянии производить корректное разбиение строк, "
 "что может привести к непредсказуемым результатам."
 
-#: index.php:496
+#: index.php:502
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -779,7 +779,7 @@ msgstr ""
 "длительность хранения cookie, определённая в phpMyAdmin. По этой причине "
 "сессия входа может закончиться быстрее установленной в phpMyAdmin."
 
-#: index.php:515
+#: index.php:521
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -787,12 +787,12 @@ msgstr ""
 "Значение длительности хранения cookie меньше, чем определено в phpMyAdmin. "
 "По этой причине сессия входа завершится быстрее установленной в phpMyAdmin."
 
-#: index.php:531
+#: index.php:537
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "В конфигурационном файле необходимо задать парольную фразу (blowfish_secret)."
 
-#: index.php:544
+#: index.php:550
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -805,7 +805,7 @@ msgstr ""
 "может быть скомпрометирована через свободный доступ к загрузке "
 "конфигурационного файла."
 
-#: index.php:560
+#: index.php:566
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -814,13 +814,13 @@ msgstr ""
 "Хранилище конфигурации phpMyAdmin не полностью настроено, некоторые "
 "расширенные функции были отключены. %sДля определения причины%s. "
 
-#: index.php:567
+#: index.php:573
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Или перейдите на вкладку 'Операции' любой базы данных, чтобы настроить там."
 
-#: index.php:613
+#: index.php:619
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -829,7 +829,7 @@ msgstr ""
 "Версия клиентской библиотеки MySQL %s отличается от версии установленного "
 "MySQL-сервера %s. Это может привести к некорректной работе."
 
-#: index.php:641
+#: index.php:647
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -838,7 +838,7 @@ msgstr ""
 "Сервер использует защитную систему Suhosin. Для решения возможных проблем "
 "обратитесь к %sдокументации%s."
 
-#: js/messages.php:36 libraries/import.lib.php:127 sql.php:162
+#: js/messages.php:36 libraries/import.lib.php:127 sql.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Команда \"DROP DATABASE\" (удалить базу данных) отключена."
 
@@ -1096,7 +1096,7 @@ msgid "The password is empty!"
 msgstr "Пустой пароль!"
 
 #: js/messages.php:124 libraries/server_privileges.lib.php:2045
-#: user_password.php:119
+#: user_password.php:120
 msgid "The passwords aren't the same!"
 msgstr "Некорректное подтверждение пароля!"
 
@@ -1309,7 +1309,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 
 #: js/messages.php:189 libraries/DisplayResults.php:1477
 #: libraries/config.values.php:69 libraries/display_export.lib.php:693
-#: libraries/plugins/export/ExportSql.php:2151
+#: libraries/plugins/export/ExportSql.php:2150
 #: libraries/plugins/schema/SchemaPdf.php:101
 #: libraries/server_status_monitor.lib.php:237
 #: libraries/server_status_processes.lib.php:285
@@ -1529,7 +1529,7 @@ msgstr "Состояние"
 #: libraries/plugins/export/ExportTexytext.php:445
 #: libraries/plugins/export/PMA_ExportPdf.php:314
 #: libraries/rte/rte_list.lib.php:92
-#: libraries/server_status_processes.lib.php:92 libraries/sql.lib.php:237
+#: libraries/server_status_processes.lib.php:92 libraries/sql.lib.php:243
 msgid "Time"
 msgstr "Время"
 
@@ -1879,8 +1879,8 @@ msgstr "Число %d не является правильным номером 
 
 #: js/messages.php:352
 #: libraries/controllers/table/TableSearchController.php:435
-#: libraries/controllers/table/TableSearchController.php:912
-#: libraries/sql.lib.php:191 tbl_change.php:159
+#: libraries/controllers/table/TableSearchController.php:922
+#: libraries/sql.lib.php:197 tbl_change.php:159
 msgid "Browse foreign values"
 msgstr "Обзор внешних значений"
 
@@ -2476,7 +2476,7 @@ msgstr ", последняя стабильная версия:"
 msgid "up to date"
 msgstr "актуально"
 
-#: js/messages.php:553 libraries/DisplayResults.php:4938 view_create.php:180
+#: js/messages.php:553 libraries/DisplayResults.php:4938 view_create.php:184
 msgid "Create view"
 msgstr "Создать представление"
 
@@ -3045,7 +3045,7 @@ msgstr "В течение текущей сессии"
 msgid "Explain"
 msgstr "Анализировать"
 
-#: libraries/Console.php:216 libraries/Util.php:1324 libraries/sql.lib.php:226
+#: libraries/Console.php:216 libraries/Util.php:1324 libraries/sql.lib.php:232
 msgid "Profiling"
 msgstr "Профилирование"
 
@@ -3562,7 +3562,7 @@ msgstr "Может быть приблизительно. Смотрите [doc@
 
 #: libraries/DisplayResults.php:4315 libraries/Message.php:181
 #: libraries/controllers/table/TableRelationController.php:253
-#: libraries/controllers/table/TableSearchController.php:651
+#: libraries/controllers/table/TableSearchController.php:661
 #: libraries/rte/rte_routines.lib.php:1418 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:224 tbl_row_action.php:140 view_operations.php:63
 msgid "Your SQL query has been executed successfully."
@@ -3592,7 +3592,7 @@ msgstr "%1$d всего, %2$d в запросе"
 msgid "%d total"
 msgstr "%d всего"
 
-#: libraries/DisplayResults.php:4703 libraries/sql.lib.php:1321
+#: libraries/DisplayResults.php:4703 libraries/sql.lib.php:1327
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запрос занял %01.4f сек."
@@ -3760,8 +3760,8 @@ msgid "Keyname"
 msgstr "Имя индекса"
 
 #: libraries/Index.php:695
-#: libraries/controllers/TableStructureController.php:1185
-#: libraries/controllers/TableStructureController.php:1190
+#: libraries/controllers/TableStructureController.php:1191
+#: libraries/controllers/TableStructureController.php:1196
 #: libraries/tracking.lib.php:976
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -3809,8 +3809,8 @@ msgid "Index %s has been dropped."
 msgstr "Индекс %s был удален."
 
 #: libraries/Index.php:755 libraries/Util.php:3703 libraries/Util.php:3704
-#: libraries/controllers/TableStructureController.php:1181
-#: libraries/controllers/TableStructureController.php:1182
+#: libraries/controllers/TableStructureController.php:1187
+#: libraries/controllers/TableStructureController.php:1188
 #: libraries/operations.lib.php:1602 libraries/rte/rte_list.lib.php:152
 #: libraries/server_databases.lib.php:148
 #: templates/database/structure/check_all_tables.phtml:16
@@ -3843,7 +3843,7 @@ msgid "Server"
 msgstr "Сервер"
 
 #: libraries/Menu.php:246 libraries/navigation/nodes/NodeView.php:30
-#: libraries/tbl_info.inc.php:65
+#: libraries/tbl_info.inc.php:64
 #: templates/database/structure/structure_table_row.phtml:97
 #: templates/database/structure/structure_table_row.phtml:159
 msgid "View"
@@ -3918,7 +3918,7 @@ msgstr "Слежение"
 #: libraries/plugins/export/ExportHtmlword.php:576
 #: libraries/plugins/export/ExportOdt.php:708
 #: libraries/plugins/export/ExportPdf.php:285
-#: libraries/plugins/export/ExportSql.php:2007
+#: libraries/plugins/export/ExportSql.php:2006
 #: libraries/plugins/export/ExportTexytext.php:531
 #: libraries/plugins/export/ExportXml.php:120
 #: libraries/rte/rte_words.lib.php:50
@@ -3940,7 +3940,7 @@ msgstr "Процедуры"
 
 #: libraries/Menu.php:479 libraries/Util.php:4348
 #: libraries/navigation/nodes/NodeEventContainer.php:25
-#: libraries/plugins/export/ExportSql.php:949
+#: libraries/plugins/export/ExportSql.php:948
 #: libraries/plugins/export/ExportXml.php:104
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
@@ -4260,11 +4260,11 @@ msgstr "Не удалось переименовать таблицу %1$s в %2
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s была переименована в %2$s."
 
-#: libraries/Table.php:1523
+#: libraries/Table.php:1528
 msgid "Could not save table UI preferences!"
 msgstr "Не удалось сохранить настройки интерфейса таблицы!"
 
-#: libraries/Table.php:1553
+#: libraries/Table.php:1558
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4273,7 +4273,7 @@ msgstr ""
 "Ошибка при очистке таблицы содержащей настройки пользовательского интерфейса "
 "(смотрите переменную $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.php:1707
+#: libraries/Table.php:1712
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4284,19 +4284,19 @@ msgstr ""
 "перезагрузки страницы, изменения интерфейса будут отменены. Пожалуйста, "
 "проверьте изменена ли структура таблицы."
 
-#: libraries/Table.php:1844
+#: libraries/Table.php:1849
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Имя первичного индекса должно быть \"PRIMARY\"!"
 
-#: libraries/Table.php:1855
+#: libraries/Table.php:1860
 msgid "Can't rename index to PRIMARY!"
 msgstr "Невозможно переименовать индекс в PRIMARY!"
 
-#: libraries/Table.php:1877
+#: libraries/Table.php:1882
 msgid "No index parts defined!"
 msgstr "Части индекса не определены!"
 
-#: libraries/Table.php:2191
+#: libraries/Table.php:2196
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Ошибка создания внешнего ключа на %1$s (проверьте типы данных)"
@@ -5791,13 +5791,13 @@ msgstr "Поместить названия полей в первой стро�
 
 #: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:370
 #: libraries/config/messages.inc.php:383
-#: libraries/plugins/import/ImportCsv.php:143
+#: libraries/plugins/import/ImportCsv.php:139
 msgid "Columns enclosed with"
 msgstr "Значения полей обрамлены"
 
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:371
 #: libraries/config/messages.inc.php:384
-#: libraries/plugins/import/ImportCsv.php:156
+#: libraries/plugins/import/ImportCsv.php:150
 msgid "Columns escaped with"
 msgstr "Символ экранирования"
 
@@ -5815,12 +5815,12 @@ msgstr "Удалить из полей символы перевода стро�
 
 #: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:377
 #: libraries/config/messages.inc.php:391
-#: libraries/plugins/import/ImportCsv.php:126
+#: libraries/plugins/import/ImportCsv.php:124
 msgid "Columns terminated with"
 msgstr "Разделитель столбцов"
 
 #: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:369
-#: libraries/plugins/import/ImportCsv.php:166
+#: libraries/plugins/import/ImportCsv.php:159
 msgid "Lines terminated with"
 msgstr "Разделитель строк"
 
@@ -5967,7 +5967,7 @@ msgid "Syntax to use when inserting data"
 msgstr "Использовать синтаксис при вставке данных"
 
 #: libraries/config/messages.inc.php:214
-#: libraries/plugins/export/ExportSql.php:427
+#: libraries/plugins/export/ExportSql.php:426
 msgid "Maximal length of created query"
 msgstr "Максимальная длина создаваемого запроса"
 
@@ -7981,7 +7981,7 @@ msgid "Table %s has been emptied."
 msgstr "Таблица %s была очищена."
 
 #: libraries/controllers/DatabaseStructureController.php:432
-#: tbl_operations.php:396 view_operations.php:120
+#: tbl_operations.php:396 view_operations.php:122
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Представление %s было удалено."
@@ -8018,33 +8018,33 @@ msgid "The columns have been moved successfully."
 msgstr "Поля были успешно перемещены."
 
 #: libraries/controllers/TableStructureController.php:731
-#: libraries/controllers/TableStructureController.php:967
+#: libraries/controllers/TableStructureController.php:973
 #: libraries/controllers/table/TableIndexesController.php:153
-#: tbl_addfield.php:93
+#: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Таблица %1$s была успешно изменена."
 
 #: libraries/controllers/TableStructureController.php:742
-#: libraries/controllers/TableStructureController.php:1016
+#: libraries/controllers/TableStructureController.php:1022
 #: libraries/tracking.lib.php:1097
 msgid "Query error"
 msgstr "Ошибка запроса"
 
-#: libraries/controllers/TableStructureController.php:961
+#: libraries/controllers/TableStructureController.php:967
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Таблица %1$s была успешно изменена."
 
-#: libraries/controllers/TableStructureController.php:1180
+#: libraries/controllers/TableStructureController.php:1186
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "Изменить"
 
-#: libraries/controllers/TableStructureController.php:1184
-#: libraries/controllers/TableStructureController.php:1189
+#: libraries/controllers/TableStructureController.php:1190
+#: libraries/controllers/TableStructureController.php:1195
 #: libraries/navigation/nodes/NodeIndex.php:30 libraries/tracking.lib.php:929
 #: templates/columns_definitions/column_indexes.phtml:16
 #: templates/columns_definitions/table_fields_definitions.phtml:57
@@ -8054,20 +8054,20 @@ msgstr "Изменить"
 msgid "Index"
 msgstr "Индекс"
 
-#: libraries/controllers/TableStructureController.php:1186
-#: libraries/controllers/TableStructureController.php:1191
+#: libraries/controllers/TableStructureController.php:1192
+#: libraries/controllers/TableStructureController.php:1197
 #: templates/columns_definitions/column_indexes.phtml:26
 msgid "Spatial"
 msgstr "Пространственный"
 
-#: libraries/controllers/TableStructureController.php:1187
-#: libraries/controllers/TableStructureController.php:1192
+#: libraries/controllers/TableStructureController.php:1193
+#: libraries/controllers/TableStructureController.php:1198
 #: templates/columns_definitions/column_indexes.phtml:21
 #: templates/table/structure/check_all_table_column.phtml:40
 msgid "Fulltext"
 msgstr "Полнотекстовый"
 
-#: libraries/controllers/TableStructureController.php:1195
+#: libraries/controllers/TableStructureController.php:1201
 msgid "Distinct values"
 msgstr "Уникальные значения"
 
@@ -8092,15 +8092,15 @@ msgstr "Отображаемый столбец был успешно обнов
 msgid "Internal relations were successfully updated."
 msgstr "Внутренние связи были успешно обновлены."
 
-#: libraries/controllers/table/TableSearchController.php:836
+#: libraries/controllers/table/TableSearchController.php:846
 msgid "Table search"
 msgstr "Поиск в таблице"
 
-#: libraries/controllers/table/TableSearchController.php:843
+#: libraries/controllers/table/TableSearchController.php:853
 msgid "Zoom search"
 msgstr "Поиск с приближением"
 
-#: libraries/controllers/table/TableSearchController.php:848
+#: libraries/controllers/table/TableSearchController.php:858
 #: templates/table/search/selection_form.phtml:59
 msgid "Find and replace"
 msgstr "Найти и заменить"
@@ -8114,7 +8114,7 @@ msgstr "Расширение %s не найдено. Пожалуйста, пр�
 msgid "possible deep recursion attack"
 msgstr "возможная атака глубокой рекурсии"
 
-#: libraries/core.lib.php:927 libraries/mult_submits.inc.php:321
+#: libraries/core.lib.php:927 libraries/mult_submits.inc.php:328
 #: tbl_replace.php:306 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "Нет изменений"
@@ -8186,8 +8186,8 @@ msgstr "Создать"
 msgid "Create database:"
 msgstr "Создать базу данных:"
 
-#: libraries/display_create_database.lib.php:60 server_privileges.php:128
-#: server_replication.php:32 server_user_groups.php:27
+#: libraries/display_create_database.lib.php:60 server_privileges.php:129
+#: server_replication.php:32 server_user_groups.php:28
 msgid "No Privileges"
 msgstr "Нет привилегий"
 
@@ -8921,12 +8921,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
 
 #: libraries/import.lib.php:204 libraries/insert_edit.lib.php:127
-#: libraries/rte/rte_routines.lib.php:1439 libraries/sql.lib.php:1315
-#: tbl_get_field.php:44
+#: libraries/rte/rte_routines.lib.php:1439 libraries/sql.lib.php:1321
+#: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
 
-#: libraries/import.lib.php:267 libraries/sql.lib.php:1329
+#: libraries/import.lib.php:267 libraries/sql.lib.php:1335
 msgid "[ROLLBACK occurred.]"
 msgstr "[Произошел откат.]"
 
@@ -9069,8 +9069,11 @@ msgid "Edit next row"
 msgstr "Редактировать следующую строку"
 
 #: libraries/insert_edit.lib.php:1541
+#, fuzzy
+#| msgid ""
+#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
-"Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
+"Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Для перемещения между полями значения, используйте клавишу TAB, либо CTRL"
 "+клавиши со стрелками - для свободного перемещения"
@@ -9087,11 +9090,11 @@ msgstr ""
 msgid "Value"
 msgstr "Значение"
 
-#: libraries/insert_edit.lib.php:1938 libraries/sql.lib.php:1312
+#: libraries/insert_edit.lib.php:1938 libraries/sql.lib.php:1318
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: libraries/insert_edit.lib.php:1963 libraries/sql.lib.php:1290
+#: libraries/insert_edit.lib.php:1963 libraries/sql.lib.php:1296
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
@@ -9107,7 +9110,7 @@ msgstr "Нет"
 msgid "Convert to Kana"
 msgstr "Конвертировать в Кану"
 
-#: libraries/mult_submits.inc.php:318
+#: libraries/mult_submits.inc.php:325
 msgid "Success!"
 msgstr "Успех!"
 
@@ -9456,7 +9459,7 @@ msgstr "Новое"
 
 #: libraries/navigation/nodes/NodeFunctionContainer.php:25
 #: libraries/navigation/nodes/NodeFunctionContainer.php:28
-#: libraries/plugins/export/ExportSql.php:532
+#: libraries/plugins/export/ExportSql.php:531
 #: libraries/plugins/export/ExportXml.php:108
 msgid "Functions"
 msgstr "Функции"
@@ -9477,7 +9480,7 @@ msgstr "Процедура"
 
 #: libraries/navigation/nodes/NodeProcedureContainer.php:25
 #: libraries/navigation/nodes/NodeProcedureContainer.php:28
-#: libraries/plugins/export/ExportSql.php:491
+#: libraries/plugins/export/ExportSql.php:490
 #: libraries/plugins/export/ExportXml.php:112
 msgid "Procedures"
 msgstr "Процедуры"
@@ -9538,9 +9541,13 @@ msgstr ""
 "Покажите мне центральный список столбцов, которые ещё не в этой таблице"
 
 #: libraries/normalization.lib.php:149
+#, fuzzy
+#| msgid ""
+#| "Select a column which can be split into more than one. (on select of 'no "
+#| "such column', it'll move to next step)"
 msgid ""
-"Select a column which can be split into more than one. (on select of 'no "
-"such column', it'll move to next step)"
+"Select a column which can be split into more than one (on select of 'no such "
+"column', it'll move to next step)."
 msgstr ""
 "Выберите столбец, который может быть разбит на более чем один. (или выберите "
 "'нет такого столбца' для перехода к следующему шагу)"
@@ -9972,7 +9979,7 @@ msgstr "Восстановить таблицу"
 
 #: libraries/operations.lib.php:1533
 #: templates/database/structure/check_all_tables.phtml:14
-#: view_operations.php:128
+#: view_operations.php:130
 msgid "Delete data or table"
 msgstr "Удалить данные или таблицу"
 
@@ -10242,7 +10249,7 @@ msgstr "Параметры сохранения данных"
 
 #: libraries/plugins/export/ExportHtmlword.php:205
 #: libraries/plugins/export/ExportOdt.php:265
-#: libraries/plugins/export/ExportSql.php:2311
+#: libraries/plugins/export/ExportSql.php:2310
 #: libraries/plugins/export/ExportTexytext.php:188
 msgid "Dumping data for table"
 msgstr "Дамп данных таблицы"
@@ -10266,21 +10273,21 @@ msgstr "Определение"
 
 #: libraries/plugins/export/ExportHtmlword.php:558
 #: libraries/plugins/export/ExportOdt.php:685
-#: libraries/plugins/export/ExportSql.php:1976
+#: libraries/plugins/export/ExportSql.php:1975
 #: libraries/plugins/export/ExportTexytext.php:511
 msgid "Table structure for table"
 msgstr "Структура таблицы"
 
 #: libraries/plugins/export/ExportHtmlword.php:583
 #: libraries/plugins/export/ExportOdt.php:718
-#: libraries/plugins/export/ExportSql.php:2046
+#: libraries/plugins/export/ExportSql.php:2045
 #: libraries/plugins/export/ExportTexytext.php:536
 msgid "Structure for view"
 msgstr "Структура для представления"
 
 #: libraries/plugins/export/ExportHtmlword.php:597
 #: libraries/plugins/export/ExportOdt.php:739
-#: libraries/plugins/export/ExportSql.php:2091
+#: libraries/plugins/export/ExportSql.php:2090
 #: libraries/plugins/export/ExportTexytext.php:552
 msgid "Stand-in structure for view"
 msgstr "Дублирующая структура для представления"
@@ -10344,33 +10351,33 @@ msgid "Put columns names in the first row:"
 msgstr "Поместить названия полей в первой строке:"
 
 #: libraries/plugins/export/ExportLatex.php:202
-#: libraries/plugins/export/ExportSql.php:680
+#: libraries/plugins/export/ExportSql.php:679
 #: libraries/plugins/export/ExportXml.php:176
 #: libraries/replication_gui.lib.php:437 libraries/replication_gui.lib.php:707
 msgid "Host:"
 msgstr "Хост:"
 
 #: libraries/plugins/export/ExportLatex.php:207
-#: libraries/plugins/export/ExportSql.php:686
+#: libraries/plugins/export/ExportSql.php:685
 #: libraries/plugins/export/ExportXml.php:181
 msgid "Generation Time:"
 msgstr "Время создания:"
 
 #: libraries/plugins/export/ExportLatex.php:210
-#: libraries/plugins/export/ExportSql.php:692
+#: libraries/plugins/export/ExportSql.php:691
 #: libraries/plugins/export/ExportXml.php:184
 msgid "PHP Version:"
 msgstr "Версия PHP:"
 
 #: libraries/plugins/export/ExportLatex.php:240
-#: libraries/plugins/export/ExportSql.php:880
+#: libraries/plugins/export/ExportSql.php:879
 #: libraries/plugins/export/ExportXml.php:417
 #: libraries/plugins/export/PMA_ExportPdf.php:118
 msgid "Database:"
 msgstr "База данных:"
 
 #: libraries/plugins/export/ExportLatex.php:313
-#: libraries/plugins/export/ExportSql.php:2151
+#: libraries/plugins/export/ExportSql.php:2150
 msgid "Data:"
 msgstr "Данные:"
 
@@ -10442,26 +10449,26 @@ msgstr "Добавить выражения:"
 
 #: libraries/plugins/export/ExportSql.php:232
 #: libraries/plugins/export/ExportSql.php:241
-#: libraries/plugins/export/ExportSql.php:262
-#: libraries/plugins/export/ExportSql.php:271
-#: libraries/plugins/export/ExportSql.php:298
-#: libraries/plugins/export/ExportSql.php:306
-#: libraries/plugins/export/ExportSql.php:316
+#: libraries/plugins/export/ExportSql.php:261
+#: libraries/plugins/export/ExportSql.php:270
+#: libraries/plugins/export/ExportSql.php:297
+#: libraries/plugins/export/ExportSql.php:305
+#: libraries/plugins/export/ExportSql.php:315
 #, php-format
 msgid "Add %s statement"
 msgstr "Добавить выражение %s"
 
-#: libraries/plugins/export/ExportSql.php:279
+#: libraries/plugins/export/ExportSql.php:278
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:288
+#: libraries/plugins/export/ExportSql.php:287
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "Значение сессии"
 
-#: libraries/plugins/export/ExportSql.php:326
+#: libraries/plugins/export/ExportSql.php:325
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -10469,37 +10476,37 @@ msgstr ""
 "Заключить имена таблиц и полей в обратные кавычки <i>(Защищает имена таблиц "
 "и полей содержащих специальные символы или зарезервированные слова)</i>"
 
-#: libraries/plugins/export/ExportSql.php:341
+#: libraries/plugins/export/ExportSql.php:340
 msgid "Data creation options"
 msgstr "Параметры создания данных"
 
-#: libraries/plugins/export/ExportSql.php:345
-#: libraries/plugins/export/ExportSql.php:2257
+#: libraries/plugins/export/ExportSql.php:344
+#: libraries/plugins/export/ExportSql.php:2256
 msgid "Truncate table before insert"
 msgstr "Очистить таблицу перед добавлением данных"
 
-#: libraries/plugins/export/ExportSql.php:351
+#: libraries/plugins/export/ExportSql.php:350
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Использовать вместо <code>INSERT</code> выражения:"
 
-#: libraries/plugins/export/ExportSql.php:356
+#: libraries/plugins/export/ExportSql.php:355
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code>"
 
-#: libraries/plugins/export/ExportSql.php:367
-#: libraries/plugins/export/ExportSql.php:397
+#: libraries/plugins/export/ExportSql.php:366
+#: libraries/plugins/export/ExportSql.php:396
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code>"
 
-#: libraries/plugins/export/ExportSql.php:380
+#: libraries/plugins/export/ExportSql.php:379
 msgid "Function to use when dumping data:"
 msgstr "Использовать оператор при сохранении данных:"
 
-#: libraries/plugins/export/ExportSql.php:393
+#: libraries/plugins/export/ExportSql.php:392
 msgid "Syntax to use when inserting data:"
 msgstr "Использовать синтаксис при вставке данных:"
 
-#: libraries/plugins/export/ExportSql.php:401
+#: libraries/plugins/export/ExportSql.php:400
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -10509,7 +10516,7 @@ msgstr ""
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.php:406
+#: libraries/plugins/export/ExportSql.php:405
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -10519,7 +10526,7 @@ msgstr ""
 "&nbsp; &nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), "
 "(4,5,6), (7,8,9)</code>"
 
-#: libraries/plugins/export/ExportSql.php:411
+#: libraries/plugins/export/ExportSql.php:410
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -10528,7 +10535,7 @@ msgstr ""
 "<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/plugins/export/ExportSql.php:416
+#: libraries/plugins/export/ExportSql.php:415
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -10536,7 +10543,7 @@ msgstr ""
 "ни один из выше перечисленных<br /> &nbsp; &nbsp; &nbsp; Пример: "
 "<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.php:435
+#: libraries/plugins/export/ExportSql.php:434
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -10544,7 +10551,7 @@ msgstr ""
 "Сохранение бинарных полей в шестнадцатеричном виде <i>(к примеру, \"abc\" "
 "станет 0x616263)</i>"
 
-#: libraries/plugins/export/ExportSql.php:446
+#: libraries/plugins/export/ExportSql.php:445
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -10553,96 +10560,96 @@ msgstr ""
 "поля с типом TIMESTAMP между серверами находящимися в различных временных "
 "зонах)</i>"
 
-#: libraries/plugins/export/ExportSql.php:519
+#: libraries/plugins/export/ExportSql.php:518
 msgid "It appears your database uses procedures;"
 msgstr "Похоже, что база данных использует процедуры;"
 
-#: libraries/plugins/export/ExportSql.php:523
-#: libraries/plugins/export/ExportSql.php:562
-#: libraries/plugins/export/ExportSql.php:1533
-#: libraries/plugins/export/ExportSql.php:2036
+#: libraries/plugins/export/ExportSql.php:522
+#: libraries/plugins/export/ExportSql.php:561
+#: libraries/plugins/export/ExportSql.php:1532
+#: libraries/plugins/export/ExportSql.php:2035
 msgid "alias export may not work reliably in all cases."
 msgstr "экспорт псевдонима не может надёжно работать во всех случаях."
 
-#: libraries/plugins/export/ExportSql.php:559
+#: libraries/plugins/export/ExportSql.php:558
 msgid "It appears your database uses functions;"
 msgstr "Похоже, что база данных использует функции;"
 
-#: libraries/plugins/export/ExportSql.php:997
+#: libraries/plugins/export/ExportSql.php:996
 msgid "Metadata"
 msgstr "Метаданные"
 
-#: libraries/plugins/export/ExportSql.php:1079
+#: libraries/plugins/export/ExportSql.php:1078
 #, php-format
 msgid "Metadata for %s"
 msgstr "Метаданные для %s"
 
-#: libraries/plugins/export/ExportSql.php:1408
+#: libraries/plugins/export/ExportSql.php:1407
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:608
 msgid "Creation:"
 msgstr "Создание:"
 
-#: libraries/plugins/export/ExportSql.php:1421
+#: libraries/plugins/export/ExportSql.php:1420
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:615
 msgid "Last update:"
 msgstr "Последнее обновление:"
 
-#: libraries/plugins/export/ExportSql.php:1434
+#: libraries/plugins/export/ExportSql.php:1433
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:622
 msgid "Last check:"
 msgstr "Последняя проверка:"
 
-#: libraries/plugins/export/ExportSql.php:1481
+#: libraries/plugins/export/ExportSql.php:1480
 #: templates/database/structure/structure_table_row.phtml:183
 msgid "in use"
 msgstr "используется"
 
-#: libraries/plugins/export/ExportSql.php:1530
+#: libraries/plugins/export/ExportSql.php:1529
 msgid "It appears your database uses views;"
 msgstr "Похоже, что база данных использует представления;"
 
-#: libraries/plugins/export/ExportSql.php:1692
+#: libraries/plugins/export/ExportSql.php:1691
 msgid "Constraints for dumped tables"
 msgstr "Ограничения внешнего ключа сохраненных таблиц"
 
-#: libraries/plugins/export/ExportSql.php:1693
+#: libraries/plugins/export/ExportSql.php:1692
 msgid "Constraints for table"
 msgstr "Ограничения внешнего ключа таблицы"
 
-#: libraries/plugins/export/ExportSql.php:1723
+#: libraries/plugins/export/ExportSql.php:1722
 msgid "Indexes for dumped tables"
 msgstr "Индексы сохранённых таблиц"
 
-#: libraries/plugins/export/ExportSql.php:1724
+#: libraries/plugins/export/ExportSql.php:1723
 msgid "Indexes for table"
 msgstr "Индексы таблицы"
 
-#: libraries/plugins/export/ExportSql.php:1752
+#: libraries/plugins/export/ExportSql.php:1751
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT для сохранённых таблиц"
 
-#: libraries/plugins/export/ExportSql.php:1753
+#: libraries/plugins/export/ExportSql.php:1752
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT для таблицы"
 
-#: libraries/plugins/export/ExportSql.php:1828
+#: libraries/plugins/export/ExportSql.php:1827
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME-ТИПЫ ТАБЛИЦЫ"
 
-#: libraries/plugins/export/ExportSql.php:1852
+#: libraries/plugins/export/ExportSql.php:1851
 msgid "RELATIONS FOR TABLE"
 msgstr "СВЯЗИ ТАБЛИЦЫ"
 
-#: libraries/plugins/export/ExportSql.php:2033
+#: libraries/plugins/export/ExportSql.php:2032
 msgid "It appears your table uses triggers;"
 msgstr "Похоже, что ваша таблица использует триггеры;"
 
-#: libraries/plugins/export/ExportSql.php:2070
+#: libraries/plugins/export/ExportSql.php:2069
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Структура для представления %s экспортирована как таблица"
 
-#: libraries/plugins/export/ExportSql.php:2172
+#: libraries/plugins/export/ExportSql.php:2171
 msgid "Error reading data:"
 msgstr "Ошибка считывания данных:"
 
@@ -10695,15 +10702,15 @@ msgstr ""
 msgid "Column names: "
 msgstr "Названия столбцов: "
 
-#: libraries/plugins/import/ImportCsv.php:124
-#: libraries/plugins/import/ImportCsv.php:141
-#: libraries/plugins/import/ImportCsv.php:154
-#: libraries/plugins/import/ImportCsv.php:164
+#: libraries/plugins/import/ImportCsv.php:122
+#: libraries/plugins/import/ImportCsv.php:137
+#: libraries/plugins/import/ImportCsv.php:148
+#: libraries/plugins/import/ImportCsv.php:157
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Неправильный параметр импорта CSV: %s"
 
-#: libraries/plugins/import/ImportCsv.php:216
+#: libraries/plugins/import/ImportCsv.php:209
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10712,13 +10719,13 @@ msgstr ""
 "Указано ошибочное имя столбца (%s)! Убедитесь, что названия столбцов указаны "
 "верно, разделены запятыми, и не заключены в кавычки."
 
-#: libraries/plugins/import/ImportCsv.php:320
-#: libraries/plugins/import/ImportCsv.php:689
+#: libraries/plugins/import/ImportCsv.php:310
+#: libraries/plugins/import/ImportCsv.php:677
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Неправильный формат входных CSV-данных в строке %d."
 
-#: libraries/plugins/import/ImportCsv.php:551
+#: libraries/plugins/import/ImportCsv.php:541
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Несоответствие количества столбцов в CSV данных на строке %d."
@@ -10731,7 +10738,7 @@ msgstr "Этот модуль не поддерживает импорт сжа�
 msgid "MediaWiki Table"
 msgstr "Таблица MediaWiki"
 
-#: libraries/plugins/import/ImportMediawiki.php:288
+#: libraries/plugins/import/ImportMediawiki.php:279
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
 msgstr "Неверный формат ввода данных mediawiki на строке: <br />%s."
@@ -11689,7 +11696,7 @@ msgid "Edit event"
 msgstr "Редактировать событие"
 
 #: libraries/rte/rte_events.lib.php:386 libraries/rte/rte_routines.lib.php:882
-#: libraries/rte/rte_triggers.lib.php:325 view_create.php:179
+#: libraries/rte/rte_triggers.lib.php:325 view_create.php:183
 msgid "Details"
 msgstr "Детали"
 
@@ -11730,7 +11737,7 @@ msgstr "Сохранить при окончании"
 
 #: libraries/rte/rte_events.lib.php:493
 #: libraries/rte/rte_routines.lib.php:1016
-#: libraries/rte/rte_triggers.lib.php:385 view_create.php:208
+#: libraries/rte/rte_triggers.lib.php:385 view_create.php:212
 msgid "Definer"
 msgstr "Определитель"
 
@@ -14069,64 +14076,64 @@ msgstr "Ожидалось объявление, по крайней мере, �
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Ожидалось ключевое слово \"RETURNS\"."
 
-#: libraries/sql.lib.php:229
+#: libraries/sql.lib.php:235
 msgid "Detailed profile"
 msgstr "Детальный профиль"
 
-#: libraries/sql.lib.php:232
+#: libraries/sql.lib.php:238
 msgid "Order"
 msgstr "Порядок сортировки"
 
-#: libraries/sql.lib.php:234 libraries/sql.lib.php:250
+#: libraries/sql.lib.php:240 libraries/sql.lib.php:256
 msgid "State"
 msgstr "Состояние"
 
-#: libraries/sql.lib.php:247
+#: libraries/sql.lib.php:253
 msgid "Summary by state"
 msgstr "Итоги по состоянию"
 
-#: libraries/sql.lib.php:253
+#: libraries/sql.lib.php:259
 msgid "Total Time"
 msgstr "Общее время"
 
-#: libraries/sql.lib.php:255
+#: libraries/sql.lib.php:261
 msgid "% Time"
 msgstr "% времени"
 
-#: libraries/sql.lib.php:257
+#: libraries/sql.lib.php:263
 msgid "Calls"
 msgstr "Вызовы"
 
-#: libraries/sql.lib.php:259
+#: libraries/sql.lib.php:265
 msgid "ø Time"
 msgstr "ø время"
 
-#: libraries/sql.lib.php:531 libraries/sql.lib.php:547
+#: libraries/sql.lib.php:537 libraries/sql.lib.php:553
 msgid "Bookmark this SQL query"
 msgstr "Создание закладки"
 
-#: libraries/sql.lib.php:535
+#: libraries/sql.lib.php:541
 msgid "Label:"
 msgstr "Метка:"
 
-#: libraries/sql.lib.php:540 libraries/sql_query_form.lib.php:311
+#: libraries/sql.lib.php:546 libraries/sql_query_form.lib.php:311
 msgid "Let every user access this bookmark"
 msgstr "Доступна для всех пользователей"
 
-#: libraries/sql.lib.php:746
+#: libraries/sql.lib.php:752
 msgid "Bookmark not created!"
 msgstr "Закладка не создана!"
 
-#: libraries/sql.lib.php:853
+#: libraries/sql.lib.php:859
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Для обзора данных использован запрос из закладки \"%s\"."
 
-#: libraries/sql.lib.php:1309
+#: libraries/sql.lib.php:1315
 msgid "Showing as PHP code"
 msgstr "Отображает как PHP-код"
 
-#: libraries/sql.lib.php:1638
+#: libraries/sql.lib.php:1644
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14135,7 +14142,7 @@ msgstr ""
 "Данное выделение не содержит уникального столбца. Изменение сетки, "
 "выставление галочки, редактирование, копирование и удаление невозможно. %s"
 
-#: libraries/sql.lib.php:1649
+#: libraries/sql.lib.php:1655
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -14145,7 +14152,7 @@ msgstr ""
 "редактирование, копирование и удаление могут привести к нежелательному "
 "поведению. %s"
 
-#: libraries/sql.lib.php:1688
+#: libraries/sql.lib.php:1694
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблемы с индексами таблицы `%s`"
@@ -14524,7 +14531,7 @@ msgstr "Базы данных отсутствуют"
 msgid "View dump (schema) of databases"
 msgstr "Отобразить дамп (схему) баз данных"
 
-#: server_privileges.php:140
+#: server_privileges.php:143
 msgid "Username and hostname didn't change."
 msgstr "Имя пользователя и хоста не изменялись."
 
@@ -14536,12 +14543,12 @@ msgstr "Недостаточно прав для просмотра состоя
 msgid "Not enough privilege to view the advisor."
 msgstr "Недостаточно прав для просмотра советчика."
 
-#: server_status_processes.php:31
+#: server_status_processes.php:32
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Процесс %s был успешно завершен."
 
-#: server_status_processes.php:36
+#: server_status_processes.php:38
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -14744,7 +14751,7 @@ msgstr "Обновление стабильной версии недоступ�
 msgid "Wrong data"
 msgstr "Ошибочные данные"
 
-#: tbl_create.php:34 tbl_get_field.php:25
+#: tbl_create.php:34 tbl_get_field.php:26
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "База данных '%s' не существует."
@@ -14754,11 +14761,11 @@ msgstr "База данных '%s' не существует."
 msgid "Table %s already exists!"
 msgstr "Таблица %s уже существует!"
 
-#: tbl_export.php:107
+#: tbl_export.php:108
 msgid "View dump (schema) of table"
 msgstr "Отобразить дамп (схему) таблицы"
 
-#: tbl_get_field.php:32
+#: tbl_get_field.php:33
 msgid "Invalid table name"
 msgstr "Неправильное имя таблицы"
 
@@ -15708,7 +15715,7 @@ msgstr "разделён"
 msgid "Edit partitioning"
 msgstr "Удалить разделение"
 
-#: templates/table/structure/display_structure.phtml:145 view_create.php:180
+#: templates/table/structure/display_structure.phtml:145 view_create.php:184
 msgid "Edit view"
 msgstr "Редактировать представление"
 
@@ -15801,10 +15808,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Описание"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Перенаправление на %s."
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Переход к следующему шагу…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15814,11 +15822,11 @@ msgstr "Для доступа к данной странице у вас нед�
 msgid "The profile has been updated."
 msgstr "Профиль был обновлен."
 
-#: view_create.php:227
+#: view_create.php:231
 msgid "VIEW name"
 msgstr "VIEW название"
 
-#: view_create.php:238
+#: view_create.php:242
 msgid "Column names"
 msgstr "Названия столбцов"
 
@@ -15826,7 +15834,7 @@ msgstr "Названия столбцов"
 msgid "Rename view to"
 msgstr "Переименовать представление в"
 
-#: view_operations.php:134
+#: view_operations.php:136
 msgid "Delete the view (DROP)"
 msgstr "Удалить вид (DROP)"
 
@@ -16028,7 +16036,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Версия менее 5.5.8 (первый стабильный выпуск 5.5)."
 
 #: libraries/advisory_rules.txt:118
-msgid "You should upgrade, to a stable version of MySQL 5.5"
+#, fuzzy
+#| msgid "You should upgrade, to a stable version of MySQL 5.5"
+msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr "Необходимо обновить MySQL до стабильной версии 5.5"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
@@ -16340,9 +16350,13 @@ msgstr ""
 "Слишком большое количество сортировок вызывают создание временных таблиц."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
+#, fuzzy
+#| msgid ""
+#| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
+#| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-"depending on your system memory limits"
+"depending on your system memory limits."
 msgstr ""
 "Рассмотрите возможность увеличения {sort_buffer_size} и/или "
 "{read_rnd_buffer_size}, в зависимости от ограничения памяти вашей системы"
@@ -16377,11 +16391,17 @@ msgid "There are lots of rows being sorted."
 msgstr "Было отсортировано большое количество строк."
 
 #: libraries/advisory_rules.txt:222
+#, fuzzy
+#| msgid ""
+#| "While there is nothing wrong with a high amount of row sorting, you might "
+#| "want to make sure that the queries which require a lot of sorting use "
+#| "indexed columns in the ORDER BY clause, as this will result in much "
+#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
-"sorting"
+"sorting."
 msgstr ""
 "Несмотря на то, что большое количество сортировок само по себе не является "
 "плохим показателем, вы должны убедиться, что запросы требующие сортировки "
@@ -16402,9 +16422,14 @@ msgid "There are too many joins without indexes."
 msgstr "Слишком большое количество объединения не использующих индексы."
 
 #: libraries/advisory_rules.txt:230
+#, fuzzy
+#| msgid ""
+#| "This means that joins are doing full table scans. Adding indexes for the "
+#| "columns being used in the join conditions will greatly speed up table "
+#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
-"columns being used in the join conditions will greatly speed up table joins"
+"columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "Это означает сканирование всей таблицы при объединении. Добавление индексов "
 "для полей используемых в условии, значительно увеличит скорость объединения"
@@ -16840,13 +16865,19 @@ msgid "Slow launch time"
 msgstr "Время медленного запуска"
 
 #: libraries/advisory_rules.txt:379
-msgid "Slow_launch_threads is above 2s"
+#, fuzzy
+#| msgid "Slow_launch_threads is above 2s"
+msgid "Slow_launch_threads is above 2s."
 msgstr "Slow_launch_threads больше 2 сек."
 
 #: libraries/advisory_rules.txt:380
+#, fuzzy
+#| msgid ""
+#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
+#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
-"to launch"
+"to launch."
 msgstr ""
 "Установите переменную {slow_launch_time} на 1 или 2 сек., чтобы корректно "
 "считать медленно запускаемые потоки"
@@ -17126,6 +17157,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert установлен в 0"
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Перенаправление на %s."
 
 #, fuzzy
 #~| msgid "Authentication"

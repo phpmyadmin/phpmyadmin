@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:30-0400\n"
+"POT-Creation-Date: 2015-10-23 09:40-0400\n"
 "PO-Revision-Date: 2015-10-15 11:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -168,8 +168,8 @@ msgstr "Sąryšis su"
 msgid "Comments"
 msgstr "Komentarai"
 
-#: db_datadict.php:155 libraries/controllers/TableStructureController.php:1183
-#: libraries/controllers/TableStructureController.php:1188
+#: db_datadict.php:155 libraries/controllers/TableStructureController.php:1189
+#: libraries/controllers/TableStructureController.php:1194
 #: libraries/tracking.lib.php:925
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -206,11 +206,11 @@ msgstr "Ne"
 #: libraries/central_columns.lib.php:967
 #: libraries/config/FormDisplay.tpl.php:280
 #: libraries/controllers/TableStructureController.php:770
-#: libraries/controllers/TableStructureController.php:1434
-#: libraries/controllers/TableStructureController.php:1443
-#: libraries/controllers/TableStructureController.php:1448
-#: libraries/controllers/TableStructureController.php:1453
-#: libraries/controllers/TableStructureController.php:1458
+#: libraries/controllers/TableStructureController.php:1440
+#: libraries/controllers/TableStructureController.php:1449
+#: libraries/controllers/TableStructureController.php:1454
+#: libraries/controllers/TableStructureController.php:1459
+#: libraries/controllers/TableStructureController.php:1464
 #: libraries/mult_submits.inc.php:86 libraries/mult_submits.inc.php:199
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -313,11 +313,11 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "phpMyAdmin nustatymų saugykla išjungta. %sIšsiaiškinkite kodėl%s."
 
-#: db_qbe.php:128
+#: db_qbe.php:135
 msgid "You have to choose at least one column to display!"
 msgstr "Pasirinkite bent vieną stulpelį išvedimui!"
 
-#: db_qbe.php:145
+#: db_qbe.php:152
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Pereiti į %svizualią daryklę%s"
@@ -501,7 +501,7 @@ msgstr "Pridėti geometriją"
 #: templates/startAndNumberOfRowsPanel.phtml:14
 #: templates/table/index_form.phtml:238
 #: templates/table/search/selection_form.phtml:75
-#: templates/table/structure/add_column.phtml:25 view_create.php:274
+#: templates/table/structure/add_column.phtml:25 view_create.php:278
 #: view_operations.php:107
 msgid "Go"
 msgstr "Vykdyti"
@@ -530,7 +530,7 @@ msgstr "Nepavyko"
 msgid "Incomplete params"
 msgstr "užbaigti įterpimus"
 
-#: import.php:181
+#: import.php:183
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -539,28 +539,28 @@ msgstr ""
 "Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti "
 "%sdokumentaciją%s būdams kaip apeiti šį apribojimą."
 
-#: import.php:359 import.php:662
+#: import.php:361 import.php:666
 msgid "Showing bookmark"
 msgstr "Rodomos žymelės"
 
-#: import.php:374 import.php:658
+#: import.php:377 import.php:662
 msgid "The bookmark has been deleted."
 msgstr "Nuoroda ištrinta."
 
-#: import.php:471
+#: import.php:475
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:487 import.php:564 libraries/File.php:424 libraries/File.php:520
+#: import.php:491 import.php:568 libraries/File.php:424 libraries/File.php:520
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "Negalima perskaityti failo"
 
-#: import.php:498 import.php:513 import.php:538 import.php:553
+#: import.php:502 import.php:517 import.php:542 import.php:557
 #: libraries/File.php:587
 #, php-format
 msgid ""
@@ -570,7 +570,7 @@ msgstr ""
 "Jūs bandote įkelti failą su nepalaikomu glaudinimu (%s). Palaikymas gali "
 "būti neįgyvendintas arba išjungtas Jūsų konfigūracijoje."
 
-#: import.php:571
+#: import.php:575
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -580,22 +580,22 @@ msgstr ""
 "failo dydis viršija didžiausią leidžiamą dydį PHP konfigūracijos. Žiūrėti "
 "[doc@faq1-16]DUK 1.16[/doc]."
 
-#: import.php:623 libraries/display_import.lib.php:659
+#: import.php:627 libraries/display_import.lib.php:659
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nepavyko įkelti importuotų įskiepių, prašome patikrinti įdiegimą!"
 
-#: import.php:665 libraries/sql.lib.php:742 libraries/sql.lib.php:1466
+#: import.php:669 libraries/sql.lib.php:748 libraries/sql.lib.php:1472
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "Žymė %s sukurta"
 
-#: import.php:674
+#: import.php:678
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
 
-#: import.php:702
+#: import.php:706
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -607,7 +607,7 @@ msgstr ""
 "Baigėsi skripto vykdymui skirtas laikas, jeigu norite pabaigti importuoti "
 "prašome dar kartą siųsti tą patį failą ir importavimas bus tęsiamas."
 
-#: import.php:712
+#: import.php:716
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -622,7 +622,7 @@ msgstr ""
 
 #: import_status.php:111 js/messages.php:378 libraries/Util.php:797
 #: libraries/export.lib.php:523
-#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:259
+#: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:268
 msgid "Back"
 msgstr "Atgal"
 
@@ -646,97 +646,97 @@ msgstr ""
 msgid "General settings"
 msgstr "Pagrindiniai nustatymai"
 
-#: index.php:189 js/messages.php:525
+#: index.php:191 js/messages.php:525
 #: libraries/display_change_password.lib.php:54
-#: libraries/display_change_password.lib.php:57 user_password.php:253
+#: libraries/display_change_password.lib.php:57 user_password.php:262
 msgid "Change password"
 msgstr "Pakeisti slaptažodį"
 
-#: index.php:205
+#: index.php:208
 msgid "Server connection collation"
 msgstr "Serverio ryšio palyginimas"
 
-#: index.php:227
+#: index.php:230
 #, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Išvaizdos nustatymai"
 
-#: index.php:257 prefs_manage.php:288
+#: index.php:262 prefs_manage.php:288
 msgid "More settings"
 msgstr "Daugiau nustatymų"
 
-#: index.php:278
+#: index.php:284
 msgid "Database server"
 msgstr "Duomenų bazės serveris"
 
-#: index.php:281 libraries/plugins/auth/AuthenticationCookie.php:185
+#: index.php:287 libraries/plugins/auth/AuthenticationCookie.php:185
 msgid "Server:"
 msgstr "Darbinė stotis:"
 
-#: index.php:285
+#: index.php:291
 #, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
 msgstr "Serverio jungtis"
 
-#: index.php:289 libraries/plugins/export/ExportLatex.php:209
-#: libraries/plugins/export/ExportSql.php:690
+#: index.php:295 libraries/plugins/export/ExportLatex.php:209
+#: libraries/plugins/export/ExportSql.php:689
 #: libraries/plugins/export/ExportXml.php:183
 #, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
 msgstr "Serverio versija"
 
-#: index.php:295
+#: index.php:301
 #, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
 msgstr "Protokolo versija"
 
-#: index.php:299
+#: index.php:305
 #, fuzzy
 #| msgid "User"
 msgid "User:"
 msgstr "Naudotojas"
 
-#: index.php:304
+#: index.php:310
 #, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
 msgstr "Serverio koduotė"
 
-#: index.php:316
+#: index.php:322
 msgid "Web server"
 msgstr "Interneto serveris"
 
-#: index.php:327
+#: index.php:333
 #, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
 msgstr "Duomenų bazės kliento versija"
 
-#: index.php:331
+#: index.php:337
 #, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
 msgstr "PHP plėtinys"
 
-#: index.php:345
+#: index.php:351
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
 msgstr "PHP versija"
 
-#: index.php:356
+#: index.php:362
 msgid "Show PHP information"
 msgstr "Rodyti PHP informaciją"
 
-#: index.php:379
+#: index.php:385
 msgid "Version information:"
 msgstr "Versijos informacija:"
 
-#: index.php:388 libraries/Util.php:445 libraries/Util.php:511
+#: index.php:394 libraries/Util.php:445 libraries/Util.php:511
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:576 libraries/engines/Pbxt.php:170
 #: libraries/navigation/NavigationHeader.php:196
@@ -744,27 +744,27 @@ msgstr "Versijos informacija:"
 msgid "Documentation"
 msgstr "Dokumentacija"
 
-#: index.php:395
+#: index.php:401
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:404
+#: index.php:410
 msgid "Official Homepage"
 msgstr "Oficialus phpMyAdmin tinklalapis"
 
-#: index.php:411
+#: index.php:417
 msgid "Contribute"
 msgstr "Prisidėti"
 
-#: index.php:418
+#: index.php:424
 msgid "Get support"
 msgstr "Gauti pagalbą"
 
-#: index.php:425
+#: index.php:431
 msgid "List of changes"
 msgstr "Pakeitimų sąrašas"
 
-#: index.php:447
+#: index.php:453
 #, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
@@ -782,7 +782,7 @@ msgstr ""
 "nesaugi, bei gali būti atvira įsilaužimams, todėl rekomenduotina pakeisti "
 "šias parinktis."
 
-#: index.php:464
+#: index.php:470
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -791,7 +791,7 @@ msgstr ""
 "Savo PHP konfigūracijoje Jūs įjungėte mbstring.func_overload. Šis nustatymas "
 "nėra suderinamas su phpMyAdmin ir gali pažeisti Jūsų duomenis!"
 
-#: index.php:479
+#: index.php:485
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -801,7 +801,7 @@ msgstr ""
 "simbolių kodaciją. Be mbstring plėtinio phpMyAdmin negali tesingai skaidyti "
 "stringų, todėl galite sulaukti netikėtų rezultatų."
 
-#: index.php:496
+#: index.php:502
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -809,17 +809,17 @@ msgid ""
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:515
+#: index.php:521
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:531
+#: index.php:537
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Nustatymų faile nurodykite slaptą frazę (blowfish_secret)."
 
-#: index.php:544
+#: index.php:550
 #, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
@@ -835,7 +835,7 @@ msgstr ""
 "yra Jūsų phpMyAdmin kataloge. Jūs turėtumėte jį pašalinti iškart po to kai "
 "sukonfigūruosite phpMyAdmin."
 
-#: index.php:560
+#: index.php:566
 #, fuzzy, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
@@ -847,12 +847,12 @@ msgstr ""
 "phpMyAdmin nustatymų saugykla nėra visiškai sukonfigūruota, išplėstinės "
 "funkcijos išjungtos. %sIšsiaiškinkite kodėl%s."
 
-#: index.php:567
+#: index.php:573
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: index.php:613
+#: index.php:619
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -861,7 +861,7 @@ msgstr ""
 "Jūsų PHP MySQL bibliotekos versija %s skiriasi nuo Jūsų MySQL serverio "
 "versijos %s. Tai gali sukelti nenuspėjamą elgesį."
 
-#: index.php:641
+#: index.php:647
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -870,7 +870,7 @@ msgstr ""
 "Serveris veikia su Suhosin. Prašome perskaityti %sdokumentaciją%s dėl galimų "
 "problemų."
 
-#: js/messages.php:36 libraries/import.lib.php:127 sql.php:162
+#: js/messages.php:36 libraries/import.lib.php:127 sql.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "„DROP DATABASE“ komandos įvykdyti negalima."
 
@@ -1163,7 +1163,7 @@ msgid "The password is empty!"
 msgstr "Tuščias slaptažodis!"
 
 #: js/messages.php:124 libraries/server_privileges.lib.php:2045
-#: user_password.php:119
+#: user_password.php:120
 msgid "The passwords aren't the same!"
 msgstr "Slaptažodžiai nesutampa!"
 
@@ -1394,7 +1394,7 @@ msgstr "Prašome pridėti bent vieną kintamąjį į eilę"
 
 #: js/messages.php:189 libraries/DisplayResults.php:1477
 #: libraries/config.values.php:69 libraries/display_export.lib.php:693
-#: libraries/plugins/export/ExportSql.php:2151
+#: libraries/plugins/export/ExportSql.php:2150
 #: libraries/plugins/schema/SchemaPdf.php:101
 #: libraries/server_status_monitor.lib.php:237
 #: libraries/server_status_processes.lib.php:285
@@ -1602,7 +1602,7 @@ msgstr "Būsena"
 #: libraries/plugins/export/ExportTexytext.php:445
 #: libraries/plugins/export/PMA_ExportPdf.php:314
 #: libraries/rte/rte_list.lib.php:92
-#: libraries/server_status_processes.lib.php:92 libraries/sql.lib.php:237
+#: libraries/server_status_processes.lib.php:92 libraries/sql.lib.php:243
 msgid "Time"
 msgstr "Laikas"
 
@@ -1987,8 +1987,8 @@ msgstr "%d nėra galimas eilutės numeris."
 
 #: js/messages.php:352
 #: libraries/controllers/table/TableSearchController.php:435
-#: libraries/controllers/table/TableSearchController.php:912
-#: libraries/sql.lib.php:191 tbl_change.php:159
+#: libraries/controllers/table/TableSearchController.php:922
+#: libraries/sql.lib.php:197 tbl_change.php:159
 msgid "Browse foreign values"
 msgstr "Naršyti išorines reikšmes"
 
@@ -2651,7 +2651,7 @@ msgstr ", naujausia stabili versija:"
 msgid "up to date"
 msgstr "naujausias"
 
-#: js/messages.php:553 libraries/DisplayResults.php:4938 view_create.php:180
+#: js/messages.php:553 libraries/DisplayResults.php:4938 view_create.php:184
 msgid "Create view"
 msgstr "Sukurti rodinį"
 
@@ -3277,7 +3277,7 @@ msgstr "Praleisti šią klaidą"
 msgid "Explain"
 msgstr "Paaiškinti SQL"
 
-#: libraries/Console.php:216 libraries/Util.php:1324 libraries/sql.lib.php:226
+#: libraries/Console.php:216 libraries/Util.php:1324 libraries/sql.lib.php:232
 msgid "Profiling"
 msgstr "Profiliavimas"
 
@@ -3891,7 +3891,7 @@ msgstr "Gali būti apytikslis. Žiūrėkite [doc@faq3-11]DUK 3.11[/doc]"
 
 #: libraries/DisplayResults.php:4315 libraries/Message.php:181
 #: libraries/controllers/table/TableRelationController.php:253
-#: libraries/controllers/table/TableSearchController.php:651
+#: libraries/controllers/table/TableSearchController.php:661
 #: libraries/rte/rte_routines.lib.php:1418 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:224 tbl_row_action.php:140 view_operations.php:63
 #, fuzzy
@@ -3925,7 +3925,7 @@ msgstr ""
 msgid "%d total"
 msgstr "iš viso"
 
-#: libraries/DisplayResults.php:4703 libraries/sql.lib.php:1321
+#: libraries/DisplayResults.php:4703 libraries/sql.lib.php:1327
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -4104,8 +4104,8 @@ msgid "Keyname"
 msgstr "Indekso pavadinimas"
 
 #: libraries/Index.php:695
-#: libraries/controllers/TableStructureController.php:1185
-#: libraries/controllers/TableStructureController.php:1190
+#: libraries/controllers/TableStructureController.php:1191
+#: libraries/controllers/TableStructureController.php:1196
 #: libraries/tracking.lib.php:976
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -4153,8 +4153,8 @@ msgid "Index %s has been dropped."
 msgstr "Indeksas %s ištrintas."
 
 #: libraries/Index.php:755 libraries/Util.php:3703 libraries/Util.php:3704
-#: libraries/controllers/TableStructureController.php:1181
-#: libraries/controllers/TableStructureController.php:1182
+#: libraries/controllers/TableStructureController.php:1187
+#: libraries/controllers/TableStructureController.php:1188
 #: libraries/operations.lib.php:1602 libraries/rte/rte_list.lib.php:152
 #: libraries/server_databases.lib.php:148
 #: templates/database/structure/check_all_tables.phtml:16
@@ -4188,7 +4188,7 @@ msgid "Server"
 msgstr "Serveris"
 
 #: libraries/Menu.php:246 libraries/navigation/nodes/NodeView.php:30
-#: libraries/tbl_info.inc.php:65
+#: libraries/tbl_info.inc.php:64
 #: templates/database/structure/structure_table_row.phtml:97
 #: templates/database/structure/structure_table_row.phtml:159
 msgid "View"
@@ -4263,7 +4263,7 @@ msgstr "Sekimas"
 #: libraries/plugins/export/ExportHtmlword.php:576
 #: libraries/plugins/export/ExportOdt.php:708
 #: libraries/plugins/export/ExportPdf.php:285
-#: libraries/plugins/export/ExportSql.php:2007
+#: libraries/plugins/export/ExportSql.php:2006
 #: libraries/plugins/export/ExportTexytext.php:531
 #: libraries/plugins/export/ExportXml.php:120
 #: libraries/rte/rte_words.lib.php:50
@@ -4285,7 +4285,7 @@ msgstr ""
 
 #: libraries/Menu.php:479 libraries/Util.php:4348
 #: libraries/navigation/nodes/NodeEventContainer.php:25
-#: libraries/plugins/export/ExportSql.php:949
+#: libraries/plugins/export/ExportSql.php:948
 #: libraries/plugins/export/ExportXml.php:104
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
@@ -4643,20 +4643,20 @@ msgstr "Klaida pervadinant lentelę iš %1$s į %2$s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Lentelė %s pervadinta į %s"
 
-#: libraries/Table.php:1523
+#: libraries/Table.php:1528
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "Nepavyko išsaugoti lentelės naudotojo sąsajos nustatymų"
 
-#: libraries/Table.php:1553
+#: libraries/Table.php:1558
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.php:1707
+#: libraries/Table.php:1712
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4664,19 +4664,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.php:1844
+#: libraries/Table.php:1849
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Pirminio rakto pavadinimas turi būti \"PRIMARY\"!"
 
-#: libraries/Table.php:1855
+#: libraries/Table.php:1860
 msgid "Can't rename index to PRIMARY!"
 msgstr "Negalima pervadinti indekso į PRIMARY!"
 
-#: libraries/Table.php:1877
+#: libraries/Table.php:1882
 msgid "No index parts defined!"
 msgstr "Neaprašytos indekso dalys!"
 
-#: libraries/Table.php:2191
+#: libraries/Table.php:2196
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -6210,7 +6210,7 @@ msgstr "Stulpelių pavadinimus įrašyti pirmoje eilutėje"
 
 #: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:370
 #: libraries/config/messages.inc.php:383
-#: libraries/plugins/import/ImportCsv.php:143
+#: libraries/plugins/import/ImportCsv.php:139
 #, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
@@ -6218,7 +6218,7 @@ msgstr "Laukų reikšmės apskliaustos su:"
 
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:371
 #: libraries/config/messages.inc.php:384
-#: libraries/plugins/import/ImportCsv.php:156
+#: libraries/plugins/import/ImportCsv.php:150
 #, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
@@ -6240,14 +6240,14 @@ msgstr "Pašalinti CRLF simbolius laukeliuose"
 
 #: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:377
 #: libraries/config/messages.inc.php:391
-#: libraries/plugins/import/ImportCsv.php:126
+#: libraries/plugins/import/ImportCsv.php:124
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "Laukai baigiasi"
 
 #: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:369
-#: libraries/plugins/import/ImportCsv.php:166
+#: libraries/plugins/import/ImportCsv.php:159
 #, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
@@ -6403,7 +6403,7 @@ msgid "Syntax to use when inserting data"
 msgstr "Tikrinti sintaksę kai įterpiami duomenys"
 
 #: libraries/config/messages.inc.php:214
-#: libraries/plugins/export/ExportSql.php:427
+#: libraries/plugins/export/ExportSql.php:426
 msgid "Maximal length of created query"
 msgstr "Didžiausias sukurtos užklausos ilgis"
 
@@ -8737,7 +8737,7 @@ msgid "Table %s has been emptied."
 msgstr "Lentelės reikšmės %s ištuštintos."
 
 #: libraries/controllers/DatabaseStructureController.php:432
-#: tbl_operations.php:396 view_operations.php:120
+#: tbl_operations.php:396 view_operations.php:122
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
@@ -8780,33 +8780,33 @@ msgid "The columns have been moved successfully."
 msgstr "Pažymėti vartotojai sėkmingai pašalinti."
 
 #: libraries/controllers/TableStructureController.php:731
-#: libraries/controllers/TableStructureController.php:967
+#: libraries/controllers/TableStructureController.php:973
 #: libraries/controllers/table/TableIndexesController.php:153
-#: tbl_addfield.php:93
+#: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Lentelė %1$s sėkmingai pakeista."
 
 #: libraries/controllers/TableStructureController.php:742
-#: libraries/controllers/TableStructureController.php:1016
+#: libraries/controllers/TableStructureController.php:1022
 #: libraries/tracking.lib.php:1097
 msgid "Query error"
 msgstr "Užklausos klaida"
 
-#: libraries/controllers/TableStructureController.php:961
+#: libraries/controllers/TableStructureController.php:967
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Lentelė %1$s sėkmingai pakeista."
 
-#: libraries/controllers/TableStructureController.php:1180
+#: libraries/controllers/TableStructureController.php:1186
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "Redaguoti"
 
-#: libraries/controllers/TableStructureController.php:1184
-#: libraries/controllers/TableStructureController.php:1189
+#: libraries/controllers/TableStructureController.php:1190
+#: libraries/controllers/TableStructureController.php:1195
 #: libraries/navigation/nodes/NodeIndex.php:30 libraries/tracking.lib.php:929
 #: templates/columns_definitions/column_indexes.phtml:16
 #: templates/columns_definitions/table_fields_definitions.phtml:57
@@ -8816,20 +8816,20 @@ msgstr "Redaguoti"
 msgid "Index"
 msgstr "Indeksas"
 
-#: libraries/controllers/TableStructureController.php:1186
-#: libraries/controllers/TableStructureController.php:1191
+#: libraries/controllers/TableStructureController.php:1192
+#: libraries/controllers/TableStructureController.php:1197
 #: templates/columns_definitions/column_indexes.phtml:26
 msgid "Spatial"
 msgstr ""
 
-#: libraries/controllers/TableStructureController.php:1187
-#: libraries/controllers/TableStructureController.php:1192
+#: libraries/controllers/TableStructureController.php:1193
+#: libraries/controllers/TableStructureController.php:1198
 #: templates/columns_definitions/column_indexes.phtml:21
 #: templates/table/structure/check_all_table_column.phtml:40
 msgid "Fulltext"
 msgstr "Fulltext"
 
-#: libraries/controllers/TableStructureController.php:1195
+#: libraries/controllers/TableStructureController.php:1201
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
@@ -8862,19 +8862,19 @@ msgstr "Gija %s buvo sėkmingai išjungta."
 msgid "Internal relations were successfully updated."
 msgstr "Vidinis sąryšis įdėtas"
 
-#: libraries/controllers/table/TableSearchController.php:836
+#: libraries/controllers/table/TableSearchController.php:846
 #, fuzzy
 #| msgid "Search"
 msgid "Table search"
 msgstr "Paieška"
 
-#: libraries/controllers/table/TableSearchController.php:843
+#: libraries/controllers/table/TableSearchController.php:853
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom search"
 msgstr "Paieška"
 
-#: libraries/controllers/table/TableSearchController.php:848
+#: libraries/controllers/table/TableSearchController.php:858
 #: templates/table/search/selection_form.phtml:59
 #, fuzzy
 #| msgid "Hide search criteria"
@@ -8890,7 +8890,7 @@ msgstr "%s plėtinys nerastas. Prašome patikrinti PHP nustatymus."
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/core.lib.php:927 libraries/mult_submits.inc.php:321
+#: libraries/core.lib.php:927 libraries/mult_submits.inc.php:328
 #: tbl_replace.php:306 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "Nėra pakeitimų"
@@ -8963,8 +8963,8 @@ msgstr "Sukurti"
 msgid "Create database:"
 msgstr "Sukurti duomenų bazę"
 
-#: libraries/display_create_database.lib.php:60 server_privileges.php:128
-#: server_replication.php:32 server_user_groups.php:27
+#: libraries/display_create_database.lib.php:60 server_privileges.php:129
+#: server_replication.php:32 server_user_groups.php:28
 msgid "No Privileges"
 msgstr "Nėra privilegijų"
 
@@ -9706,12 +9706,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Atvaizdis įrašytas faile %s."
 
 #: libraries/import.lib.php:204 libraries/insert_edit.lib.php:127
-#: libraries/rte/rte_routines.lib.php:1439 libraries/sql.lib.php:1315
-#: tbl_get_field.php:44
+#: libraries/rte/rte_routines.lib.php:1439 libraries/sql.lib.php:1321
+#: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gražino tuščią rezultatų rinkinį (nėra eilučių)."
 
-#: libraries/import.lib.php:267 libraries/sql.lib.php:1329
+#: libraries/import.lib.php:267 libraries/sql.lib.php:1335
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9868,8 +9868,11 @@ msgid "Edit next row"
 msgstr "Redaguoti kitą įrašą"
 
 #: libraries/insert_edit.lib.php:1541
+#, fuzzy
+#| msgid ""
+#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
-"Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
+"Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Šokinėjimui tarp reikšmių naudokite TAB mygtuką arba naudokite CTRL+rodyklės"
 
@@ -9885,11 +9888,11 @@ msgstr ""
 msgid "Value"
 msgstr "Reikšmė"
 
-#: libraries/insert_edit.lib.php:1938 libraries/sql.lib.php:1312
+#: libraries/insert_edit.lib.php:1938 libraries/sql.lib.php:1318
 msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
 
-#: libraries/insert_edit.lib.php:1963 libraries/sql.lib.php:1290
+#: libraries/insert_edit.lib.php:1963 libraries/sql.lib.php:1296
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Įterpto įrašo id: %1$d"
@@ -9905,7 +9908,7 @@ msgstr "Nėra"
 msgid "Convert to Kana"
 msgstr "Konvertuoti į Kana"
 
-#: libraries/mult_submits.inc.php:318
+#: libraries/mult_submits.inc.php:325
 msgid "Success!"
 msgstr ""
 
@@ -10288,7 +10291,7 @@ msgstr ""
 
 #: libraries/navigation/nodes/NodeFunctionContainer.php:25
 #: libraries/navigation/nodes/NodeFunctionContainer.php:28
-#: libraries/plugins/export/ExportSql.php:532
+#: libraries/plugins/export/ExportSql.php:531
 #: libraries/plugins/export/ExportXml.php:108
 msgid "Functions"
 msgstr "Funkcijos"
@@ -10311,7 +10314,7 @@ msgstr "Procedūros"
 
 #: libraries/navigation/nodes/NodeProcedureContainer.php:25
 #: libraries/navigation/nodes/NodeProcedureContainer.php:28
-#: libraries/plugins/export/ExportSql.php:491
+#: libraries/plugins/export/ExportSql.php:490
 #: libraries/plugins/export/ExportXml.php:112
 msgid "Procedures"
 msgstr "Procedūros"
@@ -10369,8 +10372,8 @@ msgstr ""
 
 #: libraries/normalization.lib.php:149
 msgid ""
-"Select a column which can be split into more than one. (on select of 'no "
-"such column', it'll move to next step)"
+"Select a column which can be split into more than one (on select of 'no such "
+"column', it'll move to next step)."
 msgstr ""
 
 #: libraries/normalization.lib.php:156 normalization.php:17
@@ -10788,7 +10791,7 @@ msgstr "Taisyti lentelę"
 
 #: libraries/operations.lib.php:1533
 #: templates/database/structure/check_all_tables.phtml:14
-#: view_operations.php:128
+#: view_operations.php:130
 msgid "Delete data or table"
 msgstr "Ištrinti duomenis arba lentelę"
 
@@ -11067,7 +11070,7 @@ msgstr "Duomenų išvedimo nustatymai"
 
 #: libraries/plugins/export/ExportHtmlword.php:205
 #: libraries/plugins/export/ExportOdt.php:265
-#: libraries/plugins/export/ExportSql.php:2311
+#: libraries/plugins/export/ExportSql.php:2310
 #: libraries/plugins/export/ExportTexytext.php:188
 msgid "Dumping data for table"
 msgstr "Sukurta duomenų kopija lentelei"
@@ -11093,21 +11096,21 @@ msgstr "Paaiškinimas"
 
 #: libraries/plugins/export/ExportHtmlword.php:558
 #: libraries/plugins/export/ExportOdt.php:685
-#: libraries/plugins/export/ExportSql.php:1976
+#: libraries/plugins/export/ExportSql.php:1975
 #: libraries/plugins/export/ExportTexytext.php:511
 msgid "Table structure for table"
 msgstr "Sukurta duomenų struktūra lentelei"
 
 #: libraries/plugins/export/ExportHtmlword.php:583
 #: libraries/plugins/export/ExportOdt.php:718
-#: libraries/plugins/export/ExportSql.php:2046
+#: libraries/plugins/export/ExportSql.php:2045
 #: libraries/plugins/export/ExportTexytext.php:536
 msgid "Structure for view"
 msgstr "Struktūra peržiūrėjimui"
 
 #: libraries/plugins/export/ExportHtmlword.php:597
 #: libraries/plugins/export/ExportOdt.php:739
-#: libraries/plugins/export/ExportSql.php:2091
+#: libraries/plugins/export/ExportSql.php:2090
 #: libraries/plugins/export/ExportTexytext.php:552
 msgid "Stand-in structure for view"
 msgstr "Tik struktūra rodiniui"
@@ -11179,7 +11182,7 @@ msgid "Put columns names in the first row:"
 msgstr "Stulpelių pavadinimus įrašyti pirmoje eilutėje"
 
 #: libraries/plugins/export/ExportLatex.php:202
-#: libraries/plugins/export/ExportSql.php:680
+#: libraries/plugins/export/ExportSql.php:679
 #: libraries/plugins/export/ExportXml.php:176
 #: libraries/replication_gui.lib.php:437 libraries/replication_gui.lib.php:707
 #, fuzzy
@@ -11188,7 +11191,7 @@ msgid "Host:"
 msgstr "Darbinė stotis"
 
 #: libraries/plugins/export/ExportLatex.php:207
-#: libraries/plugins/export/ExportSql.php:686
+#: libraries/plugins/export/ExportSql.php:685
 #: libraries/plugins/export/ExportXml.php:181
 #, fuzzy
 #| msgid "Generation Time"
@@ -11196,7 +11199,7 @@ msgid "Generation Time:"
 msgstr "Atlikimo laikas"
 
 #: libraries/plugins/export/ExportLatex.php:210
-#: libraries/plugins/export/ExportSql.php:692
+#: libraries/plugins/export/ExportSql.php:691
 #: libraries/plugins/export/ExportXml.php:184
 #, fuzzy
 #| msgid "PHP Version"
@@ -11204,7 +11207,7 @@ msgid "PHP Version:"
 msgstr "PHP versija"
 
 #: libraries/plugins/export/ExportLatex.php:240
-#: libraries/plugins/export/ExportSql.php:880
+#: libraries/plugins/export/ExportSql.php:879
 #: libraries/plugins/export/ExportXml.php:417
 #: libraries/plugins/export/PMA_ExportPdf.php:118
 #, fuzzy
@@ -11213,7 +11216,7 @@ msgid "Database:"
 msgstr "Duomenų bazė"
 
 #: libraries/plugins/export/ExportLatex.php:313
-#: libraries/plugins/export/ExportSql.php:2151
+#: libraries/plugins/export/ExportSql.php:2150
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -11298,64 +11301,64 @@ msgstr "Pridėti sakinius:"
 
 #: libraries/plugins/export/ExportSql.php:232
 #: libraries/plugins/export/ExportSql.php:241
-#: libraries/plugins/export/ExportSql.php:262
-#: libraries/plugins/export/ExportSql.php:271
-#: libraries/plugins/export/ExportSql.php:298
-#: libraries/plugins/export/ExportSql.php:306
-#: libraries/plugins/export/ExportSql.php:316
+#: libraries/plugins/export/ExportSql.php:261
+#: libraries/plugins/export/ExportSql.php:270
+#: libraries/plugins/export/ExportSql.php:297
+#: libraries/plugins/export/ExportSql.php:305
+#: libraries/plugins/export/ExportSql.php:315
 #, php-format
 msgid "Add %s statement"
 msgstr "Įtraukti %s sakinį"
 
-#: libraries/plugins/export/ExportSql.php:279
+#: libraries/plugins/export/ExportSql.php:278
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:288
+#: libraries/plugins/export/ExportSql.php:287
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "Sesijos reikšmė"
 
-#: libraries/plugins/export/ExportSql.php:326
+#: libraries/plugins/export/ExportSql.php:325
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:341
+#: libraries/plugins/export/ExportSql.php:340
 #, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
 msgstr "Objekto kūrimo nustatymai"
 
-#: libraries/plugins/export/ExportSql.php:345
-#: libraries/plugins/export/ExportSql.php:2257
+#: libraries/plugins/export/ExportSql.php:344
+#: libraries/plugins/export/ExportSql.php:2256
 msgid "Truncate table before insert"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:351
+#: libraries/plugins/export/ExportSql.php:350
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Vietoj <code>INSERT</code> sakinio naudoti:"
 
-#: libraries/plugins/export/ExportSql.php:356
+#: libraries/plugins/export/ExportSql.php:355
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> sakinys"
 
-#: libraries/plugins/export/ExportSql.php:367
-#: libraries/plugins/export/ExportSql.php:397
+#: libraries/plugins/export/ExportSql.php:366
+#: libraries/plugins/export/ExportSql.php:396
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> sakinys"
 
-#: libraries/plugins/export/ExportSql.php:380
+#: libraries/plugins/export/ExportSql.php:379
 msgid "Function to use when dumping data:"
 msgstr "Naudoti funkciją kai išvedami duomenys:"
 
-#: libraries/plugins/export/ExportSql.php:393
+#: libraries/plugins/export/ExportSql.php:392
 msgid "Syntax to use when inserting data:"
 msgstr "Naudoti sintaksę kai įterpiami duomenys:"
 
-#: libraries/plugins/export/ExportSql.php:401
+#: libraries/plugins/export/ExportSql.php:400
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -11365,7 +11368,7 @@ msgstr ""
 "Pavyzdžiui: <code>INSERT INTO lentelės_pavadinimas (stul_A,stul_B,stul_C) "
 "VALUES (1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.php:406
+#: libraries/plugins/export/ExportSql.php:405
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -11375,7 +11378,7 @@ msgstr ""
 "<code>INSERT INTO lentelės_pavadinimas VALUES (1,2,3), (4,5,6), (7,8,9)</"
 "code>"
 
-#: libraries/plugins/export/ExportSql.php:411
+#: libraries/plugins/export/ExportSql.php:410
 #, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
@@ -11387,7 +11390,7 @@ msgstr ""
 "abu iš paminėtų<br /> Pavyzdys: <code>INSERT INTO lentelės_pavadinimas "
 "(stul_A,stul_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/plugins/export/ExportSql.php:416
+#: libraries/plugins/export/ExportSql.php:415
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -11395,7 +11398,7 @@ msgstr ""
 "nė vienas iš paminėtų<br /> Pavyzdys: <code>INSERT INTO lentelės_pavadinimas "
 "VALUES (1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.php:435
+#: libraries/plugins/export/ExportSql.php:434
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -11403,114 +11406,114 @@ msgstr ""
 "Rodyti dvejetainius stulpelius šešioliktainėje sistemoje <i>(pavyzdžiui, "
 "„abc“ tampa 0x616263)</i>"
 
-#: libraries/plugins/export/ExportSql.php:446
+#: libraries/plugins/export/ExportSql.php:445
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:519
+#: libraries/plugins/export/ExportSql.php:518
 msgid "It appears your database uses procedures;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:523
-#: libraries/plugins/export/ExportSql.php:562
-#: libraries/plugins/export/ExportSql.php:1533
-#: libraries/plugins/export/ExportSql.php:2036
+#: libraries/plugins/export/ExportSql.php:522
+#: libraries/plugins/export/ExportSql.php:561
+#: libraries/plugins/export/ExportSql.php:1532
+#: libraries/plugins/export/ExportSql.php:2035
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:559
+#: libraries/plugins/export/ExportSql.php:558
 msgid "It appears your database uses functions;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:997
+#: libraries/plugins/export/ExportSql.php:996
 #, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
 msgstr "Trūksta duomenų %s"
 
-#: libraries/plugins/export/ExportSql.php:1079
+#: libraries/plugins/export/ExportSql.php:1078
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for %s"
 msgstr "Trūksta duomenų %s"
 
-#: libraries/plugins/export/ExportSql.php:1408
+#: libraries/plugins/export/ExportSql.php:1407
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:608
 msgid "Creation:"
 msgstr "Kūrimas:"
 
-#: libraries/plugins/export/ExportSql.php:1421
+#: libraries/plugins/export/ExportSql.php:1420
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:615
 msgid "Last update:"
 msgstr "Paskutinis atnaujinimas:"
 
-#: libraries/plugins/export/ExportSql.php:1434
+#: libraries/plugins/export/ExportSql.php:1433
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:622
 msgid "Last check:"
 msgstr "Paskutinis patikrinimas:"
 
-#: libraries/plugins/export/ExportSql.php:1481
+#: libraries/plugins/export/ExportSql.php:1480
 #: templates/database/structure/structure_table_row.phtml:183
 msgid "in use"
 msgstr "šiuo metu naudojama"
 
-#: libraries/plugins/export/ExportSql.php:1530
+#: libraries/plugins/export/ExportSql.php:1529
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:1692
+#: libraries/plugins/export/ExportSql.php:1691
 msgid "Constraints for dumped tables"
 msgstr "Apribojimai eksportuotom lentelėm"
 
-#: libraries/plugins/export/ExportSql.php:1693
+#: libraries/plugins/export/ExportSql.php:1692
 msgid "Constraints for table"
 msgstr "Apribojimai lentelei"
 
-#: libraries/plugins/export/ExportSql.php:1723
+#: libraries/plugins/export/ExportSql.php:1722
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Apribojimai eksportuotom lentelėm"
 
-#: libraries/plugins/export/ExportSql.php:1724
+#: libraries/plugins/export/ExportSql.php:1723
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Viduje lentelių:"
 
-#: libraries/plugins/export/ExportSql.php:1752
+#: libraries/plugins/export/ExportSql.php:1751
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Nenaudoti AUTO_INCREMENT nulinėms reikšmėms"
 
-#: libraries/plugins/export/ExportSql.php:1753
+#: libraries/plugins/export/ExportSql.php:1752
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Pridėti AUTO_INCREMENT reikšmę"
 
-#: libraries/plugins/export/ExportSql.php:1828
+#: libraries/plugins/export/ExportSql.php:1827
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TIPAI LENTELEI"
 
-#: libraries/plugins/export/ExportSql.php:1852
+#: libraries/plugins/export/ExportSql.php:1851
 msgid "RELATIONS FOR TABLE"
 msgstr "SĄRYŠIAI LENTELEI"
 
-#: libraries/plugins/export/ExportSql.php:2033
+#: libraries/plugins/export/ExportSql.php:2032
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:2070
+#: libraries/plugins/export/ExportSql.php:2069
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Struktūra peržiūrėjimui"
 
-#: libraries/plugins/export/ExportSql.php:2172
+#: libraries/plugins/export/ExportSql.php:2171
 msgid "Error reading data:"
 msgstr "Klaida skaitant duomenis:"
 
@@ -11564,15 +11567,15 @@ msgstr ""
 msgid "Column names: "
 msgstr "Stulpelių vardai: "
 
-#: libraries/plugins/import/ImportCsv.php:124
-#: libraries/plugins/import/ImportCsv.php:141
-#: libraries/plugins/import/ImportCsv.php:154
-#: libraries/plugins/import/ImportCsv.php:164
+#: libraries/plugins/import/ImportCsv.php:122
+#: libraries/plugins/import/ImportCsv.php:137
+#: libraries/plugins/import/ImportCsv.php:148
+#: libraries/plugins/import/ImportCsv.php:157
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Negalimas parametras CSV importavimui: %s"
 
-#: libraries/plugins/import/ImportCsv.php:216
+#: libraries/plugins/import/ImportCsv.php:209
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11581,13 +11584,13 @@ msgstr ""
 "Blogai nurodyti stulpeliai (%s)! Įsitikinkite, kad stulpelių vardai parašyti "
 "gerai, atskirti kableliais ir apskliausti (apimti, aptverti) kabutėmis."
 
-#: libraries/plugins/import/ImportCsv.php:320
-#: libraries/plugins/import/ImportCsv.php:689
+#: libraries/plugins/import/ImportCsv.php:310
+#: libraries/plugins/import/ImportCsv.php:677
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Neteisingas CSV įvedimo formatas eilutėje %d."
 
-#: libraries/plugins/import/ImportCsv.php:551
+#: libraries/plugins/import/ImportCsv.php:541
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neteisingas stulpelių skaičius CSV įvedimo eilutėje %d."
@@ -11600,7 +11603,7 @@ msgstr "Priedas nepalaiko suglaudintų importų!"
 msgid "MediaWiki Table"
 msgstr "MediaWiki lentelė"
 
-#: libraries/plugins/import/ImportMediawiki.php:288
+#: libraries/plugins/import/ImportMediawiki.php:279
 #, fuzzy, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
@@ -12656,7 +12659,7 @@ msgid "Edit event"
 msgstr "Redaguoti įvykį"
 
 #: libraries/rte/rte_events.lib.php:386 libraries/rte/rte_routines.lib.php:882
-#: libraries/rte/rte_triggers.lib.php:325 view_create.php:179
+#: libraries/rte/rte_triggers.lib.php:325 view_create.php:183
 msgid "Details"
 msgstr "Detalės"
 
@@ -12703,7 +12706,7 @@ msgstr "Pabaigus išlaikyti"
 
 #: libraries/rte/rte_events.lib.php:493
 #: libraries/rte/rte_routines.lib.php:1016
-#: libraries/rte/rte_triggers.lib.php:385 view_create.php:208
+#: libraries/rte/rte_triggers.lib.php:385 view_create.php:212
 msgid "Definer"
 msgstr ""
 
@@ -15008,96 +15011,96 @@ msgstr "Eilutė buvo ištrinta"
 msgid "A \"RETURNS\" keyword was expected."
 msgstr ""
 
-#: libraries/sql.lib.php:229
+#: libraries/sql.lib.php:235
 #, fuzzy
 #| msgid "Data files"
 msgid "Detailed profile"
 msgstr "Duomenų failai"
 
-#: libraries/sql.lib.php:232
+#: libraries/sql.lib.php:238
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "Kita"
 
-#: libraries/sql.lib.php:234 libraries/sql.lib.php:250
+#: libraries/sql.lib.php:240 libraries/sql.lib.php:256
 #, fuzzy
 #| msgid "Start"
 msgid "State"
 msgstr "Paleisti"
 
-#: libraries/sql.lib.php:247
+#: libraries/sql.lib.php:253
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:253
+#: libraries/sql.lib.php:259
 #, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
 msgstr "Iš viso užtruko:"
 
-#: libraries/sql.lib.php:255
+#: libraries/sql.lib.php:261
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "Laikas"
 
-#: libraries/sql.lib.php:257
+#: libraries/sql.lib.php:263
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "Uždaryti"
 
-#: libraries/sql.lib.php:259
+#: libraries/sql.lib.php:265
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "Laikas"
 
-#: libraries/sql.lib.php:531 libraries/sql.lib.php:547
+#: libraries/sql.lib.php:537 libraries/sql.lib.php:553
 msgid "Bookmark this SQL query"
 msgstr "Šios SQL užklausą pasižymėti kaip"
 
-#: libraries/sql.lib.php:535
+#: libraries/sql.lib.php:541
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "Nuorodos Antraštė"
 
-#: libraries/sql.lib.php:540 libraries/sql_query_form.lib.php:311
+#: libraries/sql.lib.php:546 libraries/sql_query_form.lib.php:311
 msgid "Let every user access this bookmark"
 msgstr "Leisti kitiems vartotojams naudotis šia žyme"
 
-#: libraries/sql.lib.php:746
+#: libraries/sql.lib.php:752
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "Žymė %s sukurta"
 
-#: libraries/sql.lib.php:853
+#: libraries/sql.lib.php:859
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1309
+#: libraries/sql.lib.php:1315
 msgid "Showing as PHP code"
 msgstr "Rodomas PHP kodas"
 
-#: libraries/sql.lib.php:1638
+#: libraries/sql.lib.php:1644
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/sql.lib.php:1649
+#: libraries/sql.lib.php:1655
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
-#: libraries/sql.lib.php:1688
+#: libraries/sql.lib.php:1694
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Iškilo problemos su `%s` lentelės indeksais"
@@ -15487,7 +15490,7 @@ msgstr "Nėra duomenų bazių"
 msgid "View dump (schema) of databases"
 msgstr "Peržiūrėti duomenų bazių atvaizdį (schemą)"
 
-#: server_privileges.php:140
+#: server_privileges.php:143
 msgid "Username and hostname didn't change."
 msgstr ""
 
@@ -15499,12 +15502,12 @@ msgstr ""
 msgid "Not enough privilege to view the advisor."
 msgstr ""
 
-#: server_status_processes.php:31
+#: server_status_processes.php:32
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Gija %s buvo sėkmingai išjungta."
 
-#: server_status_processes.php:36
+#: server_status_processes.php:38
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -15700,7 +15703,7 @@ msgstr "Prieinama naujesnė stabili versija"
 msgid "Wrong data"
 msgstr "Nėra duomenų"
 
-#: tbl_create.php:34 tbl_get_field.php:25
+#: tbl_create.php:34 tbl_get_field.php:26
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "„%s“ duomenų bazė neegzistuoja."
@@ -15710,11 +15713,11 @@ msgstr "„%s“ duomenų bazė neegzistuoja."
 msgid "Table %s already exists!"
 msgstr "Lentelė %s jau yra!"
 
-#: tbl_export.php:107
+#: tbl_export.php:108
 msgid "View dump (schema) of table"
 msgstr "Peržiūrėti lentelės struktūros atvaizdį"
 
-#: tbl_get_field.php:32
+#: tbl_get_field.php:33
 msgid "Invalid table name"
 msgstr "Neteisingas lentelės vardas"
 
@@ -16816,7 +16819,7 @@ msgstr "Skaidinys %s"
 msgid "Edit partitioning"
 msgstr "Pašalinti skaidymą"
 
-#: templates/table/structure/display_structure.phtml:145 view_create.php:180
+#: templates/table/structure/display_structure.phtml:145 view_create.php:184
 msgid "Edit view"
 msgstr "Keisti rodinį"
 
@@ -16919,10 +16922,10 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Paaiškinimas"
 
-#: url.php:35
-#, fuzzy, php-format
+#: url.php:36
+#, fuzzy
 #| msgid "Tracking report"
-msgid "Taking you to %s."
+msgid "Taking you to the target site."
 msgstr "Sekimo ataskaita"
 
 #: user_password.php:34
@@ -16933,11 +16936,11 @@ msgstr "Neturite pakankamai teisių čia būti!"
 msgid "The profile has been updated."
 msgstr "Profilis papildytas."
 
-#: view_create.php:227
+#: view_create.php:231
 msgid "VIEW name"
 msgstr "VIEW pavadinimas"
 
-#: view_create.php:238
+#: view_create.php:242
 msgid "Column names"
 msgstr "Stulpelių vardai"
 
@@ -16945,7 +16948,7 @@ msgstr "Stulpelių vardai"
 msgid "Rename view to"
 msgstr "Pervadinti rodinį į"
 
-#: view_operations.php:134
+#: view_operations.php:136
 #, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
@@ -17140,7 +17143,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:118
 #, fuzzy
 #| msgid "You should upgrade to %s %s or later."
-msgid "You should upgrade, to a stable version of MySQL 5.5"
+msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr "Rekomenduojame atnaujint %s iki %s ar vėlesnės versijos."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
@@ -17418,7 +17421,7 @@ msgstr "Leisti kurti laikinas lenteles."
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-"depending on your system memory limits"
+"depending on your system memory limits."
 msgstr ""
 
 #: libraries/advisory_rules.txt:209
@@ -17456,7 +17459,7 @@ msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
-"sorting"
+"sorting."
 msgstr ""
 
 #: libraries/advisory_rules.txt:223
@@ -17475,7 +17478,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:230
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
-"columns being used in the join conditions will greatly speed up table joins"
+"columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 
 #: libraries/advisory_rules.txt:231
@@ -17885,13 +17888,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:379
 #, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
-msgid "Slow_launch_threads is above 2s"
+msgid "Slow_launch_threads is above 2s."
 msgstr "long_query_time yra nustatytas į %d sekundė(-es/-žių)."
 
 #: libraries/advisory_rules.txt:380
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
-"to launch"
+"to launch."
 msgstr ""
 
 #: libraries/advisory_rules.txt:381
@@ -18135,6 +18138,11 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "MyISAM concurrent įterpimai"
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to %s."
+#~ msgstr "Sekimo ataskaita"
 
 #, fuzzy
 #~| msgid "Authentication"
