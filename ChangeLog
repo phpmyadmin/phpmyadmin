@@ -1,8 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.4.15.1 (not yet released)
+4.4.15.1 (2015-10-23)
 - issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
+- issue        [security] Content spoofing on url.php
 
 4.4.15.0 (2015-09-20)
 - issue #11411 Undefined "replace" function on numeric scalar
