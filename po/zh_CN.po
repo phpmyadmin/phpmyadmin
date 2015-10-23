@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-23 09:39-0400\n"
-"PO-Revision-Date: 2015-10-23 11:36+0200\n"
+"PO-Revision-Date: 2015-10-23 19:08+0200\n"
 "Last-Translator: doocoo <doocoo@163.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-5/zh_CN/>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7238,7 +7238,6 @@ msgid "Allow to display all the rows"
 msgstr "允许显示所有行"
 
 #: libraries/config/messages.inc.php:840
-#, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
 #| "authentication mode because the password is hard coded in the "
@@ -7248,9 +7247,7 @@ msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
-msgstr ""
-"注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码是保存在配置文件中，该"
-"选项也不限制直接执行可实现相同功能的命令"
+msgstr "注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码以硬编码形式保存在配置文件中；也不影响直接执行同等命令。"
 
 #: libraries/config/messages.inc.php:844
 msgid "Show password change form"
@@ -7359,10 +7356,9 @@ msgid "Retain query box"
 msgstr "保留查询框"
 
 #: libraries/config/messages.inc.php:888
-#, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
-msgstr "允许显示数据库和数据表的统计信息 (如：空间使用)"
+msgstr "允许显示数据库和数据表的统计信息 (如：空间使用)。"
 
 #: libraries/config/messages.inc.php:890
 msgid "Show statistics"
@@ -7391,7 +7387,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin 警告"
 
 #: libraries/config/messages.inc.php:905
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words"
@@ -7399,7 +7394,7 @@ msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
-msgstr "禁止在列名包含 MySQL 保留字时在数据库结构页中显示默认警告"
+msgstr "当PHP设置session.gc_maxlifetime小于“LoginCookieValidity”时，不在主页显示默认警告。"
 
 #: libraries/config/messages.inc.php:910
 #, fuzzy
@@ -7408,32 +7403,26 @@ msgid "Login cookie validity warning"
 msgstr "登录cookie 有效期警告"
 
 #: libraries/config/messages.inc.php:913
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)"
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
-msgstr ""
-"编辑模式的文本框大小 (列数)，此值将用于 SQL 查询文本框 (*2) 和查询窗口 "
-"(*1.25)"
+msgstr "编辑模式的文本区大小 (列数)，此值将用于 SQL 查询文本区 (*2)。"
 
 #: libraries/config/messages.inc.php:916
 msgid "Textarea columns"
 msgstr "文本框列"
 
 #: libraries/config/messages.inc.php:918
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)"
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
-msgstr ""
-"编辑模式的文本框大小 (行数)，此值将用于 SQL 查询文本框 (*2) 和查询窗口 "
-"(*1.25)"
+msgstr "编辑模式的文本区大小 (行数)，此值将用于 SQL 查询文本区 (*2) 。"
 
 #: libraries/config/messages.inc.php:921
 msgid "Textarea rows"
@@ -7452,19 +7441,16 @@ msgid "Default title"
 msgstr "默认标题"
 
 #: libraries/config/messages.inc.php:931
-#, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
-msgstr "选中一个服务器时浏览器窗口的标题"
+msgstr "选中一个服务器时浏览器窗口的标题。"
 
 #: libraries/config/messages.inc.php:934
-#, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
-msgstr "选中一张数据表时浏览器窗口的标题"
+msgstr "选中一张数据表时浏览器窗口的标题。"
 
 #: libraries/config/messages.inc.php:937
-#, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
 #| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
@@ -7476,9 +7462,9 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"输入作为代理的 [kbd]IP：可信 HTTP 头[/kbd]。下面的例子指定了 phpMyAdmin 应该"
-"信任从代理 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd] 发来的 "
-"HTTP_X_FORWARDED_FOR 头"
+"输入作为代理的 [kbd]IP：可信 HTTP 头[/kbd]。下面的例子指定了 phpMyAdmin 应该信任从代理 "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd] 发来的 "
+"HTTP_X_FORWARDED_FOR 头。"
 
 #: libraries/config/messages.inc.php:942
 msgid "List of trusted proxies for IP allow/deny"
@@ -7532,6 +7518,7 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"当你的服务器无法直接连接internet时，请填写代理URL，以便接收phpMyAdmin更新信息或是提交错误报告。格式为“服务器名:端口号”。"
 
 #: libraries/config/messages.inc.php:965
 msgid "Proxy url"
@@ -7551,15 +7538,15 @@ msgid "Proxy username"
 msgstr "代理用户名"
 
 #: libraries/config/messages.inc.php:973
+#, fuzzy
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "代理密码。"
 
 #: libraries/config/messages.inc.php:974
 msgid "Proxy password"
 msgstr "代理密码"
 
 #: libraries/config/messages.inc.php:977
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
 #| "compression for import and export operations"
@@ -7567,24 +7554,26 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP "
-"(外链，英文)[/a] 压缩"
+"允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP (外链，英文)[/a]"
+" 压缩。"
 
 #: libraries/config/messages.inc.php:980
 msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:982
+#, fuzzy
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "输入主reCaptcha服务的公钥。"
 
 #: libraries/config/messages.inc.php:984
 msgid "Public key for reCaptcha"
 msgstr "reCaptcha的公共密匙"
 
 #: libraries/config/messages.inc.php:986
+#, fuzzy
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "输入您的域的reCaptcha服务私钥。"
 
 #: libraries/config/messages.inc.php:988
 msgid "Private key for reCaptcha"
@@ -7592,7 +7581,7 @@ msgstr "reCaptcha私有密匙"
 
 #: libraries/config/messages.inc.php:991
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "选择发送错误报告时的默认行为。"
 
 #: libraries/config/messages.inc.php:993
 msgid "Send error reports"
@@ -7602,31 +7591,28 @@ msgstr "发送错误报告"
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
-msgstr ""
+msgstr "查询将在回车后执行。插入新行使用Shift-Enter。"
 
 #: libraries/config/messages.inc.php:999
-#, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
-msgstr "已执行的查询"
+msgstr "在控制台使用回车执行查询"
 
 #: libraries/config/messages.inc.php:1002
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
-msgstr ""
+msgstr "启用零配置模式以自动安装phpMyAdmin设置表。"
 
 #: libraries/config/messages.inc.php:1005
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "服务器设置"
+msgstr "启用零配置模式"
 
 #: libraries/config/page_settings.class.php:140
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "无法保存设置，提交的表单中有错误"
+msgstr "无法保存设置，提交的配置表单中存在错误！"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7690,17 +7676,17 @@ msgstr "已清空表 %s。"
 
 #: libraries/controllers/DatabaseStructureController.class.php:436
 #: tbl_operations.php:400 view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "已删除视图 %s"
+msgstr "已删除视图 %s。"
 
 #: libraries/controllers/DatabaseStructureController.class.php:437
 #: tbl_operations.php:401
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "已删除表 %s"
+msgstr "已删除表 %s。"
 
 #: libraries/controllers/DatabaseStructureController.class.php:745
 msgid "Favorite List is full!"
@@ -7732,16 +7718,15 @@ msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改表 %1$s。"
 
 #: libraries/controllers/TableRelationController.class.php:218
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "已成功杀死线程 %s 。"
+msgstr "显示字段已成功更新。"
 
 #: libraries/controllers/TableRelationController.class.php:288
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relations were successfully updated."
-msgstr "已添加内联关系"
+msgstr "成功更新内联关系。"
 
 #: libraries/controllers/TableSearchController.class.php:838
 #, fuzzy
@@ -7757,17 +7742,16 @@ msgstr "缩放搜索"
 
 #: libraries/controllers/TableSearchController.class.php:850
 #: templates/table/search/selection_form.phtml:59
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
-msgstr "查找并替换"
+msgstr "查找和替换"
 
 #: libraries/controllers/TableStructureController.class.php:163
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "列名 '%s' 是一个MySQL 保留关键字。"
+msgstr[0] "名称 '%s' 是一个MySQL 保留关键字。"
 
 #: libraries/controllers/TableStructureController.class.php:241
 msgid "No column selected."
@@ -7842,16 +7826,17 @@ msgid "See %sour documentation%s for more information."
 msgstr "详情请查看%s我们的文档%s。"
 
 #: libraries/database_interface.inc.php:51
+#, fuzzy
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
-msgstr ""
+msgstr "phpMyAdmin不推荐使用mysql扩展。请考虑使用mysqli扩展代替。"
 
 #: libraries/db_designer.lib.php:117
 #, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr "无法加载导入插件，请检查您的安装！"
+msgstr "无法加载schema插件，请检查您的安装！"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:382
 msgid "Can't seek in an unbuffered result set"
@@ -7887,11 +7872,12 @@ msgstr "密码加密方式："
 
 #: libraries/display_change_password.lib.php:118
 #: libraries/server_privileges.lib.php:1800
+#, fuzzy
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
-msgstr ""
+msgstr "此方法连接服务器时，需要使用SSL连接或未加密但使用RSA加密了密码的连接。"
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -7930,52 +7916,44 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "正在导出数据表“%s”中的记录"
 
 #: libraries/display_export.lib.php:200
-#, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
-msgstr "导出类型"
+msgstr "导出模板："
 
 #: libraries/display_export.lib.php:205
-#, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
-msgstr "文件名模板："
+msgstr "新模板："
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "Table name"
 msgid "Template name"
-msgstr "数据表名"
+msgstr "模板名称"
 
 #: libraries/display_export.lib.php:217
-#, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "文件名模板："
+msgstr "现有模板："
 
 #: libraries/display_export.lib.php:218
-#, fuzzy
 #| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "临时磁盘使用率"
+msgstr "模板："
 
 #: libraries/display_export.lib.php:223
-#, fuzzy
 #| msgid "Updated"
 msgid "Update"
 msgstr "更新"
 
 #: libraries/display_export.lib.php:245
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a template"
-msgstr "选择表"
+msgstr "选择一个模板"
 
 #: libraries/display_export.lib.php:291
-#, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
-msgstr "导出方式"
+msgstr "导出方式："
 
 #: libraries/display_export.lib.php:301
 msgid "Quick - display only the minimal options"
@@ -7986,17 +7964,15 @@ msgid "Custom - display all possible options"
 msgstr "自定义 - 显示所有可用的选项"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "数据库"
+msgstr "数据库："
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "数据表"
+msgstr "数据表："
 
 #: libraries/display_export.lib.php:357 libraries/display_import.lib.php:359
 #: libraries/plugins/export/ExportCodegen.class.php:107
@@ -8094,20 +8070,18 @@ msgid "View output as text"
 msgstr "直接显示为文本"
 
 #: libraries/display_export.lib.php:751
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "将视图作为表导出"
+msgstr "将数据库导出为独立的文件"
 
 #: libraries/display_export.lib.php:753
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "导出表头"
+msgstr "将每个表导出为独立的文件"
 
 #: libraries/display_export.lib.php:783 libraries/display_export.lib.php:909
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "重命名导出的数据库/表/列"
 
 #: libraries/display_export.lib.php:808
 msgid "Save output to a file"
@@ -8115,13 +8089,12 @@ msgstr "保存为文件"
 
 #: libraries/display_export.lib.php:841
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "跳过数据表，当大于"
 
 #: libraries/display_export.lib.php:936
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database"
-msgstr "选择表"
+msgstr "选择数据库"
 
 #: libraries/display_export.lib.php:938
 #, fuzzy
@@ -8130,28 +8103,24 @@ msgid "Select table"
 msgstr "选择表"
 
 #: libraries/display_export.lib.php:954
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "数据库名"
+msgstr "新数据库名"
 
 #: libraries/display_export.lib.php:978
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "新页面名: "
+msgstr "新数据表名称"
 
 #: libraries/display_export.lib.php:988
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "复制字段名。"
+msgstr "原字段名"
 
 #: libraries/display_export.lib.php:989
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "复制字段名。"
+msgstr "新字段名"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -8208,14 +8177,13 @@ msgid ""
 msgstr "压缩文件名必须以 <b>.[格式].[压缩方式]</b> 结尾。如：<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "要导入的文件："
 
 #: libraries/display_import.lib.php:234 libraries/display_import.lib.php:251
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "您可在各页面间拖放文件。"
 
 #: libraries/display_import.lib.php:254
 msgid "File uploads are not allowed on this server."
@@ -8249,10 +8217,9 @@ msgid ""
 msgstr "从第一个开始跳过的查询数（SQL用）或行数（其他用）："
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Options"
 msgid "Other options:"
-msgstr "选项"
+msgstr "其它选项："
 
 #: libraries/display_import.lib.php:478
 msgid ""
@@ -8650,18 +8617,16 @@ msgid ""
 msgstr "下列结构被创建或修改。你可以:"
 
 #: libraries/import.lib.php:1258
-#, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
-msgstr "请通过点击结构的名称来查看它的内容"
+msgstr "请通过点击结构的名称来查看它的内容。"
 
 #: libraries/import.lib.php:1261
-#, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr "点击相应的“选项”链接修改它的设置"
+msgstr "点击相应的“选项”链接修改设置。"
 
 #: libraries/import.lib.php:1263
 #, fuzzy
@@ -8696,13 +8661,14 @@ msgstr "转到视图: %s"
 
 #: libraries/import.lib.php:1391
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "只能预览单一数据表的UPDATE和DELETE查询。"
 
 #: libraries/import.lib.php:1614
+#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
-msgstr ""
+msgstr "回滚操作需要数据表采用支持事务处理的存储引擎，且SQL查询仅限INSERT、UPDATE、DELETE和REPLACE。"
 
 #: libraries/index.lib.php:38
 #, php-format
@@ -8728,10 +8694,9 @@ msgid "Binary"
 msgstr "二进制"
 
 #: libraries/insert_edit.lib.php:598
-#, fuzzy
 #| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "因长度问题，<br /> 该字段可能无法编辑"
+msgstr "因长度问题，<br /> 该字段可能无法编辑。"
 
 #: libraries/insert_edit.lib.php:1048
 msgid "Binary - do not edit"
@@ -8827,7 +8792,7 @@ msgstr "转换为假名"
 
 #: libraries/mult_submits.inc.php:314
 msgid "Success!"
-msgstr ""
+msgstr "成功！"
 
 #: libraries/mult_submits.lib.php:318
 msgid "Replace table prefix:"
@@ -8959,7 +8924,7 @@ msgstr "罗马尼亚语"
 
 #: libraries/mysql_charsets.lib.php:239
 msgid "Sinhalese"
-msgstr ""
+msgstr "僧伽罗语"
 
 #: libraries/mysql_charsets.lib.php:242
 msgid "Slovak"
@@ -9004,10 +8969,9 @@ msgid "multilingual"
 msgstr "多语言"
 
 #: libraries/mysql_charsets.lib.php:269
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "文件名"
+msgstr "越南语"
 
 #: libraries/mysql_charsets.lib.php:297
 msgid "Central European"
@@ -9050,40 +9014,34 @@ msgid "Czech-Slovak"
 msgstr "捷克斯洛伐克语"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "载入导航树是出现错误"
+msgstr "载入导航显示时出现错误"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Column names: "
 msgid "Groups:"
-msgstr "字段名: "
+msgstr "组："
 
 #: libraries/navigation/Navigation.class.php:193
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "事件"
+msgstr "事件："
 
 #: libraries/navigation/Navigation.class.php:194
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "函数"
+msgstr "函数："
 
 #: libraries/navigation/Navigation.class.php:195
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "存储过程"
+msgstr "存储过程："
 
 #: libraries/navigation/Navigation.class.php:197
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "视图"
+msgstr "视图："
 
 #: libraries/navigation/Navigation.class.php:219
 #: libraries/tracking.lib.php:281 libraries/tracking.lib.php:1622
@@ -9104,36 +9062,33 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 文档"
 
 #: libraries/navigation/NavigationHeader.class.php:206
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "导航面板"
+msgstr "导航面板设定"
 
 #: libraries/navigation/NavigationHeader.class.php:217
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "刷新导航框架"
+msgstr "重新载入导航面板"
 
 #: libraries/navigation/NavigationTree.class.php:739
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
-msgstr ""
+msgstr "导航面板中存在较大的项目组合，可能影响性能。请考虑禁用项目组合。"
 
 #: libraries/navigation/NavigationTree.class.php:922
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "找到 %s 条其他结果"
+msgstr[0] "找到 %s 条结果"
 
 #: libraries/navigation/NavigationTree.class.php:1332
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "根据名称筛选数据库"
+msgstr "根据名称或正则表达式筛选数据库"
 
 #: libraries/navigation/NavigationTree.class.php:1334
 #: libraries/navigation/NavigationTree.class.php:1368
@@ -9163,7 +9118,7 @@ msgstr "无法包含类 \"%1$s\"， 文件\"%2$s\" 没有找到"
 
 #: libraries/navigation/Nodes/Node.class.php:792
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "扩展/收起"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:24
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:25
@@ -9177,16 +9132,14 @@ msgid "New"
 msgstr "新建"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:39
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "数据库导出选项"
+msgstr "数据库操作"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:661
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "显示提示"
+msgstr "显示隐藏项目"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:34
 msgctxt "Create new database"
@@ -9216,7 +9169,6 @@ msgid "New"
 msgstr "新建"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:32
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
 msgstr "存储过程"
@@ -9258,22 +9210,22 @@ msgstr "新建"
 
 #: libraries/normalization.lib.php:131
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "使所有字段原子化"
 
 #: libraries/normalization.lib.php:133 libraries/normalization.lib.php:810
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "第一范式"
 
 #: libraries/normalization.lib.php:136 libraries/normalization.lib.php:187
 #: libraries/normalization.lib.php:235 libraries/normalization.lib.php:273
 msgid "Step 1."
-msgstr ""
+msgstr "第1步。"
 
 #: libraries/normalization.lib.php:138
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
-msgstr ""
+msgstr "有字段可以被拆分为多个字段吗？例如：地址可以被拆分为街道、城市、国家以及邮政编码等。"
 
 #: libraries/normalization.lib.php:145
 msgid "Show me the central list of columns that are not already in this table"
@@ -9283,62 +9235,56 @@ msgstr ""
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
-msgstr ""
+msgstr "选择可以被拆分的字段。（选择“没有这样的字段”将进入下一步）"
 
 #: libraries/normalization.lib.php:155 normalization.php:18
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
-msgstr "选择两列"
+msgstr "选择一个……"
 
 #: libraries/normalization.lib.php:156 normalization.php:19
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "移动字段"
+msgstr "没有这样的字段"
 
 #: libraries/normalization.lib.php:163
 msgid "split into "
-msgstr ""
+msgstr "拆分为 "
 
 #: libraries/normalization.lib.php:184
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "添加主键"
+msgstr "存在主键"
 
 #: libraries/normalization.lib.php:190
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "错误：关系已存在。"
+msgstr "主键已存在。"
 
 #: libraries/normalization.lib.php:195
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
-msgstr ""
+msgstr "没有主键；请添加。<br/>提示：主键是能够对所有的记录都能唯一标识的字段（或字段组合）。"
 
 #: libraries/normalization.lib.php:202
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "使用已有字段（或字段组合）添加主键"
 
 #: libraries/normalization.lib.php:207
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
-msgstr ""
+msgstr "如果无法将现有字段组合作为主键"
 
 #: libraries/normalization.lib.php:211
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "添加主键"
+msgstr "+ 新建字段作为主键"
 
 #: libraries/normalization.lib.php:234
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
-msgstr "删除字段"
+msgstr "删除冗余的字段"
 
 #: libraries/normalization.lib.php:237
 msgid ""
@@ -9346,24 +9292,23 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"是否存 一组字段，其值合并后与现存的某一字段相同？例如：有“姓”和“名”和“姓名”三个字段，前二者的值合并后与“姓名”字段的值一致，这就形成了冗余。"
 
 #: libraries/normalization.lib.php:243
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
-msgstr ""
+msgstr "选中冗余的字段，点击删除。如果没有，点击“无冗余字段”"
 
 #: libraries/normalization.lib.php:248
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "删除选中的用户"
+msgstr "删除选中的"
 
 #: libraries/normalization.lib.php:249
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "添加字段"
+msgstr "无冗余字段"
 
 #: libraries/normalization.lib.php:272
 msgid "Move repeating groups"
@@ -9377,20 +9322,22 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"是否存在两个及以上的字段，表示的是同一个属性？例如：“书本”数据表可能包含“作者1”、“作者2”、“作者3”之类的字段。在这种情况下，应当创建一个新表（包"
+"含书本ID和作者字段）。"
 
 #: libraries/normalization.lib.php:283
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
-msgstr ""
+msgstr "选择重复同一属性的各字段。如果没有，请点击“无重复字段组”"
 
 #: libraries/normalization.lib.php:289
 msgid "No repeating group"
-msgstr ""
+msgstr "无重复字段组"
 
 #: libraries/normalization.lib.php:318
 msgid "Step 2."
-msgstr ""
+msgstr "第二步。"
 
 #: libraries/normalization.lib.php:318
 msgid "Find partial dependencies"
