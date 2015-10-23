@@ -53,10 +53,16 @@ shift
 branch=$1
 shift
 
+if [ -f libraries/Config.php ] ; then
+    CONFIG_LIB=libraries/Config.php
+else
+    CONFIG_LIB=libraries/Config.class.php
+fi
+
 cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
-     - in libraries/Config.php PMA\libraries\Config::__constructor() the line
+     - in $CONFIG_LIB PMA\libraries\Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
      - in doc/conf.py the line
           " version = '$version' "
@@ -88,8 +94,8 @@ ensure_local_branch $branch
 git checkout $branch
 
 # Check release version
-if ! grep -q "'PMA_VERSION', '$version'" libraries/Config.php ; then
-    echo "There seems to be wrong version in libraries/Config.php!"
+if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
+    echo "There seems to be wrong version in $CONFIG_LIB!"
     exit 2
 fi
 if test -f Documentation.html && ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
@@ -301,7 +307,7 @@ Todo now:
     based on documentation.
 
  6. increment rc count or version in the repository :
-        - in libraries/Config.php PMA\libraries\Config::__constructor() the line
+        - in $CONFIG_LIB PMA\libraries\Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
