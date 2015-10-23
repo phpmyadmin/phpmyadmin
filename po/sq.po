@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-23 09:39-0400\n"
 "PO-Revision-Date: 2015-09-05 23:03+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
@@ -4334,11 +4334,11 @@ msgstr "Dështoi në riemërimin e tabelës %1$s në %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabela %1$s është riemëruar në %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Nuk mund të ruajë tabelën e preferencave UI!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4347,7 +4347,7 @@ msgstr ""
 "Dështoi në pastrimin e tabelës së preferencave UI (shiko $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4358,19 +4358,19 @@ msgstr ""
 "qëndrueshme, pasi ju ta rifreskoni këtë faqe. Ju lutem, kontrollo nëse "
 "struktura e tabelës ka ndryshuar."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Emri i çelësit primar duhet të jetë \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "uk mund ta riemërojë indeksin tek PRIMARY!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Nuk janë përcaktuar pjesë të indeksit!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -15711,10 +15711,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Përshkrim"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Po ju kalojmë tek %s."
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Po kalon në hapin tjetër…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17040,6 +17041,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert është vendosur në 0"
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Po ju kalojmë tek %s."
 
 #, fuzzy
 #~| msgid "Authentication"

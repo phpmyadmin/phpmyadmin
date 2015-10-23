@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-23 09:39-0400\n"
 "PO-Revision-Date: 2015-10-15 11:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
@@ -4302,11 +4302,11 @@ msgstr "Virhe nimettäessä uudelleen taulua %1$s muotoon %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Taulu %1$s on nimeltään %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Taulukon käyttöliittymäasetuksia ei voida tallentaa!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4315,7 +4315,7 @@ msgstr ""
 "Taulun käyttöliittymäasetuksia ei voitu siivota (katso $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4326,19 +4326,19 @@ msgstr ""
 "eivät säily sivun päivittämisen jälkeen. Tarkista onko taulukon rakenne "
 "muuttunut."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Perusavaimen nimen on oltava PRIMARY!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Indeksiä ei voi muuttaa PRIMARY-nimiseksi!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Indeksin osia ei ole määritelty!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Virhe luotaessa kohteen %1$s viiteavainta (tarkista tietotyypit)"
@@ -16369,11 +16369,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Kuvaus"
 
-#: url.php:35
-#, fuzzy, php-format
-#| msgid "Tracking report"
-msgid "Taking you to %s."
-msgstr "Seurantaraportti"
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Viedään sinut seuraavaan vaiheeseen…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17614,6 +17614,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert on asetettu arvoon 0"
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to %s."
+#~ msgstr "Seurantaraportti"
 
 #, fuzzy
 #~| msgid "Authentication"

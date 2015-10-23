@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-23 09:39-0400\n"
 "PO-Revision-Date: 2015-09-14 09:27+0200\n"
 "Last-Translator: muhammad <esy_vb@yahoo.com>\n"
 "Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
@@ -4479,20 +4479,20 @@ msgstr "هەڵە لە ناونانەوەی خشتەی %1$s بۆ %2$s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr ""
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save table UI preferences!"
 msgstr "نەتوانرا خشتە تازەکە پاشەکەوت بکرێت"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4500,19 +4500,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr ""
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr ""
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr ""
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -15382,11 +15382,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr ""
 
-#: url.php:35
-#, fuzzy, php-format
-#| msgid "Tracking report"
-msgid "Taking you to %s."
-msgstr "ڕاپۆرتە شوێنکەتووەکان"
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "هەنگاوی داهاتووت…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16480,6 +16480,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "نرخی concurrent_insert ڕێکخراوە بۆ 0"
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to %s."
+#~ msgstr "ڕاپۆرتە شوێنکەتووەکان"
 
 #, fuzzy
 #~| msgid "Generate password"

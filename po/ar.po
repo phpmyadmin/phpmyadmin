@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-23 09:39-0400\n"
 "PO-Revision-Date: 2015-10-15 11:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-5/ar/"
@@ -4631,20 +4631,20 @@ msgstr "خطأ في إعادة تسمية الجدول %1$s إلى %2$s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "تمّت تسمية الجدول %1$s إلى %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "لا يمكن حفظ تفضيلات جدول UI"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4652,19 +4652,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "اسم المفتاح الأساسي يجب أن يكون أساسيا \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "لايمكن تغيير اسم الفهرس إلى الأساسي!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "أجزاء الفهرسة غير معرفة!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -16349,10 +16349,10 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "الوصف"
 
-#: url.php:35
-#, fuzzy, php-format
+#: url.php:36
+#, fuzzy
 #| msgid "Tracking report"
-msgid "Taking you to %s."
+msgid "Taking you to the target site."
 msgstr "تقرير التتبع"
 
 #: user_password.php:34
@@ -17535,6 +17535,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to %s."
+#~ msgstr "تقرير التتبع"
 
 #, fuzzy
 #~| msgid "Authentication"

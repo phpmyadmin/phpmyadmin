@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-23 09:39-0400\n"
 "PO-Revision-Date: 2015-06-22 04:13+0200\n"
 "Last-Translator: Sebastian <sebastian@sgundersen.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -4391,11 +4391,11 @@ msgstr "Feil ved endring av tabellnavn %1$s til %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabellen %1$s har endret navn til %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Kunne ikke lagre preferanser for tabellgrensesnitt!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4404,7 +4404,7 @@ msgstr ""
 "Feil ved opprydning av preferansene for tabellgrensesnitt (se $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4415,19 +4415,19 @@ msgstr ""
 "etter at du har lastet denne siden på nytt. Vennligst sjekk om "
 "tabellstrukturen har blitt endret."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Navnet til primærnøkkelen må være \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan ikke endre indeks til PRIMARY!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Ingen indeksdeler definert!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -16895,11 +16895,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: url.php:35
-#, fuzzy, php-format
-#| msgid "Tracking report"
-msgid "Taking you to %s."
-msgstr "Overvåkningsrapport"
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Tar deg videre til neste trinn…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -18143,6 +18143,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er satt til 0"
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to %s."
+#~ msgstr "Overvåkningsrapport"
 
 #, fuzzy
 #~| msgid "Authentication"
