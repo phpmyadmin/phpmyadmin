@@ -1921,19 +1921,25 @@ class Config
      */
     public static function fatalErrorHandler()
     {
-        if (isset($GLOBALS['pma_config_loading']) && $GLOBALS['pma_config_loading']) {
-            $error = error_get_last();
-            if ($error !== null) {
-                PMA_fatalError(
-                    sprintf(
-                        'Failed to load phpMyAdmin configuration (%s:%s): %s',
-                        Error::relPath($error['file']),
-                        $error['line'],
-                        $error['message']
-                    )
-                );
-            }
+        if (!isset($GLOBALS['pma_config_loading'])
+            || !$GLOBALS['pma_config_loading']
+        ) {
+            return;
         }
+
+        $error = error_get_last();
+        if ($error === null) {
+            return;
+        }
+
+        PMA_fatalError(
+            sprintf(
+                'Failed to load phpMyAdmin configuration (%s:%s): %s',
+                Error::relPath($error['file']),
+                $error['line'],
+                $error['message']
+            )
+        );
     }
 }
 
