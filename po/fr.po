@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-23 09:39-0400\n"
-"PO-Revision-Date: 2015-10-15 20:37+0200\n"
+"PO-Revision-Date: 2015-10-24 11:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/"
-">\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15769,10 +15769,9 @@ msgid "Description"
 msgstr "Description"
 
 #: url.php:36
-#, fuzzy
 #| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "Vous êtes redirigé vers l'étape suivante…"
+msgstr "En route vers le site cible."
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
