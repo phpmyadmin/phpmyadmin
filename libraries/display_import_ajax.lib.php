@@ -43,7 +43,9 @@ foreach ($plugins as $plugin) {
     $check = "PMA_Import_" . $plugin . "Check";
 
     if ($check()) {
-        $upload_class = 'PMA\libraries\plugins\import\upload\Upload' . ucwords($plugin);
+        $upload_class = 'PMA\libraries\plugins\import\upload\Upload' . ucwords(
+            $plugin
+        );
         $_SESSION[$SESSION_KEY]["handler"] = $upload_class;
         break;
     }
@@ -67,11 +69,12 @@ function PMA_Import_apcCheck()
 }
 
 /**
-  * Checks if PMA\libraries\plugins\import\upload\UploadProgress bar extension is available.
-  *
-  * @return boolean true if PMA\libraries\plugins\import\upload\UploadProgress extension is available,
-  *                 false if it is not
-  */
+ * Checks if PMA\libraries\plugins\import\upload\UploadProgress bar extension is
+ * available.
+ *
+ * @return boolean true if PMA\libraries\plugins\import\upload\UploadProgress
+ * extension is available, false if it is not
+ */
 function PMA_Import_progressCheck()
 {
     if (! function_exists("uploadprogress_get_info")

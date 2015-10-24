@@ -64,8 +64,8 @@ if (empty($is_table)
 
         if (! $is_table) {
             $_result = $GLOBALS['dbi']->tryQuery(
-                'SHOW TABLES LIKE \'' . PMA\libraries\Util::sqlAddSlashes($table, true)
-                . '\';',
+                'SHOW TABLES LIKE \''
+                . PMA\libraries\Util::sqlAddSlashes($table, true) . '\';',
                 null, PMA\libraries\DatabaseInterface::QUERY_STORE
             );
             $is_table = @$GLOBALS['dbi']->numRows($_result);
@@ -87,7 +87,8 @@ if (empty($is_table)
                  * only happen if IS_TRANSFORMATION_WRAPPER?
                  */
                 $_result = $GLOBALS['dbi']->tryQuery(
-                    'SELECT COUNT(*) FROM ' . PMA\libraries\Util::backquote($table) . ';',
+                    'SELECT COUNT(*) FROM ' . PMA\libraries\Util::backquote($table)
+                    . ';',
                     null,
                     PMA\libraries\DatabaseInterface::QUERY_STORE
                 );

@@ -253,21 +253,24 @@ function PMA_getOptionsForExportTemplates($export_type)
        . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
        . PMA\libraries\Util::backquote($cfgRelation['export_templates'])
        . " WHERE `username` = "
-       . "'" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-       . " AND `export_type` = '" . $export_type . "'"
+       . "'" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user'])
+        . "' AND `export_type` = '" . $export_type . "'"
        . " ORDER BY `template_name`;";
 
     $result = PMA_queryAsControlUser($query);
-    if ($result) {
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
-            $ret .= '<option value="' . htmlspecialchars($row['id']) . '"';
-            if (!empty($_GET['template_id']) && $_GET['template_id'] == $row['id']) {
-                $ret .= ' selected="selected"';
-            }
-            $ret .= '>';
-            $ret .=  htmlspecialchars($row['template_name']) . '</option>';
-        }
+    if (!$result) {
+        return $ret;
     }
+
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
+        $ret .= '<option value="' . htmlspecialchars($row['id']) . '"';
+        if (!empty($_GET['template_id']) && $_GET['template_id'] == $row['id']) {
+            $ret .= ' selected="selected"';
+        }
+        $ret .= '>';
+        $ret .=  htmlspecialchars($row['template_name']) . '</option>';
+    }
+
     return $ret;
 }
 
@@ -1080,7 +1083,8 @@ function PMA_getExportDisplay(
         . ' name="dump" class="disableAjax">';
 
     //output Hidden Inputs
-    $single_table_str = isset($GLOBALS['single_table'])? $GLOBALS['single_table'] : '';
+    $single_table_str = isset($GLOBALS['single_table']) ? $GLOBALS['single_table']
+        : '';
     $html .= PMA_getHtmlForHiddenInput(
         $export_type,
         $db,

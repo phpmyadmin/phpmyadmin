@@ -112,7 +112,10 @@ class Console
                     __('shared')
                 );
                 $output .= sprintf(
-                    /* l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared */
+                    /* l10n: First parameter will be replaced with the translation
+                    for Total and the number of bookmarks, second one with the
+                    translation for private and the third one, with the translation
+                    for shared */
                     __('%1$s, %2$s and %3$s bookmarks included'),
                     $bookmarks_message,
                     $private_message,

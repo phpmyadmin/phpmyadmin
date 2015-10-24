@@ -190,7 +190,8 @@ function PMA_buildIndexStatements($index, $index_choice,
 
     $comment = $index['Index_comment'];
     if (! empty($comment)) {
-        $sql_query .= " COMMENT '" . PMA\libraries\Util::sqlAddSlashes($comment) . "'";
+        $sql_query .= " COMMENT '" . PMA\libraries\Util::sqlAddSlashes($comment)
+            . "'";
     }
 
     $statement[] = $sql_query;
@@ -385,7 +386,11 @@ function PMA_getPartitionDefinition($name, $partition, $isSubPartition = false)
         $j = 0;
         $subpartitions = array();
         foreach ($partition['subpartitions'] as $subpartition) {
-            $subpartitions[] = PMA_getPartitionDefinition($name . 's' . $j, $subpartition, true);
+            $subpartitions[] = PMA_getPartitionDefinition(
+                $name . 's' . $j,
+                $subpartition,
+                true
+            );
             $j++;
         }
         $sql_query .= " (" . implode(", ", $subpartitions) . ")";

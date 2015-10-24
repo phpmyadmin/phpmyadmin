@@ -606,7 +606,9 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => 'SELECT @@default_authentication_plugin',
-        'result' => array(array('@@default_authentication_plugin' => 'mysql_native_password'))
+        'result' => array(
+            array('@@default_authentication_plugin' => 'mysql_native_password')
+        ),
     ),
     array(
         'query' => "SELECT TABLE_NAME FROM information_schema.VIEWS WHERE "
@@ -647,7 +649,8 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => "SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` "
-            . "FROM `information_schema`.`PLUGINS` WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';",
+            . "FROM `information_schema`.`PLUGINS` "
+            . "WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';",
         'result' => array()
     )
 );

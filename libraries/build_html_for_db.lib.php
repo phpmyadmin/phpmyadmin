@@ -143,7 +143,10 @@ function PMA_buildHtmlForDb(
                 $replication_info[$type]['Ignore_DB']
             );
             if (/*overload*/mb_strlen($key) > 0) {
-                $out .= PMA\libraries\Util::getIcon('s_cancel.png',  __('Not replicated'));
+                $out .= PMA\libraries\Util::getIcon(
+                    's_cancel.png',
+                    __('Not replicated')
+                );
             } else {
                 $key = array_search(
                     $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
@@ -155,7 +158,10 @@ function PMA_buildHtmlForDb(
                     && count($replication_info[$type]['Do_DB']) == 1)
                 ) {
                     // if ($key != null) did not work for index "0"
-                    $out .= PMA\libraries\Util::getIcon('s_success.png', __('Replicated'));
+                    $out .= PMA\libraries\Util::getIcon(
+                        's_success.png',
+                        __('Replicated')
+                    );
                 }
             }
 

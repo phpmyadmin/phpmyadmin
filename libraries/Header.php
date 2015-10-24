@@ -236,7 +236,7 @@ class Header
             'db'    => $db,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
-            'show_databases_navigation_as_tree'=> $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
+            'show_databases_navigation_as_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
             'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
             'pma_text_default_tab' => Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']
@@ -531,8 +531,9 @@ class Header
         if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
-            $captcha_url = ' https://apis.google.com https://www.google.com/recaptcha/'
-               . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';
+            $captcha_url
+                = ' https://apis.google.com https://www.google.com/recaptcha/'
+                . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';
         } else {
             $captcha_url = '';
         }
@@ -593,9 +594,9 @@ class Header
         header(
             'X-XSS-Protection: 1; mode=block'
         );
-        // "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing a
-        // response away from the declared content-type
-        /// see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+        // "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing
+        // a response away from the declared content-type
+        // see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
         header(
             'X-Content-Type-Options: nosniff'
         );
@@ -682,7 +683,8 @@ class Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php?'
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
-            // load Print view's CSS last, so that it overrides all other CSS while 'printing'
+            // load Print view's CSS last, so that it overrides all other CSS while
+            // 'printing'
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/css/printview.css?' . $v . '" />';
         }

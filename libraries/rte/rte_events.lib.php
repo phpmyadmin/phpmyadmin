@@ -101,7 +101,8 @@ function PMA_EVN_handleEditor()
                     $_REQUEST['item_original_name']
                 );
                 $drop_item = "DROP EVENT "
-                    . PMA\libraries\Util::backquote($_REQUEST['item_original_name']) . ";\n";
+                    . PMA\libraries\Util::backquote($_REQUEST['item_original_name'])
+                    . ";\n";
                 $result = $GLOBALS['dbi']->tryQuery($drop_item);
                 if (! $result) {
                     $errors[] = sprintf(
@@ -560,16 +561,19 @@ function PMA_EVN_getQueryFromRequest()
             }
             if (! empty($_REQUEST['item_starts'])) {
                 $query .= "STARTS '"
-                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_starts']) . "' ";
+                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_starts'])
+                    . "' ";
             }
             if (! empty($_REQUEST['item_ends'])) {
                 $query .= "ENDS '"
-                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_ends']) . "' ";
+                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_ends'])
+                    . "' ";
             }
         } else {
             if (! empty($_REQUEST['item_execute_at'])) {
                 $query .= "AT '"
-                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_execute_at']) . "' ";
+                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_execute_at'])
+                    . "' ";
             } else {
                 $errors[]
                     = __('You must provide a valid execution time for the event.');

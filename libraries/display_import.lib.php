@@ -245,7 +245,10 @@ function PMA_getHtmlForImportOptionsFile(
             $html .= ' checked="checked"';
         }
         $html .= ' />';
-        $html .= PMA\libraries\Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+        $html .= PMA\libraries\Util::getSelectUploadFileBlock(
+            $import_list,
+            $cfg['UploadDir']
+        );
         $html .= '            </li>';
         $html .= '            </ul>';
 
@@ -257,7 +260,10 @@ function PMA_getHtmlForImportOptionsFile(
             __('File uploads are not allowed on this server.')
         )->getDisplay();
     } elseif (!empty($cfg['UploadDir'])) {
-        $html .= PMA\libraries\Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+        $html .= PMA\libraries\Util::getSelectUploadFileBlock(
+            $import_list,
+            $cfg['UploadDir']
+        );
     } // end if (web-server upload directory)
 
     $html .= '        </div>';

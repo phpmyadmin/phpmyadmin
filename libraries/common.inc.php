@@ -56,7 +56,10 @@ if (getcwd() == dirname(__FILE__)) {
  * PHP 5 function, so cannot easily localize this message.
  */
 if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
-    die('PHP 5.5+ is required. <br /> Currently installed version is: ' . phpversion());
+    die(
+        'PHP 5.5+ is required. <br /> Currently installed version is: '
+        . phpversion()
+    );
 }
 
 /**
@@ -804,7 +807,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
-        // need to be kept for processing in PMA\libraries\Config::loadUserPreferences()
+        // need to be kept for processing in
+        // PMA\libraries\Config::loadUserPreferences()
         $cache_key = 'server_' . $GLOBALS['server'];
         if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])
         ) {

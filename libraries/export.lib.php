@@ -997,8 +997,8 @@ function PMA_lockTables($db, $tables, $lockType = "WRITE")
 {
     $locks = array();
     foreach ($tables as $table) {
-        $locks[] = PMA\libraries\Util::backquote($db) . "." . PMA\libraries\Util::backquote($table)
-            . " " . $lockType;
+        $locks[] = PMA\libraries\Util::backquote($db) . "."
+            . PMA\libraries\Util::backquote($table) . " " . $lockType;
     }
 
     $sql = "LOCK TABLES " . implode(", ", $locks);

@@ -113,15 +113,19 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
                 . '</table>';
 
             $html .= '<div '
-                . ($orig_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
+                . ($orig_auth_plugin != 'sha256_password'
+                    ? 'style="display:none"'
+                    : '')
                 . ' id="ssl_reqd_warning_cp">'
                 . Message::notice(
                     __(
                         'This method requires using an \'<i>SSL connection</i>\' '
-                        . 'or an \'<i>unencrypted connection that encrypts the password '
-                        . 'using RSA</i>\'; while connecting to the server.'
+                        . 'or an \'<i>unencrypted connection that encrypts the '
+                        . 'password using RSA</i>\'; while connecting to the server.'
                     )
-                    . PMA\libraries\Util::showMySQLDocu('sha256-authentication-plugin')
+                    . PMA\libraries\Util::showMySQLDocu(
+                        'sha256-authentication-plugin'
+                    )
                 )
                     ->getDisplay()
                 . '</div>';
