@@ -12,10 +12,6 @@ use PMA;
 use PMA\libraries\plugins\TransformationsPlugin;
 use PMA\libraries\Response;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the json transformation for text plain
  *

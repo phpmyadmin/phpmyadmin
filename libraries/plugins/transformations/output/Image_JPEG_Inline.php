@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\output;
 
 use PMA\libraries\plugins\transformations\abs\InlineTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the inline transformation for image jpeg
  *

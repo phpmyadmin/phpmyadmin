@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations;
 
 use PMA\libraries\plugins\transformations\abs\TextLinkTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the link transformation for text plain
  *

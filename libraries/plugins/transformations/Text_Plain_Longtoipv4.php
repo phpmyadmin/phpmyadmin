@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations;
 
 use PMA\libraries\plugins\transformations\abs\LongToIPv4TransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the long to ipv4 transformation for text plain
  *

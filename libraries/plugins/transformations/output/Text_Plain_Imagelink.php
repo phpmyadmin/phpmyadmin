@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\output;
 
 use PMA\libraries\plugins\transformations\abs\TextImageLinkTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the image link transformation for text plain
  *

@@ -15,10 +15,6 @@ use PMA;
 use PMA\libraries\plugins\ImportPlugin;
 use SimpleXMLElement;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * We need way to disable external XML entities processing.
  */

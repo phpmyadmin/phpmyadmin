@@ -18,10 +18,6 @@ use PMA\libraries\gis\GISPoint;
 use PMA\libraries\gis\GISPolygon;
 use PMA\libraries\plugins\import\ShapeFile;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /* Get the ShapeFile class */
 require_once 'libraries/bfShapeFiles/ShapeFile.lib.php';
 

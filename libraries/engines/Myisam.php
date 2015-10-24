@@ -9,10 +9,6 @@ namespace PMA\libraries\engines;
 
 use PMA\libraries\StorageEngine;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * The MyISAM storage engine
  *

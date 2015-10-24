@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\abs;
 
 use PMA\libraries\plugins\TransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Provides common methods for all of the Bool2Text transformations plugins.
  *

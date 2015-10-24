@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\input;
 
 use PMA\libraries\plugins\transformations\abs\RegexValidationTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the input regex validation transformation for text plain.
  * Has one option: the regular expression

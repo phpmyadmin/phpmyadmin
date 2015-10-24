@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations;
 
 use PMA\libraries\plugins\transformations\abs\SubstringTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the substring transformation for text plain
  *

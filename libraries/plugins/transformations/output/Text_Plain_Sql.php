@@ -11,10 +11,6 @@ namespace PMA\libraries\plugins\transformations\output;
 use PMA\libraries\Response;
 use PMA\libraries\plugins\transformations\abs\SQLTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the sql transformation for text plain
  *

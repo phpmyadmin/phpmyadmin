@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\output;
 
 use PMA\libraries\plugins\transformations\abs\Bool2TextTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the Boolean to Text transformation for text plain.
  * Has one option: the output format (default 'T/F')

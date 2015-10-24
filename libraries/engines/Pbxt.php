@@ -10,10 +10,6 @@ namespace PMA\libraries\engines;
 use PMA;
 use PMA\libraries\StorageEngine;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * The PBXT storage engine
  *

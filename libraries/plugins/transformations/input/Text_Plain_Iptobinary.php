@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\input;
 
 use PMA\libraries\plugins\IOTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
  *

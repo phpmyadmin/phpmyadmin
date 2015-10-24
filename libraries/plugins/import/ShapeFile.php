@@ -9,10 +9,6 @@
  */
 namespace PMA\libraries\plugins\import;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * 1) To load data from .dbf file only when the dBase extension is available.
  * 2) To use PMA_importGetNextChunk() functionality to read data, rather than

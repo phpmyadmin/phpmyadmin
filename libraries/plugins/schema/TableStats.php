@@ -9,10 +9,6 @@ namespace PMA\libraries\plugins\schema;
 
 use PMA;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Table preferences/statistics
  *

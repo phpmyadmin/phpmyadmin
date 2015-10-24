@@ -7,10 +7,6 @@
  */
 namespace PMA\libraries\plugins\schema;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Relations preferences/statistics
  *

@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\output;
 
 use PMA\libraries\plugins\transformations\abs\HexTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the hex transformation for application octetstream
  *

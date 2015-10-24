@@ -7,10 +7,6 @@
  */
 namespace PMA\libraries\engines;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * The Innobase storage engine
  *
