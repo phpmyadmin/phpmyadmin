@@ -39,6 +39,22 @@ function PMA_checkRequiredPrivilegesForFlushing()
  */
 function PMA_checkRequiredPrivilgesForAdjust()
 {
+    if (PMA\libraries\Util::cacheExists('db_priv')) {
+        $GLOBALS['db_priv'] = PMA\libraries\Util::cacheGet(
+            'db_priv'
+        );
+        $GLOBALS['col_priv'] = PMA\libraries\Util::cacheGet(
+            'col_priv'
+        );
+        $GLOBALS['table_priv'] = PMA\libraries\Util::cacheGet(
+            'table_priv'
+        );
+        $GLOBALS['proc_priv'] = PMA\libraries\Util::cacheGet(
+            'proc_priv'
+        );
+        return;
+    }
+
     $privs_available = true;
     // FOR DB PRIVS
     $select_privs_available = $GLOBALS['dbi']->tryQuery(
@@ -214,6 +230,12 @@ function PMA_checkRequiredPrivilgesForAdjust()
     // Save the value
     $GLOBALS['proc_priv'] = $privs_available;
 
+    // must also cacheUnset() them in
+    // libraries/plugins/auth/AuthenticationCookie.class.php
+    PMA\libraries\Util::cacheSet('proc_priv', $GLOBALS['proc_priv']);
+    PMA\libraries\Util::cacheSet('table_priv', $GLOBALS['table_priv']);
+    PMA\libraries\Util::cacheSet('col_priv', $GLOBALS['col_priv']);
+    PMA\libraries\Util::cacheSet('db_priv', $GLOBALS['db_priv']);
 }
 
 /**
