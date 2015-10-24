@@ -444,6 +444,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             Util::cacheUnset('db_to_create');
             Util::cacheUnset('dbs_where_create_table_allowed');
             Util::cacheUnset('dbs_to_test');
+            Util::cacheUnset('db_priv');
+            Util::cacheUnset('col_priv');
+            Util::cacheUnset('table_priv');
+            Util::cacheUnset('proc_priv');
+
             $GLOBALS['no_activity'] = true;
             $this->authFails();
             if (! defined('TESTSUITE')) {
