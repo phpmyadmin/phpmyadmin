@@ -29,13 +29,9 @@ function PMA_parseAndAnalyze($sql_query, $db = null)
     }
 
     include_once 'libraries/parse_analyze.lib.php';
-    list(
-        $analyzed_sql_results,
-        $db,
-        $table
-    ) = PMA_parseAnalyze($sql_query, $db);
+    list($analyzed_sql_results,,) = PMA_parseAnalyze($sql_query, $db);
 
-    return $analyzed_sql_results; 
+    return $analyzed_sql_results;
 }
 
 /**

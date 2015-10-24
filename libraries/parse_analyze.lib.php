@@ -10,12 +10,12 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Calls the parser on a query 
+ * Calls the parser on a query
  *
  * @param string $sql_query the query to parse
  * @param string $db        the current database
  *
- * @return array 
+ * @return array
  *
  * @access  public
  */
