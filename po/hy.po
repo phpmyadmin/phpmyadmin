@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-23 09:40-0400\n"
-"PO-Revision-Date: 2015-10-16 21:03+0200\n"
+"PO-Revision-Date: 2015-10-24 16:49+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8692,14 +8692,13 @@ msgid "Edit next row"
 msgstr "Խմբագրել հաջորդ տողը"
 
 #: libraries/insert_edit.lib.php:1541
-#, fuzzy
 #| msgid ""
 #| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Օգտագործեք TAB ստեղնը՝ արշեքների դաշտերի միջև տեղափոխվելու, կամ CTRL+սլաքեր՝ "
-"ցանկացած տեղ տեղափոխվելու համար"
+"Օգտագործեք TAB ստեղնը՝ արժեքների դաշտերի միջև տեղափոխվելու, կամ CTRL+սլաքեր՝ "
+"ցանկացած տեղ տեղափոխվելու համար։"
 
 #: libraries/insert_edit.lib.php:1578 libraries/replication_gui.lib.php:546
 #: libraries/rte/rte_routines.lib.php:1583
@@ -14929,10 +14928,9 @@ msgid "Description"
 msgstr "Նկարագրություն"
 
 #: url.php:36
-#, fuzzy
 #| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "Անցում դեպի հաջորդ քայլ …"
+msgstr "Անցում դեպի նպատակային կայք։"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15122,10 +15120,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Անհրաժեշտ է արդիացնել %s-ը %s կամ բարձր տարբերակին։"
+msgstr "Անհրաժեշտ է արդիացնել MySQL 5.5 կայուն տարբերակին։"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -15777,10 +15774,9 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "slow_launch_time is set to %s"
 msgid "Slow_launch_threads is above 2s."
-msgstr "slow_launch_time նշված է %s"
+msgstr "Slow_launch_threads 2s-ից բարձր է։"
 
 #: libraries/advisory_rules.txt:380
 msgid ""
