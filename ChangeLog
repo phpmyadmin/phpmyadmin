@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
 - issue #11592 Missing headers in zipped export
 - issue #11590 Parser: Array to string conversion
+- issue #11597 Huge binary log growth on 4.5.x
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()
