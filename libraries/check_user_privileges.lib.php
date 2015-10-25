@@ -37,7 +37,7 @@ function PMA_checkRequiredPrivilegesForFlushing()
  *
  * @return void
  */
-function PMA_checkRequiredPrivilgesForAdjust()
+function PMA_checkRequiredPrivilegesForAdjust()
 {
     if (PMA\libraries\Util::cacheExists('db_priv')) {
         $GLOBALS['db_priv'] = PMA\libraries\Util::cacheGet(
@@ -413,4 +413,4 @@ if ($user == '@') { // MySQL is started with --skip-grant-tables
 // 'mysql'.table_privs, 'mysql'.proc_privs and privileges for
 // flushing the privileges are available
 PMA_checkRequiredPrivilegesForFlushing();
-PMA_checkRequiredPrivilgesForAdjust();
+PMA_checkRequiredPrivilegesForAdjust();
