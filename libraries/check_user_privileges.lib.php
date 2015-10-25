@@ -37,7 +37,7 @@ function PMA_checkRequiredPrivilegesForFlushing()
  *
  * @return void
  */
-function PMA_checkRequiredPrivilgesForAdjust()
+function PMA_checkRequiredPrivilegesForAdjust()
 {
     if (PMA_Util::cacheExists('db_priv')) {
         $GLOBALS['db_priv'] = PMA_Util::cacheGet(
@@ -414,7 +414,7 @@ if (!PMA_DRIZZLE) {
     // 'mysql'.table_privs, 'mysql'.proc_privs and privileges for
     // flushing the privileges are available
     PMA_checkRequiredPrivilegesForFlushing();
-    PMA_checkRequiredPrivilgesForAdjust();
+    PMA_checkRequiredPrivilegesForAdjust();
 
 } else {
     // todo: for simple_user_policy only database with user's login can be created
