@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #11590 Parser: Array to string conversion
 - issue #11597 Huge binary log growth on 4.5.x
 - issue #11594 'only_db' config option bug when db names contain underscore and are grouped
+- issue #11607 Unable to change password from Login information tab
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()

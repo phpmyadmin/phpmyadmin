@@ -140,8 +140,13 @@ if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
     && $hostname == $_REQUEST['old_hostname']
 ) {
     $response->addHTML(
-        PMA\libraries\Message::error(__('Username and hostname didn\'t change.'))
-            ->getDisplay()
+        PMA\libraries\Message::error(
+            __(
+                "Username and hostname didn't change. "
+                . "If you only want to change the password, "
+                . "'Change password' tab should be used."
+            )
+        )->getDisplay()
     );
     $response->setRequestStatus(false);
     exit;
