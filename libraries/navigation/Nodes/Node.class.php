@@ -452,7 +452,7 @@ class Node
             $query .= "LIMIT $pos, $maxItems";
             $query .= ") t2 ";
             $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
-            $query .= " AND 1 = LOCATE(CONCAT(DB_first_level, ";
+            $query .= "AND 1 = LOCATE(CONCAT(DB_first_level, ";
             $query .= "'$dbSeparator'), ";
             $query .= "CONCAT(SCHEMA_NAME, ";
             $query .= "'$dbSeparator')) ";
