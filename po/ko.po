@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-23 09:39-0400\n"
-"PO-Revision-Date: 2015-10-25 02:08+0200\n"
-"Last-Translator: Hanson String <miss30kr55@gmail.com>\n"
+"PO-Revision-Date: 2015-10-26 11:00+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/>\n"
 "Language: ko\n"
@@ -1960,7 +1960,7 @@ msgstr "부분 의존성이 선택되지 않았습니다!"
 
 #: js/messages.php:380
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "테이블의 데이터에 기초한 가능한 부분 의존성을 알려주세요"
 
 #: js/messages.php:381
 msgid "Hide partial dependencies list"
@@ -8006,6 +8006,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"현재 사용중인 mysql 확장기능은 phpMyAdmin과의 사용이 권장되지 않습니다(deprecated). mysqli 확장기능 설치를 "
+"고려하십시오."
 
 #: libraries/db_designer.lib.php:117
 msgid "Could not load schema plugins, please check your installation!"
