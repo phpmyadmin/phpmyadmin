@@ -471,7 +471,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "SHOW DATABASES WHERE TRUE  AND ("
+                "SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%'  AND ("
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )"
             );
