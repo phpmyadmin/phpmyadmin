@@ -2096,7 +2096,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
 
             // Update the plugin for the user
             $GLOBALS['dbi']->tryQuery($update_plugin_query)
-                or PMA_Util::mysqlDie(
+                or Util::mysqlDie(
                     $GLOBALS['dbi']->getError(),
                     $update_plugin_query,
                     false, $err_url
@@ -2120,18 +2120,18 @@ function PMA_updatePassword($err_url, $username, $hostname)
             }
 
             $sql_query        = 'SET PASSWORD FOR \''
-                . PMA_Util::sqlAddSlashes($username)
-                . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
+                . Util::sqlAddSlashes($username)
+                . '\'@\'' . Util::sqlAddSlashes($hostname) . '\' = '
                 . (($_POST['pma_pw'] == '')
                     ? '\'\''
                     : $hashing_function . '(\''
                     . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
 
             $local_query      = 'SET PASSWORD FOR \''
-                . PMA_Util::sqlAddSlashes($username)
-                . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
+                . Util::sqlAddSlashes($username)
+                . '\'@\'' . Util::sqlAddSlashes($hostname) . '\' = '
                 . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
-                . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
+                . '(\'' . Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
         } else {
             if (isset($_REQUEST['authentication_plugin'])
                 && $_REQUEST['authentication_plugin'] == 'mysql_native_password'
