@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-23 09:39-0400\n"
-"PO-Revision-Date: 2015-06-11 18:18+0200\n"
-"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"PO-Revision-Date: 2015-10-26 05:24+0200\n"
+"Last-Translator: Paulo Lopes Duarte <paulolduarte@hotmail.com>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -288,7 +288,6 @@ msgstr "Dados"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:379
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Seleccionar tudo"
@@ -724,10 +723,9 @@ msgid "PHP extension:"
 msgstr "Extensão de PHP:"
 
 #: index.php:350
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "versão do PHP"
+msgstr "versão do PHP:"
 
 #: index.php:361
 msgid "Show PHP information"
@@ -779,9 +777,10 @@ msgid ""
 "by setting a password for user 'root'."
 msgstr ""
 "O seu ficheiro de configuração contem configurações (root sem palavra-passe) "
-"que correspondem à conta privilegiada por defeito do MySQL. O servidor MySQL "
-"está a correr com este valor por defeito, assim aberto a intrusões, deveria "
-"corrigir este buraco de segurança."
+"que correspondem à conta privilegiada padrão do MySQL. O seu servidor MySQL "
+"está rodando com esta configuração como padrão, assim aberto a intrusões, é "
+"importante corrigir esta falha de segurança definindo uma palavra passe para "
+"o usuário 'root'."
 
 #: index.php:469
 msgid ""
@@ -911,7 +910,7 @@ msgstr "Está prestes a TRUNCAR uma base de dados completa!"
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Apagar dados de tracking para esta tabela"
+msgstr "Apagar dados de tracking para esta tabela?"
 
 #: js/messages.php:50
 #, fuzzy
@@ -929,7 +928,7 @@ msgstr "Apagar dados de tracking para esta tabela"
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Apagar dados de tracking para esta tabela"
+msgstr "Apagar dados de tracking para estas versões"
 
 #: js/messages.php:53
 #, fuzzy
@@ -974,22 +973,23 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Deseja realmente revogar o(s) utilizador(es) selecionado(s)?"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Deseja realmente eliminar este marcador?"
+msgstr "Deseja realmente eliminar este coluna central?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
+msgstr "Deseja realmente eliminar os itens selecionados?"
 
 #: js/messages.php:64
+#, fuzzy
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Quer realmente abandonar as partição(ões) selecionada(s)? Isso também "
+"apagará os dados relacionados às partição(ões) selecionada(s)!"
 
 #: js/messages.php:65
 #, fuzzy
@@ -1037,10 +1037,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Guardar & Fechar"
+msgstr "Salvar & Fechar"
 
 #: js/messages.php:90 libraries/config/FormDisplay.tpl.php:423
 #: libraries/insert_edit.lib.php:1548 prefs_manage.php:361
@@ -1049,7 +1048,6 @@ msgid "Reset"
 msgstr "Limpa"
 
 #: js/messages.php:91
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Redefinir Tudo"
@@ -1128,7 +1126,6 @@ msgstr "Comando SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Valores para Y"
@@ -1231,10 +1228,9 @@ msgid "Query cache used"
 msgstr "Cache de comandos utilizada"
 
 #: js/messages.php:152
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "Uso do CPU do Sistema"
+msgstr "Uso da CPU do Sistema"
 
 #: js/messages.php:153
 msgid "System memory"
@@ -1710,7 +1706,7 @@ msgstr "Não existem ficheiros disponíveis para importar no servidor!"
 #, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Analisar Comando"
+msgstr "Analisar pedido"
 
 #: js/messages.php:280
 msgid "Advisor system"
@@ -1746,7 +1742,7 @@ msgstr "Teste"
 
 #: js/messages.php:290
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "Formatando SQL…"
 
 #: js/messages.php:294 libraries/server_variables.lib.php:159
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1763,7 +1759,7 @@ msgstr "Cancelar"
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Modificar configurações"
+msgstr "Configurações da página"
 
 #: js/messages.php:298 libraries/config/FormDisplay.tpl.php:421
 msgid "Apply"
@@ -1775,7 +1771,6 @@ msgid "Loading…"
 msgstr "Carregando…"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Pedido anulado!!"
@@ -1790,13 +1785,12 @@ msgstr "Processando Pedido"
 #, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
-msgstr "Pedido anulado!!"
+msgstr "Pedido falhou!!"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Erro a Processar Pedido"
+msgstr "Erro ao processar pedido"
 
 #: js/messages.php:306
 #, php-format
@@ -1814,7 +1808,6 @@ msgid "No databases selected."
 msgstr "Nenhuma base de dados selecionada."
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Apagando Coluna"
@@ -1840,16 +1833,14 @@ msgid "Click to dismiss this notification"
 msgstr "Clique para fechar esta notificação"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Renomeando Bases de Dados"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
-msgstr "Copiando Bases de Dados"
+msgstr "Copiando Base de Dados"
 
 #: js/messages.php:317
 #, fuzzy
@@ -1861,7 +1852,7 @@ msgstr "Mudando Mapa de Caracteres"
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Desativar verificação de chaves estrangeiras"
+msgstr "Ativar verificação de chaves estrangeiras"
 
 #: js/messages.php:324
 msgid "Failed to get real row count."
@@ -1987,13 +1978,12 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:355
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variável"
+msgstr "Variável %d:"
 
 #: js/messages.php:358 libraries/normalization.lib.php:886
-#, fuzzy
 msgid "Pick"
 msgstr "Selecione"
 
@@ -2104,7 +2094,6 @@ msgstr ""
 "tamanho dos dados e do número de colunas da tabela."
 
 #: js/messages.php:383
-#, fuzzy
 msgid "Step"
 msgstr "Passo"
 
@@ -2159,7 +2148,7 @@ msgstr "Mostrar critérios de busca"
 #, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Pesquisa de alcance"
+msgstr "Intervalo de pesquisa"
 
 #: js/messages.php:401
 msgid "Column maximum:"
@@ -2276,6 +2265,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Indica que foram feitas mudanças nesta página; Será pedida confirmação antes "
+"de abandonar as mudanças"
 
 #: js/messages.php:456
 msgid "Select referenced key"
@@ -2313,10 +2304,9 @@ msgstr "Guardar página"
 
 #: js/messages.php:466 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Guardar página"
+msgstr "Salvar página como"
 
 #: js/messages.php:467 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2466,10 +2456,9 @@ msgid "Drop files here"
 msgstr "Largue ficheiros aqui"
 
 #: js/messages.php:506
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Selecione primeiro a base de dados"
+msgstr "Primeiro selecione a base de dados"
 
 #: js/messages.php:511
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2542,7 +2531,6 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:539
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "Tabelas"
@@ -2561,10 +2549,9 @@ msgstr "Processos"
 #: js/messages.php:542
 #, fuzzy
 msgid "events"
-msgstr "Enviado"
+msgstr "eventos"
 
 #: js/messages.php:543
-#, fuzzy
 msgid "functions"
 msgstr "Funções"
 
@@ -2597,10 +2584,9 @@ msgid "Create view"
 msgstr "Criar visualização"
 
 #: js/messages.php:557
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Enviar relatórios de erro"
+msgstr "Enviar relatório de erro"
 
 #: js/messages.php:558
 #, fuzzy
@@ -3912,10 +3898,9 @@ msgid "Error while moving uploaded file."
 msgstr "Erro ao mover o arquivo enviado."
 
 #: libraries/File.class.php:497
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Não pode ler (movido) arquivo carregado."
+msgstr "Ficheiro carregado não pode ser lido."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -4188,10 +4173,9 @@ msgid "Databases"
 msgstr "Base de Dados"
 
 #: libraries/Menu.class.php:568
-#, fuzzy
 #| msgid "Users"
 msgid "User accounts"
-msgstr "Utilizadores"
+msgstr "Contas de usuário"
 
 #: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
 #: libraries/Util.class.php:4279 libraries/server_common.lib.php:36
@@ -4915,9 +4899,9 @@ msgid "Static analysis:"
 msgstr "Dados estáticos"
 
 #: libraries/Util.class.php:668
-#, php-format
+#, fuzzy, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d erros foram encontrados na análise."
 
 #: libraries/Util.class.php:730 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -4948,7 +4932,6 @@ msgid "Without PHP Code"
 msgstr "Sem código PHP"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Criar código PHP"
@@ -5080,7 +5063,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Verificar Privilégios para a Base de Dados \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Verificar Privilégios"
@@ -5103,24 +5085,25 @@ msgid "Could not add columns!"
 msgstr "Impossível adicionar colunas!"
 
 #: libraries/central_columns.lib.php:373
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Não foi possível remover a(s) coluna(s) %1$s pois elas não existem na lista "
+"central de colunas!"
 
 #: libraries/central_columns.lib.php:385
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "Não foi possível salvar a tabela recente"
+msgstr "Não foi possível remover as colunas!"
 
 #: libraries/central_columns.lib.php:530
 msgid "YES"
-msgstr ""
+msgstr "SIM"
 
 #: libraries/central_columns.lib.php:530
 msgid "NO"
-msgstr ""
+msgstr "NÃO"
 
 #: libraries/central_columns.lib.php:695
 #: libraries/central_columns.lib.php:1383
@@ -5157,16 +5140,14 @@ msgid "A_I"
 msgstr ""
 
 #: libraries/central_columns.lib.php:750
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Seleccionar Tabelas"
+msgstr "Seleccione uma tabela"
 
 #: libraries/central_columns.lib.php:804
 #: templates/table/structure/add_column.phtml:4
-#, fuzzy
 msgid "Add column"
-msgstr "Adiciona novo campo"
+msgstr "Adicione nova coluna"
 
 #: libraries/central_columns.lib.php:816
 #, fuzzy
@@ -5175,9 +5156,8 @@ msgid "Select a column."
 msgstr "Seleccione duas colunas"
 
 #: libraries/central_columns.lib.php:1263
-#, fuzzy
 msgid "Add new column"
-msgstr "Adiciona novo campo"
+msgstr "Adicionar nova coluna"
 
 #: libraries/central_columns.lib.php:1384
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1003
@@ -12838,7 +12818,7 @@ msgstr "Ligações persistentes"
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Requer SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
