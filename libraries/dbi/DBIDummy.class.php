@@ -515,7 +515,7 @@ $GLOBALS['dummy_queries'] = array(
             . "(SELECT DB_first_level FROM ( SELECT DISTINCT "
             . "SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level "
             . "FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY "
-            . "DB_first_level ASC LIMIT 0, 100) t2 WHERE 1 = LOCATE("
+            . "DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE("
             . "CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) "
             . "ORDER BY SCHEMA_NAME ASC",
         'result' => array(
