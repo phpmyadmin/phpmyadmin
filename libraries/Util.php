@@ -13,7 +13,7 @@ use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Token;
 use stdClass;
-use SqlParser\Utils\Error;
+use SqlParser\Utils\Error as ParserError;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -661,7 +661,7 @@ class Util
          * The errors found by the lexer and the parser.
          * @var array $errors
          */
-        $errors = Error::get(array($lexer, $parser));
+        $errors = ParserError::get(array($lexer, $parser));
 
         if (empty($sql_query)) {
             $formatted_sql = '';
@@ -686,7 +686,7 @@ class Util
                 ) . '</p>';
                 $error_msg .= '<p><ol>';
                 $error_msg .= implode(
-                    Error::format(
+                    ParserError::format(
                         $errors,
                         '<li>%2$s (near "%4$s" at position %5$d)</li>'
                     )

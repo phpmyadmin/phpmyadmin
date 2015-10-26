@@ -10,7 +10,7 @@ namespace PMA\libraries;
 use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\UtfString;
-use SqlParser\Utils\Error;
+use SqlParser\Utils\Error as ParserError;
 
 /**
  * The linter itself.
@@ -127,7 +127,7 @@ class Linter
          *
          * @var array
          */
-        $errors = Error::get(array($lexer, $parser));
+        $errors = ParserError::get(array($lexer, $parser));
 
         /**
          * The response containing of all errors.
