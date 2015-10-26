@@ -446,7 +446,8 @@ class Node
             $query .= "ORDER BY DB_first_level ASC ";
             $query .= "LIMIT $pos, $maxItems";
             $query .= ") t2 ";
-            $query .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, ";
+            $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+            $query .= " AND 1 = LOCATE(CONCAT(DB_first_level, ";
             $query .= "'$dbSeparator'), ";
             $query .= "CONCAT(SCHEMA_NAME, ";
             $query .= "'$dbSeparator')) ";
@@ -478,7 +479,7 @@ class Node
             }
 
             $query = "SHOW DATABASES ";
-            $query .= $this->_getWhereClause('Database', '');
+            $query .= $this->_getWhereClause('Database', $searchClause);
             $query .= " AND (";
             $subClauses = array();
             foreach ($prefixes as $prefix) {
