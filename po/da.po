@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-09-16 14:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-5/da/"
@@ -9499,7 +9499,7 @@ msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 "Klassen \"%1$s\" kunne ikke inkluderes, filen \"%2$s\" blev ikke fundet"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Fold ud/sammen"
 
@@ -14672,9 +14672,11 @@ msgstr "Ingen databaser"
 msgid "View dump (schema) of databases"
 msgstr "Vis dump (skema) for databaser"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Brugernavn og værtsnavn blev ikke ændret."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 #, fuzzy
@@ -17124,6 +17126,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Brugernavn og værtsnavn blev ikke ændret."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "Sporingsrapport %s."

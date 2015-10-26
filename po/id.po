@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-15 11:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
@@ -9930,7 +9930,7 @@ msgstr "Nama kelas tidak valid \"%1$s\", menggunakan default \"Node\""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "Tidak bisa mencakup kelas \"%1$s\", file \"%2$s\" tidak ditemukan"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 #, fuzzy
 msgid "Expand/Collapse"
 msgstr "Bentangkan/Collapse"
@@ -15515,9 +15515,11 @@ msgstr "Basis data tidak ditemukan"
 msgid "View dump (schema) of databases"
 msgstr "Tampilkan dump (skema) basis data"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Username dan hostname tidak berubah."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 #, fuzzy
@@ -18267,6 +18269,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert diatur ke 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Username dan hostname tidak berubah."
 
 #, fuzzy
 #~| msgid "Tracking report"

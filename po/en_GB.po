@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-15 11:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -9830,7 +9830,7 @@ msgstr "Invalid class name \"%1$s\", using default of \"Node\""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "Could not include class \"%1$s\", file \"%2$s\" not found"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Expand/Collapse"
 
@@ -15009,9 +15009,11 @@ msgstr "No databases"
 msgid "View dump (schema) of databases"
 msgstr "View dump (schema) of databases"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Username and hostname didn't change."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -17539,6 +17541,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is set to 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Username and hostname didn't change."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "Taking you to %s."

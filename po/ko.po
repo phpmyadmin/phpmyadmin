@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-26 11:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Korean "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -941,7 +941,6 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "선택된 파티션의 내용을 정말로 비우시겠습니까?"
 
 #: js/messages.php:66
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
 msgstr "정말로 초기화 슬레이브를 실행 하시겠습니까?"
 
@@ -8006,8 +8005,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
-"현재 사용중인 mysql 확장기능은 phpMyAdmin과의 사용이 권장되지 않습니다(deprecated). mysqli 확장기능 설치를 "
-"고려하십시오."
+"현재 사용중인 mysql 확장기능은 phpMyAdmin과의 사용이 권장되지 않습니다"
+"(deprecated). mysqli 확장기능 설치를 고려하십시오."
 
 #: libraries/db_designer.lib.php:117
 msgid "Could not load schema plugins, please check your installation!"
@@ -9303,7 +9302,7 @@ msgstr "\"%1$s\"를 클래스 이름으로 사용할 수 없음, 기본 값 \"No
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "\"%1$s\" 클래스를 포함할 수 없음, \"%2$s\" 파일이 없음"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "펼치기/접기"
 
@@ -14295,9 +14294,11 @@ msgstr "데이터베이스가 없습니다"
 msgid "View dump (schema) of databases"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "username과 hostname이 변경되지 않았음."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -16740,6 +16741,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "username과 hostname이 변경되지 않았음."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "당신을 %s로 데려감."
