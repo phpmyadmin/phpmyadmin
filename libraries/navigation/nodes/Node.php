@@ -480,7 +480,7 @@ class Node
 
             $query = "SHOW DATABASES ";
             $query .= $this->_getWhereClause('Database', $searchClause);
-            $query .= " AND (";
+            $query .= "AND (";
             $subClauses = array();
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
@@ -741,7 +741,7 @@ class Node
                     . " LIKE '"
                     . $each_only_db . "' ";
             }
-            $whereClause .= implode("OR", $subClauses) . ")";
+            $whereClause .= implode("OR", $subClauses) . ") ";
         }
 
         return $whereClause;
