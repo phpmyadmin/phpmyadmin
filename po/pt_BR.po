@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-02 09:13+0200\n"
 "Last-Translator: Luis <luis.eduardo.braschi@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -9680,7 +9680,7 @@ msgstr ""
 "Não foi possível incluir a classe \"%1$s\", o arquivo \"%2$s\" não foi "
 "encontrado"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Expandir/Recolher"
 
@@ -14887,9 +14887,11 @@ msgstr "Nenhum banco de dados"
 msgid "View dump (schema) of databases"
 msgstr "Ver dump (esquema) dos bancos de dados"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Username e hostname sem alterações."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 #, fuzzy
@@ -17375,6 +17377,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está com valor 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Username e hostname sem alterações."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "Levando você para %s."

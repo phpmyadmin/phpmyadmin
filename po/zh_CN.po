@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-23 19:08+0200\n"
 "Last-Translator: doocoo <doocoo@163.com>\n"
-"Language-Team: Chinese (China) "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_CN/>\n"
+"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
+"phpmyadmin/4-5/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7238,16 +7238,13 @@ msgid "Allow to display all the rows"
 msgstr "允许显示所有行"
 
 #: libraries/config/messages.inc.php:840
-#| msgid ""
-#| "Please note that enabling this has no effect with [kbd]config[/kbd] "
-#| "authentication mode because the password is hard coded in the "
-#| "configuration file; this does not limit the ability to execute the same "
-#| "command directly"
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
-msgstr "注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码以硬编码形式保存在配置文件中；也不影响直接执行同等命令。"
+msgstr ""
+"注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码以硬编码形式保存在配置"
+"文件中；也不影响直接执行同等命令。"
 
 #: libraries/config/messages.inc.php:844
 msgid "Show password change form"
@@ -7356,7 +7353,6 @@ msgid "Retain query box"
 msgstr "保留查询框"
 
 #: libraries/config/messages.inc.php:888
-#| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr "允许显示数据库和数据表的统计信息 (如：空间使用)。"
 
@@ -7387,14 +7383,13 @@ msgid "Suhosin warning"
 msgstr "Suhosin 警告"
 
 #: libraries/config/messages.inc.php:905
-#| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words"
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
-msgstr "当PHP设置session.gc_maxlifetime小于“LoginCookieValidity”时，不在主页显示默认警告。"
+msgstr ""
+"当PHP设置session.gc_maxlifetime小于“LoginCookieValidity”时，不在主页显示默认"
+"警告。"
 
 #: libraries/config/messages.inc.php:910
 #, fuzzy
@@ -7403,9 +7398,6 @@ msgid "Login cookie validity warning"
 msgstr "登录cookie 有效期警告"
 
 #: libraries/config/messages.inc.php:913
-#| msgid ""
-#| "Textarea size (columns) in edit mode, this value will be emphasized for "
-#| "SQL query textareas (*2) and for query window (*1.25)"
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -7416,9 +7408,6 @@ msgid "Textarea columns"
 msgstr "文本框列"
 
 #: libraries/config/messages.inc.php:918
-#| msgid ""
-#| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-#| "query textareas (*2) and for query window (*1.25)"
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -7441,29 +7430,22 @@ msgid "Default title"
 msgstr "默认标题"
 
 #: libraries/config/messages.inc.php:931
-#| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
 msgstr "选中一个服务器时浏览器窗口的标题。"
 
 #: libraries/config/messages.inc.php:934
-#| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
 msgstr "选中一张数据表时浏览器窗口的标题。"
 
 #: libraries/config/messages.inc.php:937
-#| msgid ""
-#| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
-#| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
-#| "Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-#| "HTTP_X_FORWARDED_FOR[/kbd]"
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"输入作为代理的 [kbd]IP：可信 HTTP 头[/kbd]。下面的例子指定了 phpMyAdmin 应该信任从代理 "
-"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd] 发来的 "
+"输入作为代理的 [kbd]IP：可信 HTTP 头[/kbd]。下面的例子指定了 phpMyAdmin 应该"
+"信任从代理 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd] 发来的 "
 "HTTP_X_FORWARDED_FOR 头。"
 
 #: libraries/config/messages.inc.php:942
@@ -7518,7 +7500,8 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
-"当你的服务器无法直接连接internet时，请填写代理URL，以便接收phpMyAdmin更新信息或是提交错误报告。格式为“服务器名:端口号”。"
+"当你的服务器无法直接连接internet时，请填写代理URL，以便接收phpMyAdmin更新信息"
+"或是提交错误报告。格式为“服务器名:端口号”。"
 
 #: libraries/config/messages.inc.php:965
 msgid "Proxy url"
@@ -7547,15 +7530,12 @@ msgid "Proxy password"
 msgstr "代理密码"
 
 #: libraries/config/messages.inc.php:977
-#| msgid ""
-#| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
-#| "compression for import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP (外链，英文)[/a]"
-" 压缩。"
+"允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP "
+"(外链，英文)[/a] 压缩。"
 
 #: libraries/config/messages.inc.php:980
 msgid "ZIP"
@@ -7594,7 +7574,6 @@ msgid ""
 msgstr "查询将在回车后执行。插入新行使用Shift-Enter。"
 
 #: libraries/config/messages.inc.php:999
-#| msgid "Executed queries"
 msgid "Enter executes queries in console"
 msgstr "在控制台使用回车执行查询"
 
@@ -7605,12 +7584,10 @@ msgid ""
 msgstr "启用零配置模式以自动安装phpMyAdmin设置表。"
 
 #: libraries/config/messages.inc.php:1005
-#| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
 msgstr "启用零配置模式"
 
 #: libraries/config/page_settings.class.php:140
-#| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "无法保存设置，提交的配置表单中存在错误！"
 
@@ -7677,14 +7654,12 @@ msgstr "已清空表 %s。"
 #: libraries/controllers/DatabaseStructureController.class.php:436
 #: tbl_operations.php:400 view_operations.php:119
 #, php-format
-#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "已删除视图 %s。"
 
 #: libraries/controllers/DatabaseStructureController.class.php:437
 #: tbl_operations.php:401
 #, php-format
-#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "已删除表 %s。"
 
@@ -7718,7 +7693,6 @@ msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改表 %1$s。"
 
 #: libraries/controllers/TableRelationController.class.php:218
-#| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "显示字段已成功更新。"
 
@@ -7742,13 +7716,11 @@ msgstr "缩放搜索"
 
 #: libraries/controllers/TableSearchController.class.php:850
 #: templates/table/search/selection_form.phtml:59
-#| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "查找和替换"
 
 #: libraries/controllers/TableStructureController.class.php:163
 #, php-format
-#| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "名称 '%s' 是一个MySQL 保留关键字。"
@@ -7916,42 +7888,34 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "正在导出数据表“%s”中的记录"
 
 #: libraries/display_export.lib.php:200
-#| msgid "Export type"
 msgid "Export templates:"
 msgstr "导出模板："
 
 #: libraries/display_export.lib.php:205
-#| msgid "File name template:"
 msgid "New template:"
 msgstr "新模板："
 
 #: libraries/display_export.lib.php:208
-#| msgid "Table name"
 msgid "Template name"
 msgstr "模板名称"
 
 #: libraries/display_export.lib.php:217
-#| msgid "File name template:"
 msgid "Existing templates:"
 msgstr "现有模板："
 
 #: libraries/display_export.lib.php:218
-#| msgid "Temp disk rate"
 msgid "Template:"
 msgstr "模板："
 
 #: libraries/display_export.lib.php:223
-#| msgid "Updated"
 msgid "Update"
 msgstr "更新"
 
 #: libraries/display_export.lib.php:245
-#| msgid "Select Tables"
 msgid "Select a template"
 msgstr "选择一个模板"
 
 #: libraries/display_export.lib.php:291
-#| msgid "Export method"
 msgid "Export method:"
 msgstr "导出方式："
 
@@ -7964,13 +7928,11 @@ msgid "Custom - display all possible options"
 msgstr "自定义 - 显示所有可用的选项"
 
 #: libraries/display_export.lib.php:335
-#| msgid "Databases"
 msgid "Databases:"
 msgstr "数据库："
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
-#| msgid "Tables"
 msgid "Tables:"
 msgstr "数据表："
 
@@ -8070,12 +8032,10 @@ msgid "View output as text"
 msgstr "直接显示为文本"
 
 #: libraries/display_export.lib.php:751
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
 msgstr "将数据库导出为独立的文件"
 
 #: libraries/display_export.lib.php:753
-#| msgid "Export table headers"
 msgid "Export tables as separate files"
 msgstr "将每个表导出为独立的文件"
 
@@ -8092,7 +8052,6 @@ msgid "Skip tables larger than"
 msgstr "跳过数据表，当大于"
 
 #: libraries/display_export.lib.php:936
-#| msgid "Select Tables"
 msgid "Select database"
 msgstr "选择数据库"
 
@@ -8103,22 +8062,18 @@ msgid "Select table"
 msgstr "选择表"
 
 #: libraries/display_export.lib.php:954
-#| msgid "Database name"
 msgid "New database name"
 msgstr "新数据库名"
 
 #: libraries/display_export.lib.php:978
-#| msgid "New page name: "
 msgid "New table name"
 msgstr "新数据表名称"
 
 #: libraries/display_export.lib.php:988
-#| msgid "Copy column name."
 msgid "Old column name"
 msgstr "原字段名"
 
 #: libraries/display_export.lib.php:989
-#| msgid "Copy column name."
 msgid "New column name"
 msgstr "新字段名"
 
@@ -8177,7 +8132,6 @@ msgid ""
 msgstr "压缩文件名必须以 <b>.[格式].[压缩方式]</b> 结尾。如：<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "要导入的文件："
 
@@ -8217,7 +8171,6 @@ msgid ""
 msgstr "从第一个开始跳过的查询数（SQL用）或行数（其他用）："
 
 #: libraries/display_import.lib.php:340
-#| msgid "Options"
 msgid "Other options:"
 msgstr "其它选项："
 
@@ -8617,13 +8570,10 @@ msgid ""
 msgstr "下列结构被创建或修改。你可以:"
 
 #: libraries/import.lib.php:1258
-#| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "请通过点击结构的名称来查看它的内容。"
 
 #: libraries/import.lib.php:1261
-#| msgid ""
-#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "点击相应的“选项”链接修改设置。"
@@ -8668,7 +8618,9 @@ msgstr "只能预览单一数据表的UPDATE和DELETE查询。"
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
-msgstr "回滚操作需要数据表采用支持事务处理的存储引擎，且SQL查询仅限INSERT、UPDATE、DELETE和REPLACE。"
+msgstr ""
+"回滚操作需要数据表采用支持事务处理的存储引擎，且SQL查询仅限INSERT、UPDATE、"
+"DELETE和REPLACE。"
 
 #: libraries/index.lib.php:38
 #, php-format
@@ -8694,7 +8646,6 @@ msgid "Binary"
 msgstr "二进制"
 
 #: libraries/insert_edit.lib.php:598
-#| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "因长度问题，<br /> 该字段可能无法编辑。"
 
@@ -8969,7 +8920,6 @@ msgid "multilingual"
 msgstr "多语言"
 
 #: libraries/mysql_charsets.lib.php:269
-#| msgid "File name"
 msgid "Vietnamese"
 msgstr "越南语"
 
@@ -9014,32 +8964,26 @@ msgid "Czech-Slovak"
 msgstr "捷克斯洛伐克语"
 
 #: libraries/navigation/Navigation.class.php:54
-#| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
 msgstr "载入导航显示时出现错误"
 
 #: libraries/navigation/Navigation.class.php:192
-#| msgid "Column names: "
 msgid "Groups:"
 msgstr "组："
 
 #: libraries/navigation/Navigation.class.php:193
-#| msgid "Events"
 msgid "Events:"
 msgstr "事件："
 
 #: libraries/navigation/Navigation.class.php:194
-#| msgid "Functions"
 msgid "Functions:"
 msgstr "函数："
 
 #: libraries/navigation/Navigation.class.php:195
-#| msgid "Procedures"
 msgid "Procedures:"
 msgstr "存储过程："
 
 #: libraries/navigation/Navigation.class.php:197
-#| msgid "Views"
 msgid "Views:"
 msgstr "视图："
 
@@ -9062,12 +9006,10 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 文档"
 
 #: libraries/navigation/NavigationHeader.class.php:206
-#| msgid "Navigation panel"
 msgid "Navigation panel settings"
 msgstr "导航面板设定"
 
 #: libraries/navigation/NavigationHeader.class.php:217
-#| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
 msgstr "重新载入导航面板"
 
@@ -9079,14 +9021,11 @@ msgstr "导航面板中存在较大的项目组合，可能影响性能。请考
 
 #: libraries/navigation/NavigationTree.class.php:922
 #, php-format
-#| msgid "%s other result found"
-#| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "找到 %s 条结果"
 
 #: libraries/navigation/NavigationTree.class.php:1332
-#| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
 msgstr "根据名称或正则表达式筛选数据库"
 
@@ -9116,7 +9055,7 @@ msgstr "无效的类名 \"%1$s\"， 使用默认值 \"Node\""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "无法包含类 \"%1$s\"， 文件\"%2$s\" 没有找到"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "扩展/收起"
 
@@ -9132,12 +9071,10 @@ msgid "New"
 msgstr "新建"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:39
-#| msgid "Database export options"
 msgid "Database operations"
 msgstr "数据库操作"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:661
-#| msgid "Show hint"
 msgid "Show hidden items"
 msgstr "显示隐藏项目"
 
@@ -9169,7 +9106,6 @@ msgid "New"
 msgstr "新建"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:32
-#| msgid "Procedures"
 msgid "Procedure"
 msgstr "存储过程"
 
@@ -9225,7 +9161,9 @@ msgstr "第1步。"
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
-msgstr "有字段可以被拆分为多个字段吗？例如：地址可以被拆分为街道、城市、国家以及邮政编码等。"
+msgstr ""
+"有字段可以被拆分为多个字段吗？例如：地址可以被拆分为街道、城市、国家以及邮政"
+"编码等。"
 
 #: libraries/normalization.lib.php:145
 msgid "Show me the central list of columns that are not already in this table"
@@ -9238,12 +9176,10 @@ msgid ""
 msgstr "选择可以被拆分的字段。（选择“没有这样的字段”将进入下一步）"
 
 #: libraries/normalization.lib.php:155 normalization.php:18
-#| msgid "Select two columns"
 msgid "Select one…"
 msgstr "选择一个……"
 
 #: libraries/normalization.lib.php:156 normalization.php:19
-#| msgid "Move column"
 msgid "No such column"
 msgstr "没有这样的字段"
 
@@ -9252,12 +9188,10 @@ msgid "split into "
 msgstr "拆分为 "
 
 #: libraries/normalization.lib.php:184
-#| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "存在主键"
 
 #: libraries/normalization.lib.php:190
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "主键已存在。"
 
@@ -9265,7 +9199,9 @@ msgstr "主键已存在。"
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
-msgstr "没有主键；请添加。<br/>提示：主键是能够对所有的记录都能唯一标识的字段（或字段组合）。"
+msgstr ""
+"没有主键；请添加。<br/>提示：主键是能够对所有的记录都能唯一标识的字段（或字段"
+"组合）。"
 
 #: libraries/normalization.lib.php:202
 msgid "Add a primary key on existing column(s)"
@@ -9277,12 +9213,10 @@ msgid ""
 msgstr "如果无法将现有字段组合作为主键"
 
 #: libraries/normalization.lib.php:211
-#| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "+ 新建字段作为主键"
 
 #: libraries/normalization.lib.php:234
-#| msgid "Remove column(s)"
 msgid "Remove redundant columns"
 msgstr "删除冗余的字段"
 
@@ -9292,7 +9226,8 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
-"是否存 一组字段，其值合并后与现存的某一字段相同？例如：有“姓”和“名”和“姓名”三个字段，前二者的值合并后与“姓名”字段的值一致，这就形成了冗余。"
+"是否存 一组字段，其值合并后与现存的某一字段相同？例如：有“姓”和“名”和“姓名”三"
+"个字段，前二者的值合并后与“姓名”字段的值一致，这就形成了冗余。"
 
 #: libraries/normalization.lib.php:243
 msgid ""
@@ -9301,12 +9236,10 @@ msgid ""
 msgstr "选中冗余的字段，点击删除。如果没有，点击“无冗余字段”"
 
 #: libraries/normalization.lib.php:248
-#| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "删除选中的"
 
 #: libraries/normalization.lib.php:249
-#| msgid "Add column"
 msgid "No redundant column"
 msgstr "无冗余字段"
 
@@ -9322,8 +9255,9 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
-"是否存在两个及以上的字段，表示的是同一个属性？例如：“书本”数据表可能包含“作者1”、“作者2”、“作者3”之类的字段。在这种情况下，应当创建一个新表（包"
-"含书本ID和作者字段）。"
+"是否存在两个及以上的字段，表示的是同一个属性？例如：“书本”数据表可能包含“作者"
+"1”、“作者2”、“作者3”之类的字段。在这种情况下，应当创建一个新表（包含书本ID和"
+"作者字段）。"
 
 #: libraries/normalization.lib.php:283
 msgid ""
@@ -14247,8 +14181,10 @@ msgstr "无数据库"
 msgid "View dump (schema) of databases"
 msgstr "查看数据库的转存(大纲)"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
 msgstr ""
 
 #: server_status.php:39

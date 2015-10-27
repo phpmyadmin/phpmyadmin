@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-15 11:09+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
@@ -9548,7 +9548,7 @@ msgstr "Érvénytelen osztálynév: \"%1$s\" \"Node\" alapértelmezése használ
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "\"%1$s\" osztály nem csatolható, \"%2$s\" fájl nem található"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Kinyitás / összecsukás"
 
@@ -14689,9 +14689,11 @@ msgstr "Nincs adatbázis"
 msgid "View dump (schema) of databases"
 msgstr "Adatbázis kiírás (séma) megtekintése"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "A felhasználónév és gépnév nem változott."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 #, fuzzy
@@ -17166,6 +17168,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "A concurrent_insert 0-ra van állítva"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "A felhasználónév és gépnév nem változott."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "Átvitel ide: %s."

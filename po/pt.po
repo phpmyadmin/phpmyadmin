@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-26 05:24+0200\n"
 "Last-Translator: Paulo Lopes Duarte <paulolduarte@hotmail.com>\n"
-"Language-Team: Portuguese "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"phpmyadmin/4-5/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -288,7 +288,6 @@ msgstr "Dados"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:379
-#| msgid "Select All"
 msgid "Select all"
 msgstr "Seleccionar tudo"
 
@@ -723,7 +722,6 @@ msgid "PHP extension:"
 msgstr "Extensão de PHP:"
 
 #: index.php:350
-#| msgid "PHP Version"
 msgid "PHP version:"
 msgstr "versão do PHP:"
 
@@ -973,12 +971,10 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Deseja realmente revogar o(s) utilizador(es) selecionado(s)?"
 
 #: js/messages.php:62
-#| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
 msgstr "Deseja realmente eliminar este coluna central?"
 
 #: js/messages.php:63
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
 msgstr "Deseja realmente eliminar os itens selecionados?"
 
@@ -1037,7 +1033,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:89
-#| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Salvar & Fechar"
 
@@ -1048,7 +1043,6 @@ msgid "Reset"
 msgstr "Limpa"
 
 #: js/messages.php:91
-#| msgid "Reset All"
 msgid "Reset all"
 msgstr "Redefinir Tudo"
 
@@ -1126,7 +1120,6 @@ msgstr "Comando SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:119
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Valores para Y"
 
@@ -1228,7 +1221,6 @@ msgid "Query cache used"
 msgstr "Cache de comandos utilizada"
 
 #: js/messages.php:152
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Uso da CPU do Sistema"
 
@@ -1771,7 +1763,6 @@ msgid "Loading…"
 msgstr "Carregando…"
 
 #: js/messages.php:302
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Pedido anulado!!"
 
@@ -1788,7 +1779,6 @@ msgid "Request failed!!"
 msgstr "Pedido falhou!!"
 
 #: js/messages.php:305
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Erro ao processar pedido"
 
@@ -1808,7 +1798,6 @@ msgid "No databases selected."
 msgstr "Nenhuma base de dados selecionada."
 
 #: js/messages.php:309
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Apagando Coluna"
 
@@ -1833,12 +1822,10 @@ msgid "Click to dismiss this notification"
 msgstr "Clique para fechar esta notificação"
 
 #: js/messages.php:315
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Renomeando Bases de Dados"
 
 #: js/messages.php:316
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Copiando Base de Dados"
 
@@ -1979,7 +1966,6 @@ msgstr ""
 
 #: js/messages.php:355
 #, php-format
-#| msgid "Variable"
 msgid "Variable %d:"
 msgstr "Variável %d:"
 
@@ -2304,7 +2290,6 @@ msgstr "Guardar página"
 
 #: js/messages.php:466 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#| msgid "Save page"
 msgid "Save page as"
 msgstr "Salvar página como"
 
@@ -2456,7 +2441,6 @@ msgid "Drop files here"
 msgstr "Largue ficheiros aqui"
 
 #: js/messages.php:506
-#| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Primeiro selecione a base de dados"
 
@@ -2531,7 +2515,6 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:539
-#| msgid "Tables"
 msgid "tables"
 msgstr "Tabelas"
 
@@ -2584,7 +2567,6 @@ msgid "Create view"
 msgstr "Criar visualização"
 
 #: js/messages.php:557
-#| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Enviar relatório de erro"
 
@@ -3898,7 +3880,6 @@ msgid "Error while moving uploaded file."
 msgstr "Erro ao mover o arquivo enviado."
 
 #: libraries/File.class.php:497
-#| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "Ficheiro carregado não pode ser lido."
 
@@ -4173,7 +4154,6 @@ msgid "Databases"
 msgstr "Base de Dados"
 
 #: libraries/Menu.class.php:568
-#| msgid "Users"
 msgid "User accounts"
 msgstr "Contas de usuário"
 
@@ -4932,7 +4912,6 @@ msgid "Without PHP Code"
 msgstr "Sem código PHP"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Criar código PHP"
 
@@ -5063,7 +5042,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Verificar Privilégios para a Base de Dados \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:181
-#| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Verificar Privilégios"
 
@@ -5093,7 +5071,6 @@ msgstr ""
 "central de colunas!"
 
 #: libraries/central_columns.lib.php:385
-#| msgid "Could not save recent table"
 msgid "Could not remove columns!"
 msgstr "Não foi possível remover as colunas!"
 
@@ -5140,7 +5117,6 @@ msgid "A_I"
 msgstr ""
 
 #: libraries/central_columns.lib.php:750
-#| msgid "Select Tables"
 msgid "Select a table"
 msgstr "Seleccione uma tabela"
 
@@ -9803,7 +9779,7 @@ msgstr ""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr ""
 
@@ -14983,8 +14959,10 @@ msgstr "Sem bases de dados"
 msgid "View dump (schema) of databases"
 msgstr "Ver o esquema da base de dados"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
 msgstr ""
 
 #: server_status.php:39

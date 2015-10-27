@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-09-03 10:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-5/cs/"
@@ -9377,7 +9377,7 @@ msgstr "Neplatný název třídy \"%1$s\", používám výchozí \"Node\""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "Nelze načíst třídu \"%1$s\", soubor \"%2$s\" nebyl nenalezen"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Rozbalit/sbalit"
 
@@ -14417,9 +14417,11 @@ msgstr "Žádné databáze"
 msgid "View dump (schema) of databases"
 msgstr "Export databází"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Jméno uživatele a počítače se nezměnilo."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -16850,6 +16852,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Jméno uživatele a počítače se nezměnilo."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "Přesměrovávám na %s."

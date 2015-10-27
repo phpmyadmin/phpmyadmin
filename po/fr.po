@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-24 11:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9519,7 +9519,7 @@ msgstr "Nom de classe \"%1$s\" invalide, \"Node\" sera utilisé"
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "La classe \"%1$s\" n'a pu être incluse, fichier \"%2$s\" inexistant"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Développer/réduire"
 
@@ -14639,9 +14639,11 @@ msgstr "Aucune base de données"
 msgid "View dump (schema) of databases"
 msgstr "Schéma et/ou contenu des bases de données"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Ni le code utilisateur ni le nom du serveur n'ont été modifiés."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15769,7 +15771,6 @@ msgid "Description"
 msgstr "Description"
 
 #: url.php:36
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
 msgstr "En route vers le site cible."
 
@@ -17094,6 +17095,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Ni le code utilisateur ni le nom du serveur n'ont été modifiés."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "Vous êtes redirigé vers %s."

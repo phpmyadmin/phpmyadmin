@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-09-16 05:36+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
@@ -9054,7 +9054,7 @@ msgstr "不正確的類別名稱 \"%1$s\"，使用預設的 \"Node\""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "無法引用類別 \"%1$s\"，檔案 \"%2$s\" 找不到"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "展開/摺疊"
 
@@ -13904,9 +13904,11 @@ msgstr "無資料庫"
 msgid "View dump (schema) of databases"
 msgstr "檢視資料庫結構的匯出資料"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "使用者名稱與主機名稱未變更。"
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -16195,6 +16197,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "使用者名稱與主機名稱未變更。"
 
 #~ msgid "Taking you to %s."
 #~ msgstr "帶您連結至 %s。"

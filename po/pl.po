@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-09 23:32+0200\n"
 "Last-Translator: Michał VonFlynee <vonflynee@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-5/pl/"
@@ -9987,7 +9987,7 @@ msgstr "Nieprawidłowa nazwa klasy \"%1$s\", użyj domyślnych z \"Node\""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "Nie zawiera klasy \"%1$s\", pliku \"%2$s\" nie znaleziono"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Rozwiń/Zwiń"
 
@@ -15259,9 +15259,11 @@ msgstr "Brak baz danych"
 msgid "View dump (schema) of databases"
 msgstr "Pokaż zrzut (schemat) bazy danych"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Nazwa użytkownika oraz nazwa hosta nie zmienił się."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -17844,6 +17846,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert jest ustawiony na 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Nazwa użytkownika oraz nazwa hosta nie zmienił się."
 
 #, fuzzy
 #~| msgid "Tracking report"

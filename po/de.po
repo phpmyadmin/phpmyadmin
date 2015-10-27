@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-25 22:11+0200\n"
 "Last-Translator: Julian Ladisch <github.com-t3if@ladisch.de>\n"
-"Language-Team: German "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-5/de/"
+">\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9542,7 +9542,7 @@ msgstr ""
 "Klasse \"%1$s\" konnte nicht eingebunden werden, Datei \"%2$s\" nicht "
 "gefunden"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Auf-/Zuklappen"
 
@@ -14707,9 +14707,11 @@ msgstr "Keine Datenbanken"
 msgid "View dump (schema) of databases"
 msgstr "Dump (Schema) der Datenbanken anzeigen"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Benutzername und Rechnername haben sich nicht geändert."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15840,7 +15842,6 @@ msgid "Description"
 msgstr "Beschreibung"
 
 #: url.php:36
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
 msgstr "Führt Sie zur Zielsite."
 
@@ -17179,6 +17180,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Benutzername und Rechnername haben sich nicht geändert."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "Führt sie zu %s."

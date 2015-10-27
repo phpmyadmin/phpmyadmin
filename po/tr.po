@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-23 09:39-0400\n"
-"PO-Revision-Date: 2015-10-23 19:06+0200\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-10-27 05:44+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/tr/>\n"
@@ -9443,7 +9443,7 @@ msgstr "Geçersiz sınıf adı \"%1$s\", \"Node\" varsayılanı kullanıyor"
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "\"%1$s\" sınıfı dahil edilemedi, dosya \"%2$s\" bulunamadı"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Genişlet/Daralt"
 
@@ -14501,9 +14501,13 @@ msgstr "Veritabanı yok"
 msgid "View dump (schema) of databases"
 msgstr "Veritabanlarının dökümünü (şemasını) göster"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Kullanıcı adı ve anamakine adı değişmedi."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
+"Kullanıcı adı ve anabilgisayar adı değişmedi. Sadece parolayı değiştirmek "
+"istiyorsanız, 'Parolayı değiştir' sekmesi kullanılmalıdır."
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15631,7 +15635,6 @@ msgid "Description"
 msgstr "Açıklama"
 
 #: url.php:36
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
 msgstr "Sizi hedef siteye götürüyor."
 
@@ -16922,6 +16925,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Kullanıcı adı ve anamakine adı değişmedi."
 
 #~ msgid "Taking you to %s."
 #~ msgstr "Sizi götürdüğü yer %s."
