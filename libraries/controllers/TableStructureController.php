@@ -806,7 +806,6 @@ class TableStructureController extends TableController
         list(
             $analyzed_sql_results,
             $db,
-            $table
         ) = PMA_parseAnalyze($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
