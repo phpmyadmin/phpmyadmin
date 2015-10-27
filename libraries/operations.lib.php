@@ -1192,6 +1192,9 @@ function PMA_getPossibleRowFormat()
     // option values as keys then the dropdown option labels
 
     $possible_row_formats = array(
+        'ARCHIVE' => array(
+            'COMPRESSED' => 'COMPRESSED',
+        ),
         'ARIA'  => array(
             'FIXED'     => 'FIXED',
             'DYNAMIC'   => 'DYNAMIC',
