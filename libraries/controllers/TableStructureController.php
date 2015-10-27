@@ -37,7 +37,7 @@ class TableStructureController extends TableController
     /**
      * @var Table  The table object
      */
-    protected $_table_obj;
+    protected $table_obj;
     /**
      * @var string  The URL query string
      */
