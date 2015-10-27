@@ -1839,15 +1839,16 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
             . PMA\libraries\Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
     }
 
-    $newRowFormat = $_REQUEST['new_row_format'];
-    $newRowFormatLower = /*overload*/mb_strtolower($newRowFormat);
-    if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-        &&  ! empty($newRowFormat)
-        && (!/*overload*/mb_strlen($row_format)
-        || $newRowFormatLower !== /*overload*/mb_strtolower($row_format))
-    ) {
-        $table_alters[] = 'ROW_FORMAT = '
-            . PMA\libraries\Util::sqlAddSlashes($newRowFormat);
+    if (! empty($_REQUEST['new_row_format'])) {
+        $newRowFormat = $_REQUEST['new_row_format'];
+        $newRowFormatLower = /*overload*/mb_strtolower($newRowFormat);
+        if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
+            && (!/*overload*/mb_strlen($row_format)
+            || $newRowFormatLower !== /*overload*/mb_strtolower($row_format))
+        ) {
+            $table_alters[] = 'ROW_FORMAT = '
+                . PMA\libraries\Util::sqlAddSlashes($newRowFormat);
+        }
     }
 
     return $table_alters;

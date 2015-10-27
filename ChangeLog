@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue #11607 Unable to change password from Login information tab
 - issue #11610 Undefined variable: res_rel
 - issue #11611 Warning while exporting schema to PDF
+- issue #11612 Undefined index: new_row_format
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()
