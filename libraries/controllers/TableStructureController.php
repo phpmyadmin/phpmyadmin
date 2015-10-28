@@ -718,7 +718,7 @@ class TableStructureController extends TableController
      */
     protected function updatePartitioning()
     {
-        require_once 'libraries/create_addfield.lib.php';
+        include_once 'libraries/create_addfield.lib.php';
 
         $sql_query = "ALTER TABLE " . Util::backquote($this->table) . " "
             . PMA_getPartitionsDefinition();
