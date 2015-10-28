@@ -242,7 +242,6 @@ class DatabaseStructureController extends DatabaseController
 
             $drop_query = '';
             $drop_message = '';
-            $already_favorite = false;
             $overhead = '';
 
             $table_is_view = false;
@@ -325,14 +324,6 @@ class DatabaseStructureController extends DatabaseController
                     $check_time_all = $check_time;
                 }
             }
-
-            $alias = htmlspecialchars(
-                (!empty($tooltip_aliasname)
-                    && isset($tooltip_aliasname[$current_table['TABLE_NAME']]))
-                ? $tooltip_aliasname[$current_table['TABLE_NAME']]
-                : $current_table['TABLE_NAME']
-            );
-            $alias = str_replace(' ', '&nbsp;', $alias);
 
             $truename = htmlspecialchars(
                 (!empty($tooltip_truename)
