@@ -3952,10 +3952,18 @@ function PMA_getDataForChangeOrCopyUser()
             if (PMA_Util::getServerType() == 'MySQL'
                 && PMA_MYSQL_INT_VERSION >= 50606
                 && PMA_MYSQL_INT_VERSION < 50706
-                && isset($password)
+                && ((isset($authentication_string)
+                && empty($password))
+                || (isset($plugin)
+                && $plugin == 'sha256_password'))
+            ) {
+                $password = $authentication_string;
+            }
+
+            if (PMA_Util::getServerType() == 'MariaDB'
+                && PMA_MYSQL_INT_VERSION >= 50500
+                && isset($authentication_string)
                 && empty($password)
-                && isset($plugin)
-                && $plugin == 'sha256_password'
             ) {
                 $password = $authentication_string;
             }
