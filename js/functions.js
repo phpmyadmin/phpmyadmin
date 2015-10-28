@@ -3754,7 +3754,9 @@ function showIndexEditDialog($outer)
     $('a.ui-slider-handle').addClass('ui-state-focus');
     // set focus on index name input, if empty
     var input = $outer.find('input#input_index_name');
-    input.val() || input.focus();
+    if (! input.val()) {
+        input.focus();
+    }
 }
 
 /**
