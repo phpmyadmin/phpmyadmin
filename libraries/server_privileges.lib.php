@@ -5085,7 +5085,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 
     $create_user_real = $create_user_show = $create_user_stmt;
 
-    $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = PASSWORD(\'%s\')';
+    $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = \'%s\'';
     $password_set_show = sprintf(
         $password_set_stmt,
         $slashedUsername,
@@ -5132,11 +5132,12 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 null
             );
         } else {
+            $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
             $password_set_real = sprintf(
                 $password_set_stmt,
                 $slashedUsername,
                 $slashedHostname,
-                $_POST['pma_pw']
+                $hashedPassword
             );
         }
     } else {
@@ -5157,10 +5158,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $create_user_real = $create_user_show = $create_user_stmt;
 
         if ($_POST['pred_password'] == 'keep') {
-            $hashedPassword = PMA_getHashedPassword($password);
             $create_user_real = sprintf(
                 $create_user_stmt,
-                $hashedPassword
+                $slashedPassword
             );
             $create_user_show = sprintf(
                 $create_user_stmt,
