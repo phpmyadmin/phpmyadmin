@@ -4003,7 +4003,7 @@ function PMA_getDataForChangeOrCopyUser()
                 $password = $authentication_string;
             }
 
-            if (PMA_Util::getServerType() == 'MariaDB'
+            if (Util::getServerType() == 'MariaDB'
                 && PMA_MYSQL_INT_VERSION >= 50500
                 && isset($authentication_string)
                 && empty($password)
