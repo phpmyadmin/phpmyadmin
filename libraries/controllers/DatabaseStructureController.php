@@ -546,6 +546,23 @@ class DatabaseStructureController extends DatabaseController
                 $approx_rows = !$table_is_view
                     && $current_table['ENGINE'] == 'InnoDB'
                     && !$current_table['COUNTED'];
+
+                if ($table_is_view
+                    && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+                ) {
+                    $approx_rows = true;
+                    $show_superscript = Util::showHint(
+                        PMA_sanitize(
+                            sprintf(
+                                __(
+                                    'This view has at least this number of '
+                                    . 'rows. Please refer to %sdocumentation%s.'
+                                ),
+                                '[doc@cfg_MaxExactCountViews]', '[/doc]'
+                            )
+                        )
+                    );
+                }
             }
 
             $this->response->addHTML(
@@ -917,6 +934,8 @@ class DatabaseStructureController extends DatabaseController
         // or on some servers it's reported as "SYSTEM VIEW"
         case null :
         case 'SYSTEM VIEW' :
+            // possibly a view, do nothing
+            break;
         default :
             // Unknown table type.
             if ($this->_is_show_stats) {
