@@ -134,9 +134,9 @@ class DatabaseStructureController extends DatabaseController
             $is_show_stats,
             $db_is_system_schema,
             $tooltip_truename,
-            $tooltip_aliasname,
+            ,
             $pos
-        ) = Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
+        ) = Util::getDbInfo($GLOBALS['db'], $sub_part);
 
         $this->_tables = $tables;
         // updating $tables seems enough for #11376, but updating other
@@ -151,9 +151,9 @@ class DatabaseStructureController extends DatabaseController
 
         PageSettings::showGroup('DbStructure');
 
-        $db_collation = PMA_getDbCollation($this->db);
 
-        $titles = Util::buildActionTitles();
+
+
 
         // 1. No tables
 
@@ -338,6 +338,7 @@ class DatabaseStructureController extends DatabaseController
              * the code easier to read without this operator.
              */
             $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
+            $titles = Util::buildActionTitles();
 
             $browse_table = Template::get('database/structure/browse_table')
                 ->render(
@@ -598,8 +599,11 @@ class DatabaseStructureController extends DatabaseController
             $overall_approx_rows = $overall_approx_rows || $approx_rows;
         } // end foreach
 
-        // Show Summary
         $this->response->addHTML('</tbody>');
+
+        $db_collation = PMA_getDbCollation($this->db);
+
+        // Show Summary
         $this->response->addHTML(
             Template::get('database/structure/body_for_table_summary')->render(
                 array(
@@ -619,6 +623,7 @@ class DatabaseStructureController extends DatabaseController
             )
         );
         $this->response->addHTML('</table>');
+
         //check all
         $this->response->addHTML(
             Template::get('database/structure/check_all_tables')->render(
@@ -654,7 +659,7 @@ class DatabaseStructureController extends DatabaseController
                 ->render(array('url_query' => $this->_url_query))
         );
 
-        if (empty($db_is_system_schema)) {
+        if (empty($this->_db_is_system_schema)) {
             $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
         }
     }
