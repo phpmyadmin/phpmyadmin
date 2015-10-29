@@ -97,6 +97,15 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
 
+        // If there is an Ajax request for real row count of a table.
+        if ($GLOBALS['is_ajax_request']
+            && isset($_REQUEST['real_row_count'])
+            && $_REQUEST['real_row_count'] == true
+        ) {
+            $this->handleRealRowCountRequestAction();
+            return;
+        }
+
         $this->response->getHeader()->getScripts()->addFiles(
             array(
                 'db_structure.js',
@@ -151,15 +160,6 @@ class DatabaseStructureController extends DatabaseController
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_total_num_tables = $total_num_tables;
         $this->_is_show_stats = $is_show_stats;
-
-        // If there is an Ajax request for real row count of a table.
-        if ($GLOBALS['is_ajax_request']
-            && isset($_REQUEST['real_row_count'])
-            && $_REQUEST['real_row_count'] == true
-        ) {
-            $this->handleRealRowCountRequestAction();
-            return;
-        }
 
         include_once 'libraries/replication.inc.php';
 
