@@ -151,12 +151,7 @@ class DatabaseStructureController extends DatabaseController
 
         PageSettings::showGroup('DbStructure');
 
-
-
-
-
         // 1. No tables
-
         if ($this->_num_tables == 0) {
             $this->response->addHTML(
                 Message::notice(__('No tables found in database.'))
@@ -169,7 +164,6 @@ class DatabaseStructureController extends DatabaseController
 
         // else
         // 2. Shows table information
-
         /**
          * Displays the tables list
          */
@@ -194,6 +188,183 @@ class DatabaseStructureController extends DatabaseController
             )
         );
 
+        $this->displayTableList();
+
+        // display again the table list navigator
+        $this->response->addHTML(
+            Util::getListNavigator(
+                $this->_total_num_tables, $this->_pos, $_url_params,
+                'db_structure.php', 'frame_content',
+                $GLOBALS['cfg']['MaxTableList']
+            )
+        );
+
+        $this->response->addHTML('</div><hr />');
+
+        /**
+         * Work on the database
+         */
+        /* DATABASE WORK */
+        /* Printable view of a table */
+        $this->response->addHTML(
+            Template::get('database/structure/print_view_data_dictionary_link')
+                ->render(array('url_query' => $this->_url_query))
+        );
+
+        if (empty($this->_db_is_system_schema)) {
+            $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
+        }
+    }
+
+    /**
+     * Add or remove favorite tables
+     *
+     * @return void
+     */
+    public function addRemoveFavoriteTablesAction()
+    {
+        $fav_instance = RecentFavoriteTable::getInstance('favorite');
+        if (isset($_REQUEST['favorite_tables'])) {
+            $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
+        } else {
+            $favorite_tables = array();
+        }
+        // Required to keep each user's preferences separate.
+        $user = sha1($GLOBALS['cfg']['Server']['user']);
+
+        // Request for Synchronization of favorite tables.
+        if (isset($_REQUEST['sync_favorite_tables'])) {
+            $this->synchronizeFavoriteTables($fav_instance, $user, $favorite_tables);
+            return;
+        }
+        $changes = true;
+        $titles = Util::buildActionTitles();
+        $favorite_table = $_REQUEST['favorite_table'];
+        $already_favorite = $this->checkFavoriteTable($favorite_table);
+
+        if (isset($_REQUEST['remove_favorite'])) {
+            if ($already_favorite) {
+                // If already in favorite list, remove it.
+                $fav_instance->remove($this->db, $favorite_table);
+                $already_favorite = false; // for favorite_anchor template
+            }
+        } elseif (isset($_REQUEST['add_favorite'])) {
+            if (!$already_favorite) {
+                $nbTables = count($fav_instance->getTables());
+                if ($nbTables == $GLOBALS['cfg']['NumFavoriteTables']) {
+                    $changes = false;
+                } else {
+                    // Otherwise add to favorite list.
+                    $fav_instance->add($this->db, $favorite_table);
+                    $already_favorite = true;  // for favorite_anchor template
+                }
+            }
+        }
+
+        $favorite_tables[$user] = $fav_instance->getTables();
+        $this->response->addJSON('changes', $changes);
+        if (!$changes) {
+            $this->response->addJSON(
+                'message',
+                Template::get('components/error_message')
+                    ->render(
+                        array(
+                            'msg' => __("Favorite List is full!")
+                        )
+                    )
+            );
+            return;
+        }
+        $this->response->addJSON(
+            array(
+                'user' => $user,
+                'favorite_tables' => json_encode($favorite_tables),
+                'list' => $fav_instance->getHtmlList(),
+                'anchor' => Template::get('database/structure/favorite_anchor')
+                    ->render(
+                        array(
+                            'db' => $this->db,
+                            'current_table' => array(
+                                'TABLE_NAME' => $favorite_table
+                            ),
+                            'titles' => $titles,
+                            'already_favorite' => $already_favorite
+                        )
+                    )
+            )
+        );
+    }
+
+    /**
+     * Handles request for real row count on database level view page.
+     *
+     * @return boolean true
+     */
+    public function handleRealRowCountRequestAction()
+    {
+        $ajax_response = $this->response;
+        // If there is a request to update all table's row count.
+        if (!isset($_REQUEST['real_row_count_all'])) {
+            // Get the real row count for the table.
+            $real_row_count = $this->dbi
+                ->getTable($this->db, $_REQUEST['table'])
+                ->getRealRowCountTable();
+            // Format the number.
+            $real_row_count = Util::formatNumber($real_row_count, 0);
+            $ajax_response->addJSON('real_row_count', $real_row_count);
+            return;
+        }
+
+        // Array to store the results.
+        $real_row_count_all = array();
+        // Iterate over each table and fetch real row count.
+        foreach ($GLOBALS['tables'] as $table) {
+            $row_count = $this->dbi
+                ->getTable($this->db, $table['TABLE_NAME'])
+                ->getRealRowCountTable();
+            $real_row_count_all[] = array(
+                'table' => $table['TABLE_NAME'],
+                'row_count' => $row_count
+            );
+        }
+
+        $ajax_response->addJSON(
+            'real_row_count_all',
+            json_encode($real_row_count_all)
+        );
+    }
+
+    /**
+     * Handles actions related to multiple tables
+     *
+     * @return void
+     */
+    public function mutliSubmitAction()
+    {
+        $action = 'db_structure.php';
+        $err_url = 'db_structure.php' . PMA_URL_getCommon(
+            array('db' => $this->db)
+        );
+
+        // see bug #2794840; in this case, code path is:
+        // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
+        // -> db_structure.php and if we got an error on the multi submit,
+        // we must display it here and not call again mult_submits.inc.php
+        if (! isset($_POST['error']) || false === $_POST['error']) {
+            include 'libraries/mult_submits.inc.php';
+        }
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+    }
+
+    /**
+     * Displays the list of tables
+     *
+     * @return void
+     */
+    protected function displayTableList()
+    {
         // table form
         $this->response->addHTML(
             Template::get('database/structure/table_header')
@@ -443,7 +614,7 @@ class DatabaseStructureController extends DatabaseController
                 $odd_row = true;
 
                 $this->response->addHTML(
-                    '</tr></tbody></table>'
+                    '</tr></tbody></table></form>'
                 );
 
                 $this->response->addHTML(
@@ -637,173 +808,6 @@ class DatabaseStructureController extends DatabaseController
             )
         );
         $this->response->addHTML('</form>'); //end of form
-
-        // display again the table list navigator
-        $this->response->addHTML(
-            Util::getListNavigator(
-                $this->_total_num_tables, $this->_pos, $_url_params,
-                'db_structure.php', 'frame_content',
-                $GLOBALS['cfg']['MaxTableList']
-            )
-        );
-
-        $this->response->addHTML('</div><hr />');
-
-        /**
-         * Work on the database
-         */
-        /* DATABASE WORK */
-        /* Printable view of a table */
-        $this->response->addHTML(
-            Template::get('database/structure/print_view_data_dictionary_link')
-                ->render(array('url_query' => $this->_url_query))
-        );
-
-        if (empty($this->_db_is_system_schema)) {
-            $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
-        }
-    }
-
-    /**
-     * Add or remove favorite tables
-     *
-     * @return void
-     */
-    public function addRemoveFavoriteTablesAction()
-    {
-        $fav_instance = RecentFavoriteTable::getInstance('favorite');
-        if (isset($_REQUEST['favorite_tables'])) {
-            $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
-        } else {
-            $favorite_tables = array();
-        }
-        // Required to keep each user's preferences separate.
-        $user = sha1($GLOBALS['cfg']['Server']['user']);
-
-        // Request for Synchronization of favorite tables.
-        if (isset($_REQUEST['sync_favorite_tables'])) {
-            $this->synchronizeFavoriteTables($fav_instance, $user, $favorite_tables);
-            return;
-        }
-        $changes = true;
-        $titles = Util::buildActionTitles();
-        $favorite_table = $_REQUEST['favorite_table'];
-        $already_favorite = $this->checkFavoriteTable($favorite_table);
-
-        if (isset($_REQUEST['remove_favorite'])) {
-            if ($already_favorite) {
-                // If already in favorite list, remove it.
-                $fav_instance->remove($this->db, $favorite_table);
-                $already_favorite = false; // for favorite_anchor template
-            }
-        } elseif (isset($_REQUEST['add_favorite'])) {
-            if (!$already_favorite) {
-                $nbTables = count($fav_instance->getTables());
-                if ($nbTables == $GLOBALS['cfg']['NumFavoriteTables']) {
-                    $changes = false;
-                } else {
-                    // Otherwise add to favorite list.
-                    $fav_instance->add($this->db, $favorite_table);
-                    $already_favorite = true;  // for favorite_anchor template
-                }
-            }
-        }
-
-        $favorite_tables[$user] = $fav_instance->getTables();
-        $this->response->addJSON('changes', $changes);
-        if (!$changes) {
-            $this->response->addJSON(
-                'message',
-                Template::get('components/error_message')
-                    ->render(
-                        array(
-                            'msg' => __("Favorite List is full!")
-                        )
-                    )
-            );
-            return;
-        }
-        $this->response->addJSON(
-            array(
-                'user' => $user,
-                'favorite_tables' => json_encode($favorite_tables),
-                'list' => $fav_instance->getHtmlList(),
-                'anchor' => Template::get('database/structure/favorite_anchor')
-                    ->render(
-                        array(
-                            'db' => $this->db,
-                            'current_table' => array(
-                                'TABLE_NAME' => $favorite_table
-                            ),
-                            'titles' => $titles,
-                            'already_favorite' => $already_favorite
-                        )
-                    )
-            )
-        );
-    }
-
-    /**
-     * Handles request for real row count on database level view page.
-     *
-     * @return boolean true
-     */
-    public function handleRealRowCountRequestAction()
-    {
-        $ajax_response = $this->response;
-        // If there is a request to update all table's row count.
-        if (!isset($_REQUEST['real_row_count_all'])) {
-            // Get the real row count for the table.
-            $real_row_count = $this->dbi
-                ->getTable($this->db, $_REQUEST['table'])
-                ->getRealRowCountTable();
-            // Format the number.
-            $real_row_count = Util::formatNumber($real_row_count, 0);
-            $ajax_response->addJSON('real_row_count', $real_row_count);
-            return;
-        }
-
-        // Array to store the results.
-        $real_row_count_all = array();
-        // Iterate over each table and fetch real row count.
-        foreach ($GLOBALS['tables'] as $table) {
-            $row_count = $this->dbi
-                ->getTable($this->db, $table['TABLE_NAME'])
-                ->getRealRowCountTable();
-            $real_row_count_all[] = array(
-                'table' => $table['TABLE_NAME'],
-                'row_count' => $row_count
-            );
-        }
-
-        $ajax_response->addJSON(
-            'real_row_count_all',
-            json_encode($real_row_count_all)
-        );
-    }
-
-    /**
-     * Handles actions related to multiple tables
-     *
-     * @return void
-     */
-    public function mutliSubmitAction()
-    {
-        $action = 'db_structure.php';
-        $err_url = 'db_structure.php' . PMA_URL_getCommon(
-            array('db' => $this->db)
-        );
-
-        // see bug #2794840; in this case, code path is:
-        // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
-        // -> db_structure.php and if we got an error on the multi submit,
-        // we must display it here and not call again mult_submits.inc.php
-        if (! isset($_POST['error']) || false === $_POST['error']) {
-            include 'libraries/mult_submits.inc.php';
-        }
-        if (empty($_POST['message'])) {
-            $_POST['message'] = Message::success();
-        }
     }
 
     /**
