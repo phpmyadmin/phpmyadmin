@@ -106,6 +106,13 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
 
+        // Drops/deletes/etc. multiple tables if required
+        if ((! empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
+            || isset($_POST['mult_btn'])
+        ) {
+            $this->mutliSubmitAction();
+        }
+
         $this->response->getHeader()->getScripts()->addFiles(
             array(
                 'db_structure.js',
@@ -113,27 +120,6 @@ class DatabaseStructureController extends DatabaseController
                 'jquery/jquery-ui-timepicker-addon.js'
             )
         );
-
-        // Drops/deletes/etc. multiple tables if required
-        if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
-            || isset($_POST['mult_btn'])
-        ) {
-            $action = 'db_structure.php';
-            $err_url = 'db_structure.php' . PMA_URL_getCommon(
-                array('db' => $this->db)
-            );
-
-            // see bug #2794840; in this case, code path is:
-            // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
-            // -> db_structure.php and if we got an error on the multi submit,
-            // we must display it here and not call again mult_submits.inc.php
-            if (! isset($_POST['error']) || false === $_POST['error']) {
-                include 'libraries/mult_submits.inc.php';
-            }
-            if (empty($_POST['message'])) {
-                $_POST['message'] = Message::success();
-            }
-        }
 
         $this->_url_query .= '&amp;goto=db_structure.php';
 
@@ -789,6 +775,30 @@ class DatabaseStructureController extends DatabaseController
             'real_row_count_all',
             json_encode($real_row_count_all)
         );
+    }
+
+    /**
+     * Handles actions related to multiple tables
+     *
+     * @return void
+     */
+    public function mutliSubmitAction()
+    {
+        $action = 'db_structure.php';
+        $err_url = 'db_structure.php' . PMA_URL_getCommon(
+            array('db' => $this->db)
+        );
+
+        // see bug #2794840; in this case, code path is:
+        // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
+        // -> db_structure.php and if we got an error on the multi submit,
+        // we must display it here and not call again mult_submits.inc.php
+        if (! isset($_POST['error']) || false === $_POST['error']) {
+            include 'libraries/mult_submits.inc.php';
+        }
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
     }
 
     /**
