@@ -32,29 +32,12 @@ function PMA_checkRequiredPrivilegesForFlushing()
 }
 
 /**
- * Check if user has required privileges for
- * performing 'Adjust privileges' operations
+ * Check if user has privileges on mysql.db
  *
- * @return void
+ * @return boolean
  */
-function PMA_checkRequiredPrivilegesForAdjust()
+function PMA_hasMysqlDbPrivileges()
 {
-    if (PMA\libraries\Util::cacheExists('db_priv')) {
-        $GLOBALS['db_priv'] = PMA\libraries\Util::cacheGet(
-            'db_priv'
-        );
-        $GLOBALS['col_priv'] = PMA\libraries\Util::cacheGet(
-            'col_priv'
-        );
-        $GLOBALS['table_priv'] = PMA\libraries\Util::cacheGet(
-            'table_priv'
-        );
-        $GLOBALS['proc_priv'] = PMA\libraries\Util::cacheGet(
-            'proc_priv'
-        );
-        return;
-    }
-
     $privs_available = true;
     // FOR DB PRIVS
     $select_privs_available = $GLOBALS['dbi']->tryQuery(
@@ -93,9 +76,17 @@ function PMA_checkRequiredPrivilegesForAdjust()
         );
         $privs_available = $update_privs_available && $privs_available;
     }
-    // save the value
-    $GLOBALS['db_priv'] = $privs_available;
-    // reset the value
+
+    return $privs_available;
+}
+
+/**
+ * Check if user has privileges on mysql.columns_priv
+ *
+ * @return boolean
+ */
+function PMA_hasMysqlColumnsPrivileges()
+{
     $privs_available = true;
 
     // FOR COLUMNS_PRIV
@@ -138,9 +129,17 @@ function PMA_checkRequiredPrivilegesForAdjust()
         $privs_available = $update_privs_available && $privs_available;
 
     }
-    // Save the value
-    $GLOBALS['col_priv'] = $privs_available;
-    // Reset the value
+
+    return $privs_available;
+}
+
+/**
+ * Check if user has privileges on mysql.tables_priv
+ *
+ * @return boolean
+ */
+function PMA_hasMysqlTablesPrivileges()
+{
     $privs_available = true;
 
     // FOR TABLES_PRIV
@@ -182,9 +181,17 @@ function PMA_checkRequiredPrivilegesForAdjust()
         $privs_available = $update_privs_available && $privs_available;
 
     }
-    // Save the value
-    $GLOBALS['table_priv'] = $privs_available;
-    // Reset the value
+
+    return $privs_available;
+}
+
+/**
+ * Check if user has privileges on mysql.procs_priv
+ *
+ * @return boolean
+ */
+function PMA_hasMysqlProcsPrivileges()
+{
     $privs_available = true;
 
     // FOR PROCS_PRIV
@@ -227,8 +234,38 @@ function PMA_checkRequiredPrivilegesForAdjust()
         );
         $privs_available = $update_privs_available && $privs_available;
     }
-    // Save the value
-    $GLOBALS['proc_priv'] = $privs_available;
+
+    return $privs_available;
+}
+
+/**
+ * Check if user has required privileges for
+ * performing 'Adjust privileges' operations
+ *
+ * @return void
+ */
+function PMA_checkRequiredPrivilegesForAdjust()
+{
+    if (PMA\libraries\Util::cacheExists('db_priv')) {
+        $GLOBALS['db_priv'] = PMA\libraries\Util::cacheGet(
+            'db_priv'
+        );
+        $GLOBALS['col_priv'] = PMA\libraries\Util::cacheGet(
+            'col_priv'
+        );
+        $GLOBALS['table_priv'] = PMA\libraries\Util::cacheGet(
+            'table_priv'
+        );
+        $GLOBALS['proc_priv'] = PMA\libraries\Util::cacheGet(
+            'proc_priv'
+        );
+        return;
+    }
+
+    $GLOBALS['db_priv'] = PMA_hasMysqlDbPrivileges();
+    $GLOBALS['col_priv'] = PMA_hasMysqlColumnsPrivileges();
+    $GLOBALS['table_priv'] = PMA_hasMysqlTablesPrivileges();
+    $GLOBALS['proc_priv'] = PMA_hasMysqlProcsPrivileges();
 
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.class.php
