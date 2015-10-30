@@ -628,46 +628,6 @@ class DatabaseStructureController extends DatabaseController
                 );
             }
 
-            $do = $ignored = false;
-            if ($GLOBALS['replication_info']['slave']['status']) {
-
-                $nbServSlaveDoDb = count(
-                    $GLOBALS['replication_info']['slave']['Do_DB']
-                );
-                $nbServSlaveIgnoreDb = count(
-                    $GLOBALS['replication_info']['slave']['Ignore_DB']
-                );
-                $searchDoDBInTruename = array_search(
-                    $truename, $GLOBALS['replication_info']['slave']['Do_DB']
-                );
-                $searchDoDBInDB = array_search(
-                    $this->db, $GLOBALS['replication_info']['slave']['Do_DB']
-                );
-
-                $do = strlen($searchDoDBInTruename) > 0
-                    || strlen($searchDoDBInDB) > 0
-                    || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
-                    || $this->hasTable(
-                        $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
-                        $truename
-                    );
-
-                $searchDb = array_search(
-                    $this->db,
-                    $GLOBALS['replication_info']['slave']['Ignore_DB']
-                );
-                $searchTable = array_search(
-                    $truename,
-                    $GLOBALS['replication_info']['slave']['Ignore_Table']
-                );
-                $ignored = strlen($searchTable) > 0
-                    || strlen($searchDb) > 0
-                    || $this->hasTable(
-                        $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'],
-                        $truename
-                    );
-            }
-
             // Handle favorite table list. ----START----
             $already_favorite = $this->checkFavoriteTable(
                 $current_table['TABLE_NAME']
@@ -722,6 +682,8 @@ class DatabaseStructureController extends DatabaseController
                     );
                 }
             }
+
+            list($do, $ignored) = $this->getReplicationStatus($truename);
 
             $this->response->addHTML(
                 Template::get('database/structure/structure_table_row')
@@ -808,6 +770,58 @@ class DatabaseStructureController extends DatabaseController
             )
         );
         $this->response->addHTML('</form>'); //end of form
+    }
+
+    /**
+     * Returns the replication status of the table.
+     *
+     * @param string $table table name
+     *
+     * @return array
+     */
+    protected function getReplicationStatus($table)
+    {
+        $do = $ignored = false;
+        if ($GLOBALS['replication_info']['slave']['status']) {
+
+            $nbServSlaveDoDb = count(
+                $GLOBALS['replication_info']['slave']['Do_DB']
+            );
+            $nbServSlaveIgnoreDb = count(
+                $GLOBALS['replication_info']['slave']['Ignore_DB']
+            );
+            $searchDoDBInTruename = array_search(
+                $table, $GLOBALS['replication_info']['slave']['Do_DB']
+            );
+            $searchDoDBInDB = array_search(
+                $this->db, $GLOBALS['replication_info']['slave']['Do_DB']
+            );
+
+            $do = strlen($searchDoDBInTruename) > 0
+                || strlen($searchDoDBInDB) > 0
+                || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
+                || $this->hasTable(
+                    $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
+                    $table
+                );
+
+            $searchDb = array_search(
+                $this->db,
+                $GLOBALS['replication_info']['slave']['Ignore_DB']
+            );
+            $searchTable = array_search(
+                $table,
+                $GLOBALS['replication_info']['slave']['Ignore_Table']
+            );
+            $ignored = strlen($searchTable) > 0
+                || strlen($searchDb) > 0
+                || $this->hasTable(
+                    $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'],
+                    $table
+                );
+        }
+
+        return array($do, $ignored);
     }
 
     /**
