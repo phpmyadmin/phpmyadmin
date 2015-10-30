@@ -628,29 +628,7 @@ class DatabaseStructureController extends DatabaseController
                 );
             }
 
-            // Handle favorite table list. ----START----
-            $already_favorite = $this->checkFavoriteTable(
-                $current_table['TABLE_NAME']
-            );
-
-            if (isset($_REQUEST['remove_favorite'])) {
-                if ($already_favorite) {
-                    // If already in favorite list, remove it.
-                    $favorite_table = $_REQUEST['favorite_table'];
-                    $fav_instance->remove($this->db, $favorite_table);
-                }
-            }
-
-            if (isset($_REQUEST['add_favorite'])) {
-                if (!$already_favorite) {
-                    // Otherwise add to favorite list.
-                    $favorite_table = $_REQUEST['favorite_table'];
-                    $fav_instance->add($this->db, $favorite_table);
-                }
-            } // Handle favorite table list. ----ENDS----
-
             $show_superscript = '';
-
             // there is a null value in the ENGINE
             // - when the table needs to be repaired, or
             // - when it's a view
