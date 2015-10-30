@@ -587,25 +587,6 @@ class DatabaseStructureController extends DatabaseController
                 );
             }
 
-            $tracking_icon = '';
-            if (Tracker::isActive()) {
-                $is_tracked = Tracker::isTracked($GLOBALS["db"], $truename);
-                if ($is_tracked
-                    || Tracker::getVersion($GLOBALS["db"], $truename) > 0
-                ) {
-                    $tracking_icon = Template::get(
-                        'database/structure/tracking_icon'
-                    )
-                        ->render(
-                            array(
-                                'url_query' => $this->_url_query,
-                                'truename' => $truename,
-                                'is_tracked' => $is_tracked,
-                            )
-                        );
-                }
-            }
-
             if ($num_columns > 0
                 && $this->_num_tables > $num_columns
                 && ($row_count % $num_columns) == 0
@@ -644,7 +625,7 @@ class DatabaseStructureController extends DatabaseController
                             'table_is_view'         => $table_is_view,
                             'current_table'         => $current_table,
                             'browse_table_label'    => $browse_table_label,
-                            'tracking_icon'         => $tracking_icon,
+                            'tracking_icon'         => $this->getTrackingIcon($truename),
                             'server_slave_status'   => $GLOBALS['replication_info']['slave']['status'],
                             'browse_table'          => $browse_table,
                             'tbl_url_query'         => $tbl_url_query,
@@ -719,6 +700,36 @@ class DatabaseStructureController extends DatabaseController
             )
         );
         $this->response->addHTML('</form>'); //end of form
+    }
+
+    /**
+     * Returns the tracking icon if the table is tracked
+     *
+     * @param string $table table name
+     *
+     * @return string HTML for tracking icon
+     */
+    protected function getTrackingIcon($table)
+    {
+        $tracking_icon = '';
+        if (Tracker::isActive()) {
+            $is_tracked = Tracker::isTracked($GLOBALS["db"], $table);
+            if ($is_tracked
+                || Tracker::getVersion($GLOBALS["db"], $table) > 0
+            ) {
+                $tracking_icon = Template::get(
+                    'database/structure/tracking_icon'
+                )
+                ->render(
+                    array(
+                        'url_query' => $this->_url_query,
+                        'truename' => $table,
+                        'is_tracked' => $is_tracked,
+                    )
+                );
+            }
+        }
+        return $tracking_icon;
     }
 
     /**
