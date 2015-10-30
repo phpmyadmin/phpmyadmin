@@ -110,7 +110,7 @@ class DatabaseStructureController extends DatabaseController
         if ((! empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
             || isset($_POST['mult_btn'])
         ) {
-            $this->mutliSubmitAction();
+            $this->multiSubmitAction();
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
@@ -339,7 +339,7 @@ class DatabaseStructureController extends DatabaseController
      *
      * @return void
      */
-    public function mutliSubmitAction()
+    public function multiSubmitAction()
     {
         $action = 'db_structure.php';
         $err_url = 'db_structure.php' . PMA_URL_getCommon(
