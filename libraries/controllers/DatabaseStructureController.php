@@ -628,38 +628,9 @@ class DatabaseStructureController extends DatabaseController
                 );
             }
 
-            $show_superscript = '';
-            // there is a null value in the ENGINE
-            // - when the table needs to be repaired, or
-            // - when it's a view
-            //  so ensure that we'll display "in use" below for a table
-            //  that needs to be repaired
-            $approx_rows = false;
-            if (isset($current_table['TABLE_ROWS'])
-                && ($current_table['ENGINE'] != null || $table_is_view)
-            ) {
-                // InnoDB table: we did not get an accurate row count
-                $approx_rows = !$table_is_view
-                    && $current_table['ENGINE'] == 'InnoDB'
-                    && !$current_table['COUNTED'];
-
-                if ($table_is_view
-                    && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
-                ) {
-                    $approx_rows = true;
-                    $show_superscript = Util::showHint(
-                        PMA_sanitize(
-                            sprintf(
-                                __(
-                                    'This view has at least this number of '
-                                    . 'rows. Please refer to %sdocumentation%s.'
-                                ),
-                                '[doc@cfg_MaxExactCountViews]', '[/doc]'
-                            )
-                        )
-                    );
-                }
-            }
+            list($approx_rows, $show_superscript) = $this->isRowCountApproximated(
+                $current_table, $table_is_view
+            );
 
             list($do, $ignored) = $this->getReplicationStatus($truename);
 
@@ -748,6 +719,53 @@ class DatabaseStructureController extends DatabaseController
             )
         );
         $this->response->addHTML('</form>'); //end of form
+    }
+
+    /**
+     * Returns whether the row count is approximated
+     *
+     * @param array   $current_table array containing details about the table
+     * @param boolean $table_is_view whether the table is a view
+     *
+     * @return array
+     */
+    protected function isRowCountApproximated($current_table, $table_is_view)
+    {
+        $approx_rows = false;
+        $show_superscript = '';
+
+        // there is a null value in the ENGINE
+        // - when the table needs to be repaired, or
+        // - when it's a view
+        //  so ensure that we'll display "in use" below for a table
+        //  that needs to be repaired
+        if (isset($current_table['TABLE_ROWS'])
+            && ($current_table['ENGINE'] != null || $table_is_view)
+        ) {
+            // InnoDB table: we did not get an accurate row count
+            $approx_rows = !$table_is_view
+                && $current_table['ENGINE'] == 'InnoDB'
+                && !$current_table['COUNTED'];
+
+            if ($table_is_view
+                && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+            ) {
+                $approx_rows = true;
+                $show_superscript = Util::showHint(
+                    PMA_sanitize(
+                        sprintf(
+                            __(
+                                'This view has at least this number of '
+                                . 'rows. Please refer to %sdocumentation%s.'
+                            ),
+                            '[doc@cfg_MaxExactCountViews]', '[/doc]'
+                        )
+                    )
+                );
+            }
+        }
+
+        return array($approx_rows, $show_superscript);
     }
 
     /**
