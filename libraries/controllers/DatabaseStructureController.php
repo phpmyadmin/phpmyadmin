@@ -133,7 +133,7 @@ class DatabaseStructureController extends DatabaseController
             ,
             $is_show_stats,
             $db_is_system_schema,
-            $tooltip_truename,
+            ,
             ,
             $pos
         ) = Util::getDbInfo($GLOBALS['db'], $sub_part);
@@ -392,8 +392,6 @@ class DatabaseStructureController extends DatabaseController
         $hidden_fields = array();
         $odd_row       = true;
         $overall_approx_rows = false;
-        // Instance of RecentFavoriteTable class.
-        $fav_instance = RecentFavoriteTable::getInstance('favorite');
         foreach ($this->_tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
 
