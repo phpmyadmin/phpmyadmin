@@ -21,6 +21,10 @@ Code status
 
 .. image:: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/badges/quality-score.png?s=93dfde29ffa5771d9c254b7ffb11c4e673315035
     :target: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/
+    
+.. image:: https://buildtimetrend.herokuapp.com/badge/phpmyadmin/phpmyadmin
+    :alt: Buildtime Trend badge
+    :target: https://buildtimetrend.herokuapp.com/dashboard/phpmyadmin/phpmyadmin
 
 .. image:: https://img.shields.io/sourceforge/dm/phpmyadmin.svg
     :target: https://www.phpmyadmin.net/downloads/
