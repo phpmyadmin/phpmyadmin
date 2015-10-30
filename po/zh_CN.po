@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-10-29 10:27+0200\n"
-"Last-Translator: zz <tczzjin@gmail.com>\n"
+"PO-Revision-Date: 2015-10-30 08:36+0200\n"
+"Last-Translator: disorderman <disorderman@qq.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -7315,7 +7315,7 @@ msgstr "显示 SQL 查询"
 #| "Defines whether the query box should stay on-screen after its submission"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
-msgstr "声明查询框是否在提交后依然显示在屏幕上."
+msgstr "查询框在提交后是否依然显示在屏幕上。"
 
 #: libraries/config/messages.inc.php:886 libraries/sql_query_form.lib.php:351
 msgid "Retain query box"
@@ -15347,10 +15347,9 @@ msgstr "于表开头"
 
 #: templates/table/structure/display_partitions.phtml:5
 #: templates/table/structure/display_structure.phtml:199
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "分区 %s"
+msgstr "分区"
 
 #: templates/table/structure/display_partitions.phtml:9
 #, fuzzy
