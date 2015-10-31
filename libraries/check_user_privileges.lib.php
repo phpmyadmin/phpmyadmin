@@ -31,39 +31,39 @@ function PMA_checkRequiredPrivilegesForFlushing()
     $GLOBALS['flush_priv'] = $res;
 }
 
-/**
- * Check if user has privileges on mysql.db
- *
- * @return boolean
- */
-function PMA_hasMysqlDbPrivileges()
+ /**
+  * Check if user has the required privileges according to some
+  * verification queries
+  *
+  * @param array $queries
+  *
+  * @return boolean
+  */
+function PMA_hasRequiredPrivileges($queries)
 {
     $privs_available = true;
     // FOR DB PRIVS
     $select_privs_available = $GLOBALS['dbi']->tryQuery(
-        'SELECT * FROM `mysql`.`db` LIMIT 1'
+        $queries['0select']
     );
 
     $privs_available = $select_privs_available && $privs_available;
 
     if ($privs_available) {
         $delete_privs_available = $GLOBALS['dbi']->tryQuery(
-            'DELETE FROM `mysql`.`db` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" LIMIT 1'
+            $queries['1delete']
         );
         $privs_available = $delete_privs_available && $privs_available;
     }
 
     if ($privs_available) {
         $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`db`(`host`, `Db`, `User`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user")'
+            $queries['2insert']
         );
         // If successful test insert, delete the test row
         if ($insert_privs_available) {
             $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`db` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" LIMIT 1'
+                $queries['3delete']
             );
         }
         $privs_available = $insert_privs_available && $privs_available;
@@ -71,13 +71,35 @@ function PMA_hasMysqlDbPrivileges()
 
     if ($privs_available) {
         $update_privs_available = $GLOBALS['dbi']->tryQuery(
-            'UPDATE `mysql`.`db` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" LIMIT 1'
+            $queries['4update']
         );
         $privs_available = $update_privs_available && $privs_available;
     }
 
     return $privs_available;
+}
+
+/**
+ * Check if user has privileges on mysql.db
+ *
+ * @return boolean
+ */
+function PMA_hasMysqlDbPrivileges()
+{
+    return PMA_hasRequiredPrivileges(
+        array(
+            '0select' => 'SELECT * FROM `mysql`.`db` LIMIT 1',
+            '1delete' => 'DELETE FROM `mysql`.`db` WHERE `host` = "" AND '
+                . '`Db` = "" AND `User` = "" LIMIT 1',
+            '2insert' => 'INSERT INTO `mysql`.`db`(`host`, `Db`, `User`) '
+                . 'VALUES("pma_test_host", "mysql", "pma_test_user")',
+            '3delete' => 'DELETE FROM `mysql`.`db` WHERE host = '
+                . '"pma_test_host" AND Db = "mysql" AND User = '
+                . '"pma_test_user" LIMIT 1',
+            '4update' => 'UPDATE `mysql`.`db` SET `host` = "" WHERE '
+                . '`host` = "" AND `Db` = "" AND `User` = "" LIMIT 1'
+        )
+    );
 }
 
 /**
@@ -87,50 +109,22 @@ function PMA_hasMysqlDbPrivileges()
  */
 function PMA_hasMysqlColumnsPrivileges()
 {
-    $privs_available = true;
-
-    // FOR COLUMNS_PRIV
-    $select_privs_available = $GLOBALS['dbi']->tryQuery(
-        'SELECT * FROM `mysql`.`columns_priv` LIMIT 1'
+    return PMA_hasRequiredPrivileges(
+        array(
+            '0select' => 'SELECT * FROM `mysql`.`columns_priv` LIMIT 1',
+            '1delete' => 'DELETE FROM `mysql`.`columns_priv` '
+                . 'WHERE `host` = "" AND `Db` = "" AND `User` = "" LIMIT 1',
+            '2insert' => 'INSERT INTO `mysql`.`columns_priv`(`host`, `Db`, '
+                . '`User`, `Table_name`, `Column_name`) '
+                . 'VALUES("pma_test_host", "mysql", "pma_test_user", "", "")',
+            '3delete' => 'DELETE FROM `mysql`.`columns_priv` WHERE host = '
+                . '"pma_test_host" AND Db = "mysql" AND User = '
+                . '"pma_test_user" AND Table_name = "" AND Column_name = "" LIMIT 1',
+            '4update' => 'UPDATE `mysql`.`columns_priv` SET `host` = "" '
+                . 'WHERE `host` = "" AND `Db` = "" AND `User` = "" '
+                . 'AND Column_name = "" AND Table_name = "" LIMIT 1'
+        )
     );
-
-    $privs_available = $select_privs_available && $privs_available;
-
-    if ($privs_available) {
-        $delete_privs_available = $GLOBALS['dbi']->tryQuery(
-            'DELETE FROM `mysql`.`columns_priv` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" LIMIT 1'
-        );
-        $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`columns_priv`(`host`, `Db`, `User`, `Table_name`,'
-            . ' `Column_name`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "", "")'
-        );
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`columns_priv` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = ""'
-                . ' AND Column_name = "" LIMIT 1'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $update_privs_available = $GLOBALS['dbi']->tryQuery(
-            'UPDATE `mysql`.`columns_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Column_name = "" AND Table_name = "" LIMIT 1'
-        );
-        $privs_available = $update_privs_available && $privs_available;
-
-    }
-
-    return $privs_available;
 }
 
 /**
@@ -140,49 +134,22 @@ function PMA_hasMysqlColumnsPrivileges()
  */
 function PMA_hasMysqlTablesPrivileges()
 {
-    $privs_available = true;
-
-    // FOR TABLES_PRIV
-    $select_privs_available = $GLOBALS['dbi']->tryQuery(
-        'SELECT * FROM `mysql`.`tables_priv` LIMIT 1'
+    return PMA_hasRequiredPrivileges(
+        array(
+            '0select' => 'SELECT * FROM `mysql`.`tables_priv` LIMIT 1',
+            '1delete' => 'DELETE FROM `mysql`.`tables_priv` WHERE `host` '
+                . '= "" AND `Db` = "" AND `User` = "" AND Table_name = "" LIMIT 1',
+            '2insert' => 'INSERT INTO `mysql`.`tables_priv`(`host`, `Db`, '
+                . '`User`, `Table_name`) VALUES("pma_test_host", "mysql", '
+                . '"pma_test_user", "")',
+            '3delete' => 'DELETE FROM `mysql`.`tables_priv` WHERE host = '
+                . '"pma_test_host" AND Db = "mysql" AND User = '
+                . '"pma_test_user" AND Table_name = "" LIMIT 1',
+            '4update' => 'UPDATE `mysql`.`tables_priv` SET `host` = "" '
+                . 'WHERE `host` = "" AND `Db` = "" AND `User` = "" '
+                . 'AND Table_name = "" LIMIT 1'
+        )
     );
-
-    $privs_available = $select_privs_available && $privs_available;
-
-    if ($privs_available) {
-        $delete_privs_available = $GLOBALS['dbi']->tryQuery(
-            'DELETE FROM `mysql`.`tables_priv` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Table_name = "" LIMIT 1'
-        );
-        $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`tables_priv`(`host`, `Db`, `User`, `Table_name`'
-            . ') VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "")'
-        );
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`tables_priv` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = "" LIMIT 1'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $update_privs_available = $GLOBALS['dbi']->tryQuery(
-            'UPDATE `mysql`.`tables_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Table_name = "" LIMIT 1'
-        );
-        $privs_available = $update_privs_available && $privs_available;
-
-    }
-
-    return $privs_available;
 }
 
 /**
@@ -192,50 +159,24 @@ function PMA_hasMysqlTablesPrivileges()
  */
 function PMA_hasMysqlProcsPrivileges()
 {
-    $privs_available = true;
-
-    // FOR PROCS_PRIV
-    $select_privs_available = $GLOBALS['dbi']->tryQuery(
-        'SELECT * FROM `mysql`.`procs_priv` LIMIT 1'
+    return PMA_hasRequiredPrivileges(
+        array(
+            '0select' => 'SELECT * FROM `mysql`.`procs_priv` LIMIT 1',
+            '1delete' => 'DELETE FROM `mysql`.`procs_priv` WHERE `host` '
+                . '= "" AND `Db` = "" AND `User` = "" AND `Routine_name` = '
+                . '"" AND `Routine_type` = "" LIMIT 1',
+            '2insert' => 'INSERT INTO `mysql`.`procs_priv`(`host`, `Db`, '
+                . '`User`, `Routine_name`, `Routine_type`) '
+                . 'VALUES("pma_test_host", "mysql", "pma_test_user", "", "PROCEDURE")',
+            '3delete' => 'DELETE FROM `mysql`.`procs_priv` WHERE `host` = '
+                . '"pma_test_host" AND `Db` = "mysql" AND `User` = '
+                . '"pma_test_user" AND `Routine_name` = "" '
+                . 'AND `Routine_type` = "PROCEDURE" LIMIT 1',
+            '4update' => 'UPDATE `mysql`.`procs_priv` SET `host` = "" '
+                . 'WHERE `host` = "" AND `Db` = "" AND `User` = "" '
+                . 'AND `Routine_name` = "" LIMIT 1'
+        )
     );
-
-    $privs_available = $select_privs_available && $privs_available;
-
-    if ($privs_available) {
-        $delete_privs_available = $GLOBALS['dbi']->tryQuery(
-            'DELETE FROM `mysql`.`procs_priv` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND `Routine_name` = ""'
-            . ' AND `Routine_type` = "" LIMIT 1'
-        );
-        $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`procs_priv`(`host`, `Db`, `User`, `Routine_name`,'
-            . ' `Routine_type`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "", "PROCEDURE")'
-        );
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`procs_priv` WHERE `host` = "pma_test_host" AND '
-                . '`Db` = "mysql" AND `User` = "pma_test_user" AND `Routine_name` = ""'
-                . ' AND `Routine_type` = "PROCEDURE" LIMIT 1'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $update_privs_available = $GLOBALS['dbi']->tryQuery(
-            'UPDATE `mysql`.`procs_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND `Routine_name` = "" LIMIT 1'
-        );
-        $privs_available = $update_privs_available && $privs_available;
-    }
-
-    return $privs_available;
 }
 
 /**
