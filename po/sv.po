@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-10-15 11:19+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sv/>\n"
+"PO-Revision-Date: 2015-10-31 05:36+0200\n"
+"Last-Translator: Jerry Gullstrand <gullstrand.jerry@gmail.com>\n"
+"Language-Team: Swedish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Kolumnernas Huvudllistan är tom."
 
 #: db_central_columns.php:130
 msgid "Click to sort."
@@ -285,7 +285,6 @@ msgstr "Data"
 
 #: db_export.php:70 libraries/DbSearch.php:441
 #: libraries/display_export.lib.php:46 libraries/replication_gui.lib.php:381
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Välj alla"
@@ -305,14 +304,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s har kopierats till %2$s."
 
 #: db_operations.php:285
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"Konfigurationsschemat för phpMyAdmin har avaktiverats. %sVisa orsaken%s."
+msgstr "Konfigurationsschemat för phpMyAdmin har avaktiverats. Klicka för orsak"
 
 #: db_qbe.php:135
 msgid "You have to choose at least one column to display!"
@@ -331,23 +329,21 @@ msgid "Access denied!"
 msgstr "Åtkomst nekad!"
 
 #: db_tracking.php:52 db_tracking.php:77
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Spårningsdata har tagits bort"
+msgstr "Radering av Spårningsdata lyckades."
 
 #: db_tracking.php:61
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Version %1$s är skapad, spårning för %2$s är aktiv."
+msgstr "Version %1$s är skapad, spårning av %2$s är aktiverad."
 
 #: db_tracking.php:92
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Inga databaser markerade."
+msgstr "Inga tabeller markerade."
 
 #: db_tracking.php:146
 msgid "Database Log"
@@ -523,20 +519,18 @@ msgstr ""
 "fältet \"Värde\"."
 
 #: import.php:55
-#, fuzzy
 #| msgid "Success!"
 msgid "Succeeded"
-msgstr "Lyckades!"
+msgstr "Lyckades"
 
 #: import.php:59 js/messages.php:588
 msgid "Failed"
-msgstr ""
+msgstr "Misslyckades"
 
 #: import.php:63
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "kompletta infogningar"
+msgstr "Ofullständig parametrar"
 
 #: import.php:183
 #, php-format
@@ -601,10 +595,10 @@ msgstr "Bokmärket %s har skapats."
 #: import.php:678
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Importen har slutförts korrekt, %d frågor utförda."
+msgstr "Importen har slutförts korrekt, %d frågor besvarade"
 
 #: import.php:706
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -626,13 +620,13 @@ msgstr ""
 
 #: import_status.php:102
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Kunde inte läsa av status på import"
 
 #: import_status.php:111 js/messages.php:444 libraries/Util.php:797
 #: libraries/export.lib.php:523
 #: libraries/plugins/schema/ExportRelationSchema.php:301 user_password.php:268
 msgid "Back"
-msgstr "Föregående"
+msgstr "Återgå"
 
 #: index.php:147 libraries/Footer.php:68
 msgid "phpMyAdmin Demo Server"
@@ -650,10 +644,9 @@ msgstr ""
 "på %s."
 
 #: index.php:161
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
-msgstr "Allmänna inställningar"
+msgstr "Generella inställningar"
 
 #: index.php:191 js/messages.php:617
 #: libraries/display_change_password.lib.php:54
@@ -666,10 +659,9 @@ msgid "Server connection collation"
 msgstr "Serveranslutning kollationering"
 
 #: index.php:230
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "Inställningar för utseende"
+msgstr "Anpassa utseende"
 
 #: index.php:262 prefs_manage.php:288
 msgid "More settings"
@@ -718,7 +710,6 @@ msgid "PHP extension:"
 msgstr "PHP-tillägg:"
 
 #: index.php:351
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP-version:"
@@ -745,7 +736,7 @@ msgstr "Wiki"
 
 #: index.php:410
 msgid "Official Homepage"
-msgstr "phpMyAdmin:s officiella hemsida"
+msgstr "officiella hemsida"
 
 #: index.php:417
 msgid "Contribute"
@@ -753,14 +744,13 @@ msgstr "Bidra"
 
 #: index.php:424
 msgid "Get support"
-msgstr "Få support"
+msgstr "Support"
 
 #: index.php:431
 msgid "List of changes"
 msgstr "Lista över ändringar"
 
 #: index.php:453
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -773,9 +763,8 @@ msgid ""
 "by setting a password for user 'root'."
 msgstr ""
 "Din konfigurationsfil innehåller inställningar (root-konto utan lösenord) "
-"som motsvarar MySQL:s privilegierade standardkonto.Din MySQL-server körs med "
-"denna standard, är öppen för intrång, och du bör verkligen fixa detta "
-"säkerhetshål genom att ange ett lösenord för användare 'root'."
+"som motsvarar MySQL:s privilegierade standardkonto.Din MySQL-server körs på "
+"detta sätt som standard, ange ett lösenord för användare 'root'."
 
 #: index.php:470
 msgid ""
@@ -798,7 +787,6 @@ msgstr ""
 "utan tillägget mbstring, vilket kan resultera i oväntade resultat."
 
 #: index.php:502
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -810,19 +798,20 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parametern [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] är lägre än cookie-"
-"giltighet konfigurerad i phpMyAdmin. På grund av detta kommer din inloggning "
-"upphöra tidigare än vad som är konfigurerat i phpMyAdmin."
+"PHP-parametern "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] är lägre än cookie-giltighet "
+"konfigurerad i phpMyAdmin. På grund av detta kommer din inloggning upphöra "
+"tidigare än vad som är konfigurerat i phpMyAdmin."
 
 #: index.php:521
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Login cookie är mindre än cookie giltighet konfigurerad i phpMyAdmin, på "
-"grund av detta kommer dina inloggningsuppgifter upphöra att gälla tidigare "
-"än konfigurerat i phpMyAdmin."
+"Login-cookie lagras kortare tid än giltighetstiden som är konfigurerad i "
+"phpMyAdmin, på grund av detta kommer dina inloggningsuppgifter upphöra att "
+"gälla tidigare än konfigurerats i phpMyAdmin."
 
 #: index.php:537
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -841,7 +830,7 @@ msgstr ""
 "hotas av obehöriga som laddar ner din konfiguration."
 
 #: index.php:566
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -850,12 +839,14 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "phpMyAdmin-konfigurationen är inte fullständigt konfigurerad, vissa utökade "
-"funktioner har inaktiverats. För att ta reda på varför klicka%shär%s."
+"funktioner har inaktiverats. För att ta reda på varför klicka %shär%s. "
 
 #: index.php:573
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Eller alternativt gå till \"Drift\" fliken i någon databas till sätta den "
+"upp där."
 
 #: index.php:619
 #, php-format
@@ -884,7 +875,7 @@ msgstr "Bekräfta"
 #: js/messages.php:43
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Vill du verkligen exekvera \"%s\"?"
+msgstr "Vill du verkligen köra \"%s\"?"
 
 #: js/messages.php:45 libraries/mult_submits.lib.php:397
 msgid "You are about to DESTROY a complete database!"
@@ -899,48 +890,42 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Du håller på att TRUNKERA en hel tabell!"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Ta bort spårning för denna tabell"
+msgstr "Ta bort spårning för denna tabell?"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Ta bort spårning för denna tabell"
+msgstr "Ta bort uppföljningsdata för dessa tabeller?"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Ta bort spårning för denna tabell"
+msgstr "Ta bort uppföljningsdata för denna version?"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Ta bort spårning för denna tabell"
+msgstr "Ta bort uppföljningsdata för dessa versioner?"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Ta bort spårning för denna rapport"
+msgstr "Ta bort data från spårningsrapport"
 
 #: js/messages.php:58
 msgid "Deleting tracking data"
-msgstr "Tar bort spårdata"
+msgstr "Tar bort spårningsdata"
 
 #: js/messages.php:59
 msgid "Dropping Primary Key/Index"
 msgstr "Tar bort Primär Nyckel/Index"
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid "Is a foreign key."
 msgid "Dropping Foreign key."
-msgstr "Är en främmande nyckel."
+msgstr "Radera en främmande nyckel."
 
 #: js/messages.php:62
 msgid "This operation could take a long time. Proceed anyway?"
@@ -960,37 +945,35 @@ msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 "Du har ändringar som inte har sparats. Är du säker på att du vill lämna "
-"denna sida?"
+"denna sidan utan att spara dessa?"
 
 #: js/messages.php:70
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
+msgstr "Vill du verkligen radera markerade användare?"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
+msgstr "Vill du verkligen ta bort denna centrala kolumn?"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
+msgstr "Vill du verkligen ta bort de markerade objekten?"
 
 #: js/messages.php:76
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Vill du verkligen släppa valda partitionen/partitionerna? Detta tar också "
+"bort uppgifterna om den valda partitionen/partitionerna!"
 
 #: js/messages.php:80
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
+msgstr "Vill du verkligen att TRUNKERA den valda partitionen/partitionerna?"
 
 #: js/messages.php:82
 #, fuzzy
@@ -999,10 +982,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Vill du verkligen exekvera \"%s\"?"
+msgstr "Vill du verkligen att återställa sekundär partion ?"
 
 #: js/messages.php:85
 msgid ""
@@ -1012,14 +994,19 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Denna operation kommer att försöka konvertera data till den nya "
+"sorteringsordningen. I sällsynta fall, kan särskilt där en karaktär inte "
+"finns i den nya sorteringsordningen, denna process orsaka att data visas "
+"felaktigt under den nya sorteringsordningen; i detta fall föreslår vi att u "
+"återgå till den ursprungliga sorteringen och hänvisar till tips på "
 
 #: js/messages.php:91
 msgid "Garbled Data"
-msgstr ""
+msgstr "Förvanskade data"
 
 #: js/messages.php:93
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Är du säker du vill ändra sorteringen och konvertera data?"
 
 #: js/messages.php:95
 msgid ""
@@ -1036,12 +1023,13 @@ msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Är du säker på att du vill ändra alla de kolumn-sorteringar och konvertera "
+"data?"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & close"
-msgstr "Spara som fil"
+msgstr "Avsluta och Spara"
 
 #: js/messages.php:109 libraries/config/FormDisplay.tpl.php:424
 #: libraries/insert_edit.lib.php:1551 prefs_manage.php:364
@@ -1050,10 +1038,9 @@ msgid "Reset"
 msgstr "Återställ"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset all"
-msgstr "Välj alla"
+msgstr "Återställ alla"
 
 #: js/messages.php:113
 msgid "Missing value in the form!"
@@ -1061,7 +1048,7 @@ msgstr "Värde saknas i formuläret!"
 
 #: js/messages.php:114
 msgid "Select at least one of the options!"
-msgstr "Välj minst ett av valen!"
+msgstr "Välj minst ett av alternativen!"
 
 #: js/messages.php:115
 msgid "Please enter a valid number!"
@@ -1076,10 +1063,9 @@ msgid "Add index"
 msgstr "Lägg till index"
 
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
-msgstr "Redigera index"
+msgstr "Redigera register"
 
 #: js/messages.php:119 templates/table/index_form.phtml:232
 #, php-format
@@ -1087,28 +1073,24 @@ msgid "Add %s column(s) to index"
 msgstr "Lägg till %s kolumn(er) till index"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Skapa rutin"
+msgstr "Skapa index för singelkolumn"
 
 #: js/messages.php:121
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Skapa rutin"
+msgstr "Skapa sammansatta index"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Kolumner omges av:"
+msgstr "Omges av:"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Lägg till %s kolumn(er) till index"
+msgstr "Välj kolumner för indexet."
 
 #: js/messages.php:126 templates/table/structure/add_column.phtml:1
 msgid "You have to add at least one column."
@@ -1119,19 +1101,17 @@ msgstr "Du måste lägga till åtminstone en kolumn."
 #: templates/table/index_form.phtml:237
 #: templates/table/relation/common_form.phtml:108
 msgid "Preview SQL"
-msgstr ""
+msgstr "Förhandsgranska SQL"
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "i fråga"
+msgstr "Simulera körning"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Påverkade rader:"
+msgstr "Matchande rader:"
 
 #: js/messages.php:134 libraries/Util.php:698
 msgid "SQL query:"
@@ -1139,7 +1119,6 @@ msgstr "SQL-fråga:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y-värden"
@@ -1172,26 +1151,23 @@ msgid "Close"
 msgstr "Stäng"
 
 #: js/messages.php:149
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Antalet skapade sidor."
+msgstr "Mallen skapades."
 
 #: js/messages.php:150
 msgid "Template was loaded."
-msgstr ""
+msgstr "Mallen har lästs in."
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profilen har uppdaterats."
+msgstr "Mallen uppdaterades."
 
 #: js/messages.php:152
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Raden har raderats."
+msgstr "Mallen har tagits bort."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:155 libraries/ServerStatusData.php:130
@@ -1242,10 +1218,9 @@ msgid "Query cache used"
 msgstr "Använd frågecache"
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "Systemets processoranvändning (CPU)"
+msgstr "Processoranvändning (CPU)"
 
 #: js/messages.php:178
 msgid "System memory"
@@ -1280,28 +1255,24 @@ msgid "Used memory"
 msgstr "Använt minne"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "Totalt Swap"
+msgstr "Totalt växlingsutrymme"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Cachad Swap"
+msgstr "Cachelagrade"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Använt Swap"
+msgstr "Använt växlingsutrymme"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Ledigt Swap"
+msgstr "Ledigt växlingsutrymme"
 
 #: js/messages.php:193
 msgid "Bytes sent"
@@ -1405,15 +1376,15 @@ msgstr "Återuppta övervakning"
 
 #: js/messages.php:218
 msgid "Pause monitor"
-msgstr "Pausa monitor"
+msgstr "Pausa övervakning"
 
 #: js/messages.php:219 libraries/server_status_processes.lib.php:41
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Starta automatisk uppdatering"
 
 #: js/messages.php:220
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Stoppa uppdatering"
 
 #: js/messages.php:222
 msgid "general_log and slow_query_log are enabled."
@@ -1663,9 +1634,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
-"När ny diagramdata begärdes, returnerade servern ett ett ogiltigt svar. "
-"Detta beror troligen på att din session har upphört. Om du laddar om sidan "
-"och matar in dina inloggningsuppgifter igen borde det lösa problemet."
+"När ny diagramdata begärdes, returnerade servern ett ogiltigt svar. Detta "
+"beror troligen på att din session har upphört. Om du laddar om sidan och "
+"matar in dina inloggningsuppgifter igen borde det lösa problemet."
 
 #: js/messages.php:312
 msgid "Reload page"
@@ -1709,10 +1680,9 @@ msgid "No files available on server for import!"
 msgstr "Inga filer tillgängliga för import på servern!"
 
 #: js/messages.php:328
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Analysera fråga"
+msgstr "Analysera frågan"
 
 #: js/messages.php:332
 msgid "Advisor system"
@@ -1748,7 +1718,7 @@ msgstr "Test"
 
 #: js/messages.php:342
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "Formatering SQL…"
 
 #: js/messages.php:346 libraries/server_variables.lib.php:159
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1762,10 +1732,9 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: js/messages.php:349 libraries/Header.php:457
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Ändra inställningar"
+msgstr "Sida-relaterade inställningar"
 
 #: js/messages.php:350 libraries/config/FormDisplay.tpl.php:422
 msgid "Apply"
@@ -1777,25 +1746,21 @@ msgid "Loading…"
 msgstr "Laddar…"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
-msgstr "Förfrågan avbruten!!"
+msgstr "Begäran avbröts!"
 
 #: js/messages.php:355
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Bearbetar begäran"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
-msgstr "Förfrågan avbruten!!"
+msgstr "Begäran misslyckades!"
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
 msgstr "Fel i processbegäran:"
@@ -1816,13 +1781,11 @@ msgid "No databases selected."
 msgstr "Inga databaser markerade."
 
 #: js/messages.php:361
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Tar bort kolumn"
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Lägg till primär nyckel"
@@ -1842,34 +1805,29 @@ msgid "Click to dismiss this notification"
 msgstr "Klicka för att ta bort detta meddelande"
 
 #: js/messages.php:367
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Döp om databaser"
+msgstr "Byta namn på databaser"
 
 #: js/messages.php:368
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
-msgstr "Kopierar databas"
+msgstr "Kopiera databas"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Ändrar teckenuppsättning"
 
 #: js/messages.php:373 libraries/Util.php:3289
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Inaktivera kontroller av främmande nycklar"
+msgstr "Inaktivera kontroll av främmande nycklar"
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Misslyckades med att hämta rubriker"
+msgstr "Det gick inte att få riktiga radantal."
 
 #: js/messages.php:379
 msgid "Searching"
@@ -1986,23 +1944,22 @@ msgstr "Bläddra bland främmande värden"
 
 #: js/messages.php:409
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Ingen auto-sparad fråga"
 
 #: js/messages.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variabel"
+msgstr "Miljövariabeln %d:"
 
 #: js/messages.php:413 libraries/normalization.lib.php:889
 msgid "Pick"
-msgstr ""
+msgstr "Välj"
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Ingen kolumn vald."
+msgstr "Kolumnväljaren"
 
 #: js/messages.php:415
 msgid "Search this list"
@@ -2014,12 +1971,13 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Inga kolumner i huvud listan. Kontrollera att huvudlistan för databasen %s "
+"har kolumner som inte finns i den aktuella tabellen."
 
 #: js/messages.php:420
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Ledigt minne"
+msgstr "Se mer"
 
 #: js/messages.php:421
 msgid "Are you sure?"
@@ -2030,6 +1988,8 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Den här åtgärden kan ändra några av kolumnerna definitionen. <br/> Är du "
+"säker på att du vill fortsätta?"
 
 #: js/messages.php:426
 msgid "Continue"
@@ -2040,33 +2000,30 @@ msgid "Add primary key"
 msgstr "Lägg till primär nyckel"
 
 #: js/messages.php:430
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "En primär nyckel har lagts till för %s."
 
 #: js/messages.php:431 libraries/normalization.lib.php:194
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "Tar dig till %s."
+msgstr "Tar dig till nästa steg…"
 
 #: js/messages.php:433
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Det första steget av normalisering är klar för tabellen '%s'."
 
 #: js/messages.php:434 libraries/normalization.lib.php:455
 #: libraries/normalization.lib.php:502 libraries/normalization.lib.php:587
 #: libraries/normalization.lib.php:647
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Radslut"
+msgstr "Delslut"
 
 #: js/messages.php:435
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Andra steget av normalisering (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:436 js/messages.php:739 libraries/normalization.lib.php:291
@@ -2075,76 +2032,76 @@ msgstr "Klart"
 
 #: js/messages.php:437
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Bekräfta partiellt beroenden"
 
 #: js/messages.php:438
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Valda partiell beroenden är följande:"
 
 #: js/messages.php:440
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Obs: a, b-> d f innebär värden i kolumner a och b tillsammans kan bestämma "
+"värdena i kolumn d och f."
 
 #: js/messages.php:443
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Inga databaser markerade."
+msgstr "Inga partiella beroenden valda!"
 
 #: js/messages.php:446
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "Visa mig möjliga partiella beroenden baserat på data i tabellen"
 
 #: js/messages.php:447
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Dölj partiella beroende-listan"
 
 #: js/messages.php:449
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Bara lugn! Det kan ta några sekunder beroende på data och kolumn räkna i "
+"tabellen."
 
 #: js/messages.php:452
 msgid "Step"
-msgstr ""
+msgstr "Steg"
 
 #: js/messages.php:454
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Följande frågor har verkställts:"
+msgstr "Följande åtgärder utförs:"
 
 #: js/messages.php:455
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "RADERA kolumner %s från tabellen %s"
 
 #: js/messages.php:456
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Lägg till privilegier till följande tabell:"
+msgstr "Skapa följande tabell"
 
 #: js/messages.php:459
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Tredje steget i normalisering (3NF)"
 
 #: js/messages.php:460
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Bekräfta transitiva beroenden"
 
 #: js/messages.php:461
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Valda beroenden är följande:"
 
 #: js/messages.php:462
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Inga databaser markerade."
+msgstr "Inga beroenden valda!"
 
 #: js/messages.php:465 libraries/central_columns.lib.php:1216
 #: libraries/insert_edit.lib.php:1459 libraries/server_variables.lib.php:157
@@ -2165,34 +2122,29 @@ msgid "Show search criteria"
 msgstr "Visa sökkriterier"
 
 #: js/messages.php:470
-#, fuzzy
 #| msgid "Save search"
 msgid "Range search"
-msgstr "Spara sökning"
+msgstr "Sökområde"
 
 #: js/messages.php:471
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Kolumnnamn: "
+msgstr "Högsta kolumn:"
 
 #: js/messages.php:472
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Kolumnnamn: "
+msgstr "Minsta kolumn:"
 
 #: js/messages.php:473
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Maximalt antal tabeller"
+msgstr "Minsta värde:"
 
 #: js/messages.php:474
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Maximalt antal tabeller"
+msgstr "Högsta värdet:"
 
 #: js/messages.php:477
 msgid "Hide find and replace criteria"
@@ -2267,13 +2219,11 @@ msgid "Geometry"
 msgstr "Geometri"
 
 #: js/messages.php:511
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Inre ringen"
 
 #: js/messages.php:512
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "Yttre ring:"
@@ -2291,6 +2241,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Anger att du har gjort ändringar på denna sida; du uppmanas att bekräfta "
+"bortdöende från förändringar"
 
 #: js/messages.php:526
 msgid "Select referenced key"
@@ -2323,62 +2275,54 @@ msgstr "Sidnamn"
 
 #: js/messages.php:536 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Välj sida"
+msgstr "Spara sidan"
 
 #: js/messages.php:537 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
-msgstr "Välj sida"
+msgstr "Spara sidan som"
 
 #: js/messages.php:538 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Fria sidor"
+msgstr "Öppen sida"
 
 #: js/messages.php:539
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Välj sida"
+msgstr "Radera sida"
 
 #: js/messages.php:540 templates/database/designer/side_menu.phtml:10
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Enhet"
+msgstr "Namnlöst"
 
 #: js/messages.php:541
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Välj en sida att redigera"
+msgstr "Välj en sida för att fortsätta"
 
 #: js/messages.php:542
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Vänligen ange ett giltigt sidnamn"
 
 #: js/messages.php:544
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Vill du spara ändringarna i den aktuella sidan?"
 
 #: js/messages.php:545
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Raderingen av sidan lyckades!"
 
 #: js/messages.php:546
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Editera eller exportera relationsschema"
+msgstr "Exportera relationsschema"
 
 #: js/messages.php:547
 msgid "Modifications have been saved"
@@ -2417,7 +2361,7 @@ msgstr "Dra för att ändra ordning."
 
 #: js/messages.php:561
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Klicka på sortera efter den här kolumnen."
 
 #: js/messages.php:563
 msgid ""
@@ -2462,16 +2406,14 @@ msgstr "Ange en giltig hexadecimal sträng. Giltiga tecken är 0-9, A-F."
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
-msgstr ""
+msgstr "Vill du se alla rader? För en stor tabell kan detta krasch webbläsaren."
 
 #: js/messages.php:583
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Ursprunglig sträng"
+msgstr "Ursprunglig längd"
 
 #: js/messages.php:586
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Avbryt"
@@ -2481,28 +2423,24 @@ msgid "Aborted"
 msgstr "Avbrutna"
 
 #: js/messages.php:589
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
 msgstr "Lyckades!"
 
 #: js/messages.php:590
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Importera standardvärden"
+msgstr "Importstatus"
 
 #: js/messages.php:591 libraries/navigation/Navigation.php:111
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Gräns för loggfil"
+msgstr "Släpp filer här"
 
 #: js/messages.php:592
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Välj tabeller"
+msgstr "Markera databasen först"
 
 #: js/messages.php:598
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2540,13 +2478,11 @@ msgid "More"
 msgstr "Mera"
 
 #: js/messages.php:623
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Visa panel"
 
 #: js/messages.php:624
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Dölj Panel"
@@ -2557,52 +2493,48 @@ msgstr "Visa dolda navigationsträdsobjekt."
 
 #: js/messages.php:626 libraries/config/messages.inc.php:478
 #: libraries/navigation/NavigationTree.php:1439
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Anpassa huvudpanelen"
+msgstr "Länka med huvudpanelen"
 
 #: js/messages.php:627 libraries/navigation/NavigationTree.php:1442
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Anpassa huvudpanelen"
+msgstr "Avlänka från huvudpanelen"
 
 #: js/messages.php:629
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Om du vill filtrera alla databaser på servern, tryck på RETUR efter en "
+"sökterm"
 
 #: js/messages.php:631
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Om du vill filtrera alla %s i databasen, trycker på RETUR efter en sökterm"
 
 #: js/messages.php:632
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tabeller"
+msgstr "tabeller"
 
 #: js/messages.php:633
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Vy"
+msgstr "vy"
 
 #: js/messages.php:634
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "Procedurer"
 
 #: js/messages.php:635
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "händelse"
+msgstr "händelser"
 
 #: js/messages.php:636
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "Funktioner"
@@ -2634,13 +2566,11 @@ msgid "Create view"
 msgstr "Skapa vy"
 
 #: js/messages.php:654
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Skicka felrapporter"
+msgstr "Skicka felrapport"
 
 #: js/messages.php:655
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Skicka felrapport"
@@ -2653,13 +2583,11 @@ msgstr ""
 "Ett allvarligt JavaScript-fel har uppstått. Vill du skicka en felrapport?"
 
 #: js/messages.php:659
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Ändra rapportinställningar"
 
 #: js/messages.php:660
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Visa rapportdetaljer"
@@ -2683,65 +2611,60 @@ msgstr ""
 
 #: js/messages.php:673 js/messages.php:686
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Fel har påträffats på servern!"
 
 #: js/messages.php:675
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Titta längst ned i fönstret."
 
 #: js/messages.php:681 libraries/ErrorHandler.php:340
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignorera"
+msgstr "Ignorera alla"
 
 #: js/messages.php:689
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "Enligt dina inställningar, ha tålamod."
 
 #: js/messages.php:699
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Visa denna fråga här igen"
+msgstr "Köra den här frågan igen?"
 
 #: js/messages.php:701
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
+msgstr "Vill du verkligen ta bort detta bokmärke?"
 
 #: js/messages.php:703
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "Vissa fel uppstod när SQL inhämtade felinformation."
 
 #: js/messages.php:705
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Utförda frågor"
+msgstr "%s frågor körs %s gånger i %s sekunder."
 
 #: js/messages.php:706
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argument utförda"
 
 #: js/messages.php:707
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Tabellkommentarer"
+msgstr "Visa argument"
 
 #: js/messages.php:708
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Dölj sökresultat"
+msgstr "Dölja argument"
 
 #: js/messages.php:709 libraries/Console.php:324
 msgid "Time taken:"
-msgstr ""
+msgstr "Tidsåtgång:"
 
 #: js/messages.php:711
 msgid ""
@@ -3004,107 +2927,91 @@ msgstr "Sekunder"
 
 #: js/messages.php:884
 msgid "This field is required"
-msgstr ""
+msgstr "Detta fältet är obligatoriskt"
 
 #: js/messages.php:885
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Använd textfältet"
+msgstr "Var vänlig och rätta detta fält."
 
 #: js/messages.php:886
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid email address"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Ange en giltig e-postadress"
 
 #: js/messages.php:887
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Skriv in en giltig webbadress (URL)."
 
 #: js/messages.php:888
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Ange ett giltigt datum"
 
 #: js/messages.php:889
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Ange ett giltigt datum (ISO)."
 
 #: js/messages.php:890
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Var vänlig ange ett giltigt nummer"
 
 #: js/messages.php:891
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Skriv in ett giltigt kreditkortsnummer"
 
 #: js/messages.php:892
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Var vänlig ange en giltig längd!"
+msgstr "Ange endast siffror"
 
 #: js/messages.php:893
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter the same value again"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Skriv in samma värde igen"
 
 #: js/messages.php:894
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Ange korrekt captcha!"
+msgstr "Ange inte mer än {0} tecken"
 
 #: js/messages.php:895
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Ange korrekt captcha!"
+msgstr "Ange minst {0} tecken"
 
 #: js/messages.php:896
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Ange ett värde som är {0} eller {1} tecken långt"
 
 #: js/messages.php:897
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Ange ett värde mellan {0} och {1}"
 
 #: js/messages.php:898
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Var vänlig ange en giltig längd!"
+msgstr "Ange ett värde som är mindre än eller lika med {0}"
 
 #: js/messages.php:899
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Ange ett värde större än eller lika med {0}"
 
 #: js/messages.php:901
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date or time"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Ange ett giltigt datum eller tid"
 
 #: js/messages.php:902
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Var vänlig ange ett giltigt nummer!"
+msgstr "Skriv in en giltig Hexadecimalt värde"
 
 #: js/messages.php:903 libraries/Message.php:200 libraries/Util.php:674
 #: libraries/core.lib.php:247 libraries/import.lib.php:185
@@ -3177,21 +3084,19 @@ msgstr "Teckenstorlek"
 
 #: libraries/Console.php:85 libraries/Console.php:213
 #: libraries/Console.php:316
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Expandera/Vik ihop"
+msgstr "Slå ihop"
 
 #: libraries/Console.php:86 libraries/Console.php:215
 #: libraries/Console.php:317
 msgid "Expand"
-msgstr ""
+msgstr "Expandera"
 
 #: libraries/Console.php:87 libraries/Console.php:216
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "underfråga"
+msgstr "Ny fråga"
 
 #: libraries/Console.php:91 libraries/Console.php:223 libraries/Menu.php:217
 #: libraries/config/messages.inc.php:925
@@ -3220,7 +3125,7 @@ msgstr[1] "Nytt bokmärke"
 
 #: libraries/Console.php:108
 msgid "private"
-msgstr ""
+msgstr "privat"
 
 #: libraries/Console.php:112 libraries/bookmark.lib.php:98
 msgid "shared"
@@ -3231,22 +3136,20 @@ msgstr "delad"
 #. translation for private and the third one, with the translation
 #. for shared
 #: libraries/Console.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Bokmärket har tagits bort."
+msgstr "%1$ plus %2$ plus %3$ bokmärken ingår"
 
 #: libraries/Console.php:125
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nytt bokmärke"
+msgstr "Inga bokmärken"
 
 #: libraries/Console.php:186
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Hoppa över nuvarande fel"
+msgstr "Under aktuell session"
 
 #: libraries/Console.php:218
 #, fuzzy
