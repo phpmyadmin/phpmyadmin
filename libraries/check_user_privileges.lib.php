@@ -35,7 +35,7 @@ function PMA_checkRequiredPrivilegesForFlushing()
   * Check if user has the required privileges according to some
   * verification queries
   *
-  * @param array $queries
+  * @param array $queries the SQL queries for verifications
   *
   * @return boolean
   */
