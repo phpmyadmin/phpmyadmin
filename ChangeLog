@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 - issue #11612 Undefined index: new_row_format
 - issue #11605 Changing hostname kills password
 - issue #11614 Undefined variable: db
+- issue #11627 CREATE TABLE/INSERT INTO executed twice (ctrl+enter)
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()
