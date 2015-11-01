@@ -1977,23 +1977,19 @@ function bindCodeMirrorToInlineEditor() {
             codemirror_inline_editor.refresh();
             codemirror_inline_editor.focus();
             $(codemirror_inline_editor.getWrapperElement())
-                .bind('keydown', catchKeypressesFromSqlTextboxes);
+                .bind('keydown', catchKeypressesFromSqlInlineEdit);
         } else {
             $inline_editor
                 .focus()
-                .bind('keydown', catchKeypressesFromSqlTextboxes);
+                .bind('keydown', catchKeypressesFromSqlInlineEdit);
         }
     }
 }
 
-function catchKeypressesFromSqlTextboxes(event) {
+function catchKeypressesFromSqlInlineEdit(event) {
     // ctrl-enter is 10 in chrome and ie, but 13 in ff
     if (event.ctrlKey && (event.keyCode == 13 || event.keyCode == 10)) {
-        if ($('#sql_query_edit').length > 0) {
-            $("#sql_query_edit_save").trigger('click');
-        } else if ($('#sqlquery').length > 0) {
-            $("#button_submit_query").trigger('click');
-        }
+        $("#sql_query_edit_save").trigger('click');
     }
 }
 
@@ -4196,13 +4192,10 @@ AJAX.registerOnload('functions.js', function () {
         if (typeof CodeMirror != 'undefined') {
             codemirror_editor = PMA_getSQLEditor($elm);
             codemirror_editor.focus();
-            $(codemirror_editor.getWrapperElement())
-                .bind('keydown', catchKeypressesFromSqlTextboxes);
             codemirror_editor.on("blur", updateQueryParameters);
         } else {
             // without codemirror
             $elm.focus()
-                .bind('keydown', catchKeypressesFromSqlTextboxes)
                 .bind('blur', updateQueryParameters);
         }
     }
