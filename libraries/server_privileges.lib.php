@@ -3708,8 +3708,10 @@ function PMA_getHtmlForInitials($array_initials)
         null,
         PMA_DatabaseInterface::QUERY_STORE
     );
-    while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
-        $array_initials[$tmp_initial] = true;
+    if ($initials) {
+        while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
+            $array_initials[$tmp_initial] = true;
+        }
     }
 
     // Display the initials, which can be any characters, not
