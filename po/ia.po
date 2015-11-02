@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-10-23 17:02+0200\n"
+"PO-Revision-Date: 2015-11-02 15:02+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9111,14 +9111,13 @@ msgid "Edit next row"
 msgstr "Modifica nove rango"
 
 #: libraries/insert_edit.lib.php:1541
-#, fuzzy
 #| msgid ""
 #| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Usa le clave TAB pro mover de valor a valor, o CTRL+flechas pro mover lo "
-"ubique"
+"ubique."
 
 #: libraries/insert_edit.lib.php:1578 libraries/replication_gui.lib.php:546
 #: libraries/rte/rte_routines.lib.php:1585
@@ -9467,10 +9466,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Invalide nomine de classe \"%1$s\", on usa le predefinite per \"Node\""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Il non pote adder columnas!"
+msgstr "Il non pote adder classe \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:803
 msgid "Expand/Collapse"
@@ -9588,7 +9587,6 @@ msgstr ""
 "Monstra a me le lista central de columnas que non es preste in iste tabella"
 
 #: libraries/normalization.lib.php:151
-#, fuzzy
 #| msgid ""
 #| "Select a column which can be split into more than one. (on select of 'no "
 #| "such column', it'll move to next step)"
@@ -9596,8 +9594,8 @@ msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
-"Selige un  columna que pote esser dividite in plus que un. (si on selige "
-"'necun tal columna', on movera al proxime passo)"
+"Selige un  columna que pote esser dividite in plus que un (si on selige "
+"'necun tal columna', on movera al proxime passo)."
 
 #: libraries/normalization.lib.php:158 normalization.php:17
 msgid "Select one…"

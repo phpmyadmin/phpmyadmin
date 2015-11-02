@@ -577,24 +577,27 @@ class DisplayResults
 
     /**
      * Defines the parts to display for the results of a SQL query
+     * and the total number of rows
      *
-     * @param array   $displayParts the parts to display (see a few
-     *                              lines above for explanations)
-     * @param integer &$the_total   the total number of rows returned by the SQL
-     *                              query without any programmatically appended
-     *                              LIMIT clause
-     *                              (just a copy of $unlim_num_rows if it exists,
-     *                              elsecomputed inside this function)
+     * @param array $displayParts the parts to display (see a few
+     *                            lines above for explanations)
      *
-     * @return array    an array with explicit indexes for all the display
-     *                   elements
+     * @return array the first element is an array with explicit indexes
+     *               for all the display elements
+     *               the second element is the total number of rows returned
+     *               by the SQL query without any programmatically appended
+     *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
+     *               else computed inside this function)
+     *
      *
      * @access  private
      *
      * @see     getTable()
      */
-    private function _setDisplayParts($displayParts, &$the_total)
+    private function _setDisplayPartsAndTotal($displayParts)
     {
+        $the_total = 0;
+
         // 1. Following variables are needed for use in isset/empty or
         //    use with array indexes or safe use in foreach
         $db = $this->__get('db');
@@ -653,9 +656,9 @@ class DisplayResults
             }
         } // end if (3)
 
-        return $displayParts;
+        return array($displayParts, $the_total);
 
-    } // end of the 'setDisplayParts()' function
+    } // end of the 'setDisplayPartsAndTotal()' function
 
 
     /**
@@ -4254,8 +4257,11 @@ class DisplayResults
 
         // 1.1 Gets the information about which functionalities should be
         //     displayed
-        $total      = '';
-        $displayParts = $this->_setDisplayParts($displayParts, $total);
+
+        list(
+            $displayParts,
+            $total
+        )  = $this->_setDisplayPartsAndTotal($displayParts);
 
         // 1.2 Defines offsets for the next and previous pages
         if ($displayParts['nav_bar'] == '1') {
