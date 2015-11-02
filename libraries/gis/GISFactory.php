@@ -34,33 +34,22 @@ class GISFactory
      */
     public static function factory($type)
     {
-        $type_lower = strtolower($type);
-        $file = './libraries/gis/GIS' . ucfirst($type_lower) . '.php';
-        if (!PMA_isValid($type_lower, PMA\libraries\Util::getGISDatatypes())
-            || !file_exists($file)
-        ) {
-            return false;
-        }
-        if (include_once $file) {
-            switch (strtoupper($type)) {
-            case 'MULTIPOLYGON' :
-                return GISMultipolygon::singleton();
-            case 'POLYGON' :
-                return GISPolygon::singleton();
-            case 'MULTIPOINT' :
-                return GISMultipoint::singleton();
-            case 'POINT' :
-                return GISPoint::singleton();
-            case 'MULTILINESTRING' :
-                return GISMultilinestring::singleton();
-            case 'LINESTRING' :
-                return GISLinestring::singleton();
-            case 'GEOMETRYCOLLECTION' :
-                return GISGeometrycollection::singleton();
-            default :
-                return false;
-            }
-        } else {
+        switch (strtoupper($type)) {
+        case 'MULTIPOLYGON' :
+            return GISMultipolygon::singleton();
+        case 'POLYGON' :
+            return GISPolygon::singleton();
+        case 'MULTIPOINT' :
+            return GISMultipoint::singleton();
+        case 'POINT' :
+            return GISPoint::singleton();
+        case 'MULTILINESTRING' :
+            return GISMultilinestring::singleton();
+        case 'LINESTRING' :
+            return GISLinestring::singleton();
+        case 'GEOMETRYCOLLECTION' :
+            return GISGeometrycollection::singleton();
+        default :
             return false;
         }
     }
