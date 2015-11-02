@@ -485,7 +485,7 @@ class DatabaseInterface
 
         $tables = array();
 
-        if (! isset($GLOBALS['cfg']['Server']['DisableIS']) || !$GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql_where_table = $this->_getTableCondition(
                 $table, $tbl_is_group, $table_type
             );
