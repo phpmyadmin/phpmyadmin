@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-11-01 05:18+0200\n"
+"PO-Revision-Date: 2015-11-01 14:21+0200\n"
 "Last-Translator: Jerry Gullstrand <gullstrand.jerry@gmail.com>\n"
 "Language-Team: Swedish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sv/>\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr "Huvudförteckningen över kolumner i den aktuella databasen är tom"
+msgstr "Huvudförteckningen över kolumner i den aktuella databasen är tom."
 
 #: db_central_columns.php:130
 msgid "Click to sort."
@@ -2370,9 +2370,8 @@ msgid ""
 "ORDER BY clause"
 msgstr ""
 "Skift-klicka för att lägga till kolumnen i \"SORTERA VID\"-sats eller att "
-"växla ASC/DESC. < br />-Ctrl-klicka eller Alt-klicka (Mac: "
-"Skift+Alternativ+klicka) för att  ta bort kolumnen från SORTERA VID-"
-"instruktionen"
+"växla ASC/DESC.< br />-Ctrl-klicka eller Alt-klicka (Mac: Skift+Alt+klicka) "
+"för att  ta bort kolumnen från SORTERA VID-instruktionen"
 
 #: js/messages.php:567
 msgid "Click to mark/unmark."
@@ -5453,10 +5452,11 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Denna %soption%s bör inaktiveras eftersom de tillåter angripare att \"tvångs-"
-"inloggad\" på en MySQL-server. Om du anser att detta är nödvändigt, använd %"
-"strusted proxies list%s. IP-baserat skydd kan dock vara otillförlitligt om "
-"din IP tillhör till en ISP som tusentals användare är anslutna till."
+"Denna %soption%s ska inaktiveras eftersom det gör att angripare kan \""
+"tvångsinlogga\" till MySQL server. Om du känner att detta är nödvändigt, "
+"Använd %srestrict login tp MySQL server%s eller %strusted proxies list%s. IP-"
+"baserade skydd med betrodda fullmakter kanske inte tillförlitlig om din IP "
+"tillhör en ISP där tusentals användare är anslutna."
 
 #: libraries/config/ServerConfigChecks.php:403
 msgid ""
@@ -8671,7 +8671,7 @@ msgstr "Uppladdning är inte tillåten på denna server."
 #: libraries/display_import.lib.php:287
 #| msgid "Partial Import:"
 msgid "Partial import:"
-msgstr "Partiell import"
+msgstr "Partiell import:"
 
 #: libraries/display_import.lib.php:294
 #, php-format
@@ -9717,7 +9717,7 @@ msgstr "Ny"
 
 #: libraries/normalization.lib.php:134
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Göra alla kolumner encelliga"
 
 #: libraries/normalization.lib.php:136 libraries/normalization.lib.php:813
 msgid "First step of normalization (1NF)"
@@ -14805,7 +14805,7 @@ msgstr "Inte tillräckliga privilegier för att visa serverstatus."
 
 #: server_status_advisor.php:33
 msgid "Not enough privilege to view the advisor."
-msgstr ""
+msgstr "Inte tillräckliga privilegier för att visa vägledning."
 
 #: server_status_processes.php:32
 #, php-format
@@ -15951,17 +15951,15 @@ msgstr "Ett index har lagts till för %s."
 
 #: templates/table/structure/actions_in_table_structure.phtml:131
 #: templates/table/structure/check_all_table_column.phtml:52
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
 msgstr "Radera kolumn(er)"
 
 #: templates/table/structure/actions_in_table_structure.phtml:139
 #: templates/table/structure/check_all_table_column.phtml:48
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Kolumner för CHAR textfält"
+msgstr "Lägg till huvudkolumner"
 
 #: templates/table/structure/add_column.phtml:7
 #, php-format
