@@ -579,8 +579,8 @@ class DisplayResults
      * Defines the parts to display for the results of a SQL query
      * and the total number of rows
      *
-     * @param array   $displayParts the parts to display (see a few
-     *                              lines above for explanations)
+     * @param array $displayParts the parts to display (see a few
+     *                            lines above for explanations)
      *
      * @return array the first element is an array with explicit indexes
      *               for all the display elements
@@ -596,6 +596,8 @@ class DisplayResults
      */
     private function _setDisplayPartsAndTotal($displayParts)
     {
+        $the_total = 0;
+
         // 1. Following variables are needed for use in isset/empty or
         //    use with array indexes or safe use in foreach
         $db = $this->__get('db');
