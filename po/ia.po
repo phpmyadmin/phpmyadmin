@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-10-23 17:02+0200\n"
+"PO-Revision-Date: 2015-11-02 15:37+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-5/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1445,7 +1445,7 @@ msgstr "Preferentias currente"
 
 #: js/messages.php:220 templates/table/chart/tbl_chart.phtml:53
 msgid "Chart title"
-msgstr ""
+msgstr "Titulo del diagramma"
 
 #. l10n: As in differential values
 #: js/messages.php:222
@@ -3906,7 +3906,7 @@ msgstr ""
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (proxime a <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
@@ -6031,6 +6031,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Adde IF NOT EXISTS (minus efficiente proque indices essera generate durante "
+"le creation del tabella)"
 
 #: libraries/config/messages.inc.php:211
 msgid "Use ignore inserts"
@@ -8065,7 +8067,7 @@ msgstr "Texto OpenDocument"
 #: tbl_operations.php:382
 #, php-format
 msgid "Table %s has been emptied."
-msgstr ""
+msgstr "Tabella %s ha essite vacuate."
 
 #: libraries/controllers/DatabaseStructureController.class.php:436
 #: tbl_operations.php:400 view_operations.php:119
@@ -8091,11 +8093,11 @@ msgstr "incognite"
 #: libraries/controllers/TableChartController.class.php:81
 #: libraries/controllers/TableGisVisualizationController.class.php:101
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "Necun query de SQL esseva fixate pro extraher datos."
 
 #: libraries/controllers/TableChartController.class.php:168
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "Necun columnas numeric presente in le tabella pro designar in graphic."
 
 #: libraries/controllers/TableChartController.class.php:230
 msgid "No data to display"
@@ -8106,11 +8108,11 @@ msgstr "Necun dato de monstrar"
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr ""
+msgstr "Tabella %1$s ha essite alterate successosemente."
 
 #: libraries/controllers/TableRelationController.class.php:218
 msgid "Display column was successfully updated."
-msgstr ""
+msgstr "Columna de monstrar esseva actualisate con successo."
 
 #: libraries/controllers/TableRelationController.class.php:288
 msgid "Internal relations were successfully updated."
@@ -8133,22 +8135,24 @@ msgstr "Trova e reimplacia"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Le nomine '%s' es un parola clave reservate de MySQL."
+msgstr[1] "Le nomines '%s' es parolas clave reservate de MySQL."
 
 #: libraries/controllers/TableStructureController.class.php:241
 msgid "No column selected."
-msgstr ""
+msgstr "Necun columna seligite."
 
 #: libraries/controllers/TableStructureController.class.php:470
 msgid "The columns have been moved successfully."
-msgstr ""
+msgstr "La columnas ha essite movite successosemente."
 
 #: libraries/controllers/TableStructureController.class.php:733
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
+"Tabella %1$s ha essite alterate successosemente. Privilegios ha essite "
+"adaptate."
 
 #: libraries/controllers/TableStructureController.class.php:788
 #: libraries/tracking.lib.php:1094
@@ -8176,14 +8180,14 @@ msgstr "Indice"
 #: libraries/controllers/TableStructureController.class.php:964
 #: templates/columns_definitions/column_indexes.phtml:27
 msgid "Spatial"
-msgstr ""
+msgstr "Spatial"
 
 #: libraries/controllers/TableStructureController.class.php:960
 #: libraries/controllers/TableStructureController.class.php:965
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:40
 msgid "Fulltext"
-msgstr ""
+msgstr "Texto complete"
 
 #: libraries/controllers/TableStructureController.class.php:968
 msgid "Distinct values"
@@ -8262,6 +8266,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Iste methodo require un  '<i>connexion SSL</i>' o un '<i> connexion non "
+"cryptate que crypta le contrasigno per RSA</i>'; durante que on connecte al "
+"servitor."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -9869,16 +9876,22 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Pro cata columna a basso, pro favor selige le <b>minime insimul</b> inter le "
+"date insimul cuje valores combinate insimul es sufficiente pro determinar le "
+"valor del columna.<br />Nota: un columna pote haber nulle dependentia "
+"transitive, in ille caso tu non debe seliger ulle."
 
 #: libraries/normalization.lib.php:777
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Il non ha dependentias Transitive possibile proque le tabella non ha alcun "
+"columna de clave primari"
 
 #: libraries/normalization.lib.php:781
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "Le tabella jam es in le forma Tertie Normal!"
 
 #: libraries/normalization.lib.php:806
 msgid "Improve table structure (Normalization):"
@@ -9886,35 +9899,39 @@ msgstr "Meliora structura de tabella (Normalisation):"
 
 #: libraries/normalization.lib.php:807
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Selige usque qual numero de passos tu vole normalizar"
 
 #: libraries/normalization.lib.php:811
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Secunde passo de normalisation (1NF+2NF)"
 
 #: libraries/normalization.lib.php:812
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Tertie passo de normalisation (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:819
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Adjuta: Pro favor tu seque le procedura con attention pro obtener un "
+"normalisation correcte"
 
 #: libraries/normalization.lib.php:880
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Iste lista es basate sur un sub insimul del datos de tabella e illo pote non "
+"esser accurate. "
 
 #: libraries/normalization.lib.php:896
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Il non trovava alcun dependentia partial!"
 
 #: libraries/operations.lib.php:76
 msgid "Rename database to"
-msgstr ""
+msgstr "Renominar le base de datos como"
 
 #: libraries/operations.lib.php:95 libraries/operations.lib.php:243
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:967
@@ -9924,6 +9941,8 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
 msgstr ""
+"Tu non ha bastante privilegios pro executar iste operation; Pro favor refere "
+"al documentation pro altere detalios"
 
 #: libraries/operations.lib.php:102 libraries/operations.lib.php:249
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
@@ -9935,30 +9954,30 @@ msgstr "Adapta permissiones"
 #: libraries/operations.lib.php:134
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "Le base de datos %s ha essite delite."
 
 #: libraries/operations.lib.php:146
 msgid "Remove database"
-msgstr ""
+msgstr "Remover base de datos"
 
 #: libraries/operations.lib.php:152
 msgid "Drop the database (DROP)"
-msgstr ""
+msgstr "Deler le base de datos (DROP)"
 
 #: libraries/operations.lib.php:172 libraries/operations.lib.php:1281
 #: libraries/tracking.lib.php:518
 msgid "Structure only"
-msgstr ""
+msgstr "Solmente le structura"
 
 #: libraries/operations.lib.php:173 libraries/operations.lib.php:1282
 #: libraries/tracking.lib.php:524
 msgid "Structure and data"
-msgstr ""
+msgstr "Structura e datos"
 
 #: libraries/operations.lib.php:174 libraries/operations.lib.php:1283
 #: libraries/tracking.lib.php:521
 msgid "Data only"
-msgstr ""
+msgstr "Solmente datos"
 
 #: libraries/operations.lib.php:202
 msgid "Copy database to"
@@ -9966,23 +9985,23 @@ msgstr "Copia base de datos in"
 
 #: libraries/operations.lib.php:215
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "CREATE DATABASE ante copiar"
 
 #: libraries/operations.lib.php:228 libraries/operations.lib.php:1306
 msgid "Add constraints"
-msgstr ""
+msgstr "Adde vinculos"
 
 #: libraries/operations.lib.php:260
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Commuta al base de datos copiate"
 
 #: libraries/operations.lib.php:792
 msgid "Alter table order by"
-msgstr ""
+msgstr "Alterar le ordine de tabella per"
 
 #: libraries/operations.lib.php:800
 msgid "(singly)"
-msgstr ""
+msgstr "(singularmente)"
 
 #: libraries/operations.lib.php:836
 msgid "Move table to (database<b>.</b>table)"
@@ -9990,7 +10009,7 @@ msgstr "Move le tabella in (database<b>.</b>table)"
 
 #: libraries/operations.lib.php:948
 msgid "Rename table to"
-msgstr ""
+msgstr "Renomina tabella como"
 
 #: libraries/operations.lib.php:991
 msgid "Table comments"
