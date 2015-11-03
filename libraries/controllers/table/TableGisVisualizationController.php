@@ -196,8 +196,6 @@ class TableGisVisualizationController extends TableController
                 )
             )
         );
-        $svgSupport = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
-            ? false : true;
         $html = Template::get('table/gis_visualization/gis_visualization')->render(
             array(
                 'url_params' => $this->url_params,
@@ -206,10 +204,7 @@ class TableGisVisualizationController extends TableController
                 'spatialCandidates' => $spatialCandidates,
                 'visualizationSettings' => $this->visualizationSettings,
                 'sql_query' => $this->sql_query,
-                'visualization' => $this->visualization->toImage(
-                    $svgSupport ? 'svg' : 'png'
-                ),
-                'svgSupport' => $svgSupport,
+                'visualization' => $this->visualization->toImage('svg'),
                 'drawOl' => $this->visualization->asOl()
             )
         );
