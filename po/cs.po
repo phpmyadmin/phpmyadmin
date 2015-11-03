@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-09-03 10:02+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"PO-Revision-Date: 2015-11-03 07:59+0200\n"
+"Last-Translator: Petr Kateřiňák <petr.katerinak@gmail.com>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -3496,10 +3496,9 @@ msgid "Relational key"
 msgstr "Relační klíč"
 
 #: libraries/DisplayResults.php:1728
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Zobrazit cizí klíče"
+msgstr "Zobrazit sloupec pro relace"
 
 #: libraries/DisplayResults.php:1741
 msgid "Show binary contents"
@@ -3802,11 +3801,13 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Ověření syntaxe je pro tento dotaz vypnuto, protože překračuje maximální "
+"délku."
 
 #: libraries/Linter.php:165
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (poblíž <code>%2$s</code>)"
 
 #: libraries/Menu.php:198 libraries/ServerStatusData.php:422
 #: libraries/config/messages.inc.php:933
@@ -4683,7 +4684,6 @@ msgid "Submit query"
 msgstr "Provést dotaz"
 
 #: libraries/Util.php:1275 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Vytvořit PHP kód"
@@ -4831,7 +4831,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Zkontrolovat oprávnění pro databázi „%s“."
 
 #: libraries/build_html_for_db.lib.php:187
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Zkontrolovat oprávnění"
@@ -5534,6 +5533,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Vyhledání chyb v dotazu před jeho spuštěním. Je potřeba mít povolený "
+"CodeMirror."
 
 #: libraries/config/messages.inc.php:67
 msgid "Enable linter"
@@ -5890,6 +5891,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Přidat IF NOT EXISTS (méně účinné než generování klíčů během vytváření "
+"tabulky)"
 
 #: libraries/config/messages.inc.php:211
 msgid "Use ignore inserts"
@@ -6372,7 +6375,7 @@ msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
 #, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Výpadků při čtení"
+msgstr "Číst jako řetězec"
 
 #: libraries/config/messages.inc.php:406
 msgid "Initial state for sliders"
@@ -6527,8 +6530,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] ([kbd]0[/"
-"kbd] ruší omezení)."
+"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
