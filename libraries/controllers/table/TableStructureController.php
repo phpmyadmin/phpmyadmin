@@ -19,6 +19,7 @@ use SqlParser;
 use SqlParser\Statements\CreateStatement;
 use SqlParser\Utils\Table as SqlTable;
 use PMA\libraries\Table;
+use PMA\libraries\controllers\TableController;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/transformations.lib.php';
