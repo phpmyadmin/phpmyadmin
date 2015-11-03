@@ -191,8 +191,15 @@ class TableGisVisualizationController extends TableController
          */
         $this->url_params['sql_query'] = $this->sql_query;
         $downloadUrl = 'tbl_gis_visualization.php' . PMA_URL_getCommon(
-            $this->url_params
-        ) . '&saveToFile=true';
+            array_merge(
+                $this->url_params,
+                array(
+                    'saveToFile' => true,
+                    'session_max_rows' => $rows,
+                    'pos' => $pos
+                )
+            )
+        );
         $svgSupport = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
             ? false : true;
         $html = Template::get('table/gis_visualization/gis_visualization')->render(
