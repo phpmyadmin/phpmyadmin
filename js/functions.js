@@ -1192,33 +1192,33 @@ function updateQueryParameters() {
         var query = codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val();
 
         var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
-         var parameters = [];
-         // get unique parameters
-         if (allParameters) {
-             $.each(allParameters, function(i, parameter){
-                 if ($.inArray(parameter, parameters) === -1) {
-                     parameters.push(parameter);
-                 }
-             });
-         } else {
-             $('#parametersDiv').text(PMA_messages.strNoParam);
-             return;
-         }
+        var parameters = [];
+        // get unique parameters
+        if (allParameters) {
+            $.each(allParameters, function(i, parameter){
+                if ($.inArray(parameter, parameters) === -1) {
+                    parameters.push(parameter);
+                }
+            });
+        } else {
+            $('#parametersDiv').text(PMA_messages.strNoParam);
+            return;
+        }
 
-         var $temp = $('<div />');
-         $temp.append($('#parametersDiv').children());
-         $('#parametersDiv').empty();
+        var $temp = $('<div />');
+        $temp.append($('#parametersDiv').children());
+        $('#parametersDiv').empty();
 
-         $.each(parameters, function (i, parameter) {
-             var paramName = parameter.substring(1);
-             var $param = $temp.find('#paramSpan_' + paramName );
-             if (! $param.length) {
-                 $param = $('<span class="parameter" id="paramSpan_' + paramName + '" />');
-                 $('<label for="param_' + paramName + '" />').text(parameter).appendTo($param);
-                 $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '" />').appendTo($param);
-             }
-             $('#parametersDiv').append($param);
-         });
+        $.each(parameters, function (i, parameter) {
+            var paramName = parameter.substring(1);
+            var $param = $temp.find('#paramSpan_' + paramName );
+            if (! $param.length) {
+                $param = $('<span class="parameter" id="paramSpan_' + paramName + '" />');
+                $('<label for="param_' + paramName + '" />').text(parameter).appendTo($param);
+                $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '" />').appendTo($param);
+            }
+            $('#parametersDiv').append($param);
+        });
     } else {
         $('#parametersDiv').empty();
     }
