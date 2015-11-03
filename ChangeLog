@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue #11627 CREATE TABLE/INSERT INTO executed twice (ctrl+enter)
 - issue #11630 Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given
 - issue #11632 Exporting GIS visualization ignores start and row count
+- issue #11476 Errors instead of git info when PHP has no gzip support
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()
