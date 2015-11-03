@@ -75,3 +75,6 @@ span.cm-number {
 .CodeMirror-hints {
     z-index: 200;
 }
+.CodeMirror-lint-tooltip {
+    z-index: 200;
+}
