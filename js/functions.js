@@ -1200,6 +1200,9 @@ function updateQueryParameters() {
                      parameters.push(parameter);
                  }
              });
+         } else {
+             $('#parametersDiv').text(PMA_messages.strNoParam);
+             return;
          }
 
          var $temp = $('<div />');
