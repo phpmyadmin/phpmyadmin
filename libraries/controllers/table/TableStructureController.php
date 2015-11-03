@@ -7,7 +7,7 @@
  * @package PMA
  */
 
-namespace PMA\libraries\controllers;
+namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\Index;
