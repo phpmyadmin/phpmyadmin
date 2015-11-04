@@ -1361,7 +1361,7 @@ class PMA_Util
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
             if (defined('PMA_MYSQL_INT_VERSION')
-                && $GLOBALS['dbi']->fetchValue("SELECT @@profiling")
+                && $GLOBALS['dbi']->fetchValue("SELECT @@have_profiling")
             ) {
                 self::cacheSet('profiling_supported', true);
             } else {
