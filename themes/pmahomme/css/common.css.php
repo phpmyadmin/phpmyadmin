@@ -29,13 +29,12 @@ textarea {
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-    <?php
-} ?>
+<?php } ?>
     padding: 0;
     margin: 0;
     margin-<?php echo $left; ?>: 240px;
-    color: #444;
-    background: #fff;
+    color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 body#loginform {
@@ -2796,10 +2795,6 @@ fieldset .disabled-field td {
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-}
-
-#page_content {
-    background-color: white;
 }
 
 .navigation {

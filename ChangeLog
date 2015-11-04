@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #11632 Exporting GIS visualization ignores start and row count
 - issue #11476 Errors instead of git info when PHP has no gzip support
 - issue #11633 CodeMirror tooltip shows below modal window
+- issue #11639 Bug with the MainBackground Color
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()
