@@ -3121,7 +3121,7 @@ $cfg['DefaultFunctions'] = array(
 );
 
 /**
- * Max rows retreived for zoom search
+ * Max rows retrieved for zoom search
  */
 $cfg['maxRowPlotLimit'] = 500;
 
