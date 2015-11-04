@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-10-31 16:37+0200\n"
+"PO-Revision-Date: 2015-11-04 16:31+0000\n"
 "Last-Translator: Kelvin Lee <leekalok804@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/zh_TW/>\n"
@@ -5492,7 +5492,7 @@ msgstr "設定檔案"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr "是否顯示確認訊息，當查詢可能造成資料遺失時 (\"您真的要…\")。"
+msgstr "是否在當查詢會造成資料丟失時顯示一個「您真的要……」的警告訊息。"
 
 #: libraries/config/messages.inc.php:95
 msgid "Confirm DROP queries"
@@ -15007,11 +15007,11 @@ msgstr "說明"
 #: url.php:36
 #| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "帶您至目標地點。"
+msgstr "帶您至目標網站。"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "權限不足！"
+msgstr "您現時還沒有足夠的權限！"
 
 #: user_password.php:112
 msgid "The profile has been updated."
