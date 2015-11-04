@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-11-03 07:59+0200\n"
+"PO-Revision-Date: 2015-11-04 12:51+0200\n"
 "Last-Translator: Petr Kateřiňák <petr.katerinak@gmail.com>\n"
 "Language-Team: Czech "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
@@ -7506,7 +7506,6 @@ msgstr ""
 "Zobrazit nebo skrýt sloupec zobrazující čas vytvoření pro všechny tabulky."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Zobrazit čas vytvoření"
@@ -7519,7 +7518,6 @@ msgstr ""
 "tabulky."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Zobrazit čas poslední změny"
@@ -7532,7 +7530,6 @@ msgstr ""
 "tabulky."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Zobrazit čas poslední kontroly"
@@ -8091,6 +8088,8 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Tato metoda připojení k serveru vyžaduje použití '<i>SSL spojení</i>' nebo "
+"'<i>nešifrovaného spojení s podporou šifrování hesla pomocí RSA</i>'."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -8380,7 +8379,6 @@ msgstr ""
 "Například: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:227
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Soubor pro importování:"
@@ -8394,7 +8392,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Upload souborů není na tomto serveru povolen."
 
 #: libraries/display_import.lib.php:287
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Částečný import:"
@@ -8426,7 +8423,6 @@ msgstr ""
 "počínaje od:"
 
 #: libraries/display_import.lib.php:349
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Další možnosti:"
@@ -9157,8 +9153,9 @@ msgid "Romanian"
 msgstr "Rumunština"
 
 #: libraries/mysql_charsets.lib.php:233
+#, fuzzy
 msgid "Sinhalese"
-msgstr ""
+msgstr "Sinhálština"
 
 #: libraries/mysql_charsets.lib.php:236
 msgid "Slovak"
@@ -9659,10 +9656,10 @@ msgid "The third step of normalization is complete."
 msgstr "Třetí krok normalizace je dokončený."
 
 #: libraries/normalization.lib.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Vybrané cílové tabulky byly synchronizovány se zdrojovými."
+msgstr "Vybraná opakující se skupina byla přesunuta do tabulky '%s'"
 
 #: libraries/normalization.lib.php:726
 msgid "Step 3."
@@ -9685,6 +9682,8 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Tranzitivní závislosti nejsou možny, pokud tabulka neobsahuje žádné sloupce "
+"bez primárního klíče"
 
 #: libraries/normalization.lib.php:784
 msgid "Table is already in Third normal form!"
@@ -9731,18 +9730,18 @@ msgstr "Přejmenovat databázi na"
 #: libraries/operations.lib.php:867 libraries/operations.lib.php:959
 #: libraries/operations.lib.php:1311
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Nemáte dostatečná práva na provedení této akce!"
+msgstr ""
+"Nemáte dostatečná práva k provedení této akce; Prohlédněte si dokumentaci "
+"pro více detailů"
 
 #: libraries/operations.lib.php:108 libraries/operations.lib.php:253
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:965
 #: libraries/operations.lib.php:1317 libraries/rte/rte_routines.lib.php:997
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Upravit oprávnění"
@@ -9820,10 +9819,9 @@ msgid "Storage Engine"
 msgstr "Úložiště"
 
 #: libraries/operations.lib.php:1087
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Převést všechny sloupce na atomické"
+msgstr "Změnit kódování všech sloupců"
 
 #: libraries/operations.lib.php:1255
 msgid "Copy table to (database<b>.</b>table)"
@@ -9850,10 +9848,9 @@ msgstr "Zkontrolovat tabulku"
 
 #: libraries/operations.lib.php:1426
 #: templates/database/structure/check_all_tables.phtml:21
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Zkontrolovat tabulku"
+msgstr "Tabulka kontrolních součtů"
 
 #: libraries/operations.lib.php:1440
 msgid "Defragment table"
@@ -9921,13 +9918,13 @@ msgstr "Opravit"
 #: libraries/operations.lib.php:1594
 #: templates/table/structure/display_structure.phtml:192
 msgid "Truncate"
-msgstr ""
+msgstr "Vyprázdnit"
 
 #: libraries/operations.lib.php:1604
 #, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Sbalit"
+msgstr "Vyhledat první platný záznam"
 
 #: libraries/operations.lib.php:1613
 msgid "Partition maintenance"
@@ -10197,7 +10194,7 @@ msgstr "Zástupná struktura pro pohled"
 
 #: libraries/plugins/export/ExportJson.php:67
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Vytvořit pěkný JSON (snadno čitelné formátování)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10312,7 +10309,7 @@ msgstr "Zobrazit strukturu"
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "a poté"
+msgstr "Zůstat"
 
 #: libraries/plugins/export/ExportSql.php:93
 msgid ""
