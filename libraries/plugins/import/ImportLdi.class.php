@@ -13,12 +13,6 @@ if (! defined('PHPMYADMIN')) {
 /* Get the import interface */
 require_once 'libraries/plugins/import/AbstractImportCsv.class.php';
 
-// We need relations enabled and we work only on database
-if ($GLOBALS['plugin_param'] !== 'table') {
-    $GLOBALS['skip_import'] = true;
-    return;
-}
-
 /**
  * Handles the import for the CSV format using load data
  *
@@ -32,6 +26,11 @@ class ImportLdi extends AbstractImportCsv
      */
     public function __construct()
     {
+        // We need relations enabled and we work only on database
+        if ($GLOBALS['plugin_param'] !== 'table') {
+            $GLOBALS['skip_import'] = true;
+            return;
+        }
         $this->setProperties();
     }
 
