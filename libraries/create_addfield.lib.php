@@ -480,12 +480,13 @@ function PMA_tryColumnCreationQuery($db, $table, $err_url)
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    $GLOBALS['dbi']->selectDb($db)
-        or PMA\libraries\Util::mysqlDie(
+    if (!($GLOBALS['dbi']->selectDb($db))) {
+        PMA\libraries\Util::mysqlDie(
             $GLOBALS['dbi']->getError(),
             'USE ' . PMA\libraries\Util::backquote($db), false,
             $err_url
         );
+    }
     $sql_query    = 'ALTER TABLE ' .
         PMA\libraries\Util::backquote($table) . ' ' . $sql_statement . ';';
     // If there is a request for SQL previewing.

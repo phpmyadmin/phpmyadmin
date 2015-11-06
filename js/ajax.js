@@ -490,7 +490,11 @@ var AJAX = {
             AJAX.xhr = null;
             if (parseInt(data.redirect_flag) == 1) {
                 // add one more GET param to display session expiry msg
-                window.location.href += '&session_expired=1';
+                if (window.location.href.indexOf('?') === -1) {
+                    window.location.href += '?session_expired=1';
+                } else {
+                    window.location.href += '&session_expired=1';
+                }
                 window.location.reload();
             } else if (parseInt(data.reload_flag) == 1) {
                 // remove the token param and reload

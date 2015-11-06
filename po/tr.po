@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-10-27 05:44+0200\n"
+"PO-Revision-Date: 2015-11-05 12:07+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -1631,7 +1631,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:317 prefs_manage.php:241
 #: setup/frames/menu.inc.php:26
 msgid "Import"
-msgstr "İçe Aktar"
+msgstr "İçe aktar"
 
 #: js/messages.php:323
 msgid "Import monitor configuration"
@@ -1820,7 +1820,7 @@ msgstr "Depolanan işlevin tanımı RETURN ifadesi içermek zorunda!"
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Export"
-msgstr "Dışa Aktar"
+msgstr "Dışa aktar"
 
 #: js/messages.php:391 libraries/rte/rte_routines.lib.php:742
 msgid "ENUM/SET editor"
@@ -2986,7 +2986,7 @@ msgstr ""
 
 #: libraries/Config.php:1799
 msgid "Font size"
-msgstr "Yazı Tipi boyutu"
+msgstr "Yazı tipi boyutu"
 
 #: libraries/Console.php:85 libraries/Console.php:213
 #: libraries/Console.php:316
@@ -3230,8 +3230,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
-"Enter tuşuna basarak sorguları çalıştırın ve Shift + Enter tuşları ile yeni "
-"satır ekleyin. Bunu kalıcı yapmak için ayarlara bakın."
+"Enter tuşuna basıldığında sorguları çalıştır ve Shift + Enter tuşları ile "
+"yeni satır ekle. Bunu kalıcı yapmak için ayarlara bakın."
 
 #: libraries/Console.php:392
 msgid "Switch to dark theme"
@@ -3836,7 +3836,7 @@ msgstr "Linting bu sorgu için etkisizleştirildi çünkü en fazla uzunluğu a�
 #: libraries/Linter.php:165
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr "%1$s (yaklaşık <code>%2$s</code>)"
+msgstr "%1$s (<code>%2$s</code> yanına)"
 
 #: libraries/Menu.php:198 libraries/ServerStatusData.php:422
 #: libraries/config/messages.inc.php:933
@@ -3978,7 +3978,7 @@ msgstr "İkili değer günlüğü"
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
-msgstr "Kopya Etme"
+msgstr "Kopya etme"
 
 #: libraries/Menu.php:602 libraries/ServerStatusData.php:191
 #: libraries/Util.php:4333 libraries/config.values.php:106
@@ -6079,7 +6079,7 @@ msgstr "Varsayılan genel içe aktarma seçeneklerini özelleştirir."
 
 #: libraries/config/messages.inc.php:263
 msgid "Import / export"
-msgstr "İçe Aktar / Dışa Aktar"
+msgstr "İçe aktar / Dışa aktar"
 
 #: libraries/config/messages.inc.php:265
 msgid "Set import and export directories and compression options."
@@ -9120,7 +9120,7 @@ msgstr "Aşağıdaki sorguya çalıştırmak istiyor musunuz?"
 
 #: libraries/mysql_charsets.lib.php:47
 msgid "Charset"
-msgstr "Karakter Grubu"
+msgstr "Karakter grubu"
 
 #: libraries/mysql_charsets.lib.php:163
 msgid "Bulgarian"
@@ -13860,28 +13860,28 @@ msgstr "Kategorilenmemiş değiştirme işlemi."
 #: libraries/sql-parser/src/Components/Array2d.php:92
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr "%1$d değer beklendi, ancak %2$d bulundu."
+msgstr "%1$d değer beklenmekte, ancak %2$d bulundu."
 
 #: libraries/sql-parser/src/Components/Array2d.php:115
 msgid "An opening bracket followed by a set of values was expected."
-msgstr "Açık bir köşeli parantez ardından bir grup değer beklendi."
+msgstr "Açık bir köşeli parantez ardından bir grup değer beklenmekte."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:102
 #: libraries/sql-parser/src/Components/CreateDefinition.php:207
 msgid "An opening bracket was expected."
-msgstr "Açık bir köşeli parantez beklendi."
+msgstr "Açık bir köşeli parantez beklenmekte."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:127
 msgid "A comma or a closing bracket was expected"
-msgstr "Bir virgül ya da kapalı bir köşeli parantez beklendi"
+msgstr "Bir virgül ya da kapalı bir köşeli parantez beklenmekte"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:251
 msgid "A comma or a closing bracket was expected."
-msgstr "Bir virgül ya da kapalı bir köşeli parantez beklendi."
+msgstr "Bir virgül ya da kapalı bir köşeli parantez beklenmekte."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:267
 msgid "A closing bracket was expected."
-msgstr "Kapalı bir köşeli parantez beklendi."
+msgstr "Kapalı bir köşeli parantez beklenmekte."
 
 #: libraries/sql-parser/src/Components/DataType.php:128
 msgid "Unrecognized data type."
@@ -13903,16 +13903,16 @@ msgstr "Beklenmedik nokta."
 
 #: libraries/sql-parser/src/Components/Expression.php:334
 msgid "An alias was expected."
-msgstr "Bir kodadı beklendi."
+msgstr "Bir kodadı beklenmekte."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:97
 msgid "An expression was expected."
-msgstr "Bir ifade beklendi."
+msgstr "Bir ifade beklenmekte."
 
 #: libraries/sql-parser/src/Components/Limit.php:91
 #: libraries/sql-parser/src/Components/Limit.php:113
 msgid "An offset was expected."
-msgstr "Bir karşılık beklendi."
+msgstr "Bir karşılık beklenmekte."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:147
 #, php-format
@@ -13921,19 +13921,19 @@ msgstr "Bu seçenek \"%1$s\" ile çakışıyor."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:103
 msgid "The old name of the table was expected."
-msgstr "Tablonun eski adı beklendi."
+msgstr "Tablonun eski adı beklenmekte."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:113
 msgid "Keyword \"TO\" was expected."
-msgstr "\"TO\" anahtar kelimesi beklendi."
+msgstr "\"TO\" anahtar kelimesi beklenmekte."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:130
 msgid "The new name of the table was expected."
-msgstr "Tablonun yeni adı beklendi."
+msgstr "Tablonun yeni adı beklenmekte."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:148
 msgid "A rename operation was expected."
-msgstr "Yeniden adlandırma işlemi beklendi."
+msgstr "Yeniden adlandırma işlemi beklenmekte."
 
 #: libraries/sql-parser/src/Lexer.php:267
 msgid "Unexpected character."
@@ -13951,11 +13951,11 @@ msgstr "Beklenen sınırlayıcı."
 #: libraries/sql-parser/src/Lexer.php:784
 #, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Sonlandırma tırnak işareti %1$s beklendi."
+msgstr "Sonlandırma tırnak işareti %1$s beklenmekte."
 
 #: libraries/sql-parser/src/Lexer.php:824
 msgid "Variable name was expected."
-msgstr "Değişken adı beklendi."
+msgstr "Değişken adı beklenmekte."
 
 #: libraries/sql-parser/src/Parser.php:392
 msgid "Unexpected beginning of statement."
@@ -13989,15 +13989,15 @@ msgstr "Tanınmayan anahtar kelime."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:348
 msgid "The name of the entity was expected."
-msgstr "Varlığın adı beklendi."
+msgstr "Varlığın adı beklenmekte."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:365
 msgid "At least one column definition was expected."
-msgstr "En az bir sütun tanımı beklendi."
+msgstr "En az bir sütun tanımı beklenmekte."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:476
 msgid "A \"RETURNS\" keyword was expected."
-msgstr "\"RETURNS\" anahtar kelimesi beklendi."
+msgstr "\"RETURNS\" anahtar kelimesi beklenmekte."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"
@@ -14251,7 +14251,7 @@ msgstr "Tarih"
 
 #: libraries/tracking.lib.php:794
 msgid "Username"
-msgstr "Kullanıcı Adı"
+msgstr "Kullanıcı adı"
 
 #: libraries/tracking.lib.php:848
 #, php-format
