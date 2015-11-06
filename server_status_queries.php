@@ -29,6 +29,7 @@ if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
 }
 
 // for charting
+$scripts->addFile('chart.js');
 $scripts->addFile('jqplot/jquery.jqplot.js');
 $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');

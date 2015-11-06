@@ -1097,6 +1097,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
+        $scripts->addFile('chart.js');
         $scripts->addFile('jqplot/jquery.jqplot.js');
         $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
         $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
