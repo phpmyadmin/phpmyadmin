@@ -209,6 +209,9 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         initGISVisualization();
     }
 
+    if (typeof OpenLayers === 'undefined') {
+        $('#choice, #labelChoice').hide();
+    }
     $(document).on('click', '#choice', function () {
         if ($(this).prop('checked') === false) {
             $('#placeholder').show();
