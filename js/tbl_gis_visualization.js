@@ -148,10 +148,12 @@ function initGISVisualization() {
     selectVisualization();
     // Resizes the GIS visualization to fit into the space available
     resizeGISVisualization();
-    // Adds necessary styles to the div that coontains the openStreetMap
-    styleOSM();
-    // Draws openStreetMap with openLayers
-    drawOpenLayers();
+    if (typeof OpenLayers !== 'undefined') {
+        // Adds necessary styles to the div that coontains the openStreetMap
+        styleOSM();
+        // Draws openStreetMap with openLayers
+        drawOpenLayers();
+    }
     // Loads the SVG element and make a reference to it
     loadSVG();
     // Adds controllers for zooming and panning
