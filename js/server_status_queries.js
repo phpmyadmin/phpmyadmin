@@ -21,7 +21,7 @@ AJAX.registerOnload('server_status_queries.js', function () {
         });
         $('#serverstatusquerieschart').data(
             'queryPieChart',
-            PMA_createProfilingChartJqplot(
+            PMA_createProfilingChart(
                 'serverstatusquerieschart',
                 cdata
             )

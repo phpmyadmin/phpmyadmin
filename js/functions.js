@@ -2394,11 +2394,11 @@ function PMA_showNoticeForEnum(selectElement)
     }
 }
 
-/*
- * Creates a Profiling Chart with jqplot. Used in sql.js
+/**
+ * Creates a Profiling Chart. Used in sql.js
  * and in server_status_monitor.js
  */
-function PMA_createProfilingChartJqplot(target, data)
+function PMA_createProfilingChart(target, data)
 {
     // create the chart
     var factory = new JQPlotChartFactory();
