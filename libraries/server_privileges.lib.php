@@ -2095,12 +2095,13 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 . $hostname . "';";
 
             // Update the plugin for the user
-            $GLOBALS['dbi']->tryQuery($update_plugin_query)
-                or Util::mysqlDie(
+            if (!($GLOBALS['dbi']->tryQuery($update_plugin_query))) {
+                Util::mysqlDie(
                     $GLOBALS['dbi']->getError(),
                     $update_plugin_query,
                     false, $err_url
                 );
+            }
 
             $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
 
@@ -2153,10 +2154,11 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 . '(\'' . Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
         }
 
-        $GLOBALS['dbi']->tryQuery($local_query)
-            or Util::mysqlDie(
+        if (!($GLOBALS['dbi']->tryQuery($local_query))) {
+            Util::mysqlDie(
                 $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
             );
+        }
         $message = Message::success(
             __('The password for %s was changed successfully.')
         );
