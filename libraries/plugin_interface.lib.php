@@ -83,6 +83,7 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
             )
         ) {
             $GLOBALS['skip_import'] = false;
+            include_once $plugins_dir . $file;
             if (! $GLOBALS['skip_import']) {
                 $class_name = $prefix_class_name . $matches[1];
                 $plugin = new $class_name;
