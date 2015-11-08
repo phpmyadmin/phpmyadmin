@@ -10,9 +10,9 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
-use PMA\libraries\dbi\DBIExtension;
+namespace PMA\libraries\dbi;
 
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 

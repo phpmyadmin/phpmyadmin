@@ -6,11 +6,6 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-require_once 'libraries/dbi/DBIDummy.php';
-
 /**
  * Tests basic functionality of dummy dbi driver
  *
@@ -28,8 +23,8 @@ class DatabaseInterfaceTest extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        //$extension = new DBIDummy();
-        $extension = $this->getMockBuilder('DBIDummy')
+        //$extension = new PMA\libraries\dbi\DBIDummy();
+        $extension = $this->getMockBuilder('PMA\libraries\dbi\DBIDummy')
             ->disableOriginalConstructor()
             ->getMock();
 
