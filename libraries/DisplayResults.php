@@ -5652,23 +5652,24 @@ class DisplayResults
     {
 
         $ret = '';
-        if (! empty($del_url)) {
-
-            $ret .= '<td class="';
-            if (! empty($class)) {
-                $ret .= $class . ' ';
-            }
-            $ajax = Response::getInstance()->isAjax() ? ' ajax' : '';
-            $ret .= 'center print_ignore" ' . ' >'
-               . Util::linkOrButton(
-                    $del_url,
-                    $del_str,
-                    array('class' => 'delete_row requireConfirm' . $ajax),
-                    false
-               )
-               . '<div class="hide">' . $js_conf . '</div>'
-               . '</td>';
+        if (empty($del_url)) {
+            return $ret;
         }
+
+        $ret .= '<td class="';
+        if (! empty($class)) {
+            $ret .= $class . ' ';
+        }
+        $ajax = Response::getInstance()->isAjax() ? ' ajax' : '';
+        $ret .= 'center print_ignore" ' . ' >'
+            . Util::linkOrButton(
+                 $del_url,
+                 $del_str,
+                 array('class' => 'delete_row requireConfirm' . $ajax),
+                 false
+            )
+            . '<div class="hide">' . $js_conf . '</div>'
+            . '</td>';
 
         return $ret;
 
