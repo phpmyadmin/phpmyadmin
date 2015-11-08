@@ -413,9 +413,9 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
             . ' tabindex="' . ($tabindex + $tabindex_for_function) . '"'
             . ' id="field_' . $idindex . '_1">';
         $html_output .= PMA\libraries\Util::getFunctionsForField(
-                $column,
-                $insert_mode
-            ) . "\n";
+            $column,
+            $insert_mode
+        ) . "\n";
 
         $html_output .= '</select>' .  "\n";
         $html_output .= '</td>' .  "\n";

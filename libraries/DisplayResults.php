@@ -1418,8 +1418,8 @@ class DisplayResults
 
         $drop_down_html = '';
 
-        $drop_down_html .= '<form action="sql.php" method="post" class="print_ignore">'
-            . "\n"
+        $drop_down_html .= '<form action="sql.php" method="post" ' .
+            'class="print_ignore">' . "\n"
             . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
