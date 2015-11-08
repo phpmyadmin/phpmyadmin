@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue #11639 Bug with the MainBackground Color
 - issue        Profiling checkbox is missing
 - issue #11642 Properly handle session expiry after POST requests
+- issue #11648 Notice in ./export.php#214 Undefined index: quick_or_custom
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()
