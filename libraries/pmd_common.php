@@ -582,50 +582,52 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
             $upd_query .= ';';
             if ($GLOBALS['dbi']->tryQuery($upd_query)) {
                 return array(true, __('FOREIGN KEY relation has been added.'));
-            } else {
-                $error = $GLOBALS['dbi']->getError();
-                return array(
-                    false,
-                    __('Error: FOREIGN KEY relation could not be added!')
-                    . "<br/>" . $error
-                );
             }
-        } else {
-            return array(false, __('Error: Missing index on column(s).'));
-        }
-    } else { // internal (pmadb) relation
-        if ($GLOBALS['cfgRelation']['relwork'] == false) {
-            return array(false, __('Error: Relational features are disabled!'));
-        } else {
-            // no need to recheck if the keys are primary or unique at this point,
-            // this was checked on the interface part
 
-            $q  = "INSERT INTO "
-                . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-                . "." . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['relation'])
-                . "(master_db, master_table, master_field, "
-                . "foreign_db, foreign_table, foreign_field)"
-                . " values("
-                . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($T2) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($F2) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($T1) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($F1) . "')";
-
-            if (PMA_queryAsControlUser($q, false, PMA\libraries\DatabaseInterface::QUERY_STORE)
-            ) {
-                return array(true, __('Internal relation has been added.'));
-            } else {
-                $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
-                return array(
-                    false,
-                    __('Error: Internal relation could not be added!')
-                    . "<br/>" . $error
-                );
-            }
+            $error = $GLOBALS['dbi']->getError();
+            return array(
+                false,
+                __('Error: FOREIGN KEY relation could not be added!')
+                . "<br/>" . $error
+            );
         }
+
+        return array(false, __('Error: Missing index on column(s).'));
     }
+
+    // internal (pmadb) relation
+    if ($GLOBALS['cfgRelation']['relwork'] == false) {
+        return array(false, __('Error: Relational features are disabled!'));
+    }
+
+    // no need to recheck if the keys are primary or unique at this point,
+    // this was checked on the interface part
+
+    $q  = "INSERT INTO "
+        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
+        . "."
+        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['relation'])
+        . "(master_db, master_table, master_field, "
+        . "foreign_db, foreign_table, foreign_field)"
+        . " values("
+        . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($T2) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($F2) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($T1) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($F1) . "')";
+
+    if (PMA_queryAsControlUser($q, false, PMA\libraries\DatabaseInterface::QUERY_STORE)
+    ) {
+        return array(true, __('Internal relation has been added.'));
+    }
+
+    $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+    return array(
+        false,
+        __('Error: Internal relation could not be added!')
+        . "<br/>" . $error
+    );
 }
 
 /**
