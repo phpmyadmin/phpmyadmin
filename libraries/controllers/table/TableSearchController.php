@@ -204,10 +204,7 @@ class TableSearchController extends TableController
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 );
             }
-            // Defines the url to return to in case of error in the next sql
-            // statement
-            $params = array('db' => $this->db, 'table' => $this->table);
-            $err_url = $goto . '?' . PMA_URL_getCommon($params);
+
             // Displays the find and replace form
             $this->response->addHTML(
                 Template::get('table/search/selection_form')
