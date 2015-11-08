@@ -5663,10 +5663,10 @@ class DisplayResults
         $ajax = Response::getInstance()->isAjax() ? ' ajax' : '';
         $ret .= 'center print_ignore" ' . ' >'
             . Util::linkOrButton(
-                 $del_url,
-                 $del_str,
-                 array('class' => 'delete_row requireConfirm' . $ajax),
-                 false
+                $del_url,
+                $del_str,
+                array('class' => 'delete_row requireConfirm' . $ajax),
+                false
             )
             . '<div class="hide">' . $js_conf . '</div>'
             . '</td>';
