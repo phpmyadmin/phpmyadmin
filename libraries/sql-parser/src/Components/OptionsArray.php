@@ -146,8 +146,8 @@ class OptionsArray extends Component
                             sprintf(
                                 __('This option conflicts with "%1$s".'),
                                 is_array($ret->options[$lastOptionId])
-                                    ? $ret->options[$lastOptionId]['name']
-                                    : $ret->options[$lastOptionId]
+                                ? $ret->options[$lastOptionId]['name']
+                                : $ret->options[$lastOptionId]
                             ),
                             $token
                         );

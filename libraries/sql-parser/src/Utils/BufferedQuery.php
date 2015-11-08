@@ -283,6 +283,10 @@ class BufferedQuery
              *     `strtoupper(substr($this->query, $i, 9)) === 'DELIMITER'`
              *
              * This optimization makes the code about 3 times faster.
+             *
+             * `DELIMITER` is not being considered a keyword. The only context
+             * it has a special meaning is when it is the beginning of a
+             * statement. This is the reason for the last condition.
              */
             if (($i + 9 < $len)
                 && (($this->query[$i    ] === 'D') || ($this->query[$i    ] === 'd'))
@@ -295,6 +299,7 @@ class BufferedQuery
                 && (($this->query[$i + 7] === 'E') || ($this->query[$i + 7] === 'e'))
                 && (($this->query[$i + 8] === 'R') || ($this->query[$i + 8] === 'r'))
                 && (Context::isWhitespace($this->query[$i + 9]))
+                && (trim($this->current) === '')
             ) {
                 // Saving the current index to be able to revert any parsing
                 // done in this block.
