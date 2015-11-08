@@ -19,7 +19,9 @@ if (!defined('PHPMYADMIN')) {
  */
 require_once 'libraries/util.lib.php';
 
-PMA\libraries\Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
+PMA\libraries\Util::checkParameters(
+    array('server', 'db', 'table', 'action', 'num_fields')
+);
 
 global $db, $table;
 
@@ -114,7 +116,9 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
     }
 }
-if (isset($_REQUEST['submit_num_fields']) || isset($_REQUEST['submit_partition_change'])) {
+if (isset($_REQUEST['submit_num_fields'])
+    || isset($_REQUEST['submit_partition_change'])
+) {
     //if adding new fields, set regenerate to keep the original values
     $regenerate = 1;
 }
@@ -265,7 +269,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     if (isset($columnMeta['Type'])) {
-        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec($columnMeta['Type']);
+        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+            $columnMeta['Type']
+        );
         if ($extracted_columnspec['type'] == 'bit') {
             $columnMeta['Default']
                 = PMA\libraries\Util::convertBitDefaultValue($columnMeta['Default']);
@@ -394,16 +400,17 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
-$html = PMA\libraries\Template::get('columns_definitions/column_definitions_form')->render(
-    array(
-        'is_backup' => $is_backup,
-        'fields_meta' => isset($fields_meta) ? $fields_meta : null,
-        'mimework' => $cfgRelation['mimework'],
-        'action' => $action,
-        'form_params' => $form_params,
-        'content_cells' => $content_cells,
-    )
-);
+$html = PMA\libraries\Template::get('columns_definitions/column_definitions_form')
+    ->render(
+        array(
+            'is_backup'     => $is_backup,
+            'fields_meta'   => isset($fields_meta) ? $fields_meta : null,
+            'mimework'      => $cfgRelation['mimework'],
+            'action'        => $action,
+            'form_params'   => $form_params,
+            'content_cells' => $content_cells,
+        )
+    );
 
 unset($form_params);
 

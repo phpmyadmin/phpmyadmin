@@ -48,7 +48,8 @@ if (! $result) {
     $GLOBALS['table'] = '';
 
     /**
-     * If in an Ajax request, just display the message with {@link PMA\libraries\Response}
+     * If in an Ajax request, just display the message with
+     * {@link PMA\libraries\Response}
      */
     if ($GLOBALS['is_ajax_request'] == true) {
         $response = PMA\libraries\Response::getInstance();

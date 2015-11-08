@@ -316,16 +316,16 @@ function PMA_deletePage($pg)
     }
 
     $query = "DELETE FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
-             . "." . PMA\libraries\Util::backquote($cfgRelation['table_coords'])
-             . " WHERE " . PMA\libraries\Util::backquote('pdf_page_number') . " = " . $pg;
+        . "." . PMA\libraries\Util::backquote($cfgRelation['table_coords'])
+        . " WHERE " . PMA\libraries\Util::backquote('pdf_page_number') . " = " . $pg;
     $success = PMA_queryAsControlUser(
         $query, true, PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 
     if ($success) {
         $query = "DELETE FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
-                 . "." . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
-                 . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . $pg;
+            . "." . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
+            . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . $pg;
         $success = PMA_queryAsControlUser(
             $query, true, PMA\libraries\DatabaseInterface::QUERY_STORE
         );
@@ -445,12 +445,21 @@ function PMA_saveTablePositions($pg)
         return false;
     }
 
-    $query =  "DELETE FROM " . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-        . "." . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-        . " WHERE `db_name` = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) . "'"
-        . " AND `pdf_page_number` = '" . PMA\libraries\Util::sqlAddSlashes($pg) . "'";
+    $query =  "DELETE FROM "
+        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
+        . "." . PMA\libraries\Util::backquote(
+            $GLOBALS['cfgRelation']['table_coords']
+        )
+        . " WHERE `db_name` = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db'])
+        . "'"
+        . " AND `pdf_page_number` = '" . PMA\libraries\Util::sqlAddSlashes($pg)
+        . "'";
 
-    $res = PMA_queryAsControlUser($query, true, PMA\libraries\DatabaseInterface::QUERY_STORE);
+    $res = PMA_queryAsControlUser(
+        $query,
+        true,
+        PMA\libraries\DatabaseInterface::QUERY_STORE
+    );
 
     if (!$res) {
         return (boolean)$res;
@@ -742,7 +751,8 @@ function PMA_saveDesignerSetting($index, $value)
             $orig_data[$index] = $value;
             $orig_data = json_encode($orig_data);
 
-            $save_query = "UPDATE " . PMA\libraries\Util::backquote($cfgDesigner['db'])
+            $save_query = "UPDATE "
+                . PMA\libraries\Util::backquote($cfgDesigner['db'])
                 . "." . PMA\libraries\Util::backquote($cfgDesigner['table'])
                 . " SET settings_data = '" . $orig_data . "'"
                 . " WHERE username = '"
@@ -752,7 +762,8 @@ function PMA_saveDesignerSetting($index, $value)
         } else {
             $save_data = array($index => $value);
 
-            $query = "INSERT INTO " . PMA\libraries\Util::backquote($cfgDesigner['db'])
+            $query = "INSERT INTO "
+                . PMA\libraries\Util::backquote($cfgDesigner['db'])
                 . "." . PMA\libraries\Util::backquote($cfgDesigner['table'])
                 . " (username, settings_data)"
                 . " VALUES('" . $cfgDesigner['user'] . "',"

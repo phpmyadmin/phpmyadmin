@@ -268,7 +268,8 @@ function PMA_getHtmlForSqlQueryFormInsert(
             . 'multiple="multiple" ondblclick="insertValueQuery()">';
         foreach ($columns_list as $field) {
             $html .= '<option value="'
-                . PMA\libraries\Util::backquote(htmlspecialchars($field['Field'])) . '"';
+                . PMA\libraries\Util::backquote(htmlspecialchars($field['Field']))
+                . '"';
             if (isset($field['Field'])
                 && /*overload*/mb_strlen($field['Field'])
                 && isset($field['Comment'])

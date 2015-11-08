@@ -3432,7 +3432,8 @@ class Util
      * Get the script name corresponding to a plain English config word
      * in order to append in links on navigation and main panel
      *
-     * @param string $target   a valid value for $cfg['NavigationTreeDefaultTabTable'],
+     * @param string $target   a valid value for
+     *                         $cfg['NavigationTreeDefaultTabTable'],
      *                         $cfg['NavigationTreeDefaultTabTable2'],
      *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
      *                         $cfg['DefaultTabServer']
@@ -4806,7 +4807,8 @@ class Util
                 if (! empty($_REQUEST['tbl_group'])) {
                     // only tables for selected group
                     $tbl_group = $_REQUEST['tbl_group'];
-                    // include the table with the exact name of the group if such exists
+                    // include the table with the exact name of the group if such
+                    // exists
                     $groupTable = $GLOBALS['dbi']->getTablesFull(
                         $db, $tbl_group, false, null, $limit_offset,
                         $limit_count, $sort, $sort_order, $tbl_type
@@ -4821,9 +4823,9 @@ class Util
                 $tables = $GLOBALS['dbi']->getTables($db);
                 $total_num_tables = count($tables);
                 if (isset($sub_part) && $sub_part == '_export') {
-                    // (don't fetch only a subset if we are coming from db_export.php,
-                    // because I think it's too risky to display only a subset of the
-                    // table names when exporting a db)
+                    // (don't fetch only a subset if we are coming from
+                    // db_export.php, because I think it's too risky to display only
+                    // a subset of the table names when exporting a db)
                     /**
                      *
                      * @todo Page selector for table names?

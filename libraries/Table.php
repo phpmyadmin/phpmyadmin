@@ -2153,7 +2153,11 @@ class Table
             $tmp_error_drop = false;
             if ($drop) {
                 $drop_query = 'ALTER TABLE ' . Util::backquote($table)
-                    . ' DROP FOREIGN KEY ' . Util::backquote($existrel_foreign[$master_field_md5]['constraint']) . ';';
+                    . ' DROP FOREIGN KEY '
+                    . Util::backquote(
+                        $existrel_foreign[$master_field_md5]['constraint']
+                    )
+                    . ';';
 
                 if (! isset($_REQUEST['preview_sql'])) {
                     $display_query .= $drop_query . "\n";

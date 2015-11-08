@@ -280,7 +280,8 @@ function PMA_getHtmlForSettingsDialog()
     $retval .= PMA\libraries\Util::getImage('b_chart.png') . __('Add chart');
     $retval .= '</a>';
     $retval .= '<a href="#rearrangeCharts">';
-    $retval .= PMA\libraries\Util::getImage('b_tblops.png') . __('Enable charts dragging');
+    $retval .= PMA\libraries\Util::getImage('b_tblops.png')
+        . __('Enable charts dragging');
     $retval .= '</a>';
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';

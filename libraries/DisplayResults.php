@@ -825,7 +825,8 @@ class DisplayResults
         $html_sql_query = htmlspecialchars($this->__get('sql_query'));
 
         // Navigation bar
-        $table_navigation_html .= '<table class="navigation nospacing nopadding print_ignore">'
+        $table_navigation_html
+            .= '<table class="navigation nospacing nopadding print_ignore">'
             . '<tr>'
             . '<td class="navigation_separator"></td>';
 
@@ -1185,7 +1186,9 @@ class DisplayResults
         // ($GLOBALS['cfg']['ShowBrowseComments']).
         $comments_map = $this->_getTableCommentsArray($analyzed_sql_results);
 
-        list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql_results);
+        list($col_order, $col_visib) = $this->_getColumnParams(
+            $analyzed_sql_results
+        );
 
         // optimize: avoid calling a method on each iteration
         $number_of_columns = $this->__get('fields_cnt');
@@ -1415,7 +1418,8 @@ class DisplayResults
 
         $drop_down_html = '';
 
-        $drop_down_html .= '<form action="sql.php" method="post" class="print_ignore">' . "\n"
+        $drop_down_html .= '<form action="sql.php" method="post" class="print_ignore">'
+            . "\n"
             . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
@@ -1536,8 +1540,8 @@ class DisplayResults
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
-            $button_html .= '<th class="column_action print_ignore" ' . $colspan . '>'
-                . $full_or_partial_text_link . '</th>';
+            $button_html .= '<th class="column_action print_ignore" ' . $colspan
+                . '>' . $full_or_partial_text_link . '</th>';
 
         } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
@@ -2475,7 +2479,8 @@ class DisplayResults
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
-            $right_column_html .= "\n" . '<td class="print_ignore" ' . $colspan . '></td>';
+            $right_column_html .= "\n" . '<td class="print_ignore" ' . $colspan
+                . '></td>';
         }
 
         $this->__set('display_params', $display_params);
@@ -2632,12 +2637,12 @@ class DisplayResults
         return implode(' ', $classes);
     } // end of the '_addClass()' function
 
-
     /**
      * Prepare the body of the results table
      *
-     * @param integer &$dt_result           the link id associated to the query which results have to be displayed
-     *                                    which results have to be displayed
+     * @param integer &$dt_result           the link id associated to the query
+     *                                      which results have to be displayed which
+     *                                      results have to be displayed
      * @param array   &$displayParts        which elements to display
      * @param array   $map                  the list of relations
      * @param array   $analyzed_sql_results analyzed sql results
@@ -2645,7 +2650,7 @@ class DisplayResults
      *
      * @return string $table_body_html  html content
      *
-     * @global array   $row             current row data
+     * @global array  $row                  current row data
      *
      * @access  private
      *
@@ -2701,7 +2706,9 @@ class DisplayResults
         }
 
         // prepare to get the column order, if available
-        list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql_results);
+        list($col_order, $col_visib) = $this->_getColumnParams(
+            $analyzed_sql_results
+        );
 
         // Correction University of Virginia 19991216 in the while below
         // Previous code assumed that all tables have keys, specifically that
@@ -2932,22 +2939,27 @@ class DisplayResults
         $this->__set('mime_map', $mimeMap);
     }
 
-
     /**
      * Get the values for one data row
      *
-     * @param integer &$dt_result           the link id associated to the query which results have to be displayed
-     *                                 which results have to be displayed
-     * @param array   $row                  current row data
-     * @param integer $row_no               the index of current row
-     * @param array   $col_order            the column order false when a property not found
-     *                                 false when a property not found
-     * @param array   $map                  the list of relations
-     * @param string  $grid_edit_class      the class for all editable columns
-     * @param boolean $col_visib            column is visible(false) array                    column isn't visible(string array)
-     *        array                    column isn't visible(string array)
-     * @param string  $url_sql_query        the analyzed sql query
-     * @param array   $analyzed_sql_results analyzed sql results
+     * @param integer              &$dt_result           the link id associated to
+     *                                                   the query which results
+     *                                                   have to be displayed which
+     *                                                   results have to be
+     *                                                   displayed
+     * @param array                $row                  current row data
+     * @param integer              $row_no               the index of current row
+     * @param array                $col_order            the column order false when
+     *                                                   a property not found false
+     *                                                   when a property not found
+     * @param array                $map                  the list of relations
+     * @param string               $grid_edit_class      the class for all editable
+     *                                                   columns
+     * @param boolean|array|string $col_visib            column is visible(false);
+     *                                                   column isn't visible(string
+     *                                                   array)
+     * @param string               $url_sql_query        the analyzed sql query
+     * @param array                $analyzed_sql_results analyzed sql results
      *
      * @return  string $row_values_html  html content
      *
@@ -4786,8 +4798,8 @@ class DisplayResults
     /**
      * Prepare multi field edit/delete links
      *
-     * @param integer &$dt_result           the link id associated to the query which results have to be displayed
-     *                              which results have to be displayed
+     * @param integer &$dt_result           the link id associated to the query which
+     *                                      results have to be displayed
      * @param array   $analyzed_sql_results analyzed sql results
      * @param string  $del_link             the display element - 'del_link'
      *
@@ -5019,8 +5031,8 @@ class DisplayResults
         $results_operations_html = '';
         $fields_meta = $this->__get('fields_meta'); // To safe use in foreach
         $header_shown = false;
-        $header = '<fieldset class="print_ignore" ><legend>' . __('Query results operations')
-            . '</legend>';
+        $header = '<fieldset class="print_ignore" ><legend>'
+            . __('Query results operations') . '</legend>';
 
         $_url_params = array(
                     'db'        => $this->__get('db'),
@@ -5264,7 +5276,9 @@ class DisplayResults
 
         // in PHP < 5.5, empty() only checks variables
         $tmpdb = $this->__get('db');
-        if ((count($url_params) > 0) && (! empty($tmpdb) && ! empty($meta->orgtable))) {
+        if (count($url_params) > 0
+            && (!empty($tmpdb) && !empty($meta->orgtable))
+        ) {
             $result = '<a href="tbl_get_field.php'
                 . PMA_URL_getCommon($url_params)
                 . '" class="disableAjax">'
@@ -5551,10 +5565,11 @@ class DisplayResults
         $ret = '';
         if (! empty($edit_url)) {
 
-            $ret .= '<td class="' . $class . ' center print_ignore" ' . ' ><span class="nowrap">'
-               . Util::linkOrButton(
-                   $edit_url, $edit_str, array(), false
-               );
+            $ret .= '<td class="' . $class . ' center print_ignore" '
+                . ' ><span class="nowrap">'
+                . Util::linkOrButton(
+                    $edit_url, $edit_str, array(), false
+                );
             /*
              * Where clause for selecting this row uniquely is provided as
              * a hidden input. Used by jQuery scripts for handling grid editing
@@ -5646,7 +5661,10 @@ class DisplayResults
             $ajax = Response::getInstance()->isAjax() ? ' ajax' : '';
             $ret .= 'center print_ignore" ' . ' >'
                . Util::linkOrButton(
-                   $del_url, $del_str, array('class' => 'delete_row requireConfirm' . $ajax), false
+                    $del_url,
+                    $del_str,
+                    array('class' => 'delete_row requireConfirm' . $ajax),
+                    false
                )
                . '<div class="hide">' . $js_conf . '</div>'
                . '</td>';

@@ -125,7 +125,9 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
         $retval .= '">';
         $retval .= '<th class="name">' . htmlspecialchars($name) . '</th>';
         $retval .= '<td class="value">';
-        $retval .= htmlspecialchars(PMA\libraries\Util::formatNumber($value, 5, 0, true));
+        $retval .= htmlspecialchars(
+            PMA\libraries\Util::formatNumber($value, 5, 0, true)
+        );
         $retval .= '</td>';
         $retval .= '<td class="value">';
         $retval .= htmlspecialchars(

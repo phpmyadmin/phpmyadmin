@@ -242,11 +242,13 @@ function PMA_getListOfVersionsOfTable()
 {
     $cfgRelation = PMA_getRelationsParam();
     $sql_query = " SELECT * FROM " .
-         PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
-         PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-         " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) . "' " .
-         " AND table_name = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['table']) . "' " .
-         " ORDER BY version DESC ";
+        PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
+        PMA\libraries\Util::backquote($cfgRelation['tracking']) .
+        " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) .
+        "' " .
+        " AND table_name = '" .
+        PMA\libraries\Util::sqlAddSlashes($_REQUEST['table']) . "' " .
+        " ORDER BY version DESC ";
 
     return PMA_queryAsControlUser($sql_query);
 }
@@ -290,7 +292,10 @@ function PMA_getHtmlForTableVersionDetails(
     $GLOBALS['dbi']->dataSeek($sql_result, 0);
     $delete = PMA\libraries\Util::getIcon('b_drop.png', __('Delete version'));
     $report = PMA\libraries\Util::getIcon('b_report.png', __('Tracking report'));
-    $structure = PMA\libraries\Util::getIcon('b_props.png', __('Structure snapshot'));
+    $structure = PMA\libraries\Util::getIcon(
+        'b_props.png',
+        __('Structure snapshot')
+    );
 
     while ($version = $GLOBALS['dbi']->fetchArray($sql_result)) {
         if ($version['version'] == $last_version) {
@@ -348,7 +353,11 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= '</tbody>';
     $html .= '</table>';
 
-    $html .= PMA\libraries\Util::getWithSelected($pmaThemeImage, $text_dir, "versionsForm");
+    $html .= PMA\libraries\Util::getWithSelected(
+        $pmaThemeImage,
+        $text_dir,
+        "versionsForm"
+    );
     $html .= PMA\libraries\Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_delete_version',
         __('Delete version'), 'b_drop.png', 'delete_version'
@@ -395,10 +404,11 @@ function PMA_getSQLResultForSelectableTables()
     $cfgRelation = PMA_getRelationsParam();
 
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-             PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
-             PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-             " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db']) . "' " .
-             " ORDER BY db_name, table_name";
+        PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
+        PMA\libraries\Util::backquote($cfgRelation['tracking']) .
+        " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db']) .
+        "' " .
+        " ORDER BY db_name, table_name";
 
     return PMA_queryAsControlUser($sql_query);
 }
@@ -936,7 +946,9 @@ function PMA_getHtmlForField($index, $field, $style)
     $html .= '<td>' . (($field['Null'] == 'YES') ? __('Yes') : __('No')) . '</td>';
     $html .= '<td>';
     if (isset($field['Default'])) {
-        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec($field['Type']);
+        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+            $field['Type']
+        );
         if ($extracted_columnspec['type'] == 'bit') {
             // here, $field['Default'] contains something like b'010'
             $html .= PMA\libraries\Util::convertBitDefaultValue($field['Default']);
@@ -1490,7 +1502,11 @@ function PMA_displayUntrackedTables(
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Util::getWithSelected($pmaThemeImage, $text_dir, "untrackedForm");
+    echo PMA\libraries\Util::getWithSelected(
+        $pmaThemeImage,
+        $text_dir,
+        "untrackedForm"
+    );
     echo PMA\libraries\Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_track',
         __('Track table'), 'eye.png', 'track'
@@ -1633,7 +1649,10 @@ function PMA_displayTrackedTables(
     $delete = PMA\libraries\Util::getIcon('b_drop.png', __('Delete tracking'));
     $versions = PMA\libraries\Util::getIcon('b_versions.png', __('Versions'));
     $report = PMA\libraries\Util::getIcon('b_report.png', __('Tracking report'));
-    $structure = PMA\libraries\Util::getIcon('b_props.png', __('Structure snapshot'));
+    $structure = PMA\libraries\Util::getIcon(
+        'b_props.png',
+        __('Structure snapshot')
+    );
 
     $style = 'odd';
     while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
@@ -1641,8 +1660,10 @@ function PMA_displayTrackedTables(
         $table_query = ' SELECT * FROM ' .
              PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
              PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-             ' WHERE `db_name` = \'' . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db'])
-             . '\' AND `table_name`  = \'' . PMA\libraries\Util::sqlAddSlashes($table_name)
+             ' WHERE `db_name` = \''
+             . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db'])
+             . '\' AND `table_name`  = \''
+             . PMA\libraries\Util::sqlAddSlashes($table_name)
              . '\' AND `version` = \'' . $version_number . '\'';
 
         $table_result = PMA_queryAsControlUser($table_query);
@@ -1701,7 +1722,11 @@ function PMA_displayTrackedTables(
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Util::getWithSelected($pmaThemeImage, $text_dir, "trackedForm");
+    echo PMA\libraries\Util::getWithSelected(
+        $pmaThemeImage,
+        $text_dir,
+        "trackedForm"
+    );
     echo PMA\libraries\Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_delete_tracking',
         __('Delete tracking'), 'b_drop.png', 'delete_tracking'

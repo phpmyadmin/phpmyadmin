@@ -38,7 +38,8 @@ foreach (array_keys($forms) as $formset) {
         'text' => PMA_lang('Form_' . $formset),
         'icon' => $tabs_icons[$formset],
         'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param));
-    $content .= PMA\libraries\Util::getHtmlTab($tab, array('form' => $formset)) . "\n";
+    $content .= PMA\libraries\Util::getHtmlTab($tab, array('form' => $formset))
+        . "\n";
 }
 echo PMA\libraries\Template::get('list/unordered')->render(
     array(

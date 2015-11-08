@@ -30,7 +30,8 @@ list(
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory('PMA\libraries\controllers\DatabaseStructureController');
 $container->alias(
-    'DatabaseStructureController', 'PMA\libraries\controllers\DatabaseStructureController'
+    'DatabaseStructureController',
+    'PMA\libraries\controllers\DatabaseStructureController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');
@@ -48,5 +49,8 @@ $dependency_definitions = array(
 );
 
 /** @var DatabaseStructureController $controller */
-$controller = $container->get('DatabaseStructureController', $dependency_definitions);
+$controller = $container->get(
+    'DatabaseStructureController',
+    $dependency_definitions
+);
 $controller->indexAction();

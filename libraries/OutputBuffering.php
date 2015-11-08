@@ -87,7 +87,9 @@ class OutputBuffering
             if (! defined('TESTSUITE')) {
                 header('X-ob_mode: ' . $this->_mode);
             }
-            register_shutdown_function(array('PMA\libraries\OutputBuffering', 'stop'));
+            register_shutdown_function(
+                array('PMA\libraries\OutputBuffering', 'stop')
+            );
             $this->_on = true;
         }
     }

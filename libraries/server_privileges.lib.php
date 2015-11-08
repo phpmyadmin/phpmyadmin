@@ -3341,22 +3341,28 @@ function PMA_getHtmlForAllTableSpecificRights(
             $onePrivilege['grant']        = $row['Grant_priv'] == 'Y';
             $onePrivilege['tablePrivs']   = ! empty($row['Table_priv'])
                 || ! empty($row['Column_priv']);
-            $onePrivilege['privileges']   = join(',', PMA_extractPrivInfo($row, true));
+            $onePrivilege['privileges'] = join(',', PMA_extractPrivInfo($row, true));
 
             $paramDbName = $row['Db'];
 
         } elseif ($type == 'table') {
             $name = $row['Table_name'];
-            $onePrivilege['grant']        = in_array('Grant', explode(',', $row['Table_priv']));
+            $onePrivilege['grant'] = in_array(
+                'Grant',
+                explode(',', $row['Table_priv'])
+            );
             $onePrivilege['columnPrivs']  = ! empty($row['Column_priv']);
-            $onePrivilege['privileges']   = join(',', PMA_extractPrivInfo($row, true));
+            $onePrivilege['privileges'] = join(',', PMA_extractPrivInfo($row, true));
 
             $paramDbName = $dbname;
             $paramTableName = $row['Table_name'];
 
         } else { // routine
             $name = $row['Routine_name'];
-            $onePrivilege['grant']       = in_array('Grant', explode(',', $row['Proc_priv']));
+            $onePrivilege['grant'] = in_array(
+                'Grant',
+                explode(',', $row['Proc_priv'])
+            );
 
             $privs = array(
                 'Alter_routine_priv' => 'N',
@@ -3370,7 +3376,10 @@ function PMA_getHtmlForAllTableSpecificRights(
                     $privs[$priv . '_priv'] = 'Y';
                 }
             }
-            $onePrivilege['privileges']  = join(',', PMA_extractPrivInfo($privs, true));
+            $onePrivilege['privileges'] = join(
+                ',',
+                PMA_extractPrivInfo($privs, true)
+            );
 
             $paramDbName = $dbname;
             $paramRoutineName = $row['Routine_name'];
@@ -4866,7 +4875,11 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         && ! $user_does_not_exists
     ) {
         //change login information
-        $html_output .= PMA_getHtmlForChangePassword('edit_other', $username, $hostname);
+        $html_output .= PMA_getHtmlForChangePassword(
+            'edit_other',
+            $username,
+            $hostname
+        );
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);
     }
     $html_output .= '</div>';
