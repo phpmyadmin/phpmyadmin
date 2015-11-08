@@ -93,7 +93,8 @@ class Scripts
                 . $separator . Header::getVersionParameter();
 
             $static_scripts .= sprintf(
-                '<script data-cfasync="false" type="text/javascript" src="%s"></script>',
+                '<script data-cfasync="false" type="text/javascript" src="%s">' .
+                '</script>',
                 htmlspecialchars($url)
             );
         }

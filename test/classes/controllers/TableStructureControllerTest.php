@@ -95,7 +95,7 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(null));
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\table\TableStructureController');
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
@@ -143,7 +143,7 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\table\TableStructureController');
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
@@ -169,7 +169,7 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testAdjustColumnPrivileges()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\table\TableStructureController');
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
@@ -195,7 +195,7 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testGetMultipleFieldCommandType()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\TableStructureController');
+        $class = new ReflectionClass('\PMA\libraries\controllers\table\TableStructureController');
         $method = $class->getMethod('getMultipleFieldCommandType');
         $method->setAccessible(true);
 

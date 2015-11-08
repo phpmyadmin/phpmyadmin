@@ -1088,8 +1088,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                     $size = 10;
                 }
 
-                $tempSQLStr .= PMA\libraries\Util::backquote($tables[$i][COL_NAMES][$j]) . " "
-                    . $type_array[$analyses[$i][TYPES][$j]];
+                $tempSQLStr .= PMA\libraries\Util::backquote(
+                    $tables[$i][COL_NAMES][$j]
+                ) . " "
+                . $type_array[$analyses[$i][TYPES][$j]];
                 if ($analyses[$i][TYPES][$j] != GEOMETRY) {
                     $tempSQLStr .= "(" . $size . ")";
                 }

@@ -30,10 +30,10 @@ $GLOBALS['cfg']['NaviPointerBackground']    = '#ddd';
  * main frame
  */
 // foreground (text) color for the main frame
-$GLOBALS['cfg']['MainColor']                = '#000';
+$GLOBALS['cfg']['MainColor']                = '#444';
 
 // background for the main frame
-$GLOBALS['cfg']['MainBackground']           = '#F5F5F5';
+$GLOBALS['cfg']['MainBackground']           = '#fff';
 
 // foreground (text) color of the pointer in browse mode
 $GLOBALS['cfg']['BrowsePointerColor']       = '#000';

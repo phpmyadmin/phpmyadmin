@@ -50,7 +50,8 @@
                     <label for ="checkbox_barStacked"><?php echo __('Stacked') ?></label>
                 </span>
                 <br /><br />
-                <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
+                <label for ="chartTitle"><?php echo __('Chart title:') ?></label>
+                <input type="text" name="chartTitle" id="chartTitle" />
             </div>
             <?php $xaxis = null; ?>
             <div class="chartOption">

@@ -1192,30 +1192,33 @@ function updateQueryParameters() {
         var query = codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val();
 
         var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
-         var parameters = [];
-         // get unique parameters
-         if (allParameters) {
-             $.each(allParameters, function(i, parameter){
-                 if ($.inArray(parameter, parameters) === -1) {
-                     parameters.push(parameter);
-                 }
-             });
-         }
+        var parameters = [];
+        // get unique parameters
+        if (allParameters) {
+            $.each(allParameters, function(i, parameter){
+                if ($.inArray(parameter, parameters) === -1) {
+                    parameters.push(parameter);
+                }
+            });
+        } else {
+            $('#parametersDiv').text(PMA_messages.strNoParam);
+            return;
+        }
 
-         var $temp = $('<div />');
-         $temp.append($('#parametersDiv').children());
-         $('#parametersDiv').empty();
+        var $temp = $('<div />');
+        $temp.append($('#parametersDiv').children());
+        $('#parametersDiv').empty();
 
-         $.each(parameters, function (i, parameter) {
-             var paramName = parameter.substring(1);
-             var $param = $temp.find('#paramSpan_' + paramName );
-             if (! $param.length) {
-                 $param = $('<span class="parameter" id="paramSpan_' + paramName + '" />');
-                 $('<label for="param_' + paramName + '" />').text(parameter).appendTo($param);
-                 $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '" />').appendTo($param);
-             }
-             $('#parametersDiv').append($param);
-         });
+        $.each(parameters, function (i, parameter) {
+            var paramName = parameter.substring(1);
+            var $param = $temp.find('#paramSpan_' + paramName );
+            if (! $param.length) {
+                $param = $('<span class="parameter" id="paramSpan_' + paramName + '" />');
+                $('<label for="param_' + paramName + '" />').text(parameter).appendTo($param);
+                $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '" />').appendTo($param);
+            }
+            $('#parametersDiv').append($param);
+        });
     } else {
         $('#parametersDiv').empty();
     }
@@ -1977,23 +1980,19 @@ function bindCodeMirrorToInlineEditor() {
             codemirror_inline_editor.refresh();
             codemirror_inline_editor.focus();
             $(codemirror_inline_editor.getWrapperElement())
-                .bind('keydown', catchKeypressesFromSqlTextboxes);
+                .bind('keydown', catchKeypressesFromSqlInlineEdit);
         } else {
             $inline_editor
                 .focus()
-                .bind('keydown', catchKeypressesFromSqlTextboxes);
+                .bind('keydown', catchKeypressesFromSqlInlineEdit);
         }
     }
 }
 
-function catchKeypressesFromSqlTextboxes(event) {
+function catchKeypressesFromSqlInlineEdit(event) {
     // ctrl-enter is 10 in chrome and ie, but 13 in ff
     if (event.ctrlKey && (event.keyCode == 13 || event.keyCode == 10)) {
-        if ($('#sql_query_edit').length > 0) {
-            $("#sql_query_edit_save").trigger('click');
-        } else if ($('#sqlquery').length > 0) {
-            $("#button_submit_query").trigger('click');
-        }
+        $("#sql_query_edit_save").trigger('click');
     }
 }
 
@@ -2395,56 +2394,65 @@ function PMA_showNoticeForEnum(selectElement)
     }
 }
 
-/*
- * Creates a Profiling Chart with jqplot. Used in sql.js
+/**
+ * Creates a Profiling Chart. Used in sql.js
  * and in server_status_monitor.js
  */
-function PMA_createProfilingChartJqplot(target, data)
+function PMA_createProfilingChart(target, data)
 {
-    return $.jqplot(target, [data],
-        {
-            seriesDefaults: {
-                renderer: $.jqplot.PieRenderer,
-                rendererOptions: {
-                    showDataLabels:  true
-                }
-            },
-            highlighter: {
-                show: true,
-                tooltipLocation: 'se',
-                sizeAdjust: 0,
-                tooltipAxes: 'pieref',
-                useAxesFormatters: false,
-                formatString: '%s, %.9Ps'
-            },
-            legend: {
-                show: true,
-                location: 'e',
-                rendererOptions: {numberColumns: 2}
-            },
-            // from http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette
-            seriesColors: [
-                '#fce94f',
-                '#fcaf3e',
-                '#e9b96e',
-                '#8ae234',
-                '#729fcf',
-                '#ad7fa8',
-                '#ef2929',
-                '#eeeeec',
-                '#888a85',
-                '#c4a000',
-                '#ce5c00',
-                '#8f5902',
-                '#4e9a06',
-                '#204a87',
-                '#5c3566',
-                '#a40000',
-                '#babdb6',
-                '#2e3436'
-            ]
-        }
-    );
+    // create the chart
+    var factory = new JQPlotChartFactory();
+    var chart = factory.createChart(ChartType.PIE, target);
+
+    // create the data table and add columns
+    var dataTable = new DataTable();
+    dataTable.addColumn(ColumnType.STRING, '');
+    dataTable.addColumn(ColumnType.NUMBER, '');
+    dataTable.setData(data);
+
+    // draw the chart and return the chart object
+    chart.draw(dataTable, {
+        seriesDefaults: {
+            rendererOptions: {
+                showDataLabels:  true
+            }
+        },
+        highlighter: {
+            tooltipLocation: 'se',
+            sizeAdjust: 0,
+            tooltipAxes: 'pieref',
+            formatString: '%s, %.9Ps'
+        },
+        legend: {
+            show: true,
+            location: 'e',
+            rendererOptions: {
+                numberColumns: 2
+            }
+        },
+        // from http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette
+        seriesColors: [
+            '#fce94f',
+            '#fcaf3e',
+            '#e9b96e',
+            '#8ae234',
+            '#729fcf',
+            '#ad7fa8',
+            '#ef2929',
+            '#eeeeec',
+            '#888a85',
+            '#c4a000',
+            '#ce5c00',
+            '#8f5902',
+            '#4e9a06',
+            '#204a87',
+            '#5c3566',
+            '#a40000',
+            '#babdb6',
+            '#2e3436'
+        ]
+    });
+    return chart;
 }
 
 /**
@@ -3754,7 +3762,9 @@ function showIndexEditDialog($outer)
     $('a.ui-slider-handle').addClass('ui-state-focus');
     // set focus on index name input, if empty
     var input = $outer.find('input#input_index_name');
-    input.val() || input.focus();
+    if (! input.val()) {
+        input.focus();
+    }
 }
 
 /**
@@ -4221,13 +4231,10 @@ AJAX.registerOnload('functions.js', function () {
         if (typeof CodeMirror != 'undefined') {
             codemirror_editor = PMA_getSQLEditor($elm);
             codemirror_editor.focus();
-            $(codemirror_editor.getWrapperElement())
-                .bind('keydown', catchKeypressesFromSqlTextboxes);
             codemirror_editor.on("blur", updateQueryParameters);
         } else {
             // without codemirror
             $elm.focus()
-                .bind('keydown', catchKeypressesFromSqlTextboxes)
                 .bind('blur', updateQueryParameters);
         }
     }

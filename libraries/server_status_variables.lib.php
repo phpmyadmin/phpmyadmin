@@ -251,7 +251,9 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
             }
         }
         if (substr($name, -1) === '%') {
-            $retval .= htmlspecialchars(PMA\libraries\Util::formatNumber($value, 0, 2)) . ' %';
+            $retval .= htmlspecialchars(
+                PMA\libraries\Util::formatNumber($value, 0, 2)
+            ) . ' %';
         } elseif (strpos($name, 'Uptime') !== false) {
             $retval .= htmlspecialchars(
                 PMA\libraries\Util::timespanFormat($value)
@@ -264,7 +266,9 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
                 . htmlspecialchars(PMA\libraries\Util::formatNumber($value, 3, 1))
                 . '</abbr>';
         } elseif (is_numeric($value)) {
-            $retval .= htmlspecialchars(PMA\libraries\Util::formatNumber($value, 3, 1));
+            $retval .= htmlspecialchars(
+                PMA\libraries\Util::formatNumber($value, 3, 1)
+            );
         } else {
             $retval .= htmlspecialchars($value);
         }

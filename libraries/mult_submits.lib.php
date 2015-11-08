@@ -177,7 +177,8 @@ function PMA_buildOrExecuteQueryForMulti(
 
         case 'primary_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . (empty($primary)
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                    . (empty($primary)
                     ? ''
                     : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( '
                 : ', ')
@@ -187,7 +188,8 @@ function PMA_buildOrExecuteQueryForMulti(
 
         case 'index_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . ' ADD INDEX( '
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                    . ' ADD INDEX( '
                 : ', ')
                        . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
@@ -195,7 +197,8 @@ function PMA_buildOrExecuteQueryForMulti(
 
         case 'unique_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . ' ADD UNIQUE( '
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                    . ' ADD UNIQUE( '
                 : ', ')
                        . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
@@ -203,7 +206,8 @@ function PMA_buildOrExecuteQueryForMulti(
 
         case 'spatial_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . ' ADD SPATIAL( '
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                    . ' ADD SPATIAL( '
                 : ', ')
                        . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
@@ -211,7 +215,8 @@ function PMA_buildOrExecuteQueryForMulti(
 
         case 'fulltext_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table) . ' ADD FULLTEXT( '
+                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                    . ' ADD FULLTEXT( '
                 : ', ')
                        . PMA\libraries\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');

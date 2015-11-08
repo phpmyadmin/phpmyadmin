@@ -27,15 +27,14 @@ textarea {
 
 
 body {
-<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) : ?>
     font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-    <?php
-} ?>
+<?php endif; ?>
     padding: 0;
     margin: 0;
     margin-<?php echo $left; ?>: 240px;
-    color: #444;
-    background: #fff;
+    color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 body#loginform {
@@ -46,15 +45,14 @@ body#loginform {
     margin: 0 .5em;
 }
 
-<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) : ?>
     textarea,
     tt,
     pre,
     code {
     font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
     }
-    <?php
-} ?>
+<?php endif; ?>
 
 
 h1 {
@@ -609,13 +607,12 @@ tr:last-child td.condition {
     border-width: 0 1px 1px 1px;
 }
 
-<?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+<?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
     /* for first th which must have right border set (ltr only) */
     .before-condition {
     border-right: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     }
-    <?php
-} ?>
+<?php endif; ?>
 
 /**
  * cells with the value NULL
@@ -639,12 +636,11 @@ table [class=value] {
 }
 
 
-<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) : ?>
     .value {
     font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
     }
-    <?php
-} ?>
+<?php endif; ?>
 .attention {
     color: red;
     font-weight: bold;
@@ -718,16 +714,14 @@ div.error {
     margin: .5em 0 0.5em;
     border: 1px solid;
     background-repeat: no-repeat;
-    <?php
-    if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    <?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
         background-position: 10px 50%;
         padding: 10px 10px 10px 10px;
-        <?php
-    } else { ?>
+    <?php else : ?>
         background-position: 99% 50%;
         padding: 10px 35px 10px 10px;
         <?php
-    } ?>
+    endif; ?>
 
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -1516,16 +1510,13 @@ p.notice {
     margin: 1.5em 0;
     border: 1px solid #000;
     background-repeat: no-repeat;
-    <?php
-    if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    <?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
         background-position: 10px 50%;
         padding: 10px 10px 10px 25px;
-        <?php
-    } else { ?>
+    <?php else : ?>
         background-position: 99% 50%;
         padding: 25px 10px 10px 10px
-        <?php
-    } ?>
+    <?php endif; ?>
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -2788,10 +2779,6 @@ fieldset .disabled-field td {
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-}
-
-#page_content {
-    background-color: white;
 }
 
 .navigation {

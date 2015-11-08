@@ -187,10 +187,15 @@ class TableGisVisualizationController extends TableController
          */
         $this->url_params['sql_query'] = $this->sql_query;
         $downloadUrl = 'tbl_gis_visualization.php' . PMA_URL_getCommon(
-            $this->url_params
-        ) . '&saveToFile=true';
-        $svgSupport = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
-            ? false : true;
+            array_merge(
+                $this->url_params,
+                array(
+                    'saveToFile' => true,
+                    'session_max_rows' => $rows,
+                    'pos' => $pos
+                )
+            )
+        );
         $html = Template::get('table/gis_visualization/gis_visualization')->render(
             array(
                 'url_params' => $this->url_params,
@@ -199,10 +204,7 @@ class TableGisVisualizationController extends TableController
                 'spatialCandidates' => $spatialCandidates,
                 'visualizationSettings' => $this->visualizationSettings,
                 'sql_query' => $this->sql_query,
-                'visualization' => $this->visualization->toImage(
-                    $svgSupport ? 'svg' : 'png'
-                ),
-                'svgSupport' => $svgSupport,
+                'visualization' => $this->visualization->toImage('svg'),
                 'drawOl' => $this->visualization->asOl()
             )
         );

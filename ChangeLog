@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 + issue        Editing partitions in table Structure
 - issue        Tracking does not make sense for information_schema
 - issue #11550 Regression in Find and replace
++ issue #11619 TokuDB Tables Show Size as "unknown"
 
 4.5.2.0 (not yet released)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
@@ -22,6 +23,16 @@ phpMyAdmin - ChangeLog
 - issue #11611 Warning while exporting schema to PDF
 - issue #11612 Undefined index: new_row_format
 - issue #11605 Changing hostname kills password
+- issue #11614 Undefined variable: db
+- issue #11627 CREATE TABLE/INSERT INTO executed twice (ctrl+enter)
+- issue #11630 Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given
+- issue #11632 Exporting GIS visualization ignores start and row count
+- issue #11476 Errors instead of git info when PHP has no gzip support
+- issue #11633 CodeMirror tooltip shows below modal window
+- issue #11639 Bug with the MainBackground Color
+- issue        Profiling checkbox is missing
+- issue #11642 Properly handle session expiry after POST requests
+- issue #11648 Notice in ./export.php#214 Undefined index: quick_or_custom
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()

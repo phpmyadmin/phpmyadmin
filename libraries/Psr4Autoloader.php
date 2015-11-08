@@ -84,6 +84,7 @@ class Psr4Autoloader
      * Loads the class file for a given class name.
      *
      * @param string $class The fully-qualified class name.
+     *
      * @return mixed The mapped file name on success, or boolean false on
      * failure.
      */
@@ -156,12 +157,13 @@ class Psr4Autoloader
      * If a file exists, require it from the file system.
      *
      * @param string $file The file to require.
+     *
      * @return bool True if the file exists, false if not.
      */
     protected function requireFile($file)
     {
         if (file_exists($file)) {
-            require $file;
+            include $file;
             return true;
         }
         return false;

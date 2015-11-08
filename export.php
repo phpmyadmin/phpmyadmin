@@ -212,7 +212,9 @@ if (!defined('TESTSUITE')) {
     $separate_files = '';
 
     // Is it a quick or custom export?
-    if ($_REQUEST['quick_or_custom'] == 'quick') {
+    if (isset($_REQUEST['quick_or_custom'])
+        && $_REQUEST['quick_or_custom'] == 'quick'
+    ) {
         $quick_export = true;
     } else {
         $quick_export = false;

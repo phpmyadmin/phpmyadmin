@@ -9,7 +9,7 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\TableStructureController;
+use PMA\libraries\controllers\table\TableStructureController;
 use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
@@ -21,9 +21,10 @@ require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
 $container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\TableStructureController');
+$container->factory('PMA\libraries\controllers\table\TableStructureController');
 $container->alias(
-    'TableStructureController', 'PMA\libraries\controllers\TableStructureController'
+    'TableStructureController',
+    'PMA\libraries\controllers\table\TableStructureController'
 );
 $container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');

@@ -305,10 +305,11 @@ $response->addHTML('</div>');
 if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     // We only show this if we find something in the new pdf_pages table
     $test_query = '
-         SELECT *
-           FROM ' . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['pdf_pages']) . '
-          WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db']) . '\'';
+        SELECT *
+        FROM ' . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
+        . '.' . PMA\libraries\Util::backquote($cfgRelation['pdf_pages']) . '
+        WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db'])
+        . '\'';
     $test_rs = PMA_queryAsControlUser(
         $test_query,
         false,

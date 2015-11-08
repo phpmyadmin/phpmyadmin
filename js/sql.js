@@ -771,7 +771,7 @@ function makeProfilingChart()
     $('#profilingchart').html('').show();
     $('#profilingChartData').html('');
 
-    PMA_createProfilingChartJqplot('profilingchart', data);
+    PMA_createProfilingChart('profilingchart', data);
 }
 
 /*

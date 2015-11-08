@@ -10042,7 +10042,7 @@ msgstr "Ripara tabella"
 #: templates/database/structure/check_all_tables.phtml:14
 #: view_operations.php:130
 msgid "Delete data or table"
-msgstr "Rimouvi la tabella o i dati"
+msgstr "Rimuovi la tabella o i dati"
 
 #: libraries/operations.lib.php:1541
 msgid "Empty the table (TRUNCATE)"

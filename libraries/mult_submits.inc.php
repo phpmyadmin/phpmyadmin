@@ -89,9 +89,10 @@ if (! empty($submit_mult)
             unset($submit_mult);
             include 'db_export.php';
             exit;
-            break;
         case 'show_create':
-            $show_create = PMA\libraries\Template::get('database/structure/show_create')
+            $show_create = PMA\libraries\Template::get(
+                'database/structure/show_create'
+            )
                 ->render(
                     array(
                         'db'         => $GLOBALS['db'],

@@ -112,16 +112,19 @@ $cfgRelation = PMA_getRelationsParam();
 
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
-     PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
-     PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-     ' WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) . '\' ' .
-     ' GROUP BY table_name' .
-     ' ORDER BY table_name ASC';
+    PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
+    PMA\libraries\Util::backquote($cfgRelation['tracking']) .
+    ' WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) .
+    '\' ' .
+    ' GROUP BY table_name' .
+    ' ORDER BY table_name ASC';
 
 $all_tables_result = PMA_queryAsControlUser($all_tables_query);
 
 // If a HEAD version exists
-if (is_object($all_tables_result) && $GLOBALS['dbi']->numRows($all_tables_result) > 0) {
+if (is_object($all_tables_result)
+    && $GLOBALS['dbi']->numRows($all_tables_result) > 0
+) {
     PMA_displayTrackedTables(
         $GLOBALS['db'], $all_tables_result, $url_query, $pmaThemeImage,
         $text_dir, $cfgRelation

@@ -203,7 +203,7 @@ class VersionInformation
                 $mysqlVersions = $release->mysql_versions;
                 $mysqlConditions = explode(",", $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {
-                    if (! $this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
+                    if (!$this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
                         continue 2;
                     }
                 }

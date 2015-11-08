@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-09-16 05:36+0200\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"PO-Revision-Date: 2015-11-04 16:31+0000\n"
+"Last-Translator: Kelvin Lee <leekalok804@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -922,10 +922,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "您確定要清空(TRUNCATE)選擇的分區？"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "您確定要執行 \"%s\"？"
+msgstr "您確定要執行 RESET SLAVE？"
 
 #: js/messages.php:85
 msgid ""
@@ -3735,7 +3734,7 @@ msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一個將可能被刪除
 #: libraries/Linter.php:99
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr "因此查詢已超過最大長度限制，已關閉 Linting。"
+msgstr "由於此查詢已超過最大長度限制，因此 Linting 已被關閉。"
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4806,7 +4805,7 @@ msgstr "屬性"
 #: libraries/central_columns.lib.php:711
 #: libraries/central_columns.lib.php:1385
 msgid "A_I"
-msgstr "流水號(A_I)"
+msgstr "自動增加"
 
 #: libraries/central_columns.lib.php:751
 msgid "Select a table"
@@ -5469,7 +5468,7 @@ msgstr "設定檔案"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr "是否顯示確認訊息，當查詢可能造成資料遺失時 (\"您真的要…\")。"
+msgstr "是否在當查詢會造成資料丟失時顯示一個「您真的要……」的警告訊息。"
 
 #: libraries/config/messages.inc.php:95
 msgid "Confirm DROP queries"
@@ -11947,22 +11946,19 @@ msgid "Allows dropping tables."
 msgstr "允許刪除資料表。"
 
 #: libraries/server_privileges.lib.php:1550
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Cookie 認證"
+msgstr "原生 MySQL 認證"
 
 #: libraries/server_privileges.lib.php:1552
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Signon 認證"
+msgstr "SHA256 密碼認證"
 
 #: libraries/server_privileges.lib.php:1566
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL Authentication"
-msgstr "Cookie 認證"
+msgstr "原生 MySQL 認證"
 
 #: libraries/server_privileges.lib.php:1620
 #: libraries/server_privileges.lib.php:3096
@@ -12002,10 +11998,9 @@ msgid "Authentication Plugin"
 msgstr "認證外掛程式"
 
 #: libraries/server_privileges.lib.php:1890
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "密碼加密方式："
+msgstr "密碼加密方式"
 
 #: libraries/server_privileges.lib.php:2161
 #, php-format
@@ -13897,7 +13892,7 @@ msgstr "檢視資料庫結構的匯出資料"
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
-msgstr ""
+msgstr "用戶名與主機名稱尚未更改。如您只需要更改密碼，請使用「修改密碼」分頁。"
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
@@ -15131,14 +15126,13 @@ msgid "Description"
 msgstr "說明"
 
 #: url.php:36
-#, fuzzy
 #| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "帶您至下一步驟 …"
+msgstr "帶您至目標網站。"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "權限不足！"
+msgstr "您現時還沒有足夠的權限！"
 
 #: user_password.php:112
 msgid "The profile has been updated."

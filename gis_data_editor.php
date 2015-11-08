@@ -80,9 +80,7 @@ $wkt = $gis_obj->generateWkt($gis_data, 0);
 $wkt_with_zero = $gis_obj->generateWkt($gis_data, 0, '0');
 $result = "'" . $wkt . "'," . $srid;
 
-// Generate PNG or SVG based visualization
-$format = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
-    ? 'png' : 'svg';
+// Generate SVG based visualization
 $visualizationSettings = array(
     'width' => 450,
     'height' => 300,
@@ -90,7 +88,7 @@ $visualizationSettings = array(
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
 $visualization = GISVisualization::getByData($data, $visualizationSettings)
-    ->toImage($format);
+    ->toImage('svg');
 
 $open_layers = GISVisualization::getByData($data, $visualizationSettings)
     ->asOl();

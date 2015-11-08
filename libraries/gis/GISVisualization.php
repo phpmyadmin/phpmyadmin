@@ -424,7 +424,8 @@ class GISVisualization
         $this->init();
         $scale_data = $this->_scaleDataSet($this->_data);
         $output
-            = 'var options = {'
+            = 'if (typeof OpenLayers !== "undefined") {'
+            . 'var options = {'
             . 'projection: new OpenLayers.Projection("EPSG:900913"),'
             . 'displayProjection: new OpenLayers.Projection("EPSG:4326"),'
             . 'units: "m",'
@@ -450,7 +451,8 @@ class GISVisualization
             . 'map.zoomTo(2);'
             . '}'
             . 'map.addControl(new OpenLayers.Control.LayerSwitcher());'
-            . 'map.addControl(new OpenLayers.Control.MousePosition());';
+            . 'map.addControl(new OpenLayers.Control.MousePosition());'
+            . '}';
 
         return $output;
     }

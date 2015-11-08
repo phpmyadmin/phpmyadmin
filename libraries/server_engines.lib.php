@@ -91,7 +91,9 @@ function PMA_getHtmlForSpecifiedServerEngines()
     $html .= '<h2>' . "\n"
         . PMA\libraries\Util::getImage('b_engine.png')
         . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
-        . '    ' . PMA\libraries\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage())
+        . '    ' . PMA\libraries\Util::showMySQLDocu(
+            $engine_plugin->getMysqlHelpPage()
+        )
         . "\n" . '</h2>' . "\n\n";
     $html .= '<p>' . "\n"
         . '    <em>' . "\n"

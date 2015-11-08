@@ -326,7 +326,8 @@ function PMA_getDatabaseTables(
  */
 function PMA_getNewRelationPanel()
 {
-    return PMA\libraries\Template::get('database/designer/new_relation_panel')->render();
+    return PMA\libraries\Template::get('database/designer/new_relation_panel')
+        ->render();
 }
 
 /**
@@ -336,7 +337,8 @@ function PMA_getNewRelationPanel()
  */
 function PMA_getDeleteRelationPanel()
 {
-    return PMA\libraries\Template::get('database/designer/delete_relation_panel')->render();
+    return PMA\libraries\Template::get('database/designer/delete_relation_panel')
+        ->render();
 }
 
 /**
@@ -356,7 +358,8 @@ function PMA_getOptionsPanel()
  */
 function PMA_getRenameToPanel()
 {
-    return PMA\libraries\Template::get('database/designer/rename_to_panel')->render();
+    return PMA\libraries\Template::get('database/designer/rename_to_panel')
+        ->render();
 }
 
 /**
@@ -366,7 +369,8 @@ function PMA_getRenameToPanel()
  */
 function PMA_getHavingQueryPanel()
 {
-    return PMA\libraries\Template::get('database/designer/having_query_panel')->render();
+    return PMA\libraries\Template::get('database/designer/having_query_panel')
+        ->render();
 }
 
 /**
@@ -376,7 +380,8 @@ function PMA_getHavingQueryPanel()
  */
 function PMA_getAggregateQueryPanel()
 {
-    return PMA\libraries\Template::get('database/designer/aggregate_query_panel')->render();
+    return PMA\libraries\Template::get('database/designer/aggregate_query_panel')
+        ->render();
 }
 
 /**
@@ -386,7 +391,8 @@ function PMA_getAggregateQueryPanel()
  */
 function PMA_getWhereQueryPanel()
 {
-    return PMA\libraries\Template::get('database/designer/where_query_panel')->render();
+    return PMA\libraries\Template::get('database/designer/where_query_panel')
+        ->render();
 }
 
 /**

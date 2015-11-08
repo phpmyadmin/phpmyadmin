@@ -7,7 +7,7 @@
  * @package PMA
  */
 
-namespace PMA\libraries\controllers;
+namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\Index;
@@ -19,6 +19,7 @@ use SqlParser;
 use SqlParser\Statements\CreateStatement;
 use SqlParser\Utils\Table as SqlTable;
 use PMA\libraries\Table;
+use PMA\libraries\controllers\TableController;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/transformations.lib.php';
@@ -718,7 +719,7 @@ class TableStructureController extends TableController
      */
     protected function updatePartitioning()
     {
-        require_once 'libraries/create_addfield.lib.php';
+        include_once 'libraries/create_addfield.lib.php';
 
         $sql_query = "ALTER TABLE " . Util::backquote($this->table) . " "
             . PMA_getPartitionsDefinition();

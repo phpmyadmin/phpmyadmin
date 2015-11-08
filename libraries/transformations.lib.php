@@ -339,7 +339,8 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             || /*overload*/mb_strlen($transformationOpts)
             || /*overload*/mb_strlen($row['comment']))
         ) {
-            $upd_query = 'UPDATE ' . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+            $upd_query = 'UPDATE '
+                . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
                 . PMA\libraries\Util::backquote($cfgRelation['column_info'])
                 . ' SET '
                 . '`mimetype` = \''
@@ -353,19 +354,23 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                 . '`input_transformation_options` = \''
                 . PMA\libraries\Util::sqlAddSlashes($inputTransformOpts) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
+            $upd_query = 'DELETE FROM '
+                . PMA\libraries\Util::backquote($cfgRelation['db'])
                 . '.' . PMA\libraries\Util::backquote($cfgRelation['column_info']);
         }
         $upd_query .= '
             WHERE `db_name`     = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
-              AND `table_name`  = \'' . PMA\libraries\Util::sqlAddSlashes($table) . '\'
-              AND `column_name` = \'' . PMA\libraries\Util::sqlAddSlashes($key) . '\'';
+              AND `table_name`  = \'' . PMA\libraries\Util::sqlAddSlashes($table)
+                . '\'
+              AND `column_name` = \'' . PMA\libraries\Util::sqlAddSlashes($key)
+                . '\'';
     } elseif (/*overload*/mb_strlen($mimetype)
         || /*overload*/mb_strlen($transformation)
         || /*overload*/mb_strlen($transformationOpts)
     ) {
 
-        $upd_query = 'INSERT INTO ' . PMA\libraries\Util::backquote($cfgRelation['db'])
+        $upd_query = 'INSERT INTO '
+            . PMA\libraries\Util::backquote($cfgRelation['db'])
             . '.' . PMA\libraries\Util::backquote($cfgRelation['column_info'])
             . ' (db_name, table_name, column_name, mimetype, '
             . 'transformation, transformation_options, '

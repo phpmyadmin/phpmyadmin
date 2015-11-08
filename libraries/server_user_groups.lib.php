@@ -23,7 +23,8 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
     $usersTable = PMA\libraries\Util::backquote($cfgRelation['db'])
         . "." . PMA\libraries\Util::backquote($cfgRelation['users']);
     $sql_query = "SELECT `username` FROM " . $usersTable
-        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup) . "'";
+        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+        . "'";
     $result = PMA_queryAsControlUser($sql_query, false);
     if ($result) {
         if ($GLOBALS['dbi']->numRows($result) == 0) {
@@ -103,7 +104,8 @@ function PMA_getHtmlForUserGroupsTable()
                     )
                 )
                 . '">'
-                . PMA\libraries\Util::getIcon('b_usrlist.png', __('View users')) . '</a>';
+                . PMA\libraries\Util::getIcon('b_usrlist.png', __('View users'))
+                . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="" href="server_user_groups.php'
                 . PMA_URL_getCommon(
@@ -184,10 +186,12 @@ function PMA_deleteUserGroup($userGroup)
     $groupTable = PMA\libraries\Util::backquote($cfgRelation['db'])
         . "." . PMA\libraries\Util::backquote($cfgRelation['usergroups']);
     $sql_query = "DELETE FROM " . $userTable
-        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup) . "'";
+        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+        . "'";
     PMA_queryAsControlUser($sql_query, true);
     $sql_query = "DELETE FROM " . $groupTable
-        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup) . "'";
+        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+        . "'";
     PMA_queryAsControlUser($sql_query, true);
 }
 
@@ -244,7 +248,8 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
         $groupTable = PMA\libraries\Util::backquote($cfgRelation['db'])
             . "." . PMA\libraries\Util::backquote($cfgRelation['usergroups']);
         $sql_query = "SELECT * FROM " . $groupTable
-            . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup) . "'";
+            . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+            . "'";
         $result = PMA_queryAsControlUser($sql_query, false);
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
@@ -330,7 +335,8 @@ function PMA_editUserGroup($userGroup, $new = false)
 
     if (! $new) {
         $sql_query = "DELETE FROM " . $groupTable
-            . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup) . "';";
+            . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+            . "';";
         PMA_queryAsControlUser($sql_query, true);
     }
 

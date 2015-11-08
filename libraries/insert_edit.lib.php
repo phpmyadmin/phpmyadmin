@@ -407,7 +407,10 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
             . ' ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindex_for_function) . '"'
             . ' id="field_' . $idindex . '_1">';
-        $html_output .= PMA\libraries\Util::getFunctionsForField($column, $insert_mode) . "\n";
+        $html_output .= PMA\libraries\Util::getFunctionsForField(
+            $column,
+            $insert_mode
+        ) . "\n";
 
         $html_output .= '</select>' .  "\n";
         $html_output .= '</td>' .  "\n";
@@ -757,7 +760,9 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
         $the_class = 'char';
         $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
         $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
-        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec($column['Type']);
+        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+            $column['Type']
+        );
         $maxlength = $extracted_columnspec['spec_in_brackets'];
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
         && /*overload*/mb_strstr($column['pma_type'], 'longtext')
@@ -1127,7 +1132,9 @@ function PMA_getHTMLinput(
     }
     $input_min_max = false;
     if (in_array($column['True_Type'], $GLOBALS['PMA_Types']->getIntegerTypes())) {
-        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec($column['Type']);
+        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+            $column['Type']
+        );
         $is_unsigned = $extracted_columnspec['unsigned'];
         $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
             $column['True_Type'], ! $is_unsigned
@@ -1709,7 +1716,9 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     $trueType = $column['True_Type'];
 
     if ($trueType == 'bit') {
-        $special_chars = PMA\libraries\Util::convertBitDefaultValue($column['Default']);
+        $special_chars = PMA\libraries\Util::convertBitDefaultValue(
+            $column['Default']
+        );
     } elseif (substr($trueType, 0, 9) == 'timestamp'
         || $trueType == 'datetime'
         || $trueType == 'time'
@@ -1721,7 +1730,9 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
         $special_chars = htmlspecialchars($column['Default']);
     }
     $backup_field = '';
-    $special_chars_encoded = PMA\libraries\Util::duplicateFirstNewline($special_chars);
+    $special_chars_encoded = PMA\libraries\Util::duplicateFirstNewline(
+        $special_chars
+    );
     return array(
         $real_null_value, $data, $special_chars,
         $backup_field, $special_chars_encoded
@@ -2178,7 +2189,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
             || $multi_edit_funcs[$key] == "ENCRYPT"))
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
-                   . PMA\libraries\Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
+                . PMA\libraries\Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
         } else {
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
@@ -2318,7 +2329,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
                 $current_value = implode(
                     ',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]
                 );
-                $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value) . "'";
+                $current_value = "'"
+                    . PMA\libraries\Util::sqlAddSlashes($current_value) . "'";
             } else {
                  $current_value = "''";
             }
@@ -2341,11 +2353,13 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             $current_value = '0x' . $current_value;
         } elseif ($type == 'bit') {
             $current_value = preg_replace('/[^01]/', '0', $current_value);
-            $current_value = "b'" . PMA\libraries\Util::sqlAddSlashes($current_value) . "'";
+            $current_value = "b'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+                . "'";
         } elseif (! ($type == 'datetime' || $type == 'timestamp')
             || $current_value != 'CURRENT_TIMESTAMP'
         ) {
-            $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value) . "'";
+            $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+                . "'";
         }
 
         // Was the Null checkbox checked for this field?

@@ -434,6 +434,13 @@ PMA_printListItem(
     null,
     '_blank'
 );
+PMA_printListItem(
+    __('License'),
+    'li_pma_license',
+    'license.php' . PMA_URL_getCommon(),
+    null,
+    '_blank'
+);
 echo '    </ul>';
 echo ' </div>';
 

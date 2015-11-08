@@ -148,7 +148,11 @@ $response->addHTML(
     )
 );
 $response->addHTML(
-    PMA_getDesignerPageMenu(isset($_REQUEST['query']), $selected_page, $classes_side_menu)
+    PMA_getDesignerPageMenu(
+        isset($_REQUEST['query']),
+        $selected_page,
+        $classes_side_menu
+    )
 );
 
 

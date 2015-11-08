@@ -33,7 +33,7 @@
                                    name="visualizationSettings[choice]"
                                    id="choice" value="useBaseLayer"
                                    <?php if (isset($visualizationSettings['choice'])) echo 'checked="checked"' ?>/>
-                            <label for="choice">
+                            <label for="choice" id="labelChoice">
                                 <?php echo __("Use OpenStreetMaps as Base Layer"); ?>
                             </label>
                         </td>
@@ -54,11 +54,9 @@
                         <li class="warp_link">
                             <a href="<?php echo $downloadUrl . '&fileFormat=pdf'; ?>" class="disableAjax">PDF</a>
                         </li>
-                        <?php if ($svgSupport): ?>
-                            <li class="warp_link">
-                                <a href="<?php echo $downloadUrl . '&fileFormat=svg'; ?>" class="disableAjax">SVG</a>
-                            </li>
-                        <?php endif; ?>
+                        <li class="warp_link">
+                            <a href="<?php echo $downloadUrl . '&fileFormat=svg'; ?>" class="disableAjax">SVG</a>
+                        </li>
                     </ul>
                 </div>
             </div>

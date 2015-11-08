@@ -54,7 +54,11 @@ function PMA_handleSortOrder(
         }
 
         // Remove the name of the table from the retrieved field name.
-        $sortCol = str_replace(PMA\libraries\Util::backquote($table) . '.', '', $sortCol);
+        $sortCol = str_replace(
+            PMA\libraries\Util::backquote($table) . '.',
+            '',
+            $sortCol
+        );
 
         // Create the new query.
         $full_sql_query = SqlParser\Utils\Query::replaceClause(
@@ -445,7 +449,11 @@ function PMA_getValuesForColumn($db, $table, $column)
     $field_info_query = $GLOBALS['dbi']->getColumnsSql($db, $table, $column);
 
     $field_info_result = $GLOBALS['dbi']->fetchResult(
-        $field_info_query, null, null, null, PMA\libraries\DatabaseInterface::QUERY_STORE
+        $field_info_query,
+        null,
+        null,
+        null,
+        PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 
     $values = PMA\libraries\Util::parseEnumSetValues($field_info_result[0]['Type']);
@@ -531,10 +539,12 @@ function PMA_getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
         $html .= '</legend>';
         $html .= '<div class="formelement">';
         $html .= '<label>' . __('Label:');
-        $html .= '<input type="text" name="bkm_fields[bkm_label]" value="" /></label>';
+        $html .= '<input type="text" name="bkm_fields[bkm_label]" value="" />' .
+            '</label>';
         $html .= '</div>';
         $html .= '<div class="formelement">';
-        $html .= '<label><input type="checkbox" name="bkm_all_users" value="true" />';
+        $html .= '<label>' .
+            '<input type="checkbox" name="bkm_all_users" value="true" />';
         $html .=  __('Let every user access this bookmark') . '</label>';
         $html .= '</div>';
         $html .= '<div class="clearfloat"></div>';
@@ -877,9 +887,9 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
 
                 if ($primaryKey != null) {
                     $defaultOrderByClause = ' ORDER BY '
-                                          . PMA\libraries\Util::backquote($table) . '.'
-                                          . PMA\libraries\Util::backquote($primaryKey) . ' '
-                                          . $GLOBALS['cfg']['TablePrimaryKeyOrder'];
+                        . PMA\libraries\Util::backquote($table) . '.'
+                        . PMA\libraries\Util::backquote($primaryKey) . ' '
+                        . $GLOBALS['cfg']['TablePrimaryKeyOrder'];
                 }
 
             }
@@ -1159,7 +1169,9 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         $num_rows = 0;
         $unlim_num_rows = 0;
     } else { // If we don't ask to see the php code
-        if (isset($_SESSION['profiling']) && PMA\libraries\Util::profilingSupported()) {
+        if (isset($_SESSION['profiling'])
+            && PMA\libraries\Util::profilingSupported()
+        ) {
             $GLOBALS['dbi']->query('SET PROFILING=1;');
         }
 
@@ -1193,7 +1205,9 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         );
 
         // Grabs the profiling results
-        if (isset($_SESSION['profiling']) && PMA\libraries\Util::profilingSupported()) {
+        if (isset($_SESSION['profiling'])
+            && PMA\libraries\Util::profilingSupported()
+        ) {
             $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
         }
 
@@ -1217,7 +1231,10 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
             && /*overload*/mb_strlen($table)
         ) {
             // to refresh the list of indexes (Ajax mode)
-            $extra_data['indexes_list'] = PMA\libraries\Index::getHtmlForIndexes($table, $db);
+            $extra_data['indexes_list'] = PMA\libraries\Index::getHtmlForIndexes(
+                $table,
+                $db
+            );
         }
     }
 
@@ -1637,7 +1654,10 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
                     . ' Grid edit, checkbox, Edit, Copy and Delete features'
                     . ' are not available. %s'
                 ),
-                PMA\libraries\Util::showDocu('config', 'cfg_RowActionLinksWithoutUnique')
+                PMA\libraries\Util::showDocu(
+                    'config',
+                    'cfg_RowActionLinksWithoutUnique'
+                )
             )
         );
     } elseif (! empty($table) && ! $has_unique) {
@@ -1648,7 +1668,10 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
                     . ' Grid edit, Edit, Copy and Delete features may result in'
                     . ' undesired behavior. %s'
                 ),
-                PMA\libraries\Util::showDocu('config', 'cfg_RowActionLinksWithoutUnique')
+                PMA\libraries\Util::showDocu(
+                    'config',
+                    'cfg_RowActionLinksWithoutUnique'
+                )
             )
         );
     } else {

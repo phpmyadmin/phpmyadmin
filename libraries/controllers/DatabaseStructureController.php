@@ -97,6 +97,22 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
 
+        // If there is an Ajax request for real row count of a table.
+        if ($GLOBALS['is_ajax_request']
+            && isset($_REQUEST['real_row_count'])
+            && $_REQUEST['real_row_count'] == true
+        ) {
+            $this->handleRealRowCountRequestAction();
+            return;
+        }
+
+        // Drops/deletes/etc. multiple tables if required
+        if ((! empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
+            || isset($_POST['mult_btn'])
+        ) {
+            $this->multiSubmitAction();
+        }
+
         $this->response->getHeader()->getScripts()->addFiles(
             array(
                 'db_structure.js',
@@ -104,27 +120,6 @@ class DatabaseStructureController extends DatabaseController
                 'jquery/jquery-ui-timepicker-addon.js'
             )
         );
-
-        // Drops/deletes/etc. multiple tables if required
-        if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
-            || isset($_POST['mult_btn'])
-        ) {
-            $action = 'db_structure.php';
-            $err_url = 'db_structure.php' . PMA_URL_getCommon(
-                array('db' => $this->db)
-            );
-
-            // see bug #2794840; in this case, code path is:
-            // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
-            // -> db_structure.php and if we got an error on the multi submit,
-            // we must display it here and not call again mult_submits.inc.php
-            if (! isset($_POST['error']) || false === $_POST['error']) {
-                include 'libraries/mult_submits.inc.php';
-            }
-            if (empty($_POST['message'])) {
-                $_POST['message'] = Message::success();
-            }
-        }
 
         $this->_url_query .= '&amp;goto=db_structure.php';
 
@@ -138,10 +133,10 @@ class DatabaseStructureController extends DatabaseController
             ,
             $is_show_stats,
             $db_is_system_schema,
-            $tooltip_truename,
-            $tooltip_aliasname,
+            ,
+            ,
             $pos
-        ) = Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
+        ) = Util::getDbInfo($GLOBALS['db'], $sub_part);
 
         $this->_tables = $tables;
         // updating $tables seems enough for #11376, but updating other
@@ -152,25 +147,11 @@ class DatabaseStructureController extends DatabaseController
         $this->_total_num_tables = $total_num_tables;
         $this->_is_show_stats = $is_show_stats;
 
-        // If there is an Ajax request for real row count of a table.
-        if ($GLOBALS['is_ajax_request']
-            && isset($_REQUEST['real_row_count'])
-            && $_REQUEST['real_row_count'] == true
-        ) {
-            $this->handleRealRowCountRequestAction();
-            return;
-        }
-
         include_once 'libraries/replication.inc.php';
 
         PageSettings::showGroup('DbStructure');
 
-        $db_collation = PMA_getDbCollation($this->db);
-
-        $titles = Util::buildActionTitles();
-
         // 1. No tables
-
         if ($this->_num_tables == 0) {
             $this->response->addHTML(
                 Message::notice(__('No tables found in database.'))
@@ -183,7 +164,6 @@ class DatabaseStructureController extends DatabaseController
 
         // else
         // 2. Shows table information
-
         /**
          * Displays the tables list
          */
@@ -208,435 +188,7 @@ class DatabaseStructureController extends DatabaseController
             )
         );
 
-        // table form
-        $this->response->addHTML(
-            Template::get('database/structure/table_header')
-                ->render(
-                    array(
-                        'db'                  => $this->db,
-                        'db_is_system_schema' => $this->_db_is_system_schema,
-                        'replication'         => $GLOBALS['replication_info']['slave']['status'],
-                    )
-                )
-        );
-
-        $i = $sum_entries = 0;
-        $overhead_check = '';
-        $create_time_all = '';
-        $update_time_all = '';
-        $check_time_all = '';
-        $num_columns = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
-            ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
-            : 0;
-        $row_count      = 0;
-        $sum_size       = (double) 0;
-        $overhead_size  = (double) 0;
-
-        $hidden_fields = array();
-        $odd_row       = true;
-        $overall_approx_rows = false;
-        // Instance of RecentFavoriteTable class.
-        $fav_instance = RecentFavoriteTable::getInstance('favorite');
-        foreach ($this->_tables as $keyname => $current_table) {
-            // Get valid statistics whatever is the table type
-
-            $drop_query = '';
-            $drop_message = '';
-            $already_favorite = false;
-            $overhead = '';
-
-            $table_is_view = false;
-            $table_encoded = urlencode($current_table['TABLE_NAME']);
-            // Sets parameters for links
-            $tbl_url_query = $this->_url_query . '&amp;table=' . $table_encoded;
-            // do not list the previous table's size info for a view
-
-            list($current_table, $formatted_size, $unit, $formatted_overhead,
-                $overhead_unit, $overhead_size, $table_is_view, $sum_size)
-                    = $this->getStuffForEngineTypeTable(
-                        $current_table, $sum_size, $overhead_size
-                    );
-
-            $curTable = $this->dbi
-                ->getTable($this->db, $current_table['TABLE_NAME']);
-            if (!$curTable->isMerge()) {
-                $sum_entries += $current_table['TABLE_ROWS'];
-            }
-
-            if (isset($current_table['Collation'])) {
-                $collation = '<dfn title="'
-                    . PMA_getCollationDescr($current_table['Collation']) . '">'
-                    . $current_table['Collation'] . '</dfn>';
-            } else {
-                $collation = '---';
-            }
-
-            if ($this->_is_show_stats) {
-                if ($formatted_overhead != '') {
-                    $overhead = '<a href="tbl_structure.php'
-                        . $tbl_url_query . '#showusage">'
-                        . '<span>' . $formatted_overhead . '</span>&nbsp;'
-                        . '<span class="unit">' . $overhead_unit . '</span>'
-                        . '</a>' . "\n";
-                    $overhead_check .=
-                        "markAllRows('row_tbl_" . ($i + 1) . "');";
-                } else {
-                    $overhead = '-';
-                }
-            } // end if
-
-            $showtable = $this->dbi->getTable(
-                $this->db, $current_table['TABLE_NAME']
-            )->getStatusInfo(null, true);
-
-            if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-                $create_time = isset($showtable['Create_time'])
-                    ? $showtable['Create_time'] : '';
-                if ($create_time
-                    && (!$create_time_all
-                    || $create_time < $create_time_all)
-                ) {
-                    $create_time_all = $create_time;
-                }
-            }
-
-            if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-                // $showtable might already be set from ShowDbStructureCreation,
-                // see above
-                $update_time = isset($showtable['Update_time'])
-                    ? $showtable['Update_time'] : '';
-                if ($update_time
-                    && (!$update_time_all
-                    || $update_time < $update_time_all)
-                ) {
-                    $update_time_all = $update_time;
-                }
-            }
-
-            if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-                // $showtable might already be set from ShowDbStructureCreation,
-                // see above
-                $check_time = isset($showtable['Check_time'])
-                    ? $showtable['Check_time'] : '';
-                if ($check_time
-                    && (!$check_time_all
-                    || $check_time < $check_time_all)
-                ) {
-                    $check_time_all = $check_time;
-                }
-            }
-
-            $alias = htmlspecialchars(
-                (!empty($tooltip_aliasname)
-                    && isset($tooltip_aliasname[$current_table['TABLE_NAME']]))
-                ? $tooltip_aliasname[$current_table['TABLE_NAME']]
-                : $current_table['TABLE_NAME']
-            );
-            $alias = str_replace(' ', '&nbsp;', $alias);
-
-            $truename = htmlspecialchars(
-                (!empty($tooltip_truename)
-                    && isset($tooltip_truename[$current_table['TABLE_NAME']]))
-                ? $tooltip_truename[$current_table['TABLE_NAME']]
-                : $current_table['TABLE_NAME']
-            );
-            $truename = str_replace(' ', '&nbsp;', $truename);
-
-            $i++;
-
-            $row_count++;
-            if ($table_is_view) {
-                $hidden_fields[] = '<input type="hidden" name="views[]" value="'
-                    .  htmlspecialchars($current_table['TABLE_NAME']) . '" />';
-            }
-
-            /*
-             * Always activate links for Browse, Search and Empty, even if
-             * the icons are greyed, because
-             * 1. for views, we don't know the number of rows at this point
-             * 2. for tables, another source could have populated them since the
-             *    page was generated
-             *
-             * I could have used the PHP ternary conditional operator but I find
-             * the code easier to read without this operator.
-             */
-            $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
-
-            $browse_table = Template::get('database/structure/browse_table')
-                ->render(
-                    array(
-                        'tbl_url_query' => $tbl_url_query,
-                        'title'         => $may_have_rows ? $titles['Browse']
-                            : $titles['NoBrowse'],
-                    )
-                );
-
-            $search_table = Template::get('database/structure/search_table')
-                ->render(
-                    array(
-                        'tbl_url_query' => $tbl_url_query,
-                        'title'         => $may_have_rows ? $titles['Search']
-                            : $titles['NoSearch'],
-                    )
-                );
-
-            $browse_table_label = Template::get(
-                'database/structure/browse_table_label'
-            )
-                ->render(
-                    array(
-                        'tbl_url_query' => $tbl_url_query,
-                        'title'         => htmlspecialchars(
-                            $current_table['TABLE_COMMENT']
-                        ),
-                        'truename'      => $truename,
-                    )
-                );
-
-            $empty_table = '';
-            if (!$this->_db_is_system_schema) {
-                $empty_table = '&nbsp;';
-                if (!$table_is_view) {
-                    $empty_table = Template::get('database/structure/empty_table')
-                        ->render(
-                            array(
-                                'tbl_url_query' => $tbl_url_query,
-                                'sql_query' => urlencode(
-                                    'TRUNCATE ' . Util::backquote(
-                                        $current_table['TABLE_NAME']
-                                    )
-                                ),
-                                'message_to_show' => urlencode(
-                                    sprintf(
-                                        __('Table %s has been emptied.'),
-                                        htmlspecialchars(
-                                            $current_table['TABLE_NAME']
-                                        )
-                                    )
-                                ),
-                                'title' => $may_have_rows ? $titles['Empty']
-                                    : $titles['NoEmpty'],
-                            )
-                        );
-                }
-                $drop_query = sprintf(
-                    'DROP %s %s',
-                    ($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW'
-                    : 'TABLE',
-                    Util::backquote(
-                        $current_table['TABLE_NAME']
-                    )
-                );
-                $drop_message = sprintf(
-                    (($table_is_view || $current_table['ENGINE'] == null)
-                        ? __('View %s has been dropped.')
-                        : __('Table %s has been dropped.')),
-                    str_replace(
-                        ' ', '&nbsp;',
-                        htmlspecialchars($current_table['TABLE_NAME'])
-                    )
-                );
-            }
-
-            $tracking_icon = '';
-            if (Tracker::isActive()) {
-                $is_tracked = Tracker::isTracked($GLOBALS["db"], $truename);
-                if ($is_tracked
-                    || Tracker::getVersion($GLOBALS["db"], $truename) > 0
-                ) {
-                    $tracking_icon = Template::get(
-                        'database/structure/tracking_icon'
-                    )
-                        ->render(
-                            array(
-                                'url_query' => $this->_url_query,
-                                'truename' => $truename,
-                                'is_tracked' => $is_tracked,
-                            )
-                        );
-                }
-            }
-
-            if ($num_columns > 0
-                && $this->_num_tables > $num_columns
-                && ($row_count % $num_columns) == 0
-            ) {
-                $row_count = 1;
-                $odd_row = true;
-
-                $this->response->addHTML(
-                    '</tr></tbody></table>'
-                );
-
-                $this->response->addHTML(
-                    Template::get('database/structure/table_header')->render(
-                        array(
-                            'db_is_system_schema' => false,
-                            'replication' => $GLOBALS['replication_info']['slave']['status']
-                        )
-                    )
-                );
-            }
-
-            $do = $ignored = false;
-            if ($GLOBALS['replication_info']['slave']['status']) {
-
-                $nbServSlaveDoDb = count(
-                    $GLOBALS['replication_info']['slave']['Do_DB']
-                );
-                $nbServSlaveIgnoreDb = count(
-                    $GLOBALS['replication_info']['slave']['Ignore_DB']
-                );
-                $searchDoDBInTruename = array_search(
-                    $truename, $GLOBALS['replication_info']['slave']['Do_DB']
-                );
-                $searchDoDBInDB = array_search(
-                    $this->db, $GLOBALS['replication_info']['slave']['Do_DB']
-                );
-
-                $do = strlen($searchDoDBInTruename) > 0
-                    || strlen($searchDoDBInDB) > 0
-                    || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
-                    || $this->hasTable(
-                        $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
-                        $truename
-                    );
-
-                $searchDb = array_search(
-                    $this->db,
-                    $GLOBALS['replication_info']['slave']['Ignore_DB']
-                );
-                $searchTable = array_search(
-                    $truename,
-                    $GLOBALS['replication_info']['slave']['Ignore_Table']
-                );
-                $ignored = strlen($searchTable) > 0
-                    || strlen($searchDb) > 0
-                    || $this->hasTable(
-                        $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'],
-                        $truename
-                    );
-            }
-
-            // Handle favorite table list. ----START----
-            $already_favorite = $this->checkFavoriteTable(
-                $current_table['TABLE_NAME']
-            );
-
-            if (isset($_REQUEST['remove_favorite'])) {
-                if ($already_favorite) {
-                    // If already in favorite list, remove it.
-                    $favorite_table = $_REQUEST['favorite_table'];
-                    $fav_instance->remove($this->db, $favorite_table);
-                }
-            }
-
-            if (isset($_REQUEST['add_favorite'])) {
-                if (!$already_favorite) {
-                    // Otherwise add to favorite list.
-                    $favorite_table = $_REQUEST['favorite_table'];
-                    $fav_instance->add($this->db, $favorite_table);
-                }
-            } // Handle favorite table list. ----ENDS----
-
-            $show_superscript = '';
-
-            // there is a null value in the ENGINE
-            // - when the table needs to be repaired, or
-            // - when it's a view
-            //  so ensure that we'll display "in use" below for a table
-            //  that needs to be repaired
-            $approx_rows = false;
-            if (isset($current_table['TABLE_ROWS'])
-                && ($current_table['ENGINE'] != null || $table_is_view)
-            ) {
-                // InnoDB table: we did not get an accurate row count
-                $approx_rows = !$table_is_view
-                    && $current_table['ENGINE'] == 'InnoDB'
-                    && !$current_table['COUNTED'];
-            }
-
-            $this->response->addHTML(
-                Template::get('database/structure/structure_table_row')
-                    ->render(
-                        array(
-                            'db'                    => $this->db,
-                            'curr'                  => $i,
-                            'odd_row'               => $odd_row,
-                            'table_is_view'         => $table_is_view,
-                            'current_table'         => $current_table,
-                            'browse_table_label'    => $browse_table_label,
-                            'tracking_icon'         => $tracking_icon,
-                            'server_slave_status'   => $GLOBALS['replication_info']['slave']['status'],
-                            'browse_table'          => $browse_table,
-                            'tbl_url_query'         => $tbl_url_query,
-                            'search_table'          => $search_table,
-                            'db_is_system_schema'   => $this->_db_is_system_schema,
-                            'titles'                => $titles,
-                            'empty_table'           => $empty_table,
-                            'drop_query'            => $drop_query,
-                            'drop_message'          => $drop_message,
-                            'collation'             => $collation,
-                            'formatted_size'        => $formatted_size,
-                            'unit'                  => $unit,
-                            'overhead'              => $overhead,
-                            'create_time'           => isset($create_time)
-                                ? $create_time : '',
-                            'update_time'           => isset($update_time)
-                                ? $update_time : '',
-                            'check_time'            => isset($check_time)
-                                ? $check_time : '',
-                            'is_show_stats'         => $this->_is_show_stats,
-                            'ignored'               => $ignored,
-                            'do'                    => $do,
-                            'colspan_for_structure' => $GLOBALS['colspan_for_structure'],
-                            'approx_rows'           => $approx_rows,
-                            'show_superscript'      => $show_superscript,
-                            'already_favorite'      => $this->checkFavoriteTable(
-                                $current_table['TABLE_NAME']
-                            ),
-                        )
-                    )
-            );
-
-            $odd_row = ! $odd_row;
-            $overall_approx_rows = $overall_approx_rows || $approx_rows;
-        } // end foreach
-
-        // Show Summary
-        $this->response->addHTML('</tbody>');
-        $this->response->addHTML(
-            Template::get('database/structure/body_for_table_summary')->render(
-                array(
-                    'num_tables' => $this->_num_tables,
-                    'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
-                    'db_is_system_schema' => $this->_db_is_system_schema,
-                    'sum_entries' => $sum_entries,
-                    'db_collation' => $db_collation,
-                    'is_show_stats' => $this->_is_show_stats,
-                    'sum_size' => $sum_size,
-                    'overhead_size' => $overhead_size,
-                    'create_time_all' => $create_time_all,
-                    'update_time_all' => $update_time_all,
-                    'check_time_all' => $check_time_all,
-                    'approx_rows' => $overall_approx_rows
-                )
-            )
-        );
-        $this->response->addHTML('</table>');
-        //check all
-        $this->response->addHTML(
-            Template::get('database/structure/check_all_tables')->render(
-                array(
-                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
-                    'text_dir' => $GLOBALS['text_dir'],
-                    'overhead_check' => $overhead_check,
-                    'db_is_system_schema' => $this->_db_is_system_schema,
-                    'hidden_fields' => $hidden_fields
-                )
-            )
-        );
-        $this->response->addHTML('</form>'); //end of form
+        $this->displayTableList();
 
         // display again the table list navigator
         $this->response->addHTML(
@@ -659,7 +211,7 @@ class DatabaseStructureController extends DatabaseController
                 ->render(array('url_query' => $this->_url_query))
         );
 
-        if (empty($db_is_system_schema)) {
+        if (empty($this->_db_is_system_schema)) {
             $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
         }
     }
@@ -783,6 +335,501 @@ class DatabaseStructureController extends DatabaseController
     }
 
     /**
+     * Handles actions related to multiple tables
+     *
+     * @return void
+     */
+    public function multiSubmitAction()
+    {
+        $action = 'db_structure.php';
+        $err_url = 'db_structure.php' . PMA_URL_getCommon(
+            array('db' => $this->db)
+        );
+
+        // see bug #2794840; in this case, code path is:
+        // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
+        // -> db_structure.php and if we got an error on the multi submit,
+        // we must display it here and not call again mult_submits.inc.php
+        if (! isset($_POST['error']) || false === $_POST['error']) {
+            include 'libraries/mult_submits.inc.php';
+        }
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+    }
+
+    /**
+     * Displays the list of tables
+     *
+     * @return void
+     */
+    protected function displayTableList()
+    {
+        // table form
+        $this->response->addHTML(
+            Template::get('database/structure/table_header')
+                ->render(
+                    array(
+                        'db'                  => $this->db,
+                        'db_is_system_schema' => $this->_db_is_system_schema,
+                        'replication'         => $GLOBALS['replication_info']['slave']['status'],
+                    )
+                )
+        );
+
+        $i = $sum_entries = 0;
+        $overhead_check = '';
+        $create_time_all = '';
+        $update_time_all = '';
+        $check_time_all = '';
+        $num_columns = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
+            ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
+            : 0;
+        $row_count      = 0;
+        $sum_size       = (double) 0;
+        $overhead_size  = (double) 0;
+
+        $hidden_fields = array();
+        $odd_row       = true;
+        $overall_approx_rows = false;
+        foreach ($this->_tables as $keyname => $current_table) {
+            // Get valid statistics whatever is the table type
+
+            $drop_query = '';
+            $drop_message = '';
+            $overhead = '';
+
+            $table_is_view = false;
+            $table_encoded = urlencode($current_table['TABLE_NAME']);
+            // Sets parameters for links
+            $tbl_url_query = $this->_url_query . '&amp;table=' . $table_encoded;
+            // do not list the previous table's size info for a view
+
+            list($current_table, $formatted_size, $unit, $formatted_overhead,
+                $overhead_unit, $overhead_size, $table_is_view, $sum_size)
+                    = $this->getStuffForEngineTypeTable(
+                        $current_table, $sum_size, $overhead_size
+                    );
+
+            $curTable = $this->dbi
+                ->getTable($this->db, $current_table['TABLE_NAME']);
+            if (!$curTable->isMerge()) {
+                $sum_entries += $current_table['TABLE_ROWS'];
+            }
+
+            if (isset($current_table['Collation'])) {
+                $collation = '<dfn title="'
+                    . PMA_getCollationDescr($current_table['Collation']) . '">'
+                    . $current_table['Collation'] . '</dfn>';
+            } else {
+                $collation = '---';
+            }
+
+            if ($this->_is_show_stats) {
+                if ($formatted_overhead != '') {
+                    $overhead = '<a href="tbl_structure.php'
+                        . $tbl_url_query . '#showusage">'
+                        . '<span>' . $formatted_overhead . '</span>&nbsp;'
+                        . '<span class="unit">' . $overhead_unit . '</span>'
+                        . '</a>' . "\n";
+                    $overhead_check .=
+                        "markAllRows('row_tbl_" . ($i + 1) . "');";
+                } else {
+                    $overhead = '-';
+                }
+            } // end if
+
+            $showtable = $this->dbi->getTable(
+                $this->db, $current_table['TABLE_NAME']
+            )->getStatusInfo(null, true);
+
+            if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+                $create_time = isset($showtable['Create_time'])
+                    ? $showtable['Create_time'] : '';
+                if ($create_time
+                    && (!$create_time_all
+                    || $create_time < $create_time_all)
+                ) {
+                    $create_time_all = $create_time;
+                }
+            }
+
+            if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+                // $showtable might already be set from ShowDbStructureCreation,
+                // see above
+                $update_time = isset($showtable['Update_time'])
+                    ? $showtable['Update_time'] : '';
+                if ($update_time
+                    && (!$update_time_all
+                    || $update_time < $update_time_all)
+                ) {
+                    $update_time_all = $update_time;
+                }
+            }
+
+            if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+                // $showtable might already be set from ShowDbStructureCreation,
+                // see above
+                $check_time = isset($showtable['Check_time'])
+                    ? $showtable['Check_time'] : '';
+                if ($check_time
+                    && (!$check_time_all
+                    || $check_time < $check_time_all)
+                ) {
+                    $check_time_all = $check_time;
+                }
+            }
+
+            $truename = htmlspecialchars(
+                (!empty($tooltip_truename)
+                    && isset($tooltip_truename[$current_table['TABLE_NAME']]))
+                ? $tooltip_truename[$current_table['TABLE_NAME']]
+                : $current_table['TABLE_NAME']
+            );
+            $truename = str_replace(' ', '&nbsp;', $truename);
+
+            $i++;
+
+            $row_count++;
+            if ($table_is_view) {
+                $hidden_fields[] = '<input type="hidden" name="views[]" value="'
+                    .  htmlspecialchars($current_table['TABLE_NAME']) . '" />';
+            }
+
+            /*
+             * Always activate links for Browse, Search and Empty, even if
+             * the icons are greyed, because
+             * 1. for views, we don't know the number of rows at this point
+             * 2. for tables, another source could have populated them since the
+             *    page was generated
+             *
+             * I could have used the PHP ternary conditional operator but I find
+             * the code easier to read without this operator.
+             */
+            $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
+            $titles = Util::buildActionTitles();
+
+            $browse_table = Template::get('database/structure/browse_table')
+                ->render(
+                    array(
+                        'tbl_url_query' => $tbl_url_query,
+                        'title'         => $may_have_rows ? $titles['Browse']
+                            : $titles['NoBrowse'],
+                    )
+                );
+
+            $search_table = Template::get('database/structure/search_table')
+                ->render(
+                    array(
+                        'tbl_url_query' => $tbl_url_query,
+                        'title'         => $may_have_rows ? $titles['Search']
+                            : $titles['NoSearch'],
+                    )
+                );
+
+            $browse_table_label = Template::get(
+                'database/structure/browse_table_label'
+            )
+                ->render(
+                    array(
+                        'tbl_url_query' => $tbl_url_query,
+                        'title'         => htmlspecialchars(
+                            $current_table['TABLE_COMMENT']
+                        ),
+                        'truename'      => $truename,
+                    )
+                );
+
+            $empty_table = '';
+            if (!$this->_db_is_system_schema) {
+                $empty_table = '&nbsp;';
+                if (!$table_is_view) {
+                    $empty_table = Template::get('database/structure/empty_table')
+                        ->render(
+                            array(
+                                'tbl_url_query' => $tbl_url_query,
+                                'sql_query' => urlencode(
+                                    'TRUNCATE ' . Util::backquote(
+                                        $current_table['TABLE_NAME']
+                                    )
+                                ),
+                                'message_to_show' => urlencode(
+                                    sprintf(
+                                        __('Table %s has been emptied.'),
+                                        htmlspecialchars(
+                                            $current_table['TABLE_NAME']
+                                        )
+                                    )
+                                ),
+                                'title' => $may_have_rows ? $titles['Empty']
+                                    : $titles['NoEmpty'],
+                            )
+                        );
+                }
+                $drop_query = sprintf(
+                    'DROP %s %s',
+                    ($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW'
+                    : 'TABLE',
+                    Util::backquote(
+                        $current_table['TABLE_NAME']
+                    )
+                );
+                $drop_message = sprintf(
+                    (($table_is_view || $current_table['ENGINE'] == null)
+                        ? __('View %s has been dropped.')
+                        : __('Table %s has been dropped.')),
+                    str_replace(
+                        ' ', '&nbsp;',
+                        htmlspecialchars($current_table['TABLE_NAME'])
+                    )
+                );
+            }
+
+            if ($num_columns > 0
+                && $this->_num_tables > $num_columns
+                && ($row_count % $num_columns) == 0
+            ) {
+                $row_count = 1;
+                $odd_row = true;
+
+                $this->response->addHTML(
+                    '</tr></tbody></table></form>'
+                );
+
+                $this->response->addHTML(
+                    Template::get('database/structure/table_header')->render(
+                        array(
+                            'db' => $this->db,
+                            'db_is_system_schema' => $this->_db_is_system_schema,
+                            'replication' => $GLOBALS['replication_info']['slave']['status']
+                        )
+                    )
+                );
+            }
+
+            list($approx_rows, $show_superscript) = $this->isRowCountApproximated(
+                $current_table, $table_is_view
+            );
+
+            list($do, $ignored) = $this->getReplicationStatus($truename);
+
+            $this->response->addHTML(
+                Template::get('database/structure/structure_table_row')
+                    ->render(
+                        array(
+                            'db'                    => $this->db,
+                            'curr'                  => $i,
+                            'odd_row'               => $odd_row,
+                            'table_is_view'         => $table_is_view,
+                            'current_table'         => $current_table,
+                            'browse_table_label'    => $browse_table_label,
+                            'tracking_icon'         => $this->getTrackingIcon($truename),
+                            'server_slave_status'   => $GLOBALS['replication_info']['slave']['status'],
+                            'browse_table'          => $browse_table,
+                            'tbl_url_query'         => $tbl_url_query,
+                            'search_table'          => $search_table,
+                            'db_is_system_schema'   => $this->_db_is_system_schema,
+                            'titles'                => $titles,
+                            'empty_table'           => $empty_table,
+                            'drop_query'            => $drop_query,
+                            'drop_message'          => $drop_message,
+                            'collation'             => $collation,
+                            'formatted_size'        => $formatted_size,
+                            'unit'                  => $unit,
+                            'overhead'              => $overhead,
+                            'create_time'           => isset($create_time)
+                                ? $create_time : '',
+                            'update_time'           => isset($update_time)
+                                ? $update_time : '',
+                            'check_time'            => isset($check_time)
+                                ? $check_time : '',
+                            'is_show_stats'         => $this->_is_show_stats,
+                            'ignored'               => $ignored,
+                            'do'                    => $do,
+                            'colspan_for_structure' => $GLOBALS['colspan_for_structure'],
+                            'approx_rows'           => $approx_rows,
+                            'show_superscript'      => $show_superscript,
+                            'already_favorite'      => $this->checkFavoriteTable(
+                                $current_table['TABLE_NAME']
+                            ),
+                        )
+                    )
+            );
+
+            $odd_row = ! $odd_row;
+            $overall_approx_rows = $overall_approx_rows || $approx_rows;
+        } // end foreach
+
+        $this->response->addHTML('</tbody>');
+
+        $db_collation = PMA_getDbCollation($this->db);
+
+        // Show Summary
+        $this->response->addHTML(
+            Template::get('database/structure/body_for_table_summary')->render(
+                array(
+                    'num_tables' => $this->_num_tables,
+                    'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
+                    'db_is_system_schema' => $this->_db_is_system_schema,
+                    'sum_entries' => $sum_entries,
+                    'db_collation' => $db_collation,
+                    'is_show_stats' => $this->_is_show_stats,
+                    'sum_size' => $sum_size,
+                    'overhead_size' => $overhead_size,
+                    'create_time_all' => $create_time_all,
+                    'update_time_all' => $update_time_all,
+                    'check_time_all' => $check_time_all,
+                    'approx_rows' => $overall_approx_rows
+                )
+            )
+        );
+        $this->response->addHTML('</table>');
+
+        //check all
+        $this->response->addHTML(
+            Template::get('database/structure/check_all_tables')->render(
+                array(
+                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+                    'text_dir' => $GLOBALS['text_dir'],
+                    'overhead_check' => $overhead_check,
+                    'db_is_system_schema' => $this->_db_is_system_schema,
+                    'hidden_fields' => $hidden_fields
+                )
+            )
+        );
+        $this->response->addHTML('</form>'); //end of form
+    }
+
+    /**
+     * Returns the tracking icon if the table is tracked
+     *
+     * @param string $table table name
+     *
+     * @return string HTML for tracking icon
+     */
+    protected function getTrackingIcon($table)
+    {
+        $tracking_icon = '';
+        if (Tracker::isActive()) {
+            $is_tracked = Tracker::isTracked($GLOBALS["db"], $table);
+            if ($is_tracked
+                || Tracker::getVersion($GLOBALS["db"], $table) > 0
+            ) {
+                $tracking_icon = Template::get(
+                    'database/structure/tracking_icon'
+                )
+                ->render(
+                    array(
+                        'url_query' => $this->_url_query,
+                        'truename' => $table,
+                        'is_tracked' => $is_tracked,
+                    )
+                );
+            }
+        }
+        return $tracking_icon;
+    }
+
+    /**
+     * Returns whether the row count is approximated
+     *
+     * @param array   $current_table array containing details about the table
+     * @param boolean $table_is_view whether the table is a view
+     *
+     * @return array
+     */
+    protected function isRowCountApproximated($current_table, $table_is_view)
+    {
+        $approx_rows = false;
+        $show_superscript = '';
+
+        // there is a null value in the ENGINE
+        // - when the table needs to be repaired, or
+        // - when it's a view
+        //  so ensure that we'll display "in use" below for a table
+        //  that needs to be repaired
+        if (isset($current_table['TABLE_ROWS'])
+            && ($current_table['ENGINE'] != null || $table_is_view)
+        ) {
+            // InnoDB table: we did not get an accurate row count
+            $approx_rows = !$table_is_view
+                && $current_table['ENGINE'] == 'InnoDB'
+                && !$current_table['COUNTED'];
+
+            if ($table_is_view
+                && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+            ) {
+                $approx_rows = true;
+                $show_superscript = Util::showHint(
+                    PMA_sanitize(
+                        sprintf(
+                            __(
+                                'This view has at least this number of '
+                                . 'rows. Please refer to %sdocumentation%s.'
+                            ),
+                            '[doc@cfg_MaxExactCountViews]', '[/doc]'
+                        )
+                    )
+                );
+            }
+        }
+
+        return array($approx_rows, $show_superscript);
+    }
+
+    /**
+     * Returns the replication status of the table.
+     *
+     * @param string $table table name
+     *
+     * @return array
+     */
+    protected function getReplicationStatus($table)
+    {
+        $do = $ignored = false;
+        if ($GLOBALS['replication_info']['slave']['status']) {
+
+            $nbServSlaveDoDb = count(
+                $GLOBALS['replication_info']['slave']['Do_DB']
+            );
+            $nbServSlaveIgnoreDb = count(
+                $GLOBALS['replication_info']['slave']['Ignore_DB']
+            );
+            $searchDoDBInTruename = array_search(
+                $table, $GLOBALS['replication_info']['slave']['Do_DB']
+            );
+            $searchDoDBInDB = array_search(
+                $this->db, $GLOBALS['replication_info']['slave']['Do_DB']
+            );
+
+            $do = strlen($searchDoDBInTruename) > 0
+                || strlen($searchDoDBInDB) > 0
+                || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
+                || $this->hasTable(
+                    $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
+                    $table
+                );
+
+            $searchDb = array_search(
+                $this->db,
+                $GLOBALS['replication_info']['slave']['Ignore_DB']
+            );
+            $searchTable = array_search(
+                $table,
+                $GLOBALS['replication_info']['slave']['Ignore_Table']
+            );
+            $ignored = strlen($searchTable) > 0
+                || strlen($searchDb) > 0
+                || $this->hasTable(
+                    $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'],
+                    $table
+                );
+        }
+
+        return array($do, $ignored);
+    }
+
+    /**
      * Synchronize favorite tables
      *
      *
@@ -891,6 +938,7 @@ class DatabaseStructureController extends DatabaseController
         case 'ARCHIVE' :
         case 'Aria' :
         case 'Maria' :
+        case 'TokuDB' :
             list($current_table, $formatted_size, $unit, $formatted_overhead,
                 $overhead_unit, $overhead_size, $sum_size)
                     = $this->getValuesForAriaTable(
@@ -925,6 +973,8 @@ class DatabaseStructureController extends DatabaseController
         // or on some servers it's reported as "SYSTEM VIEW"
         case null :
         case 'SYSTEM VIEW' :
+            // possibly a view, do nothing
+            break;
         default :
             // Unknown table type.
             if ($this->_is_show_stats) {

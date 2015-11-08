@@ -316,16 +316,16 @@ function PMA_deletePage($pg)
     }
 
     $query = "DELETE FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
-             . "." . PMA\libraries\Util::backquote($cfgRelation['table_coords'])
-             . " WHERE " . PMA\libraries\Util::backquote('pdf_page_number') . " = " . $pg;
+        . "." . PMA\libraries\Util::backquote($cfgRelation['table_coords'])
+        . " WHERE " . PMA\libraries\Util::backquote('pdf_page_number') . " = " . $pg;
     $success = PMA_queryAsControlUser(
         $query, true, PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 
     if ($success) {
         $query = "DELETE FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
-                 . "." . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
-                 . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . $pg;
+            . "." . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
+            . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . $pg;
         $success = PMA_queryAsControlUser(
             $query, true, PMA\libraries\DatabaseInterface::QUERY_STORE
         );
@@ -445,33 +445,46 @@ function PMA_saveTablePositions($pg)
         return false;
     }
 
-    $query =  "DELETE FROM " . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-        . "." . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-        . " WHERE `db_name` = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) . "'"
-        . " AND `pdf_page_number` = '" . PMA\libraries\Util::sqlAddSlashes($pg) . "'";
+    $query =  "DELETE FROM "
+        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
+        . "." . PMA\libraries\Util::backquote(
+            $GLOBALS['cfgRelation']['table_coords']
+        )
+        . " WHERE `db_name` = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db'])
+        . "'"
+        . " AND `pdf_page_number` = '" . PMA\libraries\Util::sqlAddSlashes($pg)
+        . "'";
 
-    $res = PMA_queryAsControlUser($query, true, PMA\libraries\DatabaseInterface::QUERY_STORE);
+    $res = PMA_queryAsControlUser(
+        $query,
+        true,
+        PMA\libraries\DatabaseInterface::QUERY_STORE
+    );
 
-    if ($res) {
-        foreach ($_REQUEST['t_h'] as $key => $value) {
-            list($DB, $TAB) = explode(".", $key);
-            if ($value) {
-                $query = "INSERT INTO "
-                    . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-                    . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-                    . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
-                    . " VALUES ("
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($DB) . "', "
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($TAB) . "', "
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($pg) . "', "
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . "', "
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . "')";
+    if (!$res) {
+        return (boolean)$res;
+    }
 
-                $res = PMA_queryAsControlUser(
-                    $query,  true, PMA\libraries\DatabaseInterface::QUERY_STORE
-                );
-            }
+    foreach ($_REQUEST['t_h'] as $key => $value) {
+        list($DB, $TAB) = explode(".", $key);
+        if (!$value) {
+            continue;
         }
+
+        $query = "INSERT INTO "
+            . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+            . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+            . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
+            . " VALUES ("
+            . "'" . PMA\libraries\Util::sqlAddSlashes($DB) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($TAB) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($pg) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . "')";
+
+        $res = PMA_queryAsControlUser(
+            $query,  true, PMA\libraries\DatabaseInterface::QUERY_STORE
+        );
     }
 
     return (boolean) $res;
@@ -582,50 +595,52 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
             $upd_query .= ';';
             if ($GLOBALS['dbi']->tryQuery($upd_query)) {
                 return array(true, __('FOREIGN KEY relation has been added.'));
-            } else {
-                $error = $GLOBALS['dbi']->getError();
-                return array(
-                    false,
-                    __('Error: FOREIGN KEY relation could not be added!')
-                    . "<br/>" . $error
-                );
             }
-        } else {
-            return array(false, __('Error: Missing index on column(s).'));
-        }
-    } else { // internal (pmadb) relation
-        if ($GLOBALS['cfgRelation']['relwork'] == false) {
-            return array(false, __('Error: Relational features are disabled!'));
-        } else {
-            // no need to recheck if the keys are primary or unique at this point,
-            // this was checked on the interface part
 
-            $q  = "INSERT INTO "
-                . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-                . "." . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['relation'])
-                . "(master_db, master_table, master_field, "
-                . "foreign_db, foreign_table, foreign_field)"
-                . " values("
-                . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($T2) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($F2) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($T1) . "', "
-                . "'" . PMA\libraries\Util::sqlAddSlashes($F1) . "')";
-
-            if (PMA_queryAsControlUser($q, false, PMA\libraries\DatabaseInterface::QUERY_STORE)
-            ) {
-                return array(true, __('Internal relation has been added.'));
-            } else {
-                $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
-                return array(
-                    false,
-                    __('Error: Internal relation could not be added!')
-                    . "<br/>" . $error
-                );
-            }
+            $error = $GLOBALS['dbi']->getError();
+            return array(
+                false,
+                __('Error: FOREIGN KEY relation could not be added!')
+                . "<br/>" . $error
+            );
         }
+
+        return array(false, __('Error: Missing index on column(s).'));
     }
+
+    // internal (pmadb) relation
+    if ($GLOBALS['cfgRelation']['relwork'] == false) {
+        return array(false, __('Error: Relational features are disabled!'));
+    }
+
+    // no need to recheck if the keys are primary or unique at this point,
+    // this was checked on the interface part
+
+    $q  = "INSERT INTO "
+        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
+        . "."
+        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['relation'])
+        . "(master_db, master_table, master_field, "
+        . "foreign_db, foreign_table, foreign_field)"
+        . " values("
+        . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($T2) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($F2) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($T1) . "', "
+        . "'" . PMA\libraries\Util::sqlAddSlashes($F1) . "')";
+
+    if (PMA_queryAsControlUser($q, false, PMA\libraries\DatabaseInterface::QUERY_STORE)
+    ) {
+        return array(true, __('Internal relation has been added.'));
+    }
+
+    $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+    return array(
+        false,
+        __('Error: Internal relation could not be added!')
+        . "<br/>" . $error
+    );
 }
 
 /**
@@ -736,7 +751,8 @@ function PMA_saveDesignerSetting($index, $value)
             $orig_data[$index] = $value;
             $orig_data = json_encode($orig_data);
 
-            $save_query = "UPDATE " . PMA\libraries\Util::backquote($cfgDesigner['db'])
+            $save_query = "UPDATE "
+                . PMA\libraries\Util::backquote($cfgDesigner['db'])
                 . "." . PMA\libraries\Util::backquote($cfgDesigner['table'])
                 . " SET settings_data = '" . $orig_data . "'"
                 . " WHERE username = '"
@@ -746,7 +762,8 @@ function PMA_saveDesignerSetting($index, $value)
         } else {
             $save_data = array($index => $value);
 
-            $query = "INSERT INTO " . PMA\libraries\Util::backquote($cfgDesigner['db'])
+            $query = "INSERT INTO "
+                . PMA\libraries\Util::backquote($cfgDesigner['db'])
                 . "." . PMA\libraries\Util::backquote($cfgDesigner['table'])
                 . " (username, settings_data)"
                 . " VALUES('" . $cfgDesigner['user'] . "',"

@@ -132,7 +132,9 @@ list(
 ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 if ($message_to_display) {
-    PMA\libraries\Message::error(__('You have to choose at least one column to display!'))
+    PMA\libraries\Message::error(
+        __('You have to choose at least one column to display!')
+    )
         ->display();
 }
 unset($message_to_display);

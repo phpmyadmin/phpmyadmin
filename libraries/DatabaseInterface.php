@@ -125,9 +125,10 @@ class DatabaseInterface
         while (count($keys) > 1) {
             $key = array_shift($keys);
 
-            // If the key doesn't exist at this depth, we will just create an empty array
-            // to hold the next value, allowing us to create the arrays to hold final
-            // values at the correct depth. Then we'll keep digging into the array.
+            // If the key doesn't exist at this depth, we will just create an empty
+            // array to hold the next value, allowing us to create the arrays to hold
+            // final values at the correct depth. Then we'll keep digging into the
+            // array.
             if (!isset($loc[$key]) || !is_array($loc[$key])) {
                 $loc[$key] = array();
             }
@@ -485,7 +486,7 @@ class DatabaseInterface
 
         $tables = array();
 
-        if (! isset($GLOBALS['cfg']['Server']['DisableIS']) || !$GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql_where_table = $this->_getTableCondition(
                 $table, $tbl_is_group, $table_type
             );
@@ -497,7 +498,10 @@ class DatabaseInterface
             // added BINARY in the WHERE clause to force a case sensitive
             // comparison (if we are looking for the db Aa we don't want
             // to find the db aa)
-            $this_databases = array_map('PMA\libraries\Util::sqlAddSlashes', $databases);
+            $this_databases = array_map(
+                'PMA\libraries\Util::sqlAddSlashes',
+                $databases
+            );
 
             $sql = $this->_getSqlForTablesFull($this_databases, $sql_where_table);
 
@@ -522,7 +526,8 @@ class DatabaseInterface
                     }
                     $tables[$one_database_name] = $one_database_tables;
                 }
-            } else if ($sort_by == 'Data_length') { // Size = Data_length + Index_length
+            } elseif ($sort_by == 'Data_length') {
+                // Size = Data_length + Index_length
                 foreach ($tables as $one_database_name => $one_database_tables) {
                     uasort(
                         $one_database_tables,
@@ -625,7 +630,8 @@ class DatabaseInterface
                     if ($sort_by == 'Data_length') {
                         foreach ($each_tables as $table_name => $table_data) {
                             ${$sort_by}[$table_name] = strtolower(
-                                $table_data['Data_length'] + $table_data['Index_length']
+                                $table_data['Data_length']
+                                + $table_data['Index_length']
                             );
                         }
                     } else {
@@ -2191,7 +2197,9 @@ class DatabaseInterface
             if (strpos($error_message, 'errno: 13') !== false) {
                 $error .= ' - ' . $error_message;
                 $error .= '<br />'
-                    . __('Please check privileges of directory containing database.');
+                    . __(
+                        'Please check privileges of directory containing database.'
+                    );
             } else {
                 /* InnoDB constraints, see
                  * http://dev.mysql.com/doc/refman/5.0/en/

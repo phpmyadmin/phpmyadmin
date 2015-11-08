@@ -2099,7 +2099,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     return false;
                 });
 
-                profilingChart = PMA_createProfilingChartJqplot(
+                profilingChart = PMA_createProfilingChart(
                     'queryProfiling',
                     chartData
                 );

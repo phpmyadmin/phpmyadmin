@@ -2090,12 +2090,13 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 . $hostname . "';";
 
             // Update the plugin for the user
-            $GLOBALS['dbi']->tryQuery($update_plugin_query)
-                or Util::mysqlDie(
+            if (!($GLOBALS['dbi']->tryQuery($update_plugin_query))) {
+                Util::mysqlDie(
                     $GLOBALS['dbi']->getError(),
                     $update_plugin_query,
                     false, $err_url
                 );
+            }
 
             $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
 
@@ -2148,10 +2149,11 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 . '(\'' . Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
         }
 
-        $GLOBALS['dbi']->tryQuery($local_query)
-            or Util::mysqlDie(
+        if (!($GLOBALS['dbi']->tryQuery($local_query))) {
+            Util::mysqlDie(
                 $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
             );
+        }
         $message = Message::success(
             __('The password for %s was changed successfully.')
         );
@@ -3334,22 +3336,28 @@ function PMA_getHtmlForAllTableSpecificRights(
             $onePrivilege['grant']        = $row['Grant_priv'] == 'Y';
             $onePrivilege['tablePrivs']   = ! empty($row['Table_priv'])
                 || ! empty($row['Column_priv']);
-            $onePrivilege['privileges']   = join(',', PMA_extractPrivInfo($row, true));
+            $onePrivilege['privileges'] = join(',', PMA_extractPrivInfo($row, true));
 
             $paramDbName = $row['Db'];
 
         } elseif ($type == 'table') {
             $name = $row['Table_name'];
-            $onePrivilege['grant']        = in_array('Grant', explode(',', $row['Table_priv']));
+            $onePrivilege['grant'] = in_array(
+                'Grant',
+                explode(',', $row['Table_priv'])
+            );
             $onePrivilege['columnPrivs']  = ! empty($row['Column_priv']);
-            $onePrivilege['privileges']   = join(',', PMA_extractPrivInfo($row, true));
+            $onePrivilege['privileges'] = join(',', PMA_extractPrivInfo($row, true));
 
             $paramDbName = $dbname;
             $paramTableName = $row['Table_name'];
 
         } else { // routine
             $name = $row['Routine_name'];
-            $onePrivilege['grant']       = in_array('Grant', explode(',', $row['Proc_priv']));
+            $onePrivilege['grant'] = in_array(
+                'Grant',
+                explode(',', $row['Proc_priv'])
+            );
 
             $privs = array(
                 'Alter_routine_priv' => 'N',
@@ -3363,7 +3371,10 @@ function PMA_getHtmlForAllTableSpecificRights(
                     $privs[$priv . '_priv'] = 'Y';
                 }
             }
-            $onePrivilege['privileges']  = join(',', PMA_extractPrivInfo($privs, true));
+            $onePrivilege['privileges'] = join(
+                ',',
+                PMA_extractPrivInfo($privs, true)
+            );
 
             $paramDbName = $dbname;
             $paramRoutineName = $row['Routine_name'];
@@ -3745,8 +3756,10 @@ function PMA_getHtmlForInitials($array_initials)
         null,
         PMA\libraries\DatabaseInterface::QUERY_STORE
     );
-    while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
-        $array_initials[$tmp_initial] = true;
+    if ($initials) {
+        while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
+            $array_initials[$tmp_initial] = true;
+        }
     }
 
     // Display the initials, which can be any characters, not
@@ -3990,10 +4003,18 @@ function PMA_getDataForChangeOrCopyUser()
             if (Util::getServerType() == 'MySQL'
                 && PMA_MYSQL_INT_VERSION >= 50606
                 && PMA_MYSQL_INT_VERSION < 50706
-                && isset($password)
+                && ((isset($authentication_string)
+                && empty($password))
+                || (isset($plugin)
+                && $plugin == 'sha256_password'))
+            ) {
+                $password = $authentication_string;
+            }
+
+            if (Util::getServerType() == 'MariaDB'
+                && PMA_MYSQL_INT_VERSION >= 50500
+                && isset($authentication_string)
                 && empty($password)
-                && isset($plugin)
-                && $plugin == 'sha256_password'
             ) {
                 $password = $authentication_string;
             }
@@ -4849,7 +4870,11 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         && ! $user_does_not_exists
     ) {
         //change login information
-        $html_output .= PMA_getHtmlForChangePassword('edit_other', $username, $hostname);
+        $html_output .= PMA_getHtmlForChangePassword(
+            'edit_other',
+            $username,
+            $hostname
+        );
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);
     }
     $html_output .= '</div>';

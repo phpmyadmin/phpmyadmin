@@ -111,7 +111,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         function submitOptionsForm() {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_commonParams.set('table', data._params['table']);
+                    PMA_commonParams.set('table', data._params.table);
                     PMA_commonActions.refreshMain(false, function () {
                         $('#page_content').html(data.message);
                         PMA_highlightSQL($('#page_content'));

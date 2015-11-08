@@ -561,7 +561,7 @@ if ($import_file != 'none' && ! $error) {
         );
         $message->addParam($compression);
         PMA_stopImport($message);
-        break;
+        // the previous function exits
     }
     // use isset() because zip compression type does not use a handle
     if (! $error && isset($import_handle) && $import_handle === false) {

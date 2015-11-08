@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-10-23 19:08+0200\n"
-"Last-Translator: doocoo <doocoo@163.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_CN/>\n"
+"PO-Revision-Date: 2015-11-02 02:33+0200\n"
+"Last-Translator: San <zhujunsan@gmail.com>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -920,7 +920,7 @@ msgstr "您真的要清空所选择的分区吗？"
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "您真的要执行“%s”吗？"
+msgstr "您真的要执行“RESET SLAVE”吗？"
 
 #: js/messages.php:85
 msgid ""
@@ -944,7 +944,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "您确定您希望改变排序规则并进行数据转换吗？"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -960,10 +959,8 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"通过这一操作，MySQL将会尝试映射不同排序规则之间的数据值。若字符集不兼容，可能"
-"会出现数据损失，而且这些损失可能<b>无法</b>简单地通过转换回原有的列排序规则来"
-"进行恢复。<b>若要转换已经存在的数据，建议您使用表结构的页面上的列编辑功能"
-"（“修改”链接）。</b>"
+"通过这一操作，MySQL将会尝试映射不同排序规则之间的数据值。若字符集不兼容，可能会出现数据损失，而且这些损失可能<b>无法</b>简单地通过转换回原有的"
+"列排序规则来进行恢复。<b>若要转换已经存在的数据，建议您使用表结构的页面上的列编辑功能（“修改”链接）。</b>"
 
 #: js/messages.php:104
 msgid ""
@@ -4564,13 +4561,11 @@ msgid "Analyze Explain at %s"
 msgstr "分析解释了%s"
 
 #: libraries/Util.php:1252
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "无 PHP 代码"
 
 #: libraries/Util.php:1264
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "提交查询"
@@ -6915,7 +6910,7 @@ msgstr "不使用导出模板功能请留空，推荐: [kbd]pma__export_template
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns table"
-msgstr "文本框列"
+msgstr "中央框列"
 
 #: libraries/config/messages.inc.php:708
 #, fuzzy
@@ -6925,7 +6920,7 @@ msgstr "文本框列"
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
-msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__table_coords[/kbd]"
+msgstr "不使用 中央框列功能请留空，推荐: [kbd]pma__central_columns[/kbd]"
 
 #: libraries/config/messages.inc.php:711
 msgid "Try to connect without password."
@@ -7058,10 +7053,9 @@ msgid ""
 msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__table_coords[/kbd]。"
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "PDF 大纲: 数据表并发"
+msgstr "设计器与PDF 大纲: 数据表并发"
 
 #: libraries/config/messages.inc.php:768
 msgid ""
@@ -7207,7 +7201,7 @@ msgstr "服务器名称"
 #, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "设置是否给用户显示一个 \"显示所有 (记录)\" 的按钮"
+msgstr "设置是否给用户显示一个 \"显示所有 (记录)\" 的按钮."
 
 #: libraries/config/messages.inc.php:838
 msgid "Allow to display all the rows"
@@ -7275,10 +7269,9 @@ msgid "Show field types"
 msgstr "显示字段类型"
 
 #: libraries/config/messages.inc.php:868
-#, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
-msgstr "在编辑/插入模式中显示函数列"
+msgstr "在编辑/插入模式中显示函数列."
 
 #: libraries/config/messages.inc.php:870
 msgid "Show function fields"
@@ -7317,12 +7310,11 @@ msgid "Show SQL queries"
 msgstr "显示 SQL 查询"
 
 #: libraries/config/messages.inc.php:884
-#, fuzzy
 #| msgid ""
 #| "Defines whether the query box should stay on-screen after its submission"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
-msgstr "声明查询框是否在提交后依然显示在屏幕上"
+msgstr "查询框在提交后是否依然显示在屏幕上。"
 
 #: libraries/config/messages.inc.php:886 libraries/sql_query_form.lib.php:351
 msgid "Retain query box"
@@ -7337,12 +7329,11 @@ msgid "Show statistics"
 msgstr "显示统计"
 
 #: libraries/config/messages.inc.php:892
-#, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
-msgstr "将已锁定的数据表在数据库中显示为使用中"
+msgstr "将已锁定的数据表在数据库中显示为使用中."
 
 #: libraries/config/messages.inc.php:894
 msgid "Skip locked tables"
@@ -7368,7 +7359,6 @@ msgstr ""
 "警告。"
 
 #: libraries/config/messages.inc.php:910
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "登录cookie 有效期警告"
@@ -7497,9 +7487,8 @@ msgid "Proxy username"
 msgstr "代理用户名"
 
 #: libraries/config/messages.inc.php:973
-#, fuzzy
 msgid "The password for authenticating with the proxy."
-msgstr "代理密码。"
+msgstr "代理服务的密码."
 
 #: libraries/config/messages.inc.php:974
 msgid "Proxy password"
@@ -7735,7 +7724,6 @@ msgid "Internal relations were successfully updated."
 msgstr "成功更新内联关系。"
 
 #: libraries/controllers/table/TableSearchController.php:844
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "普通搜索"
@@ -7778,7 +7766,6 @@ msgid ""
 msgstr "phpMyAdmin不推荐使用mysql扩展。请考虑使用mysqli扩展代替。"
 
 #: libraries/db_designer.lib.php:119
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "无法加载schema插件，请检查您的安装！"
@@ -8017,7 +8004,6 @@ msgid "Select database"
 msgstr "选择数据库"
 
 #: libraries/display_export.lib.php:943
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select table"
 msgstr "选择表"
@@ -8109,7 +8095,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "此服务器禁止了文件上传。"
 
 #: libraries/display_import.lib.php:287
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "部分导入："
@@ -8527,7 +8512,7 @@ msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
 #: libraries/import.lib.php:267 libraries/sql.lib.php:1331
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[发生 ROLLBACK.]"
 
 #: libraries/import.lib.php:1253
 msgid ""
@@ -8544,10 +8529,9 @@ msgid ""
 msgstr "点击相应的“选项”链接修改设置。"
 
 #: libraries/import.lib.php:1261
-#, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "请通过点击 \"结构\" 链接来编辑结构"
+msgstr "请通过点击 \"结构\" 链接来编辑结构."
 
 #: libraries/import.lib.php:1268
 #, php-format
@@ -8670,12 +8654,11 @@ msgid "Edit next row"
 msgstr "编辑下一行"
 
 #: libraries/insert_edit.lib.php:1541
-#, fuzzy
 #| msgid ""
 #| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
-msgstr "按 TAB 键跳到下一个数值，或 CTRL+方向键 作随意移动"
+msgstr "按 TAB 键跳到下一个数值，或 CTRL+方向键 作随意移动."
 
 #: libraries/insert_edit.lib.php:1578 libraries/replication_gui.lib.php:546
 #: libraries/rte/rte_routines.lib.php:1585
@@ -8998,7 +8981,6 @@ msgstr "根据名称或正则表达式筛选数据库"
 
 #: libraries/navigation/NavigationTree.php:1371
 #: libraries/navigation/NavigationTree.php:1407
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "清除快速筛选数据"
@@ -9021,7 +9003,7 @@ msgstr "无效的类名 \"%1$s\"， 使用默认值 \"Node\""
 #, fuzzy, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "无法添加列！"
+msgstr "无法加载类 \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:803
 msgid "Expand/Collapse"
@@ -9212,8 +9194,9 @@ msgid "No redundant column"
 msgstr "无冗余字段"
 
 #: libraries/normalization.lib.php:275
+#, fuzzy
 msgid "Move repeating groups"
-msgstr ""
+msgstr "移动重复组"
 
 #: libraries/normalization.lib.php:278
 msgid ""
@@ -9243,7 +9226,7 @@ msgstr "第二步。"
 
 #: libraries/normalization.lib.php:321
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "查找部分依赖"
 
 #: libraries/normalization.lib.php:343
 #, php-format
@@ -9257,21 +9240,23 @@ msgid "Table is already in second normal form."
 msgstr ""
 
 #: libraries/normalization.lib.php:353
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
-msgstr ""
+msgstr "主键 ( %1$s ) 由多个字段组成,我们需要查找部分依赖."
 
 #: libraries/normalization.lib.php:357 libraries/normalization.lib.php:729
+#, fuzzy
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr ""
+msgstr "请仔细回答下列问题以得到正确的正常化."
 
 #: libraries/normalization.lib.php:361
+#, fuzzy
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ 根据表中数据向我展示可能的部分依赖"
 
 #: libraries/normalization.lib.php:365
 msgid ""
@@ -9283,14 +9268,14 @@ msgstr ""
 #: libraries/normalization.lib.php:375 libraries/normalization.lib.php:767
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' 依赖:"
 
 #: libraries/normalization.lib.php:386
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr ""
+msgstr "主键( %1$s )只包含一个字段,没有可能的部分依赖"
 
 #: libraries/normalization.lib.php:414
 #, php-format
@@ -15360,10 +15345,9 @@ msgstr "于表开头"
 
 #: templates/table/structure/display_partitions.phtml:5
 #: templates/table/structure/display_structure.phtml:199
-#, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
-msgstr "分区 %s"
+msgstr "分区"
 
 #: templates/table/structure/display_partitions.phtml:9
 #, fuzzy
@@ -16480,7 +16464,6 @@ msgid "Too many connections are aborted."
 msgstr "太多连接已中止。"
 
 #: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16491,9 +16474,8 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"连接通常因为无法被授权而中止。<a href=\"http://www.mysqlperformanceblog."
-"com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">这篇文章</"
-"a>对您追踪来源可能有所帮助。"
+"连接通常因为无法被授权而中止。<a href=\"http://www.percona.com/blog/2008/08/23/how-to-track-"
+"down-the-source-of-aborted_connects/\">这篇文章</a>对您追踪来源可能有所帮助。"
 
 #: libraries/advisory_rules.txt:397
 #, php-format
