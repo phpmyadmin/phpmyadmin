@@ -452,26 +452,30 @@ function PMA_saveTablePositions($pg)
 
     $res = PMA_queryAsControlUser($query, true, PMA\libraries\DatabaseInterface::QUERY_STORE);
 
-    if ($res) {
-        foreach ($_REQUEST['t_h'] as $key => $value) {
-            list($DB, $TAB) = explode(".", $key);
-            if ($value) {
-                $query = "INSERT INTO "
-                    . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-                    . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-                    . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
-                    . " VALUES ("
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($DB) . "', "
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($TAB) . "', "
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($pg) . "', "
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . "', "
-                    . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . "')";
+    if (!$res) {
+        return (boolean)$res;
+    }
 
-                $res = PMA_queryAsControlUser(
-                    $query,  true, PMA\libraries\DatabaseInterface::QUERY_STORE
-                );
-            }
+    foreach ($_REQUEST['t_h'] as $key => $value) {
+        list($DB, $TAB) = explode(".", $key);
+        if (!$value) {
+            continue;
         }
+
+        $query = "INSERT INTO "
+            . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+            . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+            . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
+            . " VALUES ("
+            . "'" . PMA\libraries\Util::sqlAddSlashes($DB) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($TAB) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($pg) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . "')";
+
+        $res = PMA_queryAsControlUser(
+            $query,  true, PMA\libraries\DatabaseInterface::QUERY_STORE
+        );
     }
 
     return (boolean) $res;
