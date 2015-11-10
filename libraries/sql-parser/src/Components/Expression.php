@@ -230,8 +230,9 @@ class Expression extends Component
                             break;
                         }
                     } elseif ($brackets < 0) {
-                        $parser->error(__('Unexpected closing bracket.'), $token);
-                        $brackets = 0;
+                        // $parser->error(__('Unexpected closing bracket.'), $token);
+                        // $brackets = 0;
+                        break;
                     }
                 } elseif ($token->value === ',') {
                     if ($brackets === 0) {
