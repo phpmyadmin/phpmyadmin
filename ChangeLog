@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue        Tracking does not make sense for information_schema
 - issue #11550 Regression in Find and replace
 + issue #11619 TokuDB Tables Show Size as "unknown"
++ issue #11654 Use a slider for Internal relations
 
 4.5.2.0 (not yet released)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()

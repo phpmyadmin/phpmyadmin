@@ -63,26 +63,13 @@
             </table>
         </fieldset>
     <?php endif; ?>
-    <?php if ($cfgRelation['displaywork']): ?>
-        <?php $save_row = array_values($columns);?>
-        <?php $disp = PMA_getDisplayField($db, $table); ?>
-        <fieldset>
-            <label><?php echo __('Choose column to display:'); ?></label>
-            <select name="display_field">
-                <option value="">---</option>
-                <?php foreach ($save_row as $row): ?>
-                    <option value="<?php echo htmlspecialchars($row['Field']); ?>"
-                        <?php if (isset($disp) && $row['Field'] == $disp): ?>
-                            selected="selected"
-                        <?php endif; ?>>
-                        <?php echo htmlspecialchars($row['Field']); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-        </fieldset>
-    <?php endif; ?>
 
     <?php if ($cfgRelation['relwork']): ?>
+        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+            <br/>
+            <?php echo PMA\libraries\Util::getDivForSliderEffect('ir_div', __('Internal relations')) ?>
+        <?php endif; ?>
+
         <?php $save_row = array_values($columns);
         $saved_row_cnt  = count($save_row);?>
         <fieldset>
@@ -111,6 +98,28 @@
                         $odd_row = ! $odd_row; ?>
                     <?php endfor; ?>
             </table>
+        </fieldset>
+        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if ($cfgRelation['displaywork']): ?>
+        <?php $save_row = array_values($columns);?>
+        <?php $disp = PMA_getDisplayField($db, $table); ?>
+        <fieldset>
+            <label><?php echo __('Choose column to display:'); ?></label>
+            <select name="display_field">
+                <option value="">---</option>
+                <?php foreach ($save_row as $row): ?>
+                    <option value="<?php echo htmlspecialchars($row['Field']); ?>"
+                        <?php if (isset($disp) && $row['Field'] == $disp): ?>
+                            selected="selected"
+                        <?php endif; ?>>
+                        <?php echo htmlspecialchars($row['Field']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </fieldset>
     <?php endif; ?>
 
