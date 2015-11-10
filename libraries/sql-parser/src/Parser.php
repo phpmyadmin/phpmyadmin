@@ -37,9 +37,11 @@ class Parser
         // MySQL Utility Statements
         'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
         'DESCRIBE'          => 'SqlParser\\Statements\\ExplainStatement',
+        'GRANT'             => '',
         'HELP'              => '',
-        'USE'               => '',
+        'SET PASSWORD'      => '',
         'STATUS'            => '',
+        'USE'               => '',
 
         // Table Maintenance Statements
         // https://dev.mysql.com/doc/refman/5.7/en/table-maintenance-sql.html
@@ -297,6 +299,13 @@ class Parser
     public $statements = array();
 
     /**
+     * The number of opened brackets.
+     *
+     * @var int
+     */
+    public $brackets = 0;
+
+    /**
      * Constructor.
      *
      * @param string|UtfString|TokensList $list   The list of tokens to be parsed.
@@ -377,6 +386,12 @@ class Parser
                 // Skipping to the end of this statement.
                 $list->getNextOfType(Token::TYPE_DELIMITER);
                 $prevLastIdx = $list->idx;
+                continue;
+            }
+
+            // Counting the brackets around statements.
+            if ($token->value === '(') {
+                ++$this->brackets;
                 continue;
             }
 

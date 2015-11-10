@@ -295,7 +295,14 @@ class Query
                 $flags['is_export'] = true;
             }
 
-            foreach ($statement->expr as $expr) {
+            $expressions = $statement->expr;
+            if (!empty($statement->join)) {
+                foreach ($statement->join as $join) {
+                    $expressions[] = $join->expr;
+                }
+            }
+
+            foreach ($expressions as $expr) {
                 if (!empty($expr->function)) {
                     if ($expr->function === 'COUNT') {
                         $flags['is_count'] = true;
@@ -539,15 +546,7 @@ class Query
          *
          * @var array $clauses
          */
-        $clauses = array_flip(array_keys($statement::$CLAUSES));
-
-        // This is a cheap fix for `SELECT` statements that contain `UNION`.
-        // Replacing the `ORDER BY` or `LIMIT` clauses should replace the last
-        // clause.
-        if (($statement instanceof SelectStatement) && (!empty($statement->union))) {
-            $clauses['ORDER BY'] = count($clauses) + 1;
-            $clauses['LIMIT'] = count($clauses) + 2;
-        }
+        $clauses = array_flip(array_keys($statement->getClauses()));
 
         /**
          * Lexer used for lexing the clause.

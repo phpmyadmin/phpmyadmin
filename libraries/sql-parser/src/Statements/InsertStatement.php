@@ -11,6 +11,7 @@ namespace SqlParser\Statements;
 use SqlParser\Statement;
 use SqlParser\Components\IntoKeyword;
 use SqlParser\Components\Array2d;
+use SqlParser\Components\ArrayObj;
 
 /**
  * `INSERT` statement.
@@ -76,7 +77,17 @@ class InsertStatement extends Statement
     /**
      * Values to be inserted.
      *
-     * @var Array2d
+     * @var ArrayObj[]
      */
     public $values;
+
+    /**
+     * @return string
+     */
+    public function build()
+    {
+        return 'INSERT ' . $this->options
+            . ' INTO ' . $this->into
+            . ' VALUES ' . ArrayObj::build($this->values);
+    }
 }
