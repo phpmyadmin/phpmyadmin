@@ -18,6 +18,14 @@
                         <?php echo __('Foreign key constraint'); ?> (<?php echo $tbl_storage_engine; ?>)
                     </th>
                 </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th><?php echo __('Database'); ?></th>
+                    <th><?php echo __('Table'); ?></th>
+                    <th><?php echo __('Column'); ?></th>
+                </tr>
                 <?php $odd_row = true; $i = 0; ?>
                 <?php if (! empty($existrel_foreign)): ?>
                     <?php foreach ($existrel_foreign as $key => $one_key): ?>
