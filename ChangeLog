@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - issue #11626 wrong row count for query results
 - issue #11608 Analyzer doesn't recognize GRANT statements
 - issue #11602 Parser warnings (subqueries)
+- issue #11658 Collation column is empty in table Structure
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()
