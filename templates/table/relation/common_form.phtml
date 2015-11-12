@@ -73,7 +73,7 @@
         <?php $save_row = array_values($columns);
         $saved_row_cnt  = count($save_row);?>
         <fieldset>
-            <legend><?php echo __('Internal relations'); ?></legend>
+            <legend><?php echo __('Internal relations') . PMA\libraries\Util::showDocu('config', 'cfg_Servers_relation'); ?></legend>
             <table id="internal_relations" class="relationalTable">
                 <tr>
                     <th><?php echo __('Column'); ?></th>
