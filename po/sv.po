@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-11-01 14:21+0200\n"
-"Last-Translator: Jerry Gullstrand <gullstrand.jerry@gmail.com>\n"
+"PO-Revision-Date: 2015-11-12 10:41+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Swedish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/sv/>\n"
 "Language: sv\n"
@@ -4023,7 +4023,7 @@ msgstr "Sökningen överstiger maximal längd, tillägg avstängda."
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr "%1$s (near <code>%2$s</code>)"
+msgstr "%1$s (nära <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
