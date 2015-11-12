@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-10-15 11:20+0200\n"
+"PO-Revision-Date: 2015-11-12 10:38+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5252,11 +5252,11 @@ msgid "Allow users to customize this value"
 msgstr "Anna käyttäjien mukauttaa tätä arvoa"
 
 #: libraries/config/PageSettings.php:141
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"Asetuksia ei voitu tallentaa, sillä lähetetyssä lomakkeessa on virheitä"
+"Asetuksia ei voitu tallentaa, sillä lähetetyssä konfiguraatiolomakkeessa on "
+"virheitä!"
 
 #: libraries/config/ServerConfigChecks.php:170
 msgid "You should use SSL connections if your database server supports it."
@@ -5303,7 +5303,7 @@ msgstr ""
 "sitä ei tarvitse muistaa."
 
 #: libraries/config/ServerConfigChecks.php:409
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ge=form&amp;formset=features#tab_Import_export]Bzip2 compression  "
 #| "ompression[/a] requires functions (%s) which are unavailable on s system."
@@ -5311,9 +5311,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2-pakkaukseen ja -"
-"purkuun[/a] tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
-"järjestelmässä."
+"%sBzip2-pakkaukseen ja -purkuun%s tarvitaan funktioita (%s), jotka eivät ole "
+"käytettävissä tässä järjestelmässä."
 
 #: libraries/config/ServerConfigChecks.php:419
 msgid ""
@@ -5330,7 +5329,7 @@ msgid "This %soption%s should be enabled if your web server supports it."
 msgstr "Tämä %svalinta%s tulisi olla valittuna, jos verkkopalvelin tukee sitä."
 
 #: libraries/config/ServerConfigChecks.php:433
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ge=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "ression[/a] requires functions (%s) which are unavailable on this tem."
@@ -5338,9 +5337,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip-pakkaukseen ja -"
-"purkuun[/a] tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
-"järjestelmässä."
+"%sGZip-pakkaukseen ja -purkuun%s tarvitaan funktioita (%s), jotka eivät ole "
+"käytettävissä tässä järjestelmässä."
 
 #: libraries/config/ServerConfigChecks.php:444
 #, php-format
@@ -5348,9 +5346,12 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
+"%sKirjautumisevästeen voimassaoloaika%s joka on suurempi kuin "
+"%ssession.gc_maxlifetime%s voi aiheuttaa satunnaisen session mitätöitymisen ("
+"tällä hetkellä session.gc_maxlifetime on %d)."
 
 #: libraries/config/ServerConfigChecks.php:460
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ge=form&formset=features#tab_Security]Login cookie validity[/a] uld be  "
 #| "to 1800 seconds (30 minutes) at most. Values larger than 0 may pose a "
@@ -5359,10 +5360,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Kirjautumisevästeen kelpoisuus[/"
-"a] tulisi asettaa enimmillään 1800 sekuntiin (30 minuuttia). Lukua 1800 "
-"suuremmat arvot saattavat johtaa tietoturvariskiin esimerkiksi toisena "
-"käyttäjänä esiintymisen muodossa."
+"%sKirjautumisevästeen kelpoisuus%s tulisi asettaa enimmillään 1800 sekuntiin "
+"(30 minuuttia). Lukua 1800 suuremmat arvot saattavat johtaa "
+"tietoturvariskiin esimerkiksi toisena käyttäjänä esiintymisen muodossa."
 
 #: libraries/config/ServerConfigChecks.php:471
 #, php-format
@@ -5370,9 +5370,12 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Mikäli käytät [kbd]cookie[/kbd] kirjautumista ja %skirjautumisevästeen "
+"muisti%s ei ole 0, %skirjautumisevästeen pätevyyden%s arvo tulee olla "
+"enintään sen verran."
 
 #: libraries/config/ServerConfigChecks.php:485
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " feel this is necessary, use additional protection settings - ?"
 #| "e=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host tication[/a] "
@@ -5385,16 +5388,14 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Jos näet tarpeelliseksi, käytä suojauksen lisäasetuksia eli [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]palvelimen "
-"todennusasetuksia[/a] ja [a@?page=form&amp;"
-"formset=features#tab_Security]luotettujen välipalvelimien luetteloa[/a]. IP-"
+"Jos näet tarpeelliseksi, käytä suojauksen lisäasetuksia eli %spalvelimen "
+"todennusasetuksia%s ja %sluotettujen välipalvelimien luetteloa%s. IP-"
 "osoitteeseen perustuva suojaus ei kuitenkaan ole täysin luotettava, mikäli "
 "IP-osoite kuuluu Internet-palveluntarjoajalle, johon sinun lisäksesi "
 "tuhannet käyttäjät ovat yhteydessä."
 
 #: libraries/config/ServerConfigChecks.php:500
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "t the [kbd]config[/kbd] authentication type and included username  sword "
 #| "for auto-login, which is not a desirable option for live ts. Anyoneo "
@@ -5411,12 +5412,11 @@ msgstr ""
 "Asetit [kbd]config[/kbd]-todennustyypin ja sisällytit käyttäjänimen ja "
 "salasanan automaattista kirjautumista varten. Tämä ei ole suotava vaihtoehto "
 "oikeille palvelimille. Joka tietää tai arvaa phpMyAdmin-osoitteesi pystyy "
-"suoraan käyttämään phpMyAdmin-paneeliasi.  [a@?page=servers&amp;"
-"mode=edit&amp;id=%1$d#tab_Server]Todennustyypiksi[/a] kannattaa asettaa "
-"[kbd]cookie[/kbd] tai [kbd]http[/kbd]."
+"suoraan käyttämään phpMyAdmin-paneeliasi.  %sTodennustyypiksi%s kannattaa "
+"asettaa [kbd]cookie[/kbd] tai [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.php:513
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ge=form&amp;formset=features#tab_Import_export]Zip compression[/a] uires "
 #| "ctions (%s) which are unavailable on this system."
@@ -5424,12 +5424,11 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip-pakkaukseen[/a] "
-"tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
-"järjestelmässä."
+"%sZip-pakkaukseen%s tarvitaan funktioita (%s), jotka eivät ole käytettävissä "
+"tässä järjestelmässä."
 
 #: libraries/config/ServerConfigChecks.php:524
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ge=form&amp;formset=features#tab_Import_export]Zip ompression[/requires "
 #| "functions (%s) which are unavailable on this system."
@@ -5437,9 +5436,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip-purkuun[/a] "
-"tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
-"järjestelmässä."
+"%sZip-purkuun%s tarvitaan funktioita (%s), jotka eivät ole käytettävissä "
+"tässä järjestelmässä."
 
 #: libraries/config/Validator.php:245 libraries/config/Validator.php:252
 msgid "Could not connect to the database server!"
@@ -5464,17 +5462,15 @@ msgstr ""
 "todennustapaa!"
 
 #: libraries/config/Validator.php:355
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Tyhjennä phpMyAdminin hallintakäyttäjä käytettäessä phpMyAdmin configuration "
-"storage-kantaa"
+"storage-kantaa!"
 
 #: libraries/config/Validator.php:362
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
 #| "configuration storage"
@@ -5483,7 +5479,7 @@ msgid ""
 "storage!"
 msgstr ""
 "Tyhjennä phpMyAdminin hallintakäyttäjän salasana käytettäessä phpMyAdmin "
-"configuration storage-kantaa"
+"configuration storage-kantaa!"
 
 #: libraries/config/Validator.php:448
 msgid "Incorrect value:"
@@ -5495,14 +5491,13 @@ msgid "Incorrect IP address: %s"
 msgstr "Virheellinen IP-osoite: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Jos käytössä, käyttäjä voi syöttää minkä tahansa MySQL-palvelimen "
-"kirjautumislomakkeeseen evästetodennusta varten"
+"kirjautumislomakkeeseen evästetodennusta varten."
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -5514,15 +5509,16 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Rajoittamalla MySQL-palvelimia käyttäjä voi antaa kirjautumisen "
+"mielivaltaiseen MySQL-palvelimeen sovittamalla IP-osoitteen tai isäntänimen "
+"MySQL-palvelimeen säännöllisellä lausekkeella."
 
 #: libraries/config/messages.inc.php:26
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "MySQL-palvelimelle ei voitu kirjautua"
+msgstr "Rajoittaa MySQL-palvelimelle kirjautumista"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -5534,7 +5530,7 @@ msgid ""
 msgstr ""
 "Tämän käyttöönottaminen antaa toisella palvelimella olevan sivun kutsua "
 "phpMyAdminia kehyksen sisältä. Tämä voi olla [strong]turva-aukko[/strong], "
-"joka mahdollistaa kehystenväliset komentosarjahyökkäykset"
+"joka mahdollistaa kehystenväliset komentosarjahyökkäykset."
 
 #: libraries/config/messages.inc.php:32
 msgid "Allow third party framing"
@@ -5545,14 +5541,13 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "Näytä tavallisille käyttäjille \"Tuhoa tietokanta\""
 
 #: libraries/config/messages.inc.php:36
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
-msgstr "Evästeiden salausavain [kbd]cookie[/kbd]-todennuksessa"
+msgstr "Evästeiden salausavain [kbd]cookie[/kbd]-todennuksessa."
 
 #: libraries/config/messages.inc.php:39
 msgid "Blowfish secret"
@@ -5575,7 +5570,6 @@ msgid "Highlight pointer"
 msgstr "Korosta osoitin"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -5583,15 +5577,14 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations."
 msgstr ""
-"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/"
-"Bzip2]bzip2[/a]-pakkausta"
+"Käytä tuontitoiminnoissa "
+"[a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a]-pakkausta."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:52
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
@@ -5603,7 +5596,7 @@ msgid ""
 msgstr ""
 "Määrittää minkä tyyppistä muokkaustoimintoa tulisi käyttää CHAR- ja VARCHAR-"
 "kentissä; [kbd]input[/kbd] - sallii syötön pituuden rajoittamisen, "
-"[kbd]textarea[/kbd] - sallii kentissä uudet rivit"
+"[kbd]textarea[/kbd] - sallii kentissä uudet rivit."
 
 #: libraries/config/messages.inc.php:56
 msgid "CHAR columns editing"
@@ -5626,12 +5619,13 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Etsii virheet hakulausekkeesta ennen hakulausekkeen suorittamista. Vaatii "
+"CodeMirror - toiminnon kytkemistä päälle."
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable %s"
 msgid "Enable linter"
-msgstr "Ota %s käyttöön"
+msgstr "Ota koodin tarkistus käyttöön"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5678,7 +5672,6 @@ msgid "Check config file permissions"
 msgstr "Tarkista asetustiedoston käyttöoikeudet"
 
 #: libraries/config/messages.inc.php:86
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -5687,9 +5680,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Pakkaa gzip- ja bzip2-viennit lennossa käyttämättä paljon muistia; jos "
-"kohtaat ongelmia luoduissa gzip- ja bzip2-tiedostoissa, poista tämä "
-"ominaisuus käytöstä"
+"Pakkaa gzip-viennit lennossa käyttämättä paljon muistia; jos kohtaat "
+"ongelmia luoduissa gzip-tiedostoissa, poista tämä ominaisuus käytöstä."
 
 #: libraries/config/messages.inc.php:89
 msgid "Compress on the fly"
@@ -5716,54 +5708,50 @@ msgstr "Vahvista DROP-kyselyt"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Kirjaa SQL-hakulausekkeet ja niiden suoritusajat lokiin, näytetään konsolissa"
 
 #: libraries/config/messages.inc.php:101
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "Tietokantaa syötettäessä näytettävä välilehti"
+msgstr "Tietokantaa syötettäessä näytettävä välilehti."
 
 #: libraries/config/messages.inc.php:102
 msgid "Default database tab"
 msgstr "Oletusarvoinen tietokantavälilehti"
 
 #: libraries/config/messages.inc.php:104
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Palvelinta syötettäessä näytettävä välilehti"
+msgstr "Palvelinta syötettäessä näytettävä välilehti."
 
 #: libraries/config/messages.inc.php:106
 msgid "Default server tab"
 msgstr "Oletusarvoinen palvelinvälilehti"
 
 #: libraries/config/messages.inc.php:107
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Taulua syötettäessä näytettävä välilehti"
+msgstr "Taulua syötettäessä näytettävä välilehti."
 
 #: libraries/config/messages.inc.php:108
 msgid "Default table tab"
 msgstr "Oletusarvoinen tauluvälilehti"
 
 #: libraries/config/messages.inc.php:110
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Laita taulujen ja sarakkeiden nimet lainausmerkkeihin"
+msgstr ""
+"Täydennä taulun ja sarakkeiden nimet automaattisesti SQL-hakukyselyissä."
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Laita taulujen ja sarakkeiden nimet lainausmerkkeihin"
+msgstr "Kytke taulujen ja sarakkeiden nimien automaattinen täydennys päälle"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Taulukon rakenteiden toiminnot pitäisi olla piilossa"
+msgstr "Mikäli taulun rakenteiden toiminnot pitäisi olla piilossa."
 
 #: libraries/config/messages.inc.php:117
 msgid "Hide table structure actions"
@@ -5802,10 +5790,10 @@ msgid "Maximum execution time"
 msgstr "Suorituksen enimmäiskesto"
 
 #: libraries/config/messages.inc.php:132 libraries/display_export.lib.php:801
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "Lisää %s lauseke"
+msgstr "Käytä %s lauseketta"
 
 #: libraries/config/messages.inc.php:134 prefs_manage.php:321
 msgid "Save as file"
@@ -5945,10 +5933,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Korvaa jo olemassa oleva(t) tiedosto(t)"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Vie taulun otsikot"
+msgstr "Vie erillisinä tiedostoina"
 
 #: libraries/config/messages.inc.php:185
 msgid "Remember file name template"
@@ -16343,7 +16330,6 @@ msgid "Reset zoom"
 msgstr "Palauta zoomaus"
 
 #: templates/table/secondary_tabs.phtml:14
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
 msgstr "Relaationäkymä"
