@@ -452,25 +452,31 @@ function PMA_checkRelationsParam()
     $cfgRelation                   = array();
     $cfgRelation['PMA_VERSION']    = PMA_VERSION;
 
-    $cfgRelation['relwork']        = false;
-    $cfgRelation['displaywork']    = false;
-    $cfgRelation['bookmarkwork']   = false;
-    $cfgRelation['pdfwork']        = false;
-    $cfgRelation['commwork']       = false;
-    $cfgRelation['mimework']       = false;
-    $cfgRelation['historywork']    = false;
-    $cfgRelation['recentwork']     = false;
-    $cfgRelation['favoritework']   = false;
-    $cfgRelation['uiprefswork']    = false;
-    $cfgRelation['trackingwork']   = false;
-    $cfgRelation['userconfigwork'] = false;
-    $cfgRelation['menuswork']      = false;
-    $cfgRelation['navwork']        = false;
+    $workToTable = array(
+        'relwork' => 'relation',
+        'displaywork' => array('relation', 'table_info'),
+        'bookmarkwork' => 'bookmarktable',
+        'pdfwork' => array('table_coords', 'pdf_pages'),
+        'commwork' => 'column_info',
+        'mimework' => 'column_info',
+        'historywork' => 'history',
+        'recentwork' => 'recent',
+        'favoritework' => 'favorite',
+        'uiprefswork' => 'table_uiprefs',
+        'trackingwork' => 'tracking',
+        'userconfigwork' => 'userconfig',
+        'menuswork' => array('users', 'usergroups'),
+        'navwork' => 'navigationhiding',
+        'savedsearcheswork' => 'savedsearches',
+        'centralcolumnswork' => 'central_columns',
+        'designersettingswork' => 'designer_settings',
+        'exporttemplateswork' => 'export_templates',
+    );
+
+    foreach ($workToTable as $work => $table) {
+        $cfgRelation[$work] = false;
+    }
     $cfgRelation['allworks']       = false;
-    $cfgRelation['savedsearcheswork'] = false;
-    $cfgRelation['centralcolumnswork'] = false;
-    $cfgRelation['designersettingswork'] = false;
-    $cfgRelation['exporttemplateswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
@@ -554,9 +560,10 @@ function PMA_checkRelationsParam()
 
     if (isset($cfgRelation['relation'])) {
         $cfgRelation['relwork']         = true;
-        if (isset($cfgRelation['table_info'])) {
-            $cfgRelation['displaywork'] = true;
-        }
+    }
+
+    if (isset($cfgRelation['relation']) && isset($cfgRelation['table_info'])) {
+        $cfgRelation['displaywork'] = true;
     }
 
     if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
@@ -622,19 +629,30 @@ function PMA_checkRelationsParam()
         $cfgRelation['exporttemplateswork']      = true;
     }
 
-    if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
-        && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
-        && $cfgRelation['mimework'] && $cfgRelation['historywork']
-        && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
-        && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
-        && $cfgRelation['bookmarkwork'] && $cfgRelation['centralcolumnswork']
-        && $cfgRelation['menuswork'] && $cfgRelation['navwork']
-        && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
-        && $cfgRelation['designersettingswork']
-        && $cfgRelation['exporttemplateswork']
-    ) {
-        $cfgRelation['allworks'] = true;
+    $allWorks = true;
+    foreach ($workToTable as $work => $table) {
+        if (! $cfgRelation[$work]) {
+            if (is_string($table)) {
+                if ($GLOBALS['cfg']['Server'][$table] !== null) {
+                    $allWorks = false;
+                    break;
+                }
+            } else if (is_array($table)) {
+                $oneNull = false;
+                foreach ($table as $t) {
+                    if ($GLOBALS['cfg']['Server'][$t] === null) {
+                        $oneNull = true;
+                        break;
+                    }
+                }
+                if (! $oneNull) {
+                    $allWorks = false;
+                    break;
+                }
+            }
+        }
     }
+    $cfgRelation['allworks'] = $allWorks;
 
     return $cfgRelation;
 } // end of the 'PMA_checkRelationsParam()' function
