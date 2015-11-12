@@ -512,6 +512,7 @@ Server connection settings
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * enter the table name in :config:option:`$cfg['Servers'][$i]['bookmarktable']`
 
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. _relation:
 .. config:option:: $cfg['Servers'][$i]['relation']
@@ -546,6 +547,8 @@ Server connection settings
       where you want to use this feature, click :guilabel:`Structure/Relation view/`
       and choose foreign columns.
 
+    This feature can be disabled by setting the configuration to ``false``.
+
     .. note::
 
         In the current version, ``master_db`` must be the same as ``foreign_db``.
@@ -570,6 +573,8 @@ Server connection settings
     * then for each table where you want to use this feature, click
       "Structure/Relation view/Choose column to display" to choose the
       column.
+
+    This feature can be disabled by setting the configuration to ``false``.
 
     .. seealso:: :ref:`faqdisplay`
 
@@ -597,6 +602,8 @@ Server connection settings
     * put the correct table names in
       :config:option:`$cfg['Servers'][$i]['table\_coords']` and
       :config:option:`$cfg['Servers'][$i]['pdf\_pages']`
+
+    This feature can be disabled by setting either of the configurations to ``false``.
 
     .. seealso:: :ref:`faqpdf`.
 
@@ -651,6 +658,8 @@ Server connection settings
     * to update your PRE-4.3.0 Column\_info table manually use this
       ``./sql/upgrade_column_info_4_3_0+.sql`` SQL script.
 
+    This feature can be disabled by setting the configuration to ``false``.
+
     .. note::
 
         For auto-upgrade functionality to work, your
@@ -684,6 +693,8 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['history']` (e.g.
       ``pma__history``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _recent:
 .. config:option:: $cfg['Servers'][$i]['recent']
 
@@ -707,6 +718,8 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['recent']` (e.g.
       ``pma__recent``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _table_uiprefs:
 .. config:option:: $cfg['Servers'][$i]['table_uiprefs']
 
@@ -724,6 +737,8 @@ Server connection settings
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['table\_uiprefs']` (e.g.
       ``pma__table_uiprefs``)
+
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. _configurablemenus:
 .. config:option:: $cfg['Servers'][$i]['users']
@@ -749,6 +764,8 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['users']` (e.g. ``pma__users``) and
       :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
 
+    This feature can be disabled by setting either of the configurations to ``false``.
+
 .. _navigationhiding:
 .. config:option:: $cfg['Servers'][$i]['navigationhiding']
 
@@ -762,6 +779,8 @@ Server connection settings
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['navigationhiding']` (e.g.
       ``pma__navigationhiding``)
+
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. _central_columns:
 .. config:option:: $cfg['Servers'][$i]['central_columns']
@@ -782,6 +801,8 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['central_columns']` (e.g.
       ``pma__central_columns``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _designer_settings:
 .. config:option:: $cfg['Servers'][$i]['designer_settings']
 
@@ -798,6 +819,8 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['designer_settings']` (e.g.
       ``pma__designer_settings``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _savedsearches:
 .. config:option:: $cfg['Servers'][$i]['savedsearches']
 
@@ -812,6 +835,8 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['savedsearches']` (e.g.
       ``pma__savedsearches``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _export_templates:
 .. config:option:: $cfg['Servers'][$i]['export_templates']
 
@@ -825,6 +850,8 @@ Server connection settings
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['export_templates']` (e.g.
       ``pma__export_templates``)
+
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
@@ -858,6 +885,7 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['tracking']` (e.g.
       ``pma__tracking``)
 
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. _tracking2:
 .. config:option:: $cfg['Servers'][$i]['tracking_version_auto_create']
@@ -930,6 +958,8 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['userconfig']`
+
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. config:option:: $cfg['Servers'][$i]['MaxTableUiprefs']
 
