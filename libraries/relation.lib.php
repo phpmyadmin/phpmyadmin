@@ -559,7 +559,7 @@ function PMA_checkRelationsParam()
     $GLOBALS['dbi']->freeResult($tab_rs);
 
     if (isset($cfgRelation['relation'])) {
-        $cfgRelation['relwork']         = true;
+        $cfgRelation['relwork']     = true;
     }
 
     if (isset($cfgRelation['relation']) && isset($cfgRelation['table_info'])) {
@@ -633,14 +633,18 @@ function PMA_checkRelationsParam()
     foreach ($workToTable as $work => $table) {
         if (! $cfgRelation[$work]) {
             if (is_string($table)) {
-                if ($GLOBALS['cfg']['Server'][$table] !== null) {
+                if (isset($GLOBALS['cfg']['Server'][$table])
+                    && $GLOBALS['cfg']['Server'][$table] !== false
+                ) {
                     $allWorks = false;
                     break;
                 }
             } else if (is_array($table)) {
                 $oneNull = false;
                 foreach ($table as $t) {
-                    if ($GLOBALS['cfg']['Server'][$t] === null) {
+                    if (isset($GLOBALS['cfg']['Server'][$t])
+                        && $GLOBALS['cfg']['Server'][$t] === false
+                    ) {
                         $oneNull = true;
                         break;
                     }
