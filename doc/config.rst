@@ -502,7 +502,7 @@ Server connection settings
 .. _bookmark:
 .. config:option:: $cfg['Servers'][$i]['bookmarktable']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.2.0 phpMyAdmin allows users to bookmark queries. This
@@ -516,7 +516,7 @@ Server connection settings
 .. _relation:
 .. config:option:: $cfg['Servers'][$i]['relation']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.2.4 you can describe, in a special 'relation' table,
@@ -555,7 +555,7 @@ Server connection settings
 .. _table_info:
 .. config:option:: $cfg['Servers'][$i]['table_info']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.3.0 you can describe, in a special 'table\_info'
@@ -576,12 +576,12 @@ Server connection settings
 .. _table_coords:
 .. config:option:: $cfg['Servers'][$i]['table_coords']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
 .. config:option:: $cfg['Servers'][$i]['pdf_pages']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.3.0 you can have phpMyAdmin create :term:`PDF` pages
@@ -603,7 +603,7 @@ Server connection settings
 .. _col_com:
 .. config:option:: $cfg['Servers'][$i]['column_info']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     This part requires a content update!  Since release 2.3.0 you can
@@ -662,7 +662,7 @@ Server connection settings
 .. _history:
 .. config:option:: $cfg['Servers'][$i]['history']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.5.0 you can store your :term:`SQL` history, which means all
@@ -687,7 +687,7 @@ Server connection settings
 .. _recent:
 .. config:option:: $cfg['Servers'][$i]['recent']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 3.5.0 you can show recently used tables in the
@@ -710,7 +710,7 @@ Server connection settings
 .. _table_uiprefs:
 .. config:option:: $cfg['Servers'][$i]['table_uiprefs']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 3.5.0 phpMyAdmin can be configured to remember several
@@ -728,12 +728,12 @@ Server connection settings
 .. _configurablemenus:
 .. config:option:: $cfg['Servers'][$i]['users']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
 .. config:option:: $cfg['Servers'][$i]['usergroups']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.1.0 you can create different user groups with menu items
@@ -752,7 +752,7 @@ Server connection settings
 .. _navigationhiding:
 .. config:option:: $cfg['Servers'][$i]['navigationhiding']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.1.0 you can hide/show items in the navigation tree.
@@ -766,7 +766,7 @@ Server connection settings
 .. _central_columns:
 .. config:option:: $cfg['Servers'][$i]['central_columns']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.3.0 you can have a central list of columns per database.
@@ -785,7 +785,7 @@ Server connection settings
 .. _designer_settings:
 .. config:option:: $cfg['Servers'][$i]['designer_settings']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.5.0 your designer settings can be remembered.
@@ -801,7 +801,7 @@ Server connection settings
 .. _savedsearches:
 .. config:option:: $cfg['Servers'][$i]['savedsearches']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.2.0 you can save and load query-by-example searches from the Database > Query panel.
@@ -815,7 +815,7 @@ Server connection settings
 .. _export_templates:
 .. config:option:: $cfg['Servers'][$i]['export_templates']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.5.0 you can save and load export templates.
@@ -829,7 +829,7 @@ Server connection settings
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 3.3.x a tracking mechanism is available. It helps you to
@@ -915,7 +915,7 @@ Server connection settings
 .. _userconfig:
 .. config:option:: $cfg['Servers'][$i]['userconfig']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 3.4.x phpMyAdmin allows users to set most preferences by
