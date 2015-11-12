@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 20:01-0400\n"
-"PO-Revision-Date: 2015-11-04 12:51+0200\n"
+"PO-Revision-Date: 2015-11-12 10:28+0000\n"
 "Last-Translator: Petr Kateřiňák <petr.katerinak@gmail.com>\n"
 "Language-Team: Czech "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
@@ -946,10 +946,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Opravdu si přejete ZKRÁTIT vybrané oddíly?"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Opravdu si přejete provést „%s“?"
+msgstr "Opravdu si přejete obnovit podřízené?"
 
 #: js/messages.php:85
 msgid ""
