@@ -1366,7 +1366,7 @@ class NavigationTree
                 $placeholder_key = 'placeholder';
             }
             $retval .= " $placeholder_key='"
-                . __('Filter databases by name or regex');
+                . __("Type to filter these, Enter to search all");
             $retval .= "' />";
             $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
             $retval .= "</form>";
@@ -1403,7 +1403,7 @@ class NavigationTree
                 $placeholder_key = 'placeholder';
             }
             $retval .= " $placeholder_key='"
-                . __('Filter by name or regex') . "' />";
+                . __("Type to filter these, Enter to search all") . "' />";
             $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";

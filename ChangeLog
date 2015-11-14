@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 + issue #11654 Use a slider for Internal relations
 + issue #11641 Ability to disable the navigationhiding Feature
 - issue #11647 Restrict configuration NavigationTreeDbSeparator to strings
+- issue #11667 Disable the tooltip in the navigation panel's filter box
 
 4.5.2.0 (not yet released)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
