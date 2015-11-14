@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-13 19:14-0500\n"
-"PO-Revision-Date: 2015-10-28 12:02+0200\n"
+"PO-Revision-Date: 2015-11-14 12:14+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1699,10 +1699,9 @@ msgid "Formatting SQL…"
 msgstr "Formatage SQL…"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Paramètres incorrects !"
+msgstr "Paramètres manquants !"
 
 #: js/messages.php:347 libraries/server_variables.lib.php:159
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -9428,7 +9427,7 @@ msgstr[1] "%s résultats trouvés"
 #: libraries/navigation/NavigationTree.php:1369
 #: libraries/navigation/NavigationTree.php:1406
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Tapez pour filtrer ceci, Entrée pour chercher partout"
 
 #: libraries/navigation/NavigationTree.php:1371
 #: libraries/navigation/NavigationTree.php:1407
@@ -15401,10 +15400,9 @@ msgid "Stacked"
 msgstr "En piles"
 
 #: templates/table/chart/tbl_chart.phtml:53
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Titre du graphique"
+msgstr "Titre du graphique :"
 
 #: templates/table/chart/tbl_chart.phtml:58
 msgid "X-Axis:"
