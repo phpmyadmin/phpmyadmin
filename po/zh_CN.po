@@ -6910,7 +6910,7 @@ msgstr "不使用导出模板功能请留空，推荐: [kbd]pma__export_template
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns table"
-msgstr "中央框列"
+msgstr "中央框列"
 
 #: libraries/config/messages.inc.php:708
 #, fuzzy
@@ -6920,7 +6920,7 @@ msgstr "中央框列"
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
-msgstr "不使用 中央框列功能请留空，推荐: [kbd]pma__central_columns[/kbd]"
+msgstr "不使用 中央框列功能请留空，推荐: [kbd]pma__central_columns[/kbd]"
 
 #: libraries/config/messages.inc.php:711
 msgid "Try to connect without password."
