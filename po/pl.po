@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-11-02 22:16+0200\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"PO-Revision-Date: 2015-11-14 12:43+0000\n"
+"Last-Translator: Michał VonFlynee <vonflynee@gmail.com>\n"
 "Language-Team: Polish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/pl/>\n"
 "Language: pl\n"
@@ -792,7 +792,6 @@ msgstr ""
 "skutkować niespodziewanymi rezultatami."
 
 #: index.php:501
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -804,10 +803,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametr PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ma mniejszą wartość "
-"niż czas przechowywania ciasteczka skonfigurowany w phpMyAdmin. Z tego "
-"powodu sesja wygaśnie wcześniej niż jest to skonfigurowane w phpMyAdmin."
+"Parametr PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] ma mniejszą wartość niż czas "
+"przechowywania ciasteczka skonfigurowany w phpMyAdmin. Z tego powodu sesja "
+"wygaśnie wcześniej niż jest to skonfigurowane w phpMyAdmin."
 
 #: index.php:520
 msgid ""
@@ -1031,7 +1031,6 @@ msgid "Reset"
 msgstr "Resetuj"
 
 #: js/messages.php:91
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Zresetuj wszystkie"
@@ -1245,25 +1244,21 @@ msgid "Used memory"
 msgstr "Pamięć użyta"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "Przestrzeń wymiany ogółem"
+msgstr "Całkowita przestrzeń wymiany"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Podręczna przestrzeń wymiany"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Użyta przestrzeń wymiany"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Wolna przestrzeń wymiany"
@@ -1374,11 +1369,11 @@ msgstr "Wstrzymaj monitor"
 
 #: js/messages.php:193 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Rozpocznij automatyczne odświeżanie"
 
 #: js/messages.php:194
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Zakończ automatyczne odświeżanie"
 
 #: js/messages.php:196
 msgid "general_log and slow_query_log are enabled."
@@ -1679,10 +1674,9 @@ msgid "No files available on server for import!"
 msgstr "Brak dostępnych plików na serwerze do importu!"
 
 #: js/messages.php:276
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Analiza zapytania"
+msgstr "Analizuj zapytanie"
 
 #: js/messages.php:280
 msgid "Advisor system"
@@ -1718,7 +1712,7 @@ msgstr "Testuj"
 
 #: js/messages.php:290
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "Formatowanie SQL…"
 
 #: js/messages.php:294 libraries/server_variables.lib.php:159
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1732,10 +1726,9 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 #: js/messages.php:297 libraries/Header.class.php:462
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Zmiana ustawień"
+msgstr "Ustawienia strony"
 
 #: js/messages.php:298 libraries/config/FormDisplay.tpl.php:421
 msgid "Apply"
@@ -1747,28 +1740,24 @@ msgid "Loading…"
 msgstr "Wczytywanie…"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Żądanie przerwane!"
 
 #: js/messages.php:303
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
-msgstr "Przetwarzanie wywołania"
+msgstr "Przetwarzanie żądania"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
-msgstr "Żądanie przerwane!"
+msgstr "Żądanie nieudane!"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Błąd na żądanie przetwarzania:"
+msgstr "Błąd podczas przetwarzania żądania"
 
 #: js/messages.php:306
 #, php-format
@@ -1786,16 +1775,14 @@ msgid "No databases selected."
 msgstr "Żadna baza danych nie został wybrana."
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Usuwanie kolumny"
 
 #: js/messages.php:310
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Dodaj klucz główny"
+msgstr "Dodawanie klucza głównego"
 
 #: js/messages.php:311
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1812,32 +1799,28 @@ msgid "Click to dismiss this notification"
 msgstr "Kliknij, aby zamknąć to powiadomienie"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Zmiana nazwy bazy danych"
+msgstr "Zmienianie nazw baz danych"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopiowanie bazy danych"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Zmiana kodowania"
 
 #: js/messages.php:321 libraries/Util.class.php:3232
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Wyłącz sprawdzanie kluczy zewnętrznych"
+msgstr "Włącz sprawdzanie kluczy obcych"
 
 #: js/messages.php:324
 msgid "Failed to get real row count."
-msgstr "Nie udało się pobrać prawdziwiej liczby wierszy."
+msgstr "Błąd podczas pobierania realnej liczby wierszy."
 
 #: js/messages.php:327
 msgid "Searching"
@@ -1845,7 +1828,7 @@ msgstr "Wyszukiwanie"
 
 #: js/messages.php:328
 msgid "Hide search results"
-msgstr "Ukryj okno wyników"
+msgstr "Ukryj wyniki wyszukiwania"
 
 #: js/messages.php:329
 msgid "Show search results"
@@ -1956,7 +1939,7 @@ msgstr "Przeglądaj zewnętrzne wartości"
 
 #: js/messages.php:354
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Brak automatycznie zapisanych zapytań"
 
 #: js/messages.php:355
 #, php-format
@@ -1981,6 +1964,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Brak kolumn w liście centralnej. Upewnij się, że lista kolumn centralnych "
+"dla bazy danych %s zawiera kolumny, które nie są wyświetlane w aktywnej "
+"tabeli.."
 
 #: js/messages.php:362
 msgid "See more"
@@ -1988,13 +1974,15 @@ msgstr "Zobacz więcej"
 
 #: js/messages.php:363
 msgid "Are you sure?"
-msgstr ""
+msgstr "Czy jesteś pewien?"
 
 #: js/messages.php:364
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"To działanie może zmienić część definicji kolumn.<br/>Czy jesteś pewien, że "
+"chcesz kontynuować?"
 
 #: js/messages.php:365
 msgid "Continue"
@@ -2015,7 +2003,7 @@ msgstr "Przenoszenie cię do następnego kroku…"
 #: js/messages.php:371
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Pierwszy etap dostosowywania dla tableli '%s' został ukończony."
 
 #: js/messages.php:372 libraries/normalization.lib.php:452
 #: libraries/normalization.lib.php:499 libraries/normalization.lib.php:584
@@ -2025,7 +2013,7 @@ msgstr "Koniec kroku"
 
 #: js/messages.php:373
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Drugi etap dostosowywania (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:374 js/messages.php:631 libraries/normalization.lib.php:288
@@ -2034,11 +2022,11 @@ msgstr "Zakończ"
 
 #: js/messages.php:375
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Potwierdź częściowe zależności"
 
 #: js/messages.php:376
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Wybrane częściowe zależności to:"
 
 #: js/messages.php:377
 msgid ""
