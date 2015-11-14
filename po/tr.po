@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-13 19:14-0500\n"
-"PO-Revision-Date: 2015-11-12 17:17+0000\n"
+"PO-Revision-Date: 2015-11-14 10:46+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1685,10 +1685,9 @@ msgid "Formatting SQL…"
 msgstr "SQL biçimlendiriliyor…"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Kötü parametreler!"
+msgstr "Hiç parametre bulunamadı!"
 
 #: js/messages.php:347 libraries/server_variables.lib.php:159
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -9350,7 +9349,7 @@ msgstr[1] "%s sonuç bulundu"
 #: libraries/navigation/NavigationTree.php:1369
 #: libraries/navigation/NavigationTree.php:1406
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Bunları süzmek için yazın, tümünü aramak için Enter'a basın"
 
 #: libraries/navigation/NavigationTree.php:1371
 #: libraries/navigation/NavigationTree.php:1407
@@ -15261,10 +15260,9 @@ msgid "Stacked"
 msgstr "İstiflendi"
 
 #: templates/table/chart/tbl_chart.phtml:53
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Çizelge başlığı"
+msgstr "Çizelge başlığı:"
 
 #: templates/table/chart/tbl_chart.phtml:58
 msgid "X-Axis:"
