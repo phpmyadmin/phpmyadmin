@@ -305,7 +305,6 @@ $(function () {
     $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.focus);
     $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.blur);
     $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.keyup);
-    $(document).on('mouseover', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.mouseover);
 
     /**
      * Ajax handler for pagination
@@ -1308,26 +1307,6 @@ var PMA_fastFilter = {
             if ($(this).val() == this.defaultValue && $obj.data('fastFilter')) {
                 $obj.data('fastFilter').restore();
             }
-        },
-        mouseover: function (event) {
-            var message = '';
-            if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
-                message = PMA_messages.strHoverDbFastFilter;
-            } else {
-                var node_type = $(this).siblings("input[name='pos2_name']").val();
-                var node_name = PMA_messages.strTables;
-                if (node_type == 'views') {
-                    node_name = PMA_messages.strViews;
-                } else if (node_type == 'procedures') {
-                    node_name = PMA_messages.strProcedures;
-                } else if (node_type == 'functions') {
-                    node_name = PMA_messages.strFunctions;
-                } else if (node_type == 'events') {
-                    node_name = PMA_messages.strEvents;
-                }
-                message = PMA_sprintf(PMA_messages.strHoverFastFilter, node_name);
-            }
-            PMA_tooltip($(this), 'input', message);
         },
         keyup: function (event) {
             var $obj = $(this).closest('div.list_container');

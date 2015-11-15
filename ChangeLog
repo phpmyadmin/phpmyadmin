@@ -11,6 +11,10 @@ phpMyAdmin - ChangeLog
 - issue        Tracking does not make sense for information_schema
 - issue #11550 Regression in Find and replace
 + issue #11619 TokuDB Tables Show Size as "unknown"
++ issue #11654 Use a slider for Internal relations
++ issue #11641 Ability to disable the navigationhiding Feature
+- issue #11647 Restrict configuration NavigationTreeDbSeparator to strings
+- issue #11667 Disable the tooltip in the navigation panel's filter box
 
 4.5.2.0 (not yet released)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
@@ -33,6 +37,14 @@ phpMyAdmin - ChangeLog
 - issue        Profiling checkbox is missing
 - issue #11642 Properly handle session expiry after POST requests
 - issue #11648 Notice in ./export.php#214 Undefined index: quick_or_custom
+- issue #11646 Unrecognized keywords
+- issue #11635 Sql not executed properly
+- issue #11631 Linter warnings when creating new user
+- issue #11626 wrong row count for query results
+- issue #11608 Analyzer doesn't recognize GRANT statements
+- issue #11602 Parser warnings (subqueries)
+- issue #11658 Collation column is empty in table Structure
+- issue #11661 Error changing table's column encoding
 
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()

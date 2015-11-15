@@ -26,9 +26,6 @@ Code status
     :alt: Buildtime Trend badge
     :target: https://buildtimetrend.herokuapp.com/dashboard/phpmyadmin/phpmyadmin
 
-.. image:: https://img.shields.io/sourceforge/dm/phpmyadmin.svg
-    :target: https://www.phpmyadmin.net/downloads/
-
 Download
 --------
 

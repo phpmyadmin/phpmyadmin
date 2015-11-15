@@ -122,7 +122,14 @@ abstract class Statement
          */
         $built = array();
 
-        foreach (static::$CLAUSES as $clause) {
+        /**
+         * Statement's clauses.
+         *
+         * @var array
+         */
+        $clauses = $this->getClauses();
+
+        foreach ($clauses as $clause) {
             /**
              * The name of the clause.
              *
@@ -222,6 +229,13 @@ abstract class Statement
             // End of statement.
             if ($token->type === Token::TYPE_DELIMITER) {
                 break;
+            }
+
+            // Checking if this closing bracket is the pair for a bracket
+            // outside the statement.
+            if (($token->value === ')') && ($parser->brackets > 0)) {
+                --$parser->brackets;
+                continue;
             }
 
             // Only keywords are relevant here. Other parts of the query are
@@ -361,6 +375,16 @@ abstract class Statement
     public function after(Parser $parser, TokensList $list, Token $token)
     {
 
+    }
+
+    /**
+     * Gets the clauses of this statement.
+     *
+     * @return array
+     */
+    public function getClauses()
+    {
+        return static::$CLAUSES;
     }
 
     /**
