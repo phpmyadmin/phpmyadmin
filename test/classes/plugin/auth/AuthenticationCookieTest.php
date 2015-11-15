@@ -16,7 +16,7 @@ require_once 'libraries/config.default.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/select_lang.lib.php';
+require_once 'libraries/select_lang.inc.php';
 require_once 'libraries/plugins/auth/AuthenticationCookie.php';
 
 /**

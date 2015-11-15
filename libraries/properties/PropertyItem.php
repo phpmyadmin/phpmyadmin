@@ -7,10 +7,6 @@
  */
 namespace PMA\libraries\properties;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Provides an interface for Property classes
  *

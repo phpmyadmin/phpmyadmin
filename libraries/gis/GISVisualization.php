@@ -11,10 +11,6 @@ namespace PMA\libraries\gis;
 use PMA\libraries\Util;
 use \TCPDF;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 require_once 'libraries/sql.lib.php';
 
 /**

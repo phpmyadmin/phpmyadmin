@@ -10,10 +10,6 @@ namespace PMA\libraries\gis;
 
 use PMA;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Factory class that handles the creation of geometric objects.
  *

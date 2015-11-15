@@ -9,7 +9,7 @@
  * Include to test.
  */
 
-require_once 'libraries/select_lang.lib.php';
+require_once 'libraries/select_lang.inc.php';
 
 /**
  * Class for testing correctness of locales.

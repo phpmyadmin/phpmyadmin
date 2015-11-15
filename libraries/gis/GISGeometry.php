@@ -10,10 +10,6 @@ namespace PMA\libraries\gis;
 
 use \TCPDF;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Base class for all GIS data type classes.
  *

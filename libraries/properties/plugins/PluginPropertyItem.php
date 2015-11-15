@@ -11,10 +11,6 @@ namespace PMA\libraries\properties\plugins;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\properties\PropertyItem;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Superclass for
  *  - PMA\libraries\properties\plugins\ExportPluginProperties,

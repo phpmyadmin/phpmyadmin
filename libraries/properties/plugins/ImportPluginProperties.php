@@ -7,12 +7,6 @@
  */
 namespace PMA\libraries\properties\plugins;
 
-use PMA\libraries\properties\plugins\PluginPropertyItem;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Defines possible options and getters and setters for them.
  *

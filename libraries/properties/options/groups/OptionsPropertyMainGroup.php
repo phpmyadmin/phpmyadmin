@@ -9,10 +9,6 @@ namespace PMA\libraries\properties\options\groups;
 
 use PMA\libraries\properties\options\OptionsPropertyGroup;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Group property item class of type main
  *

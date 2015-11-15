@@ -534,7 +534,7 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 /**
  * lang detection is done here
  */
-require './libraries/select_lang.lib.php';
+require './libraries/select_lang.inc.php';
 
 // Defines the cell alignment values depending on text direction
 if ($GLOBALS['text_dir'] == 'ltr') {
