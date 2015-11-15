@@ -314,11 +314,6 @@ class TableSearchController extends TableController
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 );
             }
-            // Defines the url to return to in case of error in the next sql
-            // statement
-            $err_url = $goto . PMA_URL_getCommon(
-                array('db' => $this->db, 'table' => $this->table)
-            );
 
             //Set default datalabel if not selected
             if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
@@ -521,7 +516,6 @@ class TableSearchController extends TableController
          * Add this to ensure following procedures included running correctly.
          */
         $db = $this->db;
-        $table = $this->table;
         /**
          * Parse and analyze the query
          */
@@ -561,7 +555,6 @@ class TableSearchController extends TableController
      */
     public function displaySelectionFormAction()
     {
-        //$err_url   = 'tbl_select.php' . $err_url;
         $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
         include_once 'libraries/tbl_info.inc.php';
@@ -570,10 +563,6 @@ class TableSearchController extends TableController
                 $GLOBALS['cfg']['DefaultTabTable'], 'table'
             );
         }
-        // Defines the url to return to in case of error in the next sql statement
-        $err_url = $goto . PMA_URL_getCommon(
-            array('db' => $this->db, 'table' => $this->table)
-        );
         // Displays the table search form
         $this->response->addHTML(
             Template::get('secondary_tabs')
