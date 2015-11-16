@@ -16,6 +16,8 @@ phpMyAdmin - ChangeLog
 - issue #11647 Restrict configuration NavigationTreeDbSeparator to strings
 - issue #11667 Disable the tooltip in the navigation panel's filter box
 
+4.5.3.0 (not yet released)
+
 4.5.2.0 (not yet released)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
 - issue #11592 Missing headers in zipped export
