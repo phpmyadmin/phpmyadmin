@@ -1517,8 +1517,6 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
 /**
  * Gets the currently active authentication plugins
  *
- * @param string $username         User name
- * @param string $hostname         Host name
  * @param string $orig_auth_plugin Default Authentication plugin
  * @param string $mode             are we creating a new user or are we just
  *                                 changing  one?
@@ -1528,8 +1526,6 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
  * @return string $html_output
  */
 function PMA_getHtmlForAuthPluginsDropdown(
-    $username,
-    $hostname,
     $orig_auth_plugin,
     $mode = 'new',
     $versions = 'new'
@@ -1884,13 +1880,13 @@ function PMA_getHtmlForLoginInformationFields(
         . '</label><span class="options">&nbsp;</span>' . "\n";
 
         $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
-            $username, $hostname, $orig_auth_plugin, $mode, 'new'
+            $orig_auth_plugin, $mode, 'new'
         );
     } else {
         $html_output .= __('Password Hashing Method')
             . '</label><span class="options">&nbsp;</span>' . "\n";
         $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
-            $username, $hostname, $orig_auth_plugin, $mode, 'old'
+            $orig_auth_plugin, $mode, 'old'
         );
     }
     $html_output .= $auth_plugin_dropdown;
