@@ -17,6 +17,8 @@ phpMyAdmin - ChangeLog
 - issue #11667 Disable the tooltip in the navigation panel's filter box
 
 4.5.3.0 (not yet released)
+- issue #11664 Online syntax verifier bug - "IF" on SELECT statement
+- issue #11665 Format breaks query with COUNT()
 
 4.5.2.0 (not yet released)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
