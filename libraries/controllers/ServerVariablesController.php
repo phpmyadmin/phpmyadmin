@@ -200,9 +200,11 @@ class ServerVariablesController extends Controller
             );
             $this->response->addJSON(
                 'variable',
-                $this->_formatVariable(
-                    $_REQUEST['varName'],
-                    $varValue[1]
+                htmlspecialchars(
+                    $this->_formatVariable(
+                        $_REQUEST['varName'],
+                        $varValue[1]
+                    )
                 )
             );
         } else {
@@ -236,7 +238,7 @@ class ServerVariablesController extends Controller
                 return Util::formatNumber($value, 0);
             }
         }
-        return htmlspecialchars($value);
+        return $value;
     }
 
     /**
@@ -261,9 +263,7 @@ class ServerVariablesController extends Controller
      */
     private function _getHtmlForServerVariables($serverVars, $serverVarsSession) {
         // filter
-        $filterValue = ! empty($_REQUEST['filter'])
-            ? htmlspecialchars($_REQUEST['filter'])
-            : '';
+        $filterValue = ! empty($_REQUEST['filter']) ? $_REQUEST['filter'] : '';
         $output = Template::get('server/variables/variable_filter')
             ->render(array('filterValue' => $filterValue));
 

@@ -3,6 +3,7 @@
     <div class="formelement">
         <label for="filterText"><?php echo __('Containing the word:'); ?></label>
         <input name="filterText" type="text" id="filterText"
-               style="vertical-align: baseline;" value="<?php echo $filterValue; ?>" />
+               style="vertical-align: baseline;"
+               value="<?php echo htmlspecialchars($filterValue); ?>" />
     </div>
 </fieldset>

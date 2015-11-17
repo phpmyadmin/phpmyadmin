@@ -21,5 +21,5 @@
         <?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?>
     <?php endif; ?>
     </td>
-    <td class="var-value value <?php echo ($isSuperuser ? ' editable' : '') ?>">&nbsp;<?php echo $value; ?></td>
+    <td class="var-value value <?php echo ($isSuperuser ? ' editable' : '') ?>">&nbsp;<?php echo htmlspecialchars($value); ?></td>
 </tr>
