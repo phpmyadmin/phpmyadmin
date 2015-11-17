@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-13 19:14-0500\n"
+"POT-Creation-Date: 2015-11-17 08:14-0500\n"
 "PO-Revision-Date: 2015-07-24 06:59+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -93,7 +93,7 @@ msgstr "තීර"
 #: libraries/rte/rte_routines.lib.php:892
 #: libraries/rte/rte_routines.lib.php:921
 #: libraries/rte/rte_routines.lib.php:1581
-#: libraries/server_privileges.lib.php:2608 libraries/tracking.lib.php:893
+#: libraries/server_privileges.lib.php:2602 libraries/tracking.lib.php:893
 #: libraries/tracking.lib.php:987
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -184,11 +184,11 @@ msgstr "ප්‍රාථමික"
 #: libraries/plugins/export/ExportOdt.php:787
 #: libraries/plugins/export/ExportTexytext.php:606
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:708
-#: libraries/server_privileges.lib.php:2785
-#: libraries/server_privileges.lib.php:2973
-#: libraries/server_privileges.lib.php:2993
-#: libraries/server_privileges.lib.php:3631
-#: libraries/server_privileges.lib.php:3654 libraries/tracking.lib.php:946
+#: libraries/server_privileges.lib.php:2779
+#: libraries/server_privileges.lib.php:2967
+#: libraries/server_privileges.lib.php:2987
+#: libraries/server_privileges.lib.php:3624
+#: libraries/server_privileges.lib.php:3647 libraries/tracking.lib.php:946
 #: libraries/tracking.lib.php:1025 libraries/tracking.lib.php:1030
 #: prefs_manage.php:143 templates/prefs_autoload.phtml:15
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -218,11 +218,11 @@ msgstr "නැත"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:709
 #: libraries/server_databases.lib.php:476
 #: libraries/server_databases.lib.php:486
-#: libraries/server_privileges.lib.php:2785
-#: libraries/server_privileges.lib.php:2970
-#: libraries/server_privileges.lib.php:2991
-#: libraries/server_privileges.lib.php:3628
-#: libraries/server_privileges.lib.php:3654 libraries/tracking.lib.php:946
+#: libraries/server_privileges.lib.php:2779
+#: libraries/server_privileges.lib.php:2964
+#: libraries/server_privileges.lib.php:2985
+#: libraries/server_privileges.lib.php:3621
+#: libraries/server_privileges.lib.php:3647 libraries/tracking.lib.php:946
 #: libraries/tracking.lib.php:1023 libraries/tracking.lib.php:1028
 #: prefs_manage.php:141 templates/prefs_autoload.phtml:14
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -485,9 +485,9 @@ msgstr "ජ්‍යාමිතියක් එක් කරන්න"
 #: libraries/rte/rte_routines.lib.php:1669
 #: libraries/rte/rte_triggers.lib.php:398 libraries/server_bin_log.lib.php:64
 #: libraries/server_privileges.lib.php:710
-#: libraries/server_privileges.lib.php:2345
-#: libraries/server_privileges.lib.php:3116
-#: libraries/server_privileges.lib.php:3735
+#: libraries/server_privileges.lib.php:2339
+#: libraries/server_privileges.lib.php:3110
+#: libraries/server_privileges.lib.php:3728
 #: libraries/server_user_groups.lib.php:290
 #: libraries/sql_query_form.lib.php:370 libraries/sql_query_form.lib.php:430
 #: libraries/tracking.lib.php:546 libraries/tracking.lib.php:666
@@ -1156,12 +1156,12 @@ msgstr "දාරක නම හිස්ව පවතී!"
 msgid "The user name is empty!"
 msgstr "භාවිත නාමය හිස්ව පවතී!"
 
-#: js/messages.php:143 libraries/server_privileges.lib.php:2047
+#: js/messages.php:143 libraries/server_privileges.lib.php:2042
 #: user_password.php:116
 msgid "The password is empty!"
 msgstr "මුරපදය හිස්ව පවතී!"
 
-#: js/messages.php:144 libraries/server_privileges.lib.php:2045
+#: js/messages.php:144 libraries/server_privileges.lib.php:2040
 #: user_password.php:120
 msgid "The passwords aren't the same!"
 msgstr "මුරපද නොගැලපේ!"
@@ -1389,7 +1389,7 @@ msgstr "කරුණාකර ශ්‍රේණියට අවම වශයෙ
 
 #: js/messages.php:216 libraries/DisplayResults.php:1484
 #: libraries/config.values.php:69 libraries/display_export.lib.php:696
-#: libraries/plugins/export/ExportSql.php:2133
+#: libraries/plugins/export/ExportSql.php:2145
 #: libraries/plugins/schema/SchemaPdf.php:101
 #: libraries/server_status_monitor.lib.php:237
 #: libraries/server_status_processes.lib.php:285
@@ -1899,10 +1899,10 @@ msgstr "සුරැකි ශ්‍රිතයක නිර්වචනයෙ�
 #: libraries/Util.php:3711 libraries/Util.php:4329 libraries/Util.php:4344
 #: libraries/Util.php:4361 libraries/config/messages.inc.php:254
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:149
-#: libraries/server_privileges.lib.php:2450
-#: libraries/server_privileges.lib.php:2529
-#: libraries/server_privileges.lib.php:2875
-#: libraries/server_privileges.lib.php:3543
+#: libraries/server_privileges.lib.php:2444
+#: libraries/server_privileges.lib.php:2523
+#: libraries/server_privileges.lib.php:2869
+#: libraries/server_privileges.lib.php:3536
 #: libraries/server_status_monitor.lib.php:322 prefs_manage.php:306
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:11
@@ -1975,8 +1975,8 @@ msgid "%d is not valid row number."
 msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 
 #: js/messages.php:409
-#: libraries/controllers/table/TableSearchController.php:432
-#: libraries/controllers/table/TableSearchController.php:917
+#: libraries/controllers/table/TableSearchController.php:427
+#: libraries/controllers/table/TableSearchController.php:906
 #: libraries/sql.lib.php:197 tbl_change.php:159
 msgid "Browse foreign values"
 msgstr "අන්‍ය අගයන් පිරික්සන්න"
@@ -2449,7 +2449,7 @@ msgstr "තීර පෙන්වීමට/සැඟවීමට<br />ඊතල�
 #: js/messages.php:573 libraries/DisplayResults.php:1026
 #: libraries/browse_foreigners.lib.php:290
 #: libraries/browse_foreigners.lib.php:343
-#: libraries/server_privileges.lib.php:3802
+#: libraries/server_privileges.lib.php:3795
 msgid "Show all"
 msgstr "සියල්ල පෙන්වන්න"
 
@@ -3153,10 +3153,10 @@ msgstr "උප විමසුම"
 #: libraries/plugins/export/ExportTexytext.php:131
 #: libraries/server_databases.lib.php:305
 #: libraries/server_privileges.lib.php:1269
-#: libraries/server_privileges.lib.php:3134
-#: libraries/server_privileges.lib.php:3305
-#: libraries/server_privileges.lib.php:3307
-#: libraries/server_privileges.lib.php:4563
+#: libraries/server_privileges.lib.php:3128
+#: libraries/server_privileges.lib.php:3299
+#: libraries/server_privileges.lib.php:3301
+#: libraries/server_privileges.lib.php:4556
 #: libraries/server_status_processes.lib.php:84
 #: templates/table/relation/common_form.phtml:25
 #: templates/table/relation/foreign_key_row.phtml:147
@@ -3784,7 +3784,7 @@ msgstr "සමහර විට ආසන්න වශයෙන්. [doc@faq3-11]
 
 #: libraries/DisplayResults.php:4333 libraries/Message.php:181
 #: libraries/controllers/table/TableRelationController.php:253
-#: libraries/controllers/table/TableSearchController.php:656
+#: libraries/controllers/table/TableSearchController.php:645
 #: libraries/rte/rte_routines.lib.php:1420 libraries/sql_query_form.lib.php:89
 #: tbl_operations.php:224 tbl_row_action.php:140 view_operations.php:63
 msgid "Your SQL query has been executed successfully."
@@ -3966,8 +3966,8 @@ msgstr "සූචියන්"
 #: libraries/Index.php:691 libraries/central_columns.lib.php:688
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_list.lib.php:92
 #: libraries/rte/rte_list.lib.php:105 libraries/server_databases.lib.php:410
-#: libraries/server_privileges.lib.php:2611
-#: libraries/server_privileges.lib.php:3529
+#: libraries/server_privileges.lib.php:2605
+#: libraries/server_privileges.lib.php:3522
 #: libraries/server_user_groups.lib.php:83
 #: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:285
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1490
@@ -4078,10 +4078,10 @@ msgstr "දසුන"
 #: libraries/plugins/export/ExportXml.php:501
 #: libraries/rte/rte_list.lib.php:90 libraries/rte/rte_triggers.lib.php:333
 #: libraries/server_privileges.lib.php:1272
-#: libraries/server_privileges.lib.php:3152
-#: libraries/server_privileges.lib.php:3311
-#: libraries/server_privileges.lib.php:3313
-#: libraries/server_privileges.lib.php:4577 libraries/tracking.lib.php:1489
+#: libraries/server_privileges.lib.php:3146
+#: libraries/server_privileges.lib.php:3305
+#: libraries/server_privileges.lib.php:3307
+#: libraries/server_privileges.lib.php:4570 libraries/tracking.lib.php:1489
 #: libraries/tracking.lib.php:1635
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/common_form.phtml:26
@@ -4120,8 +4120,8 @@ msgstr "ඇතුල් කරන්න"
 
 #: libraries/Menu.php:365 libraries/Menu.php:469 libraries/Util.php:4347
 #: libraries/Util.php:4363 libraries/config.values.php:107
-#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2609
-#: libraries/server_privileges.lib.php:4452
+#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2603
+#: libraries/server_privileges.lib.php:4445
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "වරප්‍රසාද"
@@ -4144,7 +4144,7 @@ msgstr "අවධානය"
 #: libraries/plugins/export/ExportHtmlword.php:576
 #: libraries/plugins/export/ExportOdt.php:708
 #: libraries/plugins/export/ExportPdf.php:285
-#: libraries/plugins/export/ExportSql.php:1989
+#: libraries/plugins/export/ExportSql.php:2001
 #: libraries/plugins/export/ExportTexytext.php:531
 #: libraries/plugins/export/ExportXml.php:120
 #: libraries/rte/rte_words.lib.php:50
@@ -4185,7 +4185,7 @@ msgstr "මධ්‍යම තීර"
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.php:1273
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4563
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4556
 msgid "Databases"
 msgstr "දත්තගබඩා"
 
@@ -8396,19 +8396,19 @@ msgstr ""
 msgid "Internal relations were successfully updated."
 msgstr "අභ්‍යන්තර සබඳතා එක් කරන ලදි"
 
-#: libraries/controllers/table/TableSearchController.php:841
+#: libraries/controllers/table/TableSearchController.php:830
 #, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "වගුව තුල සෙවීම"
 
-#: libraries/controllers/table/TableSearchController.php:848
+#: libraries/controllers/table/TableSearchController.php:837
 #, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Zoom සෙවීම"
 
-#: libraries/controllers/table/TableSearchController.php:853
+#: libraries/controllers/table/TableSearchController.php:842
 #: templates/table/search/selection_form.phtml:59
 #, fuzzy
 #| msgid "Hide search criteria"
@@ -8511,20 +8511,20 @@ msgstr "ආනයනය පේනු පූරණය අසමත් විය. 
 
 #: libraries/display_change_password.lib.php:64
 #: libraries/replication_gui.lib.php:879
-#: libraries/server_privileges.lib.php:1839
+#: libraries/server_privileges.lib.php:1835
 msgid "No Password"
 msgstr "මුරපදයක් නැත"
 
 #: libraries/display_change_password.lib.php:72
 #: libraries/plugins/auth/AuthenticationCookie.php:203
 #: libraries/replication_gui.lib.php:426 libraries/replication_gui.lib.php:866
-#: libraries/server_privileges.lib.php:1815
+#: libraries/server_privileges.lib.php:1811
 msgid "Password:"
 msgstr "මුරපදය:"
 
 #: libraries/display_change_password.lib.php:78
 #: libraries/replication_gui.lib.php:890
-#: libraries/server_privileges.lib.php:1857
+#: libraries/server_privileges.lib.php:1853
 msgid "Re-type:"
 msgstr "නැවත ටයිප් කරන්න:"
 
@@ -8534,7 +8534,7 @@ msgid "Password Hashing:"
 msgstr "මුරපදය hash කිරීම:"
 
 #: libraries/display_change_password.lib.php:122
-#: libraries/server_privileges.lib.php:1903
+#: libraries/server_privileges.lib.php:1898
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -10596,7 +10596,7 @@ msgstr "දත්ත නික්ෂේපන විකල්ප"
 
 #: libraries/plugins/export/ExportHtmlword.php:205
 #: libraries/plugins/export/ExportOdt.php:265
-#: libraries/plugins/export/ExportSql.php:2293
+#: libraries/plugins/export/ExportSql.php:2305
 #: libraries/plugins/export/ExportTexytext.php:188
 msgid "Dumping data for table"
 msgstr "වගු සඳහා නික්ෂේප දත්ත"
@@ -10620,21 +10620,21 @@ msgstr "අර්ථ දැක්වීම"
 
 #: libraries/plugins/export/ExportHtmlword.php:558
 #: libraries/plugins/export/ExportOdt.php:685
-#: libraries/plugins/export/ExportSql.php:1958
+#: libraries/plugins/export/ExportSql.php:1970
 #: libraries/plugins/export/ExportTexytext.php:511
 msgid "Table structure for table"
 msgstr "වගුවක් සඳහා වගු සැකිල්ල"
 
 #: libraries/plugins/export/ExportHtmlword.php:583
 #: libraries/plugins/export/ExportOdt.php:718
-#: libraries/plugins/export/ExportSql.php:2028
+#: libraries/plugins/export/ExportSql.php:2040
 #: libraries/plugins/export/ExportTexytext.php:536
 msgid "Structure for view"
 msgstr "දසුන සඳහා සැකිල්ල"
 
 #: libraries/plugins/export/ExportHtmlword.php:597
 #: libraries/plugins/export/ExportOdt.php:739
-#: libraries/plugins/export/ExportSql.php:2073
+#: libraries/plugins/export/ExportSql.php:2085
 #: libraries/plugins/export/ExportTexytext.php:552
 msgid "Stand-in structure for view"
 msgstr "දසුන සැදීම සඳහා තාවකාලික සැකිල්ල"
@@ -10724,7 +10724,7 @@ msgid "Database:"
 msgstr "දත්තගබඩාව:"
 
 #: libraries/plugins/export/ExportLatex.php:313
-#: libraries/plugins/export/ExportSql.php:2133
+#: libraries/plugins/export/ExportSql.php:2145
 msgid "Data:"
 msgstr "දත්ත:"
 
@@ -10830,7 +10830,7 @@ msgid "Data creation options"
 msgstr "දත්ත සෑදීමේ විකල්ප"
 
 #: libraries/plugins/export/ExportSql.php:344
-#: libraries/plugins/export/ExportSql.php:2239
+#: libraries/plugins/export/ExportSql.php:2251
 msgid "Truncate table before insert"
 msgstr "ඇතුල් කිරීම් වලට පෙර වගුව හිස් කරන්න"
 
@@ -10916,8 +10916,8 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:522
 #: libraries/plugins/export/ExportSql.php:561
-#: libraries/plugins/export/ExportSql.php:1515
-#: libraries/plugins/export/ExportSql.php:2018
+#: libraries/plugins/export/ExportSql.php:1527
+#: libraries/plugins/export/ExportSql.php:2030
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
@@ -10931,87 +10931,93 @@ msgstr ""
 msgid "Metadata"
 msgstr "%s සඳහා දත්ත නොමැත"
 
-#: libraries/plugins/export/ExportSql.php:1061
+#: libraries/plugins/export/ExportSql.php:1063
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
-msgid "Metadata for %s"
+msgid "Metadata for table %s"
 msgstr "%s සඳහා දත්ත නොමැත"
 
-#: libraries/plugins/export/ExportSql.php:1390
+#: libraries/plugins/export/ExportSql.php:1070
+#, fuzzy, php-format
+#| msgid "Missing data for %s"
+msgid "Metadata for database %s"
+msgstr "%s සඳහා දත්ත නොමැත"
+
+#: libraries/plugins/export/ExportSql.php:1402
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:606
 msgid "Creation:"
 msgstr "සෑදීම:"
 
-#: libraries/plugins/export/ExportSql.php:1403
+#: libraries/plugins/export/ExportSql.php:1415
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:613
 msgid "Last update:"
 msgstr "අවසන් යාවත්කාලීන කිරීම:"
 
-#: libraries/plugins/export/ExportSql.php:1416
+#: libraries/plugins/export/ExportSql.php:1428
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:620
 msgid "Last check:"
 msgstr "අවසන් පරීක්ෂාව:"
 
-#: libraries/plugins/export/ExportSql.php:1463
+#: libraries/plugins/export/ExportSql.php:1475
 #: templates/database/structure/structure_table_row.phtml:183
 msgid "in use"
 msgstr "භාවිතා වෙමින් පවතී"
 
-#: libraries/plugins/export/ExportSql.php:1512
+#: libraries/plugins/export/ExportSql.php:1524
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:1674
+#: libraries/plugins/export/ExportSql.php:1686
 msgid "Constraints for dumped tables"
 msgstr "නික්ෂේපනය කරන ලද වගු සඳහා සීමා බාධක"
 
-#: libraries/plugins/export/ExportSql.php:1675
+#: libraries/plugins/export/ExportSql.php:1687
 msgid "Constraints for table"
 msgstr "වගුව සඳහා සීමා බාධක"
 
-#: libraries/plugins/export/ExportSql.php:1705
+#: libraries/plugins/export/ExportSql.php:1717
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "නික්ෂේපනය කරන ලද වගු සඳහා සීමා බාධක"
 
-#: libraries/plugins/export/ExportSql.php:1706
+#: libraries/plugins/export/ExportSql.php:1718
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "වගු තුල:"
 
-#: libraries/plugins/export/ExportSql.php:1734
+#: libraries/plugins/export/ExportSql.php:1746
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "ශුන්‍ය අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
 
-#: libraries/plugins/export/ExportSql.php:1735
+#: libraries/plugins/export/ExportSql.php:1747
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT අගයක් එක් කරන්න"
 
-#: libraries/plugins/export/ExportSql.php:1810
+#: libraries/plugins/export/ExportSql.php:1822
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/plugins/export/ExportSql.php:1834
+#: libraries/plugins/export/ExportSql.php:1846
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/plugins/export/ExportSql.php:2015
+#: libraries/plugins/export/ExportSql.php:2027
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.php:2052
+#: libraries/plugins/export/ExportSql.php:2064
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "දසුන සඳහා සැකිල්ල"
 
-#: libraries/plugins/export/ExportSql.php:2154
+#: libraries/plugins/export/ExportSql.php:2166
 msgid "Error reading data:"
 msgstr "දත්ත කියවීමේදී දෝෂයකි:"
 
@@ -11855,24 +11861,24 @@ msgstr ""
 "නම් පහත පේළිය [mysqld] කොටසට ඇතුලත් කරන්න:"
 
 #: libraries/replication_gui.lib.php:414 libraries/replication_gui.lib.php:800
-#: libraries/server_privileges.lib.php:1623
+#: libraries/server_privileges.lib.php:1619
 msgid "User name:"
 msgstr "භාවිත නාමය:"
 
 #: libraries/replication_gui.lib.php:420 libraries/replication_gui.lib.php:804
 #: libraries/replication_gui.lib.php:820
-#: libraries/server_privileges.lib.php:1628
-#: libraries/server_privileges.lib.php:1660
-#: libraries/server_privileges.lib.php:2606
-#: libraries/server_privileges.lib.php:3516
+#: libraries/server_privileges.lib.php:1624
+#: libraries/server_privileges.lib.php:1656
+#: libraries/server_privileges.lib.php:2600
+#: libraries/server_privileges.lib.php:3509
 msgid "User name"
 msgstr "භාවිත නාමය"
 
 #: libraries/replication_gui.lib.php:431 libraries/replication_gui.lib.php:870
 #: libraries/replication_gui.lib.php:886
-#: libraries/server_privileges.lib.php:1819
-#: libraries/server_privileges.lib.php:1847
-#: libraries/server_privileges.lib.php:3518
+#: libraries/server_privileges.lib.php:1815
+#: libraries/server_privileges.lib.php:1843
+#: libraries/server_privileges.lib.php:3511
 msgid "Password"
 msgstr "මුරපදය"
 
@@ -11912,38 +11918,38 @@ msgstr ""
 "--report-host=host_name විකල්පය සමඟ ඇරඹි අනුගාමි සේවාදායක පමණක් මෙම ලැයිස්තුවේ පෙන්වයි."
 
 #: libraries/replication_gui.lib.php:757
-#: libraries/server_privileges.lib.php:1752
+#: libraries/server_privileges.lib.php:1748
 msgid "Any host"
 msgstr "ඕනෑම දායකයෙක්"
 
 #: libraries/replication_gui.lib.php:762
-#: libraries/server_privileges.lib.php:1760
+#: libraries/server_privileges.lib.php:1756
 msgid "Local"
 msgstr "ස්වදේශී"
 
 #: libraries/replication_gui.lib.php:769
-#: libraries/server_privileges.lib.php:1769
+#: libraries/server_privileges.lib.php:1765
 msgid "This Host"
 msgstr "මෙම දායකයා"
 
 #: libraries/replication_gui.lib.php:811
-#: libraries/server_privileges.lib.php:1644
+#: libraries/server_privileges.lib.php:1640
 msgid "Any user"
 msgstr "ඕනෑම භාවිතා කරන්නෙක්"
 
 #: libraries/replication_gui.lib.php:816 libraries/replication_gui.lib.php:849
 #: libraries/replication_gui.lib.php:882
-#: libraries/server_privileges.lib.php:1788
+#: libraries/server_privileges.lib.php:1784
 msgid "Use text field:"
 msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න:"
 
 #: libraries/replication_gui.lib.php:843
-#: libraries/server_privileges.lib.php:1779
+#: libraries/server_privileges.lib.php:1775
 msgid "Use Host Table"
 msgstr "දායක වගුව භාවිතා කරන්න"
 
 #: libraries/replication_gui.lib.php:859
-#: libraries/server_privileges.lib.php:1807
+#: libraries/server_privileges.lib.php:1803
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -11951,7 +11957,7 @@ msgstr ""
 "දායක වගුව භාවිතා කෙරෙයි නම් මෙම ක්ෂේත්‍රය නොසැලකෙන අතර දායක වගුවේ ඇති අගයන් භාවිතා කෙරේ."
 
 #: libraries/replication_gui.lib.php:894
-#: libraries/server_privileges.lib.php:1861
+#: libraries/server_privileges.lib.php:1857
 msgid "Re-type"
 msgstr "නැවත ටයිප් කරන්න"
 
@@ -12684,7 +12690,7 @@ msgstr "කිසිවක් නැත"
 
 #: libraries/server_privileges.lib.php:532
 #: libraries/server_privileges.lib.php:559
-#: libraries/server_privileges.lib.php:3525
+#: libraries/server_privileges.lib.php:3518
 #: libraries/server_user_groups.lib.php:79
 msgid "User group"
 msgstr "භාවිතා කරන්නන් කණ්ඩායම"
@@ -12751,9 +12757,9 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1008
-#: libraries/server_privileges.lib.php:3317
-#: libraries/server_privileges.lib.php:3319
-#: libraries/server_privileges.lib.php:4592
+#: libraries/server_privileges.lib.php:3311
+#: libraries/server_privileges.lib.php:3313
+#: libraries/server_privileges.lib.php:4585
 #: templates/privileges/edit_routine_privileges.phtml:11
 #, fuzzy
 #| msgid "Routines"
@@ -12778,14 +12784,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1102
 #: libraries/server_privileges.lib.php:1271
-#: libraries/server_privileges.lib.php:3312
+#: libraries/server_privileges.lib.php:3306
 #: templates/privileges/privileges_summary.phtml:19
 msgid "Table-specific privileges"
 msgstr "වගු-විශේෂී වරප්‍රසාද"
 
 #: libraries/server_privileges.lib.php:1105
 #: libraries/server_privileges.lib.php:1281
-#: libraries/server_privileges.lib.php:3521
+#: libraries/server_privileges.lib.php:3514
 #: templates/privileges/edit_routine_privileges.phtml:16
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "සටහන: MySQL වරප්‍රසාද නම් සඳහන් වනුයේ ඉංග්‍රීසියෙනි."
@@ -12795,7 +12801,7 @@ msgid "Administration"
 msgstr "පරිපාලනය"
 
 #: libraries/server_privileges.lib.php:1265
-#: libraries/server_privileges.lib.php:3519
+#: libraries/server_privileges.lib.php:3512
 msgid "Global privileges"
 msgstr "ගෝලීය වරප්‍රසාද"
 
@@ -12804,7 +12810,7 @@ msgid "Global"
 msgstr "ගෝලීය"
 
 #: libraries/server_privileges.lib.php:1268
-#: libraries/server_privileges.lib.php:3306
+#: libraries/server_privileges.lib.php:3300
 msgid "Database-specific privileges"
 msgstr "දත්තගබඩා විශේෂිත වරප්‍රසාද"
 
@@ -12816,285 +12822,285 @@ msgstr ""
 msgid "Allows dropping tables."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1550
+#: libraries/server_privileges.lib.php:1546
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
 msgstr "Cookie සත්‍යාපනය"
 
-#: libraries/server_privileges.lib.php:1552
+#: libraries/server_privileges.lib.php:1548
 #, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
 msgstr "Signon සත්‍යාපනය"
 
-#: libraries/server_privileges.lib.php:1566
+#: libraries/server_privileges.lib.php:1562
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL Authentication"
 msgstr "Cookie සත්‍යාපනය"
 
-#: libraries/server_privileges.lib.php:1620
-#: libraries/server_privileges.lib.php:3098
+#: libraries/server_privileges.lib.php:1616
+#: libraries/server_privileges.lib.php:3092
 msgid "Login Information"
 msgstr "ලොගින තොරතුරු"
 
-#: libraries/server_privileges.lib.php:1653
-#: libraries/server_privileges.lib.php:1842
+#: libraries/server_privileges.lib.php:1649
+#: libraries/server_privileges.lib.php:1838
 #: templates/privileges/add_privileges_routine.phtml:7
 #: templates/privileges/add_privileges_table.phtml:7
 msgid "Use text field"
 msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න"
 
-#: libraries/server_privileges.lib.php:1680
+#: libraries/server_privileges.lib.php:1676
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1689
+#: libraries/server_privileges.lib.php:1685
 msgid "Host name:"
 msgstr "දාරක නාමය:"
 
-#: libraries/server_privileges.lib.php:1694
-#: libraries/server_privileges.lib.php:1796
-#: libraries/server_privileges.lib.php:2607
-#: libraries/server_privileges.lib.php:3517
+#: libraries/server_privileges.lib.php:1690
+#: libraries/server_privileges.lib.php:1792
+#: libraries/server_privileges.lib.php:2601
+#: libraries/server_privileges.lib.php:3510
 msgid "Host name"
 msgstr "දාරක නාමය"
 
-#: libraries/server_privileges.lib.php:1832
+#: libraries/server_privileges.lib.php:1828
 msgid "Do not change the password"
 msgstr "මුරපදය වෙනස් නොකරන්න"
 
-#: libraries/server_privileges.lib.php:1883
+#: libraries/server_privileges.lib.php:1878
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "සත්‍යාපනය"
 
-#: libraries/server_privileges.lib.php:1890
+#: libraries/server_privileges.lib.php:1885
 #, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
 msgstr "මුරපදය hash කිරීම:"
 
-#: libraries/server_privileges.lib.php:2163
+#: libraries/server_privileges.lib.php:2158
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s ගේ මුරපදය සාර්ථකව වෙනස් කරන ලදි."
 
-#: libraries/server_privileges.lib.php:2210
+#: libraries/server_privileges.lib.php:2205
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "ඔබ %s සඳහා වරප්‍රසාද අහෝසි කර ඇත."
 
-#: libraries/server_privileges.lib.php:2298
-#: libraries/server_privileges.lib.php:4521
+#: libraries/server_privileges.lib.php:2292
+#: libraries/server_privileges.lib.php:4514
 msgid "Add user account"
 msgstr "භාවිත ගිණුමක් එක් කරන්න"
 
-#: libraries/server_privileges.lib.php:2307
+#: libraries/server_privileges.lib.php:2301
 msgid "Database for user account"
 msgstr "භාවිත ගිණුම සඳහා දත්තගබඩාව"
 
-#: libraries/server_privileges.lib.php:2311
+#: libraries/server_privileges.lib.php:2305
 msgid "Create database with same name and grant all privileges."
 msgstr "එම නමින්ම දත්තගබඩාවක් සාදා එයට සියලු වරප්‍රසාද ප්‍රදානය කරන්න."
 
-#: libraries/server_privileges.lib.php:2317
+#: libraries/server_privileges.lib.php:2311
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "අභිමත ආදේශක නාමයන් සඳහා සියලු වරප්‍රසාද ප්‍රදානය කරන්න (භාවිත නාමය\\_%)."
 
-#: libraries/server_privileges.lib.php:2326
+#: libraries/server_privileges.lib.php:2320
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr "\"%s\" දත්තගබඩාව සඳහා සියලු වරප්‍රසාද ප්‍රදානය කරන්න."
 
-#: libraries/server_privileges.lib.php:2427
-#: libraries/server_privileges.lib.php:2493
+#: libraries/server_privileges.lib.php:2421
+#: libraries/server_privileges.lib.php:2487
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "\"%s\" වෙත ප්‍රවේශ වරප්‍රසාද ඇති භාවිතා කරන්නන්"
 
-#: libraries/server_privileges.lib.php:2462
+#: libraries/server_privileges.lib.php:2456
 msgid "User has been added."
 msgstr "භාවිතා කරන්නා එක් කරන ලදි."
 
-#: libraries/server_privileges.lib.php:2610
-#: libraries/server_privileges.lib.php:3527
+#: libraries/server_privileges.lib.php:2604
+#: libraries/server_privileges.lib.php:3520
 #: templates/privileges/privileges_summary.phtml:17
 msgid "Grant"
 msgstr "ප්‍රදානය කරන්න"
 
-#: libraries/server_privileges.lib.php:2625
+#: libraries/server_privileges.lib.php:2619
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2645
-#: libraries/server_privileges.lib.php:3997
+#: libraries/server_privileges.lib.php:2639
+#: libraries/server_privileges.lib.php:3990
 msgid "No user found."
 msgstr "භාවිතා කරන්නන් හමු නොවිණි."
 
-#: libraries/server_privileges.lib.php:2676
-#: libraries/server_privileges.lib.php:2963
-#: libraries/server_privileges.lib.php:3603
+#: libraries/server_privileges.lib.php:2670
+#: libraries/server_privileges.lib.php:2957
+#: libraries/server_privileges.lib.php:3596
 msgid "Any"
 msgstr "ඕනෑම"
 
-#: libraries/server_privileges.lib.php:2727
+#: libraries/server_privileges.lib.php:2721
 msgid "global"
 msgstr "ගෝලීය"
 
-#: libraries/server_privileges.lib.php:2730
+#: libraries/server_privileges.lib.php:2724
 msgid "database-specific"
 msgstr "දත්තගබඩා විශේෂිත"
 
-#: libraries/server_privileges.lib.php:2732
+#: libraries/server_privileges.lib.php:2726
 msgid "wildcard"
 msgstr "අව්‍යවස්ථිත කාඩ්පත"
 
-#: libraries/server_privileges.lib.php:2738
+#: libraries/server_privileges.lib.php:2732
 msgid "table-specific"
 msgstr "වගු විශේෂිත"
 
-#: libraries/server_privileges.lib.php:2869
+#: libraries/server_privileges.lib.php:2863
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges"
 msgstr "වරප්‍රසාද සංස්කරණය කරන්න:"
 
-#: libraries/server_privileges.lib.php:2872
+#: libraries/server_privileges.lib.php:2866
 msgid "Revoke"
 msgstr "අහෝසි කරන්න"
 
-#: libraries/server_privileges.lib.php:2896
+#: libraries/server_privileges.lib.php:2890
 msgid "Edit user group"
 msgstr "භාවිතා කරන්නන් කණ්ඩායම සංස්කරණය කරන්න"
 
-#: libraries/server_privileges.lib.php:3077
+#: libraries/server_privileges.lib.php:3071
 msgid "… keep the old one."
 msgstr "… පැරණි එක තබා ගන්න."
 
-#: libraries/server_privileges.lib.php:3078
+#: libraries/server_privileges.lib.php:3072
 msgid "… delete the old one from the user tables."
 msgstr "… භාවිතා කරන්නන්ගේ වගුවෙන් පැරණි එක ඉවත් කරන්න."
 
-#: libraries/server_privileges.lib.php:3080
+#: libraries/server_privileges.lib.php:3074
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… පැරැන්නෙන් සියලුම සක්‍රීය වරප්‍රසාද අහෝසි කර අනතුරුව එය ඉවත් කරන්න."
 
-#: libraries/server_privileges.lib.php:3084
+#: libraries/server_privileges.lib.php:3078
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "… භාවිතා කරන්නන්ගේ වගුවෙන් පැරණි එක ඉවත් කර වරප්‍රසාද නැවත අලුත් කරන්න."
 
-#: libraries/server_privileges.lib.php:3099
+#: libraries/server_privileges.lib.php:3093
 msgid "Change login information / Copy user account"
 msgstr "ලොගින් තොරතුරු වෙනස් කරන්න / භාවිත ගිණුම පිටපත් කරන්න"
 
-#: libraries/server_privileges.lib.php:3105
+#: libraries/server_privileges.lib.php:3099
 msgid "Create a new user account with the same privileges and …"
 msgstr "සහ එකම වරප්‍රසාද සහිතව නව භාවිත ගිණුමක් එක් කරන්න …"
 
-#: libraries/server_privileges.lib.php:3318
+#: libraries/server_privileges.lib.php:3312
 #: templates/privileges/edit_routine_privileges.phtml:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "තීර-විශේෂී වරප්‍රසාද"
 
-#: libraries/server_privileges.lib.php:3704
+#: libraries/server_privileges.lib.php:3697
 msgid "Remove selected user accounts"
 msgstr "තෝරාගත් භාවිත ගිණුම් ඉවත් කරන්න"
 
-#: libraries/server_privileges.lib.php:3710
+#: libraries/server_privileges.lib.php:3703
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "භාවිතා කරන්නන්ගේ සියලුම සක්‍රීය වරප්‍රසාද අහෝසි කර අනතුරුව ඔවුන් ඉවත් කරන්න."
 
-#: libraries/server_privileges.lib.php:3718
-#: libraries/server_privileges.lib.php:3724
-#: libraries/server_privileges.lib.php:3727
+#: libraries/server_privileges.lib.php:3711
+#: libraries/server_privileges.lib.php:3717
+#: libraries/server_privileges.lib.php:3720
 msgid "Drop the databases that have the same names as the users."
 msgstr "භාවිතා කරන්නන් හා සමාන නම් ඇති දත්තගබඩා හලන්න."
 
-#: libraries/server_privileges.lib.php:3870
+#: libraries/server_privileges.lib.php:3863
 msgid "No users selected for deleting!"
 msgstr "ඉවත් කිරීම සඳහා භාවිතා කරන්නන් කිසිවෙක් තෝරාගෙන නොමැත!"
 
-#: libraries/server_privileges.lib.php:3873
+#: libraries/server_privileges.lib.php:3866
 msgid "Reloading the privileges"
 msgstr "වරප්‍රසාද පූරණය කෙරෙමින්"
 
-#: libraries/server_privileges.lib.php:3892
+#: libraries/server_privileges.lib.php:3885
 msgid "The selected users have been deleted successfully."
 msgstr "තෝරාගත් භාවිතා කරන්නන් සාර්ථකව ඉවත් කරන ලදි."
 
-#: libraries/server_privileges.lib.php:3967
+#: libraries/server_privileges.lib.php:3960
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "ඔබ %s සඳහා වරප්‍රසාද අලුත් කර ඇත."
 
-#: libraries/server_privileges.lib.php:4065
+#: libraries/server_privileges.lib.php:4058
 #, php-format
 msgid "Deleting %s"
 msgstr "%s ඉවත් කරමින් පවතී"
 
-#: libraries/server_privileges.lib.php:4095
+#: libraries/server_privileges.lib.php:4088
 msgid "The privileges were reloaded successfully."
 msgstr "සාර්ථකව වරප්‍රසාද පූරණය කරන්න ලදි."
 
-#: libraries/server_privileges.lib.php:4196
+#: libraries/server_privileges.lib.php:4189
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s භාවිතා කරන්නා දැනටමත් පවතී!"
 
-#: libraries/server_privileges.lib.php:4463
+#: libraries/server_privileges.lib.php:4456
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s සඳහා වරප්‍රසාද"
 
-#: libraries/server_privileges.lib.php:4472
+#: libraries/server_privileges.lib.php:4465
 #: libraries/server_status_processes.lib.php:76
 #: libraries/server_user_groups.lib.php:40
 msgid "User"
 msgstr "භාවිතා කරන්නා"
 
-#: libraries/server_privileges.lib.php:4513
+#: libraries/server_privileges.lib.php:4506
 msgctxt "Create new user"
 msgid "New"
 msgstr "නව භාවිතා කරන්නෙක්"
 
-#: libraries/server_privileges.lib.php:4542
+#: libraries/server_privileges.lib.php:4535
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "වරප්‍රසාද සංස්කරණය කරන්න:"
 
-#: libraries/server_privileges.lib.php:4543
+#: libraries/server_privileges.lib.php:4536
 msgid "User account"
 msgstr "භාවිත ගිණුම"
 
-#: libraries/server_privileges.lib.php:4617
+#: libraries/server_privileges.lib.php:4610
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4637 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4630 libraries/server_users.lib.php:25
 msgid "User accounts overview"
 msgstr "භාවිත ගිණුම් පිළිබඳ දළ විශ්ලේෂණය"
 
-#: libraries/server_privileges.lib.php:4705
+#: libraries/server_privileges.lib.php:4698
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4746
+#: libraries/server_privileges.lib.php:4739
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -13106,7 +13112,7 @@ msgstr ""
 "සේවාදායකයේ වරප්‍රසාද වෙනම ම වෙනස් කර ඇත්නම් ඉහත වගුවේ දත්ත සේවාදායකයේ වරප්‍රසාද වලට "
 "වඩා වෙනස් විය හැකිය. එවැනි අවස්ථාවක ඔබ %sවරප්‍රසාද පූරණය%s කල යුතුය."
 
-#: libraries/server_privileges.lib.php:4765
+#: libraries/server_privileges.lib.php:4758
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13124,11 +13130,11 @@ msgstr ""
 "සේවාදායකයේ වරප්‍රසාද වෙනම ම වෙනස් කර ඇත්නම් ඉහත වගුවේ දත්ත සේවාදායකයේ වරප්‍රසාද වලට "
 "වඩා වෙනස් විය හැකිය. එවැනි අවස්ථාවක ඔබ %sවරප්‍රසාද පූරණය%s කල යුතුය."
 
-#: libraries/server_privileges.lib.php:4815
+#: libraries/server_privileges.lib.php:4808
 msgid "The selected user was not found in the privilege table."
 msgstr "තෝරාගත් භාවිත කරන්නා වරප්‍රසාද වගුවේ හමු නොවිණි."
 
-#: libraries/server_privileges.lib.php:5039
+#: libraries/server_privileges.lib.php:5032
 msgid "You have added a new user."
 msgstr "ඔබ නව භාවිතා කරන්නනෙක් එක් කරන ලදි."
 
