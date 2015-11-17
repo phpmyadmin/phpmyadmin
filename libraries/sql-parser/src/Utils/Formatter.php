@@ -304,7 +304,9 @@ class Formatter
                 if (($this->options['parts_newline'])
                     && (!$formattedOptions)
                     && (empty(self::$INLINE_CLAUSES[$lastClause]))
-                    && ($curr->type != Token::TYPE_KEYWORD)
+                    && (($curr->type !== Token::TYPE_KEYWORD)
+                        || (($curr->type === Token::TYPE_KEYWORD)
+                            && ($curr->flags & Token::FLAG_KEYWORD_FUNCTION)))
                 ) {
                     $formattedOptions = true;
                     $lineEnded = true;
@@ -334,8 +336,8 @@ class Formatter
                 // Formatting fragments delimited by comma.
                 if (($prev->type === Token::TYPE_OPERATOR) && ($prev->value === ',')) {
                     // Fragments delimited by a comma are broken into multiple
-                    // pieces only if the clause if the clause is not inlined or
-                    // this fragment is between brackets that were on new line.
+                    // pieces only if the clause is not inlined or this fragment
+                    // is between brackets that are on new line.
                     if (((empty(self::$INLINE_CLAUSES[$lastClause]))
                         && ($this->options['parts_newline']))
                         || (end($blocksLineEndings) === true)
@@ -401,8 +403,7 @@ class Formatter
                 $comment = '';
             }
 
-            // Saving the next token as the one that will be processed during
-            // the next iteration.
+            // Iteration finished, consider current token as previous.
             $prev = $curr;
         }
 

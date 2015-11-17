@@ -70,6 +70,7 @@ class ExpressionArray extends Component
 
             if (($token->type === Token::TYPE_KEYWORD)
                 && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
+                && ((~$token->flags & Token::FLAG_KEYWORD_FUNCTION))
                 && ($token->value !== 'DUAL')
             ) {
                 // No keyword is expected.
