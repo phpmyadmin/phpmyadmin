@@ -220,8 +220,8 @@ class ServerVariablesController extends Controller
     /**
      * Format Variable
      *
-     * @param string $name               variable name
-     * @param number $value              variable value
+     * @param string $name  variable name
+     * @param number $value variable value
      *
      * @return string formatted string
      */
@@ -257,8 +257,8 @@ class ServerVariablesController extends Controller
     /**
      * Prints Html for Server Variables
      *
-     * @param Array $serverVars         global variables
-     * @param Array $serverVarsSession  session variables
+     * @param Array $serverVars        global variables
+     * @param Array $serverVarsSession session variables
      *
      * @return string
      */
@@ -286,8 +286,8 @@ class ServerVariablesController extends Controller
     /**
      * Prints Html for Server Variables Items
      *
-     * @param Array $serverVars         global variables
-     * @param Array $serverVarsSession  session variables
+     * @param Array $serverVars        global variables
+     * @param Array $serverVarsSession session variables
      *
      * @return string
      */
