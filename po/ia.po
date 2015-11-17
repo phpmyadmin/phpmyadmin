@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-17 08:14-0500\n"
-"PO-Revision-Date: 2015-11-15 22:07+0000\n"
+"PO-Revision-Date: 2015-11-17 23:24+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9439,7 +9439,7 @@ msgstr[1] ""
 #: libraries/navigation/NavigationTree.php:1369
 #: libraries/navigation/NavigationTree.php:1406
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Typa pro filtrar istos, pressa Enter pro cercar toto"
 
 #: libraries/navigation/NavigationTree.php:1371
 #: libraries/navigation/NavigationTree.php:1407
@@ -9955,7 +9955,7 @@ msgstr "Optiones de tabella"
 
 #: libraries/operations.lib.php:1062 libraries/server_engines.lib.php:51
 msgid "Storage Engine"
-msgstr ""
+msgstr "Motor de immagazinage"
 
 #: libraries/operations.lib.php:1087
 msgid "Change all column collations"
@@ -9991,16 +9991,16 @@ msgstr "Tabella de checksum"
 
 #: libraries/operations.lib.php:1443
 msgid "Defragment table"
-msgstr ""
+msgstr "Defragmenta tabella"
 
 #: libraries/operations.lib.php:1455
 #, php-format
 msgid "Table %s has been flushed."
-msgstr ""
+msgstr "Tabella %s ha essite initialisate."
 
 #: libraries/operations.lib.php:1461
 msgid "Flush the table (FLUSH)"
-msgstr ""
+msgstr "Initialisa le tabella (FLUSH)"
 
 #: libraries/operations.lib.php:1475
 #: templates/database/structure/check_all_tables.phtml:22
@@ -10011,7 +10011,7 @@ msgstr "Optimiza tabella"
 #: libraries/operations.lib.php:1490
 #: templates/database/structure/check_all_tables.phtml:23
 msgid "Repair table"
-msgstr ""
+msgstr "Repara tabella"
 
 #: libraries/operations.lib.php:1536
 #: templates/database/structure/check_all_tables.phtml:14
@@ -10050,12 +10050,12 @@ msgstr "Reconstrue"
 #: libraries/operations.lib.php:1596
 #: templates/table/structure/display_structure.phtml:193
 msgid "Repair"
-msgstr ""
+msgstr "Repara"
 
 #: libraries/operations.lib.php:1597
 #: templates/table/structure/display_structure.phtml:194
 msgid "Truncate"
-msgstr ""
+msgstr "Trunca"
 
 #: libraries/operations.lib.php:1607
 msgid "Coalesce"
@@ -10063,7 +10063,7 @@ msgstr "Uni"
 
 #: libraries/operations.lib.php:1616
 msgid "Partition maintenance"
-msgstr ""
+msgstr "Mantenentia de partition"
 
 #: libraries/operations.lib.php:1633
 #, php-format
@@ -10081,35 +10081,35 @@ msgstr "Verifica le integritate referential:"
 
 #: libraries/operations.lib.php:2095
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "On non pote mover tabella sur se mesme!"
 
 #: libraries/operations.lib.php:2097
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "On non pote copiar tabella sur se mesme!"
 
 #: libraries/operations.lib.php:2121
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr ""
+msgstr "Tabella %s ha essite movite in %s. Privilegios ha essite adaptate."
 
 #: libraries/operations.lib.php:2128
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr ""
+msgstr "Tabella %s ha essite copiate in %s. Privilegios ha essite adaptate."
 
 #: libraries/operations.lib.php:2137
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr ""
+msgstr "Tabella %s ha essite movite in %s."
 
 #: libraries/operations.lib.php:2141
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr ""
+msgstr "Tabella %s ha essite copiate in %s."
 
 #: libraries/operations.lib.php:2163
 msgid "The table name is empty!"
-msgstr ""
+msgstr "Le nomine de tabella es vacue!"
 
 #: libraries/plugin_interface.lib.php:564
 msgid "This format has no options"
@@ -10599,16 +10599,16 @@ msgid "Metadata"
 msgstr "Metadatos"
 
 #: libraries/plugins/export/ExportSql.php:1063
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "Metadata pro %s"
+msgstr "Metadata pro tabella %s"
 
 #: libraries/plugins/export/ExportSql.php:1070
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "Metadata pro %s"
+msgstr "Metadata pro base de datos %s"
 
 #: libraries/plugins/export/ExportSql.php:1402
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:606
