@@ -32,7 +32,7 @@ class ServerVariablesController extends Controller
     {
         parent::__construct();
 
-        $this->variable_doc_links = $this->_getArrayForDocumentLinks();
+        $this->variable_doc_links = $this->_getDocumentLinks();
     }
 
     /**
@@ -356,7 +356,7 @@ class ServerVariablesController extends Controller
      *
      * @return array
      */
-    private function _getArrayForDocumentLinks()
+    private function _getDocumentLinks()
     {
         $variable_doc_links = array();
         $variable_doc_links['auto_increment_increment'] = array(
