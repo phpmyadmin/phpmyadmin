@@ -248,34 +248,22 @@ class ServerVariablesController extends Controller
      * @return string
      */
     private function _getHtmlForServerVariables($serverVars, $serverVarsSession) {
-        $value = ! empty($_REQUEST['filter'])
+        // filter
+        $filterValue = ! empty($_REQUEST['filter'])
             ? htmlspecialchars($_REQUEST['filter'])
             : '';
-        $output = '<fieldset id="tableFilter">'
-            . '<legend>' . __('Filters') . '</legend>'
-            . '<div class="formelement">'
-            . '<label for="filterText">' .  __('Containing the word:') . '</label>'
-            . '<input name="filterText" type="text" id="filterText"'
-            . ' style="vertical-align: baseline;" value="' . $value . '" />'
-            . '</div>'
-            . '</fieldset>';
+        $output = Template::get('server/variables/variable_filter')
+            ->render(array('filterValue' => $filterValue));
 
-        $output .= '<table id="serverVariables" class="data filteredData noclick">'
-            . '<thead><tr class="var-header var-row">'
-            . '<td class="var-action">' . __('Action') . '</td>'
-            . '<td class="var-name">' .  __('Variable') . '</td>'
-            . '<td class="var-value">'
-            . __('Session value') . ' / ' . __('Global value')
-            . '</td>'
-            . '</tr>'
-            . '</thead>';
-
+        $output .= '<table id="serverVariables" class="data filteredData noclick">';
+        $output .= Template::get('server/variables/variable_table_head')->render();
         $output .= '<tbody>';
+
         $output .= $this->_getHtmlForServerVariablesItems(
             $serverVars, $serverVarsSession
         );
-        $output .= '</tbody>';
 
+        $output .= '</tbody>';
         $output .= '</table>';
 
         return $output;
