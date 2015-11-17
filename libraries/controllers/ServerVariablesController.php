@@ -10,6 +10,7 @@
 namespace PMA\libraries\controllers;
 
 use PMA\libraries\Message;
+use PMA\libraries\Template;
 use PMA\libraries\Util;
 
 /**
@@ -57,17 +58,17 @@ class ServerVariablesController extends Controller
         /**
          * Sends the queries and buffers the results
          */
-        $serverVarsResult = $GLOBALS['dbi']->tryQuery('SHOW SESSION VARIABLES;');
+        $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');
 
         if ($serverVarsResult !== false) {
 
             $serverVarsSession = array();
-            while ($arr = $GLOBALS['dbi']->fetchRow($serverVarsResult)) {
+            while ($arr = $this->dbi->fetchRow($serverVarsResult)) {
                 $serverVarsSession[$arr[0]] = $arr[1];
             }
-            $GLOBALS['dbi']->freeResult($serverVarsResult);
+            $this->dbi->freeResult($serverVarsResult);
 
-            $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
+            $serverVars = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
             /**
              * Link templates
@@ -110,7 +111,7 @@ class ServerVariablesController extends Controller
         header('Content-Type: text/html; charset=UTF-8');
         // Do not use double quotes inside the query to avoid a problem
         // when server is running in ANSI_QUOTES sql_mode
-        $varValue = $GLOBALS['dbi']->fetchSingleRow(
+        $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
             . Util::sqlAddSlashes($_REQUEST['varName']) . '\';',
             'NUM'
@@ -174,12 +175,12 @@ class ServerVariablesController extends Controller
         }
 
         if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
-            && $GLOBALS['dbi']->query(
+            && $this->dbi->query(
                 'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
             )
         ) {
             // Some values are rounded down etc.
-            $varValue = $GLOBALS['dbi']->fetchSingleRow(
+            $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                 . Util::sqlAddSlashes($_REQUEST['varName'])
                 . '";', 'NUM'
@@ -234,17 +235,8 @@ class ServerVariablesController extends Controller
     private function _getHtmlForLinkTemplates()
     {
         $url = 'server_variables.php' . PMA_URL_getCommon();
-        $output  = '<a style="display: none;" href="'
-            . $url . '" class="ajax saveLink">';
-        $output .= Util::getIcon('b_save.png', __('Save')) . '</a> ';
-        $output .= '<a style="display: none;" href="#" class="cancelLink">';
-        $output .= Util::getIcon('b_close.png', __('Cancel')) . '</a> ';
-        $output .= Util::getImage(
-            'b_help.png',
-            __('Documentation'),
-            array('style' => 'display:none', 'id' => 'docImage')
-        );
-        return $output;
+        return Template::get('server/variables/link_template')
+            ->render(array('url' => $url));
     }
 
     /**
@@ -349,7 +341,7 @@ class ServerVariablesController extends Controller
             $output .= '</td>';
 
             $output .= '<td class="var-value value'
-                . ($GLOBALS['dbi']->isSuperuser() ? ' editable' : '') . '">&nbsp;'
+                . ($this->dbi->isSuperuser() ? ' editable' : '') . '">&nbsp;'
                 . $this->_formatVariable($name, $value, $variable_doc_links)
                 . '</td>'
                 . '</tr>';
