@@ -1864,7 +1864,6 @@ function PMA_getHtmlForLoginInformationFields(
         . '<label for="select_authentication_plugin" >';
 
     $serverType = Util::getServerType();
-    $auth_plugin_dropdown = '';
     $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
         $mode,
         $username,
@@ -2220,7 +2219,6 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
  */
 function PMA_getRequireClause()
 {
-    $require_clause = "";
     if (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'specified') {
         $require = array();
         if (! empty($_POST['ssl_cipher'])) {
@@ -3328,7 +3326,6 @@ function PMA_getHtmlForAllTableSpecificRights(
     foreach ($db_rights as $row) {
         $onePrivilege = array();
 
-        $paramDbName = '';
         $paramTableName = '';
         $paramRoutineName = '';
 
