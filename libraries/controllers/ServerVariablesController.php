@@ -21,6 +21,21 @@ use PMA\libraries\Util;
 class ServerVariablesController extends Controller
 {
     /**
+     * @var array Documentation links for variables
+     */
+    protected $variable_doc_links;
+
+    /**
+     * Constructs ServerVariablesController
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->variable_doc_links = $this->_getArrayForDocumentLinks();
+    }
+
+    /**
      * Index action
      *
      * @return void
@@ -117,9 +132,8 @@ class ServerVariablesController extends Controller
             'NUM'
         );
 
-        $variable_doc_links = $this->_getArrayForDocumentLinks();
-        if (isset($variable_doc_links[$_REQUEST['varName']][3])
-            && $variable_doc_links[$_REQUEST['varName']][3] == 'byte'
+        if (isset($this->variable_doc_links[$_REQUEST['varName']][3])
+            && $this->variable_doc_links[$_REQUEST['varName']][3] == 'byte'
         ) {
             $this->response->addJSON(
                 'message',
@@ -145,9 +159,8 @@ class ServerVariablesController extends Controller
         $value = $_REQUEST['varValue'];
         $matches = array();
 
-        $variable_doc_links = $this->_getArrayForDocumentLinks();
-        if (isset($variable_doc_links[$_REQUEST['varName']][3])
-            && $variable_doc_links[$_REQUEST['varName']][3] == 'byte'
+        if (isset($this->variable_doc_links[$_REQUEST['varName']][3])
+            && $this->variable_doc_links[$_REQUEST['varName']][3] == 'byte'
             && preg_match(
                 '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
                 $value,
@@ -212,9 +225,8 @@ class ServerVariablesController extends Controller
     private function _formatVariable($name, $value)
     {
         if (is_numeric($value)) {
-            $variable_doc_links = $this->_getArrayForDocumentLinks();
-            if (isset($variable_doc_links[$name][3])
-                && $variable_doc_links[$name][3]=='byte'
+            if (isset($this->variable_doc_links[$name][3])
+                && $this->variable_doc_links[$name][3]=='byte'
             ) {
                 return '<abbr title="'
                     . Util::formatNumber($value, 0) . '">'
@@ -283,8 +295,6 @@ class ServerVariablesController extends Controller
     ) {
         // list of static system variables
         $static_variables = $this->_getStaticSystemVariables();
-        // list of documentation links
-        $variable_doc_links = $this->_getArrayForDocumentLinks();
 
         $output = '';
         $odd_row = true;
@@ -293,11 +303,9 @@ class ServerVariablesController extends Controller
                 && $serverVarsSession[$name] != $value;
             $row_class = ($odd_row ? ' odd' : ' even')
                 . ($has_session_value ? ' diffSession' : '');
-            $docLink = isset($variable_doc_links[$name])
-                ? $variable_doc_links[$name] : null;
-            $formattedValue = $this->_formatVariable(
-                $name, $value, $variable_doc_links
-            );
+            $docLink = isset($this->variable_doc_links[$name])
+                ? $this->variable_doc_links[$name] : null;
+            $formattedValue = $this->_formatVariable($name, $value);
 
             $output .= Template::get('server/variables/variable_row')
                 ->render(
@@ -313,7 +321,7 @@ class ServerVariablesController extends Controller
 
             if ($has_session_value) {
                 $formattedValue = $this->_formatVariable(
-                    $name, $serverVarsSession[$name], $variable_doc_links
+                    $name, $serverVarsSession[$name]
                 );
                 $output .= Template::get('server/variables/session_variable_row')
                     ->render(
