@@ -4988,6 +4988,29 @@ class DisplayResults
     }
 
     /**
+     * Get copy to clipboard links for results operations
+     *
+     * @return string $html
+     *
+     * @access  private
+     */
+    private function _getCopytoclipboardLinks()
+    {
+        $html = Util::linkOrButton(
+            '#',
+            Util::getIcon(
+                'b_insrow.png', __('Copy to clip board'), true
+            ),
+            array('id' => 'copyToClipBoard'),
+            true,
+            true,
+            'copy_to_clip_board'
+        );
+
+        return $html;
+    }
+
+    /**
      * Get printview links for results operations
      *
      * @return string $html
@@ -5062,6 +5085,7 @@ class DisplayResults
         // Displays "printable view" link if required
         if ($displayParts['pview_lnk'] == '1') {
             $results_operations_html .= $this->_getPrintviewLinks();
+            $results_operations_html .= $this->_getCopytoclipboardLinks();
         } // end displays "printable view"
 
         // Export link
