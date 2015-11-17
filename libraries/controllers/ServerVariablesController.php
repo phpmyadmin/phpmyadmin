@@ -270,9 +270,11 @@ class ServerVariablesController extends Controller
             . '</tr>'
             . '</thead>';
 
+        $output .= '<tbody>';
         $output .= $this->_getHtmlForServerVariablesItems(
             $serverVars, $serverVarsSession
         );
+        $output .= '</tbody>';
 
         $output .= '</table>';
 
@@ -293,75 +295,49 @@ class ServerVariablesController extends Controller
     ) {
         // list of static system variables
         $static_variables = $this->_getStaticSystemVariables();
+        // list of documentation links
+        $variable_doc_links = $this->_getArrayForDocumentLinks();
 
-        $output = '<tbody>';
+        $output = '';
         $odd_row = true;
         foreach ($serverVars as $name => $value) {
             $has_session_value = isset($serverVarsSession[$name])
                 && $serverVarsSession[$name] != $value;
             $row_class = ($odd_row ? ' odd' : ' even')
                 . ($has_session_value ? ' diffSession' : '');
+            $docLink = isset($variable_doc_links[$name])
+                ? $variable_doc_links[$name] : null;
+            $formattedValue = $this->_formatVariable(
+                $name, $value, $variable_doc_links
+            );
 
-            $output .= '<tr class="var-row' . $row_class . '">';
-
-            $output .= '<td class="var-action">';
-
-            // Edit Link active only for Dynamic System variables
-            if (! in_array(strtolower($name), $static_variables)) {
-                $output .= '<a href="#" class="editLink">'
-                    . Util::getIcon('b_edit.png', __('Edit')) . '</a>';
-            } else {
-                $output .= '<span title="'
-                    . __('This is a read-only variable and can not be edited')
-                    . '" class="read_only_var" >'
-                    . Util::getIcon('bd_edit.png', __('Edit'))
-                    . '</span>';
-            }
-
-            $output .= '</td>';
-
-            $output .= '<td class="var-name">';
-            $variable_doc_links = $this->_getArrayForDocumentLinks();
-            // To display variable documentation link
-            if (isset($variable_doc_links[$name])) {
-                $output .= '<span title="'
-                    . htmlspecialchars(str_replace('_', ' ', $name)) . '">';
-                $output .= Util::showMySQLDocu(
-                    $variable_doc_links[$name][1],
-                    false,
-                    $variable_doc_links[$name][2] . '_' . $variable_doc_links[$name][0],
-                    true
+            $output .= Template::get('server/variables/variable_row')
+                ->render(
+                    array(
+                        'rowClass'    => $row_class,
+                        'editable'    => ! in_array(strtolower($name), $static_variables),
+                        'docLink'     => $docLink,
+                        'name'        => $name,
+                        'value'       => $formattedValue,
+                        'isSuperuser' => $this->dbi->isSuperuser(),
+                    )
                 );
-                $output .= htmlspecialchars(str_replace('_', ' ', $name));
-                $output .= '</a>';
-                $output .= '</span>';
-            } else {
-                $output .= htmlspecialchars(str_replace('_', ' ', $name));
-            }
-            $output .= '</td>';
-
-            $output .= '<td class="var-value value'
-                . ($this->dbi->isSuperuser() ? ' editable' : '') . '">&nbsp;'
-                . $this->_formatVariable($name, $value, $variable_doc_links)
-                . '</td>'
-                . '</tr>';
 
             if ($has_session_value) {
-                $output .= '<tr class="var-row' . ($odd_row ? ' odd' : ' even') . '">'
-                    . '<td class="var-action"></td>'
-                    . '<td class="var-name session">(' . __('Session value') . ')</td>'
-                    . '<td class="var-value value">&nbsp;'
-                    . $this->_formatVariable(
-                        $name,
-                        $serverVarsSession[$name],
-                        $variable_doc_links
-                    ) . '</td>'
-                    . '</tr>';
+                $formattedValue = $this->_formatVariable(
+                    $name, $serverVarsSession[$name], $variable_doc_links
+                );
+                $output .= Template::get('server/variables/session_variable_row')
+                    ->render(
+                        array(
+                            'rowClass' => $row_class,
+                            'value'    => $formattedValue,
+                        )
+                    );
             }
 
             $odd_row = ! $odd_row;
         }
-        $output .= '</tbody>';
 
         return $output;
     }
