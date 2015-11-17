@@ -1055,14 +1055,26 @@ class ExportSql extends ExportPlugin
         $aliases = array();
 
         $comment = $this->_possibleCRLF()
-            . $this->_exportComment()
-            . $this->_exportComment(
-                sprintf(
-                    __('Metadata for %s'),
-                    isset($table) ? $table : $db
-                )
-            )
             . $this->_exportComment();
+
+        if (isset($table)) {
+            $comment .= $this->_exportComment(
+                sprintf(
+                    __('Metadata for table %s'),
+                    $table
+                )
+            );
+        } else {
+            $comment .= $this->_exportComment(
+                sprintf(
+                    __('Metadata for database %s'),
+                    $db
+                )
+            );
+        }
+
+        $comment .= $this->_exportComment();
+
         if (!PMA_exportOutputHandler($comment)) {
             return false;
         }
