@@ -2,13 +2,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PMA\libraries\controllers\ServerVariablesController
+ * Holds the PMA\libraries\controllers\server\ServerVariablesController
  *
- * @package PMA\libraries\controllers
+ * @package PMA\libraries\controllers\server
  */
 
-namespace PMA\libraries\controllers;
+namespace PMA\libraries\controllers\server;
 
+use PMA\libraries\controllers\Controller;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
@@ -16,7 +17,7 @@ use PMA\libraries\Util;
 /**
  * Handles viewing and editing server variables
  *
- * @package PMA\libraries\controllers
+ * @package PMA\libraries\controllers\server
  */
 class ServerVariablesController extends Controller
 {
