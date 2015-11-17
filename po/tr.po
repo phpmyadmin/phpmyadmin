@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-17 08:14-0500\n"
-"PO-Revision-Date: 2015-11-14 10:46+0000\n"
+"PO-Revision-Date: 2015-11-17 17:56+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10516,16 +10516,16 @@ msgid "Metadata"
 msgstr "Üstveri"
 
 #: libraries/plugins/export/ExportSql.php:1063
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "%s için üstveri"
+msgstr "%s tablosu için üstveri"
 
 #: libraries/plugins/export/ExportSql.php:1070
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "%s için üstveri"
+msgstr "%s veritabanı için üstveri"
 
 #: libraries/plugins/export/ExportSql.php:1402
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:606
