@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-18 09:43-0500\n"
-"PO-Revision-Date: 2015-11-14 19:41+0000\n"
+"PO-Revision-Date: 2015-11-18 15:53+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3611,7 +3611,7 @@ msgstr "Επιλογή όλων"
 
 #: libraries/DisplayResults.php:5002
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Αντιγραφή στο πρόχειρο"
 
 #: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
@@ -10623,16 +10623,16 @@ msgid "Metadata"
 msgstr "Μεταδεδομένα"
 
 #: libraries/plugins/export/ExportSql.php:1063
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "Μεταδεδομένα για %s"
+msgstr "Μεταδεδομένα για πίνακα %s"
 
 #: libraries/plugins/export/ExportSql.php:1070
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "Μεταδεδομένα για %s"
+msgstr "Μεταδεδομένα για βάση δεδομένων %s"
 
 #: libraries/plugins/export/ExportSql.php:1402
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:606
