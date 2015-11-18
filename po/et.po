@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-18 06:46-0500\n"
+"POT-Creation-Date: 2015-11-18 09:43-0500\n"
 "PO-Revision-Date: 2015-11-18 12:57+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3576,11 +3576,11 @@ msgstr "Vali kõik"
 msgid "Copy to clipboard"
 msgstr "Kopeeri lõikelauale"
 
-#: libraries/DisplayResults.php:5025 libraries/Header.php:378
+#: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
-msgid "Print view"
-msgstr "Prindi vaade"
+msgid "Print"
+msgstr "Prindi"
 
 #: libraries/DisplayResults.php:5058
 msgid "Query results operations"
@@ -3670,6 +3670,10 @@ msgstr "Git'i informatsioon puudub!"
 #: libraries/Footer.php:199 libraries/Footer.php:203 libraries/Footer.php:206
 msgid "Open new phpMyAdmin window"
 msgstr "Ava uus phpMyAdmini aken"
+
+#: libraries/Header.php:378
+msgid "Print view"
+msgstr "Prindi vaade"
 
 #: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
@@ -4741,10 +4745,6 @@ msgstr "Tühjenda"
 #: libraries/Util.php:3712 libraries/Util.php:3713
 msgid "Execute"
 msgstr "Teosta"
-
-#: libraries/Util.php:4222
-msgid "Print"
-msgstr "Prindi"
 
 #: libraries/Util.php:4328
 msgid "Users"

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-18 06:46-0500\n"
+"POT-Creation-Date: 2015-11-18 09:43-0500\n"
 "PO-Revision-Date: 2015-11-18 13:41+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3635,11 +3635,11 @@ msgstr "Marca omnes"
 msgid "Copy to clipboard"
 msgstr "Copia a area de transferentia"
 
-#: libraries/DisplayResults.php:5025 libraries/Header.php:378
+#: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
-msgid "Print view"
-msgstr "Vista pro imprimer"
+msgid "Print"
+msgstr "Imprime"
 
 #: libraries/DisplayResults.php:5058
 msgid "Query results operations"
@@ -3731,6 +3731,10 @@ msgstr "Information de git mancante!"
 #: libraries/Footer.php:199 libraries/Footer.php:203 libraries/Footer.php:206
 msgid "Open new phpMyAdmin window"
 msgstr "Aperi nove fenestra de phpMyAdmin"
+
+#: libraries/Header.php:378
+msgid "Print view"
+msgstr "Vista pro imprimer"
 
 #: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
@@ -4821,10 +4825,6 @@ msgstr "Vacua"
 #: libraries/Util.php:3712 libraries/Util.php:3713
 msgid "Execute"
 msgstr "Executa"
-
-#: libraries/Util.php:4222
-msgid "Print"
-msgstr "Imprime"
 
 #: libraries/Util.php:4328
 msgid "Users"

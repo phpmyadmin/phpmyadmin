@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-18 06:46-0500\n"
+"POT-Creation-Date: 2015-11-18 09:43-0500\n"
 "PO-Revision-Date: 2015-10-15 11:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4142,11 +4142,11 @@ msgstr "Барчасини белгилаш"
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5025 libraries/Header.php:378
+#: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
-msgid "Print view"
-msgstr "Чоп этиш версияси"
+msgid "Print"
+msgstr "Чоп этиш"
 
 #: libraries/DisplayResults.php:5058
 msgid "Query results operations"
@@ -4252,6 +4252,10 @@ msgstr "Версия ҳақида маълумот"
 #: libraries/Footer.php:199 libraries/Footer.php:203 libraries/Footer.php:206
 msgid "Open new phpMyAdmin window"
 msgstr "phpMyAdmin дастурини янги ойнада очиш"
+
+#: libraries/Header.php:378
+msgid "Print view"
+msgstr "Чоп этиш версияси"
 
 #: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
@@ -5332,10 +5336,6 @@ msgstr "Тозалаш"
 #: libraries/Util.php:3712 libraries/Util.php:3713
 msgid "Execute"
 msgstr ""
-
-#: libraries/Util.php:4222
-msgid "Print"
-msgstr "Чоп этиш"
 
 #: libraries/Util.php:4328
 #, fuzzy

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-18 06:46-0500\n"
+"POT-Creation-Date: 2015-11-18 09:43-0500\n"
 "PO-Revision-Date: 2015-10-15 11:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3901,11 +3901,11 @@ msgstr "सभी को चेक करें"
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5025 libraries/Header.php:378
+#: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
-msgid "Print view"
-msgstr "छपाई द्रश्य"
+msgid "Print"
+msgstr "छापें"
 
 #: libraries/DisplayResults.php:5058
 msgid "Query results operations"
@@ -4007,6 +4007,10 @@ msgstr "संस्करण जानकारी"
 #: libraries/Footer.php:199 libraries/Footer.php:203 libraries/Footer.php:206
 msgid "Open new phpMyAdmin window"
 msgstr "phpMyAdmin की नई विंडो खोलें"
+
+#: libraries/Header.php:378
+msgid "Print view"
+msgstr "छपाई द्रश्य"
 
 #: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
@@ -5083,10 +5087,6 @@ msgstr "खाली"
 #: libraries/Util.php:3712 libraries/Util.php:3713
 msgid "Execute"
 msgstr ""
-
-#: libraries/Util.php:4222
-msgid "Print"
-msgstr "छापें"
 
 #: libraries/Util.php:4328
 #, fuzzy

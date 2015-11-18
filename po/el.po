@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-18 06:46-0500\n"
+"POT-Creation-Date: 2015-11-18 09:43-0500\n"
 "PO-Revision-Date: 2015-11-14 19:41+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3613,11 +3613,11 @@ msgstr "Επιλογή όλων"
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5025 libraries/Header.php:378
+#: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
-msgid "Print view"
-msgstr "Εμφάνιση για εκτύπωση"
+msgid "Print"
+msgstr "Εκτύπωση"
 
 #: libraries/DisplayResults.php:5058
 msgid "Query results operations"
@@ -3711,6 +3711,10 @@ msgstr "Λείπουν οι πληροφορίες Git!"
 #: libraries/Footer.php:199 libraries/Footer.php:203 libraries/Footer.php:206
 msgid "Open new phpMyAdmin window"
 msgstr "Άνοιγμα νέου παραθύρου phpMyAdmin"
+
+#: libraries/Header.php:378
+msgid "Print view"
+msgstr "Εμφάνιση για εκτύπωση"
 
 #: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
@@ -4800,10 +4804,6 @@ msgstr "Άδειασμα"
 #: libraries/Util.php:3712 libraries/Util.php:3713
 msgid "Execute"
 msgstr "Εκτέλεση"
-
-#: libraries/Util.php:4222
-msgid "Print"
-msgstr "Εκτύπωση"
 
 #: libraries/Util.php:4328
 msgid "Users"
