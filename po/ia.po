@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-18 06:46-0500\n"
-"PO-Revision-Date: 2015-11-17 23:24+0000\n"
+"PO-Revision-Date: 2015-11-18 13:41+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3633,7 +3633,7 @@ msgstr "Marca omnes"
 
 #: libraries/DisplayResults.php:5002
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copia a area de transferentia"
 
 #: libraries/DisplayResults.php:5025 libraries/Header.php:378
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
@@ -8045,10 +8045,12 @@ msgstr "incognite"
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
+"Tu non ha bastante privilegios pro vider variabiles e fixationes de "
+"servitor. %s"
 
 #: libraries/controllers/server/ServerVariablesController.php:215
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Il falleva fixar variabile"
 
 #: libraries/controllers/table/TableChartController.php:76
 #: libraries/controllers/table/TableGisVisualizationController.php:97
@@ -10128,7 +10130,7 @@ msgstr "Le nomine de tabella es vacue!"
 
 #: libraries/plugin_interface.lib.php:564
 msgid "This format has no options"
-msgstr ""
+msgstr "Iste formato ha nulle optiones"
 
 #: libraries/plugins/AuthenticationPlugin.php:64
 msgid ""
