@@ -203,14 +203,14 @@ AJAX.registerOnload('sql.js', function () {
     }); //end of Copy to Clipboard action
 
     /**
-     * Attach Event Handler for 'Print View'
+     * Attach Event Handler for 'Print' link
      */
     $(document).on('click', "#printView", function (event) {
         event.preventDefault();
 
         // Print the page
         printPage();
-    }); //end of Print View action
+    }); //end of 'Print' action
 
     /**
      * Attach the {@link makegrid} function to a custom event, which will be

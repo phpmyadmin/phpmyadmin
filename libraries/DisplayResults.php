@@ -5022,7 +5022,7 @@ class DisplayResults
         $html = Util::linkOrButton(
             '#',
             Util::getIcon(
-                'b_print.png', __('Print view'), true
+                'b_print.png', __('Print'), true
             ),
             array('id' => 'printView'),
             true,
