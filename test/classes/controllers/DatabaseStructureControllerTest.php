@@ -11,7 +11,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\controllers\DatabaseStructureController;
+use PMA\libraries\controllers\database\DatabaseStructureController;
 use PMA\libraries\di\Container;
 use PMA\libraries\Table;
 use PMA\libraries\Theme;
@@ -105,7 +105,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
         $container->set('PMA\libraries\Response', $response);
         $container->alias('response', 'PMA\libraries\Response');
 
-        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForInnodbTable');
         $method->setAccessible(true);
         // Showing statistics
@@ -191,7 +191,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testGetValuesForAriaTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
 
@@ -254,7 +254,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testHasTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
         $method = $class->getMethod('hasTable');
         $method->setAccessible(true);
 
@@ -301,7 +301,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckFavoriteTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
@@ -353,7 +353,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $class = new ReflectionClass('PMA\libraries\controllers\DatabaseStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
         $method = $class->getMethod('synchronizeFavoriteTables');
         $method->setAccessible(true);
 

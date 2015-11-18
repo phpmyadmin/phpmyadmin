@@ -2,14 +2,15 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PMA\DatabaseStructureController
+ * Holds the PMA\libraries\controllers\database\DatabaseStructureController
  *
  * @package PMA
  */
 
-namespace PMA\libraries\controllers;
+namespace PMA\libraries\controllers\database;
 
 use PMA\libraries\config\PageSettings;
+use PMA\libraries\controllers\DatabaseController;
 use PMA\libraries\Message;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Template;
