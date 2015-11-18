@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-17 08:14-0500\n"
+"POT-Creation-Date: 2015-11-18 06:46-0500\n"
 "PO-Revision-Date: 2015-11-02 02:33+0200\n"
 "Last-Translator: San <zhujunsan@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
@@ -237,7 +237,7 @@ msgid "View dump (schema) of database"
 msgstr "查看数据库的转储（大纲）"
 
 #: db_export.php:51 db_tracking.php:102 export.php:384 libraries/DbQbe.php:328
-#: libraries/controllers/DatabaseStructureController.php:157
+#: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:922
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
@@ -699,7 +699,7 @@ msgstr "版本信息："
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:579 libraries/engines/Pbxt.php:170
 #: libraries/navigation/NavigationHeader.php:196
-#: libraries/server_variables.lib.php:162
+#: templates/server/variables/link_template.phtml:10
 msgid "Documentation"
 msgstr "文档"
 
@@ -1638,7 +1638,7 @@ msgstr "正在格式化SQL……"
 msgid "No parameters found!"
 msgstr "参数无效！"
 
-#: js/messages.php:347 libraries/server_variables.lib.php:159
+#: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
 #: templates/database/designer/delete_relation_panel.phtml:28
 #: templates/database/designer/having_query_panel.phtml:117
@@ -1646,6 +1646,7 @@ msgstr "参数无效！"
 #: templates/database/designer/options_panel.phtml:253
 #: templates/database/designer/rename_to_panel.phtml:45
 #: templates/database/designer/where_query_panel.phtml:83
+#: templates/server/variables/link_template.phtml:5
 msgid "Cancel"
 msgstr "取消"
 
@@ -1760,7 +1761,7 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "函数定义中必须包含 RETURN 语句！"
 
 #: js/messages.php:389 libraries/DisplayResults.php:4850
-#: libraries/DisplayResults.php:5109 libraries/Menu.php:347
+#: libraries/DisplayResults.php:5133 libraries/Menu.php:347
 #: libraries/Menu.php:448 libraries/Menu.php:574 libraries/Util.php:3710
 #: libraries/Util.php:3711 libraries/Util.php:4329 libraries/Util.php:4344
 #: libraries/Util.php:4361 libraries/config/messages.inc.php:254
@@ -1817,9 +1818,9 @@ msgstr "显示查询框"
 #: libraries/central_columns.lib.php:852
 #: libraries/central_columns.lib.php:1195
 #: libraries/config/messages.inc.php:895
-#: libraries/server_user_groups.lib.php:121
-#: libraries/server_variables.lib.php:242
-#: libraries/server_variables.lib.php:247 setup/frames/index.inc.php:183
+#: libraries/server_user_groups.lib.php:121 setup/frames/index.inc.php:183
+#: templates/server/variables/variable_row.phtml:4
+#: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
 msgstr "编辑"
 
@@ -1992,9 +1993,10 @@ msgid "No dependencies selected!"
 msgstr "没有已选择的依赖！"
 
 #: js/messages.php:466 libraries/central_columns.lib.php:1216
-#: libraries/insert_edit.lib.php:1466 libraries/server_variables.lib.php:157
-#: setup/frames/config.inc.php:43 setup/frames/index.inc.php:283
+#: libraries/insert_edit.lib.php:1466 setup/frames/config.inc.php:43
+#: setup/frames/index.inc.php:283
 #: templates/columns_definitions/column_definitions_form.phtml:162
+#: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
 #: templates/table/relation/common_form.phtml:128
 #: templates/table/structure/partition_definition_form.phtml:11
@@ -3446,7 +3448,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 语句已成功运行。"
 
 #: libraries/DisplayResults.php:4676
-#: libraries/controllers/DatabaseStructureController.php:767
+#: libraries/controllers/database/DatabaseStructureController.php:768
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3492,25 +3494,29 @@ msgstr "选中项："
 msgid "Check all"
 msgstr "全选"
 
-#: libraries/DisplayResults.php:5002 libraries/Header.php:378
+#: libraries/DisplayResults.php:5002
+msgid "Copy to clipboard"
+msgstr ""
+
+#: libraries/DisplayResults.php:5025 libraries/Header.php:378
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print view"
 msgstr "打印预览"
 
-#: libraries/DisplayResults.php:5035
+#: libraries/DisplayResults.php:5058
 msgid "Query results operations"
 msgstr "查询结果操作"
 
-#: libraries/DisplayResults.php:5122 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5146 templates/table/chart/tbl_chart.phtml:12
 msgid "Display chart"
 msgstr "显示图表"
 
-#: libraries/DisplayResults.php:5147
+#: libraries/DisplayResults.php:5171
 msgid "Visualize GIS data"
 msgstr "可视化 GIS 数据"
 
-#: libraries/DisplayResults.php:5326
+#: libraries/DisplayResults.php:5350
 msgid "Link not found!"
 msgstr "找不到链接！"
 
@@ -3611,12 +3617,12 @@ msgstr "索引"
 #: libraries/rte/rte_list.lib.php:105 libraries/server_databases.lib.php:410
 #: libraries/server_privileges.lib.php:2605
 #: libraries/server_privileges.lib.php:3522
-#: libraries/server_user_groups.lib.php:83
-#: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:285
+#: libraries/server_user_groups.lib.php:83 libraries/tracking.lib.php:285
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1490
 #: libraries/tracking.lib.php:1640
 #: templates/database/structure/table_header.phtml:30
 #: templates/privileges/privileges_summary.phtml:23
+#: templates/server/variables/variable_table_head.phtml:3
 #: templates/table/structure/display_partitions.phtml:34
 #: templates/table/structure/table_structure_header.phtml:22
 msgid "Action"
@@ -7578,32 +7584,42 @@ msgstr "微软 Word 2000"
 msgid "OpenDocument Text"
 msgstr "OpenOffice 文档"
 
-#: libraries/controllers/DatabaseStructureController.php:272
+#: libraries/controllers/database/DatabaseStructureController.php:273
 msgid "Favorite List is full!"
 msgstr "收藏夹数量已达上限！"
 
-#: libraries/controllers/DatabaseStructureController.php:558
+#: libraries/controllers/database/DatabaseStructureController.php:559
 #: tbl_operations.php:378
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空表 %s。"
 
-#: libraries/controllers/DatabaseStructureController.php:579
+#: libraries/controllers/database/DatabaseStructureController.php:580
 #: tbl_operations.php:396 view_operations.php:122
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已删除视图 %s。"
 
-#: libraries/controllers/DatabaseStructureController.php:580
+#: libraries/controllers/database/DatabaseStructureController.php:581
 #: tbl_operations.php:397
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已删除表 %s。"
 
-#: libraries/controllers/DatabaseStructureController.php:981
+#: libraries/controllers/database/DatabaseStructureController.php:982
 #: libraries/mysql_charsets.lib.php:357 libraries/mysql_charsets.lib.php:364
 msgid "unknown"
 msgstr "未知"
+
+#: libraries/controllers/server/ServerVariablesController.php:107
+#, fuzzy, php-format
+#| msgid "Server variables and settings"
+msgid "Not enough privilege to view server variables and settings. %s"
+msgstr "服务器变量和设置"
+
+#: libraries/controllers/server/ServerVariablesController.php:215
+msgid "Setting variable failed"
+msgstr "设置变量失败"
 
 #: libraries/controllers/table/TableChartController.php:76
 #: libraries/controllers/table/TableGisVisualizationController.php:97
@@ -11104,7 +11120,7 @@ msgstr "从服务器状态"
 
 #: libraries/replication_gui.lib.php:545
 #: libraries/server_status_variables.lib.php:221
-#: libraries/server_variables.lib.php:195
+#: templates/server/variables/variable_table_head.phtml:4
 msgid "Variable"
 msgstr "变量"
 
@@ -12665,7 +12681,7 @@ msgstr "进度"
 
 #: libraries/server_status_processes.lib.php:229
 #: libraries/server_status_variables.lib.php:41
-#: libraries/server_variables.lib.php:184
+#: templates/server/variables/variable_filter.phtml:2
 msgid "Filters"
 msgstr "过滤器"
 
@@ -12702,7 +12718,7 @@ msgid "#"
 msgstr "查询数量"
 
 #: libraries/server_status_variables.lib.php:46
-#: libraries/server_variables.lib.php:186
+#: templates/server/variables/variable_filter.phtml:4
 msgid "Containing the word:"
 msgstr "包含文字:"
 
@@ -13431,23 +13447,6 @@ msgstr "数据库服务器"
 msgid "Table-level tabs"
 msgstr "表注释"
 
-#: libraries/server_variables.lib.php:116
-msgid "Setting variable failed"
-msgstr "设置变量失败"
-
-#: libraries/server_variables.lib.php:197
-#: libraries/server_variables.lib.php:281
-msgid "Session value"
-msgstr "会话值"
-
-#: libraries/server_variables.lib.php:197
-msgid "Global value"
-msgstr "全局值"
-
-#: libraries/server_variables.lib.php:245
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
 #: libraries/sql-parser/src/Component.php:48
 #: libraries/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
@@ -13507,7 +13506,7 @@ msgstr ""
 msgid "An alias was expected."
 msgstr "没有已选择的数据库。"
 
-#: libraries/sql-parser/src/Components/ExpressionArray.php:97
+#: libraries/sql-parser/src/Components/ExpressionArray.php:98
 #, fuzzy
 #| msgid "No rows selected"
 msgid "An expression was expected."
@@ -14130,12 +14129,6 @@ msgstr ""
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
 msgstr ""
-
-#: server_variables.php:86
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
-msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "服务器变量和设置"
 
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
 msgid "Download"
@@ -14971,6 +14964,19 @@ msgstr "在下列数据表添加权限："
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
 msgstr "按字段指定权限"
+
+#: templates/server/variables/session_variable_row.phtml:3
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Session value"
+msgstr "会话值"
+
+#: templates/server/variables/variable_row.phtml:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Global value"
+msgstr "全局值"
 
 #: templates/startAndNumberOfRowsPanel.phtml:3
 msgid "Start row:"

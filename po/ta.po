@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-17 08:14-0500\n"
+"POT-Creation-Date: 2015-11-18 06:46-0500\n"
 "PO-Revision-Date: 2015-10-15 11:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -240,7 +240,7 @@ msgid "View dump (schema) of database"
 msgstr "தரவுத்தளத்தின் குவியலமைப்பை (திட்ட வடிவத்தைப்) பார்க்க"
 
 #: db_export.php:51 db_tracking.php:102 export.php:384 libraries/DbQbe.php:328
-#: libraries/controllers/DatabaseStructureController.php:157
+#: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:922
 msgid "No tables found in database."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
@@ -731,7 +731,7 @@ msgstr "பதிப்பு தகவல்கள்:"
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:579 libraries/engines/Pbxt.php:170
 #: libraries/navigation/NavigationHeader.php:196
-#: libraries/server_variables.lib.php:162
+#: templates/server/variables/link_template.phtml:10
 msgid "Documentation"
 msgstr "ஆவணச்சான்று"
 
@@ -1727,7 +1727,7 @@ msgstr ""
 msgid "No parameters found!"
 msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
-#: js/messages.php:347 libraries/server_variables.lib.php:159
+#: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
 #: templates/database/designer/delete_relation_panel.phtml:28
 #: templates/database/designer/having_query_panel.phtml:117
@@ -1735,6 +1735,7 @@ msgstr "ஒவ்வாத பண்புகூறுகள்!"
 #: templates/database/designer/options_panel.phtml:253
 #: templates/database/designer/rename_to_panel.phtml:45
 #: templates/database/designer/where_query_panel.phtml:83
+#: templates/server/variables/link_template.phtml:5
 msgid "Cancel"
 msgstr "விலக்கு"
 
@@ -1871,7 +1872,7 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "சேமிக்கபட்ட செயல்கூற்றின் வரையறையில் ஓர் RETURN கூற்று கண்டிப்பாக இருக்கவேண்டும்!"
 
 #: js/messages.php:389 libraries/DisplayResults.php:4850
-#: libraries/DisplayResults.php:5109 libraries/Menu.php:347
+#: libraries/DisplayResults.php:5133 libraries/Menu.php:347
 #: libraries/Menu.php:448 libraries/Menu.php:574 libraries/Util.php:3710
 #: libraries/Util.php:3711 libraries/Util.php:4329 libraries/Util.php:4344
 #: libraries/Util.php:4361 libraries/config/messages.inc.php:254
@@ -1928,9 +1929,9 @@ msgstr "வினவல் பெட்டியை காண்பி"
 #: libraries/central_columns.lib.php:852
 #: libraries/central_columns.lib.php:1195
 #: libraries/config/messages.inc.php:895
-#: libraries/server_user_groups.lib.php:121
-#: libraries/server_variables.lib.php:242
-#: libraries/server_variables.lib.php:247 setup/frames/index.inc.php:183
+#: libraries/server_user_groups.lib.php:121 setup/frames/index.inc.php:183
+#: templates/server/variables/variable_row.phtml:4
+#: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
 msgstr "தொகு"
 
@@ -2110,9 +2111,10 @@ msgid "No dependencies selected!"
 msgstr "எந்த சார்புகளும் தேர்ந்தெடுக்கப்படவில்லை!"
 
 #: js/messages.php:466 libraries/central_columns.lib.php:1216
-#: libraries/insert_edit.lib.php:1466 libraries/server_variables.lib.php:157
-#: setup/frames/config.inc.php:43 setup/frames/index.inc.php:283
+#: libraries/insert_edit.lib.php:1466 setup/frames/config.inc.php:43
+#: setup/frames/index.inc.php:283
 #: templates/columns_definitions/column_definitions_form.phtml:162
+#: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
 #: templates/table/relation/common_form.phtml:128
 #: templates/table/structure/partition_definition_form.phtml:11
@@ -3666,7 +3668,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "உங்கள் SQL வினவல் வெற்றிகரமாக நிறைவேற்றப்பட்டது."
 
 #: libraries/DisplayResults.php:4676
-#: libraries/controllers/DatabaseStructureController.php:767
+#: libraries/controllers/database/DatabaseStructureController.php:768
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3715,25 +3717,29 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 msgid "Check all"
 msgstr "அனைத்தையும் தெரி"
 
-#: libraries/DisplayResults.php:5002 libraries/Header.php:378
+#: libraries/DisplayResults.php:5002
+msgid "Copy to clipboard"
+msgstr ""
+
+#: libraries/DisplayResults.php:5025 libraries/Header.php:378
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print view"
 msgstr "அச்சுப் பார்வை"
 
-#: libraries/DisplayResults.php:5035
+#: libraries/DisplayResults.php:5058
 msgid "Query results operations"
 msgstr "வினவலின் பயன்முடிவுகளின் செயல்பாடுகள்"
 
-#: libraries/DisplayResults.php:5122 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5146 templates/table/chart/tbl_chart.phtml:12
 msgid "Display chart"
 msgstr "விளக்கப்படத்தை காட்டுக"
 
-#: libraries/DisplayResults.php:5147
+#: libraries/DisplayResults.php:5171
 msgid "Visualize GIS data"
 msgstr "GIS தரவை காட்சிப்படுத்துக"
 
-#: libraries/DisplayResults.php:5326
+#: libraries/DisplayResults.php:5350
 msgid "Link not found!"
 msgstr "இணைப்பை காணவில்லை!"
 
@@ -3834,12 +3840,12 @@ msgstr "சுட்டுகள்"
 #: libraries/rte/rte_list.lib.php:105 libraries/server_databases.lib.php:410
 #: libraries/server_privileges.lib.php:2605
 #: libraries/server_privileges.lib.php:3522
-#: libraries/server_user_groups.lib.php:83
-#: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:285
+#: libraries/server_user_groups.lib.php:83 libraries/tracking.lib.php:285
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1490
 #: libraries/tracking.lib.php:1640
 #: templates/database/structure/table_header.phtml:30
 #: templates/privileges/privileges_summary.phtml:23
+#: templates/server/variables/variable_table_head.phtml:3
 #: templates/table/structure/display_partitions.phtml:34
 #: templates/table/structure/table_structure_header.phtml:22
 msgid "Action"
@@ -7748,32 +7754,42 @@ msgstr ""
 msgid "OpenDocument Text"
 msgstr "கட்டற்றஆவண உரை"
 
-#: libraries/controllers/DatabaseStructureController.php:272
+#: libraries/controllers/database/DatabaseStructureController.php:273
 msgid "Favorite List is full!"
 msgstr "விருப்பமானவை பட்டியல் நிரம்பிவிட்டது!"
 
-#: libraries/controllers/DatabaseStructureController.php:558
+#: libraries/controllers/database/DatabaseStructureController.php:559
 #: tbl_operations.php:378
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "%s அட்டவணை வெறுமையாக்கப்பட்டது."
 
-#: libraries/controllers/DatabaseStructureController.php:579
+#: libraries/controllers/database/DatabaseStructureController.php:580
 #: tbl_operations.php:396 view_operations.php:122
 #, php-format
 msgid "View %s has been dropped."
 msgstr "நோக்குநிலை %s கைவிடப்பட்டது."
 
-#: libraries/controllers/DatabaseStructureController.php:580
+#: libraries/controllers/database/DatabaseStructureController.php:581
 #: tbl_operations.php:397
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "அட்டவணை %s கைவிடப்பட்டது."
 
-#: libraries/controllers/DatabaseStructureController.php:981
+#: libraries/controllers/database/DatabaseStructureController.php:982
 #: libraries/mysql_charsets.lib.php:357 libraries/mysql_charsets.lib.php:364
 msgid "unknown"
 msgstr ""
+
+#: libraries/controllers/server/ServerVariablesController.php:107
+#, fuzzy, php-format
+#| msgid "Server variables and settings"
+msgid "Not enough privilege to view server variables and settings. %s"
+msgstr "சேவையக மாறிகள் மற்றும் அமைப்புக்கள்"
+
+#: libraries/controllers/server/ServerVariablesController.php:215
+msgid "Setting variable failed"
+msgstr "மாறி அமைப்பு  தோல்வியடைந்தது"
 
 #: libraries/controllers/table/TableChartController.php:76
 #: libraries/controllers/table/TableGisVisualizationController.php:97
@@ -11109,7 +11125,7 @@ msgstr "துணைநிலை நிகழ்நிலை"
 
 #: libraries/replication_gui.lib.php:545
 #: libraries/server_status_variables.lib.php:221
-#: libraries/server_variables.lib.php:195
+#: templates/server/variables/variable_table_head.phtml:4
 msgid "Variable"
 msgstr ""
 
@@ -12601,7 +12617,7 @@ msgstr ""
 
 #: libraries/server_status_processes.lib.php:229
 #: libraries/server_status_variables.lib.php:41
-#: libraries/server_variables.lib.php:184
+#: templates/server/variables/variable_filter.phtml:2
 msgid "Filters"
 msgstr "வடிகட்டிகள்"
 
@@ -12638,7 +12654,7 @@ msgid "#"
 msgstr ""
 
 #: libraries/server_status_variables.lib.php:46
-#: libraries/server_variables.lib.php:186
+#: templates/server/variables/variable_filter.phtml:4
 msgid "Containing the word:"
 msgstr ""
 
@@ -13286,23 +13302,6 @@ msgstr "தரவுத்தள-படிநிலைமட்ட தாவல�
 msgid "Table-level tabs"
 msgstr "அட்டவணை-படிநிலைமட்ட தாவல்கள்"
 
-#: libraries/server_variables.lib.php:116
-msgid "Setting variable failed"
-msgstr "மாறி அமைப்பு  தோல்வியடைந்தது"
-
-#: libraries/server_variables.lib.php:197
-#: libraries/server_variables.lib.php:281
-msgid "Session value"
-msgstr "அமர்வு மதிப்பு"
-
-#: libraries/server_variables.lib.php:197
-msgid "Global value"
-msgstr "முழுதளாவிய மதிப்பு"
-
-#: libraries/server_variables.lib.php:245
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
 #: libraries/sql-parser/src/Component.php:48
 #: libraries/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
@@ -13360,7 +13359,7 @@ msgstr ""
 msgid "An alias was expected."
 msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
 
-#: libraries/sql-parser/src/Components/ExpressionArray.php:97
+#: libraries/sql-parser/src/Components/ExpressionArray.php:98
 #, fuzzy
 #| msgid "No rows selected"
 msgid "An expression was expected."
@@ -13957,12 +13956,6 @@ msgstr ""
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
 msgstr ""
-
-#: server_variables.php:86
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
-msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "சேவையக மாறிகள் மற்றும் அமைப்புக்கள்"
 
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
 msgid "Download"
@@ -14730,6 +14723,19 @@ msgstr "பின்வரும் அட்டவணையின் மீத�
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
 msgstr ""
+
+#: templates/server/variables/session_variable_row.phtml:3
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Session value"
+msgstr "அமர்வு மதிப்பு"
+
+#: templates/server/variables/variable_row.phtml:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Global value"
+msgstr "முழுதளாவிய மதிப்பு"
 
 #: templates/startAndNumberOfRowsPanel.phtml:3
 msgid "Start row:"

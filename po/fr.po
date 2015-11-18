@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-17 08:14-0500\n"
+"POT-Creation-Date: 2015-11-18 06:46-0500\n"
 "PO-Revision-Date: 2015-11-18 12:41+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -240,7 +240,7 @@ msgid "View dump (schema) of database"
 msgstr "Voir une exportation (schéma) de la base de données"
 
 #: db_export.php:51 db_tracking.php:102 export.php:384 libraries/DbQbe.php:328
-#: libraries/controllers/DatabaseStructureController.php:157
+#: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:922
 msgid "No tables found in database."
 msgstr "Aucune table n'a été trouvée dans cette base."
@@ -724,7 +724,7 @@ msgstr "Version : "
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:579 libraries/engines/Pbxt.php:170
 #: libraries/navigation/NavigationHeader.php:196
-#: libraries/server_variables.lib.php:162
+#: templates/server/variables/link_template.phtml:10
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -1702,7 +1702,7 @@ msgstr "Formatage SQL…"
 msgid "No parameters found!"
 msgstr "Paramètres manquants !"
 
-#: js/messages.php:347 libraries/server_variables.lib.php:159
+#: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
 #: templates/database/designer/delete_relation_panel.phtml:28
 #: templates/database/designer/having_query_panel.phtml:117
@@ -1710,6 +1710,7 @@ msgstr "Paramètres manquants !"
 #: templates/database/designer/options_panel.phtml:253
 #: templates/database/designer/rename_to_panel.phtml:45
 #: templates/database/designer/where_query_panel.phtml:83
+#: templates/server/variables/link_template.phtml:5
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1824,7 +1825,7 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "La définition d'une fonction doit comporter un énoncé RETURN !"
 
 #: js/messages.php:389 libraries/DisplayResults.php:4850
-#: libraries/DisplayResults.php:5109 libraries/Menu.php:347
+#: libraries/DisplayResults.php:5133 libraries/Menu.php:347
 #: libraries/Menu.php:448 libraries/Menu.php:574 libraries/Util.php:3710
 #: libraries/Util.php:3711 libraries/Util.php:4329 libraries/Util.php:4344
 #: libraries/Util.php:4361 libraries/config/messages.inc.php:254
@@ -1882,9 +1883,9 @@ msgstr "Montrer zone SQL"
 #: libraries/central_columns.lib.php:852
 #: libraries/central_columns.lib.php:1195
 #: libraries/config/messages.inc.php:895
-#: libraries/server_user_groups.lib.php:121
-#: libraries/server_variables.lib.php:242
-#: libraries/server_variables.lib.php:247 setup/frames/index.inc.php:183
+#: libraries/server_user_groups.lib.php:121 setup/frames/index.inc.php:183
+#: templates/server/variables/variable_row.phtml:4
+#: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
 msgstr "Modifier"
 
@@ -2067,9 +2068,10 @@ msgid "No dependencies selected!"
 msgstr "Aucune dépendance sélectionnée !"
 
 #: js/messages.php:466 libraries/central_columns.lib.php:1216
-#: libraries/insert_edit.lib.php:1466 libraries/server_variables.lib.php:157
-#: setup/frames/config.inc.php:43 setup/frames/index.inc.php:283
+#: libraries/insert_edit.lib.php:1466 setup/frames/config.inc.php:43
+#: setup/frames/index.inc.php:283
 #: templates/columns_definitions/column_definitions_form.phtml:162
+#: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
 #: templates/table/relation/common_form.phtml:128
 #: templates/table/structure/partition_definition_form.phtml:11
@@ -3569,7 +3571,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "Votre requête SQL a été exécutée avec succès."
 
 #: libraries/DisplayResults.php:4676
-#: libraries/controllers/DatabaseStructureController.php:767
+#: libraries/controllers/database/DatabaseStructureController.php:768
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3617,25 +3619,29 @@ msgstr "Pour la sélection : "
 msgid "Check all"
 msgstr "Tout cocher"
 
-#: libraries/DisplayResults.php:5002 libraries/Header.php:378
+#: libraries/DisplayResults.php:5002
+msgid "Copy to clipboard"
+msgstr ""
+
+#: libraries/DisplayResults.php:5025 libraries/Header.php:378
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print view"
 msgstr "Version imprimable"
 
-#: libraries/DisplayResults.php:5035
+#: libraries/DisplayResults.php:5058
 msgid "Query results operations"
 msgstr "Opérations sur les résultats de la requête"
 
-#: libraries/DisplayResults.php:5122 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5146 templates/table/chart/tbl_chart.phtml:12
 msgid "Display chart"
 msgstr "Afficher le graphique"
 
-#: libraries/DisplayResults.php:5147
+#: libraries/DisplayResults.php:5171
 msgid "Visualize GIS data"
 msgstr "Visualiser les données GIS"
 
-#: libraries/DisplayResults.php:5326
+#: libraries/DisplayResults.php:5350
 msgid "Link not found!"
 msgstr "Lien absent !"
 
@@ -3743,12 +3749,12 @@ msgstr "Index"
 #: libraries/rte/rte_list.lib.php:105 libraries/server_databases.lib.php:410
 #: libraries/server_privileges.lib.php:2605
 #: libraries/server_privileges.lib.php:3522
-#: libraries/server_user_groups.lib.php:83
-#: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:285
+#: libraries/server_user_groups.lib.php:83 libraries/tracking.lib.php:285
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1490
 #: libraries/tracking.lib.php:1640
 #: templates/database/structure/table_header.phtml:30
 #: templates/privileges/privileges_summary.phtml:23
+#: templates/server/variables/variable_table_head.phtml:3
 #: templates/table/structure/display_partitions.phtml:34
 #: templates/table/structure/table_structure_header.phtml:22
 msgid "Action"
@@ -7989,32 +7995,43 @@ msgstr "Microsoft Word 2000"
 msgid "OpenDocument Text"
 msgstr "Texte OpenDocument"
 
-#: libraries/controllers/DatabaseStructureController.php:272
+#: libraries/controllers/database/DatabaseStructureController.php:273
 msgid "Favorite List is full!"
 msgstr "La liste des tables favorites est pleine !"
 
-#: libraries/controllers/DatabaseStructureController.php:558
+#: libraries/controllers/database/DatabaseStructureController.php:559
 #: tbl_operations.php:378
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "La table %s a été vidée."
 
-#: libraries/controllers/DatabaseStructureController.php:579
+#: libraries/controllers/database/DatabaseStructureController.php:580
 #: tbl_operations.php:396 view_operations.php:122
 #, php-format
 msgid "View %s has been dropped."
 msgstr "La vue %s a été supprimée."
 
-#: libraries/controllers/DatabaseStructureController.php:580
+#: libraries/controllers/database/DatabaseStructureController.php:581
 #: tbl_operations.php:397
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "La table %s a été effacée."
 
-#: libraries/controllers/DatabaseStructureController.php:981
+#: libraries/controllers/database/DatabaseStructureController.php:982
 #: libraries/mysql_charsets.lib.php:357 libraries/mysql_charsets.lib.php:364
 msgid "unknown"
 msgstr "inconnu"
+
+#: libraries/controllers/server/ServerVariablesController.php:107
+#, php-format
+msgid "Not enough privilege to view server variables and settings. %s"
+msgstr ""
+"Privilèges insuffisants pour visualiser les variables d'état et les "
+"paramètres. %s"
+
+#: libraries/controllers/server/ServerVariablesController.php:215
+msgid "Setting variable failed"
+msgstr "Échec de mise à jour de la variable"
 
 #: libraries/controllers/table/TableChartController.php:76
 #: libraries/controllers/table/TableGisVisualizationController.php:97
@@ -10608,13 +10625,11 @@ msgstr "Métadonnées"
 
 #: libraries/plugins/export/ExportSql.php:1063
 #, php-format
-#| msgid "Metadata for %s"
 msgid "Metadata for table %s"
 msgstr "Métadonnées pour la table %s"
 
 #: libraries/plugins/export/ExportSql.php:1070
 #, php-format
-#| msgid "Metadata for %s"
 msgid "Metadata for database %s"
 msgstr "Métadonnées pour la base de données %s"
 
@@ -11571,7 +11586,7 @@ msgstr "État de l'esclave"
 
 #: libraries/replication_gui.lib.php:545
 #: libraries/server_status_variables.lib.php:221
-#: libraries/server_variables.lib.php:195
+#: templates/server/variables/variable_table_head.phtml:4
 msgid "Variable"
 msgstr "Variable"
 
@@ -13124,7 +13139,7 @@ msgstr "Progression"
 
 #: libraries/server_status_processes.lib.php:229
 #: libraries/server_status_variables.lib.php:41
-#: libraries/server_variables.lib.php:184
+#: templates/server/variables/variable_filter.phtml:2
 msgid "Filters"
 msgstr "Filtres"
 
@@ -13159,7 +13174,7 @@ msgid "#"
 msgstr "#"
 
 #: libraries/server_status_variables.lib.php:46
-#: libraries/server_variables.lib.php:186
+#: templates/server/variables/variable_filter.phtml:4
 msgid "Containing the word:"
 msgstr "Contenant le mot : "
 
@@ -13938,23 +13953,6 @@ msgstr "Onglets de niveau base de données"
 msgid "Table-level tabs"
 msgstr "Onglets de niveau table"
 
-#: libraries/server_variables.lib.php:116
-msgid "Setting variable failed"
-msgstr "Échec de mise à jour de la variable"
-
-#: libraries/server_variables.lib.php:197
-#: libraries/server_variables.lib.php:281
-msgid "Session value"
-msgstr "Valeur pour la session"
-
-#: libraries/server_variables.lib.php:197
-msgid "Global value"
-msgstr "Valeur globale"
-
-#: libraries/server_variables.lib.php:245
-msgid "This is a read-only variable and can not be edited"
-msgstr "Ceci est une variable en lecture seule qui ne peut pas être modifiée"
-
 #: libraries/sql-parser/src/Component.php:48
 #: libraries/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
@@ -14008,7 +14006,7 @@ msgstr "Point inattendu."
 msgid "An alias was expected."
 msgstr "Un alias était attendu."
 
-#: libraries/sql-parser/src/Components/ExpressionArray.php:97
+#: libraries/sql-parser/src/Components/ExpressionArray.php:98
 msgid "An expression was expected."
 msgstr "Une expression était attendue."
 
@@ -14598,13 +14596,6 @@ msgstr "Privilèges insuffisants pour visualiser les statistiques de requêtes."
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
 msgstr "Privilèges insuffisants pour visualiser les variables d'état."
-
-#: server_variables.php:86
-#, php-format
-msgid "Not enough privilege to view server variables and settings. %s"
-msgstr ""
-"Privilèges insuffisants pour visualiser les variables d'état et les "
-"paramètres. %s"
 
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
 msgid "Download"
@@ -15356,6 +15347,19 @@ msgstr "Ajouter des privilèges sur cette table : "
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
 msgstr "Privilèges de colonnes"
+
+#: templates/server/variables/session_variable_row.phtml:3
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Session value"
+msgstr "Valeur pour la session"
+
+#: templates/server/variables/variable_row.phtml:6
+msgid "This is a read-only variable and can not be edited"
+msgstr "Ceci est une variable en lecture seule qui ne peut pas être modifiée"
+
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Global value"
+msgstr "Valeur globale"
 
 #: templates/startAndNumberOfRowsPanel.phtml:3
 msgid "Start row:"
