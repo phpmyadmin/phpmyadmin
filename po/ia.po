@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-11-02 15:37+0200\n"
+"PO-Revision-Date: 2015-11-18 13:41+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ia/>\n"
@@ -10021,7 +10021,7 @@ msgstr "Optiones de tabella"
 
 #: libraries/operations.lib.php:1071 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
-msgstr ""
+msgstr "Motor de immagazinage"
 
 #: libraries/operations.lib.php:1096
 msgid "Change all column collations"
@@ -10057,16 +10057,16 @@ msgstr "Tabella de checksum"
 
 #: libraries/operations.lib.php:1453
 msgid "Defragment table"
-msgstr ""
+msgstr "Defragmenta tabella"
 
 #: libraries/operations.lib.php:1465
 #, php-format
 msgid "Table %s has been flushed."
-msgstr ""
+msgstr "Tabella %s ha essite initialisate."
 
 #: libraries/operations.lib.php:1471
 msgid "Flush the table (FLUSH)"
-msgstr ""
+msgstr "Initialisa le tabella (FLUSH)"
 
 #: libraries/operations.lib.php:1487
 #: templates/database/structure/check_all_tables.phtml:23
@@ -10077,7 +10077,7 @@ msgstr "Optimiza tabella"
 #: libraries/operations.lib.php:1502
 #: templates/database/structure/check_all_tables.phtml:24
 msgid "Repair table"
-msgstr ""
+msgstr "Repara tabella"
 
 #: libraries/operations.lib.php:1548
 #: templates/database/structure/check_all_tables.phtml:14
@@ -10116,12 +10116,12 @@ msgstr "Reconstrue"
 #: libraries/operations.lib.php:1608
 #: templates/table/structure/display_structure.phtml:185
 msgid "Repair"
-msgstr ""
+msgstr "Repara"
 
 #: libraries/operations.lib.php:1609
 #: templates/table/structure/display_structure.phtml:186
 msgid "Truncate"
-msgstr ""
+msgstr "Trunca"
 
 #: libraries/operations.lib.php:1619
 msgid "Coalesce"
@@ -10129,7 +10129,7 @@ msgstr "Uni"
 
 #: libraries/operations.lib.php:1628
 msgid "Partition maintenance"
-msgstr ""
+msgstr "Mantenentia de partition"
 
 #: libraries/operations.lib.php:1645
 #, php-format
@@ -10146,39 +10146,39 @@ msgstr "Verifica le integritate referential:"
 
 #: libraries/operations.lib.php:2109
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "On non pote mover tabella sur se mesme!"
 
 #: libraries/operations.lib.php:2111
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "On non pote copiar tabella sur se mesme!"
 
 #: libraries/operations.lib.php:2135
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr ""
+msgstr "Tabella %s ha essite movite in %s. Privilegios ha essite adaptate."
 
 #: libraries/operations.lib.php:2142
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr ""
+msgstr "Tabella %s ha essite copiate in %s. Privilegios ha essite adaptate."
 
 #: libraries/operations.lib.php:2151
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr ""
+msgstr "Tabella %s ha essite movite in %s."
 
 #: libraries/operations.lib.php:2155
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr ""
+msgstr "Tabella %s ha essite copiate in %s."
 
 #: libraries/operations.lib.php:2177
 msgid "The table name is empty!"
-msgstr ""
+msgstr "Le nomine de tabella es vacue!"
 
 #: libraries/plugin_interface.lib.php:554
 msgid "This format has no options"
-msgstr ""
+msgstr "Iste formato ha nulle optiones"
 
 #: libraries/plugins/AuthenticationPlugin.class.php:66
 msgid ""
@@ -13659,7 +13659,7 @@ msgstr "Schedas de nivello de tabula"
 
 #: libraries/server_variables.lib.php:116
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Il falleva fixar variabile"
 
 #: libraries/server_variables.lib.php:197
 #: libraries/server_variables.lib.php:281
@@ -14306,6 +14306,8 @@ msgstr ""
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
+"Tu non ha bastante privilegios pro vider variabiles e fixationes de "
+"servitor. %s"
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:278
 msgid "Download"
