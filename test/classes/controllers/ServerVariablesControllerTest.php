@@ -1,35 +1,35 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_variables.lib.php
+ * Holds ServerVariablesControllerTest class
  *
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
+use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
-
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/server_variables.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
+require_once 'test/libraries/stubs/ResponseStub.php';
 
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
- * class PMA_ServerVariables_Test
- *
- * this class is for testing server_variables.lib.php functions
+ * Tests for ServerVariablesController class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
+class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \PMA\Test\Stubs\Response
+     */
+    private $response;
+
     /**
      * Test for setUp
      *
@@ -104,50 +104,76 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValueMap($fetchResult));
 
         $GLOBALS['dbi'] = $dbi;
+
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $GLOBALS['dbi']);
+        $this->response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->response);
+        $container->alias('response', 'PMA\libraries\Response');
     }
 
     /**
-     * Test for PMA_formatVariable
+     * Test for _formatVariable()
      *
      * @return void
      */
-    public function testPMAFormatVariable()
+    public function testFormatVariable()
     {
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerVariablesController');
+        $method = $class->getMethod('_formatVariable');
+        $method->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerVariablesController');
+        $container->alias(
+            'ServerVariablesController', 'PMA\libraries\controllers\server\ServerVariablesController'
+        );
+        $ctrl = $container->get('ServerVariablesController');
+
         //Call the test function
         $name_for_value_byte = "binlog_cache_size";
         $name_for_value_not_byte = "auto_increment_increment";
         $name_for_value_not_num = "PMA_key";
 
-        $variable_doc_links = PMA_getArrayForDocumentLinks();
-
         //name is_numeric and the value type is byte
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
-            PMA_formatVariable($name_for_value_byte, "3", $variable_doc_links)
+            $method->invoke($ctrl, $name_for_value_byte, "3")
         );
 
         //name is_numeric and the value type is not byte
         $this->assertEquals(
             '3',
-            PMA_formatVariable($name_for_value_not_byte, "3", $variable_doc_links)
+            $method->invoke($ctrl, $name_for_value_not_byte, "3")
         );
 
         //value is not a number
         $this->assertEquals(
             'value',
-            PMA_formatVariable($name_for_value_not_num, "value", $variable_doc_links)
+            $method->invoke($ctrl, $name_for_value_not_num, "value")
         );
     }
 
     /**
-     * Test for PMA_getHtmlForLinkTemplates
+     * Test for _getHtmlForLinkTemplates()
      *
      * @return void
      */
-    public function testPMAGetHtmlForLinkTemplates()
+    public function testGetHtmlForLinkTemplates()
     {
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerVariablesController');
+        $method = $class->getMethod('_getHtmlForLinkTemplates');
+        $method->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerVariablesController');
+        $container->alias(
+            'ServerVariablesController', 'PMA\libraries\controllers\server\ServerVariablesController'
+        );
+        $ctrl = $container->get('ServerVariablesController');
+
         //Call the test function
-        $html = PMA_getHtmlForLinkTemplates();
+        $html = $method->invoke($ctrl);
         $url = 'server_variables.php' . PMA_URL_getCommon(array());
 
         //validate 1: URL
@@ -167,22 +193,30 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForServerVariables
+     * Test for PMA_getHtmlForServerVariables()
      *
      * @return void
      */
     public function testPMAGetHtmlForServerVariables()
     {
-        //Call the test function
-        $_REQUEST['filter'] = "auto-commit";
-        $variable_doc_links = PMA_getArrayForDocumentLinks();
 
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerVariablesController');
+        $method = $class->getMethod('_getHtmlForLinkTemplates');
+        $method->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerVariablesController');
+        $container->alias(
+            'ServerVariablesController', 'PMA\libraries\controllers\server\ServerVariablesController'
+        );
+        $ctrl = $container->get('ServerVariablesController');
+
+        $_REQUEST['filter'] = "auto-commit";
         $serverVarsSession
             = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
         $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
-        $html = PMA_getHtmlForServerVariables(
-            $variable_doc_links, $serverVars, $serverVarsSession
-        );
+
+        $html = $method->invoke($ctrl, $serverVars, $serverVarsSession);
 
         //validate 1: Filters
         $this->assertContains(
@@ -214,21 +248,28 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForServerVariablesItems
+     * Test for _getHtmlForServerVariablesItems()
      *
      * @return void
      */
-    public function testPMAGetHtmlForServerVariablesItems()
+    public function testGetHtmlForServerVariablesItems()
     {
-        //Call the test function
-        $variable_doc_links = PMA_getArrayForDocumentLinks();
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerVariablesController');
+        $method = $class->getMethod('_getHtmlForServerVariablesItems');
+        $method->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerVariablesController');
+        $container->alias(
+            'ServerVariablesController', 'PMA\libraries\controllers\server\ServerVariablesController'
+        );
+        $ctrl = $container->get('ServerVariablesController');
 
         $serverVarsSession
             = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
         $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
-        $html = PMA_getHtmlForServerVariablesItems(
-            $variable_doc_links, $serverVars, $serverVarsSession
-        );
+
+        $html = $method->invoke($ctrl, $serverVars, $serverVarsSession);
 
         //validate 1: variable: auto_increment_increment
         $name = "auto_increment_increment";
