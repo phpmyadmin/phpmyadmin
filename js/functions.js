@@ -4442,7 +4442,7 @@ function copyToClipboard()
 
     elementList.each(function(){
         textArea.value += $(this).text().split(':')[1].trim() + '/';
-        });
+    });
     textArea.value += '\t\t' + window.location.href;
     textArea.value += '\n';
 
@@ -4450,27 +4450,27 @@ function copyToClipboard()
 
     elementList.each(function(){
         textArea.value += $(this).clone().children().remove().end().text() + '\n\n';
-        });
+    });
 
     elementList = $('.sql pre');
 
     elementList.each(function() {
-      textArea.value += $(this).text() + '\n\n';
+        textArea.value += $(this).text() + '\n\n';
     });
 
     elementList = $('.table_results .column_heading a');
 
     elementList.each(function() {
-      textArea.value += $(this).clone().children().remove().end().text() + '\t';
+        textArea.value += $(this).clone().children().remove().end().text() + '\t';
     });
 
     textArea.value += '\n';
     elementList = $('tbody .odd,tbody .even');
     elementList.each(function() {
-      var childElementList = $(this).find('.data span')
-      childElementList.each(function(){
-          textArea.value += $(this).clone().children().remove().end().text() + '\t';
-      });
+        var childElementList = $(this).find('.data span');
+        childElementList.each(function(){
+            textArea.value += $(this).clone().children().remove().end().text() + '\t';
+        });
       textArea.value += '\n';
     });
 
@@ -4479,9 +4479,9 @@ function copyToClipboard()
     textArea.select();
 
     try {
-      document.execCommand('copy');
+        document.execCommand('copy');
     } catch (err) {
-      alert('Sorry! Unable to copy');
+        alert('Sorry! Unable to copy');
     }
 
     document.body.removeChild(textArea);
