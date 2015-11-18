@@ -193,6 +193,16 @@ AJAX.registerOnload('sql.js', function () {
     }).trigger('keyup');
 
     /**
+     * Attach Event Handler for 'Copy to clipbpard
+     */
+    $(document).on('click', "#copyToClipBoard", function (event) {
+        event.preventDefault();
+
+        // Print the page
+        copyToClipboard();
+    }); //end of Copy to Clipboard action
+
+    /**
      * Attach Event Handler for 'Print View'
      */
     $(document).on('click', "#printView", function (event) {
