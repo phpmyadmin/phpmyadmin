@@ -4999,7 +4999,7 @@ class DisplayResults
         $html = Util::linkOrButton(
             '#',
             Util::getIcon(
-                'b_insrow.png', __('Copy to clip board'), true
+                'b_insrow.png', __('Copy to clipboard'), true
             ),
             array('id' => 'copyToClipBoard'),
             true,
