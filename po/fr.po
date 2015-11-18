@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-02 10:46-0500\n"
-"PO-Revision-Date: 2015-11-18 15:47+0000\n"
+"PO-Revision-Date: 2015-12-03 13:40+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10692,7 +10692,7 @@ msgstr "Structure de la vue %s exportée comme un table"
 
 #: libraries/plugins/export/ExportSql.php:2088
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Voir ci-dessous la vue réelle)"
 
 #: libraries/plugins/export/ExportSql.php:2169
 msgid "Error reading data:"
