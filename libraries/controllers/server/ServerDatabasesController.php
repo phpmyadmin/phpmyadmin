@@ -119,36 +119,19 @@ class ServerDatabasesController extends Controller
      */
     public function dropDatabasesAction()
     {
-        if (! isset($_REQUEST['selected_dbs']) && ! isset($_REQUEST['query_type'])) {
+        if (! isset($_REQUEST['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
         } else {
             $action = 'server_databases.php';
-            $submit_mult = 'drop_db';
-            $err_url = 'server_databases.php' . PMA_URL_getCommon();
-            if (isset($_REQUEST['selected_dbs'])
-                && !isset($_REQUEST['is_js_confirmed'])
-            ) {
-                $selected_db = $_REQUEST['selected_dbs'];
-            }
-            if (isset($_REQUEST['is_js_confirmed'])) {
-                $_REQUEST = array(
-                    'query_type' => $submit_mult,
-                    'selected' => $_REQUEST['selected_dbs'],
-                    'mult_btn' => __('Yes'),
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table']);
-            }
-            //the following variables will be used on mult_submits.inc.php
-            global $query_type, $selected, $mult_btn;
+            $err_url = $action . PMA_URL_getCommon();
+
+            $GLOBALS['submit_mult'] = 'drop_db';
+            $GLOBALS['mult_btn'] = __('Yes');
 
             include 'libraries/mult_submits.inc.php';
-            unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
+
             if (empty($message)) {
-                if ($mult_btn == __('Yes')) {
-                    $number_of_databases = count($selected);
-                } else {
-                    $number_of_databases = 0;
-                }
+                $number_of_databases = count($selected);
                 $message = Message::success(
                     _ngettext(
                         '%1$d database has been dropped successfully.',
@@ -159,7 +142,8 @@ class ServerDatabasesController extends Controller
                 $message->addParam($number_of_databases);
             }
         }
-        if ($GLOBALS['is_ajax_request'] && $message instanceof Message) {
+
+        if ($message instanceof Message) {
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON('message', $message);
         }
