@@ -94,7 +94,8 @@ class ServerDatabasesController extends Controller
          */
         if ($GLOBALS['server'] > 0) {
             $this->_databases = $this->dbi->getDatabasesFull(
-                null, $this->_dbstats, null, $this->_sort_by, $this->_sort_order, $this->_pos, true
+                null, $this->_dbstats, null, $this->_sort_by,
+                $this->_sort_order, $this->_pos, true
             );
             $this->_database_count = count($GLOBALS['pma']->databases);
         } else {
@@ -209,8 +210,8 @@ class ServerDatabasesController extends Controller
         );
 
         $html .= Util::getListNavigator(
-            $this->_database_count, $this->_pos, $_url_params, 'server_databases.php',
-            'frame_content', $GLOBALS['cfg']['MaxDbList']
+            $this->_database_count, $this->_pos, $_url_params,
+            'server_databases.php', 'frame_content', $GLOBALS['cfg']['MaxDbList']
         );
 
         $_url_params['pos'] = $this->_pos;
@@ -221,7 +222,8 @@ class ServerDatabasesController extends Controller
 
         $_url_params['sort_by'] = 'SCHEMA_NAME';
         $_url_params['sort_order']
-            = ($this->_sort_by == 'SCHEMA_NAME' && $this->_sort_order == 'asc') ? 'desc' : 'asc';
+            = ($this->_sort_by == 'SCHEMA_NAME' && $this->_sort_order == 'asc')
+            ? 'desc' : 'asc';
 
         $html .= '<table id="tabledatabases" class="data">' . "\n"
             . '<thead>' . "\n"
@@ -272,7 +274,9 @@ class ServerDatabasesController extends Controller
      */
     private function _getHtmlForTableFooterButtons()
     {
-        if (!$GLOBALS['is_superuser'] && !$GLOBALS['cfg']['AllowUserDropDatabase']) {
+        if (! $GLOBALS['is_superuser']
+            && ! $GLOBALS['cfg']['AllowUserDropDatabase']
+        ) {
             return '';
         }
 
@@ -449,7 +453,8 @@ class ServerDatabasesController extends Controller
             }
             $_url_params['sort_by'] = $stat_name;
             $_url_params['sort_order']
-                = ($this->_sort_by == $stat_name && $this->_sort_order == 'desc') ? 'asc' : 'desc';
+                = ($this->_sort_by == $stat_name && $this->_sort_order == 'desc')
+                ? 'asc' : 'desc';
             $html .= '    <th' . $colspan . '>'
                 . '<a href="server_databases.php'
                 . PMA_URL_getCommon($_url_params) . '">' . "\n"
@@ -491,7 +496,8 @@ class ServerDatabasesController extends Controller
                 . '</strong><br />' . "\n",
             'class' => 'li_switch_dbstats',
             'url' => array(
-                'href' => 'server_databases.php' . $GLOBALS['url_query'] . '&amp;dbstats=1',
+                'href' => 'server_databases.php'
+                    . $GLOBALS['url_query'] . '&amp;dbstats=1',
                 'title' => __('Enable statistics')
             ),
         );
