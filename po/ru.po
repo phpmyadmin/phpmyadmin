@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-18 09:43-0500\n"
-"PO-Revision-Date: 2015-09-06 06:59+0200\n"
-"Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"PO-Revision-Date: 2015-11-19 22:08+0000\n"
+"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -946,16 +946,14 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Вы действительно хотите ОБНУЛИТЬ выбранный(е) раздел(ы)?"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Вы действительно хотите ОБНУЛИТЬ выбранный(е) раздел(ы)?"
+msgstr "Вы действительно хотите удалить выбранный(е) раздел(ы)?"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Вы действительно хотите выполнить запрос \"%s\"?"
+msgstr "Вы действительно хотите СБРОСИТЬ ПОДЧИНЕННЫЙ СЕРВЕР?"
 
 #: js/messages.php:85
 msgid ""
@@ -979,7 +977,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Вы уверены, что хотите изменить сверку и конвертировать данные?"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -995,12 +992,13 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Посредством данной операции MySQL делает попытку расположить значения данных "
-"между сверками. Если наборы символов неполны, может произойти потеря данных "
-"и потерянные данные <b>НЕ</b> смогут быть восстановлены посредством "
-"обратного изменения сверки(ок) колонки. <b>Чтобы конвертировать существующие "
-"данные, рекомендуется использовать возможность редактировать колонку(и) "
-"(ссылка \"Изменить\") на странице структуры таблицы.</b>"
+"С помощью этой операции, MySQL пытается сопоставить значения данных между "
+"различными параметрами сравнения. Если наборы символов несовместимы, может "
+"произойти потеря данных и утерянные данные <b>НЕ</b> смогут быть "
+"восстановлены посредством обратного изменения сравнения колонки. <b>Чтобы "
+"конвертировать существующие данные, рекомендуется использовать возможность "
+"редактировать колонку(и) (ссылка \"Изменить\") на странице структуры "
+"таблицы.</b>"
 
 #: js/messages.php:104
 msgid ""
@@ -1689,10 +1687,9 @@ msgid "Formatting SQL…"
 msgstr "Форматирование SQL…"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Ошибочные параметры!"
+msgstr "Параметры не найдены!"
 
 #: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -3154,10 +3151,9 @@ msgid "Ungroup queries"
 msgstr "Разгруппировать запросы"
 
 #: libraries/Console.php:318
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Вывести форму создания"
+msgstr "Показать трассировку"
 
 #: libraries/Console.php:320
 #, fuzzy
@@ -3833,6 +3829,7 @@ msgstr "Индексы %1$s и %2$s равнозначны и один из ни
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Отступы для данного запроса убраны из-за превышения максимальной длинны."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4945,7 +4942,7 @@ msgstr "Атрибут"
 #: libraries/central_columns.lib.php:711
 #: libraries/central_columns.lib.php:1385
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:751
 msgid "Select a table"
@@ -15749,10 +15746,9 @@ msgid "Improve table structure"
 msgstr "Улучшить структуру таблицы"
 
 #: templates/table/structure/optional_action_links.phtml:34
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Отслеживать таблицу"
+msgstr "Отслеживать представление"
 
 #: templates/table/structure/row_stats_table.phtml:3
 msgid "Row statistics"
