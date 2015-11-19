@@ -102,11 +102,7 @@ class ServerDatabasesController extends Controller
                 $dbstats,
                 $sort_by,
                 $sort_order,
-                $GLOBALS['is_superuser'],
-                $GLOBALS['cfg'],
-                $replication_types,
-                $GLOBALS['replication_info'],
-                $GLOBALS['url_query']
+                $replication_types
             );
         } else {
             $html .= __('No databases');
@@ -216,18 +212,13 @@ class ServerDatabasesController extends Controller
      * @param Array  $dbstats           database status
      * @param string $sort_by           sort by string
      * @param string $sort_order        sort order string
-     * @param bool   $is_superuser      User status
-     * @param Array  $cfg               configuration
      * @param array  $replication_types replication types
-     * @param array  $replication_info  replication info
-     * @param string $url_query         url query
      *
      * @return string
      */
     private function _getHtmlForDatabase(
         $databases, $databases_count, $pos, $dbstats,
-        $sort_by, $sort_order, $is_superuser, $cfg,
-        $replication_types, $replication_info, $url_query
+        $sort_by, $sort_order, $replication_types
     ) {
         $html = '<div id="tableslistcontainer">';
         reset($databases);
@@ -262,8 +253,6 @@ class ServerDatabasesController extends Controller
             . '<tr>' . "\n";
 
         $html .= $this->_getHtmlForColumnOrderWithSort(
-            $is_superuser,
-            $cfg['AllowUserDropDatabase'],
             $_url_params,
             $sort_by,
             $sort_order,
@@ -271,29 +260,20 @@ class ServerDatabasesController extends Controller
             $first_database
         );
 
-        $html .= $this->_getHtmlForReplicationType(
-            $is_superuser,
-            $replication_types,
-            $cfg['ActionLinksMode']
-        );
+        $html .= $this->_getHtmlForReplicationType($replication_types);
 
         $html .= '</tr>' . "\n"
             . '</thead>' . "\n";
 
         list($output, $column_order) = $this->_getHtmlAndColumnOrderForDatabaseList(
             $databases,
-            $is_superuser,
-            $url_query,
             $column_order,
-            $replication_types,
-            $replication_info
+            $replication_types
         );
         $html .= $output;
         unset($output);
 
         $html .= $this->_getHtmlForTableFooter(
-            $cfg['AllowUserDropDatabase'],
-            $is_superuser,
             $databases_count,
             $column_order,
             $replication_types,
@@ -302,14 +282,11 @@ class ServerDatabasesController extends Controller
 
         $html .= '</table>' . "\n";
 
-        $html .= $this->_getHtmlForTableFooterButtons(
-            $cfg['AllowUserDropDatabase'],
-            $is_superuser
-        );
+        $html .= $this->_getHtmlForTableFooterButtons();
 
         if (empty($dbstats)) {
             //we should put notice above database list
-            $html = $this->_getHtmlForNoticeEnableStatistics($url_query, $html);
+            $html = $this->_getHtmlForNoticeEnableStatistics($html);
         }
         $html .= '</form>';
         $html .= '</div>';
@@ -320,14 +297,11 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Table footer buttons
      *
-     * @param bool $is_allowUserDropDb Allow user drop database
-     * @param bool $is_superuser       User status
-     *
      * @return string
      */
-    private function _getHtmlForTableFooterButtons($is_allowUserDropDb, $is_superuser)
+    private function _getHtmlForTableFooterButtons()
     {
-        if (!$is_superuser && !$is_allowUserDropDb) {
+        if (!$GLOBALS['is_superuser'] && !$GLOBALS['cfg']['AllowUserDropDatabase']) {
             return '';
         }
 
@@ -347,8 +321,6 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Table footer
      *
-     * @param bool   $is_allowUserDropDb Allow user drop database
-     * @param bool   $is_superuser       User status
      * @param int    $databases_count    Database count
      * @param string $column_order       column order
      * @param array  $replication_types  replication types
@@ -357,12 +329,11 @@ class ServerDatabasesController extends Controller
      * @return string
      */
     private function _getHtmlForTableFooter(
-        $is_allowUserDropDb, $is_superuser,
         $databases_count, $column_order,
         $replication_types, $first_database
     ) {
         $html = '<tfoot><tr>' . "\n";
-        if ($is_superuser || $is_allowUserDropDb) {
+        if ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase']) {
             $html .= '    <th></th>' . "\n";
         }
         $html .= '    <th>' . __('Total') . ': <span id="databases_count">'
@@ -376,7 +347,7 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        if ($is_superuser) {
+        if ($GLOBALS['is_superuser']) {
             $html .= '    <th></th>' . "\n";
         }
         $html .= '</tr>' . "\n";
@@ -388,17 +359,13 @@ class ServerDatabasesController extends Controller
      * Returns the html for Database List and Column order
      *
      * @param array  $databases         GBI return databases
-     * @param bool   $is_superuser      User status
-     * @param string $url_query         Url query
      * @param array  $column_order      column order
      * @param array  $replication_types replication types
-     * @param array  $replication_info  replication info
      *
      * @return Array
      */
     private function _getHtmlAndColumnOrderForDatabaseList(
-        $databases, $is_superuser, $url_query,
-        $column_order, $replication_types, $replication_info
+        $databases, $column_order, $replication_types
     ) {
         $odd_row = true;
         $html = '<tbody>' . "\n";
@@ -413,11 +380,11 @@ class ServerDatabasesController extends Controller
 
             list($column_order, $generated_html) = PMA_buildHtmlForDb(
                 $current,
-                $is_superuser,
-                $url_query,
+                $GLOBALS['is_superuser'],
+                $GLOBALS['url_query'],
                 $column_order,
                 $replication_types,
-                $replication_info
+                $GLOBALS['replication_info']
             );
 
             $html .= $generated_html;
@@ -475,8 +442,6 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Column Order with Sort
      *
-     * @param bool   $is_superuser       User status
-     * @param bool   $is_allowUserDropDb Allow user drop database
      * @param Array  $_url_params        Url params
      * @param string $sort_by            sort column name
      * @param string $sort_order         order
@@ -486,11 +451,10 @@ class ServerDatabasesController extends Controller
      * @return string
      */
     private function _getHtmlForColumnOrderWithSort(
-        $is_superuser, $is_allowUserDropDb,
         $_url_params, $sort_by, $sort_order,
         $column_order, $first_database
     ) {
-        $html = ($is_superuser || $is_allowUserDropDb
+        $html = ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase']
             ? '        <th></th>' . "\n"
             : '')
             . '    <th><a href="server_databases.php'
@@ -540,12 +504,11 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Enable Statistics
      *
-     * @param string $url_query Url query
      * @param string $html      html for database list
      *
      * @return string
      */
-    private function _getHtmlForNoticeEnableStatistics($url_query, $html)
+    private function _getHtmlForNoticeEnableStatistics($html)
     {
         $notice = Message::notice(
             __(
@@ -562,7 +525,7 @@ class ServerDatabasesController extends Controller
                 . '</strong><br />' . "\n",
             'class' => 'li_switch_dbstats',
             'url' => array(
-                'href' => 'server_databases.php' . $url_query . '&amp;dbstats=1',
+                'href' => 'server_databases.php' . $GLOBALS['url_query'] . '&amp;dbstats=1',
                 'title' => __('Enable statistics')
             ),
         );
@@ -577,15 +540,11 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for database replication types
      *
-     * @param bool  $is_superuser      User status
-     * @param Array $replication_types replication types
-     * @param bool  $cfg_iconic        cfg about Properties Iconic
+     * @param array $replication_types replication types
      *
      * @return string
      */
-    private function _getHtmlForReplicationType(
-        $is_superuser, $replication_types, $cfg_iconic
-    ) {
+    private function _getHtmlForReplicationType($replication_types) {
         $html = '';
         foreach ($replication_types as $type) {
             if ($type == "master") {
@@ -599,8 +558,8 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        if ($is_superuser) {
-            $html .= '    <th>' . ($cfg_iconic ? '' : __('Action')) . "\n"
+        if ($GLOBALS['is_superuser']) {
+            $html .= '    <th>' . ($GLOBALS['cfg']['ActionLinksMode'] ? '' : __('Action')) . "\n"
                 . '    </th>' . "\n";
         }
         return $html;
