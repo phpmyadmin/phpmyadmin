@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement
 - issue #11665 Format breaks query with COUNT()
 - issue        Undefinex index: SendErrorReports
+- issue        Incorrect script name in include
 
 4.5.2.0 (not yet released)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()

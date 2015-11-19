@@ -138,6 +138,8 @@ if (! $result) {
             . urlencode($current['SCHEMA_NAME'])
         );
     } else {
-        include_once '' . $cfg['DefaultTabDatabase'];
+        include_once '' .  PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            );
     }
 }
