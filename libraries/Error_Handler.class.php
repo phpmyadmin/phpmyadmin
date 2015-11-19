@@ -296,6 +296,10 @@ class PMA_Error_Handler
      */
     public function getDispErrors()
     {
+        // Not sure why but seen in reports.phpmyadmin.net
+        if (empty($GLOBALS['cfg']['SendErrorReports'])) {
+            $GLOBALS['cfg']['SendErrorReports'] = 'ask';
+        }
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
