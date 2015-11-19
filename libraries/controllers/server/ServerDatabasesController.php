@@ -28,20 +28,6 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
-        /**
-         * Sets globals from $_POST
-         */
-        $post_params = array(
-            'mult_btn',
-            'query_type',
-            'selected'
-        );
-        foreach ($post_params as $one_post_param) {
-            if (isset($_POST[$one_post_param])) {
-                $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-            }
-        }
-
         if (isset($_REQUEST['drop_selected_dbs'])
             && ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
