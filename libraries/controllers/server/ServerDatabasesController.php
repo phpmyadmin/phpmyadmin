@@ -37,6 +37,14 @@ class ServerDatabasesController extends Controller
      * @var string sort order of databases
      */
     private $_sort_order;
+    /**
+     * @var boolean whether to show database statistics
+     */
+    private $_dbstats;
+    /**
+     * @var int position in list navigation
+     */
+    private $_pos;
 
     /**
      * Index action
@@ -61,14 +69,13 @@ class ServerDatabasesController extends Controller
         $scripts->addFile('server_databases.js');
 
         $this->_setSortDetails();
-
-        $dbstats = empty($_REQUEST['dbstats']) ? 0 : 1;
-        $pos     = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
+        $this->_dbstats = empty($_REQUEST['dbstats']) ? false : true;
+        $this->_pos     = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
 
         /**
          * Displays the sub-page heading
          */
-        $header_type = $dbstats ? "database_statistics" : "databases";
+        $header_type = $this->_dbstats ? "database_statistics" : "databases";
         $this->response->addHTML(PMA_getHtmlForSubPageHeader($header_type));
 
         /**
@@ -87,7 +94,7 @@ class ServerDatabasesController extends Controller
          */
         if ($GLOBALS['server'] > 0) {
             $this->_databases = $this->dbi->getDatabasesFull(
-                null, $dbstats, null, $this->_sort_by, $this->_sort_order, $pos, true
+                null, $this->_dbstats, null, $this->_sort_by, $this->_sort_order, $this->_pos, true
             );
             $this->_database_count = count($GLOBALS['pma']->databases);
         } else {
@@ -98,11 +105,7 @@ class ServerDatabasesController extends Controller
          * Displays the page
          */
         if ($this->_database_count > 0 && ! empty($this->_databases)) {
-            $html .= $this->_getHtmlForDatabase(
-                $pos,
-                $dbstats,
-                $replication_types
-            );
+            $html .= $this->_getHtmlForDatabase($replication_types);
         } else {
             $html .= __('No databases');
         }
@@ -186,15 +189,12 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Database List
      *
-     * @param int    $pos               display pos
-     * @param Array  $dbstats           database status
      * @param array  $replication_types replication types
      *
      * @return string
      */
-    private function _getHtmlForDatabase(
-        $pos, $dbstats, $replication_types
-    ) {
+    private function _getHtmlForDatabase($replication_types) {
+
         $html = '<div id="tableslistcontainer">';
         reset($this->_databases);
         $first_database = current($this->_databases);
@@ -202,18 +202,18 @@ class ServerDatabasesController extends Controller
         $column_order = PMA_getColumnOrder();
 
         $_url_params = array(
-            'pos' => $pos,
-            'dbstats' => $dbstats,
+            'pos' => $this->_pos,
+            'dbstats' => $this->_dbstats,
             'sort_by' => $this->_sort_by,
             'sort_order' => $this->_sort_order,
         );
 
         $html .= Util::getListNavigator(
-            $this->_database_count, $pos, $_url_params, 'server_databases.php',
+            $this->_database_count, $this->_pos, $_url_params, 'server_databases.php',
             'frame_content', $GLOBALS['cfg']['MaxDbList']
         );
 
-        $_url_params['pos'] = $pos;
+        $_url_params['pos'] = $this->_pos;
 
         $html .= '<form class="ajax" action="server_databases.php" ';
         $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
@@ -255,7 +255,7 @@ class ServerDatabasesController extends Controller
 
         $html .= $this->_getHtmlForTableFooterButtons();
 
-        if (empty($dbstats)) {
+        if (empty($this->_dbstats)) {
             //we should put notice above database list
             $html = $this->_getHtmlForNoticeEnableStatistics($html);
         }
