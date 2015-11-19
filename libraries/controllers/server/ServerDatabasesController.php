@@ -22,6 +22,23 @@ use PMA\libraries\Util;
 class ServerDatabasesController extends Controller
 {
     /**
+     * @var array array of database details
+     */
+    private $_databases;
+    /**
+     * @var int number of databases
+     */
+    private $_database_count;
+    /**
+     * @var string sort by column
+     */
+    private $_sort_by;
+    /**
+     * @var string sort order of databases
+     */
+    private $_sort_order;
+
+    /**
      * Index action
      *
      * @return void
@@ -43,7 +60,7 @@ class ServerDatabasesController extends Controller
         $scripts = $header->getScripts();
         $scripts->addFile('server_databases.js');
 
-        list($sort_by, $sort_order) = $this->_getListForSortDatabase();
+        $this->_setSortDetails();
 
         $dbstats = empty($_REQUEST['dbstats']) ? 0 : 1;
         $pos     = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
@@ -69,31 +86,26 @@ class ServerDatabasesController extends Controller
          * Gets the databases list
          */
         if ($GLOBALS['server'] > 0) {
-            $databases = $this->dbi->getDatabasesFull(
-                null, $dbstats, null, $sort_by, $sort_order, $pos, true
+            $this->_databases = $this->dbi->getDatabasesFull(
+                null, $dbstats, null, $this->_sort_by, $this->_sort_order, $pos, true
             );
-            $databases_count = count($GLOBALS['pma']->databases);
+            $this->_database_count = count($GLOBALS['pma']->databases);
         } else {
-            $databases_count = 0;
+            $this->_database_count = 0;
         }
 
         /**
          * Displays the page
          */
-        if ($databases_count > 0 && ! empty($databases)) {
+        if ($this->_database_count > 0 && ! empty($this->_databases)) {
             $html .= $this->_getHtmlForDatabase(
-                $databases,
-                $databases_count,
                 $pos,
                 $dbstats,
-                $sort_by,
-                $sort_order,
                 $replication_types
             );
         } else {
             $html .= __('No databases');
         }
-        unset($databases_count);
 
         $this->response->addHTML($html);
     }
@@ -116,7 +128,7 @@ class ServerDatabasesController extends Controller
 
             include 'libraries/mult_submits.inc.php';
 
-            if (empty($message)) {
+            if (empty($message)) { // no error message
                 $number_of_databases = count($selected);
                 $message = Message::success(
                     _ngettext(
@@ -136,14 +148,14 @@ class ServerDatabasesController extends Controller
     }
 
     /**
-     * Returns the array about $sort_order and $sort_by
+     * Extracts parameters $sort_order and $sort_by
      *
-     * @return Array
+     * @return void
      */
-    private function _getListForSortDatabase()
+    private function _setSortDetails()
     {
         if (empty($_REQUEST['sort_by'])) {
-            $sort_by = 'SCHEMA_NAME';
+            $this->_sort_by = 'SCHEMA_NAME';
         } else {
             $sort_by_whitelist = array(
                 'SCHEMA_NAME',
@@ -156,55 +168,48 @@ class ServerDatabasesController extends Controller
                 'SCHEMA_DATA_FREE'
             );
             if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
-                $sort_by = $_REQUEST['sort_by'];
+                $this->_sort_by = $_REQUEST['sort_by'];
             } else {
-                $sort_by = 'SCHEMA_NAME';
+                $this->_sort_by = 'SCHEMA_NAME';
             }
         }
 
         if (isset($_REQUEST['sort_order'])
             && /*overload*/mb_strtolower($_REQUEST['sort_order']) == 'desc'
         ) {
-            $sort_order = 'desc';
+            $this->_sort_order = 'desc';
         } else {
-            $sort_order = 'asc';
+            $this->_sort_order = 'asc';
         }
-
-        return array($sort_by, $sort_order);
     }
 
     /**
      * Returns the html for Database List
      *
-     * @param Array  $databases         GBI return databases
-     * @param int    $databases_count   database count
      * @param int    $pos               display pos
      * @param Array  $dbstats           database status
-     * @param string $sort_by           sort by string
-     * @param string $sort_order        sort order string
      * @param array  $replication_types replication types
      *
      * @return string
      */
     private function _getHtmlForDatabase(
-        $databases, $databases_count, $pos, $dbstats,
-        $sort_by, $sort_order, $replication_types
+        $pos, $dbstats, $replication_types
     ) {
         $html = '<div id="tableslistcontainer">';
-        reset($databases);
-        $first_database = current($databases);
+        reset($this->_databases);
+        $first_database = current($this->_databases);
         // table col order
         $column_order = PMA_getColumnOrder();
 
         $_url_params = array(
             'pos' => $pos,
             'dbstats' => $dbstats,
-            'sort_by' => $sort_by,
-            'sort_order' => $sort_order,
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
         );
 
         $html .= Util::getListNavigator(
-            $databases_count, $pos, $_url_params, 'server_databases.php',
+            $this->_database_count, $pos, $_url_params, 'server_databases.php',
             'frame_content', $GLOBALS['cfg']['MaxDbList']
         );
 
@@ -216,7 +221,7 @@ class ServerDatabasesController extends Controller
 
         $_url_params['sort_by'] = 'SCHEMA_NAME';
         $_url_params['sort_order']
-            = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc';
+            = ($this->_sort_by == 'SCHEMA_NAME' && $this->_sort_order == 'asc') ? 'desc' : 'asc';
 
         $html .= '<table id="tabledatabases" class="data">' . "\n"
             . '<thead>' . "\n"
@@ -224,8 +229,6 @@ class ServerDatabasesController extends Controller
 
         $html .= $this->_getHtmlForColumnOrderWithSort(
             $_url_params,
-            $sort_by,
-            $sort_order,
             $column_order,
             $first_database
         );
@@ -236,7 +239,6 @@ class ServerDatabasesController extends Controller
             . '</thead>' . "\n";
 
         list($output, $column_order) = $this->_getHtmlAndColumnOrderForDatabaseList(
-            $databases,
             $column_order,
             $replication_types
         );
@@ -244,7 +246,6 @@ class ServerDatabasesController extends Controller
         unset($output);
 
         $html .= $this->_getHtmlForTableFooter(
-            $databases_count,
             $column_order,
             $replication_types,
             $first_database
@@ -291,7 +292,6 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Table footer
      *
-     * @param int    $databases_count    Database count
      * @param string $column_order       column order
      * @param array  $replication_types  replication types
      * @param string $first_database     First database
@@ -299,7 +299,7 @@ class ServerDatabasesController extends Controller
      * @return string
      */
     private function _getHtmlForTableFooter(
-        $databases_count, $column_order,
+        $column_order,
         $replication_types, $first_database
     ) {
         $html = '<tfoot><tr>' . "\n";
@@ -307,7 +307,7 @@ class ServerDatabasesController extends Controller
             $html .= '    <th></th>' . "\n";
         }
         $html .= '    <th>' . __('Total') . ': <span id="databases_count">'
-            . $databases_count . '</span></th>' . "\n";
+            . $this->_database_count . '</span></th>' . "\n";
 
         $html .= $this->_getHtmlForColumnOrder($column_order, $first_database);
 
@@ -328,19 +328,18 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Database List and Column order
      *
-     * @param array  $databases         GBI return databases
      * @param array  $column_order      column order
      * @param array  $replication_types replication types
      *
      * @return Array
      */
     private function _getHtmlAndColumnOrderForDatabaseList(
-        $databases, $column_order, $replication_types
+        $column_order, $replication_types
     ) {
         $odd_row = true;
         $html = '<tbody>' . "\n";
 
-        foreach ($databases as $current) {
+        foreach ($this->_databases as $current) {
             $tr_class = $odd_row ? 'odd' : 'even';
             if ($this->dbi->isSystemSchema($current['SCHEMA_NAME'], true)) {
                 $tr_class .= ' noclick';
@@ -360,7 +359,7 @@ class ServerDatabasesController extends Controller
             $html .= $generated_html;
 
             $html .= '</tr>' . "\n";
-        } // end foreach ($databases as $key => $current)
+        } // end foreach ($this->_databases as $key => $current)
         unset($current, $odd_row);
         $html .= '</tbody>';
         return array($html, $column_order);
@@ -413,16 +412,13 @@ class ServerDatabasesController extends Controller
      * Returns the html for Column Order with Sort
      *
      * @param Array  $_url_params        Url params
-     * @param string $sort_by            sort column name
-     * @param string $sort_order         order
      * @param array  $column_order       column order
      * @param array  $first_database     database to show
      *
      * @return string
      */
     private function _getHtmlForColumnOrderWithSort(
-        $_url_params, $sort_by, $sort_order,
-        $column_order, $first_database
+        $_url_params, $column_order, $first_database
     ) {
         $html = ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase']
             ? '        <th></th>' . "\n"
@@ -430,10 +426,10 @@ class ServerDatabasesController extends Controller
             . '    <th><a href="server_databases.php'
             . PMA_URL_getCommon($_url_params) . '">' . "\n"
             . '            ' . __('Database') . "\n"
-            . ($sort_by == 'SCHEMA_NAME'
+            . ($this->_sort_by == 'SCHEMA_NAME'
                 ? '                ' . Util::getImage(
-                    's_' . $sort_order . '.png',
-                    ($sort_order == 'asc' ? __('Ascending') : __('Descending'))
+                    's_' . $this->_sort_order . '.png',
+                    ($this->_sort_order == 'asc' ? __('Ascending') : __('Descending'))
                 ) . "\n"
                 : ''
               )
@@ -453,15 +449,15 @@ class ServerDatabasesController extends Controller
             }
             $_url_params['sort_by'] = $stat_name;
             $_url_params['sort_order']
-                = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
+                = ($this->_sort_by == $stat_name && $this->_sort_order == 'desc') ? 'asc' : 'desc';
             $html .= '    <th' . $colspan . '>'
                 . '<a href="server_databases.php'
                 . PMA_URL_getCommon($_url_params) . '">' . "\n"
                 . '            ' . $stat['disp_name'] . "\n"
-                . ($sort_by == $stat_name
+                . ($this->_sort_by == $stat_name
                     ? '            ' . Util::getImage(
-                        's_' . $sort_order . '.png',
-                        ($sort_order == 'asc' ? __('Ascending') : __('Descending'))
+                        's_' . $this->_sort_order . '.png',
+                        ($this->_sort_order == 'asc' ? __('Ascending') : __('Descending'))
                     ) . "\n"
                     : ''
                   )
