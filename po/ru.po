@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-09-06 06:59+0200\n"
-"Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
-"ru/>\n"
+"PO-Revision-Date: 2015-11-19 22:08+0000\n"
+"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -951,10 +951,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Вы действительно хотите ОБНУЛИТЬ выбранный(е) раздел(ы)?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Вы действительно хотите выполнить запрос \"%s\"?"
+msgstr "Вы действительно хотите СБРОСИТЬ ПОДЧИНЕННЫЙ СЕРВЕР?"
 
 #: js/messages.php:68
 msgid ""
@@ -3191,10 +3190,9 @@ msgid "Ungroup queries"
 msgstr "Разгруппировать запросы"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Вывести форму создания"
+msgstr "Показать трассировку"
 
 #: libraries/Console.class.php:317
 #, fuzzy
@@ -3875,6 +3873,7 @@ msgstr "Индексы %1$s и %2$s равнозначны и один из ни
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Отступы для данного запроса убраны из-за превышения максимальной длинны."
 
 #: libraries/Linter.class.php:162
 #, php-format
@@ -4971,7 +4970,7 @@ msgstr "Атрибут"
 #: libraries/central_columns.lib.php:710
 #: libraries/central_columns.lib.php:1384
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:750
 msgid "Select a table"
@@ -15637,10 +15636,9 @@ msgid "Improve table structure"
 msgstr "Улучшить структуру таблицы"
 
 #: templates/table/structure/optional_action_links.phtml:31
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Отслеживать таблицу"
+msgstr "Отслеживать представление"
 
 #: templates/table/structure/row_stats_table.phtml:3
 msgid "Row statistics"
