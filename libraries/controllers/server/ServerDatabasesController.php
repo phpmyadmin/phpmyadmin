@@ -83,7 +83,7 @@ class ServerDatabasesController extends Controller
          * Gets the databases list
          */
         if ($GLOBALS['server'] > 0) {
-            $databases = $GLOBALS['dbi']->getDatabasesFull(
+            $databases = $this->dbi->getDatabasesFull(
                 null, $dbstats, null, $sort_by, $sort_order, $pos, true
             );
             $databases_count = count($GLOBALS['pma']->databases);
@@ -405,7 +405,7 @@ class ServerDatabasesController extends Controller
 
         foreach ($databases as $current) {
             $tr_class = $odd_row ? 'odd' : 'even';
-            if ($GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true)) {
+            if ($this->dbi->isSystemSchema($current['SCHEMA_NAME'], true)) {
                 $tr_class .= ' noclick';
             }
             $html .= '<tr class="' . $tr_class . '">' . "\n";
