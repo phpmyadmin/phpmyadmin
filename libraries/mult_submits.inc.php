@@ -52,16 +52,17 @@ global $db, $table,  $clause_is_unique, $from_prefix, $goto,
  */
 if (! empty($submit_mult)
     && $submit_mult != __('With selected:')
-    && (! empty($selected_db)
+    && (! empty($_POST['selected_dbs'])
     || ! empty($_POST['selected_tbl'])
     || ! empty($selected_fld)
     || ! empty($_REQUEST['rows_to_delete']))
 ) {
     define('PMA_SUBMIT_MULT', 1);
-    if (isset($selected_db) && !empty($selected_db)) {
+    if (! empty($_POST['selected_dbs'])) {
         // coming from server database view - do something with
         // selected databases
-        $selected     = $selected_db;
+        $selected     = $_POST['selected_dbs'];
+        $query_type   = 'drop_db';
         $what         = 'drop_db';
     } elseif (! empty($_POST['selected_tbl'])) {
         // coming from database structure view - do something with

@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/check_user_privileges.lib.php';
 
-if ($is_create_db_priv) {
+if ($GLOBALS['is_create_db_priv']) {
     // The user is allowed to create a db
     $html .= '<form method="post" action="db_create.php"'
         . ' id="create_database_form" class="ajax"><strong>';
@@ -26,7 +26,7 @@ if ($is_create_db_priv) {
     $html .= '</strong><br />';
     $html .= PMA_URL_getHiddenInputs('', '', 5);
     $html .= '<input type="hidden" name="reload" value="1" />';
-    $html .= '<input type="text" name="new_db" value="' . $db_to_create
+    $html .= '<input type="text" name="new_db" value="' . $GLOBALS['db_to_create']
         . '" maxlength="64" class="textfield" id="text_create_db" '
         . 'required placeholder="' . __('Database name') . '"/>';
 
