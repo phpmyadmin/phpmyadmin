@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-18 09:43-0500\n"
-"PO-Revision-Date: 2015-10-24 16:49+0200\n"
+"PO-Revision-Date: 2015-11-20 12:40+0000\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -989,7 +989,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Համոզվա՞ծ եք, որ ցանկանում եք փոխել համադրումը և փոխարկել տվյալները։"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -1009,8 +1008,8 @@ msgstr ""
 "համադրումների միջև։ Եթե գրանշանների կազմերը անհամատեղելի են, հնարավոր է "
 "տվյալների կորսուստ և տվյալները կարող են <b>ՉԼԻՆԵՆ</b> վերականգնման ենթակա՝ "
 "ուղղակի սկունակի համադրումը հետարկելու միջոցով։ <b>Առկա տվյալները փոխարկելու "
-"համար խորհուրդ է տրվում օգտագործել սյունակ(ների) խմբագրման հատկությունը "
-"(\"Փոխել\" հղումը)՝ աղյուսակի կառուցվածքի էջում։</b>"
+"համար խորհուրդ է տրվում օգտագործել սյունակ(ների) խմբագրման հատկությունը (\""
+"Փոխել\" հղումը)՝ աղյուսակի կառուցվածքի էջում։</b>"
 
 #: js/messages.php:104
 msgid ""
@@ -1699,10 +1698,9 @@ msgid "Formatting SQL…"
 msgstr "SQL-ի ձևավորում …"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Անվավեր հարաչափեր"
+msgstr "Հարաչափերը չեն գտնվել։"
 
 #: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -10114,16 +10112,16 @@ msgid "Metadata"
 msgstr "Անդրտվյալներ"
 
 #: libraries/plugins/export/ExportSql.php:1063
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "%s-ի անդրտվյալները"
+msgstr "%s աղյուսակի անդրտվյալները"
 
 #: libraries/plugins/export/ExportSql.php:1070
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "%s-ի անդրտվյալները"
+msgstr "%s տվյալների բազայի անդրտվյալները"
 
 #: libraries/plugins/export/ExportSql.php:1402
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:606
@@ -14545,10 +14543,9 @@ msgid "Stacked"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:53
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Գծապատկերի վերնագիր"
+msgstr "Գծապատկերի վերնագիր՝"
 
 #: templates/table/chart/tbl_chart.phtml:58
 msgid "X-Axis:"
