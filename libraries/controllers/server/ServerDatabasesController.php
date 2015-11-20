@@ -106,7 +106,7 @@ class ServerDatabasesController extends Controller
          * Displays the page
          */
         if ($this->_database_count > 0 && ! empty($this->_databases)) {
-            $html .= $this->_getHtmlForDatabase($replication_types);
+            $html .= $this->_getHtmlForDatabases($replication_types);
         } else {
             $html .= __('No databases');
         }
@@ -194,7 +194,7 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForDatabase($replication_types) {
+    private function _getHtmlForDatabases($replication_types) {
 
         $html = '<div id="tableslistcontainer">';
         reset($this->_databases);
@@ -225,20 +225,13 @@ class ServerDatabasesController extends Controller
             = ($this->_sort_by == 'SCHEMA_NAME' && $this->_sort_order == 'asc')
             ? 'desc' : 'asc';
 
-        $html .= '<table id="tabledatabases" class="data">' . "\n"
-            . '<thead>' . "\n"
-            . '<tr>' . "\n";
+        $html .= '<table id="tabledatabases" class="data">' . "\n";
 
-        $html .= $this->_getHtmlForColumnOrderWithSort(
+        $html .= $this->_getHtmlForTableHeader(
             $_url_params,
             $column_order,
             $first_database
         );
-
-        $html .= $this->_getHtmlForReplicationType($replication_types);
-
-        $html .= '</tr>' . "\n"
-            . '</thead>' . "\n";
 
         list($output, $column_order) = $this->_getHtmlAndColumnOrderForDatabaseList(
             $column_order,
@@ -413,62 +406,29 @@ class ServerDatabasesController extends Controller
 
 
     /**
-     * Returns the html for Column Order with Sort
+     * Returns the html for table header
      *
-     * @param Array  $_url_params        Url params
-     * @param array  $column_order       column order
-     * @param array  $first_database     database to show
+     * @param array  $_url_params    url params
+     * @param array  $column_order   column order
+     * @param array  $first_database database to show
      *
      * @return string
      */
-    private function _getHtmlForColumnOrderWithSort(
+    private function _getHtmlForTableHeader(
         $_url_params, $column_order, $first_database
     ) {
-        $html = ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase']
-            ? '        <th></th>' . "\n"
-            : '')
-            . '    <th><a href="server_databases.php'
-            . PMA_URL_getCommon($_url_params) . '">' . "\n"
-            . '            ' . __('Database') . "\n"
-            . ($this->_sort_by == 'SCHEMA_NAME'
-                ? '                ' . Util::getImage(
-                    's_' . $this->_sort_order . '.png',
-                    ($this->_sort_order == 'asc' ? __('Ascending') : __('Descending'))
-                ) . "\n"
-                : ''
-              )
-            . '        </a></th>' . "\n";
-        $table_columns = 3;
-        foreach ($column_order as $stat_name => $stat) {
-            if (!array_key_exists($stat_name, $first_database)) {
-                continue;
-            }
-
-            if ($stat['format'] === 'byte') {
-                $table_columns += 2;
-                $colspan = ' colspan="2"';
-            } else {
-                $table_columns++;
-                $colspan = '';
-            }
-            $_url_params['sort_by'] = $stat_name;
-            $_url_params['sort_order']
-                = ($this->_sort_by == $stat_name && $this->_sort_order == 'desc')
-                ? 'asc' : 'desc';
-            $html .= '    <th' . $colspan . '>'
-                . '<a href="server_databases.php'
-                . PMA_URL_getCommon($_url_params) . '">' . "\n"
-                . '            ' . $stat['disp_name'] . "\n"
-                . ($this->_sort_by == $stat_name
-                    ? '            ' . Util::getImage(
-                        's_' . $this->_sort_order . '.png',
-                        ($this->_sort_order == 'asc' ? __('Ascending') : __('Descending'))
-                    ) . "\n"
-                    : ''
-                  )
-                . '        </a></th>' . "\n";
-        }
-        return $html;
+        return Template::get('server/databases/table_header')->render(
+            array(
+                '_url_params' => $_url_params,
+                'sort_by' => $this->_sort_by,
+                'sort_order' => $this->_sort_order,
+                'sort_order_text' => ($this->_sort_order == 'asc' ? __('Ascending') : __('Descending')),
+                'column_order' => $column_order,
+                'first_database' => $first_database,
+                'master_replication' => $GLOBALS['replication_info']['master']['status'],
+                'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            )
+        );
     }
 
 
@@ -506,34 +466,6 @@ class ServerDatabasesController extends Controller
             array('items' => $items,)
         );
 
-        return $html;
-    }
-
-    /**
-     * Returns the html for database replication types
-     *
-     * @param array $replication_types replication types
-     *
-     * @return string
-     */
-    private function _getHtmlForReplicationType($replication_types) {
-        $html = '';
-        foreach ($replication_types as $type) {
-            if ($type == "master") {
-                $name = __('Master replication');
-            } elseif ($type == "slave") {
-                $name = __('Slave replication');
-            }
-
-            if ($GLOBALS['replication_info'][$type]['status']) {
-                $html .= '    <th>' . $name . '</th>' . "\n";
-            }
-        }
-
-        if ($GLOBALS['is_superuser']) {
-            $html .= '    <th>' . ($GLOBALS['cfg']['ActionLinksMode'] ? '' : __('Action')) . "\n"
-                . '    </th>' . "\n";
-        }
         return $html;
     }
 }
