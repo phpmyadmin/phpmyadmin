@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-18 09:43-0500\n"
-"PO-Revision-Date: 2015-11-18 17:23+0000\n"
+"PO-Revision-Date: 2015-11-21 22:43+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -5760,13 +5760,13 @@ msgstr "İlk satır içine sütun adlarını koy"
 #: libraries/config/messages.inc.php:383
 #: libraries/plugins/import/ImportCsv.php:139
 msgid "Columns enclosed with"
-msgstr "Sütunlar şununla kapatılmış"
+msgstr "Sütunlar şununla kapatılsın"
 
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:371
 #: libraries/config/messages.inc.php:384
 #: libraries/plugins/import/ImportCsv.php:150
 msgid "Columns escaped with"
-msgstr "Sütunlar şununla atlatılmış"
+msgstr "Sütunlar şununla atlatılsın"
 
 #: libraries/config/messages.inc.php:141 libraries/config/messages.inc.php:147
 #: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:163
@@ -5784,12 +5784,12 @@ msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 #: libraries/config/messages.inc.php:391
 #: libraries/plugins/import/ImportCsv.php:124
 msgid "Columns terminated with"
-msgstr "Sütunlar şununla sonlandırılmış"
+msgstr "Sütunlar şununla sonlandırılsın"
 
 #: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:369
 #: libraries/plugins/import/ImportCsv.php:159
 msgid "Lines terminated with"
-msgstr "Satırlar şununla sonlandırılmış"
+msgstr "Satırlar şununla sonlandırılsın"
 
 #: libraries/config/messages.inc.php:146
 msgid "Excel edition"
@@ -6637,8 +6637,7 @@ msgstr "Süzgeç kutusunu görüntülemek için en az öğe sayısı"
 
 #: libraries/config/messages.inc.php:503
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
-"Veritabanı süzgeci kutusunu görüntülemek için en az veritabanı sayısıdır"
+msgstr "Veritabanı süzgeci kutusunu görüntülemek için en az veritabanı sayısı"
 
 #: libraries/config/messages.inc.php:505
 msgid ""
@@ -6778,7 +6777,7 @@ msgstr "Doğal sıra"
 #: libraries/config/messages.inc.php:554 libraries/config/messages.inc.php:585
 #: libraries/config/messages.inc.php:587
 msgid "Use only icons, only text or both."
-msgstr "Sadece simgeleri, sadece metni veya her ikisinide kullan."
+msgstr "Sadece simgeleri, sadece metni veya her ikisini kullanın."
 
 #: libraries/config/messages.inc.php:555
 msgid "Table navigation bar"
@@ -6853,11 +6852,11 @@ msgstr "MySQL'e ayrılmış kelime uyarısı"
 
 #: libraries/config/messages.inc.php:586
 msgid "How to display the menu tabs"
-msgstr "Menü sekmelerinin nasıl görüntüleneceği"
+msgstr "Menü sekmeleri nasıl görüntülensin"
 
 #: libraries/config/messages.inc.php:588
 msgid "How to display various action links"
-msgstr "Çeşitli eylem bağlantılarının nasıl görüntüleneceği"
+msgstr "Çeşitli eylem bağlantıları nasıl görüntülensin"
 
 #: libraries/config/messages.inc.php:589
 msgid "Disallow BLOB and BINARY columns from editing."
@@ -10173,7 +10172,7 @@ msgstr "Sütunlar şununla atlatılmış:"
 #: libraries/plugins/export/ExportCsv.php:74
 #: libraries/plugins/import/AbstractImportCsv.php:76
 msgid "Lines terminated with:"
-msgstr "Satırlar şununla sonlandırılmış:"
+msgstr "Satırlar şununla sonlandırılsın:"
 
 #: libraries/plugins/export/ExportCsv.php:78
 #: libraries/plugins/export/ExportExcel.php:52
