@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-11-18 09:43-0500\n"
-"PO-Revision-Date: 2015-10-25 22:31+0200\n"
-"Last-Translator: Julian Ladisch <github.com-t3if@ladisch.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2015-11-21 09:21+0000\n"
+"Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -996,7 +996,6 @@ msgstr ""
 "konvertieren wollen?"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -1711,10 +1710,9 @@ msgid "Formatting SQL…"
 msgstr "SQL wird formatiert .…"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Ungültige Parameter!"
+msgstr "Keine Parameter gefunden!"
 
 #: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -3650,7 +3648,7 @@ msgstr "Alle auswählen"
 
 #: libraries/DisplayResults.php:5002
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "In Zwischenablage kopieren"
 
 #: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
@@ -9473,7 +9471,7 @@ msgstr[1] "%s Ergebnisse gefunden"
 #: libraries/navigation/NavigationTree.php:1369
 #: libraries/navigation/NavigationTree.php:1406
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Hier schreiben um zu filtern, Enter um alles zu suchen"
 
 #: libraries/navigation/NavigationTree.php:1371
 #: libraries/navigation/NavigationTree.php:1407
@@ -10661,16 +10659,16 @@ msgid "Metadata"
 msgstr "Metadaten"
 
 #: libraries/plugins/export/ExportSql.php:1063
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "Metadaten für %s"
+msgstr "Metadaten für Tabelle %s"
 
 #: libraries/plugins/export/ExportSql.php:1070
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "Metadaten für %s"
+msgstr "Metadaten für Datenbank %s"
 
 #: libraries/plugins/export/ExportSql.php:1402
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:606
@@ -14640,6 +14638,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Nutzername und Host-Name haben sich nicht geändert. Wenn Sie nur das "
+"Passwort ändern wollen, sollten Sie den “Passwort ändern”-Tab verwenden."
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
@@ -15486,10 +15486,9 @@ msgid "Stacked"
 msgstr "Gestapelt"
 
 #: templates/table/chart/tbl_chart.phtml:53
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Titel des Reports"
+msgstr "Titel des Reports:"
 
 #: templates/table/chart/tbl_chart.phtml:58
 msgid "X-Axis:"
