@@ -1118,8 +1118,9 @@ function PMA_getExportDisplay(
 function PMA_handleExportTemplateActions($cfgRelation)
 {
     if (isset($_REQUEST['templateId'])) {
-        $templateId = $_REQUEST['templateId'];
-        $id = PMA\libraries\Util::sqlAddSlashes($templateId);
+        $id = PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateId']);
+    } else {
+        $id = '';
     }
 
     $templateTable = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
@@ -1152,6 +1153,7 @@ function PMA_handleExportTemplateActions($cfgRelation)
            . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
         break;
     default:
+        $query = '';
         break;
     }
 
