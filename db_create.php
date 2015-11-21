@@ -139,8 +139,8 @@ if (! $result) {
             . urlencode($current['SCHEMA_NAME'])
         );
     } else {
-        include_once '' .  PMA_Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
-            );
+        include_once '' .  PMA\libraries\Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        );
     }
 }
