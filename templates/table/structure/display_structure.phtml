@@ -30,6 +30,7 @@ $rownum = 0; $odd_row = true; ?>
                 $columns_list[] = $row['Field'];
                 $extracted_columnspec = Util::extractColumnSpec($row['Type']);
                 $attribute = $extracted_columnspec['attribute'];
+                $field_charset = $row['Collation'];
 
                 // prepare a common variable to reuse below; however,
                 // in case of a VIEW, $create_table_fields is empty
@@ -101,7 +102,8 @@ $rownum = 0; $odd_row = true; ?>
                     'field_encoded' => urlencode($row['Field']),
                     'titles' => $titles,
                     'table' => $table,
-                    'tbl_storage_engine' => $tbl_storage_engine
+                    'tbl_storage_engine' => $tbl_storage_engine,
+                    'field_charset' => $field_charset
                 )
             ); ?>
             <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>

@@ -251,14 +251,14 @@ AJAX.registerOnload('tbl_structure.js', function () {
     }); //end of Drop Column Anchor action
 
     /**
-     * Attach Event Handler for 'Print View'
+     * Attach Event Handler for 'Print' link
      */
     $(document).on('click', "#printView", function (event) {
         event.preventDefault();
 
         // Print the page
         printPage();
-    }); //end of Print View action
+    }); //end of 'Print' action
 
     /**
      * Ajax Event handler for adding keys

@@ -544,7 +544,7 @@ class TableStructureController extends TableController
             $partitionDetails = $this->_extractPartitionDetails();
         }
 
-        include_once 'libraries/StorageEngine.class.php';
+        include_once 'libraries/StorageEngine.php';
         $this->response->addHTML(
             Template::get('table/structure/partition_definition_form')
                 ->render(
@@ -930,6 +930,13 @@ class TableStructureController extends TableController
                 PMA_previewSQL(count($changes) > 0 ? $sql_query : '');
             }
 
+            $columns_with_index = $this->dbi
+                ->getTable($this->db, $this->table)
+                ->getColumnsWithIndex(
+                    PMA_Index::PRIMARY | PMA_Index::UNIQUE | PMA_Index::INDEX
+                    | PMA_Index::SPATIAL | PMA_Index::FULLTEXT
+                );
+
             $changedToBlob = array();
             // While changing the Column Collation
             // First change to BLOB
@@ -937,6 +944,7 @@ class TableStructureController extends TableController
                 if (isset($_REQUEST['field_collation'][$i])
                     && isset($_REQUEST['field_collation_orig'][$i])
                     && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
+                    && ! in_array($_REQUEST['field_orig'][$i], $columns_with_index)
                 ) {
                     $secondary_query = 'ALTER TABLE ' . Util::backquote(
                         $this->table

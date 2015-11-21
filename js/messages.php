@@ -626,15 +626,6 @@ $js_messages['strHidePanel'] = __('Hide panel');
 $js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items.');
 $js_messages['linkWithMain'] = __('Link with main panel');
 $js_messages['unlinkWithMain'] = __('Unlink from main panel');
-$js_messages['strHoverDbFastFilter']
-    = __('To filter all databases on server, press Enter after a search term');
-$js_messages['strHoverFastFilter']
-    = __('To filter all %s in database, press Enter after a search term');
-$js_messages['strTables'] = __('tables');
-$js_messages['strViews'] = __('views');
-$js_messages['strProcedures'] = __('procedures');
-$js_messages['strEvents'] = __('events');
-$js_messages['strFunctions'] = __('functions');
 
 /* microhistory */
 $js_messages['strInvalidPage']

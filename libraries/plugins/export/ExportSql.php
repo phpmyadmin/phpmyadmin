@@ -974,16 +974,13 @@ class ExportSql extends ExportPlugin
      * @param string       $db            database being exported
      * @param string|array $tables        table(s) being exported
      * @param array        $metadataTypes types of metadata to export
-     * @param array        $targetNames   associative array of db and table names of
-     *                                    target configuraton storage
      *
      * @return bool Whether it succeeded
      */
     public function exportMetadata(
         $db,
         $tables,
-        $metadataTypes,
-        $targetNames = array()
+        $metadataTypes
     ) {
         $cfgRelation = PMA_getRelationsParam();
         if (!isset($cfgRelation['db'])) {
@@ -1029,16 +1026,13 @@ class ExportSql extends ExportPlugin
      * @param string $db            database being exported
      * @param string $table         table being exported
      * @param array  $metadataTypes types of metadata to export
-     * @param array  $targetNames   associative array of db and table names of
-     *                              target configuraton storage
      *
      * @return bool Whether it succeeded
      */
     private function _exportMetadata(
         $db,
         $table,
-        $metadataTypes,
-        $targetNames = array()
+        $metadataTypes
     ) {
         $cfgRelation = PMA_getRelationsParam();
 
@@ -1059,27 +1053,28 @@ class ExportSql extends ExportPlugin
         }
 
         $aliases = array();
-        foreach ($targetNames as $type => $targetName) {
-            if ($type == 'phpmyadmin') {
-                $aliases[$cfgRelation['db']] = $targetName;
-                continue;
-            }
-
-            if (isset($cfgRelation[$type])) {
-                $aliases[$cfgRelation['db']]['tables'][$cfgRelation[$type]]['alias']
-                    = $targetName;
-            }
-        }
 
         $comment = $this->_possibleCRLF()
-            . $this->_exportComment()
-            . $this->_exportComment(
-                sprintf(
-                    __('Metadata for %s'),
-                    isset($table) ? $table : $db
-                )
-            )
             . $this->_exportComment();
+
+        if (isset($table)) {
+            $comment .= $this->_exportComment(
+                sprintf(
+                    __('Metadata for table %s'),
+                    $table
+                )
+            );
+        } else {
+            $comment .= $this->_exportComment(
+                sprintf(
+                    __('Metadata for database %s'),
+                    $db
+                )
+            );
+        }
+
+        $comment .= $this->_exportComment();
+
         if (!PMA_exportOutputHandler($comment)) {
             return false;
         }

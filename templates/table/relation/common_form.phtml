@@ -1,36 +1,5 @@
 <form method="post" action="tbl_relation.php">
     <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
-    <?php if ($cfgRelation['relwork']): ?>
-        <?php $save_row = array_values($columns);
-        $saved_row_cnt  = count($save_row);?>
-        <fieldset>
-            <legend><?php echo __('Internal relations'); ?></legend>
-            <table id="internal_relations" class="relationalTable">
-                <tr>
-                    <th><?php echo __('Column'); ?></th>
-                    <th><?php echo __('Internal relation'); ?>
-                        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
-                            <?php echo PMA\libraries\Util::showHint(__(
-                                'An internal relation is not necessary when a corresponding'
-                                . ' FOREIGN KEY relation exists.')); ?>
-                        <?php endif; ?>
-                    </th>
-                    <?php $odd_row = true; ?>
-                    <?php for ($i = 0; $i < $saved_row_cnt; $i++): ?>
-                        <?php echo PMA\libraries\Template::get('table/relation/internal_relational_row')->render(
-                            array(
-                                'save_row' => $save_row,
-                                'i' => $i,
-                                'odd_row' => $odd_row,
-                                'existrel' => $existrel,
-                                'db' => $db
-                            )
-                        );
-                        $odd_row = ! $odd_row; ?>
-                    <?php endfor; ?>
-            </table>
-        </fieldset>
-    <?php endif; ?>
     <!-- InnoDB  -->
     <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
         <fieldset>
@@ -48,6 +17,14 @@
                     <th colspan="3">
                         <?php echo __('Foreign key constraint'); ?> (<?php echo $tbl_storage_engine; ?>)
                     </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th><?php echo __('Database'); ?></th>
+                    <th><?php echo __('Table'); ?></th>
+                    <th><?php echo __('Column'); ?></th>
                 </tr>
                 <?php $odd_row = true; $i = 0; ?>
                 <?php if (! empty($existrel_foreign)): ?>
@@ -86,6 +63,47 @@
             </table>
         </fieldset>
     <?php endif; ?>
+
+    <?php if ($cfgRelation['relwork']): ?>
+        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+            <br/>
+            <?php echo PMA\libraries\Util::getDivForSliderEffect('ir_div', __('Internal relations')) ?>
+        <?php endif; ?>
+
+        <?php $save_row = array_values($columns);
+        $saved_row_cnt  = count($save_row);?>
+        <fieldset>
+            <legend><?php echo __('Internal relations') . PMA\libraries\Util::showDocu('config', 'cfg_Servers_relation'); ?></legend>
+            <table id="internal_relations" class="relationalTable">
+                <tr>
+                    <th><?php echo __('Column'); ?></th>
+                    <th><?php echo __('Internal relation'); ?>
+                        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+                            <?php echo PMA\libraries\Util::showHint(__(
+                                'An internal relation is not necessary when a corresponding'
+                                . ' FOREIGN KEY relation exists.')); ?>
+                        <?php endif; ?>
+                    </th>
+                    <?php $odd_row = true; ?>
+                    <?php for ($i = 0; $i < $saved_row_cnt; $i++): ?>
+                        <?php echo PMA\libraries\Template::get('table/relation/internal_relational_row')->render(
+                            array(
+                                'save_row' => $save_row,
+                                'i' => $i,
+                                'odd_row' => $odd_row,
+                                'existrel' => $existrel,
+                                'db' => $db
+                            )
+                        );
+                        $odd_row = ! $odd_row; ?>
+                    <?php endfor; ?>
+            </table>
+        </fieldset>
+        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+
     <?php if ($cfgRelation['displaywork']): ?>
         <?php $save_row = array_values($columns);?>
         <?php $disp = PMA_getDisplayField($db, $table); ?>
@@ -104,6 +122,7 @@
             </select>
         </fieldset>
     <?php endif; ?>
+
     <fieldset class="tblFooters">
         <input type="button" class="preview_sql" value="<?php echo __('Preview SQL'); ?>" />
         <input type="submit" value="<?php echo __('Save'); ?>" />

@@ -102,7 +102,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
             || ($is_superuser && $mode == 'edit_other')
         ) {
             $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
-                $username, $hostname, $orig_auth_plugin, 'change_pw', 'new'
+                $orig_auth_plugin, 'change_pw', 'new'
             );
 
             $html .= '<tr class="vmiddle">'
@@ -135,7 +135,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         }
     } else {
         $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
-            $username, $hostname, $orig_auth_plugin, 'change_pw', 'old'
+            $orig_auth_plugin, 'change_pw', 'old'
         );
 
         $html .= '<tr class="vmiddle">'
