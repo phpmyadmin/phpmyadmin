@@ -53,11 +53,13 @@ shift
 branch=$1
 shift
 
+git checkout $branch
 if [ -f libraries/Config.php ] ; then
     CONFIG_LIB=libraries/Config.php
 else
     CONFIG_LIB=libraries/Config.class.php
 fi
+git checkout master
 
 cat <<END
 
