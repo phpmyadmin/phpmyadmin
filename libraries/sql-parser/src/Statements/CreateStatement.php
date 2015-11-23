@@ -314,6 +314,11 @@ class CreateStatement extends Statement
                 . Expression::build($this->name) . ' '
                 . ParameterDefinition::build($this->parameters) . ' '
                 . $tmp . ' ' . TokensList::build($this->body);
+        } else {
+            return 'CREATE '
+                . OptionsArray::build($this->options) . ' '
+                . Expression::build($this->name) . ' '
+                . TokensList::build($this->body);
         }
         return '';
     }
@@ -545,6 +550,14 @@ class CreateStatement extends Statement
 
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
+                $this->body[] = $token;
+            }
+        } else {
+            for (; $list->idx < $list->count; ++$list->idx) {
+                $token = $list->tokens[$list->idx];
+                if ($token->type === Token::TYPE_DELIMITER) {
+                    break;
+                }
                 $this->body[] = $token;
             }
         }

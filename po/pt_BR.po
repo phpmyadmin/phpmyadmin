@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-02 09:13+0200\n"
 "Last-Translator: Luis <luis.eduardo.braschi@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -4423,11 +4423,11 @@ msgstr "Erro ao renomear tabela %1$s para %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "A tabela foi renomeada de %1$s para %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Não foi possível salvar as preferências visuais da tabela!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4436,7 +4436,7 @@ msgstr ""
 "Falha ao limpar as preferências visuais da tabela (veja $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4447,19 +4447,19 @@ msgstr ""
 "permanecerão depois que você recarregar esta página. Favor cheque se a "
 "estrutura da tabela foi alterada."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "O nome da chave primária deve ser \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Não foi possível renomear o índice para PRIMARY!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Nenhuma parte de índice definida!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Erro ao criar chave externa no %1$s (check data types)"
@@ -9680,7 +9680,7 @@ msgstr ""
 "Não foi possível incluir a classe \"%1$s\", o arquivo \"%2$s\" não foi "
 "encontrado"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Expandir/Recolher"
 
@@ -14887,9 +14887,11 @@ msgstr "Nenhum banco de dados"
 msgid "View dump (schema) of databases"
 msgstr "Ver dump (esquema) dos bancos de dados"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Username e hostname sem alterações."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 #, fuzzy
@@ -16048,10 +16050,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descrição"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Levando você para %s."
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Indo para a próxima etapa…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17374,6 +17377,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está com valor 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Username e hostname sem alterações."
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Levando você para %s."
 
 #, fuzzy
 #~| msgid "Authentication"

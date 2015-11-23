@@ -78,7 +78,11 @@ function loadChildNodes(isNode, $expandElem, callback) {
                 callback(data);
             }
         } else if(data.redirect_flag == "1") {
-            window.location.href += '&session_expired=1';
+            if (window.location.href.indexOf('?') === -1) {
+                window.location.href += '?session_expired=1';
+            } else {
+                window.location.href += '&session_expired=1';
+            }
             window.location.reload();
         } else {
             var $throbber = $expandElem.find('img.throbber');

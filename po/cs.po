@@ -3,19 +3,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-09-03 10:02+0200\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-11-12 10:29+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-5/cs/"
-">\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-5/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -951,10 +951,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Opravdu si přejete ZKRÁTIT vybrané oddíly?"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Opravdu si přejete provést „%s“?"
+msgstr "Opravdu si přejete obnovit podřízený server (RESET SLAVE)?"
 
 #: js/messages.php:68
 msgid ""
@@ -986,6 +985,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Během této operace se MySQL pokusí namapovat data na jiné kódování. Pokud je "
+"znaková sada nekompatibilní, může dojít ke ztrátě dat, která je "
+"<b>NEVRATNÁ</b> pouhou změnou na původní kódování. <b>Pro převod stávajících "
+"dat je doporučeno použití funkce pro změnu sloupců (odkaz \"Změnit\") na "
+"stránce struktury tabulky.</b>"
 
 #: js/messages.php:86
 msgid ""
@@ -3532,10 +3536,9 @@ msgid "Relational key"
 msgstr "Relační klíč"
 
 #: libraries/DisplayResults.class.php:1745
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Zobrazit cizí klíče"
+msgstr "Zobrazit sloupec pro relace"
 
 #: libraries/DisplayResults.class.php:1758
 msgid "Show binary contents"
@@ -3843,11 +3846,13 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Ověření syntaxe je pro tento dotaz vypnuto, protože překračuje maximální "
+"délku."
 
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (poblíž <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
@@ -4284,11 +4289,11 @@ msgstr "Chyba při přejmenování tabulky %1$s na %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabulka %1$s byla přejmenována na %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Nepodařilo se uložit nastavení prohlížení tabulky!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4297,7 +4302,7 @@ msgstr ""
 "Selhalo vyčištění tabulky s nastavením procházení (viz $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4307,19 +4312,19 @@ msgstr ""
 "Nepodařilo se uložit nastavení „%s“. Změny se neprojeví po novém načtení "
 "stránky. Prosím zkontrolujte jestli se nezměnila struktura tabulky."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Jméno primárního klíče musí být „PRIMARY“!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Klíč nelze přejmenovat na „PRIMARY“!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Nebyla zadána žádná část klíče!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Chyba při vytváření cizího klíče na %1$s (zkotrolujte typ pole)"
@@ -4723,7 +4728,6 @@ msgid "Without PHP Code"
 msgstr "Bez PHP kódu"
 
 #: libraries/Util.class.php:1223 libraries/config/messages.inc.php:898
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Vytvořit PHP kód"
@@ -4853,7 +4857,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Zkontrolovat oprávnění pro databázi „%s“."
 
 #: libraries/build_html_for_db.lib.php:181
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Zkontrolovat oprávnění"
@@ -5564,6 +5567,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Vyhledání chyb v dotazu před jeho spuštěním. Je potřeba mít povolený "
+"CodeMirror."
 
 #: libraries/config/messages.inc.php:67
 msgid "Enable linter"
@@ -5920,6 +5925,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Přidat IF NOT EXISTS (méně účinné než generování klíčů během vytváření "
+"tabulky)"
 
 #: libraries/config/messages.inc.php:211
 msgid "Use ignore inserts"
@@ -6402,7 +6409,7 @@ msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
 #, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Výpadků při čtení"
+msgstr "Číst jako řetězec"
 
 #: libraries/config/messages.inc.php:406
 msgid "Initial state for sliders"
@@ -6557,8 +6564,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] ([kbd]0[/"
-"kbd] ruší omezení)."
+"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Memory limit"
@@ -7533,7 +7540,6 @@ msgstr ""
 "Zobrazit nebo skrýt sloupec zobrazující čas vytvoření pro všechny tabulky."
 
 #: libraries/config/messages.inc.php:853
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Zobrazit čas vytvoření"
@@ -7546,7 +7552,6 @@ msgstr ""
 "tabulky."
 
 #: libraries/config/messages.inc.php:857
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Zobrazit čas poslední změny"
@@ -7559,7 +7564,6 @@ msgstr ""
 "tabulky."
 
 #: libraries/config/messages.inc.php:861
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Zobrazit čas poslední kontroly"
@@ -8131,6 +8135,8 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Tato metoda připojení k serveru vyžaduje použití '<i>SSL spojení</i>' nebo "
+"'<i>nešifrovaného spojení s podporou šifrování hesla pomocí RSA</i>'."
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
@@ -8420,7 +8426,6 @@ msgstr ""
 "Například: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Soubor pro importování:"
@@ -8434,7 +8439,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Upload souborů není na tomto serveru povolen."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Částečný import:"
@@ -8466,7 +8470,6 @@ msgstr ""
 "počínaje od:"
 
 #: libraries/display_import.lib.php:340
-#, fuzzy
 #| msgid "Other Options:"
 msgid "Other options:"
 msgstr "Další možnosti:"
@@ -9194,8 +9197,9 @@ msgid "Romanian"
 msgstr "Rumunština"
 
 #: libraries/mysql_charsets.lib.php:239
+#, fuzzy
 msgid "Sinhalese"
-msgstr ""
+msgstr "Sinhálština"
 
 #: libraries/mysql_charsets.lib.php:242
 msgid "Slovak"
@@ -9377,7 +9381,7 @@ msgstr "Neplatný název třídy \"%1$s\", používám výchozí \"Node\""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "Nelze načíst třídu \"%1$s\", soubor \"%2$s\" nebyl nenalezen"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Rozbalit/sbalit"
 
@@ -9692,10 +9696,10 @@ msgid "The third step of normalization is complete."
 msgstr "Třetí krok normalizace je dokončený."
 
 #: libraries/normalization.lib.php:676
-#, fuzzy, php-format
+#, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Vybrané cílové tabulky byly synchronizovány se zdrojovými."
+msgstr "Vybraná opakující se skupina byla přesunuta do tabulky '%s'"
 
 #: libraries/normalization.lib.php:723
 msgid "Step 3."
@@ -9718,6 +9722,8 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Tranzitivní závislosti nejsou možny, pokud tabulka neobsahuje žádné sloupce "
+"bez primárního klíče"
 
 #: libraries/normalization.lib.php:781
 msgid "Table is already in Third normal form!"
@@ -9764,18 +9770,18 @@ msgstr "Přejmenovat databázi na"
 #: libraries/operations.lib.php:873 libraries/operations.lib.php:967
 #: libraries/operations.lib.php:1321
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Nemáte dostatečná práva na provedení této akce!"
+msgstr ""
+"Nemáte dostatečná práva k provedení této akce; Prohlédněte si dokumentaci "
+"pro více detailů"
 
 #: libraries/operations.lib.php:102 libraries/operations.lib.php:249
 #: libraries/operations.lib.php:879 libraries/operations.lib.php:973
 #: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Adjust Privileges"
 msgid "Adjust privileges"
 msgstr "Upravit oprávnění"
@@ -9853,10 +9859,9 @@ msgid "Storage Engine"
 msgstr "Úložiště"
 
 #: libraries/operations.lib.php:1096
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Převést všechny sloupce na atomické"
+msgstr "Změnit kódování všech sloupců"
 
 #: libraries/operations.lib.php:1264
 msgid "Copy table to (database<b>.</b>table)"
@@ -9883,10 +9888,9 @@ msgstr "Zkontrolovat tabulku"
 
 #: libraries/operations.lib.php:1438
 #: templates/database/structure/check_all_tables.phtml:22
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Zkontrolovat tabulku"
+msgstr "Tabulka kontrolních součtů"
 
 #: libraries/operations.lib.php:1453
 msgid "Defragment table"
@@ -9954,13 +9958,13 @@ msgstr "Opravit"
 #: libraries/operations.lib.php:1609
 #: templates/table/structure/display_structure.phtml:186
 msgid "Truncate"
-msgstr ""
+msgstr "Vyprázdnit"
 
 #: libraries/operations.lib.php:1619
 #, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Sbalit"
+msgstr "Vyhledat první platný záznam"
 
 #: libraries/operations.lib.php:1628
 msgid "Partition maintenance"
@@ -10229,7 +10233,7 @@ msgstr "Zástupná struktura pro pohled"
 
 #: libraries/plugins/export/ExportJson.class.php:71
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Vytvořit pěkný JSON (snadno čitelné formátování)"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -10344,7 +10348,7 @@ msgstr "Zobrazit strukturu"
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "a poté"
+msgstr "Zůstat"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -14417,9 +14421,11 @@ msgstr "Žádné databáze"
 msgid "View dump (schema) of databases"
 msgstr "Export databází"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Jméno uživatele a počítače se nezměnilo."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15572,10 +15578,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Popis"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Přesměrovávám na %s."
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Přesměrovávám na další krok…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16849,6 +16856,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Jméno uživatele a počítače se nezměnilo."
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Přesměrovávám na %s."
 
 #, fuzzy
 #~| msgid "Authentication"

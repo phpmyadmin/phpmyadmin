@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-09-24 18:03+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
@@ -4324,11 +4324,11 @@ msgstr "Error reanomenant la taula %1$s a %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "La taula %1$s ha canviat de nom a %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "No s'ha pogut desar la taula de preferències d'interfície!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4337,7 +4337,7 @@ msgstr ""
 "No s'ha pogut netejar la taula de preferències de la interfície d'usuari "
 "(vegeu $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4348,19 +4348,19 @@ msgstr ""
 "no seran persistents després d'actualitzar la pàgina. Comprova si "
 "l'estructura de la taula ha canviat."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "El nom de la clau principal ha de ser \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "No pots canviar el nom d'un índex a PRIMARY!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "No s'han definit parts de l'índex!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -9475,7 +9475,7 @@ msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 "No s'ha pogut incloure la classe \"%1$s\", no s'ha trobat l'arxiu \"%2$s\""
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Expandir/Col.lapsar"
 
@@ -14560,9 +14560,11 @@ msgstr "No hi ha bases de dades"
 msgid "View dump (schema) of databases"
 msgstr "Veure volcat (esquema) de les bases de dades"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "El nom d'usuari i de servidor no s'han canviat."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15689,10 +15691,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descripció"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Portant-te à %s."
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Portant-te al següent pas…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17030,6 +17033,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "{concurrent_insert} està establert a 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "El nom d'usuari i de servidor no s'han canviat."
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Portant-te à %s."
 
 #, fuzzy
 #~| msgid "Authentication"

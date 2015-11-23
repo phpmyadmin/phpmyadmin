@@ -5,11 +5,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-10-15 11:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-10-24 16:47+0200\n"
+"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
 "hy/>\n"
 "Language: hy\n"
@@ -4321,18 +4321,18 @@ msgstr "Չհաջողվեց վերանվանել աղյուսակը %1$s-ից %2$
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s աղյուսակը վերանվանվել է %2$s-ին։"
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Չհաջողվեց պահպանել աղյուսակի միջերեսի նախընտրանքները։"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4340,19 +4340,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Առաջնային բանալիի անունը պետք է լինի \"PRIMARY\"։"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Հնարավոր չէ՝ վերանվանել ցուցակագիրը PRIMARY անունով։"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Ցուցակագրի մասերը սահմանված չեն։"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s-ի արտաքին բանալիի ստեղծման սխալ (ստուգեք տվյալների տեսակները)"
@@ -9097,7 +9097,7 @@ msgstr ""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Ընդարձակել/Կոծկել"
 
@@ -11187,7 +11187,7 @@ msgstr "Իրադարձության անուն"
 
 #: libraries/rte/rte_events.lib.php:408 libraries/server_bin_log.lib.php:130
 msgid "Event type"
-msgstr "Իրադարձության տեսակը՝"
+msgstr "Իրադարձության տեսակը"
 
 #: libraries/rte/rte_events.lib.php:430 libraries/rte/rte_routines.lib.php:908
 #, php-format
@@ -11933,8 +11933,6 @@ msgid "SHA256 password authentication"
 msgstr "SHA256 գաղտնաբառով վավերացումը"
 
 #: libraries/server_privileges.lib.php:1463
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Native MySQL Authentication"
 msgstr "MySQL-ի բնականոն վավերացումը"
 
@@ -13802,9 +13800,11 @@ msgstr "Տվյալների բազաներ չկան"
 msgid "View dump (schema) of databases"
 msgstr ""
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Օգտանունը և խնամորդի անունը չեն փոխվել։"
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -14896,10 +14896,9 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Նկարագրություն"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Վերահասցեագրում %s-ին։"
+#: url.php:36
+msgid "Taking you to the target site."
+msgstr "Անցում դեպի նպատակային կայք։"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15974,6 +15973,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert նշված է 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Օգտանունը և խնամորդի անունը չեն փոխվել։"
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Վերահասցեագրում %s-ին։"
 
 #~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"

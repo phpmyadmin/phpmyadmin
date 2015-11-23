@@ -1473,7 +1473,12 @@ class PMA_Table
             PMA_Util::backquote($this->_name)
         );
         $move_columns_sql_result = $this->_dbi->tryQuery($move_columns_sql_query);
-        return $this->_dbi->getFieldsMeta($move_columns_sql_result);
+        if ($move_columns_sql_result !== false) {
+            return $this->_dbi->getFieldsMeta($move_columns_sql_result);
+        } else {
+            // unsure how to reproduce but it was seen on the reporting server
+            return array();
+        }
     }
 
     /**

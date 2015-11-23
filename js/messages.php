@@ -294,8 +294,8 @@ $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
 
 /* For page-related settings */
-$js_messages['strPageSettings'] = _('Page-related settings');
-$js_messages['strApply'] = _('Apply');
+$js_messages['strPageSettings'] = __('Page-related settings');
+$js_messages['strApply'] = __('Apply');
 
 /* For Ajax Notifications */
 $js_messages['strLoading'] = __('Loading…');

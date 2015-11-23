@@ -114,7 +114,7 @@ class PMA_Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.5.1');
+        $this->set('PMA_VERSION', '4.5.2');
         /**
          * @deprecated
          */
@@ -500,7 +500,9 @@ class PMA_Config
         }
 
         $commit = false;
-        if (! isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
+        if (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
+            $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
+        } elseif (function_exists('gzuncompress')) {
             $git_file_name = $git_folder . '/objects/'
                 . substr($hash, 0, 2) . '/' . substr($hash, 2);
             if (file_exists($git_file_name) ) {
@@ -648,8 +650,6 @@ class PMA_Config
                     fclose($pack_file);
                 }
             }
-        } else {
-            $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
         }
 
         // check if commit exists in Github

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-10-15 20:37+0200\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-10-27 12:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/>\n"
@@ -3897,7 +3897,7 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"«Linter» est désactivé pour cette requête car elle dépasse la longueur "
+"« Linter » est désactivé pour cette requête car elle dépasse la longueur "
 "maximum."
 
 #: libraries/Linter.class.php:162
@@ -4337,11 +4337,11 @@ msgstr "Erreur lors du renommage de %1$s en %2$s !"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "La table %1$s se nomme maintenant %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Impossible de sauvegarder les préférences d'interface de tables !"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4350,7 +4350,7 @@ msgstr ""
 "Echec lors de la tentative de vidage de la table UI Préférences (voir "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4361,19 +4361,19 @@ msgstr ""
 "sera pas persistant après actualisation de cette page. Merci de vérifier si "
 "la structure de la table a changé."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Le nom d'une clé primaire doit être «PRIMARY» !"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "La clé ne peut être renommée PRIMARY !"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Aucune colonne n'a été définie pour cet index !"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -9519,7 +9519,7 @@ msgstr "Nom de classe \"%1$s\" invalide, \"Node\" sera utilisé"
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "La classe \"%1$s\" n'a pu être incluse, fichier \"%2$s\" inexistant"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Développer/réduire"
 
@@ -12580,7 +12580,6 @@ msgid "SHA256 password authentication"
 msgstr "Authentification par mot de passe SHA256"
 
 #: libraries/server_privileges.lib.php:1463
-#| msgid "Native MySQL authentication"
 msgid "Native MySQL Authentication"
 msgstr "Authentification MySQL native"
 
@@ -14640,9 +14639,14 @@ msgstr "Aucune base de données"
 msgid "View dump (schema) of databases"
 msgstr "Schéma et/ou contenu des bases de données"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Ni le code utilisateur ni le nom du serveur n'ont été modifiés."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
+"Le nom d'utilisateur et le nom d'hôte n'ont pas changé. Si vous voulez "
+"seulement changer le mot de passe, vous devriez utiliser l'onglet « Modifier "
+"le mot de passe » ."
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15769,10 +15773,9 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Description"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Vous êtes redirigé vers %s."
+#: url.php:36
+msgid "Taking you to the target site."
+msgstr "En route vers le site cible."
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17095,6 +17098,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Ni le code utilisateur ni le nom du serveur n'ont été modifiés."
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Vous êtes redirigé vers %s."
 
 #~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"

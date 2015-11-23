@@ -3708,8 +3708,10 @@ function PMA_getHtmlForInitials($array_initials)
         null,
         PMA_DatabaseInterface::QUERY_STORE
     );
-    while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
-        $array_initials[$tmp_initial] = true;
+    if ($initials) {
+        while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
+            $array_initials[$tmp_initial] = true;
+        }
     }
 
     // Display the initials, which can be any characters, not
@@ -3952,10 +3954,18 @@ function PMA_getDataForChangeOrCopyUser()
             if (PMA_Util::getServerType() == 'MySQL'
                 && PMA_MYSQL_INT_VERSION >= 50606
                 && PMA_MYSQL_INT_VERSION < 50706
-                && isset($password)
+                && ((isset($authentication_string)
+                && empty($password))
+                || (isset($plugin)
+                && $plugin == 'sha256_password'))
+            ) {
+                $password = $authentication_string;
+            }
+
+            if (PMA_Util::getServerType() == 'MariaDB'
+                && PMA_MYSQL_INT_VERSION >= 50500
+                && isset($authentication_string)
                 && empty($password)
-                && isset($plugin)
-                && $plugin == 'sha256_password'
             ) {
                 $password = $authentication_string;
             }
@@ -5085,7 +5095,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 
     $create_user_real = $create_user_show = $create_user_stmt;
 
-    $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = PASSWORD(\'%s\')';
+    $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = \'%s\'';
     $password_set_show = sprintf(
         $password_set_stmt,
         $slashedUsername,
@@ -5132,11 +5142,12 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 null
             );
         } else {
+            $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
             $password_set_real = sprintf(
                 $password_set_stmt,
                 $slashedUsername,
                 $slashedHostname,
-                $_POST['pma_pw']
+                $hashedPassword
             );
         }
     } else {
@@ -5157,10 +5168,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $create_user_real = $create_user_show = $create_user_stmt;
 
         if ($_POST['pred_password'] == 'keep') {
-            $hashedPassword = PMA_getHashedPassword($password);
             $create_user_real = sprintf(
                 $create_user_stmt,
-                $hashedPassword
+                $slashedPassword
             );
             $create_user_show = sprintf(
                 $create_user_stmt,

@@ -2084,9 +2084,7 @@ phpMyAdmin project
 7.1 I have found a bug. How do I inform developers?
 ---------------------------------------------------
 
-Our Bug Tracker is located at <http://sf.net/projects/phpmyadmin/> under the
-Bugs section. But please first discuss your bug with other users:
-<https://www.phpmyadmin.net/support/>
+Our issues tracker is located at <https://github.com/phpmyadmin/phpmyadmin/issues>.
 
 .. _faq7_2:
 

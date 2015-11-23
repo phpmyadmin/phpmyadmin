@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-05-21 01:04+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4374,18 +4374,18 @@ msgstr ""
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s cədvəli %2$s olaraq yenidən adlandırılmışdır."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4393,20 +4393,20 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Birinci dərəcəli açarın adı \"PRIMARY\" olmalıdır!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr ""
 "İndeksi Birinci dərəcəli (PRIMARY) olaraq yenidən adlandıra bilməzsiniz!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "İndeks qisimleri te'yin edilmedi!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -9266,7 +9266,7 @@ msgstr ""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "\"%1$s\" sinfi daxil edilmədi, \"%2$s\" fayl tapılmadı"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Genişlət/Daralt"
 
@@ -14187,8 +14187,10 @@ msgstr "Verilənlər Bazası yoxdur"
 msgid "View dump (schema) of databases"
 msgstr "Verilənlər bazalarının sxemini göstər"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
 msgstr ""
 
 #: server_status.php:39
@@ -15389,10 +15391,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Açıqlama"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Sizi apardığı yer %s."
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Sizi növbəti addıma aparır…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16518,6 +16521,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0-a konfiqurasiya edilib"
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Sizi apardığı yer %s."
 
 #, fuzzy
 #~| msgid "Authentication"

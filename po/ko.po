@@ -1,10 +1,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-10-15 11:23+0200\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-10-26 11:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/"
 ">\n"
@@ -941,10 +941,8 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "선택된 파티션의 내용을 정말로 비우시겠습니까?"
 
 #: js/messages.php:66
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "정말로 \"%s\"을/를 실행하시겠습니까?"
+msgstr "정말로 초기화 슬레이브를 실행 하시겠습니까?"
 
 #: js/messages.php:68
 msgid ""
@@ -957,7 +955,7 @@ msgstr ""
 
 #: js/messages.php:74
 msgid "Garbled Data"
-msgstr ""
+msgstr "혼동된 데이터"
 
 #: js/messages.php:76
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -1961,7 +1959,7 @@ msgstr "부분 의존성이 선택되지 않았습니다!"
 
 #: js/messages.php:380
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "테이블의 데이터에 기초한 가능한 부분 의존성을 알려주세요"
 
 #: js/messages.php:381
 msgid "Hide partial dependencies list"
@@ -4225,11 +4223,11 @@ msgstr "테이블 %1$s의 이름을 %2$s(으)로 바꾸는데 실패했습니다
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "테이블 %1$s을(를) %2$s(으)로 이름을 변경하였습니다."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "테이블 UI 설정을 저장할 수 없습니다!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4238,7 +4236,7 @@ msgstr ""
 "테이블 UI 설정을 정리하는 데 실패했습니다. ($cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s 를 참조하세요)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4249,19 +4247,19 @@ msgstr ""
 "않을것입니다.\n"
 "테이블 구조가 변경되었는지 확인 바랍니다."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "기본 키의 이름은 반드시 PRIMARY여야 합니다!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "인덱스 이름을 기본 키로 바꿀 수 없습니다!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "인덱스 부분의 정의가 없음!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s의 외래키 생성 에러 (데이터 타입을 확인하세요)"
@@ -8007,6 +8005,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"현재 사용중인 mysql 확장기능은 phpMyAdmin과의 사용이 권장되지 않습니다"
+"(deprecated). mysqli 확장기능 설치를 고려하십시오."
 
 #: libraries/db_designer.lib.php:117
 msgid "Could not load schema plugins, please check your installation!"
@@ -9302,7 +9302,7 @@ msgstr "\"%1$s\"를 클래스 이름으로 사용할 수 없음, 기본 값 \"No
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "\"%1$s\" 클래스를 포함할 수 없음, \"%2$s\" 파일이 없음"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "펼치기/접기"
 
@@ -14294,9 +14294,11 @@ msgstr "데이터베이스가 없습니다"
 msgid "View dump (schema) of databases"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "username과 hostname이 변경되지 않았음."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15490,10 +15492,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "설명"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "당신을 %s로 데려감."
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "다음 단계로 가는 중…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16738,6 +16741,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "username과 hostname이 변경되지 않았음."
+
+#~ msgid "Taking you to %s."
+#~ msgstr "당신을 %s로 데려감."
 
 #, fuzzy
 #~| msgid "Authentication"

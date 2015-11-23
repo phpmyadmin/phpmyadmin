@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-15 11:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
@@ -4617,13 +4617,13 @@ msgstr "টেবিল %1$s টি %2$s নাম করনে ব্যাথ�
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "টেবিল %1$s থেকে %2$s এ নামকরন করা হয়েছে।"
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "টেবলের UI পছন্দ সংরক্ষন করা যায়নি"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4632,7 +4632,7 @@ msgstr ""
 "টেবলের UI পছন্দ পরিস্কার করতে ব্যার্থ হয়েছি ($cfg['Servers'][$i] "
 "['MaxTableUiprefs'] %s দেখুন)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4642,19 +4642,19 @@ msgstr ""
 "UI পছন্দের তথ্য \"%s\" সংরক্ষন করা যায়নি। পরিবর্তন গুলো এই পাতাটি রিফ্রেশ করলে "
 "থাকবে না। টেবলের গঠন পরিবর্তীত হয়েছে কিনা পরীক্ষা করে দেখুন।"
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "প্রাথমিক কী'র নাম অবশ্যই \"PRIMARY\" হতে হবে!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "ইনডেক্সটি PRIMARY হিসাবে নাম করন করা যাবে না!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "ইনডেক্সের অংশ দেওয়া হয়নি!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s এ ফরেন কী তৈরী করতে সমস্যা হচ্ছে (তথ্যের ধরন পরীক্ষা করুন)"
@@ -9848,7 +9848,7 @@ msgstr "অযোগ্য ক্লাশ নাম \"%1$s\", স্বাভ�
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "ক্লাশ \"%1$s\"যুক্ত করা যায়নি, ফাইল \"%2$s\" পাওয়া যায়নি"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr ""
 
@@ -14982,8 +14982,10 @@ msgstr "কোন ডাটাবেইজ নাই"
 msgid "View dump (schema) of databases"
 msgstr "ডাটাবেইজের স্তুপ(আকৃতি) দেখাও"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
 msgstr ""
 
 #: server_status.php:39
@@ -16209,10 +16211,10 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "বর্ণনা"
 
-#: url.php:35
-#, fuzzy, php-format
+#: url.php:36
+#, fuzzy
 #| msgid "Tracking report"
-msgid "Taking you to %s."
+msgid "Taking you to the target site."
 msgstr "ট্রেকিং প্রতিবেদন"
 
 #: user_password.php:34
@@ -17446,6 +17448,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to %s."
+#~ msgstr "ট্রেকিং প্রতিবেদন"
 
 #, fuzzy
 #~| msgid "Authentication"

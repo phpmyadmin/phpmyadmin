@@ -1,10 +1,10 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-10-16 01:24+0200\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-10-27 18:59+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-5/el/>"
 "\n"
@@ -4330,11 +4330,11 @@ msgstr "Αποτυχία μετονομασίας του πίνακα %1$s σε 
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Ο πίνακας %1$s μετονομάσθηκε σε %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Αδύνατη η αποθήκευση του πίνακα ρυθμίσεων UI!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4343,7 +4343,7 @@ msgstr ""
 "Αδύνατη η εκκαθάριση του πίνακα προτιμήσεων του περιβάλλοντος εργασίας "
 "(δείτε το $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4354,19 +4354,19 @@ msgstr ""
 "παραμείνουν μετά την ανανέωση της σελίδας. Ελέξτε αν η δομή πίνακα έχει "
 "αλλαχτεί."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Το όνομα του πρωτεύοντος κλειδιού πρέπει να είναι \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Η μετατροπή του ευρετηρίου σε PRIMARY δεν είναι εφικτή!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Δεν ορίστηκαν τα στοιχεία του ευρετηρίου!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -9522,7 +9522,7 @@ msgstr "Μη έγκυρο όνομα κλάσης «%1$s», χρήση της π
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "Αδύνατη η εισαγωγή της κλάσης «%1$s», το αρχείο «%2$s» δεν βρέθηκε"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Ανάπτυξη/Σύμπτηξη"
 
@@ -12578,7 +12578,6 @@ msgid "SHA256 password authentication"
 msgstr "Πιστοποίηση κωδικού πρόσβασης SHA256"
 
 #: libraries/server_privileges.lib.php:1463
-#| msgid "Native MySQL authentication"
 msgid "Native MySQL Authentication"
 msgstr "Γηγενής Πιστοποίηση MySQL"
 
@@ -14670,9 +14669,14 @@ msgstr "Δεν υπάρχουν βάσεις δεδομένων"
 msgid "View dump (schema) of databases"
 msgstr "Εμφάνισης σκαριφήματος (σχήματος) βάσεων δεδομένων"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Το όνομα χρήστη και το όνομα φιλοξενητή δεν άλλαξαν."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
+"Το όνομα χρήστη και το όνομα φιλοξενητή δεν άλλαξαν. Αν θέλετε να αλλάξετε "
+"μόνο τον κωδικό πρόσβασης, πρέπει να χρησιμοποιηθεί η καρτέλα «Αλλαγή "
+"κωδικού»."
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15804,10 +15808,9 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Μεταφέροντάς σας στο %s."
+#: url.php:36
+msgid "Taking you to the target site."
+msgstr "Μεταφέροντάς σας στη σελίδα προορισμού."
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17162,6 +17165,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Το όνομα χρήστη και το όνομα φιλοξενητή δεν άλλαξαν."
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Μεταφέροντάς σας στο %s."
 
 #~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"

@@ -1,19 +1,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-03-28 04:08+0200\n"
-"Last-Translator: Hiroshi Chiyokawa <hiroshi.chiyokawa@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-10-18 20:27+0200\n"
+"Last-Translator: Eshin Kunishima <ek@luna.miko.im>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -288,8 +288,6 @@ msgstr "データ"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:379
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "全選択"
 
@@ -626,7 +624,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "インポートの進行状況を読み込めませんでした。"
 
 #: import_status.php:112 js/messages.php:379 libraries/Util.class.php:780
 #: libraries/export.lib.php:518
@@ -4611,13 +4609,13 @@ msgstr "テーブル名を %1$s から %2$s に変更するときにエラーが
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "テーブル %1$s の名称を %2$s に変更しました。"
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "テーブルに対する環境設定が保存できません"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4626,7 +4624,7 @@ msgstr ""
 "テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4636,19 +4634,19 @@ msgstr ""
 "環境プロパティ「%s」が保存できません。ページ更新の際、変更箇所が維持されるこ"
 "とはないでしょう。テーブル構造を変更されたのであれば確認してみてください。"
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主キーの名前は PRIMARY でなければなりません!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "インデックス名を PRIMARY に変更することはできません!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "インデックス部分が定義されていません!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -10378,7 +10376,7 @@ msgstr ""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr ""
 
@@ -15729,8 +15727,10 @@ msgstr "データベースが存在しません"
 msgid "View dump (schema) of databases"
 msgstr "データベースのダンプ (スキーマ) 表示"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
 msgstr ""
 
 #: server_status.php:39
@@ -16987,10 +16987,10 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "説明"
 
-#: url.php:35
-#, fuzzy, php-format
+#: url.php:36
+#, fuzzy
 #| msgid "Tracking report"
-msgid "Taking you to %s."
+msgid "Taking you to the target site."
 msgstr "追跡レポート"
 
 #: user_password.php:34
@@ -18378,6 +18378,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています"
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to %s."
+#~ msgstr "追跡レポート"
 
 #, fuzzy
 #~| msgid "Authentication"
@@ -20211,10 +20216,6 @@ msgstr "concurrent_insert は 0 に設定されています"
 #~ "は PHP の時間制限を伸ばさない限りこのデータのインポートはできません"
 
 #~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "なし"
-
-#~ msgctxt ""
 #~ msgid "None"
 #~ msgstr "なし"
 

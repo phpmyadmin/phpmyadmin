@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
 "PO-Revision-Date: 2015-10-15 11:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
@@ -4454,11 +4454,11 @@ msgstr "Помилка зміни назви таблиці %1$s на %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблицю %1$s було перейменовано в %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Неможливо зберегти табличні налаштування UI!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4467,7 +4467,7 @@ msgstr ""
 "Помилка очищення таблиичних налаштувань UI (див. $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4478,19 +4478,19 @@ msgstr ""
 "оновлення цієї сторінки. Будь ласка, перевірте чи не була змінена структура "
 "таблиці."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Ім'я первинного ключа повинно бути PRIMARY!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Неможливо перейменувати індекс в PRIMARY!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Не визначено частини індекса!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Помилка при створенні зовнішнього ключа на %1$s (перевірте типи даних)"
@@ -9682,7 +9682,7 @@ msgstr ""
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Розгорнути/Згорнути"
 
@@ -14877,8 +14877,10 @@ msgstr "БД відсутні"
 msgid "View dump (schema) of databases"
 msgstr "Переглянути дамп (схему) баз даних"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
 msgstr ""
 
 #: server_status.php:39
@@ -16084,10 +16086,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Опис"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Перехід до %s."
+#: url.php:36
+#, fuzzy
+#| msgid "Taking you to next step…"
+msgid "Taking you to the target site."
+msgstr "Перехід до наступного кроку…"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17381,6 +17384,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлено у 0"
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Перехід до %s."
 
 #, fuzzy
 #~| msgid "Authentication"

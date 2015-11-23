@@ -1,6 +1,36 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.5.2.0 (2015-11-23)
+- issue #11589 Incorrect parameter in mysqli_fetch_fields()
+- issue #11592 Missing headers in zipped export
+- issue #11590 Parser: Array to string conversion
+- issue #11597 Huge binary log growth on 4.5.x
+- issue #11594 'only_db' config option bug when db names contain underscore and are grouped
+- issue #11607 Unable to change password from Login information tab
+- issue #11610 Undefined variable: res_rel
+- issue #11611 Warning while exporting schema to PDF
+- issue #11612 Undefined index: new_row_format
+- issue #11605 Changing hostname kills password
+- issue #11614 Undefined variable: db
+- issue #11627 CREATE TABLE/INSERT INTO executed twice (ctrl+enter)
+- issue #11630 Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given
+- issue #11632 Exporting GIS visualization ignores start and row count
+- issue #11476 Errors instead of git info when PHP has no gzip support
+- issue #11633 CodeMirror tooltip shows below modal window
+- issue #11639 Bug with the MainBackground Color
+- issue        Profiling checkbox is missing
+- issue #11642 Properly handle session expiry after POST requests
+- issue #11648 Notice in ./export.php#214 Undefined index: quick_or_custom
+- issue #11646 Unrecognized keywords
+- issue #11635 Sql not executed properly
+- issue #11631 Linter warnings when creating new user
+- issue #11626 wrong row count for query results
+- issue #11608 Analyzer doesn't recognize GRANT statements
+- issue #11602 Parser warnings (subqueries)
+- issue #11658 Collation column is empty in table Structure
+- issue #11661 Error changing table's column encoding
+
 4.5.1.0 (2015-10-23)
 - issue        Invalid argument supplied for foreach()
 - issue        array_key_exists() expects parameter 2 to be array

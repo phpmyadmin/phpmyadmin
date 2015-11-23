@@ -1,11 +1,11 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-10-15 23:18+0200\n"
-"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-11-12 10:42+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-5/nl/>"
 "\n"
 "Language: nl\n"
@@ -965,7 +965,6 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Weet u zeker dat u de geselecteerde partitiie(s) wilt afbreken?"
 
 #: js/messages.php:66
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
 msgstr "Weet u zeker dat u RESET SLAVE wil uitvoeren?"
 
@@ -4329,11 +4328,11 @@ msgstr "Fout bij hernoemen van tabel %1$s naar %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s is hernoemd naar %2$s."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Tabelinterfacevoorkeuren konden niet worden opgeslagen!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4342,7 +4341,7 @@ msgstr ""
 "Opkuisen van tabelinterfacevoorkeuren is mislukt (zie $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4353,19 +4352,19 @@ msgstr ""
 "wijzigingen zullen verdwijnen na verversen van deze pagina. Controleer of de "
 "tabelstructuur is gewijzigd."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "De naam van de primaire sleutel moet \"PRIMARY\" zijn!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan index niet naar PRIMARY hernoemen!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Geen index-delen gedefinieerd!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -9507,7 +9506,7 @@ msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 "Klasse \"%1$s\" kon niet ingevoegd worden, bestand \"%2$s' niet gevonden"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Uitklappen/samenvouwen"
 
@@ -12549,17 +12548,14 @@ msgstr ""
 "rechtentabel opnieuw op te vragen."
 
 #: libraries/server_privileges.lib.php:1447
-#| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
 msgstr "MySQL authenticatie"
 
 #: libraries/server_privileges.lib.php:1449
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
 msgstr "SHA256 wachtwoord authenticatie"
 
 #: libraries/server_privileges.lib.php:1463
-#| msgid "Cookie authentication"
 msgid "Native MySQL Authentication"
 msgstr "MySQL authenticatie"
 
@@ -12602,7 +12598,6 @@ msgid "Authentication Plugin"
 msgstr "Authenticatie Plugin"
 
 #: libraries/server_privileges.lib.php:1787
-#| msgid "Password Hashing:"
 msgid "Password Hashing Method"
 msgstr "Wachtwoord hashing methode"
 
@@ -14633,9 +14628,13 @@ msgstr "Geen databases"
 msgid "View dump (schema) of databases"
 msgstr "Export (schema) van de databases bekijken"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Gebruikersnaam en hostname werden niet gewijzigd."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
+"Gebruikersnaam en servernaam zijn ongewijzigd. Als u alleen het wachtwoord "
+"wil wijzigen, gebruik de 'Wijzig wachtwoord' tab."
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15771,10 +15770,9 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Omschrijving"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "U wordt doorverwezen naar %s."
+#: url.php:36
+msgid "Taking you to the target site."
+msgstr "Neemt je naar de doel site."
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17105,6 +17103,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Gebruikersnaam en hostname werden niet gewijzigd."
+
+#~ msgid "Taking you to %s."
+#~ msgstr "U wordt doorverwezen naar %s."
 
 #, fuzzy
 #~| msgid "Authentication"

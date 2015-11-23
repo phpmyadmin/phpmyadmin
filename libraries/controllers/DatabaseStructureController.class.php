@@ -475,7 +475,8 @@ class DatabaseStructureController extends DatabaseController
                 $this->response->addHTML(
                     Template::get('database/structure/table_header')->render(
                         array(
-                            'db_is_system_schema' => false,
+                            'db' => $this->db,
+                            'db_is_system_schema' => $this->_db_is_system_schema,
                             'replication' => $GLOBALS['replication_info']['slave']['status']
                         )
                     )

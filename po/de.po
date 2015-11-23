@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-10-15 14:29-0400\n"
-"PO-Revision-Date: 2015-09-23 03:11+0200\n"
-"Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
+"POT-Creation-Date: 2015-10-26 19:59-0400\n"
+"PO-Revision-Date: 2015-10-25 22:11+0200\n"
+"Last-Translator: Julian Ladisch <github.com-t3if@ladisch.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-5/de/"
 ">\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -970,10 +970,8 @@ msgstr ""
 "Möchten Sie wirklich die ausgewählten Partitionen unwiderruflich leeren?"
 
 #: js/messages.php:66
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Möchten Sie die Abfrage \"%s\" wirklich ausführen?"
+msgstr "Möchten Sie die Abfrage „RESET SLAVE“ wirklich ausführen?"
 
 #: js/messages.php:68
 msgid ""
@@ -4357,11 +4355,11 @@ msgstr "Fehler beim Umbenennen von Tabelle %1$s nach %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabelle %1$s wurde in %2$s umbenannt."
 
-#: libraries/Table.class.php:1528
+#: libraries/Table.class.php:1533
 msgid "Could not save table UI preferences!"
 msgstr "Konnte die Darstellungs-Einstellungen der Tabelle nicht speichern!"
 
-#: libraries/Table.class.php:1558
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4370,7 +4368,7 @@ msgstr ""
 "Bereinigen der Tabellen UI Einstellungen fehlgeschlagen (siehe "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1713
+#: libraries/Table.class.php:1718
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4381,19 +4379,19 @@ msgstr ""
 "Änderungen werden nicht dauerhaft sein wenn Sie diese Seite aktualisieren. "
 "Bitte überprüfen Sie, ob die Struktur der Tabelle geändert wurde."
 
-#: libraries/Table.class.php:1850
+#: libraries/Table.class.php:1855
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Der Name des Primärschlüssels muss \"PRIMARY\" lauten!"
 
-#: libraries/Table.class.php:1861
+#: libraries/Table.class.php:1866
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kann Index nicht in PRIMARY umbenennen!"
 
-#: libraries/Table.class.php:1883
+#: libraries/Table.class.php:1888
 msgid "No index parts defined!"
 msgstr "Keine Indizes definiert!"
 
-#: libraries/Table.class.php:2197
+#: libraries/Table.class.php:2202
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -9544,7 +9542,7 @@ msgstr ""
 "Klasse \"%1$s\" konnte nicht eingebunden werden, Datei \"%2$s\" nicht "
 "gefunden"
 
-#: libraries/navigation/Nodes/Node.class.php:792
+#: libraries/navigation/Nodes/Node.class.php:793
 msgid "Expand/Collapse"
 msgstr "Auf-/Zuklappen"
 
@@ -12615,22 +12613,16 @@ msgstr ""
 "Benutzerprofile neu laden zu müssen."
 
 #: libraries/server_privileges.lib.php:1447
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Cookie-Authentifizierung"
+msgstr "Native MySQL-Authentifizierung"
 
 #: libraries/server_privileges.lib.php:1449
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Signon-Authentifizierung"
+msgstr "SHA256-Passwort-Authentifizierung"
 
 #: libraries/server_privileges.lib.php:1463
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Native MySQL Authentication"
-msgstr "Cookie-Authentifizierung"
+msgstr "Native MySQL-Authentifizierung"
 
 #: libraries/server_privileges.lib.php:1517
 #: libraries/server_privileges.lib.php:2989
@@ -12671,10 +12663,8 @@ msgid "Authentication Plugin"
 msgstr "Authentifizierungs Plugin"
 
 #: libraries/server_privileges.lib.php:1787
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Passwortverschlüsselung:"
+msgstr "Passwort­verschlüsselungs­methode"
 
 #: libraries/server_privileges.lib.php:2058
 #, php-format
@@ -14717,9 +14707,11 @@ msgstr "Keine Datenbanken"
 msgid "View dump (schema) of databases"
 msgstr "Dump (Schema) der Datenbanken anzeigen"
 
-#: server_privileges.php:140
-msgid "Username and hostname didn't change."
-msgstr "Benutzername und Rechnername haben sich nicht geändert."
+#: server_privileges.php:142
+msgid ""
+"Username and hostname didn't change. If you only want to change the "
+"password, 'Change password' tab should be used."
+msgstr ""
 
 #: server_status.php:39
 msgid "Not enough privilege to view server status."
@@ -15849,10 +15841,9 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beschreibung"
 
-#: url.php:35
-#, php-format
-msgid "Taking you to %s."
-msgstr "Führt sie zu %s."
+#: url.php:36
+msgid "Taking you to the target site."
+msgstr "Führt Sie zur Zielsite."
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -17189,6 +17180,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "Username and hostname didn't change."
+#~ msgstr "Benutzername und Rechnername haben sich nicht geändert."
+
+#~ msgid "Taking you to %s."
+#~ msgstr "Führt sie zu %s."
 
 #, fuzzy
 #~| msgid "Authentication"

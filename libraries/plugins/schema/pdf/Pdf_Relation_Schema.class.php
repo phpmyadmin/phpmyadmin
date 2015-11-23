@@ -951,12 +951,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
              * Gets fields properties
              */
             $columns = $GLOBALS['dbi']->getColumns($this->db, $table);
-            // Check if we can use Relations
-            if (!empty($cfgRelation['relation'])) {
-                // Find which tables are related with the current one and write it in
-                // an array
-                $res_rel = PMA_getForeigners($this->db, $table);
-            } // end if
+
+            // Find which tables are related with the current one and write it in
+            // an array
+            $res_rel = PMA_getForeigners($this->db, $table);
 
             /**
              * Displays the comments of the table if MySQL >= 3.23

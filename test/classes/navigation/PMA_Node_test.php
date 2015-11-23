@@ -362,7 +362,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $expectedSql .= "ORDER BY DB_first_level ASC ";
         $expectedSql .= "LIMIT $pos, $limit";
         $expectedSql .= ") t2 ";
-        $expectedSql .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, '_'), ";
+        $expectedSql .= "WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), ";
         $expectedSql .= "CONCAT(SCHEMA_NAME, '_')) ";
         $expectedSql .= "ORDER BY SCHEMA_NAME ASC";
 
@@ -471,7 +471,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "SHOW DATABASES WHERE TRUE  AND ("
+                "SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%'  AND ("
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )"
             );
