@@ -249,7 +249,7 @@ class ServerDatabasesController extends Controller
 
         if (empty($this->_dbstats)) {
             //we should put notice above database list
-            $html = $this->_getHtmlForNoticeEnableStatistics($html);
+            $html .= $this->_getHtmlForNoticeEnableStatistics();
         }
         $html .= '</form>';
         $html .= '</div>';
@@ -371,12 +371,12 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Enable Statistics
      *
-     * @param string $html      html for database list
-     *
      * @return string
      */
-    private function _getHtmlForNoticeEnableStatistics($html)
+    private function _getHtmlForNoticeEnableStatistics()
     {
+        $html = '';
+
         $notice = Message::notice(
             __(
                 'Note: Enabling the database statistics here might cause '
