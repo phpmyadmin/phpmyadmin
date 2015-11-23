@@ -8,7 +8,7 @@ phpMyAdmin - ChangeLog
 - issue        Incorrect script name in include
 - issue #11685 Warning: Invalid argument supplied for foreach()
 
-4.5.2.0 (not yet released)
+4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
 - issue #11592 Missing headers in zipped export
 - issue #11590 Parser: Array to string conversion
