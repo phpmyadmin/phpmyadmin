@@ -328,7 +328,12 @@ class ServerDatabasesController extends Controller
             $html .= '<tr class="' . $tr_class . '">' . "\n";
             $odd_row = ! $odd_row;
 
-            list($column_order, $generated_html) = PMA_buildHtmlForDb(
+            foreach ($column_order as $stat_name => $stat) {
+                if (array_key_exists($stat_name, $current) && is_numeric($stat['footer'])) {
+                    $column_order[$stat_name]['footer'] += $current[$stat_name];
+                }
+            }
+            $generated_html = PMA_buildHtmlForDb(
                 $current,
                 $GLOBALS['is_superuser'],
                 $GLOBALS['url_query'],

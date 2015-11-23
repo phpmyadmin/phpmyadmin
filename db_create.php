@@ -113,7 +113,13 @@ if (! $result) {
             );
         }
 
-        list($column_order, $generated_html) = PMA_buildHtmlForDb(
+        foreach ($column_order as $stat_name => $stat) {
+            if (array_key_exists($stat_name, $current) && is_numeric($stat['footer'])) {
+                $column_order[$stat_name]['footer'] += $current[$stat_name];
+            }
+        }
+
+        $generated_html = PMA_buildHtmlForDb(
             $current, $is_superuser, $url_query,
             $column_order, $replication_types, $GLOBALS['replication_info']
         );
