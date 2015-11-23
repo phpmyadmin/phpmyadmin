@@ -242,7 +242,6 @@ class ServerDatabasesController extends Controller
 
         $html .= $this->_getHtmlForTableFooter(
             $column_order,
-            $replication_types,
             $first_database
         );
 
@@ -289,37 +288,22 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Table footer
      *
-     * @param string $column_order       column order
-     * @param array  $replication_types  replication types
-     * @param string $first_database     First database
+     * @param string $column_order   column order
+     * @param string $first_database first database
      *
      * @return string
      */
-    private function _getHtmlForTableFooter(
-        $column_order,
-        $replication_types, $first_database
-    ) {
-        $html = '<tfoot><tr>' . "\n";
-        if ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase']) {
-            $html .= '    <th></th>' . "\n";
-        }
-        $html .= '    <th>' . __('Total') . ': <span id="databases_count">'
-            . $this->_database_count . '</span></th>' . "\n";
+    private function _getHtmlForTableFooter($column_order, $first_database) {
 
-        $html .= $this->_getHtmlForColumnOrder($column_order, $first_database);
-
-        foreach ($replication_types as $type) {
-            if ($GLOBALS['replication_info'][$type]['status']) {
-                $html .= '    <th></th>' . "\n";
-            }
-        }
-
-        if ($GLOBALS['is_superuser']) {
-            $html .= '    <th></th>' . "\n";
-        }
-        $html .= '</tr>' . "\n";
-        $html .= '</tfoot>' . "\n";
-        return $html;
+        return Template::get('server/databases/table_footer')->render(
+            array(
+                'column_order' => $column_order,
+                'first_database' => $first_database,
+                'master_replication' => $GLOBALS['replication_info']['master']['status'],
+                'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+                'databaseCount' => $this->_database_count,
+            )
+        );
     }
 
     /**
@@ -361,49 +345,6 @@ class ServerDatabasesController extends Controller
         $html .= '</tbody>';
         return array($html, $column_order);
     }
-
-    /**
-     * Returns the html for Column Order
-     *
-     * @param array $column_order   Column order
-     * @param array $first_database The first display database
-     *
-     * @return string
-     */
-    private function _getHtmlForColumnOrder($column_order, $first_database)
-    {
-        $html = "";
-        // avoid execution path notice
-        $unit = "";
-        foreach ($column_order as $stat_name => $stat) {
-            if (array_key_exists($stat_name, $first_database)) {
-                if ($stat['format'] === 'byte') {
-                    list($value, $unit)
-                        = Util::formatByteDown($stat['footer'], 3, 1);
-                } elseif ($stat['format'] === 'number') {
-                    $value = Util::formatNumber($stat['footer'], 0);
-                } else {
-                    $value = htmlentities($stat['footer'], 0);
-                }
-                $html .= '    <th class="value">';
-                if (isset($stat['description_function'])) {
-                    $html .= '<dfn title="'
-                        . $stat['description_function']($stat['footer']) . '">';
-                }
-                $html .= $value;
-                if (isset($stat['description_function'])) {
-                    $html .= '</dfn>';
-                }
-                $html .= '</th>' . "\n";
-                if ($stat['format'] === 'byte') {
-                    $html .= '    <th class="unit">' . $unit . '</th>' . "\n";
-                }
-            }
-        }
-
-        return $html;
-    }
-
 
     /**
      * Returns the html for table header
