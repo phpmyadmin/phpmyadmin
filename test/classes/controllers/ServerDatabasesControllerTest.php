@@ -1,21 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_databases.lib.php
+ * Holds ServerDatabasesControllerTest class
  *
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
+use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
-
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/build_html_for_db.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/server_databases.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
@@ -26,14 +22,12 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/config.default.php';
 
 /**
- * PMA_ServerDatabases_Test class
- *
- * this class is for testing server_databases.lib.php functions
+ * Tests for ServerDatabasesController class
  *
  * @package PhpMyAdmin-test
  */
 
-class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
+class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -72,22 +66,31 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
 
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $GLOBALS['dbi']);
+        $this->response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->response);
+        $container->alias('response', 'PMA\libraries\Response');
     }
 
     /**
-     * Test for PMA_getHtmlForDatabase
+     * Tests for _getHtmlForDatabases
      *
      * @return void
      * @group medium
      */
-    public function testPMAGetHtmlForDatabase()
+    public function testGetHtmlForDatabase()
     {
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerDatabasesController');
+        $method = $class->getMethod('_getHtmlForDatabases');
+        $method->setAccessible(true);
 
-        $GLOBALS['dbi'] = $dbi;
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->alias(
+            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+        );
+        $ctrl = $container->get('ServerDatabasesController');
 
         //Call the test function
         $databases = array(
@@ -123,19 +126,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
         );
         $url_query = "token=27ae04f0b003a84e5c2796182f361ff1";
 
-        $html = PMA_getHtmlForDatabase(
-            $databases,
-            $databases_count,
-            $pos,
-            $dbstats,
-            $sort_by,
-            $sort_order,
-            $is_superuser,
-            $cfg,
-            $replication_types,
-            $replication_info,
-            $url_query
-        );
+        $html = $method->invoke($ctrl, $replication_types);
 
         //validate 1: General info
         $this->assertContains(
@@ -206,87 +197,78 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getListForSortDatabase
+     * Tests for _setSortDetails()
      *
      * @return void
      */
-    public function testPMAGetListForSortDatabase()
+    public function testSetSortDetails()
     {
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerDatabasesController');
+        $method = $class->getMethod('_getHtmlForDatabases');
+        $method->setAccessible(true);
+        $propertySortBy = $class->getProperty('_sort_by');
+        $propertySortBy->setAccessible(true);
+        $propertySortOrder = $class->getProperty('_sort_order');
+        $propertySortOrder->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->alias(
+            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+        );
+        $ctrl = $container->get('ServerDatabasesController');
+
         //$_REQUEST['sort_by'] and $_REQUEST['sort_order'] are empty
-        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $method->invoke($ctrl);
         $this->assertEquals(
             'SCHEMA_NAME',
-            $sort_by
+            $propertySortBy->getValue($ctrl)
         );
         $this->assertEquals(
             'asc',
-            $sort_order
+            $propertySortOrder->getValue($ctrl)
         );
+
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->alias(
+            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+        );
+        $ctrl = $container->get('ServerDatabasesController');
 
         // $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME'
         // and $_REQUEST['sort_order'] is not 'desc'
         $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME';
         $_REQUEST['sort_order'] = 'abc';
-        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $method->invoke($ctrl);
         $this->assertEquals(
             'DEFAULT_COLLATION_NAME',
-            $sort_by
+            $propertySortBy->getValue($ctrl)
         );
         $this->assertEquals(
             'asc',
-            $sort_order
+            $propertySortOrder->getValue($ctrl)
         );
+
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->alias(
+            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+        );
+        $ctrl = $container->get('ServerDatabasesController');
 
         // $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME'
         // and $_REQUEST['sort_order'] is 'desc'
         $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME';
         $_REQUEST['sort_order'] = 'desc';
-        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $method->invoke($ctrl);
         $this->assertEquals(
             'DEFAULT_COLLATION_NAME',
-            $sort_by
+            $propertySortBy->getValue($ctrl)
         );
         $this->assertEquals(
             'desc',
-            $sort_order
+            $propertySortOrder->getValue($ctrl)
         );
-    }
-
-    /**
-     * Test for PMA_getHtmlForColumnOrder
-     *
-     * @return void
-     */
-    public function testPMAGetHtmlForColumnOrder()
-    {
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $column_order = array(
-            "first_database" => array(
-                'format' => 'byte',
-                'footer' => '10333',
-            )
-        );
-        $first_database = array(
-            "first_database" => "db1"
-        );
-        $html = PMA_getHtmlForColumnOrder($column_order, $first_database);
-        $stat = $column_order["first_database" ];
-        list($value, $unit)
-            = PMA\libraries\Util::formatByteDown($stat['footer'], 3, 1);
-        $this->assertContains(
-            $value,
-            $html
-        );
-        $this->assertContains(
-            $unit,
-            $html
-        );
-
     }
 }
