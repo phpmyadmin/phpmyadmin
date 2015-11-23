@@ -104,7 +104,7 @@ $ajax_reload = array();
 if (! empty($sql_query)) {
 
     // apply values for parameters
-    if (! empty($_REQUEST['parameterized'])) {
+    if (! empty($_REQUEST['parameterized']) && is_array($_REQUEST['parameters'])) {
         $parameters = $_REQUEST['parameters'];
         foreach ($parameters as $parameter => $replacement) {
             $quoted = preg_quote($parameter);
