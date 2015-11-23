@@ -225,26 +225,24 @@ class ServerDatabasesController extends Controller
             = ($this->_sort_by == 'SCHEMA_NAME' && $this->_sort_order == 'asc')
             ? 'desc' : 'asc';
 
+        // calculate aggregate stats to display in footer
+        foreach ($this->_databases as $current) {
+            foreach ($column_order as $stat_name => $stat) {
+                if (array_key_exists($stat_name, $current)
+                    && is_numeric($stat['footer'])
+                ) {
+                    $column_order[$stat_name]['footer'] += $current[$stat_name];
+                }
+            }
+        }
+
+        // database table
         $html .= '<table id="tabledatabases" class="data">' . "\n";
-
         $html .= $this->_getHtmlForTableHeader(
-            $_url_params,
-            $column_order,
-            $first_database
+            $_url_params, $column_order, $first_database
         );
-
-        list($output, $column_order) = $this->_getHtmlAndColumnOrderForDatabaseList(
-            $column_order,
-            $replication_types
-        );
-        $html .= $output;
-        unset($output);
-
-        $html .= $this->_getHtmlForTableFooter(
-            $column_order,
-            $first_database
-        );
-
+        $html .= $this->_getHtmlForTableBody($column_order, $replication_types);
+        $html .= $this->_getHtmlForTableFooter($column_order, $first_database);
         $html .= '</table>' . "\n";
 
         $html .= $this->_getHtmlForTableFooterButtons();
@@ -307,14 +305,14 @@ class ServerDatabasesController extends Controller
     }
 
     /**
-     * Returns the html for Database List and Column order
+     * Returns the html for Database List
      *
      * @param array  $column_order      column order
      * @param array  $replication_types replication types
      *
-     * @return Array
+     * @return string
      */
-    private function _getHtmlAndColumnOrderForDatabaseList(
+    private function _getHtmlForTableBody(
         $column_order, $replication_types
     ) {
         $odd_row = true;
@@ -327,11 +325,6 @@ class ServerDatabasesController extends Controller
             }
             $odd_row = ! $odd_row;
 
-            foreach ($column_order as $stat_name => $stat) {
-                if (array_key_exists($stat_name, $current) && is_numeric($stat['footer'])) {
-                    $column_order[$stat_name]['footer'] += $current[$stat_name];
-                }
-            }
             $generated_html = PMA_buildHtmlForDb(
                 $current,
                 $GLOBALS['is_superuser'],
@@ -343,9 +336,9 @@ class ServerDatabasesController extends Controller
             );
             $html .= $generated_html;
         } // end foreach ($this->_databases as $key => $current)
-        unset($current, $odd_row);
         $html .= '</tbody>';
-        return array($html, $column_order);
+
+        return $html;
     }
 
     /**
