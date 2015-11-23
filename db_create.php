@@ -87,7 +87,7 @@ if (! $result) {
          * String that will contain the output HTML
          * @name    $new_db_string
          */
-        $new_db_string = '<tr>';
+        $new_db_string = '';
 
         if (empty($db_collation_for_ajax)) {
             $db_collation_for_ajax = PMA_getServerCollation();
@@ -124,8 +124,6 @@ if (! $result) {
             $column_order, $replication_types, $GLOBALS['replication_info']
         );
         $new_db_string .= $generated_html;
-
-        $new_db_string .= '</tr>';
 
         $response = PMA\libraries\Response::getInstance();
         $response->addJSON('message', $message);

@@ -67,12 +67,13 @@ function PMA_getColumnOrder()
  * @param array   $column_order      column order
  * @param array   $replication_types replication types
  * @param array   $replication_info  replication info
+ * @param string  $tr_class             HTMl class for the row
  *
  * @return array $column_order, $out
  */
 function PMA_buildHtmlForDb(
-    $current, $is_superuser, $url_query,
-    $column_order, $replication_types, $replication_info
+    $current, $is_superuser, $url_query, $column_order,
+    $replication_types, $replication_info, $tr_class = ''
 ) {
     $master_replication = $slave_replication = '';
     foreach ($replication_types as $type) {
@@ -116,6 +117,7 @@ function PMA_buildHtmlForDb(
     return PMA\libraries\Template::get('server/databases/table_row')->render(
         array(
             'current' => $current,
+            'tr_class' => $tr_class,
             'url_query' => $url_query,
             'column_order' => $column_order,
             'master_replication_status' => $GLOBALS['replication_info']['master']['status'],

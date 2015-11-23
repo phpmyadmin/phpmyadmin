@@ -325,7 +325,6 @@ class ServerDatabasesController extends Controller
             if ($this->dbi->isSystemSchema($current['SCHEMA_NAME'], true)) {
                 $tr_class .= ' noclick';
             }
-            $html .= '<tr class="' . $tr_class . '">' . "\n";
             $odd_row = ! $odd_row;
 
             foreach ($column_order as $stat_name => $stat) {
@@ -339,12 +338,10 @@ class ServerDatabasesController extends Controller
                 $GLOBALS['url_query'],
                 $column_order,
                 $replication_types,
-                $GLOBALS['replication_info']
+                $GLOBALS['replication_info'],
+                $tr_class
             );
-
             $html .= $generated_html;
-
-            $html .= '</tr>' . "\n";
         } // end foreach ($this->_databases as $key => $current)
         unset($current, $odd_row);
         $html .= '</tbody>';
