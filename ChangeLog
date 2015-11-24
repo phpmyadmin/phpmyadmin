@@ -15,12 +15,16 @@ phpMyAdmin - ChangeLog
 + issue #11641 Ability to disable the navigationhiding Feature
 - issue #11647 Restrict configuration NavigationTreeDbSeparator to strings
 - issue #11667 Disable the tooltip in the navigation panel's filter box
++ issue        Copy results to clipboard
 
 4.5.3.0 (not yet released)
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement
 - issue #11665 Format breaks query with COUNT()
+- issue        Undefinex index: SendErrorReports
+- issue        Incorrect script name in include
+- issue #11685 Warning: Invalid argument supplied for foreach()
 
-4.5.2.0 (not yet released)
+4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
 - issue #11592 Missing headers in zipped export
 - issue #11590 Parser: Array to string conversion

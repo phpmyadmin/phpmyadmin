@@ -69,7 +69,9 @@ class ServerVariablesController extends Controller
          * Displays the sub-page heading
          */
         $doc_link = Util::showMySQLDocu('server_system_variables');
-        $this->response->addHtml(PMA_getHtmlForSubPageHeader('variables', $doc_link));
+        $this->response->addHtml(
+            PMA_getHtmlForSubPageHeader('variables', $doc_link)
+        );
 
         /**
          * Sends the queries and buffers the results
@@ -104,7 +106,10 @@ class ServerVariablesController extends Controller
             $this->response->addHTML(
                 Message::error(
                     sprintf(
-                        __('Not enough privilege to view server variables and settings. %s'),
+                        __(
+                            'Not enough privilege to view server variables and '
+                            . 'settings. %s'
+                        ),
                         Util::showMySQLDocu(
                             'server-system-variables',
                             false,
@@ -262,7 +267,8 @@ class ServerVariablesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForServerVariables($serverVars, $serverVarsSession) {
+    private function _getHtmlForServerVariables($serverVars, $serverVarsSession)
+    {
         // filter
         $filterValue = ! empty($_REQUEST['filter']) ? $_REQUEST['filter'] : '';
         $output = Template::get('server/variables/variable_filter')
@@ -312,7 +318,10 @@ class ServerVariablesController extends Controller
                 ->render(
                     array(
                         'rowClass'    => $row_class,
-                        'editable'    => ! in_array(strtolower($name), $static_variables),
+                        'editable'    => !in_array(
+                            strtolower($name),
+                            $static_variables
+                        ),
                         'docLink'     => $docLink,
                         'name'        => $name,
                         'value'       => $formattedValue,
@@ -1644,14 +1653,18 @@ class ServerVariablesController extends Controller
                 'performance-schema-system-variables',
                 'sysvar',
             );
-        $variable_doc_links['performance_schema_events_statements_history_size'] = array(
-            'performance_schema_events_statements_history_size',
-            'performance-schema-system-variables',
-            'sysvar');
-        $variable_doc_links['performance_schema_events_waits_history_long_size'] = array(
-            'performance_schema_events_waits_history_long_size',
-            'performance-schema-system-variables',
-            'sysvar');
+        $variable_doc_links['performance_schema_events_statements_history_size']
+            = array(
+                'performance_schema_events_statements_history_size',
+                'performance-schema-system-variables',
+                'sysvar',
+            );
+        $variable_doc_links['performance_schema_events_waits_history_long_size']
+            = array(
+                'performance_schema_events_waits_history_long_size',
+                'performance-schema-system-variables',
+                'sysvar',
+            );
         $variable_doc_links['performance_schema_events_waits_history_size'] = array(
             'performance_schema_events_waits_history_size',
             'performance-schema-system-variables',

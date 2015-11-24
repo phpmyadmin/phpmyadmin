@@ -3,18 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-17 08:14-0500\n"
-"PO-Revision-Date: 2015-09-06 06:59+0200\n"
-"Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"POT-Creation-Date: 2015-11-18 09:43-0500\n"
+"PO-Revision-Date: 2015-11-19 22:08+0000\n"
+"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -240,7 +240,7 @@ msgid "View dump (schema) of database"
 msgstr "Отобразить дамп (схему) базы данных"
 
 #: db_export.php:51 db_tracking.php:102 export.php:384 libraries/DbQbe.php:328
-#: libraries/controllers/DatabaseStructureController.php:157
+#: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:922
 msgid "No tables found in database."
 msgstr "Таблиц в базе данных не обнаружено."
@@ -713,7 +713,7 @@ msgstr "Информация о версии:"
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:579 libraries/engines/Pbxt.php:170
 #: libraries/navigation/NavigationHeader.php:196
-#: libraries/server_variables.lib.php:162
+#: templates/server/variables/link_template.phtml:10
 msgid "Documentation"
 msgstr "Документация"
 
@@ -946,16 +946,14 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Вы действительно хотите ОБНУЛИТЬ выбранный(е) раздел(ы)?"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Вы действительно хотите ОБНУЛИТЬ выбранный(е) раздел(ы)?"
+msgstr "Вы действительно хотите удалить выбранный(е) раздел(ы)?"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Вы действительно хотите выполнить запрос \"%s\"?"
+msgstr "Вы действительно хотите СБРОСИТЬ ПОДЧИНЕННЫЙ СЕРВЕР?"
 
 #: js/messages.php:85
 msgid ""
@@ -979,7 +977,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Вы уверены, что хотите изменить сверку и конвертировать данные?"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -995,12 +992,13 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Посредством данной операции MySQL делает попытку расположить значения данных "
-"между сверками. Если наборы символов неполны, может произойти потеря данных "
-"и потерянные данные <b>НЕ</b> смогут быть восстановлены посредством "
-"обратного изменения сверки(ок) колонки. <b>Чтобы конвертировать существующие "
-"данные, рекомендуется использовать возможность редактировать колонку(и) "
-"(ссылка \"Изменить\") на странице структуры таблицы.</b>"
+"С помощью этой операции, MySQL пытается сопоставить значения данных между "
+"различными параметрами сравнения. Если наборы символов несовместимы, может "
+"произойти потеря данных и утерянные данные <b>НЕ</b> смогут быть "
+"восстановлены посредством обратного изменения сравнения колонки. <b>Чтобы "
+"конвертировать существующие данные, рекомендуется использовать возможность "
+"редактировать колонку(и) (ссылка \"Изменить\") на странице структуры "
+"таблицы.</b>"
 
 #: js/messages.php:104
 msgid ""
@@ -1689,12 +1687,11 @@ msgid "Formatting SQL…"
 msgstr "Форматирование SQL…"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Ошибочные параметры!"
+msgstr "Параметры не найдены!"
 
-#: js/messages.php:347 libraries/server_variables.lib.php:159
+#: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
 #: templates/database/designer/delete_relation_panel.phtml:28
 #: templates/database/designer/having_query_panel.phtml:117
@@ -1702,6 +1699,7 @@ msgstr "Ошибочные параметры!"
 #: templates/database/designer/options_panel.phtml:253
 #: templates/database/designer/rename_to_panel.phtml:45
 #: templates/database/designer/where_query_panel.phtml:83
+#: templates/server/variables/link_template.phtml:5
 msgid "Cancel"
 msgstr "Отменить"
 
@@ -1816,7 +1814,7 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Определение хранимой функции должно содержать выражение RETURN!"
 
 #: js/messages.php:389 libraries/DisplayResults.php:4850
-#: libraries/DisplayResults.php:5109 libraries/Menu.php:347
+#: libraries/DisplayResults.php:5133 libraries/Menu.php:347
 #: libraries/Menu.php:448 libraries/Menu.php:574 libraries/Util.php:3710
 #: libraries/Util.php:3711 libraries/Util.php:4329 libraries/Util.php:4344
 #: libraries/Util.php:4361 libraries/config/messages.inc.php:254
@@ -1874,9 +1872,9 @@ msgstr "Отобразить поле запроса"
 #: libraries/central_columns.lib.php:852
 #: libraries/central_columns.lib.php:1195
 #: libraries/config/messages.inc.php:895
-#: libraries/server_user_groups.lib.php:121
-#: libraries/server_variables.lib.php:242
-#: libraries/server_variables.lib.php:247 setup/frames/index.inc.php:183
+#: libraries/server_user_groups.lib.php:121 setup/frames/index.inc.php:183
+#: templates/server/variables/variable_row.phtml:4
+#: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
 msgstr "Изменить"
 
@@ -2058,9 +2056,10 @@ msgid "No dependencies selected!"
 msgstr "Не выбраны зависимости!"
 
 #: js/messages.php:466 libraries/central_columns.lib.php:1216
-#: libraries/insert_edit.lib.php:1466 libraries/server_variables.lib.php:157
-#: setup/frames/config.inc.php:43 setup/frames/index.inc.php:283
+#: libraries/insert_edit.lib.php:1466 setup/frames/config.inc.php:43
+#: setup/frames/index.inc.php:283
 #: templates/columns_definitions/column_definitions_form.phtml:162
+#: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
 #: templates/table/relation/common_form.phtml:128
 #: templates/table/structure/partition_definition_form.phtml:11
@@ -3152,10 +3151,9 @@ msgid "Ungroup queries"
 msgstr "Разгруппировать запросы"
 
 #: libraries/Console.php:318
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Вывести форму создания"
+msgstr "Показать трассировку"
 
 #: libraries/Console.php:320
 #, fuzzy
@@ -3560,7 +3558,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL-запрос успешно выполнен."
 
 #: libraries/DisplayResults.php:4676
-#: libraries/controllers/DatabaseStructureController.php:767
+#: libraries/controllers/database/DatabaseStructureController.php:768
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3608,25 +3606,29 @@ msgstr "С отмеченными:"
 msgid "Check all"
 msgstr "Отметить все"
 
-#: libraries/DisplayResults.php:5002 libraries/Header.php:378
+#: libraries/DisplayResults.php:5002
+msgid "Copy to clipboard"
+msgstr ""
+
+#: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
-msgid "Print view"
-msgstr "Версия для печати"
+msgid "Print"
+msgstr "Печать"
 
-#: libraries/DisplayResults.php:5035
+#: libraries/DisplayResults.php:5058
 msgid "Query results operations"
 msgstr "Использование результатов запроса"
 
-#: libraries/DisplayResults.php:5122 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5146 templates/table/chart/tbl_chart.phtml:12
 msgid "Display chart"
 msgstr "Отобразить график"
 
-#: libraries/DisplayResults.php:5147
+#: libraries/DisplayResults.php:5171
 msgid "Visualize GIS data"
 msgstr "Визуализация GIS данных"
 
-#: libraries/DisplayResults.php:5326
+#: libraries/DisplayResults.php:5350
 msgid "Link not found!"
 msgstr "Связь не найдена!"
 
@@ -3709,6 +3711,10 @@ msgstr "Отсутствует Git информация!"
 msgid "Open new phpMyAdmin window"
 msgstr "Открыть phpMyAdmin в новом окне"
 
+#: libraries/Header.php:378
+msgid "Print view"
+msgstr "Версия для печати"
+
 #: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
 msgstr "Кликните на строку, чтобы перейти вверх страницы"
@@ -3735,12 +3741,12 @@ msgstr "Индексы"
 #: libraries/rte/rte_list.lib.php:105 libraries/server_databases.lib.php:410
 #: libraries/server_privileges.lib.php:2605
 #: libraries/server_privileges.lib.php:3522
-#: libraries/server_user_groups.lib.php:83
-#: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:285
+#: libraries/server_user_groups.lib.php:83 libraries/tracking.lib.php:285
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1490
 #: libraries/tracking.lib.php:1640
 #: templates/database/structure/table_header.phtml:30
 #: templates/privileges/privileges_summary.phtml:23
+#: templates/server/variables/variable_table_head.phtml:3
 #: templates/table/structure/display_partitions.phtml:34
 #: templates/table/structure/table_structure_header.phtml:22
 msgid "Action"
@@ -3823,6 +3829,7 @@ msgstr "Индексы %1$s и %2$s равнозначны и один из ни
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Отступы для данного запроса убраны из-за превышения максимальной длинны."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4793,10 +4800,6 @@ msgstr "Очистить"
 msgid "Execute"
 msgstr "Выполнить"
 
-#: libraries/Util.php:4222
-msgid "Print"
-msgstr "Печать"
-
 #: libraries/Util.php:4328
 msgid "Users"
 msgstr "Пользователи"
@@ -4939,7 +4942,7 @@ msgstr "Атрибут"
 #: libraries/central_columns.lib.php:711
 #: libraries/central_columns.lib.php:1385
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:751
 msgid "Select a table"
@@ -7967,32 +7970,42 @@ msgstr "Microsoft Word 2000"
 msgid "OpenDocument Text"
 msgstr "Текст OpenDocument"
 
-#: libraries/controllers/DatabaseStructureController.php:272
+#: libraries/controllers/database/DatabaseStructureController.php:273
 msgid "Favorite List is full!"
 msgstr "Список избранного полностью заполнен!"
 
-#: libraries/controllers/DatabaseStructureController.php:558
+#: libraries/controllers/database/DatabaseStructureController.php:559
 #: tbl_operations.php:378
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Таблица %s была очищена."
 
-#: libraries/controllers/DatabaseStructureController.php:579
+#: libraries/controllers/database/DatabaseStructureController.php:580
 #: tbl_operations.php:396 view_operations.php:122
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Представление %s было удалено."
 
-#: libraries/controllers/DatabaseStructureController.php:580
+#: libraries/controllers/database/DatabaseStructureController.php:581
 #: tbl_operations.php:397
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Таблица %s была удалена."
 
-#: libraries/controllers/DatabaseStructureController.php:981
+#: libraries/controllers/database/DatabaseStructureController.php:982
 #: libraries/mysql_charsets.lib.php:357 libraries/mysql_charsets.lib.php:364
 msgid "unknown"
 msgstr "неизвестно"
+
+#: libraries/controllers/server/ServerVariablesController.php:107
+#, fuzzy, php-format
+#| msgid "Not enough privilege to view users."
+msgid "Not enough privilege to view server variables and settings. %s"
+msgstr "Недостаточно прав для просмотра пользователей."
+
+#: libraries/controllers/server/ServerVariablesController.php:215
+msgid "Setting variable failed"
+msgstr "Не удалось установить переменную"
 
 #: libraries/controllers/table/TableChartController.php:76
 #: libraries/controllers/table/TableGisVisualizationController.php:97
@@ -11530,7 +11543,7 @@ msgstr "Статус Slave"
 
 #: libraries/replication_gui.lib.php:545
 #: libraries/server_status_variables.lib.php:221
-#: libraries/server_variables.lib.php:195
+#: templates/server/variables/variable_table_head.phtml:4
 msgid "Variable"
 msgstr "Переменная"
 
@@ -13085,7 +13098,7 @@ msgstr "Прогресс"
 
 #: libraries/server_status_processes.lib.php:229
 #: libraries/server_status_variables.lib.php:41
-#: libraries/server_variables.lib.php:184
+#: templates/server/variables/variable_filter.phtml:2
 msgid "Filters"
 msgstr "Фильтры"
 
@@ -13120,7 +13133,7 @@ msgid "#"
 msgstr "#"
 
 #: libraries/server_status_variables.lib.php:46
-#: libraries/server_variables.lib.php:186
+#: templates/server/variables/variable_filter.phtml:4
 msgid "Containing the word:"
 msgstr "Содержит слово:"
 
@@ -13900,23 +13913,6 @@ msgstr "Вкладки уровня базы данных"
 msgid "Table-level tabs"
 msgstr "Вкладки уровня таблицы"
 
-#: libraries/server_variables.lib.php:116
-msgid "Setting variable failed"
-msgstr "Не удалось установить переменную"
-
-#: libraries/server_variables.lib.php:197
-#: libraries/server_variables.lib.php:281
-msgid "Session value"
-msgstr "Значение сессии"
-
-#: libraries/server_variables.lib.php:197
-msgid "Global value"
-msgstr "Глобальное значение"
-
-#: libraries/server_variables.lib.php:245
-msgid "This is a read-only variable and can not be edited"
-msgstr "Эта переменная только для чтения и не может быть изменена"
-
 #: libraries/sql-parser/src/Component.php:48
 #: libraries/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
@@ -13972,7 +13968,7 @@ msgstr "Неожиданная точка."
 msgid "An alias was expected."
 msgstr "Ожидался псевдоним."
 
-#: libraries/sql-parser/src/Components/ExpressionArray.php:97
+#: libraries/sql-parser/src/Components/ExpressionArray.php:98
 msgid "An expression was expected."
 msgstr "Ожидалось выражение."
 
@@ -14555,12 +14551,6 @@ msgstr "Недостаточно прав для просмотра статис
 #, fuzzy
 #| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
-msgstr "Недостаточно прав для просмотра пользователей."
-
-#: server_variables.php:86
-#, fuzzy, php-format
-#| msgid "Not enough privilege to view users."
-msgid "Not enough privilege to view server variables and settings. %s"
 msgstr "Недостаточно прав для просмотра пользователей."
 
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
@@ -15355,6 +15345,19 @@ msgstr "Добавить привилегии на следующую табли
 msgid "Column-specific privileges"
 msgstr "Привилегии уровня столбца"
 
+#: templates/server/variables/session_variable_row.phtml:3
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Session value"
+msgstr "Значение сессии"
+
+#: templates/server/variables/variable_row.phtml:6
+msgid "This is a read-only variable and can not be edited"
+msgstr "Эта переменная только для чтения и не может быть изменена"
+
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Global value"
+msgstr "Глобальное значение"
+
 #: templates/startAndNumberOfRowsPanel.phtml:3
 msgid "Start row:"
 msgstr "Начальная строка:"
@@ -15743,10 +15746,9 @@ msgid "Improve table structure"
 msgstr "Улучшить структуру таблицы"
 
 #: templates/table/structure/optional_action_links.phtml:34
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Отслеживать таблицу"
+msgstr "Отслеживать представление"
 
 #: templates/table/structure/row_stats_table.phtml:3
 msgid "Row statistics"

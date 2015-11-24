@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-11-17 08:14-0500\n"
-"PO-Revision-Date: 2015-10-15 11:32+0200\n"
+"POT-Creation-Date: 2015-11-18 09:43-0500\n"
+"PO-Revision-Date: 2015-11-21 11:45+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fa/>\n"
+"Language-Team: Persian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,9 @@ msgstr "برای مرتب کردن کلیک کنید."
 #: db_central_columns.php:149
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "نمایش سطرها  %1$s - %2$s."
+msgstr ""
+"نمایش سطرهای\n"
+"%1$s - %2$s"
 
 #: db_create.php:62
 #, php-format
@@ -239,7 +241,7 @@ msgid "View dump (schema) of database"
 msgstr "نمايش الگوي پايگاه داده"
 
 #: db_export.php:51 db_tracking.php:102 export.php:384 libraries/DbQbe.php:328
-#: libraries/controllers/DatabaseStructureController.php:157
+#: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:922
 msgid "No tables found in database."
 msgstr "در اين پايگاه داده هيچ جدولي وجود ندارد ."
@@ -521,24 +523,23 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"گزینه \"شکل از متن\" را از ستون \"عمل\" انتخاب کنید و رشته زیر را در بخش "
+"گزینه \"شکل از متن\" را از ستون \"عملکرد\" انتخاب کنید و رشته زیر را در بخش "
 "\"مقدار\" وارد کنید"
 
 #: import.php:55
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "دسترسي مجاز نيست!"
+msgstr "عملیات موفق شد"
 
 #: import.php:59 js/messages.php:589
 msgid "Failed"
-msgstr ""
+msgstr "عملیات شکست خورد"
 
 #: import.php:63
 #, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "تمام وروديها"
+msgstr "پارامترهای ناقص"
 
 #: import.php:183
 #, php-format
@@ -551,11 +552,11 @@ msgstr ""
 
 #: import.php:361 import.php:666
 msgid "Showing bookmark"
-msgstr "نمایش تاریخچه"
+msgstr "نمایش نشانه گذاری"
 
 #: import.php:377 import.php:662
 msgid "The bookmark has been deleted."
-msgstr "تاریخچه  حذف شد ."
+msgstr "نشانه گذاری حذف شد."
 
 #: import.php:475
 #, php-format
@@ -575,8 +576,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"فایلی که می خواهید بارگذاری کنید با فرمت (%s) فشرده سازی شده است که پیاده "
-"سازی نشده یا در تنظیمات برنامه، غیر فعال شده است."
+"فایلی که می خواهید بارگذاری کنید با فرمت (%s) فشرده سازی شده است که پشتیبانی "
+"نشده یا در تنظیمات برنامه، غیر فعال شده است."
 
 #: import.php:575
 msgid ""
@@ -590,17 +591,17 @@ msgstr ""
 
 #: import.php:627 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
-msgstr "خطا در بارگزاری افزونه ها, لطفا مراحل نصب را چک کنید"
+msgstr "خطا در بارگزاری افزونه ها, لطفا مراحل نصب را چک کنید!"
 
 #: import.php:669 libraries/sql.lib.php:754 libraries/sql.lib.php:1485
-#, fuzzy, php-format
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "تاریخچه ایجاد شده است"
+msgstr "نشانه گذاری %s ایجاد شده است."
 
 #: import.php:678
 #, fuzzy, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "وارد کردن اطلاعات با موفقیت به پایان رسید ,فرآیند اجرا شد ."
+msgstr "وارد کردن اطلاعات با موفقیت به پایان رسید، درخواست ها اجرا شد."
 
 #: import.php:706
 #, fuzzy, php-format
@@ -612,7 +613,7 @@ msgid ""
 "same file%s and import will resume."
 msgstr ""
 "زمان انتظار اسکریپت به پایان رسیده، اگر مایلید عملیات را به پایان برسانید، "
-"همان فایل را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه پیدا کنید."
+"همان فایل را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه پیدا کند."
 
 #: import.php:716
 msgid ""
@@ -625,7 +626,7 @@ msgstr ""
 
 #: import_status.php:102
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "قادر به بارگذاری پیشرفت واردات نیست."
 
 #: import_status.php:111 js/messages.php:445 libraries/Util.php:797
 #: libraries/export.lib.php:523
@@ -672,7 +673,7 @@ msgstr "تنظیمات ظاهری"
 
 #: index.php:262 prefs_manage.php:288
 msgid "More settings"
-msgstr "تظیمات بیشتر"
+msgstr "تنظیمات بیشتر"
 
 #: index.php:284
 msgid "Database server"
@@ -735,7 +736,7 @@ msgstr "اطلاعات نسخه:"
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:579 libraries/engines/Pbxt.php:170
 #: libraries/navigation/NavigationHeader.php:196
-#: libraries/server_variables.lib.php:162
+#: templates/server/variables/link_template.phtml:10
 msgid "Documentation"
 msgstr "مستندات"
 
@@ -1763,7 +1764,7 @@ msgstr ""
 msgid "No parameters found!"
 msgstr "ورودی های اشتباه!"
 
-#: js/messages.php:347 libraries/server_variables.lib.php:159
+#: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
 #: templates/database/designer/delete_relation_panel.phtml:28
 #: templates/database/designer/having_query_panel.phtml:117
@@ -1771,6 +1772,7 @@ msgstr "ورودی های اشتباه!"
 #: templates/database/designer/options_panel.phtml:253
 #: templates/database/designer/rename_to_panel.phtml:45
 #: templates/database/designer/where_query_panel.phtml:83
+#: templates/server/variables/link_template.phtml:5
 msgid "Cancel"
 msgstr "لغو کردن"
 
@@ -1907,7 +1909,7 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "تعریف یک تابع ذخیره شده باید شامل یک دستور بازگشت باشد!"
 
 #: js/messages.php:389 libraries/DisplayResults.php:4850
-#: libraries/DisplayResults.php:5109 libraries/Menu.php:347
+#: libraries/DisplayResults.php:5133 libraries/Menu.php:347
 #: libraries/Menu.php:448 libraries/Menu.php:574 libraries/Util.php:3710
 #: libraries/Util.php:3711 libraries/Util.php:4329 libraries/Util.php:4344
 #: libraries/Util.php:4361 libraries/config/messages.inc.php:254
@@ -1968,9 +1970,9 @@ msgstr "نمایش جعبه پرس و جو"
 #: libraries/central_columns.lib.php:852
 #: libraries/central_columns.lib.php:1195
 #: libraries/config/messages.inc.php:895
-#: libraries/server_user_groups.lib.php:121
-#: libraries/server_variables.lib.php:242
-#: libraries/server_variables.lib.php:247 setup/frames/index.inc.php:183
+#: libraries/server_user_groups.lib.php:121 setup/frames/index.inc.php:183
+#: templates/server/variables/variable_row.phtml:4
+#: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
 msgstr "ويرايش"
 
@@ -2163,9 +2165,10 @@ msgid "No dependencies selected!"
 msgstr "هیچ پایگاه داده ای انتخاب نشده است."
 
 #: js/messages.php:466 libraries/central_columns.lib.php:1216
-#: libraries/insert_edit.lib.php:1466 libraries/server_variables.lib.php:157
-#: setup/frames/config.inc.php:43 setup/frames/index.inc.php:283
+#: libraries/insert_edit.lib.php:1466 setup/frames/config.inc.php:43
+#: setup/frames/index.inc.php:283
 #: templates/columns_definitions/column_definitions_form.phtml:162
+#: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
 #: templates/table/relation/common_form.phtml:128
 #: templates/table/structure/partition_definition_form.phtml:11
@@ -3854,7 +3857,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "اجرای فرایند شما با موفقيت اجرا گرديد"
 
 #: libraries/DisplayResults.php:4676
-#: libraries/controllers/DatabaseStructureController.php:767
+#: libraries/controllers/database/DatabaseStructureController.php:768
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3905,27 +3908,31 @@ msgstr "موارد انتخاب‌ شده :"
 msgid "Check all"
 msgstr "انتخاب همه"
 
-#: libraries/DisplayResults.php:5002 libraries/Header.php:378
+#: libraries/DisplayResults.php:5002
+msgid "Copy to clipboard"
+msgstr ""
+
+#: libraries/DisplayResults.php:5025 libraries/Util.php:4222
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
-msgid "Print view"
-msgstr "نماي چاپ"
+msgid "Print"
+msgstr "چاپ"
 
-#: libraries/DisplayResults.php:5035
+#: libraries/DisplayResults.php:5058
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.php:5122 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5146 templates/table/chart/tbl_chart.phtml:12
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display chart"
 msgstr "نمايش توضيحات ستون"
 
-#: libraries/DisplayResults.php:5147
+#: libraries/DisplayResults.php:5171
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.php:5326
+#: libraries/DisplayResults.php:5350
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -4010,6 +4017,10 @@ msgstr "اطلاعات نسخه"
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
+#: libraries/Header.php:378
+msgid "Print view"
+msgstr "نماي چاپ"
+
 #: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
@@ -4038,12 +4049,12 @@ msgstr "فهرست‌ها"
 #: libraries/rte/rte_list.lib.php:105 libraries/server_databases.lib.php:410
 #: libraries/server_privileges.lib.php:2605
 #: libraries/server_privileges.lib.php:3522
-#: libraries/server_user_groups.lib.php:83
-#: libraries/server_variables.lib.php:194 libraries/tracking.lib.php:285
+#: libraries/server_user_groups.lib.php:83 libraries/tracking.lib.php:285
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1490
 #: libraries/tracking.lib.php:1640
 #: templates/database/structure/table_header.phtml:30
 #: templates/privileges/privileges_summary.phtml:23
+#: templates/server/variables/variable_table_head.phtml:3
 #: templates/table/structure/display_partitions.phtml:34
 #: templates/table/structure/table_structure_header.phtml:22
 msgid "Action"
@@ -5078,10 +5089,6 @@ msgstr "خالي"
 #: libraries/Util.php:3712 libraries/Util.php:3713
 msgid "Execute"
 msgstr "اجرا"
-
-#: libraries/Util.php:4222
-msgid "Print"
-msgstr "چاپ"
 
 #: libraries/Util.php:4328
 #, fuzzy
@@ -8167,34 +8174,43 @@ msgstr ""
 msgid "OpenDocument Text"
 msgstr "مستندات باز"
 
-#: libraries/controllers/DatabaseStructureController.php:272
+#: libraries/controllers/database/DatabaseStructureController.php:273
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/controllers/DatabaseStructureController.php:558
+#: libraries/controllers/database/DatabaseStructureController.php:559
 #: tbl_operations.php:378
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "جدول %s خالی شد."
 
-#: libraries/controllers/DatabaseStructureController.php:579
+#: libraries/controllers/database/DatabaseStructureController.php:580
 #: tbl_operations.php:396 view_operations.php:122
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "نمای %s حذف شد"
 
-#: libraries/controllers/DatabaseStructureController.php:580
+#: libraries/controllers/database/DatabaseStructureController.php:581
 #: tbl_operations.php:397
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "جدول %s حذف شد"
 
-#: libraries/controllers/DatabaseStructureController.php:981
+#: libraries/controllers/database/DatabaseStructureController.php:982
 #: libraries/mysql_charsets.lib.php:357 libraries/mysql_charsets.lib.php:364
 msgid "unknown"
 msgstr "ناشناس"
+
+#: libraries/controllers/server/ServerVariablesController.php:107
+#, php-format
+msgid "Not enough privilege to view server variables and settings. %s"
+msgstr ""
+
+#: libraries/controllers/server/ServerVariablesController.php:215
+msgid "Setting variable failed"
+msgstr ""
 
 #: libraries/controllers/table/TableChartController.php:76
 #: libraries/controllers/table/TableGisVisualizationController.php:97
@@ -11768,7 +11784,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:545
 #: libraries/server_status_variables.lib.php:221
-#: libraries/server_variables.lib.php:195
+#: templates/server/variables/variable_table_head.phtml:4
 msgid "Variable"
 msgstr "متغییر"
 
@@ -13340,7 +13356,7 @@ msgstr ""
 
 #: libraries/server_status_processes.lib.php:229
 #: libraries/server_status_variables.lib.php:41
-#: libraries/server_variables.lib.php:184
+#: templates/server/variables/variable_filter.phtml:2
 msgid "Filters"
 msgstr ""
 
@@ -13382,7 +13398,7 @@ msgid "#"
 msgstr ""
 
 #: libraries/server_status_variables.lib.php:46
-#: libraries/server_variables.lib.php:186
+#: templates/server/variables/variable_filter.phtml:4
 #, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
@@ -14059,23 +14075,6 @@ msgstr "سرور پایگاه داده"
 msgid "Table-level tabs"
 msgstr "توضيحات جدول"
 
-#: libraries/server_variables.lib.php:116
-msgid "Setting variable failed"
-msgstr ""
-
-#: libraries/server_variables.lib.php:197
-#: libraries/server_variables.lib.php:281
-msgid "Session value"
-msgstr ""
-
-#: libraries/server_variables.lib.php:197
-msgid "Global value"
-msgstr ""
-
-#: libraries/server_variables.lib.php:245
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
 #: libraries/sql-parser/src/Component.php:48
 #: libraries/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
@@ -14133,7 +14132,7 @@ msgstr ""
 msgid "An alias was expected."
 msgstr "هیچ پایگاه داده ای انتخاب نشده است."
 
-#: libraries/sql-parser/src/Components/ExpressionArray.php:97
+#: libraries/sql-parser/src/Components/ExpressionArray.php:98
 #, fuzzy
 #| msgid "No rows selected"
 msgid "An expression was expected."
@@ -14751,11 +14750,6 @@ msgstr ""
 
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
-msgstr ""
-
-#: server_variables.php:86
-#, php-format
-msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
 
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
@@ -15602,6 +15596,19 @@ msgstr ""
 
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
+msgstr ""
+
+#: templates/server/variables/session_variable_row.phtml:3
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Session value"
+msgstr ""
+
+#: templates/server/variables/variable_row.phtml:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/server/variables/variable_table_head.phtml:5
+msgid "Global value"
 msgstr ""
 
 #: templates/startAndNumberOfRowsPanel.phtml:3

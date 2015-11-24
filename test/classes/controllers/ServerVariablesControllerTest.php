@@ -28,7 +28,7 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
     /**
      * @var \PMA\Test\Stubs\Response
      */
-    private $response;
+    private $_response;
 
     /**
      * Test for setUp
@@ -107,8 +107,8 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->response);
+        $this->_response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->_response);
         $container->alias('response', 'PMA\libraries\Response');
     }
 
@@ -119,14 +119,19 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatVariable()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerVariablesController');
+        $class = new ReflectionClass(
+            '\PMA\libraries\controllers\server\ServerVariablesController'
+        );
         $method = $class->getMethod('_formatVariable');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerVariablesController');
+        $container->factory(
+            'PMA\libraries\controllers\server\ServerVariablesController'
+        );
         $container->alias(
-            'ServerVariablesController', 'PMA\libraries\controllers\server\ServerVariablesController'
+            'ServerVariablesController',
+            'PMA\libraries\controllers\server\ServerVariablesController'
         );
         $ctrl = $container->get('ServerVariablesController');
 
@@ -161,14 +166,19 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForLinkTemplates()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerVariablesController');
+        $class = new ReflectionClass(
+            '\PMA\libraries\controllers\server\ServerVariablesController'
+        );
         $method = $class->getMethod('_getHtmlForLinkTemplates');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerVariablesController');
+        $container->factory(
+            'PMA\libraries\controllers\server\ServerVariablesController'
+        );
         $container->alias(
-            'ServerVariablesController', 'PMA\libraries\controllers\server\ServerVariablesController'
+            'ServerVariablesController',
+            'PMA\libraries\controllers\server\ServerVariablesController'
         );
         $ctrl = $container->get('ServerVariablesController');
 
@@ -200,14 +210,19 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForServerVariables()
     {
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerVariablesController');
+        $class = new ReflectionClass(
+            '\PMA\libraries\controllers\server\ServerVariablesController'
+        );
         $method = $class->getMethod('_getHtmlForLinkTemplates');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerVariablesController');
+        $container->factory(
+            'PMA\libraries\controllers\server\ServerVariablesController'
+        );
         $container->alias(
-            'ServerVariablesController', 'PMA\libraries\controllers\server\ServerVariablesController'
+            'ServerVariablesController',
+            'PMA\libraries\controllers\server\ServerVariablesController'
         );
         $ctrl = $container->get('ServerVariablesController');
 
@@ -254,14 +269,19 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForServerVariablesItems()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerVariablesController');
+        $class = new ReflectionClass(
+            '\PMA\libraries\controllers\server\ServerVariablesController'
+        );
         $method = $class->getMethod('_getHtmlForServerVariablesItems');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerVariablesController');
+        $container->factory(
+            'PMA\libraries\controllers\server\ServerVariablesController'
+        );
         $container->alias(
-            'ServerVariablesController', 'PMA\libraries\controllers\server\ServerVariablesController'
+            'ServerVariablesController',
+            'PMA\libraries\controllers\server\ServerVariablesController'
         );
         $ctrl = $container->get('ServerVariablesController');
 

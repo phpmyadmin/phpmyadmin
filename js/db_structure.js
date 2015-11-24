@@ -332,14 +332,14 @@ AJAX.registerOnload('db_structure.js', function () {
     }); //end of Drop Table Ajax action
 
     /**
-     * Attach Event Handler for 'Print View'
+     * Attach Event Handler for 'Print' link
      */
     $(document).on('click', "#printView", function (event) {
         event.preventDefault();
 
         // Print the page
         printPage();
-    }); //end of Print View action
+    }); //end of 'Print' action
 
     //Calculate Real End for InnoDB
     /**

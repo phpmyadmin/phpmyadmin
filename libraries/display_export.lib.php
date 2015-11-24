@@ -1107,3 +1107,80 @@ function PMA_getExportDisplay(
     $html .= '</form>';
     return $html;
 }
+
+/**
+ * Handles export template actions
+ *
+ * @param array $cfgRelation Relation configuration
+ *
+ * @return void
+ */
+function PMA_handleExportTemplateActions($cfgRelation)
+{
+    if (isset($_REQUEST['templateId'])) {
+        $id = PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateId']);
+    } else {
+        $id = '';
+    }
+
+    $templateTable = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+       . PMA\libraries\Util::backquote($cfgRelation['export_templates']);
+    $user = PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
+
+    switch ($_REQUEST['templateAction']) {
+    case 'create':
+        $query = "INSERT INTO " . $templateTable . "("
+            . " `username`, `export_type`,"
+            . " `template_name`, `template_data`"
+            . ") VALUES ("
+            . "'" . $user . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['exportType'])
+            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateName'])
+            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData'])
+            . "');";
+        break;
+    case 'load':
+        $query = "SELECT `template_data` FROM " . $templateTable
+             . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+        break;
+    case 'update':
+        $query = "UPDATE " . $templateTable . " SET `template_data` = "
+          . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData']) . "'"
+          . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+        break;
+    case 'delete':
+        $query = "DELETE FROM " . $templateTable
+           . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+        break;
+    default:
+        $query = '';
+        break;
+    }
+
+    $result = PMA_queryAsControlUser($query, false);
+
+    $response = PMA\libraries\Response::getInstance();
+    if (! $result) {
+        $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+        $response->setRequestStatus(false);
+        $response->addJSON('message', $error);
+        exit;
+    }
+
+    $response->setRequestStatus(true);
+    if ('create' == $_REQUEST['templateAction']) {
+        $response->addJSON(
+            'data',
+            PMA_getOptionsForExportTemplates($_REQUEST['exportType'])
+        );
+    } elseif ('load' == $_REQUEST['templateAction']) {
+        $data = null;
+        while ($row = $GLOBALS['dbi']->fetchAssoc(
+            $result, $GLOBALS['controllink']
+        )) {
+            $data = $row['template_data'];
+        }
+        $response->addJSON('data', $data);
+    }
+    $GLOBALS['dbi']->freeResult($result);
+}
