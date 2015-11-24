@@ -53,6 +53,8 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
+        require_once 'libraries/check_user_privileges.lib.php';
+
         if (isset($_REQUEST['drop_selected_dbs'])
             && ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
@@ -83,10 +85,7 @@ class ServerDatabasesController extends Controller
          */
         $html = '';
         if ($GLOBALS['cfg']['ShowCreateDb']) {
-            $html .= '<ul><li id="li_create_database" class="no_bullets">' . "\n";
-            include 'libraries/display_create_database.lib.php';
-            $html .= '    </li>' . "\n";
-            $html .= '</ul>' . "\n";
+            $html .= Template::get('server/databases/create')->render();
         }
 
         /**
@@ -194,7 +193,8 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForDatabases($replication_types) {
+    private function _getHtmlForDatabases($replication_types)
+    {
 
         $html = '<div id="tableslistcontainer">';
         reset($this->_databases);
@@ -291,8 +291,8 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForTableFooter($column_order, $first_database) {
-
+    private function _getHtmlForTableFooter($column_order, $first_database)
+    {
         return Template::get('server/databases/table_footer')->render(
             array(
                 'column_order' => $column_order,
@@ -312,9 +312,8 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForTableBody(
-        $column_order, $replication_types
-    ) {
+    private function _getHtmlForTableBody($column_order, $replication_types)
+    {
         $odd_row = true;
         $html = '<tbody>' . "\n";
 
