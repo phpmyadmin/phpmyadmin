@@ -342,7 +342,6 @@ $goto_whitelist = array(
     //'browse_foreigners.php',
     //'changelog.php',
     //'chk_rel.php',
-    'db_create.php',
     'db_datadict.php',
     'db_sql.php',
     'db_events.php',
