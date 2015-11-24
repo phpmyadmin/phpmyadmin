@@ -56,15 +56,25 @@ class ServerDatabasesController extends Controller
         require_once 'libraries/check_user_privileges.lib.php';
 
         if (isset($_REQUEST['drop_selected_dbs'])
+            && $GLOBALS['is_ajax_request']
             && ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $this->dropDatabasesAction();
             return;
         }
 
-        require_once 'libraries/server_common.inc.php';
         require_once 'libraries/replication.inc.php';
         require_once 'libraries/build_html_for_db.lib.php';
+        require_once 'libraries/mysql_charsets.inc.php';
+
+        if (! empty($_POST['new_db'])
+           && $GLOBALS['is_ajax_request']
+        ) {
+            $this->createDatabaseAction();
+            return;
+        }
+
+        require_once 'libraries/server_common.inc.php';
 
         $header  = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -111,6 +121,59 @@ class ServerDatabasesController extends Controller
         }
 
         $this->response->addHTML($html);
+    }
+
+    /**
+     * Handles creating a new database
+     *
+     * @return void
+     */
+    public function createDatabaseAction()
+    {
+        /**
+         * Builds and executes the db creation sql query
+         */
+        $sql_query = 'CREATE DATABASE ' . Util::backquote($_POST['new_db']);
+        if (! empty($_POST['db_collation'])) {
+            list($db_charset) = explode('_', $_POST['db_collation']);
+            if (in_array($db_charset, $GLOBALS['mysql_charsets'])
+                && in_array($_POST['db_collation'], $GLOBALS['mysql_collations'][$db_charset])
+            ) {
+                $sql_query .= ' DEFAULT'
+                    . PMA_generateCharsetQueryPart($_POST['db_collation']);
+            }
+        }
+        $sql_query .= ';';
+
+        $result = $GLOBALS['dbi']->tryQuery($sql_query);
+
+        if (! $result) {
+            // avoid displaying the not-created db name in header or navi panel
+            $GLOBALS['db'] = '';
+
+            $message = Message::rawError($GLOBALS['dbi']->getError());
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $message);
+        } else {
+            $GLOBALS['db'] = $_POST['new_db'];
+
+            $message = Message::success(__('Database %1$s has been created.'));
+            $message->addParam($_POST['new_db']);
+            $this->response->addJSON('message', $message);
+            $this->response->addJSON(
+                'sql_query', Util::getMessage(null, $sql_query, 'success')
+            );
+
+            $url_query = PMA_URL_getCommon(array('db' => $_POST['new_db']));
+            $this->response->addJSON(
+                'url_query',
+                Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                )
+                . $url_query . '&amp;db='
+                . urlencode($_POST['new_db'])
+            );
+        }
     }
 
     /**

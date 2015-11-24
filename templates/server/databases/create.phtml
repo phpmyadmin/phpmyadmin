@@ -1,7 +1,7 @@
 <ul>
     <li id="li_create_database" class="no_bullets">
         <?php if ($GLOBALS['is_create_db_priv']): ?>
-            <form method="post" action="db_create.php" id="create_database_form" class="ajax">
+            <form method="post" action="server_databases.php" id="create_database_form" class="ajax">
                 <strong>
                     <label for="text_create_db">
                         <?php echo \PMA\libraries\Util::getImage('b_newdb.png') . ' ' . __('Create database'); ?>
@@ -18,7 +18,6 @@
                 <input type="text" name="new_db" value="<?php echo $GLOBALS['db_to_create']; ?>"
                        maxlength="64" class="textfield" id="text_create_db" required
                        placeholder="<?php echo __('Database name'); ?>" />
-                <?php include_once 'libraries/mysql_charsets.inc.php'; ?>
                 <?php echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, true); ?>
                 <input type="submit" value="<?php echo __('Create'); ?>" id="buttonGo" />
             </form>
