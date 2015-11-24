@@ -112,12 +112,6 @@ AJAX.registerOnload('server_databases.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
 
-                //Append database's row to table
-                $("#tabledatabases")
-                .find('tbody')
-                .append(data.new_db_string)
-                .PMA_sort_table('.name');
-
                 var $databases_count_object = $('#databases_count');
                 var databases_count = parseInt($databases_count_object.text(), 10) + 1;
                 $databases_count_object.text(databases_count);

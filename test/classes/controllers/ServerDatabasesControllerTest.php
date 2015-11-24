@@ -271,4 +271,60 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
             $propertySortOrder->getValue($ctrl)
         );
     }
+
+    /**
+     * Tests for _getColumnOrder()
+     *
+     * @return void
+     */
+    public function testGetColumnOrder()
+    {
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerDatabasesController');
+        $method = $class->getMethod('_getColumnOrder');
+        $method->setAccessible(true);
+
+        $container = Container::getDefaultContainer();
+        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->alias(
+            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+        );
+        $ctrl = $container->get('ServerDatabasesController');
+
+        $this->assertEquals(
+            array(
+                'DEFAULT_COLLATION_NAME' => array(
+                    'disp_name' => __('Collation'),
+                    'description_function' => 'PMA_getCollationDescr',
+                    'format'    => 'string',
+                    'footer'    => 'utf8_general_ci'
+                ),
+                'SCHEMA_TABLES' => array(
+                    'disp_name' => __('Tables'),
+                    'format'    => 'number',
+                    'footer'    => 0
+                ),
+                'SCHEMA_TABLE_ROWS' => array(
+                    'disp_name' => __('Rows'),
+                    'format'    => 'number',
+                    'footer'    => 0
+                ),
+                'SCHEMA_DATA_LENGTH' => array(
+                    'disp_name' => __('Data'),
+                    'format'    => 'byte',
+                    'footer'    => 0
+                ),
+                'SCHEMA_INDEX_LENGTH' => array(
+                    'disp_name' => __('Indexes'),
+                    'format'    => 'byte',
+                    'footer'    => 0
+                ),
+                'SCHEMA_LENGTH' => array(
+                    'disp_name' => __('Total'),
+                    'format'    => 'byte',
+                    'footer'    => 0
+                )
+            ),
+            $method->invoke($ctrl)
+        );
+    }
 }
