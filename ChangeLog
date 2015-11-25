@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 - issue        Undefinex index: SendErrorReports
 - issue        Incorrect script name in include
 - issue #11685 Warning: Invalid argument supplied for foreach()
+- issue #11687 Delimiter missing while exporting multiple db routines
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
