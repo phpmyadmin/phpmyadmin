@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue #11687 Delimiter missing while exporting multiple db routines
 - issue #11684 mysql_native_password with MariaDB bug
 - issue #11693 Flush privileges overusage - related to #11597
+- issue #11691 Query was empty on creating User in 4.5.2
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
