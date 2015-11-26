@@ -5126,39 +5126,15 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
             $_REQUEST['authentication_plugin']
         );
     }
-
-    // Use 'SET PASSWORD' for pre-5.7.6 MySQL versions
-    // and pre-5.2.0 MariaDB
+    // Use 'CREATE USER ... WITH ... AS ..' syntax for
+    // newer MySQL versions
+    // and 'CREATE USER ... USING .. VIA ..' syntax for
+    // newer MariaDB versions
     if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION < 50706)
+        && PMA_MYSQL_INT_VERSION >= 50706)
         || ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION < 50200)
+        && PMA_MYSQL_INT_VERSION >= 50200)
     ) {
-
-        if ($_POST['pred_password'] == 'keep') {
-            $password_set_real = sprintf(
-                $password_set_stmt,
-                $slashedUsername,
-                $slashedHostname,
-                $slashedPassword
-            );
-        } else if ($_POST['pred_password'] == 'none') {
-            $password_set_real = sprintf(
-                $password_set_stmt,
-                $slashedUsername,
-                $slashedHostname,
-                null
-            );
-        } else {
-            $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
-            $password_set_real = sprintf(
-                $password_set_stmt,
-                $slashedUsername,
-                $slashedHostname,
-                $hashedPassword
-            );
-        }
-    } else {
         $password_set_real = null;
 
         // Required for binding '%' with '%s'
@@ -5202,6 +5178,32 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
             $create_user_show = sprintf(
                 $create_user_stmt,
                 '***'
+            );
+        }
+    } else {
+        // Use 'SET PASSWORD' syntax for pre-5.7.6 MySQL versions
+        // and pre-5.2.0 MariaDB versions
+        if ($_POST['pred_password'] == 'keep') {
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                $slashedPassword
+            );
+        } else if ($_POST['pred_password'] == 'none') {
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                null
+            );
+        } else {
+            $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
+            $password_set_real = sprintf(
+                $password_set_stmt,
+                $slashedUsername,
+                $slashedHostname,
+                $hashedPassword
             );
         }
     }
