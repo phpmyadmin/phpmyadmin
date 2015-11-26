@@ -451,12 +451,12 @@ class ServerDatabasesController extends Controller
      * Builds the HTML for one database to display in the list
      * of databases from server_databases.php
      *
-     * @param array   $current           current database
-     * @param string  $url_query         url query
-     * @param array   $column_order      column order
-     * @param array   $replication_types replication types
-     * @param array   $replication_info  replication info
-     * @param string  $tr_class             HTMl class for the row
+     * @param array  $current           current database
+     * @param string $url_query         url query
+     * @param array  $column_order      column order
+     * @param array  $replication_types replication types
+     * @param array  $replication_info  replication info
+     * @param string $tr_class          HTMl class for the row
      *
      * @return array $column_order, $out
      */
@@ -484,8 +484,8 @@ class ServerDatabasesController extends Controller
 
                     if (/*overload*/mb_strlen($key) > 0
                         || (isset($replication_info[$type]['Do_DB'][0])
-                            && $replication_info[$type]['Do_DB'][0] == ""
-                            && count($replication_info[$type]['Do_DB']) == 1)
+                        && $replication_info[$type]['Do_DB'][0] == ""
+                        && count($replication_info[$type]['Do_DB']) == 1)
                     ) {
                         // if ($key != null) did not work for index "0"
                         $out = Util::getIcon(

@@ -26,7 +26,7 @@ class TableSearchControllerTest extends PHPUnit_Framework_TestCase
     /**
      * @var PMA\Test\Stubs\Response
      */
-    private $response;
+    private $_response;
 
     /**
      * Setup function for test cases
@@ -96,13 +96,13 @@ class TableSearchControllerTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->response = new PMA\Test\Stubs\Response();
+        $this->_response = new PMA\Test\Stubs\Response();
 
         $container = Container::getDefaultContainer();
         $container->set('db', 'PMA');
         $container->set('table', 'PMA_BookMark');
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->set('response', $this->response);
+        $container->set('response', $this->_response);
         $container->set('searchType', 'replace');
     }
 
@@ -380,7 +380,7 @@ class TableSearchControllerTest extends PHPUnit_Framework_TestCase
         );
         $ctrl->getDataRowAction();
 
-        $json = $this->response->getJSONResult();
+        $json = $this->_response->getJSONResult();
         $this->assertEquals(
             $expected,
             $json['row_info']

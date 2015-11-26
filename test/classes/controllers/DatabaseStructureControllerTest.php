@@ -31,7 +31,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
     /**
      * @var \PMA\Test\Stubs\Response
      */
-    private $response;
+    private $_response;
 
     /**
      * Prepares environment for the test.
@@ -84,8 +84,8 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->response);
+        $this->_response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->_response);
         $container->alias('response', 'PMA\libraries\Response');
     }
 
@@ -368,7 +368,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
         );
 
         $method->invokeArgs($ctrl, array($fav_instance, $user, $favorite_table));
-        $json = $this->response->getJSONResult();
+        $json = $this->_response->getJSONResult();
 
         $this->assertEquals(json_encode($favorite_table), $json['favorite_tables']);
         $this->assertArrayHasKey('list', $json);
@@ -395,7 +395,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
         );
 
         $ctrl->handleRealRowCountRequestAction();
-        $json = $this->response->getJSONResult();
+        $json = $this->_response->getJSONResult();
         $this->assertEquals(
             6,
             $json['real_row_count']
@@ -409,7 +409,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
             )
         );
         $ctrl->handleRealRowCountRequestAction();
-        $json = $this->response->getJSONResult();
+        $json = $this->_response->getJSONResult();
 
         $expected_result = array(
             array(
