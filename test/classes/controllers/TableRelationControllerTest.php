@@ -28,7 +28,7 @@ class TableRelationControllerTest extends PHPUnit_Framework_TestCase
     /**
      * @var \PMA\Test\Stubs\Response
      */
-    private $response;
+    private $_response;
 
     /**
      * Configures environment
@@ -60,8 +60,8 @@ class TableRelationControllerTest extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->response);
+        $this->_response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->_response);
         $container->alias('response', 'PMA\libraries\Response');
     }
 
@@ -104,7 +104,7 @@ class TableRelationControllerTest extends PHPUnit_Framework_TestCase
         $ctrl = $container->get('TableRelationController');
 
         $ctrl->getDropdownValueForTableAction();
-        $json = $this->response->getJSONResult();
+        $json = $this->_response->getJSONResult();
         $this->assertEquals(
             $viewColumns,
             $json['columns']
@@ -147,7 +147,7 @@ class TableRelationControllerTest extends PHPUnit_Framework_TestCase
         $ctrl = $container->get('TableRelationController');
 
         $ctrl->getDropdownValueForTableAction();
-        $json = $this->response->getJSONResult();
+        $json = $this->_response->getJSONResult();
         $this->assertEquals(
             $indexedColumns,
             $json['columns']
@@ -193,7 +193,7 @@ class TableRelationControllerTest extends PHPUnit_Framework_TestCase
 
         $_REQUEST['foreign'] = 'true';
         $ctrl->getDropdownValueForDbAction();
-        $json = $this->response->getJSONResult();
+        $json = $this->_response->getJSONResult();
         $this->assertEquals(
             array('table'),
             $json['tables']
@@ -239,7 +239,7 @@ class TableRelationControllerTest extends PHPUnit_Framework_TestCase
 
         $_REQUEST['foreign'] = 'false';
         $ctrl->getDropdownValueForDbAction();
-        $json = $this->response->getJSONResult();
+        $json = $this->_response->getJSONResult();
         $this->assertEquals(
             array('table'),
             $json['tables']

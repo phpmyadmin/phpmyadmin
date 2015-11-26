@@ -29,7 +29,7 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
     /**
      * @var \PMA\Test\Stubs\Response
      */
-    private $response;
+    private $_response;
 
     /**
      * Prepares environment for the test.
@@ -77,8 +77,8 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->response);
+        $this->_response = new \PMA\Test\Stubs\Response();
+        $container->set('PMA\libraries\Response', $this->_response);
         $container->alias('response', 'PMA\libraries\Response');
     }
 
