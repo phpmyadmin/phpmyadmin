@@ -2424,9 +2424,8 @@ class DatabaseInterface
             return false;
         }
 
-        // we could be calling $GLOBALS['dbi']->connect() to connect to another
-        // server, for example in the Synchronize feature, so do not
-        // go back to main login if it fails
+        // Do not go back to main login if connection failed
+        // (currently used only in unit testing)
         if ($auxiliary_connection) {
             return false;
         }
