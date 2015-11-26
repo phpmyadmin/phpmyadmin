@@ -212,12 +212,12 @@ function PMA_changePassHashingFunction()
 /**
  * Generate the error url and submit the query
  *
- * @param string $username              Username
- * @param string $hostname              Hostname
- * @param string $password              Password
- * @param string $sql_query             SQL query
- * @param string $hashing_function      Hashing function
- * @param string $orig_auth_plugin      Original Authentication Plugin
+ * @param string $username         Username
+ * @param string $hostname         Hostname
+ * @param string $password         Password
+ * @param string $sql_query        SQL query
+ * @param string $hashing_function Hashing function
+ * @param string $orig_auth_plugin Original Authentication Plugin
  *
  * @return void
  */

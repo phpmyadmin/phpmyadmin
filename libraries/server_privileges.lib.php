@@ -2047,8 +2047,8 @@ function PMA_updatePassword($err_url, $username, $hostname)
     if (empty($message)) {
         $hashing_function = 'PASSWORD';
         $serverType = Util::getServerType();
-        $authentication_plugin =
-            (isset($_REQUEST['authentication_plugin'])
+        $authentication_plugin
+            = (isset($_REQUEST['authentication_plugin'])
             ? $_REQUEST['authentication_plugin']
             : PMA_getCurrentAuthenticationPlugin(
                 'change',
