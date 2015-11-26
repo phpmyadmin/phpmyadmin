@@ -59,7 +59,7 @@ class ServerVariablesController extends Controller
             return;
         }
 
-        require 'libraries/server_common.inc.php';
+        include 'libraries/server_common.inc.php';
 
         $header   = $this->response->getHeader();
         $scripts  = $header->getScripts();

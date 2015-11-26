@@ -53,7 +53,7 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
-        require_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.lib.php';
 
         if (isset($_REQUEST['drop_selected_dbs'])
             && $GLOBALS['is_ajax_request']
@@ -63,17 +63,17 @@ class ServerDatabasesController extends Controller
             return;
         }
 
-        require_once 'libraries/replication.inc.php';
-        require_once 'libraries/mysql_charsets.inc.php';
+        include_once 'libraries/replication.inc.php';
+        include_once 'libraries/mysql_charsets.inc.php';
 
         if (! empty($_POST['new_db'])
-           && $GLOBALS['is_ajax_request']
+            && $GLOBALS['is_ajax_request']
         ) {
             $this->createDatabaseAction();
             return;
         }
 
-        require_once 'libraries/server_common.inc.php';
+        include_once 'libraries/server_common.inc.php';
 
         $header  = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -251,7 +251,7 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Database List
      *
-     * @param array  $replication_types replication types
+     * @param array $replication_types replication types
      *
      * @return string
      */
@@ -415,8 +415,8 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Database List
      *
-     * @param array  $column_order      column order
-     * @param array  $replication_types replication types
+     * @param array $column_order      column order
+     * @param array $replication_types replication types
      *
      * @return string
      */
@@ -509,9 +509,11 @@ class ServerDatabasesController extends Controller
                 'tr_class' => $tr_class,
                 'url_query' => $url_query,
                 'column_order' => $column_order,
-                'master_replication_status' => $GLOBALS['replication_info']['master']['status'],
+                'master_replication_status'
+                    => $GLOBALS['replication_info']['master']['status'],
                 'master_replication' => $master_replication,
-                'slave_replication_status' => $GLOBALS['replication_info']['slave']['status'],
+                'slave_replication_status'
+                    => $GLOBALS['replication_info']['slave']['status'],
                 'slave_replication' => $slave_replication,
             )
         );
@@ -520,9 +522,9 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for table header
      *
-     * @param array  $_url_params    url params
-     * @param array  $column_order   column order
-     * @param array  $first_database database to show
+     * @param array $_url_params    url params
+     * @param array $column_order   column order
+     * @param array $first_database database to show
      *
      * @return string
      */
@@ -534,11 +536,14 @@ class ServerDatabasesController extends Controller
                 '_url_params' => $_url_params,
                 'sort_by' => $this->_sort_by,
                 'sort_order' => $this->_sort_order,
-                'sort_order_text' => ($this->_sort_order == 'asc' ? __('Ascending') : __('Descending')),
+                'sort_order_text' => ($this->_sort_order == 'asc'
+                    ? __('Ascending') : __('Descending')),
                 'column_order' => $column_order,
                 'first_database' => $first_database,
-                'master_replication' => $GLOBALS['replication_info']['master']['status'],
-                'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+                'master_replication'
+                    => $GLOBALS['replication_info']['master']['status'],
+                'slave_replication'
+                    => $GLOBALS['replication_info']['slave']['status'],
             )
         );
     }
