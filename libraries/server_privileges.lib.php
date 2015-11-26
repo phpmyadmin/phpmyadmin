@@ -2132,6 +2132,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
                     $update_plugin_query,
                     false, $err_url
                 );
+            }
 
             $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
             if ($authentication_plugin == 'mysql_native_password') {
