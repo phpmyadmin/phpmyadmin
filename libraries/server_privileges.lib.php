@@ -4012,6 +4012,12 @@ function PMA_getDataForDeleteUsers($queries)
         $selected_usr = $_REQUEST['selected_usr'];
         $queries = array();
     }
+
+    // this happens, was seen in https://reports.phpmyadmin.net/reports/view/17146
+    if (! is_array($selected_usr)) {
+        return array();
+    }
+
     foreach ($selected_usr as $each_user) {
         list($this_user, $this_host) = explode('&amp;#27;', $each_user);
         $queries[] = '# '
