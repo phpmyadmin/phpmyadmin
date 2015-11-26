@@ -22,13 +22,20 @@ $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
  */
 function PMA_checkRequiredPrivilegesForFlushing()
 {
+    if (PMA_Util::cacheExists('flush_priv')) {
+        $GLOBALS['flush_priv'] = PMA_Util::cacheGet(
+            'flush_priv'
+        );
+        return;
+    }
 
-    $res = $GLOBALS['dbi']->tryQuery(
-        'FLUSH PRIVILEGES'
+    $GLOBALS['flush_priv'] = $GLOBALS['dbi']->tryQuery(
+            'FLUSH PRIVILEGES'
     );
 
-    // Save the value
-    $GLOBALS['flush_priv'] = $res;
+    // must also cacheUnset() them in
+    // libraries/plugins/auth/AuthenticationCookie.class.php
+    PMA_Util::cacheSet('flush_priv', $GLOBALS['flush_priv']);
 }
 
 /**
