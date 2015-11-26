@@ -718,6 +718,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $hostname = 'pma_hostname';
         $err_url = "error.php";
         $_POST['pma_pw'] = 'pma_pw';
+        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
 
         $message = PMA_updatePassword(
             $err_url, $username, $hostname
