@@ -448,6 +448,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             Util::cacheUnset('col_priv');
             Util::cacheUnset('table_priv');
             Util::cacheUnset('proc_priv');
+            Util::cacheUnset('flush_priv');
 
             $GLOBALS['no_activity'] = true;
             $this->authFails();
