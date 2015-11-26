@@ -22,8 +22,8 @@ $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
  */
 function PMA_checkRequiredPrivilegesForFlushing()
 {
-    if (PMA_Util::cacheExists('flush_priv')) {
-        $GLOBALS['flush_priv'] = PMA_Util::cacheGet(
+    if (PMA\libraries\Util::cacheExists('flush_priv')) {
+        $GLOBALS['flush_priv'] = PMA\libraries\Util::cacheGet(
             'flush_priv'
         );
         return;
@@ -35,7 +35,7 @@ function PMA_checkRequiredPrivilegesForFlushing()
 
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.class.php
-    PMA_Util::cacheSet('flush_priv', $GLOBALS['flush_priv']);
+    PMA\libraries\Util::cacheSet('flush_priv', $GLOBALS['flush_priv']);
 }
 
  /**
