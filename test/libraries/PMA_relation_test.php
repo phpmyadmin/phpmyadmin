@@ -36,6 +36,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['ZeroConf'] = true;

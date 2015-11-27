@@ -9,6 +9,8 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Theme;
+
 require_once 'libraries/tracking.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
@@ -55,6 +57,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             'tracking' => 'tracking',
             'trackingwork' => true
         );
+        $_SESSION['PMA_Theme'] = new Theme();
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
