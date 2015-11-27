@@ -10,6 +10,7 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
+use PMA\libraries\Template;
 
 /**
  * Handles viewing character sets and collations
@@ -60,73 +61,14 @@ class ServerCollationsController extends Controller
     function _getHtmlForCharsets($mysqlCharsets, $mysqlCollations,
         $mysqlCharsetsDesc, $mysqlDftCollations, $mysqlCollAvailable
     ) {
-        /**
-         * Outputs the result
-         */
-        $html = '<div id="div_mysql_charset_collations">' . "\n"
-            . '<table class="data noclick">' . "\n"
-            . '<tr><th id="collationHeader">' . __('Collation') . '</th>' . "\n"
-            . '    <th>' . __('Description') . '</th>' . "\n"
-            . '</tr>' . "\n";
-
-        $table_row_count = count($mysqlCharsets) + count($mysqlCollations);
-
-        foreach ($mysqlCharsets as $current_charset) {
-
-            $html .= '<tr><th colspan="2" class="right">' . "\n"
-                . '        ' . htmlspecialchars($current_charset) . "\n"
-                . (empty($mysqlCharsetsDesc[$current_charset])
-                    ? ''
-                    : '        (<i>' . htmlspecialchars(
-                        $mysqlCharsetsDesc[$current_charset]
-                    ) . '</i>)' . "\n")
-                . '    </th>' . "\n"
-                . '</tr>' . "\n";
-
-            $html .= $this->_getHtmlForCollationCurrentCharset(
-                $current_charset,
-                $mysqlCollations,
-                $mysqlDftCollations,
-                $mysqlCollAvailable
-            );
-
-        }
-
-        $html .= '</table>' . "\n"
-            . '</div>' . "\n";
-
-        return $html;
-    }
-
-    /**
-     * Returns the html for Collations of Current Charset.
-     *
-     * @param string $currCharset        Current Charset
-     * @param array  $mysqlColl          Collations list
-     * @param array  $mysqlDefaultColl   Default Collations list
-     * @param array  $mysqlCollAvailable Available Collations list
-     *
-     * @return string
-     */
-    function _getHtmlForCollationCurrentCharset(
-        $currCharset, $mysqlColl, $mysqlDefaultColl, $mysqlCollAvailable
-    ) {
-        $odd_row = true;
-        $html = '';
-        foreach ($mysqlColl[$currCharset] as $current_collation) {
-
-            $html .= '<tr class="'
-                . ($odd_row ? 'odd' : 'even')
-                . ($mysqlDefaultColl[$currCharset] == $current_collation
-                    ? ' marked'
-                    : '')
-                . ($mysqlCollAvailable[$current_collation] ? '' : ' disabled')
-                . '">' . "\n"
-                . '    <td>' . htmlspecialchars($current_collation) . '</td>' . "\n"
-                . '    <td>' . PMA_getCollationDescr($current_collation) . '</td>' . "\n"
-                . '</tr>' . "\n";
-            $odd_row = !$odd_row;
-        }
-        return $html;
+        return Template::get('server/collations/charsets')->render(
+            array(
+                'mysqlCharsets' => $mysqlCharsets,
+                'mysqlCollations' => $mysqlCollations,
+                'mysqlCharsetsDesc' => $mysqlCharsetsDesc,
+                'mysqlDftCollations' => $mysqlDftCollations,
+                'mysqlCollAvailable' => $mysqlCollAvailable,
+            )
+        );
     }
 }
