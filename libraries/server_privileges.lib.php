@@ -5156,7 +5156,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 
     // 'IDENTIFIED WITH auth_plugin'
     // is supported by MySQL 5.5.7+
-    if ($serverType == 'MySQL'
+    if (($serverType == 'MySQL' || $serverType == 'Percona Server')
         && PMA_MYSQL_INT_VERSION >= 50507
         && isset($_REQUEST['authentication_plugin'])
     ) {
@@ -5202,7 +5202,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     // newer MySQL versions
     // and 'CREATE USER ... USING .. VIA ..' syntax for
     // newer MariaDB versions
-    if (($serverType == 'MySQL'
+    if ((($serverType == 'MySQL' || $serverType == 'Percona Server')
         && PMA_MYSQL_INT_VERSION >= 50706)
         || ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200)
