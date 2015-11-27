@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_collations.lib.php
+ * Holds ServerCollationsControllerTest class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,6 +11,7 @@
  */
 //$GLOBALS
 use PMA\libraries\Theme;
+use PMA\libraries\controllers\server\ServerCollationsController;
 
 $GLOBALS['server'] = 1;
 $GLOBALS['is_superuser'] = false;
@@ -41,16 +42,13 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/server_collations.lib.php';
 
 /**
- * PMA_ServerBinlog_Test class
- *
- * this class is for testing server_collations.lib.php functions
+ * Tests for ServerCollationsController class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
+class ServerCollationsControllerTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -111,15 +109,13 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
             "binary" => true,
         );
 
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerCollationsController');
+        $method = $class->getMethod('_getHtmlForCharsets');
+        $method->setAccessible(true);
 
-        $GLOBALS['dbi'] = $dbi;
-
-        //Call the test function
-        $html = PMA_getHtmlForCharsets(
+        $ctrl = new ServerCollationsController();
+        $html = $html = $method->invoke(
+            $ctrl,
             $mysql_charsets,
             $mysql_collations,
             $mysql_charsets_descriptions,
