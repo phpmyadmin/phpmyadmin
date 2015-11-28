@@ -686,7 +686,7 @@ class Header
             // load Print view's CSS last, so that it overrides all other CSS while
             // 'printing'
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/css/printview.css?' . $v . '" />';
+                . $theme_path . '/css/printview.css?' . $v . '" media="print" id="printcss"/>';
         }
 
         return $retval;
