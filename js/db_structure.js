@@ -337,9 +337,9 @@ AJAX.registerOnload('db_structure.js', function () {
     $(document).on('click', "#printView", function (event) {
         event.preventDefault();
 
-        // Print the page
-        printPage();
-    }); //end of 'Print' action
+        // Take to peview mode
+        printPreview();
+    }); //end of Print View action
 
     //Calculate Real End for InnoDB
     /**

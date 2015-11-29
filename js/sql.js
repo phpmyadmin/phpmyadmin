@@ -208,8 +208,8 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('click', "#printView", function (event) {
         event.preventDefault();
 
-        // Print the page
-        printPage();
+        // Take to peview mode
+        printPreview();
     }); //end of 'Print' action
 
     /**

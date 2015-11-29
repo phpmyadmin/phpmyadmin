@@ -4338,6 +4338,11 @@ function PMA_getCellValue(td) {
     }
 }
 
+$(window).on('popstate', function (event, data) {
+    $('#printcss').attr('media','print');
+    return true;
+});
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -4383,11 +4388,48 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
- * Print button
+ * Produce print preview
  */
-function printPage()
+function printPreview()
 {
-    // Do print the page
+    $('#printcss').attr('media','all');
+    createPrintAndBackButtons();
+}
+
+/**
+ * Create print and back buttons in preview page
+ */
+function createPrintAndBackButtons() {
+
+    var back_button = $("<input/>",{
+        type: 'button',
+        value: PMA_messages.back,
+        id: 'back_button_print_view'
+    });
+    back_button.click(removePrintAndBackButton);
+    back_button.appendTo('#page_content');
+    var print_button = $("<input/>",{
+        type: 'button',
+        value: PMA_messages.print,
+        id: 'print_button_print_view'
+    });
+    print_button.click(printPage);
+    print_button.appendTo('#page_content');
+}
+
+/**
+ * Remove print and back buttons and revert to normal view
+ */
+function removePrintAndBackButton(){
+    $('#printcss').attr('media','print');
+    $('#back_button_print_view').remove();
+    $('#print_button_print_view').remove();
+}
+
+/**
+ * Print page
+ */
+function printPage(){
     if (typeof(window.print) != 'undefined') {
         window.print();
     }

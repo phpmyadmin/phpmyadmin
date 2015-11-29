@@ -592,6 +592,10 @@ $js_messages['dropImportImportResultHeader'] = __('Import status');
 $js_messages['dropImportDropFiles'] = __('Drop files here');
 $js_messages['dropImportSelectDB'] = __('Select database first');
 
+/* For Print view */
+$js_messages['print'] = __('Print');
+$js_messages['back'] = __('Back');
+
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
 case 'double-click':
