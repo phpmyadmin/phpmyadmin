@@ -1332,6 +1332,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 var tools = $result_query.find('.tools').wrap('<p>').parent().html();
                                 // sqlOuter and tools will not be present if 'Show SQL queries' configuration is off
                                 if (typeof sqlOuter != 'undefined' && typeof tools != 'undefined') {
+                                    $(g.o).find('.result_query:not(:last)').remove();
                                     var $existing_query = $(g.o).find('.result_query');
                                     // If two query box exists update query in second else add a second box
                                     if ($existing_query.find('div.sqlOuter').length > 1) {
