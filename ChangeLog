@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #11667 Disable the tooltip in the navigation panel's filter box
 + issue        Copy results to clipboard
 + issue #11504 Reactivate cut&paste possibility in print view
+- issue #11702 Extraneous message after edit + grid-edit
 
 4.5.3.0 (not yet released)
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement
