@@ -9,10 +9,6 @@ namespace PMA\libraries\navigation\nodes;
 
 use PMA;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Represents a columns node in the navigation tree
  *

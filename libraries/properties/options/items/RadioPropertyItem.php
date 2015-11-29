@@ -9,10 +9,6 @@ namespace PMA\libraries\properties\options\items;
 
 use PMA\libraries\properties\options\OptionsPropertyOneItem;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Single property item class of type radio
  *

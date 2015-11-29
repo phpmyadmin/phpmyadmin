@@ -10,10 +10,6 @@ use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
 use SqlParser\Statements\CreateStatement;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Executes a query as controluser if possible, otherwise as normal user
  *

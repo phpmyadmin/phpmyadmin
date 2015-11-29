@@ -10,10 +10,6 @@ use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\Response;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Parses and analyzes the given SQL query.
  *

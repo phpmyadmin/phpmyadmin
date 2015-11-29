@@ -5,12 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-
 use PMA\libraries\Table;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Transforms the radio button field_key into 4 arrays

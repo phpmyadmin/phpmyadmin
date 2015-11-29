@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin-DBI
  */
+use PMA\libraries\dbi\DBIDummy;
 use PMA\libraries\di\Container;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\dbi\DBIMysql;
@@ -19,7 +20,6 @@ if (defined('TESTSUITE')) {
     /**
      * For testsuite we use dummy driver which can fake some queries.
      */
-    include_once './libraries/dbi/DBIDummy.php';
     $extension = new DBIDummy();
 } else {
 

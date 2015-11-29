@@ -7,12 +7,6 @@
  */
 namespace PMA\libraries\properties\options;
 
-use PMA\libraries\properties\options\OptionsPropertyItem;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Parents only single property items (not groups).
  * Defines possible options and getters and setters for them.

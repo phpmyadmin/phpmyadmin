@@ -6,9 +6,6 @@
  * @package PhpMyAdmin
  *
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Format a string so it can be a string inside JavaScript code inside an

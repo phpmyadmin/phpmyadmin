@@ -9,10 +9,6 @@ namespace PMA\libraries\navigation\nodes;
 
 use PMA\libraries\Util;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * The Node is the building block for the collapsible navigation tree
  *

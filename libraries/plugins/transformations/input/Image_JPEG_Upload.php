@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\input;
 
 use PMA\libraries\plugins\transformations\abs\ImageUploadTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the image upload input transformation for JPEG.
  * Has two option: width & height of the thumbnail

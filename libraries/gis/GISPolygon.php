@@ -10,10 +10,6 @@ namespace PMA\libraries\gis;
 use PMA\libraries\Util;
 use \TCPDF;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles actions related to GIS POLYGON objects
  *

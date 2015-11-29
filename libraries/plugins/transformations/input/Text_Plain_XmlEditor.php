@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\input;
 
 use PMA\libraries\plugins\transformations\abs\CodeMirrorEditorTransformationPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * XML (and HTML) editing with syntax highlighted CodeMirror editor
  *

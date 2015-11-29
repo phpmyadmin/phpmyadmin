@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\transformations\input;
 
 use PMA\libraries\plugins\transformations\abs\TextFileUploadTransformationsPlugin;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the input text file upload transformation for text plain.
  *

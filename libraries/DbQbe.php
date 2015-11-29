@@ -7,10 +7,6 @@
  */
 namespace PMA\libraries;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Class to handle database QBE search
  *

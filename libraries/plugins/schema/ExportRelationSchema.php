@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\schema;
 
 use PMA;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * This class is inherited by all schema classes
  * It contains those methods which are common in them

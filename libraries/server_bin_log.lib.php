@@ -1,6 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * functions for displaying server binary log
  *
@@ -10,10 +9,6 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Util;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Returns the html for log selector.

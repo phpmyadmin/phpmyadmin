@@ -7,10 +7,6 @@
  */
 use PMA\libraries\Message;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * returns HTML for error message
  *

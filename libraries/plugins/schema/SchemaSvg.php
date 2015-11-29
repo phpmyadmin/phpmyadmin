@@ -15,10 +15,6 @@ use PMA\libraries\plugins\SchemaPlugin;
 use PMA\libraries\plugins\schema\svg\SvgRelationSchema;
 use PMA\libraries\properties\plugins\SchemaPluginProperties;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the schema export for the SVG format
  *

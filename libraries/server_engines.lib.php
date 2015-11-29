@@ -1,6 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * functions for displaying server engines
  *
@@ -9,10 +8,6 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\StorageEngine;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * setup HTML for server Engines information

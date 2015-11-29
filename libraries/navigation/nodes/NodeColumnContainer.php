@@ -11,10 +11,6 @@ use PMA;
 use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\Util;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Represents a container for column nodes in the navigation tree
  *

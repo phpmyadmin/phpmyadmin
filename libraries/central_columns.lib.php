@@ -8,10 +8,6 @@
 use PMA\libraries\Message;
 use PMA\libraries\Util;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Defines the central_columns parameters for the current user
  *

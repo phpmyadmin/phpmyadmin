@@ -13,10 +13,6 @@ use PMA\libraries\plugins\schema\ExportRelationSchema;
 use PMA\libraries\plugins\schema\pdf\TableStatsPdf;
 use PMA\libraries\plugins\schema\svg\TableStatsSvg;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * EPS Relation Schema Class
  *

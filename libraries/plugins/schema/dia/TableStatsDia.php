@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\schema\dia;
 use PMA\libraries\plugins\schema\ExportRelationSchema;
 use PMA\libraries\plugins\schema\TableStats;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Table preferences/statistics
  *

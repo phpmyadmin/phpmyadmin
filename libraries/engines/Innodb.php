@@ -10,10 +10,6 @@ namespace PMA\libraries\engines;
 use PMA\libraries\StorageEngine;
 use PMA\libraries\Util;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * The InnoDB storage engine
  *

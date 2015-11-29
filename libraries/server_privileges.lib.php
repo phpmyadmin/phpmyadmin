@@ -5,15 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Get Html for User Group Dialog

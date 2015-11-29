@@ -1,6 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * functions for displaying query statistics for the server
  *
@@ -9,10 +8,6 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\ServerStatusData;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Returns the html content for the query statistics

@@ -9,10 +9,6 @@ namespace PMA\libraries\plugins\schema\pdf;
 
 use PMA\libraries\plugins\schema\RelationStats;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Relation preferences/statistics
  *

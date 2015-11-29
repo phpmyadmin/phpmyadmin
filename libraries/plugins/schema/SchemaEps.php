@@ -16,10 +16,6 @@ use PMA\libraries\plugins\SchemaPlugin;
 use PMA\libraries\properties\plugins\SchemaPluginProperties;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Handles the schema export for the EPS format
  *

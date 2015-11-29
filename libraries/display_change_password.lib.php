@@ -7,10 +7,6 @@
  */
 use PMA\libraries\Message;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
   * Get HTML for the Change password dialog
   *

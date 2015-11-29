@@ -7,12 +7,6 @@
  */
 namespace PMA\libraries\properties\options;
 
-use PMA\libraries\properties\options\OptionsPropertyItem;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Parents group property items and provides methods to manage groups of
  * properties.

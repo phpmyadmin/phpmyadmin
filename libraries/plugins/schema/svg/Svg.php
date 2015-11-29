@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\schema\svg;
 use PMA;
 use XMLWriter;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * This Class inherits the XMLwriter class and
  * helps in developing structure of SVG Schema Export

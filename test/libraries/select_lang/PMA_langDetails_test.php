@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_langDetails from select_lang.lib.php
+ * Test for PMA_langDetails from select_lang.inc.php
  *
  * @package PhpMyAdmin-test
  * @group select_lang.lib-tests
@@ -10,10 +10,10 @@
 /*
  * Include to test.
  */
-require_once 'libraries/select_lang.lib.php';
+require_once 'libraries/select_lang.inc.php';
 
 /**
- * Test for PMA_langDetails from select_lang.lib.php
+ * Test for PMA_langDetails from select_lang.inc.php
  *
  * @package PhpMyAdmin-test
  * @group select_lang.lib-tests

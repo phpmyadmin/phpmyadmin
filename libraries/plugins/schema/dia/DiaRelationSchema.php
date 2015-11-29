@@ -13,10 +13,6 @@ use PMA\libraries\plugins\schema\pdf\TableStatsPdf;
 use PMA\libraries\plugins\schema\svg\TableStatsSvg;
 use PMA\libraries\plugins\schema\dia\TableStatsDia;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Dia Relation Schema Class
  *

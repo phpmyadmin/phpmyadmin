@@ -1,6 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * functions for displaying processes list
  *
@@ -11,10 +10,6 @@
 use PMA\libraries\Message;
 use PMA\libraries\ServerStatusData;
 use PMA\libraries\Util;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Prints html for auto refreshing processes list

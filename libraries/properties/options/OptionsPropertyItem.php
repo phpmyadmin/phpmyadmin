@@ -10,10 +10,6 @@ namespace PMA\libraries\properties\options;
 
 use PMA\libraries\properties\PropertyItem;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Superclass for
  *  - PMA\libraries\properties\options\OptionsPropertyOneItem and

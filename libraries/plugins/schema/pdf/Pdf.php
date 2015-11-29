@@ -10,10 +10,6 @@ namespace PMA\libraries\plugins\schema\pdf;
 use PMA\libraries\PDF as PDF_lib;
 use PMA\libraries\Util;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Skip the plugin if TCPDF is not available.
  */

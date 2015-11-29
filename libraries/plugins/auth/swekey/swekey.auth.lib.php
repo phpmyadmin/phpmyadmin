@@ -8,10 +8,6 @@
 
 use PMA\libraries\Message;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Checks Swekey authentication.
  *
