@@ -337,7 +337,7 @@ AJAX.registerOnload('db_structure.js', function () {
     $(document).on('click', "#printView", function (event) {
         event.preventDefault();
 
-        // Take to peview mode
+        // Take to preview mode
         printPreview();
     }); //end of Print View action
 

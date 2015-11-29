@@ -208,7 +208,7 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('click', "#printView", function (event) {
         event.preventDefault();
 
-        // Take to peview mode
+        // Take to preview mode
         printPreview();
     }); //end of 'Print' action
 
