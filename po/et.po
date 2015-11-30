@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-02 10:46-0500\n"
-"PO-Revision-Date: 2015-11-30 10:07+0000\n"
+"PO-Revision-Date: 2015-12-03 09:05+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10495,7 +10495,7 @@ msgstr "Vaate %s struktuur eksporditi tabelina"
 
 #: libraries/plugins/export/ExportSql.php:2088
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Tegelik vaade on allpool)"
 
 #: libraries/plugins/export/ExportSql.php:2169
 msgid "Error reading data:"
