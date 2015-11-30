@@ -5216,8 +5216,6 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
             $create_user_stmt .= ' AS \'%s\'';
         }
 
-        $create_user_real = $create_user_show = $create_user_stmt;
-
         if ($_POST['pred_password'] == 'keep') {
             $create_user_real = sprintf(
                 $create_user_stmt,
