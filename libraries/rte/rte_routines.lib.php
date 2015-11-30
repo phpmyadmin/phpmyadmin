@@ -228,7 +228,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
                         $privilegesBackup
                     );
                     if (empty($newErrors)) {
-                        $sql_query = $drop_routine . $sql_query;
+                        $sql_query = $drop_routine . $routine_query;
                     } else {
                         $errors = array_merge($errors, $newErrors);
                     }
