@@ -4327,7 +4327,7 @@ class DisplayResults
                 $message, $this->__get('sql_query'), 'success'
             );
 
-        } elseif (! isset($printview) || ($printview != '1')) {
+        } elseif ((!isset($printview) || ($printview != '1')) && !$is_limited_display) {
 
             $table_html .= Util::getMessage(
                 __('Your SQL query has been executed successfully.'),
@@ -4405,6 +4405,10 @@ class DisplayResults
         // end 2b
 
         // 3. ----- Prepare the results table -----
+        if ($is_limited_display) {
+            $table_html .= "<br>";
+        }
+
         $table_html .= $this->_getTableHeaders(
             $displayParts,
             $analyzed_sql_results,
@@ -5811,4 +5815,3 @@ class DisplayResults
         return array($truncated, $str, $original_length);
     }
 }
-
