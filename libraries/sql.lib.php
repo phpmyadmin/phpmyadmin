@@ -1365,11 +1365,16 @@ function PMA_getMessageForNoRowsReturned($message_to_show,
  * @param int            $num_rows             number of rows
  * @param DisplayResults $displayResultsObject DisplayResult instance
  * @param array          $extra_data           extra data
+ * @param string         $pmaThemeImage        uri of the theme image
+ * @param object         $result               executed query results
+ * @param string         $sql_query            sql query
+ * @param string         $complete_query       complete sql query
  *
  * @return string html
  */
 function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
-    $table, $message_to_show, $num_rows, $displayResultsObject, $extra_data
+    $table, $message_to_show, $num_rows, $displayResultsObject, $extra_data,
+    $pmaThemeImage, $result, $sql_query, $complete_query
 ) {
     if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
         PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results);
@@ -1405,9 +1410,39 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
         $response->addJSON(isset($extra_data) ? $extra_data : array());
 
         if (!empty($analyzed_sql_results['is_select'])) {
+            $url_query = isset($url_query) ? $url_query : null;
+
+            $displayParts = array(
+                'edit_lnk' => null,
+                'del_lnk' => null,
+                'sort_lnk' => '1',
+                'nav_bar'  => '0',
+                'bkm_form' => '1',
+                'text_btn' => '1',
+                'pview_lnk' => '1'
+            );
+
+            $html_output .= PMA_getHtmlForSqlQueryResultsTable(
+                $displayResultsObject,
+                $pmaThemeImage, $url_query, $displayParts,
+                false, 0, $num_rows, true, $result,
+                $analyzed_sql_results, true
+            );
+
             $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
                 $analyzed_sql_results
             );
+
+            $cfgBookmark = PMA_Bookmark_getParams();
+            if ($cfgBookmark) {
+                $html_output .= PMA_getHtmlForBookmark(
+                    $displayParts,
+                    $cfgBookmark,
+                    $sql_query, $db, $table,
+                    isset($complete_query) ? $complete_query : $sql_query,
+                    $cfgBookmark['user']
+                );
+            }
         }
     }
 
@@ -1502,13 +1537,14 @@ function PMA_getBookmarkCreatedMessage()
  * @param bool           $showtable            whether to show table or not
  * @param object         $result               result of the executed query
  * @param array          $analyzed_sql_results analyzed sql results
+ * @param bool           $is_limited_display   Show only limited operations or not
  *
  * @return String
  */
 function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
     $pmaThemeImage, $url_query, $displayParts,
     $editable, $unlim_num_rows, $num_rows, $showtable, $result,
-    $analyzed_sql_results
+    $analyzed_sql_results, $is_limited_display = false
 ) {
     $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
     $table_html = '';
@@ -1562,7 +1598,8 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
                 $table_html .= $displayResultsObject->getTable(
                     $result,
                     $displayParts,
-                    $analyzed_sql_results
+                    $analyzed_sql_results,
+                    $is_limited_display
                 );
             }
 
@@ -1600,7 +1637,8 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
         $table_html .= $displayResultsObject->getTable(
             $result,
             $displayParts,
-            $analyzed_sql_results
+            $analyzed_sql_results,
+            $is_limited_display
         );
         $GLOBALS['dbi']->freeResult($result);
     }
@@ -2062,7 +2100,9 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
         $html_output = PMA_getQueryResponseForNoResultsReturned(
             $analyzed_sql_results, $db, $table,
             isset($message_to_show) ? $message_to_show : null,
-            $num_rows, $displayResultsObject, $extra_data
+            $num_rows, $displayResultsObject, $extra_data,
+            $pmaThemeImage, isset($result) ? $result : null,
+            $sql_query, isset($complete_query) ? $complete_query : null
         );
     } else {
         // At least one row is returned -> displays a table with results
@@ -2135,4 +2175,3 @@ function PMA_calculatePosForLastPage($db, $table, $pos)
 
     return $pos;
 }
-
