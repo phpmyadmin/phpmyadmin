@@ -213,7 +213,7 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
         $class = new ReflectionClass(
             '\PMA\libraries\controllers\server\ServerVariablesController'
         );
-        $method = $class->getMethod('_getHtmlForLinkTemplates');
+        $method = $class->getMethod('_getHtmlForServerVariables');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
