@@ -45,12 +45,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="check_page_refresh"  ' .
-            'id="check_page_refresh" value="" />',
-            $result
-        );
-
-        $this->assertContains(
             '<input type="hidden" name="lang" value="en" />',
             $result
         );
