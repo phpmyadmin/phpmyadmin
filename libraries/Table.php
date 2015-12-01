@@ -2286,9 +2286,10 @@ class Table
         foreach ($foreignField as $key => $one_field) {
             $foreignField[$key] = Util::backquote($one_field);
         }
-        $sql_query .= ' FOREIGN KEY (' . implode(', ', $field) . ')'
-            . ' REFERENCES ' . Util::backquote($foreignDb)
-            . '.' . Util::backquote($foreignTable)
+        $sql_query .= ' FOREIGN KEY (' . implode(', ', $field) . ') REFERENCES '
+            . ($this->_db_name != $foreignDb
+                ? Util::backquote($foreignDb) . '.' : '')
+            . Util::backquote($foreignTable)
             . '(' . implode(', ', $foreignField) . ')';
 
         if (! empty($onDelete)) {
