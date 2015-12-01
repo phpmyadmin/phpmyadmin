@@ -449,25 +449,6 @@ echo '</div>';
 echo '</div>';
 
 /**
- * Warning if using the default MySQL privileged account
- */
-if ($server != 0
-    && $cfg['Server']['user'] == 'root'
-    && $cfg['Server']['password'] == ''
-) {
-    trigger_error(
-        __(
-            'You are connected as \'root\' with no password, which'
-            . ' corresponds to the default MySQL privileged account.'
-            . ' Your MySQL server is running with this default, is open to'
-            . ' intrusion, and you really should fix this security hole by'
-            . ' setting a password for user \'root\'.'
-        ),
-        E_USER_WARNING
-    );
-}
-
-/**
  * As we try to handle charsets by ourself, mbstring overloads just
  * break it, see bug 1063821.
  */

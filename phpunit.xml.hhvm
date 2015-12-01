@@ -10,7 +10,7 @@
 
     <testsuites>
         <testsuite name="Classes">
-            <directory suffix="_test.php">test/classes</directory>
+            <directory suffix="Test.php">test/classes</directory>
         </testsuite>
         <testsuite name="Engines">
             <directory suffix="_test.php">test/engines</directory>

@@ -46,6 +46,12 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
         );
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 1;
+
+        $GLOBALS['db_priv'] = true;
+        $GLOBALS['table_priv'] = true;
+        $GLOBALS['col_priv'] = true;
+        $GLOBALS['proc_priv'] = true;
+        $GLOBALS['flush_priv'] = true;
     }
 
     /**

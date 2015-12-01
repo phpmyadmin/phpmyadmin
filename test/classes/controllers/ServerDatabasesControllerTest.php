@@ -10,7 +10,6 @@ use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
 
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/build_html_for_db.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
@@ -65,6 +64,7 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
         //$_SESSION
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
+        $GLOBALS['server'] = 1;
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
@@ -100,12 +100,30 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
             array("SCHEMA_NAME" => "performance_schema"),
             array("SCHEMA_NAME" => "phpmyadmin")
         );
+        $property = $class->getProperty('_databases');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, $databases);
 
-        $databases_count = 5;
-        $pos = 0;
-        $dbstats = 0;
-        $sort_by = "SCHEMA_NAME";
-        $sort_order = "asc";
+        $property = $class->getProperty('_database_count');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, 5);
+
+        $property = $class->getProperty('_pos');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, 0);
+
+        $property = $class->getProperty('_dbstats');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, 0);
+
+        $property = $class->getProperty('_sort_by');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, 'SCHEMA_NAME');
+
+        $property = $class->getProperty('_sort_order');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, 'asc');
+
         $is_superuser = true;
         $cfg = array(
             "AllowUserDropDatabase" => false,
@@ -147,7 +165,7 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
 
         //validate 3: PMA_getHtmlForColumnOrderWithSort
         $this->assertContains(
-            '<a href="server_databases.php?pos=0',
+            '<a href="server_databases.php',
             $html
         );
         $this->assertContains(
@@ -156,20 +174,20 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
         );
 
         //validate 4: PMA_getHtmlAndColumnOrderForDatabaseList
-        $this->assertContains(
-            'title="pma_bookmark" value="pma_bookmark"',
+        $this->assertRegExp(
+            '/title="pma_bookmark"[[:space:]]*value="pma_bookmark"/',
             $html
         );
-        $this->assertContains(
-            'title="information_schema" value="information_schema"',
+        $this->assertRegExp(
+            '/title="information_schema"[[:space:]]*value="information_schema"/',
             $html
         );
-        $this->assertContains(
-            'title="performance_schema" value="performance_schema"',
+        $this->assertRegExp(
+            '/title="performance_schema"[[:space:]]*value="performance_schema"/',
             $html
         );
-        $this->assertContains(
-            'title="phpmyadmin" value="phpmyadmin"',
+        $this->assertRegExp(
+            '/title="phpmyadmin"[[:space:]]*value="phpmyadmin"/',
             $html
         );
 
@@ -219,7 +237,7 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
         $ctrl = $container->get('ServerDatabasesController');
 
         //$_REQUEST['sort_by'] and $_REQUEST['sort_order'] are empty
-        $method->invoke($ctrl);
+        $method->invoke($ctrl, array("master", "slave"));
         $this->assertEquals(
             'SCHEMA_NAME',
             $propertySortBy->getValue($ctrl)

@@ -8,7 +8,7 @@
 
 use PMA\libraries\gis\GISLinestring;
 
-require_once 'PMA_GIS_Geom_test.php';
+require_once 'GISGeomTest.php';
 require_once 'libraries/tcpdf/tcpdf.php';
 
 /**

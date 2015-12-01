@@ -50,6 +50,7 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     public function testGetEditorFormAdd($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
+        $GLOBALS['server'] = 1;
         PMA_TRI_setGlobals();
         $this->assertContains(
             $matcher,
@@ -124,6 +125,7 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     public function testGetEditorFormEdit($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
+        $GLOBALS['server'] = 1;
         PMA_TRI_setGlobals();
         $this->assertContains(
             $matcher,
@@ -197,6 +199,7 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     public function testGetEditorFormAjax($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = true;
+        $GLOBALS['server'] = 1;
         PMA_TRI_setGlobals();
         $this->assertContains(
             $matcher,

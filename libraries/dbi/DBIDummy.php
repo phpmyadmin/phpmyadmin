@@ -825,6 +825,42 @@ $GLOBALS['dummy_queries'] = array(
             . "WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';",
         'result' => array(),
     ),
+    array(
+        'query'  => "SHOW TABLES FROM `db`;",
+        'result' => array(),
+    ),
+    array(
+        'query'  => "SELECT `PRIVILEGE_TYPE` FROM "
+            . "`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` "
+            . "WHERE GRANTEE='''pma_test''@''localhost''' "
+            . "AND PRIVILEGE_TYPE='EVENT' AND 'db' LIKE `TABLE_SCHEMA`",
+        'result' => array(),
+    ),
+    array(
+        'query'  => "SELECT `PRIVILEGE_TYPE` FROM "
+            . "`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` "
+            . "WHERE GRANTEE='''pma_test''@''localhost''' "
+            . "AND PRIVILEGE_TYPE='TRIGGER' AND 'db' LIKE `TABLE_SCHEMA`",
+        'result' => array(),
+    ),
+    array(
+        'query'  => "SELECT (COUNT(DB_first_level) DIV 100) * 100 from "
+            . "( SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) "
+            . "DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA "
+            . "WHERE `SCHEMA_NAME` < 'db' ) t",
+        'result' => array(),
+    ),
+    array(
+        'query'  => "SELECT `SCHEMA_NAME` FROM "
+            . "`INFORMATION_SCHEMA`.`SCHEMATA`, "
+            . "(SELECT DB_first_level FROM ( SELECT DISTINCT "
+            . "SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM "
+            . "INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t "
+            . "ORDER BY DB_first_level ASC LIMIT , 100) t2 WHERE TRUE AND "
+            . "1 = LOCATE(CONCAT(DB_first_level, '_'), "
+            . "CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC",
+        'result' => array(),
+    ),
 );
 /**
  * Current database.

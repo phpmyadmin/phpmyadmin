@@ -73,6 +73,7 @@ class UtilTest extends PHPUnit_Framework_TestCase
      */
     public function testIsForeignKeyCheck()
     {
+        $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['DBG'] = array();
         $GLOBALS['cfg']['DBG']['sql'] = false;
 
