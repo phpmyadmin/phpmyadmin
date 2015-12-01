@@ -64,6 +64,7 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
         //$_SESSION
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
+        $GLOBALS['server'] = 1;
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
