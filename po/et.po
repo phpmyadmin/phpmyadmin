@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-10-27 08:28+0200\n"
+"PO-Revision-Date: 2015-11-30 10:07+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/et/>\n"
@@ -354,7 +354,7 @@ msgstr "Andmebaasi logi"
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr "Tuvastati viga, mis raporteeriti automaatselt vastavalt su seadetele."
+msgstr "Tuvastati viga, mis vastavalt su sätetele raporteeriti automaatselt."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
@@ -1167,7 +1167,7 @@ msgstr ""
 "Diagrammi korrastuse seadistus sinu veebilehitsejate kohalikus "
 "salvestuskohas ei ole enam jälgimise dialoogi uuema versiooniga ühilduv. "
 "Üldjuhul sinu praegune seadistus enam ei toimi. Palun lähtesta oma seadistus "
-"vaikimisi väärtustele <i>Sätete</i> menüüst."
+"vaikimisi väärtustele menüüst <i>Sätted</i>."
 
 #: js/messages.php:148
 msgid "Query cache efficiency"
@@ -2533,7 +2533,7 @@ msgstr "Ignoreeri kõiki"
 #: js/messages.php:591
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr "Palun oota, sinu seadistust saadetakse hetkel."
+msgstr "Palun oota, sinu sätteid saadetakse hetkel."
 
 #: js/messages.php:599
 msgid "Execute this query again?"
@@ -2575,10 +2575,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"Su veebilehitseha ei toeta seadistuse kohalikku salvestamist, või on jõutud "
+"Su veebilehitseja ei toeta sätete kohalikku salvestamist, või on jõutud "
 "selleks lubatud mahuni. Seetõttu ei pruugi mõned omadused korrektselt "
-"töötada. Safaris põhjustab seda tavaliselt \"Privaartrežiimis lehitsemine"
-"\" (\"Private Mode Browsing\")."
+"töötada. Safaris põhjustab seda tavaliselt \"Privaartrežiimis lehitsemine\" ("
+"\"Private Mode Browsing\")."
 
 #: js/messages.php:635
 msgctxt "Previous month"
@@ -3233,7 +3233,7 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 "Käivita päringud klahviga Enter ja sisesta reavahetused Shift + Enter "
-"kombinatsiooniga."
+"kombinatsiooniga. Selle püsivaks tegemiseks vaata sätteid."
 
 #: libraries/Console.class.php:389
 msgid "Switch to dark theme"
@@ -6116,7 +6116,7 @@ msgstr "Muud tuumsätted"
 
 #: libraries/config/messages.inc.php:285
 msgid "Settings that didn't fit anywhere else."
-msgstr "Sätted, mis ei sobi mujale."
+msgstr "Sätted, mis mujale ei sobi."
 
 #: libraries/config/messages.inc.php:286
 msgid "Page titles"
@@ -7846,7 +7846,7 @@ msgstr "Luba Nullseadustuse režiim"
 
 #: libraries/config/page_settings.class.php:140
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Sättete salvestamine nurjus; saadetud häälestus sisaldab vigu!"
+msgstr "Sätete salvestamine nurjus; saadetud häälestus sisaldab vigu!"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -8857,7 +8857,7 @@ msgstr "Vaata struktuuri sisu, klõpsates selle nimel."
 #: libraries/import.lib.php:1261
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr "Muuda selle mistahes sätet, klõpsates vastaval \"Valikud\" lingil."
+msgstr "Selle mistahes sätte muutmiseks klõpsa vastaval viidal \"Valikud\"."
 
 #: libraries/import.lib.php:1263
 msgid "Edit structure by following the \"Structure\" link."
@@ -9289,7 +9289,7 @@ msgstr "phpMyAdmini dokumentatsioon"
 
 #: libraries/navigation/NavigationHeader.class.php:206
 msgid "Navigation panel settings"
-msgstr "Navigeerimispaneeli seaded"
+msgstr "Navigeerimispaneeli sätted"
 
 #: libraries/navigation/NavigationHeader.class.php:217
 msgid "Reload navigation panel"
@@ -11140,7 +11140,7 @@ msgstr "Veergude keskse nimekirja haldamine"
 
 #: libraries/relation.lib.php:327
 msgid "Remembering Designer Settings"
-msgstr "Disaineri seadistuse meeldejätmine"
+msgstr "Disaineri sätete meeldejätmine"
 
 #: libraries/relation.lib.php:338
 msgid "Saving export templates"
@@ -12097,7 +12097,7 @@ msgstr "Lubab kustutada andmebaase ja tabeleid."
 #: libraries/server_privileges.lib.php:311
 #: libraries/server_privileges.lib.php:1332 server_privileges.php:92
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "Lubab uuesti laadida serveri sätteid ja puhastada serveri puhvreid."
+msgstr "Lubab serveri sätteid uuesti laadida ja tühjendada serveri vahemälu."
 
 #: libraries/server_privileges.lib.php:316
 #: libraries/server_privileges.lib.php:1336 server_privileges.php:101
@@ -12799,8 +12799,9 @@ msgid ""
 "chart using the cog icon on each respective chart."
 msgstr ""
 "Sinu veebilehitseja värskendab kõiki näidatavaid diagramme iga teatud aja "
-"tagant. 'Sätted' all võid diagramme lisada ja muuta värskendussagedust või "
-"eemaldada diagrammi, kasutades hammasratta ikooni vastaval diagrammil."
+"tagant. Valiku 'Sätted' alt saad diagramme lisada ja muuta "
+"värskendussagedust või diagrammi eemaldada kasutades selleks hammasratta "
+"ikooni vastaval diagrammil."
 
 #: libraries/server_status_monitor.lib.php:137
 msgid ""
@@ -14318,7 +14319,7 @@ msgstr "Sätted imporditakse sinu veebilehitseja kohalikust salvestuskohast."
 
 #: prefs_manage.php:263
 msgid "You have no saved settings!"
-msgstr "Sul pole salvestatud sätteid!"
+msgstr "Sul ei ole salvestatud sätteid!"
 
 #: prefs_manage.php:268 prefs_manage.php:347
 msgid "This feature is not supported by your web browser"
@@ -14334,8 +14335,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Saad rakendada rohkem sätteid, kui muudad config.inc.php faili, nt kasutades "
-"%sPaigaldaja skripti%s."
+"Täiendavaid sätteid saad rakendada, kui muudad faili config.inc.php. Kasuta "
+"näiteks %sPaigaldaja skripti%s."
 
 #: prefs_manage.php:323
 msgid "Save to browser's storage"
@@ -14351,7 +14352,7 @@ msgstr "Olemasolevad sätted kirjutatakse üle!"
 
 #: prefs_manage.php:366
 msgid "You can reset all your settings and restore them to default values."
-msgstr "Saad lähtestada kõik sätted ja taastada need vaikimisi väärtustele."
+msgstr "Saad lähtestada kõik sätted ja taastada nende vaikeväärtused."
 
 #: server_databases.php:112
 msgid "No databases"
@@ -15054,8 +15055,8 @@ msgid ""
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 "phpMyAdminis juhtus viga. Me kogusime andmeid selle vea kohta ja samuti "
-"olulist informatsiooni seadistustest, et saata phpMyAdmini arendajatele "
-"probleemist paremini arusaamiseks."
+"sätete olulist informatsiooni, et need saata phpMyAdmini arendajatele "
+"probleemist paremaks arusaamiseks."
 
 #: templates/error/report_form.phtml:15
 msgid "You may examine the data in the error report:"
