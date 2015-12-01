@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 + issue #11504 Reactivate cut&paste possibility in print view
 - issue #11702 Extraneous message after edit + grid-edit
 - issue #11668 Table header is empty with browsing an empty table
++ issue #11701 Allow changing parameter order of routines
 
 4.5.3.0 (not yet released)
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement

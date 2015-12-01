@@ -712,6 +712,9 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     // Create the output
     $retval  = "";
     $retval .= "        <tr>\n";
+    $retval .= "            <td class='dragHandle'>"
+        . "<span class='ui-icon ui-icon-arrowthick-2-n-s'></span>"
+        . "</td>\n";
     $retval .= "            <td class='routine_direction_cell$class'>\n";
     $retval .= "                <select name='item_param_dir[$index]'>\n";
     foreach ($param_directions as $key => $value) {
@@ -914,7 +917,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "    <td>\n";
     // parameter handling start
     $retval .= "        <table class='routine_params_table'>\n";
+    $retval .= "        <thead>\n";
     $retval .= "        <tr>\n";
+    $retval .= "            <td></td>\n";
     $retval .= "            <th class='routine_direction_cell$isprocedure_class'>"
         . __('Direction') . "</th>\n";
     $retval .= "            <th>" . __('Name') . "</th>\n";
@@ -923,9 +928,12 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "            <th colspan='2'>" . __('Options') . "</th>\n";
     $retval .= "            <th class='routine_param_remove hide'>&nbsp;</th>\n";
     $retval .= "        </tr>";
+    $retval .= "        </thead>\n";
+    $retval .= "        <tbody>\n";
     for ($i = 0; $i < $routine['item_num_params']; $i++) { // each parameter
         $retval .= PMA_RTN_getParameterRow($routine, $i, $isprocedure_class);
     }
+    $retval .= "        </tbody>\n";
     $retval .= "        </table>";
     $retval .= "    </td>";
     $retval .= "</tr>";
