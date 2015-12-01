@@ -16,7 +16,7 @@ use PMA\libraries\PMA_String;
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StringTest extends PHPUnit_Framework_TestCase
+class PMA_StringClassTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var String
