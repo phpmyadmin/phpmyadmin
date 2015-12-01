@@ -237,7 +237,7 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
         $ctrl = $container->get('ServerDatabasesController');
 
         //$_REQUEST['sort_by'] and $_REQUEST['sort_order'] are empty
-        $method->invoke($ctrl);
+        $method->invoke($ctrl, array("master", "slave"));
         $this->assertEquals(
             'SCHEMA_NAME',
             $propertySortBy->getValue($ctrl)
