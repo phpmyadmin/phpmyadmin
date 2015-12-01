@@ -264,15 +264,4 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         return true;
     }
-
-    /**
-     * Callback when user changes password.
-     *
-     * @param string $password New password to set
-     *
-     * @return void
-     */
-    public function handlePasswordChange($password)
-    {
-    }
 }
