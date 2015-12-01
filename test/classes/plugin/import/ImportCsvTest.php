@@ -48,6 +48,8 @@ class ImportCsvTest extends PHPUnit_Framework_TestCase
         $GLOBALS['plugin_param'] = "csv";
         $this->object = new ImportCsv();
 
+        unset($GLOBALS['db']);
+
         //setting
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
