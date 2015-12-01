@@ -92,9 +92,9 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     }
 
     /**
-     * Gets the type of the newline character
+     * Gets MySQL documentation pointer
      *
-     * @return string
+     * @return arrray
      */
     public function getDoc()
     {
@@ -104,7 +104,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Sets the doc
      *
-     * @param string $doc doc
+     * @param array $doc MySQL documentation pointer
      *
      * @return void
      */

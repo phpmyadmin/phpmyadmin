@@ -42,7 +42,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Gets the subgroup header
      *
-     * @return string
+     * @return PropertyItem
      */
     public function getSubgroupHeader()
     {
@@ -52,7 +52,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Sets the subgroup header
      *
-     * @param string $subgroupHeader subgroup header
+     * @param PropertyItem $subgroupHeader subgroup header
      *
      * @return void
      */
