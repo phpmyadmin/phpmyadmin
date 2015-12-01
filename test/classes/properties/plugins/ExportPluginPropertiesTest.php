@@ -8,7 +8,7 @@
 
 use PMA\libraries\properties\plugins\ExportPluginProperties;
 
-require_once 'test/classes/properties/plugins/PMA_ImportPluginProperties_test.php';
+require_once 'test/classes/properties/plugins/ImportPluginPropertiesTest.php';
 
 /**
  * Tests for PMA\libraries\properties\plugins\ExportPluginProperties class. Extends PMA_ImportPluginProperties_Tests
@@ -16,7 +16,7 @@ require_once 'test/classes/properties/plugins/PMA_ImportPluginProperties_test.ph
  *
  * @package PhpMyAdmin-test
  */
-class ExportPluginPropertiesTest extends PMA_ImportPluginProperties_Test
+class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 {
     protected $object;
 
