@@ -307,7 +307,10 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $value = PMA_formatVariable($name, "12", $variable_doc_links);
+        $formatVariable = $class->getMethod('_formatVariable');
+        $formatVariable->setAccessible(true);
+
+        $value = $formatVariable->invoke($ctrl, $name, "12");
         $this->assertContains(
             $value,
             $html
@@ -319,7 +322,7 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $value = PMA_formatVariable($name, "13", $variable_doc_links);
+        $value = $formatVariable->invoke($ctrl, $name, "13");
         $this->assertContains(
             $value,
             $html
