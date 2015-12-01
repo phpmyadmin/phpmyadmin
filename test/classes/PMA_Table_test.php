@@ -898,6 +898,24 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $sql_excepted,
             $sql
         );
+
+        // Exclude db name when relations are made between table in the same db
+        $sql = $method->invokeArgs(
+            $tableObj, array(
+                $table,
+                $field,
+                'db',
+                $foreignTable,
+                $foreignField
+            )
+        );
+        $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
+            . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
+            . '`foreignTable`(`foreignField1`, `foreignField2`);';
+        $this->assertEquals(
+            $sql_excepted,
+            $sql
+        );
     }
 
     /**
