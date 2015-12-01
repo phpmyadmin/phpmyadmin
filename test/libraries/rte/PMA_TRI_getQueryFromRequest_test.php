@@ -71,6 +71,7 @@ class PMA_TRI_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['item_event']      = $event;
         $_REQUEST['item_table']      = $table;
         $_REQUEST['item_definition'] = $definition;
+        $GLOBALS['server'] = 1;
 
         $this->assertEquals($query, PMA_TRI_getQueryFromRequest());
         $this->assertEquals($num_err, count($errors));
