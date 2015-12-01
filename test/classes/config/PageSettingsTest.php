@@ -26,6 +26,7 @@ class PageSettingsTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
     }
 
     /**
@@ -56,7 +57,7 @@ class PageSettingsTest extends PHPUnit_Framework_TestCase
             '<div id="page_settings_modal">'
             . '<div class="page_settings">'
             . '<form method="post" '
-            . 'action="phpunit?db=&amp;table=&amp;server=1&amp;target=&amp;lang=en&amp;token=token" '
+            . 'action="phpunit?db=db&amp;table=&amp;server=1&amp;target=&amp;lang=en&amp;token=token" '
             . 'class="config-form disableAjax">',
             $html
         );

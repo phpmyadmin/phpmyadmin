@@ -204,7 +204,7 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
     public function testSetSortDetails()
     {
         $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerDatabasesController');
-        $method = $class->getMethod('_getHtmlForDatabases');
+        $method = $class->getMethod('_setSortDetails');
         $method->setAccessible(true);
         $propertySortBy = $class->getProperty('_sort_by');
         $propertySortBy->setAccessible(true);
