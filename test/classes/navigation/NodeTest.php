@@ -318,7 +318,7 @@ class NodeTest extends PHPUnit_Framework_TestCase
         // When only_db directive is present and it's a single db
         $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
         $this->assertEquals(
-            "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' )",
+            "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
             $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
@@ -327,7 +327,7 @@ class NodeTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['only_db'] = array('onlyDbOne', 'onlyDbTwo');
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'onlyDbOne' "
-            . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' )",
+            . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' ) ",
             $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
