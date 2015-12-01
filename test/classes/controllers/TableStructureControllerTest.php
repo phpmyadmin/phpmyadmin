@@ -101,9 +101,9 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\tableStructureController');
+        $container->factory('PMA\libraries\controllers\table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\tableStructureController'
+            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
         // No primary key in db.table2
@@ -149,9 +149,9 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\tableStructureController');
+        $container->factory('PMA\libraries\controllers\table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\tableStructureController'
+            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
         // With db.table, it has a primary key `column`
@@ -175,9 +175,9 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\tableStructureController');
+        $container->factory('PMA\libraries\controllers\table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\tableStructureController'
+            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
@@ -201,9 +201,9 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\tableStructureController');
+        $container->factory('PMA\libraries\controllers\table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\tableStructureController'
+            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
@@ -255,15 +255,15 @@ class TableStructureControllerTest extends PHPUnit_Framework_TestCase
             ->method('query')
             ->will($this->returnValue(true));
 
-        $class = new ReflectionClass('PMA\libraries\controllers\tableStructureController');
+        $class = new ReflectionClass('PMA\libraries\controllers\table\TableStructureController');
         $method = $class->getMethod('getDataForSubmitMult');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $dbi);
-        $container->factory('PMA\libraries\controllers\tableStructureController');
+        $container->factory('PMA\libraries\controllers\table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\tableStructureController'
+            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
