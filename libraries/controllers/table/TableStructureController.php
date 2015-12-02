@@ -933,8 +933,8 @@ class TableStructureController extends TableController
             $columns_with_index = $this->dbi
                 ->getTable($this->db, $this->table)
                 ->getColumnsWithIndex(
-                    PMA_Index::PRIMARY | PMA_Index::UNIQUE | PMA_Index::INDEX
-                    | PMA_Index::SPATIAL | PMA_Index::FULLTEXT
+                    Index::PRIMARY | Index::UNIQUE | Index::INDEX
+                    | Index::SPATIAL | Index::FULLTEXT
                 );
 
             $changedToBlob = array();
