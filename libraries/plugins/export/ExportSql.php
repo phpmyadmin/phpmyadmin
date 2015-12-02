@@ -2084,7 +2084,10 @@ class ExportSql extends ExportPlugin
             $dump .= $this->_exportComment(
                 __('Stand-in structure for view') . ' ' . $formatted_table_name
             )
-            . $this->_exportComment();
+                . $this->_exportComment(
+                __('(See below for the actual view)')
+            )
+                . $this->_exportComment();
             // export a stand-in definition to resolve view dependencies
             $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
