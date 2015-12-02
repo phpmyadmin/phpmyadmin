@@ -136,9 +136,15 @@ class IndexColumn
      */
     public function getNull($as_text = false)
     {
-        return $as_text
-            ? (!$this->_null || $this->_null == 'NO' ? __('No') : __('Yes'))
-            : $this->_null;
+        if ($as_text) {
+            if (!$this->_null || $this->_null == 'NO') {
+                return __('No');
+            } else {
+                return __('Yes');
+            }
+        } else {
+            return $this->_null;
+        }
     }
 
     /**
