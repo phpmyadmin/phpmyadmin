@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-02 10:46-0500\n"
-"PO-Revision-Date: 2015-11-18 13:41+0000\n"
+"PO-Revision-Date: 2015-12-02 22:06+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8002,8 +8002,8 @@ msgstr "Le base de datos %1$s ha essite create."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d base de datos ha essite delite con successo."
+msgstr[1] "%1$d bases de datos ha essite delite con successo."
 
 #: libraries/controllers/server/ServerDatabasesController.php:342
 #: libraries/import.lib.php:195
@@ -8037,6 +8037,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
+"Nota: habilitar ci le statisticas de base de datos poterea causar traffico "
+"intense inter le servitor web e le servitor de MySQL."
 
 #: libraries/controllers/server/ServerDatabasesController.php:572
 #: libraries/controllers/server/ServerDatabasesController.php:578
@@ -10125,16 +10127,18 @@ msgstr "Iste formato ha nulle optiones"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"Authentication sin contrasigno es prohibite per le configuration (vide "
+"AllowNoPassword)"
 
 #: libraries/plugins/AuthenticationPlugin.php:71
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr ""
+msgstr "Necun activitate intra %s secundas; pro favor authentica te de novo."
 
 #: libraries/plugins/AuthenticationPlugin.php:80
 #: libraries/plugins/AuthenticationPlugin.php:82
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "On non pote authenticar se in le servitor de MySQL"
 
 #: libraries/plugins/SchemaPlugin.php:71
 msgid "Show color"
@@ -10146,14 +10150,14 @@ msgstr "Monstra solo claves"
 
 #: libraries/plugins/auth/AuthenticationConfig.php:84
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Non pote connecter se: fixationes invalide."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:98
 #: libraries/plugins/auth/AuthenticationCookie.php:138
 #: libraries/plugins/auth/AuthenticationHttp.php:92
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Benvenite a %s"
 
 #: libraries/plugins/auth/AuthenticationConfig.php:114
 #, php-format
@@ -10172,11 +10176,11 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.php:162
 msgid "Retry to connect"
-msgstr ""
+msgstr "Reessaya a connecter te"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:150
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "Tu session ha expirate. Pro favor authentica te de novo."
 
 #: libraries/plugins/auth/AuthenticationCookie.php:174
 msgid "Log in"
