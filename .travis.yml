@@ -50,7 +50,7 @@ script:
 
 after_script:
   - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
-  - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage phpunit || true ; fi
+  - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
 
 matrix:
