@@ -124,25 +124,7 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
         $property->setAccessible(true);
         $property->setValue($ctrl, 'asc');
 
-        $is_superuser = true;
-        $cfg = array(
-            "AllowUserDropDatabase" => false,
-            "ActionLinksMode" => "both",
-        );
         $replication_types = array("master", "slave");
-        $replication_info = array(
-            "master" => array(
-                 "status" => true,
-                 "Ignore_DB" => array("DB" => "Ignore_DB"),
-                 "Do_DB" => array(""),
-            ),
-            "slave" => array(
-                 "status" => false,
-                 "Ignore_DB" => array("DB" => "Ignore_DB"),
-                 "Do_DB" => array(""),
-            ),
-        );
-        $url_query = "token=27ae04f0b003a84e5c2796182f361ff1";
 
         $html = $method->invoke($ctrl, $replication_types);
 
