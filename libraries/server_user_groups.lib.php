@@ -345,7 +345,7 @@ function PMA_editUserGroup($userGroup, $new = false)
         . " VALUES ";
     $first = true;
     foreach ($tabs as $tabGroupName => $tabGroup) {
-        foreach ($tabs[$tabGroupName] as $tab => $tabName) {
+        foreach ($tabGroup as $tab => $tabName) {
             if (! $first) {
                 $sql_query .= ", ";
             }
