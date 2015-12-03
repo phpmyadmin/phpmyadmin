@@ -87,6 +87,22 @@ which include phpMyAdmin together with a database and web server such as
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
 
 
+Installing using Composer
++++++++++++++++++++++++++
+
+You can install phpMyAdmin using `Composer <https://getcomposer.org/>`_,
+however it's currently not available in the default
+`Packagist <https://packagist.org/>`_ repository due to its technical
+limitations.
+
+The installation is possible by adding our own repository
+<https://www.phpmyadmin.net/packages.json>:
+
+.. code-block:: sh
+
+    composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json
+
+
 .. _quick_install:
 
 Quick Install
