@@ -152,7 +152,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         echo '</td>
         </tr>
         <tr>
-            <td>' . "\n";
+            <td>' , "\n";
         echo '<a href="'
             . PMA\libraries\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'],
@@ -166,13 +166,13 @@ class AuthenticationConfig extends AuthenticationPlugin
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             // offer a chance to login to other servers if the current one failed
             include_once './libraries/select_server.lib.php';
-            echo '<tr>' . "\n";
-            echo ' <td>' . "\n";
+            echo '<tr>' , "\n";
+            echo ' <td>' , "\n";
             echo PMA_selectServer(true, true);
-            echo ' </td>' . "\n";
-            echo '</tr>' . "\n";
+            echo ' </td>' , "\n";
+            echo '</tr>' , "\n";
         }
-        echo '</table>' . "\n";
+        echo '</table>' , "\n";
         if (!defined('TESTSUITE')) {
             exit;
         }

@@ -155,11 +155,11 @@ echo '<!-- Header section - Inclueds GIS type selector and input field for SRID 
 echo '<div id="gis_data_header">';
 echo '<select name="gis_data[gis_type]" class="gis_type">';
 foreach ($gis_types as $gis_type) {
-    echo '<option value="' . $gis_type . '"';
+    echo '<option value="' , $gis_type , '"';
     if ($geom_type == $gis_type) {
         echo ' selected="selected"';
     }
-    echo '>' . $gis_type . '</option>';
+    echo '>' , $gis_type , '</option>';
 }
 echo '</select>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;';
@@ -200,7 +200,7 @@ for ($a = 0; $a < $geom_count; $a++) {
             if ($type == $gis_type) {
                 echo ' selected="selected"';
             }
-            echo '>' . $gis_type . '</option>';
+            echo '>' , $gis_type , '</option>';
         }
         echo '</select>';
     } else {

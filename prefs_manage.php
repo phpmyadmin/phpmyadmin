@@ -265,21 +265,21 @@ echo '<h2>' . __('Import') . '</h2>'
     . '<div class="localStorage-empty">';
 Message::notice(__('You have no saved settings!'))->display();
 echo  '</div>'
-    . '</div>'
-    . '<div class="localStorage-unsupported">';
+    , '</div>'
+    , '<div class="localStorage-unsupported">';
 Message::notice(
     __('This feature is not supported by your web browser')
 )->display();
 echo '</div>'
-    . '</div>'
-    . '<input type="checkbox" id="import_merge" name="import_merge" />'
-    . '<label for="import_merge">'
-    . __('Merge with current configuration') . '</label>'
-    . '<br /><br />'
-    . '<input type="submit" name="submit_import" value="'
-    . __('Go') . '" />'
-    . '</form>'
-    . '</div>';
+    , '</div>'
+    , '<input type="checkbox" id="import_merge" name="import_merge" />'
+    , '<label for="import_merge">'
+    , __('Merge with current configuration') . '</label>'
+    , '<br /><br />'
+    , '<input type="submit" name="submit_import" value="'
+    , __('Go') . '" />'
+    , '</form>'
+    , '</div>';
 if (file_exists('setup/index.php')) {
             // show only if setup script is available, allows to disable this message
             // by simply removing setup directory

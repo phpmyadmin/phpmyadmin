@@ -115,11 +115,11 @@ foreach ($tables as $table) {
     echo '<th width="40">' . __('Null') . '</th>';
     echo '<th width="70">' . __('Default') . '</th>';
     if ($have_rel) {
-        echo '    <th>' . __('Links to') . '</th>' . "\n";
+        echo '    <th>' , __('Links to') , '</th>' , "\n";
     }
-    echo '    <th>' . __('Comments') . '</th>' . "\n";
+    echo '    <th>' , __('Comments') , '</th>' , "\n";
     if ($cfgRelation['mimework']) {
-        echo '    <th>MIME</th>' . "\n";
+        echo '    <th>MIME</th>' , "\n";
     }
     echo '</tr>';
     $odd_row = true;
@@ -152,7 +152,7 @@ foreach ($tables as $table) {
         echo htmlspecialchars($column_name);
 
         if (isset($pk_array[$row['Field']])) {
-            echo ' <em>(' . __('Primary') . ')</em>';
+            echo ' <em>(' , __('Primary') , ')</em>';
         }
         echo '</td>';
         echo '<td'

@@ -167,7 +167,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '</div>
     <br />
     <!-- Login form -->
-    <form method="post" action="index.php" name="login_form"' . $autocomplete .
+    <form method="post" action="index.php" name="login_form"' , $autocomplete ,
             ' class="disableAjax login hide js-show">
         <fieldset>
         <legend>';
@@ -210,7 +210,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 <select name="server" id="select_server"';
             if ($GLOBALS['cfg']['AllowArbitraryServer']) {
                 echo ' onchange="document.forms[\'login_form\'].'
-                    . 'elements[\'pma_servername\'].value = \'\'" ';
+                    , 'elements[\'pma_servername\'].value = \'\'" ';
             }
             echo '>';
 
@@ -236,7 +236,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         echo '</fieldset>
         <fieldset class="tblFooters">
-            <input value="' . __('Go') . '" type="submit" id="input_go" />';
+            <input value="' , __('Go') , '" type="submit" id="input_go" />';
         $_form_params = array();
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];

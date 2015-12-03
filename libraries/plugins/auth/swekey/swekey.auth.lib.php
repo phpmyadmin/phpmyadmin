@@ -226,7 +226,7 @@ function Swekey_Auth_error()
                 url = url.substr(0, url.indexOf("?"));
             }
             Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
-            var otp = Swekey_GetOtp(key, <?php echo '"' . $_SESSION['SWEKEY']['RND_TOKEN'] . '"';?>);
+            var otp = Swekey_GetOtp(key, <?php echo '"' , $_SESSION['SWEKEY']['RND_TOKEN'] , '"';?>);
             window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
         }
         </script>
