@@ -99,7 +99,7 @@ function Swekey_Auth_error()
     {
         var valids = "<?php
         foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
-                echo $key . ',';
+                echo $key , ',';
         }
         ?>";
         var connected_keys = Swekey_ListKeyIds().split(",");

@@ -91,7 +91,7 @@ function PMA_messagesShowHtml()
         }
     }
 
-    echo "\n" . '<script type="text/javascript">';
+    echo "\n" , '<script type="text/javascript">';
     foreach ($old_ids as $id) {
         echo "\nhiddenMessages.push('$id');";
     }

@@ -28,7 +28,7 @@ if (! PMA_isValid($_REQUEST['url'])
     //  external site.
     echo "<script type='text/javascript'>
             window.onload=function(){
-                window.location='" . PMA_escapeJsString($_REQUEST['url']) . "';
+                window.location='" , PMA_escapeJsString($_REQUEST['url']) , "';
             }
         </script>";
     // Display redirecting msg on screen.

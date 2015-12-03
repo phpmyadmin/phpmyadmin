@@ -1471,7 +1471,7 @@ function PMA_RTN_handleExecute()
             $response->addJSON('dialog', false);
             exit;
         } else {
-            echo $message->getDisplay() . $output;
+            echo $message->getDisplay() , $output;
             if ($message->isError()) {
                 // At least one query has failed, so shouldn't
                 // execute any more queries, so we quit.

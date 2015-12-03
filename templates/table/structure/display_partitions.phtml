@@ -10,12 +10,12 @@ use PMA\libraries\Util; ?>
         <?php else: ?>
             <p>
                 <?php echo __('Partitioned by:');?>
-                <code><?php echo $partitionMethod . '(' . $partitionExpression . ' )'; ?></code>
+                <code><?php echo $partitionMethod , '(' , $partitionExpression , ' )'; ?></code>
             </p>
             <?php if ($hasSubPartitions): ?>
                 <p>
                     <?php echo __('Sub partitioned by:'); ?>
-                    <code><?php echo $subPartitionMethod . '(' . $subPartitionExpression . ' )'; ?></code>
+                    <code><?php echo $subPartitionMethod , '(' , $subPartitionExpression , ' )'; ?></code>
                 <p>
             <?php endif; ?>
             <table>

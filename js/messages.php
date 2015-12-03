@@ -715,14 +715,14 @@ foreach ($js_messages as $name => $js_message) {
 }
 
 /* Calendar */
-echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage']
-    . 'b_calendar.png' . "';\n";
+echo "var themeCalendarImage = '" , $GLOBALS['pmaThemeImage']
+    , 'b_calendar.png' , "';\n";
 
 /* Image path */
-echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
+echo "var pmaThemeImage = '" , $GLOBALS['pmaThemeImage'] , "';\n";
 
-echo "var mysql_doc_template = '" . PMA\libraries\Util::getMySQLDocuURL('%s')
-    . "';\n";
+echo "var mysql_doc_template = '" , PMA\libraries\Util::getMySQLDocuURL('%s')
+    , "';\n";
 
 //Max input vars allowed by PHP.
 $maxInputVars = ini_get('max_input_vars');

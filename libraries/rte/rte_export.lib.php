@@ -37,9 +37,9 @@ function PMA_RTE_handleExport($export_data)
             $export_data = '<textarea cols="40" rows="15" style="width: 100%;">'
                . $export_data . '</textarea>';
             echo "<fieldset>\n"
-               . "<legend>$title</legend>\n"
-               . $export_data
-               . "</fieldset>\n";
+               , "<legend>$title</legend>\n"
+               , $export_data
+               , "</fieldset>\n";
         }
     } else {
         $_db = htmlspecialchars(PMA\libraries\Util::backquote($db));

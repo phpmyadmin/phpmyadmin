@@ -220,7 +220,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</select></div>';
         } else {
             echo '    <input type="hidden" name="server" value="'
-                . $GLOBALS['server'] . '" />';
+                , $GLOBALS['server'] , '" />';
         } // end if (server choice)
 
         // Add captcha input field if reCaptcha is enabled

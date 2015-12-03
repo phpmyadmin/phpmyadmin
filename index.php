@@ -201,7 +201,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             }
         } // end if
         echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
-        echo '        <form method="post" action="index.php">' . "\n"
+        echo '        <form method="post" action="index.php">' , "\n"
            . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . PMA\libraries\Util::getImage('s_asci.png')
@@ -307,10 +307,10 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     );
 
     echo '    <li id="li_select_mysql_charset">';
-    echo '        ' . __('Server charset:') . ' '
+    echo '        ' , __('Server charset:') , ' '
        . '        <span lang="en" dir="ltr">';
-    echo '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
-    echo '           (' . $mysql_charset_map['utf-8'] . ')'
+    echo '           ' , $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
+    echo '           (' , $mysql_charset_map['utf-8'] , ')'
        . '        </span>'
        . '    </li>'
        . '  </ul>'

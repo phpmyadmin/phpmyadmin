@@ -86,14 +86,14 @@
                 <input type="hidden" name="dateTimeCols" value="<?php $date_time_types = array('date', 'datetime', 'timestamp');
                     foreach ($keys as $idx => $key) {
                         if (in_array($fields_meta[$idx]->type, $date_time_types)) {
-                            echo $idx . ' ';
+                            echo $idx , ' ';
                         }
                     }?>"
                 />
                 <input type="hidden" name="numericCols" value="<?php
                     foreach ($keys as $idx => $key) {
                         if (in_array($fields_meta[$idx]->type, $numeric_types)) {
-                            echo $idx . ' ';
+                            echo $idx , ' ';
                         }
                     }?>"
                 />

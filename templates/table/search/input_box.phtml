@@ -5,7 +5,7 @@ if ($_foreigners
     && PMA_searchColumnInForeigners($_foreigners, $column_name)): ?>
     <?php if (is_array($foreignData['disp_row'])): ?>
         <select name="criteriaValues[<?php echo $column_index; ?>]"
-                id="<?php echo $column_id . $column_index; ?>">
+                id="<?php echo $column_id , $column_index; ?>">
             <?php echo PMA_foreignDropdown(
                 $foreignData['disp_row'], $foreignData['foreign_field'],
                 $foreignData['foreign_display'], '', $foreignMaxLimit
@@ -13,7 +13,7 @@ if ($_foreigners
         </select>
     <?php elseif ($foreignData['foreign_link'] == true): ?>
         <input type="text"
-               id="<?php echo $column_id . $column_index; ?>"
+               id="<?php echo $column_id , $column_index; ?>"
                name="criteriaValues[<?php echo $column_index; ?>]"
                id="field_<?php echo md5($column_name); ?>[<?php echo $column_index; ?>]"
                class="textfield"
@@ -79,10 +79,10 @@ if ($_foreigners
         || (strncasecmp($column_type, 'set', 3) && $in_zoom_search_edit)
     ): ?>
         <select name="criteriaValues[<?php echo $column_index; ?>]"
-                id="<?php echo $column_id . $column_index; ?>">
+                id="<?php echo $column_id , $column_index; ?>">
     <?php else: ?>
         <select name="criteriaValues[<?php echo $column_index; ?>]"
-                id="<?php echo $column_id . $column_index; ?>"
+                id="<?php echo $column_id , $column_index; ?>"
                 multiple="multiple"
                 size="<?php echo min(3, $cnt_value); ?>">
     <?php endif; ?>
@@ -125,7 +125,7 @@ if ($_foreigners
            name="criteriaValues[<?php echo $column_index; ?>]"
            size="40"
            class="<?php echo $the_class; ?>"
-           id="<?php echo $column_id .  $column_index; ?>"
+           id="<?php echo $column_id , $column_index; ?>"
            <?php if (isset($criteriaValues[$column_index])
                && is_string($criteriaValues[$column_index])
            ): ?>
