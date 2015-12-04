@@ -1702,16 +1702,16 @@ function PMA_displayTrackedTables(
             <?php echo $delete; ?></a>
         <?php
         echo '</td>'
-            . '<td>'
-            . '<a href="' . $tbl_link . '">' . $versions . '</a>'
-            . '&nbsp;&nbsp;'
-            . '<a href="' . $tbl_link . '&amp;report=true&amp;version='
-            . $version_data['version'] . '">' . $report . '</a>'
-            . '&nbsp;&nbsp;'
-            . '<a href="' . $tbl_link . '&amp;snapshot=true&amp;version='
-            . $version_data['version'] . '">' . $structure . '</a>'
-            . '</td>'
-            . '</tr>';
+            , '<td>'
+            , '<a href="' , $tbl_link , '">' , $versions , '</a>'
+            , '&nbsp;&nbsp;'
+            , '<a href="' , $tbl_link , '&amp;report=true&amp;version='
+            , $version_data['version'] , '">' , $report , '</a>'
+            , '&nbsp;&nbsp;'
+            , '<a href="' . $tbl_link , '&amp;snapshot=true&amp;version='
+            , $version_data['version'] , '">' , $structure , '</a>'
+            , '</td>'
+            , '</tr>';
         if ($style == 'even') {
             $style = 'odd';
         } else {

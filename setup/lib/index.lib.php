@@ -82,9 +82,9 @@ function PMA_messagesShowHtml()
     $old_ids = array();
     foreach ($_SESSION['messages'] as $type => $messages) {
         foreach ($messages as $id => $msg) {
-            echo '<div class="' . $type . '" id="' . $id . '">'
-                . '<h4>' . $msg['title'] . '</h4>'
-                . $msg['message'] . '</div>';
+            echo '<div class="' , $type , '" id="' , $id , '">'
+                , '<h4>' , $msg['title'] , '</h4>'
+                , $msg['message'] , '</div>';
             if (!$msg['fresh'] && $type != 'error') {
                 $old_ids[] = $id;
             }

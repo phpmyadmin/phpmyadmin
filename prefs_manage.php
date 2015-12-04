@@ -238,31 +238,31 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
     <div id="main_pane_left">
         <div class="group">
 <?php
-echo '<h2>' . __('Import') . '</h2>'
-    . '<form class="group-cnt prefs-form disableAjax" name="prefs_import"'
-    . ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
-    . Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
-    . PMA_URL_getHiddenInputs()
-    . '<input type="hidden" name="json" value="" />'
-    . '<input type="radio" id="import_text_file" name="import_type"'
-    . ' value="text_file" checked="checked" />'
-    . '<label for="import_text_file">' . __('Import from file') . '</label>'
-    . '<div id="opts_import_text_file" class="prefsmanage_opts">'
-    . '<label for="input_import_file">' . __('Browse your computer:') . '</label>'
-    . '<input type="file" name="import_file" id="input_import_file" />'
-    . '</div>'
-    . '<input type="radio" id="import_local_storage" name="import_type"'
-    . ' value="local_storage" disabled="disabled" />'
-    . '<label for="import_local_storage">'
-    . __('Import from browser\'s storage') . '</label>'
-    . '<div id="opts_import_local_storage" class="prefsmanage_opts disabled">'
-    . '<div class="localStorage-supported">'
-    . __('Settings will be imported from your browser\'s local storage.')
-    . '<br />'
-    . '<div class="localStorage-exists">'
-    . __('Saved on: @DATE@')
-    . '</div>'
-    . '<div class="localStorage-empty">';
+echo '<h2>' , __('Import') , '</h2>'
+    , '<form class="group-cnt prefs-form disableAjax" name="prefs_import"'
+    , ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
+    , Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
+    , PMA_URL_getHiddenInputs()
+    , '<input type="hidden" name="json" value="" />'
+    , '<input type="radio" id="import_text_file" name="import_type"'
+    , ' value="text_file" checked="checked" />'
+    , '<label for="import_text_file">' . __('Import from file') . '</label>'
+    , '<div id="opts_import_text_file" class="prefsmanage_opts">'
+    , '<label for="input_import_file">' , __('Browse your computer:') , '</label>'
+    , '<input type="file" name="import_file" id="input_import_file" />'
+    , '</div>'
+    , '<input type="radio" id="import_local_storage" name="import_type"'
+    , ' value="local_storage" disabled="disabled" />'
+    , '<label for="import_local_storage">'
+    , __('Import from browser\'s storage') , '</label>'
+    , '<div id="opts_import_local_storage" class="prefsmanage_opts disabled">'
+    , '<div class="localStorage-supported">'
+    , __('Settings will be imported from your browser\'s local storage.')
+    , '<br />'
+    , '<div class="localStorage-exists">'
+    , __('Saved on: @DATE@')
+    , '</div>'
+    , '<div class="localStorage-empty">';
 Message::notice(__('You have no saved settings!'))->display();
 echo  '</div>'
     , '</div>'

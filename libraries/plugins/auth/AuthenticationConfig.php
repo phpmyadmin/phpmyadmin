@@ -154,15 +154,15 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>' , "\n";
         echo '<a href="'
-            . PMA\libraries\Util::getScriptNameForOption(
+            , PMA\libraries\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'],
                 'server'
             )
-            . PMA_URL_getCommon(array()) . '" class="button disableAjax">'
-            . __('Retry to connect')
-            . '</a>' . "\n";
+            , PMA_URL_getCommon(array()) , '" class="button disableAjax">'
+            , __('Retry to connect')
+            , '</a>' , "\n";
         echo '</td>
-        </tr>' . "\n";
+        </tr>' , "\n";
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             // offer a chance to login to other servers if the current one failed
             include_once './libraries/select_server.lib.php';

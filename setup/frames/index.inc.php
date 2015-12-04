@@ -95,7 +95,7 @@ if (!$is_https) {
 }
 
 echo '<form id="select_lang" method="post" action="'
-    . htmlspecialchars($_SERVER['REQUEST_URI']) . '">';
+    , htmlspecialchars($_SERVER['REQUEST_URI']) , '">';
 echo PMA_URL_getHiddenInputs();
 echo '<bdo lang="en" dir="ltr"><label for="lang">';
 echo __('Language') . (__('Language') != 'Language' ? ' - Language' : '');
@@ -134,7 +134,7 @@ default:
     break;
 }
 
-echo '<h2>' . __('Overview') . '</h2>';
+echo '<h2>' , __('Overview') , '</h2>';
 
 // message handling
 PMA_messagesEnd();
@@ -178,13 +178,13 @@ if ($cf->getServerCount() > 0) {
         echo '<td>' . htmlspecialchars($cf->getServerDSN($id)) . '</td>';
         echo '<td style="white-space: nowrap">';
         echo '<small>';
-        echo '<a href="' . PMA_URL_getCommon() . $separator . 'page=servers'
-            . $separator . 'mode=edit' . $separator . 'id=' . $id . '">'
-            . __('Edit') . '</a>';
+        echo '<a href="' , PMA_URL_getCommon() , $separator , 'page=servers'
+            , $separator , 'mode=edit' , $separator , 'id=' , $id , '">'
+            , __('Edit') , '</a>';
         echo ' | ';
-        echo '<a href="' . PMA_URL_getCommon() . $separator . 'page=servers'
-            . $separator . 'mode=remove' . $separator . 'id=' . $id . '">'
-            . __('Delete') . '</a>';
+        echo '<a href="' , PMA_URL_getCommon() , $separator , 'page=servers'
+            , $separator , 'mode=remove' , $separator , 'id=' , $id , '">'
+            , __('Delete') , '</a>';
         echo '</small>';
         echo '</td>';
         echo '</tr>';
@@ -194,7 +194,7 @@ if ($cf->getServerCount() > 0) {
     echo '<table width="100%">';
     echo '<tr>';
     echo '<td>';
-    echo '<i>' . __('There are no configured servers') . '</i>';
+    echo '<i>' , __('There are no configured servers') , '</i>';
     echo '</td>';
     echo '</tr>';
     echo '</table>';
@@ -213,7 +213,7 @@ echo PMA_displayFormBottom();
 
 echo '</fieldset>';
 
-echo '<fieldset class="simple"><legend>' . __('Configuration file') . '</legend>';
+echo '<fieldset class="simple"><legend>' , __('Configuration file') , '</legend>';
 
 //
 // Display config file settings and load/save form
@@ -309,9 +309,9 @@ echo PMA_displayFormBottom();
 
 echo '</fieldset>';
 echo '<div id="footer">';
-echo '<a href="https://www.phpmyadmin.net/">' . __('phpMyAdmin homepage') . '</a>';
+echo '<a href="https://www.phpmyadmin.net/">' , __('phpMyAdmin homepage') , '</a>';
 echo '<a href="https://www.phpmyadmin.net/donate/">'
-    .  __('Donate') . '</a>';
-echo '<a href="' .  PMA_URL_getCommon() . $separator . 'version_check=1">'
-    . __('Check for latest version') . '</a>';
+    ,  __('Donate') , '</a>';
+echo '<a href="' ,  PMA_URL_getCommon() , $separator , 'version_check=1">'
+    , __('Check for latest version') , '</a>';
 echo '</div>';

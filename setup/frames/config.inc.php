@@ -22,11 +22,11 @@ $config_readable = false;
 $config_writable = false;
 $config_exists = false;
 PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
-echo '<h2>' . __('Configuration file') . '</h2>';
+echo '<h2>' , __('Configuration file') , '</h2>';
 
 echo PMA_displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
-    . htmlspecialchars(PMA_ifSetOr($_GET['eol'], 'unix')) . '" />';
+    , htmlspecialchars(PMA_ifSetOr($_GET['eol'], 'unix')) , '" />';
 echo PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
 echo '<tr>';
 echo '<td>';

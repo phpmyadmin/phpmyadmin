@@ -125,12 +125,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '" target="_blank" class="logo">';
         $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
         if (@file_exists($logo_image)) {
-            echo '<img src="' . $logo_image
-                . '" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />';
+            echo '<img src="' , $logo_image
+                , '" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />';
         } else {
             echo '<img name="imLogo" id="imLogo" src="'
-                . $GLOBALS['pmaThemeImage'] . 'pma_logo.png' . '" '
-                . 'border="0" width="88" height="31" alt="phpMyAdmin" />';
+                , $GLOBALS['pmaThemeImage'] , 'pma_logo.png' , '" '
+                , 'border="0" width="88" height="31" alt="phpMyAdmin" />';
         }
         echo '</a>
        <h1>';
@@ -194,15 +194,15 @@ class AuthenticationCookie extends AuthenticationPlugin
             </div>';
         }
             echo '<div class="item">
-                <label for="input_username">' . __('Username:') . '</label>
+                <label for="input_username">' , __('Username:') , '</label>
                 <input type="text" name="pma_username" id="input_username" '
-                . 'value="' . htmlspecialchars($default_user) . '" size="24"'
-                . ' class="textfield"/>
+                , 'value="' , htmlspecialchars($default_user) , '" size="24"'
+                , ' class="textfield"/>
             </div>
             <div class="item">
-                <label for="input_password">' . __('Password:') . '</label>
+                <label for="input_password">' , __('Password:') , '</label>
                 <input type="password" name="pma_password" id="input_password"'
-                . ' value="" size="24" class="textfield" />
+                , ' value="" size="24" class="textfield" />
             </div>';
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             echo '<div class="item">
@@ -231,7 +231,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
                 . $GLOBALS['lang'] . '" async defer></script>';
             echo '<div class="g-recaptcha" data-sitekey="'
-                . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '"></div>';
+                , $GLOBALS['cfg']['CaptchaLoginPublicKey'] , '"></div>';
         }
 
         echo '</fieldset>

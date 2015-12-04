@@ -283,12 +283,12 @@ function PMA_changePassUrlParamsAndSubmitQuery(
  */
 function PMA_changePassDisplayPage($message, $sql_query)
 {
-    echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
+    echo '<h1>' , __('Change password') , '</h1>' , "\n\n";
     echo PMA\libraries\Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php' . PMA_URL_getCommon()
-        . ' target="_parent">' . "\n"
-        . '<strong>' . __('Back') . '</strong></a>';
+    echo '<a href="index.php' , PMA_URL_getCommon()
+        , ' target="_parent">' , "\n"
+        , '<strong>' , __('Back') , '</strong></a>';
     exit;
 }

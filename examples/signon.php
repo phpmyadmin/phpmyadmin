@@ -37,7 +37,7 @@ if (isset($_POST['user'])) {
 } else {
     /* Show simple form */
     header('Content-Type: text/html; charset=utf-8');
-    echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
+    echo '<?xml version="1.0" encoding="utf-8"?>' , "\n";
     ?>
     <!DOCTYPE HTML>
     <html lang="en" dir="ltr">

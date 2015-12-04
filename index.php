@@ -136,7 +136,7 @@ if ($server > 0) {
                 : $GLOBALS['cfg']['Server']['host']);
 }
 
-echo '<div id="maincontainer">' . "\n";
+echo '<div id="maincontainer">' , "\n";
 // Anchor for favorite tables synchronization.
 echo RecentFavoriteTable::getInstance('favorite')->getHtmlSyncFavoriteTables();
 echo '<div id="main_pane_left">';
@@ -144,7 +144,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
 ) {
     if ($cfg['DBG']['demo']) {
         echo '<div class="group">';
-        echo '<h2>' . __('phpMyAdmin Demo Server') . '</h2>';
+        echo '<h2>' , __('phpMyAdmin Demo Server') , '</h2>';
         echo '<p style="margin: 0.5em 1em 0.5em 1em">';
         printf(
             __(
@@ -158,7 +158,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '</div>';
     }
     echo '<div class="group">';
-    echo '<h2>' . __('General settings') . '</h2>';
+    echo '<h2>' , __('General settings') , '</h2>';
     echo '<ul>';
 
     /**
@@ -227,7 +227,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
 }
 
 echo '<div class="group">';
-echo '<h2>' . __('Appearance settings') . '</h2>';
+echo '<h2>' , __('Appearance settings') , '</h2>';
 echo '  <ul>';
 
 // Displays language selection combo
@@ -281,8 +281,8 @@ echo '<div id="main_pane_right">';
 if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
 
     echo '<div class="group">';
-    echo '<h2>' . __('Database server') . '</h2>';
-    echo '<ul>' . "\n";
+    echo '<h2>' , __('Database server') , '</h2>';
+    echo '<ul>' , "\n";
     PMA_printListItem(
         __('Server:') . ' ' . $server_info,
         'li_server_info'
@@ -319,7 +319,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
 
 if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
     echo '<div class="group">';
-    echo '<h2>' . __('Web server') . '</h2>';
+    echo '<h2>' , __('Web server') , '</h2>';
     echo '<ul>';
     if ($GLOBALS['cfg']['ShowServerInfo']) {
         PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');

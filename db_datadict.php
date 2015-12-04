@@ -69,9 +69,9 @@ $count  = 0;
 foreach ($tables as $table) {
     $comments = PMA_getComments($db, $table);
 
-    echo '<div>' . "\n";
+    echo '<div>' , "\n";
 
-    echo '<h2>' . htmlspecialchars($table) . '</h2>' . "\n";
+    echo '<h2>' , htmlspecialchars($table) , '</h2>' , "\n";
 
     /**
      * Gets table information
@@ -179,13 +179,13 @@ foreach ($tables as $table) {
                     . $foreigner['foreign_field']
                 );
             }
-            echo '</td>' . "\n";
+            echo '</td>' , "\n";
         }
         echo '    <td>';
         if (isset($comments[$column_name])) {
             echo htmlspecialchars($comments[$column_name]);
         }
-        echo '</td>' . "\n";
+        echo '</td>' , "\n";
         if ($cfgRelation['mimework']) {
             $mime_map = PMA_getMIME($db, $table, true);
 
@@ -195,7 +195,7 @@ foreach ($tables as $table) {
                     str_replace('_', '/', $mime_map[$column_name]['mimetype'])
                 );
             }
-            echo '</td>' . "\n";
+            echo '</td>' , "\n";
         }
         echo '</tr>';
     } // end foreach

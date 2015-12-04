@@ -42,7 +42,7 @@ if ($mode == 'edit' && $server_exists) {
     $id = 0;
 }
 if (isset($page_title)) {
-    echo '<h2>' . $page_title . '</h2>';
+    echo '<h2>' , $page_title . '</h2>';
 }
 $form_display = new FormDisplay($cf);
 foreach ($forms['Servers'] as $form_name => $form) {

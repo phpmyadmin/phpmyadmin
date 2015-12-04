@@ -24,7 +24,7 @@ $types = PMA_getAvailableMIMEtypes();
 foreach ($types['mimetype'] as $key => $mimetype) {
 
     if (isset($types['empty_mimetype'][$mimetype])) {
-        echo '<i>' . $mimetype . '</i><br />';
+        echo '<i>' , $mimetype , '</i><br />';
     } else {
         echo $mimetype , '<br />';
     }

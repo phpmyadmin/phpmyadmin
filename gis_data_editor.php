@@ -109,7 +109,7 @@ ob_start();
 
 echo '<form id="gis_data_editor_form" action="gis_data_editor.php" method="post">';
 echo '<input type="hidden" id="pmaThemeImage"'
-    . ' value="' . $GLOBALS['pmaThemeImage'] . '" />';
+    , ' value="' , $GLOBALS['pmaThemeImage'] , '" />';
 echo '<div id="gis_data_editor">';
 
 echo '<h3>';
@@ -131,18 +131,18 @@ echo PMA_URL_getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" style="width:450px;height:300px;'
-    . ($srid != 0 ? 'display:none;' : '') . '">';
+    , ($srid != 0 ? 'display:none;' : '') , '">';
 echo $visualization;
 echo '</div>';
 
 echo '<div id="openlayersmap" style="width:450px;height:300px;'
-    . ($srid == 0 ? 'display:none;' : '') . '">';
+    , ($srid == 0 ? 'display:none;' : '') , '">';
 echo '</div>';
 
 echo '<div class="choice" style="float:right;clear:right;">';
 echo '<input type="checkbox" id="choice" value="useBaseLayer"'
-    . ($srid != 0 ? ' checked="checked"' : '') . '/>';
-echo '<label for="choice">' .  __("Use OpenStreetMaps as Base Layer") . '</label>';
+    , ($srid != 0 ? ' checked="checked"' : '') , '/>';
+echo '<label for="choice">' ,  __("Use OpenStreetMaps as Base Layer") , '</label>';
 echo '</div>';
 
 echo '<script language="javascript" type="text/javascript">';
@@ -165,7 +165,7 @@ echo '</select>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 /* l10n: Spatial Reference System Identifier */
 echo '<label for="srid">' .  __('SRID:') . '</label>';
-echo '<input name="gis_data[srid]" type="text" value="' . $srid . '" />';
+echo '<input name="gis_data[srid]" type="text" value="' , $srid , '" />';
 echo '</div>';
 echo '<!-- End of header section -->';
 
@@ -211,11 +211,11 @@ for ($a = 0; $a < $geom_count; $a++) {
         echo '<br/>';
         echo __('Point:');
         echo '<label for="x">' . __("X") . '</label>';
-        echo '<input name="gis_data[' . $a . '][POINT][x]" type="text"'
-            . ' value="' . escape($gis_data[$a]['POINT']['x']) . '" />';
-        echo '<label for="y">' . __("Y") . '</label>';
-        echo '<input name="gis_data[' . $a . '][POINT][y]" type="text"'
-            . ' value="' . escape($gis_data[$a]['POINT']['y']) . '" />';
+        echo '<input name="gis_data[' , $a , '][POINT][x]" type="text"'
+            , ' value="' , escape($gis_data[$a]['POINT']['x']) , '" />';
+        echo '<label for="y">' , __("Y") , '</label>';
+        echo '<input name="gis_data[' , $a , '][POINT][y]" type="text"'
+            , ' value="' , escape($gis_data[$a]['POINT']['y']) , '" />';
 
     } elseif ($type == 'MULTIPOINT' || $type == 'LINESTRING') {
         $no_of_points = isset($gis_data[$a][$type]['no_of_points'])
@@ -399,16 +399,16 @@ for ($a = 0; $a < $geom_count; $a++) {
 if ($geom_type == 'GEOMETRYCOLLECTION') {
     echo '<br/><br/>';
     echo '<input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]"'
-        . 'class="add addGeom" value="' . __("Add geometry") . '" />';
+        , 'class="add addGeom" value="' , __("Add geometry") , '" />';
 }
 echo '</div>';
 echo '<!-- End of data section -->';
 
 echo '<br/>';
-echo '<input type="submit" name="gis_data[save]" value="' . __('Go') . '" />';
+echo '<input type="submit" name="gis_data[save]" value="' , __('Go') , '" />';
 
 echo '<div id="gis_data_output">';
-echo '<h3>' . __('Output') . '</h3>';
+echo '<h3>' , __('Output') , '</h3>';
 echo '<p>';
 echo __(
     'Choose "GeomFromText" from the "Function" column and paste the'
