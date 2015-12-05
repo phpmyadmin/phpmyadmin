@@ -39,8 +39,8 @@ echo '</tr>';
 echo '<tr>';
 echo '<td class="lastrow" style="text-align: left">';
 echo '<input type="submit" name="submit_download" value="'
-    . __('Download') . '" class="green" />';
-echo '<input type="submit" name="submit_save" value="' . __('Save') . '"';
+    , __('Download') , '" class="green" />';
+echo '<input type="submit" name="submit_save" value="' , __('Save') , '"';
 if (!$config_writable) {
     echo ' disabled="disabled"';
 }

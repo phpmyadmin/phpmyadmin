@@ -203,7 +203,7 @@ if ($cf->getServerCount() > 0) {
 echo '<table width="100%">';
 echo '<tr>';
 echo '<td class="lastrow" style="text-align: left">';
-echo '<input type="submit" name="submit" value="' . __('New server') . '" />';
+echo '<input type="submit" name="submit" value="' , __('New server') , '" />';
 echo '</td>';
 echo '</tr>';
 echo '</table>';
@@ -276,31 +276,31 @@ echo PMA_displayInput(
 
 echo '<tr>';
 echo '<td colspan="2" class="lastrow" style="text-align: left">';
-echo '<input type="submit" name="submit_display" value="' . __('Display') . '" />';
-echo '<input type="submit" name="submit_download" value="' . __('Download') . '" />';
+echo '<input type="submit" name="submit_display" value="' , __('Display') , '" />';
+echo '<input type="submit" name="submit_download" value="' , __('Download') , '" />';
 echo '&nbsp; &nbsp;';
 
-echo '<input type="submit" name="submit_save" value="' . __('Save') . '"';
+echo '<input type="submit" name="submit_save" value="' , __('Save') , '"';
 if (!$config_writable) {
     echo ' disabled="disabled"';
 }
 echo '/>';
 
-echo '<input type="submit" name="submit_load" value="' . __('Load') . '"';
+echo '<input type="submit" name="submit_load" value="' , __('Load') , '"';
 if (!$config_exists) {
     echo ' disabled="disabled"';
 }
 echo '/>';
 
-echo '<input type="submit" name="submit_delete" value="' . __('Delete') . '"';
+echo '<input type="submit" name="submit_delete" value="' , __('Delete') , '"';
 if (!$config_exists || !$config_writable) {
     echo ' disabled="disabled"';
 }
 echo '/>';
 
 echo '&nbsp; &nbsp;';
-echo '<input type="submit" name="submit_clear" value="' . __('Clear')
-    . '" class="red" />';
+echo '<input type="submit" name="submit_clear" value="' , __('Clear')
+    , '" class="red" />';
 echo '</td>';
 echo '</tr>';
 echo '</table>';

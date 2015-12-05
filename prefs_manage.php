@@ -125,22 +125,22 @@ if (isset($_POST['submit_export'])
             echo '<form action="prefs_manage.php" method="post">';
             echo PMA_URL_getHiddenInputs() . "\n";
             echo '<input type="hidden" name="json" value="'
-                . htmlspecialchars($json) . '" />';
+                , htmlspecialchars($json) , '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
             if (! empty($_POST['import_merge'])) {
                 echo '<input type="hidden" name="import_merge" value="1" />';
             }
             if ($return_url) {
                 echo '<input type="hidden" name="return_url" value="'
-                    . htmlspecialchars($return_url) . '" />';
+                    , htmlspecialchars($return_url) , '" />';
             }
             echo '<p>';
             echo __('Do you want to import remaining settings?');
             echo '</p>';
             echo '<input type="submit" name="submit_import" value="'
-                . __('Yes') . '" />';
+                , __('Yes') , '" />';
             echo '<input type="submit" name="submit_ignore" value="'
-                . __('No') . '" />';
+                , __('No') , '" />';
             echo '</form>';
             exit;
         }
@@ -354,9 +354,9 @@ if (file_exists('setup/index.php')) {
                 </div>
                 <br />
                 <?php
-                echo '<input type="submit" name="submit_export" value="' . __(
+                echo '<input type="submit" name="submit_export" value="' , __(
                     'Go'
-                ) . '" />';
+                ) , '" />';
                 ?>
             </form>
         </div>
