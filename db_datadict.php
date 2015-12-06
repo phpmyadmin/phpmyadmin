@@ -54,8 +54,8 @@ if ($cfgRelation['commwork']) {
      * Displays DB comment
      */
     if ($comment) {
-        echo '<p>' . __('Database comment')
-            . '<br /><i>' . htmlspecialchars($comment) . '</i></p>';
+        echo '<p>' , __('Database comment')
+            , '<br /><i>' , htmlspecialchars($comment) , '</i></p>';
     } // end if
 }
 
@@ -110,10 +110,10 @@ foreach ($tables as $table) {
      */
 
     echo '<table width="100%" class="print">';
-    echo '<tr><th width="50">' . __('Column') . '</th>';
-    echo '<th width="80">' . __('Type') . '</th>';
-    echo '<th width="40">' . __('Null') . '</th>';
-    echo '<th width="70">' . __('Default') . '</th>';
+    echo '<tr><th width="50">' , __('Column') , '</th>';
+    echo '<th width="80">' , __('Type') , '</th>';
+    echo '<th width="40">' , __('Null') , '</th>';
+    echo '<th width="70">' , __('Default') , '</th>';
     if ($have_rel) {
         echo '    <th>' , __('Links to') , '</th>' , "\n";
     }
@@ -156,10 +156,10 @@ foreach ($tables as $table) {
         }
         echo '</td>';
         echo '<td'
-            . PMA\libraries\Util::getClassForType(
+            , PMA\libraries\Util::getClassForType(
                 $extracted_columnspec['type']
             )
-            . ' lang="en" dir="ltr">' . $type . '</td>';
+            , ' lang="en" dir="ltr">' , $type , '</td>';
 
         echo '<td>';
         echo (($row['Null'] == 'NO') ? __('No') : __('Yes'));

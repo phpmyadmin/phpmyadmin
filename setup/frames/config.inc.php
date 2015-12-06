@@ -31,7 +31,7 @@ echo PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple
 echo '<tr>';
 echo '<td>';
 echo '<textarea cols="50" rows="20" name="textconfig" '
-    . 'id="textconfig" spellcheck="false">';
+    , 'id="textconfig" spellcheck="false">';
 echo htmlspecialchars(ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']));
 echo '</textarea>';
 echo '</td>';

@@ -108,8 +108,8 @@ foreach ($all_languages as $each_lang_key => $each_lang) {
     $lang_name = PMA_languageName($each_lang);
     //Is current one active?
     $selected = ($GLOBALS['lang'] == $each_lang_key) ? ' selected="selected"' : '';
-    echo '<option value="' . $each_lang_key . '"' . $selected . '>' . $lang_name
-        . '</option>' . "\n";
+    echo '<option value="' , $each_lang_key , '"' , $selected , '>' , $lang_name
+        , '</option>' , "\n";
 }
 
 echo '</select>';
@@ -170,12 +170,12 @@ if ($cf->getServerCount() > 0) {
 
     foreach ($cf->getServers() as $id => $server) {
         echo '<tr>';
-        echo '<td>' . $id  . '</td>';
-        echo '<td>' . htmlspecialchars($cf->getServerName($id)) . '</td>';
+        echo '<td>' , $id  , '</td>';
+        echo '<td>' , htmlspecialchars($cf->getServerName($id)) , '</td>';
         echo '<td>'
-            . htmlspecialchars($cf->getValue("Servers/$id/auth_type"))
-            .  '</td>';
-        echo '<td>' . htmlspecialchars($cf->getServerDSN($id)) . '</td>';
+            , htmlspecialchars($cf->getValue("Servers/$id/auth_type"))
+            ,  '</td>';
+        echo '<td>' , htmlspecialchars($cf->getServerDSN($id)) , '</td>';
         echo '<td style="white-space: nowrap">';
         echo '<small>';
         echo '<a href="' , PMA_URL_getCommon() , $separator , 'page=servers'

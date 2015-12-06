@@ -229,7 +229,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         ) {
             // If enabled show captcha to the user on the login screen.
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
-                . $GLOBALS['lang'] . '" async defer></script>';
+                , $GLOBALS['lang'] , '" async defer></script>';
             echo '<div class="g-recaptcha" data-sitekey="'
                 , $GLOBALS['cfg']['CaptchaLoginPublicKey'] , '"></div>';
         }

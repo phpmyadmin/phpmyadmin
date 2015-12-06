@@ -194,9 +194,9 @@ for ($a = 0; $a < $geom_count; $a++) {
         } else {
             $type = $gis_types[0];
         }
-        echo '<select name="gis_data[' . $a . '][gis_type]" class="gis_type">';
+        echo '<select name="gis_data[' , $a , '][gis_type]" class="gis_type">';
         foreach (array_slice($gis_types, 0, 6) as $gis_type) {
-            echo '<option value="' . $gis_type . '"';
+            echo '<option value="' , $gis_type , '"';
             if ($type == $gis_type) {
                 echo ' selected="selected"';
             }
@@ -237,11 +237,11 @@ for ($a = 0; $a < $geom_count; $a++) {
             echo '<br/>';
             printf(__('Point %d'), $i + 1);
             echo ': ';
-            echo '<label for="x">' .  __("X") . '</label>';
+            echo '<label for="x">' ,  __("X") , '</label>';
             echo '<input type="text"'
                 , ' name="gis_data[' , $a , '][' , $type , '][' , $i , '][x]"'
                 , ' value="' , escape($gis_data[$a][$type][$i]['x']) , '" />';
-            echo '<label for="y">' . __("Y") . '</label>';
+            echo '<label for="y">' , __("Y") , '</label>';
             echo '<input type="text"'
                 , ' name="gis_data[' , $a , '][' , $type , '][' , $i , '][y]"'
                 , ' value="' , escape($gis_data[$a][$type][$i]['y']) , '" />';
@@ -293,7 +293,7 @@ for ($a = 0; $a < $geom_count; $a++) {
                 echo('<br/>');
                 printf(__('Point %d'), $j + 1);
                 echo ': ';
-                echo '<label for="x">' .  __("X") . '</label>';
+                echo '<label for="x">' ,  __("X") , '</label>';
                 echo '<input type="text" name="gis_data[' , $a , '][' , $type . ']['
                     , $i , '][' , $j , '][x]" value="'
                     , escape($gis_data[$a][$type][$i][$j]['x']) , '" />';
@@ -366,7 +366,7 @@ for ($a = 0; $a < $geom_count; $a++) {
                     echo '<br/>';
                     printf(__('Point %d'), $j + 1);
                     echo ': ';
-                    echo '<label for="x">' .  __("X") . '</label>';
+                    echo '<label for="x">' ,  __("X") , '</label>';
                     echo '<input type="text"'
                         , ' name="gis_data[' , $a , '][' , $type , '][' , $k , ']['
                         , $i , '][' , $j , '][x]"'

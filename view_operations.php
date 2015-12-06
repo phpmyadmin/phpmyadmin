@@ -127,7 +127,7 @@ $drop_view_url_params = array_merge(
 );
 echo '<div class="operations_half_width">';
 echo '<fieldset class="caution">';
-echo '<legend>' . __('Delete data or table') . '</legend>';
+echo '<legend>' , __('Delete data or table') , '</legend>';
 
 echo '<ul>';
 echo PMA_getDeleteDataOrTableLink(
