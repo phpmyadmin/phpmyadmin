@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-02 10:46-0500\n"
-"PO-Revision-Date: 2015-10-26 11:00+0200\n"
-"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ko/>\n"
+"PO-Revision-Date: 2015-12-06 17:42+0000\n"
+"Last-Translator: Yong Kim <kim@nhn.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -944,7 +944,7 @@ msgstr "혼동된 데이터"
 
 #: js/messages.php:93
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "콜레이션 변경과 데이터 변환을 실행 하시겠습니까?"
 
 #: js/messages.php:95
 msgid ""
