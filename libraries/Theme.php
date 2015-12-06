@@ -355,10 +355,10 @@ class Theme
                 . ThemeManager::FALLBACK_THEME .  "/css/$file.css.php";
 
             if (is_readable($path)) {
-                echo "\n/* FILE: $file.css.php */\n";
+                echo "\n/* FILE: " , $file , ".css.php */\n";
                 include $path;
             } else if (is_readable($fallback)) {
-                echo "\n/* FILE: $file.css.php */\n";
+                echo "\n/* FILE: " , $file , ".css.php */\n";
                 include $fallback;
             } else {
                 $success = false;
