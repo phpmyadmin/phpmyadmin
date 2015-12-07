@@ -24,6 +24,7 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Response.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Table.class.php';
+require_once 'libraries/Tracker.class.php';
 
 /**
  * Tests for libraries/insert_edit.lib.php
