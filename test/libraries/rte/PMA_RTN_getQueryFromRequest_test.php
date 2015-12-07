@@ -140,7 +140,7 @@ class PMA_RTN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
                     'item_sqldataaccess'        => 'READ SQL DATA'
                 ),
                 'CREATE FUNCTION `func\\`(`pa``ram` VARCHAR(45) CHARSET latin1) '
-                . 'RETURNS DECIMAL(5,5) UNSIGNED ZEROFILL COMMENT \'foo\'\'s bar\' '
+                . 'RETURNS DECIMAL(5,5) UNSIGNED ZEROFILL COMMENT \'foo\\\'s bar\' '
                 . 'DETERMINISTIC SQL SECURITY DEFINER SELECT \'foobar\';',
                 0
             ),
