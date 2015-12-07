@@ -2182,21 +2182,22 @@ class DatabaseInterface
         $error_message = htmlspecialchars($error_message);
 
         $error = '#' . ((string) $error_number);
+        $separator = ' &mdash; ';
 
         if ($error_number == 2002) {
             $error .= ' - ' . $error_message;
-            $error .= '<br />';
+            $error .= $separator;
             $error .= __(
                 'The server is not responding (or the local server\'s socket'
                 . ' is not correctly configured).'
             );
         } elseif ($error_number == 2003) {
             $error .= ' - ' . $error_message;
-            $error .= '<br />' . __('The server is not responding.');
+            $error .= $separator . __('The server is not responding.');
         } elseif ($error_number == 1005) {
             if (strpos($error_message, 'errno: 13') !== false) {
                 $error .= ' - ' . $error_message;
-                $error .= '<br />'
+                $error .= $separator
                     . __(
                         'Please check privileges of directory containing database.'
                     );

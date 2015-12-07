@@ -117,7 +117,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
             array(1234, 'foobar', '#1234 - foobar'),
             array(
                 2002, 'foobar',
-                '#2002 - foobar<br />The server is not responding (or the local '
+                '#2002 - foobar &mdash; The server is not responding (or the local '
                 . 'server\'s socket is not correctly configured).'
             ),
         );
