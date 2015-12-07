@@ -2526,7 +2526,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            "'20''12'",
+            "'20\\'12'",
             $result
         );
 
