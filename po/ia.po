@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-11-18 13:41+0000\n"
+"PO-Revision-Date: 2015-12-02 22:06+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ia/>\n"
@@ -10184,16 +10184,18 @@ msgstr "Iste formato ha nulle optiones"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"Authentication sin contrasigno es prohibite per le configuration (vide "
+"AllowNoPassword)"
 
 #: libraries/plugins/AuthenticationPlugin.class.php:73
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr ""
+msgstr "Necun activitate intra %s secundas; pro favor authentica te de novo."
 
 #: libraries/plugins/AuthenticationPlugin.class.php:82
 #: libraries/plugins/AuthenticationPlugin.class.php:84
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "On non pote authenticar se in le servitor de MySQL"
 
 #: libraries/plugins/SchemaPlugin.class.php:68
 msgid "Show color"
@@ -10205,14 +10207,14 @@ msgstr "Monstra solo claves"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Non pote connecter se: fixationes invalide."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:108
 #: libraries/plugins/auth/AuthenticationCookie.class.php:138
 #: libraries/plugins/auth/AuthenticationHttp.class.php:96
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Benvenite a %s"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
@@ -10231,11 +10233,11 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:166
 msgid "Retry to connect"
-msgstr ""
+msgstr "Reessaya a connecter te"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:150
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "Tu session ha expirate. Pro favor authentica te de novo."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:174
 msgid "Log in"
@@ -12097,6 +12099,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
+"Nota: habilitar ci le statisticas de base de datos poterea causar traffico "
+"intense inter le servitor web e le servitor de MySQL."
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
@@ -12107,8 +12111,8 @@ msgstr "Habilita statisticas"
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d base de datos ha essite delite con successo."
+msgstr[1] "%1$d bases de datos ha essite delite con successo."
 
 #: libraries/server_plugins.lib.php:31
 msgid "Modules"

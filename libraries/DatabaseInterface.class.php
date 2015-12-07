@@ -2959,9 +2959,6 @@ class PMA_DatabaseInterface
     public function getError($link = null)
     {
         $link = $this->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return $this->_extension->getError($link);
     }
 

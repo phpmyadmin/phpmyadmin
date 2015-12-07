@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-11-21 22:43+0000\n"
+"PO-Revision-Date: 2015-12-03 20:25+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/tr/>\n"
@@ -3743,7 +3743,7 @@ msgstr "Gönderilen dosya okunamıyor."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr "Şu anda %2$s dalından Git gözden geçirme %1$s çalışıyor."
+msgstr "Şu anda çalışan %2$s dalından Git gözden geçirme sürümü %1$s."
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
