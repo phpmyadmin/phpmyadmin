@@ -11,6 +11,7 @@ namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
 use PMA\libraries\StorageEngine;
+use PMA\libraries\Template;
 use PMA\libraries\Util;
 
 /**
@@ -56,42 +57,9 @@ class ServerEnginesController extends Controller
      */
     private function _getHtmlForAllServerEngines()
     {
-        /**
-         * Displays the table header
-         */
-        $html = '<table class="noclick">' . "\n"
-            . '<thead>' . "\n"
-            . '<tr><th>' . __('Storage Engine') . '</th>' . "\n"
-            . '    <th>' . __('Description') . '</th>' . "\n"
-            . '</tr>' . "\n"
-            . '</thead>' . "\n"
-            . '<tbody>' . "\n";
-
-        /**
-         * Listing the storage engines
-         */
-        $odd_row = true;
-        foreach (StorageEngine::getStorageEngines() as $engine => $details) {
-            $html .= '<tr class="'
-                . ($odd_row ? 'odd' : 'even')
-                . ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
-                    ? ' disabled' : '')
-                . ($details['Support'] == 'DEFAULT' ? ' marked' : '')
-                . '">' . "\n"
-                . '    <td><a rel="newpage" href="server_engines.php'
-                . PMA_URL_getCommon(array('engine' => $engine)) . '">' . "\n"
-                . '            ' . htmlspecialchars($details['Engine']) . "\n"
-                . '        </a></td>' . "\n"
-                . '    <td>' . htmlspecialchars($details['Comment']) . '</td>' . "\n"
-                . '</tr>' . "\n";
-            $odd_row = !$odd_row;
-        }
-
-        unset($odd_row, $engine, $details);
-        $html .= '</tbody>' . "\n"
-            . '</table>' . "\n";
-
-        return $html;
+        return Template::get('server/engines/engines')->render(
+            array('engines' => StorageEngine::getStorageEngines())
+        );
     }
 
     /**
