@@ -617,8 +617,8 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         runkit_constant_redefine("PMA_DRIZZLE", true);
 
         $sql_query = " SELECT MAX(version) FROM `pmadb`.`tracking`" .
-        " WHERE `db_name` = 'pma''db' " .
-        " AND `table_name` = 'pma''table' ";
+        " WHERE `db_name` = 'pma\\'db' " .
+        " AND `table_name` = 'pma\\'table' ";
 
         $sql_query_drizzle = ' AND tracking & 1 <> 0';
 
@@ -679,8 +679,8 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     public function testGetTrackedData($fetchArrayReturn, $expectedArray)
     {
         $sql_query = " SELECT * FROM `pmadb`.`tracking`" .
-            " WHERE `db_name` = 'pma''db' " .
-            " AND `table_name` = 'pma''table' " .
+            " WHERE `db_name` = 'pma\\'db' " .
+            " AND `table_name` = 'pma\\'table' " .
             " AND `version` = '1.0' " .
             " ORDER BY `version` DESC LIMIT 1";
 
