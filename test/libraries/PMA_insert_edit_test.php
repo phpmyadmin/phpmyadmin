@@ -11,6 +11,7 @@
  */
 use PMA\libraries\Table;
 use PMA\libraries\Theme;
+use PMA\libraries\Tracker;
 use PMA\libraries\Types;
 use PMA\libraries\TypesMySQL;
 
@@ -2534,7 +2535,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            "'20''12'",
+            "'20\\'12'",
             $result
         );
 
