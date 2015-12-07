@@ -35,7 +35,7 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
             PMA\libraries\Util::sqlAddSlashes($string, true, true, true)
         );
         $this->assertEquals(
-            "\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\\r\\t\\n",
+            "\\\\\\\\\\'test\\'\\'\\\\\\\\\\'\\'\\\\\\\\\\'\\r\\t\\n",
             PMA\libraries\Util::sqlAddSlashes($string, true, true, false)
         );
         $this->assertEquals(
@@ -43,7 +43,7 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
             PMA\libraries\Util::sqlAddSlashes($string, true, false, true)
         );
         $this->assertEquals(
-            "\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\r\t\n",
+            "\\\\\\\\\\'test\\'\\'\\\\\\\\\\'\\'\\\\\\\\\\'\r\t\n",
             PMA\libraries\Util::sqlAddSlashes($string, true, false, false)
         );
         $this->assertEquals(
@@ -51,7 +51,7 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
             PMA\libraries\Util::sqlAddSlashes($string, false, true, true)
         );
         $this->assertEquals(
-            "\\\\''test''''\\\\''''\\\\''\\r\\t\\n",
+            "\\\\\\'test\\'\\'\\\\\\'\\'\\\\\\'\\r\\t\\n",
             PMA\libraries\Util::sqlAddSlashes($string, false, true, false)
         );
         $this->assertEquals(
@@ -59,8 +59,12 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
             PMA\libraries\Util::sqlAddSlashes($string, false, false, true)
         );
         $this->assertEquals(
-            "\\\\''test''''\\\\''''\\\\''\r\t\n",
+            "\\\\\\'test\\'\\'\\\\\\'\\'\\\\\\'\r\t\n",
             PMA\libraries\Util::sqlAddSlashes($string, false, false, false)
+        );
+        $this->assertEquals(
+            "\\\\\\'",
+            PMA\libraries\Util::sqlAddSlashes('\\\'')
         );
     }
 
