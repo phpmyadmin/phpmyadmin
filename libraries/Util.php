@@ -321,7 +321,7 @@ class Util
         if ($php_code) {
             $a_string = str_replace('\'', '\\\'', $a_string);
         } else {
-            $a_string = str_replace('\'', '\'\'', $a_string);
+            $a_string = str_replace('\'', '\\\'', $a_string);
         }
 
         return $a_string;
