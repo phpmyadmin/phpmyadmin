@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #11691 Query was empty on creating User in 4.5.2
 - issue #11695 PMA_getDataForDeleteUsers() warning
 - issue #11698 Cannot create user on Percona Server
+- issue #11706 Database export template not saving compression option
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
