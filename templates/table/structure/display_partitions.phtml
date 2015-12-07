@@ -3,7 +3,7 @@ use PMA\libraries\Util; ?>
 <div id="partitions">
     <fieldset>
         <legend><?php echo __('Partitions')
-            . Util::showMySQLDocu('partitioning'); ?>
+            , Util::showMySQLDocu('partitioning'); ?>
         </legend>
         <?php if (empty($partitions)): ?>
             <?php echo Message::notice(__('No partitioning defined!'))->getDisplay(); ?>
@@ -51,9 +51,9 @@ use PMA\libraries\Util; ?>
                                 <code>
                                     <?php
                                     echo htmlspecialchars($partition->getExpression())
-                                        . ($partition->getMethod() == 'LIST' ? ' IN (' : ' < ')
-                                        . htmlspecialchars($partition->getDescription())
-                                        . ($partition->getMethod() == 'LIST' ? ')' : '');
+                                        , ($partition->getMethod() == 'LIST' ? ' IN (' : ' < ')
+                                        .,htmlspecialchars($partition->getDescription())
+                                        , ($partition->getMethod() == 'LIST' ? ')' : '');
                                     ?>
                                 </code>
                             </td>

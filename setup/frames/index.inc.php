@@ -98,7 +98,7 @@ echo '<form id="select_lang" method="post" action="'
     , htmlspecialchars($_SERVER['REQUEST_URI']) , '">';
 echo PMA_URL_getHiddenInputs();
 echo '<bdo lang="en" dir="ltr"><label for="lang">';
-echo __('Language') . (__('Language') != 'Language' ? ' - Language' : '');
+echo __('Language') , (__('Language') != 'Language' ? ' - Language' : '');
 echo '</label></bdo><br />';
 echo '<select id="lang" name="lang" class="autosubmit" lang="en" dir="ltr">';
 
@@ -163,8 +163,8 @@ if ($cf->getServerCount() > 0) {
     echo '<table cellspacing="0" class="datatable" style="table-layout: fixed">';
     echo '<tr>';
     echo '<th>#</th>';
-    echo '<th>' . __('Name') . '</th>';
-    echo '<th>' . __('Authentication type') . '</th>';
+    echo '<th>' , __('Name') , '</th>';
+    echo '<th>' , __('Authentication type') , '</th>';
     echo '<th colspan="2">DSN</th>';
     echo '</tr>';
 

@@ -171,8 +171,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
         include_once 'libraries/select_server.lib.php';
-        echo PMA\libraries\Util::getImage('s_host.png') . " "
-            . PMA_selectServer(true, true);
+        echo PMA\libraries\Util::getImage('s_host.png') , " "
+            , PMA_selectServer(true, true);
         echo '</li>';
     }
 
@@ -234,8 +234,8 @@ echo '  <ul>';
 if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
     echo '<li id="li_select_lang" class="no_bullets">';
     include_once 'libraries/display_select_lang.lib.php';
-    echo PMA\libraries\Util::getImage('s_lang.png') . " "
-        . PMA_getLanguageSelectorHtml();
+    echo PMA\libraries\Util::getImage('s_lang.png') , " "
+        , PMA_getLanguageSelectorHtml();
     echo '</li>';
 }
 
@@ -243,8 +243,8 @@ if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
 
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme" class="no_bullets">';
-    echo PMA\libraries\Util::getImage('s_theme.png') . " "
-            .  $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
+    echo PMA\libraries\Util::getImage('s_theme.png') , " "
+            ,  $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';

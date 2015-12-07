@@ -58,7 +58,7 @@ function PMA_Process_formset(FormDisplay $form_display)
         <?php echo __('Ignore errors') ?>
     </a>
     &nbsp;
-    <a class="btn" href="<?php echo PMA_URL_getCommon() . $separator ?>page=<?php echo $page . $formset . $formId . $separator ?>mode=edit">
+    <a class="btn" href="<?php echo PMA_URL_getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=edit">
         <?php echo __('Show form') ?>
     </a>
     <?php

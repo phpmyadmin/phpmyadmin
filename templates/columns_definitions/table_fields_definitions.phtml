@@ -8,10 +8,10 @@
             <?php echo __('Name'); ?>
         </th>
         <th>
-            <?php echo __('Type') . PMA\libraries\Util::showMySQLDocu('data-types'); ?>
+            <?php echo __('Type') , PMA\libraries\Util::showMySQLDocu('data-types'); ?>
         </th>
         <th>
-            <?php echo __('Length/Values') . PMA\libraries\Util::showHint(
+            <?php echo __('Length/Values') , PMA\libraries\Util::showHint(
                     __(
                         'If column type is "enum" or "set", please enter the values using'
                         . ' this format: \'a\',\'b\',\'c\'…<br />If you ever need to put'
@@ -22,7 +22,7 @@
                 ); ?>
         </th>
         <th>
-            <?php echo __('Default') . PMA\libraries\Util::showHint(
+            <?php echo __('Default') , PMA\libraries\Util::showHint(
                     __(
                         'For default values, please enter just a single value,'
                         . ' without backslash escaping or quotes, using this format: a'
@@ -44,7 +44,7 @@
             && ! empty($_REQUEST['change_column'])
         ): ?>
             <th>
-                <?php echo __('Adjust privileges') . PMA\libraries\Util::showDocu('faq', 'faq6-39'); ?>
+                <?php echo __('Adjust privileges') , PMA\libraries\Util::showDocu('faq', 'faq6-39'); ?>
             </th>
         <?php endif; ?>
 

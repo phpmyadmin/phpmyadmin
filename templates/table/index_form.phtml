@@ -13,7 +13,7 @@
                 <div class="label">
                     <strong>
                         <label for="input_index_name">
-                            <?php echo __('Index name:') . PMA\libraries\Util::showHint(
+                            <?php echo __('Index name:') , PMA\libraries\Util::showHint(
                                 PMA\libraries\Message::notice(
                                     __(
                                         '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'
@@ -37,7 +37,7 @@
                 <div class="label">
                     <strong>
                         <label for="select_index_choice">
-                            <?php echo __('Index choice:') . PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'); ?>
+                            <?php echo __('Index choice:') , PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'); ?>
                         </label>
                     </strong>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="label">
                     <strong>
                         <label for="select_index_type">
-                            <?php echo __('Index type:') . PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'); ?>
+                            <?php echo __('Index type:') , PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'); ?>
                         </label>
                     </strong>
                 </div>

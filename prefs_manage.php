@@ -123,7 +123,7 @@ if (isset($_POST['submit_export'])
             echo $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
-            echo PMA_URL_getHiddenInputs() . "\n";
+            echo PMA_URL_getHiddenInputs() , "\n";
             echo '<input type="hidden" name="json" value="'
                 , htmlspecialchars($json) , '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
@@ -293,7 +293,7 @@ if (file_exists('setup/index.php')) {
                         'You can set more settings by modifying config.inc.php, eg. '
                         . 'by using %sSetup script%s.'
                     ), '<a href="setup/index.php" target="_blank">', '</a>'
-                ) . PMA\libraries\Util::showDocu('setup', 'setup-script');
+                ) , PMA\libraries\Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
             </div>
@@ -365,7 +365,7 @@ if (file_exists('setup/index.php')) {
             <form class="group-cnt prefs-form disableAjax" name="prefs_reset"
                   action="prefs_manage.php" method="post">
                 <?php
-                echo PMA_URL_getHiddenInputs() . __(
+                echo PMA_URL_getHiddenInputs() , __(
                     'You can reset all your settings and restore them to default '
                     . 'values.'
                 );

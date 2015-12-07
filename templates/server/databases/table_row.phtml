@@ -11,7 +11,7 @@
         </td>
     <?php endif; ?>
     <td class="name">
-        <a href="<?php echo \PMA\libraries\Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database') . $url_query . '&amp;db=' . urlencode($current['SCHEMA_NAME']); ?>"
+        <a href="<?php echo \PMA\libraries\Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database') , $url_query , '&amp;db=' , urlencode($current['SCHEMA_NAME']); ?>"
            title="<?php echo sprintf(__('Jump to database'), htmlspecialchars($current['SCHEMA_NAME'])); ?>">
             <?php echo htmlspecialchars($current['SCHEMA_NAME']); ?>
         </a>

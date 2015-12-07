@@ -52,7 +52,7 @@
             = PMA\libraries\Util::formatByteDown($showtable['Avg_row_length'], 6, 1); ?>
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Row length'); ?></th>
-        <td class="value"><?php echo ($avg_row_length_value . ' ' . $avg_row_length_unit); ?></td>
+        <td class="value"><?php echo $avg_row_length_value , ' ' , $avg_row_length_unit; ?></td>
         </tr>
         <?php unset($avg_row_length_value, $avg_row_length_unit); ?>
     <?php endif; ?>
@@ -64,7 +64,7 @@
             && $mergetable == false): ?>
         <tr class="<?php echo (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?php echo __('Row size'); ?></th>
-        <td class="value"><?php echo ($avg_size . ' ' . $avg_unit); ?></td>
+        <td class="value"><?php echo $avg_size , ' ' , $avg_unit; ?></td>
         </tr>
     <?php endif; ?>
 

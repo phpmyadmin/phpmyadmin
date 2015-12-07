@@ -9,7 +9,7 @@
                     <th><?php echo __('Actions'); ?></th>
                     <th><?php echo __('Constraint properties'); ?></th>
                     <th><?php
-                        echo __('Column') . PMA\libraries\Util::showHint(__(
+                        echo __('Column') , PMA\libraries\Util::showHint(__(
                                 'Only columns with index will be displayed. You can define an'
                                 . ' index below.'
                             )) ?>
@@ -73,7 +73,7 @@
         <?php $save_row = array_values($columns);
         $saved_row_cnt  = count($save_row);?>
         <fieldset>
-            <legend><?php echo __('Internal relations') . PMA\libraries\Util::showDocu('config', 'cfg_Servers_relation'); ?></legend>
+            <legend><?php echo __('Internal relations') , PMA\libraries\Util::showDocu('config', 'cfg_Servers_relation'); ?></legend>
             <table id="internal_relations" class="relationalTable">
                 <tr>
                     <th><?php echo __('Column'); ?></th>

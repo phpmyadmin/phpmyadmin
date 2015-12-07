@@ -85,7 +85,7 @@
                     <?php if (isset($_REQUEST['query'])) : ?>
                         <td class="select_all">
                             <input class="select_all_store_col"
-                                   value="<?php echo htmlspecialchars($t_n_url) . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
+                                   value="<?php echo htmlspecialchars($t_n_url) , urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
                                    type="checkbox"
                                    id="select_<?php echo htmlspecialchars($t_n_url); ?>._<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
                                    style="margin: 0;"
