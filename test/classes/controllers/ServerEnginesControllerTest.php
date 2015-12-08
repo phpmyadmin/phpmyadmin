@@ -116,6 +116,7 @@ class ServerEnginesControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForServerEngine()
     {
+        $_REQUEST['engine'] = "Pbxt";
         $_REQUEST['page'] = "page";
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')

@@ -188,7 +188,7 @@ class StorageEngine
     static public function getEngine($engine)
     {
         $engine = str_replace('/', '', str_replace('.', '', $engine));
-        $filename = '/libraries/engines/' . $engine . '.php';
+        $filename = 'libraries/engines/' . $engine . '.php';
         if (file_exists($filename) && include_once $filename) {
             switch($engine) {
             case 'Bdb':
