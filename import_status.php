@@ -52,6 +52,11 @@ define('PMA_MINIMUM_COMMON', 1);
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/display_import_ajax.lib.php';
+list(
+    $SESSION_KEY,
+    $upload_id,
+    $plugins
+) = PMA_uploadProgressSetup();
 
 /*
 if (defined('SESSIONUPLOAD')) {
