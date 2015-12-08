@@ -102,6 +102,62 @@ The installation is possible by adding our own repository
 
     composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json
 
+Installing using Docker
++++++++++++++++++++++++
+
+phpMyAdmin comes with an Docker image, which you can easily deploy. You can
+download it using:
+
+.. code-block:: sh
+
+    docker pull phpmyadmin/phpmyadmin
+
+The phpMyAdmin will be executed on port 8080. It supports several ways of
+configuring link to the database server, which you can configure using
+environment variables:
+
+.. envvar:: PMA_ARBITRARY
+
+    Allows you to enter database server hostname on login form (see
+    :config:option:`$cfg['AllowArbitraryServer']`).
+
+.. envvar:: PMA_HOST
+    
+    Host name or IP address of the databse server to use.
+
+.. envvar:: PMA_PORT
+    
+    Port of the databse server to use.
+
+
+To connect phpMyAdmin to given server use:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d -e PMA_HOST=dbhost -p 8080:8080 phpmyadmin/phpmyadmin
+
+To use arbitrary server option:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d --link mysql_db_server:db -p 8080:8080 -e PMA_ARBITRARY=1 phpmyadmin/phpmyadmin
+
+You can also link the database container using Docker:
+
+.. code-block:: sh
+
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:8080 phpmyadmin/phpmyadmin
+
+Using docker-compose
+--------------------
+
+Alternatively you can also use docker-compose with the docker-compose.yml from
+<https://github.com/phpmyadmin/docker>.  This will run phpMyAdmin with
+arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
+
+.. code-block:: sh
+
+    docker-compose up -d
 
 .. _quick_install:
 
