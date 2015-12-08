@@ -182,7 +182,7 @@ class StorageEngine
      *
      * @param string $engine The engine ID
      *
-     * @return StorageEngine|bool The engine plugin or false if not found
+     * @return StorageEngine The engine plugin
      * @static
      */
     static public function getEngine($engine)
