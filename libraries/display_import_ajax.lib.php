@@ -5,9 +5,6 @@
 *
 * @package PhpMyAdmin
 */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Sets up some variables for upload progress
