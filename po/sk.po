@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-02 10:46-0500\n"
-"PO-Revision-Date: 2015-10-12 18:54+0200\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2015-12-08 13:08+0000\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1653,10 +1653,9 @@ msgid "Formatting SQL…"
 msgstr "Formátujem SQL…"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Chybné parametre!"
+msgstr "Parametre neboli nájdené!"
 
 #: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -2513,7 +2512,7 @@ msgstr "Skryť argumenty"
 
 #: js/messages.php:705 libraries/Console.php:324
 msgid "Time taken:"
-msgstr ""
+msgstr "Ubehnutý čas:"
 
 #: js/messages.php:707
 msgid ""
@@ -3087,7 +3086,7 @@ msgstr "Poradie vykonávania"
 
 #: libraries/Console.php:298
 msgid "Time taken"
-msgstr ""
+msgstr "Ubehnutý čas"
 
 #: libraries/Console.php:301
 msgid "Order by:"
@@ -6215,7 +6214,7 @@ msgstr "Neprerušovať pri chybe v príkaze INSERT"
 
 #: libraries/config/messages.inc.php:373 libraries/config/messages.inc.php:387
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Pridaj ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:389
 msgid "Update data when duplicate keys found on import"
@@ -7854,7 +7853,7 @@ msgstr "Premenné a nastavenia serveru"
 
 #: libraries/controllers/server/ServerVariablesController.php:220
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Nastavenie premennej zlyhalo"
 
 #: libraries/controllers/table/TableChartController.php:76
 #: libraries/controllers/table/TableGisVisualizationController.php:97
@@ -7976,7 +7975,7 @@ msgstr "Žiadna zmena"
 #: libraries/database_interface.inc.php:36
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Pozri %sour documentation%s pre viacej informácií."
 
 #: libraries/database_interface.inc.php:53
 msgid ""
@@ -9475,7 +9474,7 @@ msgstr ""
 #: libraries/normalization.lib.php:369 libraries/normalization.lib.php:761
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' závisí od:"
 
 #: libraries/normalization.lib.php:380
 #, php-format
