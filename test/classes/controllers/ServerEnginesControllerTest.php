@@ -117,12 +117,17 @@ class ServerEnginesControllerTest extends PHPUnit_Framework_TestCase
     public function testGetHtmlForServerEngine()
     {
         $_REQUEST['page'] = "page";
-        $engine_plugin = StorageEngine::getEngine("Pbxt");
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $GLOBALS['dbi'] = $dbi;
 
         $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerEnginesController');
         $method = $class->getMethod('_getHtmlForServerEngine');
         $method->setAccessible(true);
 
+        $engine_plugin = StorageEngine::getEngine("Pbxt");
         $ctrl = new ServerEnginesController();
         $html = $method->invoke($ctrl, $engine_plugin);
 
