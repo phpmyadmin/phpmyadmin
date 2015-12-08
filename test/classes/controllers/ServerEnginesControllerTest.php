@@ -172,7 +172,8 @@ class ServerEnginesControllerTest extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            $engine_plugin->getHtmlVariables(),
+            'There is no detailed status information available for this '
+            . 'storage engine.',
             $html
         );
     }
