@@ -46,12 +46,13 @@ class ServerEnginesController extends Controller
         ) {
             $this->response->addHTML($this->_getHtmlForAllServerEngines());
         } else {
-            $this->response->addHTML($this->_getHtmlForSpecifiedServerEngines());
+            $engine = StorageEngine::getEngine($_REQUEST['engine']);
+            $this->response->addHTML($this->_getHtmlForServerEngine($engine));
         }
     }
 
     /**
-     * Return HTML for server all Engines information
+     * Return HTML with all Storage Engine information
      *
      * @return string
      */
@@ -65,25 +66,26 @@ class ServerEnginesController extends Controller
     /**
      * Return HTML for a given Storage Engine
      *
+     * @param StorageEngine $engine storage engine
+     *
      * @return string
      */
-    private function _getHtmlForSpecifiedServerEngines()
+    private function _getHtmlForServerEngine($engine)
     {
-        $engine_plugin = StorageEngine::getEngine($_REQUEST['engine']);
         $pageOutput = ! empty($_REQUEST['page'])
-            ? $engine_plugin->getPage($_REQUEST['page']) : '';
+            ? $engine->getPage($_REQUEST['page']) : '';
 
         /**
          * Displays details about a given Storage Engine
          */
         return Template::get('server/engines/engine')->render(
             array(
-                'title' => $engine_plugin->getTitle(),
-                'helpPage' => $engine_plugin->getMysqlHelpPage(),
-                'comment' => $engine_plugin->getComment(),
-                'infoPages' => $engine_plugin->getInfoPages(),
-                'support' => $engine_plugin->getSupportInformationMessage(),
-                'variables' => $engine_plugin->getHtmlVariables(),
+                'title' => $engine->getTitle(),
+                'helpPage' => $engine->getMysqlHelpPage(),
+                'comment' => $engine->getComment(),
+                'infoPages' => $engine->getInfoPages(),
+                'support' => $engine->getSupportInformationMessage(),
+                'variables' => $engine->getHtmlVariables(),
                 'pageOutput' => $pageOutput,
             )
         );
