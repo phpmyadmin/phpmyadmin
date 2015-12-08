@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Sets up some variables for upload progress
  *
- * @return array()
+ * @return array
  *
  */
 function PMA_uploadProgressSetup()
