@@ -1,37 +1,29 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_engines.lib.php
+ * Holds ServerEnginesControllerTest class
  *
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
 use PMA\libraries\StorageEngine;
 use PMA\libraries\Theme;
-
+use PMA\libraries\controllers\server\ServerEnginesController;
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/server_engines.lib.php';
-
 
 require_once 'libraries/database_interface.inc.php';
 
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
-
 /**
- * PMA_ServerEngines_Test class
- *
- * this class is for testing server_engines.lib.php functions
+ * Tests for ServerEnginesController class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
+class ServerEnginesControllerTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -65,14 +57,18 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForServerEngines for all engines
+     * Tests for _getHtmlForAllServerEngines() method
      *
      * @return void
      */
-    public function testPMAGetPluginAndModuleInfo()
+    public function testGetHtmlForAllServerEngines()
     {
-        //test PMA_getHtmlForAllServerEngines
-        $html = PMA_getHtmlForServerEngines();
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerEnginesController');
+        $method = $class->getMethod('_getHtmlForAllServerEngines');
+        $method->setAccessible(true);
+
+        $ctrl = new ServerEnginesController();
+        $html = $method->invoke($ctrl);
 
         //validate 1: Item header
         $this->assertContains(
@@ -114,64 +110,27 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForServerEngines for specific engines "FEDERATED"
+     * Tests for _getHtmlForServerEngine() method
      *
      * @return void
      */
-    public function testPMAGetPluginAndModuleInfoSpecific()
-    {
-        $_REQUEST['engine'] = "FEDERATED";
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
-
-        //test PMA_getHtmlForAllServerEngines for specific engines "FEDERATED"
-        $html = PMA_getHtmlForServerEngines();
-
-        //validate 1: Engine header
-        $this->assertContains(
-            'FEDERATED',
-            $html
-        );
-        $this->assertContains(
-            'Federated MySQL storage engine',
-            $html
-        );
-        $this->assertContains(
-            'This MySQL server does not support the FEDERATED storage engine.',
-            $html
-        );
-        $enginer_info = 'There is no detailed status information '
-            . 'available for this storage engine';
-        $this->assertContains(
-            $enginer_info,
-            $html
-        );
-    }
-
-    /**
-     * Test for PMA_getHtmlForSpecifiedServerEngines
-     *
-     * @return void
-     */
-    public function testPMAGetHtmlForSpecifiedServerEngines()
+    public function testGetHtmlForServerEngine()
     {
         $_REQUEST['engine'] = "Pbxt";
         $_REQUEST['page'] = "page";
-
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-
         $GLOBALS['dbi'] = $dbi;
 
-        //test PMA_getHtmlForSpecifiedServerEngines
-        $html = PMA_getHtmlForSpecifiedServerEngines();
-        $engine_plugin = StorageEngine::getEngine($_REQUEST['engine']);
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerEnginesController');
+        $method = $class->getMethod('_getHtmlForServerEngine');
+        $method->setAccessible(true);
+
+        $engine_plugin = StorageEngine::getEngine("Pbxt");
+        $ctrl = new ServerEnginesController();
+        $html = $method->invoke($ctrl, $engine_plugin);
 
         //validate 1: Engine title
         $this->assertContains(
@@ -213,49 +172,9 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            $engine_plugin->getHtmlVariables(),
+            'There is no detailed status information available for this '
+            . 'storage engine.',
             $html
-        );
-    }
-
-    /**
-     * Test for StorageEngine::getEngine
-     *
-     * @param string $expectedClass Class that should be selected
-     * @param string $engineName    Engine name
-     *
-     * @return void
-     *
-     * @dataProvider providerGetEngine
-     */
-    public function testGetEngine($expectedClass, $engineName)
-    {
-        $this->assertInstanceOf(
-            $expectedClass, StorageEngine::getEngine($engineName)
-        );
-    }
-
-    /**
-     * Provider for test_getEngine
-     *
-     * @return array
-     */
-    public function providerGetEngine()
-    {
-        return array(
-            array('PMA\libraries\StorageEngine', 'unknown engine'),
-            array('PMA\libraries\engines\Bdb', 'Bdb'),
-            array('PMA\libraries\engines\Berkeleydb', 'Berkeleydb'),
-            array('PMA\libraries\engines\Binlog', 'Binlog'),
-            array('PMA\libraries\engines\Innobase', 'Innobase'),
-            array('PMA\libraries\engines\Innodb', 'Innodb'),
-            array('PMA\libraries\engines\Memory', 'Memory'),
-            array('PMA\libraries\engines\Merge', 'Merge'),
-            array('PMA\libraries\engines\Mrg_Myisam', 'Mrg_Myisam'),
-            array('PMA\libraries\engines\Myisam', 'Myisam'),
-            array('PMA\libraries\engines\Ndbcluster', 'Ndbcluster'),
-            array('PMA\libraries\engines\Pbxt', 'Pbxt'),
-            array('PMA\libraries\engines\Performance_Schema', 'Performance_Schema'),
         );
     }
 }
