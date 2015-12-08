@@ -647,7 +647,6 @@ function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
     list(
         $SESSION_KEY,
         $upload_id,
-        $plugins
     ) = PMA_uploadProgressSetup();
 
     /* Scan for plugins */
