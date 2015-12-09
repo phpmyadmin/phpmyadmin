@@ -483,7 +483,6 @@ class ThemeManager
                 $tmp = $_SESSION['PMA_Theme_Manager']->theme_default;
             }
             $_SESSION['PMA_Theme_Manager']->setActiveTheme($tmp);
-            unset($tmp);
         }
         /**
          * @todo move into ThemeManager::__wakeup()
