@@ -34,12 +34,7 @@ function PMA_getPrettyReportData()
 {
     $report = PMA_getReportData();
 
-    /* JSON_PRETTY_PRINT available since PHP 5.4 */
-    if (defined('JSON_PRETTY_PRINT')) {
-        return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-    }
-
-    return PMA_prettyPrint($report);
+    return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 }
 
 /**
@@ -364,33 +359,3 @@ function PMA_hasLatestLineCounts()
     $js_time = filemtime("js");
     return $line_counts_time >= $js_time;
 }
-
-/**
- * pretty print a variable for the user
- *
- * @param mixed  $object    the variable to pretty print
- * @param String $namespace the namespace to use for printing values
- *
- * @return String the human readable form of the variable
- */
-function PMA_prettyPrint($object, $namespace="")
-{
-    if (! is_array($object)) {
-        if (empty($namespace)) {
-            return "$object\n";
-        } else {
-            return "$namespace: \"$object\"\n";
-        }
-    }
-    $output = "";
-    foreach ($object as $key => $value) {
-        if ($namespace == "") {
-            $new_namespace =  "$key";
-        } else {
-            $new_namespace =  $namespace . "[$key]";
-        }
-        $output .= PMA_prettyPrint($value, $new_namespace);
-    }
-    return $output;
-}
-
