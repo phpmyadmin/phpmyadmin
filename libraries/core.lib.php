@@ -898,3 +898,25 @@ function PMA_setGlobalDbOrTable($param)
         $GLOBALS['url_params'][$param] = $GLOBALS[$param];
     }
 }
+
+/**
+ * PATH_INFO could be compromised if set, so remove it from PHP_SELF
+ * and provide a clean PHP_SELF here
+ *
+ * @return void
+ */
+function PMA_cleanupPathInfo()
+{
+    global $PMA_PHP_SELF, $_PATH_INFO;
+
+    $PMA_PHP_SELF = PMA_getenv('PHP_SELF');
+    $_PATH_INFO = PMA_getenv('PATH_INFO');
+    if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
+        $path_info_pos = /*overload*/mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
+        $pathLength = $path_info_pos + /*overload*/mb_strlen($_PATH_INFO);
+        if ($pathLength === /*overload*/mb_strlen($PMA_PHP_SELF)) {
+            $PMA_PHP_SELF = /*overload*/mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
+        }
+    }
+    $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
+}
