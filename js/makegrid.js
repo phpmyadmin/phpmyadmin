@@ -795,7 +795,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
 
                     // if the select/editor is changed un-check the 'checkbox_null_<field_name>_<row_index>'.
-                    if ($td.is('.enum, .set')) {
+                    if ($td.is('.enum, .set:not(.truncated)')) {
                         $editArea.on('change', 'select', function (e) {
                             $checkbox.prop('checked', false);
                         });
@@ -925,7 +925,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
                 }
-                else if ($td.is('.set')) {
+                else if ($td.is('.set:not(.truncated)')) {
                     //handle set fields
                     $editArea.addClass('edit_area_loading');
 
@@ -1411,7 +1411,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             } else {
                 if ($this_field.is('.bit')) {
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
-                } else if ($this_field.is('.set')) {
+                } else if ($this_field.is('.set:not(.truncated)')) {
                     $test_element = $(g.cEdit).find('select');
                     this_field_params[field_name] = $test_element.map(function () {
                         return $(this).val();
