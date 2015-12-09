@@ -920,3 +920,30 @@ function PMA_cleanupPathInfo()
     }
     $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
 }
+
+/**
+ * Checks that required PHP extensions are there.
+ */
+function PMA_checkExtensions()
+{
+    /**
+     * Warning about mbstring.
+     */
+    if (! function_exists('mb_detect_encoding')) {
+        PMA_warnMissingExtension('mbstring', true);
+    }
+
+    /**
+     * We really need this one!
+     */
+    if (! function_exists('preg_replace')) {
+        PMA_warnMissingExtension('pcre', true);
+    }
+
+    /**
+     * JSON is required in several places.
+     */
+    if (! function_exists('json_encode')) {
+        PMA_warnMissingExtension('json', true);
+    }
+}

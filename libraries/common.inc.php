@@ -93,11 +93,9 @@ require './libraries/core.lib.php';
 require './libraries/sanitizing.lib.php';
 
 /**
- * Warning about mbstring.
+ * Warning about missing PHP extensions.
  */
-if (! function_exists('mb_detect_encoding')) {
-    PMA_warnMissingExtension('mbstring', $fatal = true);
-}
+PMA_checkExtensions();
 
 /**
  * the relation lib, tracker needs it
@@ -213,20 +211,6 @@ date_default_timezone_set(@date_default_timezone_get());
 
 /******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
-
-/**
- * We really need this one!
- */
-if (! function_exists('preg_replace')) {
-    PMA_warnMissingExtension('pcre', true);
-}
-
-/**
- * JSON is required in several places.
- */
-if (! function_exists('json_encode')) {
-    PMA_warnMissingExtension('json', true);
-}
 
 /**
  * @global Config $GLOBALS['PMA_Config']
