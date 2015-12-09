@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-02 10:46-0500\n"
-"PO-Revision-Date: 2015-12-08 16:55+0000\n"
-"Last-Translator: Anton Alekseevich <AntonBoch12.44@gmail.com>\n"
+"PO-Revision-Date: 2015-12-09 12:57+0000\n"
+"Last-Translator: Roman Imankulov <roman.imankulov@gmail.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
@@ -4695,7 +4695,6 @@ msgid "Analyze Explain at %s"
 msgstr "Результат анализа %s"
 
 #: libraries/Util.php:1252
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Убрать PHP-код"
