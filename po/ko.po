@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-12-06 17:42+0000\n"
-"Last-Translator: Yong Kim <kim@nhn.com>\n"
+"PO-Revision-Date: 2015-12-09 16:50+0000\n"
+"Last-Translator: 신흥재 <9992551@xfp.kr>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/>\n"
 "Language: ko\n"
@@ -12343,7 +12343,6 @@ msgstr "%s의 권한을 제거했습니다."
 
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:4447
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "사용자 추가"
@@ -12365,7 +12364,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2222
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
-msgstr "데이터베이스 \"%s\"에 대한 모든 권한을 부여."
+msgstr "\"%s\" 데이터베이스에 대한 모든 권한을 부여."
 
 #: libraries/server_privileges.lib.php:2323
 #: libraries/server_privileges.lib.php:2389
@@ -12417,10 +12416,9 @@ msgid "table-specific"
 msgstr "데이터베이스"
 
 #: libraries/server_privileges.lib.php:2761
-#, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges"
-msgstr "권한 수정:"
+msgstr "권한 수정"
 
 #: libraries/server_privileges.lib.php:2764
 msgid "Revoke"
@@ -12483,7 +12481,6 @@ msgid "Add privileges on the following table:"
 msgstr "다음 테이블에 대한 권한 추가:"
 
 #: libraries/server_privileges.lib.php:3651
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "선택한 사용자를 삭제"
@@ -12561,10 +12558,9 @@ msgstr "사용자"
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr ""
+msgstr "주의: 지금 로그인된 사용자의 권한을 수정할려고 합니다."
 
 #: libraries/server_privileges.lib.php:4548 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "사용자 개요"
@@ -13558,10 +13554,9 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:64 libraries/server_users.lib.php:33
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "사용자"
+msgstr "사용자 그룹"
 
 #: libraries/server_user_groups.lib.php:79
 #, fuzzy
