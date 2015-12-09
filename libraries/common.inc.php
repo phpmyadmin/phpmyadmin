@@ -220,11 +220,8 @@ if (isset($_POST['usesubform'])) {
 
 /**
  * check timezone setting
- * this could produce an E_STRICT - but only once,
- * if not done here it will produce E_STRICT on every date/time function
- * (starting with PHP 5.3, this code can produce E_WARNING rather than
- *  E_STRICT)
- *
+ * this could produce an E_WARNING - but only once,
+ * if not done here it will produce E_WARNING on every date/time function
  */
 date_default_timezone_set(@date_default_timezone_get());
 
