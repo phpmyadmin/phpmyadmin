@@ -230,17 +230,6 @@ if (isset($_POST['usesubform'])) {
 // end check if a subform is submitted
 
 /**
- * This setting was removed in PHP 5.4, but get_magic_quotes_gpc
- * always returns False since then.
- */
-if (get_magic_quotes_gpc()) {
-    PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
-}
-
-/**
  * check timezone setting
  * this could produce an E_STRICT - but only once,
  * if not done here it will produce E_STRICT on every date/time function
