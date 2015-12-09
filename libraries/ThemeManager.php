@@ -454,4 +454,74 @@ class ThemeManager
 
         return false;
     }
+
+    /**
+     * Theme initialization
+     *
+     * @return void
+     * @access public
+     */
+    public static function initializeTheme()
+    {
+        /**
+         * @global ThemeManager $_SESSION['ThemeManager']
+         */
+        if (! isset($_SESSION['PMA_Theme_Manager'])) {
+            $_SESSION['PMA_Theme_Manager'] = new ThemeManager;
+        } else {
+            /**
+             * @todo move all __wakeup() functionality into session.inc.php
+             */
+            $_SESSION['PMA_Theme_Manager']->checkConfig();
+        }
+
+        // for the theme per server feature
+        if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
+            $GLOBALS['server'] = $_REQUEST['server'];
+            $tmp = $_SESSION['PMA_Theme_Manager']->getThemeCookie();
+            if (empty($tmp)) {
+                $tmp = $_SESSION['PMA_Theme_Manager']->theme_default;
+            }
+            $_SESSION['PMA_Theme_Manager']->setActiveTheme($tmp);
+            unset($tmp);
+        }
+        /**
+         * @todo move into ThemeManager::__wakeup()
+         */
+        if (isset($_REQUEST['set_theme'])) {
+            // if user selected a theme
+            $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
+        }
+
+        /**
+         * the theme object
+         *
+        *@global Theme $_SESSION['PMA_Theme']
+         */
+        $_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
+
+        // BC
+        /**
+         * the active theme
+         * @global string $GLOBALS['theme']
+         */
+        $GLOBALS['theme']           = $_SESSION['PMA_Theme']->getName();
+        /**
+         * the theme path
+         * @global string $GLOBALS['pmaThemePath']
+         */
+        $GLOBALS['pmaThemePath']    = $_SESSION['PMA_Theme']->getPath();
+        /**
+         * the theme image path
+         * @global string $GLOBALS['pmaThemeImage']
+         */
+        $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
+
+        /**
+         * load layout file if exists
+         */
+        if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
+            include $_SESSION['PMA_Theme']->getLayoutFile();
+        }
+    }
 }
