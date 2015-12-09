@@ -2,8 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(),
- * PMA_arrayMergeRecursive(),
- * PMA_arrayWalkRecursive() from libraries/core.lib.php
+ * PMA_arrayMergeRecursive() from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -15,8 +14,7 @@ require_once 'libraries/core.lib.php';
 
 /**
  * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(),
- * PMA_arrayMergeRecursive(),
- * PMA_arrayWalkRecursive() from libraries/core.lib.php
+ * PMA_arrayMergeRecursive() from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -276,115 +274,5 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
                 'key6' => 9
             )
         );
-    }
-
-    /**
-     * Test for PMA_arrayWalkRecursive
-     *
-     * @return void
-     */
-    function testWalkRecursive()
-    {
-        /**
-         * Concat a variable to a string
-         *
-         * @param string $var Variable to concat
-         *
-         * @return string
-         */
-        function fConcat($var)
-        {
-            return 'val: ' . $var . ' processed';
-        }
-
-        $arr = array(1, 2, 3, 4);
-        $target = array(
-            'val: 1 processed',
-            'val: 2 processed',
-            'val: 3 processed',
-            'val: 4 processed'
-        );
-
-        PMA_arrayWalkRecursive($arr, 'fConcat');
-        $this->assertEquals($arr, $target);
-    }
-
-    /**
-     * Test for PMA_arrayWalkRecursive
-     *
-     * @return void
-     *
-     * @depends testWalkRecursive
-     */
-    function testWalkRecursiveNotProcessIntKeys()
-    {
-        /**
-         * Increment a variable
-         *
-         * @param int $var Variable to increment
-         *
-         * @return int
-         */
-        function fAdd($var)
-        {
-            return ++$var;
-        }
-
-        $arr = array(1, 2, 3, 4);
-        $target = array(2, 3, 4, 5);
-
-        PMA_arrayWalkRecursive($arr, 'fAdd', true);
-        $this->assertEquals($arr, $target);
-    }
-
-    /**
-     * Test for PMA_arrayWalkRecursive
-     *
-     * @return void
-     *
-     * @depends testWalkRecursiveNotProcessIntKeys
-     */
-    function testWalkRecursiveSubArray()
-    {
-        $arr = array(
-            "key1"=>'val1',
-            'key2'=>array('skey1'=>'sval1', 'skey2'=>'sval2'),
-            'key3'=>'val3'
-        );
-        $target = array(
-            'key1'=>'val: val1 processed',
-            'key2'=> array(
-                'skey1'=>'val: sval1 processed', 'skey2'=>'val: sval2 processed'
-            ),
-            'key3'=>'val: val3 processed'
-        );
-
-        PMA_arrayWalkRecursive($arr, 'fConcat');
-        $this->assertEquals($arr, $target);
-    }
-
-    /**
-     * Test for PMA_arrayWalkRecursive
-     *
-     * @return void
-     */
-    function testWalkRecursiveApplyToKeysStripSlashes()
-    {
-        $arr = array(
-            "key\\1"=>'v\\\\al1',
-            'k\\ey2'=>array('s\\\\key1'=>'sval\\1', 's\\k\\ey2'=>'s\\v\\al2'),
-            'key3'=>'val3'
-        );
-        $second = $arr;
-        $target = array(
-            "key1"=>'v\\al1',
-            'key2'=>array('s\\key1'=>'sval1', 'skey2'=>'sval2'),
-            'key3'=>'val3'
-        );
-
-        PMA_arrayWalkRecursive($arr, 'stripslashes', true);
-        $this->assertEquals($arr, $target);
-        PMA_arrayWalkRecursive($second, 'stripslashes', true);
-        $this->assertEquals($second, $target);
     }
 }

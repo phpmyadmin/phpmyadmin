@@ -456,53 +456,6 @@ function PMA_arrayMergeRecursive()
 }
 
 /**
- * calls $function for every element in $array recursively
- *
- * this function is protected against deep recursion attack CVE-2006-1549,
- * 1000 seems to be more than enough
- *
- * @param array    &$array             array to walk
- * @param callable $function           function to call for every array element
- * @param bool     $apply_to_keys_also whether to call the function for the keys also
- *
- * @return void
- *
- * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
- * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
- */
-function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
-{
-    static $recursive_counter = 0;
-    $walked_keys = array();
-
-    if (++$recursive_counter > 1000) {
-        PMA_fatalError(__('possible deep recursion attack'));
-    }
-    foreach ($array as $key => $value) {
-        if (isset($walked_keys[$key])) {
-            continue;
-        }
-        $walked_keys[$key] = true;
-
-        if (is_array($value)) {
-            PMA_arrayWalkRecursive($array[$key], $function, $apply_to_keys_also);
-        } else {
-            $array[$key] = $function($value);
-        }
-
-        if ($apply_to_keys_also && is_string($key)) {
-            $new_key = $function($key);
-            if ($new_key != $key) {
-                $array[$new_key] = $array[$key];
-                unset($array[$key]);
-                $walked_keys[$new_key] = true;
-            }
-        }
-    }
-    $recursive_counter--;
-}
-
-/**
  * boolean phpMyAdmin.PMA_checkPageValidity(string &$page, array $whitelist)
  *
  * checks given $page against given $whitelist and returns true if valid
@@ -949,7 +902,7 @@ function PMA_emptyRecursive($value)
 {
     $empty = true;
     if (is_array($value)) {
-        PMA_arrayWalkRecursive(
+        array_walk_recursive(
             $value,
             function ($item) use (&$empty) {
                 $empty = $empty && empty($item);
