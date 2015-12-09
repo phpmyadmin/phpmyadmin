@@ -83,17 +83,6 @@ $PMA_String = new PMA_String();
 $GLOBALS['error_handler'] = new ErrorHandler();
 
 /**
- * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
- * is not yet defined so we use another way to find out the PHP version.
- */
-if (version_compare(phpversion(), '5.4', 'lt')) {
-    /**
-     * Avoid problems with magic_quotes_runtime
-     */
-    @ini_set('magic_quotes_runtime', 'false');
-}
-
-/**
  * core functions
  */
 require './libraries/core.lib.php';
