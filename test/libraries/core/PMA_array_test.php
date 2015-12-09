@@ -1,8 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(),
- * PMA_arrayMergeRecursive() from libraries/core.lib.php
+ * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove()
+ * from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -13,8 +13,8 @@
 require_once 'libraries/core.lib.php';
 
 /**
- * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(),
- * PMA_arrayMergeRecursive() from libraries/core.lib.php
+ * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove()
+ * from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -222,57 +222,5 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
         PMA_arrayRemove('sarr/0/2', $arr);
 
         $this->assertEmpty($arr);
-    }
-
-    /**
-     * Test for PMA_arrayMergeRecursive
-     *
-     * @return void
-     */
-    function testMergeRecursive()
-    {
-        $arr1 = array('key1' => 1, 'key2' => 2.3, 'key3' => 'str3');
-        $arr2 = array('key1' => 4, 'key2' => 5, 'key3' => 6);
-        $arr3 = array('key4' => 7, 'key5' => 'str8', 'key6' => 9);
-        $arr4 = array(1, 2, 3);
-
-        $this->assertFalse(PMA_arrayMergeRecursive());
-
-        $this->assertEquals(PMA_arrayMergeRecursive($arr1), $arr1);
-
-        $this->assertEquals(PMA_arrayMergeRecursive($arr1, 'str'), 'str');
-
-        $this->assertEquals(PMA_arrayMergeRecursive('str1', $arr2), $arr2);
-
-        $this->assertEquals(
-            PMA_arrayMergeRecursive($arr1, $arr2),
-            array('key1' => 4, 'key2' => 5, 'key3' => 6)
-        );
-
-        $this->assertEquals(
-            PMA_arrayMergeRecursive($arr1, $arr3),
-            array(
-                'key1' => 1,
-                'key2' => 2.3,
-                'key3' => 'str3',
-                'key4' => 7,
-                'key5' => 'str8',
-                'key6' => 9
-            )
-        );
-
-        $this->assertEquals(PMA_arrayMergeRecursive($arr2, $arr4), array(1, 2, 3));
-
-        $this->assertEquals(
-            PMA_arrayMergeRecursive($arr1, $arr2, $arr3),
-            array(
-                'key1' => 4,
-                'key2' => 5,
-                'key3' => 6,
-                'key4' => 7,
-                'key5' => 'str8',
-                'key6' => 9
-            )
-        );
     }
 }

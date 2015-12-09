@@ -531,7 +531,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($loadedConf, $this->object->default);
 
-        $expectedSettings = PMA_arrayMergeRecursive(
+        $expectedSettings = array_replace_recursive(
             $this->object->settings,
             $loadedConf
         );

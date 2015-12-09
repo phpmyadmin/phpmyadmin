@@ -405,57 +405,6 @@ function PMA_getRealSize($size = 0)
 } // end function PMA_getRealSize()
 
 /**
- * merges array recursive like array_merge_recursive() but keyed-values are
- * always overwritten.
- *
- * array PMA_arrayMergeRecursive(array $array1[, array $array2[, array ...]])
- *
- * @return array   merged array
- *
- * @see     http://php.net/array_merge
- * @see     http://php.net/array_merge_recursive
- */
-function PMA_arrayMergeRecursive()
-{
-    switch(func_num_args()) {
-    case 0 :
-        return false;
-    case 1 :
-        // when does that happen?
-        return func_get_arg(0);
-    case 2 :
-        $args = func_get_args();
-        if (! is_array($args[0]) || ! is_array($args[1])) {
-            return $args[1];
-        }
-        foreach ($args[1] as $key2 => $value2) {
-            if (isset($args[0][$key2]) && !is_int($key2)) {
-                $args[0][$key2] = PMA_arrayMergeRecursive(
-                    $args[0][$key2], $value2
-                );
-            } else {
-                // we erase the parent array, otherwise we cannot override
-                // a directive that contains array elements, like this:
-                // (in config.default.php)
-                // $cfg['ForeignKeyDropdownOrder']= array('id-content','content-id');
-                // (in config.inc.php)
-                // $cfg['ForeignKeyDropdownOrder']= array('content-id');
-                if (is_int($key2) && $key2 == 0) {
-                    unset($args[0]);
-                }
-                $args[0][$key2] = $value2;
-            }
-        }
-        return $args[0];
-    default :
-        $args = func_get_args();
-        $args[1] = PMA_arrayMergeRecursive($args[0], $args[1]);
-        array_shift($args);
-        return call_user_func_array('PMA_arrayMergeRecursive', $args);
-    }
-}
-
-/**
  * boolean phpMyAdmin.PMA_checkPageValidity(string &$page, array $whitelist)
  *
  * checks given $page against given $whitelist and returns true if valid
