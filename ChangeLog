@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue #11721 Fix single quote export for servers in ANSI_QUOTES mode
 - issue #11714 Avoid duplicite fetching of table information
 - issue #11724 Temporary fix for live data edit of big sets is not working
+- issue        IE 8 compatibility in console
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
