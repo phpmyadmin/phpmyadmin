@@ -128,7 +128,7 @@ function PMA_getHtmlForMasterConfiguration()
  * returns HTML for slave replication configuration
  *
  * @param bool  $server_slave_status      Whether it is Master or Slave
- * @param Array $server_slave_replication Slave replication
+ * @param array $server_slave_replication Slave replication
  *
  * @return String HTML code
  */
@@ -468,8 +468,8 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
 /**
  * returns HTML code for Add user input div
  *
- * @param Array $label_array label tag elements
- * @param Array $input_array input tag elements
+ * @param array $label_array label tag elements
+ * @param array $input_array input tag elements
  *
  * @return String HTML code
  */

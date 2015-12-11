@@ -364,7 +364,7 @@ function PMA_getHtmlForClientSideDataAndLinks($ServerStatusData)
 /**
  * Returns JSon for real-time charting data
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForChartingData()
 {
@@ -553,7 +553,7 @@ function PMA_getJsonForChartingDataSwitch(
  * @param int $start Unix Time: Start time for query
  * @param int $end   Unix Time: End time for query
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForLogDataTypeSlow($start, $end)
 {
@@ -619,7 +619,7 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
  * @param int $start Unix Time: Start time for query
  * @param int $end   Unix Time: End time for query
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForLogDataTypeGeneral($start, $end)
 {
@@ -739,7 +739,7 @@ function PMA_getSuspensionPoints($lastChar)
 /**
  * Returns JSon for logging vars
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForLoggingVars()
 {
@@ -769,7 +769,7 @@ function PMA_getJsonForLoggingVars()
 /**
  * Returns JSon for query_analyzer
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForQueryAnalyzer()
 {

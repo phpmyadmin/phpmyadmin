@@ -94,7 +94,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets MySQL documentation pointer
      *
-     * @return arrray
+     * @return array
      */
     public function getDoc()
     {

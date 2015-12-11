@@ -4288,7 +4288,7 @@ class Util
     /**
      * Get regular expression which occur first inside the given sql query.
      *
-     * @param Array  $regex_array Comparing regular expressions.
+     * @param array  $regex_array Comparing regular expressions.
      * @param String $query       SQL query to be checked.
      *
      * @return String Matching regular expression.

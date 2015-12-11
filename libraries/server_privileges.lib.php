@@ -3901,7 +3901,7 @@ function PMA_deleteUser($queries)
  * @param string $hostname  host name
  * @param string $tablename table name
  * @param string $dbname    database name
- * @param strubg $itemType  item type
+ * @param string $itemType  item type
  *
  * @return Message success message or error message for update
  */

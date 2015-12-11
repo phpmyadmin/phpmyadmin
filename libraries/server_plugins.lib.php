@@ -42,7 +42,7 @@ function PMA_getServerPlugins()
 /**
  * Returns the html for plugin Tab.
  *
- * @param Array $plugins list
+ * @param array $plugins list
  *
  * @return string
  */
@@ -93,7 +93,7 @@ function PMA_getPluginTab($plugins)
 /**
  * Returns the html for plugin List.
  *
- * @param Array $plugin_list list
+ * @param array $plugin_list list
  *
  * @return string
  */

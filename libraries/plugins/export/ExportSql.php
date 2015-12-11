@@ -2639,7 +2639,7 @@ class ExportSql extends ExportPlugin
         /**
          * The statement that represents the query.
          *
-         * @var CreateStatement $statement
+         * @var \SqlParser\Statements\CreateStatement $statement
          */
         $statement = $parser->statements[0];
 

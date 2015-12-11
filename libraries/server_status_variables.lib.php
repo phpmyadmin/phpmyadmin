@@ -200,8 +200,8 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
  * Returns HTML for render variables list
  *
  * @param ServerStatusData $ServerStatusData Server status data
- * @param Array            $alerts           Alert Array
- * @param Array            $strShowStatus    Status Array
+ * @param array            $alerts           Alert Array
+ * @param array            $strShowStatus    Status Array
  *
  * @return string
  */

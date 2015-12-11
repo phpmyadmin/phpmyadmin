@@ -43,7 +43,7 @@ function PMA_getPrettyReportData()
  *
  * @param string $exception_type whether exception is 'js' or 'php'
  *
- * @return Array error report if success, Empty Array otherwise
+ * @return array error report if success, Empty Array otherwise
  */
 function PMA_getReportData($exception_type = 'js')
 {
@@ -131,7 +131,7 @@ function PMA_getReportData($exception_type = 'js')
  *
  * @param String $url the url to sanitize
  *
- * @return Array the uri and script name
+ * @return array the uri and script name
  */
 function PMA_sanitizeUrl($url)
 {
@@ -171,7 +171,7 @@ function PMA_sanitizeUrl($url)
 /**
  * Sends report data to the error reporting server
  *
- * @param Array $report the report info to be sent
+ * @param array $report the report info to be sent
  *
  * @return String the reply of the server
  */
@@ -262,11 +262,11 @@ function PMA_countLines($filename)
  *
  * uses the $LINE_COUNT global array of file names and line numbers
  *
- * @param Array   $filenames         list of files in order of concatenation
+ * @param array   $filenames         list of files in order of concatenation
  * @param Integer $cumulative_number the cumulative line number in the
  *                                   concatenated files
  *
- * @return Array the filename and line number
+ * @return array the filename and line number
  * Returns two variables in an array:
  * - A String $filename the filename where the requested cumulative number
  *   exists
@@ -293,9 +293,9 @@ function PMA_getLineNumber($filenames, $cumulative_number)
  * translates the cumulative line numbers in the stack trace as well as sanitize
  * urls and trim long lines in the context
  *
- * @param Array $stack the stack trace
+ * @param array $stack the stack trace
  *
- * @return Array $stack the modified stack trace
+ * @return array $stack the modified stack trace
  */
 function PMA_translateStacktrace($stack)
 {
