@@ -251,11 +251,19 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
 /**
  * Returns single option in a list element
  *
- * @param string  $section        name of config section in
- *                               $GLOBALS['cfg'][$section] for plugin
- * @param string  $plugin_name    unique plugin name
- * @param array   &$propertyGroup options property main group instance
- * @param boolean $is_subgroup    if this group is a subgroup
+ * @param string                                       $section        name of
+ *                                                                     config
+ *                                                                     section in
+ *                                                                     $GLOBALS['cfg'][$section]
+ *                                                                     for plugin
+ * @param string                                       $plugin_name    unique plugin
+ *                                                                     name
+ * @param array|\PMA\libraries\properties\PropertyItem &$propertyGroup options
+ *                                                                     property main
+ *                                                                     group
+ *                                                                     instance
+ * @param boolean                                      $is_subgroup    if this group
+ *                                                                     is a subgroup
  *
  * @return string  table row with option
  */

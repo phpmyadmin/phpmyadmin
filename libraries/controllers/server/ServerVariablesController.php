@@ -262,8 +262,8 @@ class ServerVariablesController extends Controller
     /**
      * Prints Html for Server Variables
      *
-     * @param Array $serverVars        global variables
-     * @param Array $serverVarsSession session variables
+     * @param array $serverVars        global variables
+     * @param array $serverVarsSession session variables
      *
      * @return string
      */
