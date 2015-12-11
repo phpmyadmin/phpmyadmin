@@ -635,7 +635,6 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                         }
                         field_id++;
                     }
-                    selectedRow = {};
                     selectedRow = data.row_info;
                 });
 
