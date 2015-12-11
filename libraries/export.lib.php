@@ -680,8 +680,7 @@ function PMA_exportDatabase(
 
         }
         // if this is a view or a merge table, don't export data
-        if (($whatStrucOrData == 'data'
-            || $whatStrucOrData == 'structure_and_data')
+        if (($whatStrucOrData == 'data' || $whatStrucOrData == 'structure_and_data')
             && in_array($table, $table_data)
             && ! ($is_view)
         ) {
