@@ -1005,8 +1005,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     var $input_field = $(g.cEdit).find('.edit_box');
 
                     // remember current datetime value in $input_field, if it is not null
-                    var current_datetime_value = !is_null ? $input_field.val() : '';
-                    var datetime_value = current_datetime_value;
+                    var datetime_value = !is_null ? $input_field.val() : '';
 
                     var showMillisec = false;
                     var showMicrosec = false;
