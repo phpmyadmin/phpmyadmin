@@ -657,6 +657,11 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $_table = new PMA_Table('table', 'db');
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue($_table));
+
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
