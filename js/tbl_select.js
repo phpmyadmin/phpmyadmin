@@ -370,11 +370,11 @@ AJAX.registerOnload('tbl_select.js', function () {
                         $('<div/>').append(
                             '<fieldset>' +
                             '<legend>' + operator + '</legend>' +
-                            '<lablel for="min_value">' + PMA_messages.strMinValue +
+                            '<label for="min_value">' + PMA_messages.strMinValue +
                             '</label>' +
                             '<input type="text" id="min_value" />' + '<br>' +
                             '<span class="small_font">' + min + '</span>' + '<br>' +
-                            '<lablel for="max_value">' + PMA_messages.strMaxValue +
+                            '<label for="max_value">' + PMA_messages.strMaxValue +
                             '</label>' +
                             '<input type="text" id="max_value" />' + '<br>' +
                             '<span class="small_font">' + max + '</span>' +
