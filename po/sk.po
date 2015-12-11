@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-10-11 10:15+0200\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-5/sk/"
-">\n"
+"PO-Revision-Date: 2015-12-08 13:08+0000\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2550,7 +2550,7 @@ msgstr "Skryť argumenty"
 
 #: js/messages.php:606 libraries/Console.class.php:321
 msgid "Time taken:"
-msgstr ""
+msgstr "Ubehnutý čas:"
 
 #: js/messages.php:607
 msgid ""
@@ -3141,7 +3141,7 @@ msgstr "Poradie vykonávania"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Ubehnutý čas"
 
 #: libraries/Console.class.php:298
 msgid "Order by:"
@@ -6312,7 +6312,7 @@ msgstr "Neprerušovať pri chybe v príkaze INSERT"
 
 #: libraries/config/messages.inc.php:373 libraries/config/messages.inc.php:387
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Pridaj ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:389
 msgid "Update data when duplicate keys found on import"
@@ -8011,7 +8011,7 @@ msgstr "Žiadna zmena"
 #: libraries/database_interface.inc.php:34
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Pozri %sour documentation%s pre viacej informácií."
 
 #: libraries/database_interface.inc.php:51
 msgid ""
@@ -9532,7 +9532,7 @@ msgstr ""
 #: libraries/normalization.lib.php:372 libraries/normalization.lib.php:764
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' závisí od:"
 
 #: libraries/normalization.lib.php:383
 #, php-format
@@ -13553,7 +13553,7 @@ msgstr "Záložky pre prácu s tabuľkami"
 
 #: libraries/server_variables.lib.php:116
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Nastavenie premennej zlyhalo"
 
 #: libraries/server_variables.lib.php:197
 #: libraries/server_variables.lib.php:281

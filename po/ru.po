@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-11-19 22:08+0000\n"
-"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
+"PO-Revision-Date: 2015-12-08 16:55+0000\n"
+"Last-Translator: Anton Alekseevich <AntonBoch12.44@gmail.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ru/>\n"
 "Language: ru\n"
@@ -4766,7 +4766,7 @@ msgstr "Убрать анализ SQL"
 #: libraries/Util.class.php:1189
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Результат анализа %s"
 
 #: libraries/Util.class.php:1220
 msgid "Without PHP Code"
