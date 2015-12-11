@@ -306,8 +306,7 @@ function PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
         $html .= '        <div class="formelementrow">';
         $html .= '            <label for="text_skip_queries">'
             .  __(
-                'Skip this number of queries (for SQL) or lines (for other '
-                . 'formats), starting from the first one:'
+                'Skip this number of queries (for SQL) starting from the first one:'
             )
             . '</label>';
         $html .= '            <input type="number" name="skip_queries" value="'
