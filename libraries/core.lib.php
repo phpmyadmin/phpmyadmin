@@ -923,6 +923,7 @@ function PMA_cleanupPathInfo()
 
 /**
  * Checks that required PHP extensions are there.
+ * @return void
  */
 function PMA_checkExtensions()
 {
