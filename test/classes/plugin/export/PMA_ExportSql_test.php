@@ -1867,7 +1867,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $_table = new PMA_Table('table', 'db');
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue($_table));
 
@@ -1987,7 +1987,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue(new PMA_Table('table', 'db')));
 
@@ -2036,7 +2036,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->method('isView')
             ->will($this->returnValue(true));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue($_table));
 
@@ -2078,7 +2078,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->method('getError')
             ->will($this->returnValue('err'));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue(new PMA_Table('table', 'db')));
 
