@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - issue #11724 Temporary fix for live data edit of big sets is not working
 - issue        IE 8 compatibility in console
 - issue #11732 Exporting feature does not work with union table
+- issue #11728 CSV import skip row count after
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
