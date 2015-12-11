@@ -86,16 +86,16 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     $retval = '<br>';
 
     $messages = array();
-    $messages['error'] = '<font color="red"><strong>'
+    $messages['error'] = '<span style="color:red"><strong>'
         . __('not OK')
-        . '</strong></font>';
+        . '</strong></span>';
 
-    $messages['ok'] = '<font color="green"><strong>'
+    $messages['ok'] = '<span style="color:green"><strong>'
         .  _pgettext('Correctly working', 'OK')
-        . '</strong></font>';
+        . '</strong></span>';
 
-    $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
-    $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
+    $messages['enabled']  = '<span style="color:green">' . __('Enabled') . '</span>';
+    $messages['disabled'] = '<span style="color:red">'   . __('Disabled') . '</span>';
 
     if (empty($cfgRelation['db'])) {
         $retval .= __('Configuration of pmadb… ')
