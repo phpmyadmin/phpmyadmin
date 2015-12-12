@@ -1,36 +1,31 @@
-aqua
-aqua_brushed
-arctic_ocean
-blueorange
-cactica_blues
-clearview3
-crimson_gray
-dark_lime
-darkblue_gray
-darkblue_orange
-garvblue
-graphite
-graphivore
-green_orange
-grid
-hillside
-metro
-openphpnuke
-original_small
-paradice
-pixeline
-programmersdarkside
-silk
-silkline
-smooth_yellow
-toba
-very_small
-xampp
-xp_basic
-xp_blue
-xp_dirty
-xp_green
-xp_silver
-emphasis
-cleanstrap
-metro
+# Directory for creating releases
+release
+# Configuration files
+config.inc.php
+config.header.inc.php
+config.footer.inc.php
+# Upload/save dirs
+upload
+save
+# For setup script
+config
+# ctags
+tags
+# Editor files
+phpmyadmin.wpj
+.projectOptions
+.vimrc
+.project
+.settings
+.buildpath
+.cache
+.idea
+*.sw[op]
+# Locales
+locale
+# Backups
+*~
+# Javascript sources
+sources
+# API documentation
+apidoc

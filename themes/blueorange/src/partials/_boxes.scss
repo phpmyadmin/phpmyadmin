@@ -1,0 +1,83 @@
+///*Fieldset*/
+@mixin box-fieldset($bg: #EEEEEE){
+	padding: 10px 10px 8px;
+	margin: 1em 0 1em;
+	background-color: $bg;
+	border-color: #BBBBCC #CCCCCC #CCCCCC;
+	border-style: solid;
+	border-width: 2px 1px 1px;
+	box-shadow: 0 1px 0 0 #FFFFFF inset;
+	text-shadow: 0 1px 0 #FFFFFF;
+	border-radius: 4px;
+}
+@mixin box-legend{
+    background-color:#EEEEEE;
+    border-color: #BBBBCC #CCCCCC #CCCCCC;
+    border-radius: 6px 6px 2px 2px;
+    border-style: solid;
+    border-width: 2px 1px 1px;
+    box-shadow: 0 1px 0 0 #FFFFFF,0 1px 0 0 #FFFFFF inset;
+    color: #444444;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+@mixin box-fieldset-top{
+	margin: 1em 0 0;
+	border-radius: 4px 4px 0 0;
+}
+@mixin box-fieldset-bottom{
+	margin: 0 0 0.5em;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 1px 0 0 #FFFFFF inset, 0 1px 2px -2px #777777;
+	border-top: 0 none;
+	background-color: #DDDDDD;
+	text-align: right;/*sass*/
+/*php
+	text-align: <?php echo $right; ?>;
+php*/
+	clear: both;
+}
+
+///*notices*/
+@mixin box-notice{
+	padding:5px 10px;
+	margin:$marginUnit 0;	
+	border-radius:4px;
+	box-shadow: 0 1px 1px -1px rgba(0,0,0,0.2);
+	font-weight:bold;
+	text-shadow:none;
+	color:#fff;
+	& a{
+		display:inline-block;
+		padding:2px 10px;
+		background-color: transparent;
+		border-radius:4px;
+		box-shadow:0 0 10px 0 transparent inset,0 1px 1px 0 transparent inset,0 0 10px 0 transparent;
+		text-shadow:0 -1px 2px  transparent;
+	}
+	& a:hover{
+		box-shadow:-1px -2px 2px 1px rgba(0, 0, 0, 0.1) , 0 1px 1px 0 rgba(255, 255, 255, 0.5) inset, 0 -15px 5px -5px rgba(0, 0, 0, 0.1) inset, 0 0 0 1px rgba(0,0,0,0.1);
+	/*php
+			box-shadow: <?php echo ($left=='right')? '':'-'; ?>1px -2px 2px 1px rgba(0, 0, 0, 0.1) , 0 1px 1px 0 rgba(255, 255, 255, 0.5) inset, 0 -15px 5px -5px rgba(0, 0, 0, 0.1) inset, 0 0 0 1px rgba(0,0,0,0.1);
+	php*/
+		color:#FFF;
+		text-shadow:0 -1px 2px  rgba(0,0,0,0.3);
+	}
+}
+@mixin box-float{
+	position: absolute;
+	display: none;
+	margin: 0;
+	z-index:2;
+	padding: 10px;
+	background-color: #eee;
+	/*box-shadow: 0 1px 4px #AAAAAA;
+	box-shadow:0 4px 4px #AAAAAA, 0 4px 4px -4px #555555 inset, 0 9px 3px -4px #FaFaFa inset;
+	box-shadow:0 3px 4px #AAAAAA,  0 10px 3px -4px #FAFAFA inset;
+	box-shadow:0 1px 4px #AAAAAA,  0 14px 2px -4px #FAFAFA inset;*/
+	box-shadow:0 1px 4px #AAAAAA, 0 5px 5px -5px #FAFAFA inset;
+	border-radius: 0 0 4px 4px;
+	border: 1px solid #f8f8f8;
+	border:0 none;
+}
+

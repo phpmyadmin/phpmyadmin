@@ -1,0 +1,32 @@
+$darkblue: #666699;
+$orange: #DD7710;
+$textcolor: #111111;
+$colorI: #111111;
+$labelcolor: #555555; 
+
+$basepad: 5px;
+$basefont: Tahoma,Helvetica,Verdana, sans-serif;
+
+$marginUnit: 0.5em;
+$wAccent: 0 1px 0 #ffffff;
+$bAccent: 0 1px 0 #000000;
+
+///*links*/
+@mixin link{
+	color: $darkblue;
+	&:hover{color: $orange}
+}
+///*link bold*/
+@mixin linkbold{
+	&{
+		font-weight: bold;
+		color: $darkblue}
+	&:hover{color: $orange}
+}
+
+///*label*/
+@mixin mLabel{
+	&{color: $labelcolor}
+	&:hover{color: $labelcolor -5 * $colorI}
+}
+

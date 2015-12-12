@@ -1,0 +1,11 @@
+phpmyadmin Verzeichnis öffnen dort ins "themes" verzeichnis das zip entpacken.
+
+In der config.inc.php im Haubtverzeichnis in Zeile 543 könnt ihr es zum Standart Theme im phpmyadmin machen.
+
+dort sollte bei euch stehen:
+$cfg['ThemeDefault']        = 'orginal';         // set up default theme, if ThemePath not empty
+
+ändern auf:
+$cfg['ThemeDefault']        = 'openphpnuke';         // set up default theme, if ThemePath not empty
+
+speichern und schon seit ihr Opn Fans :-)
