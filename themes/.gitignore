@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Directory for creating releases
 release
 # Configuration files
@@ -29,3 +30,40 @@ locale
 sources
 # API documentation
 apidoc
+=======
+aqua
+aqua_brushed
+arctic_ocean
+blueorange
+cactica_blues
+clearview3
+crimson_gray
+dark_lime
+darkblue_gray
+darkblue_orange
+garvblue
+graphite
+graphivore
+green_orange
+grid
+hillside
+metro
+openphpnuke
+original_small
+paradice
+pixeline
+programmersdarkside
+silk
+silkline
+smooth_yellow
+toba
+very_small
+xampp
+xp_basic
+xp_blue
+xp_dirty
+xp_green
+xp_silver
+emphasis
+cleanstrap
+>>>>>>> 3f97698382c058e1085204b65606d57d33194bda

@@ -1,0 +1,42 @@
+<h2>
+    <?php echo \PMA\libraries\Util::getImage('b_engine.png'),
+            '    ', htmlspecialchars($title),
+            '    ', \PMA\libraries\Util::showMySQLDocu($helpPage); ?>
+</h2>
+<p>
+    <em>
+        <?php echo htmlspecialchars($comment); ?>
+    </em>
+</p>
+<?php if (! empty($infoPages) && is_array($infoPages)): ?>
+    <p>
+        <strong>[</strong>
+            <?php if (empty($_REQUEST['page'])): ?>
+                <strong><?php echo __('Variables'); ?></strong>
+            <?php else: ?>
+                <a href="server_engines.php<?php echo PMA_URL_getCommon(array('engine' => $_REQUEST['engine'])); ?>">
+                    <?php echo __('Variables'); ?>
+                </a>
+            <?php endif; ?>
+            <?php foreach ($infoPages as $current => $label): ?>
+                <strong>|</strong>
+                <?php if (isset($_REQUEST['page']) && $_REQUEST['page'] == $current): ?>
+                    <strong><?php echo htmlspecialchars($label); ?></strong>
+                <?php else: ?>
+                    <a href="server_engines.php<?php echo PMA_URL_getCommon(array('engine' => $_REQUEST['engine'], 'page' => $current)); ?>">
+                        <?php echo htmlspecialchars($label); ?>
+                    </a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <strong>]</strong>
+    </p>
+<?php endif; ?>
+
+<?php if (! empty($pageOutput)): ?>
+    <?php echo $pageOutput; ?>
+<?php else: ?>
+    <p>
+        <?php echo $support; ?>
+    </p>
+    <?php echo $variables; ?>
+<?php endif; ?>

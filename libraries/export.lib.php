@@ -680,10 +680,9 @@ function PMA_exportDatabase(
 
         }
         // if this is a view or a merge table, don't export data
-        if (($whatStrucOrData == 'data'
-            || $whatStrucOrData == 'structure_and_data')
+        if (($whatStrucOrData == 'data' || $whatStrucOrData == 'structure_and_data')
             && in_array($table, $table_data)
-            && ! ($is_view || $_table->isMerge())
+            && ! ($is_view)
         ) {
             $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table);
@@ -853,9 +852,8 @@ function PMA_exportTable(
     // If this is an export of a single view, we have to export data;
     // for example, a PDF report
     // if it is a merge table, no data is exported
-    if (($whatStrucOrData == 'data'
-        || $whatStrucOrData == 'structure_and_data')
-        && ! $GLOBALS['dbi']->getTable($db, $table)->isMerge()
+    if ($whatStrucOrData == 'data'
+        || $whatStrucOrData == 'structure_and_data'
     ) {
         if (! empty($sql_query)) {
             // only preg_replace if needed

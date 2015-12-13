@@ -241,7 +241,7 @@ function PMA_getHtmlForProcessListFilter()
 /**
  * Prints Every Item of Server Process
  *
- * @param Array $process       data of Every Item of Server Process
+ * @param array $process       data of Every Item of Server Process
  * @param bool  $odd_row       display odd row or not
  * @param bool  $show_full_sql show full sql or not
  *

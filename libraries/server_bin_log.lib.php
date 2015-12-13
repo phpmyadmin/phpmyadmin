@@ -13,8 +13,8 @@ use PMA\libraries\Util;
 /**
  * Returns the html for log selector.
  *
- * @param Array $binary_logs Binary logs file names
- * @param Array $url_params  links parameters
+ * @param array $binary_logs Binary logs file names
+ * @param array $url_params  links parameters
  *
  * @return string
  */
@@ -67,7 +67,7 @@ function PMA_getLogSelector($binary_logs, $url_params)
 /**
  * Returns the html for binary log information.
  *
- * @param Array $url_params links parameters
+ * @param array $url_params links parameters
  *
  * @return string
  */
@@ -144,7 +144,7 @@ function PMA_getLogInfo($url_params)
 /**
  * Returns the html for Navigation Row.
  *
- * @param Array $url_params     Links parameters
+ * @param array $url_params     Links parameters
  * @param int   $pos            Position to display
  * @param int   $num_rows       Number of results row
  * @param bool  $dontlimitchars Whether limit chars

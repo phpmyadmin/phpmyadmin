@@ -824,7 +824,7 @@ class Config
         unset($cfg['Servers']);
 
         $this->default = $cfg;
-        $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
+        $this->settings = array_replace_recursive($this->settings, $cfg);
 
         $this->error_config_default_file = false;
 
@@ -906,7 +906,7 @@ class Config
             );
         }
 
-        $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
+        $this->settings = array_replace_recursive($this->settings, $cfg);
         $this->checkPmaAbsoluteUri();
 
         // Handling of the collation must be done after merging of $cfg
@@ -1011,8 +1011,8 @@ class Config
             $org_fontsize = $this->settings['fontsize'];
         }
         // load config array
-        $this->settings = PMA_arrayMergeRecursive($this->settings, $config_data);
-        $GLOBALS['cfg'] = PMA_arrayMergeRecursive($GLOBALS['cfg'], $config_data);
+        $this->settings = array_replace_recursive($this->settings, $config_data);
+        $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
         if (defined('PMA_MINIMUM_COMMON')) {
             return;
         }

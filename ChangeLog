@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 - issue #11708 Remove no password warning
 + issue #11711 Clarify the meaning of "Stand-in structure for view" in SQL export
 - issue        HTML line break shown after a MySQL connection error message
+- issue #11728 CSV import skip row count after
 
 4.5.3.0 (not yet released)
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement
@@ -40,6 +41,9 @@ phpMyAdmin - ChangeLog
 - issue #11706 Database export template not saving compression option
 - issue #11721 Fix single quote export for servers in ANSI_QUOTES mode
 - issue #11714 Avoid duplicite fetching of table information
+- issue #11724 Temporary fix for live data edit of big sets is not working
+- issue        IE 8 compatibility in console
+- issue #11732 Exporting feature does not work with union table
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()

@@ -83,17 +83,6 @@ $PMA_String = new PMA_String();
 $GLOBALS['error_handler'] = new ErrorHandler();
 
 /**
- * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
- * is not yet defined so we use another way to find out the PHP version.
- */
-if (version_compare(phpversion(), '5.4', 'lt')) {
-    /**
-     * Avoid problems with magic_quotes_runtime
-     */
-    @ini_set('magic_quotes_runtime', 'false');
-}
-
-/**
  * core functions
  */
 require './libraries/core.lib.php';
@@ -104,11 +93,9 @@ require './libraries/core.lib.php';
 require './libraries/sanitizing.lib.php';
 
 /**
- * Warning about mbstring.
+ * Warning about missing PHP extensions.
  */
-if (! function_exists('mb_detect_encoding')) {
-    PMA_warnMissingExtension('mbstring', $fatal = true);
-}
+PMA_checkExtensions();
 
 /**
  * the relation lib, tracker needs it
@@ -131,21 +118,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
-/**
- * PATH_INFO could be compromised if set, so remove it from PHP_SELF
- * and provide a clean PHP_SELF here
- */
-$PMA_PHP_SELF = PMA_getenv('PHP_SELF');
-$_PATH_INFO = PMA_getenv('PATH_INFO');
-if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
-    $path_info_pos = /*overload*/mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
-    $pathLength = $path_info_pos + /*overload*/mb_strlen($_PATH_INFO);
-    if ($pathLength === /*overload*/mb_strlen($PMA_PHP_SELF)) {
-        $PMA_PHP_SELF = /*overload*/mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
-    }
-}
-$PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
-
+PMA_cleanupPathInfo();
 
 /**
  * just to be sure there was no import (registering) before here
@@ -230,42 +203,14 @@ if (isset($_POST['usesubform'])) {
 // end check if a subform is submitted
 
 /**
- * This setting was removed in PHP 5.4, but get_magic_quotes_gpc
- * always returns False since then.
- */
-if (get_magic_quotes_gpc()) {
-    PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
-}
-
-/**
  * check timezone setting
- * this could produce an E_STRICT - but only once,
- * if not done here it will produce E_STRICT on every date/time function
- * (starting with PHP 5.3, this code can produce E_WARNING rather than
- *  E_STRICT)
- *
+ * this could produce an E_WARNING - but only once,
+ * if not done here it will produce E_WARNING on every date/time function
  */
 date_default_timezone_set(@date_default_timezone_get());
 
 /******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
-
-/**
- * We really need this one!
- */
-if (! function_exists('preg_replace')) {
-    PMA_warnMissingExtension('pcre', true);
-}
-
-/**
- * JSON is required in several places.
- */
-if (! function_exists('json_encode')) {
-    PMA_warnMissingExtension('json', true);
-}
 
 /**
  * @global Config $GLOBALS['PMA_Config']
@@ -652,66 +597,7 @@ unset($default_server);
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
 
-/**
- * @global ThemeManager $_SESSION['ThemeManager']
- */
-if (! isset($_SESSION['PMA_Theme_Manager'])) {
-    $_SESSION['PMA_Theme_Manager'] = new ThemeManager;
-} else {
-    /**
-     * @todo move all __wakeup() functionality into session.inc.php
-     */
-    $_SESSION['PMA_Theme_Manager']->checkConfig();
-}
-
-// for the theme per server feature
-if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
-    $GLOBALS['server'] = $_REQUEST['server'];
-    $tmp = $_SESSION['PMA_Theme_Manager']->getThemeCookie();
-    if (empty($tmp)) {
-        $tmp = $_SESSION['PMA_Theme_Manager']->theme_default;
-    }
-    $_SESSION['PMA_Theme_Manager']->setActiveTheme($tmp);
-    unset($tmp);
-}
-/**
- * @todo move into ThemeManager::__wakeup()
- */
-if (isset($_REQUEST['set_theme'])) {
-    // if user selected a theme
-    $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
-}
-
-/**
- * the theme object
- *
-*@global Theme $_SESSION['PMA_Theme']
- */
-$_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
-
-// BC
-/**
- * the active theme
- * @global string $GLOBALS['theme']
- */
-$GLOBALS['theme']           = $_SESSION['PMA_Theme']->getName();
-/**
- * the theme path
- * @global string $GLOBALS['pmaThemePath']
- */
-$GLOBALS['pmaThemePath']    = $_SESSION['PMA_Theme']->getPath();
-/**
- * the theme image path
- * @global string $GLOBALS['pmaThemeImage']
- */
-$GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
-
-/**
- * load layout file if exists
- */
-if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
-    include $_SESSION['PMA_Theme']->getLayoutFile();
-}
+ThemeManager::initializeTheme();
 
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**

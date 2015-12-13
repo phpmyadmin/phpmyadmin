@@ -38,7 +38,7 @@ class TableStatsSvg extends TableStats
      * @param string  $font             Font face
      * @param integer $fontSize         The font size
      * @param integer $pageNumber       Page number
-     * @param integer &$same_wide_width The max. with among tables
+     * @param integer &$same_wide_width The max. width among tables
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $tableDimension   Whether to display table position or not
      * @param boolean $offline          Whether the coordinates are sent

@@ -487,7 +487,7 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
  * return null
  *
  * @param array  $displayParts   the parts to display
- * @param bool   $cfgBookmark    configuration setting for bookmarking
+ * @param array  $cfgBookmark    configuration setting for bookmarking
  * @param string $sql_query      sql query
  * @param string $db             current database
  * @param string $table          current table

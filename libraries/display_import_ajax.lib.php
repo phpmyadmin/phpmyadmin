@@ -5,50 +5,57 @@
 *
 * @package PhpMyAdmin
 */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
-  * constant for differentiating array in $_SESSION variable
-  */
-$SESSION_KEY = '__upload_status';
+ * Sets up some variables for upload progress
+ *
+ * @return array
+ *
+ */
+function PMA_uploadProgressSetup()
+{
+    /**
+     * constant for differentiating array in $_SESSION variable
+     */
+    $SESSION_KEY = '__upload_status';
 
-/**
-  * sets default plugin for handling the import process
-  */
-$_SESSION[$SESSION_KEY]["handler"] = "";
+    /**
+     * sets default plugin for handling the import process
+     */
+    $_SESSION[$SESSION_KEY]["handler"] = "";
 
-/**
-  * unique ID for each upload
-  */
-$upload_id = uniqid("");
+    /**
+     * unique ID for each upload
+     */
+    $upload_id = uniqid("");
 
-/**
-  * list of available plugins
-  *
-  * Each plugin has own checkfunction in display_import_ajax.lib.php
-  * and own file with functions in upload_#KEY#.php
-  */
-$plugins = array(
-   // PHP 5.4 session-based upload progress is problematic, see bug 3964
-   //"session",
-   "progress",
-   "apc",
-   "noplugin"
-);
+    /**
+     * list of available plugins
+     *
+     * Each plugin has own checkfunction in display_import_ajax.lib.php
+     * and own file with functions in upload_#KEY#.php
+     */
+    $plugins = array(
+        // PHP 5.4 session-based upload progress is problematic, see bug 3964
+        //"session",
+        "progress",
+        "apc",
+        "noplugin"
+    );
 
-// select available plugin
-foreach ($plugins as $plugin) {
-    $check = "PMA_Import_" . $plugin . "Check";
+    // select available plugin
+    foreach ($plugins as $plugin) {
+        $check = "PMA_Import_" . $plugin . "Check";
 
-    if ($check()) {
-        $upload_class = 'PMA\libraries\plugins\import\upload\Upload' . ucwords(
-            $plugin
-        );
-        $_SESSION[$SESSION_KEY]["handler"] = $upload_class;
-        break;
+        if ($check()) {
+            $upload_class = 'PMA\libraries\plugins\import\upload\Upload' . ucwords(
+                $plugin
+            );
+            $_SESSION[$SESSION_KEY]["handler"] = $upload_class;
+            break;
+        }
     }
+    return array($SESSION_KEY, $upload_id, $plugins);
 }
 
 /**

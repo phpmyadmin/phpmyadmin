@@ -38,8 +38,7 @@ $(function () {
 $(document).ready(function(){
     width = 0;
     $('ul.tabs li').each(function(){
-        var tabWidth = $(this).width() + 10;
-        width += tabWidth;
+        width += $(this).width() + 10;
     });
     var contentWidth = width;
     width += 250;

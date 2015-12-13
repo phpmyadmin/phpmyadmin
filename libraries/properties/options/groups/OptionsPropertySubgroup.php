@@ -42,7 +42,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Gets the subgroup header
      *
-     * @return PropertyItem
+     * @return \PMA\libraries\properties\PropertyItem
      */
     public function getSubgroupHeader()
     {
@@ -52,7 +52,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Sets the subgroup header
      *
-     * @param PropertyItem $subgroupHeader subgroup header
+     * @param \PMA\libraries\properties\PropertyItem $subgroupHeader subgroup header
      *
      * @return void
      */

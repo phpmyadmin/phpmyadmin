@@ -52,7 +52,7 @@ use PMA\libraries\Util; ?>
                                     <?php
                                     echo htmlspecialchars($partition->getExpression())
                                         , ($partition->getMethod() == 'LIST' ? ' IN (' : ' < ')
-                                        .,htmlspecialchars($partition->getDescription())
+                                        , htmlspecialchars($partition->getDescription())
                                         , ($partition->getMethod() == 'LIST' ? ')' : '');
                                     ?>
                                 </code>
