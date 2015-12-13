@@ -45,11 +45,6 @@ function PMA_sprites()
             'width'    => '16',
             'height'   => '16'
         ),
-        'b_column_add' => array(
-            'position' => '7',
-            'width'    => '16',
-            'height'   => '16'
-        ),
         'b_comment' => array(
             'position' => '8',
             'width'    => '16',
@@ -150,16 +145,6 @@ function PMA_sprites()
             'width'    => '16',
             'height'   => '16'
         ),
-        'b_index' => array(
-            'position' => '28',
-            'width'    => '16',
-            'height'   => '16'
-        ),
-        'b_index_add' => array(
-            'position' => '29',
-            'width'    => '16',
-            'height'   => '16'
-        ),
         'b_info' => array(
             'position' => '30',
             'width'    => '11',
@@ -237,11 +222,6 @@ function PMA_sprites()
         ),
         'b_print' => array(
             'position' => '45',
-            'width'    => '16',
-            'height'   => '16'
-        ),
-        'b_props' => array(
-            'position' => '46',
             'width'    => '16',
             'height'   => '16'
         ),
@@ -632,11 +612,6 @@ function PMA_sprites()
         ),
         'normalize' => array(
             'position' => '124',
-            'width'    => '16',
-            'height'   => '16'
-        ),
-        'pause' => array(
-            'position' => '125',
             'width'    => '16',
             'height'   => '16'
         ),

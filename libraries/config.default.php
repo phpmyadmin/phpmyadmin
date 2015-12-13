@@ -299,7 +299,7 @@ $cfg['Servers'][$i]['LogoutURL'] = '';
  *
  * @global boolean $cfg['Servers'][$i]['nopassword']
  */
-$cfg['Servers'][$i]['nopassword'] = false;
+$cfg['Servers'][$i]['nopassword'] = true;
 
 /**
  * If set to a db-name, only this db is displayed in navigation panel
@@ -532,7 +532,7 @@ $cfg['Servers'][$i]['AllowRoot'] = true;
  *
  * @global boolean $cfg['Servers'][$i]['AllowNoPassword']
  */
-$cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
 
 /**
  * Host authentication order, leave blank to not use
