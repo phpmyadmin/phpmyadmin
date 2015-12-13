@@ -166,7 +166,10 @@ if (! empty($sql_query)) {
                         'value_str' => '.',
                     )
                 ),
-                array()
+                array(
+                    new SqlParser\Token($table),
+                    new SqlParser\Token('.',SqlParser\Token::TYPE_OPERATOR)
+                )
             );
         }
         $sql_query = SqlParser\TokensList::build($tokens);
