@@ -1129,6 +1129,13 @@ $cfg['ShowDbStructureLastCheck'] = false;
  */
 $cfg['HideStructureActions'] = true;
 
+/**
+ * Show column comments in table structure view (true|false)?
+ *
+ * @global boolean $cfg['ShowColumnComments']
+ */
+$cfg['ShowColumnComments'] = true;
+
 
 /*******************************************************************************
  * In browse mode...

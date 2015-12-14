@@ -33,6 +33,11 @@
         <i><?php echo _pgettext('None for default', 'None'); ?></i>
     <?php endif; ?>
 </td>
+<?php if ($GLOBALS['cfg']['ShowColumnComments']): ?>
+    <td>
+        <?php echo $comments; ?>
+    </td>
+<?php endif; ?>
 <td class="nowrap"><?php echo /*overload*/mb_strtoupper($row['Extra']); ?></td>
 <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
     <td class="edit center print_ignore">
