@@ -123,7 +123,11 @@ environment variables:
 
 .. envvar:: PMA_HOST
     
-    Host name or IP address of the databse server to use.
+    Host name or IP address of the database server to use.
+
+.. envvar:: PMA_HOSTS
+    
+    Comma separated host names or IP addresses of the database servers to use.
 
 .. envvar:: PMA_USER
     
@@ -146,6 +150,12 @@ To connect phpMyAdmin to given server use:
 .. code-block:: sh
 
     docker run --name myadmin -d -e PMA_HOST=dbhost -p 8080:8080 phpmyadmin/phpmyadmin
+
+To connect phpMyAdmin to more servers use:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:8080 phpmyadmin/phpmyadmin
 
 To use arbitrary server option:
 
