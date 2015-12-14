@@ -1801,6 +1801,14 @@ div.sqlvalidate {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
+.result_query .success {
+    margin-bottom: 0;
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-bottom: 5px;
+}
+
 #PMA_slidingMessage code.sql,
 div.sqlvalidate {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
