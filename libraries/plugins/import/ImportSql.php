@@ -155,19 +155,19 @@ class ImportSql extends ImportPlugin
             }
 
             // Executing the query.
-            PMA_importRunQuery($statement, $statement, false, $sql_data);
+            PMA_importRunQuery($statement, $statement, $sql_data);
         }
 
         // Extracting remaining statements.
         while ((!$error) && (!$timeout_passed) && (!empty($bq->query))) {
             $statement = $bq->extract(true);
             if (!empty($statement)) {
-                PMA_importRunQuery($statement, $statement, false, $sql_data);
+                PMA_importRunQuery($statement, $statement, $sql_data);
             }
         }
 
         // Finishing.
-        PMA_importRunQuery('', '', false, $sql_data);
+        PMA_importRunQuery('', '', $sql_data);
     }
 
     /**
