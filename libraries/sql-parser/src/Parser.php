@@ -81,6 +81,7 @@ class Parser
         // Prepared Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-prepared-statements.html
         'PREPARE'           => '',
+        'DEALLOCATE'        => '',
         'EXECUTE'           => '',
 
         // Transactional and Locking Statements
