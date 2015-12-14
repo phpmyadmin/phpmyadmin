@@ -1,0 +1,15 @@
+@mixin frm-input-text{
+    background-color: #FAFAFA;
+    border-color: #BBBBBB #CCCCCC #DDDDDD;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 2px #DDDDDD inset, 0 -25px 10px -15px rgba(180, 180, 200, 0.1) inset;
+    color:#333;
+    padding: 5px;
+    padding: 3px;
+    margin: 5px;
+    
+    text-shadow: 0 1px 0 #FFFFFF;
+    
+}

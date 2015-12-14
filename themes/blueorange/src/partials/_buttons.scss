@@ -1,0 +1,70 @@
+@mixin button1{ 
+	&{
+    background-color: #FFFFFF;
+    border: 1px solid #E9E9E9;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 -2px 0 0 #E0E0E0 inset, 0 -4px 15px -12px #999999;
+    box-shadow: 0 -1px 0 0 #E0E0E0 inset, 0 -12px 0 0 #FAFAFD inset, 0 -4px 15px -12px #999999;
+    color: #669;
+    cursor: pointer;
+    font-weight: normal;
+    line-height: 18px;
+    margin-left: 14px;/*sass*/
+/*php
+	margin-<?php echo $left; ?>: 14px;
+php*/    
+    padding: 3px 10px 3px 5px;
+/*php
+	padding-<?php echo $right; ?>: 10px;
+	padding-<?php echo $left; ?>: 5px;
+php*/
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+    }
+ &:hover{
+	background-color: $orange + #333333;  
+ 	text-shadow:none;
+ 	color:#fff;
+ 	box-shadow: 0 -2px 0 0 $orange + #111111 inset, 0 -12px 0 0 $orange + #222222 inset, 0 -4px 15px -12px #998811;
+  border-color: $orange ;
+    
+ }   
+    
+}
+
+@mixin button2{ 
+	&{
+    background-color: #F3F3F3;
+    border-color: #CCCCCC #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.3) inset, 0 10px 10px -5px rgba(50, 50, 100, 0.1) inset;
+    color: #666699;
+    margin: 5px 5px 5px 0;
+/*php
+	margin-<?php echo $right; ?>: 5px;
+	margin-<?php echo $left; ?>: 0;
+php*/
+
+    padding: 5px 15px;
+}
+ &:hover{
+ 	text-shadow:0 1px 0 #fff;
+ 	color:#d70;
+ 	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.3) inset, 0 -10px 10px -5px rgba(50, 50, 100, 0.1) inset;
+    
+ }   
+    
+}
+
+
+@mixin btn-pill-white{
+	display:inline-block;
+	margin: 5px;
+	padding:5px 10px;
+	color:#669;
+	background-color: #fff;
+	border-radius:4px;
+	box-shadow:0 1px 0 0 rgba(100, 100, 100, 0.1), 0 -10px 5px rgba(200, 200, 200, 0.2) inset, 0 -5px 5px 5px rgba(200, 200, 200, 0.1);
+}

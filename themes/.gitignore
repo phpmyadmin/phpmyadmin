@@ -1,3 +1,36 @@
+<<<<<<< HEAD
+# Directory for creating releases
+release
+# Configuration files
+config.inc.php
+config.header.inc.php
+config.footer.inc.php
+# Upload/save dirs
+upload
+save
+# For setup script
+config
+# ctags
+tags
+# Editor files
+phpmyadmin.wpj
+.projectOptions
+.vimrc
+.project
+.settings
+.buildpath
+.cache
+.idea
+*.sw[op]
+# Locales
+locale
+# Backups
+*~
+# Javascript sources
+sources
+# API documentation
+apidoc
+=======
 aqua
 aqua_brushed
 arctic_ocean
@@ -33,3 +66,7 @@ xp_green
 xp_silver
 emphasis
 cleanstrap
+<<<<<<< HEAD
+>>>>>>> 3f97698382c058e1085204b65606d57d33194bda
+=======
+>>>>>>> 3f97698382c058e1085204b65606d57d33194bda
