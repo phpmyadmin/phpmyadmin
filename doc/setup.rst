@@ -125,9 +125,20 @@ environment variables:
     
     Host name or IP address of the databse server to use.
 
+.. envvar:: PMA_USER
+    
+    User name to use for :ref:`auth_config`.
+
+.. envvar:: PMA_PASSWORD
+    
+    Password to use for :ref:`auth_config`.
+
 .. envvar:: PMA_PORT
     
     Port of the databse server to use.
+
+By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
+:envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
 
 To connect phpMyAdmin to given server use:
@@ -633,6 +644,8 @@ in :file:`examples/signon-script.php`:
 
 
 .. index:: pair: Config; Authentication mode
+
+.. _auth_config:
 
 Config authentication mode
 --------------------------
