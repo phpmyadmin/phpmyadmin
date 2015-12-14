@@ -130,7 +130,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         } else {
             $executed_queries++;
 
-            $pattern = '/^[\s]*(SELECT|SHOW|HANDLER)/i';
+            $pattern = '/^[\s]*(SELECT|SHOW|HANDLER|EXECUTE)/i';
             if ($run_query
                 && $GLOBALS['finished']
                 && empty($sql)
