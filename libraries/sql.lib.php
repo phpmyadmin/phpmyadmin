@@ -1182,7 +1182,9 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
 
         // Displays an error message if required and stop parsing the script
         $error = $GLOBALS['dbi']->getError();
-        if ($error) {
+        if ($error && $GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
+            $extra_data['error'] = $error;
+        } elseif ($error) {
             PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query);
         }
 
@@ -1380,10 +1382,14 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
         PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results);
     }
 
-    $message = PMA_getMessageForNoRowsReturned(
-        isset($message_to_show) ? $message_to_show : null,
-        $analyzed_sql_results, $num_rows
-    );
+    if (isset($extra_data['error'])) {
+        $message = PMA\libraries\Message::rawError($extra_data['error']);
+    } else {
+        $message = PMA_getMessageForNoRowsReturned(
+            isset($message_to_show) ? $message_to_show : null,
+            $analyzed_sql_results, $num_rows
+        );
+    }
 
     $html_output = '';
     if (!isset($GLOBALS['show_as_php'])) {
