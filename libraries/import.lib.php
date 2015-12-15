@@ -151,14 +151,6 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
                     $sql_data['valid_queries'] = 0;
                 }
                 $sql_data['valid_queries']++;
-
-                // If a 'USE <db>' SQL-clause was found,
-                // set our current $db to the new one
-                list($db, $reload) = PMA_lookForUse(
-                    $import_run_buffer['sql'],
-                    $db,
-                    $reload
-                );
             } elseif ($run_query) {
 
                 $result = $GLOBALS['dbi']->tryQuery($import_run_buffer['sql']);
