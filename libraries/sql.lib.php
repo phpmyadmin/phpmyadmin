@@ -1415,7 +1415,8 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
         $response = PMA\libraries\Response::getInstance();
         $response->addJSON(isset($extra_data) ? $extra_data : array());
 
-        if (!empty($analyzed_sql_results['is_select'])) {
+        if (!empty($analyzed_sql_results['is_select']) &&
+                !isset($extra_data['error'])) {
             $url_query = isset($url_query) ? $url_query : null;
 
             $displayParts = array(
