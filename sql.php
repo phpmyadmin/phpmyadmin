@@ -45,15 +45,8 @@ if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-// Security checks
-if (! empty($goto)) {
-    $is_gotofile     = preg_replace('@^([^?]+).*$@s', '\\1', $goto);
-    if (! @file_exists('' . $is_gotofile)) {
-        unset($goto);
-    } else {
-        $is_gotofile = ($is_gotofile == $goto);
-    }
-} else {
+$is_gotofile  = true;
+if (empty($goto)) {
     if (empty($table)) {
         $goto = Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
@@ -63,7 +56,6 @@ if (! empty($goto)) {
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
         );
     }
-    $is_gotofile  = true;
 } // end if
 
 if (! isset($err_url)) {
