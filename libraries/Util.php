@@ -1348,9 +1348,6 @@ class Util
         }
 
         $retval .= '</div>';
-        if ($GLOBALS['is_ajax_request'] === false) {
-            $retval .= '<br class="clearfloat" />';
-        }
 
         return $retval;
     } // end of the 'getMessage()' function
