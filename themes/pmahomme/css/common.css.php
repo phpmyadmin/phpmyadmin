@@ -1801,9 +1801,9 @@ div.sqlvalidate {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
-.result_query .success {
+.result_query .success, .result_query .error {
     margin-bottom: 0;
-    border-bottom: none;
+    border-bottom: none !important;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     padding-bottom: 5px;
