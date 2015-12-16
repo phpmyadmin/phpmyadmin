@@ -73,20 +73,19 @@ function PMA_detectCompression($filepath)
  * @return void
  * @access public
  */
-function PMA_executeQuery($sql = '', $full = '', &$sql_data)
+function PMA_executeQuery($sql, $full, &$sql_data)
 {
-    global $import_run_buffer, $go_sql, $complete_query, $display_query,
+    global $go_sql,
         $sql_query, $my_die, $error, $reload,
         $last_query_with_results, $result, $msg,
-        $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
-        $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
+        $cfg, $sql_query_disabled, $db;
 
-    $result = $GLOBALS['dbi']->tryQuery($import_run_buffer['sql']);
+    $result = $GLOBALS['dbi']->tryQuery($sql);
 
     // USE query changes the database, son need to track
     // while running multiple queries
     $is_use_query
-        = /*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false;
+        = /*overload*/mb_stripos($sql, "use ") !== false;
 
     $msg = '# ';
     if ($result === false) { // execution failed
@@ -94,7 +93,7 @@ function PMA_executeQuery($sql = '', $full = '', &$sql_data)
             $my_die = array();
         }
         $my_die[] = array(
-            'sql' => $import_run_buffer['full'],
+            'sql' => $full,
             'error' => $GLOBALS['dbi']->getError()
         );
 
@@ -109,7 +108,7 @@ function PMA_executeQuery($sql = '', $full = '', &$sql_data)
         $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
         if ($a_num_rows > 0) {
             $msg .= __('Rows') . ': ' . $a_num_rows;
-            $last_query_with_results = $import_run_buffer['sql'];
+            $last_query_with_results = $sql;
         } elseif ($a_aff_rows > 0) {
             $message = Message::getMessageForAffectedRows(
                 $a_aff_rows
@@ -138,7 +137,7 @@ function PMA_executeQuery($sql = '', $full = '', &$sql_data)
     // succeeded, set our current $db to the new one
     if ($result != false) {
         list($db, $reload) = PMA_lookForUse(
-            $import_run_buffer['sql'],
+            $sql,
             $db,
             $reload
         );
