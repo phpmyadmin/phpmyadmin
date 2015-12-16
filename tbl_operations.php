@@ -215,15 +215,10 @@ if ($reread_info) {
 unset($reread_info);
 
 if (isset($result) && empty($message_to_show)) {
-    // set to success by default, because result set could be empty
-    // (for example, a table rename)
-    $_type = 'success';
     if (empty($_message)) {
         $_message = $result
             ? PMA\libraries\Message::success()
             : PMA\libraries\Message::error();
-        // $result should exist, regardless of $_message
-        $_type = $result ? 'success' : 'error';
 
         if (isset($GLOBALS['ajax_request'])
             && $GLOBALS['ajax_request'] == true
@@ -256,9 +251,9 @@ if (isset($result) && empty($message_to_show)) {
     }
 
     $response->addHTML(
-        PMA\libraries\Util::getMessage($_message, $sql_query, $_type)
+        PMA\libraries\Util::getMessage($_message, $sql_query)
     );
-    unset($_message, $_type);
+    unset($_message);
 }
 
 $url_params['goto']
