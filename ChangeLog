@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - issue        HTML line break shown after a MySQL connection error message
 - issue #11728 CSV import skip row count after
 - issue        Fixed displaying of SQL query on table operations
+- issue #6321  Display binary strings as text if they are valid UTF-8
 
 4.5.3.0 (not yet released)
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement

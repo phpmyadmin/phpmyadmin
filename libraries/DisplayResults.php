@@ -5292,7 +5292,12 @@ class DisplayResults
             && stristr($meta->type, self::BLOB_FIELD))
         ) {
             // in this case, restart from the original $content
-            $result = bin2hex($content);
+            if (mb_check_encoding($content, 'utf-8')) {
+                // show as text if it's valid utf-8
+                $result = htmlspecialchars($content);
+            } else {
+                $result = '0x' . bin2hex($content);
+            }
             list(
                 $is_truncated,
                 $result,
