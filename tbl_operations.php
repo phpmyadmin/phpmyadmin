@@ -220,10 +220,8 @@ if (isset($result) && empty($message_to_show)) {
     $_type = 'success';
     if (empty($_message)) {
         $_message = $result
-            ? PMA\libraries\Message::success(
-                __('Your SQL query has been executed successfully.')
-            )
-            : PMA\libraries\Message::error(__('Error'));
+            ? PMA\libraries\Message::success()
+            : PMA\libraries\Message::error();
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
 
