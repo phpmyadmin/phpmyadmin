@@ -72,14 +72,12 @@ class ServerPluginsController extends Controller
                 ORDER BY plugin_type, plugin_name";
 
         $res = $this->dbi->query($sql);
-        $plugins = array();
+        $this->plugins = array();
         while ($row = $this->dbi->fetchAssoc($res)) {
-            $plugins[$row['plugin_type']][] = $row;
+            $this->plugins[$row['plugin_type']][] = $row;
         }
         $this->dbi->freeResult($res);
-        ksort($plugins);
-
-        $this->plugins = $plugins;
+        ksort($this->plugins);
     }
 
     /**
