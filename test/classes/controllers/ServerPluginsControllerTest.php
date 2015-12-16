@@ -90,7 +90,7 @@ class ServerPluginsControllerTest extends PHPUnit_Framework_TestCase
 
         $ctrl = new ServerPluginsController();
         $prop->setValue($ctrl, $plugins);
-        $html = $method->invoke();
+        $html = $method->invoke($ctrl);
 
         //validate 1:Items
         $this->assertContains(
