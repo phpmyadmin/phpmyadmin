@@ -42,26 +42,22 @@ class ServerPluginsController extends Controller
     }
 
     /**
-     * Returns the common SQL used to retrieve plugin data
-     *
-     * @return string SQL
-     */
-    private function _getServerPluginSQL()
-    {
-        return "SELECT plugin_name, plugin_type, (plugin_status = 'ACTIVE') AS is_active,
-                plugin_type_version, plugin_author, plugin_description, plugin_license
-            FROM information_schema.plugins
-            ORDER BY plugin_type, plugin_name";
-    }
-
-    /**
      * Returns details about server plugins
      *
      * @return array server plugins data
      */
     private function _getServerPlugins()
     {
-        $sql = $this->_getServerPluginSQL();
+        $sql = "SELECT plugin_name,
+                       plugin_type,
+                       (plugin_status = 'ACTIVE') AS is_active,
+                       plugin_type_version,
+                       plugin_author,
+                       plugin_description,
+                       plugin_license
+                FROM information_schema.plugins
+                ORDER BY plugin_type, plugin_name";
+
         $res = $this->dbi->query($sql);
         $plugins = array();
         while ($row = $this->dbi->fetchAssoc($res)) {
