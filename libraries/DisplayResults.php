@@ -5292,7 +5292,9 @@ class DisplayResults
             && stristr($meta->type, self::BLOB_FIELD))
         ) {
             // in this case, restart from the original $content
-            if (mb_check_encoding($content, 'utf-8')) {
+            if (mb_check_encoding($content, 'utf-8')
+                && !preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $content)
+            ) {
                 // show as text if it's valid utf-8
                 $result = htmlspecialchars($content);
             } else {
