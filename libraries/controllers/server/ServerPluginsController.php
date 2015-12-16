@@ -19,6 +19,20 @@ use PMA\libraries\controllers\Controller;
 class ServerPluginsController extends Controller
 {
     /**
+     * @var array plugin details
+     */
+    protected $plugins;
+
+    /**
+     * Constructs ServerPluginsController
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->plugins = $this->_getServerPlugins();
+    }
+
+    /**
      * Index action
      *
      * @return void
@@ -27,18 +41,16 @@ class ServerPluginsController extends Controller
     {
         include 'libraries/server_common.inc.php';
 
-        $header   = $this->response->getHeader();
-        $scripts  = $header->getScripts();
+        $header  = $this->response->getHeader();
+        $scripts = $header->getScripts();
         $scripts->addFile('jquery/jquery.tablesorter.js');
         $scripts->addFile('server_plugins.js');
-
-        $plugins = $this->_getServerPlugins();
 
         /**
          * Displays the page
         */
         $this->response->addHTML(PMA_getHtmlForSubPageHeader('plugins'));
-        $this->response->addHTML($this->_getPluginTab($plugins));
+        $this->response->addHTML($this->_getPluginTab());
     }
 
     /**
@@ -71,16 +83,14 @@ class ServerPluginsController extends Controller
     /**
      * Returns the html for plugin Tab.
      *
-     * @param array $plugins list
-     *
      * @return string
      */
-    private function _getPluginTab($plugins)
+    private function _getPluginTab()
     {
         $html  = '<div id="plugins_plugins">';
         $html .= '<div id="sectionlinks">';
 
-        foreach ($plugins as $plugin_type => $plugin_list) {
+        foreach ($this->plugins as $plugin_type => $plugin_list) {
             $key = 'plugins-'
                 . preg_replace('/[^a-z]/', '', /*overload*/mb_strtolower($plugin_type));
             $html .= '<a href="#' . $key . '">'
@@ -90,7 +100,7 @@ class ServerPluginsController extends Controller
         $html .= '</div>';
         $html .= '<br />';
 
-        foreach ($plugins as $plugin_type => $plugin_list) {
+        foreach ($this->plugins as $plugin_type => $plugin_list) {
             $key = 'plugins-'
                 . preg_replace('/[^a-z]/', '', /*overload*/mb_strtolower($plugin_type));
             sort($plugin_list);
