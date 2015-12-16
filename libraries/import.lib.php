@@ -73,6 +73,93 @@ function PMA_detectCompression($filepath)
  * @return void
  * @access public
  */
+function PMA_executeQuery($sql = '', $full = '', &$sql_data)
+{
+    global $import_run_buffer, $go_sql, $complete_query, $display_query,
+        $sql_query, $my_die, $error, $reload,
+        $last_query_with_results, $result, $msg,
+        $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
+        $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
+
+    $result = $GLOBALS['dbi']->tryQuery($import_run_buffer['sql']);
+
+    // USE query changes the database, son need to track
+    // while running multiple queries
+    $is_use_query
+        = /*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false;
+
+    $msg = '# ';
+    if ($result === false) { // execution failed
+        if (! isset($my_die)) {
+            $my_die = array();
+        }
+        $my_die[] = array(
+            'sql' => $import_run_buffer['full'],
+            'error' => $GLOBALS['dbi']->getError()
+        );
+
+        $msg .= __('Error');
+
+        if (! $cfg['IgnoreMultiSubmitErrors']) {
+            $error = true;
+            return;
+        }
+    } else {
+        $a_num_rows = (int)@$GLOBALS['dbi']->numRows($result);
+        $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
+        if ($a_num_rows > 0) {
+            $msg .= __('Rows') . ': ' . $a_num_rows;
+            $last_query_with_results = $import_run_buffer['sql'];
+        } elseif ($a_aff_rows > 0) {
+            $message = Message::getMessageForAffectedRows(
+                $a_aff_rows
+            );
+            $msg .= $message->getMessage();
+        } else {
+            $msg .= __(
+                'MySQL returned an empty result set (i.e. zero '
+                . 'rows).'
+            );
+        }
+
+        updateSqlData(
+            $sql_data, $a_num_rows, $is_use_query, $sql
+        );
+    }
+    if (! $sql_query_disabled) {
+        $sql_query .= $msg . "\n";
+    }
+
+    // If a 'USE <db>' SQL-clause was found and the query
+    // succeeded, set our current $db to the new one
+    if ($result != false) {
+        list($db, $reload) = PMA_lookForUse(
+            $import_run_buffer['sql'],
+            $db,
+            $reload
+        );
+    }
+
+    $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)'
+        . '?(TABLE|DATABASE)[[:space:]]+(.+)@im';
+    if ($result != false
+        && preg_match($pattern, $import_run_buffer['sql'])
+    ) {
+        $reload = true;
+    }
+}
+
+/**
+ * Runs query inside import buffer. This is needed to allow displaying
+ * of last SELECT, SHOW or HANDLER results and similar nice stuff.
+ *
+ * @param string $sql         query to run
+ * @param string $full        query to display, this might be commented
+ * @param array  &$sql_data   SQL parse data storage
+ *
+ * @return void
+ * @access public
+ */
 function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
 {
     global $import_run_buffer, $go_sql, $complete_query, $display_query,
@@ -102,11 +189,6 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
     if (! empty($import_run_buffer['sql'])
         && trim($import_run_buffer['sql']) != ''
     ) {
-
-        // USE query changes the database, son need to track
-        // while running multiple queries
-        $is_use_query
-            = /*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false;
 
         $max_sql_len = max(
             $max_sql_len,
@@ -153,67 +235,11 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
                 $sql_data['valid_queries']++;
             } elseif ($run_query) {
 
-                $result = $GLOBALS['dbi']->tryQuery($import_run_buffer['sql']);
-
-                $msg = '# ';
-                if ($result === false) { // execution failed
-                    if (! isset($my_die)) {
-                        $my_die = array();
-                    }
-                    $my_die[] = array(
-                        'sql' => $import_run_buffer['full'],
-                        'error' => $GLOBALS['dbi']->getError()
-                    );
-
-                    $msg .= __('Error');
-
-                    if (! $cfg['IgnoreMultiSubmitErrors']) {
-                        $error = true;
-                        return;
-                    }
-                } else {
-                    $a_num_rows = (int)@$GLOBALS['dbi']->numRows($result);
-                    $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
-                    if ($a_num_rows > 0) {
-                        $msg .= __('Rows') . ': ' . $a_num_rows;
-                        $last_query_with_results = $import_run_buffer['sql'];
-                    } elseif ($a_aff_rows > 0) {
-                        $message = Message::getMessageForAffectedRows(
-                            $a_aff_rows
-                        );
-                        $msg .= $message->getMessage();
-                    } else {
-                        $msg .= __(
-                            'MySQL returned an empty result set (i.e. zero '
-                            . 'rows).'
-                        );
-                    }
-
-                    updateSqlData(
-                        $sql_data, $a_num_rows, $is_use_query, $sql
-                    );
-                }
-                if (! $sql_query_disabled) {
-                    $sql_query .= $msg . "\n";
-                }
-
-                // If a 'USE <db>' SQL-clause was found and the query
-                // succeeded, set our current $db to the new one
-                if ($result != false) {
-                    list($db, $reload) = PMA_lookForUse(
-                        $import_run_buffer['sql'],
-                        $db,
-                        $reload
-                    );
-                }
-
-                $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)'
-                    . '?(TABLE|DATABASE)[[:space:]]+(.+)@im';
-                if ($result != false
-                    && preg_match($pattern, $import_run_buffer['sql'])
-                ) {
-                    $reload = true;
-                }
+                PMA_executeQuery(
+                    $import_run_buffer['sql'],
+                    $import_run_buffer['full'],
+                    $sql_data
+                );
             } // end run query
         } // end if not DROP DATABASE
         // end non empty query
