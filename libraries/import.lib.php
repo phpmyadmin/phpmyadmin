@@ -213,14 +213,7 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
             $executed_queries++;
 
             $pattern = '/^[\s]*(SELECT|SHOW|HANDLER|EXECUTE)/i';
-            if ($run_query
-                && $GLOBALS['finished']
-                && empty($sql)
-                && ! $error
-                && ((! empty($import_run_buffer['sql'])
-                && preg_match($pattern, $import_run_buffer['sql']))
-                || ($executed_queries == 1))
-            ) {
+            if ($run_query && $executed_queries < 50) {
                 $go_sql = true;
                 if (! $sql_query_disabled) {
                     $complete_query = $sql_query;
@@ -231,11 +224,33 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
                 }
                 $sql_query = $import_run_buffer['sql'];
                 $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+                $sql_data['valid_full'][] = $import_run_buffer['full'];
                 if (! isset($sql_data['valid_queries'])) {
                     $sql_data['valid_queries'] = 0;
                 }
                 $sql_data['valid_queries']++;
             } elseif ($run_query) {
+
+                /* Handle rollback from go_sql */
+                if ($go_sql && isset($sql_data['valid_full'])) {
+                    $queries = $sql_data['valid_sql'];
+                    $fulls = $sql_data['valid_full'];
+                    $count = $sql_data['valid_queries'];
+                    $go_sql = false;
+
+                    $sql_data['valid_sql'] = array();
+                    $sql_data['valid_queries'] = 0;
+                    unset($sql_data['valid_full']);
+                    for ($i = 0; $i < $count; $i++) {
+                        print_r($queries[$i]);
+
+                        PMA_executeQuery(
+                            $queries[$i],
+                            $fulls[$i],
+                            $sql_data
+                        );
+                    }
+                }
 
                 PMA_executeQuery(
                     $import_run_buffer['sql'],
