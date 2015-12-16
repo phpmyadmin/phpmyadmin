@@ -249,6 +249,9 @@ if (isset($result) && empty($message_to_show)) {
             $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
+            $response->addJSON(
+                'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
+            );
             exit;
         }
         unset($warning_messages);
