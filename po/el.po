@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-12-03 09:39+0000\n"
+"PO-Revision-Date: 2015-12-16 10:46+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5617,14 +5617,13 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Αν θα πρέπει να αποκρυφτούν οι ενέργειες δομής πίνακα."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Προβολή σχολίων πίνακα"
+msgstr "Προβολή σχολίων στήλης"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Αν τα σχόλια στήλης θα εμφανίζονται στην προβολή δομής πίνακα"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -8476,14 +8475,11 @@ msgstr ""
 "μεταφορές.)</i>"
 
 #: libraries/display_import.lib.php:313
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Αγνόηση αυτού του αριθμού ερωτημάτων (για SQL) ή γραμμών (για άλλες μορφές), "
-"ξεκινόντας από το πρώτο:"
+msgstr "Αγνόηση αυτού του αριθμού ερωτημάτων (για SQL) ξεκινόντας από το πρώτο:"
 
 #: libraries/display_import.lib.php:343
 msgid "Other options:"
@@ -15687,10 +15683,9 @@ msgid "Edit view"
 msgstr "Επεξεργασία εμφάνισης"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "Σχόλια πίνακα:"
+msgstr "Σχόλια πίνακα: "
 
 #: templates/table/structure/display_table_stats.phtml:10
 msgid "Space usage"
