@@ -43,6 +43,7 @@ class DisplayResultsTest extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['collation_connection'] = 'utf-8';
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
