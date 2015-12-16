@@ -11,6 +11,7 @@
  */
 use PMA\libraries\Theme;
 use PMA\libraries\controllers\server\ServerPluginsController;
+use PMA\libraries\di\Container;
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
@@ -61,12 +62,6 @@ class ServerPluginsControllerTest extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetPluginAndModuleInfo()
     {
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
         /**
          * Prepare plugin list
          */
@@ -79,17 +74,32 @@ class ServerPluginsControllerTest extends PHPUnit_Framework_TestCase
         $row["plugin_description"] = "plugin_description1";
         $row["is_active"] = true;
 
-        $plugins = array();
-        $plugins[$row['plugin_type']][] = $row;
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('query')
+            ->will($this->returnValue(true));
+        $dbi->expects($this->at(1))
+            ->method('fetchAssoc')
+            ->will($this->returnValue($row));
+        $dbi->expects($this->at(2))
+            ->method('fetchAssoc')
+            ->will($this->returnValue(false));
+        $dbi->expects($this->once())
+            ->method('freeResult')
+            ->will($this->returnValue(true));
+
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $dbi);
 
         $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerPluginsController');
         $method = $class->getMethod('_getPluginsHtml');
         $method->setAccessible(true);
-        $prop = $class->getProperty('plugins');
-        $prop->setAccessible(true);
 
         $ctrl = new ServerPluginsController();
-        $prop->setValue($ctrl, $plugins);
         $html = $method->invoke($ctrl);
 
         //validate 1:Items
