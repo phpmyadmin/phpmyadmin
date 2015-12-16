@@ -14,7 +14,7 @@ use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
+$container = \PMA\libraries\di\Container::getDefaultContainer();
 $container->factory(
     'PMA\libraries\controllers\server\ServerPluginsController'
 );
