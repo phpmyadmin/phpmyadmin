@@ -644,7 +644,6 @@ class Util
         }
         $sql_query = trim($sql_query);
 
-        $errors = array();
         /**
          * The lexer used for analysis.
          * @var Lexer $lexer
