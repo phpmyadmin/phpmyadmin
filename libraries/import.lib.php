@@ -77,7 +77,7 @@ function PMA_executeQuery($sql, $full, &$sql_data)
 {
     global $go_sql,
         $sql_query, $my_die, $error, $reload,
-        $last_query_with_results, $result, $msg,
+        $result, $msg,
         $cfg, $sql_query_disabled, $db;
 
     $result = $GLOBALS['dbi']->tryQuery($sql);
@@ -108,7 +108,6 @@ function PMA_executeQuery($sql, $full, &$sql_data)
         $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
         if ($a_num_rows > 0) {
             $msg .= __('Rows') . ': ' . $a_num_rows;
-            $last_query_with_results = $sql;
         } elseif ($a_aff_rows > 0) {
             $message = Message::getMessageForAffectedRows(
                 $a_aff_rows
@@ -167,7 +166,7 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
 {
     global $import_run_buffer, $go_sql, $complete_query, $display_query,
         $sql_query, $my_die, $error, $reload,
-        $last_query_with_results, $result, $msg,
+        $result, $msg,
         $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
         $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
     $read_multiply = 1;
