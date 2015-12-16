@@ -29,7 +29,7 @@ class ServerPluginsController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->plugins = $this->_getServerPlugins();
+        $this->_setServerPlugins();
     }
 
     /**
@@ -54,11 +54,11 @@ class ServerPluginsController extends Controller
     }
 
     /**
-     * Returns details about server plugins
+     * Sets details about server plugins
      *
-     * @return array server plugins data
+     * @return void
      */
-    private function _getServerPlugins()
+    private function _setServerPlugins()
     {
         $sql = "SELECT plugin_name,
                        plugin_type,
@@ -77,7 +77,8 @@ class ServerPluginsController extends Controller
         }
         $this->dbi->freeResult($res);
         ksort($plugins);
-        return $plugins;
+
+        $this->plugins = $plugins;
     }
 
     /**
