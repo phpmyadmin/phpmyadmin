@@ -62,7 +62,7 @@ class ServerPluginsControllerTest extends PHPUnit_Framework_TestCase
     public function testPMAGetPluginAndModuleInfo()
     {
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
