@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-12-03 20:25+0000\n"
+"PO-Revision-Date: 2015-12-16 09:39+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5576,14 +5576,13 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Tablo yapısı eylemlerinin gizlenip gizlenmeyeceği."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Tablo yorumlarını göster"
+msgstr "Sütun yorumlarını göster"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Sütun yorumlarının tablo yapısı görünümünde gösterilip gösterilmeyeceği"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -8401,14 +8400,11 @@ msgstr ""
 "aktarmak için iyi bir yol olabilir, ancak bu işlemleri bozabilir.)</i>"
 
 #: libraries/display_import.lib.php:313
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Bu sorgu (SQL için) ya da satır (diğer biçimler için) numaralarını, ilkinden "
-"başlayarak atla:"
+msgstr "Bu sorgu (SQL için) numaralarını ilkinden başlayarak atla:"
 
 #: libraries/display_import.lib.php:343
 msgid "Other options:"
@@ -15513,10 +15509,9 @@ msgid "Edit view"
 msgstr "Düzenleme görünümü"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "Tablo yorumları:"
+msgstr "Tablo yorumları: "
 
 #: templates/table/structure/display_table_stats.phtml:10
 msgid "Space usage"
