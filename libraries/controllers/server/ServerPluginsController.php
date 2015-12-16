@@ -62,12 +62,12 @@ class ServerPluginsController extends Controller
     private function _getServerPlugins()
     {
         $sql = $this->_getServerPluginSQL();
-        $res = $GLOBALS['dbi']->query($sql);
+        $res = $this->dbi->query($sql);
         $plugins = array();
-        while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+        while ($row = $this->dbi->fetchAssoc($res)) {
             $plugins[$row['plugin_type']][] = $row;
         }
-        $GLOBALS['dbi']->freeResult($res);
+        $this->dbi->freeResult($res);
         ksort($plugins);
         return $plugins;
     }
