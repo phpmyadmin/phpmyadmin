@@ -1,0 +1,33 @@
+<table class="data_full_width"
+    id="plugins-<?php echo preg_replace('/[^a-z]/', '', /*overload*/mb_strtolower($plugin_type)); ?>">
+    <caption class="tblHeaders">
+        <?php echo htmlspecialchars($plugin_type); ?>
+    </caption>
+    <thead>
+        <tr>
+            <th><?php echo  __('Plugin'); ?></th>
+            <th><?php echo  __('Description'); ?></th>
+            <th><?php echo  __('Version'); ?></th>
+            <th><?php echo  __('Author'); ?></th>
+            <th><?php echo  __('License'); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $odd_row = true; ?>
+        <?php foreach ($plugin_list as $plugin): ?>
+            <tr class="noclick <?php echo ($odd_row ? 'odd' : 'even'); ?>">
+                <th>
+                    <?php echo htmlspecialchars($plugin['plugin_name']); ?>
+                    <?php if (! $plugin['is_active']): ?>
+                        <small class="attention"><?php echo __('disabled'); ?></small>
+                    <?php endif; ?>
+                </th>
+                <td><?php echo htmlspecialchars($plugin['plugin_description']); ?></td>
+                <td><?php echo htmlspecialchars($plugin['plugin_type_version']); ?></td>
+                <td><?php echo htmlspecialchars($plugin['plugin_author']); ?></td>
+                <td><?php echo htmlspecialchars($plugin['plugin_license']); ?></td>
+            </tr>
+            <?php $odd_row = !$odd_row; ?>
+        <?php endforeach; ?>
+    </tbody>
+</table>
