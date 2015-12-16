@@ -145,7 +145,7 @@ function PMA_executeQuery($sql, $full, &$sql_data)
     $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)'
         . '?(TABLE|DATABASE)[[:space:]]+(.+)@im';
     if ($result != false
-        && preg_match($pattern, $import_run_buffer['sql'])
+        && preg_match($pattern, $sql)
     ) {
         $reload = true;
     }
