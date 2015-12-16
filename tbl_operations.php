@@ -243,7 +243,9 @@ if (isset($result) && empty($message_to_show)) {
         $_message = new PMA\libraries\Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
-        if ($GLOBALS['ajax_request'] == true) {
+        if (isset($GLOBALS['ajax_request'])
+            && $GLOBALS['ajax_request'] == true
+        ) {
             $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
