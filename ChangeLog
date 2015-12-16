@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 + issue #11711 Clarify the meaning of "Stand-in structure for view" in SQL export
 - issue        HTML line break shown after a MySQL connection error message
 - issue #11728 CSV import skip row count after
+- issue        Fixed displaying of SQL query on table operations
 
 4.5.3.0 (not yet released)
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement
