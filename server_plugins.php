@@ -1,38 +1,32 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
- * object the server plugin page
+ * Handles server plugins page.
  *
  * @package PhpMyAdmin
  */
+
+namespace PMA;
+
+use PMA\libraries\controllers\server\ServerPluginsController;
 use PMA\libraries\Response;
 
-/**
- * requirements
- */
 require_once 'libraries/common.inc.php';
 
-/**
- * JS includes
- */
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.tablesorter.js');
-$scripts->addFile('server_plugins.js');
+$container = \PMA\libraries\di\Container::getDefaultContainer();
+$container->factory(
+    'PMA\libraries\controllers\server\ServerPluginsController'
+);
+$container->alias(
+    'ServerPluginsController',
+    'PMA\libraries\controllers\server\ServerPluginsController'
+);
+$container->set('PMA\libraries\Response', Response::getInstance());
+$container->alias('response', 'PMA\libraries\Response');
 
-/**
- * Does the common work
- */
-require 'libraries/server_common.inc.php';
-require 'libraries/server_plugins.lib.php';
-
-$plugins = PMA_getServerPlugins();
-
-/**
- * Displays the page
- */
-$response->addHTML(PMA_getHtmlForSubPageHeader('plugins'));
-$response->addHTML(PMA_getPluginTab($plugins));
-
-exit;
+/** @var ServerPluginsController $controller */
+$controller = $container->get(
+    'ServerPluginsController', array()
+);
+$controller->indexAction();

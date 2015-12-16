@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_plugins.lib.php
+ * Holds ServerPluginsControllerTest class
  *
  * @package PhpMyAdmin-test
  */
@@ -10,22 +10,20 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\controllers\server\ServerPluginsController;
+use PMA\libraries\di\Container;
 
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/server_plugins.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
- * PMA_ServerPlugins_Test class
- *
- * this class is for testing server_plugins.lib.php functions
+ * Tests for ServerPluginsController class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
+class ServerPluginsControllerTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -58,26 +56,15 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getPluginAndModuleInfo
+     * Test for _getPluginsHtml() method
      *
      * @return void
      */
     public function testPMAGetPluginAndModuleInfo()
     {
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
-
-        //Call the test function
         /**
          * Prepare plugin list
          */
-
-        $plugins = array();
-
         $row = array();
         $row["plugin_name"] = "plugin_name1";
         $row["plugin_type"] = "plugin_type1";
@@ -86,9 +73,34 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
         $row["plugin_license"] = "plugin_license1";
         $row["plugin_description"] = "plugin_description1";
         $row["is_active"] = true;
-        $plugins[$row['plugin_type']][] = $row;
 
-        $html = PMA_getPluginTab($plugins);
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('query')
+            ->will($this->returnValue(true));
+        $dbi->expects($this->at(1))
+            ->method('fetchAssoc')
+            ->will($this->returnValue($row));
+        $dbi->expects($this->at(2))
+            ->method('fetchAssoc')
+            ->will($this->returnValue(false));
+        $dbi->expects($this->once())
+            ->method('freeResult')
+            ->will($this->returnValue(true));
+
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $dbi);
+
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerPluginsController');
+        $method = $class->getMethod('_getPluginsHtml');
+        $method->setAccessible(true);
+
+        $ctrl = new ServerPluginsController();
+        $html = $method->invoke($ctrl);
 
         //validate 1:Items
         $this->assertContains(
