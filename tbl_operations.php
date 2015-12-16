@@ -197,8 +197,6 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
 /**
  * A partition operation has been requested by the user
  */
-$sql_query = '';
-
 if (isset($_REQUEST['submit_partition'])
     && ! empty($_REQUEST['partition_operation'])
 ) {
@@ -215,17 +213,14 @@ if ($reread_info) {
 unset($reread_info);
 
 if (isset($result) && empty($message_to_show)) {
-    // set to success by default, because result set could be empty
-    // (for example, a table rename)
-    $_type = 'success';
     if (empty($_message)) {
-        $_message = $result
-            ? PMA\libraries\Message::success(
-                __('Your SQL query has been executed successfully.')
-            )
-            : PMA\libraries\Message::error(__('Error'));
-        // $result should exist, regardless of $_message
-        $_type = $result ? 'success' : 'error';
+        if (empty($sql_query)) {
+            $_message = PMA\libraries\Message::success(__('No change'));
+        } else {
+            $_message = $result
+                ? PMA\libraries\Message::success()
+                : PMA\libraries\Message::error();
+        }
 
         if (isset($GLOBALS['ajax_request'])
             && $GLOBALS['ajax_request'] == true
@@ -233,9 +228,11 @@ if (isset($result) && empty($message_to_show)) {
             $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus($_message->isSuccess());
             $response->addJSON('message', $_message);
-            $response->addJSON(
-                'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
-            );
+            if (!empty($sql_query)) {
+                $response->addJSON(
+                    'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
+                );
+            }
             exit;
         }
     }
@@ -243,19 +240,32 @@ if (isset($result) && empty($message_to_show)) {
         $_message = new PMA\libraries\Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
-        if ($GLOBALS['ajax_request'] == true) {
+        if (isset($GLOBALS['ajax_request'])
+            && $GLOBALS['ajax_request'] == true
+        ) {
             $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
+            if (!empty($sql_query)) {
+                $response->addJSON(
+                    'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
+                );
+            }
             exit;
         }
         unset($warning_messages);
     }
 
-    $response->addHTML(
-        PMA\libraries\Util::getMessage($_message, $sql_query, $_type)
-    );
-    unset($_message, $_type);
+    if (empty($sql_query)) {
+        $response->addHTML(
+            $_message->getDisplay()
+        );
+    } else {
+        $response->addHTML(
+            PMA\libraries\Util::getMessage($_message, $sql_query)
+        );
+    }
+    unset($_message);
 }
 
 $url_params['goto']
