@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-11-19 09:51+0000\n"
-"Last-Translator: Domenico <dom9301@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"PO-Revision-Date: 2015-12-16 09:38+0000\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5619,10 +5619,9 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Nascondi le azioni relative alla struttura della tabella."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Mostra i commenti alla tabella"
+msgstr "Mostra i commenti al campo"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
@@ -8480,14 +8479,11 @@ msgstr ""
 "transazioni.)</i>"
 
 #: libraries/display_import.lib.php:313
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Salta questo numero di query (per SQL) o di linee (per altri formati), "
-"partendo dalla prima:"
+msgstr "Salta questo numero di query (per SQL) partendo dalla prima:"
 
 #: libraries/display_import.lib.php:343
 msgid "Other options:"
@@ -15672,10 +15668,9 @@ msgid "Edit view"
 msgstr "Modifica la vista"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "Commenti alla tabella:"
+msgstr "Commenti alla tabella: "
 
 #: templates/table/structure/display_table_stats.phtml:10
 msgid "Space usage"
