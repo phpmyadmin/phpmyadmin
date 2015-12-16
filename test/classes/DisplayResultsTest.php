@@ -1342,7 +1342,22 @@ class DisplayResultsTest extends PHPUnit_Framework_TestCase
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en&amp;collation_connection=utf-8'
-                . '&amp;token=token" class="disableAjax">31303031</a>'
+                . '&amp;token=token" class="disableAjax">1001</a>'
+            ),
+            array(
+                true,
+                true,
+                'BLOB',
+                hex2bin('123456'),
+                'PMA_mimeDefaultFunction',
+                '',
+                'PMA_mimeDefaultFunction',
+                $meta,
+                $url_params,
+                null,
+                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
+                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;token=token" class="disableAjax">0x123456</a>'
             ),
             array(
                 true,
