@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-11-14 12:43+0000\n"
-"Last-Translator: Michał VonFlynee <vonflynee@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"POT-Creation-Date: 2015-12-02 10:46-0500\n"
+"PO-Revision-Date: 2015-12-15 18:30+0000\n"
+"Last-Translator: Krystian Biesaga <krystian4842@gmail.com>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2228,10 +2228,9 @@ msgstr "Zapisz stronę"
 
 #: js/messages.php:538 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Zapisz stronę"
+msgstr "Zapisz stronę jako"
 
 #: js/messages.php:539 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2425,16 +2424,14 @@ msgid "More"
 msgstr "Więcej"
 
 #: js/messages.php:628
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
-msgstr "Pokaż Panel"
+msgstr "Pokaż panel"
 
 #: js/messages.php:629
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
-msgstr "Ukryj Panel"
+msgstr "Ukryj panel"
 
 #: js/messages.php:630
 msgid "Show hidden navigation tree items."
@@ -2476,13 +2473,11 @@ msgid "Create view"
 msgstr "Utwórz widok"
 
 #: js/messages.php:650
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
-msgstr "Wysyłanie raportów o błędzie"
+msgstr "Wyślij raport o błędach"
 
 #: js/messages.php:651
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Wyślij zgłoszenie błędu"
@@ -2494,13 +2489,11 @@ msgid ""
 msgstr "Wystąpił błąd krytyczny JavaScript. Czy chcesz wysłać raport błędu?"
 
 #: js/messages.php:655
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Zmiana ustawień raportów"
 
 #: js/messages.php:656
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Pokaż szczegóły raportu"
@@ -2550,10 +2543,10 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: js/messages.php:701
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Zrealizowane zapytania"
+msgstr "%s kwerendy wykonane %s razy w %s sekund."
 
 #: js/messages.php:702
 #, php-format
@@ -2561,16 +2554,14 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:703
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Komentarze tabeli"
+msgstr "Pokaż argumenty"
 
 #: js/messages.php:704
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Ukryj okno wyników"
+msgstr "Ukryj argumenty"
 
 #: js/messages.php:705 libraries/Console.php:324
 msgid "Time taken:"
@@ -2840,104 +2831,88 @@ msgid "This field is required"
 msgstr ""
 
 #: js/messages.php:881
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Użyj pola tekstowego"
+msgstr "Popraw to pole"
 
 #: js/messages.php:882
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Proszę podać poprawną nazwę strony"
+msgstr "Podaj poprawny adres email"
 
 #: js/messages.php:883
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Proszę podać poprawny numer!"
+msgstr "Wprowadź prawidłowy adres URL"
 
 #: js/messages.php:884
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Proszę podać poprawną nazwę strony"
+msgstr "Wprowadź prawidłową datę"
 
 #: js/messages.php:887
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Proszę podać poprawną nazwę strony"
+msgstr "Wprowadź poprawną datę (ISO)"
 
 #: js/messages.php:889
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Proszę podać poprawny numer!"
+msgstr "Wprowadź poprawną liczbę"
 
 #: js/messages.php:892
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Proszę podać poprawny numer!"
+msgstr "Wprowadź prawidłowy numer karty kredytowej"
 
 #: js/messages.php:894
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Wprowadź prawidłową długość!"
+msgstr "Wprowadź tylko cyfry"
 
 #: js/messages.php:897
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Proszę podać poprawną nazwę strony"
+msgstr "Wprowadź ponownie tę samą wartość"
 
 #: js/messages.php:901
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Proszę podać poprawną captcha!"
+msgstr "Wprowadź nie więcej niż {0} znaków"
 
 #: js/messages.php:906
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Proszę podać poprawną captcha!"
+msgstr "Wprowadź co najmniej {0} znaków"
 
 #: js/messages.php:911
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
 #: js/messages.php:916
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Proszę podać poprawną nazwę strony"
+msgstr "Wprowadź wartość między {0} i {1}"
 
 #: js/messages.php:921
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Wprowadź prawidłową długość!"
+msgstr "Wprowadź wartość mniejszą niż lub równą {0}"
 
 #: js/messages.php:926
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Proszę podać poprawną nazwę strony"
+msgstr "Wprowadź wartość większą niż lub równą {0}"
 
 #: js/messages.php:932
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Proszę podać poprawną nazwę strony"
+msgstr "Podaj prawidłową datę lub czas"
 
 #: js/messages.php:937
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Proszę podać poprawny numer!"
+msgstr "Wprowadź prawidłową wartość HEX"
 
 #: js/messages.php:942 libraries/Message.php:200 libraries/Util.php:674
 #: libraries/core.lib.php:247 libraries/import.lib.php:168
@@ -3152,28 +3127,24 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Wciśnij Ctrl+Enter aby wykonać zapytanie"
 
 #: libraries/Console.php:262
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Wciśnij Ctrl+Enter aby wykonać zapytanie"
+msgstr "Wciśnij Enter, aby wykonać zapytanie"
 
 #: libraries/Console.php:280
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Rosnąco"
+msgstr "rosnąco"
 
 #: libraries/Console.php:283
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Malejąco"
+msgstr "malejąco"
 
 #: libraries/Console.php:286
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Kolejność"
+msgstr "Kolejność:"
 
 #: libraries/Console.php:292 templates/table/search/replace_preview.phtml:17
 #, fuzzy
@@ -3182,32 +3153,28 @@ msgid "Count"
 msgstr "Liczba"
 
 #: libraries/Console.php:295
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Wykonaj co"
+msgstr "Kolejność wykonywania"
 
 #: libraries/Console.php:298
 msgid "Time taken"
 msgstr ""
 
 #: libraries/Console.php:301
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Kolejność"
+msgstr "Sortuj według:"
 
 #: libraries/Console.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Zapytania SQL"
+msgstr "Grupuj kwerendy"
 
 #: libraries/Console.php:307
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Zapytania SQL"
+msgstr "Rozgrupuj kwerendy"
 
 #: libraries/Console.php:318
 #, fuzzy
@@ -3222,10 +3189,9 @@ msgid "Hide trace"
 msgstr "Ukryj Panel"
 
 #: libraries/Console.php:322
-#, fuzzy
 #| msgid "Column"
 msgid "Count:"
-msgstr "Liczba"
+msgstr "Liczba:"
 
 #: libraries/Console.php:339 libraries/Util.php:1294
 #: libraries/config/messages.inc.php:900
@@ -3277,10 +3243,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Console.php:392
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Przełącz na przekopiowaną tabelę"
+msgstr "Przełącz na ciemny motyw"
 
 #: libraries/DatabaseInterface.php:2191
 msgid ""
@@ -3343,10 +3308,9 @@ msgid "Sort:"
 msgstr "Sortuj:"
 
 #: libraries/DbQbe.php:628
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Sortuj:"
+msgstr "Kolejność sortowania:"
 
 #: libraries/DbQbe.php:677
 msgid "Show:"
@@ -3502,7 +3466,6 @@ msgstr "Wewnątrz tabel:"
 
 #: libraries/DbSearch.php:445 libraries/display_export.lib.php:48
 #: libraries/replication_gui.lib.php:379
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Odznacz wszystko"
@@ -3671,10 +3634,9 @@ msgstr "Z zaznaczonymi:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
-msgstr "Zaznacz wszystkie"
+msgstr "Zaznacz wszystko"
 
 #: libraries/DisplayResults.php:5006
 msgid "Copy to clipboard"
@@ -3755,10 +3717,9 @@ msgid "Error while moving uploaded file."
 msgstr "Błąd podczas przenoszenia plików na serwerze."
 
 #: libraries/File.php:495
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Nie można odczytać (przeniesiony) przesłanego pliku."
+msgstr "Nie można odczytać przesłanego pliku."
 
 #: libraries/Footer.php:72
 #, php-format
@@ -4027,10 +3988,9 @@ msgid "Databases"
 msgstr "Bazy danych"
 
 #: libraries/Menu.php:564
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Grupy użytkowników"
+msgstr "Konta użytkowników"
 
 #: libraries/Menu.php:591 libraries/ServerStatusData.php:119
 #: libraries/Util.php:4329 libraries/server_common.lib.php:33
@@ -4749,7 +4709,6 @@ msgid "Submit query"
 msgstr "Wyślij zapytanie"
 
 #: libraries/Util.php:1275 libraries/config/messages.inc.php:901
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Utwórz kod PHP"
@@ -4915,10 +4874,9 @@ msgid "Length/Values"
 msgstr "Długość/Wartości"
 
 #: libraries/central_columns.lib.php:703
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Atrybuty"
+msgstr "Atrybut"
 
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1381
 msgid "A_I"
@@ -5075,10 +5033,9 @@ msgid "display column"
 msgstr "Wyświetlanie tabeli kolumn"
 
 #: libraries/config.values.php:103
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Witamy w %s"
+msgstr "Witamy"
 
 #: libraries/config.values.php:123
 msgid "Open"
@@ -5107,16 +5064,14 @@ msgid "Server default"
 msgstr "Ustaw wartość domyślną"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Włączone"
+msgstr "Włącz"
 
 #: libraries/config.values.php:135
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Wyłączone"
+msgstr "Wyłącz"
 
 #: libraries/config.values.php:164
 #: libraries/plugins/export/ExportHtmlword.php:66
@@ -5604,10 +5559,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Włącz walidator SQL"
+msgstr "Włącz linter"
 
 #: libraries/config/messages.inc.php:69
 #, fuzzy
@@ -5731,10 +5685,9 @@ msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Użyj cudzysłowów z nazwami tabel i kolumn"
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Użyj cudzysłowów z nazwami tabel i kolumn"
+msgstr "Włącz autouzupełnianie dla nazw tabeli i kolumn"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
@@ -5831,10 +5784,9 @@ msgstr "Umieść nazwy kolumn w pierwszym wierszu"
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:373
 #: libraries/config/messages.inc.php:386
 #: libraries/plugins/import/ImportCsv.php:135
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Kolumny dołączyć:"
+msgstr "Kolumn ujęte w"
 
 #: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:374
 #: libraries/config/messages.inc.php:387
@@ -5938,10 +5890,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Nadpisz istniejące pliki"
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Eksport nagłówków tabeli"
+msgstr "Eksportuj jako osobne pliki"
 
 #: libraries/config/messages.inc.php:188
 msgid "Remember file name template"
@@ -6069,10 +6020,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:246
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Sprawdzanie klucza zewnętrznego:"
+msgstr "Sprawdzanie klucza zewnętrznego"
 
 #: libraries/config/messages.inc.php:247
 msgid "Browse mode"
@@ -6165,16 +6115,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Dostosowanie wygląd panelu nawigacyjnego."
 
 #: libraries/config/messages.inc.php:275
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Panel nawigacyjny"
+msgstr "Drzewo nawigacji"
 
 #: libraries/config/messages.inc.php:276
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Dostosuj panel nawigacji"
+msgstr "Dostosuj drzewo nawigacji."
 
 #: libraries/config/messages.inc.php:277 libraries/select_server.lib.php:43
 #: setup/frames/index.inc.php:148
@@ -6821,10 +6769,9 @@ msgid "Enable navigation tree expansion"
 msgstr "Pasek nawigacji tabeli"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show tables in tree"
-msgstr "Pokaż tabele:"
+msgstr "Pokaż tabele w drzewie"
 
 #: libraries/config/messages.inc.php:529
 #, fuzzy
@@ -6845,20 +6792,18 @@ msgid "Whether to show views under database in the navigation tree"
 msgstr "Pokaż ukryte elementy drzewa nawigacji."
 
 #: libraries/config/messages.inc.php:533
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Pokaż pola z funkcjami"
+msgstr "Pokaż funkcje w drzewie"
 
 #: libraries/config/messages.inc.php:535
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Pokaż procesy"
+msgstr "Pokaż procedury w drzewie"
 
 #: libraries/config/messages.inc.php:538
 msgid "Whether to show procedures under database in the navigation tree"
@@ -7138,10 +7083,9 @@ msgid "Allow root login"
 msgstr "Pozwól na logowanie się roota"
 
 #: libraries/config/messages.inc.php:629
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Wartość sesji"
+msgstr "Strefa czasowa sesji"
 
 #: libraries/config/messages.inc.php:631
 msgid ""
@@ -15962,7 +15906,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Sprawdź uprawnienia bazy danych \"%s\"."
 
 #: templates/server/databases/table_row.phtml:62
-#, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Sprawdź uprawnienia"
