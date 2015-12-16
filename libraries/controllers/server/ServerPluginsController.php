@@ -51,7 +51,7 @@ class ServerPluginsController extends Controller
          * Displays the page
         */
         $this->response->addHTML(PMA_getHtmlForSubPageHeader('plugins'));
-        $this->response->addHTML($this->_getPluginTab());
+        $this->response->addHTML($this->_getPluginsHtml());
     }
 
     /**
@@ -85,7 +85,7 @@ class ServerPluginsController extends Controller
      *
      * @return string
      */
-    private function _getPluginTab()
+    private function _getPluginsHtml()
     {
         $html  = '<div id="plugins_plugins">';
         $html .= Template::get('server/plugins/section_links')
