@@ -10,16 +10,15 @@ use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\Theme;
 
 require_once 'libraries/navigation/NodeFactory.php';
-
-
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\navigation\nodes\NodeDatabase class
  *
  * @package PhpMyAdmin-test
  */
-class NodeDatabaseTest extends PHPUnit_Framework_TestCase
+class NodeDatabaseTest extends PMATestCase
 {
     /**
      * SetUp for test cases
@@ -33,8 +32,6 @@ class NodeDatabaseTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxNavigationItems'] = 250;
         $GLOBALS['cfg']['Server'] = array();
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $GLOBALS['cfg']['DBG'] = array();
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 

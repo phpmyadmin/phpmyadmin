@@ -11,16 +11,15 @@ use PMA\libraries\navigation\nodes\Node;
 use PMA\libraries\Theme;
 
 require_once 'libraries/navigation/NodeFactory.php';
-
-
 require_once 'libraries/database_interface.inc.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for Node class
  *
  * @package PhpMyAdmin-test
  */
-class NodeTest extends PHPUnit_Framework_TestCase
+class NodeTest extends PMATestCase
 {
     /**
      * SetUp for test cases
@@ -300,9 +299,6 @@ class NodeTest extends PHPUnit_Framework_TestCase
             $method->invoke($node, 'SCHEMA_NAME', 'schemaName')
         );
 
-        if (! isset($GLOBALS['cfg'])) {
-            $GLOBALS['cfg'] = array();
-        }
         if (! isset($GLOBALS['cfg']['Server'])) {
             $GLOBALS['cfg']['Server'] = array();
         }
@@ -344,9 +340,6 @@ class NodeTest extends PHPUnit_Framework_TestCase
     {
         $pos = 10;
         $limit = 20;
-        if (! isset($GLOBALS['cfg'])) {
-            $GLOBALS['cfg'] = array();
-        }
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
@@ -395,9 +388,6 @@ class NodeTest extends PHPUnit_Framework_TestCase
     {
         $pos = 10;
         $limit = 20;
-        if (! isset($GLOBALS['cfg'])) {
-            $GLOBALS['cfg'] = array();
-        }
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
@@ -433,9 +423,6 @@ class NodeTest extends PHPUnit_Framework_TestCase
     {
         $pos = 0;
         $limit = 10;
-        if (! isset($GLOBALS['cfg'])) {
-            $GLOBALS['cfg'] = array();
-        }
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
