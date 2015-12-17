@@ -12,13 +12,14 @@
 use PMA\libraries\engines\Mrg_Myisam;
 
 require_once 'libraries/database_interface.inc.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\engines\Mrg_Myisam
  *
  * @package PhpMyAdmin-test
  */
-class Mrg_MyisamTest extends PHPUnit_Framework_TestCase
+class Mrg_MyisamTest extends PMATestCase
 {
     /**
      * @access protected
@@ -34,7 +35,6 @@ class Mrg_MyisamTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 0;
         $this->object = new Mrg_Myisam('mrg_myisam');
     }
