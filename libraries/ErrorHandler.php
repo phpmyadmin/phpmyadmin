@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Error;
+
 /**
  * handling errors
  *
