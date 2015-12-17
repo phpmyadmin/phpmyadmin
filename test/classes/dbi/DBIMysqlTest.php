@@ -173,6 +173,7 @@ class DBIMysqlTest extends PMATestCase
             $ret
         );
 
+        $GLOBALS['cfg']['PersistentConnections'] = true;
         $ret = $this->object->connect(
             $user, $password, $is_controluser,
             $server, $auxiliary_connection

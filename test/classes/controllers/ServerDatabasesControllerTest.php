@@ -43,7 +43,7 @@ class ServerDatabasesControllerTest extends PMATestCase
         //$GLOBALS
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['is_superuser'] = false;
+        $GLOBALS['is_superuser'] = true;
 
         $GLOBALS['table'] = "table";
         $GLOBALS['replication_info']['master']['status'] = false;
