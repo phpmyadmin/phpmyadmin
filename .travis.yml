@@ -36,8 +36,6 @@ before_script:
 
 script:
   - ant clean
-  - ant locales
-  - if [ -z "$SELENIUM" ] ; then ant lint ; fi
   - set -e;
     if [ $TRAVIS_PHP_VERSION == "hhvm" ] ; then
     ant phpunit-hhvm ;
