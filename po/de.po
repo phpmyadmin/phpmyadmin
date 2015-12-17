@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-12-12 05:14+0000\n"
+"PO-Revision-Date: 2015-12-17 13:57+0000\n"
 "Last-Translator: Anna Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5649,14 +5649,14 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Sollen die Tabellenstrukturaktionen verborgen werden."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Tabellen-Kommentare einblenden"
+msgstr "Spalten-Kommentare einblenden"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Sollen Spaltenkommentare in der Tabellenstrukturansicht angezeigt werden"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -8495,14 +8495,11 @@ msgstr ""
 "Transaktionen zerstören.)</i>"
 
 #: libraries/display_import.lib.php:313
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Diese Anzahl Abfragen (für SQL) oder Zeilen (für andere Formate) "
-"überspringen, beginnend von der ersten:"
+msgstr "Diese Anzahl Abfragen (für SQL) überspringen, beginnend von der ersten:"
 
 #: libraries/display_import.lib.php:343
 msgid "Other options:"
@@ -15722,10 +15719,9 @@ msgid "Edit view"
 msgstr "View/Ansicht bearbeiten"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "Tabellenkommentar:"
+msgstr "Tabellenkommentare: "
 
 #: templates/table/structure/display_table_stats.phtml:10
 msgid "Space usage"
