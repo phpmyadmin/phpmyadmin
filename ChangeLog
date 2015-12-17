@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 - issue #11732 Exporting feature does not work with union table
 - issue #11679 Cannot export results of some queries
 - issue #11720 Message "An account already exists..." incorrectly displayed
+- issue #11758 Missing quoting of table in ALTER CONVERT query
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
