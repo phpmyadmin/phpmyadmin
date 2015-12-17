@@ -14,6 +14,7 @@ require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
+require_once 'test/PMATestCase.php';
 
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
@@ -23,7 +24,7 @@ require_once 'libraries/js_escape.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
+class ServerVariablesControllerTest extends PMATestCase
 {
     /**
      * @var \PMA\Test\Stubs\Response
@@ -42,17 +43,6 @@ class ServerVariablesControllerTest extends PHPUnit_Framework_TestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-        $GLOBALS['cfg']['Server']['host'] = "localhost";
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server'] = 1;
         $GLOBALS['table'] = "table";

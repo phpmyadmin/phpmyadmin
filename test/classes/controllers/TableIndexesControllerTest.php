@@ -25,13 +25,14 @@ require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/sanitizing.lib.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for libraries/controllers/TableIndexesController.php
  *
  * @package PhpMyAdmin-test
  */
-class TableIndexesControllerTest extends PHPUnit_Framework_TestCase
+class TableIndexesControllerTest extends PMATestCase
 {
     /**
      * Setup function for test cases

@@ -18,7 +18,8 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
-require_once 'libraries/config.default.php';
+require_once 'test/libraries/stubs/ResponseStub.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for ServerDatabasesController class
@@ -26,7 +27,7 @@ require_once 'libraries/config.default.php';
  * @package PhpMyAdmin-test
  */
 
-class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
+class ServerDatabasesControllerTest extends PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -42,18 +43,7 @@ class ServerDatabasesControllerTest extends PHPUnit_Framework_TestCase
         //$GLOBALS
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['MaxDbList'] = 100;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-        $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
+        $GLOBALS['is_superuser'] = false;
 
         $GLOBALS['table'] = "table";
         $GLOBALS['replication_info']['master']['status'] = false;
