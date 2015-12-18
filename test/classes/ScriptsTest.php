@@ -14,13 +14,14 @@ use PMA\libraries\Scripts;
 
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/url_generating.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for Script.php
  *
  * @package PhpMyAdmin-test
  */
-class ScriptsTest extends PHPUnit_Framework_TestCase
+class ScriptsTest extends PMATestCase
 {
     /**
      * @access protected

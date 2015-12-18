@@ -7,12 +7,14 @@
 
 use PMA\libraries\ZipFile;
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Tests for PMA\libraries\ZipFile
  *
  * @package PhpMyAdmin-test
  */
-class ZipFileTest extends PHPUnit_Framework_TestCase
+class ZipFileTest extends PMATestCase
 {
     /**
      * @access protected

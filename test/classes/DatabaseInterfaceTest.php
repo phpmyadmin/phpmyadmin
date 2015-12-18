@@ -6,12 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Tests basic functionality of dummy dbi driver
  *
  * @package PhpMyAdmin-test
  */
-class DatabaseInterfaceTest extends PHPUnit_Framework_TestCase
+class DatabaseInterfaceTest extends PMATestCase
 {
 
     private $_dbi;

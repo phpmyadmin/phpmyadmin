@@ -5,12 +5,14 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Tests for PMA\libraries\Font class
  *
  * @package PhpMyAdmin-test
  */
-class FontTest extends PHPUnit_Framework_TestCase
+class FontTest extends PMATestCase
 {
     /**
      * Test getStringWidth with different characters.

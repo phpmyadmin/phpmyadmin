@@ -11,12 +11,14 @@
  */
 use PMA\libraries\PMA_String;
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Tests for PMA\libraries\PMA_String
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StringClassTest extends PHPUnit_Framework_TestCase
+class PMA_StringClassTest extends PMATestCase
 {
     /**
      * @var String

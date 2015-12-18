@@ -14,15 +14,15 @@ use PMA\libraries\config\ConfigFile;
 use PMA\setup\lib\ConfigGenerator;
 
 require_once 'libraries/core.lib.php';
-
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\setup\lib\ConfigGenerator
  *
  * @package PhpMyAdmin-test
  */
-class ConfigGeneratorTest extends PHPUnit_Framework_TestCase
+class ConfigGeneratorTest extends PMATestCase
 {
 
     /**
@@ -33,7 +33,6 @@ class ConfigGeneratorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConfigFile()
     {
-        $GLOBALS['cfg']['AvailableCharsets'] = array();
         unset($_SESSION['eol']);
 
         $GLOBALS['PMA_Config'] = new Config();

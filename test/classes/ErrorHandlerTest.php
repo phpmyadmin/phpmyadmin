@@ -12,13 +12,14 @@
 use PMA\libraries\Theme;
 
 require_once 'libraries/sanitizing.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Test for PMA\libraries\ErrorHandler class.
  *
  * @package PhpMyAdmin-test
  */
-class ErrorHandlerTest extends PHPUnit_Framework_TestCase
+class ErrorHandlerTest extends PMATestCase
 {
     /**
      * @access protected

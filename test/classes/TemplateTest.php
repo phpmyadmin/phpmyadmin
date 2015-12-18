@@ -6,12 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Test for PMA\libraries\Template class
  *
  * @package PhpMyAdmin-test
  */
-class TemplateTest extends PHPUnit_Framework_TestCase
+class TemplateTest extends PMATestCase
 {
     /**
      * Test for render

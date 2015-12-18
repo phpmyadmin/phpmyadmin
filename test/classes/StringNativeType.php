@@ -11,12 +11,14 @@
  */
 use PMA\libraries\StringNativeType;
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Tests for PMA\libraries\StringNativeType
  *
  * @package PhpMyAdmin-test
  */
-class StringNativeTypeTest extends PHPUnit_Framework_TestCase
+class StringNativeTypeTest extends PMATestCase
 {
     private $_object;
 
