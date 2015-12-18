@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-12-16 09:38+0000\n"
+"PO-Revision-Date: 2015-12-18 16:29+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -5626,6 +5626,8 @@ msgstr "Mostra i commenti al campo"
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Attiva la visualizzazione dei commenti ai campi nella vista struttura di "
+"tabella"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -10645,7 +10647,7 @@ msgstr "Struttura per la vista %s esportata come una tabella"
 
 #: libraries/plugins/export/ExportSql.php:2088
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Vedi sotto per la vista effettiva)"
 
 #: libraries/plugins/export/ExportSql.php:2174
 msgid "Error reading data:"
