@@ -13,13 +13,14 @@ use PMA\libraries\engines\Innodb;
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\engines\Innodb
  *
  * @package PhpMyAdmin-test
  */
-class InnodbTest extends PHPUnit_Framework_TestCase
+class InnodbTest extends PMATestCase
 {
     /**
      * @access protected
@@ -35,7 +36,6 @@ class InnodbTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 0;
         $this->object = new Innodb('innodb');
     }

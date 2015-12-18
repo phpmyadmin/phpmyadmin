@@ -21,13 +21,14 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/check_user_privileges.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\navigation\NavigationTree class
  *
  * @package PhpMyAdmin-test
  */
-class NavigationTreeTest extends PHPUnit_Framework_TestCase
+class NavigationTreeTest extends PMATestCase
 {
     /**
      * @var NavigationTree

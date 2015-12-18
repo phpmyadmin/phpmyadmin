@@ -7,6 +7,7 @@
  */
 use PMA\libraries\config\PageSettings;
 
+require_once 'test/PMATestCase.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
@@ -15,7 +16,7 @@ require_once 'libraries/config/page_settings.forms.php';
  *
  * @package PhpMyAdmin-test
  */
-class PageSettingsTest extends PHPUnit_Framework_TestCase
+class PageSettingsTest extends PMATestCase
 {
     /**
      * Setup tests
@@ -24,7 +25,6 @@ class PageSettingsTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
     }

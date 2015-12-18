@@ -11,6 +11,7 @@ use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\Theme;
 
+require_once 'test/PMATestCase.php';
 require_once 'libraries/config/config_functions.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/user_preferences.lib.php';
@@ -20,7 +21,7 @@ require_once 'libraries/user_preferences.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class FormDisplayTest extends PHPUnit_Framework_TestCase
+class FormDisplayTest extends PMATestCase
 {
     /**
      * @var FormDisplay

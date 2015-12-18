@@ -15,13 +15,14 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\dbi\DBIMysqli class
  *
  * @package PhpMyAdmin-test
  */
-class DBIMysqliTest extends PHPUnit_Framework_TestCase
+class DBIMysqliTest extends PMATestCase
 {
     /**
      * @access protected
@@ -38,10 +39,7 @@ class DBIMysqliTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $GLOBALS['cfg']['Server']['ssl'] = false;
-        $GLOBALS['cfg']['PersistentConnections'] = false;
         $GLOBALS['cfg']['Server']['compress'] = true;
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION

@@ -1,15 +1,16 @@
 <?php
-use PMA\libraries\StorageEngine;
 /**
  * Tests for StorageEngine.php
  *
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\StorageEngine;
+
+require_once 'test/PMATestCase.php';
 /*
  * Include to test.
  */
-
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/database_interface.inc.php';
@@ -19,7 +20,7 @@ require_once 'libraries/database_interface.inc.php';
  *
  * @package PhpMyAdmin-test
  */
-class StorageEngineTest extends PHPUnit_Framework_TestCase
+class StorageEngineTest extends PMATestCase
 {
     /**
      * @access protected
