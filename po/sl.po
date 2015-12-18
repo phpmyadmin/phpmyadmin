@@ -8497,7 +8497,7 @@ msgstr ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Preskoči to število poizvedb (za SQL), začenši s prvo:"
+msgstr "Preskoči toliko poizvedb (za SQL), začenši s prvo:"
 
 #: libraries/display_import.lib.php:339
 msgid "Other options:"
