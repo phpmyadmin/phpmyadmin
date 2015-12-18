@@ -17,13 +17,14 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\plugins\import\ImportShp class
  *
  * @package PhpMyAdmin-test
  */
-class ImportShpTest extends PHPUnit_Framework_TestCase
+class ImportShpTest extends PMATestCase
 {
     /**
      * @var ImportShp
@@ -46,8 +47,6 @@ class ImportShpTest extends PHPUnit_Framework_TestCase
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 0;
-        $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
         $GLOBALS['import_file'] = 'test/test_data/timezone.shp.zip';
 
         //Mock DBI
