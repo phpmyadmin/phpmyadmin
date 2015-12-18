@@ -13,13 +13,15 @@ require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
+
 /**
  * tests for PMA\libraries\plugins\export\ExportHtmlword class
  *
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportHtmlwordTest extends PHPUnit_Framework_TestCase
+class ExportHtmlwordTest extends PMATestCase
 {
     protected $object;
 
@@ -874,8 +876,6 @@ class ExportHtmlwordTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatOneColumnDefinition()
     {
-        $GLOBALS['cfg']['LimitChars'] = 40;
-
         $method = new ReflectionMethod(
             'PMA\libraries\plugins\export\ExportHtmlword', 'formatOneColumnDefinition'
         );

@@ -12,6 +12,7 @@ require_once 'libraries/export.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\export\ExportPdf class
@@ -19,7 +20,7 @@ require_once 'export.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportPdfTest extends PHPUnit_Framework_TestCase
+class ExportPdfTest extends PMATestCase
 {
     protected $object;
 
