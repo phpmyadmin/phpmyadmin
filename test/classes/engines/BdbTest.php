@@ -13,14 +13,14 @@ use PMA\libraries\engines\Bdb;
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
-
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\engines\Bdb
  *
  * @package PhpMyAdmin-test
  */
-class BdbTest extends PHPUnit_Framework_TestCase
+class BdbTest extends PMATestCase
 {
     /**
      * @access protected
@@ -36,7 +36,6 @@ class BdbTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 0;
         $this->object = new Bdb('bdb');
     }

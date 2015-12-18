@@ -24,7 +24,6 @@ $GLOBALS['available_languages']= array(
     "ch" => array("Chinese", "TW-Chinese")
 );
 $GLOBALS['text_dir'] = "text_dir";
-$GLOBALS['cfg']['DBG']['sql'] = false;
 $GLOBALS['cfg']['Server'] = array(
     'DisableIS' => false
 );
@@ -42,13 +41,14 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for ServerCollationsController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerCollationsControllerTest extends PHPUnit_Framework_TestCase
+class ServerCollationsControllerTest extends PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -62,16 +62,7 @@ class ServerCollationsControllerTest extends PHPUnit_Framework_TestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['is_ajax_request'] = true;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
     }

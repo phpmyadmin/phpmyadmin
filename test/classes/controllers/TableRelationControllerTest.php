@@ -17,13 +17,14 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for libraries/controllers/TableRelationController.php
  *
  * @package PhpMyAdmin-test
  */
-class TableRelationControllerTest extends PHPUnit_Framework_TestCase
+class TableRelationControllerTest extends PMATestCase
 {
     /**
      * @var \PMA\Test\Stubs\Response
@@ -39,7 +40,6 @@ class TableRelationControllerTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['cfg']['ShowHint'] = true;
         //$_SESSION
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();

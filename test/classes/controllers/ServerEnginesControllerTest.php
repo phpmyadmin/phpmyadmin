@@ -17,13 +17,14 @@ require_once 'libraries/database_interface.inc.php';
 
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for ServerEnginesController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerEnginesControllerTest extends PHPUnit_Framework_TestCase
+class ServerEnginesControllerTest extends PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -38,16 +39,6 @@ class ServerEnginesControllerTest extends PHPUnit_Framework_TestCase
 
         //$GLOBALS
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
 
