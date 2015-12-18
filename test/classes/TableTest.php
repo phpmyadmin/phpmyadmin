@@ -682,8 +682,8 @@ class TableTest extends PMATestCase
             $extra, $comment, $virtuality, $expression, $move_to
         );
 
-        $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER "
-            . "SET charset1 NULL DEFAULT 'VARCHAR' "
+        $expect = "`name` `new_name` VARCHAR(2) new_name CHARSET="
+            . "charset1 NULL DEFAULT 'VARCHAR' "
             . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
 
         $this->assertEquals(
