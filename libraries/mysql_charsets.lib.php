@@ -92,7 +92,7 @@ function PMA_generateCharsetQueryPart($collation)
 {
     if (!PMA_DRIZZLE) {
         list($charset) = explode('_', $collation);
-        return ' CHARACTER SET ' . $charset
+        return ' CHARSET=' . $charset
             . ($charset == $collation ? '' : ' COLLATE ' . $collation);
     } else {
         return ' COLLATE ' . $collation;

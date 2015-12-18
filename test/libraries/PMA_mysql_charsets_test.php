@@ -69,9 +69,9 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
     public function charsetQueryData()
     {
         return array(
-            array(false, "a_b_c_d", " CHARACTER SET a COLLATE a_b_c_d"),
-            array(false, "a_", " CHARACTER SET a COLLATE a_"),
-            array(false, "a", " CHARACTER SET a"),
+            array(false, "a_b_c_d", " CHARSET=a COLLATE a_b_c_d"),
+            array(false, "a_", " CHARSET=a COLLATE a_"),
+            array(false, "a", " CHARSET=a"),
             array(true, "a_b_c_d", " COLLATE a_b_c_d")
         );
     }
