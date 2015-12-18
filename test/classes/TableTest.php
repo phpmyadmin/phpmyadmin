@@ -39,6 +39,8 @@ class TableTest extends PMATestCase
          */
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['MaxExactCount'] = 100;
+        $GLOBALS['cfg']['MaxExactCountViews'] = 100;
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
