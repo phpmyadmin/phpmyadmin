@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-11-20 12:40+0000\n"
+"PO-Revision-Date: 2015-12-18 18:19+0000\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5501,10 +5501,9 @@ msgid "Whether the table structure actions should be hidden."
 msgstr ""
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Ցուցադրել աղյուսակի մեկնաբանությունները"
+msgstr "Ցուցադրել սյունակի մեկնաբանությունները"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
@@ -8115,14 +8114,11 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:313
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Զանցել հարցումների (SQL-ի դեպքում) կամ տողերի (այլ ձևանմուշների դեպքում) "
-"նշված քանակը, սկսած հետևյալից՝"
+msgstr "Զանցել հարցումների (SQL-ի դեպքում) նշված քանակը, սկսած հետևյալից՝"
 
 #: libraries/display_import.lib.php:343
 msgid "Other options:"
@@ -14774,10 +14770,9 @@ msgid "Edit view"
 msgstr "Խմբագրել ներկայացումը"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "Աղյուսակների մեկնաբանությունները՝"
+msgstr "Աղյուսակների մեկնաբանությունները՝ "
 
 #: templates/table/structure/display_table_stats.phtml:10
 msgid "Space usage"
