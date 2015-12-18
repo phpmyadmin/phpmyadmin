@@ -12,6 +12,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\export\ExportYaml class
@@ -19,7 +20,7 @@ require_once 'export.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportYamlTest extends PHPUnit_Framework_TestCase
+class ExportYamlTest extends PMATestCase
 {
     protected $object;
 

@@ -11,12 +11,14 @@
  */
 use PMA\libraries\StringCType;
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Tests for PMA\libraries\StringCType
  *
  * @package PhpMyAdmin-test
  */
-class StringCTypeTest extends PHPUnit_Framework_TestCase
+class StringCTypeTest extends PMATestCase
 {
     private $_object;
 

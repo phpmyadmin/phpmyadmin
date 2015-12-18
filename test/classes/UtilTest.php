@@ -6,12 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Test for PMA\libraries\Util class
  *
  * @package PhpMyAdmin-test
  */
-class UtilTest extends PHPUnit_Framework_TestCase
+class UtilTest extends PMATestCase
 {
 
     /**
@@ -74,8 +76,6 @@ class UtilTest extends PHPUnit_Framework_TestCase
     public function testIsForeignKeyCheck()
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['DBG'] = array();
-        $GLOBALS['cfg']['DBG']['sql'] = false;
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
         $this->assertEquals(

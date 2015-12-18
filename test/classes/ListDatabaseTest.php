@@ -14,13 +14,14 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
  * Include to test.
  */
 require_once 'libraries/relation.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for ListDatabase class
  *
  * @package PhpMyAdmin-test
  */
-class ListDatabaseTest extends PHPUnit_Framework_TestCase
+class ListDatabaseTest extends PMATestCase
 {
     /**
      * SetUp for test cases

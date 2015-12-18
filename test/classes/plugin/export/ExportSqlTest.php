@@ -16,6 +16,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/charset_conversion.lib.php';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\export\ExportSql class
@@ -23,7 +24,7 @@ require_once 'export.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportSqlTest extends PHPUnit_Framework_TestCase
+class ExportSqlTest extends PMATestCase
 {
     protected $object;
 
@@ -856,7 +857,6 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
-        $GLOBALS['cfg']['LimitChars'] = 40;
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()

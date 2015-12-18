@@ -6,12 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Tests for libraries/SystemDatabase.php
  *
  * @package PhpMyAdmin-test
  */
-class SystemDatabaseTest extends PHPUnit_Framework_TestCase
+class SystemDatabaseTest extends PMATestCase
 {
     /**
      * Setup function for test cases

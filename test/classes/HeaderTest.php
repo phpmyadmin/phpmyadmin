@@ -19,6 +19,7 @@ require_once 'libraries/vendor_config.php';
 require_once 'libraries/select_lang.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Test for PMA\libraries\Header class
@@ -26,7 +27,7 @@ require_once 'libraries/js_escape.lib.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class HeaderTest extends PHPUnit_Framework_TestCase
+class HeaderTest extends PMATestCase
 {
     /**
      * Configures global environment.

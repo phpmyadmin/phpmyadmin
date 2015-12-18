@@ -14,13 +14,14 @@ use PMA\libraries\Theme;
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Test for Message class
  *
  * @package PhpMyAdmin-test
  */
-class MessageTest extends PHPUnit_Framework_TestCase
+class MessageTest extends PMATestCase
 {
     /**
      * @var    PMA\libraries\Message

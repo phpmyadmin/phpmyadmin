@@ -15,13 +15,14 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/transformations.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PdfRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
-class PdfRelationSchemaTest extends PHPUnit_Framework_TestCase
+class PdfRelationSchemaTest extends PMATestCase
 {
     /**
      * @access protected
@@ -54,8 +55,6 @@ class PdfRelationSchemaTest extends PHPUnit_Framework_TestCase
         $GLOBALS['controllink'] = null;
         $GLOBALS['db'] = 'information_schema';
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['Server']['user'] = "user";
         $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
         $GLOBALS['cfg']['Server']['bookmarktable'] = "bookmarktable";
