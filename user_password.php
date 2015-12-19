@@ -156,6 +156,9 @@ function PMA_changePassword($password, $message, $change_password_message)
         );
     }
 
+    $sql_query = 'SET password = '
+        . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+
     if ($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50706
     ) {
@@ -177,9 +180,6 @@ function PMA_changePassword($password, $message, $change_password_message)
             $value = 0;
         }
         $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
-
-        $sql_query = 'SET password = '
-            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
     }
 
     PMA_changePassUrlParamsAndSubmitQuery(
