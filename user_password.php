@@ -177,9 +177,11 @@ function PMA_changePassword($password, $message, $change_password_message)
             $value = 0;
         }
         $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
+
+        $sql_query = 'SET password = '
+            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
     }
-    $sql_query = 'SET password = '
-        . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+
     PMA_changePassUrlParamsAndSubmitQuery(
         $username, $hostname, $password,
         $sql_query, $hashing_function, $orig_auth_plugin
