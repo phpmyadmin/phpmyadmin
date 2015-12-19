@@ -2,6 +2,11 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.5.3.0 (not yet released)
+- issue #11744 Incomplete results of UNION ALL
+- issue #11742 MATCH AGAINST keywords not recognized
+- issue #11723 syntax verifier is not knowing "STRAIGHT_JOIN"
+- issue #11699 REPLACE() function confused with REPLACE statement
+- issue #11690 FLUSH word not recognized by parser
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement
 - issue #11665 Format breaks query with COUNT()
 - issue        Undefinex index: SendErrorReports
