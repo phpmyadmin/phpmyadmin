@@ -72,6 +72,7 @@ class ExpressionArray extends Component
                 && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
                 && ((~$token->flags & Token::FLAG_KEYWORD_FUNCTION))
                 && ($token->value !== 'DUAL')
+                && ($token->value !== 'NULL')
             ) {
                 // No keyword is expected.
                 break;

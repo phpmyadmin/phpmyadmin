@@ -85,34 +85,34 @@ class SetOperation extends Component
             }
 
             // No keyword is expected.
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED) && ($state == 0)) {
                 break;
             }
 
             if ($state === 0) {
                 if ($token->token === '=') {
                     $state = 1;
-                } else {
+                } else if ($token->value !== ',') {
                     $expr->column .= $token->token;
                 }
             } elseif ($state === 1) {
-                if ($token->token === ',') {
-                    $expr->column = trim($expr->column);
-                    $expr->value = trim($expr->value);
-                    $ret[] = $expr;
-                    $expr = new SetOperation();
-                    $state = 0;
-                } else {
-                    $expr->value .= $token->token;
+                $tmp = Expression::parse(
+                    $parser,
+                    $list,
+                    array(
+                        'noAlias' => true,
+                    )
+                );
+                if ($tmp == null) {
+                    $expr = null;
+                    break;
                 }
+                $expr->column = trim($expr->column);
+                $expr->value = $tmp->expr;
+                $ret[] = $expr;
+                $expr = new SetOperation();
+                $state = 0;
             }
-        }
-
-        // Last iteration was not saved.
-        if (!empty($expr->column)) {
-            $expr->column = trim($expr->column);
-            $expr->value = trim($expr->value);
-            $ret[] = $expr;
         }
 
         --$list->idx;
