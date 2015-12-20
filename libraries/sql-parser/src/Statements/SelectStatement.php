@@ -106,7 +106,7 @@ class SelectStatement extends Statement
         'LIMIT'                         => array('LIMIT',               3),
         'PROCEDURE'                     => array('PROCEDURE',           3),
         'INTO'                          => array('INTO',                3),
-        'UNION'                         => array('UNION',               3),
+        'UNION'                         => array('UNION',               1),
         // These are available only when `UNION` is present.
         // 'ORDER BY'                      => array('ORDER BY',    3),
         // 'LIMIT'                         => array('LIMIT',       3),

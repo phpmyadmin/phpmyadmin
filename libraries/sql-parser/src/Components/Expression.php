@@ -186,6 +186,7 @@ class Expression extends Component
             if (($token->type === Token::TYPE_KEYWORD)
                 && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
                 && ($token->value !== 'DUAL')
+                && ($token->value !== 'NULL')
             ) {
                 // Keywords may be found only between brackets.
                 if ($brackets === 0) {
