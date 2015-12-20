@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.5.4.0 (not yet released)
+
 4.5.3.0 (not yet released)
 - issue #11744 Incomplete results of UNION ALL
 - issue #11742 MATCH AGAINST keywords not recognized
