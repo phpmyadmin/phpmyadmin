@@ -49,7 +49,7 @@ function PMA_checkRequiredPrivilegesForFlushing()
 function PMA_hasRequiredPrivileges($queries)
 {
     $privs_available = true;
-    // FOR DB PRIVS
+
     $select_privs_available = $GLOBALS['dbi']->tryQuery(
         $queries['0select']
     );
@@ -64,9 +64,20 @@ function PMA_hasRequiredPrivileges($queries)
     }
 
     if ($privs_available) {
+        // unset the `foreign_key_checks` temporarily
+        $GLOBALS['dbi']->tryQuery('
+            SET @@session.foreign_key_checks = 0
+        ');
+
         $insert_privs_available = $GLOBALS['dbi']->tryQuery(
             $queries['2insert']
         );
+
+        // set the `foreign_key_checks` back
+        $GLOBALS['dbi']->tryQuery('
+            SET @@session.foreign_key_checks = 1
+        ');
+
         // If successful test insert, delete the test row
         if ($insert_privs_available) {
             $GLOBALS['dbi']->tryQuery(
@@ -97,14 +108,14 @@ function PMA_hasMysqlDbPrivileges()
         array(
             '0select' => 'SELECT * FROM `mysql`.`db` LIMIT 1',
             '1delete' => 'DELETE FROM `mysql`.`db` WHERE `host` = "" AND '
-                . '`Db` = "" AND `User` = "" LIMIT 1',
+                . '`Db` = "" AND `User` = ""',
             '2insert' => 'INSERT INTO `mysql`.`db`(`host`, `Db`, `User`) '
                 . 'VALUES("pma_test_host", "mysql", "pma_test_user")',
             '3delete' => 'DELETE FROM `mysql`.`db` WHERE host = '
                 . '"pma_test_host" AND Db = "mysql" AND User = '
-                . '"pma_test_user" LIMIT 1',
+                . '"pma_test_user"',
             '4update' => 'UPDATE `mysql`.`db` SET `host` = "" WHERE '
-                . '`host` = "" AND `Db` = "" AND `User` = "" LIMIT 1'
+                . '`host` = "" AND `Db` = "" AND `User` = ""'
         )
     );
 }
@@ -120,16 +131,16 @@ function PMA_hasMysqlColumnsPrivileges()
         array(
             '0select' => 'SELECT * FROM `mysql`.`columns_priv` LIMIT 1',
             '1delete' => 'DELETE FROM `mysql`.`columns_priv` '
-                . 'WHERE `host` = "" AND `Db` = "" AND `User` = "" LIMIT 1',
+                . 'WHERE `host` = "" AND `Db` = "" AND `User` = ""',
             '2insert' => 'INSERT INTO `mysql`.`columns_priv`(`host`, `Db`, '
                 . '`User`, `Table_name`, `Column_name`) '
                 . 'VALUES("pma_test_host", "mysql", "pma_test_user", "", "")',
             '3delete' => 'DELETE FROM `mysql`.`columns_priv` WHERE host = '
                 . '"pma_test_host" AND Db = "mysql" AND User = '
-                . '"pma_test_user" AND Table_name = "" AND Column_name = "" LIMIT 1',
+                . '"pma_test_user" AND Table_name = "" AND Column_name = ""',
             '4update' => 'UPDATE `mysql`.`columns_priv` SET `host` = "" '
                 . 'WHERE `host` = "" AND `Db` = "" AND `User` = "" '
-                . 'AND Column_name = "" AND Table_name = "" LIMIT 1'
+                . 'AND Column_name = "" AND Table_name = ""'
         )
     );
 }
@@ -145,16 +156,16 @@ function PMA_hasMysqlTablesPrivileges()
         array(
             '0select' => 'SELECT * FROM `mysql`.`tables_priv` LIMIT 1',
             '1delete' => 'DELETE FROM `mysql`.`tables_priv` WHERE `host` '
-                . '= "" AND `Db` = "" AND `User` = "" AND Table_name = "" LIMIT 1',
+                . '= "" AND `Db` = "" AND `User` = "" AND Table_name = ""',
             '2insert' => 'INSERT INTO `mysql`.`tables_priv`(`host`, `Db`, '
                 . '`User`, `Table_name`) VALUES("pma_test_host", "mysql", '
                 . '"pma_test_user", "")',
             '3delete' => 'DELETE FROM `mysql`.`tables_priv` WHERE host = '
                 . '"pma_test_host" AND Db = "mysql" AND User = '
-                . '"pma_test_user" AND Table_name = "" LIMIT 1',
+                . '"pma_test_user" AND Table_name = ""',
             '4update' => 'UPDATE `mysql`.`tables_priv` SET `host` = "" '
                 . 'WHERE `host` = "" AND `Db` = "" AND `User` = "" '
-                . 'AND Table_name = "" LIMIT 1'
+                . 'AND Table_name = ""'
         )
     );
 }
@@ -171,17 +182,17 @@ function PMA_hasMysqlProcsPrivileges()
             '0select' => 'SELECT * FROM `mysql`.`procs_priv` LIMIT 1',
             '1delete' => 'DELETE FROM `mysql`.`procs_priv` WHERE `host` '
                 . '= "" AND `Db` = "" AND `User` = "" AND `Routine_name` = '
-                . '"" AND `Routine_type` = "" LIMIT 1',
+                . '"" AND `Routine_type` = ""',
             '2insert' => 'INSERT INTO `mysql`.`procs_priv`(`host`, `Db`, '
                 . '`User`, `Routine_name`, `Routine_type`) '
                 . 'VALUES("pma_test_host", "mysql", "pma_test_user", "", "PROCEDURE")',
             '3delete' => 'DELETE FROM `mysql`.`procs_priv` WHERE `host` = '
                 . '"pma_test_host" AND `Db` = "mysql" AND `User` = '
                 . '"pma_test_user" AND `Routine_name` = "" '
-                . 'AND `Routine_type` = "PROCEDURE" LIMIT 1',
+                . 'AND `Routine_type` = "PROCEDURE"',
             '4update' => 'UPDATE `mysql`.`procs_priv` SET `host` = "" '
                 . 'WHERE `host` = "" AND `Db` = "" AND `User` = "" '
-                . 'AND `Routine_name` = "" LIMIT 1'
+                . 'AND `Routine_name` = ""'
         )
     );
 }
