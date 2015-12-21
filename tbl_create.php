@@ -16,9 +16,6 @@ require_once 'libraries/create_addfield.lib.php';
 // Check parameters
 PMA\libraries\Util::checkParameters(array('db'));
 
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-
 /* Check if database name is empty */
 if (/*overload*/mb_strlen($db) == 0) {
     PMA\libraries\Util::mysqlDie(

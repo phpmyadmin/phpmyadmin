@@ -177,9 +177,6 @@ if (isset($_POST['submit_export'])
                 $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
                 $return_url = parse_url($return_url, PHP_URL_PATH);
 
-                /** @var String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
-
                 foreach ($query as $q) {
                     $pos = /*overload*/mb_strpos($q, '=');
                     $k = /*overload*/mb_substr($q, 0, $pos);

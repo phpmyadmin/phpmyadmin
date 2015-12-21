@@ -40,9 +40,6 @@ $err_url = PMA\libraries\Util::getScriptNameForOption(
 )
     . PMA_URL_getCommon(array('db' => $db));
 
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
  * headers

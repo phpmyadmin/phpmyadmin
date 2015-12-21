@@ -77,9 +77,6 @@ if ($is_aria) {
 $reread_info = false;
 $table_alters = array();
 
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-
 /**
  * If the table has to be moved to some other database
  */

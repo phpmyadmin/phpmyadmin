@@ -43,9 +43,6 @@ if (!isset($columnMeta)) {
 // Get available character sets and storage engines
 require_once './libraries/mysql_charsets.inc.php';
 
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-
 $length_values_input_size = 8;
 
 $content_cells = array();

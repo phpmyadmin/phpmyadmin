@@ -40,9 +40,6 @@ $gis_types = array(
     'GEOMETRYCOLLECTION'
 );
 
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-
 // Extract type from the initial call and make sure that it's a valid one.
 // Extract from field's values if available, if not use the column type passed.
 if (! isset($gis_data['gis_type'])) {

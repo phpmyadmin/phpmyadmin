@@ -43,9 +43,6 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         $filename = $_REQUEST['filename'];
     }
 
-    /** @var String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     /* Decode data */
     if ($extension != 'svg') {
         $data = /*overload*/mb_substr(

@@ -56,9 +56,6 @@ $GLOBALS['showtable'] = $GLOBALS['dbi']->getTable(
 // and we don't want to mess up the $tbl_storage_engine coming from the form
 
 if ($showtable) {
-    /** @var String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if ($GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])->isView()) {
         $tbl_is_view     = true;
         $tbl_storage_engine = __('View');

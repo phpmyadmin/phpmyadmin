@@ -68,8 +68,6 @@ if (isset($_REQUEST['do_save_data'])) {
             && is_array($_REQUEST['field_mimetype'])
             && $cfg['BrowseMIME']
         ) {
-            /** @var String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && /*overload*/mb_strlen($_REQUEST['field_name'][$fieldindex])

@@ -144,8 +144,6 @@ $views = $GLOBALS['dbi']->getVirtualTables($db);
 if (!empty($submit_mult) && !empty($what)) {
     unset($message);
 
-    /** @var String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (/*overload*/mb_strlen($table)) {
         include './libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
