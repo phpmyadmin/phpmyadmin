@@ -953,6 +953,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
+                        $td.data('original_data', $(data.select).val().join());
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }); // end $.post()
 
