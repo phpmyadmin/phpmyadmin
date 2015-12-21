@@ -255,7 +255,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
         || (! empty($_REQUEST['showExecuting']))
     ) {
         foreach (array_keys($process) as $key) {
-            $new_key = ucfirst(/*overload*/mb_strtolower($key));
+            $new_key = ucfirst(mb_strtolower($key));
             if ($new_key !== $key) {
                 $process[$new_key] = $process[$key];
                 unset($process[$key]);
@@ -276,7 +276,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     $retval .= '<td>' . htmlspecialchars($process['User']) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Host']) . '</td>';
     $retval .= '<td>' . ((! isset($process['db'])
-            || !/*overload*/mb_strlen($process['db']))
+            || !mb_strlen($process['db']))
             ? '<i>' . __('None') . '</i>'
             : htmlspecialchars($process['db'])) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Command']) . '</td>';

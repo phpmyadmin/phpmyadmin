@@ -69,7 +69,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
                 $is_selected = '';
             }
         } elseif (!empty($tmp_select)) {
-            if (/*overload*/mb_strpos(
+            if (mb_strpos(
                 ' ' . $tmp_select,
                 '|' . $current_db . '|'
             )) {
@@ -869,7 +869,7 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = /*overload*/mb_strlen($table);
+    $tableLength = mb_strlen($table);
     $_table = new Table($table, $db);
     if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);

@@ -145,7 +145,7 @@ class TableSearchController extends TableController
                 }
                 $type = preg_replace('@ZEROFILL@i', '', $type);
                 $type = preg_replace('@UNSIGNED@i', '', $type);
-                $type = /*overload*/mb_strtolower($type);
+                $type = mb_strtolower($type);
             }
             if (empty($type)) {
                 $type = '&nbsp;';
@@ -1090,7 +1090,7 @@ class TableSearchController extends TableController
             $gis_data = Util::createGISData($criteriaValues);
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
 
-        } elseif (/*overload*/mb_strlen($criteriaValues) > 0) {
+        } elseif (mb_strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . " "
                 . $func_type . " '" . $criteriaValues . "'";
         }
@@ -1134,7 +1134,7 @@ class TableSearchController extends TableController
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
-                || /*overload*/mb_strpos(' ' . $func_type, 'LIKE')
+                || mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
             } else {

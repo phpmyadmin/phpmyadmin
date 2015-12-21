@@ -680,14 +680,14 @@ class DatabaseInterface
             return $tables[$database];
         }
 
-        if (isset($tables[/*overload*/mb_strtolower($database)])) {
+        if (isset($tables[mb_strtolower($database)])) {
             // on windows with lower_case_table_names = 1
             // MySQL returns
             // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
             // but information_schema.TABLES gives `test`
             // bug #2036
             // https://sourceforge.net/p/phpmyadmin/bugs/2036/
-            return $tables[/*overload*/mb_strtolower($database)];
+            return $tables[mb_strtolower($database)];
         }
 
         return $tables;
@@ -762,7 +762,7 @@ class DatabaseInterface
             $tables[$table_name]['TABLE_COMMENT']
                 =& $tables[$table_name]['Comment'];
 
-            $commentUpper = /*overload*/mb_strtoupper(
+            $commentUpper = mb_strtoupper(
                 $tables[$table_name]['Comment']
             );
             if ($commentUpper === 'VIEW'

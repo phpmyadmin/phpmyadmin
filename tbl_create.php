@@ -16,7 +16,7 @@ require_once 'libraries/create_addfield.lib.php';
 PMA\libraries\Util::checkParameters(array('db'));
 
 /* Check if database name is empty */
-if (/*overload*/mb_strlen($db) == 0) {
+if (mb_strlen($db) == 0) {
     PMA\libraries\Util::mysqlDie(
         __('The database name is empty!'), '', false, 'index.php'
     );
@@ -73,7 +73,7 @@ if (isset($_REQUEST['do_save_data'])) {
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && /*overload*/mb_strlen($_REQUEST['field_name'][$fieldindex])
+                    && mb_strlen($_REQUEST['field_name'][$fieldindex])
                 ) {
                     PMA_setMIME(
                         $db, $table,

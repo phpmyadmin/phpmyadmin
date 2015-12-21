@@ -256,13 +256,13 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
                 $key = $row['tab'];
                 $value = $row['allowed'];
                 if (substr($key, 0, 7) == 'server_' && $value == 'Y') {
-                    $allowedTabs['server'][] = /*overload*/mb_substr($key, 7);
+                    $allowedTabs['server'][] = mb_substr($key, 7);
                 } elseif (substr($key, 0, 3) == 'db_' && $value == 'Y') {
-                    $allowedTabs['db'][] = /*overload*/mb_substr($key, 3);
+                    $allowedTabs['db'][] = mb_substr($key, 3);
                 } elseif (substr($key, 0, 6) == 'table_'
                     && $value == 'Y'
                 ) {
-                    $allowedTabs['table'][] = /*overload*/mb_substr($key, 6);
+                    $allowedTabs['table'][] = mb_substr($key, 6);
                 }
             }
         }

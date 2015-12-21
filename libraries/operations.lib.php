@@ -361,7 +361,7 @@ function PMA_createDbBeforeCopy()
         'SELECT @@lower_case_table_names'
     );
     if ($lowerCaseTableNames === '1') {
-        $_REQUEST['newname'] = /*overload*/mb_strtolower(
+        $_REQUEST['newname'] = mb_strtolower(
             $_REQUEST['newname']
         );
     }
@@ -1114,7 +1114,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (/*overload*/mb_strlen($auto_increment) > 0
+    if (mb_strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td class="vmiddle">'
@@ -1135,7 +1135,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     if (isset($possible_row_formats[$tbl_storage_engine])) {
         $current_row_format
-            = /*overload*/mb_strtoupper($GLOBALS['showtable']['Row_format']);
+            = mb_strtoupper($GLOBALS['showtable']['Row_format']);
         $html_output .= '<tr><td class="vmiddle">'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
@@ -1778,7 +1778,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     }
 
     if (! empty($newTblStorageEngine)
-        && /*overload*/mb_strtolower($newTblStorageEngine) !== /*overload*/mb_strtolower($GLOBALS['tbl_storage_engine'])
+        && mb_strtolower($newTblStorageEngine) !== mb_strtolower($GLOBALS['tbl_storage_engine'])
     ) {
         $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
     }
@@ -1838,10 +1838,10 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     if (! empty($_REQUEST['new_row_format'])) {
         $newRowFormat = $_REQUEST['new_row_format'];
-        $newRowFormatLower = /*overload*/mb_strtolower($newRowFormat);
+        $newRowFormatLower = mb_strtolower($newRowFormat);
         if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-            && (!/*overload*/mb_strlen($row_format)
-            || $newRowFormatLower !== /*overload*/mb_strtolower($row_format))
+            && (!mb_strlen($row_format)
+            || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
             $table_alters[] = 'ROW_FORMAT = '
                 . PMA\libraries\Util::sqlAddSlashes($newRowFormat);

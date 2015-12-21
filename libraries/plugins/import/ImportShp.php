@@ -103,14 +103,11 @@ class ImportShp extends ImportPlugin
                         $temp_dbf_file = true;
                         // Replace the .dbf with .*, as required
                         // by the bsShapeFiles library.
-                        $file_name
-                            = /*overload*/
-                            mb_substr(
-                                $dbf_file_path,
-                                0,
-                                /*overload*/
-                                mb_strlen($dbf_file_path) - 4
-                            ) . '.*';
+                        $file_name = mb_substr(
+                            $dbf_file_path,
+                            0,
+                            mb_strlen($dbf_file_path) - 4
+                        ) . '.*';
                         $shp->FileName = $file_name;
                     }
                 }
@@ -122,14 +119,11 @@ class ImportShp extends ImportPlugin
                 // to load extra data.
                 // Replace the .shp with .*,
                 // so the bsShapeFiles library correctly locates .dbf file.
-                $file_name
-                    = /*overload*/
-                    mb_substr(
-                        $import_file,
-                        0,
-                        /*overload*/
-                        mb_strlen($import_file) - 4
-                    ) . '.*';
+                $file_name = mb_substr(
+                    $import_file,
+                    0,
+                    mb_strlen($import_file) - 4
+                ) . '.*';
                 $shp->FileName = $file_name;
             }
         }
@@ -265,7 +259,7 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (/*overload*/mb_strlen($db)) {
+        if (mb_strlen($db)) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
@@ -283,7 +277,7 @@ class ImportShp extends ImportPlugin
         $analyses[$table_no][FORMATTEDSQL][$spatial_col] = true;
 
         // Set database name to the currently selected one, if applicable
-        if (/*overload*/mb_strlen($db)) {
+        if (mb_strlen($db)) {
             $db_name = $db;
             $options = array('create_db' => false);
         } else {

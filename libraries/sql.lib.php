@@ -1051,7 +1051,7 @@ function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result)
  */
 function PMA_hasCurrentDbChanged($db)
 {
-    if (/*overload*/mb_strlen($db)) {
+    if (mb_strlen($db)) {
         $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
         // $current_db is false, except when a USE statement was sent
         return ($current_db != false) && ($db !== $current_db);
@@ -1074,9 +1074,9 @@ function PMA_cleanupRelations($db, $table, $column, $purge)
 {
     include_once 'libraries/relation_cleanup.lib.php';
 
-    if (! empty($purge) && /*overload*/mb_strlen($db)) {
-        if (/*overload*/mb_strlen($table)) {
-            if (isset($column) && /*overload*/mb_strlen($column)) {
+    if (! empty($purge) && mb_strlen($db)) {
+        if (mb_strlen($table)) {
+            if (isset($column) && mb_strlen($column)) {
                 PMA_relationsCleanupColumn($db, $table, $column);
             } else {
                 PMA_relationsCleanupTable($db, $table);
@@ -1262,8 +1262,8 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         );
 
         if (isset($_REQUEST['dropped_column'])
-            && /*overload*/mb_strlen($db)
-            && /*overload*/mb_strlen($table)
+            && mb_strlen($db)
+            && mb_strlen($table)
         ) {
             // to refresh the list of indexes (Ajax mode)
             $extra_data['indexes_list'] = PMA\libraries\Index::getHtmlForIndexes(

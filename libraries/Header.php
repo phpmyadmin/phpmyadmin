@@ -625,8 +625,8 @@ class Header
 
         $retval  = "<!DOCTYPE HTML>";
         $retval .= "<html lang='$lang' dir='$dir' class='";
-        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
-        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT)
+        $retval .= mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
+        $retval .= mb_strtolower(PMA_USR_BROWSER_AGENT)
             . intval(PMA_USR_BROWSER_VER) . "'>";
         $retval .= '<head>';
 
@@ -780,7 +780,7 @@ class Header
     {
         $retval = '';
         if ($this->_menuEnabled
-            && /*overload*/mb_strlen($table)
+            && mb_strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
             $tmp_result = RecentFavoriteTable::getInstance('recent')

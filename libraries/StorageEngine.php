@@ -145,7 +145,7 @@ class StorageEngine
         $selected = null, $offerUnavailableEngines = false,
         $addEmpty = false
     ) {
-        $selected   = /*overload*/mb_strtolower($selected);
+        $selected   = mb_strtolower($selected);
         $output     = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
 
@@ -166,7 +166,7 @@ class StorageEngine
             $output .= '    <option value="' . htmlspecialchars($key) . '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
-                . (/*overload*/mb_strtolower($key) == $selected
+                . (mb_strtolower($key) == $selected
                     || (empty($selected) && $details['Support'] == 'DEFAULT' && ! $addEmpty)
                     ? ' selected="selected"' : '')
                 . '>' . "\n"
@@ -332,7 +332,7 @@ class StorageEngine
                 $mysql_vars[$row['Variable_name']]
                     = $variables[$row['Variable_name']];
             } elseif (! $like
-                && /*overload*/mb_strpos(/*overload*/mb_strtolower($row['Variable_name']), /*overload*/mb_strtolower($this->engine)) !== 0
+                && mb_strpos(mb_strtolower($row['Variable_name']), mb_strtolower($this->engine)) !== 0
             ) {
                 continue;
             }

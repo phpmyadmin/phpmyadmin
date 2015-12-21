@@ -91,6 +91,6 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
         $printed = ob_get_contents();
         ob_end_clean();
 
-        $this->assertGreaterThan(0, /*overload*/mb_strpos($printed, $warn));
+        $this->assertGreaterThan(0, mb_strpos($printed, $warn));
     }
 }

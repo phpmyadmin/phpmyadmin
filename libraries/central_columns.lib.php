@@ -883,7 +883,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
                 'columnNumber' => $row_num,
                 'ci' => 1,
                 'ci_offset' => 0,
-                'type_upper' => /*overload*/mb_strtoupper($row['col_type']),
+                'type_upper' => mb_strtoupper($row['col_type']),
                 'columnMeta' => array()
                 )
             )
@@ -926,7 +926,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
                 'columnNumber' => $row_num,
                 'ci' => 3,
                 'ci_offset' => 0,
-                'type_upper' => /*overload*/mb_strtoupper($row['col_type']),
+                'type_upper' => mb_strtoupper($row['col_type']),
                 'columnMeta' => $meta
                 )
             )
@@ -1032,7 +1032,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
                 'columnNumber' => $row_num,
                 'ci' => 1,
                 'ci_offset' => 0,
-                'type_upper' => /*overload*/mb_strtoupper($row['col_type']),
+                'type_upper' => mb_strtoupper($row['col_type']),
                 'columnMeta' => array()
                 )
             )
@@ -1070,7 +1070,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
                 'columnNumber' => $row_num,
                 'ci' => 3,
                 'ci_offset' => 0,
-                'type_upper' => /*overload*/mb_strtoupper($row['col_default']),
+                'type_upper' => mb_strtoupper($row['col_default']),
                 'columnMeta' => $meta
                 )
             )

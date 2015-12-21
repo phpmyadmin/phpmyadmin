@@ -41,7 +41,7 @@ function PMA_getHtmlForColumnsList(
             $type = $extracted_columnspec['type'];
         }
         if (empty($columnTypeList)
-            || in_array(/*overload*/mb_strtoupper($type), $columnTypeList)
+            || in_array(mb_strtoupper($type), $columnTypeList)
         ) {
             if ($listType == 'checkbox') {
                 $selectColHtml .= '<input type="checkbox" value="'

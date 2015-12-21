@@ -163,7 +163,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === 'length' || $type === 'scalar') {
         $is_scalar = is_scalar($var);
         if ($is_scalar && $type === 'length') {
-            return (bool) /*overload*/mb_strlen($var);
+            return (bool) mb_strlen($var);
         }
         return $is_scalar;
     }
@@ -423,20 +423,20 @@ function PMA_checkPageValidity(&$page, $whitelist)
         return true;
     }
 
-    $_page = /*overload*/mb_substr(
+    $_page = mb_substr(
         $page,
         0,
-        /*overload*/mb_strpos($page . '?', '?')
+        mb_strpos($page . '?', '?')
     );
     if (in_array($_page, $whitelist)) {
         return true;
     }
 
     $_page = urldecode($page);
-    $_page = /*overload*/mb_substr(
+    $_page = mb_substr(
         $_page,
         0,
-        /*overload*/mb_strpos($_page . '?', '?')
+        mb_strpos($_page . '?', '?')
     );
     if (in_array($_page, $whitelist)) {
         return true;
@@ -488,7 +488,7 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    if (PMA_IS_IIS && /*overload*/mb_strlen($uri) > 600) {
+    if (PMA_IS_IIS && mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();
 
@@ -499,7 +499,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     }
 
     if (SID) {
-        if (/*overload*/mb_strpos($uri, '?') === false) {
+        if (mb_strpos($uri, '?') === false) {
             header('Location: ' . $uri . '?' . SID);
         } else {
             $separator = PMA_URL_getArgSeparator();
@@ -757,7 +757,7 @@ function PMA_isAllowedDomain($url)
         'ronaldbradford.com',
         'xaprb.com',
     );
-    if (in_array(/*overload*/mb_strtolower($domain), $domainWhiteList)) {
+    if (in_array(mb_strtolower($domain), $domainWhiteList)) {
         return true;
     }
 
@@ -910,10 +910,10 @@ function PMA_cleanupPathInfo()
     $PMA_PHP_SELF = PMA_getenv('PHP_SELF');
     $_PATH_INFO = PMA_getenv('PATH_INFO');
     if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
-        $path_info_pos = /*overload*/mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
-        $pathLength = $path_info_pos + /*overload*/mb_strlen($_PATH_INFO);
-        if ($pathLength === /*overload*/mb_strlen($PMA_PHP_SELF)) {
-            $PMA_PHP_SELF = /*overload*/mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
+        $path_info_pos = mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
+        $pathLength = $path_info_pos + mb_strlen($_PATH_INFO);
+        if ($pathLength === mb_strlen($PMA_PHP_SELF)) {
+            $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
         }
     }
     $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);

@@ -113,7 +113,7 @@ class ImportCsv extends AbstractImportCsv
         $csv_new_line = strtr($csv_new_line, $replacements);
 
         $param_error = false;
-        if (/*overload*/mb_strlen($csv_terminated) < 1) {
+        if (mb_strlen($csv_terminated) < 1) {
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
@@ -128,7 +128,7 @@ class ImportCsv extends AbstractImportCsv
             // confuses this script.
             // But the parser won't work correctly with strings so we allow just
             // one character.
-        } elseif (/*overload*/mb_strlen($csv_enclosed) > 1) {
+        } elseif (mb_strlen($csv_enclosed) > 1) {
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
@@ -139,14 +139,14 @@ class ImportCsv extends AbstractImportCsv
             // confuses this script.
             // But the parser won't work correctly with strings so we allow just
             // one character.
-        } elseif (/*overload*/mb_strlen($csv_escaped) > 1) {
+        } elseif (mb_strlen($csv_escaped) > 1) {
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
             $message->addParam(__('Columns escaped with'), false);
             $error = true;
             $param_error = true;
-        } elseif (/*overload*/mb_strlen($csv_new_line) != 1
+        } elseif (mb_strlen($csv_new_line) != 1
             && $csv_new_line != 'auto'
         ) {
             $message = PMA\libraries\Message::error(
@@ -238,9 +238,7 @@ class ImportCsv extends AbstractImportCsv
 
         $col_count = 0;
         $max_cols = 0;
-        $csv_terminated_len
-            = /*overload*/
-            mb_strlen($csv_terminated);
+        $csv_terminated_len = mb_strlen($csv_terminated);
         while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             $data = PMA_importGetNextChunk();
             if ($data === false) {
@@ -256,9 +254,7 @@ class ImportCsv extends AbstractImportCsv
 
                 // Force a trailing new line at EOF to prevent parsing problems
                 if ($finished && $buffer) {
-                    $finalch
-                        = /*overload*/
-                        mb_substr($buffer, -1);
+                    $finalch = mb_substr($buffer, -1);
                     if ($csv_new_line == 'auto'
                         && $finalch != "\r"
                         && $finalch != "\n"
@@ -274,19 +270,17 @@ class ImportCsv extends AbstractImportCsv
                 // Do not parse string when we're not at the end
                 // and don't have new line inside
                 if (($csv_new_line == 'auto'
-                    && /*overload*/mb_strpos($buffer, "\r") === false
-                    && /*overload*/mb_strpos($buffer, "\n") === false)
+                    && mb_strpos($buffer, "\r") === false
+                    && mb_strpos($buffer, "\n") === false)
                     || ($csv_new_line != 'auto'
-                    && /*overload*/mb_strpos($buffer, $csv_new_line) === false)
+                    && mb_strpos($buffer, $csv_new_line) === false)
                 ) {
                     continue;
                 }
             }
 
             // Current length of our buffer
-            $len
-                = /*overload*/
-                mb_strlen($buffer);
+            $len = mb_strlen($buffer);
             // Currently parsed char
 
             $ch = mb_substr($buffer, $i, 1);
@@ -583,17 +577,11 @@ class ImportCsv extends AbstractImportCsv
                     $line++;
                     $csv_finish = false;
                     $values = array();
-                    $buffer
-                        = /*overload*/
-                        mb_substr($buffer, $i + 1);
-                    $len
-                        = /*overload*/
-                        mb_strlen($buffer);
+                    $buffer = mb_substr($buffer, $i + 1);
+                    $len = mb_strlen($buffer);
                     $i = 0;
                     $lasti = -1;
-                    $ch
-                        = /*overload*/
-                        mb_substr($buffer, 0, 1);
+                    $ch = mb_substr($buffer, 0, 1);
                 }
             } // End of parser loop
         } // End of import loop
@@ -625,7 +613,7 @@ class ImportCsv extends AbstractImportCsv
                 }
             }
 
-            if (/*overload*/mb_strlen($db)) {
+            if (mb_strlen($db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE ' . (count($result) + 1);
             } else {

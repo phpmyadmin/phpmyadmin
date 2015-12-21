@@ -92,7 +92,7 @@ class Linter
     public static function lint($query)
     {
         // Disabling lint for huge queries to save some resources.
-        if (/*overload*/mb_strlen($query) > 10000) {
+        if (mb_strlen($query) > 10000) {
             return array(
                 array(
                     'message' => __(
@@ -156,7 +156,7 @@ class Linter
 
             // Ending position of the string that caused the error.
             list($toLine, $toColumn) = static::findLineNumberAndColumn(
-                $lines, $error[3] + /*overload*/mb_strlen($error[2])
+                $lines, $error[3] + mb_strlen($error[2])
             );
 
             // Building the response.

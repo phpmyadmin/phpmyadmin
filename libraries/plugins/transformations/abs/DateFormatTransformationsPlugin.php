@@ -59,9 +59,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         if (empty($options[2])) {
             $options[2] = 'local';
         } else {
-            $options[2]
-                = /*overload*/
-                mb_strtolower($options[2]);
+            $options[2] = mb_strtolower($options[2]);
         }
 
         if (empty($options[1])) {
@@ -87,26 +85,24 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         } else {
             if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
 
-                if (/*overload*/mb_strlen($buffer) == 14
-                    || /*overload*/mb_strlen($buffer) == 8
-                ) {
+                if (mb_strlen($buffer) == 14 || mb_strlen($buffer) == 8) {
                     $offset = 4;
                 } else {
                     $offset = 2;
                 }
 
                 $aDate = array();
-                $aDate['year'] = (int)/*overload*/
+                $aDate['year'] = (int)
                 mb_substr($buffer, 0, $offset);
-                $aDate['month'] = (int)/*overload*/
+                $aDate['month'] = (int)
                 mb_substr($buffer, $offset, 2);
-                $aDate['day'] = (int)/*overload*/
+                $aDate['day'] = (int)
                 mb_substr($buffer, $offset + 2, 2);
-                $aDate['hour'] = (int)/*overload*/
+                $aDate['hour'] = (int)
                 mb_substr($buffer, $offset + 4, 2);
-                $aDate['minute'] = (int)/*overload*/
+                $aDate['minute'] = (int)
                 mb_substr($buffer, $offset + 6, 2);
-                $aDate['second'] = (int)/*overload*/
+                $aDate['second'] = (int)
                 mb_substr($buffer, $offset + 8, 2);
 
                 if (checkdate($aDate['month'], $aDate['day'], $aDate['year'])) {

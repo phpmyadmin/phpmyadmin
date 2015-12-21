@@ -53,7 +53,7 @@ class Scripts
         $scripts = array();
         $separator = PMA_URL_getArgSeparator();
         foreach ($files as $value) {
-            if (/*overload*/mb_strpos($value['filename'], "?") !== false) {
+            if (mb_strpos($value['filename'], "?") !== false) {
                 $file_name = $value['filename'] . $separator
                     . Header::getVersionParameter();
                 if ($value['before_statics'] === true) {

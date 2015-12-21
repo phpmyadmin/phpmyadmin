@@ -58,7 +58,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
      */
     public function testAddData()
     {
-        if (/*overload*/mb_strtolower($this->getBrowser()) == 'safari') {
+        if (mb_strtolower($this->getBrowser()) == 'safari') {
             /* TODO: this should be fixed, but the cause is unclear to me */
             $this->markTestIncomplete('Fails with Safari');
         }

@@ -185,8 +185,8 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (!(isset($bkm_fields['bkm_sql_query']) && isset($bkm_fields['bkm_label'])
-        && /*overload*/mb_strlen($bkm_fields['bkm_sql_query']) > 0
-        && /*overload*/mb_strlen($bkm_fields['bkm_label']) > 0)
+        && mb_strlen($bkm_fields['bkm_sql_query']) > 0
+        && mb_strlen($bkm_fields['bkm_label']) > 0)
     ) {
         return false;
     }

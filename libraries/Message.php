@@ -502,7 +502,7 @@ class Message
      */
     public function addMessage($message, $separator = ' ')
     {
-        if (/*overload*/mb_strlen($separator)) {
+        if (mb_strlen($separator)) {
             $this->addedMessages[] = $separator;
         }
 
@@ -629,11 +629,11 @@ class Message
     {
         $message = $this->message;
 
-        if (0 === /*overload*/mb_strlen($message)) {
+        if (0 === mb_strlen($message)) {
             $string = $this->getString();
             if (isset($GLOBALS[$string])) {
                 $message = $GLOBALS[$string];
-            } elseif (0 === /*overload*/mb_strlen($string)) {
+            } elseif (0 === mb_strlen($string)) {
                 $message = '';
             } else {
                 $message = $string;

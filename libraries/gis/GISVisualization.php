@@ -251,16 +251,15 @@ class GISVisualization
 
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
-        $extension_start_pos
-            = /*overload*/mb_strlen($file_name) - /*overload*/mb_strlen($ext) - 1;
+        $extension_start_pos = mb_strlen($file_name) - mb_strlen($ext) - 1;
         $user_extension
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $file_name,
                 $extension_start_pos,
-                /*overload*/mb_strlen($file_name)
+                mb_strlen($file_name)
             );
         $required_extension = "." . $ext;
-        if (/*overload*/mb_strtolower($user_extension) != $required_extension) {
+        if (mb_strtolower($user_extension) != $required_extension) {
             $file_name .= $required_extension;
         }
 
@@ -548,10 +547,10 @@ class GISVisualization
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
             $type_pos
-                = /*overload*/
+                =
                 mb_stripos($ref_data, '(');
             $type
-                = /*overload*/
+                =
                 mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
@@ -638,10 +637,10 @@ class GISVisualization
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
             $type_pos
-                = /*overload*/
+                =
                 mb_stripos($ref_data, '(');
             $type
-                = /*overload*/
+                =
                 mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);

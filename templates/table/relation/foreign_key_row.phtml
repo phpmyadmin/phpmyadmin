@@ -56,7 +56,7 @@ if ($foreign_db) {
     );
     while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
         if (isset($row[1])
-            && /*overload*/mb_strtoupper($row[1]) == $tbl_storage_engine
+            && mb_strtoupper($row[1]) == $tbl_storage_engine
         ) {
             $tables[] = $row[0];
         }

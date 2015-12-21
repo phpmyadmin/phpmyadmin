@@ -46,10 +46,9 @@ $options_array = array(
     'RESTRICT' => 'RESTRICT',
 );
 $cfgRelation = PMA_getRelationsParam();
-$tbl_storage_engine = /*overload*/
-    mb_strtoupper(
-        $dbi->getTable($db, $table)->getStatusInfo('Engine')
-    );
+$tbl_storage_engine = mb_strtoupper(
+    $dbi->getTable($db, $table)->getStatusInfo('Engine')
+);
 $upd_query = new Table($table, $db, $dbi);
 
 $dependency_definitions = array(

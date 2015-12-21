@@ -320,13 +320,13 @@ class Response
 
             $debug = $this->_footer->getDebugMessage();
             if (empty($_REQUEST['no_debug'])
-                && /*overload*/mb_strlen($debug)
+                && mb_strlen($debug)
             ) {
                 $this->addJSON('_debug', $debug);
             }
 
             $errors = $this->_footer->getErrorMessages();
-            if (/*overload*/mb_strlen($errors)) {
+            if (mb_strlen($errors)) {
                 $this->addJSON('_errors', $errors);
             }
             $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
@@ -338,7 +338,7 @@ class Response
                 $query = '';
                 $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
                 if (isset($GLOBALS['sql_query'])
-                    && /*overload*/mb_strlen($GLOBALS['sql_query']) < $maxChars
+                    && mb_strlen($GLOBALS['sql_query']) < $maxChars
                 ) {
                     $query = $GLOBALS['sql_query'];
                 }

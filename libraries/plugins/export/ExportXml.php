@@ -17,7 +17,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 
-if (!/*overload*/mb_strlen($GLOBALS['db'])) { /* Can't do server export */
+if (!mb_strlen($GLOBALS['db'])) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -258,9 +258,7 @@ class ExportXml extends ExportPlugin
                                 . $trigger['name'] . '">' . $crlf;
 
                             // Do some formatting
-                            $code
-                                = /*overload*/
-                                mb_substr(rtrim($code), 0, -3);
+                            $code = mb_substr(rtrim($code), 0, -3);
                             $code = "                " . htmlspecialchars($code);
                             $code = str_replace("\n", "\n                ", $code);
 

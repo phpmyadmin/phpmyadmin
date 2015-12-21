@@ -159,11 +159,11 @@ $views = $GLOBALS['dbi']->getVirtualTables($db);
 if (!empty($submit_mult) && !empty($what)) {
     unset($message);
 
-    if (/*overload*/mb_strlen($table)) {
+    if (mb_strlen($table)) {
         include './libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         include './libraries/tbl_info.inc.php';
-    } elseif (/*overload*/mb_strlen($db)) {
+    } elseif (mb_strlen($db)) {
         include './libraries/db_common.inc.php';
 
         list(

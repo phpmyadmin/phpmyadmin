@@ -64,7 +64,7 @@ if ($_foreigners
     <?php
     $in_zoom_search_edit = false;
     $column_type = htmlspecialchars($column_type);
-    $value = explode(', ', str_replace("'", '', /*overload*/mb_substr($column_type, 5, -1)));
+    $value = explode(', ', str_replace("'", '', mb_substr($column_type, 5, -1)));
     $cnt_value = count($value);
     /*
      * Enum in edit mode   --> dropdown

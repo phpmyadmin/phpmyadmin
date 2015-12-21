@@ -613,8 +613,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
-            $verboseToLower = /*overload*/mb_strtolower($server['verbose']);
-            $serverToLower = /*overload*/mb_strtolower($_REQUEST['server']);
+            $verboseToLower = mb_strtolower($server['verbose']);
+            $serverToLower = mb_strtolower($_REQUEST['server']);
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
                 || $verboseToLower == $serverToLower
@@ -709,7 +709,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // to allow HTTP or http
         $cfg['Server']['auth_type']
-            = /*overload*/mb_strtolower($cfg['Server']['auth_type']);
+            = mb_strtolower($cfg['Server']['auth_type']);
 
         /**
          * the required auth type plugin
@@ -802,7 +802,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // if using TCP socket is not needed
-        if (/*overload*/mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
+        if (mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
             $cfg['Server']['socket'] = '';
         }
 

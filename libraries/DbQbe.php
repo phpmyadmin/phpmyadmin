@@ -346,7 +346,7 @@ class DbQbe
                     $this->_columnNames[] = $each_column;
                     // increase the width if necessary
                     $this->_form_column_width = max(
-                        /*overload*/mb_strlen($each_column),
+                        mb_strlen($each_column),
                         $this->_form_column_width
                     );
                 } // end foreach
@@ -587,7 +587,7 @@ class DbQbe
             // then sorting is not available, Fix for Bug #570698
             if (isset($_REQUEST['criteriaSort'][$colInd])
                 && isset($_REQUEST['criteriaColumn'][$colInd])
-                && /*overload*/mb_substr($_REQUEST['criteriaColumn'][$colInd], -2) == '.*'
+                && mb_substr($_REQUEST['criteriaColumn'][$colInd], -2) == '.*'
             ) {
                 $_REQUEST['criteriaSort'][$colInd] = '';
             } //end if
@@ -1174,7 +1174,7 @@ class DbQbe
                 && isset($this->_curAndOrCol)
             ) {
                 $where_clause .= ' '
-                    . /*overload*/mb_strtoupper($this->_curAndOrCol[$last_where])
+                    . mb_strtoupper($this->_curAndOrCol[$last_where])
                     . ' ';
             }
             if (! empty($this->_curField[$column_index])
@@ -1211,7 +1211,7 @@ class DbQbe
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
-                        . /*overload*/mb_strtoupper(
+                        . mb_strtoupper(
                             $this->_curAndOrCol[$last_orwhere]
                         )
                         . ' ';
@@ -1232,7 +1232,7 @@ class DbQbe
             }
             if (! empty($qry_orwhere)) {
                 $where_clause .= "\n"
-                    .  /*overload*/mb_strtoupper(
+                    .  mb_strtoupper(
                         isset($this->_curAndOrRow[$row_index])
                         ? $this->_curAndOrRow[$row_index] . ' '
                         : ''
@@ -1283,7 +1283,7 @@ class DbQbe
                 continue;
             }
 
-            if (/*overload*/mb_substr($field[$column_index], -2) == '.*') {
+            if (mb_substr($field[$column_index], -2) == '.*') {
                 continue;
             }
 
@@ -1511,7 +1511,7 @@ class DbQbe
             // Now we know that our array has the same numbers as $criteria
             // we can check which of our columns has a where clause
             if (! empty($this->_criteria[$column_index])) {
-                if (/*overload*/mb_substr($this->_criteria[$column_index], 0, 1) == '='
+                if (mb_substr($this->_criteria[$column_index], 0, 1) == '='
                     || stristr($this->_criteria[$column_index], 'is')
                 ) {
                     $where_clause_columns[$column] = $column;

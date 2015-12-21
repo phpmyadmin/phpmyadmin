@@ -806,12 +806,12 @@ class ExportSql extends ExportPlugin
                 isset($GLOBALS['sql_backquotes'])
             );
         $collation = PMA_getDbCollation($db);
-        if (/*overload*/mb_strpos($collation, '_')) {
+        if (mb_strpos($collation, '_')) {
             $create_query .= ' DEFAULT CHARACTER SET '
-                . /*overload*/mb_substr(
+                . mb_substr(
                     $collation,
                     0,
-                    /*overload*/mb_strpos($collation, '_')
+                    mb_strpos($collation, '_')
                 )
                 . ' COLLATE ' . $collation;
         } else {
@@ -1485,11 +1485,11 @@ class ExportSql extends ExportPlugin
 
             // Convert end of line chars to one that we want (note that MySQL
             // doesn't return query it will accept in all cases)
-            if (/*overload*/mb_strpos($create_query, "(\r\n ")) {
+            if (mb_strpos($create_query, "(\r\n ")) {
                 $create_query = str_replace("\r\n", $crlf, $create_query);
-            } elseif (/*overload*/mb_strpos($create_query, "(\n ")) {
+            } elseif (mb_strpos($create_query, "(\n ")) {
                 $create_query = str_replace("\n", $crlf, $create_query);
-            } elseif (/*overload*/mb_strpos($create_query, "(\r ")) {
+            } elseif (mb_strpos($create_query, "(\r ")) {
                 $create_query = str_replace("\r", $crlf, $create_query);
             }
 
@@ -2433,9 +2433,7 @@ class ExportSql extends ExportPlugin
                             . implode(', ', $values) . ')';
                     } else {
                         $insert_line = '(' . implode(', ', $values) . ')';
-                        $insertLineSize
-                            = /*overload*/
-                            mb_strlen($insert_line);
+                        $insertLineSize = mb_strlen($insert_line);
                         $sql_max_size = $GLOBALS['sql_max_query_size'];
                         if (isset($sql_max_size)
                             && $sql_max_size > 0
@@ -2449,9 +2447,7 @@ class ExportSql extends ExportPlugin
                             $insert_line = $schema_insert . $insert_line;
                         }
                     }
-                    $query_size
-                        += /*overload*/
-                        mb_strlen($insert_line);
+                    $query_size += mb_strlen($insert_line);
                     // Other inserts case
                 } else {
                     $insert_line = $schema_insert

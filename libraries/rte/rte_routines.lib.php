@@ -300,7 +300,6 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
     $response->addJSON(
         'name',
         htmlspecialchars(
-            /*overload*/
             mb_strtoupper($_REQUEST['item_name'])
         )
     );
@@ -540,7 +539,7 @@ function PMA_RTN_getDataFromRequest()
 
     $retval['item_isdeterministic'] = '';
     if (isset($_REQUEST['item_isdeterministic'])
-        && /*overload*/mb_strtolower($_REQUEST['item_isdeterministic']) == 'on'
+        && mb_strtolower($_REQUEST['item_isdeterministic']) == 'on'
     ) {
         $retval['item_isdeterministic'] = " checked='checked'";
     }
@@ -877,7 +876,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
 
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . /*overload*/mb_strtoupper($mode)
+    $retval .= "<!-- START " . mb_strtoupper($mode)
         . " ROUTINE FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_routines.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
@@ -1066,7 +1065,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         $retval .= "</fieldset>";
     }
     $retval .= "</form>";
-    $retval .= "<!-- END " . /*overload*/mb_strtoupper($mode) . " ROUTINE FORM -->";
+    $retval .= "<!-- END " . mb_strtoupper($mode) . " ROUTINE FORM -->";
 
     return $retval;
 } // end PMA_RTN_getEditorForm()
@@ -1085,7 +1084,7 @@ function PMA_RTN_getQueryFromRequest()
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
-        if (/*overload*/mb_strpos($_REQUEST['item_definer'], '@') !== false) {
+        if (mb_strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
             $query .= 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
             $query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
@@ -1170,7 +1169,7 @@ function PMA_RTN_getQueryFromRequest()
                 if (! empty($_REQUEST['item_param_opts_text'][$i])) {
                     if ($PMA_Types->getTypeClass($item_param_type[$i]) == 'CHAR') {
                         $params .= ' CHARSET '
-                            . /*overload*/mb_strtolower(
+                            . mb_strtolower(
                                 $_REQUEST['item_param_opts_text'][$i]
                             );
                     }
@@ -1178,7 +1177,7 @@ function PMA_RTN_getQueryFromRequest()
                 if (! empty($_REQUEST['item_param_opts_num'][$i])) {
                     if ($PMA_Types->getTypeClass($item_param_type[$i]) == 'NUMBER') {
                         $params .= ' '
-                            . /*overload*/mb_strtoupper(
+                            . mb_strtoupper(
                                 $_REQUEST['item_param_opts_num'][$i]
                             );
                     }
@@ -1232,13 +1231,13 @@ function PMA_RTN_getQueryFromRequest()
         if (! empty($_REQUEST['item_returnopts_text'])) {
             if ($PMA_Types->getTypeClass($item_returntype) == 'CHAR') {
                 $query .= ' CHARSET '
-                    . /*overload*/mb_strtolower($_REQUEST['item_returnopts_text']);
+                    . mb_strtolower($_REQUEST['item_returnopts_text']);
             }
         }
         if (! empty($_REQUEST['item_returnopts_num'])) {
             if ($PMA_Types->getTypeClass($item_returntype) == 'NUMBER') {
                 $query .= ' '
-                    . /*overload*/mb_strtoupper($_REQUEST['item_returnopts_num']);
+                    . mb_strtoupper($_REQUEST['item_returnopts_num']);
             }
         }
         $query .= ' ';
@@ -1609,14 +1608,14 @@ function PMA_RTN_getExecuteForm($routine)
             if (stristr($routine['item_param_type'][$i], 'enum')
                 || stristr($routine['item_param_type'][$i], 'set')
                 || in_array(
-                    /*overload*/mb_strtolower($routine['item_param_type'][$i]),
+                    mb_strtolower($routine['item_param_type'][$i]),
                     $no_support_types
                 )
             ) {
                 $retval .= "--\n";
             } else {
                 $field = array(
-                    'True_Type'       => /*overload*/mb_strtolower(
+                    'True_Type'       => mb_strtolower(
                         $routine['item_param_type'][$i]
                     ),
                     'Type'            => '',
@@ -1658,7 +1657,7 @@ function PMA_RTN_getExecuteForm($routine)
                     . $value . "<br />\n";
             }
         } else if (in_array(
-            /*overload*/mb_strtolower($routine['item_param_type'][$i]),
+            mb_strtolower($routine['item_param_type'][$i]),
             $no_support_types
         )) {
             $retval .= "\n";

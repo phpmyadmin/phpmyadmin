@@ -326,15 +326,11 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         // old column type
         if (isset($columnMeta['Type'])) {
             // keep in uppercase because the new type will be in uppercase
-            $form_params['field_type_orig[' . $columnNumber . ']']
-                = /*overload*/
-                mb_strtoupper($type);
+            $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
             if (isset($columnMeta['column_status'])
                 && !$columnMeta['column_status']['isEditable']
             ) {
-                $form_params['field_type[' . $columnNumber . ']']
-                    = /*overload*/
-                    mb_strtoupper($type);
+                $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
             }
         } else {
             $form_params['field_type_orig[' . $columnNumber . ']'] = '';
@@ -381,7 +377,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     $content_cells[$columnNumber] = array(
         'columnNumber' => $columnNumber,
         'columnMeta' => $columnMeta,
-        'type_upper' => /*overload*/mb_strtoupper($type),
+        'type_upper' => mb_strtoupper($type),
         'length_values_input_size' => $length_values_input_size,
         'length' => $length,
         'extracted_columnspec' => $extracted_columnspec,

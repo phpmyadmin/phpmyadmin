@@ -247,7 +247,7 @@ class Table
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
                     = array(
-                        'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
+                        'type' => mb_strtoupper($result['DATA_TYPE'])
                     );
             }
         } else {
@@ -287,7 +287,7 @@ class Table
 
         // any of known merge engines?
         return in_array(
-            /*overload*/mb_strtoupper($engine),
+            mb_strtoupper($engine),
             array('MERGE', 'MRG_MYISAM')
         );
     }
@@ -384,8 +384,8 @@ class Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', $virtuality = '', $expression = '', $move_to = ''
     ) {
-        $is_timestamp = /*overload*/mb_strpos(
-            /*overload*/mb_strtoupper($type),
+        $is_timestamp = mb_strpos(
+            mb_strtoupper($type),
             'TIMESTAMP'
         ) !== false;
 
@@ -757,7 +757,7 @@ class Table
 
         // If the target database is not specified, the operation is taking
         // place in the same database.
-        if (! isset($target_db) || ! /*overload*/mb_strlen($target_db)) {
+        if (! isset($target_db) || ! mb_strlen($target_db)) {
             $target_db = $source_db;
         }
 
@@ -1234,7 +1234,7 @@ class Table
             return false;
         }
 
-        if (! /*overload*/mb_strlen($table_name)) {
+        if (! mb_strlen($table_name)) {
             // zero length
             return false;
         }
@@ -1636,8 +1636,7 @@ class Table
                     if (substr_compare(
                         $each_col,
                         $colname,
-                        /*overload*/mb_strlen($each_col)
-                        - /*overload*/mb_strlen($colname)
+                        mb_strlen($each_col) - mb_strlen($colname)
                     ) === 0
                     ) {
                         return $this->uiprefs[$property];
@@ -1785,10 +1784,9 @@ class Table
             $this->_db_name, $this->_name
         ) as $row) {
             if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
-                $tmp[2] = /*overload*/
-                    mb_substr(
-                        preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
-                    );
+                $tmp[2] = mb_substr(
+                    preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
+                );
                 $columns[$row['Field']] = $tmp[1] . '('
                     . str_replace(',', ', ', $tmp[2]) . ')';
             } else {

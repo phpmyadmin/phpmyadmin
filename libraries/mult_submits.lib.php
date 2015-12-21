@@ -32,9 +32,9 @@ function PMA_getUrlParams(
         'query_type' => $what,
         'reload' => (! empty($reload) ? 1 : 0),
     );
-    if (/*overload*/mb_strpos(' ' . $action, 'db_') == 1) {
+    if (mb_strpos(' ' . $action, 'db_') == 1) {
         $_url_params['db']= $db;
-    } elseif (/*overload*/mb_strpos(' ' . $action, 'tbl_') == 1
+    } elseif (mb_strpos(' ' . $action, 'tbl_') == 1
         || $what == 'row_delete'
     ) {
         $_url_params['db']= $db;
@@ -236,16 +236,16 @@ function PMA_buildOrExecuteQueryForMulti(
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $subFromPrefix = /*overload*/mb_substr(
+            $subFromPrefix = mb_substr(
                 $current,
                 0,
-                /*overload*/mb_strlen($from_prefix)
+                mb_strlen($from_prefix)
             );
             if ($subFromPrefix == $from_prefix) {
                 $newtablename = $to_prefix
-                    . /*overload*/mb_substr(
+                    . mb_substr(
                         $current,
-                        /*overload*/mb_strlen($from_prefix)
+                        mb_strlen($from_prefix)
                     );
             } else {
                 $newtablename = $current;
@@ -261,7 +261,7 @@ function PMA_buildOrExecuteQueryForMulti(
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
             $newtablename = $to_prefix .
-                /*overload*/mb_substr($current, /*overload*/mb_strlen($from_prefix));
+                mb_substr($current, mb_strlen($from_prefix));
             // COPY TABLE AND CHANGE PREFIX PATTERN
             $a_query = 'CREATE TABLE '
                 . PMA\libraries\Util::backquote($newtablename)

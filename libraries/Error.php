@@ -239,7 +239,7 @@ class Error extends Message
     public function getHtmlTitle()
     {
         return htmlspecialchars(
-            /*overload*/mb_substr($this->getTitle(), 0, 100)
+            mb_substr($this->getTitle(), 0, 100)
         );
     }
 

@@ -38,7 +38,7 @@
         <?php echo $comments; ?>
     </td>
 <?php endif; ?>
-<td class="nowrap"><?php echo /*overload*/mb_strtoupper($row['Extra']); ?></td>
+<td class="nowrap"><?php echo mb_strtoupper($row['Extra']); ?></td>
 <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
     <td class="edit center print_ignore">
         <a class="change_column_anchor ajax" href="tbl_structure.php<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>&amp;change_column=1">
