@@ -139,7 +139,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && /*overload*/mb_strtolower($_REQUEST['new_tbl_storage_engine']) !== /*overload*/mb_strtolower($tbl_storage_engine)
+        && /*overload*/mb_strtolower($_REQUEST['new_tbl_storage_engine']) !== $tbl_storage_engine
     ) {
         $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
