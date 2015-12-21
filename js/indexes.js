@@ -9,6 +9,37 @@
  */
 
 /**
+ * Returns the array of indexes based on the index choice
+ *
+ * @param index_choice index choice
+ */
+function PMA_getIndexArray(index_choice)
+{
+    var source_array = null;
+
+    switch (index_choice.toLowerCase()) {
+    case 'primary':
+        source_array = primary_indexes;
+        break;
+    case 'unique':
+        source_array = unique_indexes;
+        break;
+    case 'index':
+        source_array = indexes;
+        break;
+    case 'fulltext':
+        source_array = fulltext_indexes;
+        break;
+    case 'spatial':
+        source_array = spatial_indexes;
+        break;
+    default:
+        return null;
+    }
+    return source_array;
+}
+
+/**
  * Hides/shows the inputs and submits appropriately depending
  * on whether the index type chosen is 'SPATIAL' or not.
  */
@@ -489,38 +520,6 @@ function PMA_indexTypeSelectionDialog(source_array, index_choice, col_index)
         }
     });
 }
-
-/**
- * Returns the array of indexes based on the index choice
- *
- * @param index_choice index choice
- */
-function PMA_getIndexArray(index_choice)
-{
-    var source_array = null;
-
-    switch (index_choice.toLowerCase()) {
-    case 'primary':
-        source_array = primary_indexes;
-        break;
-    case 'unique':
-        source_array = unique_indexes;
-        break;
-    case 'index':
-        source_array = indexes;
-        break;
-    case 'fulltext':
-        source_array = fulltext_indexes;
-        break;
-    case 'spatial':
-        source_array = spatial_indexes;
-        break;
-    default:
-        return null;
-    }
-    return source_array;
-}
-
 
 /**
  * Unbind all event handlers before tearing down a page
