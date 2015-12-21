@@ -60,9 +60,6 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
  */
 require 'libraries/tbl_info.inc.php';
 
-// define some variables here, for improved syntax in the conditionals
-$is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = false;
-$is_aria = $is_pbxt = false;
 // set initial value of these variables, based on the current table engine
 list($is_myisam_or_aria, $is_innodb, $is_isam,
     $is_berkeleydb, $is_aria, $is_pbxt
