@@ -7,7 +7,6 @@
  */
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISVisualization;
-use PMA\libraries\PMA_String;
 
 /**
  * Escapes special characters if the variable is set.

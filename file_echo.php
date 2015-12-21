@@ -7,8 +7,6 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\PMA_String;
-
 define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
 
