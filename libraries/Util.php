@@ -911,7 +911,6 @@ class Util
                         $table = $group[$group_name];
                         $group[$group_name] = array();
                         $group[$group_name][$group_name] = $table;
-                        unset($table);
                         $group[$group_name]['is' . $sep . 'group'] = true;
                         $group[$group_name]['tab' . $sep . 'count'] = 1;
                         $group[$group_name]['tab' . $sep . 'group']
