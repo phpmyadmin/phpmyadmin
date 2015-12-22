@@ -2405,6 +2405,71 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
 }
 
 /**
+ * Get the HTML for routine based privileges
+ *
+ * @param string $db database name
+ * @param string $odd_row row styling
+ * @param string $index_checkbox starting index for rows to be added
+ *
+ * @return string $html_output
+ */
+function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_checkbox)
+{
+    $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = "' . $db . '";';
+    $response = PMA\libraries\Response::getInstance();
+    $res = $GLOBALS['dbi']->query($sql_query);
+    $html_output = '';
+    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+
+        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+
+        $html_output .= '<td';
+        $value = htmlspecialchars($row['User'] . '&amp;#27;' . $row['Host']);
+        $html_output .= '>';
+        $html_output .= '<input type="checkbox" class="checkall" '
+            . 'name="selected_usr[]" '
+            . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
+            . 'value="' . $value . '" /></td>';
+
+        $html_output .= '<td>' . $row['User']
+            . '</td>'
+            . '<td>' . $row['Host']
+            . '</td>'
+            . '<td>' . 'routine'
+            . '</td>'
+            . '<td>' . '<code>' . $row['Routine_name'] . '</code>'
+            . '</td>'
+            . '<td>' . 'Yes'
+            . '</td>';
+        $current_user = $row['User'];
+        $current_host = $row['Host'];
+        $routine = $row['Routine_name'];
+        $html_output .= '<td>';
+        if ($GLOBALS['is_grantuser']) {
+            $specific_db = (isset($row['Db']) && $row['Db'] != '*')
+                ? $row['Db'] : '';
+            $specific_table = (isset($row['Table_name'])
+                && $row['Table_name'] != '*')
+                ? $row['Table_name'] : '';
+            $html_output .= PMA_getUserLink(
+                'edit',
+                $current_user,
+                $current_host,
+                $specific_db,
+                $specific_table,
+                $routine
+            );
+        }
+        $html_output .= '</td>';
+
+        $html_output .= '</tr>';
+        $odd_row = !$odd_row;
+
+    }
+    return $html_output;
+}
+
+/**
  * Get the HTML for user form and check the privileges for a particular database.
  *
  * @param string $db database name
@@ -2695,6 +2760,9 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
             $odd_row = ! $odd_row;
         }
     }
+
+    //For fetching routine based privileges
+    $html_output .= PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_checkbox);
     $html_output .= '</tbody>';
 
     return $html_output;
@@ -4454,6 +4522,9 @@ function PMA_getListForExportUserDefinition($username, $hostname)
     if (isset($_REQUEST['selected_usr'])) {
         // export privileges for selected users
         $title = __('Privileges');
+
+        //For removing duplicate entries of users
+        $_REQUEST['selected_usr'] = array_unique($_REQUEST['selected_usr']);
 
         foreach ($_REQUEST['selected_usr'] as $export_user) {
             $export_username = /*overload*/mb_substr(
