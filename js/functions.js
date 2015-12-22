@@ -976,20 +976,6 @@ function unMarkAllRows(container_id)
 }
 
 /**
- * Checks/unchecks all checkbox in given container (f.e. a form, fieldset or div)
- *
- * @param string   container_id  the container id
- * @param boolean  state         new value for checkbox (true or false)
- * @return boolean  always true
- */
-function setCheckboxes(container_id, state)
-{
-
-    $("#" + container_id).find("input:checkbox").prop('checked', state);
-    return true;
-} // end of the 'setCheckboxes()' function
-
-/**
   * Checks/unchecks all options of a <select> element
   *
   * @param string   the form name
