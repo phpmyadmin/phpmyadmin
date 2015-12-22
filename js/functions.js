@@ -946,11 +946,6 @@ AJAX.registerOnload('functions.js', function () {
 })*/
 
 /**
- * This array is used to remember mark status of rows in browse mode
- */
-var marked_row = [];
-
-/**
  * marks all rows and selects its first checkbox inside the given element
  * the given element is usually a table or a div containing the table or tables
  *

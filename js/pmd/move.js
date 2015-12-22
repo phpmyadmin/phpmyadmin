@@ -126,8 +126,6 @@ document.onmouseup   = MouseUp;
 document.onmousemove = MouseMove;
 
 var isIE = document.all && !window.opera;
-var isNN = !document.all && document.getElementById;
-var isN4 = document.layers;
 
 if (isIE) {
     window.onscroll = General_scroll;
