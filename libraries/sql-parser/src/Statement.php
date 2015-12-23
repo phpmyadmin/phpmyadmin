@@ -170,7 +170,6 @@ abstract class Statement
                 if (!empty($built[$field])) {
                     continue;
                 }
-
                 $built[$field] = true;
             }
 
@@ -251,7 +250,7 @@ abstract class Statement
 
             // Unions are parsed by the parser because they represent more than
             // one statement.
-            if ($token->value === 'UNION') {
+            if (($token->value === 'UNION') || ($token->value === 'UNION ALL')) {
                 break;
             }
 

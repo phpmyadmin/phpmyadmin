@@ -6,7 +6,6 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
 use PMA\libraries\Table;
 use PMA\Util;
 
@@ -42,9 +41,6 @@ if (!isset($columnMeta)) {
 
 // Get available character sets and storage engines
 require_once './libraries/mysql_charsets.inc.php';
-
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 
 $length_values_input_size = 8;
 

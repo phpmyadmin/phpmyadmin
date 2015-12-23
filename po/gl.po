@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-10-15 11:45+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/gl/>\n"
+"PO-Revision-Date: 2015-12-17 22:29+0000\n"
+"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
+"Language-Team: Galician "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -937,10 +937,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Confirma que desexa TRUNCAR a(s) partición(s) seleccionada(s)?"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Confirma que desexa TRUNCAR a(s) partición(s) seleccionada(s)?"
+msgstr "Confirma que desexa retirar as particións?"
 
 #: js/messages.php:83
 #, fuzzy
@@ -980,6 +979,13 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Mediante esta operación, MySQL tenta relacionar os valores dos datos entre "
+"as ordenacións alfabéticas. Se os conxuntos de caracteres foren "
+"incompatíbeis, poderanse producir perdas de datos e eses datos perdidos "
+"poderían <b>NON</b> seren recuperábeis cunha simple reversión da ordenación "
+"alfabética das columnas. <b>Para converter os datos existentes suxírese "
+"empregar a funcionalidade de edición de columna(s) (a ligazón «Cambiar») na "
+"páxina da estrutura da táboa.</b>"
 
 #: js/messages.php:104
 msgid ""
@@ -1324,7 +1330,7 @@ msgstr "Deter a monitorización"
 
 #: js/messages.php:219 libraries/server_status_processes.lib.php:36
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Iniciar a anovación automática"
 
 #: js/messages.php:220
 msgid "Stop auto refresh"
@@ -1671,10 +1677,9 @@ msgid "Formatting SQL…"
 msgstr "A formatar o SQL…"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Os parámetros son incorrectos!"
+msgstr "Non se atopou ningún parámetro!"
 
 #: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1888,7 +1893,7 @@ msgstr "Visualizar valores alleos"
 
 #: js/messages.php:410
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Non hai consulta gardada automaticamente"
 
 #: js/messages.php:411
 #, php-format
@@ -2002,6 +2007,8 @@ msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Séntese comodamente! Pode levar uns segundos dependendo do tamaño dos datos "
+"e do número de columnas da táboa."
 
 #: js/messages.php:453
 msgid "Step"
@@ -2491,6 +2498,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Advertencia: hai un formulario nesta páxina que ten máis de %d campos. Ao "
+"envialo, algúns dos campos poderían ser ignorados por causa da configuración "
+"de max_input_vars de PHP."
 
 #: js/messages.php:669 js/messages.php:682
 msgid "Some errors have been detected on the server!"
@@ -2508,6 +2518,8 @@ msgstr "Ignorar todo"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Segundo as opcións de configuración, están a ser enviados neste momento; "
+"agarde un anaquiño."
 
 #: js/messages.php:695
 msgid "Execute this query again?"
@@ -2519,7 +2531,7 @@ msgstr "Confirma que desexa eliminar este marcador?"
 
 #: js/messages.php:699
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "Produciuse un erro ao obter a información de depuración de SQL."
 
 #: js/messages.php:701
 #, php-format
@@ -2549,6 +2561,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Ou o navegador web non admite o almacenamento local de configuracións ou "
+"atinxiuse a cota; pode que algunhas funcionalidades non funcionen "
+"adecuadamente. No Safari este problema cáusao habitualmente a «Navegación en "
+"modo privado»."
 
 #: js/messages.php:739
 msgctxt "Previous month"
@@ -2852,7 +2868,7 @@ msgstr "Introduza ao menos {0} caracteres"
 
 #: js/messages.php:911
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Introduza un valor que teña entre {0} e {1} caracteres"
 
 #: js/messages.php:916
 msgid "Please enter a value between {0} and {1}"
@@ -2979,16 +2995,16 @@ msgid "Database"
 msgstr "Base de datos"
 
 #: libraries/Console.php:100
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete relation"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Eliminar a relación"
-msgstr[1] "Eliminar a relación"
+msgstr[0] "%d marcador en total"
+msgstr[1] "%d marcadores en total"
 
 #: libraries/Console.php:108
 msgid "private"
-msgstr ""
+msgstr "privado"
 
 #: libraries/Console.php:112 libraries/bookmark.lib.php:94
 msgid "shared"
@@ -2999,10 +3015,10 @@ msgstr "compartida"
 #. translation for private and the third one, with the translation
 #. for shared
 #: libraries/Console.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Eliminouse o marcador."
+msgstr "%1$s, %2$s and %3$s marcadores incluídos"
 
 #: libraries/Console.php:125
 msgid "No bookmarks"
@@ -3040,7 +3056,7 @@ msgstr "Consulta de consultas de SQL"
 
 #: libraries/Console.php:234
 msgid "Console"
-msgstr ""
+msgstr "Consola"
 
 #: libraries/Console.php:237 libraries/sql_query_form.lib.php:244
 #: setup/frames/index.inc.php:302
@@ -3119,7 +3135,7 @@ msgstr "Orde de execución"
 
 #: libraries/Console.php:298
 msgid "Time taken"
-msgstr ""
+msgstr "Tempo que leva"
 
 #: libraries/Console.php:301
 msgid "Order by:"
@@ -3178,7 +3194,7 @@ msgstr "Estabelecer o predeterminado"
 
 #: libraries/Console.php:381
 msgid "Always expand query messages"
-msgstr ""
+msgstr "Expandir sempre as mensaxes de consulta"
 
 #: libraries/Console.php:383
 msgid "Show query history at start"
@@ -3186,13 +3202,15 @@ msgstr "Mostrar o historial de consultas no inicio"
 
 #: libraries/Console.php:385
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Mostrar a consulta de navegación actual"
 
 #: libraries/Console.php:388
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Executar consultas con Intro e inserir un salto de liña con Maiúsculas + "
+"Intro. Para que isto sexa permanente vexa a configuración."
 
 #: libraries/Console.php:392
 msgid "Switch to dark theme"
@@ -3252,7 +3270,7 @@ msgstr "Columna:"
 
 #: libraries/DbQbe.php:511
 msgid "Alias:"
-msgstr ""
+msgstr "Alcume:"
 
 #: libraries/DbQbe.php:564
 msgid "Sort:"
@@ -3324,10 +3342,9 @@ msgid "Submit Query"
 msgstr "Enviar esta consulta"
 
 #: libraries/DbQbe.php:1875
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Buscar"
+msgstr "Busca marcada gardada:"
 
 #: libraries/DbQbe.php:1877
 msgid "New bookmark"
@@ -3554,7 +3571,7 @@ msgstr "A mostrar as filas %1s + %2s"
 #: libraries/DisplayResults.php:4708
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d en total, %2$d en consulta"
 
 #: libraries/DisplayResults.php:4713
 #, php-format
@@ -3587,7 +3604,7 @@ msgstr "Marcar todo"
 
 #: libraries/DisplayResults.php:5006
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar ao portapapeis"
 
 #: libraries/DisplayResults.php:5062
 msgid "Query results operations"
@@ -3672,7 +3689,7 @@ msgstr "Non é posíbel ler o ficheiro enviado."
 #: libraries/Footer.php:72
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Estase a executar a versión %1$s de Git da galla %2$s."
 
 #: libraries/Footer.php:79
 msgid "Git information missing!"
@@ -3807,7 +3824,7 @@ msgstr ""
 #: libraries/Linter.php:165
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (preto de  <code>%2$s</code>)"
 
 #: libraries/Menu.php:198 libraries/ServerStatusData.php:422
 #: libraries/config/messages.inc.php:936
@@ -4010,17 +4027,15 @@ msgid "Could not save recent table!"
 msgstr "Non foi posíbel gravar a táboa recente!"
 
 #: libraries/RecentFavoriteTable.php:137
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "Non foi posíbel gravar a táboa recente"
+msgstr "Non foi posíbel gravar a táboa favorita!"
 
 #: libraries/RecentFavoriteTable.php:207
 #: templates/database/structure/favorite_anchor.phtml:12
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Eliminar a gráfica"
+msgstr "Retirar dos favoritos"
 
 #: libraries/RecentFavoriteTable.php:229
 msgid "There are no recent tables."
@@ -4048,13 +4063,12 @@ msgstr "Favoritos"
 
 #: libraries/SavedSearches.php:243
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Indique un nome para esta busca marcada."
 
 #: libraries/SavedSearches.php:258
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
+msgstr "Falta información para gardar a busca marcada."
 
 #: libraries/SavedSearches.php:280 libraries/SavedSearches.php:317
 msgid "An entry with this name already exists."
@@ -4226,10 +4240,10 @@ msgid "Invalid table name:"
 msgstr "O nome da táboa non é válido:"
 
 #: libraries/Table.php:1324
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Produciuse un erro ao mudarlle o nome á táboa %1$s para %2$s"
+msgstr "Produciuse un erro ao mudarlle o nome á táboa %1$s para %2$s!"
 
 #: libraries/Table.php:1343
 #, php-format
@@ -4237,10 +4251,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "A táboa %1$s foi renomeada a %2$s."
 
 #: libraries/Table.php:1528
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "Non foi posíbel gardar as preferencias de IU da táboa"
+msgstr "Non foi posíbel gardar as preferencias de IU da táboa!"
 
 #: libraries/Table.php:1558
 #, php-format
@@ -4592,6 +4605,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Almacena e permite o acceso eficiente a datos nos documentos en JSON ("
+"JavaScript Object Notation)"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4653,7 +4668,6 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/Util.php:1252
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Sen código PHP"

@@ -16,13 +16,14 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/string.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Test cases for displaying results.
  *
  * @package PhpMyAdmin-test
  */
-class DisplayResultsTest extends PHPUnit_Framework_TestCase
+class DisplayResultsTest extends PMATestCase
 {
     /**
      * @access protected

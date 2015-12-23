@@ -17,13 +17,14 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests behaviour of PMA\libraries\Config class
  *
  * @package PhpMyAdmin-test
  */
-class ConfigTest extends PHPUnit_Framework_TestCase
+class ConfigTest extends PMATestCase
 {
     /**
      * Turn off backup globals

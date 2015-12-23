@@ -404,6 +404,24 @@ function PMA_getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
 }
 
 /**
+ * Get value of a column for a specific row (marked by $where_clause)
+ *
+ * @param string $db           current database
+ * @param string $table        current table
+ * @param string $column       current column
+ * @param string $where_clause where clause to select a particular row
+ *
+ */
+function PMA_getFullValuesForSetColumn($db, $table, $column, $where_clause)
+{
+    $result = $GLOBALS['dbi']->fetchSingleRow(
+        "SELECT `$column` FROM `$db`.`$table` WHERE $where_clause"
+    );
+
+    return $result[$column];
+}
+
+/**
  * Get the HTML for the set column dropdown
  * During grid edit, if we have a set field, returns the html for the
  * dropdown
@@ -419,6 +437,18 @@ function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
 {
     $values = PMA_getValuesForColumn($db, $table, $column);
     $dropdown = '';
+    $full_values =
+        isset($_REQUEST['get_full_values']) ? $_REQUEST['get_full_values'] : false;
+    $where_clause =
+        isset($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : null;
+
+    // If the $curr_value was truncated, we should
+    // fetch the correct full values from the table
+    if ($full_values && ! empty($where_clause)) {
+        $curr_value = PMA_getFullValuesForSetColumn(
+            $db, $table, $column, $where_clause
+        );
+    }
 
     //converts characters of $curr_value to HTML entities
     $converted_curr_value = htmlentities(
@@ -426,6 +456,7 @@ function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
     );
 
     $selected_values = explode(',', $converted_curr_value);
+
     $dropdown .= PMA_getHtmlForOptionsList($values, $selected_values);
 
     $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
@@ -831,7 +862,9 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
         );
         $response->addJSON('dropdown', $dropdown);
     } else {
-        $select = PMA_getHtmlForSetColumn($db, $table, $column, $curr_value);
+        $select = PMA_getHtmlForSetColumn(
+            $db, $table, $column, $curr_value
+        );
         $response->addJSON('select', $select);
     }
     exit;

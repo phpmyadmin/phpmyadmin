@@ -11,6 +11,7 @@ use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\Form;
 use PMA\libraries\Theme;
 
+require_once 'test/PMATestCase.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
@@ -18,7 +19,7 @@ require_once 'libraries/php-gettext/gettext.inc';
  *
  * @package PhpMyAdmin-test
  */
-class FormTest extends PHPUnit_Framework_TestCase
+class FormTest extends PMATestCase
 {
     /**
      * @var Form

@@ -69,7 +69,6 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
 
     $prefix_class_name = $namespace . $class_type;
 
-    //@todo Find a way to use PMA_StringMB with UTF-8 instead of mb_*.
     while ($file = @readdir($handle)) {
         // In some situations, Mac OS creates a new file for each file
         // (for example ._csv.php) so the following regexp

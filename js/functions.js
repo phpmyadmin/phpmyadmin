@@ -946,11 +946,6 @@ AJAX.registerOnload('functions.js', function () {
 })*/
 
 /**
- * This array is used to remember mark status of rows in browse mode
- */
-var marked_row = [];
-
-/**
  * marks all rows and selects its first checkbox inside the given element
  * the given element is usually a table or a div containing the table or tables
  *
@@ -979,20 +974,6 @@ function unMarkAllRows(container_id)
     .parents("tr").removeClass("marked");
     return true;
 }
-
-/**
- * Checks/unchecks all checkbox in given container (f.e. a form, fieldset or div)
- *
- * @param string   container_id  the container id
- * @param boolean  state         new value for checkbox (true or false)
- * @return boolean  always true
- */
-function setCheckboxes(container_id, state)
-{
-
-    $("#" + container_id).find("input:checkbox").prop('checked', state);
-    return true;
-} // end of the 'setCheckboxes()' function
 
 /**
   * Checks/unchecks all options of a <select> element
@@ -4331,7 +4312,10 @@ function PMA_getCellValue(td) {
     var $td = $(td);
     if ($td.is('.null')) {
         return '';
-    } else if (! $td.is('.to_be_saved') && $td.data('original_data')) {
+    } else if ((! $td.is('.to_be_saved')
+        || $td.is('.set'))
+        && $td.data('original_data')
+    ) {
         return $td.data('original_data');
     } else {
         return $td.text();

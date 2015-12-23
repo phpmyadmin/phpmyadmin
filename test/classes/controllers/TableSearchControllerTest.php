@@ -15,13 +15,14 @@ use PMA\libraries\Theme;
 use PMA\libraries\TypesMySQL;
 
 require_once 'test/libraries/stubs/ResponseStub.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA_TableSearch
  *
  * @package PhpMyAdmin-test
  */
-class TableSearchControllerTest extends PHPUnit_Framework_TestCase
+class TableSearchControllerTest extends PMATestCase
 {
     /**
      * @var PMA\Test\Stubs\Response
@@ -48,16 +49,7 @@ class TableSearchControllerTest extends PHPUnit_Framework_TestCase
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['PMA_Types'] = new TypesMySQL();
-
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['maxRowPlotLimit'] = 500;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
-        $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 100;
-        $GLOBALS['cfg']['InitialSlidersState'] = 'closed';
-        $GLOBALS['cfg']['MaxRows'] = 25;
-        $GLOBALS['cfg']['TabsMode'] = 'text';
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()

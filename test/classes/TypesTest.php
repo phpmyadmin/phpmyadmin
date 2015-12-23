@@ -6,12 +6,14 @@
  */
 use PMA\libraries\Types;
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Test class for Types.
  *
  * @package PhpMyAdmin-test
  */
-class TypesTest extends PHPUnit_Framework_TestCase
+class TypesTest extends PMATestCase
 {
     /**
      * @var Types

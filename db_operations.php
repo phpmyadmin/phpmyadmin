@@ -12,7 +12,6 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\export\ExportSql;
-use PMA\libraries\PMA_String;
 
 /**
  * requirements
@@ -38,8 +37,6 @@ $sql_query = '';
 /**
  * Rename/move or copy database
  */
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 if (/*overload*/mb_strlen($GLOBALS['db'])
     && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))
 ) {

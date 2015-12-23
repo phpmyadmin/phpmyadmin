@@ -140,8 +140,6 @@ function PMA_changePassword($password, $message, $change_password_message)
 
     $hashing_function = PMA_changePassHashingFunction();
 
-    $orig_auth_plugin = null;
-
     $row = $GLOBALS['dbi']->fetchSingleRow('SELECT CURRENT_USER() as user');
     $curr_user = $row['user'];
     list($username, $hostname) = explode('@', $curr_user);
@@ -157,6 +155,9 @@ function PMA_changePassword($password, $message, $change_password_message)
             'change', $username, $hostname
         );
     }
+
+    $sql_query = 'SET password = '
+        . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
 
     if ($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50706
@@ -180,8 +181,7 @@ function PMA_changePassword($password, $message, $change_password_message)
         }
         $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
     }
-        $sql_query = 'SET password = '
-            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+
     PMA_changePassUrlParamsAndSubmitQuery(
         $username, $hostname, $password,
         $sql_query, $hashing_function, $orig_auth_plugin

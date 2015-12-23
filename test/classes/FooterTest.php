@@ -17,13 +17,14 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/relation.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for Footer class
  *
  * @package PhpMyAdmin-test
  */
-class FooterTest extends PHPUnit_Framework_TestCase
+class FooterTest extends PMATestCase
 {
 
     /**
@@ -55,7 +56,6 @@ class FooterTest extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = '1';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';

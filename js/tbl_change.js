@@ -434,7 +434,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      * "Continue insertion" are handled in the "Continue insertion" code
      *
      */
-    $(document).on('click', 'input.checkbox_null', function (e) {
+    $(document).on('click', 'input.checkbox_null', function () {
         nullify(
             // use hidden fields populated by tbl_change.php
             $(this).siblings('.nullify_code').val(),
@@ -450,7 +450,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      * when we are in edit-mode, and not in insert-mode(no previous value
      * available).
      */
-    $('select[name="submit_type"]').bind('change', function (e) {
+    $('select[name="submit_type"]').bind('change', function () {
         var thisElemSubmitTypeVal = $(this).val();
         var $table = $('table.insertRowTable');
         var auto_increment_column = $table.find('input[name^="auto_increment"]');
@@ -562,7 +562,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                         // will change
                         .data('hashed_field', hashed_field)
                         .data('new_row_index', new_row_index)
-                        .bind('change', function (e) {
+                        .bind('change', function () {
                             var $changed_element = $(this);
                             verificationsAfterFieldChange(
                                 $changed_element.data('hashed_field'),
@@ -581,7 +581,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                         // will be clicked
                         .data('hashed_field', hashed_field)
                         .data('new_row_index', new_row_index)
-                        .bind('click', function (e) {
+                        .bind('click', function () {
                             var $changed_element = $(this);
                             nullify(
                                 $changed_element.siblings('.nullify_code').val(),

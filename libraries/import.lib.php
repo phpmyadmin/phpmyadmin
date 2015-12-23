@@ -165,8 +165,7 @@ function PMA_executeQuery($sql, $full, &$sql_data)
 function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
 {
     global $import_run_buffer, $go_sql, $complete_query, $display_query,
-        $sql_query, $my_die, $error, $reload,
-        $result, $msg,
+        $sql_query, $error, $reload, $result, $msg,
         $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
         $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
     $read_multiply = 1;
@@ -212,7 +211,6 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
         } else {
             $executed_queries++;
 
-            $pattern = '/^[\s]*(SELECT|SHOW|HANDLER|EXECUTE)/i';
             if ($run_query && $executed_queries < 50) {
                 $go_sql = true;
                 if (! $sql_query_disabled) {

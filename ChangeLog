@@ -26,8 +26,17 @@ phpMyAdmin - ChangeLog
 - issue #11728 CSV import skip row count after
 - issue        Fixed displaying of SQL query on table operations
 - issue #6321  Display binary strings as text if they are valid UTF-8
++ issue #11743 Display routine specific privileges
 
-4.5.3.0 (not yet released)
+4.5.4.0 (not yet released)
+- issue #11724 live data edit of big sets is not working
+
+4.5.3.0 (2015-12-23)
+- issue #11744 Incomplete results of UNION ALL
+- issue #11742 MATCH AGAINST keywords not recognized
+- issue #11723 syntax verifier is not knowing "STRAIGHT_JOIN"
+- issue #11699 REPLACE() function confused with REPLACE statement
+- issue #11690 FLUSH word not recognized by parser
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement
 - issue #11665 Format breaks query with COUNT()
 - issue        Undefinex index: SendErrorReports
@@ -48,6 +57,10 @@ phpMyAdmin - ChangeLog
 - issue #11732 Exporting feature does not work with union table
 - issue #11679 Cannot export results of some queries
 - issue #11720 Message "An account already exists..." incorrectly displayed
+- issue #11758 Missing quoting of table in ALTER CONVERT query
+- issue #11752 PMA 4.5.2 breaks MySQL Master-Master Cluster
+- issue #11757 Export and preview show different SQL for character set
+- issue #11749 Fix possible undefined variables in table operations
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()

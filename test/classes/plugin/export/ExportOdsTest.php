@@ -14,6 +14,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
 require_once 'libraries/opendocument.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\export\ExportOds class
@@ -21,7 +22,7 @@ require_once 'libraries/opendocument.lib.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportOdsTest extends PHPUnit_Framework_TestCase
+class ExportOdsTest extends PMATestCase
 {
     protected $object;
 

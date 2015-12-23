@@ -6,7 +6,6 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\ImportPlugin;
-use PMA\libraries\PMA_String;
 
 /**
  * Get the variables sent or posted to this script and a core script
@@ -236,8 +235,6 @@ PMA\libraries\Util::checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
 $format = PMA_securePath($format);
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 
 // Create error and goto url
 if ($import_type == 'table') {

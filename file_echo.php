@@ -7,8 +7,6 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\PMA_String;
-
 define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
 
@@ -42,9 +40,6 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         /* Filename from request should be safe here */
         $filename = $_REQUEST['filename'];
     }
-
-    /** @var String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     /* Decode data */
     if ($extension != 'svg') {

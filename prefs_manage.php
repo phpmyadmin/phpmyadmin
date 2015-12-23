@@ -9,7 +9,6 @@ use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\PMA_String;
 use PMA\libraries\Util;
 
 /**
@@ -176,9 +175,6 @@ if (isset($_POST['submit_export'])
             if ($return_url) {
                 $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
                 $return_url = parse_url($return_url, PHP_URL_PATH);
-
-                /** @var String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
 
                 foreach ($query as $q) {
                     $pos = /*overload*/mb_strpos($q, '=');

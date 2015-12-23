@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-12-08 13:08+0000\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2015-12-21 23:48+0000\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12037,22 +12037,19 @@ msgid "Allows dropping tables."
 msgstr "Povolí odstraňovanie tabuliek."
 
 #: libraries/server_privileges.lib.php:1541
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Overovanie pomocou cookie"
+msgstr "Natívne MySQL overovanie"
 
 #: libraries/server_privileges.lib.php:1543
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Overovanie signon"
+msgstr "SHA256 overovanie hesla"
 
 #: libraries/server_privileges.lib.php:1557
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL Authentication"
-msgstr "Overovanie pomocou cookie"
+msgstr "Natívne MySQL overovanie"
 
 #: libraries/server_privileges.lib.php:1611
 #: libraries/server_privileges.lib.php:3097
@@ -12092,10 +12089,9 @@ msgid "Authentication Plugin"
 msgstr "Rozšírenie pre prihlasovanie"
 
 #: libraries/server_privileges.lib.php:1880
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Hashovanie hesla:"
+msgstr "Metóda hešovania hesla"
 
 #: libraries/server_privileges.lib.php:2163
 #, php-format
@@ -13507,10 +13503,9 @@ msgid "A rename operation was expected."
 msgstr "Riadok bol zmazaný."
 
 #: libraries/sql-parser/src/Lexer.php:267
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Neočakávané znaky na riadku %s."
+msgstr "Neočakávaný znak."
 
 #: libraries/sql-parser/src/Lexer.php:304
 msgid "Expected whitespace(s) before delimiter."
@@ -13640,7 +13635,7 @@ msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
 #: libraries/sql.lib.php:1698
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13649,7 +13644,7 @@ msgid ""
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 "Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
-"editácia, kopírovanie a mazanie nie sú dostupné."
+"editácia, kopírovanie a mazanie nie sú dostupné. %s"
 
 #: libraries/sql.lib.php:1712
 #, fuzzy, php-format
@@ -14326,10 +14321,9 @@ msgstr "Odstrániť stĺpce"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:27
-#, fuzzy
 #| msgid "Compression"
 msgid "Expression"
-msgstr "Kompresia"
+msgstr "Výraz"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -14720,10 +14714,9 @@ msgid "Show create"
 msgstr "Zobraziť vytvorenie"
 
 #: templates/database/structure/check_all_tables.phtml:25
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Prefix"
-msgstr "Pridať prefix"
+msgstr "Predpona"
 
 #: templates/database/structure/check_all_tables.phtml:26
 msgid "Add prefix to table"

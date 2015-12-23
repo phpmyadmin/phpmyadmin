@@ -15,13 +15,14 @@ use PMA\libraries\engines\Pbxt;
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\engines\Pbxt;
  *
  * @package PhpMyAdmin-test
  */
-class PbxtTest extends PHPUnit_Framework_TestCase
+class PbxtTest extends PMATestCase
 {
     /**
      * @access protected
@@ -37,7 +38,6 @@ class PbxtTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
     }

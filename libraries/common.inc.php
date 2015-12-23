@@ -36,7 +36,6 @@ use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\PMA;
-use PMA\libraries\PMA_String;
 use PMA\libraries\Theme;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
@@ -71,11 +70,6 @@ define('PHPMYADMIN', true);
  * Activate autoloader
  */
 require_once './libraries/autoloader.php';
-
-/**
- * String handling (security)
- */
-$PMA_String = new PMA_String();
 
 /**
  * initialize the error handler
@@ -139,7 +133,6 @@ $variables_whitelist = array (
     'PMA_PHP_SELF',
     'variables_whitelist',
     'key',
-    'PMA_String'
 );
 
 foreach (get_defined_vars() as $key => $value) {

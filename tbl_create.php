@@ -5,7 +5,6 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\PMA_String;
 
 /**
  * Get some core libraries
@@ -15,9 +14,6 @@ require_once 'libraries/create_addfield.lib.php';
 
 // Check parameters
 PMA\libraries\Util::checkParameters(array('db'));
-
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 
 /* Check if database name is empty */
 if (/*overload*/mb_strlen($db) == 0) {

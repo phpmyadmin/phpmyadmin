@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-12-03 13:40+0000\n"
+"PO-Revision-Date: 2015-12-17 16:29+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5619,14 +5619,15 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Si les actions dans la structure de table doivent être masquées."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Montrer les commentaires de table"
+msgstr "Montrer les commentaires de colonnes"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Si les commentaires de colonnes doivent être affichés dans la vue de "
+"structure de table"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -8468,14 +8469,11 @@ msgstr ""
 "transactions.)</i>"
 
 #: libraries/display_import.lib.php:313
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Ignorer ce nombre de requêtes (pour SQL) ou de lignes (autres formats), à "
-"partir du début :"
+msgstr "Ignorer ce nombre de requêtes (pour SQL), à partir du début :"
 
 #: libraries/display_import.lib.php:343
 msgid "Other options:"
@@ -15653,7 +15651,6 @@ msgid "Edit view"
 msgstr "Modifier la vue"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
 msgstr "Commentaires sur la table : "

@@ -1512,7 +1512,7 @@ class DbQbe
             // we can check which of our columns has a where clause
             if (! empty($this->_criteria[$column_index])) {
                 if (/*overload*/mb_substr($this->_criteria[$column_index], 0, 1) == '='
-                    || /*$pmaString->*/stristr($this->_criteria[$column_index], 'is')
+                    || stristr($this->_criteria[$column_index], 'is')
                 ) {
                     $where_clause_columns[$column] = $column;
                     $where_clause_tables[$table]  = $table;

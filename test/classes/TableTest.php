@@ -18,13 +18,14 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests behaviour of Table class
  *
  * @package PhpMyAdmin-test
  */
-class TableTest extends PHPUnit_Framework_TestCase
+class TableTest extends PMATestCase
 {
     /**
      * Configures environment
@@ -38,8 +39,6 @@ class TableTest extends PHPUnit_Framework_TestCase
          */
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxExactCount'] = 100;
         $GLOBALS['cfg']['MaxExactCountViews'] = 100;
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
@@ -683,8 +682,8 @@ class TableTest extends PHPUnit_Framework_TestCase
             $extra, $comment, $virtuality, $expression, $move_to
         );
 
-        $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER "
-            . "SET charset1 NULL DEFAULT 'VARCHAR' "
+        $expect = "`name` `new_name` VARCHAR(2) new_name CHARSET="
+            . "charset1 NULL DEFAULT 'VARCHAR' "
             . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
 
         $this->assertEquals(

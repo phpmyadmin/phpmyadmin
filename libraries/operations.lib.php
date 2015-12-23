@@ -1861,7 +1861,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {
-    $upperTblStorEngine = /*overload*/mb_strtoupper($tbl_storage_engine);
+    $upperTblStorEngine = $tbl_storage_engine;
 
     //Options that apply to MYISAM usually apply to ARIA
     $is_myisam_or_aria = ($upperTblStorEngine == 'MYISAM'
@@ -2046,7 +2046,8 @@ function PMA_changeAllColumnsCollation($db, $table, $tbl_collation)
 {
     $GLOBALS['dbi']->selectDb($db);
 
-    $change_all_collations_query = 'ALTER TABLE ' . $table
+    $change_all_collations_query = 'ALTER TABLE '
+        . PMA\libraries\Util::backquote($table)
         . ' CONVERT TO';
 
     list($charset) = explode('_', $tbl_collation);

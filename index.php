@@ -589,9 +589,6 @@ if ($server > 0) {
 if (isset($GLOBALS['dbi'])
     && $cfg['ServerLibraryDifference_DisableWarning'] == false
 ) {
-    /** @var String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
         && /*overload*/mb_strpos($_client_info, 'mysqlnd') === false

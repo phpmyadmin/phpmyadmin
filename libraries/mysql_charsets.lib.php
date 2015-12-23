@@ -89,7 +89,7 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
 function PMA_generateCharsetQueryPart($collation)
 {
     list($charset) = explode('_', $collation);
-    return ' CHARACTER SET ' . $charset
+    return ' CHARSET=' . $charset
         . ($charset == $collation ? '' : ' COLLATE ' . $collation);
 }
 

@@ -28,13 +28,14 @@ use PMA\libraries\plugins\transformations\Text_Plain_Substring;
  */
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for different input/output transformation plugins
  *
  * @package PhpMyAdmin-test
  */
-class TransformationPluginsTest extends PHPUnit_Framework_TestCase
+class TransformationPluginsTest extends PMATestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

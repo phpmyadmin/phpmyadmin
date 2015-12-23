@@ -114,7 +114,7 @@ function PMA_convertAIXMapCharsets($in_charset, $out_charset)
     // Build the output character set name that we will use
     /* Not needed because always overwritten
     $out_charset = ($using_translit
-        ? $out_charset_plain . $pmaString->substr($out_charset, $translit_search)
+        ? $out_charset_plain . mb_substr($out_charset, $translit_search)
         : $out_charset_plain);
     */
 

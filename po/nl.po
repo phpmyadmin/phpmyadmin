@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 08:05+0100\n"
-"PO-Revision-Date: 2015-12-04 21:50+0000\n"
+"PO-Revision-Date: 2015-12-17 21:22+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5613,14 +5613,13 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Of de tabelstructuur acties verborgen moeten worden."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Tabel opmerkingen"
+msgstr "Toon kolom opmerkingen"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Of kolom commentaar getoond moet worden in het tabel structuuroverzicht"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -8458,14 +8457,11 @@ msgstr ""
 "bestanden, maar kan transacties verstoren.)</i>"
 
 #: libraries/display_import.lib.php:313
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Sla dit aantal query's (voor SQL) of regels (voor andere formaten) over, "
-"beginnend bij de eerste :"
+msgstr "Sla dit aantal query's (voor SQL) over, beginnend bij de eerste :"
 
 #: libraries/display_import.lib.php:343
 msgid "Other options:"
@@ -15652,10 +15648,9 @@ msgid "Edit view"
 msgstr "View bewerken"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "Tabelopmerkingen:"
+msgstr "Tabel opmerkingen: "
 
 #: templates/table/structure/display_table_stats.phtml:10
 msgid "Space usage"

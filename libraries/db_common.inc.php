@@ -7,7 +7,6 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\PMA_String;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -39,9 +38,6 @@ $err_url = PMA\libraries\Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
 )
     . PMA_URL_getCommon(array('db' => $db));
-
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
