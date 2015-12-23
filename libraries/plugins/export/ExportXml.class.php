@@ -479,6 +479,11 @@ class ExportXml extends ExportPlugin
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
+        // Do not export data for merge tables
+        if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {
+            return true;
+        }
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);

@@ -320,14 +320,14 @@ AJAX.registerOnload('export.js', function () {
 
     // For separate-file exports only ZIP compression is allowed
     $('input[type="checkbox"][name="as_separate_files"]').change(function(){
-        if (! $(this).attr('checked')) {
+        if ($(this).is(':checked')) {
             $('#compression').val('zip');
         }
     });
 
     $('#compression').change(function(){
         if ($('option:selected').val() !== 'zip') {
-            $('input[type="checkbox"][name="as_separate_files"]').attr('checked', false);
+            $('input[type="checkbox"][name="as_separate_files"]').prop('checked', false);
         }
     });
 

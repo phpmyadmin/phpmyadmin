@@ -1,6 +1,38 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.5.3.0 (2015-12-23)
+- issue #11744 Incomplete results of UNION ALL
+- issue #11742 MATCH AGAINST keywords not recognized
+- issue #11723 syntax verifier is not knowing "STRAIGHT_JOIN"
+- issue #11699 REPLACE() function confused with REPLACE statement
+- issue #11690 FLUSH word not recognized by parser
+- issue #11664 Online syntax verifier bug - "IF" on SELECT statement
+- issue #11665 Format breaks query with COUNT()
+- issue        Undefinex index: SendErrorReports
+- issue        Incorrect script name in include
+- issue #11685 Warning: Invalid argument supplied for foreach()
+- issue #11687 Delimiter missing while exporting multiple db routines
+- issue #11684 mysql_native_password with MariaDB bug
+- issue #11693 Flush privileges overusage - related to #11597
+- issue #11691 Query was empty on creating User in 4.5.2
+- issue #11695 PMA_getDataForDeleteUsers() warning
+- issue #11698 Cannot create user on Percona Server
+- issue        Properly report error on connecting
+- issue #11706 Database export template not saving compression option
+- issue #11721 Fix single quote export for servers in ANSI_QUOTES mode
+- issue #11714 Avoid duplicite fetching of table information
+- issue #11724 Temporary fix for live data edit of big sets is not working
+- issue        IE 8 compatibility in console
+- issue #11732 Exporting feature does not work with union table
+- issue #11728 CSV import skip row count after
+- issue #11679 Cannot export results of some queries
+- issue #11720 Message "An account already exists..." incorrectly displayed
+- issue #11758 Missing quoting of table in ALTER CONVERT query
+- issue #11752 PMA 4.5.2 breaks MySQL Master-Master Cluster
+- issue #11757 Export and preview show different SQL for character set
+- issue #11749 Fix possible undefined variables in table operations
+
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()
 - issue #11592 Missing headers in zipped export

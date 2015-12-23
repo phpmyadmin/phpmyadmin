@@ -657,6 +657,21 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $_table = $this->getMockBuilder('PMA_Table')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $_table->expects($this->once())
+            ->method('isMerge')
+            ->will($this->returnValue(false));
+
+        $dbi->expects($this->any())
+            ->method('getTable')
+            ->will($this->returnValue($_table));
+
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue($_table));
+
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
@@ -667,19 +682,19 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ->with(true)
             ->will($this->returnValue(3));
 
-        $dbi->expects($this->at(2))
+        $dbi->expects($this->at(3))
             ->method('fieldName')
             ->will($this->returnValue('fName1'));
 
-        $dbi->expects($this->at(3))
+        $dbi->expects($this->at(4))
             ->method('fieldName')
             ->will($this->returnValue('fNa"me2'));
 
-        $dbi->expects($this->at(4))
+        $dbi->expects($this->at(5))
             ->method('fieldName')
             ->will($this->returnValue('fNa\\me3'));
 
-        $dbi->expects($this->at(5))
+        $dbi->expects($this->at(6))
             ->method('fetchRow')
             ->with(true)
             ->will($this->returnValue(array(null, '<a>')));

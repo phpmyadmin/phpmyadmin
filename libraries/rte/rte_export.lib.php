@@ -86,11 +86,13 @@ function PMA_RTN_handleExport()
         && ! empty($_GET['item_type'])
     ) {
         if ($_GET['item_type'] == 'FUNCTION' || $_GET['item_type'] == 'PROCEDURE') {
-            $export_data = $GLOBALS['dbi']->getDefinition(
-                $db,
-                $_GET['item_type'],
-                $_GET['item_name']
-            );
+            $export_data = "DELIMITER $$\n"
+                . $GLOBALS['dbi']->getDefinition(
+                    $db,
+                    $_GET['item_type'],
+                    $_GET['item_name']
+                )
+                . "$$\nDELIMITER ;\n";
             PMA_RTE_handleExport($export_data);
         }
     }

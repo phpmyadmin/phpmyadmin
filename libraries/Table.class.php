@@ -2288,9 +2288,10 @@ class PMA_Table
         foreach ($foreignField as $key => $one_field) {
             $foreignField[$key] = PMA_Util::backquote($one_field);
         }
-        $sql_query .= ' FOREIGN KEY (' . implode(', ', $field) . ')'
-            . ' REFERENCES ' . PMA_Util::backquote($foreignDb)
-            . '.' . PMA_Util::backquote($foreignTable)
+        $sql_query .= ' FOREIGN KEY (' . implode(', ', $field) . ') REFERENCES '
+            . ($this->_db_name != $foreignDb
+                ? PMA_Util::backquote($foreignDb) . '.' : '')
+            . PMA_Util::backquote($foreignTable)
             . '(' . implode(', ', $foreignField) . ')';
 
         if (! empty($onDelete)) {

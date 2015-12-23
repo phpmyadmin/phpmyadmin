@@ -713,8 +713,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                 . "COLLATE charset1 NULL DEFAULT 'VARCHAR' "
                 . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
         } else {
-            $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER "
-                . "SET charset1 NULL DEFAULT 'VARCHAR' "
+            $expect = "`name` `new_name` VARCHAR(2) new_name CHARSET="
+                . "charset1 NULL DEFAULT 'VARCHAR' "
                 . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
         }
 
@@ -894,6 +894,24 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
             . '`foreignDb`.`foreignTable`(`foreignField1`, `foreignField2`);';
+        $this->assertEquals(
+            $sql_excepted,
+            $sql
+        );
+
+        // Exclude db name when relations are made between table in the same db
+        $sql = $method->invokeArgs(
+            $tableObj, array(
+                $table,
+                $field,
+                'db',
+                $foreignTable,
+                $foreignField
+            )
+        );
+        $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
+            . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
+            . '`foreignTable`(`foreignField1`, `foreignField2`);';
         $this->assertEquals(
             $sql_excepted,
             $sql

@@ -156,7 +156,10 @@ function PMA_changePassword($password, $message, $change_password_message)
         );
     }
 
-    if ($serverType === 'MySQL'
+    $sql_query = 'SET password = '
+        . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+
+    if ($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50706
     ) {
         $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
@@ -178,8 +181,7 @@ function PMA_changePassword($password, $message, $change_password_message)
         }
         $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
     }
-        $sql_query = 'SET password = '
-            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+
     PMA_changePassUrlParamsAndSubmitQuery(
         $username, $hostname, $password,
         $sql_query, $hashing_function, $orig_auth_plugin
@@ -210,25 +212,50 @@ function PMA_changePassHashingFunction()
 /**
  * Generate the error url and submit the query
  *
- * @param string $username         Username
- * @param string $hostname         Hostname
- * @param string $password         Password
- * @param string $sql_query        SQL query
- * @param string $hashing_function Hashing function
- * @param string $auth_plugin      Authentication Plugin
+ * @param string $username              Username
+ * @param string $hostname              Hostname
+ * @param string $password              Password
+ * @param string $sql_query             SQL query
+ * @param string $hashing_function      Hashing function
+ * @param string $orig_auth_plugin      Original Authentication Plugin
  *
  * @return void
  */
 function PMA_changePassUrlParamsAndSubmitQuery(
-    $username, $hostname, $password, $sql_query, $hashing_function, $auth_plugin
+    $username, $hostname, $password, $sql_query, $hashing_function, $orig_auth_plugin
 ) {
     $err_url = 'user_password.php' . PMA_URL_getCommon();
-    if (PMA_Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+    $serverType = PMA_Util::getServerType();
+
+    if ($serverType == 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
         $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
-            . ' IDENTIFIED with ' . $auth_plugin . ' BY '
+            . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
             . (($password == '')
             ? '\'\''
             : '\'' . PMA_Util::sqlAddSlashes($password) . '\'');
+    } else if ($serverType == 'MariaDB'
+        && PMA_MYSQL_INT_VERSION >= 50200
+    ) {
+        if ($orig_auth_plugin == 'mysql_native_password') {
+            // Set the hashing method used by PASSWORD()
+            // to be 'mysql_native_password' type
+            $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
+        } else if ($orig_auth_plugin == 'sha256_password') {
+            // Set the hashing method used by PASSWORD()
+            // to be 'sha256_password' type
+            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
+        }
+
+        $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
+
+        $local_query = "UPDATE `mysql`.`user` SET"
+            . " `authentication_string` = '" . $hashedPassword
+            . "', `Password` = '', "
+            . " `plugin` = '" . $orig_auth_plugin . "'"
+            . " WHERE `User` = '" . $username . "' AND Host = '"
+            . $hostname . "';";
+
+        $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
     } else {
         $local_query = 'SET password = ' . (($password == '')
             ? '\'\''
