@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2015-12-24 22:50+0100\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.com>\n"
+"PO-Revision-Date: 2015-12-24 23:05+0000\n"
+"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
 "Language-Team: Esperanto "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/eo/>\n"
+"<https://hosted.weblate.org/projects/phpmyadmin/master/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:33
 #: license.php:30
@@ -1828,7 +1828,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:241
 #: setup/frames/menu.inc.php:26
 msgid "Import"
-msgstr ""
+msgstr "Importi"
 
 #: js/messages.php:323
 msgid "Import monitor configuration"
@@ -2670,7 +2670,7 @@ msgstr ""
 
 #: js/messages.php:620
 msgid "Generate password"
-msgstr ""
+msgstr "Generi pasvorton"
 
 #: js/messages.php:621 libraries/replication_gui.lib.php:898
 #: js/messages.php:525
@@ -5245,7 +5245,7 @@ msgstr "Aldoni kolumnon"
 #: libraries/central_columns.lib.php:813
 #: libraries/central_columns.lib.php:816
 msgid "Select a column."
-msgstr "Elekti kolumnon"
+msgstr "Elekti kolumnon."
 
 #: libraries/central_columns.lib.php:1260
 #: libraries/central_columns.lib.php:1263
@@ -12029,7 +12029,7 @@ msgstr ""
 
 #: libraries/select_server.lib.php:40 libraries/select_server.lib.php:45
 msgid "Current server:"
-msgstr ""
+msgstr "Nuna servilo:"
 
 #: libraries/server_bin_log.lib.php:28
 msgid "Select binary log to view"
