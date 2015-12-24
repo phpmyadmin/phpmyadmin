@@ -249,7 +249,7 @@ function PMA_hideShowDefaultValue($default_type)
  */
 function PMA_hideShowExpression($virtuality)
 {
-    if ($virtuality.val() == '') {
+    if ($virtuality.val() === '') {
         $virtuality.siblings('.expression').hide();
     } else {
         $virtuality.siblings('.expression').show();
@@ -2087,7 +2087,7 @@ function PMA_highlightSQL($base)
 function PMA_updateCode($base, htmlValue, rawValue)
 {
     var $code = $base.find('code');
-    if ($code.length == 0) {
+    if ($code.length === 0) {
         return false;
     }
 
