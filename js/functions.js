@@ -4497,7 +4497,7 @@ function copyToClipboard()
         childElementList.each(function(){
             textArea.value += $(this).clone().children().remove().end().text() + '\t';
         });
-      textArea.value += '\n';
+        textArea.value += '\n';
     });
 
     document.body.appendChild(textArea);
