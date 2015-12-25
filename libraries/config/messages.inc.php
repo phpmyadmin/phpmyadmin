@@ -11,7 +11,7 @@
  */
 
 if (!function_exists('__')) {
-    PMA_fatalError('Bad invocation!');
+    exit();
 }
 
 $strConfigAllowArbitraryServer_desc = __(
