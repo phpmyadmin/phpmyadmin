@@ -11,7 +11,7 @@
  */
 
 if (!function_exists('__')) {
-    PMA_fatalError('Bad invocation!');
+    exit();
 }
 
 $strConfigAllowArbitraryServer_desc = __('If enabled user can enter any MySQL server in login form for cookie auth');

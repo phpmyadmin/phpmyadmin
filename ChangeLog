@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.12 (2015-12-25)
+- issue        [Security] Path disclosure, see PMASA-2015-6
+
 4.0.10.11 (2015-09-23)
 - issue #11464 phpMyAdmin suggests upgrading to newer version not usable on that system
 
