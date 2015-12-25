@@ -4,6 +4,9 @@ phpMyAdmin - ChangeLog
 4.5.4.0 (not yet released)
 - issue #11724 live data edit of big sets is not working
 
+4.5.3.1 (2015-12-25)
+- issue #11774 Undefined offset 2
+
 4.5.3.0 (2015-12-23)
 - issue #11744 Incomplete results of UNION ALL
 - issue #11742 MATCH AGAINST keywords not recognized
