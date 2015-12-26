@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2015-12-26 11:40+0000\n"
-"Last-Translator: Thành Phạm <tienthanh.dqc@gmail.com>\n"
+"PO-Revision-Date: 2016-01-13 08:03+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Vietnamese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/vi/>\n"
 "Language: vi\n"
@@ -399,7 +399,7 @@ msgstr "Giá trị cho cột \"%s\""
 #: gis_data_editor.php:146
 #: templates/table/gis_visualization/gis_visualization.phtml:37
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Dùng OpenStreetMaps như là lớp cơ sở"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
