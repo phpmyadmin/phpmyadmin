@@ -403,18 +403,18 @@ class SavedSearches
     }
 
     /**
-     * Get the list of saved search of a user on a DB
+     * Get the list of saved searches of a user on a DB
      *
      * @param string[] $wheres List of filters
      *
-     * @return array|bool List of saved search or false on failure
+     * @return array List of saved searches or empty array on failure
      */
     public function getList(array $wheres = array())
     {
         if (null == $this->getUsername()
             || null == $this->getDbname()
         ) {
-            return false;
+            return array();
         }
 
         $savedSearchesTbl = Util::backquote($this->_config['cfgRelation']['db'])
