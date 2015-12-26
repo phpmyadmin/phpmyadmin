@@ -407,14 +407,14 @@ class SavedSearches
      *
      * @param string[] $wheres List of filters
      *
-     * @return array|bool List of saved search or false on failure
+     * @return array List of saved search or empty array on failure
      */
     public function getList(array $wheres = array())
     {
         if (null == $this->getUsername()
             || null == $this->getDbname()
         ) {
-            return false;
+            return array();
         }
 
         $savedSearchesTbl = Util::backquote($this->_config['cfgRelation']['db'])
