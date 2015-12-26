@@ -146,7 +146,8 @@ class SavedSearches
             'criteria',
             'criteriaAndOrRow',
             'criteriaAndOrColumn',
-            'rows'
+            'rows',
+            'TableList'
         );
 
         $data = array();

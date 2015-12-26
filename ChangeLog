@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 
 4.5.4.0 (not yet released)
 - issue #11724 live data edit of big sets is not working
+- issue        Table list not saved in db QBE bookmarked search
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
