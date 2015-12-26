@@ -149,7 +149,8 @@ class PMA_SavedSearches
             'criteria',
             'criteriaAndOrRow',
             'criteriaAndOrColumn',
-            'rows'
+            'rows',
+            'TableList'
         );
 
         $data = array();
