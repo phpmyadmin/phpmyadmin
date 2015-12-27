@@ -1600,7 +1600,7 @@ class DbQbe
             $whereClauseColumns, $whereClauseTables
         );
 
-        // Will incldue master tables and all tables that can be combined into
+        // Will include master tables and all tables that can be combined into
         // a cluster by their relation
         $finalized = array();
         if (mb_strlen($master) > 0) {
