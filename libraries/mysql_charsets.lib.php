@@ -84,15 +84,21 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
 /**
  * Generate the charset query part
  *
- * @param string $collation Collation
+ * @param string           $collation Collation
+ * @param boolean optional $override  force 'CHARACTER SET' keyword
  *
  * @return string
  */
-function PMA_generateCharsetQueryPart($collation)
+function PMA_generateCharsetQueryPart($collation, $override = false)
 {
     if (!PMA_DRIZZLE) {
         list($charset) = explode('_', $collation);
-        return ' CHARSET=' . $charset
+        $keyword = ' CHARSET=';
+
+        if ($override) {
+            $keyword = ' CHARACTER SET ';
+        }
+        return $keyword . $charset
             . ($charset == $collation ? '' : ' COLLATE ' . $collation);
     } else {
         return ' COLLATE ' . $collation;

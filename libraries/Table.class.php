@@ -410,7 +410,7 @@ class PMA_Table
                 $type
             );
             if (! empty($collation) && $collation != 'NULL' && $matches) {
-                $query .= PMA_generateCharsetQueryPart($collation);
+                $query .= PMA_generateCharsetQueryPart($collation, true);
             }
 
             if ($null !== false) {
