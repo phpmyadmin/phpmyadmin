@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-27 07:41-0500\n"
-"PO-Revision-Date: 2015-12-17 13:57+0000\n"
-"Last-Translator: Anna Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2015-12-27 20:23+0000\n"
+"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9126,10 +9126,9 @@ msgid "Success!"
 msgstr "Erfolg!"
 
 #: libraries/mult_submits.lib.php:324
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Datenbank kopieren nach"
+msgstr "Tabellen kopieren nach"
 
 #: libraries/mult_submits.lib.php:353
 msgid "Replace table prefix:"
@@ -15208,10 +15207,9 @@ msgid "Check tables having overhead"
 msgstr "Tabellen mit Überhang auswählen"
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 #| msgid "Copy"
 msgid "Copy table"
-msgstr "Kopieren"
+msgstr "Tabelle kopieren"
 
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
