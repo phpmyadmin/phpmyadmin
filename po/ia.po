@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-27 07:41-0500\n"
-"PO-Revision-Date: 2015-12-17 12:05+0000\n"
+"PO-Revision-Date: 2015-12-27 23:10+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5654,6 +5654,8 @@ msgstr "Monstra le commentos de columna"
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Si commentos de columna deberea esser monstrate in vista de structura de "
+"tabella"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -9110,10 +9112,9 @@ msgid "Success!"
 msgstr "Successo!"
 
 #: libraries/mult_submits.lib.php:324
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Copia base de datos in"
+msgstr "Copia tabellas in"
 
 #: libraries/mult_submits.lib.php:353
 msgid "Replace table prefix:"
@@ -14750,10 +14751,9 @@ msgid "Check tables having overhead"
 msgstr ""
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 #| msgid "Copy Salt"
 msgid "Copy table"
-msgstr "Copia Salt"
+msgstr "Copia tabella"
 
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
