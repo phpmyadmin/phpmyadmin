@@ -7,6 +7,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Table;
 
 /**
  * Gets url params
@@ -98,6 +99,7 @@ function PMA_buildOrExecuteQueryForMulti(
 
     $selected_cnt   = count($selected);
     $deletes = false;
+    $copy_tbl =false;
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
@@ -268,11 +270,16 @@ function PMA_buildOrExecuteQueryForMulti(
             $run_parts = true;
             break;
 
+        case 'copy_tbl':
+            $run_parts = true;
+            $copy_tbl = true;
+            Table::moveCopy($db, $selected[$i], $_POST['target_db'], $selected[$i], 'data', false, 'one_table');
+            break;
         } // end switch
 
         // All "DROP TABLE", "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
         // statements will be run at once below
-        if ($run_parts) {
+        if ($run_parts && !$copy_tbl) {
             $sql_query .= $a_query . ';' . "\n";
             if ($query_type != 'drop_db') {
                 $GLOBALS['dbi']->selectDb($db);
@@ -299,6 +306,32 @@ function PMA_buildOrExecuteQueryForMulti(
         $result, $rebuild_database_list, $reload,
         $run_parts, $execute_query_later, $sql_query, $sql_query_views
     );
+}
+
+/**
+ * Gets HTML for copy tables form
+ *
+ * @param string $action      action type
+ * @param array  $_url_params URL params
+ *
+ * @return string
+ */
+function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
+{
+    $html = '<form action="' . $action . '" method="post">';
+    $html .= PMA_URL_getHiddenInputs($_url_params);
+    $html .= '<fieldset class = "input">';
+    $html .= '<legend>' . __('Copy tables') . '</legend>';
+    $html .= '<select class="halfWidth" name="target_db" >'
+        . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
+        . '</select>';
+    $html .= '</fieldset>';
+    $html .= '<fieldset class = "tblFooters">';
+    $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+    $html .= '<input type="submit" value="' . __('Copy') . '" />';
+    $html .= '</fieldset>';
+    $html .= '</form>';
+    return $html;
 }
 
 /**

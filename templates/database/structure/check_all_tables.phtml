@@ -7,6 +7,7 @@
     <?php endif; ?>
     <select name="submit_mult" class="autosubmit" style="margin: 0 3em 0 3em;">
         <option value="<?php echo __('With selected:'); ?>" selected="selected"><?php echo __('With selected:'); ?></option>
+        <option value="copy_tbl"><?php echo __('Copy table')?></option>
         <option value="show_create" ><?php echo __('Show create'); ?></option>
         <option value="export" ><?php echo __('Export'); ?></option>
         <?php if (!$db_is_system_schema
