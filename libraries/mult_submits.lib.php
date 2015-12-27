@@ -321,7 +321,7 @@ function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
     $html = '<form action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
-    $html .= '<legend>' . __('Copy tables') . '</legend>';
+    $html .= '<legend>' . __('Copy tables to') . '</legend>';
     $html .= '<select class="halfWidth" name="target_db" >'
         . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
         . '</select>';
