@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-12-16 08:05+0100\n"
+"POT-Creation-Date: 2015-12-27 07:41-0500\n"
 "PO-Revision-Date: 2015-11-04 16:31+0000\n"
 "Last-Translator: Kelvin Lee <leekalok804@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
@@ -72,8 +72,8 @@ msgid "Column"
 msgstr "欄位"
 
 #: db_datadict.php:114 libraries/Index.php:694
-#: libraries/central_columns.lib.php:694 libraries/central_columns.lib.php:1380
-#: libraries/insert_edit.lib.php:249
+#: libraries/central_columns.lib.php:694
+#: libraries/central_columns.lib.php:1380 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.php:291
 #: libraries/plugins/export/ExportHtmlword.php:387
 #: libraries/plugins/export/ExportLatex.php:516
@@ -88,7 +88,7 @@ msgstr "欄位"
 #: libraries/rte/rte_routines.lib.php:895
 #: libraries/rte/rte_routines.lib.php:926
 #: libraries/rte/rte_routines.lib.php:1589
-#: libraries/server_privileges.lib.php:2607 libraries/tracking.lib.php:893
+#: libraries/server_privileges.lib.php:2672 libraries/tracking.lib.php:893
 #: libraries/tracking.lib.php:987
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -98,8 +98,8 @@ msgid "Type"
 msgstr "型態"
 
 #: db_datadict.php:115 libraries/Index.php:700
-#: libraries/central_columns.lib.php:705 libraries/central_columns.lib.php:1381
-#: libraries/insert_edit.lib.php:1579
+#: libraries/central_columns.lib.php:705
+#: libraries/central_columns.lib.php:1381 libraries/insert_edit.lib.php:1579
 #: libraries/plugins/export/ExportHtmlword.php:294
 #: libraries/plugins/export/ExportHtmlword.php:390
 #: libraries/plugins/export/ExportLatex.php:517
@@ -173,20 +173,20 @@ msgstr "主鍵"
 #: db_datadict.php:165 js/messages.php:371 libraries/Index.php:565
 #: libraries/Index.php:604 libraries/IndexColumn.php:141
 #: libraries/central_columns.lib.php:963
-#: libraries/config/FormDisplay.tpl.php:280 libraries/mult_submits.lib.php:405
-#: libraries/mult_submits.lib.php:419
+#: libraries/config/FormDisplay.tpl.php:280 libraries/mult_submits.lib.php:438
+#: libraries/mult_submits.lib.php:452
 #: libraries/plugins/export/ExportHtmlword.php:654
 #: libraries/plugins/export/ExportLatex.php:592
 #: libraries/plugins/export/ExportOdt.php:787
 #: libraries/plugins/export/ExportTexytext.php:606
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:704
-#: libraries/server_privileges.lib.php:2784
-#: libraries/server_privileges.lib.php:2972
-#: libraries/server_privileges.lib.php:2992
-#: libraries/server_privileges.lib.php:3629
-#: libraries/server_privileges.lib.php:3652 libraries/tracking.lib.php:946
+#: libraries/server_privileges.lib.php:2852
+#: libraries/server_privileges.lib.php:3040
+#: libraries/server_privileges.lib.php:3060
+#: libraries/server_privileges.lib.php:3697
+#: libraries/server_privileges.lib.php:3720 libraries/tracking.lib.php:946
 #: libraries/tracking.lib.php:1025 libraries/tracking.lib.php:1030
-#: prefs_manage.php:143 templates/prefs_autoload.phtml:15
+#: prefs_manage.php:142 templates/prefs_autoload.phtml:15
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -205,21 +205,22 @@ msgstr "否"
 #: libraries/controllers/table/TableStructureController.php:1462
 #: libraries/controllers/table/TableStructureController.php:1467
 #: libraries/controllers/table/TableStructureController.php:1472
-#: libraries/mult_submits.inc.php:86 libraries/mult_submits.inc.php:200
-#: libraries/mult_submits.lib.php:341 libraries/mult_submits.lib.php:374
-#: libraries/mult_submits.lib.php:403 libraries/mult_submits.lib.php:417
+#: libraries/mult_submits.inc.php:85 libraries/mult_submits.inc.php:213
+#: libraries/mult_submits.lib.php:330 libraries/mult_submits.lib.php:374
+#: libraries/mult_submits.lib.php:407 libraries/mult_submits.lib.php:436
+#: libraries/mult_submits.lib.php:450
 #: libraries/plugins/export/ExportHtmlword.php:655
 #: libraries/plugins/export/ExportLatex.php:592
 #: libraries/plugins/export/ExportOdt.php:788
 #: libraries/plugins/export/ExportTexytext.php:606
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:705
-#: libraries/server_privileges.lib.php:2784
-#: libraries/server_privileges.lib.php:2969
-#: libraries/server_privileges.lib.php:2990
-#: libraries/server_privileges.lib.php:3626
-#: libraries/server_privileges.lib.php:3652 libraries/tracking.lib.php:946
+#: libraries/server_privileges.lib.php:2852
+#: libraries/server_privileges.lib.php:3037
+#: libraries/server_privileges.lib.php:3058
+#: libraries/server_privileges.lib.php:3694
+#: libraries/server_privileges.lib.php:3720 libraries/tracking.lib.php:946
 #: libraries/tracking.lib.php:1023 libraries/tracking.lib.php:1028
-#: prefs_manage.php:141 templates/prefs_autoload.phtml:14
+#: prefs_manage.php:140 templates/prefs_autoload.phtml:14
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -231,7 +232,7 @@ msgstr "是"
 msgid "View dump (schema) of database"
 msgstr "檢視資料庫結構的匯出資料"
 
-#: db_export.php:51 db_tracking.php:102 export.php:384 libraries/DbQbe.php:324
+#: db_export.php:51 db_tracking.php:102 export.php:381 libraries/DbQbe.php:324
 #: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:922
 msgid "No tables found in database."
@@ -248,8 +249,8 @@ msgid "Tables"
 msgstr "資料表"
 
 #: db_export.php:66 libraries/Menu.php:320 libraries/Menu.php:427
-#: libraries/Util.php:3404 libraries/Util.php:3414 libraries/Util.php:3420
-#: libraries/Util.php:3700 libraries/Util.php:4337 libraries/Util.php:4354
+#: libraries/Util.php:3402 libraries/Util.php:3412 libraries/Util.php:3418
+#: libraries/Util.php:3698 libraries/Util.php:4335 libraries/Util.php:4352
 #: libraries/central_columns.lib.php:725 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:321
@@ -257,7 +258,7 @@ msgstr "資料表"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1283 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1303 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:52
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1239 libraries/tracking.lib.php:887
@@ -284,21 +285,21 @@ msgstr "資料"
 msgid "Select all"
 msgstr "選擇全部"
 
-#: db_operations.php:55 tbl_create.php:25
+#: db_operations.php:52 tbl_create.php:21
 msgid "The database name is empty!"
 msgstr "請填寫資料庫名稱！"
 
-#: db_operations.php:143
+#: db_operations.php:140
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "資料庫 %1$s 已重新命名為 %2$s。"
 
-#: db_operations.php:155
+#: db_operations.php:152
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "資料庫 %1$s 已複製爲 %2$s。"
 
-#: db_operations.php:285
+#: db_operations.php:282
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -362,99 +363,99 @@ msgstr "若您遇到任何問題請手動回報錯誤報告給開發團隊。"
 msgid "You may want to refresh the page."
 msgstr "您需要重新整理頁面。"
 
-#: export.php:189 schema_export.php:60
+#: export.php:188 schema_export.php:60
 msgid "Bad type!"
 msgstr "型態錯誤!"
 
-#: export.php:278
+#: export.php:275
 msgid "Bad parameters!"
 msgstr "參數錯誤!"
 
-#: file_echo.php:24
+#: file_echo.php:22
 msgid "Invalid export type"
 msgstr "無效的匯出類型"
 
-#: gis_data_editor.php:117
+#: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" 欄位的值"
 
-#: gis_data_editor.php:145
+#: gis_data_editor.php:141
 #: templates/table/gis_visualization/gis_visualization.phtml:37
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "使用 OpenStreetMaps 做為基礎圖層"
 
 #. l10n: Spatial Reference System Identifier
-#: gis_data_editor.php:167
+#: gis_data_editor.php:163
 msgid "SRID:"
 msgstr "空間參考識別碼(SRID)："
 
-#: gis_data_editor.php:190
+#: gis_data_editor.php:186
 #, php-format
 msgid "Geometry %d:"
 msgstr "幾何體 %d:"
 
-#: gis_data_editor.php:212
+#: gis_data_editor.php:208
 msgid "Point:"
 msgstr "點:"
 
-#: gis_data_editor.php:213 gis_data_editor.php:240 gis_data_editor.php:296
-#: gis_data_editor.php:369 js/messages.php:505
+#: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
+#: gis_data_editor.php:365 js/messages.php:505
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:216 gis_data_editor.php:244 gis_data_editor.php:300
-#: gis_data_editor.php:375 js/messages.php:506
+#: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
+#: gis_data_editor.php:371 js/messages.php:506
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:238 gis_data_editor.php:294 gis_data_editor.php:367
+#: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
 #: js/messages.php:508
 #, php-format
 msgid "Point %d"
 msgstr "點 %d"
 
-#: gis_data_editor.php:251 gis_data_editor.php:307 gis_data_editor.php:385
+#: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
 #: js/messages.php:514
 msgid "Add a point"
 msgstr "新增一個點"
 
-#: gis_data_editor.php:268
+#: gis_data_editor.php:264
 #, php-format
 msgid "Linestring %d:"
 msgstr "一維折線 %d:"
 
-#: gis_data_editor.php:271 gis_data_editor.php:348
+#: gis_data_editor.php:267 gis_data_editor.php:344
 msgid "Outer ring:"
 msgstr "外環:"
 
-#: gis_data_editor.php:273 gis_data_editor.php:350
+#: gis_data_editor.php:269 gis_data_editor.php:346
 #, php-format
 msgid "Inner ring %d:"
 msgstr "內環 %d:"
 
-#: gis_data_editor.php:310
+#: gis_data_editor.php:306
 msgid "Add a linestring"
 msgstr "新增一維折線"
 
-#: gis_data_editor.php:311 gis_data_editor.php:390 js/messages.php:515
+#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:515
 msgid "Add an inner ring"
 msgstr "新增內環"
 
-#: gis_data_editor.php:332
+#: gis_data_editor.php:328
 #, php-format
 msgid "Polygon %d:"
 msgstr "多邊形 %d:"
 
-#: gis_data_editor.php:396
+#: gis_data_editor.php:392
 msgid "Add a polygon"
 msgstr "新增多邊形"
 
-#: gis_data_editor.php:402
+#: gis_data_editor.php:398
 msgid "Add geometry"
 msgstr "新增幾何形"
 
-#: gis_data_editor.php:408 js/messages.php:346 libraries/DbSearch.php:462
+#: gis_data_editor.php:404 js/messages.php:346 libraries/DbSearch.php:462
 #: libraries/DisplayResults.php:1790 libraries/browse_foreigners.lib.php:139
 #: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:400 libraries/display_export.lib.php:406
@@ -475,12 +476,12 @@ msgstr "新增幾何形"
 #: libraries/rte/rte_triggers.lib.php:398 libraries/server_bin_log.lib.php:59
 #: libraries/server_privileges.lib.php:705
 #: libraries/server_privileges.lib.php:2344
-#: libraries/server_privileges.lib.php:3115
-#: libraries/server_privileges.lib.php:3733
+#: libraries/server_privileges.lib.php:3183
+#: libraries/server_privileges.lib.php:3801
 #: libraries/server_user_groups.lib.php:286
 #: libraries/sql_query_form.lib.php:370 libraries/sql_query_form.lib.php:430
 #: libraries/tracking.lib.php:546 libraries/tracking.lib.php:666
-#: prefs_manage.php:280 prefs_manage.php:358
+#: prefs_manage.php:276 prefs_manage.php:354
 #: templates/columns_definitions/column_definitions_form.phtml:64
 #: templates/database/create_table.phtml:21 templates/header_location.phtml:28
 #: templates/privileges/privileges_summary.phtml:66
@@ -492,45 +493,45 @@ msgstr "新增幾何形"
 msgid "Go"
 msgstr "執行"
 
-#: gis_data_editor.php:411
+#: gis_data_editor.php:407
 msgid "Output"
 msgstr "輸出"
 
-#: gis_data_editor.php:414
+#: gis_data_editor.php:410
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
 "從 \"函數\" 的欄位中選擇 \"GeomFromText\"，然後將下方的字串貼到 \"值\" 欄位。"
 
-#: import.php:55
+#: import.php:54
 msgid "Succeeded"
 msgstr "已成功"
 
-#: import.php:59 js/messages.php:589
+#: import.php:58 js/messages.php:589
 msgid "Failed"
 msgstr "已失敗"
 
-#: import.php:63
+#: import.php:62
 msgid "Incomplete params"
 msgstr "參數不完整"
 
-#: import.php:183
+#: import.php:182
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "您上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
 
-#: import.php:361 import.php:666
+#: import.php:358 import.php:663
 msgid "Showing bookmark"
 msgstr "顯示書籤"
 
-#: import.php:377 import.php:662
+#: import.php:374 import.php:659
 msgid "The bookmark has been deleted."
 msgstr "書籤已被刪除。"
 
-#: import.php:475
+#: import.php:472
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -539,11 +540,11 @@ msgstr ""
 "已上傳的檔案無法被移出暫存區，因為伺服器上的 open_basedir 設定被啟用，但卻沒"
 "有提供資料夾 %s 的存取權限。"
 
-#: import.php:491 import.php:568 libraries/File.php:424 libraries/File.php:520
+#: import.php:488 import.php:565 libraries/File.php:424 libraries/File.php:520
 msgid "File could not be read!"
 msgstr "無法讀取檔案！"
 
-#: import.php:502 import.php:517 import.php:542 import.php:557
+#: import.php:499 import.php:514 import.php:539 import.php:554
 #: libraries/File.php:587
 #, php-format
 msgid ""
@@ -553,7 +554,7 @@ msgstr ""
 "您試圖載入未支援的壓縮檔(%s)。可能是檔案格式尚未被支援或該檔案在您的設定檔中"
 "被停用。"
 
-#: import.php:575
+#: import.php:572
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -562,21 +563,21 @@ msgstr ""
 "沒有接收到要匯入的資料。 可能是檔案名稱沒有被送出或是檔案大小超出 PHP 限制。 "
 "請參考 [doc@faq1-16]FAQ 1.16[/doc]。"
 
-#: import.php:627 libraries/display_import.lib.php:663
+#: import.php:624 libraries/display_import.lib.php:663
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入外掛程式，請檢查您的安裝！"
 
-#: import.php:669 libraries/sql.lib.php:750 libraries/sql.lib.php:1523
+#: import.php:666 libraries/sql.lib.php:781 libraries/sql.lib.php:1556
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
 
-#: import.php:678
+#: import.php:675
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "匯入成功完成，共執行了 %d 個查詢指令。"
 
-#: import.php:706
+#: import.php:703
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -585,7 +586,7 @@ msgstr ""
 "Script 執行已逾時，若要繼續完成匯入，請%s重新上傳原來的檔案%s，匯入動作會繼續"
 "執行。"
 
-#: import.php:716
+#: import.php:713
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -598,7 +599,7 @@ msgid "Could not load the progress of the import."
 msgstr "無法讀取匯入的進度。"
 
 #: import_status.php:116 js/messages.php:445 js/messages.php:597
-#: libraries/Util.php:797 libraries/export.lib.php:518
+#: libraries/Util.php:796 libraries/export.lib.php:518
 #: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:292
 msgid "Back"
 msgstr "返回"
@@ -635,7 +636,7 @@ msgstr "伺服器連線編碼與排序"
 msgid "Appearance settings"
 msgstr "外觀設定"
 
-#: index.php:262 prefs_manage.php:288
+#: index.php:262 prefs_manage.php:284
 msgid "More settings"
 msgstr "更多設定"
 
@@ -721,7 +722,7 @@ msgstr "技術支援"
 msgid "List of changes"
 msgstr "版本沿革"
 
-#: index.php:438 libraries/server_plugins.lib.php:79
+#: index.php:438 templates/server/plugins/section.phtml:12
 msgid "License"
 msgstr "授權"
 
@@ -792,7 +793,7 @@ msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "或者前往任一個資料庫的 '操作' 頁籤設定。"
 
-#: index.php:607
+#: index.php:604
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -801,14 +802,14 @@ msgstr ""
 "您的 PHP MySQL 函式庫版本 %s 與您的 MySQL 伺服器版本 %s 不同，這可能造成一些"
 "無法預期的問題。"
 
-#: index.php:635
+#: index.php:632
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "伺服器上執行了 Suhosin。請參考 %s說明文件%s 進一步了解可能造成的問題。"
 
-#: js/messages.php:36 libraries/import.lib.php:125 sql.php:161
+#: js/messages.php:36 libraries/import.lib.php:208 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "刪除資料庫 \"DROP DATABASE\" 指令已經被停用。"
 
@@ -821,7 +822,7 @@ msgstr "確認"
 msgid "Do you really want to execute \"%s\"?"
 msgstr "您確定要執行 \"%s\"？"
 
-#: js/messages.php:45 libraries/mult_submits.lib.php:399
+#: js/messages.php:45 libraries/mult_submits.lib.php:432
 msgid "You are about to DESTROY a complete database!"
 msgstr "您正要刪除(DESTROY)一個完整的資料庫！"
 
@@ -969,7 +970,8 @@ msgid "Save & close"
 msgstr "儲存並關閉"
 
 #: js/messages.php:109 libraries/config/FormDisplay.tpl.php:424
-#: libraries/insert_edit.lib.php:1553 prefs_manage.php:364 prefs_manage.php:375
+#: libraries/insert_edit.lib.php:1553 prefs_manage.php:360
+#: prefs_manage.php:371
 msgid "Reset"
 msgstr "重新設定"
 
@@ -1041,7 +1043,7 @@ msgstr "模擬查詢"
 msgid "Matched rows:"
 msgstr "符合條件的列數："
 
-#: js/messages.php:134 libraries/Util.php:698
+#: js/messages.php:134 libraries/Util.php:697
 msgid "SQL query:"
 msgstr "SQL 查詢："
 
@@ -1100,12 +1102,12 @@ msgid "Other"
 msgstr "其他"
 
 #. l10n: Thousands separator
-#: js/messages.php:157 libraries/Util.php:1493
+#: js/messages.php:157 libraries/Util.php:1491
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:159 libraries/Util.php:1495
+#: js/messages.php:159 libraries/Util.php:1493
 msgid "."
 msgstr "."
 
@@ -1209,40 +1211,40 @@ msgid "Processes"
 msgstr "程序"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:199 libraries/Util.php:1437
+#: js/messages.php:199 libraries/Util.php:1435
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:200 libraries/Util.php:1439
+#: js/messages.php:200 libraries/Util.php:1437
 #: libraries/server_status_monitor.lib.php:213
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:201 libraries/Util.php:1441
+#: js/messages.php:201 libraries/Util.php:1439
 #: libraries/display_export.lib.php:843
 #: libraries/server_status_monitor.lib.php:214
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:202 libraries/Util.php:1443
+#: js/messages.php:202 libraries/Util.php:1441
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:203 libraries/Util.php:1445
+#: js/messages.php:203 libraries/Util.php:1443
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:204 libraries/Util.php:1447
+#: js/messages.php:204 libraries/Util.php:1445
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:205 libraries/Util.php:1449
+#: js/messages.php:205 libraries/Util.php:1447
 msgid "EiB"
 msgstr "EB"
 
@@ -1260,7 +1262,7 @@ msgstr "查詢次數"
 msgid "Traffic"
 msgstr "流量"
 
-#: js/messages.php:211 libraries/Menu.php:582 libraries/Util.php:4328
+#: js/messages.php:211 libraries/Menu.php:582 libraries/Util.php:4326
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "設定"
@@ -1470,7 +1472,7 @@ msgstr "分析中…"
 msgid "Explain output"
 msgstr "輸出說明"
 
-#: js/messages.php:288 libraries/Menu.php:548 libraries/Util.php:4324
+#: js/messages.php:288 libraries/Menu.php:548 libraries/Util.php:4322
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:396
 #: libraries/rte/rte_list.lib.php:104
 #: libraries/server_status_processes.lib.php:91 libraries/tracking.lib.php:284
@@ -1568,10 +1570,10 @@ msgid ""
 msgstr "無法使用匯入的設定檔建立圖表，將重設為預設的設定值…"
 
 #: js/messages.php:322 libraries/Menu.php:355 libraries/Menu.php:457
-#: libraries/Menu.php:578 libraries/Util.php:4327 libraries/Util.php:4342
-#: libraries/Util.php:4359 libraries/config/messages.inc.php:263
+#: libraries/Menu.php:578 libraries/Util.php:4325 libraries/Util.php:4340
+#: libraries/Util.php:4357 libraries/config/messages.inc.php:263
 #: libraries/display_import.lib.php:103
-#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:241
+#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:237
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "匯入"
@@ -1687,7 +1689,7 @@ msgstr "錯誤訊息: %s"
 
 #: js/messages.php:361
 #: libraries/controllers/server/ServerDatabasesController.php:186
-#: libraries/db_common.inc.php:73 libraries/db_table_exists.lib.php:33
+#: libraries/db_common.inc.php:69 libraries/db_table_exists.lib.php:30
 msgid "No databases selected."
 msgstr "尚未選擇任何資料庫。"
 
@@ -1725,7 +1727,7 @@ msgstr "複製資料庫中"
 msgid "Changing charset"
 msgstr "更改字元編碼"
 
-#: js/messages.php:374 libraries/Util.php:3286
+#: js/messages.php:374 libraries/Util.php:3284
 msgid "Enable foreign key checks"
 msgstr "開啟外鍵(Foreign Key)檢查"
 
@@ -1759,17 +1761,17 @@ msgstr "Stored Function 的定義中必須要有 RETURN 敘述句！"
 
 #: js/messages.php:389 libraries/DisplayResults.php:4854
 #: libraries/DisplayResults.php:5137 libraries/Menu.php:347
-#: libraries/Menu.php:448 libraries/Menu.php:574 libraries/Util.php:3707
-#: libraries/Util.php:3708 libraries/Util.php:4326 libraries/Util.php:4341
-#: libraries/Util.php:4358 libraries/config/messages.inc.php:257
+#: libraries/Menu.php:448 libraries/Menu.php:574 libraries/Util.php:3705
+#: libraries/Util.php:3706 libraries/Util.php:4324 libraries/Util.php:4339
+#: libraries/Util.php:4356 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:168 libraries/rte/rte_list.lib.php:149
-#: libraries/server_privileges.lib.php:2449
-#: libraries/server_privileges.lib.php:2528
-#: libraries/server_privileges.lib.php:2874
-#: libraries/server_privileges.lib.php:3541
-#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:306
+#: libraries/server_privileges.lib.php:2514
+#: libraries/server_privileges.lib.php:2593
+#: libraries/server_privileges.lib.php:2942
+#: libraries/server_privileges.lib.php:3609
+#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:302
 #: setup/frames/menu.inc.php:27
-#: templates/database/structure/check_all_tables.phtml:11
+#: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
 msgstr "匯出"
 
@@ -1810,9 +1812,10 @@ msgstr "顯示查詢框"
 
 #: js/messages.php:406 libraries/Console.php:88 libraries/Console.php:217
 #: libraries/DisplayResults.php:3472 libraries/DisplayResults.php:4838
-#: libraries/Index.php:721 libraries/Util.php:727 libraries/Util.php:1238
-#: libraries/Util.php:3705 libraries/Util.php:3706
-#: libraries/central_columns.lib.php:848 libraries/central_columns.lib.php:1191
+#: libraries/Index.php:721 libraries/Util.php:726 libraries/Util.php:1236
+#: libraries/Util.php:3703 libraries/Util.php:3704
+#: libraries/central_columns.lib.php:848
+#: libraries/central_columns.lib.php:1191
 #: libraries/config/messages.inc.php:898
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:183
 #: templates/server/variables/variable_row.phtml:4
@@ -1822,8 +1825,8 @@ msgstr "編輯"
 
 #: js/messages.php:407 libraries/Console.php:89 libraries/DbSearch.php:360
 #: libraries/DisplayResults.php:3541 libraries/DisplayResults.php:4822
-#: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1196
-#: libraries/display_export.lib.php:223
+#: libraries/central_columns.lib.php:850
+#: libraries/central_columns.lib.php:1196 libraries/display_export.lib.php:223
 #: libraries/server_user_groups.lib.php:127
 #: libraries/sql_query_form.lib.php:417 libraries/tracking.lib.php:490
 #: setup/frames/index.inc.php:187 setup/frames/index.inc.php:295
@@ -2074,13 +2077,13 @@ msgid "Data point content"
 msgstr "資料點內容"
 
 #: js/messages.php:503 js/messages.php:657 js/messages.php:674
-#: libraries/ErrorHandler.php:340 libraries/insert_edit.lib.php:2575
+#: libraries/ErrorHandler.php:342 libraries/insert_edit.lib.php:2575
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:194
 msgid "Ignore"
 msgstr "略過"
 
 #: js/messages.php:504 libraries/DisplayResults.php:3475
-#: libraries/DisplayResults.php:4843
+#: libraries/DisplayResults.php:4843 libraries/mult_submits.lib.php:331
 msgid "Copy"
 msgstr "複製"
 
@@ -2206,8 +2209,8 @@ msgstr "新增欄位 \"%s\" 的選項。"
 msgid "%d object(s) created."
 msgstr "已建立 %d 個物件。"
 
-#: js/messages.php:553 libraries/mult_submits.lib.php:342
-#: libraries/mult_submits.lib.php:375 libraries/sql_query_form.lib.php:409
+#: js/messages.php:553 libraries/mult_submits.lib.php:375
+#: libraries/mult_submits.lib.php:408 libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "送出"
 
@@ -2254,7 +2257,7 @@ msgstr "點選下拉箭頭<br />以切換欄位的顯示程度。"
 #: js/messages.php:573 libraries/DisplayResults.php:1026
 #: libraries/browse_foreigners.lib.php:287
 #: libraries/browse_foreigners.lib.php:340
-#: libraries/server_privileges.lib.php:3800
+#: libraries/server_privileges.lib.php:3868
 msgid "Show all"
 msgstr "全部顯示"
 
@@ -2305,7 +2308,7 @@ msgid "Select database first"
 msgstr "請先選擇資料庫"
 
 #: js/messages.php:596 libraries/DisplayResults.php:5029
-#: libraries/Util.php:4219
+#: libraries/Util.php:4217
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2434,7 +2437,7 @@ msgstr "已偵測到伺服器上發生部份錯誤！"
 msgid "Please look at the bottom of this window."
 msgstr "請瀏覽此視窗的底部。"
 
-#: js/messages.php:677 libraries/ErrorHandler.php:344
+#: js/messages.php:677 libraries/ErrorHandler.php:346
 msgid "Ignore All"
 msgstr "全部略過"
 
@@ -2552,63 +2555,63 @@ msgid "December"
 msgstr "十二月"
 
 #. l10n: Short month name
-#: js/messages.php:769 libraries/Util.php:1659
+#: js/messages.php:769 libraries/Util.php:1657
 msgid "Jan"
 msgstr "一月"
 
 #. l10n: Short month name
-#: js/messages.php:771 libraries/Util.php:1661
+#: js/messages.php:771 libraries/Util.php:1659
 msgid "Feb"
 msgstr "二月"
 
 #. l10n: Short month name
-#: js/messages.php:773 libraries/Util.php:1663
+#: js/messages.php:773 libraries/Util.php:1661
 msgid "Mar"
 msgstr "三月"
 
 #. l10n: Short month name
-#: js/messages.php:775 libraries/Util.php:1665
+#: js/messages.php:775 libraries/Util.php:1663
 msgid "Apr"
 msgstr "四月"
 
 #. l10n: Short month name
-#: js/messages.php:777 libraries/Util.php:1667
+#: js/messages.php:777 libraries/Util.php:1665
 msgctxt "Short month name"
 msgid "May"
 msgstr "五月"
 
 #. l10n: Short month name
-#: js/messages.php:779 libraries/Util.php:1669
+#: js/messages.php:779 libraries/Util.php:1667
 msgid "Jun"
 msgstr "六月"
 
 #. l10n: Short month name
-#: js/messages.php:781 libraries/Util.php:1671
+#: js/messages.php:781 libraries/Util.php:1669
 msgid "Jul"
 msgstr "七月"
 
 #. l10n: Short month name
-#: js/messages.php:783 libraries/Util.php:1673
+#: js/messages.php:783 libraries/Util.php:1671
 msgid "Aug"
 msgstr "八月"
 
 #. l10n: Short month name
-#: js/messages.php:785 libraries/Util.php:1675
+#: js/messages.php:785 libraries/Util.php:1673
 msgid "Sep"
 msgstr "九月"
 
 #. l10n: Short month name
-#: js/messages.php:787 libraries/Util.php:1677
+#: js/messages.php:787 libraries/Util.php:1675
 msgid "Oct"
 msgstr "十月"
 
 #. l10n: Short month name
-#: js/messages.php:789 libraries/Util.php:1679
+#: js/messages.php:789 libraries/Util.php:1677
 msgid "Nov"
 msgstr "十一月"
 
 #. l10n: Short month name
-#: js/messages.php:791 libraries/Util.php:1681
+#: js/messages.php:791 libraries/Util.php:1679
 msgid "Dec"
 msgstr "十二月"
 
@@ -2646,32 +2649,32 @@ msgid "Sun"
 msgstr "週日"
 
 #. l10n: Short week day name
-#: js/messages.php:812 libraries/Util.php:1686
+#: js/messages.php:812 libraries/Util.php:1684
 msgid "Mon"
 msgstr "週一"
 
 #. l10n: Short week day name
-#: js/messages.php:814 libraries/Util.php:1688
+#: js/messages.php:814 libraries/Util.php:1686
 msgid "Tue"
 msgstr "週二"
 
 #. l10n: Short week day name
-#: js/messages.php:816 libraries/Util.php:1690
+#: js/messages.php:816 libraries/Util.php:1688
 msgid "Wed"
 msgstr "週三"
 
 #. l10n: Short week day name
-#: js/messages.php:818 libraries/Util.php:1692
+#: js/messages.php:818 libraries/Util.php:1690
 msgid "Thu"
 msgstr "週四"
 
 #. l10n: Short week day name
-#: js/messages.php:820 libraries/Util.php:1694
+#: js/messages.php:820 libraries/Util.php:1692
 msgid "Fri"
 msgstr "週五"
 
 #. l10n: Short week day name
-#: js/messages.php:822 libraries/Util.php:1696
+#: js/messages.php:822 libraries/Util.php:1694
 msgid "Sat"
 msgstr "週六"
 
@@ -2812,10 +2815,9 @@ msgstr "請輸入有效的日期或時間"
 msgid "Please enter a valid HEX input"
 msgstr "請輸入有效的 HEX 輸入值"
 
-#: js/messages.php:942 libraries/Message.php:200 libraries/Util.php:674
-#: libraries/core.lib.php:247 libraries/import.lib.php:168
-#: libraries/insert_edit.lib.php:1175 tbl_operations.php:226
-#: view_operations.php:64
+#: js/messages.php:942 libraries/Message.php:200 libraries/Util.php:673
+#: libraries/core.lib.php:245 libraries/import.lib.php:100
+#: libraries/insert_edit.lib.php:1175 view_operations.php:64
 msgid "Error"
 msgstr "錯誤"
 
@@ -2878,11 +2880,13 @@ msgstr "設定檔權限錯誤，檔案不應開啟所有寫入權！"
 msgid "Font size"
 msgstr "字體大小"
 
-#: libraries/Console.php:85 libraries/Console.php:213 libraries/Console.php:316
+#: libraries/Console.php:85 libraries/Console.php:213
+#: libraries/Console.php:316
 msgid "Collapse"
 msgstr "摺疊"
 
-#: libraries/Console.php:86 libraries/Console.php:215 libraries/Console.php:317
+#: libraries/Console.php:86 libraries/Console.php:215
+#: libraries/Console.php:317
 msgid "Expand"
 msgstr "展開"
 
@@ -2896,10 +2900,10 @@ msgstr "重新查詢"
 #: libraries/plugins/export/ExportOdt.php:192
 #: libraries/plugins/export/ExportTexytext.php:131
 #: libraries/server_privileges.lib.php:1264
-#: libraries/server_privileges.lib.php:3133
-#: libraries/server_privileges.lib.php:3304
-#: libraries/server_privileges.lib.php:3306
-#: libraries/server_privileges.lib.php:4567
+#: libraries/server_privileges.lib.php:3201
+#: libraries/server_privileges.lib.php:3372
+#: libraries/server_privileges.lib.php:3374
+#: libraries/server_privileges.lib.php:4638
 #: libraries/server_status_processes.lib.php:79
 #: templates/server/databases/table_header.phtml:8
 #: templates/table/relation/common_form.phtml:25
@@ -2943,7 +2947,7 @@ msgstr "於目前連線階段"
 msgid "Explain"
 msgstr "語句分析"
 
-#: libraries/Console.php:219 libraries/Util.php:1324 libraries/sql.lib.php:228
+#: libraries/Console.php:219 libraries/Util.php:1322 libraries/sql.lib.php:228
 msgid "Profiling"
 msgstr "效能分析"
 
@@ -2977,8 +2981,8 @@ msgid "History"
 msgstr "歷史記錄"
 
 #: libraries/Console.php:243 libraries/Console.php:373
-#: libraries/DisplayResults.php:1711 libraries/import.lib.php:1249
-#: libraries/import.lib.php:1284 libraries/plugins/export/ExportCodegen.php:84
+#: libraries/DisplayResults.php:1711 libraries/import.lib.php:1269
+#: libraries/import.lib.php:1304 libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
 #: libraries/plugins/export/ExportHtmlword.php:49
@@ -3070,7 +3074,7 @@ msgstr "隱藏追蹤"
 msgid "Count:"
 msgstr "次數："
 
-#: libraries/Console.php:339 libraries/Util.php:1294
+#: libraries/Console.php:339 libraries/Util.php:1292
 #: libraries/config/messages.inc.php:900
 #: libraries/server_status_processes.lib.php:227
 #: libraries/server_status_variables.lib.php:39
@@ -3299,9 +3303,9 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s 筆資料符合 <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:349 libraries/Menu.php:314 libraries/Util.php:3408
-#: libraries/Util.php:3418 libraries/Util.php:3694 libraries/Util.php:3695
-#: libraries/Util.php:4353 libraries/config.values.php:43
+#: libraries/DbSearch.php:349 libraries/Menu.php:314 libraries/Util.php:3406
+#: libraries/Util.php:3416 libraries/Util.php:3692 libraries/Util.php:3693
+#: libraries/Util.php:4351 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:5
@@ -3321,7 +3325,8 @@ msgstr "搜尋資料庫"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "要搜尋的文字或欄位值 (萬用字元:  \"% \"):"
 
-#: libraries/DbSearch.php:396 templates/table/search/search_and_replace.phtml:1
+#: libraries/DbSearch.php:396
+#: templates/table/search/search_and_replace.phtml:1
 msgid "Find:"
 msgstr "搜尋:"
 
@@ -3358,29 +3363,29 @@ msgstr "搜尋資料列"
 msgid "Search this table"
 msgstr "搜尋此資料表"
 
-#: libraries/DisplayResults.php:983 libraries/Util.php:2603
-#: libraries/Util.php:2606
+#: libraries/DisplayResults.php:983 libraries/Util.php:2601
+#: libraries/Util.php:2604
 msgctxt "First page"
 msgid "Begin"
 msgstr "最前頁"
 
-#: libraries/DisplayResults.php:986 libraries/Util.php:2604
-#: libraries/Util.php:2607 libraries/server_bin_log.lib.php:168
+#: libraries/DisplayResults.php:986 libraries/Util.php:2602
+#: libraries/Util.php:2605 libraries/server_bin_log.lib.php:168
 #: libraries/server_bin_log.lib.php:170
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "上一頁"
 
 # 這應該使用於選擇日期的小月曆
-#: libraries/DisplayResults.php:1052 libraries/Util.php:2635
-#: libraries/Util.php:2645 libraries/server_bin_log.lib.php:202
+#: libraries/DisplayResults.php:1052 libraries/Util.php:2633
+#: libraries/Util.php:2643 libraries/server_bin_log.lib.php:202
 #: libraries/server_bin_log.lib.php:204
 msgctxt "Next page"
 msgid "Next"
 msgstr "下一頁"
 
-#: libraries/DisplayResults.php:1082 libraries/Util.php:2636
-#: libraries/Util.php:2646
+#: libraries/DisplayResults.php:1082 libraries/Util.php:2634
+#: libraries/Util.php:2644
 msgctxt "Last page"
 msgid "End"
 msgstr "最末頁"
@@ -3451,7 +3456,7 @@ msgstr "可能為近似值，請參考 [doc@faq3-11]FAQ 3.11[/doc]。"
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:645
 #: libraries/rte/rte_routines.lib.php:1428 libraries/sql_query_form.lib.php:89
-#: tbl_operations.php:224 tbl_row_action.php:140 view_operations.php:63
+#: tbl_row_action.php:140 view_operations.php:63
 msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 語法已順利執行。"
 
@@ -3478,21 +3483,21 @@ msgstr "總計 %1$d 筆，目前查詢 %2$d 筆"
 msgid "%d total"
 msgstr "總計 %d 筆"
 
-#: libraries/DisplayResults.php:4725 libraries/sql.lib.php:1338
+#: libraries/DisplayResults.php:4725 libraries/sql.lib.php:1371
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢花費 %01.4f 秒。"
 
 #: libraries/DisplayResults.php:4827 libraries/DisplayResults.php:4834
-#: libraries/Util.php:4624 libraries/Util.php:4630
-#: libraries/mult_submits.inc.php:54
+#: libraries/Util.php:4622 libraries/Util.php:4628
+#: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
 msgid "With selected:"
 msgstr "已選擇項目:"
 
 #: libraries/DisplayResults.php:4831 libraries/DisplayResults.php:4833
-#: libraries/Util.php:4626 libraries/Util.php:4627
+#: libraries/Util.php:4624 libraries/Util.php:4625
 #: libraries/server_privileges.lib.php:1272
 #: libraries/server_privileges.lib.php:1273
 #: libraries/server_privileges.lib.php:1485
@@ -3518,19 +3523,19 @@ msgstr "顯示圖表"
 msgid "Visualize GIS data"
 msgstr "視覺化的 GIS 資料"
 
-#: libraries/DisplayResults.php:5354
+#: libraries/DisplayResults.php:5361
 msgid "Link not found!"
 msgstr "無此連結！"
 
-#: libraries/ErrorHandler.php:63
+#: libraries/ErrorHandler.php:65
 msgid "Too many error messages, some are not displayed."
 msgstr "錯誤訊息過多，有一些沒有被顯示出來。"
 
-#: libraries/ErrorHandler.php:329
+#: libraries/ErrorHandler.php:331
 msgid "Report"
 msgstr "報告"
 
-#: libraries/ErrorHandler.php:334 templates/error/report_form.phtml:28
+#: libraries/ErrorHandler.php:336 templates/error/report_form.phtml:28
 msgid "Automatically send report next time"
 msgstr "下次自動回傳錯誤報告"
 
@@ -3601,7 +3606,8 @@ msgstr "預覽列印"
 msgid "Click on the bar to scroll to top of page"
 msgstr "點選此列以回到頁面頂端"
 
-#: libraries/Header.php:764 libraries/plugins/auth/AuthenticationCookie.php:156
+#: libraries/Header.php:764
+#: libraries/plugins/auth/AuthenticationCookie.php:156
 msgid "Javascript must be enabled past this point!"
 msgstr "必須啟用 Javascript 才能登入！"
 
@@ -3620,8 +3626,8 @@ msgstr "索引"
 
 #: libraries/Index.php:691 libraries/central_columns.lib.php:684
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_list.lib.php:92
-#: libraries/rte/rte_list.lib.php:105 libraries/server_privileges.lib.php:2610
-#: libraries/server_privileges.lib.php:3527
+#: libraries/rte/rte_list.lib.php:105 libraries/server_privileges.lib.php:2675
+#: libraries/server_privileges.lib.php:3595
 #: libraries/server_user_groups.lib.php:79 libraries/tracking.lib.php:285
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1490
 #: libraries/tracking.lib.php:1640
@@ -3689,12 +3695,12 @@ msgstr "已刪除主鍵(Primary key)。"
 msgid "Index %s has been dropped."
 msgstr "已刪除索引 %s。"
 
-#: libraries/Index.php:755 libraries/Util.php:3701 libraries/Util.php:3702
+#: libraries/Index.php:755 libraries/Util.php:3699 libraries/Util.php:3700
 #: libraries/controllers/server/ServerDatabasesController.php:388
 #: libraries/controllers/table/TableStructureController.php:1195
 #: libraries/controllers/table/TableStructureController.php:1196
 #: libraries/operations.lib.php:1599 libraries/rte/rte_list.lib.php:153
-#: templates/database/structure/check_all_tables.phtml:16
+#: templates/database/structure/check_all_tables.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:75
 #: templates/table/structure/check_all_table_column.phtml:15
 #: templates/table/structure/display_structure.phtml:199
@@ -3724,20 +3730,20 @@ msgid "Server"
 msgstr "伺服器"
 
 #: libraries/Menu.php:246 libraries/navigation/nodes/NodeView.php:30
-#: libraries/tbl_info.inc.php:64
+#: libraries/tbl_info.inc.php:61
 #: templates/database/structure/structure_table_row.phtml:97
 #: templates/database/structure/structure_table_row.phtml:159
 msgid "View"
 msgstr "檢視表"
 
 #: libraries/Menu.php:246 libraries/config/messages.inc.php:938
-#: libraries/plugins/export/ExportXml.php:506 libraries/rte/rte_list.lib.php:90
-#: libraries/rte/rte_triggers.lib.php:333
+#: libraries/plugins/export/ExportXml.php:506
+#: libraries/rte/rte_list.lib.php:90 libraries/rte/rte_triggers.lib.php:333
 #: libraries/server_privileges.lib.php:1267
-#: libraries/server_privileges.lib.php:3151
-#: libraries/server_privileges.lib.php:3310
-#: libraries/server_privileges.lib.php:3312
-#: libraries/server_privileges.lib.php:4581 libraries/tracking.lib.php:1489
+#: libraries/server_privileges.lib.php:3219
+#: libraries/server_privileges.lib.php:3378
+#: libraries/server_privileges.lib.php:3380
+#: libraries/server_privileges.lib.php:4652 libraries/tracking.lib.php:1489
 #: libraries/tracking.lib.php:1635
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/common_form.phtml:26
@@ -3747,8 +3753,8 @@ msgid "Table"
 msgstr "資料表"
 
 #: libraries/Menu.php:328 libraries/Menu.php:431 libraries/Menu.php:544
-#: libraries/Util.php:3405 libraries/Util.php:3415 libraries/Util.php:3421
-#: libraries/Util.php:4323 libraries/Util.php:4338 libraries/Util.php:4355
+#: libraries/Util.php:3403 libraries/Util.php:3413 libraries/Util.php:3419
+#: libraries/Util.php:4321 libraries/Util.php:4336 libraries/Util.php:4353
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:326
@@ -3756,45 +3762,46 @@ msgstr "資料表"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:331 libraries/Menu.php:434 libraries/Util.php:3406
-#: libraries/Util.php:3416 libraries/Util.php:3422 libraries/Util.php:3696
-#: libraries/Util.php:3697 libraries/Util.php:4339 libraries/Util.php:4356
+#: libraries/Menu.php:331 libraries/Menu.php:434 libraries/Util.php:3404
+#: libraries/Util.php:3414 libraries/Util.php:3420 libraries/Util.php:3694
+#: libraries/Util.php:3695 libraries/Util.php:4337 libraries/Util.php:4354
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "搜尋"
 
-#: libraries/Menu.php:341 libraries/Util.php:3407 libraries/Util.php:3417
-#: libraries/Util.php:3698 libraries/Util.php:3699 libraries/Util.php:4357
+#: libraries/Menu.php:341 libraries/Util.php:3405 libraries/Util.php:3415
+#: libraries/Util.php:3696 libraries/Util.php:3697 libraries/Util.php:4355
 #: libraries/config.values.php:42 libraries/config.values.php:50
-#: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:304
+#: libraries/config.values.php:119
+#: libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:286 libraries/sql_query_form.lib.php:289
 msgid "Insert"
 msgstr "新增"
 
-#: libraries/Menu.php:365 libraries/Menu.php:469 libraries/Util.php:4344
-#: libraries/Util.php:4360 libraries/config.values.php:107
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2608
-#: libraries/server_privileges.lib.php:4456
+#: libraries/Menu.php:365 libraries/Menu.php:469 libraries/Util.php:4342
+#: libraries/Util.php:4358 libraries/config.values.php:107
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2673
+#: libraries/server_privileges.lib.php:4524
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "權限"
 
 #: libraries/Menu.php:374 libraries/Menu.php:382 libraries/Menu.php:461
-#: libraries/Util.php:3409 libraries/Util.php:3423 libraries/Util.php:4343
-#: libraries/Util.php:4361 libraries/config.values.php:113
+#: libraries/Util.php:3407 libraries/Util.php:3421 libraries/Util.php:4341
+#: libraries/Util.php:4359 libraries/config.values.php:113
 #: view_operations.php:93
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/Menu.php:387 libraries/Menu.php:491 libraries/Util.php:4348
-#: libraries/Util.php:4362 libraries/relation.lib.php:259
+#: libraries/Menu.php:387 libraries/Menu.php:491 libraries/Util.php:4346
+#: libraries/Util.php:4360 libraries/relation.lib.php:259
 msgid "Tracking"
 msgstr "追蹤"
 
-#: libraries/Menu.php:399 libraries/Menu.php:485 libraries/Util.php:4347
-#: libraries/Util.php:4363
+#: libraries/Menu.php:399 libraries/Menu.php:485 libraries/Util.php:4345
+#: libraries/Util.php:4361
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:576
 #: libraries/plugins/export/ExportOdt.php:708
@@ -3810,16 +3817,16 @@ msgstr "觸發器"
 msgid "Database seems to be empty!"
 msgstr "資料庫是空的！"
 
-#: libraries/Menu.php:441 libraries/Util.php:4340
+#: libraries/Menu.php:441 libraries/Util.php:4338
 msgid "Query"
 msgstr "查詢"
 
-#: libraries/Menu.php:474 libraries/Util.php:4345
+#: libraries/Menu.php:474 libraries/Util.php:4343
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "預存程序"
 
-#: libraries/Menu.php:479 libraries/Util.php:4346
+#: libraries/Menu.php:479 libraries/Util.php:4344
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:948
 #: libraries/plugins/export/ExportXml.php:104
@@ -3827,20 +3834,20 @@ msgstr "預存程序"
 msgid "Events"
 msgstr "事件"
 
-#: libraries/Menu.php:497 libraries/Util.php:4349
+#: libraries/Menu.php:497 libraries/Util.php:4347
 msgid "Designer"
 msgstr "設計器"
 
-#: libraries/Menu.php:506 libraries/Util.php:4350
-#: templates/database/structure/check_all_tables.phtml:33
+#: libraries/Menu.php:506 libraries/Util.php:4348
+#: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "中央欄位"
 
-#: libraries/Menu.php:540 libraries/Util.php:4322
+#: libraries/Menu.php:540 libraries/Util.php:4320
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:271
 #: libraries/config/messages.inc.php:346
 #: libraries/navigation/NavigationTree.php:1273
-#: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4567
+#: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4638
 msgid "Databases"
 msgstr "資料庫"
 
@@ -3849,34 +3856,34 @@ msgid "User accounts"
 msgstr "使用者帳號"
 
 #: libraries/Menu.php:591 libraries/ServerStatusData.php:119
-#: libraries/Util.php:4329 libraries/server_common.lib.php:33
+#: libraries/Util.php:4327 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "二進位記錄"
 
 #: libraries/Menu.php:597 libraries/ServerStatusData.php:124
-#: libraries/Util.php:4330 libraries/server_common.lib.php:39
+#: libraries/Util.php:4328 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "備援"
 
 #: libraries/Menu.php:602 libraries/ServerStatusData.php:191
-#: libraries/Util.php:4331 libraries/config.values.php:106
+#: libraries/Util.php:4329 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:422
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "變數"
 
-#: libraries/Menu.php:606 libraries/Util.php:4332
+#: libraries/Menu.php:606 libraries/Util.php:4330
 msgid "Charsets"
 msgstr "字元編碼"
 
-#: libraries/Menu.php:610 libraries/Util.php:4334
+#: libraries/Menu.php:610 libraries/Util.php:4332
 msgid "Engines"
 msgstr "引擎"
 
-#: libraries/Menu.php:614 libraries/Util.php:4333
+#: libraries/Menu.php:614 libraries/Util.php:4331
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "附加元件"
@@ -3899,7 +3906,7 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "新增了 %1$d 列。"
 
-#: libraries/PDF.php:71 libraries/Util.php:2592
+#: libraries/PDF.php:71 libraries/Util.php:2590
 #: libraries/browse_foreigners.lib.php:324
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:494
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:519
@@ -3948,27 +3955,27 @@ msgstr "我的最愛的資料表"
 msgid "Favorites"
 msgstr "我的最愛"
 
-#: libraries/SavedSearches.php:243
+#: libraries/SavedSearches.php:244
 msgid "Please provide a name for this bookmarked search."
 msgstr "請提供一個可以作為此查詢的書籤名稱。"
 
-#: libraries/SavedSearches.php:258
+#: libraries/SavedSearches.php:259
 msgid "Missing information to save the bookmarked search."
 msgstr "遺失用來儲存加入查詢書籤的資訊。"
 
-#: libraries/SavedSearches.php:280 libraries/SavedSearches.php:317
+#: libraries/SavedSearches.php:281 libraries/SavedSearches.php:318
 msgid "An entry with this name already exists."
 msgstr "項目 %s 己存在。"
 
-#: libraries/SavedSearches.php:344
+#: libraries/SavedSearches.php:345
 msgid "Missing information to delete the search."
 msgstr "遺失用來刪除查詢的資訊。"
 
-#: libraries/SavedSearches.php:372
+#: libraries/SavedSearches.php:373
 msgid "Missing information to load the search."
 msgstr "遺失用來讀取查詢的資訊。"
 
-#: libraries/SavedSearches.php:391
+#: libraries/SavedSearches.php:392
 msgid "Error while loading the search."
 msgstr "載入查詢時發生錯誤。"
 
@@ -4479,16 +4486,16 @@ msgstr "空間類型"
 msgid "Max: %s%s"
 msgstr "上限: %s %s"
 
-#: libraries/Util.php:681
+#: libraries/Util.php:680
 msgid "Static analysis:"
 msgstr "靜態分析："
 
-#: libraries/Util.php:684
+#: libraries/Util.php:683
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "分析過程中發生 %d 個錯誤。"
 
-#: libraries/Util.php:747 libraries/rte/rte_events.lib.php:113
+#: libraries/Util.php:746 libraries/rte/rte_events.lib.php:113
 #: libraries/rte/rte_events.lib.php:122 libraries/rte/rte_events.lib.php:153
 #: libraries/rte/rte_general.lib.php:39 libraries/rte/rte_routines.lib.php:228
 #: libraries/rte/rte_routines.lib.php:255
@@ -4499,102 +4506,102 @@ msgstr "分析過程中發生 %d 個錯誤。"
 msgid "MySQL said: "
 msgstr "MySQL 回應: "
 
-#: libraries/Util.php:1202 libraries/config/messages.inc.php:899
+#: libraries/Util.php:1200 libraries/config/messages.inc.php:899
 msgid "Explain SQL"
 msgstr "SQL 語句分析"
 
-#: libraries/Util.php:1213
+#: libraries/Util.php:1211
 msgid "Skip Explain SQL"
 msgstr "略過 SQL 語句分析"
 
-#: libraries/Util.php:1221
+#: libraries/Util.php:1219
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "分析語句於 %s"
 
-#: libraries/Util.php:1252
+#: libraries/Util.php:1250
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "關閉 PHP 程式碼"
 
-#: libraries/Util.php:1264
+#: libraries/Util.php:1262
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "送出查詢"
 
-#: libraries/Util.php:1275 libraries/config/messages.inc.php:901
+#: libraries/Util.php:1273 libraries/config/messages.inc.php:901
 msgid "Create PHP code"
 msgstr "產生 PHP 程式碼"
 
-#: libraries/Util.php:1338
+#: libraries/Util.php:1336
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "行內編輯"
 
 #. l10n: Short week day name
-#: libraries/Util.php:1684
+#: libraries/Util.php:1682
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "週日"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.php:1700
+#: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %m 月 %d 日 %H:%M"
 
-#: libraries/Util.php:2087
+#: libraries/Util.php:2085
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小時，%s 分 %s 秒"
 
-#: libraries/Util.php:2183
+#: libraries/Util.php:2181
 msgid "Missing parameter:"
 msgstr "未填寫必要的參數:"
 
-#: libraries/Util.php:2716
+#: libraries/Util.php:2714
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "切換到資料庫「%s」。"
 
-#: libraries/Util.php:2741
+#: libraries/Util.php:2739
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一個已知的問題影響，詳情請參考 %s"
 
-#: libraries/Util.php:2952
+#: libraries/Util.php:2950
 msgid "Click to toggle"
 msgstr "點此切換"
 
-#: libraries/Util.php:3613 prefs_manage.php:251
+#: libraries/Util.php:3611 prefs_manage.php:247
 msgid "Browse your computer:"
 msgstr "由電腦上傳:"
 
-#: libraries/Util.php:3638
+#: libraries/Util.php:3636
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "由網頁伺服器上傳目錄中選擇 <b>%s</b>:"
 
-#: libraries/Util.php:3667 libraries/insert_edit.lib.php:1176
+#: libraries/Util.php:3665 libraries/insert_edit.lib.php:1176
 msgid "The directory you set for upload work cannot be reached."
 msgstr "設定之上傳目錄錯誤，無法使用。"
 
-#: libraries/Util.php:3678
+#: libraries/Util.php:3676
 msgid "There are no files to upload!"
 msgstr "無可上傳的檔案！"
 
-#: libraries/Util.php:3703 libraries/Util.php:3704
-#: templates/database/structure/check_all_tables.phtml:15
+#: libraries/Util.php:3701 libraries/Util.php:3702
+#: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "清空"
 
-#: libraries/Util.php:3709 libraries/Util.php:3710
+#: libraries/Util.php:3707 libraries/Util.php:3708
 msgid "Execute"
 msgstr "執行"
 
-#: libraries/Util.php:4325
+#: libraries/Util.php:4323
 msgid "Users"
 msgstr "使用者"
 
@@ -4621,10 +4628,11 @@ msgid "Search:"
 msgstr "搜尋："
 
 #: libraries/browse_foreigners.lib.php:157
-#: libraries/browse_foreigners.lib.php:159 libraries/server_plugins.lib.php:76
+#: libraries/browse_foreigners.lib.php:159
 #: libraries/server_status_variables.lib.php:218
 #: templates/server/collations/charsets.phtml:5
 #: templates/server/engines/engines.phtml:5
+#: templates/server/plugins/section.phtml:9
 msgid "Description"
 msgstr "說明"
 
@@ -4665,7 +4673,8 @@ msgstr "是"
 msgid "NO"
 msgstr "否"
 
-#: libraries/central_columns.lib.php:692 libraries/central_columns.lib.php:1380
+#: libraries/central_columns.lib.php:692
+#: libraries/central_columns.lib.php:1380
 #: libraries/plugins/export/ExportHtmlword.php:483
 #: libraries/plugins/export/ExportOdt.php:597
 #: libraries/plugins/export/ExportTexytext.php:444
@@ -4680,7 +4689,8 @@ msgstr "否"
 msgid "Name"
 msgstr "名稱"
 
-#: libraries/central_columns.lib.php:696 libraries/central_columns.lib.php:1380
+#: libraries/central_columns.lib.php:696
+#: libraries/central_columns.lib.php:1380
 #: libraries/rte/rte_routines.lib.php:927
 #: templates/columns_definitions/table_fields_definitions.phtml:14
 msgid "Length/Values"
@@ -4690,7 +4700,8 @@ msgstr "長度/值"
 msgid "Attribute"
 msgstr "屬性"
 
-#: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1381
+#: libraries/central_columns.lib.php:707
+#: libraries/central_columns.lib.php:1381
 msgid "A_I"
 msgstr "自動增加"
 
@@ -4719,47 +4730,47 @@ msgstr "新增欄位"
 msgid "Attributes"
 msgstr "屬性"
 
-#: libraries/common.inc.php:499
+#: libraries/common.inc.php:492
 msgid "Failed to read configuration file!"
 msgstr "無法讀取設定檔！"
 
-#: libraries/common.inc.php:502
+#: libraries/common.inc.php:495
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "此情況通常是有語法錯誤，請檢查下列顯示的錯誤。"
 
-#: libraries/common.inc.php:511
+#: libraries/common.inc.php:504
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "無法讀取預設設定: %1$s"
 
-#: libraries/common.inc.php:519
+#: libraries/common.inc.php:512
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr "必須在您的設定檔案中設定 [code]$cfg['PmaAbsoluteUri'][/code]！"
 
-#: libraries/common.inc.php:554
+#: libraries/common.inc.php:547
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "無效的伺服器索引: %s"
 
-#: libraries/common.inc.php:566
+#: libraries/common.inc.php:559
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "伺服器 %1$s 主機名稱無效，請重新檢查您的設定檔。"
 
-#: libraries/common.inc.php:584
+#: libraries/common.inc.php:577
 #, php-format
 msgid "Server %d"
 msgstr "伺服器 %d"
 
-#: libraries/common.inc.php:724
+#: libraries/common.inc.php:717
 msgid "Invalid authentication method set in configuration:"
 msgstr "在設定檔中設定的認證方式無效:"
 
-#: libraries/common.inc.php:867
+#: libraries/common.inc.php:860
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4769,24 +4780,24 @@ msgstr ""
 "無法於伺服器 %2$d 使用時區 %1$s。請檢查您於設定檔的 [em]$cfg['Servers'][%3$d]"
 "['SessionTimeZone'][/em] 設定。phpMyAdmin 目前使用資料庫伺服器的預設時區。"
 
-#: libraries/common.inc.php:899
+#: libraries/common.inc.php:892
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您應升級到 %s %s 或更新版本。"
 
-#: libraries/common.inc.php:1001
+#: libraries/common.inc.php:994
 msgid "Error: Token mismatch"
 msgstr "錯誤: 連線資訊失效，請重新連線"
 
-#: libraries/common.inc.php:1033
+#: libraries/common.inc.php:1026
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/common.inc.php:1040
+#: libraries/common.inc.php:1033
 msgid "possible exploit"
 msgstr "$_REQUEST 數量過多（駭客？）"
 
-#: libraries/common.inc.php:1049
+#: libraries/common.inc.php:1042
 msgid "numeric key detected"
 msgstr "$_GLOBALS 內含非法的數字鍵名"
 
@@ -5449,7 +5460,7 @@ msgstr "執行時間限制"
 msgid "Use %s statement"
 msgstr "使用 %s 指令"
 
-#: libraries/config/messages.inc.php:137 prefs_manage.php:321
+#: libraries/config/messages.inc.php:137 prefs_manage.php:317
 msgid "Save as file"
 msgstr "另存新檔"
 
@@ -7525,25 +7536,25 @@ msgid "Favorite List is full!"
 msgstr "我的最愛清單已滿!"
 
 #: libraries/controllers/database/DatabaseStructureController.php:551
-#: tbl_operations.php:378
+#: tbl_operations.php:381
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空資料表 %s。"
 
 #: libraries/controllers/database/DatabaseStructureController.php:572
-#: tbl_operations.php:396 view_operations.php:122
+#: tbl_operations.php:399 view_operations.php:122
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已刪除檢視表 %s。"
 
 #: libraries/controllers/database/DatabaseStructureController.php:573
-#: tbl_operations.php:397
+#: tbl_operations.php:400
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已刪除資料表 %s。"
 
 #: libraries/controllers/database/DatabaseStructureController.php:974
-#: libraries/mysql_charsets.lib.php:353 libraries/mysql_charsets.lib.php:360
+#: libraries/mysql_charsets.lib.php:359 libraries/mysql_charsets.lib.php:366
 msgid "unknown"
 msgstr "未知"
 
@@ -7565,7 +7576,7 @@ msgstr[0] ""
 "已成功刪除 %1$d 個資料庫。"
 
 #: libraries/controllers/server/ServerDatabasesController.php:342
-#: libraries/import.lib.php:178
+#: libraries/import.lib.php:110
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:114
 #: templates/table/structure/display_partitions.phtml:29
@@ -7628,7 +7639,7 @@ msgstr "無資料可顯示"
 #: libraries/controllers/table/TableIndexesController.php:153
 #: libraries/controllers/table/TableStructureController.php:732
 #: libraries/controllers/table/TableStructureController.php:981
-#: tbl_addfield.php:92
+#: tbl_addfield.php:90
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改資料表 %1$s 。"
@@ -7713,13 +7724,13 @@ msgstr "全文搜尋"
 msgid "Distinct values"
 msgstr "顯示相異值"
 
-#: libraries/core.lib.php:308
+#: libraries/core.lib.php:306
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 擴充套件。請檢查 PHP 設定。"
 
-#: libraries/core.lib.php:829 libraries/mult_submits.inc.php:329
-#: tbl_replace.php:306 templates/preview_sql.phtml:3
+#: libraries/core.lib.php:827 libraries/mult_submits.inc.php:342
+#: tbl_operations.php:211 tbl_replace.php:306 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "無更改"
 
@@ -7837,7 +7848,8 @@ msgstr "自訂 - 顯示所有可用的選項"
 msgid "Databases:"
 msgstr "資料庫："
 
-#: libraries/display_export.lib.php:338 libraries/navigation/Navigation.php:195
+#: libraries/display_export.lib.php:338
+#: libraries/navigation/Navigation.php:195
 msgid "Tables:"
 msgstr "資料表："
 
@@ -8467,64 +8479,64 @@ msgstr "網頁伺服器沒有權限儲存 %s 檔案。"
 msgid "Dump has been saved to file %s."
 msgstr "匯出資料已儲存至檔案 %s。"
 
-#: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1449 libraries/sql.lib.php:1332
+#: libraries/import.lib.php:118 libraries/insert_edit.lib.php:122
+#: libraries/rte/rte_routines.lib.php:1449 libraries/sql.lib.php:1365
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 回傳空的查詢結果 (即零資料列)。"
 
-#: libraries/import.lib.php:250 libraries/sql.lib.php:1346
+#: libraries/import.lib.php:291 libraries/sql.lib.php:1379
 msgid "[ROLLBACK occurred.]"
 msgstr "[已發生 ROLLBACK。]"
 
-#: libraries/import.lib.php:1237
+#: libraries/import.lib.php:1257
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "下列結構被建立或修改。您可以:"
 
-#: libraries/import.lib.php:1240
+#: libraries/import.lib.php:1260
 msgid "View a structure's contents by clicking on its name."
 msgstr "點選結構的名稱查看內容。"
 
-#: libraries/import.lib.php:1243
+#: libraries/import.lib.php:1263
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "點選 \"選項\" 連結以修改項目的設定值。"
 
-#: libraries/import.lib.php:1245
+#: libraries/import.lib.php:1265
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "點選「結構」連結以編輯。"
 
-#: libraries/import.lib.php:1252
+#: libraries/import.lib.php:1272
 #, php-format
 msgid "Go to database: %s"
 msgstr "前往資料庫: %s"
 
-#: libraries/import.lib.php:1258 libraries/import.lib.php:1302
+#: libraries/import.lib.php:1278 libraries/import.lib.php:1322
 #, php-format
 msgid "Edit settings for %s"
 msgstr "修改 %s 的設定"
 
-#: libraries/import.lib.php:1287
+#: libraries/import.lib.php:1307
 #, php-format
 msgid "Go to table: %s"
 msgstr "前往資料表: %s"
 
-#: libraries/import.lib.php:1295
+#: libraries/import.lib.php:1315
 #, php-format
 msgid "Structure of %s"
 msgstr "%s 的結構"
 
-#: libraries/import.lib.php:1313
+#: libraries/import.lib.php:1333
 #, php-format
 msgid "Go to view: %s"
 msgstr "前往檢視: %s"
 
-#: libraries/import.lib.php:1373
+#: libraries/import.lib.php:1393
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "只有單一資料表的更新(UPDATE)與刪除(DELETE)查詢能模擬。"
 
-#: libraries/import.lib.php:1596
+#: libraries/import.lib.php:1616
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8550,8 +8562,8 @@ msgstr "隱藏"
 msgid "Function"
 msgstr "函數"
 
-#: libraries/insert_edit.lib.php:397 libraries/mysql_charsets.lib.php:147
-#: libraries/mysql_charsets.lib.php:357
+#: libraries/insert_edit.lib.php:397 libraries/mysql_charsets.lib.php:153
+#: libraries/mysql_charsets.lib.php:363
 msgid "Binary"
 msgstr "二進位"
 
@@ -8572,7 +8584,8 @@ msgstr "或"
 msgid "web server upload directory:"
 msgstr "網站伺服器上傳資料夾："
 
-#: libraries/insert_edit.lib.php:1351 templates/table/search/input_box.phtml:49
+#: libraries/insert_edit.lib.php:1351
+#: templates/table/search/input_box.phtml:49
 msgid "Edit/Insert"
 msgstr "修改/新增"
 
@@ -8633,11 +8646,11 @@ msgstr "按 TAB 鍵跳到下一個數值，或 CTRL+方向鍵 作隨意移動"
 msgid "Value"
 msgstr "值"
 
-#: libraries/insert_edit.lib.php:1944 libraries/sql.lib.php:1329
+#: libraries/insert_edit.lib.php:1944 libraries/sql.lib.php:1362
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/insert_edit.lib.php:1969 libraries/sql.lib.php:1307
+#: libraries/insert_edit.lib.php:1969 libraries/sql.lib.php:1340
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 id: %1$d"
@@ -8653,35 +8666,41 @@ msgstr "無"
 msgid "Convert to Kana"
 msgstr "轉換爲假名"
 
-#: libraries/mult_submits.inc.php:326
+#: libraries/mult_submits.inc.php:339
 msgid "Success!"
 msgstr "成功！"
 
-#: libraries/mult_submits.lib.php:320
+#: libraries/mult_submits.lib.php:324
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Copy tables to"
+msgstr "複製資料庫到"
+
+#: libraries/mult_submits.lib.php:353
 msgid "Replace table prefix:"
 msgstr "取代資料表名稱的前綴文字："
 
-#: libraries/mult_submits.lib.php:322
+#: libraries/mult_submits.lib.php:355
 msgid "Copy table with prefix:"
 msgstr "複製資料表並在名稱加上前綴文字："
 
-#: libraries/mult_submits.lib.php:327
+#: libraries/mult_submits.lib.php:360
 msgid "From"
 msgstr "從"
 
-#: libraries/mult_submits.lib.php:333
+#: libraries/mult_submits.lib.php:366
 msgid "To"
 msgstr "至"
 
-#: libraries/mult_submits.lib.php:362
+#: libraries/mult_submits.lib.php:395
 msgid "Add table prefix:"
 msgstr "新增資料表的前綴文字："
 
-#: libraries/mult_submits.lib.php:365
+#: libraries/mult_submits.lib.php:398
 msgid "Add prefix"
 msgstr "新增前綴文字"
 
-#: libraries/mult_submits.lib.php:401
+#: libraries/mult_submits.lib.php:434
 msgid "Do you really want to execute the following query?"
 msgstr "您真的要執行下列的查詢？"
 
@@ -8689,189 +8708,189 @@ msgstr "您真的要執行下列的查詢？"
 msgid "Charset"
 msgstr "字元編碼"
 
-#: libraries/mysql_charsets.lib.php:159
+#: libraries/mysql_charsets.lib.php:165
 msgid "Bulgarian"
 msgstr "保加利亞語"
 
-#: libraries/mysql_charsets.lib.php:163 libraries/mysql_charsets.lib.php:297
+#: libraries/mysql_charsets.lib.php:169 libraries/mysql_charsets.lib.php:303
 msgid "Simplified Chinese"
 msgstr "簡體中文"
 
-#: libraries/mysql_charsets.lib.php:165 libraries/mysql_charsets.lib.php:317
+#: libraries/mysql_charsets.lib.php:171 libraries/mysql_charsets.lib.php:323
 msgid "Traditional Chinese"
 msgstr "正體中文"
 
-#: libraries/mysql_charsets.lib.php:169 libraries/mysql_charsets.lib.php:364
+#: libraries/mysql_charsets.lib.php:175 libraries/mysql_charsets.lib.php:370
 msgid "case-insensitive"
 msgstr "不區分大小寫"
 
-#: libraries/mysql_charsets.lib.php:172 libraries/mysql_charsets.lib.php:366
+#: libraries/mysql_charsets.lib.php:178 libraries/mysql_charsets.lib.php:372
 msgid "case-sensitive"
 msgstr "區分大小寫"
 
-#: libraries/mysql_charsets.lib.php:175
+#: libraries/mysql_charsets.lib.php:181
 msgid "Croatian"
 msgstr "克羅地亞語"
 
-#: libraries/mysql_charsets.lib.php:178
+#: libraries/mysql_charsets.lib.php:184
 msgid "Czech"
 msgstr "捷克語"
 
-#: libraries/mysql_charsets.lib.php:181
+#: libraries/mysql_charsets.lib.php:187
 msgid "Danish"
 msgstr "丹麥語"
 
-#: libraries/mysql_charsets.lib.php:184
+#: libraries/mysql_charsets.lib.php:190
 msgid "English"
 msgstr "英語"
 
-#: libraries/mysql_charsets.lib.php:187
+#: libraries/mysql_charsets.lib.php:193
 msgid "Esperanto"
 msgstr "世界語"
 
-#: libraries/mysql_charsets.lib.php:190
+#: libraries/mysql_charsets.lib.php:196
 msgid "Estonian"
 msgstr "愛沙尼亞語"
 
-#: libraries/mysql_charsets.lib.php:193 libraries/mysql_charsets.lib.php:196
+#: libraries/mysql_charsets.lib.php:199 libraries/mysql_charsets.lib.php:202
 msgid "German"
 msgstr "德語"
 
-#: libraries/mysql_charsets.lib.php:193
+#: libraries/mysql_charsets.lib.php:199
 msgid "dictionary"
 msgstr "字典"
 
-#: libraries/mysql_charsets.lib.php:196
+#: libraries/mysql_charsets.lib.php:202
 msgid "phone book"
 msgstr "電話簿"
 
-#: libraries/mysql_charsets.lib.php:199
+#: libraries/mysql_charsets.lib.php:205
 msgid "Hungarian"
 msgstr "匈牙利語"
 
-#: libraries/mysql_charsets.lib.php:202
+#: libraries/mysql_charsets.lib.php:208
 msgid "Icelandic"
 msgstr "冰島語"
 
-#: libraries/mysql_charsets.lib.php:205 libraries/mysql_charsets.lib.php:304
+#: libraries/mysql_charsets.lib.php:211 libraries/mysql_charsets.lib.php:310
 msgid "Japanese"
 msgstr "日語"
 
-#: libraries/mysql_charsets.lib.php:208
+#: libraries/mysql_charsets.lib.php:214
 msgid "Latvian"
 msgstr "拉脫維亞語"
 
-#: libraries/mysql_charsets.lib.php:211
+#: libraries/mysql_charsets.lib.php:217
 msgid "Lithuanian"
 msgstr "立陶宛語"
 
-#: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:220 libraries/mysql_charsets.lib.php:332
 msgid "Korean"
 msgstr "朝鮮語"
 
-#: libraries/mysql_charsets.lib.php:217
+#: libraries/mysql_charsets.lib.php:223
 msgid "Persian"
 msgstr "波斯語"
 
-#: libraries/mysql_charsets.lib.php:220
+#: libraries/mysql_charsets.lib.php:226
 msgid "Polish"
 msgstr "波蘭語"
 
-#: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:280
+#: libraries/mysql_charsets.lib.php:229 libraries/mysql_charsets.lib.php:286
 msgid "West European"
 msgstr "西歐"
 
-#: libraries/mysql_charsets.lib.php:226
+#: libraries/mysql_charsets.lib.php:232
 msgid "Romanian"
 msgstr "羅馬尼亞語"
 
-#: libraries/mysql_charsets.lib.php:229
+#: libraries/mysql_charsets.lib.php:235
 msgid "Sinhalese"
 msgstr "僧伽羅語"
 
-#: libraries/mysql_charsets.lib.php:232
+#: libraries/mysql_charsets.lib.php:238
 msgid "Slovak"
 msgstr "斯洛伐克語"
 
-#: libraries/mysql_charsets.lib.php:235
+#: libraries/mysql_charsets.lib.php:241
 msgid "Slovenian"
 msgstr "斯洛文尼亞語"
 
-#: libraries/mysql_charsets.lib.php:238
+#: libraries/mysql_charsets.lib.php:244
 msgid "Spanish"
 msgstr "西班牙語"
 
-#: libraries/mysql_charsets.lib.php:241
+#: libraries/mysql_charsets.lib.php:247
 msgid "Traditional Spanish"
 msgstr "傳統西班牙語"
 
-#: libraries/mysql_charsets.lib.php:244 libraries/mysql_charsets.lib.php:347
+#: libraries/mysql_charsets.lib.php:250 libraries/mysql_charsets.lib.php:353
 msgid "Swedish"
 msgstr "瑞典語"
 
-#: libraries/mysql_charsets.lib.php:247 libraries/mysql_charsets.lib.php:350
+#: libraries/mysql_charsets.lib.php:253 libraries/mysql_charsets.lib.php:356
 msgid "Thai"
 msgstr "泰語"
 
-#: libraries/mysql_charsets.lib.php:250 libraries/mysql_charsets.lib.php:344
+#: libraries/mysql_charsets.lib.php:256 libraries/mysql_charsets.lib.php:350
 msgid "Turkish"
 msgstr "土耳其語"
 
-#: libraries/mysql_charsets.lib.php:253 libraries/mysql_charsets.lib.php:341
+#: libraries/mysql_charsets.lib.php:259 libraries/mysql_charsets.lib.php:347
 msgid "Ukrainian"
 msgstr "烏克蘭語"
 
-#: libraries/mysql_charsets.lib.php:256 libraries/mysql_charsets.lib.php:271
+#: libraries/mysql_charsets.lib.php:262 libraries/mysql_charsets.lib.php:277
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/mysql_charsets.lib.php:256 libraries/mysql_charsets.lib.php:271
-#: libraries/mysql_charsets.lib.php:280 libraries/mysql_charsets.lib.php:287
-#: libraries/mysql_charsets.lib.php:309 libraries/mysql_charsets.lib.php:320
+#: libraries/mysql_charsets.lib.php:262 libraries/mysql_charsets.lib.php:277
+#: libraries/mysql_charsets.lib.php:286 libraries/mysql_charsets.lib.php:293
+#: libraries/mysql_charsets.lib.php:315 libraries/mysql_charsets.lib.php:326
 msgid "multilingual"
 msgstr "多語言"
 
-#: libraries/mysql_charsets.lib.php:259
+#: libraries/mysql_charsets.lib.php:265
 msgid "Vietnamese"
 msgstr "越南語"
 
-#: libraries/mysql_charsets.lib.php:287
+#: libraries/mysql_charsets.lib.php:293
 msgid "Central European"
 msgstr "中歐"
 
-#: libraries/mysql_charsets.lib.php:292
+#: libraries/mysql_charsets.lib.php:298
 msgid "Russian"
 msgstr "俄語"
 
-#: libraries/mysql_charsets.lib.php:309
+#: libraries/mysql_charsets.lib.php:315
 msgid "Baltic"
 msgstr "巴拉克語"
 
-#: libraries/mysql_charsets.lib.php:314
+#: libraries/mysql_charsets.lib.php:320
 msgid "Armenian"
 msgstr "亞美尼亞語"
 
-#: libraries/mysql_charsets.lib.php:320
+#: libraries/mysql_charsets.lib.php:326
 msgid "Cyrillic"
 msgstr "西里爾語"
 
-#: libraries/mysql_charsets.lib.php:323
+#: libraries/mysql_charsets.lib.php:329
 msgid "Arabic"
 msgstr "阿拉伯語"
 
-#: libraries/mysql_charsets.lib.php:329
+#: libraries/mysql_charsets.lib.php:335
 msgid "Hebrew"
 msgstr "希伯來語"
 
-#: libraries/mysql_charsets.lib.php:332
+#: libraries/mysql_charsets.lib.php:338
 msgid "Georgian"
 msgstr "喬治亞語"
 
-#: libraries/mysql_charsets.lib.php:335
+#: libraries/mysql_charsets.lib.php:341
 msgid "Greek"
 msgstr "希臘語"
 
-#: libraries/mysql_charsets.lib.php:338
+#: libraries/mysql_charsets.lib.php:344
 msgid "Czech-Slovak"
 msgstr "捷克斯洛伐克語"
 
@@ -9438,22 +9457,22 @@ msgid "Switch to copied table"
 msgstr "切換到複製的資料表"
 
 #: libraries/operations.lib.php:1356
-#: templates/database/structure/check_all_tables.phtml:18
+#: templates/database/structure/check_all_tables.phtml:19
 msgid "Table maintenance"
 msgstr "資料表維護"
 
 #: libraries/operations.lib.php:1394
-#: templates/database/structure/check_all_tables.phtml:19
+#: templates/database/structure/check_all_tables.phtml:20
 msgid "Analyze table"
 msgstr "分析資料表"
 
 #: libraries/operations.lib.php:1409
-#: templates/database/structure/check_all_tables.phtml:20
+#: templates/database/structure/check_all_tables.phtml:21
 msgid "Check table"
 msgstr "檢查資料表"
 
 #: libraries/operations.lib.php:1423
-#: templates/database/structure/check_all_tables.phtml:21
+#: templates/database/structure/check_all_tables.phtml:22
 msgid "Checksum table"
 msgstr "Checksum 資料表"
 
@@ -9471,18 +9490,18 @@ msgid "Flush the table (FLUSH)"
 msgstr "更新資料表 (FLUSH)"
 
 #: libraries/operations.lib.php:1469
-#: templates/database/structure/check_all_tables.phtml:22
+#: templates/database/structure/check_all_tables.phtml:23
 #: templates/table/structure/display_table_stats.phtml:57
 msgid "Optimize table"
 msgstr "最佳化資料表"
 
 #: libraries/operations.lib.php:1484
-#: templates/database/structure/check_all_tables.phtml:23
+#: templates/database/structure/check_all_tables.phtml:24
 msgid "Repair table"
 msgstr "修復資料表"
 
 #: libraries/operations.lib.php:1530
-#: templates/database/structure/check_all_tables.phtml:14
+#: templates/database/structure/check_all_tables.phtml:15
 #: view_operations.php:130
 msgid "Delete data or table"
 msgstr "刪除資料或資料表"
@@ -9547,39 +9566,39 @@ msgstr "刪除分區"
 msgid "Check referential integrity:"
 msgstr "檢查引用完整性:"
 
-#: libraries/operations.lib.php:2089
+#: libraries/operations.lib.php:2090
 msgid "Can't move table to same one!"
 msgstr "目標資料表不能爲來源資料表！"
 
-#: libraries/operations.lib.php:2091
+#: libraries/operations.lib.php:2092
 msgid "Can't copy table to same one!"
 msgstr "目標資料表不能爲來源資料表！"
 
-#: libraries/operations.lib.php:2115
+#: libraries/operations.lib.php:2116
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "已將資料表 %s 移動到 %s。已調整權限。"
 
-#: libraries/operations.lib.php:2122
+#: libraries/operations.lib.php:2123
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "已將資料表 %s 複製爲 %s。已調整權限。"
 
-#: libraries/operations.lib.php:2131
+#: libraries/operations.lib.php:2132
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "已將資料表 %s 移動到 %s。"
 
-#: libraries/operations.lib.php:2135
+#: libraries/operations.lib.php:2136
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "已將資料表 %s 複製爲 %s。"
 
-#: libraries/operations.lib.php:2157
+#: libraries/operations.lib.php:2158
 msgid "The table name is empty!"
 msgstr "資料表名稱不能爲空！"
 
-#: libraries/plugin_interface.lib.php:572
+#: libraries/plugin_interface.lib.php:571
 msgid "This format has no options"
 msgstr "該格式沒有選項"
 
@@ -10961,8 +10980,8 @@ msgstr "帳號:"
 #: libraries/replication_gui.lib.php:816
 #: libraries/server_privileges.lib.php:1619
 #: libraries/server_privileges.lib.php:1651
-#: libraries/server_privileges.lib.php:2605
-#: libraries/server_privileges.lib.php:3514
+#: libraries/server_privileges.lib.php:2670
+#: libraries/server_privileges.lib.php:3582
 msgid "User name"
 msgstr "帳號"
 
@@ -10970,7 +10989,7 @@ msgstr "帳號"
 #: libraries/replication_gui.lib.php:882
 #: libraries/server_privileges.lib.php:1810
 #: libraries/server_privileges.lib.php:1838
-#: libraries/server_privileges.lib.php:3516
+#: libraries/server_privileges.lib.php:3584
 msgid "Password"
 msgstr "密碼"
 
@@ -11184,12 +11203,14 @@ msgstr "結束"
 msgid "On completion preserve"
 msgstr "完成時保留"
 
-#: libraries/rte/rte_events.lib.php:494 libraries/rte/rte_routines.lib.php:1026
+#: libraries/rte/rte_events.lib.php:494
+#: libraries/rte/rte_routines.lib.php:1026
 #: libraries/rte/rte_triggers.lib.php:385 view_create.php:212
 msgid "Definer"
 msgstr "定義"
 
-#: libraries/rte/rte_events.lib.php:538 libraries/rte/rte_routines.lib.php:1093
+#: libraries/rte/rte_events.lib.php:538
+#: libraries/rte/rte_routines.lib.php:1093
 #: libraries/rte/rte_triggers.lib.php:424
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "定義必須使用 \"username@hostname\" 格式！"
@@ -11561,22 +11582,6 @@ msgstr "字元編碼與排序規則"
 msgid "Databases statistics"
 msgstr "資料庫統計"
 
-#: libraries/server_plugins.lib.php:75
-msgid "Plugin"
-msgstr "外掛程式"
-
-#: libraries/server_plugins.lib.php:77 libraries/tracking.lib.php:281
-msgid "Version"
-msgstr "版本"
-
-#: libraries/server_plugins.lib.php:78
-msgid "Author"
-msgstr "作者"
-
-#: libraries/server_plugins.lib.php:110
-msgid "disabled"
-msgstr "已關閉"
-
 #: libraries/server_privileges.lib.php:199 server_privileges.php:110
 msgid "No privileges."
 msgstr "沒有權限。"
@@ -11740,7 +11745,7 @@ msgstr "無"
 
 #: libraries/server_privileges.lib.php:527
 #: libraries/server_privileges.lib.php:554
-#: libraries/server_privileges.lib.php:3523
+#: libraries/server_privileges.lib.php:3591
 #: libraries/server_user_groups.lib.php:75
 msgid "User group"
 msgstr "使用者群組"
@@ -11805,9 +11810,9 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr "使用者可同時連線的數量限制。"
 
 #: libraries/server_privileges.lib.php:1003
-#: libraries/server_privileges.lib.php:3316
-#: libraries/server_privileges.lib.php:3318
-#: libraries/server_privileges.lib.php:4596
+#: libraries/server_privileges.lib.php:3384
+#: libraries/server_privileges.lib.php:3386
+#: libraries/server_privileges.lib.php:4667
 #: templates/privileges/edit_routine_privileges.phtml:11
 #, fuzzy
 #| msgid "Routines"
@@ -11834,14 +11839,14 @@ msgstr "允許執行預存程序(Stored routine)。"
 
 #: libraries/server_privileges.lib.php:1097
 #: libraries/server_privileges.lib.php:1266
-#: libraries/server_privileges.lib.php:3311
+#: libraries/server_privileges.lib.php:3379
 #: templates/privileges/privileges_summary.phtml:19
 msgid "Table-specific privileges"
 msgstr "指定資料表權限"
 
 #: libraries/server_privileges.lib.php:1100
 #: libraries/server_privileges.lib.php:1276
-#: libraries/server_privileges.lib.php:3519
+#: libraries/server_privileges.lib.php:3587
 #: templates/privileges/edit_routine_privileges.phtml:16
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "注意: MySQL 權限名稱會以英文表示。"
@@ -11851,7 +11856,7 @@ msgid "Administration"
 msgstr "管理"
 
 #: libraries/server_privileges.lib.php:1260
-#: libraries/server_privileges.lib.php:3517
+#: libraries/server_privileges.lib.php:3585
 msgid "Global privileges"
 msgstr "全域權限"
 
@@ -11860,7 +11865,7 @@ msgid "Global"
 msgstr "全域"
 
 #: libraries/server_privileges.lib.php:1263
-#: libraries/server_privileges.lib.php:3305
+#: libraries/server_privileges.lib.php:3373
 msgid "Database-specific privileges"
 msgstr "指定資料庫權限"
 
@@ -11885,7 +11890,7 @@ msgid "Native MySQL Authentication"
 msgstr "原生 MySQL 認證"
 
 #: libraries/server_privileges.lib.php:1611
-#: libraries/server_privileges.lib.php:3097
+#: libraries/server_privileges.lib.php:3165
 msgid "Login Information"
 msgstr "登入資訊"
 
@@ -11908,8 +11913,8 @@ msgstr "主機名稱："
 
 #: libraries/server_privileges.lib.php:1685
 #: libraries/server_privileges.lib.php:1787
-#: libraries/server_privileges.lib.php:2606
-#: libraries/server_privileges.lib.php:3515
+#: libraries/server_privileges.lib.php:2671
+#: libraries/server_privileges.lib.php:3583
 msgid "Host name"
 msgstr "主機名稱"
 
@@ -11936,7 +11941,7 @@ msgid "You have revoked the privileges for %s."
 msgstr "您已移除 %s 的權限。"
 
 #: libraries/server_privileges.lib.php:2297
-#: libraries/server_privileges.lib.php:4525
+#: libraries/server_privileges.lib.php:4596
 msgid "Add user account"
 msgstr "新增使用者帳號"
 
@@ -11957,179 +11962,179 @@ msgstr "給以 帳號_ 開頭的資料庫 (username\\_%) 授予所有權限。"
 msgid "Grant all privileges on database \"%s\"."
 msgstr "授予資料庫“%s”的所有權限。"
 
-#: libraries/server_privileges.lib.php:2426
-#: libraries/server_privileges.lib.php:2492
+#: libraries/server_privileges.lib.php:2491
+#: libraries/server_privileges.lib.php:2557
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "可以存取 \"%s\" 的使用者"
 
-#: libraries/server_privileges.lib.php:2461
+#: libraries/server_privileges.lib.php:2526
 msgid "User has been added."
 msgstr "已新增使用者。"
 
-#: libraries/server_privileges.lib.php:2609
-#: libraries/server_privileges.lib.php:3525
+#: libraries/server_privileges.lib.php:2674
+#: libraries/server_privileges.lib.php:3593
 #: templates/privileges/privileges_summary.phtml:17
 msgid "Grant"
 msgstr "允許授權"
 
-#: libraries/server_privileges.lib.php:2624
+#: libraries/server_privileges.lib.php:2689
 msgid "Not enough privilege to view users."
 msgstr "權限不足檢視使用者。"
 
-#: libraries/server_privileges.lib.php:2644
-#: libraries/server_privileges.lib.php:3995
+#: libraries/server_privileges.lib.php:2709
+#: libraries/server_privileges.lib.php:4063
 msgid "No user found."
 msgstr "未找到使用者。"
 
-#: libraries/server_privileges.lib.php:2675
-#: libraries/server_privileges.lib.php:2962
-#: libraries/server_privileges.lib.php:3601
+#: libraries/server_privileges.lib.php:2740
+#: libraries/server_privileges.lib.php:3030
+#: libraries/server_privileges.lib.php:3669
 msgid "Any"
 msgstr "任意"
 
-#: libraries/server_privileges.lib.php:2726
+#: libraries/server_privileges.lib.php:2794
 msgid "global"
 msgstr "全域"
 
-#: libraries/server_privileges.lib.php:2729
+#: libraries/server_privileges.lib.php:2797
 msgid "database-specific"
 msgstr "指定資料庫"
 
-#: libraries/server_privileges.lib.php:2731
+#: libraries/server_privileges.lib.php:2799
 msgid "wildcard"
 msgstr "萬用字元"
 
-#: libraries/server_privileges.lib.php:2737
+#: libraries/server_privileges.lib.php:2805
 msgid "table-specific"
 msgstr "指定資料表"
 
-#: libraries/server_privileges.lib.php:2868
+#: libraries/server_privileges.lib.php:2936
 msgid "Edit privileges"
 msgstr "編輯權限"
 
-#: libraries/server_privileges.lib.php:2871
+#: libraries/server_privileges.lib.php:2939
 msgid "Revoke"
 msgstr "移除"
 
-#: libraries/server_privileges.lib.php:2895
+#: libraries/server_privileges.lib.php:2963
 msgid "Edit user group"
 msgstr "編輯使用者群組"
 
-#: libraries/server_privileges.lib.php:3076
+#: libraries/server_privileges.lib.php:3144
 msgid "… keep the old one."
 msgstr "… 保留舊使用者。"
 
-#: libraries/server_privileges.lib.php:3077
+#: libraries/server_privileges.lib.php:3145
 msgid "… delete the old one from the user tables."
 msgstr "… 從使用者資料表中刪除舊使用者。"
 
-#: libraries/server_privileges.lib.php:3079
+#: libraries/server_privileges.lib.php:3147
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… 移除舊使用者的所有權限，然後刪除舊使用者。"
 
-#: libraries/server_privileges.lib.php:3083
+#: libraries/server_privileges.lib.php:3151
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "… 從使用者資料表中刪除舊使用者，然後重新載入權限。"
 
-#: libraries/server_privileges.lib.php:3098
+#: libraries/server_privileges.lib.php:3166
 msgid "Change login information / Copy user account"
 msgstr "修改登入資訊/複製使用者帳號"
 
-#: libraries/server_privileges.lib.php:3104
+#: libraries/server_privileges.lib.php:3172
 msgid "Create a new user account with the same privileges and …"
 msgstr "建立具有相同權限的新使用者帳號並且 …"
 
-#: libraries/server_privileges.lib.php:3317
+#: libraries/server_privileges.lib.php:3385
 #: templates/privileges/edit_routine_privileges.phtml:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "指定欄位權限"
 
-#: libraries/server_privileges.lib.php:3702
+#: libraries/server_privileges.lib.php:3770
 msgid "Remove selected user accounts"
 msgstr "刪除已選擇的使用者帳號"
 
-#: libraries/server_privileges.lib.php:3708
+#: libraries/server_privileges.lib.php:3776
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "移除使用者所有權限，然後刪除使用者。"
 
-#: libraries/server_privileges.lib.php:3716
-#: libraries/server_privileges.lib.php:3722
-#: libraries/server_privileges.lib.php:3725
+#: libraries/server_privileges.lib.php:3784
+#: libraries/server_privileges.lib.php:3790
+#: libraries/server_privileges.lib.php:3793
 msgid "Drop the databases that have the same names as the users."
 msgstr "刪除與使用者同名的資料庫。"
 
-#: libraries/server_privileges.lib.php:3868
+#: libraries/server_privileges.lib.php:3936
 msgid "No users selected for deleting!"
 msgstr "沒有選擇要刪除的使用者！"
 
-#: libraries/server_privileges.lib.php:3871
+#: libraries/server_privileges.lib.php:3939
 msgid "Reloading the privileges"
 msgstr "重新載入權限"
 
-#: libraries/server_privileges.lib.php:3890
+#: libraries/server_privileges.lib.php:3958
 msgid "The selected users have been deleted successfully."
 msgstr "已成功刪除選中的使用者。"
 
-#: libraries/server_privileges.lib.php:3965
+#: libraries/server_privileges.lib.php:4033
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "您已更新了 %s 的權限。"
 
-#: libraries/server_privileges.lib.php:4069
+#: libraries/server_privileges.lib.php:4137
 #, php-format
 msgid "Deleting %s"
 msgstr "正在刪除 %s"
 
-#: libraries/server_privileges.lib.php:4099
+#: libraries/server_privileges.lib.php:4167
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新載入權限。"
 
-#: libraries/server_privileges.lib.php:4200
+#: libraries/server_privileges.lib.php:4268
 #, php-format
 msgid "The user %s already exists!"
 msgstr "使用者 %s 己存在！"
 
-#: libraries/server_privileges.lib.php:4467
+#: libraries/server_privileges.lib.php:4538
 #, php-format
 msgid "Privileges for %s"
 msgstr "權限 %s"
 
-#: libraries/server_privileges.lib.php:4476
+#: libraries/server_privileges.lib.php:4547
 #: libraries/server_status_processes.lib.php:71
 #: libraries/server_user_groups.lib.php:36
 msgid "User"
 msgstr "使用者"
 
-#: libraries/server_privileges.lib.php:4517
+#: libraries/server_privileges.lib.php:4588
 msgctxt "Create new user"
 msgid "New"
 msgstr "新增"
 
-#: libraries/server_privileges.lib.php:4546
+#: libraries/server_privileges.lib.php:4617
 msgid "Edit privileges:"
 msgstr "編輯權限："
 
-#: libraries/server_privileges.lib.php:4547
+#: libraries/server_privileges.lib.php:4618
 msgid "User account"
 msgstr "使用者帳號"
 
-#: libraries/server_privileges.lib.php:4621
+#: libraries/server_privileges.lib.php:4692
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr "注意：您正嘗試編輯您目前登入使用者的權限。"
 
-#: libraries/server_privileges.lib.php:4641 libraries/server_users.lib.php:21
+#: libraries/server_privileges.lib.php:4712 libraries/server_users.lib.php:21
 msgid "User accounts overview"
 msgstr "使用者帳號一覽"
 
-#: libraries/server_privileges.lib.php:4709
+#: libraries/server_privileges.lib.php:4780
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12138,7 +12143,7 @@ msgstr ""
 "已存在允許任何來自 localhost 連線的使用者帳號，這將會導致其他若在帳號中的主機"
 "允許來自任何(%)地方連線使用者無法使用。"
 
-#: libraries/server_privileges.lib.php:4750
+#: libraries/server_privileges.lib.php:4821
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12150,7 +12155,7 @@ msgstr ""
 "限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
 "在繼續前 %s重新載入權限%s。"
 
-#: libraries/server_privileges.lib.php:4769
+#: libraries/server_privileges.lib.php:4840
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12162,11 +12167,11 @@ msgstr ""
 "動的修改，這些資料表的內容可能將與伺服器實際使用的權限有所不同。 在此情況下才"
 "需要重新整理權限，目前您並不需要重新整理(RELOAD)權限。"
 
-#: libraries/server_privileges.lib.php:4819
+#: libraries/server_privileges.lib.php:4890
 msgid "The selected user was not found in the privilege table."
 msgstr "在權限表內找不到選中的使用者。"
 
-#: libraries/server_privileges.lib.php:5043
+#: libraries/server_privileges.lib.php:5114
 msgid "You have added a new user."
 msgstr "您已新增了一個新使用者。"
 
@@ -13236,21 +13241,21 @@ msgstr "預期要有結束括號。"
 msgid "Unrecognized data type."
 msgstr "預期之外的資料類型。"
 
-#: libraries/sql-parser/src/Components/Expression.php:255
-#: libraries/sql-parser/src/Components/Expression.php:291
-#: libraries/sql-parser/src/Components/Expression.php:311
+#: libraries/sql-parser/src/Components/Expression.php:256
+#: libraries/sql-parser/src/Components/Expression.php:292
+#: libraries/sql-parser/src/Components/Expression.php:312
 msgid "An alias was previously found."
 msgstr "已於前面找到別名。"
 
-#: libraries/sql-parser/src/Components/Expression.php:266
+#: libraries/sql-parser/src/Components/Expression.php:267
 msgid "Unexpected dot."
 msgstr "預期之外的句點。"
 
-#: libraries/sql-parser/src/Components/Expression.php:335
+#: libraries/sql-parser/src/Components/Expression.php:336
 msgid "An alias was expected."
 msgstr "預期要有別名。"
 
-#: libraries/sql-parser/src/Components/ExpressionArray.php:98
+#: libraries/sql-parser/src/Components/ExpressionArray.php:99
 msgid "An expression was expected."
 msgstr "預期要有表示式。"
 
@@ -13302,32 +13307,32 @@ msgstr "預期要於結束使用括號 %1$s。"
 msgid "Variable name was expected."
 msgstr "預期要有變數名稱。"
 
-#: libraries/sql-parser/src/Parser.php:408
+#: libraries/sql-parser/src/Parser.php:417
 msgid "Unexpected beginning of statement."
 msgstr "預期之外的陳述句開頭。"
 
-#: libraries/sql-parser/src/Parser.php:427
+#: libraries/sql-parser/src/Parser.php:436
 msgid "Unrecognized statement type."
 msgstr "無法辨識的陳述句類型。"
 
-#: libraries/sql-parser/src/Parser.php:509
+#: libraries/sql-parser/src/Parser.php:518
 msgid "No transaction was previously started."
 msgstr "前面未開啟交易(Transaction)模式。"
 
-#: libraries/sql-parser/src/Statement.php:247
+#: libraries/sql-parser/src/Statement.php:246
 msgid "Unexpected token."
 msgstr "預期之外的符號。"
 
-#: libraries/sql-parser/src/Statement.php:285
+#: libraries/sql-parser/src/Statement.php:284
 msgid "This type of clause was previously parsed."
 msgstr "此類型的子句已於前面解析過。"
 
-#: libraries/sql-parser/src/Statement.php:313
+#: libraries/sql-parser/src/Statement.php:312
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr "找到新的陳述句，但與前一個陳述句之間未加入間隔符號。"
 
-#: libraries/sql-parser/src/Statement.php:333
+#: libraries/sql-parser/src/Statement.php:332
 msgid "Unrecognized keyword."
 msgstr "無法辨識的關鍵字。"
 
@@ -13375,32 +13380,32 @@ msgstr "呼叫數"
 msgid "ø Time"
 msgstr "ø 時間"
 
-#: libraries/sql.lib.php:537 libraries/sql.lib.php:555
+#: libraries/sql.lib.php:568 libraries/sql.lib.php:586
 msgid "Bookmark this SQL query"
 msgstr "將此 SQL 查詢加爲書籤"
 
-#: libraries/sql.lib.php:541
+#: libraries/sql.lib.php:572
 msgid "Label:"
 msgstr "標籤："
 
-#: libraries/sql.lib.php:548 libraries/sql_query_form.lib.php:312
+#: libraries/sql.lib.php:579 libraries/sql_query_form.lib.php:312
 msgid "Let every user access this bookmark"
 msgstr "讓所有使用者均可存取此書籤"
 
-#: libraries/sql.lib.php:754
+#: libraries/sql.lib.php:785
 msgid "Bookmark not created!"
 msgstr "書籤尚未建立！"
 
-#: libraries/sql.lib.php:861
+#: libraries/sql.lib.php:894
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用書籤 \"%s\" 作爲預設的查詢。"
 
-#: libraries/sql.lib.php:1326
+#: libraries/sql.lib.php:1359
 msgid "Showing as PHP code"
 msgstr "顯示的內容爲 PHP 程式碼"
 
-#: libraries/sql.lib.php:1698
+#: libraries/sql.lib.php:1731
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13409,7 +13414,7 @@ msgstr ""
 "目前選擇的項目不含唯一(Unique)的資料欄位，將無法執行表格的編輯/核選、編輯、複"
 "製、刪除等相關的功能。%s"
 
-#: libraries/sql.lib.php:1712
+#: libraries/sql.lib.php:1745
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13418,7 +13423,7 @@ msgstr ""
 "目前選擇的項目不含唯一(Unique)的資料欄位，表格的編輯/核選、複製、刪除等相關的"
 "功能可能產生不如預期的結果。%s"
 
-#: libraries/sql.lib.php:1754
+#: libraries/sql.lib.php:1787
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "資料表 `%s` 的索引存在問題"
@@ -13509,6 +13514,10 @@ msgstr "停用 %s 的追蹤"
 #: libraries/tracking.lib.php:212
 msgid "Deactivate now"
 msgstr "立即停用"
+
+#: libraries/tracking.lib.php:281 templates/server/plugins/section.phtml:10
+msgid "Version"
+msgstr "版本"
 
 #: libraries/tracking.lib.php:282 libraries/tracking.lib.php:1637
 msgid "Created"
@@ -13684,7 +13693,7 @@ msgstr "版本"
 msgid "Manage your settings"
 msgstr "管理您的設定"
 
-#: libraries/user_preferences.inc.php:56 prefs_manage.php:310
+#: libraries/user_preferences.inc.php:56 prefs_manage.php:306
 msgid "Configuration has been saved."
 msgstr "已儲存設定值。"
 
@@ -13717,47 +13726,47 @@ msgstr "嚴重錯誤: 導覽頁只能使用 AJAX 存取"
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr "無法儲存設定，送出的表單內容發生錯誤！"
 
-#: prefs_manage.php:87
+#: prefs_manage.php:86
 msgid "Could not import configuration"
 msgstr "無法匯入設定"
 
-#: prefs_manage.php:119
+#: prefs_manage.php:118
 msgid "Configuration contains incorrect data for some fields."
 msgstr "部分設定含有錯誤的資料。"
 
-#: prefs_manage.php:138
+#: prefs_manage.php:137
 msgid "Do you want to import remaining settings?"
 msgstr "是否匯入其餘的設定？"
 
-#: prefs_manage.php:234 prefs_manage.php:263
+#: prefs_manage.php:230 prefs_manage.php:259
 msgid "Saved on: @DATE@"
 msgstr "儲存於: @DATE@"
 
-#: prefs_manage.php:249
+#: prefs_manage.php:245
 msgid "Import from file"
 msgstr "從檔案匯入"
 
-#: prefs_manage.php:257
+#: prefs_manage.php:253
 msgid "Import from browser's storage"
 msgstr "從瀏覽器記錄匯入"
 
-#: prefs_manage.php:260
+#: prefs_manage.php:256
 msgid "Settings will be imported from your browser's local storage."
 msgstr "將使用瀏覽器的本機儲存記錄匯入設定。"
 
-#: prefs_manage.php:266
+#: prefs_manage.php:262
 msgid "You have no saved settings!"
 msgstr "您尚未儲存設定！"
 
-#: prefs_manage.php:271 prefs_manage.php:350
+#: prefs_manage.php:267 prefs_manage.php:346
 msgid "This feature is not supported by your web browser"
 msgstr "您所使用的瀏覽器不支援此功能"
 
-#: prefs_manage.php:277
+#: prefs_manage.php:273
 msgid "Merge with current configuration"
 msgstr "合併至目前設定"
 
-#: prefs_manage.php:293
+#: prefs_manage.php:289
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -13766,19 +13775,19 @@ msgstr ""
 "透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程"
 "式%s 。"
 
-#: prefs_manage.php:326
+#: prefs_manage.php:322
 msgid "Save to browser's storage"
 msgstr "儲存到瀏覽器記錄"
 
-#: prefs_manage.php:333
+#: prefs_manage.php:329
 msgid "Settings will be saved in your browser's local storage."
 msgstr "設定將儲存到瀏覽器的本機記錄。"
 
-#: prefs_manage.php:341
+#: prefs_manage.php:337
 msgid "Existing settings will be overwritten!"
 msgstr "現有設定將被覆蓋！"
 
-#: prefs_manage.php:369
+#: prefs_manage.php:365
 msgid "You can reset all your settings and restore them to default values."
 msgstr "您可以重新設定所有設定恢復爲預設值。"
 
@@ -13991,12 +14000,12 @@ msgstr "沒有更新的可用版本"
 msgid "Wrong data"
 msgstr "錯誤的資料"
 
-#: tbl_create.php:34 tbl_get_field.php:26
+#: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "資料庫 '%s' 不存在。"
 
-#: tbl_create.php:44
+#: tbl_create.php:40
 #, php-format
 msgid "Table %s already exists!"
 msgstr "資料表 %s 已存在！"
@@ -14462,34 +14471,40 @@ msgid "Check tables having overhead"
 msgstr "僅選擇資料分散的資料表"
 
 #: templates/database/structure/check_all_tables.phtml:10
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy table"
+msgstr "複製"
+
+#: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
 msgstr "顯示建立"
 
-#: templates/database/structure/check_all_tables.phtml:25
+#: templates/database/structure/check_all_tables.phtml:26
 msgid "Prefix"
 msgstr "字首"
 
-#: templates/database/structure/check_all_tables.phtml:26
+#: templates/database/structure/check_all_tables.phtml:27
 msgid "Add prefix to table"
 msgstr "資料表名稱增加前綴文字"
 
-#: templates/database/structure/check_all_tables.phtml:27
+#: templates/database/structure/check_all_tables.phtml:28
 msgid "Replace table prefix"
 msgstr "覆蓋資料表名稱的前綴文字"
 
-#: templates/database/structure/check_all_tables.phtml:28
+#: templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "複製資料表名稱的前綴文字"
 
-#: templates/database/structure/check_all_tables.phtml:34
+#: templates/database/structure/check_all_tables.phtml:35
 msgid "Add columns to central list"
 msgstr "新增欄位至中央清單"
 
-#: templates/database/structure/check_all_tables.phtml:35
+#: templates/database/structure/check_all_tables.phtml:36
 msgid "Remove columns from central list"
 msgstr "從中央清單移除欄位"
 
-#: templates/database/structure/check_all_tables.phtml:36
+#: templates/database/structure/check_all_tables.phtml:37
 msgid "Make consistent with central list"
 msgstr "設為與中央清單一致"
 
@@ -14608,6 +14623,18 @@ msgstr "檢查資料庫 「%s」 之權限."
 #: templates/server/databases/table_row.phtml:62
 msgid "Check privileges"
 msgstr "檢查權限"
+
+#: templates/server/plugins/section.phtml:8
+msgid "Plugin"
+msgstr "外掛程式"
+
+#: templates/server/plugins/section.phtml:11
+msgid "Author"
+msgstr "作者"
+
+#: templates/server/plugins/section.phtml:22
+msgid "disabled"
+msgstr "已關閉"
 
 #: templates/server/variables/session_variable_row.phtml:3
 #: templates/server/variables/variable_table_head.phtml:5
@@ -16949,11 +16976,6 @@ msgstr "concurrent_insert 目前設定為 0"
 #~| msgid "Error: Relation not added."
 #~ msgid "Error: Relation could not be added."
 #~ msgstr "錯誤: 關聯未新增。"
-
-#, fuzzy
-#~| msgid "Copy"
-#~ msgid "Copy Salt"
-#~ msgstr "複製"
 
 #~ msgid ""
 #~ "<b>One or more errors have occurred while processing your request:</b>"
