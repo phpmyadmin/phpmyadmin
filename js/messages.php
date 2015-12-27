@@ -623,7 +623,7 @@ echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
 //Max input vars allowed by PHP.
 $maxInputVars = ini_get('max_input_vars');
 echo 'var maxInputVars = '
-    . (false === $maxInputVars || '' == $maxInputVars ? 'false' : $maxInputVars)
+    . (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int)$maxInputVars)
     . ';' . "\n";
 
 echo "if ($.datepicker) {\n";
