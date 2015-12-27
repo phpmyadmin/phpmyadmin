@@ -88,6 +88,22 @@ if (! empty($submit_mult)
             unset($submit_mult);
             include 'db_export.php';
             exit;
+        case 'copy_tbl':
+            $views = $GLOBALS['dbi']->getVirtualTables($db);
+            list($full_query, $reload, $full_query_views)
+                = PMA_getQueryFromSelected(
+                    $submit_mult, $table, $selected, $views
+                );
+            $_url_params = PMA_getUrlParams(
+                $submit_mult, $reload, $action, $db, $table, $selected, $views,
+                isset($original_sql_query)? $original_sql_query : null,
+                isset($original_url_query)? $original_url_query : null
+            );
+            $response = PMA\libraries\Response::getInstance();
+            $response->addHTML(
+                PMA_getHtmlForCopyMultipleTables($action, $_url_params)
+            );
+            exit;
         case 'show_create':
             $show_create = PMA\libraries\Template::get(
                 'database/structure/show_create'
