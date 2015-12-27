@@ -727,8 +727,8 @@ echo "var mysql_doc_template = '" , PMA\libraries\Util::getMySQLDocuURL('%s')
 //Max input vars allowed by PHP.
 $maxInputVars = ini_get('max_input_vars');
 echo 'var maxInputVars = '
-    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : $maxInputVars)
-    , ';' , "\n";
+    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int)$maxInputVars)
+    , ';' . "\n";
 
 echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */
