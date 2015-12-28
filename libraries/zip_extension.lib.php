@@ -26,7 +26,6 @@ function PMA_getZipContents($file, $specific_entry = null)
     if (!is_resource($zip_handle)) {
         $error_message = __('Error in ZIP archive:')
             . ' ' . PMA_getZipError($zip_handle);
-        zip_close($zip_handle);
         return (array('error' => $error_message, 'data' => $file_data));
     }
 
