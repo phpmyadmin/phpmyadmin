@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-27 07:41-0500\n"
-"PO-Revision-Date: 2015-12-17 16:29+0000\n"
+"PO-Revision-Date: 2015-12-28 13:36+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9104,10 +9104,9 @@ msgid "Success!"
 msgstr "Succès !"
 
 #: libraries/mult_submits.lib.php:324
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Copier la base de données vers"
+msgstr "Copier les tables vers"
 
 #: libraries/mult_submits.lib.php:353
 msgid "Replace table prefix:"
@@ -15142,10 +15141,9 @@ msgid "Check tables having overhead"
 msgstr "Cocher tables avec pertes"
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 #| msgid "Copy Salt"
 msgid "Copy table"
-msgstr "Copier le salage"
+msgstr "Copier la table"
 
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
