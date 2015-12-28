@@ -92,6 +92,12 @@ require './libraries/sanitizing.lib.php';
 PMA_checkExtensions();
 
 /**
+ * Set utf-8 encoding for PHP
+ */
+ini_set('default_charset', 'utf-8');
+mb_internal_encoding('utf-8');
+
+/**
  * the relation lib, tracker needs it
  */
 require './libraries/relation.lib.php';
