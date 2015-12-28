@@ -97,6 +97,12 @@ if (! function_exists('mb_detect_encoding')) {
 }
 
 /**
+ * Set utf-8 encoding for PHP
+ */
+ini_set('default_charset', 'utf-8');
+mb_internal_encoding('utf-8');
+
+/**
  * the PMA_Theme class
  */
 require './libraries/Theme.class.php';

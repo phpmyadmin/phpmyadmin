@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - issue #11777 While 'changing a column', query fails with a syntax error after the 'CHARSET=' keyword
 - issue #11783 Avoid syntax error in javascript messages on invalid PHP setting for max_input_vars
 - issue #11784 Properly handle errors in upacking zip archive
+- issue #11785 Set PHP's internal encoding to UTF-8
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
