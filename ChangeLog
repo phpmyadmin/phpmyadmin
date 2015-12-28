@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - issue #11785 Set PHP's internal encoding to UTF-8
 - issue #11786 Fixed Kanji encoding in some specific cases
 - issue #11787 Check whether iconv works before using it
+- issue #11788 Avoid conversion of MySQL error messages
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2

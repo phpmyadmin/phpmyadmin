@@ -275,75 +275,6 @@ class DatabaseInterface
     }
 
     /**
-     * converts charset of a mysql message, usually coming from mysql_error(),
-     * into PMA charset, usually UTF-8
-     * uses language to charset mapping from mysql/share/errmsg.txt
-     * and charset names to ISO charset from information_schema.CHARACTER_SETS
-     *
-     * @param string $message the message
-     *
-     * @return string  $message
-     */
-    public function convertMessage($message)
-    {
-        // latin always last!
-        // @todo some values are missing,
-        // see https://mariadb.com/kb/en/mariadb/server-locale/
-
-        $encodings = array(
-            'ja' => 'EUC-JP', //'ujis',
-            'ko' => 'EUC-KR', //'euckr',
-            'ru' => 'KOI8-R', //'koi8r',
-            'uk' => 'KOI8-U', //'koi8u',
-            'sr' => 'CP1250', //'cp1250',
-            'et' => 'ISO-8859-13', //'latin7',
-            'sk' => 'ISO-8859-2', //'latin2',
-            'cz' => 'ISO-8859-2', //'latin2',
-            'hu' => 'ISO-8859-2', //'latin2',
-            'pl' => 'ISO-8859-2', //'latin2',
-            'ro' => 'ISO-8859-2', //'latin2',
-            'es' => 'CP1252', //'latin1',
-            'sv' => 'CP1252', //'latin1',
-            'it' => 'CP1252', //'latin1',
-            'no' => 'CP1252', //'latin1',
-            'pt' => 'CP1252', //'latin1',
-            'da' => 'CP1252', //'latin1',
-            'nl' => 'CP1252', //'latin1',
-            'en' => 'CP1252', //'latin1',
-            'fr' => 'CP1252', //'latin1',
-            'de' => 'CP1252', //'latin1',
-        );
-
-        $server_language = Util::cacheGet(
-            'server_language',
-            function () {
-                return $GLOBALS['dbi']->fetchValue("SELECT @@lc_messages;");
-            }
-        );
-
-        if ($server_language) {
-            $found = array();
-            $match = preg_match(
-                '&([a-z][a-z])_&i',
-                $server_language,
-                $found
-            );
-            if ($match) {
-                $server_language = $found[1];
-            }
-        }
-
-        if (! empty($server_language) && isset($encodings[$server_language])) {
-            $encoding = $encodings[$server_language];
-        } else {
-            /* Fallback to CP1252 if we can not detect */
-            $encoding = 'CP1252';
-        }
-
-        return PMA_convertString($encoding, 'utf-8', $message);
-    }
-
-    /**
      * returns array with table names for given db
      *
      * @param string $database name of database
@@ -2175,10 +2106,6 @@ class DatabaseInterface
      */
     public function formatError($error_number, $error_message)
     {
-        if (! empty($error_message)) {
-            $error_message = $this->convertMessage($error_message);
-        }
-
         $error_message = htmlspecialchars($error_message);
 
         $error = '#' . ((string) $error_number);
