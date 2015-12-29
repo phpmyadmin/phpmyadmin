@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2015-10-15 11:22+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-5/uz%40latin/>\n"
+"PO-Revision-Date: 2015-12-29 06:01+0000\n"
+"Last-Translator: Nizomiddin Usmonov <nizomiddin@gmail.com>\n"
+"Language-Team: Uzbek (latin) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/uz@latin/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,22 +21,23 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Ushbu tizimda %s fayli mavzhud emas, marhamat, qo'shimcha ma`lumotlarni "
+"olish uchun www.phpmyadmin.net saytiga tashrif buyuring."
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Joriy ma'lumotlar bazasi uchun markaziy ro'yxat ustunlari  bo`m-bo'sh."
 
 #: db_central_columns.php:130
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort."
-msgstr "Tanlash uchun sichqoncha tugmasini bosing"
+msgstr "Saralash uchun bosing"
 
 #: db_central_columns.php:149
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Yozuvlarni ko‘rsatish"
+msgstr "%1$s - %2$s yozuvlarni ko‘rsatish"
 
 #: db_create.php:61
 #, php-format
@@ -76,10 +77,9 @@ msgstr "Jadval izohi:"
 #: templates/table/relation/internal_relational_row.phtml:71
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Maydon nomlari"
+msgstr "Ustun nomlari"
 
 #: db_datadict.php:115 libraries/Index.class.php:696
 #: libraries/central_columns.lib.php:697 libraries/central_columns.lib.php:1383
@@ -300,27 +300,27 @@ msgid "The database name is empty!"
 msgstr "Ma`lumotlar bazasi nomi bo‘sh!"
 
 #: db_operations.php:141
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "`\"%s\"` ma`lumotlar bazasining nomi `\"%s\"` deb o‘zgartirildi."
+msgstr "\"%1$s\" ma`lumotlar bazasining nomi \"%2$s\" deb o‘zgartirildi."
 
 #: db_operations.php:153
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "\"%s\" ma`lumotlar bazasidan \"%s\" ga nusxa ko‘chirildi."
+msgstr "\"%1$s\" ma`lumotlar bazasidan \"%2$s\" ga nusxa ko‘chirildi."
 
 #: db_operations.php:283
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Aloqador jadvallar bilan ishlash uchun qo‘shimcha imkoniyatlar mavjud emas. "
-"Sabablarini aniqlash uchun %sbu yerga%s bosing."
+"phpMyAdmin konfiguratsiyasi o`chirilgan. %Sabablarini aniqlash%s uchun "
+"bosing ."
 
 #: db_qbe.php:129
 #, fuzzy
@@ -355,10 +355,9 @@ msgid ""
 msgstr "%s vеrsiya tuzildi, \"%s.%s\" ni kuzatishsh faollashtirilgan."
 
 #: db_tracking.php:91
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Bironta ham ma`lumotlar bazasi tanlanmagan."
+msgstr "Bironta ham jadval tanlanmagan."
 
 #: db_tracking.php:145
 msgid "Database Log"
@@ -386,7 +385,7 @@ msgstr ""
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Sahifani yangilashingiz kerak"
 
 #: export.php:188 schema_export.php:61
 #, fuzzy
@@ -395,21 +394,19 @@ msgid "Bad type!"
 msgstr "So‘rov turi"
 
 #: export.php:275
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Bad parameters!"
-msgstr "Indеks(lar)ni saqlash"
+msgstr "Noto`g`ri parametrlar"
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export tables"
 msgid "Invalid export type"
-msgstr "Jadvallarni eksport qilish"
+msgstr "eksport turi noto'g'ri"
 
 #: gis_data_editor.php:118
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" ustun uchun o'zgaruvchi"
 
 #: gis_data_editor.php:146
 #: templates/table/gis_visualization/gis_visualization.phtml:37
@@ -433,25 +430,24 @@ msgstr ""
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
 #: gis_data_editor.php:370 js/messages.php:434
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:217 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:376 js/messages.php:435
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:239 gis_data_editor.php:295 gis_data_editor.php:368
 #: js/messages.php:437
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "%d nuqta"
 
 #: gis_data_editor.php:252 gis_data_editor.php:308 gis_data_editor.php:386
 #: js/messages.php:443
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add a point"
-msgstr "Indеks(lar)ni saqlash"
+msgstr "Nuqta qo`yish"
 
 #: gis_data_editor.php:269
 #, fuzzy, php-format
