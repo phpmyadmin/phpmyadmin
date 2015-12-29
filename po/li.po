@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2014-12-21 13:06+0100\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-12-29 15:36+0000\n"
+"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
+"Language-Team: Limburgish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/li/>\n"
 "Language: li\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
 #, php-format
@@ -7704,10 +7706,9 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Database:"
 msgid "Databases:"
-msgstr "Database:"
+msgstr "Databases:"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
@@ -14239,10 +14240,9 @@ msgid "Index type:"
 msgstr ""
 
 #: templates/table/index_form.phtml:86
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Gebroeker:"
+msgstr ""
 
 #: templates/table/index_form.phtml:102
 msgid "Comment:"
