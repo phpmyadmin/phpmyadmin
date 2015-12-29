@@ -1338,8 +1338,11 @@ class Config
                     return;
                 }
 
-                // If we didn't set port yet...
-                if (empty($url['port']) && PMA_getenv('SERVER_PORT')) {
+                if (in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true)) {
+                    // CloudFlare's Flexible SSL port
+                    $url['port'] = PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'http' ? 80 : 443;
+                } elseif (empty($url['port']) && PMA_getenv('SERVER_PORT')) {
+                    // If we didn't set port yet...
                     $url['port'] = PMA_getenv('SERVER_PORT');
                 }
 
@@ -1370,7 +1373,7 @@ class Config
             $pma_absolute_uri .= $url['host'];
             // Add port, if it not the default one
             // (or 80 for https which is most likely a bug)
-            if (! empty($url['port'])
+            if (!empty($url['port'])
                 && (($url['scheme'] == 'http' && $url['port'] != 80)
                 || ($url['scheme'] == 'https' && $url['port'] != 80)
                 || ($url['scheme'] == 'https' && $url['port'] != 443))
@@ -1583,7 +1586,8 @@ class Config
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
 
-        $is_https = (isset($url['scheme']) && $url['scheme'] == 'https');
+        $is_https = in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true) ?
+            PMA_getenv('HTTP_X_FORWARDED_PROTO') : isset($url['scheme']) && $url['scheme'] == 'https';
 
         $this->set('is_https', $is_https);
 
@@ -1619,29 +1623,21 @@ class Config
             // Scheme
             if (PMA_getenv('HTTP_SCHEME')) {
                 $url['scheme'] = PMA_getenv('HTTP_SCHEME');
-            } elseif (PMA_getenv('HTTPS')
-                && strtolower(PMA_getenv('HTTPS')) == 'on'
-            ) {
+            } elseif (PMA_getenv('HTTPS') && strtolower(PMA_getenv('HTTPS')) == 'on') {
                 $url['scheme'] = 'https';
                 // A10 Networks load balancer:
-            } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
-                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
-            ) {
+            } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB') && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
                 $url['scheme'] = 'https';
-            } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
-                $url['scheme'] = /*overload*/mb_strtolower(
-                    PMA_getenv('HTTP_X_FORWARDED_PROTO')
-                );
-            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS')
-                && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
-            ) {
+            } elseif (in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true)) {
+                $url['scheme'] = PMA_getenv('HTTP_X_FORWARDED_PROTO');
+            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS') && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
                 $url['scheme'] = 'https';
             } else {
                 $url['scheme'] = 'http';
             }
         }
 
-        if (isset($url['scheme']) && $url['scheme'] == 'https') {
+        if (PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'https' || isset($url['scheme']) && $url['scheme'] == 'https') {
             $is_https = true;
         } else {
             $is_https = false;
