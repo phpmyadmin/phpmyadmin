@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2015-12-29 15:21+0100\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.com>\n"
+"PO-Revision-Date: 2015-12-29 15:34+0000\n"
+"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
 "Language-Team: Esperanto "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-5/eo/>\n"
+"<https://hosted.weblate.org/projects/phpmyadmin/master/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:33
 #: license.php:30
@@ -989,7 +989,7 @@ msgstr "Montri PHP-informon"
 #: index.php:385
 #: index.php:384
 msgid "Version information:"
-msgstr "Versioinformo"
+msgstr "Versioinformo:"
 
 #: index.php:394 libraries/Util.php:445 libraries/Util.php:511
 #: libraries/config/FormDisplay.tpl.php:163
@@ -4949,7 +4949,7 @@ msgstr ""
 #: libraries/ThemeManager.php:366
 #: libraries/Theme_Manager.class.php:368
 msgid "Theme:"
-msgstr "Etoso"
+msgstr "Etoso:"
 
 #: libraries/TypesMySQL.php:31
 msgid ""
