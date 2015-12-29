@@ -273,7 +273,11 @@ function PMA_buildOrExecuteQueryForMulti(
         case 'copy_tbl':
             $run_parts = true;
             $copy_tbl = true;
-            Table::moveCopy($db, $selected[$i], $_POST['target_db'], $selected[$i], 'data', false, 'one_table');
+            Table::moveCopy($db, $selected[$i], $_POST['target_db'], $selected[$i], $_POST['what'], false, 'one_table');
+            if (isset($_POST['adjust_privileges']) && !empty($_POST['adjust_privileges'])) {
+                include_once 'operations.lib.php';
+                PMA_AdjustPrivileges_copyTable($db, $selected[$i], $_POST['target_db'], $selected[$i]);
+            }
             break;
         } // end switch
 
@@ -322,9 +326,32 @@ function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
     $html .= '<legend>' . __('Copy tables to') . '</legend>';
-    $html .= '<select class="halfWidth" name="target_db" >'
-        . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
+    $databases_list = $GLOBALS['pma']->databases;
+    foreach ($databases_list as $key => $db_name)
+        if ($db_name == $GLOBALS['db']){
+            $databases_list->offsetUnset($key);
+            break;
+        }
+    $html .= '<strong><label for="db_name_dropdown">Database:</label></strong>';
+    $html .= '<select id="db_name_dropdown" class="halfWidth" name="target_db" >'
+        . $databases_list->getHtmlOptions(true, false)
         . '</select>';
+    $html .= '<br><br>';
+    $html .= '<strong><label>Options:</label></strong><br>';
+    $html .= '<input type="radio" id ="what_structure" value="structure" name="what"></input>';
+    $html .= '<label for="what_structure">Structure only</label><br>';
+    $html .= '<input type="radio" id ="what_data" value="data" name="what" checked="checked"></input>';
+    $html .= '<label for="what_data">Structure and data</label><br>';
+    $html .= '<input type="radio" id ="what_dataonly" value="dataonly" name="what"></input>';
+    $html .= '<label for="what_dataonly">Data only</label><br><br>';
+    $html .= '<input type="checkbox" id="checkbox_drop" value="1" name="drop_if_exists"></input>';
+    $html .= '<label for="checkbox_drop">Add DROP TABLE</label><br>';
+    $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment"></input>';
+    $html .= '<label for="checkbox_auto_increment">Add AUTO INCREMENT value</label><br>';
+    $html .= '<input type="checkbox" id="checkbox_constraints" value="1" name="sql_auto_increment" checked="checked"></input>';
+    $html .= '<label for="checkbox_constraints">Add constraints</label><br><br>';
+    $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox"></input>';
+    $html .= '<label for="checkbox_adjust_privileges">Adjust privileges<a href="./doc/html/faq.html#faq6-39" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></label>';
     $html .= '</fieldset>';
     $html .= '<fieldset class = "tblFooters">';
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
