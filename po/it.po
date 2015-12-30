@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-27 07:41-0500\n"
-"PO-Revision-Date: 2015-12-18 16:29+0000\n"
+"PO-Revision-Date: 2015-12-30 13:28+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9110,10 +9110,9 @@ msgid "Success!"
 msgstr "Successo!"
 
 #: libraries/mult_submits.lib.php:324
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Copia il database come"
+msgstr "Copia le tabelle su"
 
 #: libraries/mult_submits.lib.php:353
 msgid "Replace table prefix:"
