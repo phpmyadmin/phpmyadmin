@@ -702,7 +702,7 @@ AJAX.registerOnload('indexes.js', function () {
         }
 
         // Select a source array.
-        var source_array = PMA_getIndexArray(index_choice);
+        source_array = PMA_getIndexArray(index_choice);
         if (source_array == null) {
             return;
         }
