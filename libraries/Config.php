@@ -1589,9 +1589,7 @@ class Config
         // CloudFlare Flexible SSL compatibility
         $this->set('force_protocol', in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true));
         
-        $is_https = $this->get('force_protocol')
-            ? PMA_getenv('HTTP_X_FORWARDED_PROTO')
-            : isset($url['scheme']) && $url['scheme'] == 'https';
+        $is_https = $this->get('force_protocol') ? PMA_getenv('HTTP_X_FORWARDED_PROTO') : isset($url['scheme']) && $url['scheme'] == 'https';
 
         $this->set('is_https', $is_https);
 
