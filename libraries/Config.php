@@ -1338,8 +1338,8 @@ class Config
                     return;
                 }
 
-                if (in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true)) {
-                    // CloudFlare's Flexible SSL port
+                if ($this->get('force_protocol')) {
+                    // CloudFlare Flexible SSL port
                     $url['port'] = PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'http' ? 80 : 443;
                 } elseif (empty($url['port']) && PMA_getenv('SERVER_PORT')) {
                     // If we didn't set port yet...
@@ -1586,8 +1586,12 @@ class Config
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
 
-        $is_https = in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true) ?
-            PMA_getenv('HTTP_X_FORWARDED_PROTO') : isset($url['scheme']) && $url['scheme'] == 'https';
+        // CloudFlare Flexible SSL compatibility
+        $this->set('force_protocol', in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true));
+        
+        $is_https = $this->get('force_protocol')
+            ? PMA_getenv('HTTP_X_FORWARDED_PROTO')
+            : isset($url['scheme']) && $url['scheme'] == 'https';
 
         $this->set('is_https', $is_https);
 
@@ -1628,7 +1632,7 @@ class Config
                 // A10 Networks load balancer:
             } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB') && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
                 $url['scheme'] = 'https';
-            } elseif (in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true)) {
+            } elseif ($this->get('force_protocol')) {
                 $url['scheme'] = PMA_getenv('HTTP_X_FORWARDED_PROTO');
             } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS') && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
                 $url['scheme'] = 'https';
