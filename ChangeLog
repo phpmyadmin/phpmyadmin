@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue #11787 Check whether iconv works before using it
 - issue #11788 Avoid conversion of MySQL error messages
 - issue #11792 Undefined index: parameters
+- issue #11802 Undefined index: field_name_orig
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
