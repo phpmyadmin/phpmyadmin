@@ -904,10 +904,14 @@ class TableStructureController extends TableController
         }
 
         // field_name does not follow the convention (corresponds to field_orig)
+        if ($_REQUEST['field_name'][$i] != $_REQUEST['field_orig'][$i]) {
+            return true;
+        }
+
         $fields = array(
             'field_attribute', 'field_collation', 'field_comments',
             'field_default_value', 'field_default_type', 'field_extra',
-            'field_length', 'field_name', 'field_null', 'field_type'
+            'field_length', 'field_null', 'field_type'
         );
         foreach ($fields as $field) {
             if ($_REQUEST[$field][$i] != $_REQUEST[$field . '_orig'][$i]) {
