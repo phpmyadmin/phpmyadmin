@@ -326,7 +326,7 @@ function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
     $html .= '<legend>' . __('Copy tables to') . '</legend>';
-    $databases_list = $GLOBALS['pma']->databases;
+    $databases_list = $GLOBALS['dblist']->databases;
     foreach ($databases_list as $key => $db_name)
         if ($db_name == $GLOBALS['db']){
             $databases_list->offsetUnset($key);

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * phpMyAdmin main Controller
+ * holds the DbList class
  *
  * @package PhpMyAdmin
  *
@@ -9,14 +9,14 @@
 namespace PMA\libraries;
 
 /**
- * phpMyAdmin main Controller
+ * holds the DbList class
  *
  * @package PhpMyAdmin
  *
  * @property object $userlink
  * @property object $controllink
  */
-class PMA
+class DbList
 {
     /**
      * Holds database list

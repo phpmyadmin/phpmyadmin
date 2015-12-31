@@ -389,7 +389,7 @@ function PMA_createDbBeforeCopy()
 
     // rebuild the database list because Table::moveCopy
     // checks in this list if the target db exists
-    $GLOBALS['pma']->databases->build();
+    $GLOBALS['dblist']->databases->build();
 }
 
 /**
@@ -825,13 +825,13 @@ function PMA_getHtmlForMoveTable()
     $html_output .= '<legend>' . __('Move table to (database<b>.</b>table)')
         . '</legend>';
 
-    if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
+    if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input type="text" maxlength="100" size="30" '
             . 'name="target_db" value="' . htmlspecialchars($GLOBALS['db'])
             . '"/>';
     } else {
         $html_output .= '<select class="halfWidth" name="target_db">'
-            . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
+            . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
@@ -1251,13 +1251,13 @@ function PMA_getHtmlForCopytable()
     $html_output .= '<legend>'
         . __('Copy table to (database<b>.</b>table)') . '</legend>';
 
-    if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
+    if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
             . 'size="30" name="target_db" '
             . 'value="' . htmlspecialchars($GLOBALS['db']) . '"/>';
     } else {
         $html_output .= '<select class="halfWidth" name="target_db">'
-            . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
+            . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';

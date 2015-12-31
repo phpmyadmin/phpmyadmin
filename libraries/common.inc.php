@@ -35,7 +35,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA\libraries\PMA;
+use PMA\libraries\DbList;
 use PMA\libraries\Theme;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
@@ -931,11 +931,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // TODO: Set SQL modes too.
 
         /**
-         * the ListDatabase class
+         * the DbList class as a stub for the ListDatabase class
          */
-        $pma = new PMA;
-        $pma->userlink = $userlink;
-        $pma->controllink = $controllink;
+        $dblist = new DbList;
+        $dblist->userlink = $userlink;
+        $dblist->controllink = $controllink;
 
         /**
          * some resetting has to be done when switching servers
@@ -1077,7 +1077,7 @@ if (! defined('PMA_MINIMUM_COMMON')
     }
     $cfgRelation = PMA_getRelationsParam();
     if (empty($cfgRelation['db'])) {
-        foreach ($GLOBALS['pma']->databases as $database) {
+        foreach ($GLOBALS['dblist']->databases as $database) {
             if ($database == 'phpmyadmin') {
                 PMA_fixPMATables($database, false);
             }

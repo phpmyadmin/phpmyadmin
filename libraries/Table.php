@@ -728,8 +728,8 @@ class Table
         $GLOBALS['asfile']         = 1;
 
         // Ensuring the target database is valid.
-        if (! $GLOBALS['pma']->databases->exists($source_db, $target_db)) {
-            if (! $GLOBALS['pma']->databases->exists($source_db)) {
+        if (! $GLOBALS['dblist']->databases->exists($source_db, $target_db)) {
+            if (! $GLOBALS['dblist']->databases->exists($source_db)) {
                 $GLOBALS['message'] = Message::rawError(
                     sprintf(
                         __('Source database `%s` was not found!'),
@@ -737,7 +737,7 @@ class Table
                     )
                 );
             }
-            if (! $GLOBALS['pma']->databases->exists($target_db)) {
+            if (! $GLOBALS['dblist']->databases->exists($target_db)) {
                 $GLOBALS['message'] = Message::rawError(
                     sprintf(
                         __('Target database `%s` was not found!'),
@@ -1271,7 +1271,7 @@ class Table
 
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
-            if (! $GLOBALS['pma']->databases->exists($new_db)) {
+            if (! $GLOBALS['dblist']->databases->exists($new_db)) {
                 $this->errors[] = __('Invalid database:') . ' ' . $new_db;
                 return false;
             }

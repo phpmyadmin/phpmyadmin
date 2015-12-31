@@ -58,7 +58,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
         $_GET['db_select'] = explode(",", $_GET['db_select']);
     }
 
-    foreach ($GLOBALS['pma']->databases as $current_db) {
+    foreach ($GLOBALS['dblist']->databases as $current_db) {
         if ($GLOBALS['dbi']->isSystemSchema($current_db, true)) {
             continue;
         }

@@ -905,14 +905,14 @@ class DatabaseInterface
             // display only databases also in official database list
             // f.e. to apply hide_db and only_db
             $drops = array_diff(
-                array_keys($databases), (array) $GLOBALS['pma']->databases
+                array_keys($databases), (array) $GLOBALS['dblist']->databases
             );
             foreach ($drops as $drop) {
                 unset($databases[$drop]);
             }
         } else {
             $databases = array();
-            foreach ($GLOBALS['pma']->databases as $database_name) {
+            foreach ($GLOBALS['dblist']->databases as $database_name) {
                 // MySQL forward compatibility
                 // so pma could use this array as if every server is of version >5.0
                 // todo : remove and check the rest of the code for usage,
@@ -1130,7 +1130,7 @@ class DatabaseInterface
         } else {
             $columns = array();
             if (null === $database) {
-                foreach ($GLOBALS['pma']->databases as $database) {
+                foreach ($GLOBALS['dblist']->databases as $database) {
                     $columns[$database] = $this->getColumnsFull(
                         $database, null, null, $link
                     );

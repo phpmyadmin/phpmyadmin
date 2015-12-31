@@ -51,8 +51,8 @@ class TableTest extends PMATestCase
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
-        $GLOBALS['pma'] = new DataBasePMAMock();
-        $GLOBALS['pma']->databases = new DataBaseMock();
+        $GLOBALS['dblist'] = new DataBasePMAMock();
+        $GLOBALS['dblist']->databases = new DataBaseMock();
 
         $sql_isView_true =  "SELECT TABLE_NAME
             FROM information_schema.VIEWS
