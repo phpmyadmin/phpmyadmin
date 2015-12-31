@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-10-26 19:59-0400\n"
-"PO-Revision-Date: 2015-12-15 18:30+0000\n"
-"Last-Translator: Krystian Biesaga <krystian4842@gmail.com>\n"
+"PO-Revision-Date: 2015-12-31 14:50+0000\n"
+"Last-Translator: Sebastian Weremczuk <weremczuksebastian@gmail.com>\n"
 "Language-Team: Polish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/pl/>\n"
 "Language: pl\n"
@@ -2014,19 +2014,21 @@ msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Poczekaj chwilę! To może zająć chwilę zależnie od rozmiaru bazy i ilości "
+"kolumn."
 
 #: js/messages.php:383
 msgid "Step"
-msgstr ""
+msgstr "Krok"
 
 #: js/messages.php:384
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "Następujące operacje zostaną wykonane:"
 
 #: js/messages.php:385
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "Usuń kolumny %s z tabeli %s"
 
 #: js/messages.php:386
 #, fuzzy
@@ -2036,7 +2038,7 @@ msgstr "Utwórz następującą tabelę"
 
 #: js/messages.php:389
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Trzeci krok normalizacji"
 
 #: js/messages.php:390
 msgid "Confirm transitive dependencies"
@@ -2083,7 +2085,7 @@ msgstr "Maximum kolumny:"
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Nazwy kolumn: "
+msgstr "Nazwy kolumn:"
 
 #: js/messages.php:403
 msgid "Minimum value:"
@@ -2193,6 +2195,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Wygląda na to, że dokonałeś zmian na tej stronie; Zostaniesz zapytany o "
+"potwierdzenie zanim anulujesz zmiany"
 
 #: js/messages.php:456
 msgid "Select referenced key"
@@ -2257,11 +2261,11 @@ msgstr "Proszę podać poprawną nazwę strony"
 
 #: js/messages.php:472
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Czy chcesz zapisać zmiany na obecnej stronie?"
 
 #: js/messages.php:473
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Usuwanie strony zakończylo się sukcesem"
 
 #: js/messages.php:474
 msgid "Export relational schema"
@@ -2304,7 +2308,7 @@ msgstr "Przeciągnij, aby uporządkować."
 
 #: js/messages.php:486
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Kliknij, aby posegregować wyniki na podstawie tej kolumny"
 
 #: js/messages.php:487
 msgid ""
@@ -2344,18 +2348,20 @@ msgstr ""
 #: js/messages.php:495
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Proszę wstaw poprawną liczbę heksadecymalną. Poprawne znaki to 0-9, A-F."
 
 #: js/messages.php:496
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Czy napewno chcesz zobaczyć wszystkie wiersze? Przy dużej tabeli może to "
+"spowodować wysypanie się przeglądarki."
 
 #: js/messages.php:497
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Oryginalny ciąg"
+msgstr "Oryginalna długość"
 
 #: js/messages.php:500
 msgid "cancel"
@@ -2444,11 +2450,15 @@ msgstr "Odłącz od głównego panelu"
 #: js/messages.php:537
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Żeby przeszukać wszystkie bazy danych na serwerze, naciśnij Enter po "
+"wpisaniu słowa kluczowego"
 
 #: js/messages.php:538
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Żeby przeszukać wszystkie %s w bazie danych, kliknij Enter po wpisaniu słowa "
+"kluczowego"
 
 #: js/messages.php:539
 #| msgid "Tables"
@@ -2542,14 +2552,17 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Uwaga: formularz na stronie ma więcej niż %d pól. Po wykonaniu operacji, "
+"niektóre pola mogą zostać zignorowane, w związku z ustawieniami PHP's "
+"max_input_vars."
 
 #: js/messages.php:576 js/messages.php:589
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Parę błędów zostało wykrytych na serwerze!"
 
 #: js/messages.php:578
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Proszę, popatrz na dół tego okienka."
 
 #: js/messages.php:584 libraries/Error_Handler.class.php:352
 msgid "Ignore All"
@@ -2558,7 +2571,7 @@ msgstr "Ignoruj wszystko"
 #: js/messages.php:591
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "Wyczuwam nowe ustawienia, poczekaj chwilę, są one przetwarzane."
 
 #: js/messages.php:599
 msgid "Execute this query again?"
@@ -2570,7 +2583,7 @@ msgstr "Czy na pewno chcesz usunąć tę zakładkę?"
 
 #: js/messages.php:601
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "Wystąpiły błędy podczas pobierania zdebugowanego kodu SQL."
 
 #: js/messages.php:602
 #, php-format
@@ -2581,7 +2594,7 @@ msgstr "%s kwerendy wykonane %s razy w %s sekund."
 #: js/messages.php:603
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argumentów spełniło kryteria"
 
 #: js/messages.php:604
 #| msgid "Table comments"
@@ -2595,7 +2608,7 @@ msgstr "Ukryj argumenty"
 
 #: js/messages.php:606 libraries/Console.class.php:321
 msgid "Time taken:"
-msgstr ""
+msgstr "Zajeło to:"
 
 #: js/messages.php:607
 msgid ""
@@ -2603,6 +2616,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Twoja przeglądarka nie współpracuje z lokalnym nośnikiem ustawień lub limit "
+"został przekroczony, niektóre rzeczy mogą dla ciebie nie działać. W "
+"przeglądarce Safari problem taki najczęściej jest spowodowany \"Trybem "
+"Prywatnym Przeglądania\""
 
 #: js/messages.php:635
 msgctxt "Previous month"
@@ -2858,7 +2875,7 @@ msgstr "Sekunda"
 
 #: js/messages.php:776
 msgid "This field is required"
-msgstr ""
+msgstr "To pole jest wymagane"
 
 #: js/messages.php:777
 #| msgid "Use text field"
@@ -3040,7 +3057,7 @@ msgstr "Zwiń"
 #: libraries/Console.class.php:86 libraries/Console.class.php:212
 #: libraries/Console.class.php:314
 msgid "Expand"
-msgstr ""
+msgstr "Rozszerz"
 
 #: libraries/Console.class.php:87 libraries/Console.class.php:213
 msgid "Requery"
@@ -3073,7 +3090,7 @@ msgstr[2] "W sumie %d zakładek"
 
 #: libraries/Console.class.php:108
 msgid "private"
-msgstr ""
+msgstr "prywatny"
 
 #: libraries/Console.class.php:112 libraries/bookmark.lib.php:89
 msgid "shared"
@@ -3120,7 +3137,7 @@ msgstr "Konsola zapytań SQL"
 
 #: libraries/Console.class.php:231
 msgid "Console"
-msgstr ""
+msgstr "Konsola"
 
 #: libraries/Console.class.php:234 libraries/sql_query_form.lib.php:244
 #: setup/frames/index.inc.php:300
@@ -3208,7 +3225,7 @@ msgstr "Kolejność wykonywania"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Zajeło czasu"
 
 #: libraries/Console.class.php:298
 #| msgid "Order"
@@ -3226,16 +3243,14 @@ msgid "Ungroup queries"
 msgstr "Rozgrupuj kwerendy"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
-msgstr "Pokaż kolor"
+msgstr "Pokaż ścieżkę"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Ukryj Panel"
+msgstr "Ukryj ścieżkę"
 
 #: libraries/Console.class.php:319
 #| msgid "Column"
@@ -3327,7 +3342,7 @@ msgstr "Kolumna:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
@@ -3915,7 +3930,7 @@ msgstr ""
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (w pobliżu <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
@@ -4779,7 +4794,7 @@ msgstr "Dane statyczne"
 #: libraries/Util.class.php:668
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d błędów zostało znalezionych podczas analizy."
 
 #: libraries/Util.class.php:730 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -4954,7 +4969,7 @@ msgstr ""
 #: libraries/central_columns.lib.php:283
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Nie można dodać %1$s ponieważ już występuje w głównej liście!"
 
 #: libraries/central_columns.lib.php:298
 msgid "Could not add columns!"
@@ -4965,6 +4980,8 @@ msgstr "Nie można dodać kolumn!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Nie udało się usunąć Column(s) %1$s ponieważ nei występuje ona w liście "
+"głównej!"
 
 #: libraries/central_columns.lib.php:385
 msgid "Could not remove columns!"
@@ -4972,11 +4989,11 @@ msgstr "Nie można usunąć kolumn!"
 
 #: libraries/central_columns.lib.php:530
 msgid "YES"
-msgstr ""
+msgstr "TAK"
 
 #: libraries/central_columns.lib.php:530
 msgid "NO"
-msgstr ""
+msgstr "NIE"
 
 #: libraries/central_columns.lib.php:695 libraries/central_columns.lib.php:1383
 #: libraries/plugins/export/ExportHtmlword.class.php:471
@@ -5006,7 +5023,7 @@ msgstr "Atrybut"
 
 #: libraries/central_columns.lib.php:710 libraries/central_columns.lib.php:1384
 msgid "A_I"
-msgstr ""
+msgstr "Auto Inkrementacja"
 
 #: libraries/central_columns.lib.php:750
 msgid "Select a table"
@@ -5085,6 +5102,9 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Nie udało się użyć strefy czasowej %1$s dla serwera %2$d. Proszę sprawdź "
+"pliki konfiguracyjne [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
+"phpMyAdmin obecnie używa domyślnej strefy czasowej serwera."
 
 #: libraries/common.inc.php:1037
 #, php-format
@@ -5150,7 +5170,7 @@ msgstr "Wyłączone"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "klucz"
 
 #: libraries/config.values.php:99
 #, fuzzy
@@ -5698,23 +5718,19 @@ msgid "Enable linter"
 msgstr "Włącz linter"
 
 #: libraries/config/messages.inc.php:69
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr ""
-"Określa minimalny rozmiar pola do wprowadzania danych generowany dla kolumn "
-"CHAR i VARCHAR"
+msgstr "Definiuje minimalny rozmiar dla pól generujących kolumny CHAR i VARCHAR"
 
 #: libraries/config/messages.inc.php:72
 msgid "Minimum size for input field"
 msgstr "Minimalny rozmiar pola wprowadzania"
 
 #: libraries/config/messages.inc.php:74
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -5723,17 +5739,16 @@ msgid ""
 "columns."
 msgstr ""
 "Określa maksymalny rozmiar pola do wprowadzania danych generowany dla kolumn "
-"CHAR i VARCHAR"
+"CHAR i VARCHAR."
 
 #: libraries/config/messages.inc.php:77
 msgid "Maximum size for input field"
 msgstr "Maksymalny rozmiar pola wprowadzania"
 
 #: libraries/config/messages.inc.php:79
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Liczba kolumn w polach textarea CHAR/VARCHAR"
+msgstr "Liczba kolumn w polach tekstowych CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:81
 msgid "CHAR textarea columns"
@@ -6141,7 +6156,7 @@ msgstr "Limit kluczy obcych"
 
 #: libraries/config/messages.inc.php:241
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "Domyślna wartość klucza obcego sprawdza zaznaczenie dla kilku pytań."
 
 #: libraries/config/messages.inc.php:243
 #| msgid "Foreign key check:"
@@ -6525,6 +6540,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:389
 msgid "Update data when duplicate keys found on import"
 msgstr ""
+"Zaktualizuj dane kiedy pojawią sie duplikaty kluczy z importowanych rzeczy"
 
 #: libraries/config/messages.inc.php:379
 #, fuzzy
