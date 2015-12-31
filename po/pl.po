@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-27 07:41-0500\n"
-"PO-Revision-Date: 2015-12-31 14:09+0000\n"
+"PO-Revision-Date: 2015-12-31 14:50+0000\n"
 "Last-Translator: Sebastian Weremczuk <weremczuksebastian@gmail.com>\n"
 "Language-Team: Polish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
@@ -5557,7 +5557,6 @@ msgid "Minimum size for input field"
 msgstr "Minimalny rozmiar pola wprowadzania"
 
 #: libraries/config/messages.inc.php:74
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -5566,17 +5565,16 @@ msgid ""
 "columns."
 msgstr ""
 "Określa maksymalny rozmiar pola do wprowadzania danych generowany dla kolumn "
-"CHAR i VARCHAR"
+"CHAR i VARCHAR."
 
 #: libraries/config/messages.inc.php:77
 msgid "Maximum size for input field"
 msgstr "Maksymalny rozmiar pola wprowadzania"
 
 #: libraries/config/messages.inc.php:79
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Liczba kolumn w polach textarea CHAR/VARCHAR"
+msgstr "Liczba kolumn w polach tekstowych CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:81
 msgid "CHAR textarea columns"
@@ -5991,7 +5989,7 @@ msgstr "Limit kluczy obcych"
 
 #: libraries/config/messages.inc.php:244
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "Domyślna wartość klucza obcego sprawdza zaznaczenie dla kilku pytań."
 
 #: libraries/config/messages.inc.php:246
 msgid "Foreign key checks"
@@ -6372,6 +6370,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:378 libraries/config/messages.inc.php:392
 msgid "Update data when duplicate keys found on import"
 msgstr ""
+"Zaktualizuj dane kiedy pojawią sie duplikaty kluczy z importowanych rzeczy"
 
 #: libraries/config/messages.inc.php:382
 #, fuzzy
