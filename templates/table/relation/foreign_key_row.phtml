@@ -145,7 +145,7 @@ if ($foreign_db) {
                 array(
                     'name' => 'destination_foreign_db[' . $i . ']',
                     'title' => __('Database'),
-                    'values' => $GLOBALS['pma']->databases,
+                    'values' => $GLOBALS['dblist']->databases,
                     'foreign' => $foreign_db
                 )
             ); ?>

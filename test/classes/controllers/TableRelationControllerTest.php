@@ -47,8 +47,8 @@ class TableRelationControllerTest extends PMATestCase
         $_REQUEST['foreignDb'] = 'db';
         $_REQUEST['foreignTable'] = 'table';
 
-        $GLOBALS['pma'] = new DataBasePMAMockForTblRelation();
-        $GLOBALS['pma']->databases = new DataBaseMockForTblRelation();
+        $GLOBALS['dblist'] = new DataBasePMAMockForTblRelation();
+        $GLOBALS['dblist']->databases = new DataBaseMockForTblRelation();
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()

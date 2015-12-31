@@ -553,7 +553,7 @@ function PMA_exportServer(
         $tmp_select = '|' . $tmp_select . '|';
     }
     // Walk over databases
-    foreach ($GLOBALS['pma']->databases as $current_db) {
+    foreach ($GLOBALS['dblist']->databases as $current_db) {
         if (isset($tmp_select)
             && /*overload*/mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {

@@ -323,7 +323,7 @@ if (!empty($submit_mult) && !empty($what)) {
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator
         // when dropping a db from server_databases
-        $GLOBALS['pma']->databases->build();
+        $GLOBALS['dblist']->databases->build();
     }
 } else {
     if (isset($submit_mult)

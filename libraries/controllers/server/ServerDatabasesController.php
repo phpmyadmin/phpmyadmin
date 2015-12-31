@@ -105,7 +105,7 @@ class ServerDatabasesController extends Controller
                 null, $this->_dbstats, null, $this->_sort_by,
                 $this->_sort_order, $this->_pos, true
             );
-            $this->_database_count = count($GLOBALS['pma']->databases);
+            $this->_database_count = count($GLOBALS['dblist']->databases);
         } else {
             $this->_database_count = 0;
         }

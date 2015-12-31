@@ -55,7 +55,7 @@ if ($foreign_db && $foreign_table) {
             array(
                 'name' => 'destination_db[' . $myfield_md5 . ']',
                 'title' => __('Database'),
-                'values' => $GLOBALS['pma']->databases,
+                'values' => $GLOBALS['dblist']->databases,
                 'foreign' => $foreign_db
             )
         ); ?>

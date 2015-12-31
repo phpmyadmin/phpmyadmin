@@ -3492,7 +3492,7 @@ function PMA_getHtmlForAllTableSpecificRights(
 
         // we already have the list of databases from libraries/common.inc.php
         // via $pma = new PMA;
-        $pred_db_array = $GLOBALS['pma']->databases;
+        $pred_db_array = $GLOBALS['dblist']->databases;
         $databases_to_skip = array('information_schema', 'performance_schema');
 
         $databases = array();
