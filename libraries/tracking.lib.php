@@ -1205,45 +1205,29 @@ function PMA_exportAsFileDownload($entries)
 }
 
 /**
- * Function to activate tracking
+ * Function to activate or deactivate tracking
+ *
+ * @param string $action activate|deactivate
  *
  * @return string HTML for the success message
  */
-function PMA_activateTracking()
+function PMA_changeTracking($action)
 {
     $html = '';
-    $activated = Tracker::activateTracking(
-        $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
-    );
-    if ($activated) {
-        $msg = Message::success(
-            sprintf(
-                __('Tracking for %1$s was activated at version %2$s.'),
-                htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
-                htmlspecialchars($_REQUEST['version'])
-            )
-        );
-        $html .= $msg->getDisplay();
+    if ($action == 'activate') {
+        $method = 'activateTracking';
+        $message = __('Tracking for %1$s was activated at version %2$s.');
+    } else {
+        $method = 'deactivateTracking';
+        $message = __('Tracking for %1$s was deactivated at version %2$s.');
     }
-
-    return $html;
-}
-
-/**
- * Function to deactivate tracking
- *
- * @return string HTML of the success message
- */
-function PMA_deactivateTracking()
-{
-    $html = '';
-    $deactivated = Tracker::deactivateTracking(
+    $status = Tracker::$method(
         $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
     );
-    if ($deactivated) {
+    if ($status) {
         $msg = Message::success(
             sprintf(
-                __('Tracking for %1$s was deactivated at version %2$s.'),
+                $message,
                 htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
                 htmlspecialchars($_REQUEST['version'])
             )

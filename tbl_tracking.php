@@ -124,14 +124,14 @@ if (isset($_REQUEST['submit_create_version'])) {
 if (isset($_REQUEST['toggle_activation'])
     && $_REQUEST['toggle_activation'] == 'deactivate_now'
 ) {
-    $html .= PMA_deactivateTracking();
+    $html .= PMA_changeTracking('deactivate');
 }
 
 // Activate tracking
 if (isset($_REQUEST['toggle_activation'])
     && $_REQUEST['toggle_activation'] == 'activate_now'
 ) {
-    $html .= PMA_activateTracking();
+    $html .= PMA_changeTracking('activate');
 }
 
 // Export as SQL execution
