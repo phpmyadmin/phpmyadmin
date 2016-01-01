@@ -30,8 +30,9 @@ if (!isset($logo)) {
 <!-- LOGO START -->
 <?php if (false === $displayLogo) : ?>
     <!-- LOGO END -->
-    <?php return; ?>
-<?php endif; ?>
+    <?php return;
+      endif;
+    ?>
 <div id="pmalogo">
     <?php if (true === $useLogoLink) : ?>
         <a href="<?php echo $logoLink; ?>"<?php echo isset($linkAttribs) ? ' ' . $linkAttribs : null; ?>>
