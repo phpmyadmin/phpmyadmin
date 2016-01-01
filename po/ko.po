@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2015-12-28 04:39+0000\n"
-"Last-Translator: 신흥재 <9992551@xfp.kr>\n"
+"PO-Revision-Date: 2016-01-01 07:40+0000\n"
+"Last-Translator: Bob <doodoori2@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ko/>\n"
 "Language: ko\n"
@@ -2782,7 +2782,7 @@ msgstr "초"
 
 #: js/messages.php:776
 msgid "This field is required"
-msgstr ""
+msgstr "해당 항목은 필수 항목입니다."
 
 #: js/messages.php:777
 msgid "Please fix this field"
