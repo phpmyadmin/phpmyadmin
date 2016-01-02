@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 + issue #11743 Display routine specific privileges
 + issue #11538 Copy multiple tables to database
 + issue        Support Cloudflare Flexible SSL
+- issue        Handle empty TABLE_COMMENT
 
 4.5.4.0 (not yet released)
 - issue #11724 live data edit of big sets is not working
