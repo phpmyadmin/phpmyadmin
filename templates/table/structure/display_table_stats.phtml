@@ -2,7 +2,9 @@
     <?php $odd_row = false; ?>
     <fieldset>
         <legend><?php echo __('Information'); ?></legend>
-        <p> <strong> <?php echo __('Table comments: ') ?> </strong> <?php echo $showtable['TABLE_COMMENT']; ?></p>
+        <p> <strong> <?php echo __('Table comments: ') ?> </strong>
+            <?php echo isset($showtable['TABLE_COMMENT']) ? $showtable['TABLE_COMMENT'] : '';?>
+        </p>
         <a id="showusage"></a>
 
         <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
