@@ -165,6 +165,9 @@ class Menu
         $retval = '';
         $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
             ->isView();
+        if (empty($GLOBALS['cfg']['Server']['host'])) {
+            $GLOBALS['cfg']['Server']['host'] = '';
+        }
         $server_info = ! empty($GLOBALS['cfg']['Server']['verbose'])
             ? $GLOBALS['cfg']['Server']['verbose']
             : $GLOBALS['cfg']['Server']['host'];
