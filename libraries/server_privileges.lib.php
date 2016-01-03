@@ -2416,7 +2416,6 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
 function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_checkbox)
 {
     $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = "' . $db . '";';
-    $response = PMA\libraries\Response::getInstance();
     $res = $GLOBALS['dbi']->query($sql_query);
     $html_output = '';
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
