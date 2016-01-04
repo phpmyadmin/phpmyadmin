@@ -516,7 +516,9 @@ $(function () {
             }
         });
     });
+});
 
+AJAX.registerOnload('navigation.js', function () {
     // Check if session storage is supported
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
