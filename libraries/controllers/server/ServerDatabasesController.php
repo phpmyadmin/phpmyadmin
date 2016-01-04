@@ -240,7 +240,7 @@ class ServerDatabasesController extends Controller
         }
 
         if (isset($_REQUEST['sort_order'])
-            && /*overload*/mb_strtolower($_REQUEST['sort_order']) == 'desc'
+            && mb_strtolower($_REQUEST['sort_order']) == 'desc'
         ) {
             $this->_sort_order = 'desc';
         } else {
@@ -472,7 +472,7 @@ class ServerDatabasesController extends Controller
                     $current["SCHEMA_NAME"],
                     $replication_info[$type]['Ignore_DB']
                 );
-                if (/*overload*/mb_strlen($key) > 0) {
+                if (mb_strlen($key) > 0) {
                     $out = Util::getIcon(
                         's_cancel.png',
                         __('Not replicated')
@@ -482,7 +482,7 @@ class ServerDatabasesController extends Controller
                         $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
                     );
 
-                    if (/*overload*/mb_strlen($key) > 0
+                    if (mb_strlen($key) > 0
                         || (isset($replication_info[$type]['Do_DB'][0])
                         && $replication_info[$type]['Do_DB'][0] == ""
                         && count($replication_info[$type]['Do_DB']) == 1)

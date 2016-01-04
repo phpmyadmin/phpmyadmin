@@ -69,7 +69,7 @@ if (!$config_writable || !$config_readable) {
 // Check https connection
 //
 $is_https = !empty($_SERVER['HTTPS'])
-    && /*overload*/mb_strtolower($_SERVER['HTTPS']) == 'on';
+    && mb_strtolower($_SERVER['HTTPS']) == 'on';
 if (!$is_https) {
     $text = __(
         'You are not using a secure connection; all data (including potentially '

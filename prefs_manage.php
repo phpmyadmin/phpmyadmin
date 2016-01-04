@@ -177,12 +177,12 @@ if (isset($_POST['submit_export'])
                 $return_url = parse_url($return_url, PHP_URL_PATH);
 
                 foreach ($query as $q) {
-                    $pos = /*overload*/mb_strpos($q, '=');
-                    $k = /*overload*/mb_substr($q, 0, $pos);
+                    $pos = mb_strpos($q, '=');
+                    $k = mb_substr($q, 0, $pos);
                     if ($k == 'token') {
                         continue;
                     }
-                    $params[$k] = /*overload*/mb_substr($q, $pos + 1);
+                    $params[$k] = mb_substr($q, $pos + 1);
                 }
             } else {
                 $return_url = 'prefs_manage.php';

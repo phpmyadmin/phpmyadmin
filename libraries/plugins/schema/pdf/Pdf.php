@@ -338,7 +338,7 @@ class Pdf extends PDF_lib
         }
         $wmax = ($w-2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
-        $nb = /*overload*/mb_strlen($s);
+        $nb = mb_strlen($s);
         if ($nb > 0 and $s[$nb-1] == "\n") {
             $nb--;
         }
@@ -360,7 +360,7 @@ class Pdf extends PDF_lib
             if ($c == ' ') {
                 $sep = $i;
             }
-            $l += isset($cw[/*overload*/mb_ord($c)])?$cw[/*overload*/mb_ord($c)]:0 ;
+            $l += isset($cw[mb_ord($c)])?$cw[mb_ord($c)]:0 ;
             if ($l > $wmax) {
                 if ($sep == -1) {
                     if ($i == $j) {

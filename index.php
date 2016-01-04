@@ -591,8 +591,8 @@ if (isset($GLOBALS['dbi'])
 ) {
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
-        && /*overload*/mb_strpos($_client_info, 'mysqlnd') === false
-        && /*overload*/mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') === false
+        && mb_strpos($_client_info, 'mysqlnd') === false
+        && mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') === false
         && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(
             PMA_MYSQL_INT_VERSION, 0, 3
         )

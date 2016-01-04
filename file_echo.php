@@ -43,9 +43,9 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
 
     /* Decode data */
     if ($extension != 'svg') {
-        $data = /*overload*/mb_substr(
+        $data = mb_substr(
             $_REQUEST['image'],
-            /*overload*/mb_strpos($_REQUEST['image'], ',') + 1
+            mb_strpos($_REQUEST['image'], ',') + 1
         );
         $data = base64_decode($data);
     } else {
@@ -56,7 +56,7 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     PMA_downloadHeader(
         $filename,
         $_REQUEST['type'],
-        /*overload*/mb_strlen($data)
+        mb_strlen($data)
     );
 
     /* Send data */

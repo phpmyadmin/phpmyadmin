@@ -97,7 +97,7 @@
                     <?php echo __('View'); ?>
                 <?php endif; ?>
             </td>
-            <?php if (/*overload*/mb_strlen($collation)): ?>
+            <?php if (mb_strlen($collation)): ?>
                 <td class="nowrap">
                     <?php echo $collation; ?>
                 </td>
@@ -119,10 +119,10 @@
         <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
             <?php $comment = $current_table['Comment']; ?>
             <td>
-                <?php if (/*overload*/mb_strlen($comment) > $GLOBALS['cfg']['LimitChars']): ?>
+                <?php if (mb_strlen($comment) > $GLOBALS['cfg']['LimitChars']): ?>
                     <abbr title="<?php echo htmlspecialchars($comment); ?>">
                         <?php echo htmlspecialchars(
-                            /*overload*/mb_substr(
+                            mb_substr(
                                 $comment, 0, $GLOBALS['cfg']['LimitChars']
                             )
                         ); ?>

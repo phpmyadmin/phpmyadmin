@@ -24,7 +24,7 @@ class TypesMySQL extends Types
      */
     public function getTypeDescription($type)
     {
-        $type = /*overload*/mb_strtoupper($type);
+        $type = mb_strtoupper($type);
         switch ($type) {
         case 'TINYINT':
             return __(
@@ -227,7 +227,7 @@ class TypesMySQL extends Types
      */
     public function getTypeClass($type)
     {
-        $type = /*overload*/mb_strtoupper($type);
+        $type = mb_strtoupper($type);
         switch ($type) {
         case 'TINYINT':
         case 'SMALLINT':

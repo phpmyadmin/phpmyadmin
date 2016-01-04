@@ -301,8 +301,8 @@ function PMA_translateStacktrace($stack)
 {
     foreach ($stack as &$level) {
         foreach ($level["context"] as &$line) {
-            if (/*overload*/mb_strlen($line) > 80) {
-                $line = /*overload*/mb_substr($line, 0, 75) . "//...";
+            if (mb_strlen($line) > 80) {
+                $line = mb_substr($line, 0, 75) . "//...";
             }
         }
         if (preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {

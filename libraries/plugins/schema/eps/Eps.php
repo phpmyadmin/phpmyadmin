@@ -270,7 +270,6 @@ class Eps
         PMA_downloadHeader(
             $fileName,
             'image/x-eps',
-            /*overload*/
             mb_strlen($output)
         );
         print $output;

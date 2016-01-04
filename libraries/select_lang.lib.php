@@ -16,7 +16,7 @@
 function PMA_languageName($tmplang)
 {
     $lang_name = ucfirst(
-        /*overload*/mb_substr(/*overload*/mb_strrchr($tmplang[0], '|'), 1)
+        mb_substr(mb_strrchr($tmplang[0], '|'), 1)
     );
 
     // Include native name if non empty
@@ -84,7 +84,7 @@ function PMA_langCheck()
     // prevent XSS
     $accepted_languages = PMA_getenv('HTTP_ACCEPT_LANGUAGE');
     if ($accepted_languages
-        && false === /*overload*/mb_strpos($accepted_languages, '<')
+        && false === mb_strpos($accepted_languages, '<')
     ) {
         foreach (explode(',', $accepted_languages) as $lang) {
             if (PMA_langDetect($lang, 1)) {
@@ -154,7 +154,7 @@ function PMA_langDetect($str, $envType)
         // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
         //             2 for the 'HTTP_USER_AGENT' one
         $expr = $value[0];
-        if (/*overload*/mb_strpos($expr, '[-_]') === false) {
+        if (mb_strpos($expr, '[-_]') === false) {
             $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
         }
         $pattern1 = '/^(' . addcslashes($expr, '/') . ')(;q=[0-9]\\.[0-9])?$/i';

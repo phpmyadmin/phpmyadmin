@@ -291,17 +291,17 @@ function PMA_analyseShowGrant()
 
     while ($row = $GLOBALS['dbi']->fetchRow($rs_usr)) {
         // extract db from GRANT ... ON *.* or GRANT ... ON db.*
-        $db_name_offset = /*overload*/mb_strpos($row[0], ' ON ') + 4;
-        $show_grants_dbname = /*overload*/mb_substr(
+        $db_name_offset = mb_strpos($row[0], ' ON ') + 4;
+        $show_grants_dbname = mb_substr(
             $row[0], $db_name_offset,
-            /*overload*/mb_strpos($row[0], '.', $db_name_offset) - $db_name_offset
+            mb_strpos($row[0], '.', $db_name_offset) - $db_name_offset
         );
         $show_grants_dbname = PMA\libraries\Util::unQuote($show_grants_dbname, '`');
 
-        $show_grants_str    = /*overload*/mb_substr(
+        $show_grants_str    = mb_substr(
             $row[0],
             6,
-            (/*overload*/mb_strpos($row[0], ' ON ') - 6)
+            (mb_strpos($row[0], ' ON ') - 6)
         );
 
         if ($show_grants_dbname == '*') {
@@ -353,7 +353,7 @@ function PMA_analyseShowGrant()
                             '/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test
                         )
                     )
-                    && /*overload*/mb_substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
+                    && mb_substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
                 ) {
                     /**
                      * Do not handle the underscore wildcard

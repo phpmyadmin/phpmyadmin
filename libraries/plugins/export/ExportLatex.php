@@ -349,10 +349,7 @@ class ExportLatex extends ExportPlugin
                     . self::texEscape(stripslashes($columns_alias[$i])) . '}} & ';
             }
 
-            $buffer
-                = /*overload*/
-                mb_substr($buffer, 0, -2)
-                . '\\\\ \\hline \hline ';
+            $buffer = mb_substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
             if (!PMA_exportOutputHandler($buffer . ' \\endfirsthead ' . $crlf)) {
                 return false;
             }
@@ -619,23 +616,19 @@ class ExportLatex extends ExportPlugin
             }
             $local_buffer = self::texEscape($local_buffer);
             if ($row['Key'] == 'PRI') {
-                $pos
-                    = /*overload*/
-                    mb_strpos($local_buffer, "\000");
+                $pos = mb_strpos($local_buffer, "\000");
                 $local_buffer = '\\textit{'
-                    . /*overload*/
+                    .
                     mb_substr($local_buffer, 0, $pos)
-                    . '}' . /*overload*/
+                    . '}' .
                     mb_substr($local_buffer, $pos);
             }
             if (in_array($field_name, $unique_keys)) {
-                $pos
-                    = /*overload*/
-                    mb_strpos($local_buffer, "\000");
+                $pos = mb_strpos($local_buffer, "\000");
                 $local_buffer = '\\textbf{'
-                    . /*overload*/
+                    .
                     mb_substr($local_buffer, 0, $pos)
-                    . '}' . /*overload*/
+                    . '}' .
                     mb_substr($local_buffer, $pos);
             }
             $buffer = str_replace("\000", ' & ', $local_buffer);

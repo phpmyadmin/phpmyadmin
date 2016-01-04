@@ -181,7 +181,6 @@ class Dia extends XMLWriter
         PMA_downloadHeader(
             $fileName,
             'application/x-dia-diagram',
-            /*overload*/
             mb_strlen($output)
         );
         print $output;

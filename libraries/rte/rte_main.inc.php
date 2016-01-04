@@ -47,7 +47,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
      * to manually select the required database and
      * create the missing $url_query variable
      */
-    if (/*overload*/mb_strlen($db)) {
+    if (mb_strlen($db)) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
             $url_query = PMA_URL_getCommon(

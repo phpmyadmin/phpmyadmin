@@ -63,7 +63,7 @@ if ($showtable) {
     } else {
         $tbl_is_view     = false;
         $tbl_storage_engine = isset($showtable['Engine'])
-            ? /*overload*/mb_strtoupper($showtable['Engine'])
+            ? mb_strtoupper($showtable['Engine'])
             : '';
         $show_comment = '';
         if (isset($showtable['Comment'])) {
@@ -100,7 +100,7 @@ if ($showtable) {
         }
     }
     // we need explicit DEFAULT value here (different from '0')
-    $pack_keys = (! isset($pack_keys) || /*overload*/mb_strlen($pack_keys) == 0)
+    $pack_keys = (! isset($pack_keys) || mb_strlen($pack_keys) == 0)
         ? 'DEFAULT'
         : $pack_keys;
     unset($create_options, $each_create_option);

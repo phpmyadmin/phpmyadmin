@@ -26,10 +26,9 @@ class SysInfoLinux extends \PMA\libraries\SysInfo
         $buf = file_get_contents('/proc/stat');
         $nums = preg_split(
             "/\s+/",
-            /*overload*/
             mb_substr(
                 $buf,
-                0, /*overload*/
+                0,
                 mb_strpos($buf, "\n")
             )
         );

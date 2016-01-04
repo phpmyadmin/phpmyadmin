@@ -37,7 +37,7 @@ $sql_query = '';
 /**
  * Rename/move or copy database
  */
-if (/*overload*/mb_strlen($GLOBALS['db'])
+if (mb_strlen($GLOBALS['db'])
     && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))
 ) {
     if (! empty($_REQUEST['db_rename'])) {
@@ -47,7 +47,7 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
     }
 
     if (! isset($_REQUEST['newname'])
-        || ! /*overload*/mb_strlen($_REQUEST['newname'])
+        || ! mb_strlen($_REQUEST['newname'])
     ) {
         $message = PMA\libraries\Message::error(__('The database name is empty!'));
     } else {

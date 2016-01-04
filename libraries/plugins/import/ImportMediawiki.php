@@ -94,9 +94,7 @@ class ImportMediawiki extends ImportPlugin
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing
-                $GLOBALS['offset']
-                    -= /*overload*/
-                    mb_strlen($buffer);
+                $GLOBALS['offset'] -= mb_strlen($buffer);
                 break;
             } elseif ($data === true) {
                 // Handle rest of buffer
@@ -106,7 +104,7 @@ class ImportMediawiki extends ImportPlugin
                 unset($data);
                 // Don't parse string if we're not at the end
                 // and don't have a new line inside
-                if (/*overload*/mb_strpos($buffer, $mediawiki_new_line) === false) {
+                if (mb_strpos($buffer, $mediawiki_new_line) === false) {
                     continue;
                 }
             }
@@ -139,12 +137,12 @@ class ImportMediawiki extends ImportPlugin
                 $matches = array();
 
                 // Check beginning of comment
-                if (!strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "<!--")) {
+                if (!strcmp(mb_substr($cur_buffer_line, 0, 4), "<!--")) {
                     $inside_comment = true;
                     continue;
                 } elseif ($inside_comment) {
                     // Check end of comment
-                    if (!strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "-->")
+                    if (!strcmp(mb_substr($cur_buffer_line, 0, 4), "-->")
                     ) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
@@ -201,9 +199,9 @@ class ImportMediawiki extends ImportPlugin
                     $in_table_header = false;
                     // End processing because the current line does not
                     // contain any column information
-                } elseif (/*overload*/mb_substr($cur_buffer_line, 0, 2) === '|-'
-                    || /*overload*/mb_substr($cur_buffer_line, 0, 2) === '|+'
-                    || /*overload*/mb_substr($cur_buffer_line, 0, 2) === '|}'
+                } elseif (mb_substr($cur_buffer_line, 0, 2) === '|-'
+                    || mb_substr($cur_buffer_line, 0, 2) === '|+'
+                    || mb_substr($cur_buffer_line, 0, 2) === '|}'
                 ) {
                     // Check begin row or end table
 
@@ -225,7 +223,7 @@ class ImportMediawiki extends ImportPlugin
                     $cur_temp_line = array();
 
                     // No more processing required at the end of the table
-                    if (/*overload*/mb_substr($cur_buffer_line, 0, 2) === '|}') {
+                    if (mb_substr($cur_buffer_line, 0, 2) === '|}') {
                         $current_table = array(
                             $cur_table_name,
                             $cur_temp_table_headers,
@@ -548,7 +546,7 @@ class ImportMediawiki extends ImportPlugin
 
         // A '|' inside an invalid link should not
         // be mistaken as delimiting cell parameters
-        if (/*overload*/mb_strpos($cell_data[0], '[[') === false) {
+        if (mb_strpos($cell_data[0], '[[') === false) {
             return $cell;
         }
 
@@ -586,8 +584,8 @@ class ImportMediawiki extends ImportPlugin
      */
     private function _getCellContent($cell, $col_start_char)
     {
-        if (/*overload*/mb_strpos($cell, $col_start_char) === 0) {
-            $cell = trim(/*overload*/mb_substr($cell, 1));
+        if (mb_strpos($cell, $col_start_char) === 0) {
+            $cell = trim(mb_substr($cell, 1));
         }
 
         return $cell;

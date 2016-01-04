@@ -16,14 +16,14 @@
  */
 function PMA_detectMIME(&$test)
 {
-    $len = /*overload*/mb_strlen($test);
+    $len = mb_strlen($test);
     if ($len >= 2 && $test[0] == chr(0xff) && $test[1] == chr(0xd8)) {
         return 'image/jpeg';
     }
     if ($len >= 3 && substr($test, 0, 3) == 'GIF') {
         return 'image/gif';
     }
-    if ($len >= 4 && /*overload*/mb_substr($test, 0, 4) == "\x89PNG") {
+    if ($len >= 4 && mb_substr($test, 0, 4) == "\x89PNG") {
         return 'image/png';
     }
     return 'application/octet-stream';

@@ -54,7 +54,7 @@ require_once 'libraries/file_listing.lib.php';
  * (at this point, $GLOBALS['goto'] will be set but could be empty)
  */
 if (empty($GLOBALS['goto'])) {
-    if (/*overload*/mb_strlen($table)) {
+    if (mb_strlen($table)) {
         // avoid a problem (see bug #2202709)
         $GLOBALS['goto'] = 'tbl_sql.php';
     } else {

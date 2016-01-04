@@ -183,7 +183,7 @@ class ServerVariablesController extends Controller
             );
             $value = floatval($matches[1]) * Util::pow(
                 1024,
-                $exp[/*overload*/mb_strtolower($matches[3])]
+                $exp[mb_strtolower($matches[3])]
             );
         } else {
             $value = Util::sqlAddSlashes($value);

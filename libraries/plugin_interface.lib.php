@@ -29,10 +29,10 @@ function PMA_getPlugin(
     $plugin_param = false
 ) {
     $GLOBALS['plugin_param'] = $plugin_param;
-    $class_name = /*overload*/mb_strtoupper($plugin_type[0])
-        . /*overload*/mb_strtolower(/*overload*/mb_substr($plugin_type, 1))
-        . /*overload*/mb_strtoupper($plugin_format[0])
-        . /*overload*/mb_strtolower(/*overload*/mb_substr($plugin_format, 1));
+    $class_name = mb_strtoupper($plugin_type[0])
+        . mb_strtolower(mb_substr($plugin_type, 1))
+        . mb_strtoupper($plugin_format[0])
+        . mb_strtolower(mb_substr($plugin_format, 1));
     $file = $class_name . ".php";
     if (is_file($plugins_dir . $file)) {
         //include_once $plugins_dir . $file;
@@ -65,7 +65,7 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
 
     $namespace = 'PMA\\' . str_replace('/', '\\', $plugins_dir);
     $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
-        . mb_strtolower(/*overload*/mb_substr($plugin_type, 1), 'UTF-8');
+        . mb_strtolower(mb_substr($plugin_type, 1), 'UTF-8');
 
     $prefix_class_name = $namespace . $class_type;
 
@@ -202,10 +202,10 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         $elem = explode('\\', get_class($plugin));
         $plugin_name = array_pop($elem);
         unset($elem);
-        $plugin_name = /*overload*/mb_strtolower(
-            /*overload*/mb_substr(
+        $plugin_name = mb_strtolower(
+            mb_substr(
                 $plugin_name,
-                /*overload*/mb_strlen($section)
+                mb_strlen($section)
             )
         );
         $ret .= '<option';
@@ -276,7 +276,7 @@ function PMA_pluginGetOneOption(
 
     if (! $is_subgroup) {
         // for subgroup headers
-        if (/*overload*/mb_strpos(get_class($propertyGroup), "PropertyItem")) {
+        if (mb_strpos(get_class($propertyGroup), "PropertyItem")) {
             $properties = array($propertyGroup);
         } else {
             // for main groups
@@ -306,7 +306,7 @@ function PMA_pluginGetOneOption(
         foreach ($properties as $propertyItem) {
             $property_class = get_class($propertyItem);
             // if the property is a subgroup, we deal with it recursively
-            if (/*overload*/mb_strpos($property_class, "Subgroup")) {
+            if (mb_strpos($property_class, "Subgroup")) {
                 // for subgroups
                 // each subgroup can have a header, which may also be a form element
                 /** @var OptionsPropertyItem $subgroup_header */
@@ -534,10 +534,10 @@ function PMA_pluginGetOptions($section, &$list)
         $elem = explode('\\', get_class($plugin));
         $plugin_name = array_pop($elem);
         unset($elem);
-        $plugin_name = /*overload*/mb_strtolower(
-            /*overload*/mb_substr(
+        $plugin_name = mb_strtolower(
+            mb_substr(
                 $plugin_name,
-                /*overload*/mb_strlen($section)
+                mb_strlen($section)
             )
         );
 

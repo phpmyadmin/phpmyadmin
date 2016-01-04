@@ -19,7 +19,7 @@ $attribute = mb_strtoupper($attribute);
         id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>">
     <?php for ($j = 0; $j < $cnt_attribute_types; $j++): ?>
         <option value="<?php echo $attribute_types[$j];?>"
-                <?php if ($attribute == /*overload*/mb_strtoupper($attribute_types[$j])): ?>
+                <?php if ($attribute == mb_strtoupper($attribute_types[$j])): ?>
                     selected="selected"
                 <?php endif; ?>>
             <?php echo $attribute_types[$j]; ?>

@@ -753,7 +753,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
             WHERE `master_db`    = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
                 AND `master_table` = \'' . PMA\libraries\Util::sqlAddSlashes($table)
             . '\' ';
-        if (/*overload*/mb_strlen($column)) {
+        if (mb_strlen($column)) {
             $rel_query .= ' AND `master_field` = '
                 . '\'' . PMA\libraries\Util::sqlAddSlashes($column) . '\'';
         }
@@ -762,7 +762,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         );
     }
 
-    if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)
+    if (($source == 'both' || $source == 'foreign') && mb_strlen($table)
     ) {
         $tableObj = new Table($table, $db);
         $show_create_table = $tableObj->showCreate();
@@ -781,8 +781,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     /**
      * Emulating relations for some information_schema tables
      */
-    $isInformationSchema = /*overload*/mb_strtolower($db) == 'information_schema';
-        $isMysql = /*overload*/mb_strtolower($db) == 'mysql';
+    $isInformationSchema = mb_strtolower($db) == 'information_schema';
+        $isMysql = mb_strtolower($db) == 'mysql';
     if (($isInformationSchema || $isMysql)
         && ($source == 'internal' || $source == 'both')
     ) {
@@ -795,9 +795,9 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         }
         if (isset($GLOBALS[$relations_key][$table])) {
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
-                if ((! /*overload*/mb_strlen($column) || $column == $field)
+                if ((! mb_strlen($column) || $column == $field)
                     && (! isset($foreign[$field])
-                    || ! /*overload*/mb_strlen($foreign[$field]))
+                    || ! mb_strlen($foreign[$field]))
                 ) {
                     $foreign[$field] = $relations;
                 }
@@ -983,7 +983,7 @@ function PMA_setDbComment($db, $comment = '')
         return false;
     }
 
-    if (/*overload*/mb_strlen($comment)) {
+    if (mb_strlen($comment)) {
         $upd_query = 'INSERT INTO '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['column_info'])
@@ -1029,7 +1029,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
     $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
     // Prevent to run this automatically on Footer class destroying in testsuite
     if (defined('TESTSUITE')
-        || /*overload*/mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL
+        || mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL
     ) {
         return;
     }
@@ -1198,14 +1198,14 @@ function PMA_buildForeignDropdown($foreign, $data, $mode)
     }
 
     foreach ($foreign as $key => $value) {
-        if (/*overload*/mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
+        if (mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
         ) {
             $vtitle = '';
             $value  = htmlspecialchars($value);
         } else {
             $vtitle  = htmlspecialchars($value);
             $value  = htmlspecialchars(
-                /*overload*/mb_substr(
+                mb_substr(
                     $value, 0, $GLOBALS['cfg']['LimitChars']
                 ) . '...'
             );

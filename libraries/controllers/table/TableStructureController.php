@@ -440,7 +440,7 @@ class TableStructureController extends TableController
             $changes[] = 'CHANGE ' . Table::generateAlter(
                 $column,
                 $column,
-                /*overload*/mb_strtoupper($extracted_columnspec['type']),
+                mb_strtoupper($extracted_columnspec['type']),
                 $extracted_columnspec['spec_in_brackets'],
                 $extracted_columnspec['attribute'],
                 isset($data['Collation']) ? $data['Collation'] : '',
@@ -882,7 +882,7 @@ class TableStructureController extends TableController
                 Table::PROP_SORTED_COLUMN
             );
             // if the old column name is part of the remembered sort expression
-            if (/*overload*/mb_strpos(
+            if (mb_strpos(
                 $sorted_col,
                 Util::backquote($_REQUEST['field_orig'][$i])
             ) !== false) {
@@ -1053,7 +1053,7 @@ class TableStructureController extends TableController
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && /*overload*/mb_strlen(
+                    && mb_strlen(
                         $_REQUEST['field_name'][$fieldindex]
                     )
                 ) {

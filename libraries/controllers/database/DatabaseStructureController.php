@@ -891,7 +891,7 @@ class DatabaseStructureController extends DatabaseController
         foreach ($db as $db_table) {
             if ($this->db == PMA_extractDbOrTable($db_table)
                 && preg_match(
-                    "@^" . /*overload*/
+                    "@^" .
                     mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@",
                     $truename
                 )

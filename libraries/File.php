@@ -723,7 +723,7 @@ class File
      */
     public function getContentLength()
     {
-        return /*overload*/mb_strlen($this->_content);
+        return mb_strlen($this->_content);
     }
 
     /**

@@ -138,7 +138,7 @@ class ListDatabase extends ListAbstract
     protected function checkOnlyDatabase()
     {
         if (is_string($GLOBALS['cfg']['Server']['only_db'])
-            && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['only_db'])
+            && mb_strlen($GLOBALS['cfg']['Server']['only_db'])
         ) {
             $GLOBALS['cfg']['Server']['only_db'] = array(
                 $GLOBALS['cfg']['Server']['only_db']
@@ -176,7 +176,7 @@ class ListDatabase extends ListAbstract
      */
     public function getDefault()
     {
-        if (/*overload*/mb_strlen($GLOBALS['db'])) {
+        if (mb_strlen($GLOBALS['db'])) {
             return $GLOBALS['db'];
         }
 

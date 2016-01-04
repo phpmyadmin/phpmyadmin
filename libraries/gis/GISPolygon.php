@@ -56,15 +56,14 @@ class GISPolygon extends GISGeometry
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            = /*overload*/mb_substr(
-                $spatial,
-                9,
-                /*overload*/mb_strlen($spatial) - 11
-            );
+        $polygon = mb_substr(
+            $spatial,
+            9,
+            mb_strlen($spatial) - 11
+        );
 
         // If the polygon doesn't have an inner ring, use polygon itself
-        if (/*overload*/mb_strpos($polygon, "),(") === false) {
+        if (mb_strpos($polygon, "),(") === false) {
             $ring = $polygon;
         } else {
             // Separate outer ring and use it to determine min-max
@@ -96,23 +95,21 @@ class GISPolygon extends GISGeometry
     ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(/*overload*/mb_substr($fill_color, 1, 2));
-        $green = hexdec(/*overload*/mb_substr($fill_color, 3, 2));
-        $blue = hexdec(/*overload*/mb_substr($fill_color, 4, 2));
+        $red = hexdec(mb_substr($fill_color, 1, 2));
+        $green = hexdec(mb_substr($fill_color, 3, 2));
+        $blue = hexdec(mb_substr($fill_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            = /*overload*/
-            mb_substr(
-                $spatial,
-                9,
-                /*overload*/
-                mb_strlen($spatial) - 11
-            );
+        $polygon = mb_substr(
+            $spatial,
+            9,
+
+            mb_strlen($spatial) - 11
+        );
 
         // If the polygon doesn't have an inner polygon
-        if (/*overload*/mb_strpos($polygon, "),(") === false) {
+        if (mb_strpos($polygon, "),(") === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
@@ -162,20 +159,20 @@ class GISPolygon extends GISGeometry
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
         // allocate colors
-        $red = hexdec(/*overload*/mb_substr($fill_color, 1, 2));
-        $green = hexdec(/*overload*/mb_substr($fill_color, 3, 2));
-        $blue = hexdec(/*overload*/mb_substr($fill_color, 4, 2));
+        $red = hexdec(mb_substr($fill_color, 1, 2));
+        $green = hexdec(mb_substr($fill_color, 3, 2));
+        $blue = hexdec(mb_substr($fill_color, 4, 2));
         $color = array($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = /*overload*/mb_substr(
+        $polygon = mb_substr(
             $spatial,
             9,
-            /*overload*/mb_strlen($spatial) - 11
+            mb_strlen($spatial) - 11
         );
 
         // If the polygon doesn't have an inner polygon
-        if (/*overload*/mb_strpos($polygon, "),(") === false) {
+        if (mb_strpos($polygon, "),(") === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
@@ -231,16 +228,16 @@ class GISPolygon extends GISGeometry
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 9,
-                /*overload*/mb_strlen($spatial) - 11
+                mb_strlen($spatial) - 11
             );
 
         $row = '<path d="';
 
         // If the polygon doesn't have an inner polygon
-        if (/*overload*/mb_strpos($polygon, "),(") === false) {
+        if (mb_strpos($polygon, "),(") === false) {
             $row .= $this->_drawPath($polygon, $scale_data);
         } else {
             // Separate outer and inner polygons
@@ -294,11 +291,11 @@ class GISPolygon extends GISGeometry
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon
-            = /*overload*/
+            =
             mb_substr(
                 $spatial,
                 9,
-                /*overload*/
+
                 mb_strlen($spatial) - 11
             );
 
@@ -369,19 +366,19 @@ class GISPolygon extends GISGeometry
                         ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
             $wkt
-                = /*overload*/
+                =
                 mb_substr(
                     $wkt,
-                    0, /*overload*/
+                    0,
                     mb_strlen($wkt) - 1
                 );
             $wkt .= '),';
         }
         $wkt
-            = /*overload*/
+            =
             mb_substr(
                 $wkt,
-                0, /*overload*/
+                0,
                 mb_strlen($wkt) - 1
             );
         $wkt .= ')';
@@ -599,10 +596,10 @@ class GISPolygon extends GISGeometry
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon
-            = /*overload*/
+            =
             mb_substr(
                 $wkt,
-                9, /*overload*/
+                9,
                 mb_strlen($wkt) - 11
             );
         // Separate each linestring

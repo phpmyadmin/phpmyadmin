@@ -579,10 +579,10 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             // any parameters to pass?
             $url_params = array();
-            if (/*overload*/mb_strlen($GLOBALS['db'])) {
+            if (mb_strlen($GLOBALS['db'])) {
                 $url_params['db'] = $GLOBALS['db'];
             }
-            if (/*overload*/mb_strlen($GLOBALS['table'])) {
+            if (mb_strlen($GLOBALS['table'])) {
                 $url_params['table'] = $GLOBALS['table'];
             }
             // any target to pass?
