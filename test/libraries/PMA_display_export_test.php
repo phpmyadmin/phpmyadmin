@@ -139,7 +139,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $num_tables_str = "10";
         $unlim_num_rows_str = "unlim_num_rows_str";
         $single_table = "single_table";
-        $GLOBALS['dbi']->cacheTableContent("${db}.${table}.ENGINE", 'MERGE');
+        $GLOBALS['dbi']->cacheTableContent(array($db, $table, 'ENGINE'), 'MERGE');
 
         $columns_info = array(
             'test_column1' => array(

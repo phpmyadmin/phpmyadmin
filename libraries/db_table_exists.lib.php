@@ -57,7 +57,7 @@ if (empty($is_table)
     // Not a valid table name -> back to the db_sql.php
 
     if (/*overload*/mb_strlen($table)) {
-        $is_table = $GLOBALS['dbi']->getCachedTableContent("${db}.${table}", false);
+        $is_table = $GLOBALS['dbi']->getCachedTableContent(array($db, $table), false);
 
         if (! $is_table) {
             $_result = $GLOBALS['dbi']->tryQuery(
