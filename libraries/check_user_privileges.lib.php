@@ -79,32 +79,6 @@ function PMA_checkRequiredPrivilegesForAdjust()
     }
 
     if ($privs_available) {
-        // unset the `foreign_key_checks` temporarily
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 0
-        ');
-
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`db`(`host`, `Db`, `User`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user")'
-        );
-
-        // set the `foreign_key_checks` back
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 1
-        ');
-
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`db` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user"'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
         $update_privs_available = $GLOBALS['dbi']->tryQuery(
             'UPDATE `mysql`.`db` SET `host` = "" WHERE `host` = "" AND '
             . '`Db` = "" AND `User` = ""'
@@ -129,34 +103,6 @@ function PMA_checkRequiredPrivilegesForAdjust()
             . '`Db` = "" AND `User` = ""'
         );
         $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        // unset the `foreign_key_checks` temporarily
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 0
-        ');
-
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`columns_priv`(`host`, `Db`, `User`, `Table_name`,'
-            . ' `Column_name`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "", "")'
-        );
-
-        // set the `foreign_key_checks` back
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 1
-        ');
-
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`columns_priv` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = ""'
-                . ' AND Column_name = ""'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
     }
 
     if ($privs_available) {
@@ -188,33 +134,6 @@ function PMA_checkRequiredPrivilegesForAdjust()
     }
 
     if ($privs_available) {
-        // unset the `foreign_key_checks` temporarily
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 0
-        ');
-
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`tables_priv`(`host`, `Db`, `User`, `Table_name`'
-            . ') VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "")'
-        );
-
-        // set the `foreign_key_checks` back
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 1
-        ');
-
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`tables_priv` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = ""'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
         $update_privs_available = $GLOBALS['dbi']->tryQuery(
             'UPDATE `mysql`.`tables_priv` SET `host` = "" WHERE `host` = "" AND '
             . '`Db` = "" AND `User` = "" AND Table_name = ""'
@@ -241,34 +160,6 @@ function PMA_checkRequiredPrivilegesForAdjust()
             . ' AND `Routine_type` = ""'
         );
         $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        // unset the `foreign_key_checks` temporarily
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 0
-        ');
-
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`procs_priv`(`host`, `Db`, `User`, `Routine_name`,'
-            . ' `Routine_type`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "", "PROCEDURE")'
-        );
-
-        // set the `foreign_key_checks` back
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 1
-        ');
-
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`procs_priv` WHERE `host` = "pma_test_host" AND '
-                . '`Db` = "mysql" AND `User` = "pma_test_user" AND `Routine_name` = ""'
-                . ' AND `Routine_type` = "PROCEDURE"'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
     }
 
     if ($privs_available) {
