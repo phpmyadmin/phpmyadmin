@@ -77,7 +77,7 @@ abstract class SchemaPlugin
      *
      * @return array array of paper sizes
      */
-    private function _getPaperSizeArray()
+    protected function getPaperSizeArray()
     {
         $ret = array();
         foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {

@@ -79,7 +79,7 @@ class SchemaPdf extends SchemaPlugin
             "paper",
             __('Paper size')
         );
-        $leaf->setValues($this->_getPaperSizeArray());
+        $leaf->setValues($this->getPaperSizeArray());
         $specificOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(

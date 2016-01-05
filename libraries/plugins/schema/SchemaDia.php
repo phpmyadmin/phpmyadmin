@@ -71,7 +71,7 @@ class SchemaDia extends SchemaPlugin
             "paper",
             __('Paper size')
         );
-        $leaf->setValues($this->_getPaperSizeArray());
+        $leaf->setValues($this->getPaperSizeArray());
         $specificOptions->addProperty($leaf);
 
         // add the main group to the root group
