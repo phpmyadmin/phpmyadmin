@@ -67,6 +67,7 @@ class ImportShpTest extends PMATestCase
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'ods';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
+        unset($GLOBALS['db'], $GLOBALS['table']);
     }
 
     /**
