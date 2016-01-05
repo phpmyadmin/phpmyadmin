@@ -411,6 +411,7 @@ function PMA_getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
  * @param string $column       current column
  * @param string $where_clause where clause to select a particular row
  *
+ * @return string with value
  */
 function PMA_getFullValuesForSetColumn($db, $table, $column, $where_clause)
 {
