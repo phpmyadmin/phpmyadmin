@@ -6,6 +6,31 @@
  */
 
 /**
+ * updates the tree state in sessionStorage
+ *
+ * @returns void
+ */
+function navTreeStateUpdate() {
+    // update if session storage is supported
+    if (isStorageSupported('sessionStorage')) {
+        var storage = window.sessionStorage;
+        // try catch necessary here to detect whether
+        // content to be stored exceeds storage capacity
+        try {
+            storage.setItem('navTreePaths', JSON.stringify(traverseNavigationForPaths()));
+            storage.setItem('server', PMA_commonParams.get('server'));
+            storage.setItem('token', PMA_commonParams.get('token'));
+        } catch(error) {
+            // storage capacity exceeded & old navigation tree
+            // state is no more valid, so remove it
+            storage.removeItem('navTreePaths');
+            storage.removeItem('server');
+            storage.removeItem('token');
+        }
+    }
+}
+
+/**
  * Loads child items of a node and executes a given callback
  *
  * @param isNode
@@ -539,31 +564,6 @@ AJAX.registerOnload('navigation.js', function () {
         }
     }
 });
-
-/**
- * updates the tree state in sessionStorage
- *
- * @returns void
- */
-function navTreeStateUpdate() {
-    // update if session storage is supported
-    if (isStorageSupported('sessionStorage')) {
-        var storage = window.sessionStorage;
-        // try catch necessary here to detect whether
-        // content to be stored exceeds storage capacity
-        try {
-            storage.setItem('navTreePaths', JSON.stringify(traverseNavigationForPaths()));
-            storage.setItem('server', PMA_commonParams.get('server'));
-            storage.setItem('token', PMA_commonParams.get('token'));
-        } catch(error) {
-            // storage capacity exceeded & old navigation tree
-            // state is no more valid, so remove it
-            storage.removeItem('navTreePaths');
-            storage.removeItem('server');
-            storage.removeItem('token');
-        }
-    }
-}
 
 /**
  * Expands a node in navigation tree.
