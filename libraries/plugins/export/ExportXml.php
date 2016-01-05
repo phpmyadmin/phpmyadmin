@@ -148,6 +148,59 @@ class ExportXml extends ExportPlugin
     }
 
     /**
+     * Generates output for SQL defintions of routines
+     *
+     * @param string $db Database name
+     * @param string $type Item type to be used in XML output
+     * @param string $dbitype Item type used in DBI qieries
+     *
+     * @return string XML with definitions
+     */
+    private function _exportRoutines($db, $type, $dbitype)
+    {
+        // Export routines
+        $routines = $GLOBALS['dbi']->getProceduresOrFunctions(
+            $db,
+            $dbitype
+        );
+        return $this->_exportDefinitions($db, $type, $dbitype, $routines);
+    }
+
+    /**
+     * Generates output for SQL defintions
+     *
+     * @param string $db Database name
+     * @param string $type Item type to be used in XML output
+     * @param string $dbitype Item type used in DBI qieries
+     * @param array  $names   Names of items to export
+     *
+     * @return string XML with definitions
+     */
+    private function _exportDefinitions($db, $type, $dbitype, $names)
+    {
+        global $crlf;
+
+        $head = '';
+
+        if ($names) {
+            foreach ($names as $name) {
+                $head .= '            <pma:' . $type .' name="'
+                    . $name . '">' . $crlf;
+
+                // Do some formatting
+                $sql = $GLOBALS['dbi']->getDefinition($db, $dbitype, $name);
+                $sql = htmlspecialchars(rtrim($sql));
+                $sql = str_replace("\n", "\n                ", $sql);
+
+                $head .= "                " . $sql . $crlf;
+                $head .= '            </pma:' . $type . '>' . $crlf;
+            }
+        }
+
+        return $head;
+    }
+
+    /**
      * Outputs export header. It is the first method to be called, so all
      * the required variables are initialized here.
      *
@@ -281,65 +334,13 @@ class ExportXml extends ExportPlugin
             if (isset($GLOBALS['xml_export_functions'])
                 && $GLOBALS['xml_export_functions']
             ) {
-                // Export functions
-                $functions = $GLOBALS['dbi']->getProceduresOrFunctions(
-                    $db,
-                    'FUNCTION'
-                );
-                if ($functions) {
-                    foreach ($functions as $function) {
-                        $head .= '            <pma:function name="'
-                            . $function . '">' . $crlf;
-
-                        // Do some formatting
-                        $sql = $GLOBALS['dbi']->getDefinition(
-                            $db,
-                            'FUNCTION',
-                            $function
-                        );
-                        $sql = rtrim($sql);
-                        $sql = "                " . htmlspecialchars($sql);
-                        $sql = str_replace("\n", "\n                ", $sql);
-
-                        $head .= $sql . $crlf;
-                        $head .= '            </pma:function>' . $crlf;
-                    }
-
-                    unset($function);
-                    unset($functions);
-                }
+                $head .= $this->_exportRoutines($db, 'function', 'FUNCTION');
             }
 
             if (isset($GLOBALS['xml_export_procedures'])
                 && $GLOBALS['xml_export_procedures']
             ) {
-                // Export procedures
-                $procedures = $GLOBALS['dbi']->getProceduresOrFunctions(
-                    $db,
-                    'PROCEDURE'
-                );
-                if ($procedures) {
-                    foreach ($procedures as $procedure) {
-                        $head .= '            <pma:procedure name="'
-                            . $procedure . '">' . $crlf;
-
-                        // Do some formatting
-                        $sql = $GLOBALS['dbi']->getDefinition(
-                            $db,
-                            'PROCEDURE',
-                            $procedure
-                        );
-                        $sql = rtrim($sql);
-                        $sql = "                " . htmlspecialchars($sql);
-                        $sql = str_replace("\n", "\n                ", $sql);
-
-                        $head .= $sql . $crlf;
-                        $head .= '            </pma:procedure>' . $crlf;
-                    }
-
-                    unset($procedure);
-                    unset($procedures);
-                }
+                $head .= $this->_exportRoutines($db, 'procedure', 'PROCEDURE');
             }
 
             if (isset($GLOBALS['xml_export_events'])
@@ -351,27 +352,9 @@ class ExportXml extends ExportPlugin
                     . "WHERE EVENT_SCHEMA='" . Util::sqlAddslashes($db)
                     . "'"
                 );
-                if ($events) {
-                    foreach ($events as $event) {
-                        $head .= '            <pma:event name="'
-                            . $event . '">' . $crlf;
-
-                        $sql = $GLOBALS['dbi']->getDefinition(
-                            $db,
-                            'EVENT',
-                            $event
-                        );
-                        $sql = rtrim($sql);
-                        $sql = "                " . htmlspecialchars($sql);
-                        $sql = str_replace("\n", "\n                ", $sql);
-
-                        $head .= $sql . $crlf;
-                        $head .= '            </pma:event>' . $crlf;
-                    }
-
-                    unset($event);
-                    unset($events);
-                }
+                $head .= $this->_exportDefinitions(
+                    $db, 'event', 'EVENT', $events
+                );
             }
 
             unset($result);
