@@ -116,21 +116,6 @@ class SchemaPdf extends SchemaPlugin
     }
 
     /**
-     * Returns the array of paper sizes
-     *
-     * @return array array of paper sizes
-     */
-    private function _getPaperSizeArray()
-    {
-        $ret = array();
-        foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
-            $ret[$val] = $val;
-        }
-
-        return $ret;
-    }
-
-    /**
      * Exports the schema into PDF format.
      *
      * @param string $db database name

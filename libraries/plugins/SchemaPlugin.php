@@ -71,4 +71,19 @@ abstract class SchemaPlugin
         $leaf = new BoolPropertyItem('show_keys', __('Only show keys'));
         $propertyGroup->addProperty($leaf);
     }
+
+    /**
+     * Returns the array of paper sizes
+     *
+     * @return array array of paper sizes
+     */
+    private function _getPaperSizeArray()
+    {
+        $ret = array();
+        foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
+            $ret[$val] = $val;
+        }
+
+        return $ret;
+    }
 }
