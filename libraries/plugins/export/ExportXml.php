@@ -184,7 +184,7 @@ class ExportXml extends ExportPlugin
 
         if ($names) {
             foreach ($names as $name) {
-                $head .= '            <pma:' . $type .' name="'
+                $head .= '            <pma:' . $type . ' name="'
                     . $name . '">' . $crlf;
 
                 // Do some formatting
