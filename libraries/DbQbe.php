@@ -1461,9 +1461,8 @@ class DbQbe
         // the Criteria which gives the smallest result set in its table,
         // but it would take too much time to check this
         if (!(count($candidate_columns) > 1)) {
-            reset($candidate_columns);
-            $master = current($candidate_columns); // Only one single candidate
-            return $master;
+            // Only one single candidate
+            return reset($candidate_columns);
         }
 
         // Of course we only want to check each table once

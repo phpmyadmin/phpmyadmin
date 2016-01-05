@@ -259,8 +259,7 @@ class ServerDatabasesController extends Controller
     {
 
         $html = '<div id="tableslistcontainer">';
-        reset($this->_databases);
-        $first_database = current($this->_databases);
+        $first_database = reset($this->_databases);
         // table col order
         $column_order = $this->_getColumnOrder();
 

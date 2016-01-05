@@ -1207,8 +1207,7 @@ class DatabaseInterface
             }
 
             if (null !== $column) {
-                reset($columns);
-                $columns = current($columns);
+                return reset($columns);
             }
 
             return $columns;
