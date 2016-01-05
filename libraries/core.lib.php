@@ -484,7 +484,7 @@ function PMA_getenv($var_name)
  * @param string $uri         the header to send
  * @param bool   $use_refresh whether to use Refresh: header when running on IIS
  *
- * @return boolean  always true
+ * @return void
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
