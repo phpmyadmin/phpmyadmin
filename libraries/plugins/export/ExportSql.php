@@ -86,9 +86,8 @@ class ExportSql extends ExportPlugin
             // comments
             $subgroup = new OptionsPropertySubgroup();
             $subgroup->setName("include_comments");
-            $leaf = new BoolPropertyItem();
-            $leaf->setName('include_comments');
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                'include_comments',
                 __(
                     'Display comments <i>(includes info such as export'
                     . ' timestamp, PHP version, and server version)</i>'
@@ -96,15 +95,13 @@ class ExportSql extends ExportPlugin
             );
             $subgroup->setSubgroupHeader($leaf);
 
-            $leaf = new TextPropertyItem();
-            $leaf->setName('header_comment');
-            $leaf->setText(
+            $leaf = new TextPropertyItem(
+                'header_comment',
                 __('Additional custom header comment (\n splits lines):')
             );
             $subgroup->addProperty($leaf);
-            $leaf = new BoolPropertyItem();
-            $leaf->setName('dates');
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                'dates',
                 __(
                     'Include a timestamp of when databases were created, last'
                     . ' updated, and last checked'
@@ -112,23 +109,26 @@ class ExportSql extends ExportPlugin
             );
             $subgroup->addProperty($leaf);
             if (!empty($GLOBALS['cfgRelation']['relation'])) {
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('relation');
-                $leaf->setText(__('Display foreign key relationships'));
+                $leaf = new BoolPropertyItem(
+                    'relation',
+                    __('Display foreign key relationships')
+                );
                 $subgroup->addProperty($leaf);
             }
             if (!empty($GLOBALS['cfgRelation']['mimework'])) {
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('mime');
-                $leaf->setText(__('Display MIME types'));
+                $leaf = new BoolPropertyItem(
+                    'mime',
+                    __('Display MIME types')
+                );
                 $subgroup->addProperty($leaf);
             }
             $generalOptions->addProperty($subgroup);
 
             // enclose in a transaction
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("use_transaction");
-            $leaf->setText(__('Enclose export in a transaction'));
+            $leaf = new BoolPropertyItem(
+                "use_transaction",
+                __('Enclose export in a transaction')
+            );
             $leaf->setDoc(
                 array(
                     'programs',
@@ -139,9 +139,10 @@ class ExportSql extends ExportPlugin
             $generalOptions->addProperty($leaf);
 
             // disable foreign key checks
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("disable_fk");
-            $leaf->setText(__('Disable foreign key checks'));
+            $leaf = new BoolPropertyItem(
+                "disable_fk",
+                __('Disable foreign key checks')
+            );
             $leaf->setDoc(
                 array(
                     'manual_MySQL_Database_Administration',
@@ -152,15 +153,17 @@ class ExportSql extends ExportPlugin
             $generalOptions->addProperty($leaf);
 
             // export views as tables
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("views_as_tables");
-            $leaf->setText(__('Export views as tables'));
+            $leaf = new BoolPropertyItem(
+                "views_as_tables",
+                __('Export views as tables')
+            );
             $generalOptions->addProperty($leaf);
 
             // export metadata
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("metadata");
-            $leaf->setText(__('Export metadata'));
+            $leaf = new BoolPropertyItem(
+                "metadata",
+                __('Export metadata')
+            );
             $generalOptions->addProperty($leaf);
 
             // compatibility maximization
@@ -171,9 +174,8 @@ class ExportSql extends ExportPlugin
                     $values[$val] = $val;
                 }
 
-                $leaf = new SelectPropertyItem();
-                $leaf->setName("compatibility");
-                $leaf->setText(
+                $leaf = new SelectPropertyItem(
+                    "compatibility",
                     __(
                         'Database system or older MySQL server to maximize output'
                         . ' compatibility with:'
@@ -195,8 +197,7 @@ class ExportSql extends ExportPlugin
             $subgroup = new OptionsPropertySubgroup();
             $subgroup->setName("dump_table");
             $subgroup->setText("Dump table");
-            $leaf = new RadioPropertyItem();
-            $leaf->setName('structure_or_data');
+            $leaf = new RadioPropertyItem('structure_or_data');
             $leaf->setValues(
                 array(
                     'structure'          => __('structure'),
@@ -219,26 +220,27 @@ class ExportSql extends ExportPlugin
 
                 // begin SQL Statements
                 $subgroup = new OptionsPropertySubgroup();
-                $leaf = new MessageOnlyPropertyItem();
-                $leaf->setName('add_statements');
-                $leaf->setText(__('Add statements:'));
+                $leaf = new MessageOnlyPropertyItem(
+                    'add_statements',
+                    __('Add statements:')
+                );
                 $subgroup->setSubgroupHeader($leaf);
 
                 // server export options
                 if ($plugin_param['export_type'] == 'server') {
-                    $leaf = new BoolPropertyItem();
-                    $leaf->setName("drop_database");
-                    $leaf->setText(
+                    $leaf = new BoolPropertyItem(
+                        "drop_database",
                         sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
                     );
                     $subgroup->addProperty($leaf);
                 }
 
                 if ($plugin_param['export_type'] == 'database') {
-                    $leaf = new BoolPropertyItem();
-                    $leaf->setName('create_database');
                     $create_clause = '<code>CREATE DATABASE / USE</code>';
-                    $leaf->setText(sprintf(__('Add %s statement'), $create_clause));
+                    $leaf = new BoolPropertyItem(
+                        'create_database',
+                        sprintf(__('Add %s statement'), $create_clause)
+                    );
                     $subgroup->addProperty($leaf);
                 }
 
@@ -256,24 +258,23 @@ class ExportSql extends ExportPlugin
 
                 $drop_clause .= '<code> / TRIGGER</code>';
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('drop_table');
-                $leaf->setText(sprintf(__('Add %s statement'), $drop_clause));
+                $leaf = new BoolPropertyItem(
+                    'drop_table',
+                    sprintf(__('Add %s statement'), $drop_clause)
+                );
                 $subgroup->addProperty($leaf);
 
                 $subgroup_create_table = new OptionsPropertySubgroup();
 
                 // Add table structure option
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('create_table');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'create_table',
                     sprintf(__('Add %s statement'), '<code>CREATE TABLE</code>')
                 );
                 $subgroup_create_table->setSubgroupHeader($leaf);
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('if_not_exists');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'if_not_exists',
                     '<code>IF NOT EXISTS</code> ' . __(
                         '(less efficient as indexes will be generated during table '
                         . 'creation)'
@@ -281,9 +282,8 @@ class ExportSql extends ExportPlugin
                 );
                 $subgroup_create_table->addProperty($leaf);
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('auto_increment');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'auto_increment',
                     sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>')
                 );
                 $subgroup_create_table->addProperty($leaf);
@@ -291,16 +291,14 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($subgroup_create_table);
 
                 // Add view option
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('create_view');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'create_view',
                     sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
                 );
                 $subgroup->addProperty($leaf);
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('procedure_function');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'procedure_function',
                     sprintf(
                         __('Add %s statement'),
                         '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>'
@@ -309,18 +307,16 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($leaf);
 
                 // Add triggers option
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('create_trigger');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'create_trigger',
                     sprintf(__('Add %s statement'), '<code>CREATE TRIGGER</code>')
                 );
                 $subgroup->addProperty($leaf);
 
                 $structureOptions->addProperty($subgroup);
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName("backquotes");
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    "backquotes",
                     __(
                         'Enclose table and column names with backquotes '
                         . '<i>(Protects column and table names formed with'
@@ -339,20 +335,23 @@ class ExportSql extends ExportPlugin
             $dataOptions->setName("data");
             $dataOptions->setText(__('Data creation options'));
             $dataOptions->setForce('structure');
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("truncate");
-            $leaf->setText(__('Truncate table before insert'));
+            $leaf = new BoolPropertyItem(
+                "truncate",
+                __('Truncate table before insert')
+            );
             $dataOptions->addProperty($leaf);
 
             // begin SQL Statements
             $subgroup = new OptionsPropertySubgroup();
-            $leaf = new MessageOnlyPropertyItem();
-            $leaf->setText(__('Instead of <code>INSERT</code> statements, use:'));
+            $leaf = new MessageOnlyPropertyItem(
+                __('Instead of <code>INSERT</code> statements, use:')
+            );
             $subgroup->setSubgroupHeader($leaf);
 
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("delayed");
-            $leaf->setText(__('<code>INSERT DELAYED</code> statements'));
+            $leaf = new BoolPropertyItem(
+                "delayed",
+                __('<code>INSERT DELAYED</code> statements')
+            );
             $leaf->setDoc(
                 array(
                     'manual_MySQL_Database_Administration',
@@ -361,9 +360,10 @@ class ExportSql extends ExportPlugin
             );
             $subgroup->addProperty($leaf);
 
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("ignore");
-            $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
+            $leaf = new BoolPropertyItem(
+                "ignore",
+                __('<code>INSERT IGNORE</code> statements')
+            );
             $leaf->setDoc(
                 array(
                     'manual_MySQL_Database_Administration',
@@ -374,9 +374,10 @@ class ExportSql extends ExportPlugin
             $dataOptions->addProperty($subgroup);
 
             // Function to use when dumping dat
-            $leaf = new SelectPropertyItem();
-            $leaf->setName("type");
-            $leaf->setText(__('Function to use when dumping data:'));
+            $leaf = new SelectPropertyItem(
+                "type",
+                __('Function to use when dumping data:')
+            );
             $leaf->setValues(
                 array(
                     'INSERT'  => 'INSERT',
@@ -388,12 +389,15 @@ class ExportSql extends ExportPlugin
 
             /* Syntax to use when inserting data */
             $subgroup = new OptionsPropertySubgroup();
-            $leaf = new MessageOnlyPropertyItem();
-            $leaf->setText(__('Syntax to use when inserting data:'));
+            $leaf = new MessageOnlyPropertyItem(
+                null,
+                __('Syntax to use when inserting data:')
+            );
             $subgroup->setSubgroupHeader($leaf);
-            $leaf = new RadioPropertyItem();
-            $leaf->setName("insert_syntax");
-            $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
+            $leaf = new RadioPropertyItem(
+                "insert_syntax",
+                __('<code>INSERT IGNORE</code> statements')
+            );
             $leaf->setValues(
                 array(
                     'complete' => __(
@@ -421,15 +425,15 @@ class ExportSql extends ExportPlugin
             $dataOptions->addProperty($subgroup);
 
             // Max length of query
-            $leaf = new NumberPropertyItem();
-            $leaf->setName("max_query_size");
-            $leaf->setText(__('Maximal length of created query'));
+            $leaf = new NumberPropertyItem(
+                "max_query_size",
+                __('Maximal length of created query')
+            );
             $dataOptions->addProperty($leaf);
 
             // Dump binary columns in hexadecimal
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("hex_for_binary");
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                "hex_for_binary",
                 __(
                     'Dump binary columns in hexadecimal notation'
                     . ' <i>(for example, "abc" becomes 0x616263)</i>'
@@ -438,9 +442,8 @@ class ExportSql extends ExportPlugin
             $dataOptions->addProperty($leaf);
 
             // Dump time in UTC
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("utc_time");
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                "utc_time",
                 __(
                     'Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns'
                     . ' to be dumped and reloaded between servers in different'

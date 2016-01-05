@@ -61,8 +61,7 @@ class ExportMediawiki extends ExportPlugin
         $subgroup = new OptionsPropertySubgroup();
         $subgroup->setName("dump_table");
         $subgroup->setText("Dump table");
-        $leaf = new RadioPropertyItem();
-        $leaf->setName('structure_or_data');
+        $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             array(
                 'structure'          => __('structure'),
@@ -74,15 +73,17 @@ class ExportMediawiki extends ExportPlugin
         $generalOptions->addProperty($subgroup);
 
         // export table name
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("caption");
-        $leaf->setText(__('Export table names'));
+        $leaf = new BoolPropertyItem(
+            "caption",
+            __('Export table names')
+        );
         $generalOptions->addProperty($leaf);
 
         // export table headers
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("headers");
-        $leaf->setText(__('Export table headers'));
+        $leaf = new BoolPropertyItem(
+            "headers",
+            __('Export table headers')
+        );
         $generalOptions->addProperty($leaf);
         //add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

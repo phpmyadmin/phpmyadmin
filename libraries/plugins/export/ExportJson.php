@@ -55,15 +55,13 @@ class ExportJson extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem();
-        $leaf->setName("structure_or_data");
+        $leaf = new HiddenPropertyItem("structure_or_data");
         $generalOptions->addProperty($leaf);
 
         // JSON_PRETTY_PRINT is available since 5.4.0
         if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-            $leaf = new BoolPropertyItem();
-            $leaf->setName('pretty_print');
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                'pretty_print',
                 __('Output pretty-printed JSON (Use human-readable formatting)')
             );
             $generalOptions->addProperty($leaf);

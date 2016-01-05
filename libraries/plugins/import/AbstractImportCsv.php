@@ -45,35 +45,38 @@ abstract class AbstractImportCsv extends ImportPlugin
         $generalOptions->setName("general_opts");
 
         // create common items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("replace");
-        $leaf->setText(
+        $leaf = new BoolPropertyItem(
+            "replace",
             __(
                 'Update data when duplicate keys found on import (add ON DUPLICATE '
                 . 'KEY UPDATE)'
             )
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("terminated");
-        $leaf->setText(__('Columns separated with:'));
+        $leaf = new TextPropertyItem(
+            "terminated",
+            __('Columns separated with:')
+        );
         $leaf->setSize(2);
         $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("enclosed");
-        $leaf->setText(__('Columns enclosed with:'));
-        $leaf->setSize(2);
-        $leaf->setLen(2);
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("escaped");
-        $leaf->setText(__('Columns escaped with:'));
+        $leaf = new TextPropertyItem(
+            "enclosed",
+            __('Columns enclosed with:')
+        );
         $leaf->setSize(2);
         $leaf->setLen(2);
         $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("new_line");
-        $leaf->setText(__('Lines terminated with:'));
+        $leaf = new TextPropertyItem(
+            "escaped",
+            __('Columns escaped with:')
+        );
+        $leaf->setSize(2);
+        $leaf->setLen(2);
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem(
+            "new_line",
+            __('Lines terminated with:')
+        );
         $leaf->setSize(2);
         $generalOptions->addProperty($leaf);
 

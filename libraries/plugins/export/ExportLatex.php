@@ -81,9 +81,10 @@ class ExportLatex extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
         // create primary items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("caption");
-        $leaf->setText(__('Include table caption'));
+        $leaf = new BoolPropertyItem(
+            "caption",
+            __('Include table caption')
+        );
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -93,8 +94,7 @@ class ExportLatex extends ExportPlugin
         $dumpWhat->setName("dump_what");
         $dumpWhat->setText(__('Dump table'));
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem();
-        $leaf->setName("structure_or_data");
+        $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
             array(
                 'structure'          => __('structure'),
@@ -113,35 +113,41 @@ class ExportLatex extends ExportPlugin
             $structureOptions->setText(__('Object creation options'));
             $structureOptions->setForce('data');
             // create primary items and add them to the group
-            $leaf = new TextPropertyItem();
-            $leaf->setName("structure_caption");
-            $leaf->setText(__('Table caption:'));
+            $leaf = new TextPropertyItem(
+                "structure_caption",
+                __('Table caption:')
+            );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
-            $leaf = new TextPropertyItem();
-            $leaf->setName("structure_continued_caption");
-            $leaf->setText(__('Table caption (continued):'));
+            $leaf = new TextPropertyItem(
+                "structure_continued_caption",
+                __('Table caption (continued):')
+            );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
-            $leaf = new TextPropertyItem();
-            $leaf->setName("structure_label");
-            $leaf->setText(__('Label key:'));
+            $leaf = new TextPropertyItem(
+                "structure_label",
+                __('Label key:')
+            );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             if (!empty($GLOBALS['cfgRelation']['relation'])) {
-                $leaf = new BoolPropertyItem();
-                $leaf->setName("relation");
-                $leaf->setText(__('Display foreign key relationships'));
+                $leaf = new BoolPropertyItem(
+                    "relation",
+                    __('Display foreign key relationships')
+                );
                 $structureOptions->addProperty($leaf);
             }
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("comments");
-            $leaf->setText(__('Display comments'));
+            $leaf = new BoolPropertyItem(
+                "comments",
+                __('Display comments')
+            );
             $structureOptions->addProperty($leaf);
             if (!empty($GLOBALS['cfgRelation']['mimework'])) {
-                $leaf = new BoolPropertyItem();
-                $leaf->setName("mime");
-                $leaf->setText(__('Display MIME types'));
+                $leaf = new BoolPropertyItem(
+                    "mime",
+                    __('Display MIME types')
+                );
                 $structureOptions->addProperty($leaf);
             }
             // add the main group to the root group
@@ -154,28 +160,33 @@ class ExportLatex extends ExportPlugin
         $dataOptions->setText(__('Data dump options'));
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("columns");
-        $leaf->setText(__('Put columns names in the first row:'));
+        $leaf = new BoolPropertyItem(
+            "columns",
+            __('Put columns names in the first row:')
+        );
         $dataOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("data_caption");
-        $leaf->setText(__('Table caption:'));
+        $leaf = new TextPropertyItem(
+            "data_caption",
+            __('Table caption:')
+        );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("data_continued_caption");
-        $leaf->setText(__('Table caption (continued):'));
+        $leaf = new TextPropertyItem(
+            "data_continued_caption",
+            __('Table caption (continued):')
+        );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("data_label");
-        $leaf->setText(__('Label key:'));
+        $leaf = new TextPropertyItem(
+            "data_label",
+            __('Label key:')
+        );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName('null');
-        $leaf->setText(__('Replace NULL with:'));
+        $leaf = new TextPropertyItem(
+            'null',
+            __('Replace NULL with:')
+        );
         $dataOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($dataOptions);

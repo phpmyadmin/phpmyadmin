@@ -93,12 +93,12 @@ class ExportCodegen extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem();
-        $leaf->setName("structure_or_data");
+        $leaf = new HiddenPropertyItem("structure_or_data");
         $generalOptions->addProperty($leaf);
-        $leaf = new SelectPropertyItem();
-        $leaf->setName("format");
-        $leaf->setText(__('Format:'));
+        $leaf = new SelectPropertyItem(
+            "format",
+            __('Format:')
+        );
         $leaf->setValues($this->_getCgFormats());
         $generalOptions->addProperty($leaf);
         // add the main group to the root group

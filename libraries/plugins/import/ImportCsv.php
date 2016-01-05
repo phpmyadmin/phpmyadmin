@@ -55,9 +55,8 @@ class ImportCsv extends AbstractImportCsv
         $this->properties->setExtension('csv');
 
         if ($GLOBALS['plugin_param'] !== 'table') {
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("col_names");
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                "col_names",
                 __(
                     'The first line of the file contains the table column names'
                     . ' <i>(if this is unchecked, the first line will become part'
@@ -74,18 +73,17 @@ class ImportCsv extends AbstractImportCsv
                     . ' and not enclosed in quotations.'
                 )
             );
-            $leaf = new TextPropertyItem();
-            $leaf->setName("columns");
-            $leaf->setText(
-                __('Column names: ')
-                . PMA\libraries\Util::showHint($hint)
+            $leaf = new TextPropertyItem(
+                "columns",
+                __('Column names: ') . PMA\libraries\Util::showHint($hint)
             );
             $generalOptions->addProperty($leaf);
         }
 
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("ignore");
-        $leaf->setText(__('Do not abort on INSERT error'));
+        $leaf = new BoolPropertyItem(
+            "ignore",
+            __('Do not abort on INSERT error')
+        );
         $generalOptions->addProperty($leaf);
     }
 

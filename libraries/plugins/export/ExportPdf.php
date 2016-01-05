@@ -95,9 +95,10 @@ class ExportPdf extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
         // create primary items and add them to the group
-        $leaf = new TextPropertyItem();
-        $leaf->setName("report_title");
-        $leaf->setText(__('Report title:'));
+        $leaf = new TextPropertyItem(
+            "report_title",
+            __('Report title:')
+        );
         $generalOptions->addProperty($leaf);
         // add the group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -106,8 +107,7 @@ class ExportPdf extends ExportPlugin
         $dumpWhat = new OptionsPropertyMainGroup();
         $dumpWhat->setName("dump_what");
         $dumpWhat->setText(__('Dump table'));
-        $leaf = new RadioPropertyItem();
-        $leaf->setName("structure_or_data");
+        $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
             array(
                 'structure'          => __('structure'),

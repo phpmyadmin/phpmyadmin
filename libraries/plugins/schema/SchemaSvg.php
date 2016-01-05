@@ -56,9 +56,10 @@ class SchemaSvg extends SchemaPlugin
         $this->addCommonOptions($specificOptions);
 
         // create leaf items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('all_tables_same_width');
-        $leaf->setText(__('Same width for all tables'));
+        $leaf = new BoolPropertyItem(
+            'all_tables_same_width',
+            __('Same width for all tables')
+        );
         $specificOptions->addProperty($leaf);
 
         // add the main group to the root group

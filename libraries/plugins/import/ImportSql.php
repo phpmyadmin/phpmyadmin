@@ -63,9 +63,10 @@ class ImportSql extends ImportPlugin
             $generalOptions = new OptionsPropertyMainGroup();
             $generalOptions->setName("general_opts");
             // create primary items and add them to the group
-            $leaf = new SelectPropertyItem();
-            $leaf->setName("compatibility");
-            $leaf->setText(__('SQL compatibility mode:'));
+            $leaf = new SelectPropertyItem(
+                "compatibility",
+                __('SQL compatibility mode:')
+            );
             $leaf->setValues($values);
             $leaf->setDoc(
                 array(
@@ -74,9 +75,8 @@ class ImportSql extends ImportPlugin
                 )
             );
             $generalOptions->addProperty($leaf);
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("no_auto_value_on_zero");
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                "no_auto_value_on_zero",
                 __('Do not use <code>AUTO_INCREMENT</code> for zero values')
             );
             $leaf->setDoc(

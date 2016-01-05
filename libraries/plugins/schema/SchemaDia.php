@@ -55,9 +55,10 @@ class SchemaDia extends SchemaPlugin
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 
-        $leaf = new SelectPropertyItem();
-        $leaf->setName("orientation");
-        $leaf->setText(__('Orientation'));
+        $leaf = new SelectPropertyItem(
+            "orientation",
+            __('Orientation')
+        );
         $leaf->setValues(
             array(
                 'L' => __('Landscape'),
@@ -66,9 +67,10 @@ class SchemaDia extends SchemaPlugin
         );
         $specificOptions->addProperty($leaf);
 
-        $leaf = new SelectPropertyItem();
-        $leaf->setName("paper");
-        $leaf->setText(__('Paper size'));
+        $leaf = new SelectPropertyItem(
+            "paper",
+            __('Paper size')
+        );
         $leaf->setValues($this->_getPaperSizeArray());
         $specificOptions->addProperty($leaf);
 
