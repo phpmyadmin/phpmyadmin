@@ -411,6 +411,8 @@ class GISVisualization
     /**
      * Get the code for visualization with OpenLayers.
      *
+     * @todo Should return JSON to avoid eval() in gis_data_editor.js
+     *
      * @return string the code for visualization with OpenLayers
      * @access public
      */
