@@ -1478,11 +1478,8 @@ class DbQbe
             }
             $csize[$table] = $tsize[$table];
         }
-        arsort($csize);
-        reset($csize);
-        $master = key($csize); // Largest
-
-        return $master;
+        // Return largest table
+        return array_search(max($csize), $csize);
     }
 
     /**
