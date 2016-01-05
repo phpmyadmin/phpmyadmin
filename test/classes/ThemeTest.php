@@ -39,6 +39,7 @@ class ThemeTest extends PMATestCase
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';
         $GLOBALS['server'] = '99';
+        $GLOBALS['collation_connection'] = 'utf-8';
     }
 
     /**
@@ -121,6 +122,39 @@ class ThemeTest extends PMATestCase
     {
         $newTheme = Theme::load('./themes/original');
         $this->assertNotNull($newTheme);
+    }
+
+    /**
+     * Test for Theme::loadCss
+     *
+     * @param $theme string Path to theme files
+     *
+     * @return void
+     *
+     * @dataProvider listThemes
+     */
+    public function testLoadCss($theme)
+    {
+        $newTheme = Theme::load($theme);
+        ob_start();
+        $ret = $newTheme->loadCss();
+        $out = ob_get_contents();
+        ob_end_clean();
+        $this->assertTrue($ret);
+        $this->assertContains('FILE: navigation.css.php', $out);
+    }
+
+    /**
+     * Data provider for Theme::loadCss test
+     *
+     * @return array with theme paths
+     */
+    public function listThemes()
+    {
+        return array(
+            array('./themes/original'),
+            array('./themes/pmahomme/'),
+        );
     }
 
     /**
