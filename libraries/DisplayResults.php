@@ -5361,7 +5361,7 @@ class DisplayResults
             $dispval = __('Link not found!');
         }
 
-        @$GLOBALS['dbi']->freeResult($dispresult);
+        $GLOBALS['dbi']->freeResult($dispresult);
 
         return $dispval;
     }
