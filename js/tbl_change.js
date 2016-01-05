@@ -168,7 +168,10 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var $this_function = $("select[name='funcs[multi_edit][" + multi_edit + "][" +
         urlField + "]']");
     var function_selected = false;
-    if (typeof $this_function.val() !== 'undefined' && $this_function.val().length > 0) {
+    if (typeof $this_function.val() !== 'undefined'
+        && $this_function.val() !== null
+        && $this_function.val().length > 0
+    ) {
         function_selected = true;
     }
 
