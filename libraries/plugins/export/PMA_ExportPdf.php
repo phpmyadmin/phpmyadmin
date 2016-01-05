@@ -42,8 +42,8 @@ class PMA_ExportPdf extends PDF
         }
         $current_page = $this->page;
         if ((($y + $h) > $this->PageBreakTrigger)
-            AND (!$this->InFooter)
-            AND ($this->AcceptPageBreak())
+            && (!$this->InFooter)
+            && ($this->AcceptPageBreak())
         ) {
             if ($addpage) {
                 //Automatic page break
