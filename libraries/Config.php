@@ -1176,7 +1176,7 @@ class Config
             $handle = @fopen($this->getSource(), 'r');
             if ($handle !== false) {
                 $contents = @fread($handle, 1); // reading 1 byte is enough to test
-                @fclose($handle);
+                fclose($handle);
             }
             if ($contents === false) {
                 $this->source_mtime = 0;
