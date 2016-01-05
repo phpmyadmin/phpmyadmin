@@ -483,89 +483,87 @@ class ExportSql extends ExportPlugin
         if ($procedure_names || $function_names) {
             $text .= $crlf
                 . 'DELIMITER ' . $delimiter . $crlf;
-        }
 
-        if ($procedure_names) {
-            $text .= $this->_exportComment()
-                . $this->_exportComment(__('Procedures'))
-                . $this->_exportComment();
-            $used_alias = false;
-            $proc_query = '';
-            foreach ($procedure_names as $procedure_name) {
-                if (!empty($GLOBALS['sql_drop_table'])) {
-                    $proc_query .= 'DROP PROCEDURE IF EXISTS '
-                        . Util::backquote($procedure_name)
-                        . $delimiter . $crlf;
+            if ($procedure_names) {
+                $text .= $this->_exportComment()
+                    . $this->_exportComment(__('Procedures'))
+                    . $this->_exportComment();
+                $used_alias = false;
+                $proc_query = '';
+                foreach ($procedure_names as $procedure_name) {
+                    if (!empty($GLOBALS['sql_drop_table'])) {
+                        $proc_query .= 'DROP PROCEDURE IF EXISTS '
+                            . Util::backquote($procedure_name)
+                            . $delimiter . $crlf;
+                    }
+                    $create_query = $GLOBALS['dbi']
+                        ->getDefinition($db, 'PROCEDURE', $procedure_name);
+                    $create_query = $this->replaceWithAliases(
+                        $create_query,
+                        $aliases,
+                        $db,
+                        '',
+                        $flag
+                    );
+                    // One warning per database
+                    if ($flag) {
+                        $used_alias = true;
+                    }
+                    $proc_query .= $create_query . $delimiter . $crlf . $crlf;
                 }
-                $create_query = $GLOBALS['dbi']
-                    ->getDefinition($db, 'PROCEDURE', $procedure_name);
-                $create_query = $this->replaceWithAliases(
-                    $create_query,
-                    $aliases,
-                    $db,
-                    '',
-                    $flag
-                );
-                // One warning per database
-                if ($flag) {
-                    $used_alias = true;
-                }
-                $proc_query .= $create_query . $delimiter . $crlf . $crlf;
-            }
-            if ($used_alias) {
-                $text .= $this->_exportComment(
-                    __(
-                        'It appears your database uses procedures;'
+                if ($used_alias) {
+                    $text .= $this->_exportComment(
+                        __(
+                            'It appears your database uses procedures;'
+                        )
                     )
-                )
-                . $this->_exportComment(
-                    __('alias export may not work reliably in all cases.')
-                )
-                . $this->_exportComment();
-            }
-            $text .= $proc_query;
-        }
-
-        if ($function_names) {
-            $text .= $this->_exportComment()
-                . $this->_exportComment(__('Functions'))
-                . $this->_exportComment();
-            $used_alias = false;
-            $function_query = '';
-            foreach ($function_names as $function_name) {
-                if (!empty($GLOBALS['sql_drop_table'])) {
-                    $function_query .= 'DROP FUNCTION IF EXISTS '
-                        . Util::backquote($function_name)
-                        . $delimiter . $crlf;
+                    . $this->_exportComment(
+                        __('alias export may not work reliably in all cases.')
+                    )
+                    . $this->_exportComment();
                 }
-                $create_query = $GLOBALS['dbi']
-                    ->getDefinition($db, 'FUNCTION', $function_name);
-                $create_query = $this->replaceWithAliases(
-                    $create_query,
-                    $aliases,
-                    $db,
-                    '',
-                    $flag
-                );
-                // One warning per database
-                if ($flag) {
-                    $used_alias = true;
-                }
-                $function_query .= $create_query . $delimiter . $crlf . $crlf;
+                $text .= $proc_query;
             }
-            if ($used_alias) {
-                $text .= $this->_exportComment(
-                    __('It appears your database uses functions;')
-                )
-                . $this->_exportComment(
-                    __('alias export may not work reliably in all cases.')
-                )
-                . $this->_exportComment();
-            }
-            $text .= $function_query;
-        }
 
-        if ($procedure_names || $function_names) {
+            if ($function_names) {
+                $text .= $this->_exportComment()
+                    . $this->_exportComment(__('Functions'))
+                    . $this->_exportComment();
+                $used_alias = false;
+                $function_query = '';
+                foreach ($function_names as $function_name) {
+                    if (!empty($GLOBALS['sql_drop_table'])) {
+                        $function_query .= 'DROP FUNCTION IF EXISTS '
+                            . Util::backquote($function_name)
+                            . $delimiter . $crlf;
+                    }
+                    $create_query = $GLOBALS['dbi']
+                        ->getDefinition($db, 'FUNCTION', $function_name);
+                    $create_query = $this->replaceWithAliases(
+                        $create_query,
+                        $aliases,
+                        $db,
+                        '',
+                        $flag
+                    );
+                    // One warning per database
+                    if ($flag) {
+                        $used_alias = true;
+                    }
+                    $function_query .= $create_query . $delimiter . $crlf . $crlf;
+                }
+                if ($used_alias) {
+                    $text .= $this->_exportComment(
+                        __('It appears your database uses functions;')
+                    )
+                    . $this->_exportComment(
+                        __('alias export may not work reliably in all cases.')
+                    )
+                    . $this->_exportComment();
+                }
+                $text .= $function_query;
+            }
+
             $text .= 'DELIMITER ;' . $crlf;
         }
 
