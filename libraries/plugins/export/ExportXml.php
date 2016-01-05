@@ -150,8 +150,8 @@ class ExportXml extends ExportPlugin
     /**
      * Generates output for SQL defintions of routines
      *
-     * @param string $db Database name
-     * @param string $type Item type to be used in XML output
+     * @param string $db      Database name
+     * @param string $type    Item type to be used in XML output
      * @param string $dbitype Item type used in DBI qieries
      *
      * @return string XML with definitions
@@ -169,8 +169,8 @@ class ExportXml extends ExportPlugin
     /**
      * Generates output for SQL defintions
      *
-     * @param string $db Database name
-     * @param string $type Item type to be used in XML output
+     * @param string $db      Database name
+     * @param string $type    Item type to be used in XML output
      * @param string $dbitype Item type used in DBI qieries
      * @param array  $names   Names of items to export
      *
