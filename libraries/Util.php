@@ -3058,7 +3058,7 @@ class Util
      * function because in PHP, decbin() supports only 32 bits
      * on 32-bit servers
      *
-     * @param number  $value  coming from a BIT field
+     * @param integer $value  coming from a BIT field
      * @param integer $length length
      *
      * @return string  the printable value

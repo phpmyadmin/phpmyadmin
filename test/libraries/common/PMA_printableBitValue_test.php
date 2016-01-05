@@ -41,9 +41,9 @@ class PMA_PrintableBitValueTest extends PHPUnit_Framework_TestCase
     /**
      * test for generating string contains printable bit value of selected data
      *
-     * @param number $a Value
-     * @param int    $b Length
-     * @param string $e Expected output
+     * @param integer $a Value
+     * @param int     $b Length
+     * @param string  $e Expected output
      *
      * @return void
      *

@@ -225,8 +225,8 @@ class ServerVariablesController extends Controller
     /**
      * Format Variable
      *
-     * @param string $name  variable name
-     * @param number $value variable value
+     * @param string  $name  variable name
+     * @param integer $value variable value
      *
      * @return string formatted string
      */
