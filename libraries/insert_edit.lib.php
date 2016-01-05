@@ -2033,7 +2033,9 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
         } else {
             $dispval = '';
         }
-        @$GLOBALS['dbi']->freeResult($dispresult);
+        if ($dispresult) {
+            $GLOBALS['dbi']->freeResult($dispresult);
+        }
         return $dispval;
     }
     return '';
