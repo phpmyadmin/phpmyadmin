@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2016-01-05 01:39+0000\n"
-"Last-Translator: Kiguda Kosuru <tech@kiguda.net>\n"
+"PO-Revision-Date: 2016-01-05 02:11+0000\n"
+"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/ja/>\n"
 "Language: ja\n"
@@ -930,14 +930,11 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "本当に検索「%s」の削除を実行しますか？"
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr ""
-"データの一部を変更しましたが保存していません。データを保存せずにこのページか"
-"ら移動してもよろしいですか?"
+msgstr "保存していない編集がありますが、このページを離れますか？"
 
 #: js/messages.php:61
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1132,26 +1129,23 @@ msgid "Close"
 msgstr "閉じる"
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "作成されたページ数。"
+msgstr "テンプレートが作成されました。"
 
 #: js/messages.php:131
 msgid "Template was loaded."
 msgstr ""
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "プロファイルを更新しました。"
+msgstr "テンプレートを更新しました。"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "行を削除しました"
+msgstr "テンプレートを削除しました。"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:136 libraries/ServerStatusData.class.php:133
@@ -1203,7 +1197,6 @@ msgid "Query cache used"
 msgstr "使用されているクエリキャッシュ"
 
 #: js/messages.php:152
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "システム CPU の使用状況"
@@ -1241,25 +1234,21 @@ msgid "Used memory"
 msgstr "使用中メモリ"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "総スワップ領域"
 
 #: js/messages.php:164
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "キャッシュ割り当てスワップ領域"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "使用中スワップ領域"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "空きスワップ領域"
@@ -1676,7 +1665,6 @@ msgid "No files available on server for import!"
 msgstr ""
 
 #: js/messages.php:276
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "クエリを解析する"
@@ -1744,7 +1732,6 @@ msgid "Loading…"
 msgstr "読み込み中…"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "リクエストを中止しました!!"
@@ -1756,10 +1743,9 @@ msgid "Processing request"
 msgstr "要求を処理しています"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
-msgstr "リクエストを中止しました!!"
+msgstr "リクエストは失敗しました!!"
 
 #: js/messages.php:305
 #, fuzzy
@@ -1783,7 +1769,6 @@ msgid "No databases selected."
 msgstr "データベースが選択されていません。"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "カラムを削除しています"
@@ -1809,28 +1794,24 @@ msgid "Click to dismiss this notification"
 msgstr "クリックすると、この通知を破棄します"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "データベースの名称を変更しています"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "データベースをコピーしています"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "文字セットを変更しています"
 
 #: js/messages.php:321 libraries/Util.class.php:3232
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "外部キーのチェックを無効にする"
+msgstr "外部キーのチェックを有効にする"
 
 #: js/messages.php:324
 #, fuzzy
@@ -1893,7 +1874,6 @@ msgid "Values for a new column"
 msgstr "新しいカラムに対しての値"
 
 #: js/messages.php:341
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
 msgstr "個々の入力欄にそれぞれ値を入力してください"
@@ -1961,10 +1941,10 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:355
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "変数"
+msgstr "変数 %d:"
 
 #: js/messages.php:358 libraries/normalization.lib.php:886
 msgid "Pick"
@@ -1990,10 +1970,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "空きメモリ"
+msgstr "もっと見る"
 
 #: js/messages.php:363
 msgid "Are you sure?"
@@ -2003,23 +1982,21 @@ msgstr ""
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
-msgstr ""
+msgstr "この操作はいくつかのカラム定義を変更します。<br/>本当に続けますか？"
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "phpMyAdmin に協力するには"
+msgstr "続ける"
 
 #: js/messages.php:368
 msgid "Add primary key"
 msgstr "主キーを追加する"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "%s に主キーを追加しました"
+msgstr "主キーを追加しました。"
 
 #: js/messages.php:370 libraries/normalization.lib.php:191
 #, fuzzy
