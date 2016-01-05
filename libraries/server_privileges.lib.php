@@ -2407,8 +2407,8 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
 /**
  * Get the HTML for routine based privileges
  *
- * @param string $db database name
- * @param string $odd_row row styling
+ * @param string $db             database name
+ * @param string $odd_row        row styling
  * @param string $index_checkbox starting index for rows to be added
  *
  * @return string $html_output

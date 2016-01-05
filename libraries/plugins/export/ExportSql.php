@@ -463,8 +463,8 @@ class ExportSql extends ExportPlugin
     /**
      * Generates SQL for routines export
      *
-     * @param string $db      Database
-     * @param array  $aliases Aliases of db/table/columns
+     * @param string $db        Database
+     * @param array  $aliases   Aliases of db/table/columns
      * @param string $type      Type of exported routine
      * @param string $name      Verbose name of exported routine
      * @param array  $routines  List of routines to export

@@ -66,9 +66,9 @@ function PMA_detectCompression($filepath)
  * Runs query inside import buffer. This is needed to allow displaying
  * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
- * @param string $sql         query to run
- * @param string $full        query to display, this might be commented
- * @param array  &$sql_data   SQL parse data storage
+ * @param string $sql       query to run
+ * @param string $full      query to display, this might be commented
+ * @param array  &$sql_data SQL parse data storage
  *
  * @return void
  * @access public
@@ -154,9 +154,9 @@ function PMA_executeQuery($sql, $full, &$sql_data)
  * Runs query inside import buffer. This is needed to allow displaying
  * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
- * @param string $sql         query to run
- * @param string $full        query to display, this might be commented
- * @param array  &$sql_data   SQL parse data storage
+ * @param string $sql       query to run
+ * @param string $full      query to display, this might be commented
+ * @param array  &$sql_data SQL parse data storage
  *
  * @return void
  * @access public
