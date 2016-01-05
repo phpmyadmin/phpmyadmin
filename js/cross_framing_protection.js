@@ -2,7 +2,7 @@
 /**
  * Conditionally included if framing is not allowed
  */
-window.onload = function () {
+$(function () {
     if (self == top) {
         var style_element = document.getElementById("cfs-style");
         // check if style_element has already been removed
@@ -13,4 +13,4 @@ window.onload = function () {
     } else {
         top.location = self.location;
     }
-}
+});
