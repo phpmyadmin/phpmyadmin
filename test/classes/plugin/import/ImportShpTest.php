@@ -132,16 +132,19 @@ class ImportShpTest extends PMATestCase
         global $import_notice, $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
 
-
         //Test function called
         $this->runImport('test/test_data/dresden_osm.shp.zip');
 
         $this->assertMessages($import_notice);
         $this->assertContains(
-            "(GeomFromText('MULTIPOLYGON(((13.737122 51.0542065,13.7373039 51.0541298,13.7372661 51.0540944,13.7370842 51.0541711,13.737122 51.0542065)))'))",
+            "(GeomFromText('MULTIPOLYGON((("
+            . "13.737122 51.0542065,"
+            . "13.7373039 51.0541298,"
+            . "13.7372661 51.0540944,"
+            . "13.7370842 51.0541711,"
+            . "13.737122 51.0542065)))'))",
             $sql_query
         );
-
     }
 
     /**
