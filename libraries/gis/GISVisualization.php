@@ -291,7 +291,7 @@ class GISVisualization
         $this->init();
 
         $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?' . ' >'
-            . "\n";
+            . "\n"
             . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
             . ' xmlns="http://www.w3.org/2000/svg"'
             . ' width="' . $this->_settings['width'] . '"'
