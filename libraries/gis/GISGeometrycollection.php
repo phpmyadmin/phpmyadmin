@@ -69,7 +69,7 @@ class GISGeometrycollection extends GISGeometry
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = mb_stripos($sub_part, '(');
+            $type_pos = mb_strpos($sub_part, '(');
             if ($type_pos === false) {
                 continue;
             }
@@ -131,7 +131,7 @@ class GISGeometrycollection extends GISGeometry
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = mb_stripos($sub_part, '(');
+            $type_pos = mb_strpos($sub_part, '(');
             if ($type_pos === false) {
                 continue;
             }
@@ -178,7 +178,7 @@ class GISGeometrycollection extends GISGeometry
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = mb_stripos($sub_part, '(');
+            $type_pos = mb_strpos($sub_part, '(');
             if ($type_pos === false) {
                 continue;
             }
@@ -226,7 +226,7 @@ class GISGeometrycollection extends GISGeometry
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = mb_stripos($sub_part, '(');
+            $type_pos = mb_strpos($sub_part, '(');
             if ($type_pos === false) {
                 continue;
             }
@@ -275,7 +275,7 @@ class GISGeometrycollection extends GISGeometry
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = mb_stripos($sub_part, '(');
+            $type_pos = mb_strpos($sub_part, '(');
             if ($type_pos === false) {
                 continue;
             }
@@ -398,7 +398,7 @@ class GISGeometrycollection extends GISGeometry
 
         $i = 0;
         foreach ($sub_parts as $sub_part) {
-            $type_pos = mb_stripos($sub_part, '(');
+            $type_pos = mb_strpos($sub_part, '(');
             if ($type_pos === false) {
                 continue;
             }

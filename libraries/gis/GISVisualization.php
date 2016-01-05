@@ -546,7 +546,7 @@ class GISVisualization
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos = mb_stripos($ref_data, '(');
+            $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;
             }
@@ -635,7 +635,7 @@ class GISVisualization
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos = mb_stripos($ref_data, '(');
+            $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;
             }
