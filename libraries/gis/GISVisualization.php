@@ -28,34 +28,32 @@ class GISVisualization
     /**
      * @var array   Set of default settings values are here.
      */
-    private $_settings
-        = array(
-
-            // Array of colors to be used for GIS visualizations.
-            'colors' => array(
-                '#B02EE0',
-                '#E0642E',
-                '#E0D62E',
-                '#2E97E0',
-                '#BCE02E',
-                '#E02E75',
-                '#5CE02E',
-                '#E0B02E',
-                '#0022E0',
-                '#726CB1',
-                '#481A36',
-                '#BAC658',
-                '#127224',
-                '#825119',
-                '#238C74',
-                '#4C489B',
-                '#87C9BF',
-            ),
-            // The width of the GIS visualization.
-            'width'  => 600,
-            // The height of the GIS visualization.
-            'height' => 450,
-        );
+    private $_settings = array(
+        // Array of colors to be used for GIS visualizations.
+        'colors' => array(
+            '#B02EE0',
+            '#E0642E',
+            '#E0D62E',
+            '#2E97E0',
+            '#BCE02E',
+            '#E02E75',
+            '#5CE02E',
+            '#E0B02E',
+            '#0022E0',
+            '#726CB1',
+            '#481A36',
+            '#BAC658',
+            '#127224',
+            '#825119',
+            '#238C74',
+            '#4C489B',
+            '#87C9BF',
+        ),
+        // The width of the GIS visualization.
+        'width'  => 600,
+        // The height of the GIS visualization.
+        'height' => 450,
+    );
     /**
      * @var array   Options that the user has specified.
      */
@@ -292,7 +290,7 @@ class GISVisualization
     {
         $this->init();
 
-        $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . "\n";
+        $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?'. ' >' . "\n";
         $output .= '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
             . ' xmlns="http://www.w3.org/2000/svg"'
             . ' width="' . $this->_settings['width'] . '"'
@@ -548,12 +546,8 @@ class GISVisualization
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos
-                =
-                mb_stripos($ref_data, '(');
-            $type
-                =
-                mb_substr($ref_data, 0, $type_pos);
+            $type_pos = mb_stripos($ref_data, '(');
+            $type = mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
@@ -638,12 +632,8 @@ class GISVisualization
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos
-                =
-                mb_stripos($ref_data, '(');
-            $type
-                =
-                mb_substr($ref_data, 0, $type_pos);
+            $type_pos = mb_stripos($ref_data, '(');
+            $type = mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
