@@ -93,8 +93,8 @@ class DatabaseInterface
     /**
      * Get a cached value from table cache.
      *
-     * @param string $contentPath Dot notation of the target value
-     * @param mixed  $default     Return value on cache miss
+     * @param array $contentPath Array of the name of the target value
+     * @param mixed $default     Return value on cache miss
      *
      * @return mixed cached value or default
      */
@@ -106,8 +106,8 @@ class DatabaseInterface
     /**
      * Set an item in table cache using dot notation.
      *
-     * @param string $contentPath Dot notation of the target path
-     * @param mixed  $value       Target value
+     * @param array $contentPath Array with the target path
+     * @param mixed $value       Target value
      *
      * @return void
      */
@@ -120,10 +120,8 @@ class DatabaseInterface
             return;
         }
 
-        $keys = explode('.', $contentPath);
-
-        while (count($keys) > 1) {
-            $key = array_shift($keys);
+        while (count($contentPath) > 1) {
+            $key = array_shift($contentPath);
 
             // If the key doesn't exist at this depth, we will just create an empty
             // array to hold the next value, allowing us to create the arrays to hold
@@ -135,7 +133,7 @@ class DatabaseInterface
             $loc = &$loc[$key];
         }
 
-        $loc[array_shift($keys)] = $value;
+        $loc[array_shift($contentPath)] = $value;
     }
 
     /**

@@ -46,6 +46,7 @@ phpMyAdmin - ChangeLog
 - issue        Undefined index: host
 - issue #11810 'Add to central columns' (per column button) does nothing
 - issue #11727 SQL duplicate entry error trying to INSERT in designer_settings table
+- issue #11798 Fix handling of databases with dot in a name
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
