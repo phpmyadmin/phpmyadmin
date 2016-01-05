@@ -127,7 +127,7 @@ class ThemeTest extends PMATestCase
     /**
      * Test for Theme::loadCss
      *
-     * @param $theme string Path to theme files
+     * @param string $theme Path to theme files
      *
      * @return void
      *
