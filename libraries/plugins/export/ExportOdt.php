@@ -64,13 +64,14 @@ class ExportOdt extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // what to dump (structure/data/both) main group
-        $dumpWhat = new OptionsPropertyMainGroup();
-        $dumpWhat->setName("general_opts");
-        $dumpWhat->setText(__('Dump table'));
+        $dumpWhat = new OptionsPropertyMainGroup(
+            "general_opts", __('Dump table')
+        );
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
@@ -86,9 +87,9 @@ class ExportOdt extends ExportPlugin
 
         // structure options main group
         if (!$hide_structure) {
-            $structureOptions = new OptionsPropertyMainGroup();
-            $structureOptions->setName("structure");
-            $structureOptions->setText(__('Object creation options'));
+            $structureOptions = new OptionsPropertyMainGroup(
+                "structure", __('Object creation options')
+            );
             $structureOptions->setForce('data');
             // create primary items and add them to the group
             if (!empty($GLOBALS['cfgRelation']['relation'])) {
@@ -115,9 +116,9 @@ class ExportOdt extends ExportPlugin
         }
 
         // data options main group
-        $dataOptions = new OptionsPropertyMainGroup();
-        $dataOptions->setName("data");
-        $dataOptions->setText(__('Data dump options'));
+        $dataOptions = new OptionsPropertyMainGroup(
+            "data", __('Data dump options')
+        );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(

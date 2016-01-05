@@ -74,12 +74,12 @@ class ExportLatex extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup("general_opts");
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             "caption",
@@ -90,9 +90,9 @@ class ExportLatex extends ExportPlugin
         $exportSpecificOptions->addProperty($generalOptions);
 
         // what to dump (structure/data/both) main group
-        $dumpWhat = new OptionsPropertyMainGroup();
-        $dumpWhat->setName("dump_what");
-        $dumpWhat->setText(__('Dump table'));
+        $dumpWhat = new OptionsPropertyMainGroup(
+            "dump_what", __('Dump table')
+        );
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
@@ -108,9 +108,9 @@ class ExportLatex extends ExportPlugin
 
         // structure options main group
         if (!$hide_structure) {
-            $structureOptions = new OptionsPropertyMainGroup();
-            $structureOptions->setName("structure");
-            $structureOptions->setText(__('Object creation options'));
+            $structureOptions = new OptionsPropertyMainGroup(
+                "structure", __('Object creation options')
+            );
             $structureOptions->setForce('data');
             // create primary items and add them to the group
             $leaf = new TextPropertyItem(
@@ -155,9 +155,9 @@ class ExportLatex extends ExportPlugin
         }
 
         // data options main group
-        $dataOptions = new OptionsPropertyMainGroup();
-        $dataOptions->setName("data");
-        $dataOptions->setText(__('Data dump options'));
+        $dataOptions = new OptionsPropertyMainGroup(
+            "data", __('Data dump options')
+        );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(

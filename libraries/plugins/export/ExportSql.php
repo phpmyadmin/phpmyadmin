@@ -76,16 +76,15 @@ class ExportSql extends ExportPlugin
             // create the root group that will be the options field for
             // $exportPluginProperties
             // this will be shown as "Format specific options"
-            $exportSpecificOptions = new OptionsPropertyRootGroup();
-            $exportSpecificOptions->setName("Format Specific Options");
+            $exportSpecificOptions = new OptionsPropertyRootGroup(
+                "Format Specific Options"
+            );
 
             // general options main group
-            $generalOptions = new OptionsPropertyMainGroup();
-            $generalOptions->setName("general_opts");
+            $generalOptions = new OptionsPropertyMainGroup("general_opts");
 
             // comments
-            $subgroup = new OptionsPropertySubgroup();
-            $subgroup->setName("include_comments");
+            $subgroup = new OptionsPropertySubgroup("include_comments");
             $leaf = new BoolPropertyItem(
                 'include_comments',
                 __(
@@ -194,9 +193,9 @@ class ExportSql extends ExportPlugin
             }
 
             // what to dump (structure/data/both)
-            $subgroup = new OptionsPropertySubgroup();
-            $subgroup->setName("dump_table");
-            $subgroup->setText("Dump table");
+            $subgroup = new OptionsPropertySubgroup(
+                "dump_table", __("Dump table")
+            );
             $leaf = new RadioPropertyItem('structure_or_data');
             $leaf->setValues(
                 array(
@@ -213,9 +212,9 @@ class ExportSql extends ExportPlugin
 
             // structure options main group
             if (!$hide_structure) {
-                $structureOptions = new OptionsPropertyMainGroup();
-                $structureOptions->setName("structure");
-                $structureOptions->setText(__('Object creation options'));
+                $structureOptions = new OptionsPropertyMainGroup(
+                    "structure", __('Object creation options')
+                );
                 $structureOptions->setForce('data');
 
                 // begin SQL Statements
@@ -331,9 +330,9 @@ class ExportSql extends ExportPlugin
             }
 
             // begin Data options
-            $dataOptions = new OptionsPropertyMainGroup();
-            $dataOptions->setName("data");
-            $dataOptions->setText(__('Data creation options'));
+            $dataOptions = new OptionsPropertyMainGroup(
+                "data", __('Data creation options')
+            );
             $dataOptions->setForce('structure');
             $leaf = new BoolPropertyItem(
                 "truncate",

@@ -51,13 +51,14 @@ class ExportHtmlword extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // what to dump (structure/data/both)
-        $dumpWhat = new OptionsPropertyMainGroup();
-        $dumpWhat->setName("dump_what");
-        $dumpWhat->setText(__('Dump table'));
+        $dumpWhat = new OptionsPropertyMainGroup(
+            "dump_what", __('Dump table')
+        );
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
@@ -72,9 +73,9 @@ class ExportHtmlword extends ExportPlugin
         $exportSpecificOptions->addProperty($dumpWhat);
 
         // data options main group
-        $dataOptions = new OptionsPropertyMainGroup();
-        $dataOptions->setName("dump_what");
-        $dataOptions->setText(__('Data dump options'));
+        $dataOptions = new OptionsPropertyMainGroup(
+            "dump_what", __('Data dump options')
+        );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(

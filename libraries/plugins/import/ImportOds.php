@@ -59,12 +59,12 @@ class ImportOds extends ImportPlugin
         // create the root group that will be the options field for
         // $importPluginProperties
         // this will be shown as "Format specific options"
-        $importSpecificOptions = new OptionsPropertyRootGroup();
-        $importSpecificOptions->setName("Format Specific Options");
+        $importSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup("general_opts");
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             "col_names",

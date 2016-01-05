@@ -80,12 +80,12 @@ class ExportXml extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup("general_opts");
         // create primary items and add them to the group
         $leaf = new HiddenPropertyItem("structure_or_data");
         $generalOptions->addProperty($leaf);
@@ -93,9 +93,9 @@ class ExportXml extends ExportPlugin
         $exportSpecificOptions->addProperty($generalOptions);
 
         // export structure main group
-        $structure = new OptionsPropertyMainGroup();
-        $structure->setName("structure");
-        $structure->setText(__('Object creation options (all are recommended)'));
+        $structure = new OptionsPropertyMainGroup(
+            "structure", __('Object creation options (all are recommended)')
+        );
 
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
@@ -131,9 +131,9 @@ class ExportXml extends ExportPlugin
         $exportSpecificOptions->addProperty($structure);
 
         // data main group
-        $data = new OptionsPropertyMainGroup();
-        $data->setName("data");
-        $data->setText(__('Data dump options'));
+        $data = new OptionsPropertyMainGroup(
+            "data", __('Data dump options')
+        );
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             "export_contents",

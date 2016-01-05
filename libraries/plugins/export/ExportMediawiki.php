@@ -49,18 +49,19 @@ class ExportMediawiki extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
-        $generalOptions->setText(__('Dump table'));
+        $generalOptions = new OptionsPropertyMainGroup(
+            "general_opts", __('Dump table')
+        );
 
         // what to dump (structure/data/both)
-        $subgroup = new OptionsPropertySubgroup();
-        $subgroup->setName("dump_table");
-        $subgroup->setText("Dump table");
+        $subgroup = new OptionsPropertySubgroup(
+            "dump_table", __("Dump table")
+        );
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             array(
