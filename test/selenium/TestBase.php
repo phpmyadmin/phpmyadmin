@@ -425,6 +425,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             // Element not present
             return false;
+        } catch (InvalidArgumentException $e) {
+            // Element not present
+            return false;
         }
         // Element Present
         return true;
