@@ -6,22 +6,25 @@
  * @package PhpMyAdmin
  */
 
-chdir('..');
+if (!defined('TESTSUITE')) {
+    chdir('..');
 
-// Send correct type:
-header('Content-Type: text/javascript; charset=UTF-8');
+    // Send correct type:
+    header('Content-Type: text/javascript; charset=UTF-8');
 
-// Cache output in client - the nocache query parameter makes sure that this
-// file is reloaded when config changes
-header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+    // Cache output in client - the nocache query parameter makes sure that this
+    // file is reloaded when config changes
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
-// Avoid loading the full common.inc.php because this would add many
-// non-js-compatible stuff like DOCTYPE
-define('PMA_MINIMUM_COMMON', true);
-define('PMA_PATH_TO_BASEDIR', '../');
-require_once './libraries/common.inc.php';
-// Close session early as we won't write anything there
-session_write_close();
+    // Avoid loading the full common.inc.php because this would add many
+    // non-js-compatible stuff like DOCTYPE
+    define('PMA_MINIMUM_COMMON', true);
+    define('PMA_PATH_TO_BASEDIR', '../');
+    require_once './libraries/common.inc.php';
+    // Close session early as we won't write anything there
+    session_write_close();
+}
+
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
 
