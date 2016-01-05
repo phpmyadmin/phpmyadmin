@@ -290,18 +290,18 @@ class GISVisualization
     {
         $this->init();
 
-        $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?'. ' >' . "\n";
-        $output .= '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
+        $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?' . ' >'
+            . "\n";
+            . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
             . ' xmlns="http://www.w3.org/2000/svg"'
             . ' width="' . $this->_settings['width'] . '"'
-            . ' height="' . $this->_settings['height'] . '">';
-        $output .= '<g id="groupPanel">';
+            . ' height="' . $this->_settings['height'] . '">'
+            . '<g id="groupPanel">';
 
         $scale_data = $this->_scaleDataSet($this->_data);
         $output .= $this->_prepareDataSet($this->_data, $scale_data, 'svg', '');
 
-        $output .= '</g>';
-        $output .= '</svg>';
+        $output .= '</g></svg>';
 
         return $output;
     }
