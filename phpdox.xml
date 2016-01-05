@@ -70,12 +70,10 @@
                 <!-- <source type="phploc" /> -->
 
                 <!-- add git vcs information -->
-                <!--
                 <source type="git">
                     <git binary="/usr/bin/git" />
                     <history enabled="true" limit="15" cache="${phpDox.project.workdir}/gitlog.xml" />
                 </source>
-                -->
 
 
                 <!-- enrichment source -->
