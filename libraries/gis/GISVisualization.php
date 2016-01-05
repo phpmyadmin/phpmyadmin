@@ -547,6 +547,9 @@ class GISVisualization
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
             $type_pos = mb_stripos($ref_data, '(');
+            if ($type_pos === false) {
+                continue;
+            }
             $type = mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
@@ -633,6 +636,9 @@ class GISVisualization
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
             $type_pos = mb_stripos($ref_data, '(');
+            if ($type_pos === false) {
+                continue;
+            }
             $type = mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);

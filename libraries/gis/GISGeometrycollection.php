@@ -70,6 +70,9 @@ class GISGeometrycollection extends GISGeometry
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_stripos($sub_part, '(');
+            if ($type_pos === false) {
+                continue;
+            }
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
@@ -129,6 +132,9 @@ class GISGeometrycollection extends GISGeometry
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_stripos($sub_part, '(');
+            if ($type_pos === false) {
+                continue;
+            }
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
@@ -173,6 +179,9 @@ class GISGeometrycollection extends GISGeometry
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_stripos($sub_part, '(');
+            if ($type_pos === false) {
+                continue;
+            }
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
@@ -218,6 +227,9 @@ class GISGeometrycollection extends GISGeometry
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_stripos($sub_part, '(');
+            if ($type_pos === false) {
+                continue;
+            }
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
@@ -264,6 +276,9 @@ class GISGeometrycollection extends GISGeometry
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_stripos($sub_part, '(');
+            if ($type_pos === false) {
+                continue;
+            }
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GISFactory::factory($type);
@@ -384,6 +399,9 @@ class GISGeometrycollection extends GISGeometry
         $i = 0;
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_stripos($sub_part, '(');
+            if ($type_pos === false) {
+                continue;
+            }
             $type = mb_substr($sub_part, 0, $type_pos);
             $gis_obj = GISFactory::factory($type);
             if (!$gis_obj) {
