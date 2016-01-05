@@ -100,6 +100,7 @@ class TableChartController extends TableController
          */
         $db = &$this->db;
         $table = &$this->table;
+        $url_params = array();
 
         /**
          * Runs common work

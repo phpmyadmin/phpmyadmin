@@ -356,8 +356,10 @@ class DatabaseStructureControllerTest extends PMATestCase
 
         // The user hash for test
         $user = 'abcdefg';
-        $favorite_table[$user] = array(
+        $favorite_table = array(
+            $user => array(
                 array('db' => 'db', 'table' => 'table')
+            ),
         );
 
         $method->invokeArgs($ctrl, array($fav_instance, $user, $favorite_table));
