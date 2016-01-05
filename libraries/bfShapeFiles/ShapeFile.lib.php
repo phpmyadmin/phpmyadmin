@@ -534,7 +534,6 @@
         fwrite($this->SHPFile, pack("V", count($this->SHPData["parts"][$i])));
       }
 
-      reset($this->SHPData["parts"]);
       foreach ($this->SHPData["parts"] as $partData){
         reset($partData["points"]);
         while (list($pointIndex, $pointData) = each($partData["points"])) {

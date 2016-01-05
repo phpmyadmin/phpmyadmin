@@ -637,7 +637,6 @@ function PMA_getHtmlForExportOptionsOutputCharset()
     global $cfg;
     $html = '        <li><label for="select_charset" class="desc">'
         . __('Character set of the file:') . '</label>' . "\n";
-    reset($cfg['AvailableCharsets']);
     $html .= '<select id="select_charset" name="charset" size="1">';
     foreach ($cfg['AvailableCharsets'] as $temp_charset) {
         $html .= '<option value="' . $temp_charset . '"';

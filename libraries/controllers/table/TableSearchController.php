@@ -973,7 +973,6 @@ class TableSearchController extends TableController
 
         // else continue to form the where clause from column criteria values
         $fullWhereClause = array();
-        reset($_POST['criteriaColumnOperators']);
         foreach ($_POST['criteriaColumnOperators'] as $column_index => $operator) {
             $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
             $tmp_geom_func = isset($_POST['geom_func'][$column_index])

@@ -1822,7 +1822,6 @@ class ExportSql extends ExportPlugin
                     __('MIME TYPES FOR TABLE') . ' '
                     . Util::backquote($table, $sql_backquotes) . ':'
                 );
-            @reset($mime_map);
             foreach ($mime_map as $mime_field => $mime) {
                 $schema_create .= $this->_exportComment(
                     '  '
