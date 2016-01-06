@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 - issue #11727 SQL duplicate entry error trying to INSERT in designer_settings table
 - issue #11798 Fix handling of databases with dot in a name
 - issue #11820 Fix hiding of page content behind menu
+- issue #11780 FROM clause not generated after loading search bookmark
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2

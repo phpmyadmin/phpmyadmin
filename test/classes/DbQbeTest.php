@@ -514,7 +514,8 @@ class DbQbeTest extends PMATestCase
         $this->assertEquals(
             '`table1`',
             $this->_callProtectedFunction(
-                '_getFromClause', array()
+                '_getFromClause',
+                array(array('`table1`.`id`'))
             )
         );
     }
@@ -537,7 +538,7 @@ class DbQbeTest extends PMATestCase
 ',
             $this->_callProtectedFunction(
                 '_getSQLQuery',
-                array()
+                array(array('`table1`.`id`'))
             )
         );
     }
