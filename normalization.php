@@ -108,10 +108,10 @@ if (isset($_REQUEST['step1'])) {
 } else if (isset($_REQUEST['step4'])) {
     $res = PMA_getHtmlContentsFor1NFStep4($db, $table);
     $response->addJSON($res);
-} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 2.1) {
+} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == '2.1') {
     $res = PMA_getHtmlFor2NFstep1($db, $table);
     $response->addJSON($res);
-} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 3.1) {
+} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == '3.1') {
     $tables = $_REQUEST['tables'];
     $res = PMA_getHtmlFor3NFstep1($db, $tables);
     $response->addJSON($res);
