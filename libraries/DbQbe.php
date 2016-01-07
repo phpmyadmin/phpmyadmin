@@ -120,61 +120,61 @@ class DbQbe
      */
     private $_form_column_width;
     /**
-     * Current criteria field
+     * Selected columns in the form
      *
      * @access private
      * @var array
      */
-    private $_curField;
+    private $_formColumns;
     /**
-     * Current alias
+     * Entered aliases in the form
      *
      * @access private
      * @var array
      */
-    private $_curAlias;
+    private $_formAliases;
     /**
-     * Current criteria Sort options
+     * Chosen sort options in the form
      *
      * @access private
      * @var array
      */
-    private $_curSort;
+    private $_formSorts;
     /**
-     * Current criteria sort order
+     * Chosen sort orders in the form
      *
      * @access private
      * @var array
      */
-    private $_curSortOrder;
+    private $_formSortOrders;
     /**
-     * Current criteria Show options
+     * Show checkboxes in the form
      *
      * @access private
      * @var array
      */
-    private $_curShow;
+    private $_formShows;
     /**
-     * Current criteria values
+     * Entered criteria values in the form
      *
      * @access private
      * @var array
      */
-    private $_curCriteria;
+    private $_formCriterions;
     /**
-     * Current criteria AND/OR column relations
+     * AND/OR column radio buttons in the form
      *
      * @access private
      * @var array
      */
-    private $_curAndOrCol;
+    private $_formAndOrCols;
     /**
-     * Current criteria AND/OR row relations
+     * AND/OR row radio buttons in the form
      *
      * @access private
      * @var array
      */
-    private $_curAndOrRow;
+    private $_formAndOrRows;
     /**
      * New column count in case of add/delete
      *
@@ -293,12 +293,12 @@ class DbQbe
             : array_fill(0, $criteriaColumnCount, '');
         // sets minimum width
         $this->_form_column_width = 12;
-        $this->_curField = array();
-        $this->_curSort = array();
-        $this->_curShow = array();
-        $this->_curCriteria = array();
-        $this->_curAndOrRow = array();
-        $this->_curAndOrCol = array();
+        $this->_formColumns = array();
+        $this->_formSorts = array();
+        $this->_formShows = array();
+        $this->_formCriterions = array();
+        $this->_formAndOrRows = array();
+        $this->_formAndOrCols = array();
     }
 
     /**
@@ -486,7 +486,7 @@ class DbQbe
             $selected = '';
             if (isset($_REQUEST['criteriaColumn'][$column_index])) {
                 $selected = $_REQUEST['criteriaColumn'][$column_index];
-                $this->_curField[$new_column_count]
+                $this->_formColumns[$new_column_count]
                     = $_REQUEST['criteriaColumn'][$column_index];
             }
             $html_output .= $this->_showColumnSelectCell(
@@ -538,7 +538,7 @@ class DbQbe
             $tmp_alias = '';
             if (! empty($_REQUEST['criteriaAlias'][$colInd])) {
                 $tmp_alias
-                    = $this->_curAlias[$new_column_count]
+                    = $this->_formAliases[$new_column_count]
                         = $_REQUEST['criteriaAlias'][$colInd];
             }// end if
 
@@ -594,7 +594,7 @@ class DbQbe
 
             $asc_selected = ''; $desc_selected = '';
             if (isset($_REQUEST['criteriaSort'][$colInd])) {
-                $this->_curSort[$new_column_count]
+                $this->_formSorts[$new_column_count]
                     = $_REQUEST['criteriaSort'][$colInd];
                 // Set asc_selected
                 if ($_REQUEST['criteriaSort'][$colInd] == 'ASC') {
@@ -605,7 +605,7 @@ class DbQbe
                     $desc_selected = ' selected="selected"';
                 } // end if
             } else {
-                $this->_curSort[$new_column_count] = '';
+                $this->_formSorts[$new_column_count] = '';
             }
 
             $html_output .= $this->_getSortSelectCell(
@@ -653,7 +653,7 @@ class DbQbe
             $sortOrder = null;
             if (! empty($_REQUEST['criteriaSortOrder'][$colInd])) {
                 $sortOrder
-                    = $this->_curSortOrder[$new_column_count]
+                    = $this->_formSortOrders[$new_column_count]
                         = $_REQUEST['criteriaSortOrder'][$colInd];
             }
 
@@ -699,7 +699,7 @@ class DbQbe
             }
             if (isset($_REQUEST['criteriaShow'][$column_index])) {
                 $checked_options = ' checked="checked"';
-                $this->_curShow[$new_column_count]
+                $this->_formShows[$new_column_count]
                     = $_REQUEST['criteriaShow'][$column_index];
             } else {
                 $checked_options = '';
@@ -757,16 +757,16 @@ class DbQbe
                 || ! isset($this->_prev_criteria[$column_index]))
                 || $this->_prev_criteria[$column_index] != htmlspecialchars($tmp_criteria)
             ) {
-                $this->_curCriteria[$new_column_count] = $tmp_criteria;
+                $this->_formCriterions[$new_column_count] = $tmp_criteria;
             } else {
-                $this->_curCriteria[$new_column_count]
+                $this->_formCriterions[$new_column_count]
                     = $this->_prev_criteria[$column_index];
             }
             $html_output .= '<td class="center">';
             $html_output .= '<input type="hidden"'
                 . ' name="prev_criteria[' . $new_column_count . ']"'
                 . ' value="'
-                . htmlspecialchars($this->_curCriteria[$new_column_count])
+                . htmlspecialchars($this->_formCriterions[$new_column_count])
                 . '" />';
             $html_output .= '<input type="text"'
                 . ' name="criteria[' . $new_column_count . ']"'
@@ -923,7 +923,7 @@ class DbQbe
             }
 
             if (isset($this->_criteriaAndOrColumn[$column_index])) {
-                $this->_curAndOrCol[$new_column_count]
+                $this->_formAndOrCols[$new_column_count]
                     = $this->_criteriaAndOrColumn[$column_index];
             }
             $checked_options = array();
@@ -1092,7 +1092,7 @@ class DbQbe
                 continue;
             }
             if (isset($this->_criteriaAndOrRow[$row_index])) {
-                $this->_curAndOrRow[$new_row_count]
+                $this->_formAndOrRows[$new_row_count]
                     = $this->_criteriaAndOrRow[$row_index];
             }
             if (isset($this->_criteriaAndOrRow[$row_index])
@@ -1134,14 +1134,14 @@ class DbQbe
             $column_index < $this->_criteria_column_count;
             $column_index++
         ) {
-            if (! empty($this->_curField[$column_index])
-                && isset($this->_curShow[$column_index])
-                && $this->_curShow[$column_index] == 'on'
+            if (! empty($this->_formColumns[$column_index])
+                && isset($this->_formShows[$column_index])
+                && $this->_formShows[$column_index] == 'on'
             ) {
-                $select = $this->_curField[$column_index];
-                if (! empty($this->_curAlias[$column_index])) {
+                $select = $this->_formColumns[$column_index];
+                if (! empty($this->_formAliases[$column_index])) {
                     $select .= " AS "
-                        . Util::backquote($this->_curAlias[$column_index]);
+                        . Util::backquote($this->_formAliases[$column_index]);
                 }
                 $select_clauses[] = $select;
             }
@@ -1167,21 +1167,21 @@ class DbQbe
         $column_index < $this->_criteria_column_count;
         $column_index++
         ) {
-            if (! empty($this->_curField[$column_index])
-                && ! empty($this->_curCriteria[$column_index])
+            if (! empty($this->_formColumns[$column_index])
+                && ! empty($this->_formCriterions[$column_index])
                 && $column_index
                 && isset($last_where)
-                && isset($this->_curAndOrCol)
+                && isset($this->_formAndOrCols)
             ) {
                 $where_clause .= ' '
-                    . mb_strtoupper($this->_curAndOrCol[$last_where])
+                    . mb_strtoupper($this->_formAndOrCols[$last_where])
                     . ' ';
             }
-            if (! empty($this->_curField[$column_index])
-                && ! empty($this->_curCriteria[$column_index])
+            if (! empty($this->_formColumns[$column_index])
+                && ! empty($this->_formCriterions[$column_index])
             ) {
-                $where_clause .= '(' . $this->_curField[$column_index] . ' '
-                    . $this->_curCriteria[$column_index] . ')';
+                $where_clause .= '(' . $this->_formColumns[$column_index] . ' '
+                    . $this->_formCriterions[$column_index] . ')';
                 $last_where = $column_index;
                 $criteria_cnt++;
             }
@@ -1190,8 +1190,8 @@ class DbQbe
             $where_clause = '(' . $where_clause . ')';
         }
         // OR rows ${'cur' . $or}[$column_index]
-        if (! isset($this->_curAndOrRow)) {
-            $this->_curAndOrRow = array();
+        if (! isset($this->_formAndOrRows)) {
+            $this->_formAndOrRows = array();
         }
         for (
         $row_index = 0;
@@ -1206,20 +1206,20 @@ class DbQbe
             $column_index < $this->_criteria_column_count;
             $column_index++
             ) {
-                if (! empty($this->_curField[$column_index])
+                if (! empty($this->_formColumns[$column_index])
                     && ! empty($_REQUEST['Or' . $row_index][$column_index])
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
                         . mb_strtoupper(
-                            $this->_curAndOrCol[$last_orwhere]
+                            $this->_formAndOrCols[$last_orwhere]
                         )
                         . ' ';
                 }
-                if (! empty($this->_curField[$column_index])
+                if (! empty($this->_formColumns[$column_index])
                     && ! empty($_REQUEST['Or' . $row_index][$column_index])
                 ) {
-                    $qry_orwhere .= '(' . $this->_curField[$column_index]
+                    $qry_orwhere .= '(' . $this->_formColumns[$column_index]
                         .  ' '
                         .  $_REQUEST['Or' . $row_index][$column_index]
                         .  ')';
@@ -1233,8 +1233,8 @@ class DbQbe
             if (! empty($qry_orwhere)) {
                 $where_clause .= "\n"
                     .  mb_strtoupper(
-                        isset($this->_curAndOrRow[$row_index])
-                        ? $this->_curAndOrRow[$row_index] . ' '
+                        isset($this->_formAndOrRows[$row_index])
+                        ? $this->_formAndOrRows[$row_index] . ' '
                         : ''
                     )
                     .  $qry_orwhere;
@@ -1258,15 +1258,15 @@ class DbQbe
         $orderby_clauses = array();
 
         // Create copy of instance variables
-        $field = $this->_curField;
-        $sort = $this->_curSort;
-        $sortOrder = $this->_curSortOrder;
+        $columns = $this->_formColumns;
+        $sort = $this->_formSorts;
+        $sortOrder = $this->_formSortOrders;
         if (!empty($sortOrder)
             && count($sortOrder) == count($sort)
-            && count($sortOrder) == count($field)
+            && count($sortOrder) == count($columns)
         ) {
             // Sort all three arrays based on sort order
-            array_multisort($sortOrder, $sort, $field);
+            array_multisort($sortOrder, $sort, $columns);
         }
 
         for (
@@ -1277,18 +1277,18 @@ class DbQbe
             // if all columns are chosen with * selector,
             // then sorting isn't available
             // Fix for Bug #570698
-            if (empty($field[$column_index])
+            if (empty($columns[$column_index])
                 && empty($sort[$column_index])
             ) {
                 continue;
             }
 
-            if (mb_substr($field[$column_index], -2) == '.*') {
+            if (mb_substr($columns[$column_index], -2) == '.*') {
                 continue;
             }
 
             if (! empty($sort[$column_index])) {
-                $orderby_clauses[] = $field[$column_index] . ' '
+                $orderby_clauses[] = $columns[$column_index] . ' '
                     . $sort[$column_index];
             }
         } // end for
@@ -1524,14 +1524,14 @@ class DbQbe
     /**
      * Provides FROM clause for building SQL query
      *
-     * @param array $curField List of selected columns
+     * @param array $formColumns List of selected columns in the form
      *
      * @return string FROM clause
      */
-    private function _getFromClause($curField)
+    private function _getFromClause($formColumns)
     {
         $from_clause = '';
-        if (empty($curField)) {
+        if (empty($formColumns)) {
             return $from_clause;
         }
 
@@ -1539,7 +1539,7 @@ class DbQbe
         $search_tables = $search_columns = array();
 
         // We only start this if we have fields, otherwise it would be dumb
-        foreach ($curField as $value) {
+        foreach ($formColumns as $value) {
             $parts = explode('.', $value);
             if (! empty($parts[0]) && ! empty($parts[1])) {
                 $table = str_replace('`', '', $parts[0]);
@@ -1776,17 +1776,17 @@ class DbQbe
     /**
      * Provides the generated SQL query
      *
-     * @param array $curField List of selected columns
+     * @param array $formColumns List of selected columns in the form
      *
      * @return string SQL query
      */
-    private function _getSQLQuery($curField)
+    private function _getSQLQuery($formColumns)
     {
         $sql_query = '';
         // get SELECT clause
         $sql_query .= $this->_getSelectClause();
         // get FROM clause
-        $from_clause = $this->_getFromClause($curField);
+        $from_clause = $this->_getFromClause($formColumns);
         if (! empty($from_clause)) {
             $sql_query .= 'FROM ' . htmlspecialchars($from_clause) . "\n";
         }
@@ -1851,10 +1851,10 @@ class DbQbe
             . ' rows="' . ((count($this->_criteriaTables) > 30) ? '15' : '7') . '"'
             . ' dir="' . $text_dir . '">';
 
-        if (empty($this->_curField)) {
-            $this->_curField = array();
+        if (empty($this->_formColumns)) {
+            $this->_formColumns = array();
         }
-        $html_output .= $this->_getSQLQuery($this->_curField);
+        $html_output .= $this->_getSQLQuery($this->_formColumns);
 
         $html_output .= '</textarea>';
         $html_output .= '</fieldset>';
