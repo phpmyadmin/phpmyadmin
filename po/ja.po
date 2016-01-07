@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-27 07:41-0500\n"
-"PO-Revision-Date: 2016-01-05 02:11+0000\n"
-"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
+"PO-Revision-Date: 2016-01-07 09:01+0000\n"
+"Last-Translator: 初音ミク（Siketyan） <siketyan0130@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
@@ -650,7 +650,6 @@ msgid "Server connection collation"
 msgstr "サーバ接続の照合順序"
 
 #: index.php:230
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "外観の設定"
@@ -702,10 +701,9 @@ msgid "PHP extension:"
 msgstr "PHP 拡張:"
 
 #: index.php:351
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "PHP のバージョン"
+msgstr "PHP のバージョン:"
 
 #: index.php:362
 msgid "Show PHP information"
