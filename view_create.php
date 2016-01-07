@@ -57,7 +57,9 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     if (! empty($_REQUEST['view']['definer'])) {
-        $sql_query .= $sep . ' DEFINER = ' . $_REQUEST['view']['definer'];
+        $arr = explode('@', $_REQUEST['view']['definer']);
+        $sql_query .= $sep . 'DEFINER=' . PMA_Util::backquote($arr[0]);
+        $sql_query .= '@' . PMA_Util::backquote($arr[1]) . ' ';
     }
 
     if (isset($_REQUEST['view']['sql_security'])) {
