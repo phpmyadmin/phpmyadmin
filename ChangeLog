@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 - issue #11780 FROM clause not generated after loading search bookmark
 - issue #11826 Fix creating/editing VIEW with DEFINER containing special chars
 - issue #11828 Do not invoke FLUSH PRIVILEGES when server in --skip-grant-tables
+- issue #11804 Misleading message for configuration storage
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
