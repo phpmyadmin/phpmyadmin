@@ -457,15 +457,20 @@ if (!PMA_DRIZZLE) {
         $GLOBALS['db_to_create']      = '';
         $GLOBALS['dbs_where_create_table_allowed'] = array('*');
         $GLOBALS['dbs_to_test']       = false;
+        $GLOBALS['flush_priv'] = true;
+        $GLOBALS['db_priv'] = true;
+        $GLOBALS['col_priv'] = true;
+        $GLOBALS['table_priv'] = true;
+        $GLOBALS['proc_priv'] = true;
     } else {
         PMA_analyseShowGrant();
-    }
 
-    // Check if privileges to 'mysql'.col_privs, 'mysql'.db,
-    // 'mysql'.table_privs, 'mysql'.proc_privs and privileges for
-    // flushing the privileges are available
-    PMA_checkRequiredPrivilegesForFlushing();
-    PMA_checkRequiredPrivilegesForAdjust();
+        // Check if privileges to 'mysql'.col_privs, 'mysql'.db,
+        // 'mysql'.table_privs, 'mysql'.proc_privs and privileges for
+        // flushing the privileges are available
+        PMA_checkRequiredPrivilegesForFlushing();
+        PMA_checkRequiredPrivilegesForAdjust();
+    }
 
 } else {
     // todo: for simple_user_policy only database with user's login can be created
