@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-08 16:50+0100\n"
-"PO-Revision-Date: 2015-12-27 19:41+0000\n"
+"PO-Revision-Date: 2016-01-08 18:28+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9036,10 +9036,9 @@ msgid "Data only"
 msgstr "Sadece veri"
 
 #: libraries/mult_submits.lib.php:350
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "AUTO_INCREMENT değeri ekle"
+msgstr "AUTO INCREMENT değeri ekle"
 
 #: libraries/mult_submits.lib.php:352 libraries/operations.lib.php:227
 #: libraries/operations.lib.php:1294
@@ -10461,10 +10460,9 @@ msgstr ""
 "etkinleştirir)</i>"
 
 #: libraries/plugins/export/ExportSql.php:508
-#, fuzzy
 #| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
-msgstr "Görünüşe göre veritabanınız işlevleri kullanmakta;"
+msgstr "Görünüşe göre veritabanınız yordamları kullanmakta;"
 
 #: libraries/plugins/export/ExportSql.php:511
 #: libraries/plugins/export/ExportSql.php:1526
