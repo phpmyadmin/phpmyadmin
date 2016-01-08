@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-08 16:50+0100\n"
-"PO-Revision-Date: 2015-12-28 08:45+0000\n"
+"PO-Revision-Date: 2016-01-08 17:02+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8936,10 +8936,9 @@ msgid "Data only"
 msgstr "Ainult andmed"
 
 #: libraries/mult_submits.lib.php:350
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Lisa AUTO_INCREMENT väärtus"
+msgstr "Lisa AUTO INCREMENT väärtus"
 
 #: libraries/mult_submits.lib.php:352 libraries/operations.lib.php:227
 #: libraries/operations.lib.php:1294
@@ -10359,10 +10358,9 @@ msgstr ""
 "ja kasutada neid erinevates ajavööndites asuvates serverites)</i>"
 
 #: libraries/plugins/export/ExportSql.php:508
-#, fuzzy
 #| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
-msgstr "Tundub, et su tabel kasutab funktsioone;"
+msgstr "Tundub, et su andmebaas kasutab protseduure;"
 
 #: libraries/plugins/export/ExportSql.php:511
 #: libraries/plugins/export/ExportSql.php:1526
