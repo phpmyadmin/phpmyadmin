@@ -100,6 +100,7 @@ if (! empty($submit_mult)
                 isset($original_url_query)? $original_url_query : null
             );
             $response = PMA\libraries\Response::getInstance();
+            $response->disable();
             $response->addHTML(
                 PMA_getHtmlForCopyMultipleTables($action, $_url_params)
             );
@@ -198,10 +199,12 @@ if (!empty($submit_mult) && !empty($what)) {
     $response = PMA\libraries\Response::getInstance();
 
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
+        $response->disable();
         $response->addHTML(
-            PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
+            PMA_getHtmlForReplacePrefixTable($action, $_url_params)
         );
     } elseif ($what == 'add_prefix_tbl') {
+        $response->disable();
         $response->addHTML(PMA_getHtmlForAddPrefixTable($action, $_url_params));
     } else {
         $response->addHTML(

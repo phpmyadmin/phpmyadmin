@@ -322,10 +322,9 @@ function PMA_buildOrExecuteQueryForMulti(
  */
 function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
 {
-    $html = '<form action="' . $action . '" method="post">';
+    $html = '<form id="ajax_form" action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
-    $html .= '<legend>' . __('Copy tables to') . '</legend>';
     $databases_list = $GLOBALS['dblist']->databases;
     foreach ($databases_list as $key => $db_name)
         if ($db_name == $GLOBALS['db']){
@@ -353,35 +352,24 @@ function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
     $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox"></input>';
     $html .= '<label for="checkbox_adjust_privileges">' . __('Adjust privileges') . '<a href="./doc/html/faq.html#faq6-39" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></label>';
     $html .= '</fieldset>';
-    $html .= '<fieldset class = "tblFooters">';
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
-    $html .= '<input type="submit" value="' . __('Copy') . '" />';
-    $html .= '</fieldset>';
     $html .= '</form>';
-    return $html;
+   return $html;
 }
 
 /**
  * Gets HTML for replace_prefix_tbl or copy_tbl_change_prefix
  *
- * @param string $what        mult_submit type
  * @param string $action      action type
  * @param array  $_url_params URL params
  *
  * @return string
  */
-function PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
+function PMA_getHtmlForReplacePrefixTable($action, $_url_params)
 {
-    $html  = '<form action="' . $action . '" method="post">';
+    $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
-    $html .= '<legend>';
-    if ($what == 'replace_prefix_tbl') {
-        $html .= __('Replace table prefix:');
-    } else {
-        $html .= __('Copy table with prefix:');
-    }
-    $html .= '</legend>';
     $html .= '<table>';
     $html .= '<tr>';
     $html .= '<td>' . __('From') . '</td>';
@@ -397,10 +385,7 @@ function PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
     $html .= '</tr>';
     $html .= '</table>';
     $html .= '</fieldset>';
-    $html .= '<fieldset class="tblFooters">';
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
-    $html .= '<input type="submit" value="' . __('Submit') . '" id="buttonYes" />';
-    $html .= '</fieldset>';
     $html .= '</form>';
 
     return $html;
@@ -416,10 +401,9 @@ function PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
  */
 function PMA_getHtmlForAddPrefixTable($action, $_url_params)
 {
-    $html  = '<form action="' . $action . '" method="post">';
+    $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
-    $html .= '<legend>' . __('Add table prefix:') . '</legend>';
     $html .= '<table>';
     $html .= '<tr>';
     $html .= '<td>' . __('Add prefix') . '</td>';
@@ -430,10 +414,7 @@ function PMA_getHtmlForAddPrefixTable($action, $_url_params)
     $html .= '<tr>';
     $html .= '</table>';
     $html .= '</fieldset>';
-    $html .= '<fieldset class="tblFooters">';
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
-    $html .= '<input type="submit" value="' . __('Submit') . '" id="buttonYes" />';
-    $html .= '</fieldset>';
     $html .= '</form>';
 
     return $html;
