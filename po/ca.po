@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-27 07:41-0500\n"
-"PO-Revision-Date: 2015-09-28 16:49+0200\n"
+"PO-Revision-Date: 2016-01-08 10:34+0000\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -940,16 +940,14 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Realment voleu TRUNCAR les particions seleccionades?"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Realment voleu TRUNCAR les particions seleccionades?"
+msgstr "Realment vols eliminar el particionat?"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Realment vols fer \"%s\"?"
+msgstr "Realment vols reiniciar l'esclau (SLAVE)?"
 
 #: js/messages.php:85
 msgid ""
@@ -975,7 +973,6 @@ msgstr ""
 "Estàs segur de voler canviar el joc de caràcters i convertir les dades?"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -993,11 +990,11 @@ msgid ""
 msgstr ""
 "Mitjançant aquesta operació, MySQL intenta assignar els valors de dades "
 "entre jocs de caràcters. Si els conjunts de caràcters són incompatibles, hi "
-"pot haver pèrdua de dades i aquesta pèrdua <b>no</b> es pot recuperar "
-"simplement canviant altra vegada el(s) joc(s) de caràcters de la columna. "
-"<b>Per convertir les dades existents, se suggereix utilitzar la "
-"característica d'edició de columnes  (l'enllaç de \"Canvi\") a la pàgina de "
-"l'estructura de taula.</b>"
+"pot haver pèrdua de dades i aquesta pèrdua <b>NO</b> es pot recuperar "
+"simplement canviant altra vegada el(s) joc(s) de caràcters de la columna. <b>"
+"Per convertir les dades existents, es recomana utilitzar la característica "
+"d'edició de columnes  (l'enllaç de \"Canvi\") a la pàgina de l'estructura de "
+"taula.</b>"
 
 #: js/messages.php:104
 msgid ""
@@ -1691,10 +1688,9 @@ msgid "Formatting SQL…"
 msgstr "Donant format a l'SQL…"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Paràmetres incorrectes!"
+msgstr "No s'han trobat paràmetres!"
 
 #: js/messages.php:347
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -3614,7 +3610,7 @@ msgstr "Marcar-ho tot"
 
 #: libraries/DisplayResults.php:5006
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar al porta-retalls"
 
 #: libraries/DisplayResults.php:5062
 msgid "Query results operations"
@@ -4609,6 +4605,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Emmagatzema i permet un accés eficient a les dades de documents JSON ("
+"notació d'objecte de JavaScript)"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -5613,14 +5611,15 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Si s'han d'amagar les accions estructurals de la taula."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Mostrar comentaris de la taula"
+msgstr "Mostrar comentaris de columna"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Si s'hauria de mostrar comentaris de la columna a la vista d'estructura de "
+"taula"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -8449,14 +8448,12 @@ msgstr ""
 "arxius grans, però pot trencar transaccions.)</i>"
 
 #: libraries/display_import.lib.php:313
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
-"Saltar aquesta quantitat de consultes (en SQL) or línies (en altres "
-"formats), contant des de la primera:"
+"Saltar aquesta quantitat de consultes (en SQL) contant des de la primera:"
 
 #: libraries/display_import.lib.php:343
 msgid "Other options:"
@@ -9028,14 +9025,13 @@ msgid "Edit next row"
 msgstr "Edita el següent registre"
 
 #: libraries/insert_edit.lib.php:1543
-#, fuzzy
 #| msgid ""
 #| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Usa la tecla TAB per moure't de valor en valor, o CTRL+fletxes per moure't "
-"on vulguis"
+"on vulguis."
 
 #: libraries/insert_edit.lib.php:1580 libraries/replication_gui.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1593
@@ -9074,10 +9070,9 @@ msgid "Success!"
 msgstr "Correcte!"
 
 #: libraries/mult_submits.lib.php:324
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Còpia base de dades a"
+msgstr "Còpia taules a"
 
 #: libraries/mult_submits.lib.php:353
 msgid "Replace table prefix:"
@@ -9365,7 +9360,7 @@ msgstr[1] "%s resultats trobats"
 #: libraries/navigation/NavigationTree.php:1369
 #: libraries/navigation/NavigationTree.php:1406
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Escriu per filtrar aquests, tecla <intro> per buscar tot"
 
 #: libraries/navigation/NavigationTree.php:1371
 #: libraries/navigation/NavigationTree.php:1407
@@ -9383,10 +9378,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Nom de classe \"%1$s\" incorrecte, s'utilitza per defecte \"Node\""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "No es poden afegir columnes!"
+msgstr "No es pot carregar la classe \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:799
 msgid "Expand/Collapse"
@@ -9504,7 +9499,6 @@ msgstr ""
 "Mostra la llista central de columnes que encara no estiguin en aquesta taula"
 
 #: libraries/normalization.lib.php:145
-#, fuzzy
 #| msgid ""
 #| "Select a column which can be split into more than one. (on select of 'no "
 #| "such column', it'll move to next step)"
@@ -9512,8 +9506,8 @@ msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
-"Selecciona una columna que es pugui dividir en més d'una. (seleccionant 'cap "
-"columna' anem al següent pas)"
+"Selecciona una columna que es pugui dividir en més d'una (seleccionant 'cap "
+"columna' anem al següent pas)."
 
 #: libraries/normalization.lib.php:152 normalization.php:17
 msgid "Select one…"
@@ -10539,16 +10533,16 @@ msgid "Metadata"
 msgstr "Metadades"
 
 #: libraries/plugins/export/ExportSql.php:1063
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "Metadades per a %s"
+msgstr "Metadades per a la taula %s"
 
 #: libraries/plugins/export/ExportSql.php:1070
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "Metadades per a %s"
+msgstr "Metadades per a la base de dades %s"
 
 #: libraries/plugins/export/ExportSql.php:1402
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:602
@@ -10617,7 +10611,7 @@ msgstr "Estructura per a vista %s exportada com a taula"
 
 #: libraries/plugins/export/ExportSql.php:2088
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Veure a sota per a la visualització actual)"
 
 #: libraries/plugins/export/ExportSql.php:2174
 msgid "Error reading data:"
@@ -10910,7 +10904,6 @@ msgstr ""
 "necessari tenir la primera dada buida."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10938,7 +10931,7 @@ msgstr ""
 "standard input. Retorna per la sortida estàndard de l'aplicació. El defecte "
 "és Tidy, per interpretar codi HTML. Per raons de seguretat, has d' editar "
 "manualment l'arxiu libraries/plugins/transformations/output/"
-"Text_Plain_External.class.php i afegir les eines que vulguis fer servir. La "
+"Text_Plain_External.php i afegir les eines que vulguis fer servir. La "
 "primera opció és, llavors, el numero del programa que vols fer servir i la "
 "segona opció són els paràmetres per el programa. El tercer paràmetre, si es "
 "posa a 1, convertirà la sortida fent servir htmlspecialchars() (El defecte "
@@ -12269,7 +12262,6 @@ msgid "User group"
 msgstr "Grup d'usuari"
 
 #: libraries/server_privileges.lib.php:730
-#, fuzzy
 #| msgid "Does not requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
 msgstr "No requereix de connexions xifrades amb SSL."
@@ -12398,22 +12390,19 @@ msgid "Allows dropping tables."
 msgstr "Permet eliminar taules."
 
 #: libraries/server_privileges.lib.php:1541
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Autenticació per cookies"
+msgstr "Autenticació nativa MySQL"
 
 #: libraries/server_privileges.lib.php:1543
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "autenticació Signon"
+msgstr "Autenticació SHA256"
 
 #: libraries/server_privileges.lib.php:1557
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL Authentication"
-msgstr "Autenticació per cookies"
+msgstr "Autenticació nativa MySQL"
 
 #: libraries/server_privileges.lib.php:1611
 #: libraries/server_privileges.lib.php:3165
@@ -12455,10 +12444,9 @@ msgid "Authentication Plugin"
 msgstr "Complement d'autenticació"
 
 #: libraries/server_privileges.lib.php:1880
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Contrasenya Hashing:"
+msgstr "Mètode de contrasenya Hashing"
 
 #: libraries/server_privileges.lib.php:2163
 #, php-format
@@ -14445,6 +14433,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"No es poden canviar ni el nom d'usuari ni el del servidor. Si només vols "
+"canviar la contrasenya, has de fer servir la pestanya 'Canviar contrasenya'."
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
@@ -15097,10 +15087,9 @@ msgid "Check tables having overhead"
 msgstr "Comprova taules desfragmentades"
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 #| msgid "Copy"
 msgid "Copy table"
-msgstr "Còpia"
+msgstr "Còpia la taula"
 
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
@@ -15326,10 +15315,9 @@ msgid "Stacked"
 msgstr "Apilat"
 
 #: templates/table/chart/tbl_chart.phtml:53
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Títol del gràfic"
+msgstr "Títol del gràfic:"
 
 #: templates/table/chart/tbl_chart.phtml:58
 msgid "X-Axis:"
@@ -15597,10 +15585,9 @@ msgid "Partitions"
 msgstr "Particions"
 
 #: templates/table/structure/display_partitions.phtml:9
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "No s'ha definit l'índex!"
+msgstr "No s'ha definit particionat!"
 
 #: templates/table/structure/display_partitions.phtml:12
 msgid "Partitioned by:"
@@ -15619,27 +15606,24 @@ msgid "Index length"
 msgstr "Mida de l'index"
 
 #: templates/table/structure/display_partitions.phtml:136
-#, fuzzy
 #| msgid "Partition by:"
 msgid "Partition table"
-msgstr "Partició per:"
+msgstr "Taula de partició"
 
 #: templates/table/structure/display_partitions.phtml:139
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Elimina particionament"
+msgstr "Edita particionament"
 
 #: templates/table/structure/display_structure.phtml:149 view_create.php:184
 msgid "Edit view"
 msgstr "Editar vista"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "Comentaris de la taula:"
+msgstr "Comentaris de la taula: "
 
 #: templates/table/structure/display_table_stats.phtml:10
 msgid "Space usage"
@@ -15729,10 +15713,9 @@ msgid "Description"
 msgstr "Descripció"
 
 #: url.php:36
-#, fuzzy
 #| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "Portant-te al següent pas…"
+msgstr "Portant-te a l'adreça de destí."
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15952,10 +15935,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Versió inferior a 5.5.8 (la primera versió disponible pública de 5.5)."
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
 #| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Es necessari actualitzar a una versió estable de MySQL 5.5"
+msgstr "Es necessari actualitzar a una versió estable de MySQL 5.5."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -16267,7 +16249,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Masses classificacions esdevenen en taules temporals."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 #| "depending on your system memory limits"
@@ -16276,7 +16257,7 @@ msgid ""
 "depending on your system memory limits."
 msgstr ""
 "Pensa en la possibilitat d'augmentar {sort_buffer_size} i/o "
-"{read_rnd_buffer_size} en funció dels límits de memòria del sistema"
+"{read_rnd_buffer_size} en funció dels límits de memòria del sistema."
 
 #: libraries/advisory_rules.txt:209
 #, php-format
@@ -16308,7 +16289,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Hi ha massa files que s'estan ordenant."
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "While there is nothing wrong with a high amount of row sorting, you might "
 #| "want to make sure that the queries which require a lot of sorting use "
@@ -16323,7 +16303,7 @@ msgstr ""
 "Encara que no hi ha res dolent en ordenar una gran quantitat de files, "
 "potser voldries assegurar-te que les consultes que requereixen una gran "
 "quantitat d'ordenacions utilitzin columnes indexades a la clàusula ORDER BY, "
-"ja que això donarà lloc a una ordenació més ràpida"
+"ja que això donarà lloc a una ordenació més ràpida."
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -16339,7 +16319,6 @@ msgid "There are too many joins without indexes."
 msgstr "Masses unions sense índex."
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
 #| msgid ""
 #| "This means that joins are doing full table scans. Adding indexes for the "
 #| "columns being used in the join conditions will greatly speed up table "
@@ -16350,7 +16329,7 @@ msgid ""
 msgstr ""
 "Això significa que les unions \"JOIN\" que estan fent consultes completes de "
 "taula. Afegir índexs per a les columnes que s'utilitzen en les condicions de "
-"combinació, accelerarà el procés d'unió"
+"combinació, accelerarà el procés d'unió."
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -16783,13 +16762,11 @@ msgid "Slow launch time"
 msgstr "Temps d'inici lent"
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "Slow_launch_threads is above 2s"
 msgid "Slow_launch_threads is above 2s."
-msgstr "{slow_launch_threads} està per sobre de 2s"
+msgstr "{slow_launch_threads} està per sobre de 2s."
 
 #: libraries/advisory_rules.txt:380
-#, fuzzy
 #| msgid ""
 #| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
 #| "slow to launch"
@@ -16798,7 +16775,7 @@ msgid ""
 "to launch."
 msgstr ""
 "Estableix {slow_launch_time} a 1s o 2s per comptar correctament els fils que "
-"s'inicien lentament"
+"s'inicien lentament."
 
 #: libraries/advisory_rules.txt:381
 #, php-format
