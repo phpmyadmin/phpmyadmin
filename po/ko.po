@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-27 07:41-0500\n"
-"PO-Revision-Date: 2016-01-01 07:41+0000\n"
-"Last-Translator: Bob <doodoori2@gmail.com>\n"
+"PO-Revision-Date: 2016-01-08 04:55+0000\n"
+"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -7342,7 +7342,6 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기."
 
 #: libraries/config/messages.inc.php:856
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "생성 시간 보기"
@@ -7353,7 +7352,6 @@ msgid ""
 msgstr "모든 테이블에 대해 최종 업데이트 시간을 표시하는 컬럼을 보이기/숨기기."
 
 #: libraries/config/messages.inc.php:860
-#, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "최종 업데이트 시간 표시"
@@ -7513,10 +7511,9 @@ msgid "Title of browser window when a server is selected."
 msgstr "서버가 선택되었을 때의 브라우저 윈도우의 제목."
 
 #: libraries/config/messages.inc.php:937
-#, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
-msgstr "테이블이 선택되었을 때 브라우저 윈도우의 제목"
+msgstr "테이블이 선택되었을 때 브라우저 윈도우의 제목."
 
 #: libraries/config/messages.inc.php:940
 msgid ""
@@ -7841,10 +7838,9 @@ msgid "Display column was successfully updated."
 msgstr "쓰레드 %s 를 죽였습니다."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relations were successfully updated."
-msgstr "내부 릴레이션이 추가됨"
+msgstr "내부 릴레이션(들)이 성공적으로 갱신되었습니다."
 
 #: libraries/controllers/table/TableSearchController.php:830
 msgid "Table search"
@@ -8043,10 +8039,9 @@ msgid "Select a template"
 msgstr "테이블 선택"
 
 #: libraries/display_export.lib.php:292
-#, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
-msgstr "내보내기 방법"
+msgstr "내보내기 방법:"
 
 #: libraries/display_export.lib.php:302
 msgid "Quick - display only the minimal options"
@@ -8057,10 +8052,9 @@ msgid "Custom - display all possible options"
 msgstr "커스텀 - 모든 옵션들을 표시함"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "데이터베이스"
+msgstr "데이터베이스:"
 
 #: libraries/display_export.lib.php:338
 #: libraries/navigation/Navigation.php:195
@@ -8273,7 +8267,6 @@ msgstr ""
 "sql.zip</b>"
 
 #: libraries/display_import.lib.php:222
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "가져올 파일:"
@@ -9082,10 +9075,9 @@ msgid "multilingual"
 msgstr "다국어"
 
 #: libraries/mysql_charsets.lib.php:265
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "파일명"
+msgstr "베트남어"
 
 #: libraries/mysql_charsets.lib.php:293
 msgid "Central European"
@@ -9173,10 +9165,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 설명서"
 
 #: libraries/navigation/NavigationHeader.php:206
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "내비게이션 패널"
+msgstr "내비게이션 패널 설정"
 
 #: libraries/navigation/NavigationHeader.php:217
 msgid "Reload navigation panel"
@@ -9596,12 +9587,11 @@ msgstr "데이터베이스 이름을 변경합니다"
 #: libraries/operations.lib.php:861 libraries/operations.lib.php:953
 #: libraries/operations.lib.php:1308
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "어떻게 들어오셨어요? 지금 여기 있을 권한이 없습니다!"
+msgstr "이 작업을 진행하기 위해 필요한 권한이 없습니다. 자세한 사항은 문서를 참고하세요"
 
 #: libraries/operations.lib.php:102 libraries/operations.lib.php:247
 #: libraries/operations.lib.php:867 libraries/operations.lib.php:959
@@ -10207,10 +10197,9 @@ msgstr ""
 "데이터베이스의 생성일, 마지막 업데이트, 마지막 체크에 대한 타임스탬프 포함"
 
 #: libraries/plugins/export/ExportSql.php:163
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "내보내기 방법"
+msgstr "메타데이터 내보내기"
 
 #: libraries/plugins/export/ExportSql.php:178
 msgid ""
@@ -10343,10 +10332,9 @@ msgid "It appears your database uses functions;"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:993
-#, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
-msgstr "%s 데이터 누락"
+msgstr "메타데이터"
 
 #: libraries/plugins/export/ExportSql.php:1063
 #, fuzzy, php-format
@@ -11815,7 +11803,6 @@ msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: libraries/select_server.lib.php:40 libraries/select_server.lib.php:45
-#, fuzzy
 #| msgid "Current Server:"
 msgid "Current server:"
 msgstr "현재 서버:"
@@ -12205,19 +12192,17 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1680
-#, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
-msgstr "사용자명:"
+msgstr "호스트명:"
 
 #: libraries/server_privileges.lib.php:1685
 #: libraries/server_privileges.lib.php:1787
 #: libraries/server_privileges.lib.php:2671
 #: libraries/server_privileges.lib.php:3583
-#, fuzzy
 #| msgid "Log name"
 msgid "Host name"
-msgstr "로그 이름"
+msgstr "호스트명"
 
 #: libraries/server_privileges.lib.php:1823
 msgid "Do not change the password"
@@ -12230,10 +12215,9 @@ msgid "Authentication Plugin"
 msgstr "인증"
 
 #: libraries/server_privileges.lib.php:1880
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "비밀번호 해싱:"
+msgstr "비밀번호 해시 방식"
 
 #: libraries/server_privileges.lib.php:2163
 #, php-format
@@ -12361,10 +12345,9 @@ msgid "Change login information / Copy user account"
 msgstr "로그인 정보 변경 / 사용자 복사"
 
 #: libraries/server_privileges.lib.php:3172
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "새로운 사용자를 동일한 권한으로 생성하고 …"
+msgstr "새로운 사용자 계정을 동일한 권한으로 생성하고 …"
 
 #: libraries/server_privileges.lib.php:3385
 #: templates/privileges/edit_routine_privileges.phtml:12
@@ -12435,16 +12418,14 @@ msgid "New"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4617
-#, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "권한 수정:"
 
 #: libraries/server_privileges.lib.php:4618
-#, fuzzy
 #| msgid "Users"
 msgid "User account"
-msgstr "사용자"
+msgstr "사용자 계정"
 
 #: libraries/server_privileges.lib.php:4692
 msgid ""
@@ -12548,7 +12529,6 @@ msgid "Sent"
 msgstr "보냄"
 
 #: libraries/server_status.lib.php:240
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "최대 동시 연결"
@@ -13472,10 +13452,9 @@ msgstr "사용자 보기"
 
 #: libraries/server_user_groups.lib.php:145
 #: libraries/server_user_groups.lib.php:209
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "사용자 추가"
+msgstr "사용자 그룹 추가"
 
 #: libraries/server_user_groups.lib.php:212
 #, php-format
@@ -13489,10 +13468,9 @@ msgid "User group menu assignments"
 msgstr "권한 없음."
 
 #: libraries/server_user_groups.lib.php:235
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "열(컬럼) 이름: "
+msgstr "그룹명:"
 
 #: libraries/server_user_groups.lib.php:273
 #, fuzzy
@@ -13792,10 +13770,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "데이터베이스 %s에 SQL 질의를 실행"
 
 #: libraries/sql_query_form.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "데이터베이스 %s에 SQL 질의를 실행"
+msgstr "테이블 %s에 SQL 질의를 실행"
 
 #: libraries/sql_query_form.lib.php:250
 msgid "Get auto-saved query"
@@ -15428,10 +15406,9 @@ msgid "Data length"
 msgstr "행 길이"
 
 #: templates/table/structure/display_partitions.phtml:31
-#, fuzzy
 #| msgid "Row length"
 msgid "Index length"
-msgstr "행 길이"
+msgstr "인덱스 길이"
 
 #: templates/table/structure/display_partitions.phtml:136
 #, fuzzy
@@ -16732,7 +16709,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB 버퍼풀이 너무 작습니다."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16756,14 +16733,12 @@ msgid ""
 "\"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
-"InnoDB 버퍼 풀은 InnoDB 테이블의 성능에 심각한 영향을 줍니다. 남은 메모리 전"
-"체를 이 버퍼에 할당하십시오. 이 서버에 InnoDB를 스토리지 엔진으로만 사용하"
-"고, 다른 서비스(예: 웹 서버)가 없다면, 이 값을 사용가능한 메모리의 80%% 정도"
-"로 높게 설정하는 것도 괜찮습니다. 그런 상황이 아니라면, 다른 서비스 및 InnoDB"
-"가 아닌 테이블들의 메모리 사용량을 신중히 가늠하여 이 값을 설정하세요. 만약 "
-"이 값을 너무 높게 설정하면, 시스템은 스와핑을 하게 되고, 성능이 급격하게 떨어"
-"집니다. <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">이 글</a> 또한 참고하세요"
+"InnoDB 버퍼 풀은 InnoDB 테이블의 성능에 심각한 영향을 줍니다. 남은 메모리 전체를 이 버퍼에 할당하십시오. 이 서버에 "
+"InnoDB를 스토리지 엔진으로만 사용하고, 다른 서비스(예: 웹 서버)가 없다면, 이 값을 사용가능한 메모리의 80%% 정도로 높게 "
+"설정하는 것도 괜찮습니다. 그런 상황이 아니라면, 다른 서비스 및 InnoDB가 아닌 테이블들의 메모리 사용량을 신중히 가늠하여 이 값을 "
+"설정하세요. 만약 이 값을 너무 높게 설정하면, 시스템은 스와핑을 하게 되고, 성능이 급격하게 떨어집니다. <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">이 "
+"글</a> 또한 참고하세요"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
