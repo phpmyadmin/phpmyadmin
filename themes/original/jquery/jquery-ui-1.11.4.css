@@ -1,8 +1,8 @@
-/*! jQuery UI - v1.11.2 - 2014-10-16
+/*! jQuery UI - v1.11.4 - 2016-01-08
 * http://jqueryui.com
-* Includes: core.css, accordion.css, autocomplete.css, button.css, datepicker.css, dialog.css, draggable.css, menu.css, progressbar.css, resizable.css, selectable.css, selectmenu.css, slider.css, sortable.css, spinner.css, tabs.css, tooltip.css, theme.css
+* Includes: core.css, draggable.css, resizable.css, selectable.css, sortable.css, accordion.css, autocomplete.css, button.css, datepicker.css, dialog.css, menu.css, progressbar.css, selectmenu.css, slider.css, spinner.css, tabs.css, tooltip.css, theme.css
 * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana%2CArial%2Csans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=cccccc&bgTextureHeader=highlight_soft&bgImgOpacityHeader=75&borderColorHeader=aaaaaa&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=flat&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=222222&bgColorDefault=e6e6e6&bgTextureDefault=glass&bgImgOpacityDefault=75&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=888888&bgColorHover=dadada&bgTextureHover=glass&bgImgOpacityHover=75&borderColorHover=999999&fcHover=212121&iconColorHover=454545&bgColorActive=ffffff&bgTextureActive=glass&bgImgOpacityActive=65&borderColorActive=aaaaaa&fcActive=212121&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=glass&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=glass&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=flat&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
-* Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
+* Copyright jQuery Foundation and other contributors; Licensed MIT */
 
 /* Layout helpers
 ----------------------------------*/
@@ -85,6 +85,93 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+.ui-draggable-handle {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-resizable {
+	position: relative;
+}
+.ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	display: block;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+	display: none;
+}
+.ui-resizable-n {
+	cursor: n-resize;
+	height: 7px;
+	width: 100%;
+	top: -5px;
+	left: 0;
+}
+.ui-resizable-s {
+	cursor: s-resize;
+	height: 7px;
+	width: 100%;
+	bottom: -5px;
+	left: 0;
+}
+.ui-resizable-e {
+	cursor: e-resize;
+	width: 7px;
+	right: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-w {
+	cursor: w-resize;
+	width: 7px;
+	left: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-se {
+	cursor: se-resize;
+	width: 12px;
+	height: 12px;
+	right: 1px;
+	bottom: 1px;
+}
+.ui-resizable-sw {
+	cursor: sw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	bottom: -5px;
+}
+.ui-resizable-nw {
+	cursor: nw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	top: -5px;
+}
+.ui-resizable-ne {
+	cursor: ne-resize;
+	width: 9px;
+	height: 9px;
+	right: -5px;
+	top: -5px;
+}
+.ui-selectable {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-selectable-helper {
+	position: absolute;
+	z-index: 100;
+	border: 1px dotted black;
+}
+.ui-sortable-handle {
+	-ms-touch-action: none;
+	touch-action: none;
 }
 .ui-accordion .ui-accordion-header {
 	display: block;
@@ -447,10 +534,6 @@ button.ui-button::-moz-focus-inner {
 .ui-draggable .ui-dialog-titlebar {
 	cursor: move;
 }
-.ui-draggable-handle {
-	-ms-touch-action: none;
-	touch-action: none;
-}
 .ui-menu {
 	list-style: none;
 	padding: 0;
@@ -521,85 +604,6 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-progressbar-indeterminate .ui-progressbar-value {
 	background-image: none;
-}
-.ui-resizable {
-	position: relative;
-}
-.ui-resizable-handle {
-	position: absolute;
-	font-size: 0.1px;
-	display: block;
-	-ms-touch-action: none;
-	touch-action: none;
-}
-.ui-resizable-disabled .ui-resizable-handle,
-.ui-resizable-autohide .ui-resizable-handle {
-	display: none;
-}
-.ui-resizable-n {
-	cursor: n-resize;
-	height: 7px;
-	width: 100%;
-	top: -5px;
-	left: 0;
-}
-.ui-resizable-s {
-	cursor: s-resize;
-	height: 7px;
-	width: 100%;
-	bottom: -5px;
-	left: 0;
-}
-.ui-resizable-e {
-	cursor: e-resize;
-	width: 7px;
-	right: -5px;
-	top: 0;
-	height: 100%;
-}
-.ui-resizable-w {
-	cursor: w-resize;
-	width: 7px;
-	left: -5px;
-	top: 0;
-	height: 100%;
-}
-.ui-resizable-se {
-	cursor: se-resize;
-	width: 12px;
-	height: 12px;
-	right: 1px;
-	bottom: 1px;
-}
-.ui-resizable-sw {
-	cursor: sw-resize;
-	width: 9px;
-	height: 9px;
-	left: -5px;
-	bottom: -5px;
-}
-.ui-resizable-nw {
-	cursor: nw-resize;
-	width: 9px;
-	height: 9px;
-	left: -5px;
-	top: -5px;
-}
-.ui-resizable-ne {
-	cursor: ne-resize;
-	width: 9px;
-	height: 9px;
-	right: -5px;
-	top: -5px;
-}
-.ui-selectable {
-	-ms-touch-action: none;
-	touch-action: none;
-}
-.ui-selectable-helper {
-	position: absolute;
-	z-index: 100;
-	border: 1px dotted black;
 }
 .ui-selectmenu-menu {
 	padding: 0;
@@ -714,10 +718,6 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-slider-vertical .ui-slider-range-max {
 	top: 0;
-}
-.ui-sortable-handle {
-	-ms-touch-action: none;
-	touch-action: none;
 }
 .ui-spinner {
 	position: relative;
@@ -845,7 +845,7 @@ body .ui-tooltip {
 }
 .ui-widget-content {
 	border: 1px solid #aaaaaa;
-	background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
+	background: #ffffff;
 	color: #222222;
 }
 .ui-widget-content a {
@@ -1211,14 +1211,14 @@ body .ui-tooltip {
 
 /* Overlays */
 .ui-widget-overlay {
-	background: #aaaaaa url("images/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
+	background: #aaaaaa;
 	opacity: .3;
 	filter: Alpha(Opacity=30); /* support: IE8 */
 }
 .ui-widget-shadow {
 	margin: -8px 0 0 -8px;
 	padding: 8px;
-	background: #aaaaaa url("images/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
+	background: #aaaaaa;
 	opacity: .3;
 	filter: Alpha(Opacity=30); /* support: IE8 */
 	border-radius: 8px;
