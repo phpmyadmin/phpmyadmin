@@ -12724,7 +12724,7 @@ msgid "Saving export templates"
 msgstr "Экспорт тури нотугри"
 
 #: libraries/relation.lib.php:346
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Муфассал танловларни тез созлаш учун қадамларs:"
 
 #: libraries/relation.lib.php:352
