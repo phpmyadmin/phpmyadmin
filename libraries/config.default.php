@@ -181,6 +181,17 @@ $cfg['Servers'][$i]['ssl_ca_path'] = null;
 $cfg['Servers'][$i]['ssl_ciphers'] = null;
 
 /**
+ * MySQL 5.6 or later triggers the mysqlnd driver in PHP to validate the
+ * peer_name of the SSL certifcate
+ * For most self-signed certificates this is a problem. Setting this to false 
+ * will disable the check and allow the connection (PHP 5.6.16 or later)
+ *
+ * @link http://bugs.php.net/68344
+ * @global string $cfg['Servers'][$i]['ssl_verify']
+ */
+$cfg['Servers'][$i]['ssl_verify'] = true;
+
+/**
  * How to connect to MySQL server ('tcp' or 'socket')
  *
  * @global string $cfg['Servers'][$i]['connect_type']
