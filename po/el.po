@@ -11337,7 +11337,7 @@ msgid "Saving export templates"
 msgstr "Αποθήκευση προτύπων εξαγωγής"
 
 #: libraries/relation.lib.php:346
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Γρήγορα βήματα για εγκατάσταση χαρακτηριστικών για προχωρημένους:"
 
 #: libraries/relation.lib.php:352

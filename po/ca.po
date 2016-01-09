@@ -11276,7 +11276,7 @@ msgid "Saving export templates"
 msgstr "Desant exportació de plantilles"
 
 #: libraries/relation.lib.php:346
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Passos ràpids per a activar les característiques avançades:"
 
 #: libraries/relation.lib.php:352

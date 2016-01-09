@@ -12031,7 +12031,7 @@ msgid "Saving export templates"
 msgstr "Pogrešna vrsta izvoza"
 
 #: libraries/relation.lib.php:346
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr ""
 
 #: libraries/relation.lib.php:352
