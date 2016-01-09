@@ -141,6 +141,11 @@ environment variables:
     
     Port of the databse server to use.
 
+.. envvar:: PMA_ABSOLUTE_URI
+   
+    The fully-qualified path (``https://pma.example.net/``) where the reverse
+    proxy makes phpMyAdmin available.
+
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
