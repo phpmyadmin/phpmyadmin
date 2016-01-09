@@ -158,7 +158,16 @@ class DBIMysqli implements DBIExtension
                 $cfg['Server']['ssl_ca_path'],
                 $cfg['Server']['ssl_ciphers']
             );
-            $client_flags |= MYSQLI_CLIENT_SSL;
+            $ssl_flag = MYSQLI_CLIENT_SSL;
+            /*
+             * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
+             * @link https://bugs.php.net/bug.php?id=68344
+             * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
+             */
+            if(!$cfg['Server']['ssl_verify'] && defined('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT')) {
+                $ssl_flag = MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+            }
+            $client_flags |= $ssl_flag;
         }
 
         if (! $server) {
