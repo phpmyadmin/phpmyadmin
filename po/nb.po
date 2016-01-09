@@ -11958,7 +11958,7 @@ msgid "Saving export templates"
 msgstr "Ugyldig eksport-type"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Raske steg for å sette opp avansert funksjonalitet:"
 
 #: libraries/relation.lib.php:361

@@ -11254,7 +11254,7 @@ msgid "Saving export templates"
 msgstr "Sauvegarde des modèles d'exportation"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Guide rapide de configuration des fonctions avancées : "
 
 #: libraries/relation.lib.php:361

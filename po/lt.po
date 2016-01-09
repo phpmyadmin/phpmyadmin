@@ -12135,7 +12135,7 @@ msgid "Saving export templates"
 msgstr "Neteisingas eksportavimo tipas"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Greiti žingsneliai nustatyti išplėstines galimybes:"
 
 #: libraries/relation.lib.php:361

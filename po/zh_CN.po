@@ -10802,7 +10802,7 @@ msgid "Saving export templates"
 msgstr "导出类型无效"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "快速设置高级功能:"
 
 #: libraries/relation.lib.php:361

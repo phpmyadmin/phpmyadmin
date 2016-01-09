@@ -11620,7 +11620,7 @@ msgid "Saving export templates"
 msgstr "Niepoprawny typ eksportu"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Szybkie kroki w celu konfiguracji zaawansowanych funkcji:"
 
 #: libraries/relation.lib.php:361

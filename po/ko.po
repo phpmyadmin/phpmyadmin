@@ -10988,7 +10988,7 @@ msgid "Saving export templates"
 msgstr "잘못된 내보내기 타입"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "고급 기능을 설정을 쉽게 설정하기:"
 
 #: libraries/relation.lib.php:361

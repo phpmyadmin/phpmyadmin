@@ -11601,8 +11601,8 @@ msgid "Saving export templates"
 msgstr "Invalid export type"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
-msgstr "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
+msgstr "Quick steps to set up advanced features:"
 
 #: libraries/relation.lib.php:361
 #, fuzzy, php-format

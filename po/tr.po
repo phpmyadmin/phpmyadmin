@@ -11154,7 +11154,7 @@ msgid "Saving export templates"
 msgstr "Dışa aktarma şablonlarını kaydetme"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Gelişmiş özellikleri ayarlamak için hızlı adımlar:"
 
 #: libraries/relation.lib.php:361

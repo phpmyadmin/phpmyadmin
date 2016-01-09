@@ -10906,7 +10906,7 @@ msgid "Saving export templates"
 msgstr "Ukladanie exportných šablón"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr ""
 
 #: libraries/relation.lib.php:361

@@ -11850,7 +11850,7 @@ msgid "Saving export templates"
 msgstr "अमान्य निर्यात प्रकार"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "सेटअप करने के लिए त्वरित कदम उन्नत सुविधाओं:"
 
 #: libraries/relation.lib.php:361

@@ -352,7 +352,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 
         if (! $cfgRelation['allworks']) {
 
-            $retval .= '<p>' . __('Quick steps to setup advanced features:')
+            $retval .= '<p>' . __('Quick steps to set up advanced features:')
                 . '</p>';
 
             $items = array();

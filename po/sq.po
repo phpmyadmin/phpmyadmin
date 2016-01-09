@@ -11255,7 +11255,7 @@ msgid "Saving export templates"
 msgstr "Shabllonet e eksportit të ruajtjes"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "Hapat e shpejtë për të rregulluar tiparet e avancuara:"
 
 #: libraries/relation.lib.php:361

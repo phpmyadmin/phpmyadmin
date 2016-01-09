@@ -12156,7 +12156,7 @@ msgid "Saving export templates"
 msgstr "無効なエクスポート形式"
 
 #: libraries/relation.lib.php:355
-msgid "Quick steps to setup advanced features:"
+msgid "Quick steps to set up advanced features:"
 msgstr "高度な機能の設定する簡単な方法:"
 
 #: libraries/relation.lib.php:361
