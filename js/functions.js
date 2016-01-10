@@ -93,6 +93,27 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * Hanle redirect and reload flags send as part of AJAX requests
+ *
+ * @param data ajax response data
+ */
+function PMA_handleRedirectAndReload(data) {
+    if (parseInt(data.redirect_flag) == 1) {
+        // add one more GET param to display session expiry msg
+        if (window.location.href.indexOf('?') === -1) {
+            window.location.href += '?session_expired=1';
+        } else {
+            window.location.href += '&session_expired=1';
+        }
+        window.location.reload();
+    } else if (parseInt(data.reload_flag) == 1) {
+        // remove the token param and reload
+        window.location.href = window.location.href.replace(/&?token=[^&#]*/g, "");
+        window.location.reload();
+    }
+}
+
+/**
  * Creates an SQL editor which supports auto completing etc.
  *
  * @param $textarea jQuery object wrapping the textarea to be made the editor
