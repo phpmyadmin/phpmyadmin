@@ -93,12 +93,11 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForReplacePrefixTable()
     {
-        $what = 'replace_prefix_tbl';
         $action = 'delete_row';
         $_url_params = array('url_query'=>'PMA_original_url_query');
 
         //Call the test function
-        $html = PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params);
+        $html = PMA_getHtmlForReplacePrefixTable($action, $_url_params);
 
         //validate 1: form action
         $this->assertContains(
