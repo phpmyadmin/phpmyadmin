@@ -214,7 +214,7 @@ AJAX.registerOnload('db_structure.js', function () {
  *  Event handler on select of "Make consistent with central list"
  */
     $('select[name=submit_mult]').change(function(event) {
-        if($(this).val() === 'make_consistent_with_central_list') {
+        if ($(this).val() === 'make_consistent_with_central_list') {
             event.preventDefault();
             event.stopPropagation();
             jqConfirm(PMA_messages.makeConsistentMessage, function(){
@@ -222,24 +222,24 @@ AJAX.registerOnload('db_structure.js', function () {
                     });
             return false;
         }
-        else if($(this).val() === 'copy_tbl' || $(this).val() === 'add_prefix_tbl' || $(this).val() === 'replace_prefix_tbl' || $(this).val() === 'copy_tbl_change_prefix') {
+        else if ($(this).val() === 'copy_tbl' || $(this).val() === 'add_prefix_tbl' || $(this).val() === 'replace_prefix_tbl' || $(this).val() === 'copy_tbl_change_prefix') {
             event.preventDefault();
             event.stopPropagation();
-            if($('input[name="selected_tbl[]"]:checked').length == 0) {
+            if ($('input[name="selected_tbl[]"]:checked').length == 0) {
                 return false;
             }
             var formData = $('#tablesForm').serialize();
             var modalTitle = '';
-            if($(this).val() === 'copy_tbl') {
+            if ($(this).val() === 'copy_tbl') {
                 modalTitle = PMA_messages.strCopyTablesTo;
             }
-            else if($(this).val() === 'add_prefix_tbl') {
+            else if ($(this).val() === 'add_prefix_tbl') {
                 modalTitle = PMA_messages.strAddPrefix;
             }
-            else if($(this).val() === 'replace_prefix_tbl') {
+            else if ($(this).val() === 'replace_prefix_tbl') {
                 modalTitle = PMA_messages.strReplacePrefix;
             }
-            else if($(this).val() === 'copy_tbl_change_prefix') {
+            else if ($(this).val() === 'copy_tbl_change_prefix') {
                 modalTitle = PMA_messages.strCopyPrefix;
             }
             $.ajax({
