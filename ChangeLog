@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #11826 Fix creating/editing VIEW with DEFINER containing special chars
 - issue #11828 Do not invoke FLUSH PRIVILEGES when server in --skip-grant-tables
 - issue #11804 Misleading message for configuration storage
+- issue #11772 Table pagination does nothing when session expired
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
