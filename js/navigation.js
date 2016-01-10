@@ -962,8 +962,8 @@ function PMA_navigationTreePagination($this) {
         }
     }
     $.post(url, params, function (data) {
-        PMA_ajaxRemoveMessage($msgbox);
         if (typeof data !== 'undefined' && data.success) {
+            PMA_ajaxRemoveMessage($msgbox);
             if (isDbSelector) {
                 var val = PMA_fastFilter.getSearchClause();
                 $('#pma_navigation_tree')
@@ -993,6 +993,7 @@ function PMA_navigationTreePagination($this) {
             }
         } else {
             PMA_ajaxShowMessage(data.error);
+            PMA_handleRedirectAndReload(data);
         }
         navTreeStateUpdate();
     });
