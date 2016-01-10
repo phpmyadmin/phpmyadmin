@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-08 16:50+0100\n"
-"PO-Revision-Date: 2015-12-21 23:48+0000\n"
+"PO-Revision-Date: 2016-01-10 10:10+0000\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8280,10 +8280,9 @@ msgstr ""
 "zároveň spôsobiť problémy s transakciami.)</i>"
 
 #: libraries/display_import.lib.php:312
-#, fuzzy
 #| msgid "Number of rows to skip, starting from the first row:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Počet riadkov od začiatku, ktoré sa majú preskočiť:"
+msgstr "Počet dopytov od začiatku (pre SQL) , ktoré sa majú preskočiť:"
 
 #: libraries/display_import.lib.php:342
 msgid "Other options:"
@@ -10940,12 +10939,14 @@ msgid ""
 msgstr ""
 
 #: libraries/relation.lib.php:1980
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
+msgstr ""
+"%sVytvoriť%s databázu s názvom 'phpmyadmin' a nastaviť tam miesto uloženia "
+"phpMyAdmin konfigurácie."
 
 #: libraries/relation.lib.php:1988
 #, php-format
@@ -12315,7 +12316,6 @@ msgstr ""
 "%sznovunačítanie práv%s predtým ako budete pokračovať."
 
 #: libraries/server_privileges.lib.php:4839
-#, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
 #| "privilege tables. The content of these tables may differ from the "
@@ -12330,8 +12330,8 @@ msgid ""
 msgstr ""
 "Poznámka: phpMyAdmin získava práva používateľov priamo z tabuliek MySQL. "
 "Obsah týchto tabuliek sa môže líšiť od práv, ktoré používa server, ak boli "
-"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
-"%sznovunačítanie práv%s predtým ako budete pokračovať."
+"tieto tabuľky ručne upravené. V tom prípade je potrebné znovu načítanie "
+"práv. Nemáte oprávnenie na RELOAD ."
 
 #: libraries/server_privileges.lib.php:4889
 msgid "The selected user was not found in the privilege table."
