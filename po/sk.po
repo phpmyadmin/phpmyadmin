@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-08 16:50+0100\n"
-"PO-Revision-Date: 2016-01-10 10:10+0000\n"
+"PO-Revision-Date: 2016-01-10 22:29+0000\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -5496,10 +5496,9 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Určuje, či akcie štruktúry tabuliek majú byť skryté."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Zobraziť komentáre tabuľky"
+msgstr "Zobraziť komentáre stĺpca"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
@@ -8866,10 +8865,9 @@ msgid "Success!"
 msgstr "Úspech!"
 
 #: libraries/mult_submits.lib.php:328
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Skopírovať databázu do"
+msgstr "Skopírovať tabuľky do"
 
 #: libraries/mult_submits.lib.php:342 libraries/operations.lib.php:171
 #: libraries/operations.lib.php:1269 libraries/tracking.lib.php:531
@@ -8887,10 +8885,9 @@ msgid "Data only"
 msgstr "Iba dáta"
 
 #: libraries/mult_submits.lib.php:350
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Pridať hodnotu AUTO_INCREMENT"
+msgstr "Pridať hodnotu AUTO INCREMENT"
 
 #: libraries/mult_submits.lib.php:352 libraries/operations.lib.php:227
 #: libraries/operations.lib.php:1294
@@ -10262,16 +10259,16 @@ msgid "Metadata"
 msgstr "Metadáta"
 
 #: libraries/plugins/export/ExportSql.php:1062
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "Metadáta pre %s"
+msgstr "Metadáta pre tabuľku %s"
 
 #: libraries/plugins/export/ExportSql.php:1069
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "Metadáta pre %s"
+msgstr "Metadáta pre databázu %s"
 
 #: libraries/plugins/export/ExportSql.php:1401
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:602
@@ -13521,10 +13518,9 @@ msgid "Variable name was expected."
 msgstr "Vzor pre názov tabuľky"
 
 #: libraries/sql-parser/src/Parser.php:417
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "na začiatku tabuľky"
+msgstr "Neočakávaný začiatok výrazu."
 
 #: libraries/sql-parser/src/Parser.php:436
 msgid "Unrecognized statement type."
