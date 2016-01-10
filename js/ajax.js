@@ -488,19 +488,7 @@ var AJAX = {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
             AJAX.xhr = null;
-            if (parseInt(data.redirect_flag) == 1) {
-                // add one more GET param to display session expiry msg
-                if (window.location.href.indexOf('?') === -1) {
-                    window.location.href += '?session_expired=1';
-                } else {
-                    window.location.href += '&session_expired=1';
-                }
-                window.location.reload();
-            } else if (parseInt(data.reload_flag) == 1) {
-                // remove the token param and reload
-                window.location.href = window.location.href.replace(/&?token=[^&#]*/g, "");
-                window.location.reload();
-            }
+            PMA_handleRedirectAndReload(data);
             if (data.fieldWithError) {
                 $(':input.error').removeClass("error");
                 $('#'+data.fieldWithError).addClass("error");
