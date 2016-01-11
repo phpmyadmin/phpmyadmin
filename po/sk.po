@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2016-01-10 10:10+0000\n"
+"PO-Revision-Date: 2016-01-10 22:29+0000\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/sk/>\n"
@@ -13660,10 +13660,9 @@ msgid "Variable name was expected."
 msgstr "Vzor pre názov tabuľky"
 
 #: libraries/sql-parser/src/Parser.php:407
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "na začiatku tabuľky"
+msgstr "Neočakávaný začiatok výrazu."
 
 #: libraries/sql-parser/src/Parser.php:426
 msgid "Unrecognized statement type."
