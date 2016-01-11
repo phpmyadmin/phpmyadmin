@@ -225,7 +225,7 @@ AJAX.registerOnload('db_structure.js', function () {
         else if ($(this).val() === 'copy_tbl' || $(this).val() === 'add_prefix_tbl' || $(this).val() === 'replace_prefix_tbl' || $(this).val() === 'copy_tbl_change_prefix') {
             event.preventDefault();
             event.stopPropagation();
-            if ($('input[name="selected_tbl[]"]:checked').length == 0) {
+            if ($('input[name="selected_tbl[]"]:checked').length === 0) {
                 return false;
             }
             var formData = $('#tablesForm').serialize();
