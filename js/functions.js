@@ -809,6 +809,20 @@ AJAX.registerOnload('functions.js', function () {
     function SetIdleTime() {
         _idleSecondsCounter++;
     }
+    //function for auto-redirect to login page after timeout #11231 bug
+    //It make a ajax call to server in every 10 minute since session expire in 24 minutes.
+    var refreshTime = 600000; // every 10 minutes in milliseconds
+    window.setInterval( function() {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "refreshSession.php",
+            success: function(data) {
+              _idleSecondsCounter = 0;
+            }
+        });
+    }, refreshTime );
+
     function UpdateIdleTime() {
         var href = 'index.php';
         var params = {
