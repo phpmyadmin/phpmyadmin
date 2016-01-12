@@ -87,6 +87,18 @@ class Language
     }
 
     /**
+     * Compare function used for sorting
+     *
+     * @param Language $other Other object to compare
+     *
+     * @return int same as strcmp
+     */
+    public function cmp($other)
+    {
+        return strcmp($this->name, $other->name);
+    }
+
+    /**
      * Checks whether language is currently active.
      *
      * @return bool
