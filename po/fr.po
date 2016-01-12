@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2015-12-16 07:59+0100\n"
-"PO-Revision-Date: 2015-12-17 14:28+0000\n"
+"PO-Revision-Date: 2016-01-12 12:36+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/>\n"
@@ -45,7 +45,7 @@ msgstr "La base de données %1$s a été créée."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Commentaire sur la base de données :"
+msgstr "Commentaire sur la base de données"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:966
@@ -142,7 +142,7 @@ msgstr "Null"
 #: templates/database/structure/body_for_table_summary.phtml:55
 #: templates/table/structure/table_structure_header.phtml:10
 msgid "Default"
-msgstr "Défaut"
+msgstr "Valeur par défaut"
 
 #: db_datadict.php:119 libraries/plugins/export/ExportHtmlword.class.php:389
 #: libraries/plugins/export/ExportLatex.class.php:513
