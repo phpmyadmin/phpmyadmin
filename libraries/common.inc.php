@@ -41,6 +41,7 @@ use PMA\libraries\Tracker;
 use PMA\libraries\Response;
 use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
+use PMA\libraries\LanguageManager;
 
 /**
  * block attempts to directly run this script
@@ -474,9 +475,15 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
+ * Load gettext functions.
+ */
+require_once GETTEXT_INC;
+
+/**
  * lang detection is done here
  */
-require './libraries/select_lang.inc.php';
+$language = LanguageManager::getInstance()->selectLanguage();
+$language->activate();
 
 // Defines the cell alignment values depending on text direction
 if ($GLOBALS['text_dir'] == 'ltr') {
