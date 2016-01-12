@@ -96,9 +96,9 @@ function PMA_getAvailableMIMEtypes()
         'output/' => '',
         '' => ''
     );
-    $dir = 'libraries/plugins/transformations/';
+
     foreach ($sub_dirs as $sd => $prefix) {
-        $handle = opendir($dir . $sd);
+        $handle = opendir('libraries/plugins/transformations/' . $sd);
 
         if (! $handle) {
             $stack[$prefix . 'transformation'] = array();
@@ -122,10 +122,10 @@ function PMA_getAvailableMIMEtypes()
                 $stack['mimetype'][$mimetype] = $mimetype;
 
                 $stack[$prefix . 'transformation'][] = $mimetype . ': ' . $parts[2];
-                $stack[$prefix . 'transformation_file'][] = $dir . $sd . $file;
+                $stack[$prefix . 'transformation_file'][] = $sd . $file;
                 if ($sd === '') {
                     $stack['input_transformation'][] = $mimetype . ': ' . $parts[2];
-                    $stack['input_transformation_file'][] = $dir . $sd . $file;
+                    $stack['input_transformation_file'][] = $sd . $file;
                 }
 
             } elseif (preg_match('|^[^.].*\.php$|', $file)) {
@@ -168,10 +168,11 @@ function PMA_getTransformationClassName($filename)
  */
 function PMA_getTransformationDescription($file)
 {
+    $include_file = 'libraries/plugins/transformations/' . $file;
     /* @var $class_name PMA\libraries\plugins\TransformationsInterface */
-    $class_name = PMA_getTransformationClassName($file);
+    $class_name = PMA_getTransformationClassName($include_file);
     // include and instantiate the class
-    include_once $file;
+    include_once $include_file;
     return $class_name::getInfo();
 }
 
@@ -184,10 +185,11 @@ function PMA_getTransformationDescription($file)
  */
 function PMA_getTransformationName($file)
 {
+    $include_file = 'libraries/plugins/transformations/' . $file;
     /* @var $class_name PMA\libraries\plugins\TransformationsInterface */
-    $class_name = PMA_getTransformationClassName($file);
+    $class_name = PMA_getTransformationClassName($include_file);
     // include and instantiate the class
-    include_once $file;
+    include_once $include_file;
     return $class_name::getName();
 }
 
