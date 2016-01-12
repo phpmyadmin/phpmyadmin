@@ -10,7 +10,6 @@ use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\Theme;
 
 require_once 'libraries/navigation/NodeFactory.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'test/PMATestCase.php';
 
 /**

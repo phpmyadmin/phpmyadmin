@@ -10,10 +10,8 @@
 /*
  * Include to test.
  */
-require_once 'libraries/core.lib.php';
 
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Test for PMA_getDbLink_test from Util.php

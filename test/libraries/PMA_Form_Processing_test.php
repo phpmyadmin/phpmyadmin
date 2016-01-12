@@ -10,7 +10,6 @@
  * Include to test
  */
 require_once 'setup/lib/form_processing.lib.php';
-require_once 'libraries/core.lib.php';
 
 
 /**

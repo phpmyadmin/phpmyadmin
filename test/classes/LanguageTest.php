@@ -9,7 +9,6 @@
 /*
  * Include to test.
  */
-require_once 'libraries/core.lib.php';
 
 use PMA\libraries\LanguageManager;
 

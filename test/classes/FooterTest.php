@@ -12,9 +12,7 @@
 use PMA\libraries\Theme;
 
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';

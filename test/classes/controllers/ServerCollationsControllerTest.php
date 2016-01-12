@@ -28,7 +28,6 @@ $GLOBALS['cfg']['Server'] = array(
 $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 
 

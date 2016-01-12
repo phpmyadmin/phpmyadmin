@@ -14,7 +14,6 @@
 /*
  * Needed by PMA_TRI_getQueryFromRequest()
  */
-require_once 'libraries/php-gettext/gettext.inc';
 
 /*
  * Include to test.

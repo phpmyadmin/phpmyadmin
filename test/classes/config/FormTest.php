@@ -12,7 +12,6 @@ use PMA\libraries\config\Form;
 use PMA\libraries\Theme;
 
 require_once 'test/PMATestCase.php';
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for PMA_Form class

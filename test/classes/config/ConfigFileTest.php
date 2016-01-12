@@ -12,7 +12,6 @@
 use PMA\libraries\config\ConfigFile;
 
 require_once 'test/PMATestCase.php';
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for Config File Management
