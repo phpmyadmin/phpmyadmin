@@ -706,16 +706,13 @@ $js_messages['strConsoleDebugArgsSummary'] = __('%s argument(s) passed');
 $js_messages['strConsoleDebugShowArgs'] = __('Show arguments');
 $js_messages['strConsoleDebugHideArgs'] = __('Hide arguments');
 $js_messages['strConsoleDebugTimeTaken'] = __('Time taken:');
-$js_messages['strNoLocalStorage'] = __(
-    'Your web browser does not support local storage of settings or the quota '
-    . 'limit has been reached, some features may not work properly for you. In '
-    . 'Safari, such problem is commonly caused by "Private Mode Browsing".'
-);
+$js_messages['strNoLocalStorage'] = __('There was a problem accessing your browser storage, some features may not work properly for you. It is likely that the browser doesn\'t support storage or the quota limit has been reached. In Firefox, corrupted storage can also cause such a problem, clearing your "Offline Website Data" might help. In Safari, such problem is commonly caused by "Private Mode Browsing".');
 // For modals in db_structure.php
 $js_messages['strCopyTablesTo'] = __('Copy tables to');
 $js_messages['strAddPrefix'] = __('Add table prefix');
 $js_messages['strReplacePrefix'] = __('Replace table with prefix');
 $js_messages['strCopyPrefix'] = __('Copy table with prefix');
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);
