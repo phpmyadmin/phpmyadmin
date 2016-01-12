@@ -36,7 +36,6 @@ use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\DbList;
-use PMA\libraries\Theme;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
 use PMA\libraries\Response;
