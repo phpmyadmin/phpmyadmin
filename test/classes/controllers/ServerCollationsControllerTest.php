@@ -19,10 +19,6 @@ $GLOBALS['cfg']['ServerDefault'] = 1;
 $GLOBALS['url_query'] = "url_query";
 $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
 $GLOBALS['lang'] = "en";
-$GLOBALS['available_languages']= array(
-    "en" => array("English", "US-ENGLISH"),
-    "ch" => array("Chinese", "TW-Chinese")
-);
 $GLOBALS['text_dir'] = "text_dir";
 $GLOBALS['cfg']['Server'] = array(
     'DisableIS' => false

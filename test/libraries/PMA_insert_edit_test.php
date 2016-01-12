@@ -44,9 +44,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['available_languages']= array(
-            "en" => array("English", "US-ENGLISH")
-        );
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

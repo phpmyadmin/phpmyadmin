@@ -40,10 +40,6 @@ class AuthenticationCookieTest extends PMATestCase
     {
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        $GLOBALS['available_languages'] = array(
-            "en" => array("English", "US-ENGLISH"),
-            "ch" => array("Chinese", "TW-Chinese")
-        );
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

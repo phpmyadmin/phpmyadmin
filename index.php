@@ -231,7 +231,7 @@ echo '<h2>' , __('Appearance settings') , '</h2>';
 echo '  <ul>';
 
 // Displays language selection combo
-if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
+if (empty($cfg['Lang'])) {
     echo '<li id="li_select_lang" class="no_bullets">';
     include_once 'libraries/display_select_lang.lib.php';
     echo PMA\libraries\Util::getImage('s_lang.png') , " "

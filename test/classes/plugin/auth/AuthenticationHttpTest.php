@@ -37,10 +37,6 @@ class AuthenticationHttpTest extends PMATestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
         $GLOBALS['text_dir'] = "ltr";
-        $GLOBALS['available_languages'] = array(
-            "en" => array("English", "US-ENGLISH"),
-            "ch" => array("Chinese", "TW-Chinese")
-        );
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationHttp();
