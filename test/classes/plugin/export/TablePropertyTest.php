@@ -7,7 +7,6 @@
  */
 use PMA\libraries\plugins\export\TableProperty;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 

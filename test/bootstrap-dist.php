@@ -56,6 +56,10 @@ define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
 require_once 'libraries/sql-parser/autoload.php';
 
+/* Ensure default langauge is active */
+require_once 'libraries/php-gettext/gettext.inc';
+PMA\libraries\LanguageManager::getInstance()->getLanguage('en')->activate();
+
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
 if ($http_proxy && ($url_info = parse_url($http_proxy))) {

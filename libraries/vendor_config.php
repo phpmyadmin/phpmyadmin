@@ -90,6 +90,11 @@ define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
 define('SQL_PARSER_AUTOLOAD', './libraries/sql-parser/autoload.php');
 
 /**
+ * Path to files with compiled locales (*.mo)
+ */
+define('LOCALE_PATH', './locale/');
+
+/**
  * Avoid referring to nonexistent files (causes warnings when open_basedir
  * is used)
  */

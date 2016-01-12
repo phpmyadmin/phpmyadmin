@@ -18,7 +18,6 @@ use PMA\libraries\TypesMySQL;
 require_once 'libraries/insert_edit.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
@@ -44,9 +43,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['available_languages']= array(
-            "en" => array("English", "US-ENGLISH")
-        );
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

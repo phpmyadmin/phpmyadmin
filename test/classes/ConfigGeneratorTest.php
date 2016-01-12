@@ -13,8 +13,6 @@ use PMA\libraries\Config;
 use PMA\libraries\config\ConfigFile;
 use PMA\setup\lib\ConfigGenerator;
 
-require_once 'libraries/core.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'test/PMATestCase.php';
 
 /**

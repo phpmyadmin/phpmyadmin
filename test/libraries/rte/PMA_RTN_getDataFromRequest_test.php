@@ -8,7 +8,6 @@
 
 use PMA\libraries\TypesMySQL;
 
-require_once 'libraries/php-gettext/gettext.inc';
 
 
 /*

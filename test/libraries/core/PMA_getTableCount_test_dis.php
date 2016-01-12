@@ -1,7 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getTableCount_test from core.lib.php
  * PMA_getTableCount_test returns count of tables in given db
  *
  * @package PhpMyAdmin-test
@@ -15,7 +14,6 @@ use PMA\libraries\Theme;
 
 require_once 'libraries/vendor_config.php';
 
-require_once 'libraries/core.lib.php';
 
 
 require_once 'libraries/js_escape.lib.php';
@@ -28,12 +26,10 @@ require_once 'libraries/url_generating.lib.php';
 
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/php-gettext/gettext.inc';
 
 require_once 'config.sample.inc.php';
 
 /**
- * Test for PMA_getTableCount_test from core.lib.php
  * PMA_getTableCount_test returns count of tables in given db
  *
  * @package PhpMyAdmin-test

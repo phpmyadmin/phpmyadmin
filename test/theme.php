@@ -16,7 +16,7 @@ chdir('..');
 require_once './libraries/common.inc.php';
 $GLOBALS['pmaThemeImage'] = '../' . $GLOBALS['pmaThemeImage'];
 
-$lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
+$lang_iso_code = $GLOBALS['lang'];
 
 // start output
 header('Content-Type: text/html; charset=utf-8');

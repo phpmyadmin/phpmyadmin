@@ -12,12 +12,9 @@
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\ServerConfigChecks;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/config/config_functions.lib.php';
-require_once 'libraries/core.lib.php';
 require_once 'setup/lib/index.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sanitizing.lib.php';
 
 /**
