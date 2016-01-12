@@ -605,7 +605,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.currentEditCell = cell;
                     $(g.cEdit).find('.edit_box').focus();
                     moveCursorToEnd($(g.cEdit).find('.edit_box'));
-                    $(g.cEdit).find('*').removeProp('disabled');
+                    $(g.cEdit).find('*').prop('disabled', false);
                 }
             }
 
@@ -1287,11 +1287,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     function (data) {
                         g.isSaving = false;
                         if (!g.saveCellsAtOnce) {
-                            $(g.cEdit).find('*').removeProp('disabled');
+                            $(g.cEdit).find('*').prop('disabled', false);
                             $(g.cEdit).find('.edit_box').removeClass('edit_box_posting');
                         } else {
                             $(g.o).find('div.save_edited').removeClass('saving_edited_data')
-                                .find('input').removeProp('disabled');  // enable the save button back
+                                .find('input').prop('disabled', false);  // enable the save button back
                         }
                         if (typeof data !== 'undefined' && data.success === true) {
                             if (typeof options === 'undefined' || ! options.move) {
