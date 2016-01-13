@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-08 16:50+0100\n"
-"PO-Revision-Date: 2016-01-12 12:36+0000\n"
+"PO-Revision-Date: 2016-01-13 12:38+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -239,7 +239,7 @@ msgstr "Voir une exportation (schéma) de la base de données"
 #: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:917
 msgid "No tables found in database."
-msgstr "Aucune table n'a été trouvée dans cette base."
+msgstr "Aucune table n'a été trouvée dans cette base de données."
 
 #: db_export.php:65 libraries/ServerStatusData.php:126
 #: libraries/config/messages.inc.php:279
