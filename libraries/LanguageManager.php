@@ -591,6 +591,16 @@ class LanguageManager
     }
 
     /**
+     * Return currently active Language object
+     *
+     * @return object Language object
+     */
+    public function getCurrentLanguage()
+    {
+        return $this->_available_languages[$GLOBALS['lang']];
+    }
+
+    /**
      * Activates language based on configuration, user preferences or
      * browser
      *
