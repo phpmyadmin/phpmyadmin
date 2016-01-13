@@ -21,6 +21,7 @@ class Language
     protected $name;
     protected $native;
     protected $regex;
+    protected $mysql;
 
     /**
      * Constructs the Language object
@@ -29,9 +30,10 @@ class Language
      * @param string $name   English name
      * @param string $native Native name
      * @param string $regex  Match regullar expression
+     * @param string $mysql  MySQL locale code
      *
      */
-    public function __construct($code, $name, $native, $regex)
+    public function __construct($code, $name, $native, $regex, $mysql)
     {
         $this->code = $code;
         $this->name = $name;
@@ -40,6 +42,7 @@ class Language
             $regex = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $regex);
         }
         $this->regex = $regex;
+        $this->mysql = $mysql;
     }
 
     /**
@@ -84,6 +87,16 @@ class Language
     public function getCode()
     {
         return $this->code;
+    }
+
+    /**
+     * Returns MySQL locale code, can be empty
+     *
+     * @return string
+     */
+    public function getMySQLLocale()
+    {
+        return $this->mysql;
     }
 
     /**
