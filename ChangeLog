@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue        Handle empty TABLE_COMMENT
 + issue #11833 Drop support for old Internet Explorer versions
 + issue #11796 Use modals for displaying forms in db structure page
++ issue #11789 Show MySQL error messages in user language
 
 4.5.4.0 (not yet released)
 - issue #11724 live data edit of big sets is not working
