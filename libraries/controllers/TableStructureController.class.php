@@ -853,7 +853,7 @@ class TableStructureController extends TableController
 
         if ((!defined('PMA_DRIZZLE') || !PMA_DRIZZLE)
             && Util\get($GLOBALS, 'col_priv', false)
-            && Util\get($GLOBALS, 'flush_priv', false)
+            && Util\get($GLOBALS, 'is_reload_priv', false)
         ) {
             $this->dbi->selectDb('mysql');
 

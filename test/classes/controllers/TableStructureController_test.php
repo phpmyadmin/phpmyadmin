@@ -227,7 +227,7 @@ class TableStructureController_Test extends PHPUnit_Framework_TestCase
             'col1' => 'col2'
         );
         $GLOBALS['col_priv'] = true;
-        $GLOBALS['flush_priv'] = true;
+        $GLOBALS['is_reload_priv'] = true;
         $this->assertEquals(
             true,
             $method->invokeArgs($ctrl, array($adjust_privileges))
