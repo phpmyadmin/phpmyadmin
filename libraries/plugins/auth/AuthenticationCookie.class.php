@@ -448,7 +448,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Util::cacheUnset('col_priv');
             PMA_Util::cacheUnset('table_priv');
             PMA_Util::cacheUnset('proc_priv');
-            PMA_Util::cacheUnset('flush_priv');
 
             $GLOBALS['no_activity'] = true;
             $this->authFails();

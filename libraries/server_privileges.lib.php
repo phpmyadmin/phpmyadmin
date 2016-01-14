@@ -4675,7 +4675,7 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         if (! $GLOBALS['is_ajax_request']
             || ! empty($_REQUEST['ajax_page_request'])
         ) {
-            if (isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']) {
+            if ($GLOBALS['is_reload_priv']) {
                 $flushnote = new PMA_Message(
                     __(
                         'Note: phpMyAdmin gets the users\' privileges directly '

@@ -316,16 +316,15 @@ function PMA_RTN_backupPrivileges()
         return array();
     }
 
-    if (!(isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-        && isset($GLOBALS['flush_priv'])
-        && $GLOBALS['flush_priv'])
+    if (! $GLOBALS['proc_priv']
+        || ! $GLOBALS['is_reload_priv']
     ) {
         return array();
     }
 
     // Backup the Old Privileges before dropping
     // if $_REQUEST['item_adjust_privileges'] set
-    if (!isset($_REQUEST['item_adjust_privileges'])
+    if (! isset($_REQUEST['item_adjust_privileges'])
         || empty($_REQUEST['item_adjust_privileges'])
     ) {
         return array();
@@ -391,9 +390,8 @@ function PMA_RTN_createRoutine(
     $resultAdjust = false;
 
     if (!defined('PMA_DRIZZLE') || !PMA_DRIZZLE) {
-        if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-            && isset($GLOBALS['flush_priv'])
-            && $GLOBALS['flush_priv']
+        if ($GLOBALS['proc_priv']
+            && $GLOBALS['is_reload_priv']
         ) {
             // Insert all the previous privileges
             // but with the new name and the new type
@@ -999,8 +997,8 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         $retval .= PMA_Util::showDocu('faq', 'faq6-39');
         $retval .= "</td>";
         if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
-            if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-                && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+            if ($GLOBALS['proc_priv']
+                && $GLOBALS['is_reload_priv']
             ) {
                 $retval .= "    <td><input type='checkbox' "
                     . "name='item_adjust_privileges' value='1' checked /></td>";
