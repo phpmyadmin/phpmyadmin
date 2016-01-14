@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2016-01-08 23:24+0000\n"
+"PO-Revision-Date: 2016-01-14 16:02+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2567,22 +2567,27 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Υπήρξε κάποιο πρόβλημα στη πρόσβαση του αποθηκευτικού χώρου του φυλλομετρητή "
+"σας, ορισμένα χαρακτηριστικά ίσως να μην λειτουργούν σωστά για σας. Πιθανόν "
+"ο φυλλομετρητής σας δεν υποστηρίζει αποθήκευση ή το όριο αποθήκευσης έχει "
+"φτάσει. Στον Firefox, η κατεστραμμένη αποθήκευση ίσως προκαλεί τέτοιο "
+"πρόβλημα, καθαρίζονται τα «Δεδομένα ιστοσελίδων εκτός σύνδεσης» ίσως "
+"βοηθήσει. Στον Safari, τέτοιο πρόβλημα εμφανίζεται από την «Κατάσταση "
+"Ιδιωτικής Περιήγησης»."
 
 #: js/messages.php:711
 msgid "Copy tables to"
 msgstr "Αντιγραφή πινάκων στη"
 
 #: js/messages.php:712
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Προσθήκη προθέματος πίνακα:"
+msgstr "Προσθήκη προθέματος πίνακα"
 
 #: js/messages.php:713
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Αντικατάσταση προθέματος πίνακα"
+msgstr "Αντικατάσταση πίνακα με πρόθεμα"
 
 #: js/messages.php:714 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
