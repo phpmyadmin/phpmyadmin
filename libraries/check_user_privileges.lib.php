@@ -118,16 +118,16 @@ function PMA_analyseShowGrant()
             'dbs_to_test'
         );
 
-        $GLOBALS['db_priv'] = PMA_Util::cacheGet(
+        $GLOBALS['db_priv'] = PMA\libraries\Util::cacheGet(
             'db_priv'
         );
-        $GLOBALS['col_priv'] = PMA_Util::cacheGet(
+        $GLOBALS['col_priv'] = PMA\libraries\Util::cacheGet(
             'col_priv'
         );
-        $GLOBALS['table_priv'] = PMA_Util::cacheGet(
+        $GLOBALS['table_priv'] = PMA\libraries\Util::cacheGet(
             'table_priv'
         );
-        $GLOBALS['proc_priv'] = PMA_Util::cacheGet(
+        $GLOBALS['proc_priv'] = PMA\libraries\Util::cacheGet(
             'proc_priv'
         );
 
@@ -177,7 +177,7 @@ function PMA_analyseShowGrant()
             $row[0], $tblname_start_offset,
             $tblname_end_offset - $tblname_start_offset
         );
-        $show_grants_tblname = PMA_Util::unQuote($show_grants_tblname, '`');
+        $show_grants_tblname = PMA\libraries\Util::unQuote($show_grants_tblname, '`');
 
         if ($show_grants_dbname == '*') {
             if ($show_grants_str != 'USAGE') {
