@@ -516,18 +516,9 @@ class TableSearchController extends TableController
          * Add this to ensure following procedures included running correctly.
          */
         $db = $this->db;
-        /**
-         * Parse and analyze the query
-         */
-        include_once 'libraries/parse_analyze.lib.php';
-        list(
-            $analyzed_sql_results,,
-        ) = PMA_parseAnalyze($sql_query, $db);
-        // @todo: possibly refactor
-        extract($analyzed_sql_results);
 
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, // analyzed_sql_results
+            null, // analyzed_sql_results
             false, // is_gotofile
             $this->db, // db
             $this->table, // table
