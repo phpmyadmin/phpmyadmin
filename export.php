@@ -454,10 +454,8 @@ if (!defined('TESTSUITE')) {
                         $do_relation, $do_comments, $do_mime, $do_dates, $aliases,
                         $separate_files
                     );
+                } finally {
                     PMA_unlockTables();
-                } catch (Exception $e) { // TODO use finally when PHP version is 5.5
-                    PMA_unlockTables();
-                    throw $e;
                 }
             } else {
                 PMA_exportDatabase(
@@ -487,10 +485,8 @@ if (!defined('TESTSUITE')) {
                         $do_mime, $do_dates, $allrows, $limit_to, $limit_from,
                         $sql_query, $aliases
                     );
+                } finally {
                     PMA_unlockTables();
-                } catch (Exception $e) { // TODO use finally when PHP version is 5.5
-                    PMA_unlockTables();
-                    throw $e;
                 }
             } else {
                 PMA_exportTable(
