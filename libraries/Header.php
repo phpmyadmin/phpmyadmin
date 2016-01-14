@@ -620,7 +620,7 @@ class Header
      */
     private function _getHtmlStart()
     {
-        $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
+        $lang = $GLOBALS['lang'];
         $dir  = $GLOBALS['text_dir'];
 
         $retval  = "<!DOCTYPE HTML>";

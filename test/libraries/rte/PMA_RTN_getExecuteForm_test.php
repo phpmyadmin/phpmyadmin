@@ -10,7 +10,6 @@ use PMA\libraries\TypesMySQL;
 
 $GLOBALS['server'] = 0;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/database_interface.inc.php';

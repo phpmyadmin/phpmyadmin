@@ -8,7 +8,6 @@
 use PMA\libraries\plugins\export\ExportYaml;
 
 require_once 'libraries/export.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'export.php';

@@ -14,7 +14,6 @@ use PMA\libraries\plugins\import\ImportShp;
 $GLOBALS['server'] = 0;
 
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'test/PMATestCase.php';

@@ -9,7 +9,6 @@
 /*
  * Include to test.
  */
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for libraries/config/messages.inc.php

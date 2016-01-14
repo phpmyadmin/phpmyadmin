@@ -8,7 +8,6 @@
 
 use PMA\libraries\plugins\auth\AuthenticationHttp;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'test/PMATestCase.php';
@@ -37,10 +36,6 @@ class AuthenticationHttpTest extends PMATestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
         $GLOBALS['text_dir'] = "ltr";
-        $GLOBALS['available_languages'] = array(
-            "en" => array("English", "US-ENGLISH"),
-            "ch" => array("Chinese", "TW-Chinese")
-        );
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationHttp();

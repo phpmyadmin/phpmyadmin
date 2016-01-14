@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-08 16:50+0100\n"
-"PO-Revision-Date: 2016-01-09 15:57+0000\n"
+"PO-Revision-Date: 2016-01-13 12:38+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -40,7 +40,7 @@ msgstr "Affichage des lignes %1$s - %2$s."
 
 #: db_datadict.php:57 libraries/operations.lib.php:34
 msgid "Database comment"
-msgstr "Commentaire sur la base de données :"
+msgstr "Commentaire sur la base de données"
 
 #: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:595
 #: templates/columns_definitions/column_definitions_form.phtml:84
@@ -137,7 +137,7 @@ msgstr "Null"
 #: templates/database/structure/body_for_table_summary.phtml:55
 #: templates/table/structure/table_structure_header.phtml:12
 msgid "Default"
-msgstr "Défaut"
+msgstr "Valeur par défaut"
 
 #: db_datadict.php:118 libraries/plugins/export/ExportHtmlword.php:399
 #: libraries/plugins/export/ExportLatex.php:528
@@ -239,7 +239,7 @@ msgstr "Voir une exportation (schéma) de la base de données"
 #: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:917
 msgid "No tables found in database."
-msgstr "Aucune table n'a été trouvée dans cette base."
+msgstr "Aucune table n'a été trouvée dans cette base de données."
 
 #: db_export.php:65 libraries/ServerStatusData.php:126
 #: libraries/config/messages.inc.php:279

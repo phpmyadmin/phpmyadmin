@@ -19,10 +19,6 @@ $GLOBALS['cfg']['ServerDefault'] = 1;
 $GLOBALS['url_query'] = "url_query";
 $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
 $GLOBALS['lang'] = "en";
-$GLOBALS['available_languages']= array(
-    "en" => array("English", "US-ENGLISH"),
-    "ch" => array("Chinese", "TW-Chinese")
-);
 $GLOBALS['text_dir'] = "text_dir";
 $GLOBALS['cfg']['Server'] = array(
     'DisableIS' => false
@@ -32,7 +28,6 @@ $GLOBALS['cfg']['Server'] = array(
 $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 
 

@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue        Handle empty TABLE_COMMENT
 + issue #11833 Drop support for old Internet Explorer versions
 + issue #11796 Use modals for displaying forms in db structure page
++ issue #11789 Show MySQL error messages in user language
 
 4.5.4.0 (not yet released)
 - issue #11724 live data edit of big sets is not working
@@ -56,6 +57,7 @@ phpMyAdmin - ChangeLog
 - issue #11804 Misleading message for configuration storage
 - issue #11772 Table pagination does nothing when session expired
 - issue #11840 Index comments not working properly
+- issue #11791 Better handle local storage errors
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2

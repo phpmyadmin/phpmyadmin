@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PMA\libraries\dbi\DBIExtension;
+use PMA\libraries\LanguageManager;
 
 require_once './libraries/logging.lib.php';
 require_once './libraries/util.lib.php';
@@ -1525,6 +1526,16 @@ class DatabaseInterface
         } else {
             $this->query(
                 "SET NAMES '$default_charset' COLLATE '$default_collation';",
+                $link,
+                self::QUERY_STORE
+            );
+        }
+
+        /* Locale for messages */
+        $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
+        if (! empty($locale)) {
+            $this->query(
+                "SET lc_messages = '" . $locale . "';",
                 $link,
                 self::QUERY_STORE
             );

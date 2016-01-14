@@ -10,7 +10,6 @@
  * Include to test.
  */
 
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * tests for bookmark.lib.php
