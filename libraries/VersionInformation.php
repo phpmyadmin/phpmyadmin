@@ -25,7 +25,7 @@ class VersionInformation
     public function getLatestVersion()
     {
         if (!$GLOBALS['cfg']['VersionCheck']) {
-            return new stdClass();
+            return null;
         }
 
         // wait 3s at most for server response, it's enough to get information
