@@ -271,7 +271,6 @@ class TableSearchController extends TableController
                         'jqplot/plugins/jqplot.dateAxisRenderer.js',
                         'jqplot/plugins/jqplot.highlighter.js',
                         'jqplot/plugins/jqplot.cursor.js',
-                        'canvg/canvg.js',
                         'jquery/jquery-ui-timepicker-addon.js',
                         'tbl_zoom_plot_jqplot.js',
                         'tbl_change.js',

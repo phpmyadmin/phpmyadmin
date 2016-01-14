@@ -74,7 +74,6 @@ $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $scripts->addFile('jqplot/excanvas.js');
 }
-$scripts->addFile('canvg/canvg.js');
 // for charting
 $scripts->addFile('jqplot/jquery.jqplot.js');
 $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
