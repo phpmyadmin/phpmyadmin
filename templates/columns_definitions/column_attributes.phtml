@@ -87,8 +87,7 @@ $ci_offset = -1;
 <?php if (isset($_REQUEST['change_column']) && !empty($_REQUEST['change_column'])): ?>
     <!-- column Adjust privileges, Only for 'Edit' Column(s) -->
     <td class="center">
-        <?php $privs_available = isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-            && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']; ?>
+        <?php $privs_available = $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv']; ?>
         <?php echo PMA\libraries\Template::get('columns_definitions/column_adjust_privileges')
             ->render(array(
                 'columnNumber' => $columnNumber,

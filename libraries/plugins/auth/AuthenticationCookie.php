@@ -437,8 +437,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // User inactive too long
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
-        if ($_SESSION['last_access_time'] < $last_access_time
-        ) {
+        if ($_SESSION['last_access_time'] < $last_access_time) {
             Util::cacheUnset('is_create_db_priv');
             Util::cacheUnset('is_reload_priv');
             Util::cacheUnset('db_to_create');
@@ -448,7 +447,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             Util::cacheUnset('col_priv');
             Util::cacheUnset('table_priv');
             Util::cacheUnset('proc_priv');
-            Util::cacheUnset('flush_priv');
 
             $GLOBALS['no_activity'] = true;
             $this->authFails();

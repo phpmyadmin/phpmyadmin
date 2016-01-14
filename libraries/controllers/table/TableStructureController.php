@@ -1087,8 +1087,8 @@ class TableStructureController extends TableController
     {
         $changed = false;
 
-        if (Util_lib\get($GLOBALS, 'col_priv', false)
-            && Util_lib\get($GLOBALS, 'flush_priv', false)
+        if (Util\get($GLOBALS, 'col_priv', false)
+            && Util\get($GLOBALS, 'is_reload_priv', false)
         ) {
             $this->dbi->selectDb('mysql');
 
