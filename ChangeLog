@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 - issue #11840 Index comments not working properly
 - issue #11791 Better handle local storage errors
 - issue #11752 Improve detection of privileges for privilege adjusting
+- issue #11854 Undefined property: stdClass::$releases at version check when disabled in config
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
