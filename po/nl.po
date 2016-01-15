@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2016-01-13 22:12+0000\n"
-"Last-Translator: Erwin Bronkhorst <erwinbronkhorst@yahoo.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"PO-Revision-Date: 2016-01-15 19:19+0000\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2571,22 +2571,26 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Er was een probleem met het lezen van uw lokale browser opslag, sommige "
+"functies kunnen daardoor mogelijk niet goed werken. Waarschijnlijk "
+"ondersteunt uw browser geen lokale opslag of gelimiteerd. In Firefox kan "
+"gecorrumpeerde opslag ook dit probleem veroorzaken, wissen van uw \""
+"Offslinewebsitegegevens\" kan dan helpen. In Safari wordt dit probleem "
+"meestal veroorzaakt door \"Privénavigatie\"."
 
 #: js/messages.php:711
 msgid "Copy tables to"
 msgstr "Kopieer tabellen naar"
 
 #: js/messages.php:712
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Tabelvoorvoegsel toevoegen:"
+msgstr "Tabel voorvoegsel toevoegen"
 
 #: js/messages.php:713
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Vervang tabelvoorvoegsel"
+msgstr "Vervang tabel met voorvoegsel"
 
 #: js/messages.php:714 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
