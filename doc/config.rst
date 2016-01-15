@@ -290,6 +290,20 @@ Server connection settings
 
     List of allowable ciphers for SSL connections to the MySQL server.
 
+.. config:option:: $cfg['Servers'][$i]['ssl_verify']
+
+    :type: boolean
+    :default: true
+
+    If your PHP install uses the MySQL Native Driver (mysqlnd), your
+    MySQL server is 5.6 or later, and your SSL certificate is self-signed,
+    there is a chance your SSL connection will fail due to validation.
+    Setting this to ``false`` will disable the validation check.
+
+    .. note::
+
+        This flag only works with PHP 5.6.16 or later
+
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
     :type: string
