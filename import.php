@@ -773,7 +773,7 @@ if ($go_sql) {
             $db, // db
             $table, // table
             null, // find_real_end
-            $sql_query, // sql_query_for_bookmark
+            $_REQUEST['sql_query'], // sql_query_for_bookmark
             null, // extra_data
             null, // message_to_show
             null, // message
