@@ -14,6 +14,40 @@ if (! defined('PHPMYADMIN')) {
  */
 $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
 
+
+function PMA_getItemsFromShowGrantsRow($row)
+{
+    $db_name_offset = mb_strpos($row, ' ON ') + 4;
+    $show_grants_dbname = mb_substr(
+        $row, $db_name_offset,
+        mb_strpos($row, '.', $db_name_offset) - $db_name_offset
+    );
+
+    $show_grants_dbname = PMA\libraries\Util::unQuote($show_grants_dbname, '`');
+
+    $show_grants_str    = mb_substr(
+        $row,
+        6,
+        (mb_strpos($row, ' ON ') - 6)
+    );
+
+    // extrac table from GRANT sytax
+    $tblname_start_offset = mb_strpos($row, '.') + 1;
+    $tblname_end_offset = mb_strpos($row, ' TO ');
+
+    $show_grants_tblname = mb_substr(
+        $row, $tblname_start_offset,
+        $tblname_end_offset - $tblname_start_offset
+    );
+    $show_grants_tblname = PMA\libraries\Util::unQuote($show_grants_tblname, '`');
+
+    return array(
+        $show_grants_str,
+        $show_grants_dbname,
+        $show_grants_tblname
+    );
+}
+
 /**
  * Check if user has required privileges for
  * performing 'Adjust privileges' operations
@@ -35,7 +69,7 @@ function PMA_checkRequiredPrivilegesForAdjust(
     if ($show_grants_str == 'ALL'
         || $show_grants_str == 'ALL PRIVILEGES'
         || (mb_strpos(
-                $show_grants_str, "SELECT, INSERT, UPDATE, DELETE"
+                $show_grants_str, 'SELECT, INSERT, UPDATE, DELETE'
             ) !== false)
     ) {
         if ($show_grants_dbname == '*'
@@ -57,19 +91,19 @@ function PMA_checkRequiredPrivilegesForAdjust(
         // Ex. '... ALL PRIVILEGES on `mysql`.`columns_priv` .. '
         if ($show_grants_dbname == 'mysql') {
             switch ($show_grants_tblname) {
-                case 'columns_priv':
+                case "columns_priv":
                     $GLOBALS['col_priv'] = true;
                     break;
-                case 'db':
+                case "db":
                     $GLOBALS['db_priv'] = true;
                     break;
-                case 'procs_priv':
+                case "procs_priv":
                     $GLOBALS['proc_priv'] = true;
                     break;
-                case 'tables_priv':
+                case "tables_priv":
                     $GLOBALS['table_priv'] = true;
                     break;
-                case '*':
+                case "*":
                     $GLOBALS['col_priv'] = true;
                     $GLOBALS['db_priv'] = true;
                     $GLOBALS['proc_priv'] = true;
@@ -155,29 +189,11 @@ function PMA_analyseShowGrant()
     $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
 
     while ($row = $GLOBALS['dbi']->fetchRow($rs_usr)) {
-        // extract db from GRANT ... ON *.* or GRANT ... ON db.*
-        $db_name_offset = mb_strpos($row[0], ' ON ') + 4;
-        $show_grants_dbname = mb_substr(
-            $row[0], $db_name_offset,
-            mb_strpos($row[0], '.', $db_name_offset) - $db_name_offset
-        );
-        $show_grants_dbname = PMA\libraries\Util::unQuote($show_grants_dbname, '`');
-
-        $show_grants_str    = mb_substr(
-            $row[0],
-            6,
-            (mb_strpos($row[0], ' ON ') - 6)
-        );
-
-        // extrac table from GRANT sytax
-        $tblname_start_offset = /*overload*/mb_strpos($row[0], '.') + 1;
-        $tblname_end_offset = /*overload*/mb_strpos($row[0], ' TO ');
-
-        $show_grants_tblname = /*overload*/mb_substr(
-            $row[0], $tblname_start_offset,
-            $tblname_end_offset - $tblname_start_offset
-        );
-        $show_grants_tblname = PMA\libraries\Util::unQuote($show_grants_tblname, '`');
+        list(
+            $show_grants_str,
+            $show_grants_dbname,
+            $show_grants_tblname
+        ) = PMA_getItemsFromShowGrantsRow($row[0]);
 
         if ($show_grants_dbname == '*') {
             if ($show_grants_str != 'USAGE') {
@@ -188,11 +204,10 @@ function PMA_analyseShowGrant()
         }
 
         if (
-            /*overload*/mb_strpos($show_grants_str,'RELOAD') !== false
+            mb_strpos($show_grants_str,'RELOAD') !== false
         ) {
             $GLOBALS['is_reload_priv'] = true;
         }
-
 
         // check for the required privileges for adjust
         PMA_checkRequiredPrivilegesForAdjust(
