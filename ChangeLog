@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.5.5.0 (not yet released)
+
 4.5.4.0 (not yet released)
 - issue #11724 live data edit of big sets is not working
 - issue        Table list not saved in db QBE bookmarked search
