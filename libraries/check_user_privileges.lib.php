@@ -38,7 +38,7 @@ function PMA_checkRequiredPrivilegesForAdjust(
                 $show_grants_str, "SELECT, INSERT, UPDATE, DELETE"
             ) !== false)
     ) {
-        if ($show_grants_dbname = '*'
+        if ($show_grants_dbname == '*'
             && $show_grants_tblname == '*'
         ) {
             $GLOBALS['col_priv'] = true;
