@@ -128,7 +128,7 @@ AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
     $('#tableid_3').unbind('change');
     $('#inputFormSubmitId').unbind('click');
     $('#togglesearchformlink').unbind('click');
-    $(document).on('keydown', "#dataDisplay :input");
+    $(document).off('keydown', "#dataDisplay :input");
     $('button.button-reset').unbind('click');
     $('div#resizer').unbind('resizestop');
     $('div#querychart').unbind('jqplotDataClick');
