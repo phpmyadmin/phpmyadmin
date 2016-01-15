@@ -92,6 +92,108 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
     }
 });
 
+/*
+ * Adds a date/time picker to an element
+ *
+ * @param object  $this_element   a jQuery object pointing to the element
+ */
+function PMA_addDatepicker($this_element, type, options)
+{
+    var showTimepicker = true;
+    if (type=="date") {
+        showTimepicker = false;
+    }
+
+    var defaultOptions = {
+        showOn: 'button',
+        buttonImage: themeCalendarImage, // defined in js/messages.php
+        buttonImageOnly: true,
+        stepMinutes: 1,
+        stepHours: 1,
+        showSecond: true,
+        showMillisec: true,
+        showMicrosec: true,
+        showTimepicker: showTimepicker,
+        showButtonPanel: false,
+        dateFormat: 'yy-mm-dd', // yy means year with four digits
+        timeFormat: 'HH:mm:ss.lc',
+        constrainInput: false,
+        altFieldTimeOnly: false,
+        showAnim: '',
+        beforeShow: function (input, inst) {
+            // Remember that we came from the datepicker; this is used
+            // in tbl_change.js by verificationsAfterFieldChange()
+            $this_element.data('comes_from', 'datepicker');
+            if ($(input).closest('.cEdit').length > 0) {
+                setTimeout(function () {
+                    inst.dpDiv.css({
+                        top: 0,
+                        left: 0,
+                        position: 'relative'
+                    });
+                }, 0);
+            }
+            // Fix wrong timepicker z-index, doesn't work without timeout
+            setTimeout(function () {
+                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
+            }, 0);
+        },
+        onSelect: function() {
+            $this_element.data('datepicker').inline = true;
+        },
+        onClose: function (dateText, dp_inst) {
+            // The value is no more from the date picker
+            $this_element.data('comes_from', '');
+            if (typeof $this_element.data('datepicker') !== 'undefined') {
+                $this_element.data('datepicker').inline = false;
+            }
+        }
+    };
+    if (type == "datetime" || type == "timestamp") {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
+    }
+    else if (type == "date") {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
+    }
+    else if (type == "time") {
+        $this_element.timepicker($.extend(defaultOptions, options));
+    }
+}
+
+/**
+ * Add a date/time picker to each element that needs it
+ * (only when jquery-ui-timepicker-addon.js is loaded)
+ */
+function addDateTimePicker() {
+    if ($.timepicker !== undefined) {
+        $('input.timefield, input.datefield, input.datetimefield').each(function () {
+
+            var decimals = $(this).parent().attr('data-decimals');
+            var type = $(this).parent().attr('data-type');
+
+            var showMillisec = false;
+            var showMicrosec = false;
+            var timeFormat = 'HH:mm:ss';
+            // check for decimal places of seconds
+            if (decimals > 0 && type.indexOf('time') != -1){
+                if (decimals > 3) {
+                    showMillisec = true;
+                    showMicrosec = true;
+                    timeFormat = 'HH:mm:ss.lc';
+                } else {
+                    showMillisec = true;
+                    timeFormat = 'HH:mm:ss.l';
+                }
+            }
+            PMA_addDatepicker($(this), type, {
+                showMillisec: showMillisec,
+                showMicrosec: showMicrosec,
+                timeFormat: timeFormat
+            });
+        });
+    }
+}
+
 /**
  * Hanle redirect and reload flags send as part of AJAX requests
  *
@@ -432,74 +534,6 @@ function displayPasswordGenerateButton()
 {
     $('#tr_element_before_generate_password').parent().append('<tr class="vmiddle"><td>' + PMA_messages.strGeneratePassword + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages.strGenerate + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
     $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages.strGeneratePassword + ':</label><span class="options"><input type="button" class="button" id="button_generate_password" value="' + PMA_messages.strGenerate + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
-}
-
-/*
- * Adds a date/time picker to an element
- *
- * @param object  $this_element   a jQuery object pointing to the element
- */
-function PMA_addDatepicker($this_element, type, options)
-{
-    var showTimepicker = true;
-    if (type=="date") {
-        showTimepicker = false;
-    }
-
-    var defaultOptions = {
-        showOn: 'button',
-        buttonImage: themeCalendarImage, // defined in js/messages.php
-        buttonImageOnly: true,
-        stepMinutes: 1,
-        stepHours: 1,
-        showSecond: true,
-        showMillisec: true,
-        showMicrosec: true,
-        showTimepicker: showTimepicker,
-        showButtonPanel: false,
-        dateFormat: 'yy-mm-dd', // yy means year with four digits
-        timeFormat: 'HH:mm:ss.lc',
-        constrainInput: false,
-        altFieldTimeOnly: false,
-        showAnim: '',
-        beforeShow: function (input, inst) {
-            // Remember that we came from the datepicker; this is used
-            // in tbl_change.js by verificationsAfterFieldChange()
-            $this_element.data('comes_from', 'datepicker');
-            if ($(input).closest('.cEdit').length > 0) {
-                setTimeout(function () {
-                    inst.dpDiv.css({
-                        top: 0,
-                        left: 0,
-                        position: 'relative'
-                    });
-                }, 0);
-            }
-            // Fix wrong timepicker z-index, doesn't work without timeout
-            setTimeout(function () {
-                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
-            }, 0);
-        },
-        onSelect: function() {
-            $this_element.data('datepicker').inline = true;
-        },
-        onClose: function (dateText, dp_inst) {
-            // The value is no more from the date picker
-            $this_element.data('comes_from', '');
-            if (typeof $this_element.data('datepicker') !== 'undefined') {
-                $this_element.data('datepicker').inline = false;
-            }
-        }
-    };
-    if (type == "datetime" || type == "timestamp") {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    }
-    else if (type == "date") {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    }
-    else if (type == "time") {
-        $this_element.timepicker($.extend(defaultOptions, options));
-    }
 }
 
 /**
@@ -1226,40 +1260,6 @@ function updateQueryParameters() {
         });
     } else {
         $('#parametersDiv').empty();
-    }
-}
-
-/**
- * Add a date/time picker to each element that needs it
- * (only when jquery-ui-timepicker-addon.js is loaded)
- */
-function addDateTimePicker() {
-    if ($.timepicker !== undefined) {
-        $('input.timefield, input.datefield, input.datetimefield').each(function () {
-
-            var decimals = $(this).parent().attr('data-decimals');
-            var type = $(this).parent().attr('data-type');
-
-            var showMillisec = false;
-            var showMicrosec = false;
-            var timeFormat = 'HH:mm:ss';
-            // check for decimal places of seconds
-            if (decimals > 0 && type.indexOf('time') != -1){
-                if (decimals > 3) {
-                    showMillisec = true;
-                    showMicrosec = true;
-                    timeFormat = 'HH:mm:ss.lc';
-                } else {
-                    showMillisec = true;
-                    timeFormat = 'HH:mm:ss.l';
-                }
-            }
-            PMA_addDatepicker($(this), type, {
-                showMillisec: showMillisec,
-                showMicrosec: showMicrosec,
-                timeFormat: timeFormat
-            });
-        });
     }
 }
 
