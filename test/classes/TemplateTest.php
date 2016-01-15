@@ -16,6 +16,64 @@ require_once 'test/PMATestCase.php';
 class TemplateTest extends PMATestCase
 {
     /**
+     * Test for setData
+     *
+     * @return void
+     */
+    public function testSetData()
+    {
+        $template = PMA\libraries\Template::get('test/echo');
+        $template->setData(
+            array(
+                'variable' => 'value'
+            )
+        );
+        $this->assertEquals('value', $template->render());
+    }
+
+    /**
+     * Test for addData
+     *
+     * @return void
+     */
+    public function testAddData()
+    {
+        $template = PMA\libraries\Template::get('test/addData');
+        $template->addData(
+            array(
+                'variable1' => 'value1'
+            )
+        );
+        $template->addData(
+            array(
+                'variable2' => 'value2'
+            )
+        );
+        $result = $template->render();
+        $this->assertContains('value1', $result);
+        $this->assertContains('value2', $result);
+    }
+
+    /**
+     * Test for addFunction
+     *
+     * @return void
+     */
+    public function testAddFunction()
+    {
+        $template = PMA\libraries\Template::get('test/add_function');
+        $template->addFunction('hello', function ($string) {
+            return 'hello ' . $string;
+        });
+        $template->addData(
+            array(
+                'variable' => 'world'
+            )
+        );
+        $this->assertEquals('hello world', $template->render());
+    }
+
+    /**
      * Test for render
      *
      * @return void
