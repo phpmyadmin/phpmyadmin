@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2016-01-11 22:37+0000\n"
+"PO-Revision-Date: 2016-01-15 19:50+0000\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
-"gl/>\n"
+"Language-Team: Galician "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2595,6 +2595,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Produciuse un problema ao acceder ao almacenamento do seu navegador; "
+"algunhas funcionalidades poderían non funcionar axeitadamente. É probábel "
+"que o navegador non admita o almacenamento ou que se atinxise o límite de "
+"cota. No Firefox o almacenamento estragado pode provocar problemas deste "
+"tipo; limpar os «Datos de sitios web sen conexión» podería axudar. No Safari "
+"este é un problema que causa frecuentemente a «Navegación en modo privado»."
 
 #: js/messages.php:635
 msgctxt "Previous month"
@@ -6438,7 +6444,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:389
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Actualizar os datos ao atopar chaves duplicadas ao importar"
 
 #: libraries/config/messages.inc.php:379
 msgid ""
@@ -6812,7 +6818,7 @@ msgstr "Mostrar os procedementos nunha árbore"
 
 #: libraries/config/messages.inc.php:535
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Mostrar os procedementos baixo a base de datos na árbore de navegación"
 
 #: libraries/config/messages.inc.php:536
 msgid "Show events in tree"
@@ -6850,11 +6856,11 @@ msgstr "Onde mostrar as ligazóns das fileiras das táboas"
 
 #: libraries/config/messages.inc.php:548
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Mostrar as ligazóns das filas mesmo na ausencia de chaves únicas."
 
 #: libraries/config/messages.inc.php:550
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Mostrar as ligazóns das filas de calquera maneira"
 
 #: libraries/config/messages.inc.php:552
 msgid "Use natural order for sorting table and database names."
@@ -7002,7 +7008,7 @@ msgstr "Recordar a ordenación da táboa"
 
 #: libraries/config/messages.inc.php:607
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Orde predeterminada de ordenación das táboas con chave primaria."
 
 #: libraries/config/messages.inc.php:609
 #, fuzzy
@@ -7472,7 +7478,6 @@ msgid "Display columns table"
 msgstr "Mostrar a táboa de columnas"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -7481,7 +7486,7 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Déixeo en branco se non desexa preferencias «persistentes» da interface das "
-"táboas entre sesións; suxírese: [kbd]pma__table_uiprefs[/kbd]"
+"táboas entre sesións; suxírese: [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:776
 msgid "UI preferences table"
@@ -7601,7 +7606,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:827
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Táboa de elementos de navegación agochados"
 
 #: libraries/config/messages.inc.php:829
 msgid "User for config auth"
@@ -7945,7 +7950,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:965
 msgid "Proxy url"
-msgstr ""
+msgstr "URL do proxy"
 
 #: libraries/config/messages.inc.php:967
 msgid ""
@@ -8002,7 +8007,7 @@ msgstr "Chave privada do reCaptcha"
 
 #: libraries/config/messages.inc.php:991
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Escolla a acción predeterminada para enviar informes de fallo."
 
 #: libraries/config/messages.inc.php:993
 msgid "Send error reports"
@@ -8013,12 +8018,13 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"As consultas execútanse ao premer Intro (no canto de Ctrl+Intro). As liñas "
+"novas insírense con Maiús+Intro."
 
 #: libraries/config/messages.inc.php:999
-#, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
-msgstr "Consultas executadas"
+msgstr "Intro executa consultas na consola"
 
 #: libraries/config/messages.inc.php:1002
 msgid ""
@@ -8105,14 +8111,14 @@ msgstr "Deixouse a vista %s"
 
 #: libraries/controllers/DatabaseStructureController.class.php:429
 #: tbl_operations.php:398
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "Eliminouse a táboa %s"
+msgstr "Eliminouse a táboa %s."
 
 #: libraries/controllers/DatabaseStructureController.class.php:738
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "A lista de favoritos está chea!"
 
 #: libraries/controllers/DatabaseStructureController.class.php:953
 #: libraries/mysql_charsets.lib.php:369 libraries/mysql_charsets.lib.php:376
@@ -8165,18 +8171,17 @@ msgstr "Busca gráfica"
 
 #: libraries/controllers/TableSearchController.class.php:850
 #: templates/table/search/selection_form.phtml:59
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
-msgstr "Buscar e substituír"
+msgstr "Atopar e substituír"
 
 #: libraries/controllers/TableStructureController.class.php:163
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "O nome de columna «%s» é unha palabra chave reservada do MySQL."
-msgstr[1] "O nome de columna «%s» é unha palabra chave reservada do MySQL."
+msgstr[0] "O nome «%s» é unha palabra chave reservada do MySQL."
+msgstr[1] "Os nomes «%s» son palabras chaves reservadas do MySQL."
 
 #: libraries/controllers/TableStructureController.class.php:241
 msgid "No column selected."
@@ -8187,11 +8192,11 @@ msgid "The columns have been moved successfully."
 msgstr "Movéronse as columnas satisfactoriamente."
 
 #: libraries/controllers/TableStructureController.class.php:741
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Alterouse a táboa %1$s sen problemas."
+msgstr "Alterouse a táboa %1$s sen problemas. Axustáronse os privilexios."
 
 #: libraries/controllers/TableStructureController.class.php:796
 #: libraries/tracking.lib.php:1094
@@ -8349,28 +8354,24 @@ msgid "Export templates:"
 msgstr "Tipo de exportación"
 
 #: libraries/display_export.lib.php:205
-#, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
-msgstr "Modelo do nome de ficheiro:"
+msgstr "Modelo novo:"
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "Table name"
 msgid "Template name"
-msgstr "Nome da táboa"
+msgstr "Nome do modelo"
 
 #: libraries/display_export.lib.php:217
-#, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "Modelo do nome de ficheiro:"
+msgstr "Modelos existentes:"
 
 #: libraries/display_export.lib.php:218
-#, fuzzy
 #| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "Taxa de temporais no disco"
+msgstr "Modelo:"
 
 #: libraries/display_export.lib.php:223
 #, fuzzy
@@ -8379,16 +8380,14 @@ msgid "Update"
 msgstr "Actualizada"
 
 #: libraries/display_export.lib.php:245
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a template"
-msgstr "Escoller táboas"
+msgstr "Seleccionar un modelo"
 
 #: libraries/display_export.lib.php:291
-#, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
-msgstr "Método de exportación"
+msgstr "Método de exportación:"
 
 #: libraries/display_export.lib.php:301
 msgid "Quick - display only the minimal options"
@@ -8399,17 +8398,15 @@ msgid "Custom - display all possible options"
 msgstr "Personalizada - mostrar todas as opcións posíbeis"
 
 #: libraries/display_export.lib.php:335
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "Bases de datos"
+msgstr "Bases de datos:"
 
 #: libraries/display_export.lib.php:337
 #: libraries/navigation/Navigation.class.php:196
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Táboas"
+msgstr "Táboas:"
 
 #: libraries/display_export.lib.php:357 libraries/display_import.lib.php:358
 #: libraries/plugins/export/ExportCodegen.class.php:107
@@ -8511,20 +8508,18 @@ msgid "View output as text"
 msgstr "Ver a saída como texto"
 
 #: libraries/display_export.lib.php:751
-#, fuzzy
 #| msgid "Export views"
 msgid "Export databases as separate files"
-msgstr "Exportar as vistas"
+msgstr "Exportar as bases de datos como ficheiros separados"
 
 #: libraries/display_export.lib.php:753
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Exportar os cabezallos das táboas"
+msgstr "Exportar as táboas como ficheiros separados"
 
 #: libraries/display_export.lib.php:783 libraries/display_export.lib.php:909
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Mudar o nome das bases de datos/táboas/columnas seleccionadas"
 
 #: libraries/display_export.lib.php:808
 msgid "Save output to a file"
@@ -8532,19 +8527,17 @@ msgstr "Gardar a saída nun ficheiro"
 
 #: libraries/display_export.lib.php:841
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Omitir as táboas maiores de"
 
 #: libraries/display_export.lib.php:936
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database"
-msgstr "Escoller táboas"
+msgstr "Seleccionar base de datos"
 
 #: libraries/display_export.lib.php:938
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select table"
-msgstr "Escoller táboas"
+msgstr "Seleccionar táboa"
 
 #: libraries/display_export.lib.php:954
 #, fuzzy
@@ -8553,16 +8546,14 @@ msgid "New database name"
 msgstr "nome da base de datos"
 
 #: libraries/display_export.lib.php:978
-#, fuzzy
 #| msgid "New table"
 msgid "New table name"
-msgstr "Sen táboas"
+msgstr "Nome novo da táboa"
 
 #: libraries/display_export.lib.php:988
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Old column name"
-msgstr "Copiar nome da columna"
+msgstr "Nome anterior da táboa"
 
 #: libraries/display_export.lib.php:989
 #, fuzzy
@@ -8629,21 +8620,19 @@ msgstr ""
 "b>. Exemplo: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Ficheiro que importar:"
 
 #: libraries/display_import.lib.php:234 libraries/display_import.lib.php:251
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Tamén pode arrastrar e soltar un ficheiro sobre calquera páxina."
 
 #: libraries/display_import.lib.php:254
 msgid "File uploads are not allowed on this server."
 msgstr "Este servidor non admite a recepción de ficheiros."
 
 #: libraries/display_import.lib.php:278
-#, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Importación parcial:"
@@ -8667,16 +8656,14 @@ msgstr ""
 "importar ficheiros longos, aínda que pode rachar transaccións.)</i>"
 
 #: libraries/display_import.lib.php:309
-#, fuzzy
 #| msgid "Number of rows to skip, starting from the first row:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Número de filas que saltar, comezando na primeira:"
+msgstr "Omitir este número de consultas (para SQL), comezando na primeira:"
 
 #: libraries/display_import.lib.php:339
-#, fuzzy
 #| msgid "Options"
 msgid "Other options:"
-msgstr "Opcións"
+msgstr "Outras opcións:"
 
 #: libraries/display_import.lib.php:477
 msgid ""
@@ -12392,7 +12379,7 @@ msgstr "Non hai acontecementos que mostrar."
 
 #: libraries/select_lang.lib.php:614
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignórase o código de idioma descoñecido."
 
 #: libraries/select_server.lib.php:43 libraries/select_server.lib.php:48
 #, fuzzy
@@ -12457,7 +12444,6 @@ msgstr ""
 
 #: libraries/server_databases.lib.php:366
 #: libraries/server_databases.lib.php:371
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Activar as estatísticas"
