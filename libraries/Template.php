@@ -16,8 +16,20 @@ namespace PMA\libraries;
  */
 class Template
 {
-
+    /**
+     * Name of the template
+     */
     protected $name = null;
+
+    /**
+     * Data associated with the template
+     */
+    protected $data;
+
+    /**
+     * Helper functions for the template
+     */
+    protected $helperFunctions;
 
     const BASE_PATH = 'templates/';
 
@@ -29,6 +41,8 @@ class Template
     protected function __construct($name)
     {
         $this->name = $name;
+        $this->data = array();
+        $this->helperFunctions = array();
     }
 
     /**
@@ -58,6 +72,78 @@ class Template
     }
 
     /**
+     * Sets data to be used by this template
+     *
+     * @param array $data containing data entries
+     */
+    public function setData($data = array())
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * Adds more entries to the data for this template
+     *
+     * @param array $data containing data entries
+     */
+    public function addData($data = array())
+    {
+        foreach ($data as $key => $value) {
+            $this->data[$key] = $value;
+        }
+    }
+
+    /**
+     * Adds a function for use by the template
+     *
+     * @param string $funcName function name
+     * @param callable $funcDef function definition
+     */
+    public function addFunction($funcName, $funcDef)
+    {
+        if (! isset($this->helperFunctions[$funcName])) {
+            $this->helperFunctions[$funcName] = $funcDef;
+        } else {
+            throw new \LogicException(
+                'The function "' . $funcName . '" is already associated with the template.'
+            );
+        }
+    }
+
+    /**
+     * Removes a function
+     *
+     * @param string $funcName function name
+     */
+    public function removeFunction($funcName)
+    {
+        if (isset($this->helperFunctions[$funcName])) {
+            unset($this->helperFunctions[$funcName]);
+        } else {
+            throw new \LogicException(
+                'The function "' . $funcName . '" is not associated with the template.'
+            );
+        }
+    }
+
+    /**
+     * Magic call to locally inaccessible but associated helper functions
+     *
+     * @param string $funcName function name
+     * @param array  $arguments function arguments
+     */
+    public function __call($funcName, $arguments)
+    {
+        if (isset($this->helperFunctions[$funcName])) {
+            return call_user_func_array($this->helperFunctions[$funcName], $arguments);
+        } else {
+            throw new \LogicException(
+                'The function "' . $funcName . '" is not associated with the template.'
+            );
+        }
+    }
+
+    /**
      * Render template
      *
      * @param array $data Variables to provides for template
@@ -69,7 +155,8 @@ class Template
     {
         $template = static::BASE_PATH . $this->name . '.phtml';
         try {
-            extract($data);
+            $this->addData($data);
+            extract($this->data);
             ob_start();
             if (file_exists($template)) {
                 include $template;
