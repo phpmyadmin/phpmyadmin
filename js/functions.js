@@ -195,7 +195,7 @@ function addDateTimePicker() {
 }
 
 /**
- * Hanle redirect and reload flags send as part of AJAX requests
+ * Handle redirect and reload flags sent as part of AJAX requests
  *
  * @param data ajax response data
  */
