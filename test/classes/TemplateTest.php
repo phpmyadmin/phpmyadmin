@@ -38,7 +38,7 @@ class TemplateTest extends PMATestCase
      */
     public function testAddData()
     {
-        $template = PMA\libraries\Template::get('test/addData');
+        $template = PMA\libraries\Template::get('test/add_data');
         $template->addData(
             array(
                 'variable1' => 'value1'
