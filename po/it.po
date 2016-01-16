@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2016-01-16 15:34+0000\n"
-"Last-Translator: Massimiliano Caniparoli <massic80@gmail.com>\n"
+"PO-Revision-Date: 2016-01-25 17:23+0000\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
@@ -2608,10 +2608,9 @@ msgid "Add table prefix"
 msgstr "Aggiungi un prefisso alla tabella"
 
 #: js/messages.php:713
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Sostituisci il prefisso della tabella"
+msgstr "Sostituisci tabella con prefisso"
 
 #: js/messages.php:714 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
