@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.5.5.0 (not yet released)
+- issue        Undefined index: is_ajax_request
 
 4.5.4.0 (not yet released)
 - issue #11724 live data edit of big sets is not working
