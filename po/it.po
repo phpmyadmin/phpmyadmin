@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2016-01-14 14:28+0000\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"PO-Revision-Date: 2016-01-16 15:34+0000\n"
+"Last-Translator: Massimiliano Caniparoli <massic80@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
@@ -2603,10 +2603,9 @@ msgid "Copy tables to"
 msgstr "Copia le tabelle su"
 
 #: js/messages.php:712
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Aggiungi un prefisso alla tabella:"
+msgstr "Aggiungi un prefisso alla tabella"
 
 #: js/messages.php:713
 #, fuzzy
@@ -9154,10 +9153,9 @@ msgid "Data only"
 msgstr "Solo dati"
 
 #: libraries/mult_submits.lib.php:349
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Aggiungi valore AUTO_INCREMENT"
+msgstr "Aggiungi valore AUTO INCREMENT"
 
 #: libraries/mult_submits.lib.php:351 libraries/operations.lib.php:225
 #: libraries/operations.lib.php:1284
@@ -10584,7 +10582,6 @@ msgstr ""
 "dei campi TIMESTAMP tra server in diversi fusi orari)</i>"
 
 #: libraries/plugins/export/ExportSql.php:508
-#, fuzzy
 #| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
 msgstr "Il tuo database sembra utilizzare le funzioni;"
