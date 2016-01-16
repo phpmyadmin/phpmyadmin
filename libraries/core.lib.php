@@ -220,7 +220,7 @@ function PMA_fatalError(
         $error_message = vsprintf($error_message, $message_args);
     }
 
-    if ($GLOBALS['is_ajax_request']) {
+    if (! empty($GLOBALS['is_ajax_request']) && $GLOBALS['is_ajax_request']) {
         $response = PMA\libraries\Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', PMA\libraries\Message::error($error_message));
