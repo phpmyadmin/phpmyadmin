@@ -16333,7 +16333,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:260
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr "Současné hodnoty jous tmp_table_size: %s, max_heap_table_size: %s"
+msgstr "Současné hodnoty jsou tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:262
 msgid "Percentage of temp tables on disk"
