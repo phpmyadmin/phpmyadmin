@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2016-01-15 19:50+0000\n"
+"PO-Revision-Date: 2016-01-17 22:02+0000\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/gl/>\n"
@@ -9100,10 +9100,9 @@ msgid ""
 msgstr "As estruturas seguintes foron creadas ou alteradas. Aquí pode:"
 
 #: libraries/import.lib.php:1258
-#, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
-msgstr "Ver o contido dunha estrutura premendo o seu nome"
+msgstr "Ver o contido dunha estrutura premendo no seu nome."
 
 #: libraries/import.lib.php:1261
 #, fuzzy
