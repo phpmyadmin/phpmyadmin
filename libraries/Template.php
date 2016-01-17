@@ -37,24 +37,28 @@ class Template
      * Template constructor
      *
      * @param string $name Template name
+     * @param array $data Variables to be provided to the template
+     * @param array $helperFunctions Helper functions to be used by template
      */
-    protected function __construct($name)
+    protected function __construct($name, $data = array(), $helperFunctions = array())
     {
         $this->name = $name;
-        $this->data = array();
-        $this->helperFunctions = array();
+        $this->data = $data;
+        $this->helperFunctions = $helperFunctions;
     }
 
     /**
      * Template getter
      *
      * @param string $name Template name
+     * @param array $data Variables to be provided to the template
+     * @param array $helperFunctions Helper functions to be used by template
      *
      * @return Template
      */
-    public static function get($name)
+    public static function get($name, $data = array(), $helperFunctions = array())
     {
-        return new Template($name);
+        return new Template($name, $data, $helperFunctions);
     }
 
     /**
@@ -146,17 +150,22 @@ class Template
     /**
      * Render template
      *
-     * @param array $data Variables to provides for template
+     * @param array $data Variables to be provided to the template
      * @param bool  $trim Trim content
+     * @param array $helperFunctions Helper functions to be used by template
      *
      * @return string
      */
-    public function render($data = array(), $trim = true)
+    public function render($data = array(), $trim = true, $helperFunctions = array())
     {
         $template = static::BASE_PATH . $this->name . '.phtml';
         try {
             $this->addData($data);
             extract($this->data);
+            $this->helperFunctions = array_merge(
+                $this->helperFunctions,
+                $helperFunctions
+            );
             ob_start();
             if (file_exists($template)) {
                 include $template;
