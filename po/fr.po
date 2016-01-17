@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2016-01-14 12:59+0000\n"
+"PO-Revision-Date: 2016-01-17 13:37+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/fr/>\n"
@@ -16840,7 +16840,7 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections est à %s%% de max_connections, devrait être sous les "
+"Max_used_connections est à %s%% de max_connections, il devrait être sous les "
 "80%%"
 
 #: libraries/advisory_rules.txt:399
@@ -16940,8 +16940,8 @@ msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
-"La taille du journal InnoDB n'est pas appropriée, en tenant compte du pool "
-"de mémoire tampon InnoDB."
+"La taille du journal InnoDB n'est pas appropriée, par rapport au pool de "
+"mémoire tampon InnoDB."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -16956,16 +16956,16 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Surtout si votre système effectue de nombreuses écritures dans des tables "
-"InnoDB, vous devriez régler innodb_log_file à 25%% de "
+"En particulier si votre système effectue de nombreuses écritures dans des "
+"tables InnoDB, vous devriez régler innodb_log_file à 25%% de "
 "{innodb_buffer_pool_size}. Cependant, plus cette valeur est élevée, plus "
 "long sera le temps de recouvrement en cas de panne de la base de données, "
 "alors cette valeur ne devrait pas dépasser 256 Mio. Veuillez noter que vous "
 "ne pouvez pas simplement changer la valeur de cette variable. Il vous faut "
 "fermer le serveur, enlever les journaux InnoDB, placer la nouvelle valeur "
 "dans my.cnf, démarrer le serveur, puis vérifier les journaux d'erreurs. Voir "
-"aussi <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">cet article de blogue.</a>"
+"aussi <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01"
+"/increase-innodblogfilesize-proper-way.html\">cet article de blogue.</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -16973,8 +16973,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"La taille de votre journal InnoDB est de %s%% en comparant au pool de "
-"mémoire tampon InnoDB, elle ne devrait pas être sous les 20%%"
+"La taille de votre journal InnoDB est de %s%% par rapport au pool de mémoire "
+"tampon InnoDB, elle ne devrait pas être sous les 20%%"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
@@ -17018,7 +17018,7 @@ msgstr "Taille de la mémoire-tampon InnoDB"
 
 #: libraries/advisory_rules.txt:453
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Votre mémoire-tampon InnoDB est petite."
+msgstr "Votre mémoire-tampon InnoDB est trop petite."
 
 #: libraries/advisory_rules.txt:454
 #, php-format
