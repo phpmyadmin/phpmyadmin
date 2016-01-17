@@ -210,7 +210,7 @@ function PMA_changePassHashingFunction()
 }
 
 /**
- * Generate the error url and submit the query
+ * Changes password for a user
  *
  * @param string $username              Username
  * @param string $hostname              Hostname
@@ -235,6 +235,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
             : '\'' . PMA_Util::sqlAddSlashes($password) . '\'');
     } else if ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200
+        && PMA_MYSQL_INT_VERSION < 100100
     ) {
         if ($orig_auth_plugin == 'mysql_native_password') {
             // Set the hashing method used by PASSWORD()

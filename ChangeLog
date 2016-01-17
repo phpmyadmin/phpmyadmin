@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
+- issue #11855 Fix password change on MariaDB 10.1 and newer
 
 4.5.4.0 (not yet released)
 - issue #11724 live data edit of big sets is not working
