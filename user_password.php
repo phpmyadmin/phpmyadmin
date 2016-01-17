@@ -210,7 +210,7 @@ function PMA_changePassHashingFunction()
 }
 
 /**
- * Generate the error url and submit the query
+ * Changes password for a user
  *
  * @param string $username              Username
  * @param string $hostname              Hostname
