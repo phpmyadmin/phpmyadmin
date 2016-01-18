@@ -27,7 +27,6 @@ $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 $response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('functions.js');
 $scripts->addFile('tbl_operations.js');
 
 /**

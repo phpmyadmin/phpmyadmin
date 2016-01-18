@@ -79,7 +79,6 @@ $comments_map = PMA_getCommentsMap($db, $table);
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('functions.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('big_ints.js');
