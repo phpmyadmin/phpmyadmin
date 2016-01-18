@@ -298,7 +298,7 @@ class Header
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = !!$isAjax;
+        $this->_isAjax = (boolean) $isAjax;
         $this->_console->setAjax($isAjax);
     }
 
