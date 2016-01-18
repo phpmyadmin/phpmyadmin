@@ -998,3 +998,12 @@ function PMA_setGlobalDbOrTable($param)
         $GLOBALS['url_params'][$param] = $GLOBALS[$param];
     }
 }
+
+/* Compatibility with PHP < 5.6 */
+if(! function_exists('hash_equals')) {
+    function hash_equals($a, $b) {
+        $ret = strlen($a) ^ strlen($b);
+        $ret |= array_sum(unpack("C*", $a ^ $b));
+        return ! $ret;
+    }
+}

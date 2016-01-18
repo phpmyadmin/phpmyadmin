@@ -474,7 +474,7 @@ $token_mismatch = true;
 $token_provided = false;
 if (PMA_isValid($_REQUEST['token'])) {
     $token_provided = true;
-    $token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
+    $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_REQUEST['token']);
 }
 
 if ($token_mismatch) {
