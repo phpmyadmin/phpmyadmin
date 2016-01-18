@@ -76,24 +76,20 @@ class Template
     }
 
     /**
-     * Sets data to be used by this template
-     *
-     * @param array $data containing data entries
-     */
-    public function setData($data = array())
-    {
-        $this->data = $data;
-    }
-
-    /**
      * Adds more entries to the data for this template
      *
-     * @param array $data containing data entries
+     * @param array|string $data containing data array or data key
+     * @param string       $value containing data value
      */
-    public function addData($data = array())
+    public function set($data, $value = null)
     {
-        foreach ($data as $key => $value) {
-            $this->data[$key] = $value;
+        if(is_array($data) && ! $value) {
+            $this->data = array_merge(
+                $this->data,
+                $data
+            );
+        } else if (is_string($data)) {
+            $this->data[$data] = $value;
         }
     }
 
@@ -103,7 +99,7 @@ class Template
      * @param string $funcName function name
      * @param callable $funcDef function definition
      */
-    public function addFunction($funcName, $funcDef)
+    public function setHelper($funcName, $funcDef)
     {
         if (! isset($this->helperFunctions[$funcName])) {
             $this->helperFunctions[$funcName] = $funcDef;
@@ -119,7 +115,7 @@ class Template
      *
      * @param string $funcName function name
      */
-    public function removeFunction($funcName)
+    public function removeHelper($funcName)
     {
         if (isset($this->helperFunctions[$funcName])) {
             unset($this->helperFunctions[$funcName]);
@@ -160,7 +156,7 @@ class Template
     {
         $template = static::BASE_PATH . $this->name . '.phtml';
         try {
-            $this->addData($data);
+            $this->set($data);
             extract($this->data);
             $this->helperFunctions = array_merge(
                 $this->helperFunctions,

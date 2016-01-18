@@ -16,35 +16,15 @@ require_once 'test/PMATestCase.php';
 class TemplateTest extends PMATestCase
 {
     /**
-     * Test for setData
+     * Test for set function
      *
      * @return void
      */
-    public function testSetData()
-    {
-        $template = PMA\libraries\Template::get('test/echo');
-        $template->setData(
-            array(
-                'variable' => 'value'
-            )
-        );
-        $this->assertEquals('value', $template->render());
-    }
-
-    /**
-     * Test for addData
-     *
-     * @return void
-     */
-    public function testAddData()
+    public function testSet()
     {
         $template = PMA\libraries\Template::get('test/add_data');
-        $template->addData(
-            array(
-                'variable1' => 'value1'
-            )
-        );
-        $template->addData(
+        $template->set('variable1', 'value1');
+        $template->set(
             array(
                 'variable2' => 'value2'
             )
@@ -55,17 +35,17 @@ class TemplateTest extends PMATestCase
     }
 
     /**
-     * Test for addFunction
+     * Test for setHelper
      *
      * @return void
      */
-    public function testAddFunction()
+    public function testSetHelper()
     {
-        $template = PMA\libraries\Template::get('test/add_function');
-        $template->addFunction('hello', function ($string) {
+        $template = PMA\libraries\Template::get('test/set_helper');
+        $template->setHelper('hello', function ($string) {
             return 'hello ' . $string;
         });
-        $template->addData(
+        $template->set(
             array(
                 'variable' => 'world'
             )
