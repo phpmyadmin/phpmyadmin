@@ -13,6 +13,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require './libraries/phpseclib/Crypt/Random.php';
+
 // verify if PHP supports session, die if it does not
 
 if (!@function_exists('session_name')) {
@@ -101,7 +103,7 @@ if (! isset($_COOKIE[$session_name])) {
  * (we use "space PMA_token space" to prevent overwriting)
  */
 if (! isset($_SESSION[' PMA_token '])) {
-    $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
+    $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
 }
 
 /**
@@ -115,6 +117,6 @@ function PMA_secureSession()
 {
     // prevent session fixation and XSS
     session_regenerate_id(true);
-    $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
+    $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
 }
 ?>
