@@ -31,7 +31,8 @@ require_once 'libraries/Linter.class.php';
 $sql_query = !empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 
 // Disabling standard response.
-$response = PMA_Response::getInstance();
-$response->disable();
+PMA_Response::getInstance()->disable();
+
+PMA_headerJSON();
 
 echo json_encode(PMA_Linter::lint($sql_query));

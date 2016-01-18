@@ -14,7 +14,7 @@ require './lib/common.inc.php';
 $validators = array();
 require './libraries/config/Validator.class.php';
 
-header('Content-type: application/json');
+PMA_headerJSON();
 
 $ids = isset($_POST['id']) ? $_POST['id'] : null;
 $vids = explode(',', $ids);
