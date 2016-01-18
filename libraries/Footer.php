@@ -271,7 +271,7 @@ class Footer
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = !!$isAjax;
+        $this->_isAjax = (boolean) $isAjax;
     }
 
     /**
