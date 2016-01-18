@@ -344,7 +344,8 @@ class PMA_DbSearch
             $browse_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
             $html_output .= '<td><a name="browse_search" class="ajax" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
-                . $browse_result_path . '\',\'' . $each_table . '\',\''
+                . $browse_result_path . '\',\''
+                . PMA_escapeJsString(htmlspecialchars($each_table)) . '\',\''
                 . PMA_URL_getCommon(
                     array(
                         'db' => $GLOBALS['db'], 'table' => $each_table
