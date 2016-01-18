@@ -482,7 +482,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  */
 $token_mismatch = true;
 if (PMA_isValid($_REQUEST['token'])) {
-    $token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
+    $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_REQUEST['token']);
 }
 
 if ($token_mismatch) {

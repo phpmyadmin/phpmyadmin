@@ -305,7 +305,7 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
         PMA_fatalError($message);
     } else {
         $GLOBALS['error_handler']->addError(
-            $message, 
+            $message,
             E_USER_WARNING,
             '',
             '',
@@ -799,4 +799,12 @@ function PMA_addJSVar($key, $value, $escape = true)
     PMA_addJSCode(PMA_getJsValue($key, $value, $escape));
 }
 
+/* Compatibility with PHP < 5.6 */
+if(! function_exists('hash_equals')) {
+    function hash_equals($a, $b) {
+        $ret = strlen($a) ^ strlen($b);
+        $ret |= array_sum(unpack("C*", $a ^ $b));
+        return ! $ret;
+    }
+}
 ?>
