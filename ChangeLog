@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue #11752 Improve detection of privileges for privilege adjusting
 - issue #11854 Undefined property: stdClass::$releases at version check when disabled in config
 - issue #11814 SQL comment and variable stripped from bookmark on save
+- issue        Gracefully handle errors in regex based javascript search
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
