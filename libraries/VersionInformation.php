@@ -95,6 +95,7 @@ class VersionInformation
         $data = json_decode($response);
         if (is_object($data)
             && ! empty($data->version)
+            && ! empty($data->releases)
             && ! empty($data->date)
             && $save
         ) {
