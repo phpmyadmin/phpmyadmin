@@ -23,6 +23,10 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
 require_once 'libraries/gis/GIS_Visualization.class.php';
 
+if (! isset($_REQUEST['field'])) {
+    PMA_Util::checkParameters(array('field'));
+}
+
 // Get data if any posted
 $gis_data = array();
 if (PMA_isValid($_REQUEST['gis_data'], 'array')) {
@@ -185,6 +189,9 @@ if ($geom_type == 'GEOMETRYCOLLECTION') {
 }
 
 for ($a = 0; $a < $geom_count; $a++) {
+    if (! isset($gis_data[$a])) {
+        continue;
+    }
 
     if ($geom_type == 'GEOMETRYCOLLECTION') {
         echo '<br/><br/>';
