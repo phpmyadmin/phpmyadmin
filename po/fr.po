@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2016-01-17 13:37+0000\n"
+"PO-Revision-Date: 2016-01-19 13:42+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -5462,7 +5462,7 @@ msgstr "Secret Blowfish"
 
 #: libraries/config/messages.inc.php:40
 msgid "Highlight selected rows."
-msgstr "Utilisé quand on clique sur une ligne."
+msgstr "Mettre en surbrillance les lignes sélectionnées."
 
 #: libraries/config/messages.inc.php:41
 msgid "Row marker"
@@ -5494,7 +5494,7 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; "
+"Détermine la méthode d'édition pour les colonnes CHAR et VARCHAR; "
 "[kbd]input[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet "
 "la saisie de sauts de lignes."
 
