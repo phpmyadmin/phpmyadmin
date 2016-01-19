@@ -69,9 +69,11 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
 
         $_REQUEST['db_collation'] = 'db1';
+        $html = PMA_getHtmlForRenameDatabase("pma");
+        $this->assertContains('db_operations.php', $html);
         $this->assertRegExp(
-            '/.*db_operations.php(.|[\n])*db_rename([\n]|.)*Rename database to.*/m',
-            PMA_getHtmlForRenameDatabase("pma")
+            '/.*db_rename.*Rename database to.*/',
+            $html
         );
     }
 
