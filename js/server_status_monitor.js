@@ -1695,7 +1695,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             if (val.length === 0) {
                 textFilter = null;
             } else {
-                textFilter = new RegExp(val, 'i');
+                try {
+                    textFilter = new RegExp(val, 'i');
+                    $('#filterQueryText').removeClass('error');
+                } catch(e) {
+                    if (e instanceof SyntaxError) {
+                        $('#filterQueryText').addClass('error');
+                        textFilter = null;
+                    }
+                }
             }
 
             var rowSum = 0, totalSum = 0, i = 0, q;
