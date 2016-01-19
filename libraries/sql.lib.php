@@ -1093,6 +1093,11 @@ function PMA_countQueryResults(
     $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
 ) {
 
+    /* Shortcut for not analyzed/empty query */
+    if (empty($analyzed_sql_results)) {
+        return 0;
+    }
+
     if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
