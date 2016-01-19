@@ -22,6 +22,10 @@ require_once 'libraries/Index.class.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/plugin_interface.lib.php';
 
+if (! isset($_REQUEST['export_type'])) {
+    PMA_Util::checkParameters(array('export_type'));
+}
+
 /**
  * Include the appropriate Schema Class depending on $export_type
  * default is PDF

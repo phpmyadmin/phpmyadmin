@@ -2029,7 +2029,8 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     // (the parser never sets the 'union' key to 0).
     // Handling is also not required if we came from the "Sort by key"
     // drop-down.
-    if (PMA_isRememberSortingOrder($analyzed_sql_results)
+    if (! empty($analyzed_sql_results)
+        && PMA_isRememberSortingOrder($analyzed_sql_results)
         && empty($analyzed_sql_results['union'])
         && ! isset($_REQUEST['sort_by_key'])
     ) {
