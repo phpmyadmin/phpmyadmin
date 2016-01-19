@@ -1017,14 +1017,14 @@ EOT;
                 $value[$i] = $properties['value'];
             }
             //Column type
-            $html_output .= '<td>' . (isset($type[$i]) ? $type[$i] : '') . '</td>';
+            $html_output .= '<td>' . (isset($type[$i]) ? htmlspecialchars($type[$i]) : '') . '</td>';
             //Column Collation
             $html_output .= '<td>' . (isset($collation[$i]) ? $collation[$i] : '')
                 . '</td>';
             //Select options for column operators
             $html_output .= '<td>' . (isset($func[$i]) ? $func[$i] : '') . '</td>';
             //Inputbox for search criteria value
-            $html_output .= '<td>' . (isset($value[$i]) ? $value[$i] : '') . '</td>';
+            $html_output .= '<td>' . (isset($value[$i]) ? htmlspecialchars($value[$i]) : '') . '</td>';
             $html_output .= '</tr>';
             //Displays hidden fields
             $html_output .= '<tr><td>';
