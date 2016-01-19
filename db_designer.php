@@ -10,6 +10,8 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/db_designer.lib.php';
 
+require 'libraries/db_common.inc.php';
+
 $response = PMA_Response::getInstance();
 
 if (isset($_REQUEST['dialog'])) {
@@ -125,8 +127,6 @@ $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
 $scripts->addFile('pmd/iecanvas.js', true);
 $scripts->addFile('pmd/init.js');
-
-require 'libraries/db_common.inc.php';
 
 list(
     $tables,
