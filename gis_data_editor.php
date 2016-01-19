@@ -23,6 +23,10 @@ function escape($variable)
 
 require_once 'libraries/common.inc.php';
 
+if (! isset($_REQUEST['field'])) {
+    PMA\libraries\Util::checkParameters(array('field'));
+}
+
 // Get data if any posted
 $gis_data = array();
 if (PMA_isValid($_REQUEST['gis_data'], 'array')) {
@@ -180,6 +184,9 @@ if ($geom_type == 'GEOMETRYCOLLECTION') {
 }
 
 for ($a = 0; $a < $geom_count; $a++) {
+    if (! isset($gis_data[$a])) {
+        continue;
+    }
 
     if ($geom_type == 'GEOMETRYCOLLECTION') {
         echo '<br/><br/>';
