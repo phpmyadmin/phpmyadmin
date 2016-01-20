@@ -27,7 +27,7 @@
                     <tbody id="rename_to">
                         <tr>
                             <td width="58" class="nowrap">
-                                <?php echo __('Operator'); ?>
+                                <?= __('Operator'); ?>
                             </td>
                             <td width="102">
                                 <select name="hoperator" id="hoperator">
@@ -58,7 +58,7 @@
                         <tr>
                             <tr>
                                 <td width="58" class="nowrap">
-                                    <?php echo __('Operator'); ?>
+                                    <?= __('Operator'); ?>
                                 </td>
                                 <td width="102">
                                     <select name="hrel_opt" id="hrel_opt">
@@ -87,7 +87,7 @@
                                             IN
                                         </option>
                                         <option value="EXCEPT">
-                                            <?php echo __('Except'); ?>
+                                            <?= __('Except'); ?>
                                         </option>
                                         <option value="NOT IN">
                                             NOT IN
@@ -97,9 +97,9 @@
                         </tr>
                         <tr>
                             <td class="nowrap">
-                                <?php echo __('Value'); ?>
+                                <?= __('Value'); ?>
                                 <br />
-                                <?php echo __('subquery'); ?>
+                                <?= __('subquery'); ?>
                             </td>
                             <td>
                                 <textarea id="hQuery" value="" cols="18">
@@ -110,11 +110,11 @@
                     <tbody>
                         <tr>
                             <td colspan="2" class="center nowrap">
-                                <input type="button" id="ok_edit_having" class="butt" name="Button" value="<?php echo __('OK'); ?>" />
+                                <input type="button" id="ok_edit_having" class="butt" name="Button" value="<?= __('OK'); ?>" />
                                 <input type="button"
                                        class="butt"
                                        name="Button"
-                                       value="<?php echo __('Cancel'); ?>"
+                                       value="<?= __('Cancel'); ?>"
                                        onclick="document.getElementById('query_having').style.display = 'none';" />
                             </td>
                         </tr>

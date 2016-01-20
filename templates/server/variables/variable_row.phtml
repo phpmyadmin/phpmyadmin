@@ -1,16 +1,16 @@
-<tr class="var-row <?php echo $rowClass; ?>">
+<tr class="var-row <?= $rowClass; ?>">
     <td class="var-action">
     <?php if ($editable): ?>
-        <a href="#" class="editLink"><?php echo \PMA\libraries\Util::getIcon('b_edit.png', __('Edit')) ?></a>
+        <a href="#" class="editLink"><?= \PMA\libraries\Util::getIcon('b_edit.png', __('Edit')) ?></a>
     <?php else: ?>
-        <span title="<?php echo __('This is a read-only variable and can not be edited') ?>" class="read_only_var">
-            <?php echo \PMA\libraries\Util::getIcon('bd_edit.png', __('Edit')) ?>
+        <span title="<?= __('This is a read-only variable and can not be edited') ?>" class="read_only_var">
+            <?= \PMA\libraries\Util::getIcon('bd_edit.png', __('Edit')) ?>
         </span>
     <?php endif; ?>
     </td>
     <td class="var-name">
     <?php if ($docLink != null): ?>
-        <span title="<?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?>">
+        <span title="<?= htmlspecialchars(str_replace('_', ' ', $name)); ?>">
             <?php
                 echo \PMA\libraries\Util::showMySQLDocu($docLink[1], false, $docLink[2] . '_' . $docLink[0], true);
                 echo htmlspecialchars(str_replace('_', ' ', $name));
@@ -18,8 +18,8 @@
             ?>
         </span>
     <?php else: ?>
-        <?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?>
+        <?= htmlspecialchars(str_replace('_', ' ', $name)); ?>
     <?php endif; ?>
     </td>
-    <td class="var-value value <?php echo ($isSuperuser ? ' editable' : '') ?>">&nbsp;<?php echo htmlspecialchars($value); ?></td>
+    <td class="var-value value <?= ($isSuperuser ? ' editable' : '') ?>">&nbsp;<?= htmlspecialchars($value); ?></td>
 </tr>

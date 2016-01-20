@@ -96,45 +96,45 @@
                 && (mb_strpos($type, 'text') !== false
                 || mb_strpos($type, 'char') !== false)
             ): ?>
-        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php<?php echo $url_query; ?>&amp;add_key=1&amp;sql_query=<?php echo urlencode(
+        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php<?= $url_query; ?>&amp;add_key=1&amp;sql_query=<?= urlencode(
             'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
             . ' ADD FULLTEXT(' . Util::backquote($row['Field'])
-            . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(
+            . ');'); ?>&amp;message_to_show=<?= urlencode(sprintf(
                 __('An index has been added on %s.'),
                 htmlspecialchars($row['Field']))); ?>">
-            <?php echo $titles['IdxFulltext']; ?>
+            <?= $titles['IdxFulltext']; ?>
         </a>
     <?php else: ?>
-        <?php echo $titles['NoIdxFulltext']; ?>
+        <?= $titles['NoIdxFulltext']; ?>
     <?php endif; ?>
     </li>
     <!-- Distinct value action -->
     <li class="browse nowrap">
-        <a href="sql.php<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode(
+        <a href="sql.php<?= $url_query; ?>&amp;sql_query=<?= urlencode(
                 'SELECT COUNT(*) AS ' . PMA\libraries\Util::backquote(__('Rows'))
                 . ', ' . PMA\libraries\Util::backquote($row['Field'])
                 . ' FROM ' . PMA\libraries\Util::backquote($GLOBALS['table'])
                 . ' GROUP BY ' . PMA\libraries\Util::backquote($row['Field'])
                 . ' ORDER BY ' . PMA\libraries\Util::backquote($row['Field'])
             ); ?>&amp;is_browse_distinct=1">
-            <?php echo $titles['DistinctValues']; ?>
+            <?= $titles['DistinctValues']; ?>
         </a>
     </li>
     <?php if ($GLOBALS['cfgRelation']['centralcolumnswork']): ?>
         <li class="browse nowrap">
         <?php if ($isInCentralColumns): ?>
             <a href="#" onclick="$('input:checkbox').prop('checked', false);
-                $('#checkbox_row_<?php echo $rownum; ?>').prop('checked', true);
+                $('#checkbox_row_<?= $rownum; ?>').prop('checked', true);
                 $('button[value=remove_from_central_columns]').click();">
-            <?php echo PMA\libraries\Util::getIcon(
+            <?= PMA\libraries\Util::getIcon(
                 'centralColumns_delete.png',
                 __('Remove from central columns')
             ); ?></a>
         <?php else: ?>
             <a href="#" onclick="$('input:checkbox').prop('checked', false);
-                $('#checkbox_row_<?php echo $rownum ?>').prop('checked', true);
+                $('#checkbox_row_<?= $rownum ?>').prop('checked', true);
                 $('button[value=add_to_central_columns]').click();">
-            <?php echo PMA\libraries\Util::getIcon(
+            <?= PMA\libraries\Util::getIcon(
                 'centralColumns_add.png',
                 __('Add to central columns')
             ); ?></a>
