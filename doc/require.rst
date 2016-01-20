@@ -31,6 +31,10 @@ PHP
 * To support reCAPTCHA on the login page, you need the
   `openssl <http://www.php.net/openssl>`_ extension.
 
+* To support displaying phpMyAdmin's latest version, you need to enable
+  ``allow_url_open`` in your :file:`php.ini` or to have the
+  `curl <http://www.php.net/curl>`_ extension.
+
 * Performance suggestion: install the ``ctype`` extension.
 
 .. seealso:: :ref:`faq1_31`, :ref:`authentication_modes`
