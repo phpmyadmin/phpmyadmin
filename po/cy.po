@@ -11669,7 +11669,7 @@ msgstr ""
 #: libraries/relation.lib.php:100
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Cafodd yr addasiadau eu cadw"
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140

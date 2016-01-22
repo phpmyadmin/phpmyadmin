@@ -11262,7 +11262,7 @@ msgid "Enabled"
 msgstr "Ενεργοποιημένη"
 
 #: libraries/relation.lib.php:100
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Ρύθμιση της pmadb… "
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140

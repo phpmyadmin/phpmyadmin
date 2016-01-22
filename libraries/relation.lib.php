@@ -97,7 +97,8 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
     if (empty($cfgRelation['db'])) {
-        $retval .= __('Configuration of pmadb… ')
+        $retval .= __('Configuration of pmadb…')
+             . ' '
              . $messages['error']
              . PMA_Util::showDocu('setup', 'linked-tables')
              . '<br />' . "\n"

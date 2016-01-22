@@ -10694,7 +10694,7 @@ msgid "Enabled"
 msgstr "已啓用"
 
 #: libraries/relation.lib.php:100
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "設定 pmadb ... "
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140
