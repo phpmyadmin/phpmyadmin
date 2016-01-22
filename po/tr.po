@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2016-01-15 14:15+0000\n"
+"PO-Revision-Date: 2016-01-22 18:42+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -11084,7 +11084,7 @@ msgstr "Etkinleştirildi"
 
 #: libraries/relation.lib.php:101
 msgid "Configuration of pmadb…"
-msgstr "pmadb yapılandırması... "
+msgstr "pmadb yapılandırması…"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
 msgid "General relation features"
