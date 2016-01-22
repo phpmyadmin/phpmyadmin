@@ -475,6 +475,19 @@ if (! @extension_loaded('mbstring')) {
     );
 }
 
+/**
+ * Missing functionality
+ */
+if (! extension_loaded('curl') && ! ini_get('allow_url_fopen')) {
+    trigger_error(
+        __(
+            'The curl extension was not found and allow_url_fopen is '
+            . 'disabled. Due to this some features such as error reporting '
+            . 'or version check are disabled.'
+        )
+    );
+}
+
 if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     /**
      * Check whether session.gc_maxlifetime limits session validity.
