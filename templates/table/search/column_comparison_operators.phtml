@@ -1,6 +1,6 @@
-<select name="criteriaColumnOperators[<?php echo $search_index; ?>]"
-        onchange="changeValueFieldType(this, <?php echo $search_index; ?>)">
-    <?php echo $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+<select name="criteriaColumnOperators[<?= $search_index; ?>]"
+        onchange="changeValueFieldType(this, <?= $search_index; ?>)">
+    <?= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
         preg_replace('@\(.*@s', '', $columnTypes[$column_index]),
         $columnNullFlags[$column_index], $selected_operator
     ); ?>

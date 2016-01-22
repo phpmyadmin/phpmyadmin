@@ -2,21 +2,21 @@
       action="tbl_find_replace.php"
       name="previewForm"
       id="previewForm">
-    <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
+    <?= PMA_URL_getHiddenInputs($db, $table); ?>
     <input type="hidden" name="replace" value="true" />
-    <input type="hidden" name="columnIndex" value="<?php echo $columnIndex; ?>" />
-    <input type="hidden" name="findString" value="<?php echo htmlspecialchars($find); ?>" />
-    <input type="hidden" name="replaceWith" value="<?php echo htmlspecialchars($replaceWith); ?>" />
-    <input type="hidden" name="useRegex" value="<?php echo $useRegex; ?>" />
+    <input type="hidden" name="columnIndex" value="<?= $columnIndex; ?>" />
+    <input type="hidden" name="findString" value="<?= htmlspecialchars($find); ?>" />
+    <input type="hidden" name="replaceWith" value="<?= htmlspecialchars($replaceWith); ?>" />
+    <input type="hidden" name="useRegex" value="<?= $useRegex; ?>" />
 
     <fieldset id="fieldset_find_replace_preview">
-        <legend><?php echo __('Find and replace - preview'); ?></legend>
+        <legend><?= __('Find and replace - preview'); ?></legend>
         <table id="previewTable">
             <thead>
             <tr>
-                <th><?php echo __('Count'); ?></th>
-                <th><?php echo __('Original string'); ?></th>
-                <th><?php echo __('Replaced string'); ?></th>
+                <th><?= __('Count'); ?></th>
+                <th><?= __('Original string'); ?></th>
+                <th><?= __('Replaced string'); ?></th>
             </tr>
             </thead>
             <tbody>
@@ -24,10 +24,10 @@
             <?php if (is_array($result)): ?>
                 <?php foreach ($result as $row): ?>
                     <?php $val = $row[0]; $replaced = $row[1]; $count = $row[2]; ?>
-                    <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
-                        <td class="right"><?php echo htmlspecialchars($count); ?></td>
-                        <td><?php echo htmlspecialchars($val); ?></td>
-                        <td><?php echo htmlspecialchars($replaced); ?></td>
+                    <tr class="<?= ($odd ? 'odd' : 'even'); ?>">
+                        <td class="right"><?= htmlspecialchars($count); ?></td>
+                        <td><?= htmlspecialchars($val); ?></td>
+                        <td><?= htmlspecialchars($replaced); ?></td>
                     </tr>
                     <?php $odd = ! $odd; ?>
                 <?php endforeach; ?>
@@ -37,6 +37,6 @@
     </fieldset>
 
     <fieldset class="tblFooters">
-        <input type="submit" name="replace" value="<?php echo __('Replace'); ?>" />
+        <input type="submit" name="replace" value="<?= __('Replace'); ?>" />
     </fieldset>
 </form>

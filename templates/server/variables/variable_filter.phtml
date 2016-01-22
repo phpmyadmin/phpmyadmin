@@ -1,9 +1,9 @@
 <fieldset id="tableFilter">
-    <legend><?php echo __('Filters'); ?></legend>
+    <legend><?= __('Filters'); ?></legend>
     <div class="formelement">
-        <label for="filterText"><?php echo __('Containing the word:'); ?></label>
+        <label for="filterText"><?= __('Containing the word:'); ?></label>
         <input name="filterText" type="text" id="filterText"
                style="vertical-align: baseline;"
-               value="<?php echo htmlspecialchars($filterValue); ?>" />
+               value="<?= htmlspecialchars($filterValue); ?>" />
     </div>
 </fieldset>

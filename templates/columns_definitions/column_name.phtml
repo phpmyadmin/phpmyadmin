@@ -18,30 +18,29 @@ if (empty($title)) {
     $title = __('Column');
 }
 ?>
-<input id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>"
+<input id="field_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>"
        <?php if (isset($columnMeta['column_status'])
            && !$columnMeta['column_status']['isEditable']): ?>
            disabled="disabled"
        <?php endif; ?>
        type="text"
-       name="field_name[<?php echo $columnNumber; ?>]"
+       name="field_name[<?= $columnNumber; ?>]"
        maxlength="64"
        class="textfield"
-       title="<?php echo $title; ?>"
+       title="<?= $title; ?>"
        size="10"
-       value="<?php if (isset($columnMeta['Field']))
-           echo htmlspecialchars($columnMeta['Field']); ?>" />
+       value="<?= isset($columnMeta['Field'])? htmlspecialchars($columnMeta['Field']) : '' ?>" />
 
 <?php if ($cfgRelation['centralcolumnswork']
     && !(isset($columnMeta['column_status'])
         && !$columnMeta['column_status']['isEditable'])
 ): ?>
     <p style="font-size:80%;margin:5px 2px"
-       id="central_columns_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>">
-        <a data-maxrows="<?php echo $GLOBALS['cfg']['MaxRows']; ?>"
+       id="central_columns_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>">
+        <a data-maxrows="<?= $GLOBALS['cfg']['MaxRows']; ?>"
            href="#"
            class="central_columns_dialog">
-            <?php echo __('Pick from Central Columns'); ?>
+            <?= __('Pick from Central Columns'); ?>
         </a>
     </p>
 <?php endif; ?>

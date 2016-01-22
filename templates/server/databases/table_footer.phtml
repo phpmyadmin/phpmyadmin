@@ -4,7 +4,7 @@
             <th></th>
         <?php endif; ?>
         <th>
-            <?php echo __('Total'); ?>: <span id="databases_count"><?php echo $databaseCount; ?></span>
+            <?= __('Total'); ?>: <span id="databases_count"><?= $databaseCount; ?></span>
         </th>
         <?php foreach ($column_order as $stat_name => $stat):
             if (! array_key_exists($stat_name, $first_database)) {
@@ -20,15 +20,15 @@
 
             <th class="value">
                 <?php if (isset($stat['description_function'])): ?>
-                    <dfn title="<?php echo $stat['description_function']($stat['footer']); ?>">
-                        <?php echo $value; ?>
+                    <dfn title="<?= $stat['description_function']($stat['footer']); ?>">
+                        <?= $value; ?>
                     </dfn>
                 <?php else: ?>
-                    <?php echo $value; ?>
+                    <?= $value; ?>
                 <?php endif; ?>
             </th>
             <?php if ($stat['format'] === 'byte'): ?>
-                <th class="unit"><?php echo $unit; ?></th>
+                <th class="unit"><?= $unit; ?></th>
             <?php endif; ?>
         <?php endforeach; ?>
         <?php if ($master_replication): ?>

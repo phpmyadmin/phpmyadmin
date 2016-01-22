@@ -6,60 +6,60 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
 
 <table id="partition_table">
     <tr class="vmiddle">
-        <td><label for="partition_by"><?php echo __('Partition by:'); ?></label></td>
+        <td><label for="partition_by"><?= __('Partition by:'); ?></label></td>
         <td>
             <select name="partition_by" id="partition_by">
                 <?php foreach ($partitionOptions as $option): ?>
-                    <option value="<?php echo $option?>"
+                    <option value="<?= $option?>"
                         <?php if ($partitionDetails['partition_by'] == $option): ?>
                             selected="selected"
                         <?php endif; ?>
                     >
-                        <?php echo $option; ?>
+                        <?= $option; ?>
                     </option>
                 <?php endforeach; ?>
             </select>
         </td>
         <td>(
             <input name="partition_expr" type="text"
-                   placeholder="<?php echo __('Expression or column list'); ?>"
-                   value="<?php echo htmlspecialchars($partitionDetails['partition_expr']); ?>"/>
+                   placeholder="<?= __('Expression or column list'); ?>"
+                   value="<?= htmlspecialchars($partitionDetails['partition_expr']); ?>"/>
         )</td>
     </tr>
     <tr class="vmiddle">
-        <td><label for="partition_count"><?php echo __('Partitions:'); ?></label></td>
+        <td><label for="partition_count"><?= __('Partitions:'); ?></label></td>
         <td>
             <input name="partition_count" type="number" min="2"
-                   value="<?php echo htmlspecialchars($partitionDetails['partition_count']); ?>" />
+                   value="<?= htmlspecialchars($partitionDetails['partition_count']); ?>" />
         </td>
     </tr>
     <?php if ($partitionDetails['can_have_subpartitions']): ?>
         <tr class="vmiddle">
-            <td><label for="subpartition_by"><?php echo __('Subpartition by:'); ?></label></td>
+            <td><label for="subpartition_by"><?= __('Subpartition by:'); ?></label></td>
             <td>
                 <select name="subpartition_by" id="subpartition_by">
                     <?php foreach ($subPartitionOptions as $option): ?>
-                    <option value="<?php echo $option?>"
+                    <option value="<?= $option?>"
                         <?php if ($partitionDetails['subpartition_by'] == $option): ?>
                             selected="selected"
                         <?php endif; ?>
                     >
-                        <?php echo $option; ?>
+                        <?= $option; ?>
                     </option>
                 <?php endforeach; ?>
                 </select>
             </td>
             <td>(
                 <input name="subpartition_expr" type="text"
-                       placeholder="<?php echo __('Expression or column list'); ?>"
-                       value="<?php echo htmlspecialchars($partitionDetails['subpartition_expr']); ?>"/>
+                       placeholder="<?= __('Expression or column list'); ?>"
+                       value="<?= htmlspecialchars($partitionDetails['subpartition_expr']); ?>"/>
             )</td>
         </tr>
         <tr class="vmiddle">
-            <td><label for="subpartition_count"><?php echo __('Subpartitions:'); ?></label></td>
+            <td><label for="subpartition_count"><?= __('Subpartitions:'); ?></label></td>
             <td>
                 <input name="subpartition_count" type="number" min="2"
-                       value="<?php echo htmlspecialchars($partitionDetails['subpartition_count']); ?>" />
+                       value="<?= htmlspecialchars($partitionDetails['subpartition_count']); ?>" />
             </td>
         </tr>
     <?php endif; ?>
@@ -68,46 +68,46 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
 <?php if ($partitionDetails['partition_count'] > 1): ?>
     <table id="partition_definition_table">
         <tr>
-            <th><?php echo __('Partition'); ?></th>
+            <th><?= __('Partition'); ?></th>
             <?php if ($partitionDetails['value_enabled']): ?>
-                <th><?php echo __('Values'); ?></th>
+                <th><?= __('Values'); ?></th>
             <?php endif; ?>
             <?php if ($partitionDetails['can_have_subpartitions'] && $partitionDetails['subpartition_count'] > 1): ?>
-                <th><?php echo __('Subpartition'); ?></th>
+                <th><?= __('Subpartition'); ?></th>
             <?php endif; ?>
-            <th><?php echo __('Engine'); ?></th>
-            <th><?php echo __('Comment'); ?></th>
-            <th><?php echo __('Data directory'); ?></th>
-            <th><?php echo __('Index directory'); ?></th>
-            <th><?php echo __('Max rows'); ?></th>
-            <th><?php echo __('Min rows'); ?></th>
-            <th><?php echo __('Table space'); ?></th>
-            <th><?php echo __('Node group'); ?></th>
+            <th><?= __('Engine'); ?></th>
+            <th><?= __('Comment'); ?></th>
+            <th><?= __('Data directory'); ?></th>
+            <th><?= __('Index directory'); ?></th>
+            <th><?= __('Max rows'); ?></th>
+            <th><?= __('Min rows'); ?></th>
+            <th><?= __('Table space'); ?></th>
+            <th><?= __('Node group'); ?></th>
         </tr>
         <?php $odd = true; ?>
         <?php foreach ($partitionDetails['partitions'] as $partition): ?>
             <?php $rowspan = ! empty($partition['subpartition_count']) ? ($partition['subpartition_count'] + 1) : 2; ?>
-            <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
-                <th rowspan="<?php echo $rowspan; ?>" class="vmiddle">
-                    <?php echo htmlspecialchars($partition['name']); ?>
+            <tr class="<?= ($odd ? 'odd' : 'even'); ?>">
+                <th rowspan="<?= $rowspan; ?>" class="vmiddle">
+                    <?= htmlspecialchars($partition['name']); ?>
                 </th>
                 <?php if ($partitionDetails['value_enabled']): ?>
-                    <td rowspan="<?php echo $rowspan; ?>" class="vmiddle">
+                    <td rowspan="<?= $rowspan; ?>" class="vmiddle">
                         <select class="partition_value"
-                                name="<?php echo $partition['prefix']; ?>[value_type]">
+                                name="<?= $partition['prefix']; ?>[value_type]">
                             <?php foreach ($valueTypeOptions as $option): ?>
-                                <option value="<?php echo $option?>"
+                                <option value="<?= $option?>"
                                     <?php if ($partition['value_type'] == $option): ?>
                                         selected="selected"
                                     <?php endif; ?>
                                 >
-                                    <?php echo $option; ?>
+                                    <?= $option; ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
                         <input type="text" class="partition_value"
-                               name="<?php echo $partition['prefix']; ?>[value]"
-                               value="<?php echo $partition['value']; ?>" />
+                               name="<?= $partition['prefix']; ?>[value]"
+                               value="<?= $partition['value']; ?>" />
                     </td>
                 <?php endif; ?>
             </tr>
@@ -121,12 +121,12 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
             ?>
 
             <?php foreach ($subpartitions as $subpartition): ?>
-                <tr class="<?php echo ($odd ? 'odd' : 'even'); ?>">
+                <tr class="<?= ($odd ? 'odd' : 'even'); ?>">
                     <?php if ($partitionDetails['can_have_subpartitions'] && $partitionDetails['subpartition_count'] > 1): ?>
-                        <th class="vmiddle"><?php echo htmlspecialchars($subpartition['name']); ?></th>
+                        <th class="vmiddle"><?= htmlspecialchars($subpartition['name']); ?></th>
                     <?php endif; ?>
                     <td>
-                        <?php echo PMA\libraries\StorageEngine::getHtmlSelect(
+                        <?= PMA\libraries\StorageEngine::getHtmlSelect(
                             $subpartition['prefix'] . '[engine]',
                             null,
                             $subpartition['engine'],
@@ -135,33 +135,33 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
                         ); ?>
                     </td>
                     <td>
-                        <textarea name="<?php echo $subpartition['prefix']; ?>[comment]">
-                            <?php echo htmlspecialchars($subpartition['comment']); ?>
+                        <textarea name="<?= $subpartition['prefix']; ?>[comment]">
+                            <?= htmlspecialchars($subpartition['comment']); ?>
                         </textarea>
                     </td>
                     <td>
-                        <input type="text" name="<?php echo $subpartition['prefix']; ?>[data_directory]"
-                               value="<?php echo htmlspecialchars($subpartition['data_directory']); ?>" />
+                        <input type="text" name="<?= $subpartition['prefix']; ?>[data_directory]"
+                               value="<?= htmlspecialchars($subpartition['data_directory']); ?>" />
                     </td>
                     <td>
-                        <input type="text" name="<?php echo $subpartition['prefix']; ?>[index_directory]"
-                               value="<?php echo htmlspecialchars($subpartition['index_directory']); ?>" />
+                        <input type="text" name="<?= $subpartition['prefix']; ?>[index_directory]"
+                               value="<?= htmlspecialchars($subpartition['index_directory']); ?>" />
                     </td>
                     <td>
-                        <input type="number" name="<?php echo $subpartition['prefix']; ?>[max_rows]"
-                               value="<?php echo htmlspecialchars($subpartition['max_rows']); ?>" />
+                        <input type="number" name="<?= $subpartition['prefix']; ?>[max_rows]"
+                               value="<?= htmlspecialchars($subpartition['max_rows']); ?>" />
                     </td>
                     <td>
-                        <input type="number" min="0" name="<?php echo $subpartition['prefix']; ?>[min_rows]"
-                               value="<?php echo htmlspecialchars($subpartition['min_rows']); ?>" />
+                        <input type="number" min="0" name="<?= $subpartition['prefix']; ?>[min_rows]"
+                               value="<?= htmlspecialchars($subpartition['min_rows']); ?>" />
                     </td>
                     <td>
-                        <input type="text" min="0" name="<?php echo $subpartition['prefix']; ?>[tablespace]"
-                               value="<?php echo htmlspecialchars($subpartition['tablespace']); ?>" />
+                        <input type="text" min="0" name="<?= $subpartition['prefix']; ?>[tablespace]"
+                               value="<?= htmlspecialchars($subpartition['tablespace']); ?>" />
                     </td>
                     <td>
-                        <input type="text" name="<?php echo $subpartition['prefix']; ?>[node_group]"
-                               value="<?php echo htmlspecialchars($subpartition['node_group']); ?>" />
+                        <input type="text" name="<?= $subpartition['prefix']; ?>[node_group]"
+                               value="<?= htmlspecialchars($subpartition['node_group']); ?>" />
                     </td>
                 </tr>
             <?php endforeach; ?>
