@@ -43,6 +43,7 @@ if (!defined('TESTSUITE')) {
     $post_params = array(
             'db',
             'table',
+            'what',
             'single_table',
             'export_type',
             'export_method',
