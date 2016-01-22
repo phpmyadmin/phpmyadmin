@@ -11353,7 +11353,7 @@ msgstr ""
 #: libraries/relation.lib.php:101
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141

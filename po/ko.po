@@ -10909,7 +10909,7 @@ msgstr "사용가능"
 #: libraries/relation.lib.php:101
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "수정된 내용이 저장되었습니다."
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141

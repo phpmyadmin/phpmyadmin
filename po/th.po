@@ -11471,7 +11471,7 @@ msgstr "เปิดใช้อยู่"
 #: libraries/relation.lib.php:101
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141

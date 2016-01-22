@@ -12547,7 +12547,7 @@ msgstr "Фаоллаштирилган"
 #: libraries/relation.lib.php:101
 #, fuzzy
 #| msgid "Configuration file"
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Конфигурацион файл"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141

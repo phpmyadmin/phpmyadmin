@@ -11230,7 +11230,7 @@ msgstr ""
 #: libraries/relation.lib.php:101
 #, fuzzy
 #| msgid "Server configuration"
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "సేవకి స్వరూపణం"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141

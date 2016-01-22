@@ -10717,7 +10717,7 @@ msgstr "已启用"
 #: libraries/relation.lib.php:101
 #, fuzzy
 #| msgid "Configuration saved."
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "配置已保存。"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
