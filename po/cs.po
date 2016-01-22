@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2016-01-17 16:48+0000\n"
+"PO-Revision-Date: 2016-01-22 11:07+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-5/cs/>"
 "\n"
@@ -4708,9 +4708,9 @@ msgid "Skip Explain SQL"
 msgstr "Bez vysvětlení SQL"
 
 #: libraries/Util.class.php:1189
-#, fuzzy, php-format
+#, php-format
 msgid "Analyze Explain at %s"
-msgstr "Analyzovat výstup příkazu Explain na %s"
+msgstr "Analyzovat výstup příkazu EXPLAIN na %s"
 
 #: libraries/Util.class.php:1220
 msgid "Without PHP Code"
@@ -7859,10 +7859,11 @@ msgid "Enable Zero Configuration mode"
 msgstr "Umožnit mód Automatické konfigurace"
 
 #: libraries/config/page_settings.class.php:140
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Nepodařilo se uložit nastavení, odeslaný formulář obsahuje chyby!"
+msgstr ""
+"Nepodařilo se uložit nastavení, odeslaný konfigurační formulář obsahuje "
+"chyby!"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -11063,7 +11064,7 @@ msgstr "Zapnuto"
 
 #: libraries/relation.lib.php:100
 msgid "Configuration of pmadb…"
-msgstr "Konfigurace pmadb... "
+msgstr "Konfigurace pmadb…"
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140
 msgid "General relation features"
