@@ -374,11 +374,7 @@ echo '<div class="group pmagroup">';
 echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
 $class = null;
-// We rely on CSP to allow access to http://www.phpmyadmin.net, but IE lacks
-// support here and does not allow request to http once using https.
-if ($GLOBALS['cfg']['VersionCheck']
-    && (! $GLOBALS['PMA_Config']->get('is_https') || PMA_USR_BROWSER_AGENT != 'IE')
-) {
+if ($GLOBALS['cfg']['VersionCheck']) {
     $class = 'jsversioncheck';
 }
 PMA_printListItem(
