@@ -49,7 +49,7 @@ class Pdf extends PDF_lib
     var $Outlines = array();
     var $def_outlines;
     var $widths;
-    private $_ff = PMA_PDF_FONT;
+    private $_ff = PDF_lib::PMA_PDF_FONT;
     private $_offline;
     private $_pageNumber;
     private $_withDoc;

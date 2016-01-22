@@ -9,6 +9,7 @@ namespace PMA\libraries\plugins\schema\pdf;
 
 use PMA\libraries\plugins\schema\ExportRelationSchema;
 use PMA\libraries\Util;
+use PMA\libraries\PDF as PDF_lib;
 
 /**
  * Skip the plugin if TCPDF is not available.
@@ -52,7 +53,7 @@ class PdfRelationSchema extends ExportRelationSchema
      * @var TableStatsPdf[]
      */
     private $_tables = array();
-    private $_ff = PMA_PDF_FONT;
+    private $_ff = PDF_lib::PMA_PDF_FONT;
     private $_xMax = 0;
     private $_yMax = 0;
     private $_scale;

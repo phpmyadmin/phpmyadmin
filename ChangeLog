@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 + issue        Add 'ssl_verify' configuration directive for self-signed certificates with mysqlnd and PHP >= 5.6
 + issue #11874 Show more used PHP extensions
 - issue #11874 Report when version check and error reporting are disabled
+- issue #11849 Fix PDF schema export
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
