@@ -11181,7 +11181,7 @@ msgid "Enabled"
 msgstr "Aftëso"
 
 #: libraries/relation.lib.php:101
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Konfigurimi i pmadb… "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141

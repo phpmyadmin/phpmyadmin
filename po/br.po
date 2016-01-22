@@ -11495,7 +11495,7 @@ msgstr ""
 #: libraries/relation.lib.php:101
 #, fuzzy
 #| msgid "Configuration file"
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Restr gefluniañ"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141

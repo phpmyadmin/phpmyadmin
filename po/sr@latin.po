@@ -11764,7 +11764,7 @@ msgstr "Omogućeno"
 #: libraries/relation.lib.php:101
 #, fuzzy
 #| msgid "Configuration saved."
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Podešavanja su sačuvana."
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141

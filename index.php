@@ -335,13 +335,13 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             );
 
             $php_ext_string = __('PHP extension:') . ' ';
-            if (PMA\libraries\DatabaseInterface::checkDbExtension('mysqli')) {
-                $extension = 'mysqli';
-            } else {
-                $extension = 'mysql';
+
+            $extensions = PMA\libraries\Util::listPHPExtensions();
+
+            foreach ($extensions as $extension) {
+                $php_ext_string  .= '  ' . $extension
+                    . PMA\libraries\Util::showPHPDocu('book.' . $extension . '.php');
             }
-            $php_ext_string  .= $extension . ' '
-                . PMA\libraries\Util::showPHPDocu('book.' . $extension . '.php');
 
             PMA_printListItem(
                 $php_ext_string,
@@ -374,11 +374,7 @@ echo '<div class="group pmagroup">';
 echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
 $class = null;
-// We rely on CSP to allow access to http://www.phpmyadmin.net, but IE lacks
-// support here and does not allow request to http once using https.
-if ($GLOBALS['cfg']['VersionCheck']
-    && (! $GLOBALS['PMA_Config']->get('is_https') || PMA_USR_BROWSER_AGENT != 'IE')
-) {
+if ($GLOBALS['cfg']['VersionCheck']) {
     $class = 'jsversioncheck';
 }
 PMA_printListItem(
@@ -476,6 +472,19 @@ if (! @extension_loaded('mbstring')) {
             . ' unexpected results.'
         ),
         E_USER_WARNING
+    );
+}
+
+/**
+ * Missing functionality
+ */
+if (! extension_loaded('curl') && ! ini_get('allow_url_fopen')) {
+    trigger_error(
+        __(
+            'The curl extension was not found and allow_url_fopen is '
+            . 'disabled. Due to this some features such as error reporting '
+            . 'or version check are disabled.'
+        )
     );
 }
 

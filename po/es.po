@@ -11258,7 +11258,7 @@ msgid "Enabled"
 msgstr "Habilitado"
 
 #: libraries/relation.lib.php:101
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Configuración de pmadb… "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
