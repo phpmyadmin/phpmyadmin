@@ -335,13 +335,13 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             );
 
             $php_ext_string = __('PHP extension:') . ' ';
-            if (PMA\libraries\DatabaseInterface::checkDbExtension('mysqli')) {
-                $extension = 'mysqli';
-            } else {
-                $extension = 'mysql';
+
+            $extensions = PMA\libraries\Util::listPHPExtensions();
+
+            foreach ($extensions as $extension) {
+                $php_ext_string  .= '  ' . $extension
+                    . PMA\libraries\Util::showPHPDocu('book.' . $extension . '.php');
             }
-            $php_ext_string  .= $extension . ' '
-                . PMA\libraries\Util::showPHPDocu('book.' . $extension . '.php');
 
             PMA_printListItem(
                 $php_ext_string,

@@ -4957,5 +4957,30 @@ class Util
         }
         return $tables;
     }
+
+    /**
+     * Returs list of used PHP extensions.
+     *
+     * @return array of strings
+     */
+    public static function listPHPExtensions()
+    {
+        $result = array();
+        if (DatabaseInterface::checkDbExtension('mysqli')) {
+            $result[] = 'mysqli';
+        } else {
+            $result[] = 'mysql';
+        }
+
+        if (extension_loaded('curl')) {
+            $result[] = 'curl';
+        }
+
+        if (extension_loaded('mbstring')) {
+            $result[] = 'mbstring';
+        }
+
+        return $result;
+    }
 }
 

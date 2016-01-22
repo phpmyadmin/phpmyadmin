@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 + issue #11796 Use modals for displaying forms in db structure page
 + issue #11789 Show MySQL error messages in user language
 + issue        Add 'ssl_verify' configuration directive for self-signed certificates with mysqlnd and PHP >= 5.6
++ issue #11874 Show more used PHP extensions
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
