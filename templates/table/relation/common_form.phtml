@@ -8,11 +8,10 @@
                 <tr>
                     <th><?= __('Actions'); ?></th>
                     <th><?= __('Constraint properties'); ?></th>
-                    <th><?php
-                        echo __('Column') , PMA\libraries\Util::showHint(__(
-                                'Only columns with index will be displayed. You can define an'
-                                . ' index below.'
-                            )) ?>
+                    <th><?= __('Column') , PMA\libraries\Util::showHint(__(
+                            'Only columns with index will be displayed. You can define an'
+                            . ' index below.'
+                        )) ?>
                     </th>
                     <th colspan="3">
                         <?= __('Foreign key constraint'); ?> (<?= $tbl_storage_engine; ?>)

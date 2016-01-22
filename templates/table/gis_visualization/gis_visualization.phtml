@@ -32,7 +32,9 @@
                             <input type="checkbox"
                                    name="visualizationSettings[choice]"
                                    id="choice" value="useBaseLayer"
-                                   <?php if (isset($visualizationSettings['choice'])) echo 'checked="checked"' ?>/>
+                                   <?php if (isset($visualizationSettings['choice'])): ?>
+                                        checked="checked"
+                                   <?php endif; ?>/>
                             <label for="choice" id="labelChoice">
                                 <?= __("Use OpenStreetMaps as Base Layer"); ?>
                             </label>

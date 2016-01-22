@@ -64,8 +64,7 @@
                 </tbody>
             </table>
         <?php endif; ?>
-        <?php
-            echo PMA\libraries\Template::get('table/structure/row_stats_table')->render(
+        <?= PMA\libraries\Template::get('table/structure/row_stats_table')->render(
               array(
                   'showtable' => $showtable,
                   'tbl_collation' => $tbl_collation,
@@ -74,7 +73,7 @@
                   'avg_size' => (isset ($avg_size) ? $avg_size : ''),
                   'avg_unit' => (isset ($avg_unit) ? $avg_unit : '')
               )
-            );
+            )
         ?>
     </fieldset>
 </div>

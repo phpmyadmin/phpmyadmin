@@ -83,19 +83,20 @@
                         <?php endif; ?>
                     <?php endforeach;?>
                 </select>
-                <input type="hidden" name="dateTimeCols" value="<?php $date_time_types = array('date', 'datetime', 'timestamp');
-                    foreach ($keys as $idx => $key) {
-                        if (in_array($fields_meta[$idx]->type, $date_time_types)) {
-                            echo $idx , ' ';
-                        }
-                    }?>"
+                <input type="hidden" name="dateTimeCols" value="
+                    <?php $date_time_types = array('date', 'datetime', 'timestamp'); ?>
+                    <?php foreach ($keys as $idx => $key): ?>
+                        <?php if (in_array($fields_meta[$idx]->type, $date_time_types)): ?>
+                            <?= $idx , ' ' ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>"
                 />
-                <input type="hidden" name="numericCols" value="<?php
-                    foreach ($keys as $idx => $key) {
-                        if (in_array($fields_meta[$idx]->type, $numeric_types)) {
-                            echo $idx , ' ';
-                        }
-                    }?>"
+                <input type="hidden" name="numericCols" value="
+                    <?php foreach ($keys as $idx => $key): ?>
+                        <?php if (in_array($fields_meta[$idx]->type, $numeric_types)): ?>
+                            <?= $idx , ' ' ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>"
                 />
             </div>
             <div class="chartOption">
@@ -120,10 +121,12 @@
                 </label>
                 <select name="chartSeriesColumn" id="select_seriesColumn" disabled>
                     <?php foreach ($keys as $idx => $key) : ?>
-                        <option value="<?= htmlspecialchars($idx);
-                        if ($idx == 1) : echo ' selected="selected"'; endif;
-                        $seriesColumn = $idx; ?>">
-                            <?= htmlspecialchars($key); ?>
+                        <option value="<?= htmlspecialchars($idx) ?>"
+                            <?php if ($idx == 1): ?>
+                                selected="selected"
+                            <?php endif; ?>
+                            <?php $seriesColumn = $idx; ?>">
+                                <?= htmlspecialchars($key); ?>
                         </option>
                     <?php endforeach; ?>
                 </select>

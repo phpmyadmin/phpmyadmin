@@ -38,7 +38,7 @@ use PMA\libraries\Util; ?>
                 <tbody>
                 <?php $odd = true; ?>
                 <?php foreach ($partitions as $partition): ?>
-                    <tr class="noclick <?= $odd ? 'odd' : 'even'; echo $hasSubPartitions ? ' marked' : '';?>">
+                    <tr class="noclick <?= ($odd ? 'odd' : 'even') , ($hasSubPartitions ? ' marked' : '') ?>">
                         <?php if ($hasSubPartitions): ?>
                             <td><?= $partition->getOrdinal(); ?></td>
                             <td></td>
@@ -49,8 +49,7 @@ use PMA\libraries\Util; ?>
                         <?php if ($hasDescription): ?>
                             <td>
                                 <code>
-                                    <?php
-                                    echo htmlspecialchars($partition->getExpression())
+                                    <?= htmlspecialchars($partition->getExpression())
                                         , ($partition->getMethod() == 'LIST' ? ' IN (' : ' < ')
                                         , htmlspecialchars($partition->getDescription())
                                         , ($partition->getMethod() == 'LIST' ? ')' : '');

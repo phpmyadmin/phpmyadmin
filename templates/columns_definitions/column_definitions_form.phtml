@@ -7,35 +7,39 @@ use PMA\libraries\StorageEngine;
       action="<?= $action; ?>"
       class="<?= ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?>_form ajax lock-page">
     <?= PMA_URL_getHiddenInputs($form_params); ?>
+   <!-- happens when an index has been set on a column -->
+   <!-- and a column is added to the table creation dialog -->
+   <!-- This contains a JSON-encoded string -->
     <input type="hidden"
            name="primary_indexes"
-           value="<?php if (! empty($_REQUEST['primary_indexes'])) {
-                      // happens when an index has been set on a column,
-                      // and a column is added to the table creation dialog
-                      //
-                      // this contains a JSON-encoded string
-                      echo htmlspecialchars($_REQUEST['primary_indexes']);
-                    } else echo '[]'; ?>">
+           value="<?= (! empty($_REQUEST['primary_indexes'])) ?
+                      htmlspecialchars($_REQUEST['primary_indexes'])
+                      : '[]'
+                  ?>">
     <input type="hidden"
            name="unique_indexes"
-           value="<?php if (! empty($_REQUEST['unique_indexes'])) {
-                      echo htmlspecialchars($_REQUEST['unique_indexes']);
-                    } else echo '[]'; ?>">
+           value="<?= (! empty($_REQUEST['unique_indexes'])) ?
+                      htmlspecialchars($_REQUEST['unique_indexes'])
+                      : '[]'
+                  ?>">
     <input type="hidden"
            name="indexes"
-           value="<?php if (! empty($_REQUEST['indexes'])) {
-                      echo htmlspecialchars($_REQUEST['indexes']);
-                    } else echo '[]'; ?>">
+           value="<?= (! empty($_REQUEST['indexes'])) ?
+                      htmlspecialchars($_REQUEST['indexes'])
+                      : '[]'
+                  ?>">
     <input type="hidden"
            name="fulltext_indexes"
-           value="<?php if (! empty($_REQUEST['fulltext_indexes'])) {
-                      echo htmlspecialchars($_REQUEST['fulltext_indexes']);
-                    } else echo '[]'; ?>">
+           value="<?= (! empty($_REQUEST['fulltext_indexes'])) ?
+                      htmlspecialchars($_REQUEST['fulltext_indexes'])
+                      : '[]'
+                  ?>">
     <input type="hidden"
            name="spatial_indexes"
-           value="<?php if (! empty($_REQUEST['spatial_indexes'])) {
-                      echo htmlspecialchars($_REQUEST['spatial_indexes']);
-                    } else echo '[]'; ?>">
+           value="<?= (! empty($_REQUEST['spatial_indexes'])) ?
+                      htmlspecialchars($_REQUEST['spatial_indexes'])
+                      : '[]'
+                  ?>">
 
     <?php if ($action == 'tbl_create.php'): ?>
         <div id="table_name_col_no_outer">
@@ -46,7 +50,7 @@ use PMA\libraries\StorageEngine;
                            name="table"
                            size="40"
                            maxlength="64"
-                           value="<?= (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
+                           value="<?= (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : '') ?>"
                            class="textfield" autofocus required />
                     </td>
                     <td>

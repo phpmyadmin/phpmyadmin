@@ -19,12 +19,13 @@
                     'columnNames' => $columnNames,
                     'columnTypes' => $columnTypes,
                     'columnCollations' => $columnCollations
-                ));
-            echo PMA\libraries\Template::get('table/search/options_zoom')
+                ))
+            ?>
+            <?= PMA\libraries\Template::get('table/search/options_zoom')
                 ->render(array(
                     'dataLabel' => $dataLabel,
                     'columnNames' => $columnNames
-                )); ?>
+            )) ?>
         </fieldset>
     </fieldset>
 <?php elseif ($searchType == 'normal'): ?>
@@ -71,7 +72,9 @@
 <fieldset class="tblFooters">
     <input type="submit"
            name="<?= ($searchType == 'zoom' ? 'zoom_submit' : 'submit'); ?>"
-           <?php if ($searchType == 'zoom') echo ' id="inputFormSubmitId"'; ?>
+           <?php if ($searchType == 'zoom'): ?>
+               id="inputFormSubmitId"
+           <?php endif; ?>
            value="<?= __('Go'); ?>" />
 </fieldset>
 </form>

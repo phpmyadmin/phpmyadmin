@@ -162,7 +162,9 @@
                                             || in_array($field_type, $spatial_types))): ?>
 
                                         <option value="<?= htmlspecialchars($field_name) ?>"
-                                                <?php if ($field_name == $column->getName()) echo 'selected="selected"'; ?>>
+                                                <?php if ($field_name == $column->getName()): ?>
+                                                    selected="selected"
+                                                <?php endif; ?>>
 
                                             <?= htmlspecialchars($field_name); ?> [<?= htmlspecialchars($field_type); ?>]
                                         </option>
@@ -174,7 +176,10 @@
                             <input type="text"
                                    size="5"
                                    onfocus="this.select()"name="index[columns][sub_parts][]"
-                                   value="<?php if ($index->getChoice() != 'SPATIAL') echo $column->getSubPart(); ?>"/>
+                                   value="<?= ($index->getChoice() != 'SPATIAL') ?
+                                       $column->getSubPart()
+                                       : ''
+                                    ?>" />
                         </td>
                     </tr>
 
@@ -202,7 +207,7 @@
                                     } ?>
 
                                     <option value="<?= htmlspecialchars((isset($col_index)) ? $col_index : $field_name); ?>"
-                                            <?= ($j++ == $i ? 'selected="selected"' : ''); ?>>
+                                            <?= ($j++ == $i ? ' selected="selected"' : ''); ?>>
                                         <?= htmlspecialchars($field_name) ?> [<?= htmlspecialchars($field_type); ?>]
                                     </option>
                                     <?= "\n";

@@ -1,4 +1,4 @@
-<tr class="<?= $odd_row ? 'odd' : 'even'; ?> <?php if ($table_is_view) echo 'is_view'; ?>"
+<tr class="<?= ($odd_row ? 'odd' : 'even') , ($table_is_view ? ' is_view' : '') ?>"
     id="row_tbl_<?= $curr; ?>">
     <td class="center print_ignore">
         <input type="checkbox"
@@ -51,7 +51,7 @@
         </td>
         <td class="center print_ignore"><?= $empty_table; ?></td>
         <td class="center print_ignore">
-            <a class="ajax drop_table_anchor <?php if ($table_is_view || $current_table['ENGINE'] == null) echo 'view'; ?>"
+            <a class="ajax drop_table_anchor <?= ($table_is_view || $current_table['ENGINE'] == null) ? ' view' : '' ?>"
                href="sql.php<?= $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?= urlencode($drop_query); ?>&amp;message_to_show=<?= urlencode($drop_message); ?>" >
                 <?= $titles['Drop']; ?>
             </a>

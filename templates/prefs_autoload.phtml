@@ -4,12 +4,10 @@
         <input type="hidden" name="json" value="" />
         <input type="hidden" name="submit_import" value="1" />
         <input type="hidden" name="return_url" value="<?= $return_url ?>" />
-        <?php
-        echo __(
+        <?= __(
             'Your browser has phpMyAdmin configuration for this domain. '
             . 'Would you like to import it for current session?'
-        );
-        ?>
+        ) ?>
         <br />
         <a href="#yes"><?= __('Yes') ?></a>
         / <a href="#no"><?= __('No') ?></a>

@@ -79,8 +79,10 @@ if ($foreign_db) {
     <td>
         <span class="formelement clearfloat">
             <input type="text" name="constraint_name[<?= $i; ?>]"
-                   value="<?php if (isset($one_key['constraint']))
-                       echo htmlspecialchars($one_key['constraint']); ?>"
+                   value="<?= (isset($one_key['constraint'])) ?
+                       htmlspecialchars($one_key['constraint'])
+                       : ''
+                       ?>"
                    placeholder="<?= __('Constraint name'); ?>"
                    maxlength="64" />
         </span>

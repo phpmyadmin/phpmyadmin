@@ -5,11 +5,11 @@ if ($_foreigners
     && PMA_searchColumnInForeigners($_foreigners, $column_name)): ?>
     <?php if (is_array($foreignData['disp_row'])): ?>
         <select name="criteriaValues[<?= $column_index; ?>]"
-                id="<?= $column_id , $column_index; ?>">
+                id="<?= $column_id , $column_index ?>">
             <?= PMA_foreignDropdown(
                 $foreignData['disp_row'], $foreignData['foreign_field'],
                 $foreignData['foreign_display'], '', $foreignMaxLimit
-            ); ?>
+            ) ?>
         </select>
     <?php elseif ($foreignData['foreign_link'] == true): ?>
         <input type="text"
@@ -23,15 +23,12 @@ if ($_foreigners
                    value="<?= $criteriaValues[$column_index]; ?>"
                <?php endif; ?> />
         <a class="ajax browse_foreign"
-           href="browse_foreigners.php<?php
-               echo PMA_URL_getCommon(
-                   array('db' => $db, 'table' => $table)
-               );
-           ?>&amp;field=<?php
-               echo urlencode($column_name);
-           ?>&amp;fieldkey=<?php
-               echo $column_index;
-           ?>&amp;fromsearch=1">
+           href="<?= ('browse_foreigners.php') , PMA_URL_getCommon(array('db' => $db, 'table' => $table))
+                    , ('&amp;field=') , urlencode($column_name)
+                    , ('&amp;fieldkey=') , $column_index
+                    , ('&amp;fromsearch=1')
+                ?>">
+
             <?= str_replace("'", "\\'", $titles['Browse']); ?>
         </a>
     <?php endif; ?>
