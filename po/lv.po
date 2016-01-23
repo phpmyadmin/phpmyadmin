@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2015-10-15 11:23+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
-"lv/>\n"
+"PO-Revision-Date: 2016-01-23 11:11+0000\n"
+"Last-Translator: Arturs Nikolajevs <nikidijs@gmail.com>\n"
+"Language-Team: Latvian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -287,7 +287,6 @@ msgstr "Dati"
 
 #: db_export.php:67 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:379
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Iezīmēt visu"
@@ -302,7 +301,7 @@ msgid "Database %1$s has been renamed to %2$s."
 msgstr "Datubāze %1$s tika pārsaukta par %2$s."
 
 #: db_operations.php:153
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Datubāze %1$s tika pārkopēta uz %2$s"
