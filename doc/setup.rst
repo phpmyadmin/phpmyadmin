@@ -593,6 +593,15 @@ HTTP authentication mode
 * Is supported with most PHP configurations. For :term:`IIS` (:term:`ISAPI`)
   support using :term:`CGI` PHP see :ref:`faq1_32`, for using with Apache
   :term:`CGI` see :ref:`faq1_35`.
+* When PHP is running under Apache's :term:`mod_proxy_fcgi` (e.g. with PHP-FPM),
+  :term:`Authorization` headers are not passed to the underlying FCGI application,
+  such that your credentials will not reach the application. In this case, you can
+  add the following configuration directive:
+
+  .. code-block:: apache
+
+     SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':term:`HTTP`' authentication mode.
 
