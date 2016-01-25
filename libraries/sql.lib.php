@@ -1093,6 +1093,11 @@ function PMA_countQueryResults(
     $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
 ) {
 
+    /* Shortcut for not analyzed/empty query */
+    if (empty($analyzed_sql_results)) {
+        return 0;
+    }
+
     if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
@@ -2029,7 +2034,8 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     // (the parser never sets the 'union' key to 0).
     // Handling is also not required if we came from the "Sort by key"
     // drop-down.
-    if (PMA_isRememberSortingOrder($analyzed_sql_results)
+    if (! empty($analyzed_sql_results)
+        && PMA_isRememberSortingOrder($analyzed_sql_results)
         && empty($analyzed_sql_results['union'])
         && ! isset($_REQUEST['sort_by_key'])
     ) {

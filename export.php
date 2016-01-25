@@ -43,6 +43,7 @@ if (!defined('TESTSUITE')) {
     $post_params = array(
             'db',
             'table',
+            'what',
             'single_table',
             'export_type',
             'export_method',
@@ -163,10 +164,11 @@ if (!defined('TESTSUITE')) {
     }
 
     $table = $GLOBALS['table'];
-    // sanitize this parameter which will be used below in a file inclusion
-    $what = PMA_securePath($_POST['what']);
 
     PMA_Util::checkParameters(array('what', 'export_type'));
+
+    // sanitize this parameter which will be used below in a file inclusion
+    $what = PMA_securePath($_POST['what']);
 
     // export class instance, not array of properties, as before
     /* @var $export_plugin ExportPlugin */
