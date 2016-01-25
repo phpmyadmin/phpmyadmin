@@ -25,7 +25,7 @@ class VersionInformation
     public function getLatestVersion()
     {
         if (!$GLOBALS['cfg']['VersionCheck']) {
-            return new stdClass();
+            return null;
         }
 
         // wait 3s at most for server response, it's enough to get information
@@ -88,11 +88,15 @@ class VersionInformation
         }
 
         $data = json_decode($response);
-        if (is_object($data)
-            && ! empty($data->version)
-            && ! empty($data->date)
-            && $save
+        if (! is_object($data)
+            || empty($data->version)
+            || empty($data->date)
+            || empty($data->releases)
         ) {
+            return null;
+        }
+
+        if ($save) {
             if (! isset($_SESSION) && ! defined('TESTSUITE')) {
                 ini_set('session.use_only_cookies', 'false');
                 ini_set('session.use_cookies', 'false');
