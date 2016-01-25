@@ -369,10 +369,7 @@ class PMA_Response
 
         // Set the Content-Type header to JSON so that jQuery parses the
         // response correctly.
-        if (! defined('TESTSUITE')) {
-            header('Cache-Control: no-cache');
-            header('Content-Type: application/json');
-        }
+        PMA_headerJSON();
 
         echo json_encode($this->_JSON);
     }

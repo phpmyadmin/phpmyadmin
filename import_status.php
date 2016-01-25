@@ -75,11 +75,11 @@ if (defined('SESSIONUPLOAD')) {
 }
  */
 
-// AJAX requests can't be cached!
-PMA_noCacheHeader();
-
 // $_GET["message"] is used for asking for an import message
 if (isset($_GET["message"]) && $_GET["message"]) {
+
+    // AJAX requests can't be cached!
+    PMA_noCacheHeader();
 
     header('Content-type: text/html');
 

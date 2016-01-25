@@ -6,9 +6,7 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
         return;
     }
 
-    function handleResponse(json) {
-        response = JSON.parse(json);
-
+    function handleResponse(response) {
         var found = [];
         for (var idx in response) {
             found.push({
@@ -29,6 +27,7 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
     $.ajax({
         method: "POST",
         url: "lint.php",
+        dataType: 'json',
         data: {
             sql_query: text,
             token: PMA_commonParams.get('token'),
