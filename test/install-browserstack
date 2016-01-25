@@ -2,6 +2,10 @@
 
 set -e
 
+if [ -z  "$SELENIUM" ] ; then
+    exit 0
+fi
+
 mkdir -p ~/browserstack
 cd ~/browserstack
 if [ ! -f BrowserStackLocal ] ; then
