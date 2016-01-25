@@ -10,8 +10,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/db_designer.lib.php';
 
-require 'libraries/db_common.inc.php';
-
 $response = PMA_Response::getInstance();
 
 if (isset($_REQUEST['dialog'])) {
@@ -82,6 +80,8 @@ if (isset($_REQUEST['operation'])) {
 
     return;
 }
+
+require 'libraries/db_common.inc.php';
 
 $script_display_field = PMA_getTablesInfo();
 $tab_column = PMA_getColumnsInfo();
