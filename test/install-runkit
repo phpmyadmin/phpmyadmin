@@ -4,6 +4,9 @@ if [ "$TRAVIS_PHP_VERSION" = "nightly" -o "$TRAVIS_PHP_VERSION" = "7.0" ] ; then
     exit 0
 fi
 
+set -e
+set -x
+
 pecl install runkit
 
 phpenv config-add test/php-runkit.ini
