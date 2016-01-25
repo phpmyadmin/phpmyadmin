@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2015-11-12 10:38+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"PO-Revision-Date: 2016-01-25 09:44+0000\n"
+"Last-Translator: Daniel Iltanen <daniel.iltanen@gmail.com>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5183,7 +5183,7 @@ msgstr ""
 "Avaimen pitäisi sisältää kirjaimia, numeroita [em]ja[/em] erikoismerkkejä."
 
 #: libraries/config/ServerConfigChecks.php:383
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -5194,7 +5194,7 @@ msgstr ""
 "Tämä %svalinta%s pitäisi poistaa käytöstä, sillä se sallii hyökkääjien "
 "kirjautua mihin tahansa MySQL-palvelimeen käyttämällä bruteforce-hyökkäystä. "
 "Jos tätä valintaa on pakko käyttää, käytä %srestrict login to MySQL server%s "
-"or %sluotettujen välipalvelimien luetteloa%s. IP-osoitteeseen perustuva "
+"tai %sluotettujen välipalvelimien luetteloa%s. IP-osoitteeseen perustuva "
 "suojaus ei kuitenkaan ole täysin luotettava mikäli IP-osoite kuuluu Internet-"
 "palveluntarjoajalle, johon sinun lisäksesi tuhannet käyttäjät ovat "
 "yhteydessä."
@@ -7445,7 +7445,7 @@ msgstr "Näytä tietokannanluontilomake"
 
 #: libraries/config/messages.inc.php:850
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
+msgstr "Näytä tai piilota kommentti -sarake kaikista tauluista."
 
 #: libraries/config/messages.inc.php:852
 #, fuzzy
