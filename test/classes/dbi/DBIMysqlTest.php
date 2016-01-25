@@ -83,7 +83,7 @@ class DBIMysqlTest extends PMATestCase
      */
     public function testMysqlDBI()
     {
-        if (! PMA_HAS_RUNKIT) {
+        if (! PMA_HAS_RUNKIT || ! $GLOBALS['runkit_internal_override']) {
             $this->markTestSkipped("Cannot redefine function");
         }
         //FOR UT, we just test the right mysql client API is called
