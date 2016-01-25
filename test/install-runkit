@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $TRAVIS_PHP_VERSION = "nightly" -o $TRAVIS_PHP_VERSION = "7.0" ] ; then
+    exit 0
+fi
+
+
+set -e
+
+git clone --depth=100 git://github.com/zenovich/runkit.git
+
+pushd runkit
+git checkout c337393762d54cf6df305cf8e92dac3a162157f4
+
+phpize
+./configure
+make
+make install
+popd
+
+phpenv config-add test/travis.php.ini
