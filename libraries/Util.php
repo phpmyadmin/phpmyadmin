@@ -432,18 +432,23 @@ class Util
     /**
      * Displays a link to the documentation as an icon
      *
-     * @param string $link   documentation link
-     * @param string $target optional link target
+     * @param string  $link   documentation link
+     * @param string  $target optional link target
+     * @param boolean $bbcode optional flag indicating whether to output bbcode
      *
      * @return string the html link
      *
      * @access public
      */
-    public static function showDocLink($link, $target = 'documentation')
+    public static function showDocLink($link, $target = 'documentation', $bbcode = false)
     {
-        return '<a href="' . $link . '" target="' . $target . '">'
-            . self::getImage('b_help.png', __('Documentation'))
-            . '</a>';
+        if($bbcode){
+            return "[a@$link@$target][dochelpicon][/a]";
+        }else{
+            return '<a href="' . $link . '" target="' . $target . '">'
+                . self::getImage('b_help.png', __('Documentation'))
+                . '</a>';
+        }
     } // end of the 'showDocLink()' function
 
     /**
@@ -549,16 +554,17 @@ class Util
     /**
      * Displays a link to the phpMyAdmin documentation
      *
-     * @param string $page   Page in documentation
-     * @param string $anchor Optional anchor in page
+     * @param string  $page   Page in documentation
+     * @param string  $anchor Optional anchor in page
+     * @param boolean $bbcode Optional flag indicating whether to output bbcode
      *
      * @return string  the html link
      *
      * @access  public
      */
-    public static function showDocu($page, $anchor = '')
+    public static function showDocu($page, $anchor = '', $bbcode = false)
     {
-        return self::showDocLink(self::getDocuLink($page, $anchor));
+        return self::showDocLink(self::getDocuLink($page, $anchor), 'documentation', $bbcode);
     } // end of the 'showDocu()' function
 
     /**
@@ -2180,8 +2186,8 @@ class Util
                 $error_message .= $reported_script_name
                     . ': ' . __('Missing parameter:') . ' '
                     . $param
-                    . self::showDocu('faq', 'faqmissingparameters')
-                    . '<br />';
+                    . self::showDocu('faq', 'faqmissingparameters',true)
+                    . '[br]';
                 $found_error = true;
             }
         }
