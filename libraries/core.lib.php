@@ -606,7 +606,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         echo '<body>' . "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo 'document.write(\'<p><a href="' . htmlspecialchars($uri) . '">'
+        echo 'document.write(\'<p><a href="' . PMA_escapeJsString(htmlspecialchars($uri)) . '">'
             . __('Go') . '</a></p>\');' . "\n";
         echo '//]]>' . "\n";
         echo '</script></body></html>' . "\n";
