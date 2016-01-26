@@ -25,7 +25,7 @@ $uri = isset($uri) ? $uri : null;
 <body>
 <script type="text/javascript">
     //<![CDATA[
-    document.write('<p><a href="<?php echo htmlspecialchars($uri) ?>"><?php echo __('Go') ?></a></p>');
+    document.write('<p><a href="<?php echo PMA_escapeJsString(htmlspecialchars($uri)) ?>"><?php echo __('Go') ?></a></p>');
     //]]>
 </script>
 </body>
