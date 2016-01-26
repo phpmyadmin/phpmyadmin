@@ -137,7 +137,7 @@ require './libraries/Table.class.php';
  */
 require './libraries/Types.class.php';
 
-if (! defined('PMA_MINIMUM_COMMON')) {
+if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
     /**
      * common functions
      */
