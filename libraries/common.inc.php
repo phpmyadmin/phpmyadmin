@@ -225,7 +225,7 @@ unset($key, $value, $variables_whitelist);
  * so we now check if a subform is submitted
  */
 $__redirect = null;
-if (isset($_POST['usesubform'])) {
+if (isset($_POST['usesubform']) && ! defined('PMA_MINIMUM_COMMON')) {
     // if a subform is present and should be used
     // the rest of the form is deprecated
     $subform_id = key($_POST['usesubform']);
