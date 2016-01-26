@@ -1567,11 +1567,22 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
             $set_collation_con_query = "SET collation_connection = '"
                 . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection']) . "';";
-            PMA_DBI_query(
+            $result = PMA_DBI_try_query(
                 $set_collation_con_query,
                 $link,
                 PMA_DBI_QUERY_STORE
             );
+            if ($result === false) {
+                trigger_error(
+                    __('Failed to set configured collation connection!'),
+                    E_USER_WARNING
+                );
+                $result = PMA_DBI_query(
+                    "SET collation_connection = 'utf8_general_ci'",
+                    $link,
+                    PMA_DBI_QUERY_STORE
+                );
+            }
         } else {
             PMA_DBI_query(
                 "SET NAMES 'utf8' COLLATE 'utf8_general_ci';",
