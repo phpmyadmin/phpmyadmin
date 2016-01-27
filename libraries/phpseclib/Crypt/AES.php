@@ -46,11 +46,11 @@
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://phpseclib.sourceforge.net
  */
+namespace phpseclib\Crypt;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-namespace phpseclib\Crypt;
 
 use phpseclib\Crypt\Rijndael;
 
