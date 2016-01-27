@@ -340,6 +340,7 @@ if (isset($_COOKIE)) {
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
     && ! $GLOBALS['PMA_Config']->detectHttps()
 ) {
+    require './libraries/select_lang.lib.php';
     // grab SSL URL
     $url = $GLOBALS['PMA_Config']->getSSLUri();
     // Actually redirect
