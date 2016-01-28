@@ -604,7 +604,7 @@ $js_messages['strConsoleDebugArgsSummary'] = __('%s argument(s) passed');
 $js_messages['strConsoleDebugShowArgs'] = __('Show arguments');
 $js_messages['strConsoleDebugHideArgs'] = __('Hide arguments');
 $js_messages['strConsoleDebugTimeTaken'] = __('Time taken:');
-$js_messages['strNoLocalStorage'] = __('Your web browser does not support local storage of settings or the quota limit has been reached, some features may not work properly for you. In Safari, such problem is commonly caused by "Private Mode Browsing".');
+$js_messages['strNoLocalStorage'] = __('There was a problem accessing your browser storage, some features may not work properly for you. It is likely that the browser doesn\'t support storage or the quota limit has been reached. In Firefox, corrupted storage can also cause such a problem, clearing your "Offline Website Data" might help. In Safari, such problem is commonly caused by "Private Mode Browsing".');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
@@ -623,7 +623,7 @@ echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
 //Max input vars allowed by PHP.
 $maxInputVars = ini_get('max_input_vars');
 echo 'var maxInputVars = '
-    . (false === $maxInputVars || '' == $maxInputVars ? 'false' : $maxInputVars)
+    . (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int)$maxInputVars)
     . ';' . "\n";
 
 echo "if ($.datepicker) {\n";

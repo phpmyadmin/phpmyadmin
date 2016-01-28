@@ -620,8 +620,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     public function testIsMergeCase2()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "MERGE")),
-            array('PMA.PMA_BookMark.ENGINE', null, "MERGE")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "MERGE")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "MERGE")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -642,8 +642,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     public function testIsMergeCase3()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "MRG_MYISAM")),
-            array('PMA.PMA_BookMark.ENGINE', null, "MRG_MYISAM")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "MRG_MYISAM")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "MRG_MYISAM")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -664,8 +664,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     public function testIsMergeCase4()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "ISDB")),
-            array('PMA.PMA_BookMark.ENGINE', null, "ISDB")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "ISDB")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "ISDB")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -713,7 +713,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                 . "COLLATE charset1 NULL DEFAULT 'VARCHAR' "
                 . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
         } else {
-            $expect = "`name` `new_name` VARCHAR(2) new_name CHARSET="
+            $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER SET "
                 . "charset1 NULL DEFAULT 'VARCHAR' "
                 . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
         }
@@ -988,11 +988,11 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     {
         $map = array(
             array(
-                'PMA.PMA_BookMark',
+                array('PMA', 'PMA_BookMark'),
                 null,
                 array('Comment' => "Comment222", 'TABLE_TYPE' => "VIEW"),
             ),
-            array('PMA.PMA_BookMark.TABLE_TYPE', null, 'VIEW'),
+            array(array('PMA', 'PMA_BookMark', 'TABLE_TYPE'), null, 'VIEW'),
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')

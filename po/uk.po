@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.5.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2015-12-16 07:59+0100\n"
+"POT-Creation-Date: 2016-01-14 09:16+0100\n"
 "PO-Revision-Date: 2015-10-15 11:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
@@ -93,9 +93,9 @@ msgstr "Стовпчик"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1000
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1023
 #: libraries/rte/rte_list.lib.php:75 libraries/rte/rte_list.lib.php:103
-#: libraries/rte/rte_routines.lib.php:893
-#: libraries/rte/rte_routines.lib.php:922
-#: libraries/rte/rte_routines.lib.php:1584
+#: libraries/rte/rte_routines.lib.php:891
+#: libraries/rte/rte_routines.lib.php:920
+#: libraries/rte/rte_routines.lib.php:1582
 #: libraries/server_privileges.lib.php:2512 libraries/tracking.lib.php:880
 #: libraries/tracking.lib.php:972
 #: templates/columns_definitions/table_fields_definitions.phtml:11
@@ -168,8 +168,8 @@ msgid "Comments"
 msgstr "Коментарі"
 
 #: db_datadict.php:156
-#: libraries/controllers/TableStructureController.class.php:964
-#: libraries/controllers/TableStructureController.class.php:969
+#: libraries/controllers/TableStructureController.class.php:968
+#: libraries/controllers/TableStructureController.class.php:973
 #: libraries/tracking.lib.php:922
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -205,11 +205,11 @@ msgstr "Ні"
 #: libraries/central_columns.lib.php:966
 #: libraries/config/FormDisplay.tpl.php:279
 #: libraries/controllers/TableStructureController.class.php:542
-#: libraries/controllers/TableStructureController.class.php:1215
-#: libraries/controllers/TableStructureController.class.php:1224
-#: libraries/controllers/TableStructureController.class.php:1229
-#: libraries/controllers/TableStructureController.class.php:1234
-#: libraries/controllers/TableStructureController.class.php:1239
+#: libraries/controllers/TableStructureController.class.php:1219
+#: libraries/controllers/TableStructureController.class.php:1228
+#: libraries/controllers/TableStructureController.class.php:1233
+#: libraries/controllers/TableStructureController.class.php:1238
+#: libraries/controllers/TableStructureController.class.php:1243
 #: libraries/mult_submits.inc.php:82 libraries/mult_submits.inc.php:195
 #: libraries/mult_submits.lib.php:339 libraries/mult_submits.lib.php:372
 #: libraries/mult_submits.lib.php:401 libraries/mult_submits.lib.php:415
@@ -253,7 +253,7 @@ msgstr "В БД не виявлено таблиць."
 msgid "Tables"
 msgstr "Таблиці"
 
-#: db_export.php:63 libraries/Menu.class.php:317 libraries/Menu.class.php:425
+#: db_export.php:63 libraries/Menu.class.php:320 libraries/Menu.class.php:428
 #: libraries/Util.class.php:3350 libraries/Util.class.php:3360
 #: libraries/Util.class.php:3366 libraries/Util.class.php:3646
 #: libraries/Util.class.php:4287 libraries/Util.class.php:4304
@@ -476,17 +476,17 @@ msgstr "Додати геометрію"
 #: libraries/display_import.lib.php:393 libraries/index.lib.php:44
 #: libraries/insert_edit.lib.php:1544 libraries/insert_edit.lib.php:1581
 #: libraries/normalization.lib.php:165 libraries/normalization.lib.php:822
-#: libraries/operations.lib.php:40 libraries/operations.lib.php:109
-#: libraries/operations.lib.php:263 libraries/operations.lib.php:306
-#: libraries/operations.lib.php:811 libraries/operations.lib.php:884
-#: libraries/operations.lib.php:933 libraries/operations.lib.php:1347
-#: libraries/operations.lib.php:1668
+#: libraries/operations.lib.php:40 libraries/operations.lib.php:107
+#: libraries/operations.lib.php:259 libraries/operations.lib.php:302
+#: libraries/operations.lib.php:803 libraries/operations.lib.php:875
+#: libraries/operations.lib.php:924 libraries/operations.lib.php:1336
+#: libraries/operations.lib.php:1657
 #: libraries/plugins/auth/AuthenticationCookie.class.php:239
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:161
 #: libraries/replication_gui.lib.php:326 libraries/replication_gui.lib.php:463
 #: libraries/replication_gui.lib.php:908 libraries/rte/rte_events.lib.php:509
-#: libraries/rte/rte_routines.lib.php:1060
-#: libraries/rte/rte_routines.lib.php:1672
+#: libraries/rte/rte_routines.lib.php:1058
+#: libraries/rte/rte_routines.lib.php:1670
 #: libraries/rte/rte_triggers.lib.php:396 libraries/server_bin_log.lib.php:61
 #: libraries/server_privileges.lib.php:705
 #: libraries/server_privileges.lib.php:2249
@@ -502,7 +502,7 @@ msgstr "Додати геометрію"
 #: templates/startAndNumberOfRowsPanel.phtml:14
 #: templates/table/index_form.phtml:238
 #: templates/table/search/selection_form.phtml:75
-#: templates/table/structure/add_column.phtml:25 view_create.php:275
+#: templates/table/structure/add_column.phtml:25 view_create.php:277
 #: view_operations.php:106
 msgid "Go"
 msgstr "Вперед"
@@ -531,7 +531,7 @@ msgstr "Помилка"
 msgid "Incomplete params"
 msgstr "Неповні параметри"
 
-#: import.php:180
+#: import.php:182
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -541,15 +541,15 @@ msgstr ""
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
 "проблеми."
 
-#: import.php:358 import.php:673
+#: import.php:360 import.php:675
 msgid "Showing bookmark"
 msgstr "Показані закладки"
 
-#: import.php:373 import.php:669
+#: import.php:375 import.php:671
 msgid "The bookmark has been deleted."
 msgstr "Закладку було видалено."
 
-#: import.php:470
+#: import.php:472
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -558,12 +558,12 @@ msgstr ""
 "Завантажений файл не може бути переміщений, тому що на сервері включений "
 "open_basedir без доступу до директорії %s (для тимчасових файлів)."
 
-#: import.php:486 import.php:563 libraries/File.class.php:426
+#: import.php:488 import.php:565 libraries/File.class.php:426
 #: libraries/File.class.php:522
 msgid "File could not be read!"
 msgstr "Неможливо прочитати файл!"
 
-#: import.php:497 import.php:512 import.php:537 import.php:552
+#: import.php:499 import.php:514 import.php:539 import.php:554
 #: libraries/File.class.php:589
 #, php-format
 msgid ""
@@ -573,7 +573,7 @@ msgstr ""
 "Ви намагаєтесь завантажити файл з непідтримуваним стисненням (%s). Підтримка "
 "не здійснюється або вимкнена у вашій конфігурації."
 
-#: import.php:570
+#: import.php:572
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -583,28 +583,28 @@ msgstr ""
 "перевищив допустимий максимум для вашої PHP конфігурації. Дивіться "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:593
+#: import.php:595
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "Неможливо конвертувати кодування файлу без бібліотеки перекодування!"
 
-#: import.php:634 libraries/display_import.lib.php:655
+#: import.php:636 libraries/display_import.lib.php:655
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Неможливо завантажити імпортовані плагіни, будь ласка, перевірте вашу "
 "установку!"
 
-#: import.php:676 libraries/sql.lib.php:737 libraries/sql.lib.php:1463
+#: import.php:678 libraries/sql.lib.php:768 libraries/sql.lib.php:1496
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладку %s створено."
 
-#: import.php:685
+#: import.php:687
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Імпорт завершився вдало, %d запитів виконано."
 
-#: import.php:713
+#: import.php:715
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -613,7 +613,7 @@ msgstr ""
 "Виконання скрипту перевищило допустимий час, якщо Ви бажаєте закінчити "
 "імпорт, необхідно %sповторно відправити той самий файл%s."
 
-#: import.php:723
+#: import.php:725
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -629,7 +629,7 @@ msgstr ""
 #: import_status.php:112 js/messages.php:379 libraries/Util.class.php:780
 #: libraries/export.lib.php:518
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:298
-#: user_password.php:284
+#: user_password.php:286
 msgid "Back"
 msgstr "Назад"
 
@@ -656,7 +656,7 @@ msgstr "Загальні налаштування"
 
 #: index.php:191 js/messages.php:526
 #: libraries/display_change_password.lib.php:52
-#: libraries/display_change_password.lib.php:55 user_password.php:278
+#: libraries/display_change_password.lib.php:55 user_password.php:280
 msgid "Change password"
 msgstr "Змінити пароль"
 
@@ -1338,7 +1338,7 @@ msgstr "Питання"
 msgid "Traffic"
 msgstr "Трафік"
 
-#: js/messages.php:186 libraries/Menu.class.php:586
+#: js/messages.php:186 libraries/Menu.class.php:589
 #: libraries/Util.class.php:4278 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Налаштування"
@@ -1554,7 +1554,7 @@ msgstr "Аналізується…"
 msgid "Explain output"
 msgstr "Тлумачити вихідні дані"
 
-#: js/messages.php:244 libraries/Menu.class.php:552
+#: js/messages.php:244 libraries/Menu.class.php:555
 #: libraries/Util.class.php:4274 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:279
@@ -1653,8 +1653,8 @@ msgstr ""
 "Неможливо побудувати сітку даних з імпортованою конфігурацією. Відновлення "
 "конфігурації за замовчуванням…"
 
-#: js/messages.php:271 libraries/Menu.class.php:352
-#: libraries/Menu.class.php:455 libraries/Menu.class.php:582
+#: js/messages.php:271 libraries/Menu.class.php:355
+#: libraries/Menu.class.php:458 libraries/Menu.class.php:585
 #: libraries/Util.class.php:4277 libraries/Util.class.php:4292
 #: libraries/Util.class.php:4309 libraries/config/messages.inc.php:260
 #: libraries/display_import.lib.php:105
@@ -1861,8 +1861,8 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Визначення збереженої функції має містити оператор RETURN!"
 
 #: js/messages.php:335 libraries/DisplayResults.class.php:4837
-#: libraries/DisplayResults.class.php:5095 libraries/Menu.class.php:344
-#: libraries/Menu.class.php:446 libraries/Menu.class.php:578
+#: libraries/DisplayResults.class.php:5095 libraries/Menu.class.php:347
+#: libraries/Menu.class.php:449 libraries/Menu.class.php:581
 #: libraries/Util.class.php:3653 libraries/Util.class.php:3654
 #: libraries/Util.class.php:4276 libraries/Util.class.php:4291
 #: libraries/Util.class.php:4308 libraries/config/messages.inc.php:254
@@ -1877,7 +1877,7 @@ msgstr "Визначення збереженої функції має міст
 msgid "Export"
 msgstr "Експортувати"
 
-#: js/messages.php:338 libraries/rte/rte_routines.lib.php:743
+#: js/messages.php:338 libraries/rte/rte_routines.lib.php:741
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET редактор"
 
@@ -2558,7 +2558,7 @@ msgid "up to date"
 msgstr "оновлено"
 
 #: js/messages.php:554 libraries/DisplayResults.class.php:4942
-#: view_create.php:181
+#: view_create.php:183
 msgid "Create view"
 msgstr "Створити подання"
 
@@ -2669,8 +2669,10 @@ msgstr ""
 
 #: js/messages.php:607
 msgid ""
-"Your web browser does not support local storage of settings or the quota "
-"limit has been reached, some features may not work properly for you. In "
+"There was a problem accessing your browser storage, some features may not "
+"work properly for you. It is likely that the browser doesn't support storage "
+"or the quota limit has been reached. In Firefox, corrupted storage can also "
+"cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
@@ -3031,7 +3033,7 @@ msgstr "Введіть вірний номер!"
 #: js/messages.php:795 libraries/Message.class.php:199
 #: libraries/Util.class.php:657 libraries/core.lib.php:245
 #: libraries/import.lib.php:181 libraries/insert_edit.lib.php:1170
-#: tbl_operations.php:229 view_operations.php:63
+#: tbl_operations.php:226 view_operations.php:63
 msgid "Error"
 msgstr "Помилка"
 
@@ -3132,7 +3134,7 @@ msgid "Requery"
 msgstr "Повторити запит"
 
 #: libraries/Console.class.php:91 libraries/Console.class.php:220
-#: libraries/Menu.class.php:219 libraries/config/messages.inc.php:925
+#: libraries/Menu.class.php:222 libraries/config/messages.inc.php:925
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
 #: libraries/plugins/export/ExportTexytext.class.php:133
@@ -3240,7 +3242,7 @@ msgstr "Історія"
 #: libraries/plugins/import/ImportShp.class.php:57
 #: libraries/plugins/import/ImportSql.class.php:51
 #: libraries/plugins/import/ImportXml.class.php:58
-#: libraries/rte/rte_routines.lib.php:924 templates/table/index_form.phtml:49
+#: libraries/rte/rte_routines.lib.php:922 templates/table/index_form.phtml:49
 #: templates/table/search/options.phtml:2
 #: templates/table/structure/row_stats_table.phtml:20
 msgid "Options"
@@ -3392,7 +3394,7 @@ msgstr "Перейти до скопійованої таблиці"
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1478
 #: libraries/DisplayResults.class.php:2268
 #: libraries/DisplayResults.class.php:2274 libraries/config.values.php:70
-#: libraries/operations.lib.php:804 libraries/server_databases.lib.php:307
+#: libraries/operations.lib.php:796 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:191
 #: templates/database/structure/sortable_header.phtml:21
@@ -3404,7 +3406,7 @@ msgstr "Зростаючий"
 #: libraries/DBQbe.class.php:408 libraries/DisplayResults.class.php:1490
 #: libraries/DisplayResults.class.php:2264
 #: libraries/DisplayResults.class.php:2278 libraries/config.values.php:71
-#: libraries/operations.lib.php:807 libraries/server_databases.lib.php:307
+#: libraries/operations.lib.php:799 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:188
 #: templates/database/structure/sortable_header.phtml:26
@@ -3484,36 +3486,36 @@ msgstr "Вставити:"
 msgid "Del:"
 msgstr "Видалити:"
 
-#: libraries/DBQbe.class.php:1849
+#: libraries/DBQbe.class.php:1851
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-запит до БД <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1863 libraries/Util.class.php:1235
+#: libraries/DBQbe.class.php:1870 libraries/Util.class.php:1235
 msgid "Submit Query"
 msgstr "Виконати запит"
 
-#: libraries/DBQbe.class.php:1877
+#: libraries/DBQbe.class.php:1884
 msgid "Saved bookmarked search:"
 msgstr ""
 
-#: libraries/DBQbe.class.php:1879
+#: libraries/DBQbe.class.php:1886
 msgid "New bookmark"
 msgstr "Нова закладка"
 
-#: libraries/DBQbe.class.php:1905
+#: libraries/DBQbe.class.php:1912
 msgid "Create bookmark"
 msgstr "Створити закладку"
 
-#: libraries/DBQbe.class.php:1908
+#: libraries/DBQbe.class.php:1915
 msgid "Update bookmark"
 msgstr "Оновити закладку"
 
-#: libraries/DBQbe.class.php:1910
+#: libraries/DBQbe.class.php:1917
 msgid "Delete bookmark"
 msgstr "Видалити закладку"
 
-#: libraries/DatabaseInterface.class.php:2523
+#: libraries/DatabaseInterface.class.php:2448
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3521,19 +3523,19 @@ msgstr ""
 "Сервер не відповідає (або локальний сокет сервера MySQL невірно "
 "налаштований)."
 
-#: libraries/DatabaseInterface.class.php:2528
+#: libraries/DatabaseInterface.class.php:2453
 msgid "The server is not responding."
 msgstr "Сервер не відповідає."
 
-#: libraries/DatabaseInterface.class.php:2533
+#: libraries/DatabaseInterface.class.php:2458
 msgid "Please check privileges of directory containing database."
 msgstr "Будь ласка, перевірте привілеї каталогу містить базу даних."
 
-#: libraries/DatabaseInterface.class.php:2543
+#: libraries/DatabaseInterface.class.php:2468
 msgid "Details…"
 msgstr "Деталі…"
 
-#: libraries/DatabaseInterface.class.php:2763
+#: libraries/DatabaseInterface.class.php:2688
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Помилка при вказуванні з'єднання для controluser в конфігурації."
 
@@ -3574,7 +3576,7 @@ msgstr[0] "%1$s співпадіння у <strong>%2$s</strong>"
 msgstr[1] "%1$s співпадіння у <strong>%2$s</strong>"
 msgstr[2] "%1$s співпадінь у <strong>%2$s</strong>"
 
-#: libraries/DbSearch.class.php:354 libraries/Menu.class.php:311
+#: libraries/DbSearch.class.php:354 libraries/Menu.class.php:314
 #: libraries/Util.class.php:3354 libraries/Util.class.php:3364
 #: libraries/Util.class.php:3640 libraries/Util.class.php:3641
 #: libraries/Util.class.php:4303 libraries/config.values.php:43
@@ -3734,8 +3736,8 @@ msgstr "Може бути приблизним. Дивіться [doc@faq3-11]FA
 #: libraries/DisplayResults.class.php:4335 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:259
 #: libraries/controllers/TableSearchController.class.php:653
-#: libraries/rte/rte_routines.lib.php:1423 libraries/sql_query_form.lib.php:89
-#: tbl_operations.php:227 tbl_row_action.php:139 view_operations.php:62
+#: libraries/rte/rte_routines.lib.php:1421 libraries/sql_query_form.lib.php:89
+#: tbl_operations.php:224 tbl_row_action.php:139 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL запит було виконано вдало."
 
@@ -3764,7 +3766,7 @@ msgstr "%1$d total, %2$d в запиті"
 msgid "%d total"
 msgstr "всього %d"
 
-#: libraries/DisplayResults.class.php:4708 libraries/sql.lib.php:1315
+#: libraries/DisplayResults.class.php:4708 libraries/sql.lib.php:1348
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запит виконувався %01.4f с."
@@ -3933,8 +3935,8 @@ msgid "Keyname"
 msgstr "Назва ключа"
 
 #: libraries/Index.class.php:697
-#: libraries/controllers/TableStructureController.class.php:966
-#: libraries/controllers/TableStructureController.class.php:971
+#: libraries/controllers/TableStructureController.class.php:970
+#: libraries/controllers/TableStructureController.class.php:975
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:26
@@ -3951,8 +3953,8 @@ msgstr "Кількість елементів"
 
 #: libraries/Index.class.php:701 libraries/build_html_for_db.lib.php:22
 #: libraries/central_columns.lib.php:703 libraries/central_columns.lib.php:1384
-#: libraries/mysql_charsets.lib.php:45 libraries/operations.lib.php:293
-#: libraries/operations.lib.php:1082 libraries/server_collations.lib.php:35
+#: libraries/mysql_charsets.lib.php:45 libraries/operations.lib.php:289
+#: libraries/operations.lib.php:1072 libraries/server_collations.lib.php:35
 #: libraries/tracking.lib.php:881 libraries/tracking.lib.php:977
 #: templates/columns_definitions/table_fields_definitions.phtml:33
 #: templates/database/structure/table_header.phtml:55
@@ -3963,7 +3965,7 @@ msgid "Collation"
 msgstr "Порівняння"
 
 #: libraries/Index.class.php:703 libraries/rte/rte_events.lib.php:496
-#: libraries/rte/rte_routines.lib.php:1047 libraries/tracking.lib.php:885
+#: libraries/rte/rte_routines.lib.php:1045 libraries/tracking.lib.php:885
 #: libraries/tracking.lib.php:979
 #: templates/database/structure/table_header.phtml:84
 #: templates/table/structure/display_partitions.phtml:27
@@ -3981,9 +3983,9 @@ msgstr "Індекс %s було знищено."
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3647
 #: libraries/Util.class.php:3648
-#: libraries/controllers/TableStructureController.class.php:962
-#: libraries/controllers/TableStructureController.class.php:963
-#: libraries/operations.lib.php:1617 libraries/rte/rte_list.lib.php:150
+#: libraries/controllers/TableStructureController.class.php:966
+#: libraries/controllers/TableStructureController.class.php:967
+#: libraries/operations.lib.php:1606 libraries/rte/rte_list.lib.php:150
 #: libraries/server_databases.lib.php:146
 #: templates/database/structure/check_all_tables.phtml:16
 #: templates/table/relation/foreign_key_row.phtml:93
@@ -4010,12 +4012,12 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:442
+#: libraries/Menu.class.php:203 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
 msgid "Server"
 msgstr "Сервер"
 
-#: libraries/Menu.class.php:248
+#: libraries/Menu.class.php:251
 #: libraries/navigation/Nodes/Node_View.class.php:32
 #: libraries/tbl_info.inc.php:63
 #: templates/database/structure/structure_table_row.phtml:97
@@ -4023,7 +4025,7 @@ msgstr "Сервер"
 msgid "View"
 msgstr "Подання"
 
-#: libraries/Menu.class.php:248 libraries/config/messages.inc.php:935
+#: libraries/Menu.class.php:251 libraries/config/messages.inc.php:935
 #: libraries/plugins/export/ExportXml.class.php:504
 #: libraries/rte/rte_list.lib.php:87 libraries/rte/rte_triggers.lib.php:331
 #: libraries/server_privileges.lib.php:1169
@@ -4038,8 +4040,8 @@ msgstr "Подання"
 msgid "Table"
 msgstr "Таблиця"
 
-#: libraries/Menu.class.php:325 libraries/Menu.class.php:429
-#: libraries/Menu.class.php:548 libraries/Util.class.php:3351
+#: libraries/Menu.class.php:328 libraries/Menu.class.php:432
+#: libraries/Menu.class.php:551 libraries/Util.class.php:3351
 #: libraries/Util.class.php:3361 libraries/Util.class.php:3367
 #: libraries/Util.class.php:4273 libraries/Util.class.php:4288
 #: libraries/Util.class.php:4305 libraries/config.values.php:40
@@ -4049,7 +4051,7 @@ msgstr "Таблиця"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:328 libraries/Menu.class.php:432
+#: libraries/Menu.class.php:331 libraries/Menu.class.php:435
 #: libraries/Util.class.php:3352 libraries/Util.class.php:3362
 #: libraries/Util.class.php:3368 libraries/Util.class.php:3642
 #: libraries/Util.class.php:3643 libraries/Util.class.php:4289
@@ -4060,7 +4062,7 @@ msgstr "SQL"
 msgid "Search"
 msgstr "Шукати"
 
-#: libraries/Menu.class.php:338 libraries/Util.class.php:3353
+#: libraries/Menu.class.php:341 libraries/Util.class.php:3353
 #: libraries/Util.class.php:3363 libraries/Util.class.php:3644
 #: libraries/Util.class.php:3645 libraries/Util.class.php:4307
 #: libraries/config.values.php:42 libraries/config.values.php:50
@@ -4070,7 +4072,7 @@ msgstr "Шукати"
 msgid "Insert"
 msgstr "Вставити"
 
-#: libraries/Menu.class.php:362 libraries/Menu.class.php:467
+#: libraries/Menu.class.php:365 libraries/Menu.class.php:470
 #: libraries/Util.class.php:4294 libraries/Util.class.php:4310
 #: libraries/config.values.php:106 libraries/server_common.lib.php:51
 #: libraries/server_privileges.lib.php:2513
@@ -4079,21 +4081,21 @@ msgstr "Вставити"
 msgid "Privileges"
 msgstr "Привілеї"
 
-#: libraries/Menu.class.php:371 libraries/Menu.class.php:379
-#: libraries/Menu.class.php:459 libraries/Util.class.php:3355
+#: libraries/Menu.class.php:374 libraries/Menu.class.php:382
+#: libraries/Menu.class.php:462 libraries/Util.class.php:3355
 #: libraries/Util.class.php:3369 libraries/Util.class.php:4293
 #: libraries/Util.class.php:4311 libraries/config.values.php:112
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Операції"
 
-#: libraries/Menu.class.php:384 libraries/Menu.class.php:492
+#: libraries/Menu.class.php:387 libraries/Menu.class.php:495
 #: libraries/Util.class.php:4298 libraries/Util.class.php:4312
-#: libraries/relation.lib.php:255
+#: libraries/relation.lib.php:260
 msgid "Tracking"
 msgstr "Відстеження"
 
-#: libraries/Menu.class.php:397 libraries/Menu.class.php:486
+#: libraries/Menu.class.php:400 libraries/Menu.class.php:489
 #: libraries/Util.class.php:4297 libraries/Util.class.php:4313
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:24
 #: libraries/plugins/export/ExportHtmlword.class.php:558
@@ -4106,21 +4108,21 @@ msgstr "Відстеження"
 msgid "Triggers"
 msgstr "Тригери"
 
-#: libraries/Menu.class.php:436 libraries/Menu.class.php:443
-#: libraries/Menu.class.php:450
+#: libraries/Menu.class.php:439 libraries/Menu.class.php:446
+#: libraries/Menu.class.php:453
 msgid "Database seems to be empty!"
 msgstr "Порожня база даних!"
 
-#: libraries/Menu.class.php:439 libraries/Util.class.php:4290
+#: libraries/Menu.class.php:442 libraries/Util.class.php:4290
 msgid "Query"
 msgstr "Запит"
 
-#: libraries/Menu.class.php:472 libraries/Util.class.php:4295
+#: libraries/Menu.class.php:475 libraries/Util.class.php:4295
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Процедури"
 
-#: libraries/Menu.class.php:479 libraries/Util.class.php:4296
+#: libraries/Menu.class.php:482 libraries/Util.class.php:4296
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:947
 #: libraries/plugins/export/ExportXml.class.php:107
@@ -4128,16 +4130,16 @@ msgstr "Процедури"
 msgid "Events"
 msgstr "Події"
 
-#: libraries/Menu.class.php:498 libraries/Util.class.php:4299
+#: libraries/Menu.class.php:501 libraries/Util.class.php:4299
 msgid "Designer"
 msgstr "Дизайнер"
 
-#: libraries/Menu.class.php:507 libraries/Util.class.php:4300
+#: libraries/Menu.class.php:510 libraries/Util.class.php:4300
 #: templates/database/structure/check_all_tables.phtml:35
 msgid "Central columns"
 msgstr "Центральні стовпчики"
 
-#: libraries/Menu.class.php:544 libraries/Util.class.php:4272
+#: libraries/Menu.class.php:547 libraries/Util.class.php:4272
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:268
 #: libraries/config/messages.inc.php:343
 #: libraries/navigation/NavigationTree.class.php:1240
@@ -4145,41 +4147,41 @@ msgstr "Центральні стовпчики"
 msgid "Databases"
 msgstr "Бази даних"
 
-#: libraries/Menu.class.php:568
+#: libraries/Menu.class.php:571
 #, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
 msgstr "Групи користувачів"
 
-#: libraries/Menu.class.php:595 libraries/ServerStatusData.class.php:122
+#: libraries/Menu.class.php:598 libraries/ServerStatusData.class.php:122
 #: libraries/Util.class.php:4279 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Бінарний журнал"
 
-#: libraries/Menu.class.php:601 libraries/ServerStatusData.class.php:127
+#: libraries/Menu.class.php:604 libraries/ServerStatusData.class.php:127
 #: libraries/Util.class.php:4280 libraries/server_common.lib.php:42
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Реплікація"
 
-#: libraries/Menu.class.php:606 libraries/ServerStatusData.class.php:194
+#: libraries/Menu.class.php:609 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4281 libraries/config.values.php:105
 #: libraries/server_engines.lib.php:108 libraries/server_engines.lib.php:112
 #: libraries/sql_query_form.lib.php:421
 msgid "Variables"
 msgstr "Змінні"
 
-#: libraries/Menu.class.php:610 libraries/Util.class.php:4282
+#: libraries/Menu.class.php:613 libraries/Util.class.php:4282
 msgid "Charsets"
 msgstr "Кодування"
 
-#: libraries/Menu.class.php:615 libraries/Util.class.php:4283
+#: libraries/Menu.class.php:618 libraries/Util.class.php:4283
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:27
 msgid "Plugins"
 msgstr "Плагіни"
 
-#: libraries/Menu.class.php:626 libraries/Util.class.php:4284
+#: libraries/Menu.class.php:629 libraries/Util.class.php:4284
 msgid "Engines"
 msgstr "Двигуни"
 
@@ -4257,27 +4259,27 @@ msgstr "Улюблені таблиці"
 msgid "Favorites"
 msgstr "Уподобання"
 
-#: libraries/SavedSearches.class.php:246
+#: libraries/SavedSearches.class.php:247
 msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:261
+#: libraries/SavedSearches.class.php:262
 msgid "Missing information to save the bookmarked search."
 msgstr "Відсутня інформація для збереження пошуку в закладках."
 
-#: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
+#: libraries/SavedSearches.class.php:284 libraries/SavedSearches.class.php:321
 msgid "An entry with this name already exists."
 msgstr "Запис з таким іменем вже існує."
 
-#: libraries/SavedSearches.class.php:347
+#: libraries/SavedSearches.class.php:348
 msgid "Missing information to delete the search."
 msgstr "Відсутні відомості для видалення пошуку."
 
-#: libraries/SavedSearches.class.php:375
+#: libraries/SavedSearches.class.php:376
 msgid "Missing information to load the search."
 msgstr "Відсутні відомості для завантаження пошуку."
 
-#: libraries/SavedSearches.class.php:394
+#: libraries/SavedSearches.class.php:395
 msgid "Error while loading the search."
 msgstr "Помилка під час завантаження пошуку."
 
@@ -4858,8 +4860,8 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
 #: libraries/rte/rte_general.lib.php:36 libraries/rte/rte_routines.lib.php:223
 #: libraries/rte/rte_routines.lib.php:250
-#: libraries/rte/rte_routines.lib.php:372
-#: libraries/rte/rte_routines.lib.php:1457
+#: libraries/rte/rte_routines.lib.php:371
+#: libraries/rte/rte_routines.lib.php:1455
 #: libraries/rte/rte_triggers.lib.php:86 libraries/rte/rte_triggers.lib.php:95
 #: libraries/rte/rte_triggers.lib.php:127
 msgid "MySQL said: "
@@ -5059,8 +5061,8 @@ msgstr ""
 #: libraries/plugins/export/ExportTexytext.class.php:426
 #: libraries/plugins/export/PMA_ExportPdf.class.php:307
 #: libraries/rte/rte_list.lib.php:73 libraries/rte/rte_list.lib.php:85
-#: libraries/rte/rte_list.lib.php:100 libraries/rte/rte_routines.lib.php:921
-#: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:164
+#: libraries/rte/rte_list.lib.php:100 libraries/rte/rte_routines.lib.php:919
+#: libraries/rte/rte_routines.lib.php:1581 setup/frames/index.inc.php:164
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
 #: templates/table/structure/display_partitions.phtml:20
@@ -5069,7 +5071,7 @@ msgid "Name"
 msgstr "Назва"
 
 #: libraries/central_columns.lib.php:699 libraries/central_columns.lib.php:1383
-#: libraries/rte/rte_routines.lib.php:923
+#: libraries/rte/rte_routines.lib.php:921
 #: templates/columns_definitions/table_fields_definitions.phtml:14
 msgid "Length/Values"
 msgstr "Довжина/Значення"
@@ -5109,11 +5111,11 @@ msgstr "Додати стовпчик"
 msgid "Attributes"
 msgstr "Атрибути"
 
-#: libraries/common.inc.php:580
+#: libraries/common.inc.php:586
 msgid "Failed to read configuration file!"
 msgstr "Не вдалося прочитати файл конфігурації!"
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:589
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -5121,12 +5123,12 @@ msgstr ""
 "Як правило, це означає, що в ньому є синтаксичні помилки, будь ласка, "
 "перевірте будь-які помилки що показано нижче."
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:598
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Неможливо завантажити стандартну функціональність із: %1$s"
 
-#: libraries/common.inc.php:600
+#: libraries/common.inc.php:606
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -5134,27 +5136,27 @@ msgstr ""
 "Змінна [code]$cfg['PmaAbsoluteUri'][/code] ПОВИННА бути встановлена у "
 "конфігураційному файлі!"
 
-#: libraries/common.inc.php:635
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Невірний індекс сервера: %s"
 
-#: libraries/common.inc.php:647
+#: libraries/common.inc.php:653
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Невірна назва хоста для сервера %1$s. Будь ласка, перевірте конфігурацію."
 
-#: libraries/common.inc.php:665
+#: libraries/common.inc.php:671
 #, php-format
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: libraries/common.inc.php:862
+#: libraries/common.inc.php:868
 msgid "Invalid authentication method set in configuration:"
 msgstr "Невірний метод аутентифікації встановленний в налаштуваннях:"
 
-#: libraries/common.inc.php:1005
+#: libraries/common.inc.php:1011
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5162,24 +5164,24 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:1037
+#: libraries/common.inc.php:1043
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Вам необхідно оновити до %s %s або пізнішої."
 
-#: libraries/common.inc.php:1154
+#: libraries/common.inc.php:1160
 msgid "Error: Token mismatch"
 msgstr "Помилка: невідповідний токен"
 
-#: libraries/common.inc.php:1186
+#: libraries/common.inc.php:1192
 msgid "GLOBALS overwrite attempt"
 msgstr "спроба перезапису GLOBALS"
 
-#: libraries/common.inc.php:1193
+#: libraries/common.inc.php:1199
 msgid "possible exploit"
 msgstr "можливе використання"
 
-#: libraries/common.inc.php:1202
+#: libraries/common.inc.php:1208
 msgid "numeric key detected"
 msgstr "виявлено цифровий ключ"
 
@@ -6065,8 +6067,8 @@ msgstr "Експортувати заголовки таблиці"
 msgid "Remember file name template"
 msgstr "Запам'ятати шаблон імені файлу"
 
-#: libraries/config/messages.inc.php:186 libraries/operations.lib.php:224
-#: libraries/operations.lib.php:859 libraries/operations.lib.php:1298
+#: libraries/config/messages.inc.php:186 libraries/operations.lib.php:222
+#: libraries/operations.lib.php:851 libraries/operations.lib.php:1288
 msgid "Add AUTO_INCREMENT value"
 msgstr "Додати значення AUTO_INCREMENT"
 
@@ -6106,8 +6108,8 @@ msgstr "Відсутня таблиця для збереження конфіг
 #: libraries/config/messages.inc.php:197 libraries/config/messages.inc.php:198
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:202
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
-#: libraries/config/messages.inc.php:217 libraries/operations.lib.php:219
-#: libraries/operations.lib.php:1294
+#: libraries/config/messages.inc.php:217 libraries/operations.lib.php:217
+#: libraries/operations.lib.php:1284
 #, php-format
 msgid "Add %s"
 msgstr "Додати %s"
@@ -8182,19 +8184,19 @@ msgid "OpenDocument Text"
 msgstr "Текст OpenDocument"
 
 #: libraries/controllers/DatabaseStructureController.class.php:407
-#: tbl_operations.php:382
+#: tbl_operations.php:379
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Таблицю %s було очищено."
 
 #: libraries/controllers/DatabaseStructureController.class.php:428
-#: tbl_operations.php:400 view_operations.php:119
+#: tbl_operations.php:397 view_operations.php:119
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Перегляд %s було знищено."
 
 #: libraries/controllers/DatabaseStructureController.class.php:429
-#: tbl_operations.php:401
+#: tbl_operations.php:398
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Таблицю %s було знищено."
@@ -8204,7 +8206,7 @@ msgid "Favorite List is full!"
 msgstr "Перелік обраного заповнено!"
 
 #: libraries/controllers/DatabaseStructureController.class.php:953
-#: libraries/mysql_charsets.lib.php:363 libraries/mysql_charsets.lib.php:370
+#: libraries/mysql_charsets.lib.php:369 libraries/mysql_charsets.lib.php:376
 msgid "unknown"
 msgstr "невідоме"
 
@@ -8287,13 +8289,13 @@ msgstr "Таблицю %1$s було успішно змінено."
 msgid "Query error"
 msgstr "Помилка запиту"
 
-#: libraries/controllers/TableStructureController.class.php:961
+#: libraries/controllers/TableStructureController.class.php:965
 #: templates/table/structure/check_all_table_column.phtml:11
 msgid "Change"
 msgstr "Змінити"
 
-#: libraries/controllers/TableStructureController.class.php:965
-#: libraries/controllers/TableStructureController.class.php:970
+#: libraries/controllers/TableStructureController.class.php:969
+#: libraries/controllers/TableStructureController.class.php:974
 #: libraries/navigation/Nodes/Node_Index.class.php:30
 #: libraries/tracking.lib.php:926
 #: templates/columns_definitions/column_indexes.phtml:16
@@ -8304,20 +8306,20 @@ msgstr "Змінити"
 msgid "Index"
 msgstr "Індекс"
 
-#: libraries/controllers/TableStructureController.class.php:967
-#: libraries/controllers/TableStructureController.class.php:972
+#: libraries/controllers/TableStructureController.class.php:971
+#: libraries/controllers/TableStructureController.class.php:976
 #: templates/columns_definitions/column_indexes.phtml:27
 msgid "Spatial"
 msgstr "Просторовий"
 
-#: libraries/controllers/TableStructureController.class.php:968
-#: libraries/controllers/TableStructureController.class.php:973
+#: libraries/controllers/TableStructureController.class.php:972
+#: libraries/controllers/TableStructureController.class.php:977
 #: templates/columns_definitions/column_indexes.phtml:22
 #: templates/table/structure/check_all_table_column.phtml:40
 msgid "Fulltext"
 msgstr "ПовнТекст"
 
-#: libraries/controllers/TableStructureController.class.php:976
+#: libraries/controllers/TableStructureController.class.php:980
 msgid "Distinct values"
 msgstr "Окремі значення"
 
@@ -9166,12 +9168,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump збережено у файл %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1309
+#: libraries/rte/rte_routines.lib.php:1442 libraries/sql.lib.php:1342
 #: tbl_get_field.php:44
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
-#: libraries/import.lib.php:263 libraries/sql.lib.php:1323
+#: libraries/import.lib.php:263 libraries/sql.lib.php:1356
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9243,13 +9245,13 @@ msgstr "Приховати"
 
 #: libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_Function.class.php:32
-#: libraries/rte/rte_routines.lib.php:1586
+#: libraries/rte/rte_routines.lib.php:1584
 #: templates/table/search/table_header.phtml:4
 msgid "Function"
 msgstr "Функція"
 
-#: libraries/insert_edit.lib.php:399 libraries/mysql_charsets.lib.php:157
-#: libraries/mysql_charsets.lib.php:367
+#: libraries/insert_edit.lib.php:399 libraries/mysql_charsets.lib.php:163
+#: libraries/mysql_charsets.lib.php:373
 msgid "Binary"
 msgstr "Двійковий"
 
@@ -9319,7 +9321,7 @@ msgstr ""
 "для переміщення куди завгодно"
 
 #: libraries/insert_edit.lib.php:1575 libraries/replication_gui.lib.php:544
-#: libraries/rte/rte_routines.lib.php:1588
+#: libraries/rte/rte_routines.lib.php:1586
 #: libraries/server_status_variables.lib.php:220
 #: templates/database/designer/having_query_panel.phtml:100
 #: templates/database/designer/options_panel.phtml:73
@@ -9330,23 +9332,23 @@ msgstr ""
 msgid "Value"
 msgstr "Значення"
 
-#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1306
+#: libraries/insert_edit.lib.php:1935 libraries/sql.lib.php:1339
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1284
+#: libraries/insert_edit.lib.php:1960 libraries/sql.lib.php:1317
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор доданого рядка: %1$d"
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:147
+#: libraries/kanji-encoding.lib.php:150
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Немає"
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:158
+#: libraries/kanji-encoding.lib.php:161
 msgid "Convert to Kana"
 msgstr "Конвертувати в Кану"
 
@@ -9386,191 +9388,191 @@ msgstr "Ви насправді хочете  виконати даний зап
 msgid "Charset"
 msgstr "Набір символів"
 
-#: libraries/mysql_charsets.lib.php:169
+#: libraries/mysql_charsets.lib.php:175
 msgid "Bulgarian"
 msgstr "Болгарське"
 
-#: libraries/mysql_charsets.lib.php:173 libraries/mysql_charsets.lib.php:307
+#: libraries/mysql_charsets.lib.php:179 libraries/mysql_charsets.lib.php:313
 msgid "Simplified Chinese"
 msgstr "Китайське Спрощене"
 
-#: libraries/mysql_charsets.lib.php:175 libraries/mysql_charsets.lib.php:327
+#: libraries/mysql_charsets.lib.php:181 libraries/mysql_charsets.lib.php:333
 msgid "Traditional Chinese"
 msgstr "Китайське Традиційне"
 
-#: libraries/mysql_charsets.lib.php:179 libraries/mysql_charsets.lib.php:374
+#: libraries/mysql_charsets.lib.php:185 libraries/mysql_charsets.lib.php:380
 msgid "case-insensitive"
 msgstr "нечутливий до регістру"
 
-#: libraries/mysql_charsets.lib.php:182 libraries/mysql_charsets.lib.php:376
+#: libraries/mysql_charsets.lib.php:188 libraries/mysql_charsets.lib.php:382
 msgid "case-sensitive"
 msgstr "чутливий до регістру"
 
-#: libraries/mysql_charsets.lib.php:185
+#: libraries/mysql_charsets.lib.php:191
 msgid "Croatian"
 msgstr "Хорватська"
 
-#: libraries/mysql_charsets.lib.php:188
+#: libraries/mysql_charsets.lib.php:194
 msgid "Czech"
 msgstr "Чеська"
 
-#: libraries/mysql_charsets.lib.php:191
+#: libraries/mysql_charsets.lib.php:197
 msgid "Danish"
 msgstr "Датська"
 
-#: libraries/mysql_charsets.lib.php:194
+#: libraries/mysql_charsets.lib.php:200
 msgid "English"
 msgstr "Англійська"
 
-#: libraries/mysql_charsets.lib.php:197
+#: libraries/mysql_charsets.lib.php:203
 msgid "Esperanto"
 msgstr "Есперанто"
 
-#: libraries/mysql_charsets.lib.php:200
+#: libraries/mysql_charsets.lib.php:206
 msgid "Estonian"
 msgstr "Естонська"
 
-#: libraries/mysql_charsets.lib.php:203 libraries/mysql_charsets.lib.php:206
+#: libraries/mysql_charsets.lib.php:209 libraries/mysql_charsets.lib.php:212
 msgid "German"
 msgstr "Німецька"
 
-#: libraries/mysql_charsets.lib.php:203
+#: libraries/mysql_charsets.lib.php:209
 msgid "dictionary"
 msgstr "словник"
 
-#: libraries/mysql_charsets.lib.php:206
+#: libraries/mysql_charsets.lib.php:212
 msgid "phone book"
 msgstr "телефонна книга"
 
-#: libraries/mysql_charsets.lib.php:209
+#: libraries/mysql_charsets.lib.php:215
 msgid "Hungarian"
 msgstr "Угорська"
 
-#: libraries/mysql_charsets.lib.php:212
+#: libraries/mysql_charsets.lib.php:218
 msgid "Icelandic"
 msgstr "Ісландська"
 
-#: libraries/mysql_charsets.lib.php:215 libraries/mysql_charsets.lib.php:314
+#: libraries/mysql_charsets.lib.php:221 libraries/mysql_charsets.lib.php:320
 msgid "Japanese"
 msgstr "Японська"
 
-#: libraries/mysql_charsets.lib.php:218
+#: libraries/mysql_charsets.lib.php:224
 msgid "Latvian"
 msgstr "Латвійська"
 
-#: libraries/mysql_charsets.lib.php:221
+#: libraries/mysql_charsets.lib.php:227
 msgid "Lithuanian"
 msgstr "Литовська"
 
-#: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:336
+#: libraries/mysql_charsets.lib.php:230 libraries/mysql_charsets.lib.php:342
 msgid "Korean"
 msgstr "Корейська"
 
-#: libraries/mysql_charsets.lib.php:227
+#: libraries/mysql_charsets.lib.php:233
 msgid "Persian"
 msgstr "Перська"
 
-#: libraries/mysql_charsets.lib.php:230
+#: libraries/mysql_charsets.lib.php:236
 msgid "Polish"
 msgstr "Польська"
 
-#: libraries/mysql_charsets.lib.php:233 libraries/mysql_charsets.lib.php:290
+#: libraries/mysql_charsets.lib.php:239 libraries/mysql_charsets.lib.php:296
 msgid "West European"
 msgstr "Західно Європейське"
 
-#: libraries/mysql_charsets.lib.php:236
+#: libraries/mysql_charsets.lib.php:242
 msgid "Romanian"
 msgstr "Румунська"
 
-#: libraries/mysql_charsets.lib.php:239
+#: libraries/mysql_charsets.lib.php:245
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/mysql_charsets.lib.php:242
+#: libraries/mysql_charsets.lib.php:248
 msgid "Slovak"
 msgstr "Словацька"
 
-#: libraries/mysql_charsets.lib.php:245
+#: libraries/mysql_charsets.lib.php:251
 msgid "Slovenian"
 msgstr "Словенська"
 
-#: libraries/mysql_charsets.lib.php:248
+#: libraries/mysql_charsets.lib.php:254
 msgid "Spanish"
 msgstr "Іспанська"
 
-#: libraries/mysql_charsets.lib.php:251
+#: libraries/mysql_charsets.lib.php:257
 msgid "Traditional Spanish"
 msgstr "Традиційна іспанська"
 
-#: libraries/mysql_charsets.lib.php:254 libraries/mysql_charsets.lib.php:357
+#: libraries/mysql_charsets.lib.php:260 libraries/mysql_charsets.lib.php:363
 msgid "Swedish"
 msgstr "Шведське"
 
-#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:360
+#: libraries/mysql_charsets.lib.php:263 libraries/mysql_charsets.lib.php:366
 msgid "Thai"
 msgstr "Тайське"
 
-#: libraries/mysql_charsets.lib.php:260 libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:360
 msgid "Turkish"
 msgstr "Турецька"
 
-#: libraries/mysql_charsets.lib.php:263 libraries/mysql_charsets.lib.php:351
+#: libraries/mysql_charsets.lib.php:269 libraries/mysql_charsets.lib.php:357
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:281
+#: libraries/mysql_charsets.lib.php:272 libraries/mysql_charsets.lib.php:287
 msgid "Unicode"
 msgstr "Юнікод"
 
-#: libraries/mysql_charsets.lib.php:266 libraries/mysql_charsets.lib.php:281
-#: libraries/mysql_charsets.lib.php:290 libraries/mysql_charsets.lib.php:297
-#: libraries/mysql_charsets.lib.php:319 libraries/mysql_charsets.lib.php:330
+#: libraries/mysql_charsets.lib.php:272 libraries/mysql_charsets.lib.php:287
+#: libraries/mysql_charsets.lib.php:296 libraries/mysql_charsets.lib.php:303
+#: libraries/mysql_charsets.lib.php:325 libraries/mysql_charsets.lib.php:336
 msgid "multilingual"
 msgstr "багатомовні"
 
-#: libraries/mysql_charsets.lib.php:269
+#: libraries/mysql_charsets.lib.php:275
 #, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
 msgstr "Назва файлу"
 
-#: libraries/mysql_charsets.lib.php:297
+#: libraries/mysql_charsets.lib.php:303
 msgid "Central European"
 msgstr "СхідноЄвропейське"
 
-#: libraries/mysql_charsets.lib.php:302
+#: libraries/mysql_charsets.lib.php:308
 msgid "Russian"
 msgstr "Російська"
 
-#: libraries/mysql_charsets.lib.php:319
+#: libraries/mysql_charsets.lib.php:325
 msgid "Baltic"
 msgstr "Балтійське"
 
-#: libraries/mysql_charsets.lib.php:324
+#: libraries/mysql_charsets.lib.php:330
 msgid "Armenian"
 msgstr "Вірменське"
 
-#: libraries/mysql_charsets.lib.php:330
+#: libraries/mysql_charsets.lib.php:336
 msgid "Cyrillic"
 msgstr "Кириличне"
 
-#: libraries/mysql_charsets.lib.php:333
+#: libraries/mysql_charsets.lib.php:339
 msgid "Arabic"
 msgstr "Арабське"
 
-#: libraries/mysql_charsets.lib.php:339
+#: libraries/mysql_charsets.lib.php:345
 msgid "Hebrew"
 msgstr "Іврит"
 
-#: libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:348
 msgid "Georgian"
 msgstr "Грузинська"
 
-#: libraries/mysql_charsets.lib.php:345
+#: libraries/mysql_charsets.lib.php:351
 msgid "Greek"
 msgstr "Грецьке"
 
-#: libraries/mysql_charsets.lib.php:348
+#: libraries/mysql_charsets.lib.php:354
 msgid "Czech-Slovak"
 msgstr "Чехословацька"
 
@@ -10042,9 +10044,9 @@ msgstr ""
 msgid "Rename database to"
 msgstr "Перейменувати базу даних на"
 
-#: libraries/operations.lib.php:95 libraries/operations.lib.php:243
-#: libraries/operations.lib.php:873 libraries/operations.lib.php:967
-#: libraries/operations.lib.php:1321
+#: libraries/operations.lib.php:93 libraries/operations.lib.php:239
+#: libraries/operations.lib.php:864 libraries/operations.lib.php:957
+#: libraries/operations.lib.php:1310
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -10053,243 +10055,243 @@ msgid ""
 "to the documentation for more details"
 msgstr "Ви для цього маєте недостатньо прав!"
 
-#: libraries/operations.lib.php:102 libraries/operations.lib.php:249
-#: libraries/operations.lib.php:879 libraries/operations.lib.php:973
-#: libraries/operations.lib.php:1327 libraries/rte/rte_routines.lib.php:998
+#: libraries/operations.lib.php:100 libraries/operations.lib.php:245
+#: libraries/operations.lib.php:870 libraries/operations.lib.php:963
+#: libraries/operations.lib.php:1316 libraries/rte/rte_routines.lib.php:996
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust privileges"
 msgstr "Редагувати привілеї"
 
-#: libraries/operations.lib.php:134
+#: libraries/operations.lib.php:132
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Базу даних %s знищено."
 
-#: libraries/operations.lib.php:146
+#: libraries/operations.lib.php:144
 msgid "Remove database"
 msgstr "Видалити базу даних"
 
-#: libraries/operations.lib.php:152
+#: libraries/operations.lib.php:150
 msgid "Drop the database (DROP)"
 msgstr "Знищити базу даних (DROP)"
 
-#: libraries/operations.lib.php:172 libraries/operations.lib.php:1281
+#: libraries/operations.lib.php:170 libraries/operations.lib.php:1271
 #: libraries/tracking.lib.php:518
 msgid "Structure only"
 msgstr "Лише структуру"
 
-#: libraries/operations.lib.php:173 libraries/operations.lib.php:1282
+#: libraries/operations.lib.php:171 libraries/operations.lib.php:1272
 #: libraries/tracking.lib.php:524
 msgid "Structure and data"
 msgstr "Структуру і дані"
 
-#: libraries/operations.lib.php:174 libraries/operations.lib.php:1283
+#: libraries/operations.lib.php:172 libraries/operations.lib.php:1273
 #: libraries/tracking.lib.php:521
 msgid "Data only"
 msgstr "Лише дані"
 
-#: libraries/operations.lib.php:202
+#: libraries/operations.lib.php:200
 msgid "Copy database to"
 msgstr "Копіювати базу даних в"
 
-#: libraries/operations.lib.php:215
+#: libraries/operations.lib.php:213
 msgid "CREATE DATABASE before copying"
 msgstr "Виконайте CREATE DATABASE перед копіюванням"
 
-#: libraries/operations.lib.php:228 libraries/operations.lib.php:1306
+#: libraries/operations.lib.php:226 libraries/operations.lib.php:1296
 msgid "Add constraints"
 msgstr "Додати обмеження"
 
-#: libraries/operations.lib.php:260
+#: libraries/operations.lib.php:256
 msgid "Switch to copied database"
 msgstr "Перейти до скопійованої бази даних"
 
-#: libraries/operations.lib.php:792
+#: libraries/operations.lib.php:784
 msgid "Alter table order by"
 msgstr "Змінити порядок таблиці"
 
-#: libraries/operations.lib.php:800
+#: libraries/operations.lib.php:792
 msgid "(singly)"
 msgstr "(окремо)"
 
-#: libraries/operations.lib.php:836
+#: libraries/operations.lib.php:828
 msgid "Move table to (database<b>.</b>table)"
 msgstr "Перенести таблицю в (база даних<b>.</b>таблиця)"
 
-#: libraries/operations.lib.php:948
+#: libraries/operations.lib.php:939
 msgid "Rename table to"
 msgstr "Перейменувати таблицю в"
 
-#: libraries/operations.lib.php:991
+#: libraries/operations.lib.php:981
 msgid "Table comments"
 msgstr "Коментарі таблиці"
 
-#: libraries/operations.lib.php:1064
+#: libraries/operations.lib.php:1054
 msgid "Table options"
 msgstr "Налаштування таблиці"
 
-#: libraries/operations.lib.php:1071 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:1061 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr "Тип таблиць"
 
-#: libraries/operations.lib.php:1096
+#: libraries/operations.lib.php:1086
 msgid "Change all column collations"
 msgstr ""
 
-#: libraries/operations.lib.php:1264
+#: libraries/operations.lib.php:1254
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "Скопіювати таблицю в (база даних<b>.</b>таблиця)"
 
-#: libraries/operations.lib.php:1343
+#: libraries/operations.lib.php:1332
 msgid "Switch to copied table"
 msgstr "Перейти до скопійованої таблиці"
 
-#: libraries/operations.lib.php:1370
+#: libraries/operations.lib.php:1359
 #: templates/database/structure/check_all_tables.phtml:18
 msgid "Table maintenance"
 msgstr "Обслуговування таблиці"
 
-#: libraries/operations.lib.php:1408
+#: libraries/operations.lib.php:1397
 #: templates/database/structure/check_all_tables.phtml:19
 msgid "Analyze table"
 msgstr "Аналіз таблиці"
 
-#: libraries/operations.lib.php:1423
+#: libraries/operations.lib.php:1412
 #: templates/database/structure/check_all_tables.phtml:20
 msgid "Check table"
 msgstr "Перевірити таблицю"
 
-#: libraries/operations.lib.php:1438
+#: libraries/operations.lib.php:1427
 #: templates/database/structure/check_all_tables.phtml:22
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "Перевірити таблицю"
 
-#: libraries/operations.lib.php:1453
+#: libraries/operations.lib.php:1442
 msgid "Defragment table"
 msgstr "Дефрагментувати таблицю"
 
-#: libraries/operations.lib.php:1465
+#: libraries/operations.lib.php:1454
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Було очищено кеш таблиці %s."
 
-#: libraries/operations.lib.php:1471
+#: libraries/operations.lib.php:1460
 msgid "Flush the table (FLUSH)"
 msgstr "Очистити кеш таблиці (FLUSH)"
 
-#: libraries/operations.lib.php:1487
+#: libraries/operations.lib.php:1476
 #: templates/database/structure/check_all_tables.phtml:23
 #: templates/table/structure/display_table_stats.phtml:56
 msgid "Optimize table"
 msgstr "Оптимізувати таблицю"
 
-#: libraries/operations.lib.php:1502
+#: libraries/operations.lib.php:1491
 #: templates/database/structure/check_all_tables.phtml:24
 msgid "Repair table"
 msgstr "Ремонтувати таблицю"
 
-#: libraries/operations.lib.php:1548
+#: libraries/operations.lib.php:1537
 #: templates/database/structure/check_all_tables.phtml:14
 #: view_operations.php:127
 msgid "Delete data or table"
 msgstr "Видалити дані або таблицю"
 
-#: libraries/operations.lib.php:1556
+#: libraries/operations.lib.php:1545
 msgid "Empty the table (TRUNCATE)"
 msgstr "Очистити таблицю (TRUNCATE)"
 
-#: libraries/operations.lib.php:1564
+#: libraries/operations.lib.php:1553
 msgid "Delete the table (DROP)"
 msgstr "Видалити таблицю (DROP)"
 
-#: libraries/operations.lib.php:1604
+#: libraries/operations.lib.php:1593
 #: templates/table/structure/display_structure.phtml:183
 msgid "Analyze"
 msgstr "Аналізувати"
 
-#: libraries/operations.lib.php:1605
+#: libraries/operations.lib.php:1594
 #: templates/table/structure/display_structure.phtml:184
 msgid "Check"
 msgstr "Перевірити"
 
-#: libraries/operations.lib.php:1606
+#: libraries/operations.lib.php:1595
 #: templates/table/structure/display_structure.phtml:185
 msgid "Optimize"
 msgstr "Оптимізувати"
 
-#: libraries/operations.lib.php:1607
+#: libraries/operations.lib.php:1596
 #: templates/table/structure/display_structure.phtml:186
 msgid "Rebuild"
 msgstr "Перебудувати"
 
-#: libraries/operations.lib.php:1608
+#: libraries/operations.lib.php:1597
 #: templates/table/structure/display_structure.phtml:187
 msgid "Repair"
 msgstr "Відремонтувати"
 
-#: libraries/operations.lib.php:1609
+#: libraries/operations.lib.php:1598
 #: templates/table/structure/display_structure.phtml:188
 msgid "Truncate"
 msgstr ""
 
-#: libraries/operations.lib.php:1619
+#: libraries/operations.lib.php:1608
 #, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
 msgstr "Згорнути"
 
-#: libraries/operations.lib.php:1628
+#: libraries/operations.lib.php:1617
 msgid "Partition maintenance"
 msgstr "Обслуговування розділів"
 
-#: libraries/operations.lib.php:1645
+#: libraries/operations.lib.php:1634
 #, php-format
 msgid "Partition %s"
 msgstr "Розділ %s"
 
-#: libraries/operations.lib.php:1663
+#: libraries/operations.lib.php:1652
 msgid "Remove partitioning"
 msgstr "Видалити розділи"
 
-#: libraries/operations.lib.php:1689
+#: libraries/operations.lib.php:1678
 msgid "Check referential integrity:"
 msgstr "Перевір цілісність даних на рівні посилань:"
 
-#: libraries/operations.lib.php:2111
+#: libraries/operations.lib.php:2099
 msgid "Can't move table to same one!"
 msgstr "Не можу перенести таблицю саму в себе!"
 
-#: libraries/operations.lib.php:2113
+#: libraries/operations.lib.php:2101
 msgid "Can't copy table to same one!"
 msgstr "Не можу скопіювати таблицю саму в себе!"
 
-#: libraries/operations.lib.php:2137
+#: libraries/operations.lib.php:2125
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Таблицю %s було перенесено в %s."
 
-#: libraries/operations.lib.php:2144
+#: libraries/operations.lib.php:2132
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Таблицю %s було скопійовано в %s."
 
-#: libraries/operations.lib.php:2153
+#: libraries/operations.lib.php:2141
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблицю %s було перенесено в %s."
 
-#: libraries/operations.lib.php:2157
+#: libraries/operations.lib.php:2145
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблицю %s було скопійовано в %s."
 
-#: libraries/operations.lib.php:2179
+#: libraries/operations.lib.php:2167
 msgid "The table name is empty!"
 msgstr "Порожня назва таблиці!"
 
@@ -10484,7 +10486,7 @@ msgstr "Подія"
 #: libraries/plugins/export/ExportOdt.class.php:594
 #: libraries/plugins/export/ExportTexytext.class.php:429
 #: libraries/plugins/export/PMA_ExportPdf.class.php:313
-#: libraries/rte/rte_events.lib.php:480 libraries/rte/rte_routines.lib.php:984
+#: libraries/rte/rte_events.lib.php:480 libraries/rte/rte_routines.lib.php:982
 #: libraries/rte/rte_triggers.lib.php:377
 msgid "Definition"
 msgstr "Визначення"
@@ -11441,29 +11443,29 @@ msgstr "дозволено"
 msgid "Configuration of pmadb… "
 msgstr "Конфігурація збережена."
 
-#: libraries/relation.lib.php:104 libraries/relation.lib.php:135
+#: libraries/relation.lib.php:104 libraries/relation.lib.php:140
 msgid "General relation features"
 msgstr "Загальні можливості"
 
-#: libraries/relation.lib.php:146
+#: libraries/relation.lib.php:151
 msgid "Display Features"
 msgstr "Показати можливості"
 
-#: libraries/relation.lib.php:163
+#: libraries/relation.lib.php:168
 #, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "Створити PDF-файл"
 
-#: libraries/relation.lib.php:174
+#: libraries/relation.lib.php:179
 msgid "Displaying Column Comments"
 msgstr "Показувати коментарі стовпців"
 
-#: libraries/relation.lib.php:180
+#: libraries/relation.lib.php:185
 msgid "Browser transformation"
 msgstr "Перетворення МІМЕ-типу бровзером"
 
-#: libraries/relation.lib.php:187
+#: libraries/relation.lib.php:192
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
@@ -11472,65 +11474,65 @@ msgstr ""
 "За інформацією як поновити Вашу таблицю Column_comments прошу дивитись у "
 "Документації."
 
-#: libraries/relation.lib.php:200 libraries/sql_query_form.lib.php:392
+#: libraries/relation.lib.php:205 libraries/sql_query_form.lib.php:392
 msgid "Bookmarked SQL query"
 msgstr "Закладка на SQL-запит"
 
-#: libraries/relation.lib.php:211
+#: libraries/relation.lib.php:216
 msgid "SQL history"
 msgstr "SQL історія"
 
-#: libraries/relation.lib.php:222
+#: libraries/relation.lib.php:227
 msgid "Persistent recently used tables"
 msgstr "Нещодавно використані таблиці"
 
-#: libraries/relation.lib.php:233
+#: libraries/relation.lib.php:238
 #, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
 msgstr "Нещодавно використані таблиці"
 
-#: libraries/relation.lib.php:244
+#: libraries/relation.lib.php:249
 msgid "Persistent tables' UI preferences"
 msgstr "Налаштування інтерфейсу часто використовуваних таблиць"
 
-#: libraries/relation.lib.php:266
+#: libraries/relation.lib.php:271
 msgid "User preferences"
 msgstr "Користувацькі настройки"
 
-#: libraries/relation.lib.php:283
+#: libraries/relation.lib.php:288
 msgid "Configurable menus"
 msgstr "Налаштовувані меню"
 
-#: libraries/relation.lib.php:294
+#: libraries/relation.lib.php:299
 msgid "Hide/show navigation items"
 msgstr "Приховати/показати пункти навігації"
 
-#: libraries/relation.lib.php:305
+#: libraries/relation.lib.php:310
 msgid "Saving Query-By-Example searches"
 msgstr ""
 
-#: libraries/relation.lib.php:316
+#: libraries/relation.lib.php:321
 msgid "Managing Central list of columns"
 msgstr ""
 
-#: libraries/relation.lib.php:327
+#: libraries/relation.lib.php:332
 #, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
 msgstr "Запам'ятати сортування таблиці"
 
-#: libraries/relation.lib.php:338
+#: libraries/relation.lib.php:343
 #, fuzzy
 #| msgid "Invalid export type"
 msgid "Saving export templates"
 msgstr "Невірний тип експорту"
 
-#: libraries/relation.lib.php:346
-msgid "Quick steps to setup advanced features:"
+#: libraries/relation.lib.php:351
+msgid "Quick steps to set up advanced features:"
 msgstr "Швидкі кроки до встановлення розширених властивостей:"
 
-#: libraries/relation.lib.php:352
+#: libraries/relation.lib.php:357
 #, fuzzy, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
@@ -11539,11 +11541,11 @@ msgstr ""
 "Створити необхідні таблиці за допомогою <code>examples/create_tables.sql</"
 "code>."
 
-#: libraries/relation.lib.php:357
+#: libraries/relation.lib.php:362
 msgid "Create a pma user and give access to these tables."
 msgstr "Створити користувача phpMyAdmin та дати йому доступ до цих таблиць."
 
-#: libraries/relation.lib.php:360
+#: libraries/relation.lib.php:365
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -11551,23 +11553,23 @@ msgstr ""
 "Підключіть додаткові функції в конфігураційному файлі (<code>config.inc.php</"
 "code>), почніть з прикладу в <code>config.sample.inc.php</code>."
 
-#: libraries/relation.lib.php:365
+#: libraries/relation.lib.php:370
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Перезайдіть в phpMyAdmin, щоб завантажити оновлений конфігураційний файл."
 
-#: libraries/relation.lib.php:1607
+#: libraries/relation.lib.php:1612
 msgid "no description"
 msgstr "без опису"
 
-#: libraries/relation.lib.php:1806
+#: libraries/relation.lib.php:1811
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1923
+#: libraries/relation.lib.php:1928
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -11575,14 +11577,14 @@ msgid ""
 "configuration storage there."
 msgstr "Відсутня таблиця для збереження конфігурації phpMyAdmin"
 
-#: libraries/relation.lib.php:1931
+#: libraries/relation.lib.php:1936
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "Відсутня таблиця для збереження конфігурації phpMyAdmin"
 
-#: libraries/relation.lib.php:1939
+#: libraries/relation.lib.php:1944
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -11942,8 +11944,8 @@ msgstr "Головний сервер змінений на %s вдало."
 #: libraries/rte/rte_events.lib.php:106 libraries/rte/rte_events.lib.php:115
 #: libraries/rte/rte_events.lib.php:146 libraries/rte/rte_routines.lib.php:219
 #: libraries/rte/rte_routines.lib.php:246
-#: libraries/rte/rte_routines.lib.php:368
-#: libraries/rte/rte_routines.lib.php:1453
+#: libraries/rte/rte_routines.lib.php:367
+#: libraries/rte/rte_routines.lib.php:1451
 #: libraries/rte/rte_triggers.lib.php:82 libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:123
 #, php-format
@@ -11973,8 +11975,8 @@ msgstr "Одна або декілька помилок виникли під ч
 msgid "Edit event"
 msgstr "Редагувати подію"
 
-#: libraries/rte/rte_events.lib.php:384 libraries/rte/rte_routines.lib.php:885
-#: libraries/rte/rte_triggers.lib.php:323 view_create.php:180
+#: libraries/rte/rte_events.lib.php:384 libraries/rte/rte_routines.lib.php:883
+#: libraries/rte/rte_triggers.lib.php:323 view_create.php:182
 msgid "Details"
 msgstr "Деталі"
 
@@ -11986,7 +11988,7 @@ msgstr "Назва події"
 msgid "Event type"
 msgstr "Тип події"
 
-#: libraries/rte/rte_events.lib.php:430 libraries/rte/rte_routines.lib.php:908
+#: libraries/rte/rte_events.lib.php:430 libraries/rte/rte_routines.lib.php:906
 #, php-format
 msgid "Change to %s"
 msgstr "Змінити на %s"
@@ -12013,12 +12015,12 @@ msgstr "Кінець"
 msgid "On completion preserve"
 msgstr "По завершенні збереження"
 
-#: libraries/rte/rte_events.lib.php:491 libraries/rte/rte_routines.lib.php:1021
-#: libraries/rte/rte_triggers.lib.php:383 view_create.php:209
+#: libraries/rte/rte_events.lib.php:491 libraries/rte/rte_routines.lib.php:1019
+#: libraries/rte/rte_triggers.lib.php:383 view_create.php:211
 msgid "Definer"
 msgstr "Визначник"
 
-#: libraries/rte/rte_events.lib.php:535 libraries/rte/rte_routines.lib.php:1088
+#: libraries/rte/rte_events.lib.php:535 libraries/rte/rte_routines.lib.php:1086
 #: libraries/rte/rte_triggers.lib.php:422
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Визначник повинен бути в форматі \"username@hostname\"!"
@@ -12045,8 +12047,8 @@ msgstr "Ви повинні задати визначення події."
 
 #: libraries/rte/rte_export.lib.php:43 libraries/rte/rte_general.lib.php:72
 #: libraries/rte/rte_routines.lib.php:153
-#: libraries/rte/rte_routines.lib.php:1289
-#: libraries/rte/rte_routines.lib.php:1502
+#: libraries/rte/rte_routines.lib.php:1287
+#: libraries/rte/rte_routines.lib.php:1500
 msgid "Error in processing request:"
 msgstr "Помилка при обробці запиту:"
 
@@ -12083,7 +12085,7 @@ msgid "Edit routine"
 msgstr "Редагувати порядок"
 
 #: libraries/rte/rte_routines.lib.php:200
-#: libraries/rte/rte_routines.lib.php:1097
+#: libraries/rte/rte_routines.lib.php:1095
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Неправильний тип порядку: \"%s\""
@@ -12093,82 +12095,82 @@ msgstr "Неправильний тип порядку: \"%s\""
 msgid "Routine %1$s has been created."
 msgstr "Порядок %1$s створено."
 
-#: libraries/rte/rte_routines.lib.php:380
+#: libraries/rte/rte_routines.lib.php:379
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Вибачте, нам невдалось відновити видалений порядок."
 
-#: libraries/rte/rte_routines.lib.php:439
+#: libraries/rte/rte_routines.lib.php:437
 #, fuzzy, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Порядок %1$s було змінено."
 
-#: libraries/rte/rte_routines.lib.php:444
+#: libraries/rte/rte_routines.lib.php:442
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Порядок %1$s було змінено."
 
-#: libraries/rte/rte_routines.lib.php:888
+#: libraries/rte/rte_routines.lib.php:886
 msgid "Routine name"
 msgstr "Назва порядку"
 
-#: libraries/rte/rte_routines.lib.php:914
+#: libraries/rte/rte_routines.lib.php:912
 msgid "Parameters"
 msgstr "Параметри"
 
-#: libraries/rte/rte_routines.lib.php:920
+#: libraries/rte/rte_routines.lib.php:918
 msgid "Direction"
 msgstr "Напрямок"
 
-#: libraries/rte/rte_routines.lib.php:938
+#: libraries/rte/rte_routines.lib.php:936
 msgid "Add parameter"
 msgstr "Додати параметр"
 
-#: libraries/rte/rte_routines.lib.php:942
+#: libraries/rte/rte_routines.lib.php:940
 msgid "Remove last parameter"
 msgstr "Видалити останній параметр"
 
-#: libraries/rte/rte_routines.lib.php:947
+#: libraries/rte/rte_routines.lib.php:945
 msgid "Return type"
 msgstr "Тип повернення"
 
-#: libraries/rte/rte_routines.lib.php:953
+#: libraries/rte/rte_routines.lib.php:951
 msgid "Return length/values"
 msgstr "Повернути довжину/значення"
 
-#: libraries/rte/rte_routines.lib.php:959
+#: libraries/rte/rte_routines.lib.php:957
 msgid "Return options"
 msgstr "Опції повернення"
 
-#: libraries/rte/rte_routines.lib.php:990
+#: libraries/rte/rte_routines.lib.php:988
 msgid "Is deterministic"
 msgstr "Детермінований"
 
-#: libraries/rte/rte_routines.lib.php:1010
+#: libraries/rte/rte_routines.lib.php:1008
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1026
+#: libraries/rte/rte_routines.lib.php:1024
 msgid "Security type"
 msgstr "Тип безпеки"
 
-#: libraries/rte/rte_routines.lib.php:1035
+#: libraries/rte/rte_routines.lib.php:1033
 msgid "SQL data access"
 msgstr "Доступ до даних SQL"
 
-#: libraries/rte/rte_routines.lib.php:1104
+#: libraries/rte/rte_routines.lib.php:1102
 msgid "You must provide a routine name!"
 msgstr "Слід вказати назву процедури!"
 
-#: libraries/rte/rte_routines.lib.php:1138
+#: libraries/rte/rte_routines.lib.php:1136
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Неправильний напрямок \"%s\" задали для параметру."
 
-#: libraries/rte/rte_routines.lib.php:1160
-#: libraries/rte/rte_routines.lib.php:1222
+#: libraries/rte/rte_routines.lib.php:1158
+#: libraries/rte/rte_routines.lib.php:1220
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -12176,24 +12178,24 @@ msgstr ""
 "Ви повинні задати довжину/значення для параметрів процедури, що мають тип "
 "ENUM, SET, VARCHAR і VARBINARY."
 
-#: libraries/rte/rte_routines.lib.php:1186
+#: libraries/rte/rte_routines.lib.php:1184
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Ви повинні задати ім'я і тип для кожного параметра процедури."
 
-#: libraries/rte/rte_routines.lib.php:1205
+#: libraries/rte/rte_routines.lib.php:1203
 msgid "You must provide a valid return type for the routine."
 msgstr "Необхідно задати коректний тип, що повертатиму процедуру."
 
-#: libraries/rte/rte_routines.lib.php:1265
+#: libraries/rte/rte_routines.lib.php:1263
 msgid "You must provide a routine definition."
 msgstr "Ви повинні задати визначення процедури."
 
-#: libraries/rte/rte_routines.lib.php:1376
+#: libraries/rte/rte_routines.lib.php:1374
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Результати виконання порядку %s"
 
-#: libraries/rte/rte_routines.lib.php:1431
+#: libraries/rte/rte_routines.lib.php:1429
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -12201,13 +12203,13 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/rte/rte_routines.lib.php:1489
-#: libraries/rte/rte_routines.lib.php:1497
+#: libraries/rte/rte_routines.lib.php:1487
+#: libraries/rte/rte_routines.lib.php:1495
 msgid "Execute routine"
 msgstr "Виконати порядок"
 
-#: libraries/rte/rte_routines.lib.php:1576
-#: libraries/rte/rte_routines.lib.php:1579
+#: libraries/rte/rte_routines.lib.php:1574
+#: libraries/rte/rte_routines.lib.php:1577
 msgid "Routine parameters"
 msgstr "Параметри порядку"
 
@@ -14260,23 +14262,23 @@ msgstr ""
 msgid "Unrecognized data type."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:255
-#: libraries/sql-parser/src/Components/Expression.php:291
-#: libraries/sql-parser/src/Components/Expression.php:311
+#: libraries/sql-parser/src/Components/Expression.php:256
+#: libraries/sql-parser/src/Components/Expression.php:292
+#: libraries/sql-parser/src/Components/Expression.php:312
 msgid "An alias was previously found."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:266
+#: libraries/sql-parser/src/Components/Expression.php:267
 msgid "Unexpected dot."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:335
+#: libraries/sql-parser/src/Components/Expression.php:336
 #, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
 msgstr "Жодної таблиці не обрано."
 
-#: libraries/sql-parser/src/Components/ExpressionArray.php:98
+#: libraries/sql-parser/src/Components/ExpressionArray.php:99
 #, fuzzy
 #| msgid "No rows selected"
 msgid "An expression was expected."
@@ -14341,36 +14343,36 @@ msgstr "Подія %1$s була створена."
 msgid "Variable name was expected."
 msgstr "Шаблон імені таблиці"
 
-#: libraries/sql-parser/src/Parser.php:407
+#: libraries/sql-parser/src/Parser.php:417
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
 msgstr "На початку таблиці"
 
-#: libraries/sql-parser/src/Parser.php:426
+#: libraries/sql-parser/src/Parser.php:436
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:508
+#: libraries/sql-parser/src/Parser.php:518
 msgid "No transaction was previously started."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:247
+#: libraries/sql-parser/src/Statement.php:246
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
 msgstr "Неочікувані символи в рядку %s."
 
-#: libraries/sql-parser/src/Statement.php:285
+#: libraries/sql-parser/src/Statement.php:284
 msgid "This type of clause was previously parsed."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:313
+#: libraries/sql-parser/src/Statement.php:312
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 
-#: libraries/sql-parser/src/Statement.php:333
+#: libraries/sql-parser/src/Statement.php:332
 msgid "Unrecognized keyword."
 msgstr ""
 
@@ -14422,32 +14424,32 @@ msgstr "Виклики"
 msgid "ø Time"
 msgstr "ø Час"
 
-#: libraries/sql.lib.php:526 libraries/sql.lib.php:542
+#: libraries/sql.lib.php:557 libraries/sql.lib.php:573
 msgid "Bookmark this SQL query"
 msgstr "Закладка на даний SQL запит"
 
-#: libraries/sql.lib.php:530
+#: libraries/sql.lib.php:561
 msgid "Label:"
 msgstr "Мітка:"
 
-#: libraries/sql.lib.php:535 libraries/sql_query_form.lib.php:311
+#: libraries/sql.lib.php:566 libraries/sql_query_form.lib.php:311
 msgid "Let every user access this bookmark"
 msgstr "Надати всім користувачам доступ до цієї закладки"
 
-#: libraries/sql.lib.php:741
+#: libraries/sql.lib.php:772
 msgid "Bookmark not created!"
 msgstr "Закладка не створена!"
 
-#: libraries/sql.lib.php:848
+#: libraries/sql.lib.php:881
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Як стандартний запит на огляд даних використовується закладка  \"%s\"."
 
-#: libraries/sql.lib.php:1303
+#: libraries/sql.lib.php:1336
 msgid "Showing as PHP code"
 msgstr "Показ у вигляді коду PHP"
 
-#: libraries/sql.lib.php:1635
+#: libraries/sql.lib.php:1668
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14459,7 +14461,7 @@ msgstr ""
 "Це виділення не містить унікальні стовпчики. Сітка редагування, прапорець, "
 "функції Редагувати, Копіювати та Видаляти недоступні."
 
-#: libraries/sql.lib.php:1646
+#: libraries/sql.lib.php:1679
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14471,7 +14473,7 @@ msgstr ""
 "Це виділення не містить унікальні стовпчики. Сітка редагування, прапорець, "
 "функції Редагувати, Копіювати та Видаляти недоступні."
 
-#: libraries/sql.lib.php:1685
+#: libraries/sql.lib.php:1718
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблеми з індексами таблиці `%s`"
@@ -14765,12 +14767,12 @@ msgstr ""
 msgid "Could not save configuration"
 msgstr "Не вдалось зберегти настройки"
 
-#: libraries/zip_extension.lib.php:27 libraries/zip_extension.lib.php:81
-#: libraries/zip_extension.lib.php:84
+#: libraries/zip_extension.lib.php:27 libraries/zip_extension.lib.php:80
+#: libraries/zip_extension.lib.php:83
 msgid "Error in ZIP archive:"
 msgstr "Помилка в ZIP-архіві:"
 
-#: libraries/zip_extension.lib.php:35
+#: libraries/zip_extension.lib.php:34
 msgid "No files found inside ZIP archive!"
 msgstr "Файлів всередині ZIP-архіву не знайдено!"
 
@@ -15967,7 +15969,7 @@ msgstr "Довжина рядка"
 msgid "Index length"
 msgstr "Довжина рядка"
 
-#: templates/table/structure/display_structure.phtml:142 view_create.php:181
+#: templates/table/structure/display_structure.phtml:142 view_create.php:183
 msgid "Edit view"
 msgstr "Редагувати подання"
 
@@ -16080,11 +16082,11 @@ msgstr "Ви для цього маєте недостатньо прав!"
 msgid "The profile has been updated."
 msgstr "Профіль було поновлено."
 
-#: view_create.php:228
+#: view_create.php:230
 msgid "VIEW name"
 msgstr "Назва подання"
 
-#: view_create.php:239
+#: view_create.php:241
 msgid "Column names"
 msgstr "Назви колонок"
 

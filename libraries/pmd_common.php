@@ -728,7 +728,7 @@ function PMA_saveDesignerSetting($index, $value)
             . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . "';";
 
         $orig_data = $GLOBALS['dbi']->fetchSingleRow(
-            $orig_data_query, $GLOBALS['controllink']
+            $orig_data_query, 'ASSOC', $GLOBALS['controllink']
         );
 
         if (! empty($orig_data)) {

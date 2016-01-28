@@ -81,6 +81,8 @@ if (isset($_REQUEST['operation'])) {
     return;
 }
 
+require 'libraries/db_common.inc.php';
+
 $script_display_field = PMA_getTablesInfo();
 $tab_column = PMA_getColumnsInfo();
 $script_tables = PMA_getScriptTabs();
@@ -125,8 +127,6 @@ $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
 $scripts->addFile('pmd/iecanvas.js', true);
 $scripts->addFile('pmd/init.js');
-
-require 'libraries/db_common.inc.php';
 
 list(
     $tables,

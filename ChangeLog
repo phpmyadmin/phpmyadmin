@@ -1,6 +1,35 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.5.4.0 (not yet released)
+- issue #11724 live data edit of big sets is not working
+- issue        Table list not saved in db QBE bookmarked search
+- issue #11777 While 'changing a column', query fails with a syntax error after the 'CHARSET=' keyword
+- issue #11783 Avoid syntax error in javascript messages on invalid PHP setting for max_input_vars
+- issue #11784 Properly handle errors in upacking zip archive
+- issue #11785 Set PHP's internal encoding to UTF-8
+- issue #11786 Fixed Kanji encoding in some specific cases
+- issue #11787 Check whether iconv works before using it
+- issue #11788 Avoid conversion of MySQL error messages
+- issue #11792 Undefined index: parameters
+- issue #11802 Undefined index: field_name_orig
+- issue        Undefined index: host
+- issue #11810 'Add to central columns' (per column button) does nothing
+- issue #11727 SQL duplicate entry error trying to INSERT in designer_settings table
+- issue #11798 Fix handling of databases with dot in a name
+- issue #11820 Fix hiding of page content behind menu
+- issue #11780 FROM clause not generated after loading search bookmark
+- issue #11826 Fix creating/editing VIEW with DEFINER containing special chars
+- issue #11828 Do not invoke FLUSH PRIVILEGES when server in --skip-grant-tables
+- issue #11804 Misleading message for configuration storage
+- issue #11772 Table pagination does nothing when session expired
+- issue #11840 Index comments not working properly
+- issue #11791 Better handle local storage errors
+- issue #11752 Improve detection of privileges for privilege adjusting
+- issue #11854 Undefined property: stdClass::$releases at version check when disabled in config
+- issue #11814 SQL comment and variable stripped from bookmark on save
+- issue        Gracefully handle errors in regex based javascript search
+
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
 - issue        [Security] Path disclosure, see PMASA-2015-6

@@ -631,6 +631,26 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
 }
 
 /**
+ * Outputs application/json headers. This includes no caching.
+ *
+ * @return void
+ */
+function PMA_headerJSON()
+{
+    if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
+        return;
+    }
+    // No caching
+    PMA_noCacheHeader();
+    // MIME type
+    header('Content-Type: application/json; charset=UTF-8');
+    // Disable content sniffing in browser
+    // This is needed in case we include HTML in JSON, browser might assume it's
+    // html to display
+    header('X-Content-Type-Options: nosniff');
+}
+
+/**
  * Outputs headers to prevent caching in browser (and on the way).
  *
  * @return void
@@ -996,5 +1016,14 @@ function PMA_setGlobalDbOrTable($param)
         // only \ and / is not allowed in db names for MySQL
         $GLOBALS[$param] = $_REQUEST[$param];
         $GLOBALS['url_params'][$param] = $GLOBALS[$param];
+    }
+}
+
+/* Compatibility with PHP < 5.6 */
+if(! function_exists('hash_equals')) {
+    function hash_equals($a, $b) {
+        $ret = strlen($a) ^ strlen($b);
+        $ret |= array_sum(unpack("C*", $a ^ $b));
+        return ! $ret;
     }
 }

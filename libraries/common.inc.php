@@ -97,6 +97,12 @@ if (! function_exists('mb_detect_encoding')) {
 }
 
 /**
+ * Set utf-8 encoding for PHP
+ */
+ini_set('default_charset', 'utf-8');
+mb_internal_encoding('utf-8');
+
+/**
  * the PMA_Theme class
  */
 require './libraries/Theme.class.php';
@@ -131,7 +137,7 @@ require './libraries/Table.class.php';
  */
 require './libraries/Types.class.php';
 
-if (! defined('PMA_MINIMUM_COMMON')) {
+if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
     /**
      * common functions
      */
@@ -225,7 +231,7 @@ unset($key, $value, $variables_whitelist);
  * so we now check if a subform is submitted
  */
 $__redirect = null;
-if (isset($_POST['usesubform'])) {
+if (isset($_POST['usesubform']) && ! defined('PMA_MINIMUM_COMMON')) {
     // if a subform is present and should be used
     // the rest of the form is deprecated
     $subform_id = key($_POST['usesubform']);
@@ -334,6 +340,7 @@ if (isset($_COOKIE)) {
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
     && ! $GLOBALS['PMA_Config']->detectHttps()
 ) {
+    require './libraries/select_lang.lib.php';
     // grab SSL URL
     $url = $GLOBALS['PMA_Config']->getSSLUri();
     // Actually redirect
@@ -468,7 +475,7 @@ $token_mismatch = true;
 $token_provided = false;
 if (PMA_isValid($_REQUEST['token'])) {
     $token_provided = true;
-    $token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
+    $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_REQUEST['token']);
 }
 
 if ($token_mismatch) {

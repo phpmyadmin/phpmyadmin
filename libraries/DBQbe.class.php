@@ -1530,14 +1530,14 @@ class PMA_DbQbe
     /**
      * Provides FROM clause for building SQL query
      *
+     * @param array $curField List of selected columns
+     *
      * @return string FROM clause
      */
-    private function _getFromClause()
+    private function _getFromClause($curField)
     {
         $from_clause = '';
-        if (!isset($_POST['criteriaColumn'])
-            || count($_POST['criteriaColumn']) <= 0
-        ) {
+        if (empty($curField)) {
             return $from_clause;
         }
 
@@ -1545,7 +1545,7 @@ class PMA_DbQbe
         $search_tables = $search_columns = array();
 
         // We only start this if we have fields, otherwise it would be dumb
-        foreach ($_POST['criteriaColumn'] as $value) {
+        foreach ($curField as $value) {
             $parts = explode('.', $value);
             if (! empty($parts[0]) && ! empty($parts[1])) {
                 $table = str_replace('`', '', $parts[0]);
@@ -1782,15 +1782,17 @@ class PMA_DbQbe
     /**
      * Provides the generated SQL query
      *
+     * @param array $curField List of selected columns
+     *
      * @return string SQL query
      */
-    private function _getSQLQuery()
+    private function _getSQLQuery($curField)
     {
         $sql_query = '';
         // get SELECT clause
         $sql_query .= $this->_getSelectClause();
         // get FROM clause
-        $from_clause = $this->_getFromClause();
+        $from_clause = $this->_getFromClause($curField);
         if (! empty($from_clause)) {
             $sql_query .= 'FROM ' . htmlspecialchars($from_clause) . "\n";
         }
@@ -1854,7 +1856,12 @@ class PMA_DbQbe
         $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
             . ' rows="' . ((count($this->_criteriaTables) > 30) ? '15' : '7') . '"'
             . ' dir="' . $text_dir . '">';
-        $html_output .= $this->_getSQLQuery();
+
+        if (empty($this->_curField)) {
+            $this->_curField = array();
+        }
+        $html_output .= $this->_getSQLQuery($this->_curField);
+
         $html_output .= '</textarea>';
         $html_output .= '</fieldset>';
         // displays form's footers

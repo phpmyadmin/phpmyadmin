@@ -174,7 +174,6 @@ class PMA_Scripts
             || strpos($filename, 'codemirror') !== false
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false
-            || strpos($filename, 'navigation.js') !== false
             || strpos($filename, 'get_image.js.php') !== false
             || strpos($filename, 'cross_framing_protection.js') !== false
         ) {

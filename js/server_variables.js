@@ -30,7 +30,15 @@ AJAX.registerOnload('server_variables.js', function () {
     $filterField.keyup(function () {
         var textFilter = null, val = $(this).val();
         if (val.length !== 0) {
-            textFilter = new RegExp("(^| )" + val.replace(/_/g, ' '), 'i');
+            try {
+                textFilter = new RegExp("(^| )" + val.replace(/_/g, ' '), 'i');
+                $(this).removeClass('error');
+            } catch(e) {
+                if (e instanceof SyntaxError) {
+                    $(this).addClass('error');
+                    textFilter = null;
+                }
+            }
         }
         filterVariables(textFilter);
     });

@@ -169,7 +169,7 @@ class PMA_Table
         }
 
         // use cached data or load information with SHOW command
-        if ($this->_dbi->getCachedTableContent("${db}.${table}") != null
+        if ($this->_dbi->getCachedTableContent(array($db, $table)) != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
@@ -314,14 +314,14 @@ class PMA_Table
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
-        if ($this->_dbi->getCachedTableContent("${db}.${table}") == null
+        if ($this->_dbi->getCachedTableContent(array($db, $table)) == null
             || $force_read
-            || count($this->_dbi->getCachedTableContent("${db}.${table}")) == 1
+            || count($this->_dbi->getCachedTableContent(array($db, $table))) == 1
         ) {
             $this->_dbi->getTablesFull($db, $table);
         }
 
-        if ($this->_dbi->getCachedTableContent("${db}.${table}") == null) {
+        if ($this->_dbi->getCachedTableContent(array($db, $table)) == null) {
             // happens when we enter the table creation dialog
             // or when we really did not get any status info, for example
             // when $table == 'TABLE_NAMES' after the user tried SHOW TABLES
@@ -329,12 +329,12 @@ class PMA_Table
         }
 
         if (null === $info) {
-            return $this->_dbi->getCachedTableContent("${db}.${table}");
+            return $this->_dbi->getCachedTableContent(array($db, $table));
         }
 
         // array_key_exists allows for null values
         if (!array_key_exists(
-            $info, $this->_dbi->getCachedTableContent("${db}.${table}")
+            $info, $this->_dbi->getCachedTableContent(array($db, $table))
         )
         ) {
             if (! $disable_error) {
@@ -346,7 +346,7 @@ class PMA_Table
             return false;
         }
 
-        return $this->_dbi->getCachedTableContent("${db}.${table}.${info}");
+        return $this->_dbi->getCachedTableContent(array($db, $table, $info));
     }
 
     /**
@@ -410,7 +410,7 @@ class PMA_Table
                 $type
             );
             if (! empty($collation) && $collation != 'NULL' && $matches) {
-                $query .= PMA_generateCharsetQueryPart($collation);
+                $query .= PMA_generateCharsetQueryPart($collation, true);
             }
 
             if ($null !== false) {
@@ -495,29 +495,29 @@ class PMA_Table
         $db = $this->_db_name;
         $table = $this->_name;
 
-        if ($this->_dbi->getCachedTableContent("${db}.${table}.ExactRows") != null) {
+        if ($this->_dbi->getCachedTableContent(array($db, $table, 'ExactRows')) != null) {
             $row_count = $this->_dbi->getCachedTableContent(
-                "${db}.${table}.ExactRows"
+                array($db, $table, 'ExactRows')
             );
             return $row_count;
         }
         $row_count = false;
 
         if (! $force_exact) {
-            if (($this->_dbi->getCachedTableContent("${db}.${table}.Rows") == null)
+            if (($this->_dbi->getCachedTableContent(array($db, $table, 'Rows')) == null)
                 && !$is_view
             ) {
                 $tmp_tables = $this->_dbi->getTablesFull($db, $table);
                 if (isset($tmp_tables[$table])) {
                     $this->_dbi->cacheTableContent(
-                        "${db}.${table}",
+                        array($db, $table),
                         $tmp_tables[$table]
                     );
                 }
             }
-            if ($this->_dbi->getCachedTableContent("${db}.${table}.Rows") != null) {
+            if ($this->_dbi->getCachedTableContent(array($db, $table, 'Rows')) != null) {
                 $row_count = $this->_dbi->getCachedTableContent(
-                    "${db}.${table}.Rows"
+                    array($db, $table, 'Rows')
                 );
             } else {
                 $row_count = false;
@@ -567,7 +567,7 @@ class PMA_Table
             }
         }
         if ($row_count) {
-            $this->_dbi->cacheTableContent("${db}.${table}.ExactRows", $row_count);
+            $this->_dbi->cacheTableContent(array($db, $table, 'ExactRows'), $row_count);
         }
 
         return $row_count;

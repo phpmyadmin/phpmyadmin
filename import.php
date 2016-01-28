@@ -104,7 +104,9 @@ $ajax_reload = array();
 if (! empty($sql_query)) {
 
     // apply values for parameters
-    if (! empty($_REQUEST['parameterized']) && is_array($_REQUEST['parameters'])) {
+    if (! empty($_REQUEST['parameterized'])
+        && ! empty($_REQUEST['parameters'])
+        && is_array($_REQUEST['parameters'])) {
         $parameters = $_REQUEST['parameters'];
         foreach ($parameters as $parameter => $replacement) {
             $quoted = preg_quote($parameter);
@@ -771,7 +773,7 @@ if ($go_sql) {
             $db, // db
             $table, // table
             null, // find_real_end
-            $sql_query, // sql_query_for_bookmark
+            $_REQUEST['sql_query'], // sql_query_for_bookmark
             null, // extra_data
             null, // message_to_show
             null, // message

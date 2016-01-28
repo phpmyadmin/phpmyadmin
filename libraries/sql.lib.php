@@ -397,6 +397,24 @@ function PMA_getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
 }
 
 /**
+ * Get value of a column for a specific row (marked by $where_clause)
+ *
+ * @param string $db           current database
+ * @param string $table        current table
+ * @param string $column       current column
+ * @param string $where_clause where clause to select a particular row
+ *
+ */
+function PMA_getFullValuesForSetColumn($db, $table, $column, $where_clause)
+{
+    $result = $GLOBALS['dbi']->fetchSingleRow(
+        "SELECT `$column` FROM `$db`.`$table` WHERE $where_clause"
+    );
+
+    return $result[$column];
+}
+
+/**
  * Get the HTML for the set column dropdown
  * During grid edit, if we have a set field, returns the html for the
  * dropdown
@@ -412,6 +430,18 @@ function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
 {
     $values = PMA_getValuesForColumn($db, $table, $column);
     $dropdown = '';
+    $full_values =
+        isset($_REQUEST['get_full_values']) ? $_REQUEST['get_full_values'] : false;
+    $where_clause =
+        isset($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : null;
+
+    // If the $curr_value was truncated, we should
+    // fetch the correct full values from the table
+    if ($full_values && ! empty($where_clause)) {
+        $curr_value = PMA_getFullValuesForSetColumn(
+            $db, $table, $column, $where_clause
+        );
+    }
 
     //converts characters of $curr_value to HTML entities
     $converted_curr_value = htmlentities(
@@ -419,6 +449,7 @@ function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
     );
 
     $selected_values = explode(',', $converted_curr_value);
+
     $dropdown .= PMA_getHtmlForOptionsList($values, $selected_values);
 
     $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
@@ -818,7 +849,9 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
         );
         $response->addJSON('dropdown', $dropdown);
     } else {
-        $select = PMA_getHtmlForSetColumn($db, $table, $column, $curr_value);
+        $select = PMA_getHtmlForSetColumn(
+            $db, $table, $column, $curr_value
+        );
         $response->addJSON('select', $select);
     }
     exit;
@@ -1059,6 +1092,11 @@ function PMA_cleanupRelations($db, $table, $column, $purge)
 function PMA_countQueryResults(
     $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
 ) {
+
+    /* Shortcut for not analyzed/empty query */
+    if (empty($analyzed_sql_results)) {
+        return 0;
+    }
 
     if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
         // if we did not append a limit, set this to get a correct
@@ -1996,7 +2034,8 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     // (the parser never sets the 'union' key to 0).
     // Handling is also not required if we came from the "Sort by key"
     // drop-down.
-    if (PMA_isRememberSortingOrder($analyzed_sql_results)
+    if (! empty($analyzed_sql_results)
+        && PMA_isRememberSortingOrder($analyzed_sql_results)
         && empty($analyzed_sql_results['union'])
         && ! isset($_REQUEST['sort_by_key'])
     ) {

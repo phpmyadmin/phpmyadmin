@@ -37,6 +37,7 @@ class Key extends Component
         'KEY_BLOCK_SIZE'                => array(1, 'var'),
         'USING'                         => array(2, 'var'),
         'WITH PARSER'                   => array(3, 'var'),
+        'COMMENT'                       => array(4, 'var='),
     );
 
     /**

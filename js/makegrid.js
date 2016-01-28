@@ -795,7 +795,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
 
                     // if the select/editor is changed un-check the 'checkbox_null_<field_name>_<row_index>'.
-                    if ($td.is('.enum, .set:not(.truncated)')) {
+                    if ($td.is('.enum, .set')) {
                         $editArea.on('change', 'select', function (e) {
                             $checkbox.prop('checked', false);
                         });
@@ -925,7 +925,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
                 }
-                else if ($td.is('.set:not(.truncated)')) {
+                else if ($td.is('.set')) {
                     //handle set fields
                     $editArea.addClass('edit_area_loading');
 
@@ -943,10 +943,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'curr_value' : curr_value
                     };
 
+                    // if the data is truncated, get the full data
+                    if ($td.is('.truncated')) {
+                        post_params.get_full_values = true;
+                        post_params.where_clause = PMA_urldecode(where_clause);
+                    }
+
                     g.lastXHR = $.post('sql.php', post_params, function (data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
+                        $td.data('original_data', $(data.select).val().join());
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }); // end $.post()
 
@@ -1411,7 +1418,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             } else {
                 if ($this_field.is('.bit')) {
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
-                } else if ($this_field.is('.set:not(.truncated)')) {
+                } else if ($this_field.is('.set')) {
                     $test_element = $(g.cEdit).find('select');
                     this_field_params[field_name] = $test_element.map(function () {
                         return $(this).val();

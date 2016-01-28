@@ -114,7 +114,12 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     } else {
         $retval .= '<table>' . "\n";
 
-        if (! $cfgRelation['allworks'] && $GLOBALS['cfg']['ZeroConf']) {
+        if (! $cfgRelation['allworks']
+            && $GLOBALS['cfg']['ZeroConf']
+            // Avoid showing a "Create missing tables" link if it's a
+            // problem of missing definition
+            && PMA_arePmadbTablesDefined()
+        ) {
             $retval .= PMA_getHtmlFixPMATables(false);
             $retval .= '<br />';
         }
@@ -343,7 +348,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 
         if (! $cfgRelation['allworks']) {
 
-            $retval .= '<p>' . __('Quick steps to setup advanced features:')
+            $retval .= '<p>' . __('Quick steps to set up advanced features:')
                 . '</p>';
 
             $items = array();
@@ -1977,4 +1982,37 @@ function PMA_getRelationsAndStatus($condition, $db, $table)
         $res_rel = array();
     } // end if
     return(array($res_rel, $have_rel));
+}
+
+/**
+ * Verifies if all the pmadb tables are defined
+ *
+ * @return boolean
+ */
+function PMA_arePmadbTablesDefined()
+{
+    if (empty($GLOBALS['cfg']['Server']['bookmarktable'])
+        || empty($GLOBALS['cfg']['Server']['relation'])
+        || empty($GLOBALS['cfg']['Server']['table_info'])
+        || empty($GLOBALS['cfg']['Server']['table_coords'])
+        || empty($GLOBALS['cfg']['Server']['column_info'])
+        || empty($GLOBALS['cfg']['Server']['pdf_pages'])
+        || empty($GLOBALS['cfg']['Server']['history'])
+        || empty($GLOBALS['cfg']['Server']['recent'])
+        || empty($GLOBALS['cfg']['Server']['favorite'])
+        || empty($GLOBALS['cfg']['Server']['table_uiprefs'])
+        || empty($GLOBALS['cfg']['Server']['tracking'])
+        || empty($GLOBALS['cfg']['Server']['userconfig'])
+        || empty($GLOBALS['cfg']['Server']['users'])
+        || empty($GLOBALS['cfg']['Server']['usergroups'])
+        || empty($GLOBALS['cfg']['Server']['navigationhiding'])
+        || empty($GLOBALS['cfg']['Server']['savedsearches'])
+        || empty($GLOBALS['cfg']['Server']['central_columns'])
+        || empty($GLOBALS['cfg']['Server']['designer_settings'])
+        || empty($GLOBALS['cfg']['Server']['export_templates'])
+    ) {
+        return false;
+    } else {
+        return true;
+    }
 }

@@ -82,6 +82,9 @@ function PMA_Kanji_strConv($str, $enc, $kana)
         return $str;
     }
     $string_encoding = mb_detect_encoding($str, $kanji_encoding_list);
+    if ($string_encoding === false) {
+        $string_encoding = 'utf-8';
+    }
 
     if ($kana == 'kana') {
         $dist = mb_convert_kana($str, 'KV', $string_encoding);

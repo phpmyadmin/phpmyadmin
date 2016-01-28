@@ -99,8 +99,8 @@ class PMA_DatabaseInterface
     /**
      * Get a cached value from table cache.
      *
-     * @param string $contentPath Dot notation of the target value
-     * @param mixed  $default     Return value on cache miss
+     * @param array $contentPath Array of the name of the target value
+     * @param mixed $default     Return value on cache miss
      *
      * @return mixed cached value or default
      */
@@ -112,8 +112,8 @@ class PMA_DatabaseInterface
     /**
      * Set an item in table cache using dot notation.
      *
-     * @param string $contentPath Dot notation of the target path
-     * @param mixed  $value       Target value
+     * @param array $contentPath Array with the target path
+     * @param mixed $value       Target value
      *
      * @return void
      */
@@ -126,10 +126,8 @@ class PMA_DatabaseInterface
             return;
         }
 
-        $keys = explode('.', $contentPath);
-
-        while (count($keys) > 1) {
-            $key = array_shift($keys);
+        while (count($contentPath) > 1) {
+            $key = array_shift($contentPath);
 
             // If the key doesn't exist at this depth, we will just create an empty array
             // to hold the next value, allowing us to create the arrays to hold final
@@ -140,7 +138,7 @@ class PMA_DatabaseInterface
             $loc = &$loc[$key];
         }
 
-        $loc[array_shift($keys)] = $value;
+        $loc[array_shift($contentPath)] = $value;
     }
 
     /**
@@ -277,75 +275,6 @@ class PMA_DatabaseInterface
         }
 
         return $this->_extension->realMultiQuery($link, $multi_query);
-    }
-
-    /**
-     * converts charset of a mysql message, usually coming from mysql_error(),
-     * into PMA charset, usually UTF-8
-     * uses language to charset mapping from mysql/share/errmsg.txt
-     * and charset names to ISO charset from information_schema.CHARACTER_SETS
-     *
-     * @param string $message the message
-     *
-     * @return string  $message
-     */
-    public function convertMessage($message)
-    {
-        // latin always last!
-        // @todo some values are missing,
-        // see https://mariadb.com/kb/en/mariadb/server-locale/
-
-        $encodings = array(
-            'ja' => 'EUC-JP', //'ujis',
-            'ko' => 'EUC-KR', //'euckr',
-            'ru' => 'KOI8-R', //'koi8r',
-            'uk' => 'KOI8-U', //'koi8u',
-            'sr' => 'CP1250', //'cp1250',
-            'et' => 'ISO-8859-13', //'latin7',
-            'sk' => 'ISO-8859-2', //'latin2',
-            'cz' => 'ISO-8859-2', //'latin2',
-            'hu' => 'ISO-8859-2', //'latin2',
-            'pl' => 'ISO-8859-2', //'latin2',
-            'ro' => 'ISO-8859-2', //'latin2',
-            'es' => 'CP1252', //'latin1',
-            'sv' => 'CP1252', //'latin1',
-            'it' => 'CP1252', //'latin1',
-            'no' => 'CP1252', //'latin1',
-            'pt' => 'CP1252', //'latin1',
-            'da' => 'CP1252', //'latin1',
-            'nl' => 'CP1252', //'latin1',
-            'en' => 'CP1252', //'latin1',
-            'fr' => 'CP1252', //'latin1',
-            'de' => 'CP1252', //'latin1',
-        );
-
-        $server_language = PMA_Util::cacheGet(
-            'server_language',
-            function () {
-                return $GLOBALS['dbi']->fetchValue("SELECT @@lc_messages;");
-            }
-        );
-
-        if ($server_language) {
-            $found = array();
-            $match = preg_match(
-                '&([a-z][a-z])_&i',
-                $server_language,
-                $found
-            );
-            if ($match) {
-                $server_language = $found[1];
-            }
-        }
-
-        if (! empty($server_language) && isset($encodings[$server_language])) {
-            $encoding = $encodings[$server_language];
-        } else {
-            /* Fallback to CP1252 if we can not detect */
-            $encoding = 'CP1252';
-        }
-
-        return PMA_convertString($encoding, 'utf-8', $message);
     }
 
     /**
@@ -1883,13 +1812,26 @@ class PMA_DatabaseInterface
                         5
                     );
                 }
-                $this->query(
+                $result = $this->tryQuery(
                     "SET collation_connection = '"
                     . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
                     . "';",
                     $link,
                     self::QUERY_STORE
                 );
+                if ($result === false) {
+                    trigger_error(
+                        __('Failed to set configured collation connection!'),
+                        E_USER_WARNING
+                    );
+                    $this->query(
+                        "SET collation_connection = '"
+                        . PMA_Util::sqlAddSlashes($default_collation)
+                        . "';",
+                        $link,
+                        self::QUERY_STORE
+                    );
+                }
             } else {
                 $this->query(
                     "SET NAMES '$default_charset' COLLATE '$default_collation';",
@@ -2508,10 +2450,6 @@ class PMA_DatabaseInterface
      */
     public function formatError($error_number, $error_message)
     {
-        if (! empty($error_message)) {
-            $error_message = $this->convertMessage($error_message);
-        }
-
         $error_message = htmlspecialchars($error_message);
 
         $error = '#' . ((string) $error_number);
