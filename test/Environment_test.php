@@ -38,6 +38,9 @@ class Environment_Test extends PHPUnit_Framework_TestCase
      */
     public function testMySQL()
     {
+        if (!extension_loaded('pdo_mysql')) {
+            $this->markTestSkipped('pdo_myql is missing');
+        }
         try {
             $pdo = new PDO(
                 "mysql:host=" . TESTSUITE_SERVER . ";dbname=" . TESTSUITE_DATABASE,
