@@ -102,7 +102,7 @@ function goToFinish1NF()
     }
     $("#mainContent legend").html(PMA_messages.strEndStep);
     $("#mainContent h4").html(
-        "<h3>" + PMA_sprintf(PMA_messages.strFinishMsg, PMA_commonParams.get('table')) + "</h3>"
+        "<h3>" + PMA_sprintf(PMA_messages.strFinishMsg, escapeHtml(PMA_commonParams.get('table'))) + "</h3>"
     );
     $("#mainContent p").html('');
     $("#mainContent #extra").html('');

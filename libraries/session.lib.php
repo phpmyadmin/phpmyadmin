@@ -22,5 +22,5 @@ function PMA_secureSession()
     ) {
         session_regenerate_id(true);
     }
-    $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
+    $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
 }

@@ -1516,13 +1516,26 @@ class DatabaseInterface
                     5
                 );
             }
-            $this->query(
+            $result = $this->tryQuery(
                 "SET collation_connection = '"
-                . Util::sqlAddSlashes($GLOBALS['collation_connection'])
+                . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
                 . "';",
                 $link,
                 self::QUERY_STORE
             );
+            if ($result === false) {
+                trigger_error(
+                    __('Failed to set configured collation connection!'),
+                    E_USER_WARNING
+                );
+                $this->query(
+                    "SET collation_connection = '"
+                    . PMA_Util::sqlAddSlashes($default_collation)
+                    . "';",
+                    $link,
+                    self::QUERY_STORE
+                );
+            }
         } else {
             $this->query(
                 "SET NAMES '$default_charset' COLLATE '$default_collation';",
