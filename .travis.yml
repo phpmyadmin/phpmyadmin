@@ -7,12 +7,11 @@ sudo: false
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "CREATE DATABASE test;"
-  - phpenv global 5.4
-  - composer install --dev --no-interaction
-  - phpenv global $TRAVIS_PHP_VERSION
+  - if [ $TRAVIS_PHP_VERSION != "5.2" ] ; then composer install --dev --no-interaction ; fi
   - ./scripts/generate-mo --quiet
 script:
-  - ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage
+  - if [ $TRAVIS_PHP_VERSION != "5.2" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage ; fi
+  - git ls-files | grep '\.php$' | xargs -n1 php -l
 cache:
   directories:
     - $HOME/.composer/cache/
