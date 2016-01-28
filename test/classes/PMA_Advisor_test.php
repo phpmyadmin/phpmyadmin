@@ -72,6 +72,10 @@ class Advisor_test extends PHPUnit_Framework_TestCase
      */
     public function testAddRule($rule, $expected, $error)
     {
+        /* PHP 5.2 doesn't properly catch errors from eval */
+        if (!is_null($error) && substr(PHP_VERSION, 0, 3) === '5.2') {
+            $this->markTestSkipped('Not supported on PHP 5.2');
+        }
         $advisor = new Advisor();
         $parseResult = $advisor->parseRulesFile();
         $this->assertEquals($parseResult['errors'], array());
