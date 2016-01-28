@@ -29,6 +29,15 @@ phpMyAdmin - ChangeLog
 - issue #11854 Undefined property: stdClass::$releases at version check when disabled in config
 - issue #11814 SQL comment and variable stripped from bookmark on save
 - issue        Gracefully handle errors in regex based javascript search
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-1
+- issue        [security] Unsafe generation of CSRF token, see PMASA-2016-2
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-3
+- issue        [security] Insecure password generation in JavaScript, see PMASA-2016-4
+- issue        [security] Unsafe comparison of CSRF token, see PMASA-2016-5
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-6
+- issue        [security] XSS vulnerability in normalization page, see PMASA-2016-7
+- issue        [security] Full path disclosure vulnerability in SQL parser, see PMASA-2016-8
+- issue        [security] XSS vulnerability in SQL editor, see PMASA-2016-9
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
