@@ -123,7 +123,6 @@ class Config
          */
         $this->set('PMA_THEME_GENERATION', 2);
 
-        $this->checkPhpVersion();
         $this->checkWebServerOs();
         $this->checkWebServer();
         $this->checkGd2();
@@ -362,42 +361,6 @@ class Config
                 $this->set('PMA_IS_WINDOWS', 1);
             }
         }
-    }
-
-    /**
-     * detects PHP version
-     *
-     * @return void
-     */
-    public function checkPhpVersion()
-    {
-        $match = array();
-        if (! preg_match(
-            '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
-            phpversion(),
-            $match
-        )) {
-            preg_match(
-                '@([0-9]{1,2}).([0-9]{1,2})@',
-                phpversion(),
-                $match
-            );
-        }
-        if (isset($match) && ! empty($match[1])) {
-            if (! isset($match[2])) {
-                $match[2] = 0;
-            }
-            if (! isset($match[3])) {
-                $match[3] = 0;
-            }
-            $this->set(
-                'PMA_PHP_INT_VERSION',
-                (int) sprintf('%d%02d%02d', $match[1], $match[2], $match[3])
-            );
-        } else {
-            $this->set('PMA_PHP_INT_VERSION', 0);
-        }
-        $this->set('PMA_PHP_STR_VERSION', phpversion());
     }
 
     /**
@@ -1698,8 +1661,6 @@ class Config
             'PMA_VERSION',
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
-            'PMA_PHP_STR_VERSION',
-            'PMA_PHP_INT_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_IIS',
             'PMA_IS_GD2',

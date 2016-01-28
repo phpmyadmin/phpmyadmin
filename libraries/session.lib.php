@@ -17,8 +17,8 @@ function PMA_secureSession()
 {
     // prevent session fixation and XSS
     // (better to use session_status() if available)
-    if ((PMA_PHP_INT_VERSION >= 50400 && session_status() === PHP_SESSION_ACTIVE)
-        || (PMA_PHP_INT_VERSION < 50400 && session_id() !== '')
+    if ((PHP_VERSION_ID >= 50400 && session_status() === PHP_SESSION_ACTIVE)
+        || (PHP_VERSION_ID < 50400 && session_id() !== '')
     ) {
         session_regenerate_id(true);
     }

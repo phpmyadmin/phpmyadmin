@@ -450,51 +450,6 @@ class ConfigTest extends PMATestCase
     }
 
     /**
-     * test for CheckPhpVersion
-     *
-     * @return array
-     */
-    public function testCheckPhpVersion()
-    {
-        $this->object->checkPhpVersion();
-
-        $php_int_ver = 0;
-        $php_str_ver = phpversion();
-
-        $match = array();
-        preg_match(
-            '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
-            phpversion(),
-            $match
-        );
-        if (isset($match) && ! empty($match[1])) {
-            if (! isset($match[2])) {
-                $match[2] = 0;
-            }
-            if (! isset($match[3])) {
-                $match[3] = 0;
-            }
-            $php_int_ver = (int) sprintf(
-                '%d%02d%02d',
-                $match[1],
-                $match[2],
-                $match[3]
-            );
-        } else {
-            $php_int_ver = 0;
-        }
-
-        $this->assertEquals(
-            $php_str_ver,
-            $this->object->get('PMA_PHP_STR_VERSION')
-        );
-        $this->assertEquals(
-            $php_int_ver,
-            $this->object->get('PMA_PHP_INT_VERSION')
-        );
-    }
-
-    /**
      * Tests loading of default values
      *
      * @return void
@@ -782,8 +737,6 @@ class ConfigTest extends PMATestCase
             'PMA_VERSION',
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
-            'PMA_PHP_STR_VERSION',
-            'PMA_PHP_INT_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_IIS',
             'PMA_IS_GD2',

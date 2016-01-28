@@ -38,7 +38,7 @@ if (defined('TESTSUITE')) {
             '[/a]'
         );
 
-        if (PMA_PHP_INT_VERSION < 70000) {
+        if (PHP_VERSION_ID < 70000) {
             $extension = 'mysql';
             if (! PMA\libraries\DatabaseInterface::checkDbExtension($extension)) {
                 // warn about both extensions missing and exit
