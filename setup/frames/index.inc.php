@@ -9,6 +9,7 @@
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\config\ServerConfigChecks;
+use PMA\libraries\LanguageManager;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -22,8 +23,7 @@ require_once './setup/lib/index.lib.php';
 require_once './libraries/config/FormDisplay.tpl.php';
 
 // prepare unfiltered language list
-$all_languages = PMA_langList();
-uasort($all_languages, 'PMA_languageCmp');
+$all_languages = LanguageManager::getInstance()->sortedLanguages();
 
 /** @var ConfigFile $cf */
 $cf = $GLOBALS['ConfigFile'];
@@ -104,11 +104,10 @@ echo '<select id="lang" name="lang" class="autosubmit" lang="en" dir="ltr">';
 
 // create language list
 $lang_list = array();
-foreach ($all_languages as $each_lang_key => $each_lang) {
-    $lang_name = PMA_languageName($each_lang);
+foreach ($all_languages as $each_lang) {
     //Is current one active?
-    $selected = ($GLOBALS['lang'] == $each_lang_key) ? ' selected="selected"' : '';
-    echo '<option value="' , $each_lang_key , '"' , $selected , '>' , $lang_name
+    $selected = $each_lang->isActive() ? ' selected="selected"' : '';
+    echo '<option value="' , $each_lang->getCode() , '"' , $selected , '>' , $each_lang->getName()
         , '</option>' , "\n";
 }
 
@@ -228,9 +227,8 @@ $opts = array(
     'doc' => $form_display->getDocLink('DefaultLang'),
     'values' => array(),
     'values_escaped' => true);
-foreach ($all_languages as $each_lang_key => $each_lang) {
-    $lang_name = PMA_languageName($each_lang);
-    $opts['values'][$each_lang_key] = $lang_name;
+foreach ($all_languages as $each_lang) {
+    $opts['values'][$each_lang->getCode()] = $each_lang->getName();
 }
 echo PMA_displayInput(
     'DefaultLang', __('Default language'), 'select',
