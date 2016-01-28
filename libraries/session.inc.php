@@ -103,7 +103,7 @@ if (! isset($_COOKIE[$session_name])) {
  * (we use "space PMA_token space" to prevent overwriting)
  */
 if (! isset($_SESSION[' PMA_token '])) {
-    $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
+    $_SESSION[' PMA_token '] = bin2hex(crypt_random_string(16));
 }
 
 /**
@@ -117,6 +117,6 @@ function PMA_secureSession()
 {
     // prevent session fixation and XSS
     session_regenerate_id(true);
-    $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
+    $_SESSION[' PMA_token '] = bin2hex(crypt_random_string(16));
 }
 ?>
