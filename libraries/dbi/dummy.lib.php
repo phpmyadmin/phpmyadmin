@@ -259,6 +259,18 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(),
     ),
     array(
+        'query' => 'SHOW TABLES FROM `mysql`;',
+        'result' => array(),
+    ),
+    array(
+        'query' => "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER' AND 'mysql' REGEXP REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%', '.*')",
+        'result' => array(),
+    ),
+    array(
+        'query' => "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost''' AND PRIVILEGE_TYPE='EVENT' AND 'mysql' REGEXP REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%', '.*')",
+        'result' => array(),
+    ),
+    array(
         'query' => "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost''' AND PRIVILEGE_TYPE='EVENT' AND TABLE_SCHEMA='pma'",
         'result' => array(),
     ),
