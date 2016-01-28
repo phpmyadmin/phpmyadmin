@@ -39,7 +39,7 @@ class Environment_Test extends PHPUnit_Framework_TestCase
     public function testMySQL()
     {
         if (!extension_loaded('pdo_mysql')) {
-            $this->markTestSkipped('pdo_myql is missing');
+            $this->markTestSkipped('pdo_mysql is missing');
         }
         try {
             $pdo = new PDO(
@@ -49,7 +49,7 @@ class Environment_Test extends PHPUnit_Framework_TestCase
             );
             $this->assertNull(
                 $pdo->errorCode(),
-                "Error when trying to connect to database"
+                "Error when trying to connect to database: " . $pdo->errorInfo()[2]
             );
 
             //$pdo->beginTransaction();
@@ -58,7 +58,7 @@ class Environment_Test extends PHPUnit_Framework_TestCase
             $this->assertEquals(
                 0,
                 $pdo->errorCode(),
-                'Error trying to show tables for database'
+                'Error trying to show tables for database: ' . $pdo->errorInfo()[2]
             );
         }
         catch (Exception $e) {
