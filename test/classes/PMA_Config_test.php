@@ -273,7 +273,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
-                break;
             } elseif (stristr(PHP_OS, 'Linux')) {
                 $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
             } else {
