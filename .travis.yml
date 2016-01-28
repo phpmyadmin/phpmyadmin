@@ -7,7 +7,9 @@ sudo: false
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "CREATE DATABASE test;"
-  - composer install --dev --no-interaction ;
+  - phpenv global 5.4
+  - composer install --dev --no-interaction
+  - phpenv global $TRAVIS_PHP_VERSION
   - ./scripts/generate-mo --quiet
 script:
   - ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage
