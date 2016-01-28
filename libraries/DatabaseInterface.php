@@ -1518,7 +1518,7 @@ class DatabaseInterface
             }
             $result = $this->tryQuery(
                 "SET collation_connection = '"
-                . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
+                . Util::sqlAddSlashes($GLOBALS['collation_connection'])
                 . "';",
                 $link,
                 self::QUERY_STORE
@@ -1530,7 +1530,7 @@ class DatabaseInterface
                 );
                 $this->query(
                     "SET collation_connection = '"
-                    . PMA_Util::sqlAddSlashes($default_collation)
+                    . Util::sqlAddSlashes($default_collation)
                     . "';",
                     $link,
                     self::QUERY_STORE
