@@ -33,6 +33,9 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
     {
         $class = new ReflectionClass('PMA_List_Database');
         $method = $class->getMethod($name);
+        if (! method_exists($method, 'setAccessible')) {
+            $this->markTestSkipped('ReflectionClass::setAccessible not available');
+        }
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
     }
