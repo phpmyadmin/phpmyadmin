@@ -1,6 +1,15 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.15.3 (not yet released)
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-1
+- issue        [security] Unsafe generation of CSRF token, see PMASA-2016-2
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-3
+- issue        [security] Insecure password generation in JavaScript, see PMASA-2016-4
+- issue        [security] Unsafe comparison of CSRF token, see PMASA-2016-5
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-6
+- issue        [security] XSS vulnerability in normalization page, see PMASA-2016-7
+
 4.4.15.2 (2015-12-25)
 - issue        [Security] Path disclosure, see PMASA-2015-6
 
