@@ -58,7 +58,6 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        test/classes/PMA_DBQbe_test.php
         $class = new ReflectionClass('PMA_DBQbe');
         $method = $class->getMethod($name);
         if (! method_exists($method, 'setAccessible')) {
