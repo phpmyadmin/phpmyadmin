@@ -10,7 +10,7 @@ before_script:
   - if [ $TRAVIS_PHP_VERSION != "5.2" ] ; then composer install --dev --no-interaction ; fi
   - ./scripts/generate-mo --quiet
 script:
-  - if [ $TRAVIS_PHP_VERSION != "5.2" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage ; fi
+  - if [ $TRAVIS_PHP_VERSION != "5.2" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage ; else phpunit --configuration phpunit.xml.nocoverage ; fi
   - git ls-files | grep '\.php$' | xargs -n1 php -l
 cache:
   directories:
