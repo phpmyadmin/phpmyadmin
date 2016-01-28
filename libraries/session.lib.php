@@ -16,10 +16,7 @@
 function PMA_secureSession()
 {
     // prevent session fixation and XSS
-    // (better to use session_status() if available)
-    if ((PHP_VERSION_ID >= 50400 && session_status() === PHP_SESSION_ACTIVE)
-        || (PHP_VERSION_ID < 50400 && session_id() !== '')
-    ) {
+    if (session_status() === PHP_SESSION_ACTIVE) {
         session_regenerate_id(true);
     }
     $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));

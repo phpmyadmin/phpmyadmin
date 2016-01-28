@@ -100,9 +100,7 @@ function PMA_Import_progressCheck()
   */
 function PMA_Import_sessionCheck()
 {
-    if (PHP_VERSION_ID < 50400
-        || ! ini_get('session.upload_progress.enabled')
-    ) {
+    if (! ini_get('session.upload_progress.enabled')) {
         return false;
     }
     return true;

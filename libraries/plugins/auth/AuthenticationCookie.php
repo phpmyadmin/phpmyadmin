@@ -31,20 +31,6 @@ if (! empty($_REQUEST['target'])) {
 require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 
 /**
- * phpseclib
- */
-if (! function_exists('openssl_encrypt')
-    || ! function_exists('openssl_decrypt')
-    || ! function_exists('openssl_random_pseudo_bytes')
-    || PHP_VERSION_ID < 50304
-) {
-    include PHPSECLIB_INC_DIR . '/Crypt/Base.php';
-    include PHPSECLIB_INC_DIR . '/Crypt/Rijndael.php';
-    include PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-    include PHPSECLIB_INC_DIR . '/Crypt/Random.php';
-}
-
-/**
  * Handles the cookie authentication method
  *
  * @package PhpMyAdmin-Authentication
@@ -723,7 +709,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             function_exists('openssl_encrypt')
             && function_exists('openssl_decrypt')
             && function_exists('openssl_random_pseudo_bytes')
-            && PHP_VERSION_ID >= 50304
         );
     }
 
