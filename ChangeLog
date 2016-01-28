@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.13 (2016-01-28)
+- issue        [Security] PMASA-2016-5, PMASA-2016-4, PMASA-2016-3, PMASA-2016-2, PMASA-2016-1
+
 4.0.10.12 (2015-12-25)
 - issue        [Security] Path disclosure, see PMASA-2015-6
 
