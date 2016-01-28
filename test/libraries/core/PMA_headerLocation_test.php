@@ -267,7 +267,8 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         //]]></script></head>
 <body><script type=\"text/javascript\">//<![CDATA[
     document.write('<p><a href=\"" . $testUri_html . "\">" . __('Go') . "</a></p>');
-    //]]></script></body></html>";
+    //]]></script></body></html>
+";
 
         $this->expectOutputString($header);
 

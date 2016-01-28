@@ -56,7 +56,7 @@ for ($i = 0; $i < 4; $i++): ?>
         } ?>
         <!-- Column type -->
         <td dir="ltr">
-            <?php echo (isset($type[$i]) ? $type[$i] : ''); ?>
+            <?php echo (isset($type[$i]) ? htmlspecialchars($type[$i]) : ''); ?>
         </td>
         <!-- Column Collation -->
         <td>
@@ -68,7 +68,7 @@ for ($i = 0; $i < 4; $i++): ?>
         </td>
         <!-- Inputbox for search criteria value -->
         <td>
-            <?php echo (isset($value[$i]) ? $value[$i] : ''); ?>
+            <?php echo (isset($value[$i]) ? htmlspecialchars($value[$i]) : ''); ?>
         </td>
     </tr>
     <!-- Displays hidden fields -->
