@@ -41,7 +41,7 @@ if (! function_exists('openssl_encrypt')
     require PHPSECLIB_INC_DIR . '/Crypt/Base.php';
     require PHPSECLIB_INC_DIR . '/Crypt/Rijndael.php';
     require PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-    require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+    require_once PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 }
 
 /**
