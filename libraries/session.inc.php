@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+require_once PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 
 // verify if PHP supports session, die if it does not
 
