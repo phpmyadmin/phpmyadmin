@@ -38,7 +38,8 @@ class Environment_Test extends PHPUnit_Framework_TestCase
      */
     public function testMySQL()
     {
-        if (!extension_loaded('pdo_mysql')) {
+        /* For some reason PDO doesn't work well on PHP 5.2 */
+        if (!extension_loaded('pdo_mysql') || substr(PHP_VERSION, 0, 3) === '5.2') {
             $this->markTestSkipped('pdo_mysql is missing');
         }
         try {
