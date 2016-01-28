@@ -47,18 +47,20 @@ class Environment_Test extends PHPUnit_Framework_TestCase
                 TESTSUITE_USER,
                 TESTSUITE_PASSWORD
             );
+            $err_info = $pdo->errorInfo();
             $this->assertNull(
                 $pdo->errorCode(),
-                "Error when trying to connect to database: " . $pdo->errorInfo()[2]
+                "Error when trying to connect to database: " . $err_info[2]
             );
 
             //$pdo->beginTransaction();
             $test = $pdo->exec("SHOW TABLES;");
             //$pdo->commit();
+            $err_info = $pdo->errorInfo();
             $this->assertEquals(
                 0,
                 $pdo->errorCode(),
-                'Error trying to show tables for database: ' . $pdo->errorInfo()[2]
+                'Error trying to show tables for database: ' . $err_info[2]
             );
         }
         catch (Exception $e) {
