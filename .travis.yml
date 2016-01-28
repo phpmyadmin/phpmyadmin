@@ -2,6 +2,7 @@ language: php
 php:
   - "5.4"
   - "5.3"
+  - "5.2"
 sudo: false
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
