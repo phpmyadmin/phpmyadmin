@@ -1,7 +1,11 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.5.4.0 (not yet released)
+4.5.4.1 (2016-01-29)
+- issue #11892 Error with PMA 4.4.15.3
+- issue #11896 Remove hard dependency on phpseclib
+
+4.5.4.0 (2016-01-28)
 - issue #11724 live data edit of big sets is not working
 - issue        Table list not saved in db QBE bookmarked search
 - issue #11777 While 'changing a column', query fails with a syntax error after the 'CHARSET=' keyword
@@ -29,6 +33,15 @@ phpMyAdmin - ChangeLog
 - issue #11854 Undefined property: stdClass::$releases at version check when disabled in config
 - issue #11814 SQL comment and variable stripped from bookmark on save
 - issue        Gracefully handle errors in regex based javascript search
+- issue        [Security] Multiple full path disclosure vulnerabilities, see PMASA-2016-1
+- issue        [Security] Unsafe generation of CSRF token, see PMASA-2016-2
+- issue        [Security] Multiple XSS vulnerabilities, see PMASA-2016-3
+- issue        [Security] Insecure password generation in JavaScript, see PMASA-2016-4
+- issue        [Security] Unsafe comparison of CSRF token, see PMASA-2016-5
+- issue        [Security] Multiple full path disclosure vulnerabilities, see PMASA-2016-6
+- issue        [Security] XSS vulnerability in normalization page, see PMASA-2016-7
+- issue        [Security] Full path disclosure vulnerability in SQL parser, see PMASA-2016-8
+- issue        [Security] XSS vulnerability in SQL editor, see PMASA-2016-9
 
 4.5.3.1 (2015-12-25)
 - issue #11774 Undefined offset 2
