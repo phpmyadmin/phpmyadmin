@@ -580,6 +580,8 @@ function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
         && $GLOBALS['is_reload_priv']
     ) {
         $GLOBALS['dbi']->selectDb('mysql');
+        $newname = str_replace("_", "\_", $newname);
+        $oldDb = str_replace("_", "\_", $oldDb);
 
         // For Db specific privileges
         $query_db_specific = 'UPDATE ' . Util::backquote('db')
@@ -626,6 +628,8 @@ function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
         && $GLOBALS['is_reload_priv']
     ) {
         $GLOBALS['dbi']->selectDb('mysql');
+        $newname = str_replace("_", "\_", $newname);
+        $oldDb = str_replace("_", "\_", $oldDb);
 
         $query_db_specific_old = 'SELECT * FROM '
             . Util::backquote('db') . ' WHERE '
