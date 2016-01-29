@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - issue #11855 Fix password change on MariaDB 10.1 and newer
 - issue #11874 Validate version information before further processing it
 - issue #11881 Full processlist lost on refresh
+- issue #11834 Adjust privileges fails if database name contains underscores
 
 4.5.4.0 (2016-01-28)
 - issue #11724 live data edit of big sets is not working
