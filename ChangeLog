@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.4.15.4 (2016-01-28)
 - issue #11892 Error with PMA 4.4.15.3
+- issue #11896 Remove hard dependency on phpseclib
 
 4.4.15.3 (2016-01-28)
 - issue        [Security] Multiple full path disclosure vulnerabilities, see PMASA-2016-1
