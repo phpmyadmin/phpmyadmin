@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2016-01-22 11:07+0000\n"
+"PO-Revision-Date: 2016-01-31 11:31+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-5/cs/>"
 "\n"
@@ -8442,14 +8442,11 @@ msgstr ""
 "ale může to způsobit problémy s transakcemi.)</i>"
 
 #: libraries/display_import.lib.php:309
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Přeskočit daný počet dotazů (pro SQL) nebo řádek (pro ostatní formáty), "
-"počínaje od:"
+msgstr "Přeskočit daný počet dotazů (pro SQL) počínaje od:"
 
 #: libraries/display_import.lib.php:339
 msgid "Other options:"
