@@ -9,6 +9,7 @@
 use PMA\libraries\Theme;
 use PMA\libraries\controllers\server\ServerBinlogController;
 use PMA\libraries\di\Container;
+use PMA\libraries\Util;
 
 require_once 'test/PMATestCase.php';
 require_once 'libraries/url_generating.lib.php';
@@ -51,6 +52,8 @@ class ServerBinlogControllerTest extends PMATestCase
         //$_SESSION
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
+
+        Util::cacheSet('profiling_supported', true);
 
         $binary_log_file_names = array();
         $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
