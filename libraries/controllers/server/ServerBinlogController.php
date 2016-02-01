@@ -36,7 +36,7 @@ class ServerBinlogController extends Controller
         /**
          * array binary log files
          */
-        $binary_logs = $GLOBALS['dbi']->fetchResult(
+        $binary_logs = $this->dbi->fetchResult(
             'SHOW MASTER LOGS',
             'Log_name',
             null,
@@ -144,14 +144,14 @@ class ServerBinlogController extends Controller
         /**
          * Sends the query
          */
-        $result = $GLOBALS['dbi']->query($sql_query);
+        $result = $this->dbi->query($sql_query);
 
         /**
          * prepare some vars for displaying the result table
          */
         // Gets the list of fields properties
         if (isset($result) && $result) {
-            $num_rows = $GLOBALS['dbi']->numRows($result);
+            $num_rows = $this->dbi->numRows($result);
         } else {
             $num_rows = 0;
         }
@@ -273,7 +273,7 @@ class ServerBinlogController extends Controller
     {
         $html = "";
         $odd_row = true;
-        while ($value = $GLOBALS['dbi']->fetchAssoc($result)) {
+        while ($value = $this->dbi->fetchAssoc($result)) {
             $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
                 . '<td>' . $value['Log_name'] . '</td>'
                 . '<td class="right">' . $value['Pos'] . '</td>'
