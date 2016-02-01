@@ -55,7 +55,7 @@ class ServerBinlogController extends Controller
 
         $url_params = array();
         if (! isset($_REQUEST['log'])
-            || ! array_key_exists($_REQUEST['log'], $binary_logs)
+            || ! array_key_exists($_REQUEST['log'], $this->binary_logs)
         ) {
             $_REQUEST['log'] = '';
         } else {
