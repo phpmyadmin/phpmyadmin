@@ -20,6 +20,16 @@ require_once './libraries/vendor_config.php';
 $GLOBALS['pma_config_loading'] = false;
 
 /**
+ * Array to store information temporarily and later set cookie(see setcookie function).
+ */
+$GLOBALS["pmaUser"] = array();
+
+$GLOBALS["pmaAuth"] = array();
+
+$GLOBALS["pmaTest"] = array();
+
+
+/**
  * Configuration class
  *
  * @package PhpMyAdmin
@@ -949,7 +959,7 @@ class Config
             if (isset($config_data[$collation])) {
                 $GLOBALS[$collation]
                     = $config_data[$collation];
-                $this->setCookie(
+                $this->setCookie('pma_collation_connection',
                     'pma_collation_connection',
                     $GLOBALS[$collation]
                 );
@@ -1069,7 +1079,7 @@ class Config
         } else {
             // read language from settings
             if (isset($config_data['lang']) && PMA_langSet($config_data['lang'])) {
-                $this->setCookie('pma_lang', $GLOBALS['lang']);
+                $this->setCookie('pmaUser','pma_lang', $GLOBALS['lang']);
             }
         }
 
@@ -1109,7 +1119,7 @@ class Config
             if ($default_value === null) {
                 $default_value = PMA_arrayRead($cfg_path, $this->settings);
             }
-            $this->setCookie($cookie_name, $new_cfg_value, $default_value);
+            $this->setCookie($cookie_name,$cookie_name, $new_cfg_value, $default_value);
         }
         PMA_arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
         PMA_arrayWrite($cfg_path, $this->settings, $new_cfg_value);
@@ -1521,7 +1531,7 @@ class Config
             $this->set('fontsize', '82%');
         }
 
-        $this->setCookie('pma_fontsize', $this->get('fontsize'), '82%');
+        $this->setCookie('pma_fontsize','pma_fontsize', $this->get('fontsize'), '82%');
     }
 
     /**
@@ -1861,7 +1871,7 @@ class Config
      *
      * @return boolean result of setcookie()
      */
-    public function setCookie($cookie, $value, $default = null,
+    public function setCookie($cookieArr,$cookie, $value, $default = null,
         $validity = null, $httponly = true
     ) {
         if (mb_strlen($value) && null !== $default && $value === $default
@@ -1879,7 +1889,14 @@ class Config
             return $this->removeCookie($cookie);
         }
 
-        if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
+    switch ($cookieArr) {
+    case 'pmaUser':$size = 2 ;break;
+    case 'pmaAuth':$size = 2 ;break;
+    default:$GLOBALS[$cookieArr] = array();break;
+    }
+    
+        if(!isset($_COOKIE[$cookieArr])){
+        if (sizeof($GLOBALS[$cookieArr])==0) {
             // set cookie with new value
             /* Calculate cookie validity */
             if ($validity === null) {
@@ -1893,21 +1910,54 @@ class Config
                 $_COOKIE[$cookie] = $value;
                 return true;
             }
+
+            $GLOBALS[$cookieArr][$cookie] = $value ;
+            $json_encoded = json_encode($GLOBALS[$cookieArr]);
             return setcookie(
-                $cookie,
-                $value,
+                $cookieArr,
+                $json_encoded,
                 $validity,
                 $this->getCookiePath(),
                 '',
                 $this->isHttps(),
                 $httponly
-            );
+                );
+
+            }
+
+        if (sizeof($GLOBALS[$cookieArr])!=$size) {
+              $GLOBALS[$cookieArr][$cookie] = $value ;
+            }
+            
+       else {
+                // set cookie with new value
+                /* Calculate cookie validity */
+                if ($validity === null) {
+                    $validity = time() + 2592000;
+                } elseif ($validity == 0) {
+                    $validity = 0;
+                } else {
+                    $validity = time() + $validity;
+                }
+                if (defined('TESTSUITE')) {
+                    $_COOKIE[$cookie] = $value;
+                    return true;
+                }
+
+            $json_encoded = json_encode($GLOBALS[$cookieArr]);
+
+           return setcookie(
+                $cookieArr,
+                $json_encoded,
+                $validity,
+                $this->getCookiePath(),
+                '',
+                $this->isHttps(),
+                $httponly
+                );
+            }
         }
-
-        // cookie has already $value as value
-        return true;
     }
-
 
     /**
      * Error handler to catch fatal errors when loading configuration
