@@ -21,6 +21,26 @@ use PMA\libraries\Util;
  */
 class ServerBinlogController extends Controller
 {
+	/**
+	 * array binary log files
+	 */
+	protected $binary_logs;
+
+	/**
+	 * Constructs ServerBinlogController
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->binary_logs = $this->dbi->fetchResult(
+            'SHOW MASTER LOGS',
+            'Log_name',
+            null,
+            null,
+            DatabaseInterface::QUERY_STORE
+        );
+	}
+
     /**
      * Index action
      *
@@ -32,17 +52,6 @@ class ServerBinlogController extends Controller
          * Does the common work
          */
         include_once 'libraries/server_common.inc.php';
-
-        /**
-         * array binary log files
-         */
-        $binary_logs = $this->dbi->fetchResult(
-            'SHOW MASTER LOGS',
-            'Log_name',
-            null,
-            null,
-            DatabaseInterface::QUERY_STORE
-        );
 
         $url_params = array();
         if (! isset($_REQUEST['log'])
@@ -58,29 +67,28 @@ class ServerBinlogController extends Controller
         }
 
         $this->response->addHTML(PMA_getHtmlForSubPageHeader('binlog'));
-        $this->response->addHTML($this->_getLogSelector($binary_logs, $url_params));
+        $this->response->addHTML($this->_getLogSelector($url_params));
         $this->response->addHTML($this->_getLogInfo($url_params));
     }
 
     /**
      * Returns the html for log selector.
      *
-     * @param array $binary_logs Binary logs file names
-     * @param array $url_params  links parameters
+     * @param array $url_params links parameters
      *
      * @return string
      */
-    private function _getLogSelector($binary_logs, $url_params)
+    private function _getLogSelector($url_params)
     {
         $html = "";
-        if (count($binary_logs) > 1) {
+        if (count($this->binary_logs) > 1) {
             $html .= '<form action="server_binlog.php" method="get">';
             $html .= PMA_URL_getHiddenInputs($url_params);
             $html .= '<fieldset><legend>';
             $html .= __('Select binary log to view');
             $html .= '</legend><select name="log">';
             $full_size = 0;
-            foreach ($binary_logs as $each_log) {
+            foreach ($this->binary_logs as $each_log) {
                 $html .= '<option value="' . $each_log['Log_name'] . '"';
                 if ($each_log['Log_name'] == $_REQUEST['log']) {
                     $html .= ' selected="selected"';
@@ -100,7 +108,7 @@ class ServerBinlogController extends Controller
                 $html .= '</option>';
             }
             $html .= '</select> ';
-            $html .= count($binary_logs) . ' ' . __('Files') . ', ';
+            $html .= count($this->binary_logs) . ' ' . __('Files') . ', ';
             if ($full_size > 0) {
                 $html .= implode(
                     ' ', Util::formatByteDown($full_size)
