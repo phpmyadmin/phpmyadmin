@@ -12,7 +12,6 @@ namespace PMA\libraries\controllers\server;
 use PMA\libraries\controllers\Controller;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Message;
-use PMA\libraries\Response;
 use PMA\libraries\Util;
 
 /**
@@ -58,11 +57,9 @@ class ServerBinlogController extends Controller
             $url_params['dontlimitchars'] = 1;
         }
 
-        $response = Response::getInstance();
-
-        $response->addHTML(PMA_getHtmlForSubPageHeader('binlog'));
-        $response->addHTML($this->_getLogSelector($binary_logs, $url_params));
-        $response->addHTML($this->_getLogInfo($url_params));
+        $this->response->addHTML(PMA_getHtmlForSubPageHeader('binlog'));
+        $this->response->addHTML($this->_getLogSelector($binary_logs, $url_params));
+        $this->response->addHTML($this->_getLogInfo($url_params));
     }
 
     /**
