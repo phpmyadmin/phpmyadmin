@@ -17,6 +17,9 @@ set_include_path(
     get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))
 );
 
+// path to phpseclib
+define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
+
 // Setting constants for testing
 define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);

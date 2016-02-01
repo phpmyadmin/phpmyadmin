@@ -13,10 +13,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-if (! function_exists('openssl_random_pseudo_bytes')) {
-    require_once PHPSECLIB_INC_DIR . '/Crypt/Random.php';
-}
-
 // verify if PHP supports session, die if it does not
 
 if (!@function_exists('session_name')) {

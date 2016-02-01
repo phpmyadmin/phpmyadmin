@@ -6,10 +6,6 @@
  * @package PhpMyAdmin
  */
 
-if (! function_exists('openssl_random_pseudo_bytes')) {
-    require_once PHPSECLIB_INC_DIR . '/Crypt/Random.php';
-}
-
 /**
  * tries to secure session from hijacking and fixation
  * should be called before login and after successful login
