@@ -6,6 +6,10 @@
  * @package PhpMyAdmin
  */
 
+if (! function_exists('openssl_random_pseudo_bytes')) {
+    require_once PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+}
+
 /**
  * tries to secure session from hijacking and fixation
  * should be called before login and after successful login
@@ -19,5 +23,9 @@ function PMA_secureSession()
     if (session_status() === PHP_SESSION_ACTIVE) {
         session_regenerate_id(true);
     }
-    $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
+    if (! function_exists('openssl_random_pseudo_bytes')) {
+        $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
+    } else {
+        $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
+    }
 }
