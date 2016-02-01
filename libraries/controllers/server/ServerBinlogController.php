@@ -13,6 +13,7 @@ use PMA\libraries\controllers\Controller;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Message;
 use PMA\libraries\Util;
+use PMA\libraries\Template;
 
 /**
  * Handles viewing binary logs
@@ -21,25 +22,25 @@ use PMA\libraries\Util;
  */
 class ServerBinlogController extends Controller
 {
-	/**
-	 * array binary log files
-	 */
-	protected $binary_logs;
+    /**
+     * array binary log files
+     */
+    protected $binary_logs;
 
-	/**
-	 * Constructs ServerBinlogController
-	 */
-	public function __construct()
-	{
-		parent::__construct();
-		$this->binary_logs = $this->dbi->fetchResult(
+    /**
+     * Constructs ServerBinlogController
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->binary_logs = $this->dbi->fetchResult(
             'SHOW MASTER LOGS',
             'Log_name',
             null,
             null,
             DatabaseInterface::QUERY_STORE
         );
-	}
+    }
 
     /**
      * Index action
@@ -80,48 +81,12 @@ class ServerBinlogController extends Controller
      */
     private function _getLogSelector($url_params)
     {
-        $html = "";
-        if (count($this->binary_logs) > 1) {
-            $html .= '<form action="server_binlog.php" method="get">';
-            $html .= PMA_URL_getHiddenInputs($url_params);
-            $html .= '<fieldset><legend>';
-            $html .= __('Select binary log to view');
-            $html .= '</legend><select name="log">';
-            $full_size = 0;
-            foreach ($this->binary_logs as $each_log) {
-                $html .= '<option value="' . $each_log['Log_name'] . '"';
-                if ($each_log['Log_name'] == $_REQUEST['log']) {
-                    $html .= ' selected="selected"';
-                }
-                $html .= '>' . $each_log['Log_name'];
-                if (isset($each_log['File_size'])) {
-                    $full_size += $each_log['File_size'];
-                    $html .= ' ('
-                        . implode(
-                            ' ',
-                            Util::formatByteDown(
-                                $each_log['File_size'], 3, 2
-                            )
-                        )
-                        . ')';
-                }
-                $html .= '</option>';
-            }
-            $html .= '</select> ';
-            $html .= count($this->binary_logs) . ' ' . __('Files') . ', ';
-            if ($full_size > 0) {
-                $html .= implode(
-                    ' ', Util::formatByteDown($full_size)
-                );
-            }
-            $html .= '</fieldset>';
-            $html .= '<fieldset class="tblFooters">';
-            $html .= '<input type="submit" value="' . __('Go') . '" />';
-            $html .= '</fieldset>';
-            $html .= '</form>';
-        }
-
-        return $html;
+        return Template::get('server/binlog/log_selector')->render(
+            array(
+                'url_params' => $url_params,
+                'binary_logs' => $this->binary_logs,
+            )
+        );
     }
 
     /**
