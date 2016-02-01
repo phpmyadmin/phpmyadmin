@@ -1,34 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_bin_log.lib.php
+ * Holds ServerBinlogControllerTest
  *
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
 use PMA\libraries\Theme;
+use PMA\libraries\controllers\server\ServerBinlogController;
+use PMA\libraries\di\Container;
 
-
+require_once 'test/PMATestCase.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/server_bin_log.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
-
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/database_interface.inc.php';
 
 /**
- * PMA_ServerBinlog_Test class
- *
- * this class is for testing server_bin_log.lib.php functions
+ * Tests for ServerCollationsController class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
+class ServerBinlogControllerTest extends PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -58,54 +51,72 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
-    }
 
-    /**
-     * Test for PMA_getLogSelector
-     *
-     * @return void
-     */
-    public function testPMAGetLogSelector()
-    {
         $binary_log_file_names = array();
         $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
         $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
-
-        $url_params = array();
-        $url_params['log'] = "log";
-        $url_params['dontlimitchars'] = 1;
-
-        $html = PMA_getLogSelector($binary_log_file_names, $url_params);
-        $this->assertContains(
-            'Select binary log to view',
-            $html
-        );
-        $this->assertContains(
-            '<option value="index1" selected="selected">index1 (100 B)</option>',
-            $html
-        );
-        $this->assertContains(
-            '<option value="index2">index2 (200 B)</option>',
-            $html
-        );
-    }
-
-    /**
-     * Test for PMA_getLogInfo
-     *
-     * @return void
-     * @group medium
-     */
-    public function testPMAGetLogInfo()
-    {
-        $url_params = array();
-        $url_params['log'] = "log";
-        $url_params['dontlimitchars'] = 1;
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->once())->method('fetchResult')
+            ->will($this->returnValue($binary_log_file_names));
+        $container = Container::getDefaultContainer();
+        $container->set('dbi', $dbi);
+    }
+
+    /**
+     * Tests for _getLogSelector
+     *
+     * @return void
+     */
+    public function testGetLogSelector()
+    {
+        $url_params = array();
+        $url_params['log'] = "log";
+        $url_params['dontlimitchars'] = 1;
+
+        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
+        $method = $class->getMethod('_getLogSelector');
+        $method->setAccessible(true);
+
+        $ctrl = new ServerBinlogController();
+        $html = $method->invoke(
+            $ctrl,
+            $url_params
+        );
+
+        $this->assertContains(
+            'Select binary log to view',
+            $html
+        );
+        $this->assertContains(
+            '<option value="index1" selected="selected">',
+            $html
+        );
+        $this->assertContains(
+            '<option value="index2">',
+            $html
+        );
+    }
+
+    /**
+     * Tests for _getLogInfo
+     *
+     * @return void
+     * @group medium
+     */
+    public function testGetLogInfo()
+    {
+    	$class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
+    	$method = $class->getMethod('_getLogInfo');
+    	$method->setAccessible(true);
+    	$ctrl = new ServerBinlogController();
+
+        //Mock DBI
+    	$container = Container::getDefaultContainer();
+        $dbi = $container->get('dbi');
 
         //expects return value
         $result = array(
@@ -147,10 +158,13 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(1))->method('fetchAssoc')
             ->will($this->returnValue(false));
 
-        $GLOBALS['dbi'] = $dbi;
+        $container->set('dbi', $dbi);
 
         //Call the test function
-        $html = PMA_getLogInfo($url_params);
+        $url_params = array();
+        $url_params['log'] = "log";
+        $url_params['dontlimitchars'] = 1;
+        $html = $method->invoke($ctrl, $url_params);
 
         //validate 1: the sql has been executed
         $this->assertContains(
@@ -202,16 +216,20 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getAllLogItemInfo
+     * Tests for _getAllLogItemInfo
      *
      * @return void
      */
-    public function testPMAGetAllLogItemInfo()
+    public function testGetAllLogItemInfo()
     {
+    	$class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
+    	$method = $class->getMethod('_getAllLogItemInfo');
+    	$method->setAccessible(true);
+    	$ctrl = new ServerBinlogController();
+
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
+    	$container = Container::getDefaultContainer();
+        $dbi = $container->get('dbi');
 
         $fetchAssoc = array(
             'Info' => 'Info',
@@ -224,17 +242,16 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->at(0))->method('fetchAssoc')
             ->will($this->returnValue($fetchAssoc));
-
         $dbi->expects($this->at(1))->method('fetchAssoc')
             ->will($this->returnValue(false));
+        $container->set('dbi', $dbi);
 
-        $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['LimitChars'] = 2;
 
         $result = array();
         $dontlimitchars = ";";
+        $html = $method->invoke($ctrl, $result, $dontlimitchars);
 
-        $html = PMA_getAllLogItemInfo($result, $dontlimitchars);
         $value = $fetchAssoc;
         $this->assertContains(
             $value['Log_name'],

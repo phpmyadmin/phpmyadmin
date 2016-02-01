@@ -100,7 +100,7 @@ class ServerCollationsControllerTest extends PMATestCase
         $method->setAccessible(true);
 
         $ctrl = new ServerCollationsController();
-        $html = $html = $method->invoke(
+        $html = $method->invoke(
             $ctrl,
             $mysql_charsets,
             $mysql_collations,
