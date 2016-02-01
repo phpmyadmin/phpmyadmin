@@ -247,17 +247,13 @@ class ServerBinlogController extends Controller
         $html = "";
         $odd_row = true;
         while ($value = $this->dbi->fetchAssoc($result)) {
-            $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
-                . '<td>' . $value['Log_name'] . '</td>'
-                . '<td class="right">' . $value['Pos'] . '</td>'
-                . '<td>' . $value['Event_type'] . '</td>'
-                . '<td class="right">' . $value['Server_id'] . '</td>'
-                . '<td class="right">'
-                . (isset($value['Orig_log_pos'])
-                ? $value['Orig_log_pos'] : $value['End_log_pos'])
-                . '</td>'
-                . '<td>' . Util::formatSql($value['Info'], ! $dontlimitchars)
-                . '</td></tr>';
+            $html .= Template::get('server/binlog/log_row')->render(
+                array(
+                    'odd_row' => $odd_row,
+                    'value' => $value,
+                    'dontlimitchars' => $dontlimitchars,
+                )
+            );
 
             $odd_row = !$odd_row;
         }
