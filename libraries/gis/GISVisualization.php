@@ -434,7 +434,12 @@ class GISVisualization
             . 'var map = new OpenLayers.Map("openlayersmap", options);'
             . 'var layerNone = new OpenLayers.Layer.Boxes('
             . '"None", {isBaseLayer: true});'
-            . 'var layerOSM = new OpenLayers.Layer.OSM("OSM");'
+            . 'var layerOSM = new OpenLayers.Layer.OSM("OSM",'
+            . '['
+            . '"https://a.tile.openstreetmap.org/${z}/${x}/${y}.png",'
+            . '"https://b.tile.openstreetmap.org/${z}/${x}/${y}.png",'
+            . '"https://c.tile.openstreetmap.org/${z}/${x}/${y}.png"'
+            . ']);'
             . 'map.addLayers([layerOSM,layerNone]);'
             . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
             . 'var bound;';
