@@ -314,7 +314,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for CheckGd2
      *
-     * @return array
+     * @return void
      */
     public function testCheckGd2()
     {
@@ -422,7 +422,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for CheckWebServerOs
      *
-     * @return array
+     * @return void
      */
     public function testCheckWebServerOs()
     {
@@ -501,7 +501,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for CheckConfigSource
      *
-     * @return array
+     * @return void
      */
     public function testCheckConfigSource()
     {
@@ -553,7 +553,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for CheckPmaAbsoluteUriEmpty
      *
-     * @return array
+     * @return void
      */
     public function testCheckPmaAbsoluteUriEmpty()
     {
@@ -643,7 +643,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for CheckCollationConnection
      *
-     * @return array
+     * @return void
      */
     public function testCheckCollationConnection()
     {
@@ -659,7 +659,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for IsHttp
      *
-     * @return array
+     * @return void
      */
     public function testIsHttps()
     {
@@ -675,7 +675,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for DetectHttps
      *
-     * @return array
+     * @return void
      */
     public function testDetectHttps()
     {
