@@ -1405,7 +1405,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
              * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
              */
             var is_null = $(g.cEdit).find('input:checkbox').is(':checked');
-            var value;
 
             if ($(g.cEdit).find('.edit_area').is('.edit_area_loading')) {
                 // the edit area is still loading (retrieving cell data), no need to post
