@@ -1540,12 +1540,21 @@ class Config
             return $this->get('is_https');
         }
 
-        $url = parse_url($this->get('PmaAbsoluteUri'));
-
-        // CloudFlare Flexible SSL compatibility
-        $this->set('force_protocol', in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true));
-
-        $is_https = $this->get('force_protocol') ? PMA_getenv('HTTP_X_FORWARDED_PROTO') : isset($url['scheme']) && $url['scheme'] == 'https';
+        $is_https = false;
+        if (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTPS')) == 'on') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
+            // A10 Networks load balancer
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
+            $is_https = true;
+        } elseif (PMA_getenv('SERVER_PORT') === '443') {
+            $is_https = true;
+        }
 
         $this->set('is_https', $is_https);
 
