@@ -756,7 +756,7 @@ class ConfigTest extends PMATestCase
      */
     public function testGetCookiePath($absolute, $expected)
     {
-        $this->object->set('PmaAbsoluteUri', $absolute);
+        $GLOBALS['PMA_PHP_SELF'] = $absolute;
         $this->assertEquals($expected, $this->object->getCookiePath());
     }
 

@@ -1582,9 +1582,13 @@ class Config
             return $cookie_path;
         }
 
-        $parsed_url = parse_url($this->get('PmaAbsoluteUri'));
+        if (isset($GLOBALS['PMA_PHP_SELF'])) {
+            $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
+        } else {
+            $parsed_url = parse_url(PMA_getenv('REQUEST_URI'));
+        }
 
-        $cookie_path   = $parsed_url['path'];
+        $cookie_path = $parsed_url['path'];
 
         return $cookie_path;
     }
