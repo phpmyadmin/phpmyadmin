@@ -663,10 +663,11 @@ class ConfigTest extends PMATestCase
      *
      * @dataProvider httpsParams
      */
-    public function testIsHttps($scheme, $https, $lb, $front, $proto, $port, $expected)
+    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $port, $expected)
     {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
+        $_SERVER['REQUEST_URI'] = $uri;
         $_SERVER['HTTP_HTTPS_FROM_LB'] = $lb;
         $_SERVER['HTTP_FRONT_END_HTTPS'] = $front;
         $_SERVER['HTTP_X_FORWARDED_PROTO'] = $proto;
@@ -684,13 +685,15 @@ class ConfigTest extends PMATestCase
     public function httpsParams()
     {
         return array(
-            array('http', '', '', '', 'http', 80, false),
-            array('http', '', '', '', 'http', 443, true),
-            array('http', '', '', '', 'https', 80, true),
-            array('http', '', '', 'on', 'http', 80, true),
-            array('http', '', 'on', '', 'http', 80, true),
-            array('http', 'on', '', '', 'http', 80, true),
-            array('https', '', '', '', 'http', 80, true),
+            array('http', '', '', '', '', 'http', 80, false),
+            array('http', '', 'http://', '', '', 'http', 80, false),
+            array('http', '', '', '', '', 'http', 443, true),
+            array('http', '', '', '', '', 'https', 80, true),
+            array('http', '', '', '', 'on', 'http', 80, true),
+            array('http', '', '', 'on', '', 'http', 80, true),
+            array('http', '', 'https://', '', '', 'http', 80, true),
+            array('http', 'on', '', '', '', 'http', 80, true),
+            array('https', '', '', '', '', 'http', 80, true),
         );
     }
 

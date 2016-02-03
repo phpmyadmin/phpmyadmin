@@ -1525,9 +1525,7 @@ class Config
     /**
      * Checks if protocol is https
      *
-     * This function checks if the https protocol is used in the PmaAbsoluteUri
-     * configuration setting, as opposed to detectHttps() which checks if the
-     * https protocol is used on the active connection.
+     * This function checks if the https protocol on the active connection.
      *
      * @return bool
      */
@@ -1542,6 +1540,8 @@ class Config
         if (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
             $is_https = true;
         } elseif (strtolower(PMA_getenv('HTTPS')) == 'on') {
+            $is_https = true;
+        } elseif (substr(strtolower(PMA_getenv('REQUEST_URI')), 0, 6) == 'https:') {
             $is_https = true;
         } elseif (strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
             // A10 Networks load balancer
