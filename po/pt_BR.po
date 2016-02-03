@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2015-11-24 11:30+0000\n"
-"Last-Translator: Jader Teixeira <jaderfeldmann@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2016-02-03 19:30+0000\n"
+"Last-Translator: Pedro Moreira <ikkinet@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -943,16 +943,15 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Você realmente deseja LIMPAR a(s) partição(ões) seleciona(s)?"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Você realmente deseja LIMPAR a(s) partição(ões) seleciona(s)?"
+msgstr "Você realmente deseja remover a(s) partição(ões) seleciona(s)?"
 
 #: js/messages.php:86
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Você realmente deseja executar \"%s\"?"
+msgstr "Você realmente deseja REINICIAR O SLAVE?"
 
 #: js/messages.php:88
 msgid ""
@@ -977,7 +976,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Tem certeza de que deseja mudar a collatin e converter os dados?"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -997,8 +995,8 @@ msgstr ""
 "collations. Se os conjuntos de caracteres são incompatíveis, poderá haver "
 "perda de dados e esses dados <b>NÃO</b> poderão ser recuperados somente com "
 "a reversão de collation da coluna.<b> Para converter dados existentes, é "
-"sugerido que se use a funcionalidade de edição de coluna(s) (o link \"Alterar"
-"\") na página de estrutura da tabela. </b>"
+"sugerido que se use a funcionalidade de edição de coluna(s) (o link \""
+"Alterar\") na página de estrutura da tabela. </b>"
 
 #: js/messages.php:107
 msgid ""
