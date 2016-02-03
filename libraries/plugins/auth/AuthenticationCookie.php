@@ -659,9 +659,11 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $conn_error = $this->getErrorMessage();
 
+        $response = Response::getInstance();
+
         // needed for PHP-CGI (not need for FastCGI or mod-php)
-        header('Cache-Control: no-store, no-cache, must-revalidate');
-        header('Pragma: no-cache');
+        $response->header('Cache-Control: no-store, no-cache, must-revalidate');
+        $response->header('Pragma: no-cache');
 
         $this->auth();
     }

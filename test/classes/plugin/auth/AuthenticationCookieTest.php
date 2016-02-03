@@ -355,23 +355,26 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthHeader()
     {
-        if (!defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
         $restoreInstance = PMA\libraries\Response::getInstance();
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('isAjax'))
+            ->setMethods(array('isAjax', 'headersSent', 'header'))
             ->getMock();
 
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
             ->will($this->returnValue(false));
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: http://www.phpmyadmin.net/logout' . ((SID) ? '?' . SID : ''));
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -382,11 +385,6 @@ class AuthenticationCookieTest extends PMATestCase
 
         $this->assertTrue(
             $this->object->auth()
-        );
-
-        $this->assertContains(
-            'Location: http://www.phpmyadmin.net/logout?PHPSESSID=',
-            $GLOBALS['header'][0]
         );
 
         $attrInstance->setValue($restoreInstance);
@@ -773,12 +771,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthSetUserWithHeaders()
     {
-        if (!defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
         $GLOBALS['PHP_AUTH_USER'] = 'pmaUser2';
         $arr = array(
             'host' => 'a',
@@ -805,11 +797,24 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('disable'))
+            ->setMethods(array('disable', 'header', 'headersSent'))
             ->getMock();
 
         $mockResponse->expects($this->at(0))
             ->method('disable');
+
+        // target can be "phpunit" or "ide-phpunit.php",
+        // depending on testing environment
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with(
+                $this->stringContains('&server=2&lang=en&collation_connection=utf-8&token=token')
+            );
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -822,20 +827,36 @@ class AuthenticationCookieTest extends PMATestCase
             isset($_COOKIE['pmaServer-2'])
         );
 
-        // target can be "phpunit" or "ide-phpunit.php",
-        // depending on testing environment
-        $this->assertStringStartsWith(
-            'Location: http://phpmyadmin.net/index.php?',
-            $GLOBALS['header'][0]
-        );
-        $this->assertContains(
-            '&target=',
-            $GLOBALS['header'][0]
-        );
-        $this->assertContains(
-            '&server=2&lang=en&collation_connection=utf-8&token=token&PHPSESSID=',
-            $GLOBALS['header'][0]
-        );
+        $attrInstance->setValue($restoreInstance);
+    }
+
+    public function doMockResponse()
+    {
+        $restoreInstance = PMA\libraries\Response::getInstance();
+
+        // set mocked headers and footers
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('header', 'headersSent'))
+            ->getMock();
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
+
+        $headers = func_get_args();
+
+        $header_method = $mockResponse->expects($this->exactly(count($headers)))
+            ->method('header');
+
+        call_user_func_array(array($header_method, 'withConsecutive'), $headers);
+
+        $this->object->authFails();
 
         $attrInstance->setValue($restoreInstance);
     }
@@ -845,21 +866,12 @@ class AuthenticationCookieTest extends PMATestCase
      *
      * @return void
      */
-    public function testAuthFails()
+    public function testAuthFailsNoPass()
     {
-        if (!defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();
-
-        $this->object->expects($this->exactly(5))
-            ->method('auth');
 
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaPass-2'] = 'pass';
@@ -868,7 +880,10 @@ class AuthenticationCookieTest extends PMATestCase
 
         $GLOBALS['login_without_password_is_forbidden'] = '1';
 
-        $this->object->authFails();
+        $this->doMockResponse(
+            array('Cache-Control: no-store, no-cache, must-revalidate'),
+            array('Pragma: no-cache')
+        );
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -876,40 +891,71 @@ class AuthenticationCookieTest extends PMATestCase
             . ' (see AllowNoPassword)'
         );
 
-        $this->assertEquals(
-            $GLOBALS['header'],
-            array(
-                'Cache-Control: no-store, no-cache, must-revalidate',
-                'Pragma: no-cache'
-            )
-        );
+    }
 
+    public function testAuthFailsDeny()
+    {
         // case 2
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
+            ->disableOriginalConstructor()
+            ->setMethods(array('auth'))
+            ->getMock();
+
+        $GLOBALS['server'] = 2;
+        $_COOKIE['pmaPass-2'] = 'pass';
 
         $GLOBALS['login_without_password_is_forbidden'] = '';
         $GLOBALS['allowDeny_forbidden'] = '1';
 
-        $this->object->authFails();
+        $this->doMockResponse(
+            array('Cache-Control: no-store, no-cache, must-revalidate'),
+            array('Pragma: no-cache')
+        );
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
             'Access denied!'
         );
+    }
 
+    public function testAuthFailsActivity()
+    {
         // case 3
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
+            ->disableOriginalConstructor()
+            ->setMethods(array('auth'))
+            ->getMock();
+
+        $GLOBALS['server'] = 2;
+        $_COOKIE['pmaPass-2'] = 'pass';
+
 
         $GLOBALS['allowDeny_forbidden'] = '';
         $GLOBALS['no_activity'] = '1';
         $GLOBALS['cfg']['LoginCookieValidity'] = 10;
 
-        $this->object->authFails();
+        $this->doMockResponse(
+            array('Cache-Control: no-store, no-cache, must-revalidate'),
+            array('Pragma: no-cache')
+        );
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
             'No activity within 10 seconds; please log in again.'
         );
+    }
 
+    public function testAuthFailsDBI()
+    {
         // case 4
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
+            ->disableOriginalConstructor()
+            ->setMethods(array('auth'))
+            ->getMock();
+
+        $GLOBALS['server'] = 2;
+        $_COOKIE['pmaPass-2'] = 'pass';
+
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -919,25 +965,47 @@ class AuthenticationCookieTest extends PMATestCase
             ->method('getError')
             ->will($this->returnValue(false));
 
-        $dbi->expects($this->at(1))
-            ->method('getError')
-            ->will($this->returnValue(false));
-
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['no_activity'] = '';
         $GLOBALS['errno'] = 42;
 
-        $this->object->authFails();
+        $this->doMockResponse(
+            array('Cache-Control: no-store, no-cache, must-revalidate'),
+            array('Pragma: no-cache')
+        );
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
             '#42 Cannot log in to the MySQL server'
         );
+    }
 
+    public function testAuthFailsErrno()
+    {
         // case 5
+        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
+            ->disableOriginalConstructor()
+            ->setMethods(array('auth'))
+            ->getMock();
+
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->at(0))
+            ->method('getError')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['server'] = 2;
+        $_COOKIE['pmaPass-2'] = 'pass';
+
         unset($GLOBALS['errno']);
 
-        $this->object->authFails();
+        $this->doMockResponse(
+            array('Cache-Control: no-store, no-cache, must-revalidate'),
+            array('Pragma: no-cache')
+        );
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
