@@ -45,11 +45,6 @@ var sql_autocomplete = false;
 var sql_autocomplete_default_table = '';
 
 /**
- * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
- */
-var chart_activeTimeouts = {};
-
-/**
  * @var central_column_list array to hold the columns in central list per db.
  */
 var central_column_list = [];
