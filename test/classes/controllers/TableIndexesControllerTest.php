@@ -19,19 +19,19 @@ use PMA\libraries\Theme;
 
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/sanitizing.lib.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for libraries/controllers/TableIndexesController.php
  *
  * @package PhpMyAdmin-test
  */
-class TableIndexesControllerTest extends PHPUnit_Framework_TestCase
+class TableIndexesControllerTest extends PMATestCase
 {
     /**
      * Setup function for test cases
@@ -47,8 +47,6 @@ class TableIndexesControllerTest extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['url_params'] = array(
             'db' => 'db',
             'server' => 1

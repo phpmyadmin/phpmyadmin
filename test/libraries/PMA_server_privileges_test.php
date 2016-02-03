@@ -12,7 +12,6 @@
 use PMA\libraries\Theme;
 
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
@@ -2096,8 +2095,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
 
         // Test case 2
-        $GLOBALS['pma'] = new stdClass();
-        $GLOBALS['pma']->databases = array('x', 'y', 'z');
+        $GLOBALS['dblist'] = new stdClass();
+        $GLOBALS['dblist']->databases = array('x', 'y', 'z');
         $actual = PMA_getHtmlForAllTableSpecificRights('pma2', 'host2', 'database', '');
         $this->assertContains(
             '<legend data-submenu-label="Database">'

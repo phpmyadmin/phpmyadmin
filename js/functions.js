@@ -92,6 +92,129 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
     }
 });
 
+/*
+ * Adds a date/time picker to an element
+ *
+ * @param object  $this_element   a jQuery object pointing to the element
+ */
+function PMA_addDatepicker($this_element, type, options)
+{
+    var showTimepicker = true;
+    if (type=="date") {
+        showTimepicker = false;
+    }
+
+    var defaultOptions = {
+        showOn: 'button',
+        buttonImage: themeCalendarImage, // defined in js/messages.php
+        buttonImageOnly: true,
+        stepMinutes: 1,
+        stepHours: 1,
+        showSecond: true,
+        showMillisec: true,
+        showMicrosec: true,
+        showTimepicker: showTimepicker,
+        showButtonPanel: false,
+        dateFormat: 'yy-mm-dd', // yy means year with four digits
+        timeFormat: 'HH:mm:ss.lc',
+        constrainInput: false,
+        altFieldTimeOnly: false,
+        showAnim: '',
+        beforeShow: function (input, inst) {
+            // Remember that we came from the datepicker; this is used
+            // in tbl_change.js by verificationsAfterFieldChange()
+            $this_element.data('comes_from', 'datepicker');
+            if ($(input).closest('.cEdit').length > 0) {
+                setTimeout(function () {
+                    inst.dpDiv.css({
+                        top: 0,
+                        left: 0,
+                        position: 'relative'
+                    });
+                }, 0);
+            }
+            // Fix wrong timepicker z-index, doesn't work without timeout
+            setTimeout(function () {
+                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
+            }, 0);
+        },
+        onSelect: function() {
+            $this_element.data('datepicker').inline = true;
+        },
+        onClose: function (dateText, dp_inst) {
+            // The value is no more from the date picker
+            $this_element.data('comes_from', '');
+            if (typeof $this_element.data('datepicker') !== 'undefined') {
+                $this_element.data('datepicker').inline = false;
+            }
+        }
+    };
+    if (type == "datetime" || type == "timestamp") {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
+    }
+    else if (type == "date") {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
+    }
+    else if (type == "time") {
+        $this_element.timepicker($.extend(defaultOptions, options));
+    }
+}
+
+/**
+ * Add a date/time picker to each element that needs it
+ * (only when jquery-ui-timepicker-addon.js is loaded)
+ */
+function addDateTimePicker() {
+    if ($.timepicker !== undefined) {
+        $('input.timefield, input.datefield, input.datetimefield').each(function () {
+
+            var decimals = $(this).parent().attr('data-decimals');
+            var type = $(this).parent().attr('data-type');
+
+            var showMillisec = false;
+            var showMicrosec = false;
+            var timeFormat = 'HH:mm:ss';
+            // check for decimal places of seconds
+            if (decimals > 0 && type.indexOf('time') != -1){
+                if (decimals > 3) {
+                    showMillisec = true;
+                    showMicrosec = true;
+                    timeFormat = 'HH:mm:ss.lc';
+                } else {
+                    showMillisec = true;
+                    timeFormat = 'HH:mm:ss.l';
+                }
+            }
+            PMA_addDatepicker($(this), type, {
+                showMillisec: showMillisec,
+                showMicrosec: showMicrosec,
+                timeFormat: timeFormat
+            });
+        });
+    }
+}
+
+/**
+ * Handle redirect and reload flags sent as part of AJAX requests
+ *
+ * @param data ajax response data
+ */
+function PMA_handleRedirectAndReload(data) {
+    if (parseInt(data.redirect_flag) == 1) {
+        // add one more GET param to display session expiry msg
+        if (window.location.href.indexOf('?') === -1) {
+            window.location.href += '?session_expired=1';
+        } else {
+            window.location.href += '&session_expired=1';
+        }
+        window.location.reload();
+    } else if (parseInt(data.reload_flag) == 1) {
+        // remove the token param and reload
+        window.location.href = window.location.href.replace(/&?token=[^&#]*/g, "");
+        window.location.reload();
+    }
+}
+
 /**
  * Creates an SQL editor which supports auto completing etc.
  *
@@ -249,7 +372,7 @@ function PMA_hideShowDefaultValue($default_type)
  */
 function PMA_hideShowExpression($virtuality)
 {
-    if ($virtuality.val() == '') {
+    if ($virtuality.val() === '') {
         $virtuality.siblings('.expression').hide();
     } else {
         $virtuality.siblings('.expression').show();
@@ -298,14 +421,31 @@ function suggestPassword(passwd_form)
     // restrict the password to just letters and numbers to avoid problems:
     // "editors and viewers regard the password as multiple words and
     // things like double click no longer work"
-    var pwchars = "abcdefhjmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWYXZ";
+    var pwchars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWYXZ";
     var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
     var passwd = passwd_form.generated_pw;
+    var randomWords = new Int32Array(passwordlength);
+
     passwd.value = '';
 
-    for (var i = 0; i < passwordlength; i++) {
-        passwd.value += pwchars.charAt(Math.floor(Math.random() * pwchars.length));
+    // First we're going to try to use a built-in CSPRNG
+    if (window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(randomWords);
     }
+    // Because of course IE calls it msCrypto instead of being standard
+    else if (window.msCrypto && window.msCrypto.getRandomValues) {
+        window.msCrypto.getRandomValues(randomWords);
+    } else {
+        // Fallback to Math.random
+        for (var i = 0; i < passwordlength; i++) {
+            randomWords[i] = Math.floor(Math.random() * pwchars.length);
+        }
+    }
+
+    for (var i = 0; i < passwordlength; i++) {
+        passwd.value += pwchars.charAt(Math.abs(randomWords[i]) % pwchars.length);
+    }
+
     passwd_form.text_pma_pw.value = passwd.value;
     passwd_form.text_pma_pw2.value = passwd.value;
     return true;
@@ -411,71 +551,6 @@ function displayPasswordGenerateButton()
 {
     $('#tr_element_before_generate_password').parent().append('<tr class="vmiddle"><td>' + PMA_messages.strGeneratePassword + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages.strGenerate + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
     $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages.strGeneratePassword + ':</label><span class="options"><input type="button" class="button" id="button_generate_password" value="' + PMA_messages.strGenerate + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
-}
-
-/*
- * Adds a date/time picker to an element
- *
- * @param object  $this_element   a jQuery object pointing to the element
- */
-function PMA_addDatepicker($this_element, type, options)
-{
-    var showTimepicker = true;
-    if (type=="date") {
-        showTimepicker = false;
-    }
-
-    var defaultOptions = {
-        showOn: 'button',
-        buttonImage: themeCalendarImage, // defined in js/messages.php
-        buttonImageOnly: true,
-        stepMinutes: 1,
-        stepHours: 1,
-        showSecond: true,
-        showMillisec: true,
-        showMicrosec: true,
-        showTimepicker: showTimepicker,
-        showButtonPanel: false,
-        dateFormat: 'yy-mm-dd', // yy means year with four digits
-        timeFormat: 'HH:mm:ss.lc',
-        constrainInput: false,
-        altFieldTimeOnly: false,
-        showAnim: '',
-        beforeShow: function (input, inst) {
-            // Remember that we came from the datepicker; this is used
-            // in tbl_change.js by verificationsAfterFieldChange()
-            $this_element.data('comes_from', 'datepicker');
-            if ($(input).closest('.cEdit').length > 0) {
-                setTimeout(function () {
-                    inst.dpDiv.css({
-                        top: 0,
-                        left: 0,
-                        position: 'relative'
-                    });
-                }, 0);
-            }
-            // Fix wrong timepicker z-index, doesn't work without timeout
-            setTimeout(function () {
-                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
-            }, 0);
-        },
-        onSelect: function() {
-            $this_element.data('datepicker').inline = true;
-        },
-        onClose: function (dateText, dp_inst) {
-            // The value is no more from the date picker
-            $this_element.data('comes_from', '');
-        }
-    };
-    if (type == "datetime" || type == "timestamp") {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    }
-    else if (type == "date") {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    }
-    else if (type == "time") {
-        $this_element.timepicker($.extend(defaultOptions, options));
-    }
 }
 
 /**
@@ -946,11 +1021,6 @@ AJAX.registerOnload('functions.js', function () {
 })*/
 
 /**
- * This array is used to remember mark status of rows in browse mode
- */
-var marked_row = [];
-
-/**
  * marks all rows and selects its first checkbox inside the given element
  * the given element is usually a table or a div containing the table or tables
  *
@@ -979,20 +1049,6 @@ function unMarkAllRows(container_id)
     .parents("tr").removeClass("marked");
     return true;
 }
-
-/**
- * Checks/unchecks all checkbox in given container (f.e. a form, fieldset or div)
- *
- * @param string   container_id  the container id
- * @param boolean  state         new value for checkbox (true or false)
- * @return boolean  always true
- */
-function setCheckboxes(container_id, state)
-{
-
-    $("#" + container_id).find("input:checkbox").prop('checked', state);
-    return true;
-} // end of the 'setCheckboxes()' function
 
 /**
   * Checks/unchecks all options of a <select> element
@@ -1221,40 +1277,6 @@ function updateQueryParameters() {
         });
     } else {
         $('#parametersDiv').empty();
-    }
-}
-
-/**
- * Add a date/time picker to each element that needs it
- * (only when jquery-ui-timepicker-addon.js is loaded)
- */
-function addDateTimePicker() {
-    if ($.timepicker !== undefined) {
-        $('input.timefield, input.datefield, input.datetimefield').each(function () {
-
-            var decimals = $(this).parent().attr('data-decimals');
-            var type = $(this).parent().attr('data-type');
-
-            var showMillisec = false;
-            var showMicrosec = false;
-            var timeFormat = 'HH:mm:ss';
-            // check for decimal places of seconds
-            if (decimals > 0 && type.indexOf('time') != -1){
-                if (decimals > 3) {
-                    showMillisec = true;
-                    showMicrosec = true;
-                    timeFormat = 'HH:mm:ss.lc';
-                } else {
-                    showMillisec = true;
-                    timeFormat = 'HH:mm:ss.l';
-                }
-            }
-            PMA_addDatepicker($(this), type, {
-                showMillisec: showMillisec,
-                showMicrosec: showMicrosec,
-                timeFormat: timeFormat
-            });
-        });
     }
 }
 
@@ -2106,7 +2128,7 @@ function PMA_highlightSQL($base)
 function PMA_updateCode($base, htmlValue, rawValue)
 {
     var $code = $base.find('code');
-    if ($code.length == 0) {
+    if ($code.length === 0) {
         return false;
     }
 
@@ -4331,7 +4353,10 @@ function PMA_getCellValue(td) {
     var $td = $(td);
     if ($td.is('.null')) {
         return '';
-    } else if (! $td.is('.to_be_saved') && $td.data('original_data')) {
+    } else if ((! $td.is('.to_be_saved')
+        || $td.is('.set'))
+        && $td.data('original_data')
+    ) {
         return $td.data('original_data');
     } else {
         return $td.text();
@@ -4513,7 +4538,7 @@ function copyToClipboard()
         childElementList.each(function(){
             textArea.value += $(this).clone().children().remove().end().text() + '\t';
         });
-      textArea.value += '\n';
+        textArea.value += '\n';
     });
 
     document.body.appendChild(textArea);

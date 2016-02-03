@@ -62,8 +62,8 @@ function PMA_getIp()
  */
 function PMA_ipMaskTest($testRange, $ipToTest)
 {
-    if (/*overload*/mb_strpos($testRange, ':') > -1
-        || /*overload*/mb_strpos($ipToTest, ':') > -1
+    if (mb_strpos($testRange, ':') > -1
+        || mb_strpos($ipToTest, ':') > -1
     ) {
         // assume IPv6
         $result = PMA_ipv6MaskTest($testRange, $ipToTest);
@@ -176,11 +176,11 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
     $result = true;
 
     // convert to lowercase for easier comparison
-    $test_range = /*overload*/mb_strtolower($test_range);
-    $ip_to_test = /*overload*/mb_strtolower($ip_to_test);
+    $test_range = mb_strtolower($test_range);
+    $ip_to_test = mb_strtolower($ip_to_test);
 
-    $is_cidr = /*overload*/mb_strpos($test_range, '/') > -1;
-    $is_range = /*overload*/mb_strpos($test_range, '[') > -1;
+    $is_cidr = mb_strpos($test_range, '/') > -1;
+    $is_range = mb_strpos($test_range, '[') > -1;
     $is_single = ! $is_cidr && ! $is_range;
 
     $ip_hex = bin2hex(inet_pton($ip_to_test));
@@ -229,7 +229,7 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
         $pos = 31;
         while ($flexbits > 0) {
             // Get the character at this position
-            $orig = /*overload*/mb_substr($last_hex, $pos, 1);
+            $orig = mb_substr($last_hex, $pos, 1);
 
             // Convert it to an integer
             $origval = hexdec($orig);

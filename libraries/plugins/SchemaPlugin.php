@@ -66,13 +66,24 @@ abstract class SchemaPlugin
      */
     protected function addCommonOptions(OptionsPropertyMainGroup $propertyGroup)
     {
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('show_color');
-        $leaf->setText(__('Show color'));
+        $leaf = new BoolPropertyItem('show_color', __('Show color'));
         $propertyGroup->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('show_keys');
-        $leaf->setText(__('Only show keys'));
+        $leaf = new BoolPropertyItem('show_keys', __('Only show keys'));
         $propertyGroup->addProperty($leaf);
+    }
+
+    /**
+     * Returns the array of paper sizes
+     *
+     * @return array array of paper sizes
+     */
+    protected function getPaperSizeArray()
+    {
+        $ret = array();
+        foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
+            $ret[$val] = $val;
+        }
+
+        return $ret;
     }
 }

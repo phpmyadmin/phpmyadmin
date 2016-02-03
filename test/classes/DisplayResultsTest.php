@@ -11,18 +11,17 @@
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/core.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/string.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Test cases for displaying results.
  *
  * @package PhpMyAdmin-test
  */
-class DisplayResultsTest extends PHPUnit_Framework_TestCase
+class DisplayResultsTest extends PMATestCase
 {
     /**
      * @access protected
@@ -43,6 +42,7 @@ class DisplayResultsTest extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['collation_connection'] = 'utf-8';
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -1342,7 +1342,22 @@ class DisplayResultsTest extends PHPUnit_Framework_TestCase
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en&amp;collation_connection=utf-8'
-                . '&amp;token=token" class="disableAjax">31303031</a>'
+                . '&amp;token=token" class="disableAjax">1001</a>'
+            ),
+            array(
+                true,
+                true,
+                'BLOB',
+                hex2bin('123456'),
+                'PMA_mimeDefaultFunction',
+                '',
+                'PMA_mimeDefaultFunction',
+                $meta,
+                $url_params,
+                null,
+                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
+                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;token=token" class="disableAjax">0x123456</a>'
             ),
             array(
                 true,

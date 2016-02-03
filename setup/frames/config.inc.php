@@ -31,7 +31,7 @@ echo PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple
 echo '<tr>';
 echo '<td>';
 echo '<textarea cols="50" rows="20" name="textconfig" '
-    . 'id="textconfig" spellcheck="false">';
+    , 'id="textconfig" spellcheck="false">';
 echo htmlspecialchars(ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']));
 echo '</textarea>';
 echo '</td>';
@@ -39,8 +39,8 @@ echo '</tr>';
 echo '<tr>';
 echo '<td class="lastrow" style="text-align: left">';
 echo '<input type="submit" name="submit_download" value="'
-    . __('Download') . '" class="green" />';
-echo '<input type="submit" name="submit_save" value="' . __('Save') . '"';
+    , __('Download') , '" class="green" />';
+echo '<input type="submit" name="submit_save" value="' , __('Save') , '"';
 if (!$config_writable) {
     echo ' disabled="disabled"';
 }

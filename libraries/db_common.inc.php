@@ -7,7 +7,6 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\PMA_String;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -40,15 +39,12 @@ $err_url = PMA\libraries\Util::getScriptNameForOption(
 )
     . PMA_URL_getCommon(array('db' => $db));
 
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
  * headers
  */
 if (! isset($is_db) || ! $is_db) {
-    if (/*overload*/mb_strlen($db)) {
+    if (mb_strlen($db)) {
         $is_db = $GLOBALS['dbi']->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
@@ -64,7 +60,7 @@ if (! isset($is_db) || ! $is_db) {
     $uri = $cfg['PmaAbsoluteUri'] . 'index.php'
         . PMA_URL_getCommon(array(), 'text')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
-    if (!/*overload*/mb_strlen($db) || ! $is_db) {
+    if (!mb_strlen($db) || ! $is_db) {
         $response = PMA\libraries\Response::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);

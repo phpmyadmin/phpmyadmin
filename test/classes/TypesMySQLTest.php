@@ -11,14 +11,14 @@
 
 use PMA\libraries\TypesMySQL;
 
-require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Testcase for MySQL types handling.
  *
  * @package PhpMyAdmin-test
  */
-class TypesMySQLTest extends PHPUnit_Framework_TestCase
+class TypesMySQLTest extends PMATestCase
 {
     /**
      * @var PMA\libraries\Types

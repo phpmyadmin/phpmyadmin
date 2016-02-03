@@ -95,11 +95,11 @@ class Menu
     {
         $url_params = array('db' => $this->_db);
 
-        if (/*overload*/mb_strlen($this->_table)) {
+        if (mb_strlen($this->_table)) {
             $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->_table;
             $level = 'table';
-        } else if (/*overload*/mb_strlen($this->_db)) {
+        } else if (mb_strlen($this->_db)) {
             $tabs = $this->_getDbTabs();
             $level = 'db';
         } else {
@@ -144,9 +144,9 @@ class Menu
             $result = PMA_queryAsControlUser($sql_query, false);
             if ($result) {
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                    $tabName = /*overload*/mb_substr(
+                    $tabName = mb_substr(
                         $row['tab'],
-                        /*overload*/mb_strpos($row['tab'], '_') + 1
+                        mb_strpos($row['tab'], '_') + 1
                     );
                     unset($allowedTabs[$tabName]);
                 }
@@ -165,6 +165,9 @@ class Menu
         $retval = '';
         $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
             ->isView();
+        if (empty($GLOBALS['cfg']['Server']['host'])) {
+            $GLOBALS['cfg']['Server']['host'] = '';
+        }
         $server_info = ! empty($GLOBALS['cfg']['Server']['verbose'])
             ? $GLOBALS['cfg']['Server']['verbose']
             : $GLOBALS['cfg']['Server']['host'];
@@ -198,7 +201,7 @@ class Menu
             __('Server')
         );
 
-        if (/*overload*/mb_strlen($this->_db)) {
+        if (mb_strlen($this->_db)) {
             $retval .= $separator;
             if (Util::showIcons('TabsMode')) {
                 $retval .= Util::getImage(
@@ -218,7 +221,7 @@ class Menu
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if (/*overload*/mb_strlen($this->_table)
+            if (mb_strlen($this->_table)
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 include './libraries/tbl_info.inc.php';
@@ -252,7 +255,7 @@ class Menu
                 if (! empty($show_comment)
                     && ! isset($GLOBALS['avoid_show_comment'])
                 ) {
-                    if (/*overload*/mb_strstr($show_comment, '; InnoDB free')) {
+                    if (mb_strstr($show_comment, '; InnoDB free')) {
                         $show_comment = preg_replace(
                             '@; InnoDB free:.*?$@',
                             '',

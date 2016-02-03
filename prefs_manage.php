@@ -9,7 +9,6 @@ use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\PMA_String;
 use PMA\libraries\Util;
 
 /**
@@ -123,24 +122,24 @@ if (isset($_POST['submit_export'])
             echo $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
-            echo PMA_URL_getHiddenInputs() . "\n";
+            echo PMA_URL_getHiddenInputs() , "\n";
             echo '<input type="hidden" name="json" value="'
-                . htmlspecialchars($json) . '" />';
+                , htmlspecialchars($json) , '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
             if (! empty($_POST['import_merge'])) {
                 echo '<input type="hidden" name="import_merge" value="1" />';
             }
             if ($return_url) {
                 echo '<input type="hidden" name="return_url" value="'
-                    . htmlspecialchars($return_url) . '" />';
+                    , htmlspecialchars($return_url) , '" />';
             }
             echo '<p>';
             echo __('Do you want to import remaining settings?');
             echo '</p>';
             echo '<input type="submit" name="submit_import" value="'
-                . __('Yes') . '" />';
+                , __('Yes') , '" />';
             echo '<input type="submit" name="submit_ignore" value="'
-                . __('No') . '" />';
+                , __('No') , '" />';
             echo '</form>';
             exit;
         }
@@ -177,16 +176,13 @@ if (isset($_POST['submit_export'])
                 $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
                 $return_url = parse_url($return_url, PHP_URL_PATH);
 
-                /** @var String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
-
                 foreach ($query as $q) {
-                    $pos = /*overload*/mb_strpos($q, '=');
-                    $k = /*overload*/mb_substr($q, 0, $pos);
+                    $pos = mb_strpos($q, '=');
+                    $k = mb_substr($q, 0, $pos);
                     if ($k == 'token') {
                         continue;
                     }
-                    $params[$k] = /*overload*/mb_substr($q, $pos + 1);
+                    $params[$k] = mb_substr($q, $pos + 1);
                 }
             } else {
                 $return_url = 'prefs_manage.php';
@@ -293,7 +289,7 @@ if (file_exists('setup/index.php')) {
                         'You can set more settings by modifying config.inc.php, eg. '
                         . 'by using %sSetup script%s.'
                     ), '<a href="setup/index.php" target="_blank">', '</a>'
-                ) . PMA\libraries\Util::showDocu('setup', 'setup-script');
+                ) , PMA\libraries\Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
             </div>
@@ -354,9 +350,9 @@ if (file_exists('setup/index.php')) {
                 </div>
                 <br />
                 <?php
-                echo '<input type="submit" name="submit_export" value="' . __(
+                echo '<input type="submit" name="submit_export" value="' , __(
                     'Go'
-                ) . '" />';
+                ) , '" />';
                 ?>
             </form>
         </div>
@@ -365,7 +361,7 @@ if (file_exists('setup/index.php')) {
             <form class="group-cnt prefs-form disableAjax" name="prefs_reset"
                   action="prefs_manage.php" method="post">
                 <?php
-                echo PMA_URL_getHiddenInputs() . __(
+                echo PMA_URL_getHiddenInputs() , __(
                     'You can reset all your settings and restore them to default '
                     . 'values.'
                 );

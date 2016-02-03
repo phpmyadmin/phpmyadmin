@@ -422,9 +422,9 @@ class FormDisplay
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
             $htmlOutput = '';
-            if (/*overload*/mb_substr($field, 7, 4) != 'end:') {
+            if (mb_substr($field, 7, 4) != 'end:') {
                 $htmlOutput .= PMA_displayGroupHeader(
-                    /*overload*/mb_substr($field, 7)
+                    mb_substr($field, 7)
                 );
             } else {
                 PMA_displayGroupFooter();
@@ -437,7 +437,7 @@ class FormDisplay
 
         // detect password fields
         if ($type === 'text'
-            && /*overload*/mb_substr($translated_path, -9) === '-password'
+            && mb_substr($translated_path, -9) === '-password'
         ) {
             $type = 'password';
         }
@@ -746,7 +746,7 @@ class FormDisplay
      */
     public function getDocLink($path)
     {
-        $test = /*overload*/mb_substr($path, 0, 6);
+        $test = mb_substr($path, 0, 6);
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }

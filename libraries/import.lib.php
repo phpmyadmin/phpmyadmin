@@ -66,20 +66,105 @@ function PMA_detectCompression($filepath)
  * Runs query inside import buffer. This is needed to allow displaying
  * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
- * @param string $sql         query to run
- * @param string $full        query to display, this might be commented
- * @param bool   $controluser whether to use control user for queries
- * @param array  &$sql_data   SQL parse data storage
+ * @param string $sql       query to run
+ * @param string $full      query to display, this might be commented
+ * @param array  &$sql_data SQL parse data storage
  *
  * @return void
  * @access public
  */
-function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
-    &$sql_data = array()
-) {
-    global $import_run_buffer, $go_sql, $complete_query, $display_query,
+function PMA_executeQuery($sql, $full, &$sql_data)
+{
+    global $go_sql,
         $sql_query, $my_die, $error, $reload,
-        $last_query_with_results, $result, $msg,
+        $result, $msg,
+        $cfg, $sql_query_disabled, $db;
+
+    $result = $GLOBALS['dbi']->tryQuery($sql);
+
+    // USE query changes the database, son need to track
+    // while running multiple queries
+    $is_use_query = mb_stripos($sql, "use ") !== false;
+
+    $msg = '# ';
+    if ($result === false) { // execution failed
+        if (! isset($my_die)) {
+            $my_die = array();
+        }
+        $my_die[] = array(
+            'sql' => $full,
+            'error' => $GLOBALS['dbi']->getError()
+        );
+
+        $msg .= __('Error');
+
+        if (! $cfg['IgnoreMultiSubmitErrors']) {
+            $error = true;
+            return;
+        }
+    } else {
+        $a_num_rows = (int)@$GLOBALS['dbi']->numRows($result);
+        $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
+        if ($a_num_rows > 0) {
+            $msg .= __('Rows') . ': ' . $a_num_rows;
+        } elseif ($a_aff_rows > 0) {
+            $message = Message::getMessageForAffectedRows(
+                $a_aff_rows
+            );
+            $msg .= $message->getMessage();
+        } else {
+            $msg .= __(
+                'MySQL returned an empty result set (i.e. zero '
+                . 'rows).'
+            );
+        }
+
+        if (($a_num_rows > 0) || $is_use_query) {
+            $sql_data['valid_sql'][] = $sql;
+            if (!isset($sql_data['valid_queries'])) {
+                $sql_data['valid_queries'] = 0;
+            }
+            $sql_data['valid_queries']++;
+        }
+    }
+    if (! $sql_query_disabled) {
+        $sql_query .= $msg . "\n";
+    }
+
+    // If a 'USE <db>' SQL-clause was found and the query
+    // succeeded, set our current $db to the new one
+    if ($result != false) {
+        list($db, $reload) = PMA_lookForUse(
+            $sql,
+            $db,
+            $reload
+        );
+    }
+
+    $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)'
+        . '?(TABLE|DATABASE)[[:space:]]+(.+)@im';
+    if ($result != false
+        && preg_match($pattern, $sql)
+    ) {
+        $reload = true;
+    }
+}
+
+/**
+ * Runs query inside import buffer. This is needed to allow displaying
+ * of last SELECT, SHOW or HANDLER results and similar nice stuff.
+ *
+ * @param string $sql       query to run
+ * @param string $full      query to display, this might be commented
+ * @param array  &$sql_data SQL parse data storage
+ *
+ * @return void
+ * @access public
+ */
+function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
+{
+    global $import_run_buffer, $go_sql, $complete_query, $display_query,
+        $sql_query, $error, $reload, $result, $msg,
         $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
         $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
     $read_multiply = 1;
@@ -105,14 +190,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         && trim($import_run_buffer['sql']) != ''
     ) {
 
-        // USE query changes the database, son need to track
-        // while running multiple queries
-        $is_use_query
-            = /*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false;
-
         $max_sql_len = max(
             $max_sql_len,
-            /*overload*/mb_strlen($import_run_buffer['sql'])
+            mb_strlen($import_run_buffer['sql'])
         );
         if (! $sql_query_disabled) {
             $sql_query .= $import_run_buffer['full'];
@@ -130,15 +210,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         } else {
             $executed_queries++;
 
-            $pattern = '/^[\s]*(SELECT|SHOW|HANDLER)/i';
-            if ($run_query
-                && $GLOBALS['finished']
-                && empty($sql)
-                && ! $error
-                && ((! empty($import_run_buffer['sql'])
-                && preg_match($pattern, $import_run_buffer['sql']))
-                || ($executed_queries == 1))
-            ) {
+            if ($run_query && $executed_queries < 50) {
                 $go_sql = true;
                 if (! $sql_query_disabled) {
                     $complete_query = $sql_query;
@@ -149,88 +221,39 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                 }
                 $sql_query = $import_run_buffer['sql'];
                 $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+                $sql_data['valid_full'][] = $import_run_buffer['full'];
                 if (! isset($sql_data['valid_queries'])) {
                     $sql_data['valid_queries'] = 0;
                 }
                 $sql_data['valid_queries']++;
-
-                // If a 'USE <db>' SQL-clause was found,
-                // set our current $db to the new one
-                list($db, $reload) = PMA_lookForUse(
-                    $import_run_buffer['sql'],
-                    $db,
-                    $reload
-                );
             } elseif ($run_query) {
 
-                if ($controluser) {
-                    $result = PMA_queryAsControlUser(
-                        $import_run_buffer['sql']
-                    );
-                } else {
-                    $result = $GLOBALS['dbi']
-                        ->tryQuery($import_run_buffer['sql']);
-                }
+                /* Handle rollback from go_sql */
+                if ($go_sql && isset($sql_data['valid_full'])) {
+                    $queries = $sql_data['valid_sql'];
+                    $fulls = $sql_data['valid_full'];
+                    $count = $sql_data['valid_queries'];
+                    $go_sql = false;
 
-                $msg = '# ';
-                if ($result === false) { // execution failed
-                    if (! isset($my_die)) {
-                        $my_die = array();
-                    }
-                    $my_die[] = array(
-                        'sql' => $import_run_buffer['full'],
-                        'error' => $GLOBALS['dbi']->getError()
-                    );
+                    $sql_data['valid_sql'] = array();
+                    $sql_data['valid_queries'] = 0;
+                    unset($sql_data['valid_full']);
+                    for ($i = 0; $i < $count; $i++) {
+                        print_r($queries[$i]);
 
-                    $msg .= __('Error');
-
-                    if (! $cfg['IgnoreMultiSubmitErrors']) {
-                        $error = true;
-                        return;
-                    }
-                } else {
-                    $a_num_rows = (int)@$GLOBALS['dbi']->numRows($result);
-                    $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
-                    if ($a_num_rows > 0) {
-                        $msg .= __('Rows') . ': ' . $a_num_rows;
-                        $last_query_with_results = $import_run_buffer['sql'];
-                    } elseif ($a_aff_rows > 0) {
-                        $message = Message::getMessageForAffectedRows(
-                            $a_aff_rows
-                        );
-                        $msg .= $message->getMessage();
-                    } else {
-                        $msg .= __(
-                            'MySQL returned an empty result set (i.e. zero '
-                            . 'rows).'
+                        PMA_executeQuery(
+                            $queries[$i],
+                            $fulls[$i],
+                            $sql_data
                         );
                     }
-
-                    $sql_data = updateSqlData(
-                        $sql_data, $a_num_rows, $is_use_query, $import_run_buffer
-                    );
-                }
-                if (! $sql_query_disabled) {
-                    $sql_query .= $msg . "\n";
                 }
 
-                // If a 'USE <db>' SQL-clause was found and the query
-                // succeeded, set our current $db to the new one
-                if ($result != false) {
-                    list($db, $reload) = PMA_lookForUse(
-                        $import_run_buffer['sql'],
-                        $db,
-                        $reload
-                    );
-                }
-
-                $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)'
-                    . '?(TABLE|DATABASE)[[:space:]]+(.+)@im';
-                if ($result != false
-                    && preg_match($pattern, $import_run_buffer['sql'])
-                ) {
-                    $reload = true;
-                }
+                PMA_executeQuery(
+                    $import_run_buffer['sql'],
+                    $import_run_buffer['full'],
+                    $sql_data
+                );
             } // end run query
         } // end if not DROP DATABASE
         // end non empty query
@@ -249,7 +272,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
     // the complete query in the textarea)
     if (! $go_sql && $run_query) {
         if (! empty($sql_query)) {
-            if (/*overload*/mb_strlen($sql_query) > 50000
+            if (mb_strlen($sql_query) > 50000
                 || $executed_queries > 50
                 || $max_sql_len > 1000
             ) {
@@ -266,28 +289,6 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
     if (isset($_REQUEST['rollback_query'])) {
         $msg .= __('[ROLLBACK occurred.]');
     }
-}
-
-/**
- * Update $sql_data
- *
- * @param array $sql_data          SQL data
- * @param int   $a_num_rows        Number of rows
- * @param bool  $is_use_query      Query is used
- * @param array $import_run_buffer Import buffer
- *
- * @return array
- */
-function updateSqlData($sql_data, $a_num_rows, $is_use_query, $import_run_buffer)
-{
-    if (($a_num_rows > 0) || $is_use_query) {
-        $sql_data['valid_sql'][] = $import_run_buffer['sql'];
-        if (!isset($sql_data['valid_queries'])) {
-            $sql_data['valid_queries'] = 0;
-        }
-        $sql_data['valid_queries']++;
-    }
-    return $sql_data;
 }
 
 /**
@@ -374,14 +375,13 @@ function PMA_importGetNextChunk($size = 32768)
     if ($GLOBALS['import_file'] == 'none') {
         // Well this is not yet supported and tested,
         // but should return content of textarea
-        if (/*overload*/mb_strlen($GLOBALS['import_text']) < $size) {
+        if (mb_strlen($GLOBALS['import_text']) < $size) {
             $GLOBALS['finished'] = true;
             return $GLOBALS['import_text'];
         } else {
-            $r = /*overload*/mb_substr($GLOBALS['import_text'], 0, $size);
+            $r = mb_substr($GLOBALS['import_text'], 0, $size);
             $GLOBALS['offset'] += $size;
-            $GLOBALS['import_text'] = /*overload*/
-                mb_substr($GLOBALS['import_text'], $size);
+            $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
             return $r;
         }
     }
@@ -396,8 +396,8 @@ function PMA_importGetNextChunk($size = 32768)
         $GLOBALS['finished'] = feof($import_handle);
         break;
     case 'application/zip':
-        $result = /*overload*/mb_substr($GLOBALS['import_text'], 0, $size);
-        $GLOBALS['import_text'] = /*overload*/mb_substr(
+        $result = mb_substr($GLOBALS['import_text'], 0, $size);
+        $GLOBALS['import_text'] = mb_substr(
             $GLOBALS['import_text'],
             $size
         );
@@ -424,12 +424,12 @@ function PMA_importGetNextChunk($size = 32768)
     if ($GLOBALS['offset'] == $size) {
         // UTF-8
         if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
-            $result = /*overload*/mb_substr($result, 3);
+            $result = mb_substr($result, 3);
             // UTF-16 BE, LE
         } elseif (strncmp($result, "\xFE\xFF", 2) == 0
             || strncmp($result, "\xFF\xFE", 2) == 0
         ) {
-            $result = /*overload*/mb_substr($result, 2);
+            $result = mb_substr($result, 2);
         }
     }
     return $result;
@@ -484,10 +484,10 @@ function PMA_getColumnAlphaName($num)
     if ($num == 0) {
         // use 'Z' if column number is 0,
         // this is necessary because A-Z has no 'zero'
-        $col_name .= /*overload*/mb_chr(($A + 26) - 1);
+        $col_name .= mb_chr(($A + 26) - 1);
     } else {
         // convert column number to ASCII character
-        $col_name .= /*overload*/mb_chr(($A + $num) - 1);
+        $col_name .= mb_chr(($A + $num) - 1);
     }
 
     return $col_name;
@@ -513,8 +513,8 @@ function PMA_getColumnNumberFromName($name)
         return 0;
     }
 
-    $name = /*overload*/mb_strtoupper($name);
-    $num_chars = /*overload*/mb_strlen($name);
+    $name = mb_strtoupper($name);
+    $num_chars = mb_strlen($name);
     $column_number = 0;
     for ($i = 0; $i < $num_chars; ++$i) {
         // read string from back to front
@@ -524,7 +524,7 @@ function PMA_getColumnNumberFromName($name)
         // and subtract 64 to get corresponding decimal value
         // ASCII value of "A" is 65, "B" is 66, etc.
         // Decimal equivalent of "A" is 1, "B" is 2, etc.
-        $number = (int)(/*overload*/mb_ord($name[$char_pos]) - 64);
+        $number = (int)(mb_ord($name[$char_pos]) - 64);
 
         // base26 to base10 conversion : multiply each number
         // with corresponding value of the position, in this case
@@ -607,8 +607,8 @@ function PMA_getDecimalScale($last_cumulative_size)
  */
 function PMA_getDecimalSize($cell)
 {
-    $curr_size = /*overload*/mb_strlen((string)$cell);
-    $decPos = /*overload*/mb_strpos($cell, ".");
+    $curr_size = mb_strlen((string)$cell);
+    $decPos = mb_strpos($cell, ".");
     $decPrecision = ($curr_size - 1) - $decPos;
 
     $m = $curr_size - 1;
@@ -635,7 +635,7 @@ function PMA_getDecimalSize($cell)
 function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
     $curr_type, $cell
 ) {
-    $curr_size = /*overload*/mb_strlen((string)$cell);
+    $curr_size = mb_strlen((string)$cell);
 
     /**
      * If the cell is NULL, don't treat it as a varchar
@@ -773,7 +773,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
             $oldM = PMA_getDecimalPrecision($last_cumulative_size);
             $oldD = PMA_getDecimalScale($last_cumulative_size);
             $oldInt = $oldM - $oldD;
-            $newInt = /*overload*/mb_strlen((string)$cell);
+            $newInt = mb_strlen((string)$cell);
 
             /* See which has the larger integer length */
             if ($oldInt >= $newInt) {
@@ -851,8 +851,8 @@ function PMA_detectType($last_cumulative_type, $cell)
     }
 
     if ($cell == (string)(float)$cell
-        && /*overload*/mb_strpos($cell, ".") !== false
-        && /*overload*/mb_substr_count($cell, ".") == 1
+        && mb_strpos($cell, ".") !== false
+        && mb_substr_count($cell, ".") == 1
     ) {
         return DECIMAL;
     }

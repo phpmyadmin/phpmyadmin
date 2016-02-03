@@ -43,23 +43,23 @@ if ($foreign_db && $foreign_table) {
     $columns = $table_obj->getUniqueColumns(false, false);
 }
 ?>
-<tr class="<?php echo ($odd_row ? 'odd' : 'even'); ?>">
+<tr class="<?= ($odd_row ? 'odd' : 'even'); ?>">
     <td class="vmiddle">
-        <strong><?php echo $myfield_html; ?></strong>
-        <input type="hidden" name="fields_name[<?php echo $myfield_md5; ?>]"
-               value="<?php echo $myfield_html; ?>"/>
+        <strong><?= $myfield_html; ?></strong>
+        <input type="hidden" name="fields_name[<?= $myfield_md5; ?>]"
+               value="<?= $myfield_html; ?>"/>
     </td>
 
     <td>
-        <?php echo PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+        <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
             array(
                 'name' => 'destination_db[' . $myfield_md5 . ']',
                 'title' => __('Database'),
-                'values' => $GLOBALS['pma']->databases,
+                'values' => $GLOBALS['dblist']->databases,
                 'foreign' => $foreign_db
             )
         ); ?>
-        <?php echo PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+        <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
             array(
                 'name' => 'destination_table[' . $myfield_md5 . ']',
                 'title' => __('Table'),
@@ -67,7 +67,7 @@ if ($foreign_db && $foreign_table) {
                 'foreign' => $foreign_table
             )
         ); ?>
-        <?php echo PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+        <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
             array(
                 'name' => 'destination_column[' . $myfield_md5 . ']',
                 'title' => __('Column'),

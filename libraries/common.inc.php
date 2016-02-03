@@ -35,14 +35,13 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA\libraries\PMA;
-use PMA\libraries\PMA_String;
-use PMA\libraries\Theme;
+use PMA\libraries\DbList;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
 use PMA\libraries\Response;
 use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
+use PMA\libraries\LanguageManager;
 
 /**
  * block attempts to directly run this script
@@ -73,25 +72,9 @@ define('PHPMYADMIN', true);
 require_once './libraries/autoloader.php';
 
 /**
- * String handling (security)
- */
-$PMA_String = new PMA_String();
-
-/**
  * initialize the error handler
  */
 $GLOBALS['error_handler'] = new ErrorHandler();
-
-/**
- * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
- * is not yet defined so we use another way to find out the PHP version.
- */
-if (version_compare(phpversion(), '5.4', 'lt')) {
-    /**
-     * Avoid problems with magic_quotes_runtime
-     */
-    @ini_set('magic_quotes_runtime', 'false');
-}
 
 /**
  * core functions
@@ -104,19 +87,22 @@ require './libraries/core.lib.php';
 require './libraries/sanitizing.lib.php';
 
 /**
- * Warning about mbstring.
+ * Warning about missing PHP extensions.
  */
-if (! function_exists('mb_detect_encoding')) {
-    PMA_warnMissingExtension('mbstring', $fatal = true);
-}
+PMA_checkExtensions();
+
+/**
+ * Set utf-8 encoding for PHP
+ */
+ini_set('default_charset', 'utf-8');
+mb_internal_encoding('utf-8');
 
 /**
  * the relation lib, tracker needs it
  */
 require './libraries/relation.lib.php';
 
-if (! defined('PMA_MINIMUM_COMMON')) {
-
+if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
     /**
      * JavaScript escaping.
      */
@@ -131,21 +117,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
-/**
- * PATH_INFO could be compromised if set, so remove it from PHP_SELF
- * and provide a clean PHP_SELF here
- */
-$PMA_PHP_SELF = PMA_getenv('PHP_SELF');
-$_PATH_INFO = PMA_getenv('PATH_INFO');
-if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
-    $path_info_pos = /*overload*/mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
-    $pathLength = $path_info_pos + /*overload*/mb_strlen($_PATH_INFO);
-    if ($pathLength === /*overload*/mb_strlen($PMA_PHP_SELF)) {
-        $PMA_PHP_SELF = /*overload*/mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
-    }
-}
-$PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
-
+PMA_cleanupPathInfo();
 
 /**
  * just to be sure there was no import (registering) before here
@@ -166,7 +138,6 @@ $variables_whitelist = array (
     'PMA_PHP_SELF',
     'variables_whitelist',
     'key',
-    'PMA_String'
 );
 
 foreach (get_defined_vars() as $key => $value) {
@@ -200,7 +171,7 @@ unset($key, $value, $variables_whitelist);
  * so we now check if a subform is submitted
  */
 $__redirect = null;
-if (isset($_POST['usesubform'])) {
+if (isset($_POST['usesubform']) && ! defined('PMA_MINIMUM_COMMON')) {
     // if a subform is present and should be used
     // the rest of the form is deprecated
     $subform_id = key($_POST['usesubform']);
@@ -230,42 +201,14 @@ if (isset($_POST['usesubform'])) {
 // end check if a subform is submitted
 
 /**
- * This setting was removed in PHP 5.4, but get_magic_quotes_gpc
- * always returns False since then.
- */
-if (get_magic_quotes_gpc()) {
-    PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
-}
-
-/**
  * check timezone setting
- * this could produce an E_STRICT - but only once,
- * if not done here it will produce E_STRICT on every date/time function
- * (starting with PHP 5.3, this code can produce E_WARNING rather than
- *  E_STRICT)
- *
+ * this could produce an E_WARNING - but only once,
+ * if not done here it will produce E_WARNING on every date/time function
  */
 date_default_timezone_set(@date_default_timezone_get());
 
 /******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
-
-/**
- * We really need this one!
- */
-if (! function_exists('preg_replace')) {
-    PMA_warnMissingExtension('pcre', true);
-}
-
-/**
- * JSON is required in several places.
- */
-if (! function_exists('json_encode')) {
-    PMA_warnMissingExtension('json', true);
-}
 
 /**
  * @global Config $GLOBALS['PMA_Config']
@@ -309,6 +252,7 @@ if (isset($_COOKIE)) {
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
     && ! $GLOBALS['PMA_Config']->detectHttps()
 ) {
+    require './libraries/select_lang.lib.php';
     // grab SSL URL
     $url = $GLOBALS['PMA_Config']->getSSLUri();
     // Actually redirect
@@ -442,7 +386,7 @@ $token_mismatch = true;
 $token_provided = false;
 if (PMA_isValid($_REQUEST['token'])) {
     $token_provided = true;
-    $token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
+    $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_REQUEST['token']);
 }
 
 if ($token_mismatch) {
@@ -531,9 +475,15 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
+ * Load gettext functions.
+ */
+require_once GETTEXT_INC;
+
+/**
  * lang detection is done here
  */
-require './libraries/select_lang.inc.php';
+$language = LanguageManager::getInstance()->selectLanguage();
+$language->activate();
 
 // Defines the cell alignment values depending on text direction
 if ($GLOBALS['text_dir'] == 'ltr') {
@@ -652,66 +602,7 @@ unset($default_server);
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
 
-/**
- * @global ThemeManager $_SESSION['ThemeManager']
- */
-if (! isset($_SESSION['PMA_Theme_Manager'])) {
-    $_SESSION['PMA_Theme_Manager'] = new ThemeManager;
-} else {
-    /**
-     * @todo move all __wakeup() functionality into session.inc.php
-     */
-    $_SESSION['PMA_Theme_Manager']->checkConfig();
-}
-
-// for the theme per server feature
-if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
-    $GLOBALS['server'] = $_REQUEST['server'];
-    $tmp = $_SESSION['PMA_Theme_Manager']->getThemeCookie();
-    if (empty($tmp)) {
-        $tmp = $_SESSION['PMA_Theme_Manager']->theme_default;
-    }
-    $_SESSION['PMA_Theme_Manager']->setActiveTheme($tmp);
-    unset($tmp);
-}
-/**
- * @todo move into ThemeManager::__wakeup()
- */
-if (isset($_REQUEST['set_theme'])) {
-    // if user selected a theme
-    $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
-}
-
-/**
- * the theme object
- *
-*@global Theme $_SESSION['PMA_Theme']
- */
-$_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
-
-// BC
-/**
- * the active theme
- * @global string $GLOBALS['theme']
- */
-$GLOBALS['theme']           = $_SESSION['PMA_Theme']->getName();
-/**
- * the theme path
- * @global string $GLOBALS['pmaThemePath']
- */
-$GLOBALS['pmaThemePath']    = $_SESSION['PMA_Theme']->getPath();
-/**
- * the theme image path
- * @global string $GLOBALS['pmaThemeImage']
- */
-$GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
-
-/**
- * load layout file if exists
- */
-if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
-    include $_SESSION['PMA_Theme']->getLayoutFile();
-}
+ThemeManager::initializeTheme();
 
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
@@ -728,8 +619,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
-            $verboseToLower = /*overload*/mb_strtolower($server['verbose']);
-            $serverToLower = /*overload*/mb_strtolower($_REQUEST['server']);
+            $verboseToLower = mb_strtolower($server['verbose']);
+            $serverToLower = mb_strtolower($_REQUEST['server']);
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
                 || $verboseToLower == $serverToLower
@@ -824,7 +715,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // to allow HTTP or http
         $cfg['Server']['auth_type']
-            = /*overload*/mb_strtolower($cfg['Server']['auth_type']);
+            = mb_strtolower($cfg['Server']['auth_type']);
 
         /**
          * the required auth type plugin
@@ -917,7 +808,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // if using TCP socket is not needed
-        if (/*overload*/mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
+        if (mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
             $cfg['Server']['socket'] = '';
         }
 
@@ -1046,11 +937,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // TODO: Set SQL modes too.
 
         /**
-         * the ListDatabase class
+         * the DbList class as a stub for the ListDatabase class
          */
-        $pma = new PMA;
-        $pma->userlink = $userlink;
-        $pma->controllink = $controllink;
+        $dblist = new DbList;
+        $dblist->userlink = $userlink;
+        $dblist->controllink = $controllink;
 
         /**
          * some resetting has to be done when switching servers
@@ -1100,7 +991,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $scripts->addFile('jqplot/jquery.jqplot.js');
         $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
         $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('canvg/canvg.js');
         $scripts->addFile('jquery/jquery.tablesorter.js');
     }
 
@@ -1192,7 +1082,7 @@ if (! defined('PMA_MINIMUM_COMMON')
     }
     $cfgRelation = PMA_getRelationsParam();
     if (empty($cfgRelation['db'])) {
-        foreach ($GLOBALS['pma']->databases as $database) {
+        foreach ($GLOBALS['dblist']->databases as $database) {
             if ($database == 'phpmyadmin') {
                 PMA_fixPMATables($database, false);
             }
@@ -1205,3 +1095,32 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     include 'libraries/config/user_preferences.forms.php';
     include_once 'libraries/config/page_settings.forms.php';
 }
+
+/**
+ * @global array MySQL charsets map
+ */
+$GLOBALS['mysql_charset_map'] = array(
+    'big5'         => 'big5',
+    'cp-866'       => 'cp866',
+    'euc-jp'       => 'ujis',
+    'euc-kr'       => 'euckr',
+    'gb2312'       => 'gb2312',
+    'gbk'          => 'gbk',
+    'iso-8859-1'   => 'latin1',
+    'iso-8859-2'   => 'latin2',
+    'iso-8859-7'   => 'greek',
+    'iso-8859-8'   => 'hebrew',
+    'iso-8859-8-i' => 'hebrew',
+    'iso-8859-9'   => 'latin5',
+    'iso-8859-13'  => 'latin7',
+    'iso-8859-15'  => 'latin1',
+    'koi8-r'       => 'koi8r',
+    'shift_jis'    => 'sjis',
+    'tis-620'      => 'tis620',
+    'utf-8'        => 'utf8',
+    'windows-1250' => 'cp1250',
+    'windows-1251' => 'cp1251',
+    'windows-1252' => 'latin1',
+    'windows-1256' => 'cp1256',
+    'windows-1257' => 'cp1257',
+);

@@ -84,25 +84,25 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
 
     if ($type == 'both' || $type == 'table') {
         $html .= '<input type="checkbox" name="alter_table" value="true"'
-            . (/*overload*/mb_stripos(
+            . (mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
                 'ALTER TABLE'
             ) !== false ? ' checked="checked"' : '')
             . ' /> ALTER TABLE<br/>';
         $html .= '<input type="checkbox" name="rename_table" value="true"'
-            . (/*overload*/mb_stripos(
+            . (mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
                 'RENAME TABLE'
             ) !== false ? ' checked="checked"' : '')
             . ' /> RENAME TABLE<br/>';
         $html .= '<input type="checkbox" name="create_table" value="true"'
-            . (/*overload*/mb_stripos(
+            . (mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
                 'CREATE TABLE'
             ) !== false ? ' checked="checked"' : '')
             . ' /> CREATE TABLE<br/>';
         $html .= '<input type="checkbox" name="drop_table" value="true"'
-            . (/*overload*/mb_stripos(
+            . (mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
                 'DROP TABLE'
             ) !== false ? ' checked="checked"' : '')
@@ -113,19 +113,19 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
     }
     if ($type == 'both' || $type == 'view') {
         $html .= '<input type="checkbox" name="alter_view" value="true"'
-            . (/*overload*/mb_stripos(
+            . (mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
                 'ALTER VIEW'
             ) !== false ? ' checked="checked"' : '')
             . ' /> ALTER VIEW<br/>';
         $html .= '<input type="checkbox" name="create_view" value="true"'
-            . (/*overload*/mb_stripos(
+            . (mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
                 'CREATE VIEW'
             ) !== false ? ' checked="checked"' : '')
             . ' /> CREATE VIEW<br/>';
         $html .= '<input type="checkbox" name="drop_view" value="true"'
-            . (/*overload*/mb_stripos(
+            . (mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
                 'DROP VIEW'
             ) !== false ? ' checked="checked"' : '')
@@ -134,38 +134,38 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
     $html .= '<br/>';
 
     $html .= '<input type="checkbox" name="create_index" value="true"'
-        . (/*overload*/mb_stripos(
+        . (mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'CREATE INDEX'
         ) !== false ? ' checked="checked"' : '')
         . ' /> CREATE INDEX<br/>';
     $html .= '<input type="checkbox" name="drop_index" value="true"'
-        . (/*overload*/mb_stripos(
+        . (mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'DROP INDEX'
         ) !== false ? ' checked="checked"' : '')
         . ' /> DROP INDEX<br/>';
     $html .= '<p>' . __('Track these data manipulation statements:') . '</p>';
     $html .= '<input type="checkbox" name="insert" value="true"'
-        . (/*overload*/mb_stripos(
+        . (mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'INSERT'
         ) !== false ? ' checked="checked"' : '')
         . ' /> INSERT<br/>';
     $html .= '<input type="checkbox" name="update" value="true"'
-        . (/*overload*/mb_stripos(
+        . (mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'UPDATE'
         ) !== false ? ' checked="checked"' : '')
         . ' /> UPDATE<br/>';
     $html .= '<input type="checkbox" name="delete" value="true"'
-        . (/*overload*/mb_stripos(
+        . (mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'DELETE'
         ) !== false ? ' checked="checked"' : '')
         . ' /> DELETE<br/>';
     $html .= '<input type="checkbox" name="truncate" value="true"'
-        . (/*overload*/mb_stripos(
+        . (mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'TRUNCATE'
         ) !== false ? ' checked="checked"' : '')
@@ -847,8 +847,8 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
     $drop_create_statements = $data['ddlog'][0]['statement'];
 
-    if (/*overload*/mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
-        || /*overload*/mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
+    if (mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
+        || mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
     ) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
@@ -1197,7 +1197,7 @@ function PMA_exportAsFileDownload($entries)
     PMA_downloadHeader(
         $filename,
         'text/x-sql',
-        /*overload*/mb_strlen($dump)
+        mb_strlen($dump)
     );
     echo $dump;
 
@@ -1205,45 +1205,29 @@ function PMA_exportAsFileDownload($entries)
 }
 
 /**
- * Function to activate tracking
+ * Function to activate or deactivate tracking
+ *
+ * @param string $action activate|deactivate
  *
  * @return string HTML for the success message
  */
-function PMA_activateTracking()
+function PMA_changeTracking($action)
 {
     $html = '';
-    $activated = Tracker::activateTracking(
-        $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
-    );
-    if ($activated) {
-        $msg = Message::success(
-            sprintf(
-                __('Tracking for %1$s was activated at version %2$s.'),
-                htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
-                htmlspecialchars($_REQUEST['version'])
-            )
-        );
-        $html .= $msg->getDisplay();
+    if ($action == 'activate') {
+        $method = 'activateTracking';
+        $message = __('Tracking for %1$s was activated at version %2$s.');
+    } else {
+        $method = 'deactivateTracking';
+        $message = __('Tracking for %1$s was deactivated at version %2$s.');
     }
-
-    return $html;
-}
-
-/**
- * Function to deactivate tracking
- *
- * @return string HTML of the success message
- */
-function PMA_deactivateTracking()
-{
-    $html = '';
-    $deactivated = Tracker::deactivateTracking(
+    $status = Tracker::$method(
         $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
     );
-    if ($deactivated) {
+    if ($status) {
         $msg = Message::success(
             sprintf(
-                __('Tracking for %1$s was deactivated at version %2$s.'),
+                $message,
                 htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
                 htmlspecialchars($_REQUEST['version'])
             )

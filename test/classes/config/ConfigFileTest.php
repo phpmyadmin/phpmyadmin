@@ -11,14 +11,14 @@
  */
 use PMA\libraries\config\ConfigFile;
 
-require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for Config File Management
  *
  * @package PhpMyAdmin-test
  */
-class ConfigFileTest extends PHPUnit_Framework_TestCase
+class ConfigFileTest extends PMATestCase
 {
     /**
      * Any valid key that exists in config.default.php and isn't empty
@@ -41,7 +41,6 @@ class ConfigFileTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['AvailableCharsets'] = array();
         $this->object = new ConfigFile();
     }
 

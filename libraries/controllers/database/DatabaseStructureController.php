@@ -440,13 +440,9 @@ class DatabaseStructureController extends DatabaseController
                 }
             } // end if
 
-            $showtable = $this->dbi->getTable(
-                $this->db, $current_table['TABLE_NAME']
-            )->getStatusInfo(null, true);
-
             if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-                $create_time = isset($showtable['Create_time'])
-                    ? $showtable['Create_time'] : '';
+                $create_time = isset($current_table['Create_time'])
+                    ? $current_table['Create_time'] : '';
                 if ($create_time
                     && (!$create_time_all
                     || $create_time < $create_time_all)
@@ -456,10 +452,8 @@ class DatabaseStructureController extends DatabaseController
             }
 
             if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-                // $showtable might already be set from ShowDbStructureCreation,
-                // see above
-                $update_time = isset($showtable['Update_time'])
-                    ? $showtable['Update_time'] : '';
+                $update_time = isset($current_table['Update_time'])
+                    ? $current_table['Update_time'] : '';
                 if ($update_time
                     && (!$update_time_all
                     || $update_time < $update_time_all)
@@ -469,10 +463,8 @@ class DatabaseStructureController extends DatabaseController
             }
 
             if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-                // $showtable might already be set from ShowDbStructureCreation,
-                // see above
-                $check_time = isset($showtable['Check_time'])
-                    ? $showtable['Check_time'] : '';
+                $check_time = isset($current_table['Check_time'])
+                    ? $current_table['Check_time'] : '';
                 if ($check_time
                     && (!$check_time_all
                     || $check_time < $check_time_all)
@@ -899,7 +891,7 @@ class DatabaseStructureController extends DatabaseController
         foreach ($db as $db_table) {
             if ($this->db == PMA_extractDbOrTable($db_table)
                 && preg_match(
-                    "@^" . /*overload*/
+                    "@^" .
                     mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@",
                     $truename
                 )
@@ -1002,13 +994,13 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get values for ARIA/MARIA tables
      *
-     * @param array  $current_table      current table
-     * @param double $sum_size           sum size
-     * @param double $overhead_size      overhead size
-     * @param number $formatted_size     formatted size
-     * @param string $unit               unit
-     * @param number $formatted_overhead overhead formatted
-     * @param string $overhead_unit      overhead unit
+     * @param array   $current_table      current table
+     * @param double  $sum_size           sum size
+     * @param double  $overhead_size      overhead size
+     * @param integer $formatted_size     formatted size
+     * @param string  $unit               unit
+     * @param integer $formatted_overhead overhead formatted
+     * @param string  $overhead_unit      overhead unit
      *
      * @return array
      */

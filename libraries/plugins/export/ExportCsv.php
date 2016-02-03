@@ -50,45 +50,51 @@ class ExportCsv extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup("general_opts");
         // create leaf items and add them to the group
-        $leaf = new TextPropertyItem();
-        $leaf->setName("separator");
-        $leaf->setText(__('Columns separated with:'));
+        $leaf = new TextPropertyItem(
+            "separator",
+            __('Columns separated with:')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("enclosed");
-        $leaf->setText(__('Columns enclosed with:'));
+        $leaf = new TextPropertyItem(
+            "enclosed",
+            __('Columns enclosed with:')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("escaped");
-        $leaf->setText(__('Columns escaped with:'));
+        $leaf = new TextPropertyItem(
+            "escaped",
+            __('Columns escaped with:')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("terminated");
-        $leaf->setText(__('Lines terminated with:'));
+        $leaf = new TextPropertyItem(
+            "terminated",
+            __('Lines terminated with:')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName('null');
-        $leaf->setText(__('Replace NULL with:'));
+        $leaf = new TextPropertyItem(
+            'null',
+            __('Replace NULL with:')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('removeCRLF');
-        $leaf->setText(
+        $leaf = new BoolPropertyItem(
+            'removeCRLF',
             __('Remove carriage return/line feed characters within columns')
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('columns');
-        $leaf->setText(__('Put columns names in the first row'));
+        $leaf = new BoolPropertyItem(
+            'columns',
+            __('Put columns names in the first row')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem();
-        $leaf->setName('structure_or_data');
+        $leaf = new HiddenPropertyItem(
+            'structure_or_data'
+        );
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -129,7 +135,7 @@ class ExportCsv extends ExportPlugin
             }
         } else {
             if (empty($csv_terminated)
-                || /*overload*/mb_strtolower($csv_terminated) == 'auto'
+                || mb_strtolower($csv_terminated) == 'auto'
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
@@ -248,7 +254,7 @@ class ExportCsv extends ExportPlugin
                 }
                 $schema_insert .= $csv_separator;
             } // end for
-            $schema_insert = trim(/*overload*/mb_substr($schema_insert, 0, -1));
+            $schema_insert = trim(mb_substr($schema_insert, 0, -1));
             if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }

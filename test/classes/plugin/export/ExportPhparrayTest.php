@@ -8,9 +8,9 @@
 use PMA\libraries\plugins\export\ExportPhparray;
 
 require_once 'libraries/export.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\export\ExportPhparray class
@@ -18,7 +18,7 @@ require_once 'export.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportPhparrayTest extends PHPUnit_Framework_TestCase
+class ExportPhparrayTest extends PMATestCase
 {
     protected $object;
 

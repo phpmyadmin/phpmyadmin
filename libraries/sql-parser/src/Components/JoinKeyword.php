@@ -38,6 +38,7 @@ class JoinKeyword extends Component
         'LEFT OUTER JOIN'               => 'LEFT',
         'RIGHT JOIN'                    => 'RIGHT',
         'RIGHT OUTER JOIN'              => 'RIGHT',
+        'STRAIGHT_JOIN'                 => 'STRAIGHT',
     );
 
     /**
@@ -160,7 +161,7 @@ class JoinKeyword extends Component
     {
         $ret = array();
         foreach ($component as $c) {
-            $ret[] = (($c->type === 'JOIN') ? 'JOIN ' : ($c->type . ' JOIN '))
+            $ret[] = array_search($c->type, static::$JOINS) . ' '
                 . $c->expr . ' ON ' . Condition::build($c->on);
         }
         return implode(' ', $ret);

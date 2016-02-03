@@ -57,7 +57,7 @@ function PMA_getTablesInfo()
             $one_table['TABLE_NAME'], ENT_QUOTES
         );
 
-        $GLOBALS['PMD']['TABLE_TYPE'][$i] = /*overload*/mb_strtoupper(
+        $GLOBALS['PMD']['TABLE_TYPE'][$i] = mb_strtoupper(
             $one_table['ENGINE']
         );
 
@@ -533,9 +533,9 @@ function PMA_saveDisplayField($db, $table, $field)
 function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
 {
     $tables = $GLOBALS['dbi']->getTablesFull($db, $T1);
-    $type_T1 = /*overload*/mb_strtoupper($tables[$T1]['ENGINE']);
+    $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
     $tables = $GLOBALS['dbi']->getTablesFull($db, $T2);
-    $type_T2 = /*overload*/mb_strtoupper($tables[$T2]['ENGINE']);
+    $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
     // native foreign key
     if (PMA\libraries\Util::isForeignKeySupported($type_T1)
@@ -659,9 +659,9 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
     list($DB2, $T2) = explode(".", $T2);
 
     $tables = $GLOBALS['dbi']->getTablesFull($DB1, $T1);
-    $type_T1 = /*overload*/mb_strtoupper($tables[$T1]['ENGINE']);
+    $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
     $tables = $GLOBALS['dbi']->getTablesFull($DB2, $T2);
-    $type_T2 = /*overload*/mb_strtoupper($tables[$T2]['ENGINE']);
+    $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
     if (PMA\libraries\Util::isForeignKeySupported($type_T1)
         && PMA\libraries\Util::isForeignKeySupported($type_T2)
@@ -743,7 +743,7 @@ function PMA_saveDesignerSetting($index, $value)
             . PMA\libraries\Util::sqlAddSlashes($cfgDesigner['user']) . "';";
 
         $orig_data = $GLOBALS['dbi']->fetchSingleRow(
-            $orig_data_query, $GLOBALS['controllink']
+            $orig_data_query, 'ASSOC', $GLOBALS['controllink']
         );
 
         if (! empty($orig_data)) {

@@ -11,20 +11,19 @@ use PMA\libraries\Theme;
 
 $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/select_lang.inc.php';
 require_once 'libraries/plugins/auth/AuthenticationCookie.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\auth\AuthenticationCookie class
  *
  * @package PhpMyAdmin-test
  */
-class AuthenticationCookieTest extends PHPUnit_Framework_TestCase
+class AuthenticationCookieTest extends PMATestCase
 {
     /**
      * @var AuthenticationCookie
@@ -40,10 +39,6 @@ class AuthenticationCookieTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        $GLOBALS['available_languages'] = array(
-            "en" => array("English", "US-ENGLISH"),
-            "ch" => array("Chinese", "TW-Chinese")
-        );
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

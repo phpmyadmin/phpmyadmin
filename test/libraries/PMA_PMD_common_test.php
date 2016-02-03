@@ -7,7 +7,6 @@
 
 require_once 'libraries/database_interface.inc.php';
 
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for libraries/pmd_common.php

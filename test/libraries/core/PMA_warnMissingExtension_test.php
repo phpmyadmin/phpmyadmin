@@ -1,7 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_warnMissingExtension() from libraries/core.lib.php
  * PMA_warnMissingExtension warns or fails on missing extension.
  *
  * @package PhpMyAdmin-test
@@ -13,16 +12,11 @@
 use PMA\libraries\Theme;
 
 require_once 'libraries/vendor_config.php';
-require_once 'libraries/core.lib.php';
-require_once 'libraries/select_lang.inc.php';
-
-
 
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 
 /**
- * Test for PMA_warnMissingExtension() from libraries/core.lib.php
  * PMA_warnMissingExtension warns or fails on missing extension.
  *
  * @package PhpMyAdmin-test
@@ -91,6 +85,6 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
         $printed = ob_get_contents();
         ob_end_clean();
 
-        $this->assertGreaterThan(0, /*overload*/mb_strpos($printed, $warn));
+        $this->assertGreaterThan(0, mb_strpos($printed, $warn));
     }
 }

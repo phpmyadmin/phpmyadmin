@@ -15,16 +15,16 @@ use PMA\libraries\Util;
 
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests behaviour of Table class
  *
  * @package PhpMyAdmin-test
  */
-class TableTest extends PHPUnit_Framework_TestCase
+class TableTest extends PMATestCase
 {
     /**
      * Configures environment
@@ -38,8 +38,6 @@ class TableTest extends PHPUnit_Framework_TestCase
          */
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxExactCount'] = 100;
         $GLOBALS['cfg']['MaxExactCountViews'] = 100;
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
@@ -52,8 +50,8 @@ class TableTest extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
-        $GLOBALS['pma'] = new DataBasePMAMock();
-        $GLOBALS['pma']->databases = new DataBaseMock();
+        $GLOBALS['dblist'] = new DataBasePMAMock();
+        $GLOBALS['dblist']->databases = new DataBaseMock();
 
         $sql_isView_true =  "SELECT TABLE_NAME
             FROM information_schema.VIEWS
@@ -596,8 +594,8 @@ class TableTest extends PHPUnit_Framework_TestCase
     public function testIsMergeCase2()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "MERGE")),
-            array('PMA.PMA_BookMark.ENGINE', null, "MERGE")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "MERGE")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "MERGE")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -618,8 +616,8 @@ class TableTest extends PHPUnit_Framework_TestCase
     public function testIsMergeCase3()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "MRG_MYISAM")),
-            array('PMA.PMA_BookMark.ENGINE', null, "MRG_MYISAM")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "MRG_MYISAM")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "MRG_MYISAM")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -640,8 +638,8 @@ class TableTest extends PHPUnit_Framework_TestCase
     public function testIsMergeCase4()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "ISDB")),
-            array('PMA.PMA_BookMark.ENGINE', null, "ISDB")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "ISDB")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "ISDB")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -683,8 +681,8 @@ class TableTest extends PHPUnit_Framework_TestCase
             $extra, $comment, $virtuality, $expression, $move_to
         );
 
-        $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER "
-            . "SET charset1 NULL DEFAULT 'VARCHAR' "
+        $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER SET "
+            . "charset1 NULL DEFAULT 'VARCHAR' "
             . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
 
         $this->assertEquals(
@@ -957,11 +955,11 @@ class TableTest extends PHPUnit_Framework_TestCase
     {
         $map = array(
             array(
-                'PMA.PMA_BookMark',
+                array('PMA', 'PMA_BookMark'),
                 null,
                 array('Comment' => "Comment222", 'TABLE_TYPE' => "VIEW"),
             ),
-            array('PMA.PMA_BookMark.TABLE_TYPE', null, 'VIEW'),
+            array(array('PMA', 'PMA_BookMark', 'TABLE_TYPE'), null, 'VIEW'),
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')

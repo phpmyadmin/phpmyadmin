@@ -14,7 +14,6 @@ use PMA\libraries\TypesMySQL;
 
 $GLOBALS['server'] = 1;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
 require_once 'libraries/relation.lib.php';

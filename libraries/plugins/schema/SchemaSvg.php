@@ -46,19 +46,20 @@ class SchemaSvg extends SchemaPlugin
         // create the root group that will be the options field for
         // $schemaPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // specific options main group
-        $specificOptions = new OptionsPropertyMainGroup();
-        $specificOptions->setName("general_opts");
+        $specificOptions = new OptionsPropertyMainGroup("general_opts");
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 
         // create leaf items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('all_tables_same_width');
-        $leaf->setText(__('Same width for all tables'));
+        $leaf = new BoolPropertyItem(
+            'all_tables_same_width',
+            __('Same width for all tables')
+        );
         $specificOptions->addProperty($leaf);
 
         // add the main group to the root group

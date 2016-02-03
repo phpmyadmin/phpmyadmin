@@ -16,11 +16,12 @@
 function PMA_secureSession()
 {
     // prevent session fixation and XSS
-    // (better to use session_status() if available)
-    if ((PMA_PHP_INT_VERSION >= 50400 && session_status() === PHP_SESSION_ACTIVE)
-        || (PMA_PHP_INT_VERSION < 50400 && session_id() !== '')
-    ) {
+    if (session_status() === PHP_SESSION_ACTIVE) {
         session_regenerate_id(true);
     }
-    $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
+    if (! function_exists('openssl_random_pseudo_bytes')) {
+        $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
+    } else {
+        $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
+    }
 }

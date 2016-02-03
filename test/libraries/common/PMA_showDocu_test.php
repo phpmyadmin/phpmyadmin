@@ -14,7 +14,6 @@ use PMA\libraries\Theme;
 
 
 
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  ** Test for PMA\libraries\Util::showDocu from Util.php

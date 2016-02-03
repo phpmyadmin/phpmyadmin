@@ -10,16 +10,14 @@ use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\Theme;
 
 require_once 'libraries/navigation/NodeFactory.php';
-
-
-require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\navigation\nodes\NodeProcedureContainer class
  *
  * @package PhpMyAdmin-test
  */
-class NodeProcedureContainerTest extends PHPUnit_Framework_TestCase
+class NodeProcedureContainerTest extends PMATestCase
 {
     /**
      * SetUp for test cases

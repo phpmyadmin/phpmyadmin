@@ -605,7 +605,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.currentEditCell = cell;
                     $(g.cEdit).find('.edit_box').focus();
                     moveCursorToEnd($(g.cEdit).find('.edit_box'));
-                    $(g.cEdit).find('*').removeProp('disabled');
+                    $(g.cEdit).find('*').prop('disabled', false);
                 }
             }
 
@@ -796,18 +796,18 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     // if the select/editor is changed un-check the 'checkbox_null_<field_name>_<row_index>'.
                     if ($td.is('.enum, .set')) {
-                        $editArea.on('change', 'select', function (e) {
+                        $editArea.on('change', 'select', function () {
                             $checkbox.prop('checked', false);
                         });
                     } else if ($td.is('.relation')) {
-                        $editArea.on('change', 'select', function (e) {
+                        $editArea.on('change', 'select', function () {
                             $checkbox.prop('checked', false);
                         });
-                        $editArea.on('click', '.browse_foreign', function (e) {
+                        $editArea.on('click', '.browse_foreign', function () {
                             $checkbox.prop('checked', false);
                         });
                     } else {
-                        $(g.cEdit).on('keypress change paste', '.edit_box', function (e) {
+                        $(g.cEdit).on('keypress change paste', '.edit_box', function () {
                             $checkbox.prop('checked', false);
                         });
                         // Capture ctrl+v (on IE and Chrome)
@@ -816,13 +816,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 $checkbox.prop('checked', false);
                             }
                         });
-                        $editArea.on('keydown', 'textarea', function (e) {
+                        $editArea.on('keydown', 'textarea', function () {
                             $checkbox.prop('checked', false);
                         });
                     }
 
                     // if null checkbox is clicked empty the corresponding select/editor.
-                    $checkbox.click(function (e) {
+                    $checkbox.click(function () {
                         if ($td.is('.enum')) {
                             $editArea.find('select').val('');
                         } else if ($td.is('.set')) {
@@ -891,7 +891,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }); // end $.post()
 
                     $editArea.show();
-                    $editArea.on('change', 'select', function (e) {
+                    $editArea.on('change', 'select', function () {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
                     g.isEditCellTextEditable = true;
@@ -921,7 +921,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }); // end $.post()
 
                     $editArea.show();
-                    $editArea.on('change', 'select', function (e) {
+                    $editArea.on('change', 'select', function () {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
                 }
@@ -943,15 +943,22 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'curr_value' : curr_value
                     };
 
+                    // if the data is truncated, get the full data
+                    if ($td.is('.truncated')) {
+                        post_params.get_full_values = true;
+                        post_params.where_clause = PMA_urldecode(where_clause);
+                    }
+
                     g.lastXHR = $.post('sql.php', post_params, function (data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
+                        $td.data('original_data', $(data.select).val().join());
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }); // end $.post()
 
                     $editArea.show();
-                    $editArea.on('change', 'select', function (e) {
+                    $editArea.on('change', 'select', function () {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
                 }
@@ -962,10 +969,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.append('<textarea></textarea>');
                         $editArea.find('textarea').val(value);
                         $editArea
-                            .on('keyup', 'textarea', function (e) {
+                            .on('keyup', 'textarea', function () {
                                 $(g.cEdit).find('.edit_box').val($(this).val());
                             });
-                        $(g.cEdit).on('keyup', '.edit_box', function (e) {
+                        $(g.cEdit).on('keyup', '.edit_box', function () {
                             $editArea.find('textarea').val($(this).val());
                         });
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -1005,8 +1012,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     var $input_field = $(g.cEdit).find('.edit_box');
 
                     // remember current datetime value in $input_field, if it is not null
-                    var current_datetime_value = !is_null ? $input_field.val() : '';
-                    var datetime_value = current_datetime_value;
+                    var datetime_value = !is_null ? $input_field.val() : '';
 
                     var showMillisec = false;
                     var showMicrosec = false;
@@ -1281,11 +1287,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     function (data) {
                         g.isSaving = false;
                         if (!g.saveCellsAtOnce) {
-                            $(g.cEdit).find('*').removeProp('disabled');
+                            $(g.cEdit).find('*').prop('disabled', false);
                             $(g.cEdit).find('.edit_box').removeClass('edit_box_posting');
                         } else {
                             $(g.o).find('div.save_edited').removeClass('saving_edited_data')
-                                .find('input').removeProp('disabled');  // enable the save button back
+                                .find('input').prop('disabled', false);  // enable the save button back
                         }
                         if (typeof data !== 'undefined' && data.success === true) {
                             if (typeof options === 'undefined' || ! options.move) {

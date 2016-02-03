@@ -7,8 +7,6 @@
  */
 
 // Let PHP complain about all errors
-use PMA\libraries\PMA_String;
-
 error_reporting(E_ALL);
 
 // Ensure PHP has set timezone
@@ -18,6 +16,9 @@ date_default_timezone_set('UTC');
 set_include_path(
     get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))
 );
+
+// path to phpseclib
+define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
 
 // Setting constants for testing
 define('PHPMYADMIN', 1);
@@ -52,12 +53,15 @@ foreach ($test_defaults as $varname => $defvalue) {
 
 require_once 'libraries/autoloader.php';
 require_once 'libraries/core.lib.php';
-$GLOBALS['PMA_String'] = new PMA_String();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
 require_once 'libraries/sql-parser/autoload.php';
+
+/* Ensure default langauge is active */
+require_once 'libraries/php-gettext/gettext.inc';
+PMA\libraries\LanguageManager::getInstance()->getLanguage('en')->activate();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');

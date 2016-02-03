@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PMA\libraries\dbi\DBIExtension;
+use PMA\libraries\LanguageManager;
 
 require_once './libraries/logging.lib.php';
 require_once './libraries/util.lib.php';
@@ -93,8 +94,8 @@ class DatabaseInterface
     /**
      * Get a cached value from table cache.
      *
-     * @param string $contentPath Dot notation of the target value
-     * @param mixed  $default     Return value on cache miss
+     * @param array $contentPath Array of the name of the target value
+     * @param mixed $default     Return value on cache miss
      *
      * @return mixed cached value or default
      */
@@ -106,8 +107,8 @@ class DatabaseInterface
     /**
      * Set an item in table cache using dot notation.
      *
-     * @param string $contentPath Dot notation of the target path
-     * @param mixed  $value       Target value
+     * @param array $contentPath Array with the target path
+     * @param mixed $value       Target value
      *
      * @return void
      */
@@ -120,10 +121,8 @@ class DatabaseInterface
             return;
         }
 
-        $keys = explode('.', $contentPath);
-
-        while (count($keys) > 1) {
-            $key = array_shift($keys);
+        while (count($contentPath) > 1) {
+            $key = array_shift($contentPath);
 
             // If the key doesn't exist at this depth, we will just create an empty
             // array to hold the next value, allowing us to create the arrays to hold
@@ -135,7 +134,7 @@ class DatabaseInterface
             $loc = &$loc[$key];
         }
 
-        $loc[array_shift($keys)] = $value;
+        $loc[array_shift($contentPath)] = $value;
     }
 
     /**
@@ -272,75 +271,6 @@ class DatabaseInterface
         }
 
         return $this->_extension->realMultiQuery($link, $multi_query);
-    }
-
-    /**
-     * converts charset of a mysql message, usually coming from mysql_error(),
-     * into PMA charset, usually UTF-8
-     * uses language to charset mapping from mysql/share/errmsg.txt
-     * and charset names to ISO charset from information_schema.CHARACTER_SETS
-     *
-     * @param string $message the message
-     *
-     * @return string  $message
-     */
-    public function convertMessage($message)
-    {
-        // latin always last!
-        // @todo some values are missing,
-        // see https://mariadb.com/kb/en/mariadb/server-locale/
-
-        $encodings = array(
-            'ja' => 'EUC-JP', //'ujis',
-            'ko' => 'EUC-KR', //'euckr',
-            'ru' => 'KOI8-R', //'koi8r',
-            'uk' => 'KOI8-U', //'koi8u',
-            'sr' => 'CP1250', //'cp1250',
-            'et' => 'ISO-8859-13', //'latin7',
-            'sk' => 'ISO-8859-2', //'latin2',
-            'cz' => 'ISO-8859-2', //'latin2',
-            'hu' => 'ISO-8859-2', //'latin2',
-            'pl' => 'ISO-8859-2', //'latin2',
-            'ro' => 'ISO-8859-2', //'latin2',
-            'es' => 'CP1252', //'latin1',
-            'sv' => 'CP1252', //'latin1',
-            'it' => 'CP1252', //'latin1',
-            'no' => 'CP1252', //'latin1',
-            'pt' => 'CP1252', //'latin1',
-            'da' => 'CP1252', //'latin1',
-            'nl' => 'CP1252', //'latin1',
-            'en' => 'CP1252', //'latin1',
-            'fr' => 'CP1252', //'latin1',
-            'de' => 'CP1252', //'latin1',
-        );
-
-        $server_language = Util::cacheGet(
-            'server_language',
-            function () {
-                return $GLOBALS['dbi']->fetchValue("SELECT @@lc_messages;");
-            }
-        );
-
-        if ($server_language) {
-            $found = array();
-            $match = preg_match(
-                '&([a-z][a-z])_&i',
-                $server_language,
-                $found
-            );
-            if ($match) {
-                $server_language = $found[1];
-            }
-        }
-
-        if (! empty($server_language) && isset($encodings[$server_language])) {
-            $encoding = $encodings[$server_language];
-        } else {
-            /* Fallback to CP1252 if we can not detect */
-            $encoding = 'CP1252';
-        }
-
-        return PMA_convertString($encoding, 'utf-8', $message);
     }
 
     /**
@@ -749,14 +679,14 @@ class DatabaseInterface
             return $tables[$database];
         }
 
-        if (isset($tables[/*overload*/mb_strtolower($database)])) {
+        if (isset($tables[mb_strtolower($database)])) {
             // on windows with lower_case_table_names = 1
             // MySQL returns
             // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
             // but information_schema.TABLES gives `test`
             // bug #2036
             // https://sourceforge.net/p/phpmyadmin/bugs/2036/
-            return $tables[/*overload*/mb_strtolower($database)];
+            return $tables[mb_strtolower($database)];
         }
 
         return $tables;
@@ -831,7 +761,7 @@ class DatabaseInterface
             $tables[$table_name]['TABLE_COMMENT']
                 =& $tables[$table_name]['Comment'];
 
-            $commentUpper = /*overload*/mb_strtoupper(
+            $commentUpper = mb_strtoupper(
                 $tables[$table_name]['Comment']
             );
             if ($commentUpper === 'VIEW'
@@ -974,14 +904,14 @@ class DatabaseInterface
             // display only databases also in official database list
             // f.e. to apply hide_db and only_db
             $drops = array_diff(
-                array_keys($databases), (array) $GLOBALS['pma']->databases
+                array_keys($databases), (array) $GLOBALS['dblist']->databases
             );
             foreach ($drops as $drop) {
                 unset($databases[$drop]);
             }
         } else {
             $databases = array();
-            foreach ($GLOBALS['pma']->databases as $database_name) {
+            foreach ($GLOBALS['dblist']->databases as $database_name) {
                 // MySQL forward compatibility
                 // so pma could use this array as if every server is of version >5.0
                 // todo : remove and check the rest of the code for usage,
@@ -1199,7 +1129,7 @@ class DatabaseInterface
         } else {
             $columns = array();
             if (null === $database) {
-                foreach ($GLOBALS['pma']->databases as $database) {
+                foreach ($GLOBALS['dblist']->databases as $database) {
                     $columns[$database] = $this->getColumnsFull(
                         $database, null, null, $link
                     );
@@ -1278,8 +1208,7 @@ class DatabaseInterface
             }
 
             if (null !== $column) {
-                reset($columns);
-                $columns = current($columns);
+                return reset($columns);
             }
 
             return $columns;
@@ -1587,16 +1516,39 @@ class DatabaseInterface
                     5
                 );
             }
-            $this->query(
+            $result = $this->tryQuery(
                 "SET collation_connection = '"
                 . Util::sqlAddSlashes($GLOBALS['collation_connection'])
                 . "';",
                 $link,
                 self::QUERY_STORE
             );
+            if ($result === false) {
+                trigger_error(
+                    __('Failed to set configured collation connection!'),
+                    E_USER_WARNING
+                );
+                $this->query(
+                    "SET collation_connection = '"
+                    . Util::sqlAddSlashes($default_collation)
+                    . "';",
+                    $link,
+                    self::QUERY_STORE
+                );
+            }
         } else {
             $this->query(
                 "SET NAMES '$default_charset' COLLATE '$default_collation';",
+                $link,
+                self::QUERY_STORE
+            );
+        }
+
+        /* Locale for messages */
+        $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
+        if (! empty($locale)) {
+            $this->query(
+                "SET lc_messages = '" . $locale . "';",
                 $link,
                 self::QUERY_STORE
             );
@@ -2175,28 +2127,25 @@ class DatabaseInterface
      */
     public function formatError($error_number, $error_message)
     {
-        if (! empty($error_message)) {
-            $error_message = $this->convertMessage($error_message);
-        }
-
         $error_message = htmlspecialchars($error_message);
 
         $error = '#' . ((string) $error_number);
+        $separator = ' &mdash; ';
 
         if ($error_number == 2002) {
             $error .= ' - ' . $error_message;
-            $error .= '<br />';
+            $error .= $separator;
             $error .= __(
                 'The server is not responding (or the local server\'s socket'
                 . ' is not correctly configured).'
             );
         } elseif ($error_number == 2003) {
             $error .= ' - ' . $error_message;
-            $error .= '<br />' . __('The server is not responding.');
+            $error .= $separator . __('The server is not responding.');
         } elseif ($error_number == 1005) {
             if (strpos($error_message, 'errno: 13') !== false) {
                 $error .= ' - ' . $error_message;
-                $error .= '<br />'
+                $error .= $separator
                     . __(
                         'Please check privileges of directory containing database.'
                     );

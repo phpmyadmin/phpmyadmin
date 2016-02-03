@@ -11,16 +11,15 @@
 
 use PMA\libraries\engines\Memory;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
-
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\engines\Memory
  *
  * @package PhpMyAdmin-test
  */
-class MemoryTest extends PHPUnit_Framework_TestCase
+class MemoryTest extends PMATestCase
 {
     /**
      * @access protected
@@ -36,7 +35,6 @@ class MemoryTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 0;
         $this->object = new Memory('memory');
     }

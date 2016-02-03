@@ -54,7 +54,7 @@ require_once 'libraries/file_listing.lib.php';
  * (at this point, $GLOBALS['goto'] will be set but could be empty)
  */
 if (empty($GLOBALS['goto'])) {
-    if (/*overload*/mb_strlen($table)) {
+    if (mb_strlen($table)) {
         // avoid a problem (see bug #2202709)
         $GLOBALS['goto'] = 'tbl_sql.php';
     } else {
@@ -79,7 +79,6 @@ $comments_map = PMA_getCommentsMap($db, $table);
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('functions.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('big_ints.js');

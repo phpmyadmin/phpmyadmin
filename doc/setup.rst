@@ -102,6 +102,88 @@ The installation is possible by adding our own repository
 
     composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json
 
+Installing using Docker
++++++++++++++++++++++++
+
+phpMyAdmin comes with an Docker image, which you can easily deploy. You can
+download it using:
+
+.. code-block:: sh
+
+    docker pull phpmyadmin/phpmyadmin
+
+The phpMyAdmin will be executed on port 8080. It supports several ways of
+configuring link to the database server, which you can configure using
+environment variables:
+
+.. envvar:: PMA_ARBITRARY
+
+    Allows you to enter database server hostname on login form (see
+    :config:option:`$cfg['AllowArbitraryServer']`).
+
+.. envvar:: PMA_HOST
+    
+    Host name or IP address of the database server to use.
+
+.. envvar:: PMA_HOSTS
+    
+    Comma separated host names or IP addresses of the database servers to use.
+
+.. envvar:: PMA_USER
+    
+    User name to use for :ref:`auth_config`.
+
+.. envvar:: PMA_PASSWORD
+    
+    Password to use for :ref:`auth_config`.
+
+.. envvar:: PMA_PORT
+    
+    Port of the databse server to use.
+
+.. envvar:: PMA_ABSOLUTE_URI
+   
+    The fully-qualified path (``https://pma.example.net/``) where the reverse
+    proxy makes phpMyAdmin available.
+
+By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
+:envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
+
+
+To connect phpMyAdmin to given server use:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d -e PMA_HOST=dbhost -p 8080:8080 phpmyadmin/phpmyadmin
+
+To connect phpMyAdmin to more servers use:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:8080 phpmyadmin/phpmyadmin
+
+To use arbitrary server option:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d --link mysql_db_server:db -p 8080:8080 -e PMA_ARBITRARY=1 phpmyadmin/phpmyadmin
+
+You can also link the database container using Docker:
+
+.. code-block:: sh
+
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:8080 phpmyadmin/phpmyadmin
+
+Using docker-compose
+--------------------
+
+Alternatively you can also use docker-compose with the docker-compose.yml from
+<https://github.com/phpmyadmin/docker>.  This will run phpMyAdmin with
+arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
+
+.. code-block:: sh
+
+    docker-compose up -d
 
 .. _quick_install:
 
@@ -269,14 +351,25 @@ Verifying phpMyAdmin releases
 +++++++++++++++++++++++++++++
 
 Since July 2015 all phpMyAdmin releases are cryptographically signed by the
-releasing developer, who is currently Marc Delisle. His key id is
+releasing developer, who through January 2016 was Marc Delisle. His key id is
 0x81AF644A, his PGP fingerprint is:
 
 .. code-block:: console
 
     436F F188 4B1A 0C3F DCBF 0D79 FEFC 65D1 81AF 644A
 
-and you can get more identification information from `https://keybase.io/lem9 <https://keybase.io/lem9>`_.  You should verify that the signature matches
+and you can get more identification information from `https://keybase.io/lem9 <https://keybase.io/lem9>`_.
+
+Beginning in January 2016, the release manager is Isaac Bennetch. His key id is
+0x8259BD92, and his PGP fingerprint is:
+
+.. code-block:: console
+
+    3D06 A59E CE73 0EB7 1B51 1C17 CE75 2F17 8259 BD92
+
+and you can get more identification information from `https://keybase.io/ibennetch <https://keybase.io/ibennetch>`_.
+
+You should verify that the signature matches
 the archive you have downloaded. This way you can be sure that you are using
 the same code that was released.
 
@@ -511,6 +604,15 @@ HTTP authentication mode
 * Is supported with most PHP configurations. For :term:`IIS` (:term:`ISAPI`)
   support using :term:`CGI` PHP see :ref:`faq1_32`, for using with Apache
   :term:`CGI` see :ref:`faq1_35`.
+* When PHP is running under Apache's :term:`mod_proxy_fcgi` (e.g. with PHP-FPM),
+  :term:`Authorization` headers are not passed to the underlying FCGI application,
+  such that your credentials will not reach the application. In this case, you can
+  add the following configuration directive:
+
+  .. code-block:: apache
+
+     SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':term:`HTTP`' authentication mode.
 
@@ -577,6 +679,8 @@ in :file:`examples/signon-script.php`:
 
 
 .. index:: pair: Config; Authentication mode
+
+.. _auth_config:
 
 Config authentication mode
 --------------------------

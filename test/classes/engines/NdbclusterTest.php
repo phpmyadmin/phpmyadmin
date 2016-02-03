@@ -11,15 +11,15 @@
 
 use PMA\libraries\engines\Ndbcluster;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\engines\Ndbcluster
  *
  * @package PhpMyAdmin-test
  */
-class NdbclusterTest extends PHPUnit_Framework_TestCase
+class NdbclusterTest extends PMATestCase
 {
     /**
      * @access protected
@@ -35,7 +35,6 @@ class NdbclusterTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 0;
         $this->object = new Ndbcluster('nbdcluster');
     }

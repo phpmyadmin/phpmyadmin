@@ -57,9 +57,9 @@ class Validator
                     continue;
                 }
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
-                    if (/*overload*/mb_substr($uv[$i], 0, 6) == 'value:') {
+                    if (mb_substr($uv[$i], 0, 6) == 'value:') {
                         $uv[$i] = PMA_arrayRead(
-                            /*overload*/mb_substr($uv[$i], 6),
+                            mb_substr($uv[$i], 6),
                             $GLOBALS['PMA_Config']->base_settings
                         );
                     }
@@ -111,7 +111,7 @@ class Validator
         $key_map = array();
         foreach ($values as $k => $v) {
             $k2 = $isPostSource ? str_replace('-', '/', $k) : $k;
-            $k2 = /*overload*/mb_strpos($k2, '/')
+            $k2 = mb_strpos($k2, '/')
                 ? $cf->getCanonicalPath($k2)
                 : $k2;
             $key_map[$k2] = $k;

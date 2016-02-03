@@ -9,10 +9,9 @@
  * Include to test.
  */
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
+require_once 'test/PMATestCase.php';
 
 use PMA\libraries\DbSearch;
 use PMA\libraries\Theme;
@@ -22,7 +21,7 @@ use PMA\libraries\Theme;
  *
  * @package PhpMyAdmin-test
  */
-class DbSearchTest extends PHPUnit_Framework_TestCase
+class DbSearchTest extends PMATestCase
 {
     /**
      * @access protected
@@ -40,8 +39,6 @@ class DbSearchTest extends PHPUnit_Framework_TestCase
     {
         $this->object = new DbSearch('pma_test');
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['db'] = 'pma';
     }
 

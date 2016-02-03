@@ -176,7 +176,6 @@ function PMA_getHtmlForImportCharset()
     if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
         $html .= '<label for="charset_of_file">' . __('Character set of the file:')
             . '</label>';
-        reset($cfg['AvailableCharsets']);
         $html .= '<select id="charset_of_file" name="charset_of_file" size="1">';
         foreach ($cfg['AvailableCharsets'] as $temp_charset) {
             $html .= '<option value="' . htmlentities($temp_charset) .  '"';
@@ -310,8 +309,7 @@ function PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
         $html .= '        <div class="formelementrow">';
         $html .= '            <label for="text_skip_queries">'
             .  __(
-                'Skip this number of queries (for SQL) or lines (for other '
-                . 'formats), starting from the first one:'
+                'Skip this number of queries (for SQL) starting from the first one:'
             )
             . '</label>';
         $html .= '            <input type="number" name="skip_queries" value="'
@@ -642,8 +640,12 @@ function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
     global $SESSION_KEY;
     include_once './libraries/file_listing.lib.php';
     include_once './libraries/plugin_interface.lib.php';
-    // this one generates also some globals
+
     include_once './libraries/display_import_ajax.lib.php';
+    list(
+        $SESSION_KEY,
+        $upload_id,
+    ) = PMA_uploadProgressSetup();
 
     /* Scan for plugins */
     /* @var $import_list ImportPlugin[] */

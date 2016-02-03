@@ -9,15 +9,16 @@ use PMA\libraries\plugins\export\ExportCsv;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
+
 /**
  * tests for PMA\libraries\plugins\export\ExportCsv class
  *
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportCsvTest extends PHPUnit_Framework_TestCase
+class ExportCsvTest extends PMATestCase
 {
     protected $object;
 

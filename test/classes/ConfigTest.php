@@ -12,18 +12,17 @@
  */
 use PMA\libraries\Theme;
 
-require_once 'libraries/core.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests behaviour of PMA\libraries\Config class
  *
  * @package PhpMyAdmin-test
  */
-class ConfigTest extends PHPUnit_Framework_TestCase
+class ConfigTest extends PMATestCase
 {
     /**
      * Turn off backup globals
@@ -344,7 +343,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
         if (@function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
-            if (/*overload*/mb_strstr($gd_nfo["GD Version"], '2.')) {
+            if (mb_strstr($gd_nfo["GD Version"], '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -366,7 +365,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
         ob_end_clean();
 
         if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
-            if (/*overload*/mb_strstr($v, '2.')) {
+            if (mb_strstr($v, '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -451,51 +450,6 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test for CheckPhpVersion
-     *
-     * @return array
-     */
-    public function testCheckPhpVersion()
-    {
-        $this->object->checkPhpVersion();
-
-        $php_int_ver = 0;
-        $php_str_ver = phpversion();
-
-        $match = array();
-        preg_match(
-            '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
-            phpversion(),
-            $match
-        );
-        if (isset($match) && ! empty($match[1])) {
-            if (! isset($match[2])) {
-                $match[2] = 0;
-            }
-            if (! isset($match[3])) {
-                $match[3] = 0;
-            }
-            $php_int_ver = (int) sprintf(
-                '%d%02d%02d',
-                $match[1],
-                $match[2],
-                $match[3]
-            );
-        } else {
-            $php_int_ver = 0;
-        }
-
-        $this->assertEquals(
-            $php_str_ver,
-            $this->object->get('PMA_PHP_STR_VERSION')
-        );
-        $this->assertEquals(
-            $php_int_ver,
-            $this->object->get('PMA_PHP_INT_VERSION')
-        );
-    }
-
-    /**
      * Tests loading of default values
      *
      * @return void
@@ -531,7 +485,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($loadedConf, $this->object->default);
 
-        $expectedSettings = PMA_arrayMergeRecursive(
+        $expectedSettings = array_replace_recursive(
             $this->object->settings,
             $loadedConf
         );
@@ -783,8 +737,6 @@ class ConfigTest extends PHPUnit_Framework_TestCase
             'PMA_VERSION',
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
-            'PMA_PHP_STR_VERSION',
-            'PMA_PHP_INT_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_IIS',
             'PMA_IS_GD2',

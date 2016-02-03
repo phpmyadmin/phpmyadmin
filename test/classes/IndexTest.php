@@ -9,14 +9,14 @@
 /*
  * Include to test.
  */
-require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Test for Index class
  *
  * @package PhpMyAdmin-test
  */
-class IndexTest extends PHPUnit_Framework_TestCase
+class IndexTest extends PMATestCase
 {
     private $_params = array();
 

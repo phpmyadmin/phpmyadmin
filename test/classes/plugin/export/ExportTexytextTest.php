@@ -8,11 +8,11 @@
 use PMA\libraries\plugins\export\ExportTexytext;
 
 require_once 'libraries/export.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\export\ExportTexytext class
@@ -20,7 +20,7 @@ require_once 'export.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportTexytextTest extends PHPUnit_Framework_TestCase
+class ExportTexytextTest extends PMATestCase
 {
     protected $object;
 
@@ -617,8 +617,6 @@ class ExportTexytextTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatOneColumnDefinition()
     {
-        $GLOBALS['cfg']['LimitChars'] = 40;
-
         $cols = array(
             'Null' => 'Yes',
             'Field' => 'field',

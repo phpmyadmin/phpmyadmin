@@ -101,18 +101,18 @@ class Font
         $count = 0;
 
         foreach ($charLists as $charList) {
-            $count += ((/*overload*/mb_strlen($text)
-                - /*overload*/mb_strlen(str_replace($charList["chars"], "", $text))
+            $count += ((mb_strlen($text)
+                - mb_strlen(str_replace($charList["chars"], "", $text))
                 ) * $charList["modifier"]);
         }
 
         $text  = str_replace(" ", "", $text);//remove the " "'s
         //all other chars
         $count = $count
-            + (/*overload*/mb_strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
+            + (mb_strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
 
         $modifier = 1;
-        $font = /*overload*/mb_strtolower($font);
+        $font = mb_strtolower($font);
         switch ($font) {
         /*
          * no modifier for arial and sans-serif

@@ -5,11 +5,12 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\StorageEngine;
+
+require_once 'test/PMATestCase.php';
 /*
  * Include to test.
  */
-
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/database_interface.inc.php';
 
@@ -18,7 +19,7 @@ require_once 'libraries/database_interface.inc.php';
  *
  * @package PhpMyAdmin-test
  */
-class StorageEngineTest extends PHPUnit_Framework_TestCase
+class StorageEngineTest extends PMATestCase
 {
     /**
      * @access protected
@@ -100,16 +101,43 @@ class StorageEngineTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for getEngine
+     * Test for StorageEngine::getEngine
+     *
+     * @param string $expectedClass Class that should be selected
+     * @param string $engineName    Engine name
      *
      * @return void
+     *
+     * @dataProvider providerGetEngine
      */
-    public function testGetEngine()
+    public function testGetEngine($expectedClass, $engineName)
     {
-
         $this->assertInstanceOf(
-            'PMA\libraries\StorageEngine',
-            $this->object->getEngine('dummy')
+            $expectedClass, StorageEngine::getEngine($engineName)
+        );
+    }
+
+    /**
+     * Provider for testGetEngine
+     *
+     * @return array
+     */
+    public function providerGetEngine()
+    {
+        return array(
+            array('PMA\libraries\StorageEngine', 'unknown engine'),
+            array('PMA\libraries\engines\Bdb', 'Bdb'),
+            array('PMA\libraries\engines\Berkeleydb', 'Berkeleydb'),
+            array('PMA\libraries\engines\Binlog', 'Binlog'),
+            array('PMA\libraries\engines\Innobase', 'Innobase'),
+            array('PMA\libraries\engines\Innodb', 'Innodb'),
+            array('PMA\libraries\engines\Memory', 'Memory'),
+            array('PMA\libraries\engines\Merge', 'Merge'),
+            array('PMA\libraries\engines\Mrg_Myisam', 'Mrg_Myisam'),
+            array('PMA\libraries\engines\Myisam', 'Myisam'),
+            array('PMA\libraries\engines\Ndbcluster', 'Ndbcluster'),
+            array('PMA\libraries\engines\Pbxt', 'Pbxt'),
+            array('PMA\libraries\engines\Performance_Schema', 'Performance_Schema'),
         );
     }
 

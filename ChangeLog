@@ -22,8 +22,81 @@ phpMyAdmin - ChangeLog
 + issue #11701 Allow changing parameter order of routines
 - issue #11708 Remove no password warning
 + issue #11711 Clarify the meaning of "Stand-in structure for view" in SQL export
+- issue        HTML line break shown after a MySQL connection error message
+- issue #11728 CSV import skip row count after
+- issue        Fixed displaying of SQL query on table operations
+- issue #6321  Display binary strings as text if they are valid UTF-8
++ issue #11743 Display routine specific privileges
++ issue #11538 Copy multiple tables to database
++ issue        Support Cloudflare Flexible SSL
+- issue        Handle empty TABLE_COMMENT
++ issue #11833 Drop support for old Internet Explorer versions
++ issue #11796 Use modals for displaying forms in db structure page
++ issue #11789 Show MySQL error messages in user language
++ issue        Add 'ssl_verify' configuration directive for self-signed certificates with mysqlnd and PHP >= 5.6
++ issue #11874 Show more used PHP extensions
+- issue #11874 Report when version check and error reporting are disabled
+- issue #11849 Fix PDF schema export
 
-4.5.3.0 (not yet released)
+4.5.5.0 (not yet released)
+- issue        Undefined index: is_ajax_request
+- issue #11855 Fix password change on MariaDB 10.1 and newer
+- issue #11874 Validate version information before further processing it
+- issue #11881 Full processlist lost on refresh
+- issue #11834 Adjust privileges fails if database name contains underscores
+
+4.5.4.1 (2016-01-29)
+- issue #11892 Error with PMA 4.4.15.3
+- issue #11896 Remove hard dependency on phpseclib
+
+4.5.4.0 (2016-01-28)
+- issue #11724 live data edit of big sets is not working
+- issue        Table list not saved in db QBE bookmarked search
+- issue #11777 While 'changing a column', query fails with a syntax error after the 'CHARSET=' keyword
+- issue #11783 Avoid syntax error in javascript messages on invalid PHP setting for max_input_vars
+- issue #11784 Properly handle errors in upacking zip archive
+- issue #11785 Set PHP's internal encoding to UTF-8
+- issue #11786 Fixed Kanji encoding in some specific cases
+- issue #11787 Check whether iconv works before using it
+- issue #11788 Avoid conversion of MySQL error messages
+- issue #11792 Undefined index: parameters
+- issue #11802 Undefined index: field_name_orig
+- issue        Undefined index: host
+- issue #11810 'Add to central columns' (per column button) does nothing
+- issue #11727 SQL duplicate entry error trying to INSERT in designer_settings table
+- issue #11798 Fix handling of databases with dot in a name
+- issue #11820 Fix hiding of page content behind menu
+- issue #11780 FROM clause not generated after loading search bookmark
+- issue #11826 Fix creating/editing VIEW with DEFINER containing special chars
+- issue #11828 Do not invoke FLUSH PRIVILEGES when server in --skip-grant-tables
+- issue #11804 Misleading message for configuration storage
+- issue #11772 Table pagination does nothing when session expired
+- issue #11840 Index comments not working properly
+- issue #11791 Better handle local storage errors
+- issue #11752 Improve detection of privileges for privilege adjusting
+- issue #11854 Undefined property: stdClass::$releases at version check when disabled in config
+- issue #11814 SQL comment and variable stripped from bookmark on save
+- issue        Gracefully handle errors in regex based javascript search
+- issue        [Security] Multiple full path disclosure vulnerabilities, see PMASA-2016-1
+- issue        [Security] Unsafe generation of CSRF token, see PMASA-2016-2
+- issue        [Security] Multiple XSS vulnerabilities, see PMASA-2016-3
+- issue        [Security] Insecure password generation in JavaScript, see PMASA-2016-4
+- issue        [Security] Unsafe comparison of CSRF token, see PMASA-2016-5
+- issue        [Security] Multiple full path disclosure vulnerabilities, see PMASA-2016-6
+- issue        [Security] XSS vulnerability in normalization page, see PMASA-2016-7
+- issue        [Security] Full path disclosure vulnerability in SQL parser, see PMASA-2016-8
+- issue        [Security] XSS vulnerability in SQL editor, see PMASA-2016-9
+
+4.5.3.1 (2015-12-25)
+- issue #11774 Undefined offset 2
+- issue        [Security] Path disclosure, see PMASA-2015-6
+
+4.5.3.0 (2015-12-23)
+- issue #11744 Incomplete results of UNION ALL
+- issue #11742 MATCH AGAINST keywords not recognized
+- issue #11723 syntax verifier is not knowing "STRAIGHT_JOIN"
+- issue #11699 REPLACE() function confused with REPLACE statement
+- issue #11690 FLUSH word not recognized by parser
 - issue #11664 Online syntax verifier bug - "IF" on SELECT statement
 - issue #11665 Format breaks query with COUNT()
 - issue        Undefinex index: SendErrorReports
@@ -36,6 +109,18 @@ phpMyAdmin - ChangeLog
 - issue #11695 PMA_getDataForDeleteUsers() warning
 - issue #11698 Cannot create user on Percona Server
 - issue        Properly report error on connecting
+- issue #11706 Database export template not saving compression option
+- issue #11721 Fix single quote export for servers in ANSI_QUOTES mode
+- issue #11714 Avoid duplicite fetching of table information
+- issue #11724 Temporary fix for live data edit of big sets is not working
+- issue        IE 8 compatibility in console
+- issue #11732 Exporting feature does not work with union table
+- issue #11679 Cannot export results of some queries
+- issue #11720 Message "An account already exists..." incorrectly displayed
+- issue #11758 Missing quoting of table in ALTER CONVERT query
+- issue #11752 PMA 4.5.2 breaks MySQL Master-Master Cluster
+- issue #11757 Export and preview show different SQL for character set
+- issue #11749 Fix possible undefined variables in table operations
 
 4.5.2.0 (2015-11-23)
 - issue #11589 Incorrect parameter in mysqli_fetch_fields()

@@ -145,7 +145,7 @@ class StorageEngine
         $selected = null, $offerUnavailableEngines = false,
         $addEmpty = false
     ) {
-        $selected   = /*overload*/mb_strtolower($selected);
+        $selected   = mb_strtolower($selected);
         $output     = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
 
@@ -166,7 +166,7 @@ class StorageEngine
             $output .= '    <option value="' . htmlspecialchars($key) . '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
-                . (/*overload*/mb_strtolower($key) == $selected
+                . (mb_strtolower($key) == $selected
                     || (empty($selected) && $details['Support'] == 'DEFAULT' && ! $addEmpty)
                     ? ' selected="selected"' : '')
                 . '>' . "\n"
@@ -182,45 +182,39 @@ class StorageEngine
      *
      * @param string $engine The engine ID
      *
-     * @return StorageEngine|bool The engine plugin or false if not found
+     * @return StorageEngine The engine plugin
      * @static
      */
     static public function getEngine($engine)
     {
-        $engine = str_replace('/', '', str_replace('.', '', $engine));
-        $filename = './libraries/engines/' . $engine . '.php';
-        if (file_exists($filename) && include_once $filename) {
-            switch($engine) {
-            case 'Bdb':
-                return new Bdb($engine);
-            case 'Berkeleydb':
-                return new Berkeleydb($engine);
-            case 'Binlog':
-                return new Binlog($engine);
-            case 'Innobase':
-                return new Innobase($engine);
-            case 'Innodb':
-                return new Innodb($engine);
-            case 'Memory':
-                return new Memory($engine);
-            case 'Merge':
-                return new Merge($engine);
-            case 'Mrg_Myisam':
-                return new Mrg_Myisam($engine);
-            case 'Myisam':
-                return new Myisam($engine);
-            case 'Ndbcluster':
-                return new Ndbcluster($engine);
-            case 'Pbxt':
-                return new Pbxt($engine);
-            case 'Performance_Schema':
-                return new Performance_Schema($engine);
-            }
-
-            return false;
+        switch(strtolower($engine)) {
+        case 'bdb':
+            return new Bdb($engine);
+        case 'berkeleydb':
+            return new Berkeleydb($engine);
+        case 'binlog':
+            return new Binlog($engine);
+        case 'innobase':
+            return new Innobase($engine);
+        case 'innodb':
+            return new Innodb($engine);
+        case 'memory':
+            return new Memory($engine);
+        case 'merge':
+            return new Merge($engine);
+        case 'mrg_myisam':
+            return new Mrg_Myisam($engine);
+        case 'myisam':
+            return new Myisam($engine);
+        case 'ndbcluster':
+            return new Ndbcluster($engine);
+        case 'pbxt':
+            return new Pbxt($engine);
+        case 'performance_schema':
+            return new Performance_Schema($engine);
+        default:
+            return new StorageEngine($engine);
         }
-
-        return new StorageEngine($engine);
     }
 
     /**
@@ -338,7 +332,7 @@ class StorageEngine
                 $mysql_vars[$row['Variable_name']]
                     = $variables[$row['Variable_name']];
             } elseif (! $like
-                && /*overload*/mb_strpos(/*overload*/mb_strtolower($row['Variable_name']), /*overload*/mb_strtolower($this->engine)) !== 0
+                && mb_strpos(mb_strtolower($row['Variable_name']), mb_strtolower($this->engine)) !== 0
             ) {
                 continue;
             }

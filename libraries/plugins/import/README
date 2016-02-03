@@ -55,12 +55,15 @@ class Import[Name] extends PMA\libraries\plugins\ImportPlugin
         // create the root group that will be the options field for
         // $importPluginProperties
         // this will be shown as "Format specific options"
-        $importSpecificOptions = new PMA\libraries\properties\options\groups\OptionsPropertyRootGroup();
-        $importSpecificOptions->setName("Format Specific Options");
+        $importSpecificOptions = new
+        PMA\libraries\properties\options\groups\OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new PMA\libraries\properties\options\groups\OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new PMA\libraries\properties\options\groups\OptionsPropertyMainGroup(
+            "general_opts"
+        );
 
         // optional :
         // create primary items and add them to the group
@@ -70,8 +73,9 @@ class Import[Name] extends PMA\libraries\plugins\ImportPlugin
         // size - size of text element
         // len  - maximal size of input
         // values - possible values of the item
-        $leaf = new PMA\libraries\properties\options\items\RadioPropertyItem();
-        $leaf->setName("structure_or_data");
+        $leaf = new PMA\libraries\properties\options\items\RadioPropertyItem(
+            "structure_or_data"
+        );
         $leaf->setValues(
             array(
                 'structure' => __('structure'),

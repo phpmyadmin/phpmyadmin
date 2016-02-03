@@ -7,6 +7,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Table;
 
 /**
  * Gets url params
@@ -31,9 +32,9 @@ function PMA_getUrlParams(
         'query_type' => $what,
         'reload' => (! empty($reload) ? 1 : 0),
     );
-    if (/*overload*/mb_strpos(' ' . $action, 'db_') == 1) {
+    if (mb_strpos(' ' . $action, 'db_') == 1) {
         $_url_params['db']= $db;
-    } elseif (/*overload*/mb_strpos(' ' . $action, 'tbl_') == 1
+    } elseif (mb_strpos(' ' . $action, 'tbl_') == 1
         || $what == 'row_delete'
     ) {
         $_url_params['db']= $db;
@@ -98,6 +99,7 @@ function PMA_buildOrExecuteQueryForMulti(
 
     $selected_cnt   = count($selected);
     $deletes = false;
+    $copy_tbl =false;
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
@@ -234,16 +236,16 @@ function PMA_buildOrExecuteQueryForMulti(
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $subFromPrefix = /*overload*/mb_substr(
+            $subFromPrefix = mb_substr(
                 $current,
                 0,
-                /*overload*/mb_strlen($from_prefix)
+                mb_strlen($from_prefix)
             );
             if ($subFromPrefix == $from_prefix) {
                 $newtablename = $to_prefix
-                    . /*overload*/mb_substr(
+                    . mb_substr(
                         $current,
-                        /*overload*/mb_strlen($from_prefix)
+                        mb_strlen($from_prefix)
                     );
             } else {
                 $newtablename = $current;
@@ -259,7 +261,7 @@ function PMA_buildOrExecuteQueryForMulti(
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
             $newtablename = $to_prefix .
-                /*overload*/mb_substr($current, /*overload*/mb_strlen($from_prefix));
+                mb_substr($current, mb_strlen($from_prefix));
             // COPY TABLE AND CHANGE PREFIX PATTERN
             $a_query = 'CREATE TABLE '
                 . PMA\libraries\Util::backquote($newtablename)
@@ -268,11 +270,20 @@ function PMA_buildOrExecuteQueryForMulti(
             $run_parts = true;
             break;
 
+        case 'copy_tbl':
+            $run_parts = true;
+            $copy_tbl = true;
+            Table::moveCopy($db, $selected[$i], $_POST['target_db'], $selected[$i], $_POST['what'], false, 'one_table');
+            if (isset($_POST['adjust_privileges']) && !empty($_POST['adjust_privileges'])) {
+                include_once 'operations.lib.php';
+                PMA_AdjustPrivileges_copyTable($db, $selected[$i], $_POST['target_db'], $selected[$i]);
+            }
+            break;
         } // end switch
 
         // All "DROP TABLE", "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
         // statements will be run at once below
-        if ($run_parts) {
+        if ($run_parts && !$copy_tbl) {
             $sql_query .= $a_query . ';' . "\n";
             if ($query_type != 'drop_db') {
                 $GLOBALS['dbi']->selectDb($db);
@@ -302,26 +313,63 @@ function PMA_buildOrExecuteQueryForMulti(
 }
 
 /**
- * Gets HTML for replace_prefix_tbl or copy_tbl_change_prefix
+ * Gets HTML for copy tables form
  *
- * @param string $what        mult_submit type
  * @param string $action      action type
  * @param array  $_url_params URL params
  *
  * @return string
  */
-function PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
+function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
 {
-    $html  = '<form action="' . $action . '" method="post">';
+    $html = '<form id="ajax_form" action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
-    $html .= '<legend>';
-    if ($what == 'replace_prefix_tbl') {
-        $html .= __('Replace table prefix:');
-    } else {
-        $html .= __('Copy table with prefix:');
-    }
-    $html .= '</legend>';
+    $databases_list = $GLOBALS['dblist']->databases;
+    foreach ($databases_list as $key => $db_name)
+        if ($db_name == $GLOBALS['db']){
+            $databases_list->offsetUnset($key);
+            break;
+        }
+    $html .= '<strong><label for="db_name_dropdown">' . __('Database') . ':</label></strong>';
+    $html .= '<select id="db_name_dropdown" class="halfWidth" name="target_db" >'
+        . $databases_list->getHtmlOptions(true, false)
+        . '</select>';
+    $html .= '<br><br>';
+    $html .= '<strong><label>' . __('Options') . ':</label></strong><br>';
+    $html .= '<input type="radio" id ="what_structure" value="structure" name="what"></input>';
+    $html .= '<label for="what_structure">' . __('Structure only') . '</label><br>';
+    $html .= '<input type="radio" id ="what_data" value="data" name="what" checked="checked"></input>';
+    $html .= '<label for="what_data">' . __('Structure and data') . '</label><br>';
+    $html .= '<input type="radio" id ="what_dataonly" value="dataonly" name="what"></input>';
+    $html .= '<label for="what_dataonly">' . __('Data only') . '</label><br><br>';
+    $html .= '<input type="checkbox" id="checkbox_drop" value="1" name="drop_if_exists"></input>';
+    $html .= '<label for="checkbox_drop">' . __('Add DROP TABLE') . '</label><br>';
+    $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment"></input>';
+    $html .= '<label for="checkbox_auto_increment">' . __('Add AUTO INCREMENT value') . '</label><br>';
+    $html .= '<input type="checkbox" id="checkbox_constraints" value="1" name="sql_auto_increment" checked="checked"></input>';
+    $html .= '<label for="checkbox_constraints">' . __('Add constraints') . '</label><br><br>';
+    $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox"></input>';
+    $html .= '<label for="checkbox_adjust_privileges">' . __('Adjust privileges') . '<a href="./doc/html/faq.html#faq6-39" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></label>';
+    $html .= '</fieldset>';
+    $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+    $html .= '</form>';
+   return $html;
+}
+
+/**
+ * Gets HTML for replace_prefix_tbl or copy_tbl_change_prefix
+ *
+ * @param string $action      action type
+ * @param array  $_url_params URL params
+ *
+ * @return string
+ */
+function PMA_getHtmlForReplacePrefixTable($action, $_url_params)
+{
+    $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
+    $html .= PMA_URL_getHiddenInputs($_url_params);
+    $html .= '<fieldset class = "input">';
     $html .= '<table>';
     $html .= '<tr>';
     $html .= '<td>' . __('From') . '</td>';
@@ -337,10 +385,7 @@ function PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
     $html .= '</tr>';
     $html .= '</table>';
     $html .= '</fieldset>';
-    $html .= '<fieldset class="tblFooters">';
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
-    $html .= '<input type="submit" value="' . __('Submit') . '" id="buttonYes" />';
-    $html .= '</fieldset>';
     $html .= '</form>';
 
     return $html;
@@ -356,10 +401,9 @@ function PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
  */
 function PMA_getHtmlForAddPrefixTable($action, $_url_params)
 {
-    $html  = '<form action="' . $action . '" method="post">';
+    $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
-    $html .= '<legend>' . __('Add table prefix:') . '</legend>';
     $html .= '<table>';
     $html .= '<tr>';
     $html .= '<td>' . __('Add prefix') . '</td>';
@@ -370,10 +414,7 @@ function PMA_getHtmlForAddPrefixTable($action, $_url_params)
     $html .= '<tr>';
     $html .= '</table>';
     $html .= '</fieldset>';
-    $html .= '<fieldset class="tblFooters">';
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
-    $html .= '<input type="submit" value="' . __('Submit') . '" id="buttonYes" />';
-    $html .= '</fieldset>';
     $html .= '</form>';
 
     return $html;

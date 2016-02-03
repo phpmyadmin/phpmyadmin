@@ -8,16 +8,16 @@
 
 use PMA\libraries\plugins\auth\AuthenticationSignon;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/sanitizing.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\auth\AuthenticationSignon class
  *
  * @package PhpMyAdmin-test
  */
-class AuthenticationSignonTest extends PHPUnit_Framework_TestCase
+class AuthenticationSignonTest extends PMATestCase
 {
     protected $object;
 

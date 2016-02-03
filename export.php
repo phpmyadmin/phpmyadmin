@@ -6,7 +6,6 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\PMA_String;
 
 /**
  * Get the variables sent or posted to this script and a core script
@@ -44,6 +43,7 @@ if (!defined('TESTSUITE')) {
     $post_params = array(
             'db',
             'table',
+            'what',
             'single_table',
             'export_type',
             'export_method',
@@ -164,10 +164,11 @@ if (!defined('TESTSUITE')) {
     }
 
     $table = $GLOBALS['table'];
-    // sanitize this parameter which will be used below in a file inclusion
-    $what = PMA_securePath($_POST['what']);
 
     PMA\libraries\Util::checkParameters(array('what', 'export_type'));
+
+    // sanitize this parameter which will be used below in a file inclusion
+    $what = PMA_securePath($_POST['what']);
 
     // export class instance, not array of properties, as before
     /* @var $export_plugin ExportPlugin */
@@ -252,12 +253,10 @@ if (!defined('TESTSUITE')) {
     }
 
     // Generate error url and check for needed variables
-    /** @var String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if ($export_type == 'server') {
         $err_url = 'server_export.php' . PMA_URL_getCommon();
     } elseif ($export_type == 'database'
-        && /*overload*/mb_strlen($db)
+        && mb_strlen($db)
     ) {
         $err_url = 'db_export.php' . PMA_URL_getCommon(array('db' => $db));
         // Check if we have something to export
@@ -266,8 +265,8 @@ if (!defined('TESTSUITE')) {
         } else {
             $tables = array();
         }
-    } elseif ($export_type == 'table' && /*overload*/mb_strlen($db)
-        && /*overload*/mb_strlen($table)
+    } elseif ($export_type == 'table' && mb_strlen($db)
+        && mb_strlen($table)
     ) {
         $err_url = 'tbl_export.php' . PMA_URL_getCommon(
             array(
@@ -457,10 +456,8 @@ if (!defined('TESTSUITE')) {
                         $do_relation, $do_comments, $do_mime, $do_dates, $aliases,
                         $separate_files
                     );
+                } finally {
                     PMA_unlockTables();
-                } catch (Exception $e) { // TODO use finally when PHP version is 5.5
-                    PMA_unlockTables();
-                    throw $e;
                 }
             } else {
                 PMA_exportDatabase(
@@ -490,10 +487,8 @@ if (!defined('TESTSUITE')) {
                         $do_mime, $do_dates, $allrows, $limit_to, $limit_from,
                         $sql_query, $aliases
                     );
+                } finally {
                     PMA_unlockTables();
-                } catch (Exception $e) { // TODO use finally when PHP version is 5.5
-                    PMA_unlockTables();
-                    throw $e;
                 }
             } else {
                 PMA_exportTable(

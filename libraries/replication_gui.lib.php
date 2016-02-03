@@ -128,7 +128,7 @@ function PMA_getHtmlForMasterConfiguration()
  * returns HTML for slave replication configuration
  *
  * @param bool  $server_slave_status      Whether it is Master or Slave
- * @param Array $server_slave_replication Slave replication
+ * @param array $server_slave_replication Slave replication
  *
  * @return String HTML code
  */
@@ -363,7 +363,7 @@ function PMA_getHtmlForReplicationDbMultibox()
     $multi_values .= '<select name="db_select[]" '
         . 'size="6" multiple="multiple" id="db_select">';
 
-    foreach ($GLOBALS['pma']->databases as $current_db) {
+    foreach ($GLOBALS['dblist']->databases as $current_db) {
         if ($GLOBALS['dbi']->isSystemSchema($current_db)) {
             continue;
         }
@@ -468,8 +468,8 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
 /**
  * returns HTML code for Add user input div
  *
- * @param Array $label_array label tag elements
- * @param Array $input_array input tag elements
+ * @param array $label_array label tag elements
+ * @param array $input_array input tag elements
  *
  * @return String HTML code
  */
@@ -686,7 +686,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
         = PMA_replicationGetUsernameHostnameLength();
 
     if (isset($_REQUEST['username'])
-        && /*overload*/mb_strlen($_REQUEST['username']) === 0
+        && mb_strlen($_REQUEST['username']) === 0
     ) {
         $GLOBALS['pred_username'] = 'any';
     }
@@ -711,9 +711,9 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
         $thishost = str_replace(
             "'",
             '',
-            /*overload*/mb_substr(
+            mb_substr(
                 $_current_user,
-                (/*overload*/mb_strrpos($_current_user, '@') + 1)
+                (mb_strrpos($_current_user, '@') + 1)
             )
         );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
@@ -735,7 +735,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($_REQUEST['hostname'])) {
-        switch (/*overload*/mb_strtolower($_REQUEST['hostname'])) {
+        switch (mb_strtolower($_REQUEST['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';

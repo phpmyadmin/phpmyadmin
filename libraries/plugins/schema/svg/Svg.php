@@ -193,7 +193,6 @@ class Svg extends XMLWriter
         PMA_downloadHeader(
             $fileName,
             'image/svg+xml',
-            /*overload*/
             mb_strlen($output)
         );
         print $output;

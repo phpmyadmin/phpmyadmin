@@ -7,15 +7,15 @@
  */
 use PMA\libraries\plugins\export\TableProperty;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\export\TableProperty class
  *
  * @package PhpMyAdmin-test
  */
-class TablePropertyTest extends PHPUnit_Framework_TestCase
+class TablePropertyTest extends PMATestCase
 {
     protected $object;
 

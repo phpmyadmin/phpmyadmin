@@ -200,8 +200,8 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
  * Returns HTML for render variables list
  *
  * @param ServerStatusData $ServerStatusData Server status data
- * @param Array            $alerts           Alert Array
- * @param Array            $strShowStatus    Status Array
+ * @param array            $alerts           Alert Array
+ * @param array            $strShowStatus    Status Array
  *
  * @return string
  */
@@ -233,7 +233,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
         $retval .= htmlspecialchars(str_replace('_', ' ', $name));
         // Fields containing % are calculated,
         // they can not be described in MySQL documentation
-        if (/*overload*/mb_strpos($name, '%') === false) {
+        if (mb_strpos($name, '%') === false) {
             $retval .= PMA\libraries\Util::showMySQLDocu(
                 'server-status-variables',
                 false,

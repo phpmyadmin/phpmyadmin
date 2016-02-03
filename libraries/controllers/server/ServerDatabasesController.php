@@ -105,7 +105,7 @@ class ServerDatabasesController extends Controller
                 null, $this->_dbstats, null, $this->_sort_by,
                 $this->_sort_order, $this->_pos, true
             );
-            $this->_database_count = count($GLOBALS['pma']->databases);
+            $this->_database_count = count($GLOBALS['dblist']->databases);
         } else {
             $this->_database_count = 0;
         }
@@ -240,7 +240,7 @@ class ServerDatabasesController extends Controller
         }
 
         if (isset($_REQUEST['sort_order'])
-            && /*overload*/mb_strtolower($_REQUEST['sort_order']) == 'desc'
+            && mb_strtolower($_REQUEST['sort_order']) == 'desc'
         ) {
             $this->_sort_order = 'desc';
         } else {
@@ -259,8 +259,7 @@ class ServerDatabasesController extends Controller
     {
 
         $html = '<div id="tableslistcontainer">';
-        reset($this->_databases);
-        $first_database = current($this->_databases);
+        $first_database = reset($this->_databases);
         // table col order
         $column_order = $this->_getColumnOrder();
 
@@ -472,7 +471,7 @@ class ServerDatabasesController extends Controller
                     $current["SCHEMA_NAME"],
                     $replication_info[$type]['Ignore_DB']
                 );
-                if (/*overload*/mb_strlen($key) > 0) {
+                if (mb_strlen($key) > 0) {
                     $out = Util::getIcon(
                         's_cancel.png',
                         __('Not replicated')
@@ -482,7 +481,7 @@ class ServerDatabasesController extends Controller
                         $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
                     );
 
-                    if (/*overload*/mb_strlen($key) > 0
+                    if (mb_strlen($key) > 0
                         || (isset($replication_info[$type]['Do_DB'][0])
                         && $replication_info[$type]['Do_DB'][0] == ""
                         && count($replication_info[$type]['Do_DB']) == 1)

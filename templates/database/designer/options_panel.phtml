@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?php echo __('Relation operator'); ?>
+                                <?= __('Relation operator'); ?>
                             </td>
                             <td width="102">
                                 <select name="rel_opt" id="rel_opt">
@@ -60,7 +60,7 @@
                                         IN
                                     </option>
                                     <option value="EXCEPT">
-                                        <?php echo __('Except'); ?>
+                                        <?= __('Except'); ?>
                                     </option>
                                     <option value="NOT IN">
                                         NOT IN
@@ -70,9 +70,9 @@
                         </tr>
                         <tr>
                             <td class="nowrap">
-                                <?php echo __('Value'); ?>
+                                <?= __('Value'); ?>
                                 <br />
-                                <?php echo __('subquery'); ?>
+                                <?= __('subquery'); ?>
                             </td>
                             <td>
                                 <textarea id="Query" value="" cols="18">
@@ -82,13 +82,13 @@
                         <tr>
                             <td class="center nowrap">
                                 <b>
-                                    <?php echo __('Rename to'); ?>
+                                    <?= __('Rename to'); ?>
                                 </b>
                             </td>
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?php echo __('New name'); ?>
+                                <?= __('New name'); ?>
                             </td>
                             <td width="102">
                                 <input type="text" value="" id="new_name"/>
@@ -97,13 +97,13 @@
                         <tr>
                             <td class="center nowrap">
                                 <b>
-                                    <?php echo __('Aggregate'); ?>
+                                    <?= __('Aggregate'); ?>
                                 </b>
                             </td>
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?php echo __('Operator'); ?>
+                                <?= __('Operator'); ?>
                             </td>
                             <td width="102">
                                 <select name="operator" id="operator">
@@ -167,7 +167,7 @@
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?php echo __('Operator'); ?>
+                                <?= __('Operator'); ?>
                             </td>
                             <td width="102">
                                 <select name="h_operator" id="h_operator">
@@ -175,7 +175,7 @@
                                         ---
                                     </option>
                                     <option value="None" >
-                                        <?php echo __('None'); ?>
+                                        <?= __('None'); ?>
                                     </option>
                                     <option value="sum" >
                                         SUM
@@ -197,7 +197,7 @@
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?php echo __('Relation operator'); ?>
+                                <?= __('Relation operator'); ?>
                             </td>
                             <td width="102">
                                 <select name="h_rel_opt" id="h_rel_opt">
@@ -226,7 +226,7 @@
                                         IN
                                     </option>
                                     <option value="EXCEPT">
-                                        <?php echo __('Except'); ?>
+                                        <?= __('Except'); ?>
                                     </option>
                                     <option value="NOT IN">
                                         NOT IN
@@ -236,9 +236,9 @@
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?php echo __('Value'); ?>
+                                <?= __('Value'); ?>
                                 <br/>
-                                <?php echo __('subquery'); ?>
+                                <?= __('subquery'); ?>
                             </td>
                             <td width="102">
                                 <textarea id="having" value="" cols="18">
@@ -249,8 +249,8 @@
                     <tbody>
                         <tr>
                             <td colspan="2" class="center nowrap">
-                                <input type="button" id="ok_add_object" class="butt" name="Button" value="<?php echo __('OK'); ?>" />
-                                <input type="button" id="cancel_close_option" class="butt" name="Button" value="<?php echo __('Cancel'); ?>" />
+                                <input type="button" id="ok_add_object" class="butt" name="Button" value="<?= __('OK'); ?>" />
+                                <input type="button" id="cancel_close_option" class="butt" name="Button" value="<?= __('Cancel'); ?>" />
                             </td>
                         </tr>
                     </tbody>

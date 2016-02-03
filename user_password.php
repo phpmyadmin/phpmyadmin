@@ -140,8 +140,6 @@ function PMA_changePassword($password, $message, $change_password_message)
 
     $hashing_function = PMA_changePassHashingFunction();
 
-    $orig_auth_plugin = null;
-
     $row = $GLOBALS['dbi']->fetchSingleRow('SELECT CURRENT_USER() as user');
     $curr_user = $row['user'];
     list($username, $hostname) = explode('@', $curr_user);
@@ -157,6 +155,9 @@ function PMA_changePassword($password, $message, $change_password_message)
             'change', $username, $hostname
         );
     }
+
+    $sql_query = 'SET password = '
+        . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
 
     if ($serverType == 'MySQL'
         && PMA_MYSQL_INT_VERSION >= 50706
@@ -180,8 +181,7 @@ function PMA_changePassword($password, $message, $change_password_message)
         }
         $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
     }
-        $sql_query = 'SET password = '
-            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+
     PMA_changePassUrlParamsAndSubmitQuery(
         $username, $hostname, $password,
         $sql_query, $hashing_function, $orig_auth_plugin
@@ -210,7 +210,7 @@ function PMA_changePassHashingFunction()
 }
 
 /**
- * Generate the error url and submit the query
+ * Changes password for a user
  *
  * @param string $username         Username
  * @param string $hostname         Hostname
@@ -236,6 +236,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
             : '\'' . PMA\libraries\Util::sqlAddSlashes($password) . '\'');
     } else if ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200
+        && PMA_MYSQL_INT_VERSION < 100100
     ) {
         if ($orig_auth_plugin == 'mysql_native_password') {
             // Set the hashing method used by PASSWORD()

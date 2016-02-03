@@ -109,7 +109,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         } else {
             // Check whether user has configured something
             if ($GLOBALS['PMA_Config']->source_mtime == 0) {
-                echo '<p>' . sprintf(
+                echo '<p>' , sprintf(
                     __(
                         'You probably did not create a configuration file.'
                         . ' You might want to use the %1$ssetup script%2$s to'
@@ -117,7 +117,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                     ),
                     '<a href="setup/">',
                     '</a>'
-                ) . '</p>' . "\n";
+                ) , '</p>' , "\n";
             } elseif (!isset($GLOBALS['errno'])
                 || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002)
                 && $GLOBALS['errno'] != 2003

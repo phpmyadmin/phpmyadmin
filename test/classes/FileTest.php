@@ -6,12 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'test/PMATestCase.php';
+
 /**
  * tests for PMA\libraries\File class
  *
  * @package PhpMyAdmin-test
  */
-class FileTest extends PHPUnit_Framework_TestCase
+class FileTest extends PMATestCase
 {
     /**
      * Setup function for test cases
@@ -20,9 +22,6 @@ class FileTest extends PHPUnit_Framework_TestCase
      */
     public function setup()
     {
-        $GLOBALS['cfg']['BZipDump'] = true;
-        $GLOBALS['cfg']['GZipDump'] = true;
-        $GLOBALS['cfg']['ZipDump'] = true;
         $GLOBALS['charset_conversion'] = false;
     }
 

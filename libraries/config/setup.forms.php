@@ -215,7 +215,8 @@ $forms['Main_panel']['DbStructure'] = array(
     'ShowDbStructureLastUpdate',
     'ShowDbStructureLastCheck');
 $forms['Main_panel']['TableStructure'] = array(
-    'HideStructureActions');
+    'HideStructureActions',
+    'ShowColumnComments');
 $forms['Main_panel']['Browse'] = array(
     'TableNavigationLinksMode',
     'ShowAll',

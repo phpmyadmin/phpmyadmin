@@ -31,6 +31,10 @@ class UnionKeyword extends Component
      */
     public static function build($component, array $options = array())
     {
-        return implode(' UNION ', $component);
+        $tmp = array();
+        foreach ($component as $component) {
+            $tmp[] = $component[0] . ' ' . $component[1];
+        }
+        return implode(' ', $tmp);
     }
 }

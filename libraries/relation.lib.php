@@ -86,19 +86,19 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     $retval = '<br>';
 
     $messages = array();
-    $messages['error'] = '<font color="red"><strong>'
+    $messages['error'] = '<span style="color:red"><strong>'
         . __('not OK')
-        . '</strong></font>';
+        . '</strong></span>';
 
-    $messages['ok'] = '<font color="green"><strong>'
+    $messages['ok'] = '<span style="color:green"><strong>'
         .  _pgettext('Correctly working', 'OK')
-        . '</strong></font>';
+        . '</strong></span>';
 
-    $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
-    $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
+    $messages['enabled']  = '<span style="color:green">' . __('Enabled') . '</span>';
+    $messages['disabled'] = '<span style="color:red">'   . __('Disabled') . '</span>';
 
     if (empty($cfgRelation['db'])) {
-        $retval .= __('Configuration of pmadb… ')
+        $retval .= __('Configuration of pmadb…') . ' '
              . $messages['error']
              . PMA\libraries\Util::showDocu('setup', 'linked-tables')
              . '<br />' . "\n"
@@ -115,7 +115,12 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     } else {
         $retval .= '<table>' . "\n";
 
-        if (! $cfgRelation['allworks'] && $GLOBALS['cfg']['ZeroConf']) {
+        if (! $cfgRelation['allworks']
+            && $GLOBALS['cfg']['ZeroConf']
+            // Avoid showing a "Create missing tables" link if it's a
+            // problem of missing definition
+            && PMA_arePmadbTablesDefined()
+        ) {
             $retval .= PMA_getHtmlFixPMATables(false);
             $retval .= '<br />';
         }
@@ -347,7 +352,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 
         if (! $cfgRelation['allworks']) {
 
-            $retval .= '<p>' . __('Quick steps to setup advanced features:')
+            $retval .= '<p>' . __('Quick steps to set up advanced features:')
                 . '</p>';
 
             $items = array();
@@ -753,7 +758,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
             WHERE `master_db`    = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
                 AND `master_table` = \'' . PMA\libraries\Util::sqlAddSlashes($table)
             . '\' ';
-        if (/*overload*/mb_strlen($column)) {
+        if (mb_strlen($column)) {
             $rel_query .= ' AND `master_field` = '
                 . '\'' . PMA\libraries\Util::sqlAddSlashes($column) . '\'';
         }
@@ -762,7 +767,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         );
     }
 
-    if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)
+    if (($source == 'both' || $source == 'foreign') && mb_strlen($table)
     ) {
         $tableObj = new Table($table, $db);
         $show_create_table = $tableObj->showCreate();
@@ -781,8 +786,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     /**
      * Emulating relations for some information_schema tables
      */
-    $isInformationSchema = /*overload*/mb_strtolower($db) == 'information_schema';
-        $isMysql = /*overload*/mb_strtolower($db) == 'mysql';
+    $isInformationSchema = mb_strtolower($db) == 'information_schema';
+        $isMysql = mb_strtolower($db) == 'mysql';
     if (($isInformationSchema || $isMysql)
         && ($source == 'internal' || $source == 'both')
     ) {
@@ -795,9 +800,9 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         }
         if (isset($GLOBALS[$relations_key][$table])) {
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
-                if ((! /*overload*/mb_strlen($column) || $column == $field)
+                if ((! mb_strlen($column) || $column == $field)
                     && (! isset($foreign[$field])
-                    || ! /*overload*/mb_strlen($foreign[$field]))
+                    || ! mb_strlen($foreign[$field]))
                 ) {
                     $foreign[$field] = $relations;
                 }
@@ -983,7 +988,7 @@ function PMA_setDbComment($db, $comment = '')
         return false;
     }
 
-    if (/*overload*/mb_strlen($comment)) {
+    if (mb_strlen($comment)) {
         $upd_query = 'INSERT INTO '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['column_info'])
@@ -1029,7 +1034,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
     $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
     // Prevent to run this automatically on Footer class destroying in testsuite
     if (defined('TESTSUITE')
-        || /*overload*/mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL
+        || mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL
     ) {
         return;
     }
@@ -1198,14 +1203,14 @@ function PMA_buildForeignDropdown($foreign, $data, $mode)
     }
 
     foreach ($foreign as $key => $value) {
-        if (/*overload*/mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
+        if (mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
         ) {
             $vtitle = '';
             $value  = htmlspecialchars($value);
         } else {
             $vtitle  = htmlspecialchars($value);
             $value  = htmlspecialchars(
-                /*overload*/mb_substr(
+                mb_substr(
                     $value, 0, $GLOBALS['cfg']['LimitChars']
                 ) . '...'
             );
@@ -2029,4 +2034,37 @@ function PMA_getRelationsAndStatus($condition, $db, $table)
         $res_rel = array();
     } // end if
     return(array($res_rel, $have_rel));
+}
+
+/**
+ * Verifies if all the pmadb tables are defined
+ *
+ * @return boolean
+ */
+function PMA_arePmadbTablesDefined()
+{
+    if (empty($GLOBALS['cfg']['Server']['bookmarktable'])
+        || empty($GLOBALS['cfg']['Server']['relation'])
+        || empty($GLOBALS['cfg']['Server']['table_info'])
+        || empty($GLOBALS['cfg']['Server']['table_coords'])
+        || empty($GLOBALS['cfg']['Server']['column_info'])
+        || empty($GLOBALS['cfg']['Server']['pdf_pages'])
+        || empty($GLOBALS['cfg']['Server']['history'])
+        || empty($GLOBALS['cfg']['Server']['recent'])
+        || empty($GLOBALS['cfg']['Server']['favorite'])
+        || empty($GLOBALS['cfg']['Server']['table_uiprefs'])
+        || empty($GLOBALS['cfg']['Server']['tracking'])
+        || empty($GLOBALS['cfg']['Server']['userconfig'])
+        || empty($GLOBALS['cfg']['Server']['users'])
+        || empty($GLOBALS['cfg']['Server']['usergroups'])
+        || empty($GLOBALS['cfg']['Server']['navigationhiding'])
+        || empty($GLOBALS['cfg']['Server']['savedsearches'])
+        || empty($GLOBALS['cfg']['Server']['central_columns'])
+        || empty($GLOBALS['cfg']['Server']['designer_settings'])
+        || empty($GLOBALS['cfg']['Server']['export_templates'])
+    ) {
+        return false;
+    } else {
+        return true;
+    }
 }

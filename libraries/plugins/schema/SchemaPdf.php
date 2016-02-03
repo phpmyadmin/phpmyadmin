@@ -47,24 +47,26 @@ class SchemaPdf extends SchemaPlugin
         // create the root group that will be the options field for
         // $schemaPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // specific options main group
-        $specificOptions = new OptionsPropertyMainGroup();
-        $specificOptions->setName("general_opts");
+        $specificOptions = new OptionsPropertyMainGroup("general_opts");
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 
         // create leaf items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('all_tables_same_width');
-        $leaf->setText(__('Same width for all tables'));
+        $leaf = new BoolPropertyItem(
+            'all_tables_same_width',
+            __('Same width for all tables')
+        );
         $specificOptions->addProperty($leaf);
 
-        $leaf = new SelectPropertyItem();
-        $leaf->setName("orientation");
-        $leaf->setText(__('Orientation'));
+        $leaf = new SelectPropertyItem(
+            "orientation",
+            __('Orientation')
+        );
         $leaf->setValues(
             array(
                 'L' => __('Landscape'),
@@ -73,25 +75,29 @@ class SchemaPdf extends SchemaPlugin
         );
         $specificOptions->addProperty($leaf);
 
-        $leaf = new SelectPropertyItem();
-        $leaf->setName("paper");
-        $leaf->setText(__('Paper size'));
-        $leaf->setValues($this->_getPaperSizeArray());
+        $leaf = new SelectPropertyItem(
+            "paper",
+            __('Paper size')
+        );
+        $leaf->setValues($this->getPaperSizeArray());
         $specificOptions->addProperty($leaf);
 
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('show_grid');
-        $leaf->setText(__('Show grid'));
+        $leaf = new BoolPropertyItem(
+            'show_grid',
+            __('Show grid')
+        );
         $specificOptions->addProperty($leaf);
 
-        $leaf = new BoolPropertyItem();
-        $leaf->setName('with_doc');
-        $leaf->setText(__('Data dictionary'));
+        $leaf = new BoolPropertyItem(
+            'with_doc',
+            __('Data dictionary')
+        );
         $specificOptions->addProperty($leaf);
 
-        $leaf = new SelectPropertyItem();
-        $leaf->setName("table_order");
-        $leaf->setText(__('Order of the tables'));
+        $leaf = new SelectPropertyItem(
+            "table_order",
+            __('Order of the tables')
+        );
         $leaf->setValues(
             array(
                 ''          => __('None'),
@@ -107,21 +113,6 @@ class SchemaPdf extends SchemaPlugin
         // set the options for the schema export plugin property item
         $schemaPluginProperties->setOptions($exportSpecificOptions);
         $this->properties = $schemaPluginProperties;
-    }
-
-    /**
-     * Returns the array of paper sizes
-     *
-     * @return array array of paper sizes
-     */
-    private function _getPaperSizeArray()
-    {
-        $ret = array();
-        foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
-            $ret[$val] = $val;
-        }
-
-        return $ret;
     }
 
     /**

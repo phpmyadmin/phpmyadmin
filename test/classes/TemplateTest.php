@@ -6,13 +6,53 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'test/PMATestCase.php';
+
 /**
  * Test for PMA\libraries\Template class
  *
  * @package PhpMyAdmin-test
  */
-class TemplateTest extends PHPUnit_Framework_TestCase
+class TemplateTest extends PMATestCase
 {
+    /**
+     * Test for set function
+     *
+     * @return void
+     */
+    public function testSet()
+    {
+        $template = PMA\libraries\Template::get('test/add_data');
+        $template->set('variable1', 'value1');
+        $template->set(
+            array(
+                'variable2' => 'value2'
+            )
+        );
+        $result = $template->render();
+        $this->assertContains('value1', $result);
+        $this->assertContains('value2', $result);
+    }
+
+    /**
+     * Test for setHelper
+     *
+     * @return void
+     */
+    public function testSetHelper()
+    {
+        $template = PMA\libraries\Template::get('test/set_helper');
+        $template->setHelper('hello', function ($string) {
+            return 'hello ' . $string;
+        });
+        $template->set(
+            array(
+                'variable' => 'world'
+            )
+        );
+        $this->assertEquals('hello world', $template->render());
+    }
+
     /**
      * Test for render
      *

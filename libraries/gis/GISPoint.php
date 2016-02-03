@@ -57,10 +57,10 @@ class GISPoint extends GISGeometry
     {
         // Trim to remove leading 'POINT(' and trailing ')'
         $point
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 6,
-                /*overload*/mb_strlen($spatial) - 7
+                mb_strlen($spatial) - 7
             );
 
         return $this->setMinMax($point, array());
@@ -87,17 +87,17 @@ class GISPoint extends GISGeometry
     ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(/*overload*/mb_substr($point_color, 1, 2));
-        $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
-        $blue = hexdec(/*overload*/mb_substr($point_color, 4, 2));
+        $red = hexdec(mb_substr($point_color, 1, 2));
+        $green = hexdec(mb_substr($point_color, 3, 2));
+        $blue = hexdec(mb_substr($point_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 6,
-                /*overload*/mb_strlen($spatial) - 7
+                mb_strlen($spatial) - 7
             );
         $points_arr = $this->extractPoints($point, $scale_data);
 
@@ -149,17 +149,17 @@ class GISPoint extends GISGeometry
         $pdf
     ) {
         // allocate colors
-        $red = hexdec(/*overload*/mb_substr($point_color, 1, 2));
-        $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
-        $blue = hexdec(/*overload*/mb_substr($point_color, 4, 2));
+        $red = hexdec(mb_substr($point_color, 1, 2));
+        $green = hexdec(mb_substr($point_color, 3, 2));
+        $blue = hexdec(mb_substr($point_color, 4, 2));
         $line = array('width' => 1.25, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 6,
-                /*overload*/mb_strlen($spatial) - 7
+                mb_strlen($spatial) - 7
             );
         $points_arr = $this->extractPoints($point, $scale_data);
 
@@ -209,10 +209,10 @@ class GISPoint extends GISGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 6,
-                /*overload*/mb_strlen($spatial) - 7
+                mb_strlen($spatial) - 7
             );
         $points_arr = $this->extractPoints($point, $scale_data);
 
@@ -265,10 +265,10 @@ class GISPoint extends GISGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 6,
-                /*overload*/mb_strlen($spatial) - 7
+                mb_strlen($spatial) - 7
             );
         $points_arr = $this->extractPoints($point, null);
 
@@ -341,10 +341,10 @@ class GISPoint extends GISGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $wkt,
                 6,
-                /*overload*/mb_strlen($wkt) - 7
+                mb_strlen($wkt) - 7
             );
         $points_arr = $this->extractPoints($point, null);
 

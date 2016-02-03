@@ -1,12 +1,12 @@
-<input type="hidden" name="dbname" value="<?php echo htmlspecialchars($database); ?>"/>
+<input type="hidden" name="dbname" value="<?= htmlspecialchars($database); ?>"/>
 
-<label for="text_tablename"><?php echo __('Add privileges on the following table:'); ?></label>
+<label for="text_tablename"><?= __('Add privileges on the following table:'); ?></label>
 
 <?php if (! empty($tables)) : ?>
     <select name="pred_tablename" class="autosubmit">
-        <option value="" selected="selected"><?php echo __('Use text field'); ?>:</option>
+        <option value="" selected="selected"><?= __('Use text field'); ?>:</option>
         <?php foreach ($tables as $table) : ?>
-            <option value="<?php echo htmlspecialchars($table); ?>"><?php echo htmlspecialchars($table); ?></option>
+            <option value="<?= htmlspecialchars($table); ?>"><?= htmlspecialchars($table); ?></option>
         <?php endforeach; ?>
     </select>
 <?php endif; ?>

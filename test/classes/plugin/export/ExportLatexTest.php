@@ -8,18 +8,19 @@
 use PMA\libraries\plugins\export\ExportLatex;
 
 require_once 'libraries/export.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
+
 /**
  * tests for PMA\libraries\plugins\export\ExportLatex class
  *
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportLatexTest extends PHPUnit_Framework_TestCase
+class ExportLatexTest extends PMATestCase
 {
     protected $object;
 
@@ -754,7 +755,6 @@ class ExportLatexTest extends PHPUnit_Framework_TestCase
         }
 
         $GLOBALS['cfgRelation']['relation'] = true;
-        $GLOBALS['cfg']['LimitChars'] = 40;
         $_SESSION['relation'][0] = array(
             'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,

@@ -2,13 +2,13 @@
 <?php if ($cfgRelation['relwork'] ||
     PMA\libraries\Util::isForeignKeySupported($engine)): ?>
     <ul id="topmenu2">
-        <?php echo PMA\libraries\Util::getHtmlTab(array(
+        <?= PMA\libraries\Util::getHtmlTab(array(
             'icon' => 'b_props',
             'link' => 'tbl_structure.php',
             'text' => __('Table structure'),
             'id' => 'table_strucuture_id'
         ), $url_params); ?>
-        <?php echo PMA\libraries\Util::getHtmlTab(array(
+        <?= PMA\libraries\Util::getHtmlTab(array(
             'icon' => 'b_relations',
             'link' => 'tbl_relation.php',
             'text' => __('Relation view'),

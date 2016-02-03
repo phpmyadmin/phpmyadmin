@@ -123,7 +123,6 @@ class Config
          */
         $this->set('PMA_THEME_GENERATION', 2);
 
-        $this->checkPhpVersion();
         $this->checkWebServerOs();
         $this->checkWebServer();
         $this->checkGd2();
@@ -168,15 +167,15 @@ class Config
      */
     private function _setClientPlatform($user_agent)
     {
-        if (/*overload*/mb_strstr($user_agent, 'Win')) {
+        if (mb_strstr($user_agent, 'Win')) {
             $this->set('PMA_USR_OS', 'Win');
-        } elseif (/*overload*/mb_strstr($user_agent, 'Mac')) {
+        } elseif (mb_strstr($user_agent, 'Mac')) {
             $this->set('PMA_USR_OS', 'Mac');
-        } elseif (/*overload*/mb_strstr($user_agent, 'Linux')) {
+        } elseif (mb_strstr($user_agent, 'Linux')) {
             $this->set('PMA_USR_OS', 'Linux');
-        } elseif (/*overload*/mb_strstr($user_agent, 'Unix')) {
+        } elseif (mb_strstr($user_agent, 'Unix')) {
             $this->set('PMA_USR_OS', 'Unix');
-        } elseif (/*overload*/mb_strstr($user_agent, 'OS/2')) {
+        } elseif (mb_strstr($user_agent, 'OS/2')) {
             $this->set('PMA_USR_OS', 'OS/2');
         } else {
             $this->set('PMA_USR_OS', 'Other');
@@ -271,7 +270,7 @@ class Config
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
-        } elseif (! /*overload*/mb_strstr($HTTP_USER_AGENT, 'compatible')
+        } elseif (! mb_strstr($HTTP_USER_AGENT, 'compatible')
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
@@ -314,7 +313,7 @@ class Config
 
         if (@function_exists('gd_info')) {
             $gd_nfo = gd_info();
-            if (/*overload*/mb_strstr($gd_nfo["GD Version"], '2.')) {
+            if (mb_strstr($gd_nfo["GD Version"], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
             } else {
                 $this->set('PMA_IS_GD2', 0);
@@ -362,42 +361,6 @@ class Config
                 $this->set('PMA_IS_WINDOWS', 1);
             }
         }
-    }
-
-    /**
-     * detects PHP version
-     *
-     * @return void
-     */
-    public function checkPhpVersion()
-    {
-        $match = array();
-        if (! preg_match(
-            '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
-            phpversion(),
-            $match
-        )) {
-            preg_match(
-                '@([0-9]{1,2}).([0-9]{1,2})@',
-                phpversion(),
-                $match
-            );
-        }
-        if (isset($match) && ! empty($match[1])) {
-            if (! isset($match[2])) {
-                $match[2] = 0;
-            }
-            if (! isset($match[3])) {
-                $match[3] = 0;
-            }
-            $this->set(
-                'PMA_PHP_INT_VERSION',
-                (int) sprintf('%d%02d%02d', $match[1], $match[2], $match[3])
-            );
-        } else {
-            $this->set('PMA_PHP_INT_VERSION', 0);
-        }
-        $this->set('PMA_PHP_STR_VERSION', phpversion());
     }
 
     /**
@@ -449,10 +412,10 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (/*overload*/mb_strstr($ref_head, '/')) {
-            $ref_head = /*overload*/mb_substr(trim($ref_head), 5);
+        if (mb_strstr($ref_head, '/')) {
+            $ref_head = mb_substr(trim($ref_head), 5);
             if (substr($ref_head, 0, 11) === 'refs/heads/') {
-                $branch = /*overload*/mb_substr($ref_head, 11);
+                $branch = mb_substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
             }
@@ -824,7 +787,7 @@ class Config
         unset($cfg['Servers']);
 
         $this->default = $cfg;
-        $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
+        $this->settings = array_replace_recursive($this->settings, $cfg);
 
         $this->error_config_default_file = false;
 
@@ -906,7 +869,7 @@ class Config
             );
         }
 
-        $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
+        $this->settings = array_replace_recursive($this->settings, $cfg);
         $this->checkPmaAbsoluteUri();
 
         // Handling of the collation must be done after merging of $cfg
@@ -1011,8 +974,8 @@ class Config
             $org_fontsize = $this->settings['fontsize'];
         }
         // load config array
-        $this->settings = PMA_arrayMergeRecursive($this->settings, $config_data);
-        $GLOBALS['cfg'] = PMA_arrayMergeRecursive($GLOBALS['cfg'], $config_data);
+        $this->settings = array_replace_recursive($this->settings, $config_data);
+        $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
         if (defined('PMA_MINIMUM_COMMON')) {
             return;
         }
@@ -1176,7 +1139,7 @@ class Config
             $handle = @fopen($this->getSource(), 'r');
             if ($handle !== false) {
                 $contents = @fread($handle, 1); // reading 1 byte is enough to test
-                @fclose($handle);
+                fclose($handle);
             }
             if ($contents === false) {
                 $this->source_mtime = 0;
@@ -1306,7 +1269,7 @@ class Config
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
         $is_https = $this->detectHttps();
 
-        if (/*overload*/mb_strlen($pma_absolute_uri) < 5) {
+        if (mb_strlen($pma_absolute_uri) < 5) {
             $url = array();
 
             // If we don't have scheme, we didn't have full URL so we need to
@@ -1338,8 +1301,11 @@ class Config
                     return;
                 }
 
-                // If we didn't set port yet...
-                if (empty($url['port']) && PMA_getenv('SERVER_PORT')) {
+                if ($this->get('force_protocol')) {
+                    // CloudFlare Flexible SSL port
+                    $url['port'] = PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'http' ? 80 : 443;
+                } elseif (empty($url['port']) && PMA_getenv('SERVER_PORT')) {
+                    // If we didn't set port yet...
                     $url['port'] = PMA_getenv('SERVER_PORT');
                 }
 
@@ -1370,7 +1336,7 @@ class Config
             $pma_absolute_uri .= $url['host'];
             // Add port, if it not the default one
             // (or 80 for https which is most likely a bug)
-            if (! empty($url['port'])
+            if (!empty($url['port'])
                 && (($url['scheme'] == 'http' && $url['port'] != 80)
                 || ($url['scheme'] == 'https' && $url['port'] != 80)
                 || ($url['scheme'] == 'https' && $url['port'] != 443))
@@ -1404,7 +1370,7 @@ class Config
                 $path = '';
             }
             // in vhost situations, there could be already an ending slash
-            if (/*overload*/mb_substr($path, -1) != '/') {
+            if (mb_substr($path, -1) != '/') {
                 $path .= '/';
             }
             $pma_absolute_uri .= $path;
@@ -1426,20 +1392,20 @@ class Config
 
             // Adds a trailing slash et the end of the phpMyAdmin uri if it
             // does not exist.
-            if (/*overload*/mb_substr($pma_absolute_uri, -1) != '/') {
+            if (mb_substr($pma_absolute_uri, -1) != '/') {
                 $pma_absolute_uri .= '/';
             }
 
             // If URI doesn't start with http:// or https://, we will add
             // this.
-            if (/*overload*/mb_substr($pma_absolute_uri, 0, 7) != 'http://'
-                && /*overload*/mb_substr($pma_absolute_uri, 0, 8) != 'https://'
+            if (mb_substr($pma_absolute_uri, 0, 7) != 'http://'
+                && mb_substr($pma_absolute_uri, 0, 8) != 'https://'
             ) {
                 $pma_absolute_uri
                     = ($is_https ? 'https' : 'http')
                     . ':'
                     . (
-                        /*overload*/mb_substr($pma_absolute_uri, 0, 2) == '//'
+                        mb_substr($pma_absolute_uri, 0, 2) == '//'
                         ? ''
                         : '//'
                     )
@@ -1583,7 +1549,10 @@ class Config
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
 
-        $is_https = (isset($url['scheme']) && $url['scheme'] == 'https');
+        // CloudFlare Flexible SSL compatibility
+        $this->set('force_protocol', in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true));
+
+        $is_https = $this->get('force_protocol') ? PMA_getenv('HTTP_X_FORWARDED_PROTO') : isset($url['scheme']) && $url['scheme'] == 'https';
 
         $this->set('is_https', $is_https);
 
@@ -1619,29 +1588,21 @@ class Config
             // Scheme
             if (PMA_getenv('HTTP_SCHEME')) {
                 $url['scheme'] = PMA_getenv('HTTP_SCHEME');
-            } elseif (PMA_getenv('HTTPS')
-                && strtolower(PMA_getenv('HTTPS')) == 'on'
-            ) {
+            } elseif (PMA_getenv('HTTPS') && strtolower(PMA_getenv('HTTPS')) == 'on') {
                 $url['scheme'] = 'https';
                 // A10 Networks load balancer:
-            } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
-                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
-            ) {
+            } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB') && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
                 $url['scheme'] = 'https';
-            } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
-                $url['scheme'] = /*overload*/mb_strtolower(
-                    PMA_getenv('HTTP_X_FORWARDED_PROTO')
-                );
-            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS')
-                && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
-            ) {
+            } elseif ($this->get('force_protocol')) {
+                $url['scheme'] = PMA_getenv('HTTP_X_FORWARDED_PROTO');
+            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS') && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
                 $url['scheme'] = 'https';
             } else {
                 $url['scheme'] = 'http';
             }
         }
 
-        if (isset($url['scheme']) && $url['scheme'] == 'https') {
+        if (PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'https' || isset($url['scheme']) && $url['scheme'] == 'https') {
             $is_https = true;
         } else {
             $is_https = false;
@@ -1700,8 +1661,6 @@ class Config
             'PMA_VERSION',
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
-            'PMA_PHP_STR_VERSION',
-            'PMA_PHP_INT_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_IIS',
             'PMA_IS_GD2',
@@ -1866,7 +1825,7 @@ class Config
     public function setCookie($cookie, $value, $default = null,
         $validity = null, $httponly = true
     ) {
-        if (/*overload*/mb_strlen($value) && null !== $default && $value === $default
+        if (mb_strlen($value) && null !== $default && $value === $default
         ) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
@@ -1876,7 +1835,7 @@ class Config
             return false;
         }
 
-        if (!/*overload*/mb_strlen($value) && isset($_COOKIE[$cookie])) {
+        if (!mb_strlen($value) && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }

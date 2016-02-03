@@ -100,18 +100,19 @@ class TableChartController extends TableController
          */
         $db = &$this->db;
         $table = &$this->table;
+        $url_params = array();
 
         /**
          * Runs common work
          */
-        if (/*overload*/ mb_strlen($this->table)) {
+        if (mb_strlen($this->table)) {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabTable'], 'table'
             );
             $url_params['back'] = 'tbl_sql.php';
             include 'libraries/tbl_common.inc.php';
             include 'libraries/tbl_info.inc.php';
-        } elseif (/*overload*/ mb_strlen($this->db)) {
+        } elseif (mb_strlen($this->db)) {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabDatabase'], 'database'
             );
@@ -187,10 +188,8 @@ class TableChartController extends TableController
         $db = &$this->db;
         $table = &$this->table;
 
-        $tableLength = /*overload*/
-            mb_strlen($this->table);
-        $dbLength = /*overload*/
-            mb_strlen($this->db);
+        $tableLength = mb_strlen($this->table);
+        $dbLength = mb_strlen($this->db);
         if ($tableLength && $dbLength) {
             include './libraries/tbl_common.inc.php';
         }

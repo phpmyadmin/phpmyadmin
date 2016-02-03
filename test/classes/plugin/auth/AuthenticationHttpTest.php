@@ -8,16 +8,16 @@
 
 use PMA\libraries\plugins\auth\AuthenticationHttp;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/sanitizing.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\auth\AuthenticationHttp class
  *
  * @package PhpMyAdmin-test
  */
-class AuthenticationHttpTest extends PHPUnit_Framework_TestCase
+class AuthenticationHttpTest extends PMATestCase
 {
     /**
      * @var AuthenticationHttp
@@ -36,10 +36,6 @@ class AuthenticationHttpTest extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
         $GLOBALS['text_dir'] = "ltr";
-        $GLOBALS['available_languages'] = array(
-            "en" => array("English", "US-ENGLISH"),
-            "ch" => array("Chinese", "TW-Chinese")
-        );
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationHttp();

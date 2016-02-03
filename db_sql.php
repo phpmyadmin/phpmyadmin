@@ -22,7 +22,6 @@ PageSettings::showGroup('Sql_queries');
 $response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('functions.js');
 $scripts->addFile('makegrid.js');
 $scripts->addFile('jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');

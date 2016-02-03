@@ -58,7 +58,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
         $_GET['db_select'] = explode(",", $_GET['db_select']);
     }
 
-    foreach ($GLOBALS['pma']->databases as $current_db) {
+    foreach ($GLOBALS['dblist']->databases as $current_db) {
         if ($GLOBALS['dbi']->isSystemSchema($current_db, true)) {
             continue;
         }
@@ -69,7 +69,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
                 $is_selected = '';
             }
         } elseif (!empty($tmp_select)) {
-            if (/*overload*/mb_strpos(
+            if (mb_strpos(
                 ' ' . $tmp_select,
                 '|' . $current_db . '|'
             )) {
@@ -637,7 +637,6 @@ function PMA_getHtmlForExportOptionsOutputCharset()
     global $cfg;
     $html = '        <li><label for="select_charset" class="desc">'
         . __('Character set of the file:') . '</label>' . "\n";
-    reset($cfg['AvailableCharsets']);
     $html .= '<select id="select_charset" name="charset" size="1">';
     foreach ($cfg['AvailableCharsets'] as $temp_charset) {
         $html .= '<option value="' . $temp_charset . '"';
@@ -869,7 +868,7 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = /*overload*/mb_strlen($table);
+    $tableLength = mb_strlen($table);
     $_table = new Table($table, $db);
     if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);

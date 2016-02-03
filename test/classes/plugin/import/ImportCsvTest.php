@@ -18,17 +18,17 @@ $GLOBALS['server'] = 0;
  * Include to test.
  */
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'libraries/sanitizing.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\plugins\import\ImportCsv class
  *
  * @package PhpMyAdmin-test
  */
-class ImportCsvTest extends PHPUnit_Framework_TestCase
+class ImportCsvTest extends PMATestCase
 {
     /**
      * @var ImportCsv
@@ -55,9 +55,6 @@ class ImportCsvTest extends PHPUnit_Framework_TestCase
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 0;
-        $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
-        $GLOBALS['cfg']['ShowHint'] = true;
 
         $GLOBALS['import_file'] = 'test/test_data/db_test.csv';
         $GLOBALS['import_text'] = 'ImportCsv_Test';

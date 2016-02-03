@@ -13,7 +13,7 @@ use PMA\libraries\dbi\DBIMysql;
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -22,7 +22,7 @@ require_once 'libraries/database_interface.inc.php';
  *
  * @package PhpMyAdmin-test
  */
-class DBIMysqlTest extends PHPUnit_Framework_TestCase
+class DBIMysqlTest extends PMATestCase
 {
     /**
      * @access protected
@@ -42,7 +42,6 @@ class DBIMysqlTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('The MySQL extension is not available.');
         }
         $GLOBALS['cfg']['Server']['ssl'] = true;
-        $GLOBALS['cfg']['PersistentConnections'] = false;
         $GLOBALS['cfg']['Server']['compress'] = true;
         $this->object = new DBIMysql();
     }
@@ -84,7 +83,7 @@ class DBIMysqlTest extends PHPUnit_Framework_TestCase
      */
     public function testMysqlDBI()
     {
-        if (! PMA_HAS_RUNKIT) {
+        if (! PMA_HAS_RUNKIT || ! $GLOBALS['runkit_internal_override']) {
             $this->markTestSkipped("Cannot redefine function");
         }
         //FOR UT, we just test the right mysql client API is called

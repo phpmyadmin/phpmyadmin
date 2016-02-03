@@ -321,8 +321,10 @@ class TableStructureController extends TableController
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = $url_query
             . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
-        $url_params['goto'] = 'tbl_structure.php';
-        $url_params['back'] = 'tbl_structure.php';
+        $url_params = array(
+            'goto' => 'tbl_structure.php',
+            'back' => 'tbl_structure.php',
+        );
 
         /**
          * Gets tables information
@@ -440,7 +442,7 @@ class TableStructureController extends TableController
             $changes[] = 'CHANGE ' . Table::generateAlter(
                 $column,
                 $column,
-                /*overload*/mb_strtoupper($extracted_columnspec['type']),
+                mb_strtoupper($extracted_columnspec['type']),
                 $extracted_columnspec['spec_in_brackets'],
                 $extracted_columnspec['attribute'],
                 isset($data['Collation']) ? $data['Collation'] : '',
@@ -882,7 +884,7 @@ class TableStructureController extends TableController
                 Table::PROP_SORTED_COLUMN
             );
             // if the old column name is part of the remembered sort expression
-            if (/*overload*/mb_strpos(
+            if (mb_strpos(
                 $sorted_col,
                 Util::backquote($_REQUEST['field_orig'][$i])
             ) !== false) {
@@ -1053,7 +1055,7 @@ class TableStructureController extends TableController
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && /*overload*/mb_strlen(
+                    && mb_strlen(
                         $_REQUEST['field_name'][$fieldindex]
                     )
                 ) {
@@ -1086,7 +1088,7 @@ class TableStructureController extends TableController
         $changed = false;
 
         if (Util_lib\get($GLOBALS, 'col_priv', false)
-            && Util_lib\get($GLOBALS, 'flush_priv', false)
+            && Util_lib\get($GLOBALS, 'is_reload_priv', false)
         ) {
             $this->dbi->selectDb('mysql');
 
@@ -1137,10 +1139,14 @@ class TableStructureController extends TableController
         }
 
         // field_name does not follow the convention (corresponds to field_orig)
+        if ($_REQUEST['field_name'][$i] != $_REQUEST['field_orig'][$i]) {
+            return true;
+        }
+
         $fields = array(
             'field_attribute', 'field_collation', 'field_comments',
             'field_default_value', 'field_default_type', 'field_extra',
-            'field_length', 'field_name', 'field_null', 'field_type'
+            'field_length', 'field_null', 'field_type'
         );
         foreach ($fields as $field) {
             if ($_REQUEST[$field][$i] != $_REQUEST[$field . '_orig'][$i]) {

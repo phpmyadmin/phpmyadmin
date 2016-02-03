@@ -153,14 +153,14 @@ class Header
         if (isset($GLOBALS['db'])) {
             $params['db'] = $GLOBALS['db'];
         }
-        $this->_scripts->addFile('jquery/jquery-1.11.1.min.js');
+        $this->_scripts->addFile('jquery/jquery-2.1.4.min.js');
         $this->_scripts->addFile(
             'whitelist.php' . PMA_URL_getCommon($params), false, true
         );
         $this->_scripts->addFile('sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
-        $this->_scripts->addFile('jquery/jquery-ui-1.11.2.min.js');
+        $this->_scripts->addFile('jquery/jquery-ui-1.11.4.min.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
         $this->_scripts->addFile('jquery/jquery.event.drag-2.2.js');
@@ -298,7 +298,7 @@ class Header
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = !!$isAjax;
+        $this->_isAjax = (boolean) $isAjax;
         $this->_console->setAjax($isAjax);
     }
 
@@ -620,13 +620,13 @@ class Header
      */
     private function _getHtmlStart()
     {
-        $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
+        $lang = $GLOBALS['lang'];
         $dir  = $GLOBALS['text_dir'];
 
         $retval  = "<!DOCTYPE HTML>";
         $retval .= "<html lang='$lang' dir='$dir' class='";
-        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
-        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT)
+        $retval .= mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
+        $retval .= mb_strtolower(PMA_USR_BROWSER_AGENT)
             . intval(PMA_USR_BROWSER_VER) . "'>";
         $retval .= '<head>';
 
@@ -673,7 +673,7 @@ class Header
             // load jQuery's CSS prior to our theme's CSS, to let the theme
             // override jQuery's CSS
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui-1.11.2.css" />';
+                . $theme_path . '/jquery/jquery-ui-1.11.4.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'js/codemirror/lib/codemirror.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
@@ -780,7 +780,7 @@ class Header
     {
         $retval = '';
         if ($this->_menuEnabled
-            && /*overload*/mb_strlen($table)
+            && mb_strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
             $tmp_result = RecentFavoriteTable::getInstance('recent')

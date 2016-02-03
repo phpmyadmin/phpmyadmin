@@ -11,15 +11,14 @@
  */
 use PMA\libraries\PDF;
 
-require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/core.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PDF class
  *
  * @package PhpMyAdmin-test
  */
-class PDFTest extends PHPUnit_Framework_TestCase
+class PDFTest extends PMATestCase
 {
     /**
      * SetUp for test cases
@@ -70,7 +69,7 @@ class PDFTest extends PHPUnit_Framework_TestCase
         $pdf->Open();
         $pdf->SetAutoPageBreak('auto');
         $pdf->Addpage();
-        $pdf->SetFont(PMA_PDF_FONT, 'B', 14);
+        $pdf->SetFont(PDF::PMA_PDF_FONT, 'B', 14);
         $pdf->Cell(0, 6, 'Cell', 'B', 1, 'C');
         $pdf->Ln();
         $pdf->Addpage();

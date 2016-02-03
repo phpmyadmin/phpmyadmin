@@ -11,7 +11,7 @@
  */
 
 if (!function_exists('__')) {
-    PMA_fatalError('Bad invocation!');
+    exit();
 }
 
 $strConfigAllowArbitraryServer_desc = __(
@@ -114,6 +114,9 @@ $strConfigEnableAutocompleteForTablesAndColumns_name = __(
 );
 $strConfigHideStructureActions_desc
     = __('Whether the table structure actions should be hidden.');
+$strConfigShowColumnComments_name = __('Show column comments');
+$strConfigShowColumnComments_desc
+    = __('Whether column comments should be shown in table structure view');
 $strConfigHideStructureActions_name = __('Hide table structure actions');
 $strConfigDisplayServersList_desc
     = __('Show server listing as a list instead of a drop down.');

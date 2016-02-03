@@ -79,9 +79,6 @@ class SysInfoWINNT extends \PMA\libraries\SysInfo
         $arrProp = $objWEBM->Properties_;
         $arrWEBMCol = $objWEBM->Instances_();
         foreach ($arrWEBMCol as $objItem) {
-            if (is_array($arrProp)) {
-                reset($arrProp);
-            }
             $arrInstance = array();
             foreach ($arrProp as $propItem) {
                 $name = $propItem->Name;

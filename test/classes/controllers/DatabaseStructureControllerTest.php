@@ -16,6 +16,7 @@ use PMA\libraries\di\Container;
 use PMA\libraries\Table;
 use PMA\libraries\Theme;
 
+require_once 'test/PMATestCase.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 
@@ -26,7 +27,7 @@ require_once 'test/libraries/stubs/ResponseStub.php';
  *
  * @package PhpMyAdmin-test
  */
-class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
+class DatabaseStructureControllerTest extends PMATestCase
 {
     /**
      * @var \PMA\Test\Stubs\Response
@@ -45,15 +46,7 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['table'] = "table";
@@ -363,8 +356,10 @@ class DatabaseStructureControllerTest extends PHPUnit_Framework_TestCase
 
         // The user hash for test
         $user = 'abcdefg';
-        $favorite_table[$user] = array(
+        $favorite_table = array(
+            $user => array(
                 array('db' => 'db', 'table' => 'table')
+            ),
         );
 
         $method->invokeArgs($ctrl, array($fav_instance, $user, $favorite_table));

@@ -45,15 +45,8 @@ if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-// Security checks
-if (! empty($goto)) {
-    $is_gotofile     = preg_replace('@^([^?]+).*$@s', '\\1', $goto);
-    if (! @file_exists('' . $is_gotofile)) {
-        unset($goto);
-    } else {
-        $is_gotofile = ($is_gotofile == $goto);
-    }
-} else {
+$is_gotofile  = true;
+if (empty($goto)) {
     if (empty($table)) {
         $goto = Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
@@ -63,14 +56,13 @@ if (! empty($goto)) {
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
         );
     }
-    $is_gotofile  = true;
 } // end if
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
         . '?' . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
-        . ((/*overload*/mb_strpos(' ' . $goto, 'db_') != 1
-            && /*overload*/mb_strlen($table))
+        . ((mb_strpos(' ' . $goto, 'db_') != 1
+            && mb_strlen($table))
             ? '&amp;table=' . urlencode($table)
             : ''
         );
@@ -130,8 +122,8 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
-$tableLength = /*overload*/mb_strlen($table);
-$dbLength = /*overload*/mb_strlen($db);
+$tableLength = mb_strlen($table);
+$dbLength = mb_strlen($db);
 if (empty($sql_query) && $tableLength && $dbLength) {
     $sql_query = PMA_getDefaultSqlQueryForBrowse($db, $table);
 

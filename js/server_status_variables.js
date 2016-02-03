@@ -48,7 +48,15 @@ AJAX.registerOnload('server_status_variables.js', function () {
         if (word.length === 0) {
             textFilter = null;
         } else {
-            textFilter = new RegExp("(^| )" + word, 'i');
+            try {
+                textFilter = new RegExp("(^| )" + word, 'i');
+                $(this).removeClass('error');
+            } catch(e) {
+                if (e instanceof SyntaxError) {
+                    $(this).addClass('error');
+                    textFilter = null;
+                }
+            }
         }
         text = word;
         filterVariables();

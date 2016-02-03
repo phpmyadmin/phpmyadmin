@@ -6,7 +6,6 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\ImportPlugin;
-use PMA\libraries\PMA_String;
 
 /**
  * Get the variables sent or posted to this script and a core script
@@ -105,7 +104,9 @@ $ajax_reload = array();
 if (! empty($sql_query)) {
 
     // apply values for parameters
-    if (! empty($_REQUEST['parameterized']) && is_array($_REQUEST['parameters'])) {
+    if (! empty($_REQUEST['parameterized'])
+        && ! empty($_REQUEST['parameters'])
+        && is_array($_REQUEST['parameters'])) {
         $parameters = $_REQUEST['parameters'];
         foreach ($parameters as $parameter => $replacement) {
             $quoted = preg_quote($parameter);
@@ -236,8 +237,6 @@ PMA\libraries\Util::checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
 $format = PMA_securePath($format);
-/** @var String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 
 // Create error and goto url
 if ($import_type == 'table') {
@@ -258,17 +257,17 @@ if ($import_type == 'table') {
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
-        if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
+        if (mb_strlen($table) && mb_strlen($db)) {
             $goto = 'tbl_structure.php';
-        } elseif (/*overload*/mb_strlen($db)) {
+        } elseif (mb_strlen($db)) {
             $goto = 'db_structure.php';
         } else {
             $goto = 'server_sql.php';
         }
     }
-    if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
+    if (mb_strlen($table) && mb_strlen($db)) {
         $common = PMA_URL_getCommon(array('db' => $db, 'table' => $table));
-    } elseif (/*overload*/mb_strlen($db)) {
+    } elseif (mb_strlen($db)) {
         $common = PMA_URL_getCommon(array('db' => $db));
     } else {
         $common = PMA_URL_getCommon();
@@ -286,7 +285,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
 }
 
 
-if (/*overload*/mb_strlen($db)) {
+if (mb_strlen($db)) {
     $GLOBALS['dbi']->selectDb($db);
 }
 
@@ -408,7 +407,7 @@ if ($memory_limit == -1) {
 }
 
 // Calculate value of the limit
-$memoryUnit = /*overload*/mb_strtolower(substr($memory_limit, -1));
+$memoryUnit = mb_strtolower(substr($memory_limit, -1));
 if ('m' == $memoryUnit) {
     $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
 } elseif ('k' == $memoryUnit) {
@@ -730,7 +729,7 @@ if (isset($message)) {
 // in case of a query typed in the query window
 // (but if the query is too large, in case of an imported file, the parser
 //  can choke on it so avoid parsing)
-$sqlLength = /*overload*/mb_strlen($sql_query);
+$sqlLength = mb_strlen($sql_query);
 if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
     include_once 'libraries/parse_analyze.lib.php';
 
@@ -780,7 +779,7 @@ if ($go_sql) {
             $db, // db
             $table, // table
             null, // find_real_end
-            $sql_query, // sql_query_for_bookmark
+            $_REQUEST['sql_query'], // sql_query_for_bookmark
             null, // extra_data
             null, // message_to_show
             null, // message

@@ -53,7 +53,7 @@ function Show_page($contents)
     <body>
     <?php
     if (isset($_SESSION) && isset($_SESSION['PMA_single_signon_error_message'])) {
-        echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
+        echo '<p class="error">' , $_SESSION['PMA_single_signon_message'] , '</p>';
         unset($_SESSION['PMA_single_signon_message']);
     }
     echo $contents;
@@ -79,7 +79,7 @@ $base .= '://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];
 
 $realm = $base . '/';
 $returnTo = $base . dirname($_SERVER['PHP_SELF']);
-if ($returnTo[/*overload*/mb_strlen($returnTo) - 1] != '/') {
+if ($returnTo[mb_strlen($returnTo) - 1] != '/') {
     $returnTo .= '/';
 }
 $returnTo .= 'openid.php';

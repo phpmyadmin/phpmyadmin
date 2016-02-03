@@ -12,15 +12,15 @@
 use PMA\libraries\Tracker;
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\Tracker
  *
  * @package PhpMyAdmin-test
  */
-class TrackerTest extends PHPUnit_Framework_TestCase
+class TrackerTest extends PMATestCase
 {
 
     /**
@@ -41,7 +41,6 @@ class TrackerTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = '';
         $GLOBALS['cfg']['Server']['tracking_version_auto_create'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
             'PMA_VERSION' => PMA_VERSION,
@@ -589,8 +588,8 @@ class TrackerTest extends PHPUnit_Framework_TestCase
     public function testGetTrackedData($fetchArrayReturn, $expectedArray)
     {
         $sql_query = " SELECT * FROM `pmadb`.`tracking`" .
-            " WHERE `db_name` = 'pma''db' " .
-            " AND `table_name` = 'pma''table' " .
+            " WHERE `db_name` = 'pma\\'db' " .
+            " AND `table_name` = 'pma\\'table' " .
             " AND `version` = '1.0' " .
             " ORDER BY `version` DESC LIMIT 1";
 

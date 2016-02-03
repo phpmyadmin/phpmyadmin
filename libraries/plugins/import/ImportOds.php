@@ -59,16 +59,15 @@ class ImportOds extends ImportPlugin
         // create the root group that will be the options field for
         // $importPluginProperties
         // this will be shown as "Format specific options"
-        $importSpecificOptions = new OptionsPropertyRootGroup();
-        $importSpecificOptions->setName("Format Specific Options");
+        $importSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup("general_opts");
         // create primary items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("col_names");
-        $leaf->setText(
+        $leaf = new BoolPropertyItem(
+            "col_names",
             __(
                 'The first line of the file contains the table column names'
                 . ' <i>(if this is unchecked, the first line will become part'
@@ -76,21 +75,22 @@ class ImportOds extends ImportPlugin
             )
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("empty_rows");
-        $leaf->setText(__('Do not import empty rows'));
+        $leaf = new BoolPropertyItem(
+            "empty_rows",
+            __('Do not import empty rows')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("recognize_percentages");
-        $leaf->setText(
+        $leaf = new BoolPropertyItem(
+            "recognize_percentages",
             __(
                 'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>'
             )
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("recognize_currency");
-        $leaf->setText(__('Import currencies <i>(ex. $5.00 to 5.00)</i>'));
+        $leaf = new BoolPropertyItem(
+            "recognize_currency",
+            __('Import currencies <i>(ex. $5.00 to 5.00)</i>')
+        );
         $generalOptions->addProperty($leaf);
 
         // add the main group to the root group

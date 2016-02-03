@@ -48,6 +48,8 @@ $err_url = PMA\libraries\Util::getScriptNameForOption(
 
 /**
  * Ensures the database and the table exist (else move to the "parent" script)
+ * Skip test if we are exporting as we can't tell whether a table name is an alias (which would fail the test).
  */
-require_once './libraries/db_table_exists.lib.php';
-
+if (basename($_SERVER['PHP_SELF']) != 'tbl_export.php') {
+    require_once './libraries/db_table_exists.lib.php';
+}

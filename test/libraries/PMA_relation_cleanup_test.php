@@ -11,7 +11,6 @@
  */
 
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 
 require_once 'libraries/relation.lib.php';
@@ -384,27 +383,27 @@ class DBI_PMA_Relation_Cleanup extends DatabaseInterface
      */
     function query($sql, $link = null, $options = 0, $cache_affected_rows = true)
     {
-        if (/*overload*/mb_stripos($sql, "column_info") !== false) {
+        if (mb_stripos($sql, "column_info") !== false) {
             unset($this->values[$this->indexs['column_info']]);
         }
 
-        if (/*overload*/mb_stripos($sql, "table_info") !== false) {
+        if (mb_stripos($sql, "table_info") !== false) {
             unset($this->values[$this->indexs['table_info']]);
         }
 
-        if (/*overload*/mb_stripos($sql, "table_coords") !== false) {
+        if (mb_stripos($sql, "table_coords") !== false) {
             unset($this->values[$this->indexs['table_coords']]);
         }
 
-        if (/*overload*/mb_stripos($sql, "relation") !== false) {
+        if (mb_stripos($sql, "relation") !== false) {
             unset($this->values[$this->indexs['relation']]);
         }
 
-        if (/*overload*/mb_stripos($sql, "pdf_pages") !== false) {
+        if (mb_stripos($sql, "pdf_pages") !== false) {
             unset($GLOBALS [$this->indexs['pdf_pages']]);
         }
 
-        if (/*overload*/mb_stripos($sql, "bookmark") !== false) {
+        if (mb_stripos($sql, "bookmark") !== false) {
             unset($GLOBALS [$this->indexs['bookmark']]);
         }
         return true;

@@ -8,16 +8,16 @@
 
 use PMA\libraries\plugins\auth\AuthenticationConfig;
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\auth\AuthenticationConfig class
  *
  * @package PhpMyAdmin-test
  */
-class AuthenticationConfigTest extends PHPUnit_Framework_TestCase
+class AuthenticationConfigTest extends PMATestCase
 {
     protected $object;
 
@@ -31,7 +31,6 @@ class AuthenticationConfigTest extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationConfig();

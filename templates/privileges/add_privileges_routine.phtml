@@ -1,12 +1,12 @@
-<input type="hidden" name="dbname" value="<?php echo htmlspecialchars($database); ?>"/>
+<input type="hidden" name="dbname" value="<?= htmlspecialchars($database); ?>"/>
 
-<label for="text_routinename"><?php echo __('Add privileges on the following routine:'); ?></label>
+<label for="text_routinename"><?= __('Add privileges on the following routine:'); ?></label>
 
 <?php if (! empty($routines)) : ?>
     <select name="pred_routinename" class="autosubmit">
-        <option value="" selected="selected"><?php echo __('Use text field'); ?>:</option>
+        <option value="" selected="selected"><?= __('Use text field'); ?>:</option>
         <?php foreach ($routines as $routine) : ?>
-            <option value="<?php echo htmlspecialchars($routine); ?>"><?php echo htmlspecialchars($routine); ?></option>
+            <option value="<?= htmlspecialchars($routine); ?>"><?= htmlspecialchars($routine); ?></option>
         <?php endforeach; ?>
     </select>
 <?php endif; ?>

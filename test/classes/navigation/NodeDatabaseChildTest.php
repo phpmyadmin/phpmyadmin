@@ -12,14 +12,14 @@ use PMA\libraries\Theme;
 
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\navigation\nodes\NodeDatabaseChild class
  *
  * @package PhpMyAdmin-test
  */
-class NodeDatabaseChildTest extends PHPUnit_Framework_TestCase
+class NodeDatabaseChildTest extends PMATestCase
 {
     /**
      * @var NodeDatabaseChild

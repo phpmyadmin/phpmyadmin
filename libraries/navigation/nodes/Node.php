@@ -73,7 +73,7 @@ class Node
      */
     public $icon;
     /**
-     * @var Array An array of A tags, used when rendering the node
+     * @var array An array of A tags, used when rendering the node
      *            The indexes in the array may be 'icon' and 'text'
      */
     public $links;

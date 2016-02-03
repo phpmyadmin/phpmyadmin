@@ -53,7 +53,7 @@ class Scripts
         $scripts = array();
         $separator = PMA_URL_getArgSeparator();
         foreach ($files as $value) {
-            if (/*overload*/mb_strpos($value['filename'], "?") !== false) {
+            if (mb_strpos($value['filename'], "?") !== false) {
                 $file_name = $value['filename'] . $separator
                     . Header::getVersionParameter();
                 if ($value['before_statics'] === true) {
@@ -173,7 +173,6 @@ class Scripts
             || strpos($filename, 'codemirror') !== false
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false
-            || strpos($filename, 'navigation.js') !== false
             || strpos($filename, 'get_image.js.php') !== false
             || strpos($filename, 'cross_framing_protection.js') !== false
         ) {

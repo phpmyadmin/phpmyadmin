@@ -68,7 +68,7 @@ function PMA_getImage(image, alternate, attributes) {
         return false;
     };
     var sprites = [
-        <?php echo implode($keys, ",\n        ") . "\n"; ?>
+        <?php echo implode($keys, ",\n        ") , "\n"; ?>
     ];
     // custom image object, it will eventually be returned by this functions
     var retval = {

@@ -65,15 +65,6 @@ AJAX.registerOnload('import.js', function () {
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
-            // TODO Remove this section when all browsers support HTML5 "required" property
-            if (! radioLocalImport.is(":checked") && ! radioImport.is(":checked")) {
-                radioImport.focus();
-                var msg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ';
-                msg += PMA_messages.strRadioUnchecked;
-                msg += '</div>';
-                PMA_ajaxShowMessage(msg, false);
-                return false;
-            }
 
             if (radioImport.is(":checked") && $("#input_import_file").val() === '') {
                 $("#input_import_file").focus();

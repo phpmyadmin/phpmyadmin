@@ -9,13 +9,13 @@ use PMA\libraries\plugins\export\ExportSql;
 use PMA\libraries\Table;
 
 require_once 'libraries/export.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/charset_conversion.lib.php';
 require_once 'export.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * tests for PMA\libraries\plugins\export\ExportSql class
@@ -23,7 +23,7 @@ require_once 'export.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportSqlTest extends PHPUnit_Framework_TestCase
+class ExportSqlTest extends PMATestCase
 {
     protected $object;
 
@@ -35,6 +35,7 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
     function setup()
     {
         $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = 'db';
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
@@ -855,7 +856,6 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
-        $GLOBALS['cfg']['LimitChars'] = 40;
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -1504,7 +1504,7 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
             ->with('res')
             ->will($this->returnValue(5));
 
-        $dbi->expects($this->at(10))
+        $dbi->expects($this->at(11))
             ->method('fetchRow')
             ->with('res')
             ->will(
@@ -1513,9 +1513,17 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $_table = new Table('table', 'db');
+        $_table = $this->getMockBuilder('PMA\libraries\Table')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $_table->expects($this->once())
+            ->method('isMerge')
+            ->will($this->returnValue(false));
+        $_table->expects($this->once())
+            ->method('isView')
+            ->will($this->returnValue(false));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue($_table));
 
@@ -1626,7 +1634,7 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
             ->with('res')
             ->will($this->returnValue(2));
 
-        $dbi->expects($this->at(7))
+        $dbi->expects($this->at(8))
             ->method('fetchRow')
             ->with('res')
             ->will(
@@ -1635,9 +1643,19 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $dbi->expects($this->once())
+        $_table = $this->getMockBuilder('PMA\libraries\Table')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $_table->expects($this->once())
+            ->method('isMerge')
+            ->will($this->returnValue(false));
+        $_table->expects($this->once())
+            ->method('isView')
+            ->will($this->returnValue(false));
+
+        $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db')));
+            ->will($this->returnValue($_table));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1681,10 +1699,13 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
+            ->method('isMerge')
+            ->will($this->returnValue(false));
+        $_table->expects($this->once())
             ->method('isView')
             ->will($this->returnValue(true));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue($_table));
 
@@ -1726,9 +1747,19 @@ class ExportSqlTest extends PHPUnit_Framework_TestCase
             ->method('getError')
             ->will($this->returnValue('err'));
 
-        $dbi->expects($this->once())
+        $_table = $this->getMockBuilder('PMA\libraries\Table')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $_table->expects($this->once())
+            ->method('isMerge')
+            ->will($this->returnValue(false));
+        $_table->expects($this->once())
+            ->method('isView')
+            ->will($this->returnValue(false));
+
+        $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db')));
+            ->will($this->returnValue($_table));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

@@ -9,9 +9,8 @@
 /*
  * Include to test.
  */
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/core.lib.php';
+require_once 'test/PMATestCase.php';
 
 use PMA\libraries\Advisor;
 use PMA\libraries\Theme;
@@ -21,7 +20,7 @@ use PMA\libraries\Theme;
  *
  * @package PhpMyAdmin-test
  */
-class AdvisorTest extends PHPUnit_Framework_TestCase
+class AdvisorTest extends PMATestCase
 {
 
     /**
@@ -33,8 +32,7 @@ class AdvisorTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['ServerDefault'] = '';
+        $GLOBALS['server'] = 1;
     }
 
     /**

@@ -14,6 +14,9 @@
 namespace SqlParser\Autoload;
 
 if (!class_exists('SqlParser\\Autoload\\ClassLoader')) {
+    if (! file_exists('./libraries/sql-parser/ClassLoader.php')) {
+        die('Invalid invocation');
+    }
     include_once './libraries/sql-parser/ClassLoader.php';
 }
 

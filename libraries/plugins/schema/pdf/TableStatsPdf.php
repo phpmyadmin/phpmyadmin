@@ -9,6 +9,7 @@ namespace PMA\libraries\plugins\schema\pdf;
 
 use PMA\libraries\plugins\schema\ExportRelationSchema;
 use PMA\libraries\plugins\schema\TableStats;
+use PMA\libraries\PDF as PDF_lib;
 
 /**
  * Table preferences/statistics
@@ -27,7 +28,7 @@ class TableStatsPdf extends TableStats
      */
     public $nb_fiels;
     public $height;
-    private $_ff = PMA_PDF_FONT;
+    private $_ff = PDF_lib::PMA_PDF_FONT;
 
     /**
      * The "PMA\libraries\plugins\schema\pdf\TableStatsPdf" constructor
@@ -38,7 +39,7 @@ class TableStatsPdf extends TableStats
      * @param integer $fontSize       The font size
      * @param integer $pageNumber     The current page number (from the
      *                                $cfg['Servers'][$i]['table_coords'] table)
-     * @param integer &$sameWideWidth The max. with among tables
+     * @param integer &$sameWideWidth The max. width among tables
      * @param boolean $showKeys       Whether to display keys or not
      * @param boolean $tableDimension Whether to display table position or not
      * @param boolean $offline        Whether the coordinates are sent

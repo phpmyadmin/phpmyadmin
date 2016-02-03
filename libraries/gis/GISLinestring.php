@@ -57,10 +57,10 @@ class GISLinestring extends GISGeometry
     {
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 11,
-                /*overload*/mb_strlen($spatial) - 12
+                mb_strlen($spatial) - 12
             );
 
         return $this->setMinMax($linestring, array());
@@ -87,17 +87,17 @@ class GISLinestring extends GISGeometry
     ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(/*overload*/mb_substr($line_color, 1, 2));
-        $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
-        $blue = hexdec(/*overload*/mb_substr($line_color, 4, 2));
+        $red = hexdec(mb_substr($line_color, 1, 2));
+        $green = hexdec(mb_substr($line_color, 3, 2));
+        $blue = hexdec(mb_substr($line_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 11,
-                /*overload*/mb_strlen($spatial) - 12
+                mb_strlen($spatial) - 12
             );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
@@ -147,17 +147,17 @@ class GISLinestring extends GISGeometry
     public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
     {
         // allocate colors
-        $red = hexdec(/*overload*/mb_substr($line_color, 1, 2));
-        $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
-        $blue = hexdec(/*overload*/mb_substr($line_color, 4, 2));
+        $red = hexdec(mb_substr($line_color, 1, 2));
+        $green = hexdec(mb_substr($line_color, 3, 2));
+        $blue = hexdec(mb_substr($line_color, 4, 2));
         $line = array('width' => 1.5, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 11,
-                /*overload*/mb_strlen($spatial) - 12
+                mb_strlen($spatial) - 12
             );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
@@ -210,10 +210,10 @@ class GISLinestring extends GISGeometry
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 11,
-                /*overload*/mb_strlen($spatial) - 12
+                mb_strlen($spatial) - 12
             );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
@@ -258,10 +258,10 @@ class GISLinestring extends GISGeometry
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $spatial,
                 11,
-                /*overload*/mb_strlen($spatial) - 12
+                mb_strlen($spatial) - 12
             );
         $points_arr = $this->extractPoints($linesrting, null);
 
@@ -300,10 +300,10 @@ class GISLinestring extends GISGeometry
         }
 
         $wkt
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $wkt,
                 0,
-                /*overload*/mb_strlen($wkt) - 1
+                mb_strlen($wkt) - 1
             );
         $wkt .= ')';
 
@@ -334,10 +334,10 @@ class GISLinestring extends GISGeometry
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $wkt,
                 11,
-                /*overload*/mb_strlen($wkt) - 12
+                mb_strlen($wkt) - 12
             );
         $points_arr = $this->extractPoints($linestring, null);
 

@@ -13,19 +13,18 @@ use PMA\libraries\Menu;
 use PMA\libraries\Theme;
 
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/vendor_config.php';
-require_once 'libraries/select_lang.inc.php';
 require_once 'libraries/relation.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Test for Menu class
  *
  * @package PhpMyAdmin-test
  */
-class MenuTest extends PHPUnit_Framework_TestCase
+class MenuTest extends PMATestCase
 {
     /**
      * Configures global environment.
@@ -39,19 +38,10 @@ class MenuTest extends PHPUnit_Framework_TestCase
         }
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'both';
         $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
-        $GLOBALS['cfg']['OBGzip'] = false;
-        $GLOBALS['cfg']['NaturalOrder'] = true;
-        $GLOBALS['cfg']['TabsMode'] = 'both';
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';

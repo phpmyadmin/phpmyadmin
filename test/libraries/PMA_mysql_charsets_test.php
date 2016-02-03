@@ -10,7 +10,6 @@
  * Include to test.
  */
 require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for MySQL Charsets
@@ -45,9 +44,9 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
     public function charsetQueryData()
     {
         return array(
-            array("a_b_c_d", " CHARACTER SET a COLLATE a_b_c_d"),
-            array("a_", " CHARACTER SET a COLLATE a_"),
-            array("a", " CHARACTER SET a"),
+            array("a_b_c_d", " CHARSET=a COLLATE a_b_c_d"),
+            array("a_", " CHARSET=a COLLATE a_"),
+            array("a", " CHARSET=a"),
         );
     }
 

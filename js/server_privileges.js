@@ -51,7 +51,7 @@ function checkAddUser(the_form)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_privileges.js', function () {
-    $(document).off("focusout", "#fieldset_add_user_login input[name='username']");
+    $("#fieldset_add_user_login").off('change', "input[name='username']");
     $(document).off('click', "#fieldset_delete_user_footer #buttonGo.ajax");
     $(document).off('click', "a.edit_user_group_anchor.ajax");
     $(document).off('click', "button.mult_submit[value=export]");
@@ -68,7 +68,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     /**
      * Display a warning if there is already a user by the name entered as the username.
      */
-    $(document).on("focusout", "#fieldset_add_user_login input[name='username']", function () {
+    $("#fieldset_add_user_login").on('change', "input[name='username']", function () {
         var username = $(this).val();
         var $warning = $("#user_exists_warning");
         if ($("#select_pred_username").val() == 'userdefined' && username !== '') {

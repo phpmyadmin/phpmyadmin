@@ -834,7 +834,7 @@ function setStickyColumnsPosition($sticky_columns, $table_results, position, top
  * Initialize sticky columns
  */
 function initStickyColumns($table_results) {
-    var $sticky_columns = $('<table class="sticky_columns"></table>')
+    return $('<table class="sticky_columns"></table>')
             .insertBefore($table_results)
             .css("position", "fixed")
             .css("z-index", "99")
@@ -842,7 +842,6 @@ function initStickyColumns($table_results) {
             .css("margin-left", $('#page_content').css("margin-left"))
             .css("top", $('#floating_menubar').height())
             .css("display", "none");
-    return $sticky_columns;
 }
 
 /*

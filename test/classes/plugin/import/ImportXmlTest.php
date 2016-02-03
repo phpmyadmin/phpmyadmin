@@ -17,16 +17,16 @@ $GLOBALS['server'] = 0;
  * Include to test.
  */
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA\libraries\plugins\import\ImportXml class
  *
  * @package PhpMyAdmin-test
  */
-class ImportXmlTest extends PHPUnit_Framework_TestCase
+class ImportXmlTest extends PMATestCase
 {
     /**
      * @access protected
@@ -49,8 +49,6 @@ class ImportXmlTest extends PHPUnit_Framework_TestCase
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 0;
-        $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_'
             . 'For_Testing.xml';

@@ -68,19 +68,22 @@ class ImportLdi extends AbstractImportCsv
         $this->properties->setText('CSV using LOAD DATA');
         $this->properties->setExtension('ldi');
 
-        $leaf = new TextPropertyItem();
-        $leaf->setName("columns");
-        $leaf->setText(__('Column names: '));
+        $leaf = new TextPropertyItem(
+            "columns",
+            __('Column names: ')
+        );
         $generalOptions->addProperty($leaf);
 
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("ignore");
-        $leaf->setText(__('Do not abort on INSERT error'));
+        $leaf = new BoolPropertyItem(
+            "ignore",
+            __('Do not abort on INSERT error')
+        );
         $generalOptions->addProperty($leaf);
 
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("local_option");
-        $leaf->setText(__('Use LOCAL keyword'));
+        $leaf = new BoolPropertyItem(
+            "local_option",
+            __('Use LOCAL keyword')
+        );
         $generalOptions->addProperty($leaf);
     }
 

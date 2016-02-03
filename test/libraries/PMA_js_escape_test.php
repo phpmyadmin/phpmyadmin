@@ -39,6 +39,10 @@ class PMA_JS_Escape_Test extends PHPUnit_Framework_TestCase
             "foo = [\"1\",\"2\",\"3\",];\n",
             PMA_getJsValue('foo', $array)
         );
+        $this->assertEquals(
+            "foo = \"bar\\\"baz\";\n",
+            PMA_getJsValue('foo', 'bar"baz')
+        );
     }
 
     /**
