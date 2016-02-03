@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
@@ -15,6 +15,9 @@
  * Web Map Context (WMC), since it is more generic and more types of layers
  * can be stored. Also, nesting of layers is supported since version 0.3.1.
  * For more information see: http://www.ogcnetwork.net/context
+ *
+ * Inherits from:
+ *  - <OpenLayers.Format.Context>
  */
 OpenLayers.Format.OWSContext = OpenLayers.Class(OpenLayers.Format.Context,{
     
@@ -23,34 +26,36 @@ OpenLayers.Format.OWSContext = OpenLayers.Class(OpenLayers.Format.Context,{
      * {String} Version number to assume if none found.  Default is "0.3.1".
      */
     defaultVersion: "0.3.1",
-    
+
     /**
-     * Method: getParser
-     * Get the OWSContext parser given a version. Create a new parser if it does not
-     * already exist.
+     * Constructor: OpenLayers.Format.OWSContext
+     * Create a new parser for OWS Context documents.
      *
      * Parameters:
-     * version - {String} The version of the parser.
+     * options - {Object} An optional object whose properties will be set on
+     *     this instance.
+     */
+    
+    /**
+     * Method: getVersion
+     * Returns the version to use. Subclasses can override this function
+     * if a different version detection is needed.
+     *
+     * Parameters:
+     * root - {DOMElement}
+     * options - {Object} Optional configuration object.
      *
      * Returns:
-     * {<OpenLayers.Format.OWSContext>} An OWSContext parser.
+     * {String} The version to use.
      */
-    getParser: function(version) {
-        var v = version || this.version || this.defaultVersion;
+    getVersion: function(root, options) {
+        var version = OpenLayers.Format.XML.VersionedOGC.prototype.getVersion.apply(
+            this, arguments);
         // 0.3.1 is backwards compatible with 0.3.0
-        if (v === "0.3.0") {
-            v = this.defaultVersion;
+        if (version === "0.3.0") {
+            version = this.defaultVersion;
         }
-        if(!this.parser || this.parser.VERSION != v) {
-            var format = OpenLayers.Format.OWSContext[
-                "v" + v.replace(/\./g, "_")
-            ];
-            if(!format) {
-                throw "Can't find a OWSContext parser for version " + v;
-            }
-            this.parser = new format(this.options);
-        }
-        return this.parser;
+        return version;
     },
 
     /**

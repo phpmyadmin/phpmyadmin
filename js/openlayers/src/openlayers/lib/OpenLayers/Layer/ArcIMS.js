@@ -1,11 +1,10 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Layer/Grid.js
- * @requires OpenLayers/Tile/Image.js
  * @requires OpenLayers/Format/ArcXML.js
  * @requires OpenLayers/Request.js
  */
@@ -29,12 +28,6 @@ OpenLayers.Layer.ArcIMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
         ClientVersion: "9.2",
         ServiceName: ''
     },
-    
-    /**
-     * APIProperty: tileSize
-     * {<OpenLayers.Size>} Size for tiles.  Default is 512x512.
-     */
-    tileSize: null,
     
     /**
      * APIProperty: featureCoordSys
@@ -149,17 +142,6 @@ OpenLayers.Layer.ArcIMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
         }
     },    
 
-    
-    /**
-     * Method: destroy
-     * Destroy this layer
-     */
-    destroy: function() {
-        // for now, nothing special to do here. 
-        OpenLayers.Layer.Grid.prototype.destroy.apply(this, arguments);  
-    },   
-    
-    
     /**
      * Method: getURL
      * Return an image url this layer.
@@ -217,12 +199,10 @@ OpenLayers.Layer.ArcIMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * Parameters:
      * bounds - {<OpenLayers.Bounds>} A bounds representing the bbox for the
      *     request.
-     * scope - {Object} The scope of the callback method.
-     * prop - {String} The name of the property in the scoped object to 
-     *     recieve the image url.
      * callback - {Function} Function to call when image url is retrieved.
+     * scope - {Object} The scope of the callback method.
      */
-    getURLasync: function(bounds, scope, prop, callback) {
+    getURLasync: function(bounds, callback, scope) {
         bounds = this.adjustBounds(bounds);
         
         // create an arcxml request to generate the image
@@ -251,11 +231,7 @@ OpenLayers.Layer.ArcIMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
                 var axlResp = new OpenLayers.Format.ArcXML();
                 var arcxml = axlResp.read(doc);
                 
-                scope[prop] = this.getUrlOrImage(arcxml.image.output);
-
-                // call the callback function to recieve the updated property on the
-                // scoped object
-                callback.apply(scope);
+                callback.call(scope, this.getUrlOrImage(arcxml.image.output));
             },
             scope: this
         });
@@ -296,7 +272,7 @@ OpenLayers.Layer.ArcIMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      *
      * Parameters:
      * id - {String} The ArcIMS layer ID.
-     * queryDef - {Object} The query definition to apply to this layer.
+     * querydef - {Object} The query definition to apply to this layer.
      */
     setLayerQuery: function(id, querydef) {
         // find the matching layer, if it exists
@@ -443,23 +419,6 @@ OpenLayers.Layer.ArcIMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
         // copy/set any non-init, non-simple values here
 
         return obj;
-    },
-    
-    /**
-     * Method: addTile
-     * addTile creates a tile, initializes it, and adds it to the layer div. 
-     *
-     * Parameters:
-     * bounds - {<OpenLayers.Bounds>}
-     * position - {<OpenLayers.Pixel>}
-     * 
-     * Returns:
-     * {<OpenLayers.Tile.Image>} The added image tile.
-     */
-    addTile:function(bounds,position) {
-        return new OpenLayers.Tile.Image(
-            this, position, bounds, null, this.tileSize
-        );
     },
     
     CLASS_NAME: "OpenLayers.Layer.ArcIMS"
