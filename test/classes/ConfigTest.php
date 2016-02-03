@@ -660,16 +660,38 @@ class ConfigTest extends PMATestCase
      * test for IsHttp
      *
      * @return void
+     *
+     * @dataProvider httpsParams
      */
-    public function testIsHttps()
+    public function testIsHttps($scheme, $https, $lb, $front, $proto, $port, $expected)
     {
-        $this->object->set('is_https', null);
-        $this->object->set('PmaAbsoluteUri', 'http://some_host.com/phpMyAdmin');
-        $this->assertFalse($this->object->isHttps());
+        $_SERVER['HTTP_SCHEME'] = $scheme;
+        $_SERVER['HTTPS'] = $https;
+        $_SERVER['HTTP_HTTPS_FROM_LB'] = $lb;
+        $_SERVER['HTTP_FRONT_END_HTTPS'] = $front;
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] = $proto;
+        $_SERVER['SERVER_PORT'] = $port;
 
         $this->object->set('is_https', null);
-        $this->object->set('PmaAbsoluteUri', 'https://some_host.com/phpMyAdmin');
-        $this->assertTrue($this->object->isHttps());
+        $this->assertEquals($expected, $this->object->isHttps());
+    }
+
+    /**
+     * Data provider for https detection
+     *
+     * @return array
+     */
+    public function httpsParams()
+    {
+        return array(
+            array('http', '', '', '', 'http', 80, false),
+            array('http', '', '', '', 'http', 443, true),
+            array('http', '', '', '', 'https', 80, true),
+            array('http', '', '', 'on', 'http', 80, true),
+            array('http', '', 'on', '', 'http', 80, true),
+            array('http', 'on', '', '', 'http', 80, true),
+            array('https', '', '', '', 'http', 80, true),
+        );
     }
 
     /**
