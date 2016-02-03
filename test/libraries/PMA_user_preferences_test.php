@@ -378,7 +378,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'Location: http://www.phpmyadmin.netfile.html?a=b&saved=1&server=0&' .
+            'Location: ./file.html?a=b&saved=1&server=0&' .
             'token=token#h+ash',
             $GLOBALS['header'][0]
         );
