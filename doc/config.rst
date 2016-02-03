@@ -41,6 +41,11 @@ Basic settings
     :type: string
     :default: ``''``
 
+    .. versionremoved:: 4.6.0
+        
+        This setting is no longer available since phpMyAdmin 4.6.0. Please
+        adjust your webserver instead.
+
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
     ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also

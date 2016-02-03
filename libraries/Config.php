@@ -69,11 +69,6 @@ class Config
     var $error_config_default_file = false;
 
     /**
-     * @var boolean
-     */
-    var $error_pma_uri = false;
-
-    /**
      * @var array
      */
     var $default_server = array();
@@ -868,7 +863,6 @@ class Config
         }
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
-        $this->checkPmaAbsoluteUri();
 
         // Handling of the collation must be done after merging of $cfg
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
@@ -1251,180 +1245,6 @@ class Config
             $this->get('user_preferences_mtime') +
             $_SESSION['PMA_Theme']->mtime_info +
             $_SESSION['PMA_Theme']->filesize_info);
-    }
-
-    /**
-     * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
-     * set properly and, depending on browsers, inserting or updating a
-     * record might fail
-     *
-     * @return void
-     */
-    public function checkPmaAbsoluteUri()
-    {
-        // Setup a default value to let the people and lazy sysadmins work anyway,
-        // they'll get an error if the autodetect code doesn't work
-        $pma_absolute_uri = $this->get('PmaAbsoluteUri');
-        $is_https = $this->isHttps();
-
-        if (mb_strlen($pma_absolute_uri) < 5) {
-            $url = array();
-
-            // If we don't have scheme, we didn't have full URL so we need to
-            // dig deeper
-            if (empty($url['scheme'])) {
-                // Scheme
-                if ($is_https) {
-                    $url['scheme'] = 'https';
-                } else {
-                    $url['scheme'] = 'http';
-                }
-
-                // Host and port
-                if (PMA_getenv('HTTP_HOST')) {
-                    // Prepend the scheme before using parse_url() since this
-                    // is not part of the RFC2616 Host request-header
-                    $parsed_url = parse_url(
-                        $url['scheme'] . '://' . PMA_getenv('HTTP_HOST')
-                    );
-                    if (!empty($parsed_url['host'])) {
-                        $url = $parsed_url;
-                    } else {
-                        $url['host'] = PMA_getenv('HTTP_HOST');
-                    }
-                } elseif (PMA_getenv('SERVER_NAME')) {
-                    $url['host'] = PMA_getenv('SERVER_NAME');
-                } else {
-                    $this->error_pma_uri = true;
-                    return;
-                }
-
-                if ($this->get('force_protocol')) {
-                    // CloudFlare Flexible SSL port
-                    $url['port'] = PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'http' ? 80 : 443;
-                } elseif (empty($url['port']) && PMA_getenv('SERVER_PORT')) {
-                    // If we didn't set port yet...
-                    $url['port'] = PMA_getenv('SERVER_PORT');
-                }
-
-                // And finally the path could be already set from REQUEST_URI
-                if (empty($url['path'])) {
-                    // we got a case with nginx + php-fpm where PHP_SELF
-                    // was not set, so PMA_PHP_SELF was not set as well
-                    if (isset($GLOBALS['PMA_PHP_SELF'])) {
-                        $path = parse_url($GLOBALS['PMA_PHP_SELF']);
-                    } else {
-                        $path = parse_url(PMA_getenv('REQUEST_URI'));
-                    }
-                    $url['path'] = $path['path'];
-                }
-            }
-
-            // Make url from parts we have
-            $pma_absolute_uri = $url['scheme'] . '://';
-            // Was there user information?
-            if (!empty($url['user'])) {
-                $pma_absolute_uri .= $url['user'];
-                if (!empty($url['pass'])) {
-                    $pma_absolute_uri .= ':' . $url['pass'];
-                }
-                $pma_absolute_uri .= '@';
-            }
-            // Add hostname
-            $pma_absolute_uri .= $url['host'];
-            // Add port, if it not the default one
-            // (or 80 for https which is most likely a bug)
-            if (!empty($url['port'])
-                && (($url['scheme'] == 'http' && $url['port'] != 80)
-                || ($url['scheme'] == 'https' && $url['port'] != 80)
-                || ($url['scheme'] == 'https' && $url['port'] != 443))
-            ) {
-                $pma_absolute_uri .= ':' . $url['port'];
-            }
-            // And finally path, without script name, the 'a' is there not to
-            // strip our directory, when path is only /pmadir/ without filename.
-            // Backslashes returned by Windows have to be changed.
-            // Only replace backslashes by forward slashes if on Windows,
-            // as the backslash could be valid on a non-Windows system.
-            $this->checkWebServerOs();
-            if ($this->get('PMA_IS_WINDOWS') == 1) {
-                $path = str_replace("\\", "/", dirname($url['path'] . 'a'));
-            } else {
-                $path = dirname($url['path'] . 'a');
-            }
-
-            // To work correctly within javascript
-            if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../') {
-                if ($this->get('PMA_IS_WINDOWS') == 1) {
-                    $path = str_replace("\\", "/", dirname($path));
-                } else {
-                    $path = dirname($path);
-                }
-            }
-
-            // PHP's dirname function would have returned a dot
-            // when $path contains no slash
-            if ($path == '.') {
-                $path = '';
-            }
-            // in vhost situations, there could be already an ending slash
-            if (mb_substr($path, -1) != '/') {
-                $path .= '/';
-            }
-            $pma_absolute_uri .= $path;
-
-            // We used to display a warning if PmaAbsoluteUri wasn't set, but now
-            // the autodetect code works well enough that we don't display the
-            // warning at all. The user can still set PmaAbsoluteUri manually.
-
-        } else {
-            // The URI is specified, however users do often specify this
-            // wrongly, so we try to fix this.
-
-            // Adds a trailing slash et the end of the phpMyAdmin uri if it
-            // does not exist.
-            if (mb_substr($pma_absolute_uri, -1) != '/') {
-                $pma_absolute_uri .= '/';
-            }
-
-            // If URI doesn't start with http:// or https://, we will add
-            // this.
-            if (mb_substr($pma_absolute_uri, 0, 7) != 'http://'
-                && mb_substr($pma_absolute_uri, 0, 8) != 'https://'
-            ) {
-                $pma_absolute_uri
-                    = ($is_https ? 'https' : 'http')
-                    . ':'
-                    . (
-                        mb_substr($pma_absolute_uri, 0, 2) == '//'
-                        ? ''
-                        : '//'
-                    )
-                    . $pma_absolute_uri;
-            }
-        }
-        $this->set('PmaAbsoluteUri', $pma_absolute_uri);
-    }
-
-    /**
-     * Converts currently used PmaAbsoluteUri to SSL based variant.
-     *
-     * @return String witch adjusted URI
-     */
-    public function getSSLUri()
-    {
-        // grab current URL
-        $url = $this->get('PmaAbsoluteUri');
-        // Parse current URL
-        $parsed = parse_url($url);
-        // In case parsing has failed do stupid string replacement
-        if ($parsed === false) {
-            // Replace http protocol
-            return preg_replace('@^http:@', 'https:', $url);
-        }
-
-        // Reconstruct URL using parsed parts
-        return 'https://' . $parsed['host'] . ':443' . $parsed['path'];
     }
 
     /**

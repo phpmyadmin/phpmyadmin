@@ -217,10 +217,6 @@ date_default_timezone_set(@date_default_timezone_get());
  */
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
-if (!defined('PMA_MINIMUM_COMMON')) {
-    $GLOBALS['PMA_Config']->checkPmaAbsoluteUri();
-}
-
 /**
  * BC - enable backward compatibility
  * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
@@ -499,15 +495,6 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
         $GLOBALS['PMA_Config']->default_source
     );
     trigger_error($error, E_USER_ERROR);
-}
-if ($GLOBALS['PMA_Config']->error_pma_uri) {
-    trigger_error(
-        __(
-            'The [code]$cfg[\'PmaAbsoluteUri\'][/code]'
-            . ' directive MUST be set in your configuration file!'
-        ),
-        E_USER_ERROR
-    );
 }
 
 

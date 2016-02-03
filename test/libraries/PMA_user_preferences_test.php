@@ -360,7 +360,6 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             );
         }
 
-        $GLOBALS['cfg']['PmaAbsoluteUri'] = 'http://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = '';
 

@@ -94,7 +94,6 @@ class AuthenticationCookieTest extends PMATestCase
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
         $GLOBALS['conn_error'] = true;
-        $GLOBALS['cfg']['PmaAbsoluteUri'] = 'https://phpmyadmin.net/';
         $this->assertTrue(
             $this->object->auth()
         );
@@ -800,7 +799,6 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = false;
-        $GLOBALS['cfg']['PmaAbsoluteUri'] = 'http://phpmyadmin.net/';
         $GLOBALS['collation_connection'] = 'utf-8';
 
         $restoreInstance = PMA\libraries\Response::getInstance();

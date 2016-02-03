@@ -62,7 +62,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SendErrorReports'] = 'ask';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
-        $GLOBALS['cfg']['PmaAbsoluteUri'] = '';
         $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
