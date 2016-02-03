@@ -142,7 +142,7 @@ class AuthenticationHttpTest extends PMATestCase
 
         $this->doMockResponse(
             0, 0, 0,
-            array('Location: http://phpmyadmin.net/logout' . ((SID) ? SID : ''))
+            array('Location: http://phpmyadmin.net/logout' . ((SID) ? '?' . SID : ''))
         );
     }
 
