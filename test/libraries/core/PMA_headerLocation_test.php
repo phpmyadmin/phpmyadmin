@@ -234,7 +234,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('PMA_IS_IIS', true);
         } elseif (!defined('PMA_IS_IIS')) {
             define('PMA_IS_IIS', true);
-        } else {
+        } elseif (! PMA_IS_IIS) {
             $this->markTestSkipped(
                 'Cannot redefine constant/function - missing runkit extension'
             );
