@@ -1579,14 +1579,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         g.dragStartReorder(e, this);
                     }
                 })
-                .mouseenter(function (e) {
+                .mouseenter(function () {
                     if (g.visibleHeadersCount > 1) {
                         $(this).css('cursor', 'move');
                     } else {
                         $(this).css('cursor', 'inherit');
                     }
                 })
-                .mouseleave(function (e) {
+                .mouseleave(function () {
                     g.showReorderHint = false;
                     $(this).tooltip("option", {
                         content: g.updateHint()
@@ -2028,7 +2028,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             $(g.cEditStd).on('keydown', 'input.edit_box, select', handleCtrlNavigation);
 
-            $(g.cEditStd).find('.edit_box').focus(function (e) {
+            $(g.cEditStd).find('.edit_box').focus(function () {
                 g.showEditArea();
             });
             $(g.cEditStd).on('keydown', '.edit_box, select', function (e) {
@@ -2047,7 +2047,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             $(g.cEditTextarea).on('keydown', 'textarea.edit_box, select', handleCtrlNavigation);
 
-            $(g.cEditTextarea).find('.edit_box').focus(function (e) {
+            $(g.cEditTextarea).find('.edit_box').focus(function () {
                 g.showEditArea();
             });
             $(g.cEditTextarea).on('keydown', '.edit_box, select', function (e) {
@@ -2082,7 +2082,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.hideEditCell();
                 g.postEditedCell();
             });
-            $(window).bind('beforeunload', function (e) {
+            $(window).bind('beforeunload', function () {
                 if (g.isCellEdited) {
                     return g.saveCellWarning;
                 }
@@ -2199,14 +2199,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
     // register events for hint tooltip (anchors inside draggable th)
     $(t).find('th.draggable a')
-        .mouseenter(function (e) {
+        .mouseenter(function () {
             g.showSortHint = true;
             g.showMultiSortHint = true;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
             });
         })
-        .mouseleave(function (e) {
+        .mouseleave(function () {
             g.showSortHint = false;
             g.showMultiSortHint = false;
             $(t).find("th.draggable").tooltip("option", {
