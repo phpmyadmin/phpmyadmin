@@ -81,8 +81,8 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         /* HTML header */
         $response = Response::getInstance();
-        $response->getFooter()
-            ->setMinimal();
+        $footer = $response->getFooter();
+        $footer->setMinimal();
         $header = $response->getHeader();
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();
