@@ -1552,7 +1552,7 @@ class Config
             $is_https = true;
         } elseif (strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
             $is_https = true;
-        } elseif (PMA_getenv('SERVER_PORT') === '443') {
+        } elseif (PMA_getenv('SERVER_PORT') == 443) {
             $is_https = true;
         }
 
