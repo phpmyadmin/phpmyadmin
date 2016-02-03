@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2016-02-03 19:47+0000\n"
+"PO-Revision-Date: 2016-02-03 19:50+0000\n"
 "Last-Translator: Pedro Moreira <ikkinet@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -3955,14 +3955,17 @@ msgid "Ignoring unsupported language code."
 msgstr "Ignorando o código de linguagem não suportado."
 
 #: libraries/Linter.php:99
+#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"A análise está desabilitada para esta query porque ela excede o tamanho "
+"máximo."
 
 #: libraries/Linter.php:165
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (próximo a <code>%2$s</code>)"
 
 #: libraries/Menu.php:201 libraries/ServerStatusData.php:422
 #: libraries/config/messages.inc.php:936
