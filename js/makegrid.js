@@ -2228,3 +2228,46 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');
 }
+
+/**
+ * jQuery plugin to cancel selection in HTML code.
+ */
+(function ($) {
+    $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
+        var prevent = (p === null) ? true : p;
+        var is_msie = navigator.userAgent.indexOf('MSIE') > -1 || !!window.navigator.userAgent.match(/Trident.*rv\:11\./);
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+        var is_opera = navigator.userAgent.indexOf("Presto") > -1;
+        if (prevent) {
+            return this.each(function () {
+                if (is_msie || is_safari) {
+                    $(this).bind('selectstart', function () {
+                        return false;
+                    });
+                } else if (is_firefox) {
+                    $(this).css('MozUserSelect', 'none');
+                    $('body').trigger('focus');
+                } else if (is_opera) {
+                    $(this).bind('mousedown', function () {
+                        return false;
+                    });
+                } else {
+                    $(this).attr('unselectable', 'on');
+                }
+            });
+        } else {
+            return this.each(function () {
+                if (is_msie || is_safari) {
+                    $(this).unbind('selectstart');
+                } else if (is_firefox) {
+                    $(this).css('MozUserSelect', 'inherit');
+                } else if (is_opera) {
+                    $(this).unbind('mousedown');
+                } else {
+                    $(this).removeAttr('unselectable');
+                }
+            });
+        }
+    }; //end noSelect
+})(jQuery);
