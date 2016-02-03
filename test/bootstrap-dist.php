@@ -17,9 +17,6 @@ set_include_path(
     get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))
 );
 
-// path to phpseclib
-define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
-
 // Setting constants for testing
 define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
@@ -51,6 +48,7 @@ foreach ($test_defaults as $varname => $defvalue) {
     }
 }
 
+require_once 'libraries/vendor_config.php';
 require_once 'libraries/autoloader.php';
 require_once 'libraries/core.lib.php';
 $CFG = new PMA\libraries\Config();
