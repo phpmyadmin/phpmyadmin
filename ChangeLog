@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - issue #11874 Report when version check and error reporting are disabled
 - issue #11849 Fix PDF schema export
 - issue #11412 Remove ForceSSL configuration directive
+- issue        Remove support for Mozilla Prism
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
