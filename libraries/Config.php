@@ -101,8 +101,6 @@ class Config
         // other settings, independent from config file, comes in
         $this->checkSystem();
 
-        $this->isHttps();
-
         $this->base_settings = $this->settings;
     }
 
