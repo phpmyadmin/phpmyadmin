@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:15+0100\n"
-"PO-Revision-Date: 2016-02-03 19:31+0000\n"
-"Last-Translator: Ayrton Fidélis <ayrton.vargas33@gmail.com>\n"
+"PO-Revision-Date: 2016-02-03 19:47+0000\n"
+"Last-Translator: Pedro Moreira <ikkinet@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2604,6 +2604,7 @@ msgstr "Você realmente deseja excluir a busca \"%s\"?"
 #: js/messages.php:702
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
+"Ocorreram alguns erros enquanto informações de debug do SQL eram gerados."
 
 #: js/messages.php:704
 #, fuzzy, php-format
@@ -2614,7 +2615,7 @@ msgstr "Consultas executadas"
 #: js/messages.php:705
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s parâmetro(s) passado(s)"
 
 #: js/messages.php:706
 #, fuzzy
@@ -2630,7 +2631,7 @@ msgstr "Ocultar resultados da pesquisa"
 
 #: js/messages.php:708 libraries/Console.php:324
 msgid "Time taken:"
-msgstr ""
+msgstr "Tempo gasto:"
 
 #: js/messages.php:709
 msgid ""
@@ -2640,6 +2641,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Houve um problema ao acessar o armazenamento de seu navegador; algumas "
+"funcionalidades podem estar incompletas. As probabilidades são de que seu "
+"navegador não suporta armazenamento ou o limite foi atingido. No Firefox, "
+"armazenamento corrompido também pode causar este problema e limpar os \""
+"Dados Offline de Sites\" pode ajudar. No Safari, este problema é normalmente "
+"causado pelo \"Navegação Privada\"."
 
 #: js/messages.php:711
 #, fuzzy
@@ -3236,7 +3243,7 @@ msgstr "Executar sempre"
 
 #: libraries/Console.php:298
 msgid "Time taken"
-msgstr ""
+msgstr "Tempo gasto"
 
 #: libraries/Console.php:301
 #, fuzzy
@@ -3384,7 +3391,7 @@ msgstr "Campo:"
 
 #: libraries/DbQbe.php:511
 msgid "Alias:"
-msgstr ""
+msgstr "Apelido:"
 
 #: libraries/DbQbe.php:564
 msgid "Sort:"
@@ -3724,7 +3731,7 @@ msgstr "Marcar todos"
 
 #: libraries/DisplayResults.php:5006
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar para a área de transferência"
 
 #: libraries/DisplayResults.php:5062
 msgid "Query results operations"
