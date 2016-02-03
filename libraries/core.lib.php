@@ -498,21 +498,23 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         return;
     }
 
+    $response = PMA\libraries\Response::getInstance();
+
     if (SID) {
         if (mb_strpos($uri, '?') === false) {
-            header('Location: ' . $uri . '?' . SID);
+            $response->header('Location: ' . $uri . '?' . SID);
         } else {
             $separator = PMA_URL_getArgSeparator();
-            header('Location: ' . $uri . $separator . SID);
+            $response->header('Location: ' . $uri . $separator . SID);
         }
         return;
     }
 
     session_write_close();
-    if (headers_sent()) {
+    if ($response->headersSent()) {
         if (function_exists('debug_print_backtrace')) {
             echo '<pre>';
-            debug_print_backtrace();
+#            debug_print_backtrace();
             echo '</pre>';
         }
         trigger_error(
@@ -524,9 +526,9 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     // results in a blank page
     // but we need it when coming from the cookie login panel)
     if (PMA_IS_IIS && $use_refresh) {
-        header('Refresh: 0; ' . $uri);
+        $response->header('Refresh: 0; ' . $uri);
     } else {
-        header('Location: ' . $uri);
+        $response->header('Location: ' . $uri);
     }
 }
 
