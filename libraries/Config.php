@@ -1560,16 +1560,6 @@ class Config
     }
 
     /**
-     * detect correct cookie path
-     *
-     * @return void
-     */
-    public function checkCookiePath()
-    {
-        $this->set('cookie_path', $this->getCookiePath());
-    }
-
-    /**
      * Get cookie path
      *
      * @return string
@@ -1606,7 +1596,6 @@ class Config
         $GLOBALS['collation_connection'] = $this->get('collation_connection');
         $GLOBALS['is_upload']       = $this->get('enable_upload');
         $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
-        $GLOBALS['cookie_path']     = $this->get('cookie_path');
         $GLOBALS['is_https']        = $this->get('is_https');
 
         $defines = array(

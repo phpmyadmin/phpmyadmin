@@ -698,20 +698,6 @@ class ConfigTest extends PMATestCase
     }
 
     /**
-     * Test for checking cookie path
-     *
-     * @return void
-     *
-     * @depends testDetectHttps
-     */
-    public function testCheckCookiePath()
-    {
-        $this->object->checkCookiePath();
-        echo $this->object->get('cookie_path');
-        $this->assertEquals('', $this->object->get('cookie_path'));
-    }
-
-    /**
      * Test for backward compatibility globals
      *
      * @return void
