@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2015-11-24 11:30+0000\n"
-"Last-Translator: Jader Teixeira <jaderfeldmann@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-5/pt_BR/>\n"
+"PO-Revision-Date: 2016-02-03 19:50+0000\n"
+"Last-Translator: Pedro Moreira <ikkinet@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -967,7 +967,7 @@ msgstr "Você realmente deseja LIMPAR a(s) partição(ões) seleciona(s)?"
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Você realmente deseja executar \"%s\"?"
+msgstr "Você realmente deseja REINICIAR O SLAVE?"
 
 #: js/messages.php:68
 msgid ""
@@ -1012,7 +1012,7 @@ msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Tem certeza de que deseja mudar todos os agrupamentos de coluna e converter "
+"Você tem certeza que quer mudar todos os agrupamento de colunas e converter "
 "os dados?"
 
 #: js/messages.php:89
@@ -2633,6 +2633,7 @@ msgstr "Você realmente deseja excluir a busca \"%s\"?"
 #: js/messages.php:601
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
+"Ocorreram alguns erros enquanto informações de debug do SQL eram gerados."
 
 #: js/messages.php:602
 #, fuzzy, php-format
@@ -2643,7 +2644,7 @@ msgstr "Consultas executadas"
 #: js/messages.php:603
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s parâmetro(s) passado(s)"
 
 #: js/messages.php:604
 #, fuzzy
@@ -2659,7 +2660,7 @@ msgstr "Ocultar resultados da pesquisa"
 
 #: js/messages.php:606 libraries/Console.class.php:321
 msgid "Time taken:"
-msgstr ""
+msgstr "Tempo gasto:"
 
 #: js/messages.php:607
 msgid ""
@@ -2669,6 +2670,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Houve um problema ao acessar o armazenamento de seu navegador; algumas "
+"funcionalidades podem estar incompletas. As probabilidades são de que seu "
+"navegador não suporta armazenamento ou o limite foi atingido. No Firefox, "
+"armazenamento corrompido também pode causar este problema e limpar os \""
+"Dados Offline de Sites\" pode ajudar. No Safari, este problema é normalmente "
+"causado pelo \"Navegação Privada\"."
 
 #: js/messages.php:635
 msgctxt "Previous month"
@@ -3262,7 +3269,7 @@ msgstr "Executar sempre"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Tempo gasto"
 
 #: libraries/Console.class.php:298
 #, fuzzy
@@ -3386,7 +3393,7 @@ msgstr "Campo:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Apelido:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
@@ -3970,14 +3977,17 @@ msgstr ""
 "removida."
 
 #: libraries/Linter.class.php:96
+#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"A análise está desabilitada para esta query porque ela excede o tamanho "
+"máximo."
 
 #: libraries/Linter.class.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (próximo a <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:203 libraries/ServerStatusData.class.php:442
 #: libraries/config/messages.inc.php:933
