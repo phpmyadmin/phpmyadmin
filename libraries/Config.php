@@ -1265,7 +1265,7 @@ class Config
         // Setup a default value to let the people and lazy sysadmins work anyway,
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
-        $is_https = $this->detectHttps();
+        $is_https = $this->isHttps();
 
         if (mb_strlen($pma_absolute_uri) < 5) {
             $url = array();
@@ -1555,58 +1555,6 @@ class Config
         }
 
         $this->set('is_https', $is_https);
-
-        return $is_https;
-    }
-
-    /**
-     * Detects whether https appears to be used.
-     *
-     * This function checks if the https protocol is used in the current connection
-     * with the webserver, based on environment variables.
-     * Please note that this just detects what we see, so
-     * it completely ignores things like reverse proxies.
-     *
-     * @return bool
-     */
-    public function detectHttps()
-    {
-        $url = array();
-
-        // At first we try to parse REQUEST_URI, it might contain full URL,
-        if (PMA_getenv('REQUEST_URI')) {
-            // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
-            $url = @parse_url(PMA_getenv('REQUEST_URI'));
-            if ($url === false) {
-                $url = array();
-            }
-        }
-
-        // If we don't have scheme, we didn't have full URL so we need to
-        // dig deeper
-        if (empty($url['scheme'])) {
-            // Scheme
-            if (PMA_getenv('HTTP_SCHEME')) {
-                $url['scheme'] = PMA_getenv('HTTP_SCHEME');
-            } elseif (PMA_getenv('HTTPS') && strtolower(PMA_getenv('HTTPS')) == 'on') {
-                $url['scheme'] = 'https';
-                // A10 Networks load balancer:
-            } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB') && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
-                $url['scheme'] = 'https';
-            } elseif ($this->get('force_protocol')) {
-                $url['scheme'] = PMA_getenv('HTTP_X_FORWARDED_PROTO');
-            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS') && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
-                $url['scheme'] = 'https';
-            } else {
-                $url['scheme'] = 'http';
-            }
-        }
-
-        if (PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'https' || isset($url['scheme']) && $url['scheme'] == 'https') {
-            $is_https = true;
-        } else {
-            $is_https = false;
-        }
 
         return $is_https;
     }

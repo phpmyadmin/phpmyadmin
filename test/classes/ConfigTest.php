@@ -698,37 +698,6 @@ class ConfigTest extends PMATestCase
     }
 
     /**
-     * test for DetectHttps
-     *
-     * @return void
-     */
-    public function testDetectHttps()
-    {
-        unset($_SERVER['REQUEST_URI']);
-        unset($_SERVER['HTTP_SCHEME']);
-        unset($_SERVER['HTTPS']);
-
-        $this->assertFalse($this->object->detectHttps());
-
-        $_SERVER['REQUEST_URI'] = '/url:\this_is_not_url';
-        $this->assertFalse($this->object->detectHttps());
-
-        $_SERVER['REQUEST_URI'] = 'file://localhost/phpmyadmin/index.php';
-        $this->assertFalse($this->object->detectHttps());
-
-        $_ENV['REQUEST_URI'] = 'http://localhost/phpmyadmin/index.php';
-        $this->assertFalse($this->object->detectHttps());
-
-        $_SERVER['REQUEST_URI'] = 'https://localhost/phpmyadmin/index.php';
-        $this->assertTrue($this->object->detectHttps());
-
-        $_SERVER['REQUEST_URI'] = 'localhost/phpmyadmin/index.php';
-        $_SERVER['HTTP_SCHEME'] = 'https';
-        $_SERVER['HTTPS'] = 'on';
-        $this->assertTrue($this->object->detectHttps());
-    }
-
-    /**
      * Test for checking cookie path
      *
      * @return void
