@@ -488,6 +488,10 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
+    if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
+        return;
+    }
+
     if (PMA_IS_IIS && mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();

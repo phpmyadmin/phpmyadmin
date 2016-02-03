@@ -58,12 +58,6 @@ class AuthenticationHttpTest extends PMATestCase
      */
     public function testAuth()
     {
-        if (! defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
         $_REQUEST['old_usr'] = '1';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://phpmyadmin.net/logout';
 
@@ -71,10 +65,12 @@ class AuthenticationHttpTest extends PMATestCase
             $this->object->auth()
         );
 
-        $this->assertContains(
-            'Location: http://phpmyadmin.net/logout',
-            $GLOBALS['header'][0]
-        );
+        if (defined('PMA_TEST_HEADERS')) {
+            $this->assertContains(
+                'Location: http://phpmyadmin.net/logout',
+                $GLOBALS['header'][0]
+            );
+        }
 
         // case 2
 
@@ -143,14 +139,16 @@ class AuthenticationHttpTest extends PMATestCase
             $this->object->auth()
         );
 
-        $this->assertEquals(
-            array(
-                'WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"',
-                'HTTP/1.0 401 Unauthorized',
-                'status: 401 Unauthorized'
-            ),
-            $GLOBALS['header']
-        );
+        if (defined('PMA_TEST_HEADERS')) {
+            $this->assertEquals(
+                array(
+                    'WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"',
+                    'HTTP/1.0 401 Unauthorized',
+                    'status: 401 Unauthorized'
+                ),
+                $GLOBALS['header']
+            );
+        }
 
         $attrInstance->setValue($restoreInstance);
 
@@ -163,14 +161,16 @@ class AuthenticationHttpTest extends PMATestCase
             $this->object->auth()
         );
 
-        $this->assertEquals(
-            array(
-                'WWW-Authenticate: Basic realm="phpMyAdmin hst"',
-                'HTTP/1.0 401 Unauthorized',
-                'status: 401 Unauthorized'
-            ),
-            $GLOBALS['header']
-        );
+        if (defined('PMA_TEST_HEADERS')) {
+            $this->assertEquals(
+                array(
+                    'WWW-Authenticate: Basic realm="phpMyAdmin hst"',
+                    'HTTP/1.0 401 Unauthorized',
+                    'status: 401 Unauthorized'
+                ),
+                $GLOBALS['header']
+            );
+        }
 
         // case 4
 
@@ -181,14 +181,16 @@ class AuthenticationHttpTest extends PMATestCase
             $this->object->auth()
         );
 
-        $this->assertEquals(
-            array(
-                'WWW-Authenticate: Basic realm="realmmessage"',
-                'HTTP/1.0 401 Unauthorized',
-                'status: 401 Unauthorized'
-            ),
-            $GLOBALS['header']
-        );
+        if (defined('PMA_TEST_HEADERS')) {
+            $this->assertEquals(
+                array(
+                    'WWW-Authenticate: Basic realm="realmmessage"',
+                    'HTTP/1.0 401 Unauthorized',
+                    'status: 401 Unauthorized'
+                ),
+                $GLOBALS['header']
+            );
+        }
     }
 
     /**

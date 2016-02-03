@@ -72,11 +72,13 @@ class AuthenticationHttp extends AuthenticationPlugin
             $realm_message = $GLOBALS['cfg']['Server']['auth_http_realm'];
         }
         // remove non US-ASCII to respect RFC2616
-        $realm_message = preg_replace('/[^\x20-\x7e]/i', '', $realm_message);
-        header('WWW-Authenticate: Basic realm="' . $realm_message . '"');
-        header('HTTP/1.0 401 Unauthorized');
-        if (php_sapi_name() !== 'cgi-fcgi') {
-            header('status: 401 Unauthorized');
+        if (! defined('TESTSUITE') || defined('PMA_TEST_HEADERS')) {
+            $realm_message = preg_replace('/[^\x20-\x7e]/i', '', $realm_message);
+            header('WWW-Authenticate: Basic realm="' . $realm_message . '"');
+            header('HTTP/1.0 401 Unauthorized');
+            if (php_sapi_name() !== 'cgi-fcgi') {
+                header('status: 401 Unauthorized');
+            }
         }
 
         /* HTML header */
