@@ -44,7 +44,7 @@ if (isset($_POST['revert'])) {
     // redirect
     $url_params = array('form' => $form_param);
     PMA_sendHeaderLocation(
-        $cfg['PmaAbsoluteUri'] . 'prefs_forms.php'
+        './prefs_forms.php'
         . PMA_URL_getCommon($url_params, 'text')
     );
     exit;

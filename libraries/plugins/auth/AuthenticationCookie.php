@@ -559,7 +559,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
 
             // URL where to go:
-            $redirect_url = $cfg['PmaAbsoluteUri'] . 'index.php';
+            $redirect_url = './index.php';
 
             // any parameters to pass?
             $url_params = array();

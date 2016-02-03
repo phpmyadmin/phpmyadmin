@@ -573,7 +573,7 @@ if ($server > 0) {
         }
         $msg = PMA\libraries\Message::notice($msg_text);
         $msg->addParam(
-            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php'
+            '<a href="./chk_rel.php'
             . $common_url_query . '">',
             false
         );
