@@ -520,7 +520,7 @@ class Header
         if ($GLOBALS['PMA_Config']->isHttps()) {
             $map_tile_urls = '';
         } else {
-            $map_tile_urls = ' *.tile.openstreetmap.org *.tile.opencyclemap.org';
+            $map_tile_urls = ' *.tile.openstreetmap.org';
         }
 
         /**
