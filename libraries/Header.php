@@ -517,11 +517,7 @@ class Header
         if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
             return;
         }
-        if ($GLOBALS['PMA_Config']->isHttps()) {
-            $map_tile_urls = '';
-        } else {
-            $map_tile_urls = ' *.tile.openstreetmap.org';
-        }
+        $map_tile_urls = ' *.tile.openstreetmap.org';
 
         /**
          * Sends http headers
