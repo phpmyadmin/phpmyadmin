@@ -122,11 +122,13 @@ class AuthenticationHttpTest extends PMATestCase
 
         call_user_func_array(array($header_method, 'withConsecutive'), $headers);
 
-        $this->assertFalse(
-            $this->object->auth()
-        );
-
-        $attrInstance->setValue($restoreInstance);
+        try {
+            $this->assertFalse(
+                $this->object->auth()
+            );
+        } finally {
+            $attrInstance->setValue($restoreInstance);
+        }
     }
 
     /**
