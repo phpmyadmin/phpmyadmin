@@ -105,7 +105,6 @@ $forms['Features']['Import_export'] = array(
     'CompressOnFly');
 $forms['Features']['Security'] = array(
     'blowfish_secret',
-    'ForceSSL',
     'CheckConfigurationPermissions',
     'TrustedProxies',
     'AllowUserDropDatabase',

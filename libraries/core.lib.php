@@ -28,15 +28,15 @@ require_once 'libraries/string.lib.php';
  * echo PMA_ifSetOr($_REQUEST['db'], ''); // ''
  * // $_REQUEST['sql_query'] not set
  * echo PMA_ifSetOr($_REQUEST['sql_query']); // null
- * // $cfg['ForceSSL'] not set
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
- * echo PMA_ifSetOr($cfg['ForceSSL']); // null
- * // $cfg['ForceSSL'] set to 1
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'similar'); // 1
- * echo PMA_ifSetOr($cfg['ForceSSL'], false); // 1
- * // $cfg['ForceSSL'] set to true
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // true
+ * // $cfg['EnableFoo'] not set
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['EnableFoo']); // null
+ * // $cfg['EnableFoo'] set to 1
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'similar'); // 1
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false); // 1
+ * // $cfg['EnableFoo'] set to true
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
  * </code>
  *
  * @param mixed &$var    param to check

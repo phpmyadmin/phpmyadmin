@@ -710,13 +710,6 @@ $cfg['OBGzip'] = 'auto';
 $cfg['PersistentConnections'] = false;
 
 /**
- * whether to force using HTTPS
- *
- * @global boolean $cfg['ForceSSL']
- */
-$cfg['ForceSSL'] = false;
-
-/**
  * maximum execution time in seconds (0 for no limit)
  *
  * @global integer $cfg['ExecTimeLimit']

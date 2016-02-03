@@ -275,7 +275,6 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $_SESSION[$sessionID]['ForceSSL'] = false;
         $_SESSION[$sessionID]['AllowArbitraryServer'] = true;
         $_SESSION[$sessionID]['LoginCookieValidity'] = 5000;
         $_SESSION[$sessionID]['LoginCookieStore'] = 4000;
@@ -290,7 +289,6 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             'SaveDir',
             'LoginCookieValidity',
             'AllowArbitraryServer',
-            'ForceSSL',
             'Servers/1/AllowNoPassword',
             'Servers/1/auth_type',
             'Servers/1/ssl'
@@ -348,7 +346,6 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $_SESSION[$sessionID]['ForceSSL'] = true;
         $_SESSION[$sessionID]['AllowArbitraryServer'] = false;
         $_SESSION[$sessionID]['LoginCookieValidity'] = -1;
         $_SESSION[$sessionID]['LoginCookieStore'] = 0;

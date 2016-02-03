@@ -1274,6 +1274,11 @@ Generic settings
     :type: boolean
     :default: false
 
+    .. versionremoved:: 4.6.0
+        
+        This setting is no longer available since phpMyAdmin 4.6.0. Please
+        adjust your webserver instead.
+
     Whether to force using https while accessing phpMyAdmin. In a reverse
     proxy setup, setting this to ``true`` is not supported.
 
