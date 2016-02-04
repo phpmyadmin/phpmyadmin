@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2016-01-25 17:24+0000\n"
+"PO-Revision-Date: 2016-02-04 11:09+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-5/it/>\n"
@@ -12779,7 +12779,7 @@ msgstr "Revoca tutti i privilegi attivi agli utenti e dopo li cancella."
 #: libraries/server_privileges.lib.php:3679
 #: libraries/server_privileges.lib.php:3682
 msgid "Drop the databases that have the same names as the users."
-msgstr "Elimina i databases gli stessi nomi degli utenti."
+msgstr "Elimina i database che hanno gli stessi nomi degli utenti."
 
 #: libraries/server_privileges.lib.php:3825
 msgid "No users selected for deleting!"
