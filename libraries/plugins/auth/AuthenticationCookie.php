@@ -31,6 +31,10 @@ if (! empty($_REQUEST['target'])) {
 require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 
 /**
+ * To use getCookieArr function
+ */
+require_once './libraries/Config.php';
+/**
  * Handles the cookie authentication method
  *
  * @package PhpMyAdmin-Authentication
@@ -405,14 +409,14 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check cookies
-        if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])
-            || empty($_COOKIE['pma_iv-' . $GLOBALS['server']])
+        if (getCookieArr('pmaUser','pmaUser-' . $GLOBALS['server'])== null
+            || getCookieArr('pmaAuth','pma_iv-' . $GLOBALS['server'])==null
         ) {
             return false;
         }
 
         $GLOBALS['PHP_AUTH_USER'] = $this->cookieDecrypt(
-            $_COOKIE['pmaUser-' . $GLOBALS['server']],
+            getCookieArr('pmaUser','pmaUser-' . $GLOBALS['server']),
             $this->_getEncryptionSecret()
         );
 
@@ -444,12 +448,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check password cookie
-        if (empty($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
+        if (getCookieArr('pmaAuth','pmaPass-' . $GLOBALS['server'])== null) {
             return false;
         }
 
         $GLOBALS['PHP_AUTH_PW'] = $this->cookieDecrypt(
-            $_COOKIE['pmaPass-' . $GLOBALS['server']],
+            getCookieArr('pmaAuth','pmaPass-' . $GLOBALS['server']),
             $this->_getSessionEncryptionSecret()
         );
 
@@ -609,7 +613,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
-        $GLOBALS['PMA_Config']->setCookie(
+        $GLOBALS['PMA_Config']->setCookieArr('pmaUser',
             'pmaUser-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 $username,
@@ -628,7 +632,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function storePasswordCookie($password)
     {
         // Duration = as configured
-        $GLOBALS['PMA_Config']->setCookie(
+        $GLOBALS['PMA_Config']->setCookie('pmaAuth',
             'pmaPass-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 ! empty($password) ? $password : "\xff(blank)",
@@ -752,7 +756,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         if (is_null($this->_cookie_iv)) {
             $this->_cookie_iv = base64_decode(
-                $_COOKIE['pma_iv-' . $GLOBALS['server']],
+                getCookieArr('pmaAuth','pma_iv-' . $GLOBALS['server']),
                 true
             );
         }
@@ -809,7 +813,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $this->getIVSize()
             );
         }
-        $GLOBALS['PMA_Config']->setCookie(
+        $GLOBALS['PMA_Config']->setCookie('pmaAuth',
             'pma_iv-' . $GLOBALS['server'],
             base64_encode($this->_cookie_iv)
         );

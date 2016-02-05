@@ -20,6 +20,13 @@ require_once './libraries/vendor_config.php';
 $GLOBALS['pma_config_loading'] = false;
 
 /**
+ * Array to store information temporarily and later set cookie(see setcookie function).
+ */
+$GLOBALS["pmaUser"] = array();
+$GLOBALS["pmaAuth"] = array();
+$GLOBALS["pmaTest"] = array();
+
+/**
  * Configuration class
  *
  * @package PhpMyAdmin
@@ -1868,7 +1875,80 @@ class Config
         // cookie has already $value as value
         return true;
     }
+    /**
+     * sets the cookie
+     * @param string      $cookieArr Cookie array name
+     * @param string      $cookie    sub cookie name
+     * @param mixed       $value     sub cookie value
+     * @param int         $validity validity of cookie in seconds (default is one month)
+     * @param bool        $httponly whether cookie is only for HTTP (and not for scripts)
+     */
+    public function setCookieArr($cookieArr,$cookie, $value,
+            $validity = null, $httponly = true
+        ) {
+            // set cookie with new value
+            /* Calculate cookie validity */
+            if ($validity === null) {
+                $validity = time() + 2592000;
+            } elseif ($validity == 0) {
+                $validity = 0;
+            } else {
+                $validity = time() + $validity;
+            }
+            if (defined('TESTSUITE')) {
+                $_COOKIE[$cookie] = $value;
+                return true;
+            }
 
+            switch ($cookieArr) {
+            case 'pmaUser':$size = 2 ;
+                break;
+            case 'pmaAuth':$size = 2 ;
+                break;
+            default:$GLOBALS[$cookieArr] = array();
+                break;
+            }
+
+
+            if (sizeof($GLOBALS[$cookieArr])!=$size) {
+                $GLOBALS[$cookieArr][$cookie] = $value ;
+
+            }
+
+            if (sizeof($GLOBALS[$cookieArr])==$size){
+
+                $json_encoded = json_encode($GLOBALS[$cookieArr]);
+
+                return setcookie(
+                    $cookieArr,
+                    $json_encoded,
+                    $validity,
+                    $this->getCookiePath(),
+                    '',
+                    $this->isHttps(),
+                    $httponly
+                );
+            }
+        }
+
+    /**
+     * gets the cookie array
+     * @param  string $cookieArr name of cookie array to be retrieved
+     * @param  string $cookie    name of the subcookie
+     * @return string           value of subcookie
+     */
+    public function getCookieArr($cookieArr,$cookie){
+        if (isset($_COOKIE[$cookieArr])){
+
+          $json_decoded = json_decode($_COOKIE[$cookieArr]);
+            if (isset($json_decoded->$cookie)){
+                return( $json_decoded->$cookie);
+            }
+            else{
+                return null;
+            }
+        }
+    }
 
     /**
      * Error handler to catch fatal errors when loading configuration
