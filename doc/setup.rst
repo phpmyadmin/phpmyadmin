@@ -744,8 +744,8 @@ Securing your phpMyAdmin installation
 The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
-* Serve phpMyAdmin on HTTPS only. Prefereably settings HSTS as  well, so that
-  you're protected from downgrading attach.
+* Serve phpMyAdmin on HTTPS only. Preferably, you should use HSTS as well, so that
+  you're protected from protocol downgrade attacks.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`
