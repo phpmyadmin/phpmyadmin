@@ -19,6 +19,9 @@ require_once './libraries/vendor_config.php';
  */
 $GLOBALS['pma_config_loading'] = false;
 
+//array to setCookieArray
+
+
 /**
  * Configuration class
  *
