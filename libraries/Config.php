@@ -1876,7 +1876,7 @@ class Config
         return true;
     }
     /**
-     * sets the cookie array
+     * sets the cookie
      * @param string      $cookieArr Cookie array name
      * @param DocBlockr   $cookie    sub cookie name
      * @param mixed       $value     sub cookie value   
@@ -1945,10 +1945,11 @@ class Config
      * @return string           value of subcookie
      */
     public function getCookieArr($cookieArr,$cookie){
-    if (isset($_COOKIE[$cookieArr])){
+        if (isset($_COOKIE[$cookieArr])){
 
-      $json_decoded = json_decode($_COOKIE[$cookieArr]);
-      return( $json_decoded->$cookie);
+          $json_decoded = json_decode($_COOKIE[$cookieArr]);
+          return( $json_decoded->$cookie);
+        }
     }
 
     /**
