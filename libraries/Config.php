@@ -1879,7 +1879,7 @@ class Config
      * sets the cookie
      * @param string      $cookieArr Cookie array name
      * @param DocBlockr   $cookie    sub cookie name
-     * @param mixed       $value     sub cookie value   
+     * @param mixed       $value     sub cookie value
      * @param string      $default  default value
      * @param int         $validity validity of cookie in seconds (default is one month)
      * @param bool        $httponly whether cookie is only for HTTP (and not for scripts)
@@ -1916,9 +1916,12 @@ class Config
             }
 
             switch ($cookieArr) {
-            case 'pmaUser':$size = 2 ;break;
-            case 'pmaAuth':$size = 2 ;break;
-            default:$GLOBALS[$cookieArr] = array();break;
+                case 'pmaUser':$size = 2 ;
+                break;
+                case 'pmaAuth':$size = 2 ;
+                break;
+                default:$GLOBALS[$cookieArr] = array();
+                break;
             }
 
 
