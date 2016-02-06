@@ -1916,11 +1916,11 @@ class Config
             }
 
             switch ($cookieArr) {
-                case 'pmaUser':$size = 2 ;
+            case 'pmaUser':$size = 2 ;
                 break;
-                case 'pmaAuth':$size = 2 ;
+            case 'pmaAuth':$size = 2 ;
                 break;
-                default:$GLOBALS[$cookieArr] = array();
+            default:$GLOBALS[$cookieArr] = array();
                 break;
             }
 
