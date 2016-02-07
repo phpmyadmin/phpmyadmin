@@ -76,19 +76,17 @@ class ExportSql extends ExportPlugin
             // create the root group that will be the options field for
             // $exportPluginProperties
             // this will be shown as "Format specific options"
-            $exportSpecificOptions = new OptionsPropertyRootGroup();
-            $exportSpecificOptions->setName("Format Specific Options");
+            $exportSpecificOptions = new OptionsPropertyRootGroup(
+                "Format Specific Options"
+            );
 
             // general options main group
-            $generalOptions = new OptionsPropertyMainGroup();
-            $generalOptions->setName("general_opts");
+            $generalOptions = new OptionsPropertyMainGroup("general_opts");
 
             // comments
-            $subgroup = new OptionsPropertySubgroup();
-            $subgroup->setName("include_comments");
-            $leaf = new BoolPropertyItem();
-            $leaf->setName('include_comments');
-            $leaf->setText(
+            $subgroup = new OptionsPropertySubgroup("include_comments");
+            $leaf = new BoolPropertyItem(
+                'include_comments',
                 __(
                     'Display comments <i>(includes info such as export'
                     . ' timestamp, PHP version, and server version)</i>'
@@ -96,15 +94,13 @@ class ExportSql extends ExportPlugin
             );
             $subgroup->setSubgroupHeader($leaf);
 
-            $leaf = new TextPropertyItem();
-            $leaf->setName('header_comment');
-            $leaf->setText(
+            $leaf = new TextPropertyItem(
+                'header_comment',
                 __('Additional custom header comment (\n splits lines):')
             );
             $subgroup->addProperty($leaf);
-            $leaf = new BoolPropertyItem();
-            $leaf->setName('dates');
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                'dates',
                 __(
                     'Include a timestamp of when databases were created, last'
                     . ' updated, and last checked'
@@ -112,23 +108,26 @@ class ExportSql extends ExportPlugin
             );
             $subgroup->addProperty($leaf);
             if (!empty($GLOBALS['cfgRelation']['relation'])) {
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('relation');
-                $leaf->setText(__('Display foreign key relationships'));
+                $leaf = new BoolPropertyItem(
+                    'relation',
+                    __('Display foreign key relationships')
+                );
                 $subgroup->addProperty($leaf);
             }
             if (!empty($GLOBALS['cfgRelation']['mimework'])) {
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('mime');
-                $leaf->setText(__('Display MIME types'));
+                $leaf = new BoolPropertyItem(
+                    'mime',
+                    __('Display MIME types')
+                );
                 $subgroup->addProperty($leaf);
             }
             $generalOptions->addProperty($subgroup);
 
             // enclose in a transaction
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("use_transaction");
-            $leaf->setText(__('Enclose export in a transaction'));
+            $leaf = new BoolPropertyItem(
+                "use_transaction",
+                __('Enclose export in a transaction')
+            );
             $leaf->setDoc(
                 array(
                     'programs',
@@ -139,9 +138,10 @@ class ExportSql extends ExportPlugin
             $generalOptions->addProperty($leaf);
 
             // disable foreign key checks
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("disable_fk");
-            $leaf->setText(__('Disable foreign key checks'));
+            $leaf = new BoolPropertyItem(
+                "disable_fk",
+                __('Disable foreign key checks')
+            );
             $leaf->setDoc(
                 array(
                     'manual_MySQL_Database_Administration',
@@ -152,15 +152,17 @@ class ExportSql extends ExportPlugin
             $generalOptions->addProperty($leaf);
 
             // export views as tables
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("views_as_tables");
-            $leaf->setText(__('Export views as tables'));
+            $leaf = new BoolPropertyItem(
+                "views_as_tables",
+                __('Export views as tables')
+            );
             $generalOptions->addProperty($leaf);
 
             // export metadata
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("metadata");
-            $leaf->setText(__('Export metadata'));
+            $leaf = new BoolPropertyItem(
+                "metadata",
+                __('Export metadata')
+            );
             $generalOptions->addProperty($leaf);
 
             // compatibility maximization
@@ -171,9 +173,8 @@ class ExportSql extends ExportPlugin
                     $values[$val] = $val;
                 }
 
-                $leaf = new SelectPropertyItem();
-                $leaf->setName("compatibility");
-                $leaf->setText(
+                $leaf = new SelectPropertyItem(
+                    "compatibility",
                     __(
                         'Database system or older MySQL server to maximize output'
                         . ' compatibility with:'
@@ -192,11 +193,10 @@ class ExportSql extends ExportPlugin
             }
 
             // what to dump (structure/data/both)
-            $subgroup = new OptionsPropertySubgroup();
-            $subgroup->setName("dump_table");
-            $subgroup->setText("Dump table");
-            $leaf = new RadioPropertyItem();
-            $leaf->setName('structure_or_data');
+            $subgroup = new OptionsPropertySubgroup(
+                "dump_table", __("Dump table")
+            );
+            $leaf = new RadioPropertyItem('structure_or_data');
             $leaf->setValues(
                 array(
                     'structure'          => __('structure'),
@@ -212,33 +212,34 @@ class ExportSql extends ExportPlugin
 
             // structure options main group
             if (!$hide_structure) {
-                $structureOptions = new OptionsPropertyMainGroup();
-                $structureOptions->setName("structure");
-                $structureOptions->setText(__('Object creation options'));
+                $structureOptions = new OptionsPropertyMainGroup(
+                    "structure", __('Object creation options')
+                );
                 $structureOptions->setForce('data');
 
                 // begin SQL Statements
                 $subgroup = new OptionsPropertySubgroup();
-                $leaf = new MessageOnlyPropertyItem();
-                $leaf->setName('add_statements');
-                $leaf->setText(__('Add statements:'));
+                $leaf = new MessageOnlyPropertyItem(
+                    'add_statements',
+                    __('Add statements:')
+                );
                 $subgroup->setSubgroupHeader($leaf);
 
                 // server export options
                 if ($plugin_param['export_type'] == 'server') {
-                    $leaf = new BoolPropertyItem();
-                    $leaf->setName("drop_database");
-                    $leaf->setText(
+                    $leaf = new BoolPropertyItem(
+                        "drop_database",
                         sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
                     );
                     $subgroup->addProperty($leaf);
                 }
 
                 if ($plugin_param['export_type'] == 'database') {
-                    $leaf = new BoolPropertyItem();
-                    $leaf->setName('create_database');
                     $create_clause = '<code>CREATE DATABASE / USE</code>';
-                    $leaf->setText(sprintf(__('Add %s statement'), $create_clause));
+                    $leaf = new BoolPropertyItem(
+                        'create_database',
+                        sprintf(__('Add %s statement'), $create_clause)
+                    );
                     $subgroup->addProperty($leaf);
                 }
 
@@ -256,24 +257,23 @@ class ExportSql extends ExportPlugin
 
                 $drop_clause .= '<code> / TRIGGER</code>';
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('drop_table');
-                $leaf->setText(sprintf(__('Add %s statement'), $drop_clause));
+                $leaf = new BoolPropertyItem(
+                    'drop_table',
+                    sprintf(__('Add %s statement'), $drop_clause)
+                );
                 $subgroup->addProperty($leaf);
 
                 $subgroup_create_table = new OptionsPropertySubgroup();
 
                 // Add table structure option
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('create_table');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'create_table',
                     sprintf(__('Add %s statement'), '<code>CREATE TABLE</code>')
                 );
                 $subgroup_create_table->setSubgroupHeader($leaf);
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('if_not_exists');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'if_not_exists',
                     '<code>IF NOT EXISTS</code> ' . __(
                         '(less efficient as indexes will be generated during table '
                         . 'creation)'
@@ -281,9 +281,8 @@ class ExportSql extends ExportPlugin
                 );
                 $subgroup_create_table->addProperty($leaf);
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('auto_increment');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'auto_increment',
                     sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>')
                 );
                 $subgroup_create_table->addProperty($leaf);
@@ -291,16 +290,14 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($subgroup_create_table);
 
                 // Add view option
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('create_view');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'create_view',
                     sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
                 );
                 $subgroup->addProperty($leaf);
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('procedure_function');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'procedure_function',
                     sprintf(
                         __('Add %s statement'),
                         '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>'
@@ -309,18 +306,16 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($leaf);
 
                 // Add triggers option
-                $leaf = new BoolPropertyItem();
-                $leaf->setName('create_trigger');
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    'create_trigger',
                     sprintf(__('Add %s statement'), '<code>CREATE TRIGGER</code>')
                 );
                 $subgroup->addProperty($leaf);
 
                 $structureOptions->addProperty($subgroup);
 
-                $leaf = new BoolPropertyItem();
-                $leaf->setName("backquotes");
-                $leaf->setText(
+                $leaf = new BoolPropertyItem(
+                    "backquotes",
                     __(
                         'Enclose table and column names with backquotes '
                         . '<i>(Protects column and table names formed with'
@@ -335,24 +330,27 @@ class ExportSql extends ExportPlugin
             }
 
             // begin Data options
-            $dataOptions = new OptionsPropertyMainGroup();
-            $dataOptions->setName("data");
-            $dataOptions->setText(__('Data creation options'));
+            $dataOptions = new OptionsPropertyMainGroup(
+                "data", __('Data creation options')
+            );
             $dataOptions->setForce('structure');
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("truncate");
-            $leaf->setText(__('Truncate table before insert'));
+            $leaf = new BoolPropertyItem(
+                "truncate",
+                __('Truncate table before insert')
+            );
             $dataOptions->addProperty($leaf);
 
             // begin SQL Statements
             $subgroup = new OptionsPropertySubgroup();
-            $leaf = new MessageOnlyPropertyItem();
-            $leaf->setText(__('Instead of <code>INSERT</code> statements, use:'));
+            $leaf = new MessageOnlyPropertyItem(
+                __('Instead of <code>INSERT</code> statements, use:')
+            );
             $subgroup->setSubgroupHeader($leaf);
 
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("delayed");
-            $leaf->setText(__('<code>INSERT DELAYED</code> statements'));
+            $leaf = new BoolPropertyItem(
+                "delayed",
+                __('<code>INSERT DELAYED</code> statements')
+            );
             $leaf->setDoc(
                 array(
                     'manual_MySQL_Database_Administration',
@@ -361,9 +359,10 @@ class ExportSql extends ExportPlugin
             );
             $subgroup->addProperty($leaf);
 
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("ignore");
-            $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
+            $leaf = new BoolPropertyItem(
+                "ignore",
+                __('<code>INSERT IGNORE</code> statements')
+            );
             $leaf->setDoc(
                 array(
                     'manual_MySQL_Database_Administration',
@@ -374,9 +373,10 @@ class ExportSql extends ExportPlugin
             $dataOptions->addProperty($subgroup);
 
             // Function to use when dumping dat
-            $leaf = new SelectPropertyItem();
-            $leaf->setName("type");
-            $leaf->setText(__('Function to use when dumping data:'));
+            $leaf = new SelectPropertyItem(
+                "type",
+                __('Function to use when dumping data:')
+            );
             $leaf->setValues(
                 array(
                     'INSERT'  => 'INSERT',
@@ -388,12 +388,15 @@ class ExportSql extends ExportPlugin
 
             /* Syntax to use when inserting data */
             $subgroup = new OptionsPropertySubgroup();
-            $leaf = new MessageOnlyPropertyItem();
-            $leaf->setText(__('Syntax to use when inserting data:'));
+            $leaf = new MessageOnlyPropertyItem(
+                null,
+                __('Syntax to use when inserting data:')
+            );
             $subgroup->setSubgroupHeader($leaf);
-            $leaf = new RadioPropertyItem();
-            $leaf->setName("insert_syntax");
-            $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
+            $leaf = new RadioPropertyItem(
+                "insert_syntax",
+                __('<code>INSERT IGNORE</code> statements')
+            );
             $leaf->setValues(
                 array(
                     'complete' => __(
@@ -421,15 +424,15 @@ class ExportSql extends ExportPlugin
             $dataOptions->addProperty($subgroup);
 
             // Max length of query
-            $leaf = new NumberPropertyItem();
-            $leaf->setName("max_query_size");
-            $leaf->setText(__('Maximal length of created query'));
+            $leaf = new NumberPropertyItem(
+                "max_query_size",
+                __('Maximal length of created query')
+            );
             $dataOptions->addProperty($leaf);
 
             // Dump binary columns in hexadecimal
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("hex_for_binary");
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                "hex_for_binary",
                 __(
                     'Dump binary columns in hexadecimal notation'
                     . ' <i>(for example, "abc" becomes 0x616263)</i>'
@@ -438,9 +441,8 @@ class ExportSql extends ExportPlugin
             $dataOptions->addProperty($leaf);
 
             // Dump time in UTC
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("utc_time");
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                "utc_time",
                 __(
                     'Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns'
                     . ' to be dumped and reloaded between servers in different'
@@ -456,6 +458,63 @@ class ExportSql extends ExportPlugin
             $exportPluginProperties->setOptions($exportSpecificOptions);
             $this->properties = $exportPluginProperties;
         }
+    }
+
+    /**
+     * Generates SQL for routines export
+     *
+     * @param string $db        Database
+     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $type      Type of exported routine
+     * @param string $name      Verbose name of exported routine
+     * @param array  $routines  List of routines to export
+     * @param string $delimiter Delimiter to use in SQL
+     *
+     * @return string SQL query
+     */
+    protected function _exportRoutineSQL(
+        $db, $aliases, $type, $name, $routines, $delimiter
+    ) {
+        global $crlf;
+
+        $text = $this->_exportComment()
+            . $this->_exportComment($name)
+            . $this->_exportComment();
+
+        $used_alias = false;
+        $proc_query = '';
+
+        foreach ($routines as $routine) {
+            if (!empty($GLOBALS['sql_drop_table'])) {
+                $proc_query .= 'DROP ' . $type . ' IF EXISTS '
+                    . Util::backquote($routine)
+                    . $delimiter . $crlf;
+            }
+            $create_query = $this->replaceWithAliases(
+                $GLOBALS['dbi']->getDefinition($db, $type, $routine),
+                $aliases,
+                $db,
+                '',
+                $flag
+            );
+            // One warning per database
+            if ($flag) {
+                $used_alias = true;
+            }
+            $proc_query .= $create_query . $delimiter . $crlf . $crlf;
+        }
+        if ($used_alias) {
+            $text .= $this->_exportComment(
+                __('It appears your database uses routines;')
+            )
+            . $this->_exportComment(
+                __('alias export may not work reliably in all cases.')
+            )
+            . $this->_exportComment();
+        }
+        $text .= $proc_query;
+
+        return $text;
     }
 
     /**
@@ -483,89 +542,29 @@ class ExportSql extends ExportPlugin
         if ($procedure_names || $function_names) {
             $text .= $crlf
                 . 'DELIMITER ' . $delimiter . $crlf;
-        }
 
-        if ($procedure_names) {
-            $text .= $this->_exportComment()
-                . $this->_exportComment(__('Procedures'))
-                . $this->_exportComment();
-            $used_alias = false;
-            $proc_query = '';
-            foreach ($procedure_names as $procedure_name) {
-                if (!empty($GLOBALS['sql_drop_table'])) {
-                    $proc_query .= 'DROP PROCEDURE IF EXISTS '
-                        . Util::backquote($procedure_name)
-                        . $delimiter . $crlf;
-                }
-                $create_query = $GLOBALS['dbi']
-                    ->getDefinition($db, 'PROCEDURE', $procedure_name);
-                $create_query = $this->replaceWithAliases(
-                    $create_query,
-                    $aliases,
+            if ($procedure_names) {
+                $text .= $this->_exportRoutineSQL(
                     $db,
-                    '',
-                    $flag
-                );
-                // One warning per database
-                if ($flag) {
-                    $used_alias = true;
-                }
-                $proc_query .= $create_query . $delimiter . $crlf . $crlf;
-            }
-            if ($used_alias) {
-                $text .= $this->_exportComment(
-                    __(
-                        'It appears your database uses procedures;'
-                    )
-                )
-                . $this->_exportComment(
-                    __('alias export may not work reliably in all cases.')
-                )
-                . $this->_exportComment();
-            }
-            $text .= $proc_query;
-        }
-
-        if ($function_names) {
-            $text .= $this->_exportComment()
-                . $this->_exportComment(__('Functions'))
-                . $this->_exportComment();
-            $used_alias = false;
-            $function_query = '';
-            foreach ($function_names as $function_name) {
-                if (!empty($GLOBALS['sql_drop_table'])) {
-                    $function_query .= 'DROP FUNCTION IF EXISTS '
-                        . Util::backquote($function_name)
-                        . $delimiter . $crlf;
-                }
-                $create_query = $GLOBALS['dbi']
-                    ->getDefinition($db, 'FUNCTION', $function_name);
-                $create_query = $this->replaceWithAliases(
-                    $create_query,
                     $aliases,
-                    $db,
-                    '',
-                    $flag
+                    'PROCEDURE',
+                    __('Procedures'),
+                    $procedure_names,
+                    $delimiter
                 );
-                // One warning per database
-                if ($flag) {
-                    $used_alias = true;
-                }
-                $function_query .= $create_query . $delimiter . $crlf . $crlf;
             }
-            if ($used_alias) {
-                $text .= $this->_exportComment(
-                    __('It appears your database uses functions;')
-                )
-                . $this->_exportComment(
-                    __('alias export may not work reliably in all cases.')
-                )
-                . $this->_exportComment();
-            }
-            $text .= $function_query;
-        }
 
-        if ($procedure_names || $function_names) {
+            if ($function_names) {
+                $text .= $this->_exportRoutineSQL(
+                    $db,
+                    $aliases,
+                    'FUNCTION',
+                    __('Functions'),
+                    $function_names,
+                    $delimiter
+                );
+            }
+
             $text .= 'DELIMITER ;' . $crlf;
         }
 
@@ -806,12 +805,12 @@ class ExportSql extends ExportPlugin
                 isset($GLOBALS['sql_backquotes'])
             );
         $collation = PMA_getDbCollation($db);
-        if (/*overload*/mb_strpos($collation, '_')) {
+        if (mb_strpos($collation, '_')) {
             $create_query .= ' DEFAULT CHARACTER SET '
-                . /*overload*/mb_substr(
+                . mb_substr(
                     $collation,
                     0,
-                    /*overload*/mb_strpos($collation, '_')
+                    mb_strpos($collation, '_')
                 )
                 . ' COLLATE ' . $collation;
         } else {
@@ -1485,11 +1484,11 @@ class ExportSql extends ExportPlugin
 
             // Convert end of line chars to one that we want (note that MySQL
             // doesn't return query it will accept in all cases)
-            if (/*overload*/mb_strpos($create_query, "(\r\n ")) {
+            if (mb_strpos($create_query, "(\r\n ")) {
                 $create_query = str_replace("\r\n", $crlf, $create_query);
-            } elseif (/*overload*/mb_strpos($create_query, "(\n ")) {
+            } elseif (mb_strpos($create_query, "(\n ")) {
                 $create_query = str_replace("\n", $crlf, $create_query);
-            } elseif (/*overload*/mb_strpos($create_query, "(\r ")) {
+            } elseif (mb_strpos($create_query, "(\r ")) {
                 $create_query = str_replace("\r", $crlf, $create_query);
             }
 
@@ -1822,7 +1821,6 @@ class ExportSql extends ExportPlugin
                     __('MIME TYPES FOR TABLE') . ' '
                     . Util::backquote($table, $sql_backquotes) . ':'
                 );
-            @reset($mime_map);
             foreach ($mime_map as $mime_field => $mime) {
                 $schema_create .= $this->_exportComment(
                     '  '
@@ -2433,9 +2431,7 @@ class ExportSql extends ExportPlugin
                             . implode(', ', $values) . ')';
                     } else {
                         $insert_line = '(' . implode(', ', $values) . ')';
-                        $insertLineSize
-                            = /*overload*/
-                            mb_strlen($insert_line);
+                        $insertLineSize = mb_strlen($insert_line);
                         $sql_max_size = $GLOBALS['sql_max_query_size'];
                         if (isset($sql_max_size)
                             && $sql_max_size > 0
@@ -2449,9 +2445,7 @@ class ExportSql extends ExportPlugin
                             $insert_line = $schema_insert . $insert_line;
                         }
                     }
-                    $query_size
-                        += /*overload*/
-                        mb_strlen($insert_line);
+                    $query_size += mb_strlen($insert_line);
                     // Other inserts case
                 } else {
                     $insert_line = $schema_insert

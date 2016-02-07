@@ -100,6 +100,7 @@ if (! empty($submit_mult)
                 isset($original_url_query)? $original_url_query : null
             );
             $response = PMA\libraries\Response::getInstance();
+            $response->disable();
             $response->addHTML(
                 PMA_getHtmlForCopyMultipleTables($action, $_url_params)
             );
@@ -159,11 +160,11 @@ $views = $GLOBALS['dbi']->getVirtualTables($db);
 if (!empty($submit_mult) && !empty($what)) {
     unset($message);
 
-    if (/*overload*/mb_strlen($table)) {
+    if (mb_strlen($table)) {
         include './libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         include './libraries/tbl_info.inc.php';
-    } elseif (/*overload*/mb_strlen($db)) {
+    } elseif (mb_strlen($db)) {
         include './libraries/db_common.inc.php';
 
         list(
@@ -198,10 +199,12 @@ if (!empty($submit_mult) && !empty($what)) {
     $response = PMA\libraries\Response::getInstance();
 
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
+        $response->disable();
         $response->addHTML(
-            PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
+            PMA_getHtmlForReplacePrefixTable($action, $_url_params)
         );
     } elseif ($what == 'add_prefix_tbl') {
+        $response->disable();
         $response->addHTML(PMA_getHtmlForAddPrefixTable($action, $_url_params));
     } else {
         $response->addHTML(
@@ -268,21 +271,8 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($execute_query_later) {
-
-        /**
-         * Parse and analyze the query
-         */
-        include_once 'libraries/parse_analyze.lib.php';
-        list(
-            $analyzed_sql_results,
-            $db,
-            $table
-        ) = PMA_parseAnalyze($sql_query, $db);
-        // @todo: possibly refactor
-        extract($analyzed_sql_results);
-
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, // analyzed_sql_results
+            null, // analyzed_sql_results
             false, // is_gotofile
             $db, // db
             $table, // table

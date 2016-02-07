@@ -31,20 +31,6 @@ if (! empty($_REQUEST['target'])) {
 require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 
 /**
- * phpseclib
- */
-if (! function_exists('openssl_encrypt')
-    || ! function_exists('openssl_decrypt')
-    || ! function_exists('openssl_random_pseudo_bytes')
-    || PHP_VERSION_ID < 50304
-) {
-    include PHPSECLIB_INC_DIR . '/Crypt/Base.php';
-    include PHPSECLIB_INC_DIR . '/Crypt/Rijndael.php';
-    include PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-    include PHPSECLIB_INC_DIR . '/Crypt/Random.php';
-}
-
-/**
  * Handles the cookie authentication method
  *
  * @package PhpMyAdmin-Authentication
@@ -437,8 +423,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // User inactive too long
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
-        if ($_SESSION['last_access_time'] < $last_access_time
-        ) {
+        if ($_SESSION['last_access_time'] < $last_access_time) {
             Util::cacheUnset('is_create_db_priv');
             Util::cacheUnset('is_reload_priv');
             Util::cacheUnset('db_to_create');
@@ -448,7 +433,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             Util::cacheUnset('col_priv');
             Util::cacheUnset('table_priv');
             Util::cacheUnset('proc_priv');
-            Util::cacheUnset('flush_priv');
 
             $GLOBALS['no_activity'] = true;
             $this->authFails();
@@ -575,14 +559,14 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
 
             // URL where to go:
-            $redirect_url = $cfg['PmaAbsoluteUri'] . 'index.php';
+            $redirect_url = './index.php';
 
             // any parameters to pass?
             $url_params = array();
-            if (/*overload*/mb_strlen($GLOBALS['db'])) {
+            if (mb_strlen($GLOBALS['db'])) {
                 $url_params['db'] = $GLOBALS['db'];
             }
-            if (/*overload*/mb_strlen($GLOBALS['table'])) {
+            if (mb_strlen($GLOBALS['table'])) {
                 $url_params['table'] = $GLOBALS['table'];
             }
             // any target to pass?
@@ -675,9 +659,11 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $conn_error = $this->getErrorMessage();
 
+        $response = Response::getInstance();
+
         // needed for PHP-CGI (not need for FastCGI or mod-php)
-        header('Cache-Control: no-store, no-cache, must-revalidate');
-        header('Pragma: no-cache');
+        $response->header('Cache-Control: no-store, no-cache, must-revalidate');
+        $response->header('Pragma: no-cache');
 
         $this->auth();
     }
@@ -725,7 +711,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             function_exists('openssl_encrypt')
             && function_exists('openssl_decrypt')
             && function_exists('openssl_random_pseudo_bytes')
-            && PHP_VERSION_ID >= 50304
         );
     }
 

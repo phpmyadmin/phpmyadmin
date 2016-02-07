@@ -56,16 +56,17 @@ class ImportSql extends ImportPlugin
             // create the root group that will be the options field for
             // $importPluginProperties
             // this will be shown as "Format specific options"
-            $importSpecificOptions = new OptionsPropertyRootGroup();
-            $importSpecificOptions->setName("Format Specific Options");
+            $importSpecificOptions = new OptionsPropertyRootGroup(
+                "Format Specific Options"
+            );
 
             // general options main group
-            $generalOptions = new OptionsPropertyMainGroup();
-            $generalOptions->setName("general_opts");
+            $generalOptions = new OptionsPropertyMainGroup("general_opts");
             // create primary items and add them to the group
-            $leaf = new SelectPropertyItem();
-            $leaf->setName("compatibility");
-            $leaf->setText(__('SQL compatibility mode:'));
+            $leaf = new SelectPropertyItem(
+                "compatibility",
+                __('SQL compatibility mode:')
+            );
             $leaf->setValues($values);
             $leaf->setDoc(
                 array(
@@ -74,9 +75,8 @@ class ImportSql extends ImportPlugin
                 )
             );
             $generalOptions->addProperty($leaf);
-            $leaf = new BoolPropertyItem();
-            $leaf->setName("no_auto_value_on_zero");
-            $leaf->setText(
+            $leaf = new BoolPropertyItem(
+                "no_auto_value_on_zero",
                 __('Do not use <code>AUTO_INCREMENT</code> for zero values')
             );
             $leaf->setDoc(

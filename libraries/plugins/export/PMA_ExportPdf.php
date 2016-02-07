@@ -42,8 +42,8 @@ class PMA_ExportPdf extends PDF
         }
         $current_page = $this->page;
         if ((($y + $h) > $this->PageBreakTrigger)
-            AND (!$this->InFooter)
-            AND ($this->AcceptPageBreak())
+            && (!$this->InFooter)
+            && ($this->AcceptPageBreak())
         ) {
             if ($addpage) {
                 //Automatic page break
@@ -103,14 +103,14 @@ class PMA_ExportPdf extends PDF
             $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 5);
             $this->cellFontSize = $this->FontSizePt;
             $this->SetFont(
-                PMA_PDF_FONT,
+                PDF::PMA_PDF_FONT,
                 '',
                 ($this->titleFontSize
                     ? $this->titleFontSize
                     : $this->FontSizePt)
             );
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
-            $this->SetFont(PMA_PDF_FONT, '', $this->cellFontSize);
+            $this->SetFont(PDF::PMA_PDF_FONT, '', $this->cellFontSize);
             $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 2.5);
             $this->Cell(
                 0,
@@ -327,7 +327,7 @@ class PMA_ExportPdf extends PDF
 
         $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PMA_PDF_FONT, '', 9);
+        $this->SetFont(PDF::PMA_PDF_FONT, '', 9);
 
         $l = $this->lMargin;
         $startheight = $h = $this->dataY;
@@ -509,7 +509,7 @@ class PMA_ExportPdf extends PDF
 
         $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PMA_PDF_FONT, '', 9);
+        $this->SetFont(PDF::PMA_PDF_FONT, '', 9);
 
         // Now let's start to write the table structure
 
@@ -804,7 +804,7 @@ class PMA_ExportPdf extends PDF
         );
         $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PMA_PDF_FONT, '', 9);
+        $this->SetFont(PDF::PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
         $GLOBALS['dbi']->freeResult($this->results);
     } // end of mysqlReport function

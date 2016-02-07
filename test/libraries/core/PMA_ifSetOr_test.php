@@ -1,7 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA_ifSetOr() from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -9,10 +8,8 @@
 /*
  * Include to test.
  */
-require_once 'libraries/core.lib.php';
 
 /**
- * Tests for PMA_ifSetOr() from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
  */

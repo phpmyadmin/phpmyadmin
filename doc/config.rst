@@ -41,6 +41,11 @@ Basic settings
     :type: string
     :default: ``''``
 
+    .. versionremoved:: 4.6.0
+        
+        This setting is no longer available since phpMyAdmin 4.6.0. Please
+        adjust your webserver instead.
+
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
     ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
@@ -289,6 +294,20 @@ Server connection settings
     :default: NULL
 
     List of allowable ciphers for SSL connections to the MySQL server.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_verify']
+
+    :type: boolean
+    :default: true
+
+    If your PHP install uses the MySQL Native Driver (mysqlnd), your
+    MySQL server is 5.6 or later, and your SSL certificate is self-signed,
+    there is a chance your SSL connection will fail due to validation.
+    Setting this to ``false`` will disable the validation check.
+
+    .. note::
+
+        This flag only works with PHP 5.6.16 or later
 
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
@@ -1259,6 +1278,11 @@ Generic settings
 
     :type: boolean
     :default: false
+
+    .. versionremoved:: 4.6.0
+        
+        This setting is no longer available since phpMyAdmin 4.6.0. Please
+        adjust your webserver instead.
 
     Whether to force using https while accessing phpMyAdmin. In a reverse
     proxy setup, setting this to ``true`` is not supported.

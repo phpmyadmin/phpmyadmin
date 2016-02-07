@@ -15,7 +15,6 @@ use PMA\libraries\Util;
 
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
@@ -595,8 +594,8 @@ class TableTest extends PMATestCase
     public function testIsMergeCase2()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "MERGE")),
-            array('PMA.PMA_BookMark.ENGINE', null, "MERGE")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "MERGE")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "MERGE")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -617,8 +616,8 @@ class TableTest extends PMATestCase
     public function testIsMergeCase3()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "MRG_MYISAM")),
-            array('PMA.PMA_BookMark.ENGINE', null, "MRG_MYISAM")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "MRG_MYISAM")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "MRG_MYISAM")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -639,8 +638,8 @@ class TableTest extends PMATestCase
     public function testIsMergeCase4()
     {
         $map = array(
-            array('PMA.PMA_BookMark', null, array('ENGINE' => "ISDB")),
-            array('PMA.PMA_BookMark.ENGINE', null, "ISDB")
+            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "ISDB")),
+            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "ISDB")
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -956,11 +955,11 @@ class TableTest extends PMATestCase
     {
         $map = array(
             array(
-                'PMA.PMA_BookMark',
+                array('PMA', 'PMA_BookMark'),
                 null,
                 array('Comment' => "Comment222", 'TABLE_TYPE' => "VIEW"),
             ),
-            array('PMA.PMA_BookMark.TABLE_TYPE', null, 'VIEW'),
+            array(array('PMA', 'PMA_BookMark', 'TABLE_TYPE'), null, 'VIEW'),
         );
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')

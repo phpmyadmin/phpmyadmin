@@ -15,7 +15,6 @@ use PMA\libraries\Theme;
 $GLOBALS['server'] = 1;
 require_once 'libraries/operations.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 
 
@@ -77,9 +76,11 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
 
         $_REQUEST['db_collation'] = 'db1';
+        $html = PMA_getHtmlForRenameDatabase("pma");
+        $this->assertContains('db_operations.php', $html);
         $this->assertRegExp(
-            '/.*db_operations.php(.|[\n])*db_rename([\n]|.)*Rename database to.*/m',
-            PMA_getHtmlForRenameDatabase("pma")
+            '/.*db_rename.*Rename database to.*/',
+            $html
         );
     }
 

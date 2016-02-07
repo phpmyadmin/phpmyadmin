@@ -36,12 +36,12 @@ use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\DbList;
-use PMA\libraries\Theme;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
 use PMA\libraries\Response;
 use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
+use PMA\libraries\LanguageManager;
 
 /**
  * block attempts to directly run this script
@@ -102,8 +102,7 @@ mb_internal_encoding('utf-8');
  */
 require './libraries/relation.lib.php';
 
-if (! defined('PMA_MINIMUM_COMMON')) {
-
+if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
     /**
      * JavaScript escaping.
      */
@@ -172,7 +171,7 @@ unset($key, $value, $variables_whitelist);
  * so we now check if a subform is submitted
  */
 $__redirect = null;
-if (isset($_POST['usesubform'])) {
+if (isset($_POST['usesubform']) && ! defined('PMA_MINIMUM_COMMON')) {
     // if a subform is present and should be used
     // the rest of the form is deprecated
     $subform_id = key($_POST['usesubform']);
@@ -218,10 +217,6 @@ date_default_timezone_set(@date_default_timezone_get());
  */
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
-if (!defined('PMA_MINIMUM_COMMON')) {
-    $GLOBALS['PMA_Config']->checkPmaAbsoluteUri();
-}
-
 /**
  * BC - enable backward compatibility
  * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
@@ -245,23 +240,6 @@ if (isset($_COOKIE)) {
         $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
     }
 }
-
-
-/**
- * check HTTPS connection
- */
-if ($GLOBALS['PMA_Config']->get('ForceSSL')
-    && ! $GLOBALS['PMA_Config']->detectHttps()
-) {
-    // grab SSL URL
-    $url = $GLOBALS['PMA_Config']->getSSLUri();
-    // Actually redirect
-    PMA_sendHeaderLocation($url . PMA_URL_getCommon($_GET, 'text'));
-    // delete the current session, otherwise we get problems (see bug #2397877)
-    $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
-    exit;
-}
-
 
 /**
  * include session handling after the globals, to prevent overwriting
@@ -386,7 +364,7 @@ $token_mismatch = true;
 $token_provided = false;
 if (PMA_isValid($_REQUEST['token'])) {
     $token_provided = true;
-    $token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
+    $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_REQUEST['token']);
 }
 
 if ($token_mismatch) {
@@ -475,9 +453,15 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
+ * Load gettext functions.
+ */
+require_once GETTEXT_INC;
+
+/**
  * lang detection is done here
  */
-require './libraries/select_lang.inc.php';
+$language = LanguageManager::getInstance()->selectLanguage();
+$language->activate();
 
 // Defines the cell alignment values depending on text direction
 if ($GLOBALS['text_dir'] == 'ltr') {
@@ -511,15 +495,6 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
         $GLOBALS['PMA_Config']->default_source
     );
     trigger_error($error, E_USER_ERROR);
-}
-if ($GLOBALS['PMA_Config']->error_pma_uri) {
-    trigger_error(
-        __(
-            'The [code]$cfg[\'PmaAbsoluteUri\'][/code]'
-            . ' directive MUST be set in your configuration file!'
-        ),
-        E_USER_ERROR
-    );
 }
 
 
@@ -613,8 +588,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
-            $verboseToLower = /*overload*/mb_strtolower($server['verbose']);
-            $serverToLower = /*overload*/mb_strtolower($_REQUEST['server']);
+            $verboseToLower = mb_strtolower($server['verbose']);
+            $serverToLower = mb_strtolower($_REQUEST['server']);
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
                 || $verboseToLower == $serverToLower
@@ -709,7 +684,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // to allow HTTP or http
         $cfg['Server']['auth_type']
-            = /*overload*/mb_strtolower($cfg['Server']['auth_type']);
+            = mb_strtolower($cfg['Server']['auth_type']);
 
         /**
          * the required auth type plugin
@@ -802,7 +777,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // if using TCP socket is not needed
-        if (/*overload*/mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
+        if (mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
             $cfg['Server']['socket'] = '';
         }
 
@@ -985,7 +960,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $scripts->addFile('jqplot/jquery.jqplot.js');
         $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
         $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('canvg/canvg.js');
         $scripts->addFile('jquery/jquery.tablesorter.js');
     }
 
@@ -1090,3 +1064,32 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     include 'libraries/config/user_preferences.forms.php';
     include_once 'libraries/config/page_settings.forms.php';
 }
+
+/**
+ * @global array MySQL charsets map
+ */
+$GLOBALS['mysql_charset_map'] = array(
+    'big5'         => 'big5',
+    'cp-866'       => 'cp866',
+    'euc-jp'       => 'ujis',
+    'euc-kr'       => 'euckr',
+    'gb2312'       => 'gb2312',
+    'gbk'          => 'gbk',
+    'iso-8859-1'   => 'latin1',
+    'iso-8859-2'   => 'latin2',
+    'iso-8859-7'   => 'greek',
+    'iso-8859-8'   => 'hebrew',
+    'iso-8859-8-i' => 'hebrew',
+    'iso-8859-9'   => 'latin5',
+    'iso-8859-13'  => 'latin7',
+    'iso-8859-15'  => 'latin1',
+    'koi8-r'       => 'koi8r',
+    'shift_jis'    => 'sjis',
+    'tis-620'      => 'tis620',
+    'utf-8'        => 'utf8',
+    'windows-1250' => 'cp1250',
+    'windows-1251' => 'cp1251',
+    'windows-1252' => 'latin1',
+    'windows-1256' => 'cp1256',
+    'windows-1257' => 'cp1257',
+);

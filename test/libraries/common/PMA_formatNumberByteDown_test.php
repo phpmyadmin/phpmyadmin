@@ -11,7 +11,6 @@
  * Include to test.
  */
 
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Test for format number and byte

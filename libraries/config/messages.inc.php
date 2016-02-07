@@ -230,8 +230,6 @@ $strConfigExport_xls_columns_name = __('Put columns names in the first row');
 $strConfigExport_xls_null_name = __('Replace NULL with');
 $strConfigExport_xlsx_columns_name = __('Put columns names in the first row');
 $strConfigExport_xlsx_null_name = __('Replace NULL with');
-$strConfigForceSSL_desc = __('Force secured connection while using phpMyAdmin.');
-$strConfigForceSSL_name = __('Force SSL connection');
 $strConfigForeignKeyDropdownOrder_desc = __(
     'Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is '
     . 'the referenced data, [kbd]id[/kbd] is the key value.'

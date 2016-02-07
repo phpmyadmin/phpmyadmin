@@ -381,10 +381,10 @@ class Util
         }
 
         foreach ($quotes as $quote) {
-            if (/*overload*/mb_substr($quoted_string, 0, 1) === $quote
-                && /*overload*/mb_substr($quoted_string, -1, 1) === $quote
+            if (mb_substr($quoted_string, 0, 1) === $quote
+                && mb_substr($quoted_string, -1, 1) === $quote
             ) {
-                $unquoted_string = /*overload*/mb_substr($quoted_string, 1, -1);
+                $unquoted_string = mb_substr($quoted_string, 1, -1);
                 // replace escaped quotes
                 $unquoted_string = str_replace(
                     $quote . $quote,
@@ -416,9 +416,9 @@ class Util
         global $cfg;
 
         if ($truncate
-            && /*overload*/mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']
+            && mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']
         ) {
-            $sqlQuery = /*overload*/mb_substr(
+            $sqlQuery = mb_substr(
                 $sqlQuery,
                 0,
                 $cfg['MaxCharactersInDisplayedSQL']
@@ -459,7 +459,7 @@ class Util
     public static function getMySQLDocuURL($link, $anchor = '')
     {
         // Fixup for newly used names:
-        $link = str_replace('_', '-', /*overload*/mb_strtolower($link));
+        $link = str_replace('_', '-', mb_strtolower($link));
 
         if (empty($link)) {
             $link = 'index';
@@ -695,10 +695,10 @@ class Util
 
             // Display the SQL query and link to MySQL documentation.
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
-            $formattedSqlToLower = /*overload*/mb_strtolower($formatted_sql);
+            $formattedSqlToLower = mb_strtolower($formatted_sql);
 
             // TODO: Show documentation for all statement types.
-            if (/*overload*/mb_strstr($formattedSqlToLower, 'select')) {
+            if (mb_strstr($formattedSqlToLower, 'select')) {
                 // please show me help to the error on select
                 $error_msg .= self::showMySQLDocu('SELECT');
             }
@@ -708,12 +708,12 @@ class Util
                     'sql_query' => $sql_query,
                     'show_query' => 1,
                 );
-                if (/*overload*/mb_strlen($table)) {
+                if (mb_strlen($table)) {
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
                         . PMA_URL_getCommon($_url_params) . '">';
-                } elseif (/*overload*/mb_strlen($db)) {
+                } elseif (mb_strlen($db)) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
                         . PMA_URL_getCommon($_url_params) . '">';
@@ -784,7 +784,7 @@ class Util
         }
 
         if (!empty($back_url)) {
-            if (/*overload*/mb_strstr($back_url, '?')) {
+            if (mb_strstr($back_url, '?')) {
                 $back_url .= '&amp;no_history=true';
             } else {
                 $back_url .= '?no_history=true';
@@ -885,7 +885,7 @@ class Util
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
             if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
-                && $sep && /*overload*/mb_strstr($table_name, $sep)
+                && $sep && mb_strstr($table_name, $sep)
             ) {
                 $parts = explode($sep, $table_name);
 
@@ -976,7 +976,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (/*overload*/mb_strlen($a_name) && $a_name !== '*') {
+        if (mb_strlen($a_name) && $a_name !== '*') {
             return '`' . str_replace('`', '``', $a_name) . '`';
         } else {
             return $a_name;
@@ -1033,7 +1033,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (/*overload*/mb_strlen($a_name) && $a_name !== '*') {
+        if (mb_strlen($a_name) && $a_name !== '*') {
             return $quote . $a_name . $quote;
         } else {
             return $a_name;
@@ -1142,14 +1142,14 @@ class Util
 
             $query_too_big = false;
 
-            $queryLength = /*overload*/mb_strlen($query_base);
+            $queryLength = mb_strlen($query_base);
             if ($queryLength > $cfg['MaxCharactersInDisplayedSQL']) {
                 // when the query is large (for example an INSERT of binary
                 // data), the parser chokes; so avoid parsing the query
                 $query_too_big = true;
                 $shortened_query_base = nl2br(
                     htmlspecialchars(
-                        /*overload*/mb_substr(
+                        mb_substr(
                             $sql_query,
                             0,
                             $cfg['MaxCharactersInDisplayedSQL']
@@ -1173,9 +1173,9 @@ class Util
             if (! isset($GLOBALS['db'])) {
                 $GLOBALS['db'] = '';
             }
-            if (/*overload*/mb_strlen($GLOBALS['db'])) {
+            if (mb_strlen($GLOBALS['db'])) {
                 $url_params['db'] = $GLOBALS['db'];
-                if (/*overload*/mb_strlen($GLOBALS['table'])) {
+                if (mb_strlen($GLOBALS['table'])) {
                     $url_params['table'] = $GLOBALS['table'];
                     $edit_link = 'tbl_sql.php';
                 } else {
@@ -1204,7 +1204,7 @@ class Util
                     $sql_query
                 )) {
                     $explain_params['sql_query']
-                        = /*overload*/mb_substr($sql_query, 8);
+                        = mb_substr($sql_query, 8);
                     $explain_link = ' ['
                         . self::linkOrButton(
                             'import.php' . PMA_URL_getCommon($explain_params),
@@ -1628,13 +1628,13 @@ class Util
         $return_value = -1;
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
-            $return_value = /*overload*/mb_substr($formatted_size, 0, -2)
+            $return_value = mb_substr($formatted_size, 0, -2)
                 * self::pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
-            $return_value = /*overload*/mb_substr($formatted_size, 0, -2)
+            $return_value = mb_substr($formatted_size, 0, -2)
                 * self::pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
-            $return_value = /*overload*/mb_substr($formatted_size, 0, -1)
+            $return_value = mb_substr($formatted_size, 0, -1)
                 * self::pow(1024, 1);
         }
         return $return_value;
@@ -1890,7 +1890,7 @@ class Util
         $url, $message, $tag_params = array(),
         $new_form = true, $strip_img = false, $target = '', $force_button = false
     ) {
-        $url_length = /*overload*/mb_strlen($url);
+        $url_length = mb_strlen($url);
         // with this we should be able to catch case of image upload
         // into a (MEDIUM) BLOB; not worth generating even a form for these
         if ($url_length > $GLOBALS['cfg']['LinkLengthLimit'] * 100) {
@@ -1935,7 +1935,7 @@ class Util
                     }
 
                     list(, $eachval) = explode('=', $query_pair);
-                    if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
+                    if (mb_strlen($eachval) > $suhosin_get_MaxValueLength
                     ) {
                         $in_suhosin_limits = false;
                         break;
@@ -1951,7 +1951,7 @@ class Util
             $tag_params_strings = array();
             foreach ($tag_params as $par_name => $par_value) {
                 // htmlspecialchars() only on non javascript
-                $par_value = /*overload*/mb_substr($par_name, 0, 2) == 'on'
+                $par_value = mb_substr($par_name, 0, 2) == 'on'
                     ? $par_value
                     : htmlspecialchars($par_value);
                 $tag_params_strings[] = $par_name . '="' . $par_value . '"';
@@ -2009,7 +2009,7 @@ class Util
             $tag_params_strings = array();
             foreach ($tag_params as $par_name => $par_value) {
                 // htmlspecialchars() only on non javascript
-                $par_value = /*overload*/mb_substr($par_name, 0, 2) == 'on'
+                $par_value = mb_substr($par_name, 0, 2) == 'on'
                     ? $par_value
                     : htmlspecialchars($par_value);
                 $tag_params_strings[] = $par_name . '="' . $par_value . '"';
@@ -2109,7 +2109,7 @@ class Util
         $format_string = '';
         $charbuff = false;
 
-        for ($i = 0, $str_len = /*overload*/mb_strlen($string);
+        for ($i = 0, $str_len = mb_strlen($string);
              $i < $str_len;
              $i++
         ) {
@@ -2228,7 +2228,7 @@ class Util
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition
-            if (! isset($meta->orgname) || ! /*overload*/mb_strlen($meta->orgname)) {
+            if (! isset($meta->orgname) || ! mb_strlen($meta->orgname)) {
                 $meta->orgname = $meta->name;
 
                 if (!empty($analyzed_sql_results['statement']->expr)) {
@@ -2299,7 +2299,7 @@ class Util
                     // hexify only if this is a true not empty BLOB or a BINARY
 
                     // do not waste memory building a too big condition
-                    if (/*overload*/mb_strlen($row[$i]) < 1000) {
+                    if (mb_strlen($row[$i]) < 1000) {
                         // use a CAST if possible, to avoid problems
                         // if the field contains wildcard characters % or _
                         $con_val = '= CAST(0x' . bin2hex($row[$i]) . ' AS BINARY)';
@@ -2307,7 +2307,7 @@ class Util
                         // when this blob is the only field present
                         // try settling with length comparison
                         $condition = ' CHAR_LENGTH(' . $con_key . ') ';
-                        $con_val = ' = ' .  /*overload*/mb_strlen($row[$i]);
+                        $con_val = ' = ' .  mb_strlen($row[$i]);
                     } else {
                         // this blob won't be part of the final condition
                         $con_val = null;
@@ -2316,7 +2316,7 @@ class Util
                     && ! empty($row[$i])
                 ) {
                     // do not build a too big condition
-                    if (/*overload*/mb_strlen($row[$i]) < 5000) {
+                    if (mb_strlen($row[$i]) < 5000) {
                         $condition .= '=0x' . bin2hex($row[$i]) . ' AND';
                     } else {
                         $condition = '';
@@ -2679,7 +2679,7 @@ class Util
     public static function userDir($dir)
     {
         // add trailing slash
-        if (/*overload*/mb_substr($dir, -1) != '/') {
+        if (mb_substr($dir, -1) != '/') {
             $dir .= '/';
         }
 
@@ -2695,8 +2695,8 @@ class Util
      */
     public static function getDbLink($database = null)
     {
-        if (! /*overload*/mb_strlen($database)) {
-            if (! /*overload*/mb_strlen($GLOBALS['db'])) {
+        if (! mb_strlen($database)) {
+            if (! mb_strlen($GLOBALS['db'])) {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -3058,7 +3058,7 @@ class Util
      * function because in PHP, decbin() supports only 32 bits
      * on 32-bit servers
      *
-     * @param number  $value  coming from a BIT field
+     * @param integer $value  coming from a BIT field
      * @param integer $length length
      *
      * @return string  the printable value
@@ -3129,24 +3129,24 @@ class Util
      */
     public static function extractColumnSpec($columnspec)
     {
-        $first_bracket_pos = /*overload*/mb_strpos($columnspec, '(');
+        $first_bracket_pos = mb_strpos($columnspec, '(');
         if ($first_bracket_pos) {
             $spec_in_brackets = chop(
-                /*overload*/mb_substr(
+                mb_substr(
                     $columnspec,
                     $first_bracket_pos + 1,
-                    /*overload*/mb_strrpos($columnspec, ')') - $first_bracket_pos - 1
+                    mb_strrpos($columnspec, ')') - $first_bracket_pos - 1
                 )
             );
             // convert to lowercase just to be sure
-            $type = /*overload*/mb_strtolower(
-                chop(/*overload*/mb_substr($columnspec, 0, $first_bracket_pos))
+            $type = mb_strtolower(
+                chop(mb_substr($columnspec, 0, $first_bracket_pos))
             );
         } else {
             // Split trailing attributes such as unsigned,
             // binary, zerofill and get data type name
             $type_parts = explode(' ', $columnspec);
-            $type = /*overload*/mb_strtolower($type_parts[0]);
+            $type = mb_strtolower($type_parts[0]);
             $spec_in_brackets = '';
         }
 
@@ -3162,7 +3162,7 @@ class Util
             $enum_set_values = array();
 
             /* Create printable type name */
-            $printtype = /*overload*/mb_strtolower($columnspec);
+            $printtype = mb_strtolower($columnspec);
 
             // Strip the "BINARY" attribute, except if we find "BINARY(" because
             // this would be a BINARY or VARBINARY column type;
@@ -3210,10 +3210,10 @@ class Util
 
         // for the case ENUM('&#8211;','&ldquo;')
         $displayed_type = htmlspecialchars($printtype);
-        if (/*overload*/mb_strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
+        if (mb_strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
             $displayed_type  = '<abbr title="' . htmlspecialchars($printtype) . '">';
             $displayed_type .= htmlspecialchars(
-                /*overload*/mb_substr(
+                mb_substr(
                     $printtype, 0, $GLOBALS['cfg']['LimitChars']
                 ) . '...'
             );
@@ -3379,7 +3379,7 @@ class Util
      */
     public static function duplicateFirstNewline($string)
     {
-        $first_occurence = /*overload*/mb_strpos($string, "\r\n");
+        $first_occurence = mb_strpos($string, "\r\n");
         if ($first_occurence === 0) {
             $string = "\n" . $string;
         }
@@ -3560,12 +3560,12 @@ class Util
         }
 
         /* Backward compatibility in 3.5.x */
-        if (/*overload*/mb_strpos($string, '@FIELDS@') !== false) {
+        if (mb_strpos($string, '@FIELDS@') !== false) {
             $string = strtr($string, array('@FIELDS@' => '@COLUMNS@'));
         }
 
         /* Fetch columns list if required */
-        if (/*overload*/mb_strpos($string, '@COLUMNS@') !== false) {
+        if (mb_strpos($string, '@COLUMNS@') !== false) {
             $columns_list = $GLOBALS['dbi']->getColumns(
                 $GLOBALS['db'], $GLOBALS['table']
             );
@@ -3825,7 +3825,7 @@ class Util
         if ($upper_case) {
             for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
                 $gis_data_types[$i]
-                    = /*overload*/mb_strtoupper($gis_data_types[$i]);
+                    = mb_strtoupper($gis_data_types[$i]);
             }
         }
         return $gis_data_types;
@@ -3882,7 +3882,7 @@ class Util
         $funcs['IsEmpty']      = array('params' => 1, 'type' => 'int');
         $funcs['IsSimple']     = array('params' => 1, 'type' => 'int');
 
-        $geom_type = trim(/*overload*/mb_strtolower($geom_type));
+        $geom_type = trim(mb_strtolower($geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
             $funcs[] = array('display' => '--------');
         }
@@ -4192,12 +4192,12 @@ class Util
     {
         $server_type = 'MySQL';
 
-        if (/*overload*/mb_stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
+        if (mb_stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
             $server_type = 'MariaDB';
             return $server_type;
         }
 
-        if (/*overload*/mb_stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
+        if (mb_stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
             $server_type = 'Percona Server';
             return $server_type;
         }
@@ -4237,14 +4237,14 @@ class Util
         $in_string = false;
         $buffer = '';
 
-        for ($i = 0, $length = /*overload*/mb_strlen($values_string);
+        for ($i = 0, $length = mb_strlen($values_string);
              $i < $length;
              $i++
         ) {
-            $curr = /*overload*/mb_substr($values_string, $i, 1);
-            $next = ($i == /*overload*/mb_strlen($values_string) - 1)
+            $curr = mb_substr($values_string, $i, 1);
+            $next = ($i == mb_strlen($values_string) - 1)
                 ? ''
-                : /*overload*/mb_substr($values_string, $i + 1, 1);
+                : mb_substr($values_string, $i + 1, 1);
 
             if (! $in_string && $curr == "'") {
                 $in_string = true;
@@ -4266,7 +4266,7 @@ class Util
 
         }
 
-        if (/*overload*/mb_strlen($buffer) > 0) {
+        if (mb_strlen($buffer) > 0) {
             // The leftovers in the buffer are the last value (if any)
             $values[] = $buffer;
         }
@@ -4381,12 +4381,12 @@ class Util
      */
     public static function handleContext(array $context)
     {
-        if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
             $context['http'] = array(
                 'proxy' => $GLOBALS['cfg']['ProxyUrl'],
                 'request_fulluri' => true
             );
-            if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
                 $auth = base64_encode(
                     $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
@@ -4407,9 +4407,9 @@ class Util
      */
     public static function configureCurl($curl_handle)
     {
-        if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
             curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_PROXYUSERPWD,
@@ -4436,15 +4436,15 @@ class Util
             return $value;
         }
 
-        if (/*overload*/mb_strpos($value, '.') === false) {
+        if (mb_strpos($value, '.') === false) {
             return $value . '.000000';
         }
 
         $value .= '000000';
-        return /*overload*/mb_substr(
+        return mb_substr(
             $value,
             0,
-            /*overload*/mb_strpos($value, '.') + 7
+            mb_strpos($value, '.') + 7
         );
     }
 
@@ -4956,6 +4956,31 @@ class Util
             unset($sot_cache);
         }
         return $tables;
+    }
+
+    /**
+     * Returs list of used PHP extensions.
+     *
+     * @return array of strings
+     */
+    public static function listPHPExtensions()
+    {
+        $result = array();
+        if (DatabaseInterface::checkDbExtension('mysqli')) {
+            $result[] = 'mysqli';
+        } else {
+            $result[] = 'mysql';
+        }
+
+        if (extension_loaded('curl')) {
+            $result[] = 'curl';
+        }
+
+        if (extension_loaded('mbstring')) {
+            $result[] = 'mbstring';
+        }
+
+        return $result;
     }
 }
 

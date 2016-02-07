@@ -286,7 +286,7 @@ class ServerStatusData
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
-                if (/*overload*/mb_strpos($name, $filter) !== false) {
+                if (mb_strpos($name, $filter) !== false) {
                     $allocationMap[$name] = $section;
                     $sectionUsed[$section] = true;
                     $section_found = true;
@@ -369,7 +369,7 @@ class ServerStatusData
 
         // Set all class properties
         $this->db_isLocal = false;
-        $serverHostToLower = /*overload*/mb_strtolower(
+        $serverHostToLower = mb_strtolower(
             $GLOBALS['cfg']['Server']['host']
         );
         if ($serverHostToLower === 'localhost'

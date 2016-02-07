@@ -141,6 +141,11 @@ environment variables:
     
     Port of the databse server to use.
 
+.. envvar:: PMA_ABSOLUTE_URI
+   
+    The fully-qualified path (``https://pma.example.net/``) where the reverse
+    proxy makes phpMyAdmin available.
+
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
@@ -346,14 +351,25 @@ Verifying phpMyAdmin releases
 +++++++++++++++++++++++++++++
 
 Since July 2015 all phpMyAdmin releases are cryptographically signed by the
-releasing developer, who is currently Marc Delisle. His key id is
+releasing developer, who through January 2016 was Marc Delisle. His key id is
 0x81AF644A, his PGP fingerprint is:
 
 .. code-block:: console
 
     436F F188 4B1A 0C3F DCBF 0D79 FEFC 65D1 81AF 644A
 
-and you can get more identification information from `https://keybase.io/lem9 <https://keybase.io/lem9>`_.  You should verify that the signature matches
+and you can get more identification information from `https://keybase.io/lem9 <https://keybase.io/lem9>`_.
+
+Beginning in January 2016, the release manager is Isaac Bennetch. His key id is
+0x8259BD92, and his PGP fingerprint is:
+
+.. code-block:: console
+
+    3D06 A59E CE73 0EB7 1B51 1C17 CE75 2F17 8259 BD92
+
+and you can get more identification information from `https://keybase.io/ibennetch <https://keybase.io/ibennetch>`_.
+
+You should verify that the signature matches
 the archive you have downloaded. This way you can be sure that you are using
 the same code that was released.
 
@@ -588,6 +604,15 @@ HTTP authentication mode
 * Is supported with most PHP configurations. For :term:`IIS` (:term:`ISAPI`)
   support using :term:`CGI` PHP see :ref:`faq1_32`, for using with Apache
   :term:`CGI` see :ref:`faq1_35`.
+* When PHP is running under Apache's :term:`mod_proxy_fcgi` (e.g. with PHP-FPM),
+  :term:`Authorization` headers are not passed to the underlying FCGI application,
+  such that your credentials will not reach the application. In this case, you can
+  add the following configuration directive:
+
+  .. code-block:: apache
+
+     SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':term:`HTTP`' authentication mode.
 
@@ -719,6 +744,8 @@ Securing your phpMyAdmin installation
 The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
+* Serve phpMyAdmin on HTTPS only. Preferably, you should use HSTS as well, so that
+  you're protected from protocol downgrade attacks.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`

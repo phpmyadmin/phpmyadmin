@@ -23,11 +23,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_status_queries.js');
 
-/* < IE 9 doesn't support canvas natively */
-if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-    $scripts->addFile('jqplot/excanvas.js');
-}
-
 // for charting
 $scripts->addFile('chart.js');
 $scripts->addFile('jqplot/jquery.jqplot.js');

@@ -149,6 +149,8 @@ function initGISVisualization() {
     // Resizes the GIS visualization to fit into the space available
     resizeGISVisualization();
     if (typeof OpenLayers !== 'undefined') {
+        // Configure OpenLayers
+        OpenLayers._getScriptLocation = function() {return './js/openlayers/';};
         // Adds necessary styles to the div that coontains the openStreetMap
         styleOSM();
         // Draws openStreetMap with openLayers

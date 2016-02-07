@@ -10,7 +10,6 @@
  */
 
 require_once 'libraries/zip_extension.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests zip extension usage.

@@ -5,20 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-
-/**
- * Compares the names of two languages.
- * Used by uasort in PMA_getLanguageSelectorHtml()
- *
- * @param array $a The first language being compared
- * @param array $b The second language being compared
- *
- * @return int the sorted array
- */
-function PMA_languageCmp($a, $b)
-{
-    return strcmp($a[1], $b[1]);
-}
+use PMA\libraries\LanguageManager;
 
 /**
  * Returns HTML code for the language selector
@@ -32,13 +19,12 @@ function PMA_languageCmp($a, $b)
  */
 function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
 {
-    global $lang;
-
     $retval = '';
+    $available_languages = LanguageManager::getInstance()->sortedLanguages();
 
     // Display language selection only if there
     // is more than one language to choose from
-    if (count($GLOBALS['available_languages']) > 1) {
+    if (count($available_languages) > 1) {
         $retval .= '<form method="get" action="index.php" class="disableAjax">';
 
         $_form_params = array(
@@ -66,18 +52,15 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
         $retval .= '<select name="lang" class="autosubmit" lang="en"'
             . ' dir="ltr" id="sel-lang">';
 
-        uasort($GLOBALS['available_languages'], 'PMA_languageCmp');
-        foreach ($GLOBALS['available_languages'] as $id => $tmplang) {
-            $lang_name = PMA_languageName($tmplang);
-
+        foreach ($available_languages as $language) {
             //Is current one active?
-            if ($lang == $id) {
+            if ($language->isActive()) {
                 $selected = ' selected="selected"';
             } else {
                 $selected = '';
             }
-            $retval .= '<option value="' . $id . '"' . $selected . '>';
-            $retval .= $lang_name;
+            $retval .= '<option value="' . $language->getCode() . '"' . $selected . '>';
+            $retval .= $language->getName();
             $retval .= '</option>';
         }
 

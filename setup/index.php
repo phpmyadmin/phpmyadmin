@@ -12,7 +12,7 @@
  */
 require './lib/common.inc.php';
 
-$page = isset($_GET['page']) ? $_GET['page'] : null;
+$page = PMA_isValid($_GET['page'], 'scalar') ? $_GET['page'] : null;
 $page = preg_replace('/[^a-z]/', '', $page);
 if ($page === '') {
     $page = 'index';
@@ -23,7 +23,7 @@ if (!file_exists("./setup/frames/$page.inc.php")) {
 }
 
 // Handle done action info
-$action_done = isset($_GET['action_done']) ? $_GET['action_done'] : null;
+$action_done = PMA_isValid($_GET['action_done'], 'scalar') ? $_GET['action_done'] : null;
 $action_done = preg_replace('/[^a-z_]/', '', $action_done);
 
 PMA_noCacheHeader();
@@ -37,8 +37,8 @@ PMA_noCacheHeader();
 <link href="../favicon.ico" rel="icon" type="image/x-icon" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="styles.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/jquery/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="../js/jquery/jquery-ui-1.11.2.min.js">
+<script type="text/javascript" src="../js/jquery/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery-ui-1.11.4.min.js">
 </script>
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript" src="../js/config.js"></script>

@@ -145,7 +145,7 @@ class TableSearchController extends TableController
                 }
                 $type = preg_replace('@ZEROFILL@i', '', $type);
                 $type = preg_replace('@UNSIGNED@i', '', $type);
-                $type = /*overload*/mb_strtolower($type);
+                $type = mb_strtolower($type);
             }
             if (empty($type)) {
                 $type = '&nbsp;';
@@ -271,7 +271,6 @@ class TableSearchController extends TableController
                         'jqplot/plugins/jqplot.dateAxisRenderer.js',
                         'jqplot/plugins/jqplot.highlighter.js',
                         'jqplot/plugins/jqplot.cursor.js',
-                        'canvg/canvg.js',
                         'jquery/jquery-ui-timepicker-addon.js',
                         'tbl_zoom_plot_jqplot.js',
                         'tbl_change.js',
@@ -516,18 +515,9 @@ class TableSearchController extends TableController
          * Add this to ensure following procedures included running correctly.
          */
         $db = $this->db;
-        /**
-         * Parse and analyze the query
-         */
-        include_once 'libraries/parse_analyze.lib.php';
-        list(
-            $analyzed_sql_results,,
-        ) = PMA_parseAnalyze($sql_query, $db);
-        // @todo: possibly refactor
-        extract($analyzed_sql_results);
 
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, // analyzed_sql_results
+            null, // analyzed_sql_results
             false, // is_gotofile
             $this->db, // db
             $this->table, // table
@@ -973,7 +963,6 @@ class TableSearchController extends TableController
 
         // else continue to form the where clause from column criteria values
         $fullWhereClause = array();
-        reset($_POST['criteriaColumnOperators']);
         foreach ($_POST['criteriaColumnOperators'] as $column_index => $operator) {
             $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
             $tmp_geom_func = isset($_POST['geom_func'][$column_index])
@@ -1090,7 +1079,7 @@ class TableSearchController extends TableController
             $gis_data = Util::createGISData($criteriaValues);
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
 
-        } elseif (/*overload*/mb_strlen($criteriaValues) > 0) {
+        } elseif (mb_strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . " "
                 . $func_type . " '" . $criteriaValues . "'";
         }
@@ -1134,7 +1123,7 @@ class TableSearchController extends TableController
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
-                || /*overload*/mb_strpos(' ' . $func_type, 'LIKE')
+                || mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
             } else {

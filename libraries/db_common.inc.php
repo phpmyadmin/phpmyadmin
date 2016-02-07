@@ -44,7 +44,7 @@ $err_url = PMA\libraries\Util::getScriptNameForOption(
  * headers
  */
 if (! isset($is_db) || ! $is_db) {
-    if (/*overload*/mb_strlen($db)) {
+    if (mb_strlen($db)) {
         $is_db = $GLOBALS['dbi']->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
@@ -57,10 +57,10 @@ if (! isset($is_db) || ! $is_db) {
         $is_db = false;
     }
     // Not a valid db name -> back to the welcome page
-    $uri = $cfg['PmaAbsoluteUri'] . 'index.php'
+    $uri = './index.php'
         . PMA_URL_getCommon(array(), 'text')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
-    if (!/*overload*/mb_strlen($db) || ! $is_db) {
+    if (!mb_strlen($db) || ! $is_db) {
         $response = PMA\libraries\Response::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);

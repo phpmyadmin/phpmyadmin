@@ -447,8 +447,7 @@ PMA_DROP_IMPORT = {
                     //uploading
                     var fd = new FormData();
                     fd.append('import_file', files[i]);
-                    // todo: method to find the value below
-                    fd.append('noplugin', '539de66e760ee');
+                    fd.append('noplugin', Math.random().toString(36).substring(2, 12));
                     fd.append('db', dbname);
                     fd.append('token', PMA_commonParams.get('token'));
                     fd.append('import_type', 'database');

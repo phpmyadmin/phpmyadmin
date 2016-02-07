@@ -45,7 +45,7 @@ class ServerConfigChecks
 
         list(
             $sAllowArbitraryServerWarn, $sBlowfishSecretMsg,
-            $sBZipDumpWarn, $sDirectoryNotice, $sForceSSLNotice,
+            $sBZipDumpWarn, $sDirectoryNotice,
             $sGZipDumpWarn, $sLoginCookieValidityWarn,
             $sLoginCookieValidityWarn2, $sLoginCookieValidityWarn3,
             $sSecurityInfoMsg, $sSrvAuthCfgMsg, $sZipDumpExportWarn,
@@ -62,19 +62,6 @@ class ServerConfigChecks
             $cookieAuthUsed, $blowfishSecretSet, $sBlowfishSecretMsg,
             $blowfishSecret
         );
-
-        //
-        // $cfg['ForceSSL']
-        // should be enabled if possible
-        //
-        if (!$this->cfg->getValue('ForceSSL')) {
-            PMA_messagesSet(
-                'notice',
-                'ForceSSL',
-                PMA_lang(PMA_langName('ForceSSL')),
-                PMA_lang($sForceSSLNotice)
-            );
-        }
 
         //
         // $cfg['AllowArbitraryServer']
@@ -342,7 +329,7 @@ class ServerConfigChecks
             } else {
                 $blowfishWarnings = array();
                 // check length
-                if (/*overload*/mb_strlen($blowfishSecret) < 8) {
+                if (mb_strlen($blowfishSecret) < 8) {
                     // too short key
                     $blowfishWarnings[] = __(
                         'Key is too short, it should have at least 8 characters.'
@@ -419,15 +406,6 @@ class ServerConfigChecks
             'This value should be double checked to ensure that this directory is '
             . 'neither world accessible nor readable or writable by other users on '
             . 'your server.'
-        );
-        $sForceSSLNotice = __(
-            'This %soption%s should be enabled if your web server supports it.'
-        );
-        $sForceSSLNotice = sprintf(
-            $sForceSSLNotice,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
-            . '&amp;formset=Features#tab_Security]',
-            '[/a]'
         );
         $sGZipDumpWarning = __(
             '%sGZip compression and decompression%s requires functions (%s) which '
@@ -533,7 +511,7 @@ class ServerConfigChecks
         );
         return array(
             $sAllowArbitraryServerWarn, $sBlowfishSecretMsg, $sBZipDumpWarning,
-            $sDirectoryNotice, $sForceSSLNotice, $sGZipDumpWarning,
+            $sDirectoryNotice, $sGZipDumpWarning,
             $sLoginCookieValidityWarn, $sLoginCookieValidityWarn2,
             $sLoginCookieValidityWarn3, $sSecurityInfoMsg, $sServerAuthConfigMsg,
             $sZipDumpExportWarn, $sZipDumpImportWarn

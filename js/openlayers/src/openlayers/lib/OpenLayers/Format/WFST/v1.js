@@ -1,11 +1,13 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Format/XML.js
  * @requires OpenLayers/Format/WFST.js
+ * @requires OpenLayers/Filter/Spatial.js
+ * @requires OpenLayers/Filter/FeatureId.js
  */
 
 /**
@@ -26,7 +28,8 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
         xsi: "http://www.w3.org/2001/XMLSchema-instance",
         wfs: "http://www.opengis.net/wfs",
         gml: "http://www.opengis.net/gml",
-        ogc: "http://www.opengis.net/ogc"
+        ogc: "http://www.opengis.net/ogc",
+        ows: "http://www.opengis.net/ows"
     },
     
     /**
@@ -70,7 +73,7 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
      * {Object} Maps feature states to node names.
      */
     stateName: null,
-
+    
     /**
      * Constructor: OpenLayers.Format.WFST.v1
      * Instances of this class are not created directly.  Use the
@@ -139,7 +142,7 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
         }
         var obj = {};
         if(data) {
-            this.readNode(data, obj);
+            this.readNode(data, obj, true);
         }
         if(obj.features && options.output === "features") {
             obj = obj.features;
@@ -171,18 +174,41 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
      *     type - insert, update, or delete.
      *
      * Parameters:
-     * features - {Array(<OpenLayers.Feature.Vector>)} A list of features.
+     * features - {Array(<OpenLayers.Feature.Vector>)} A list of features. See
+     *     below for a more detailed description of the influence of the
+     *     feature's *modified* property.
+     * options - {Object}
+     *
+     * feature.modified rules:
+     * If a feature has a modified property set, the following checks will be
+     * made before a feature's geometry or attribute is included in an Update
+     * transaction:
+     * - *modified* is not set at all: The geometry and all attributes will be
+     *     included.
+     * - *modified.geometry* is set (null or a geometry): The geometry will be
+     *     included. If *modified.attributes* is not set, all attributes will
+     *     be included.
+     * - *modified.attributes* is set: Only the attributes set (i.e. to null or
+     *     a value) in *modified.attributes* will be included. 
+     *     If *modified.geometry* is not set, the geometry will not be included.
+     *
+     * Valid options include:
+     * - *multi* {Boolean} If set to true, geometries will be casted to
+     *   Multi geometries before writing.
      *
      * Returns:
      * {String} A serialized WFS transaction.
      */
-    write: function(features) {
-        var node = this.writeNode("wfs:Transaction", features);
+    write: function(features, options) {
+        var node = this.writeNode("wfs:Transaction", {
+            features:features,
+            options: options
+        });
         var value = this.schemaLocationAttr();
         if(value) {
             this.setAttributeNS(
                 node, this.namespaces["xsi"], "xsi:schemaLocation",  value
-            )
+            );
         }
         return OpenLayers.Format.XML.prototype.write.apply(this, [node]);
     },
@@ -200,6 +226,7 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
                     attributes: {
                         service: "WFS",
                         version: this.version,
+                        handle: options && options.handle,
                         outputFormat: options && options.outputFormat,
                         maxFeatures: options && options.maxFeatures,
                         "xsi:schemaLocation": this.schemaLocationAttr(options)
@@ -215,34 +242,79 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
                 }
                 return node;
             },
-            "Transaction": function(features) {
+            "Transaction": function(obj) {
+                obj = obj || {};
+                var options = obj.options || {};
                 var node = this.createElementNSPlus("wfs:Transaction", {
                     attributes: {
                         service: "WFS",
-                        version: this.version
+                        version: this.version,
+                        handle: options.handle
                     }
                 });
+                var i, len;
+                var features = obj.features;
                 if(features) {
+                    // temporarily re-assigning geometry types
+                    if (options.multi === true) {
+                        OpenLayers.Util.extend(this.geometryTypes, {
+                            "OpenLayers.Geometry.Point": "MultiPoint",
+                            "OpenLayers.Geometry.LineString": (this.multiCurve === true) ? "MultiCurve": "MultiLineString",
+                            "OpenLayers.Geometry.Polygon": (this.multiSurface === true) ? "MultiSurface" : "MultiPolygon"
+                        });
+                    }
                     var name, feature;
-                    for(var i=0, len=features.length; i<len; ++i) {
+                    for(i=0, len=features.length; i<len; ++i) {
                         feature = features[i];
                         name = this.stateName[feature.state];
                         if(name) {
-                            this.writeNode(name, feature, node);
+                            this.writeNode(name, {
+                                feature: feature, 
+                                options: options
+                            }, node);
                         }
+                    }
+                    // switch back to original geometry types assignment
+                    if (options.multi === true) {
+                        this.setGeometryTypes();
+                    }
+                }
+                if (options.nativeElements) {
+                    for (i=0, len=options.nativeElements.length; i<len; ++i) {
+                        this.writeNode("wfs:Native", 
+                            options.nativeElements[i], node);
                     }
                 }
                 return node;
             },
-            "Insert": function(feature) {
-                var node = this.createElementNSPlus("wfs:Insert");
+            "Native": function(nativeElement) {
+                var node = this.createElementNSPlus("wfs:Native", {
+                    attributes: {
+                        vendorId: nativeElement.vendorId,
+                        safeToIgnore: nativeElement.safeToIgnore
+                    },
+                    value: nativeElement.value
+                });
+                return node;
+            },
+            "Insert": function(obj) {
+                var feature = obj.feature;
+                var options = obj.options;
+                var node = this.createElementNSPlus("wfs:Insert", {
+                    attributes: {
+                        handle: options && options.handle
+                    }
+                });
                 this.srsName = this.getSrsName(feature);
                 this.writeNode("feature:_typeName", feature, node);
                 return node;
             },
-            "Update": function(feature) {
+            "Update": function(obj) {
+                var feature = obj.feature;
+                var options = obj.options;
                 var node = this.createElementNSPlus("wfs:Update", {
                     attributes: {
+                        handle: options && options.handle,
                         typeName: (this.featureNS ? this.featurePrefix + ":" : "") +
                             this.featureType
                     }
@@ -252,15 +324,19 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
                 }
                 
                 // add in geometry
-                if (this.geometryName !== null) {
+                var modified = feature.modified;
+                if (this.geometryName !== null && (!modified || modified.geometry !== undefined)) {
+                    this.srsName = this.getSrsName(feature);
                     this.writeNode(
-                        "Property", {name: this.geometryName, value: feature}, node
+                        "Property", {name: this.geometryName, value: feature.geometry}, node
                     );
                 }
         
                 // add in attributes
                 for(var key in feature.attributes) {
-                    if(feature.attributes[key] !== undefined) {
+                    if(feature.attributes[key] !== undefined &&
+                                (!modified || !modified.attributes ||
+                                (modified.attributes && modified.attributes[key] !== undefined))) {
                         this.writeNode(
                             "Property", {name: key, value: feature.attributes[key]}, node
                         );
@@ -287,19 +363,21 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
             },
             "Value": function(obj) {
                 var node;
-                if(obj instanceof OpenLayers.Feature.Vector) {
+                if(obj instanceof OpenLayers.Geometry) {
                     node = this.createElementNSPlus("wfs:Value");
-                    this.srsName = this.getSrsName(obj);
-                    var geom = this.writeNode("feature:_geometry", obj.geometry).firstChild;
+                    var geom = this.writeNode("feature:_geometry", obj).firstChild;
                     node.appendChild(geom);
                 } else {
                     node = this.createElementNSPlus("wfs:Value", {value: obj});                
                 }
                 return node;
             },
-            "Delete": function(feature) {
+            "Delete": function(obj) {
+                var feature = obj.feature;
+                var options = obj.options;
                 var node = this.createElementNSPlus("wfs:Delete", {
                     attributes: {
+                        handle: options && options.handle,
                         typeName: (this.featureNS ? this.featurePrefix + ":" : "") +
                             this.featureType
                     }
@@ -353,11 +431,11 @@ OpenLayers.Format.WFST.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
     setFilterProperty: function(filter) {
         if(filter.filters) {
             for(var i=0, len=filter.filters.length; i<len; ++i) {
-                this.setFilterProperty(filter.filters[i]);
+                OpenLayers.Format.WFST.v1.prototype.setFilterProperty.call(this, filter.filters[i]);
             }
         } else {
-            if(filter instanceof OpenLayers.Filter.Spatial) {
-                // got a spatial filter, set its property
+            if(filter instanceof OpenLayers.Filter.Spatial && !filter.property) {
+                // got a spatial filter without property, so set it
                 filter.property = this.geometryName;
             }
         }

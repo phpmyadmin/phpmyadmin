@@ -28,15 +28,15 @@ require_once 'libraries/string.lib.php';
  * echo PMA_ifSetOr($_REQUEST['db'], ''); // ''
  * // $_REQUEST['sql_query'] not set
  * echo PMA_ifSetOr($_REQUEST['sql_query']); // null
- * // $cfg['ForceSSL'] not set
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
- * echo PMA_ifSetOr($cfg['ForceSSL']); // null
- * // $cfg['ForceSSL'] set to 1
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'similar'); // 1
- * echo PMA_ifSetOr($cfg['ForceSSL'], false); // 1
- * // $cfg['ForceSSL'] set to true
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // true
+ * // $cfg['EnableFoo'] not set
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['EnableFoo']); // null
+ * // $cfg['EnableFoo'] set to 1
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'similar'); // 1
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false); // 1
+ * // $cfg['EnableFoo'] set to true
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
  * </code>
  *
  * @param mixed &$var    param to check
@@ -163,7 +163,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === 'length' || $type === 'scalar') {
         $is_scalar = is_scalar($var);
         if ($is_scalar && $type === 'length') {
-            return (bool) /*overload*/mb_strlen($var);
+            return (bool) mb_strlen($var);
         }
         return $is_scalar;
     }
@@ -220,7 +220,7 @@ function PMA_fatalError(
         $error_message = vsprintf($error_message, $message_args);
     }
 
-    if ($GLOBALS['is_ajax_request']) {
+    if (! empty($GLOBALS['is_ajax_request']) && $GLOBALS['is_ajax_request']) {
         $response = PMA\libraries\Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', PMA\libraries\Message::error($error_message));
@@ -246,7 +246,7 @@ function PMA_fatalError(
         } else {
             $error_header = 'Error';
         }
-        $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
+        $lang = $GLOBALS['lang'];
         $dir = $GLOBALS['text_dir'];
 
         // on fatal errors it cannot hurt to always delete the current session
@@ -423,20 +423,20 @@ function PMA_checkPageValidity(&$page, $whitelist)
         return true;
     }
 
-    $_page = /*overload*/mb_substr(
+    $_page = mb_substr(
         $page,
         0,
-        /*overload*/mb_strpos($page . '?', '?')
+        mb_strpos($page . '?', '?')
     );
     if (in_array($_page, $whitelist)) {
         return true;
     }
 
     $_page = urldecode($page);
-    $_page = /*overload*/mb_substr(
+    $_page = mb_substr(
         $_page,
         0,
-        /*overload*/mb_strpos($_page . '?', '?')
+        mb_strpos($_page . '?', '?')
     );
     if (in_array($_page, $whitelist)) {
         return true;
@@ -484,11 +484,11 @@ function PMA_getenv($var_name)
  * @param string $uri         the header to send
  * @param bool   $use_refresh whether to use Refresh: header when running on IIS
  *
- * @return boolean  always true
+ * @return void
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    if (PMA_IS_IIS && /*overload*/mb_strlen($uri) > 600) {
+    if (PMA_IS_IIS && mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();
 
@@ -498,18 +498,20 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         return;
     }
 
+    $response = PMA\libraries\Response::getInstance();
+
     if (SID) {
-        if (/*overload*/mb_strpos($uri, '?') === false) {
-            header('Location: ' . $uri . '?' . SID);
+        if (mb_strpos($uri, '?') === false) {
+            $response->header('Location: ' . $uri . '?' . SID);
         } else {
             $separator = PMA_URL_getArgSeparator();
-            header('Location: ' . $uri . $separator . SID);
+            $response->header('Location: ' . $uri . $separator . SID);
         }
         return;
     }
 
     session_write_close();
-    if (headers_sent()) {
+    if ($response->headersSent()) {
         if (function_exists('debug_print_backtrace')) {
             echo '<pre>';
             debug_print_backtrace();
@@ -524,10 +526,30 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     // results in a blank page
     // but we need it when coming from the cookie login panel)
     if (PMA_IS_IIS && $use_refresh) {
-        header('Refresh: 0; ' . $uri);
+        $response->header('Refresh: 0; ' . $uri);
     } else {
-        header('Location: ' . $uri);
+        $response->header('Location: ' . $uri);
     }
+}
+
+/**
+ * Outputs application/json headers. This includes no caching.
+ *
+ * @return void
+ */
+function PMA_headerJSON()
+{
+    if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
+        return;
+    }
+    // No caching
+    PMA_noCacheHeader();
+    // MIME type
+    header('Content-Type: application/json; charset=UTF-8');
+    // Disable content sniffing in browser
+    // This is needed in case we include HTML in JSON, browser might assume it's
+    // html to display
+    header('X-Content-Type-Options: nosniff');
 }
 
 /**
@@ -757,7 +779,7 @@ function PMA_isAllowedDomain($url)
         'ronaldbradford.com',
         'xaprb.com',
     );
-    if (in_array(/*overload*/mb_strtolower($domain), $domainWhiteList)) {
+    if (in_array(mb_strtolower($domain), $domainWhiteList)) {
         return true;
     }
 
@@ -910,10 +932,10 @@ function PMA_cleanupPathInfo()
     $PMA_PHP_SELF = PMA_getenv('PHP_SELF');
     $_PATH_INFO = PMA_getenv('PATH_INFO');
     if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
-        $path_info_pos = /*overload*/mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
-        $pathLength = $path_info_pos + /*overload*/mb_strlen($_PATH_INFO);
-        if ($pathLength === /*overload*/mb_strlen($PMA_PHP_SELF)) {
-            $PMA_PHP_SELF = /*overload*/mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
+        $path_info_pos = mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
+        $pathLength = $path_info_pos + mb_strlen($_PATH_INFO);
+        if ($pathLength === mb_strlen($PMA_PHP_SELF)) {
+            $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
         }
     }
     $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
@@ -944,5 +966,14 @@ function PMA_checkExtensions()
      */
     if (! function_exists('json_encode')) {
         PMA_warnMissingExtension('json', true);
+    }
+}
+
+/* Compatibility with PHP < 5.6 */
+if(! function_exists('hash_equals')) {
+    function hash_equals($a, $b) {
+        $ret = strlen($a) ^ strlen($b);
+        $ret |= array_sum(unpack("C*", $a ^ $b));
+        return ! $ret;
     }
 }

@@ -50,25 +50,17 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         $options = $this->getOptions($options, array(0, 'all', '…'));
 
         if ($options[1] != 'all') {
-            $newtext
-                = /*overload*/
-                mb_substr(
-                    $buffer,
-                    $options[0],
-                    $options[1]
-                );
+            $newtext = mb_substr(
+                $buffer,
+                $options[0],
+                $options[1]
+            );
         } else {
-            $newtext
-                = /*overload*/
-                mb_substr($buffer, $options[0]);
+            $newtext = mb_substr($buffer, $options[0]);
         }
 
-        $length
-            = /*overload*/
-            mb_strlen($newtext);
-        $baselength
-            = /*overload*/
-            mb_strlen($buffer);
+        $length = mb_strlen($newtext);
+        $baselength = mb_strlen($buffer);
         if ($length != $baselength) {
             if ($options[0] != 0) {
                 $newtext = $options[2] . $newtext;

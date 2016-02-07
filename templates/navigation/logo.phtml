@@ -35,9 +35,9 @@ if (!isset($logo)) {
     ?>
 <div id="pmalogo">
     <?php if (true === $useLogoLink) : ?>
-        <a href="<?php echo $logoLink; ?>"<?php echo isset($linkAttribs) ? ' ' . $linkAttribs : null; ?>>
+        <a href="<?= $logoLink; ?>"<?= isset($linkAttribs) ? ' ' . $linkAttribs : null; ?>>
     <?php endif; ?>
-    <?php echo $logo; ?>
+    <?= $logo; ?>
     <?php if (true === $useLogoLink) : ?>
         </a>
     <?php endif; ?>

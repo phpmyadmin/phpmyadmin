@@ -13,7 +13,6 @@ use PMA\libraries\dbi\DBIMysql;
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'test/PMATestCase.php';
 
 require_once 'libraries/database_interface.inc.php';
@@ -84,7 +83,7 @@ class DBIMysqlTest extends PMATestCase
      */
     public function testMysqlDBI()
     {
-        if (! PMA_HAS_RUNKIT) {
+        if (! PMA_HAS_RUNKIT || ! $GLOBALS['runkit_internal_override']) {
             $this->markTestSkipped("Cannot redefine function");
         }
         //FOR UT, we just test the right mysql client API is called

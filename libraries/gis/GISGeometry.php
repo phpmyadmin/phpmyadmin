@@ -191,9 +191,9 @@ abstract class GISGeometry
         $wkt = '';
 
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
-            $last_comma = /*overload*/mb_strripos($value, ",");
-            $srid = trim(/*overload*/mb_substr($value, $last_comma + 1));
-            $wkt = trim(/*overload*/mb_substr($value, 1, $last_comma - 2));
+            $last_comma = mb_strripos($value, ",");
+            $srid = trim(mb_substr($value, $last_comma + 1));
+            $wkt = trim(mb_substr($value, 1, $last_comma - 2));
         } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $value)) {
             $wkt = $value;
         }
@@ -268,10 +268,10 @@ abstract class GISGeometry
         }
 
         $ol_array
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $ol_array,
                 0,
-                /*overload*/mb_strlen($ol_array) - 2
+                mb_strlen($ol_array) - 2
             );
         $ol_array .= ')';
 
@@ -323,10 +323,10 @@ abstract class GISGeometry
         }
 
         $ol_array
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $ol_array,
                 0,
-                /*overload*/mb_strlen($ol_array) - 2
+                mb_strlen($ol_array) - 2
             );
         $ol_array .= ')';
 
@@ -371,10 +371,10 @@ abstract class GISGeometry
         }
 
         $ol_array
-            = /*overload*/mb_substr(
+            = mb_substr(
                 $ol_array,
                 0,
-                /*overload*/mb_strlen($ol_array) - 2
+                mb_strlen($ol_array) - 2
             );
         $ol_array .= ')';
 

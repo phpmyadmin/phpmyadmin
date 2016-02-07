@@ -1,7 +1,7 @@
-<select id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>"
+<select id="field_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>"
         size="1"
-        name="field_<?php echo $type;?>[<?php echo $columnNumber;?>]">
-    <option value="" title="<?php echo __('None'); ?>"></option>
+        name="field_<?= $type;?>[<?= $columnNumber;?>]">
+    <option value="" title="<?= __('None'); ?>"></option>
     <?php if (isset($available_mime[$type]) && is_array($available_mime[$type])): ?>
         <?php foreach ($available_mime[$type] as $mimekey => $transform): ?>
             <?php
@@ -17,10 +17,10 @@
                     $available_mime[$type . '_file'][$mimekey]
                 ) . ' (' . strtolower($parts[0]) . ":" . $parts[1] . ')';
             ?>
-            <option value="<?php echo $available_mime[$type . '_file'][$mimekey]; ?>"
-                    <?php echo $checked; ?>
-                    title="<?php echo htmlspecialchars($tooltip); ?>">
-                <?php echo htmlspecialchars($name); ?>
+            <option value="<?= $available_mime[$type . '_file'][$mimekey]; ?>"
+                    <?= $checked; ?>
+                    title="<?= htmlspecialchars($tooltip); ?>">
+                <?= htmlspecialchars($name); ?>
             </option>
         <?php endforeach; ?>
     <?php endif; ?>

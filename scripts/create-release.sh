@@ -69,6 +69,7 @@ Please ensure you have incremented rc count or version in the repository :
      - in doc/conf.py the line
           " version = '$version' "
      - in README
+     - set release date in ChangeLog
 
 Continue (y/n)?
 END

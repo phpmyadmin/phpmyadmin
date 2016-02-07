@@ -891,7 +891,7 @@ class DatabaseStructureController extends DatabaseController
         foreach ($db as $db_table) {
             if ($this->db == PMA_extractDbOrTable($db_table)
                 && preg_match(
-                    "@^" . /*overload*/
+                    "@^" .
                     mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1) . "@",
                     $truename
                 )
@@ -994,13 +994,13 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get values for ARIA/MARIA tables
      *
-     * @param array  $current_table      current table
-     * @param double $sum_size           sum size
-     * @param double $overhead_size      overhead size
-     * @param number $formatted_size     formatted size
-     * @param string $unit               unit
-     * @param number $formatted_overhead overhead formatted
-     * @param string $overhead_unit      overhead unit
+     * @param array   $current_table      current table
+     * @param double  $sum_size           sum size
+     * @param double  $overhead_size      overhead size
+     * @param integer $formatted_size     formatted size
+     * @param string  $unit               unit
+     * @param integer $formatted_overhead overhead formatted
+     * @param string  $overhead_unit      overhead unit
      *
      * @return array
      */

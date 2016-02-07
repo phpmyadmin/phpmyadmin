@@ -9,7 +9,6 @@ use PMA\libraries\plugins\export\ExportCsv;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'export.php';
 require_once 'test/PMATestCase.php';
 

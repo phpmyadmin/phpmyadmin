@@ -4,9 +4,9 @@
             <th></th>
         <?php endif; ?>
         <th>
-            <a href="server_databases.php<?php echo PMA_URL_getCommon($_url_params); ?>">
-                <?php echo __('Database'); ?>
-                <?php echo ($sort_by == 'SCHEMA_NAME' ?  \PMA\libraries\Util::getImage('s_' . $sort_order . '.png', $sort_order_text) : ''); ?>
+            <a href="server_databases.php<?= PMA_URL_getCommon($_url_params); ?>">
+                <?= __('Database'); ?>
+                <?= ($sort_by == 'SCHEMA_NAME' ?  \PMA\libraries\Util::getImage('s_' . $sort_order . '.png', $sort_order_text) : ''); ?>
             </a>
         </th>
         <?php foreach ($column_order as $stat_name => $stat):
@@ -17,24 +17,24 @@
             $_url_params['sort_order'] = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc'; ?>
 
             <th <?php if ($stat['format'] === 'byte'): ?>colspan="2"<?php endif; ?>>
-                <a href="server_databases.php<?php echo PMA_URL_getCommon($_url_params); ?>">
-                    <?php echo $stat['disp_name']; ?>
-                    <?php echo ($sort_by == $stat_name ?  \PMA\libraries\Util::getImage('s_' . $sort_order . '.png', $sort_order_text) : ''); ?>
+                <a href="server_databases.php<?= PMA_URL_getCommon($_url_params); ?>">
+                    <?= $stat['disp_name']; ?>
+                    <?= ($sort_by == $stat_name ?  \PMA\libraries\Util::getImage('s_' . $sort_order . '.png', $sort_order_text) : ''); ?>
                 </a>
             </th>
         <?php endforeach; ?>
         <?php if ($master_replication): ?>
             <th>
-                <?php echo __('Master replication'); ?>
+                <?= __('Master replication'); ?>
             </th>
         <?php endif; ?>
         <?php if ($slave_replication): ?>
             <th>
-                <?php echo __('Slave replication'); ?>
+                <?= __('Slave replication'); ?>
             </th>
         <?php endif; ?>
         <th>
-            <?php echo __('Action'); ?>
+            <?= __('Action'); ?>
         </th>
     </tr>
 </thead>

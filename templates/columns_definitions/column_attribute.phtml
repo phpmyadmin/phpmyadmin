@@ -15,14 +15,14 @@ if (isset($submit_attribute) && $submit_attribute != false) {
 $attribute = mb_strtoupper($attribute);
 ?>
 <select style="width: 7em;"
-        name="field_attribute[<?php echo $columnNumber; ?>]"
-        id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>">
+        name="field_attribute[<?= $columnNumber; ?>]"
+        id="field_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>">
     <?php for ($j = 0; $j < $cnt_attribute_types; $j++): ?>
-        <option value="<?php echo $attribute_types[$j];?>"
-                <?php if ($attribute == /*overload*/mb_strtoupper($attribute_types[$j])): ?>
+        <option value="<?= $attribute_types[$j];?>"
+                <?php if ($attribute == mb_strtoupper($attribute_types[$j])): ?>
                     selected="selected"
                 <?php endif; ?>>
-            <?php echo $attribute_types[$j]; ?>
+            <?= $attribute_types[$j]; ?>
         </option>
     <?php endfor; ?>
 </select>

@@ -80,9 +80,9 @@ class TableProperty
      */
     public function getPureType()
     {
-        $pos = /*overload*/mb_strpos($this->type, "(");
+        $pos = mb_strpos($this->type, "(");
         if ($pos > 0) {
-            return /*overload*/mb_substr($this->type, 0, $pos);
+            return mb_substr($this->type, 0, $pos);
         }
         return $this->type;
     }
@@ -114,28 +114,28 @@ class TableProperty
      */
     public function getDotNetPrimitiveType()
     {
-        if (/*overload*/mb_strpos($this->type, "int") === 0) {
+        if (mb_strpos($this->type, "int") === 0) {
             return "int";
         }
-        if (/*overload*/mb_strpos($this->type, "longtext") === 0) {
+        if (mb_strpos($this->type, "longtext") === 0) {
             return "string";
         }
-        if (/*overload*/mb_strpos($this->type, "long") === 0) {
+        if (mb_strpos($this->type, "long") === 0) {
             return "long";
         }
-        if (/*overload*/mb_strpos($this->type, "char") === 0) {
+        if (mb_strpos($this->type, "char") === 0) {
             return "string";
         }
-        if (/*overload*/mb_strpos($this->type, "varchar") === 0) {
+        if (mb_strpos($this->type, "varchar") === 0) {
             return "string";
         }
-        if (/*overload*/mb_strpos($this->type, "text") === 0) {
+        if (mb_strpos($this->type, "text") === 0) {
             return "string";
         }
-        if (/*overload*/mb_strpos($this->type, "tinyint") === 0) {
+        if (mb_strpos($this->type, "tinyint") === 0) {
             return "bool";
         }
-        if (/*overload*/mb_strpos($this->type, "datetime") === 0) {
+        if (mb_strpos($this->type, "datetime") === 0) {
             return "DateTime";
         }
         return "unknown";
@@ -148,28 +148,28 @@ class TableProperty
      */
     public function getDotNetObjectType()
     {
-        if (/*overload*/mb_strpos($this->type, "int") === 0) {
+        if (mb_strpos($this->type, "int") === 0) {
             return "Int32";
         }
-        if (/*overload*/mb_strpos($this->type, "longtext") === 0) {
+        if (mb_strpos($this->type, "longtext") === 0) {
             return "String";
         }
-        if (/*overload*/mb_strpos($this->type, "long") === 0) {
+        if (mb_strpos($this->type, "long") === 0) {
             return "Long";
         }
-        if (/*overload*/mb_strpos($this->type, "char") === 0) {
+        if (mb_strpos($this->type, "char") === 0) {
             return "String";
         }
-        if (/*overload*/mb_strpos($this->type, "varchar") === 0) {
+        if (mb_strpos($this->type, "varchar") === 0) {
             return "String";
         }
-        if (/*overload*/mb_strpos($this->type, "text") === 0) {
+        if (mb_strpos($this->type, "text") === 0) {
             return "String";
         }
-        if (/*overload*/mb_strpos($this->type, "tinyint") === 0) {
+        if (mb_strpos($this->type, "tinyint") === 0) {
             return "Boolean";
         }
-        if (/*overload*/mb_strpos($this->type, "datetime") === 0) {
+        if (mb_strpos($this->type, "datetime") === 0) {
             return "DateTime";
         }
         return "Unknown";
@@ -182,7 +182,7 @@ class TableProperty
      */
     public function getIndexName()
     {
-        if (/*overload*/mb_strlen($this->key) > 0) {
+        if (mb_strlen($this->key) > 0) {
             return "index=\""
                 . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8')
                 . "\"";

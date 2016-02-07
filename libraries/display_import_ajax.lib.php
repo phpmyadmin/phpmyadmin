@@ -100,9 +100,7 @@ function PMA_Import_progressCheck()
   */
 function PMA_Import_sessionCheck()
 {
-    if (PMA_PHP_INT_VERSION < 50400
-        || ! ini_get('session.upload_progress.enabled')
-    ) {
+    if (! ini_get('session.upload_progress.enabled')) {
         return false;
     }
     return true;
@@ -130,7 +128,7 @@ function PMA_Import_nopluginCheck()
   */
 function PMA_importAjaxStatus($id)
 {
-    header('Content-type: application/json');
+    PMA_headerJSON();
     echo json_encode(
         $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
     );

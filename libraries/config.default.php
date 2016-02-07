@@ -20,25 +20,6 @@
  */
 
 /**
- * Your phpMyAdmin URL.
- *
- * Complete the variable below with the full URL ie
- *    http://www.your_web.net/path_to_your_phpMyAdmin_directory/
- *
- * It must contain characters that are valid for a URL, and the path is
- * case sensitive on some Web servers, for example Unix-based servers.
- *
- * In most cases you can leave this variable empty, as the correct value
- * will be detected automatically. However, we recommend that you do
- * test to see that the auto-detection code works in your system. A good
- * test is to browse a table, then edit a row and save it.  There will be
- * an error message if phpMyAdmin cannot auto-detect the correct value.
- *
- * @global string $cfg['PmaAbsoluteUri']
- */
-$cfg['PmaAbsoluteUri'] = '';
-
-/**
  * Disable the default warning that is displayed on the DB Details Structure page if
  * any of the required Tables for the configuration storage could not be found
  *
@@ -179,6 +160,17 @@ $cfg['Servers'][$i]['ssl_ca_path'] = null;
  * @global string $cfg['Servers'][$i]['ssl_ciphers']
  */
 $cfg['Servers'][$i]['ssl_ciphers'] = null;
+
+/**
+ * MySQL 5.6 or later triggers the mysqlnd driver in PHP to validate the
+ * peer_name of the SSL certifcate
+ * For most self-signed certificates this is a problem. Setting this to false
+ * will disable the check and allow the connection (PHP 5.6.16 or later)
+ *
+ * @link http://bugs.php.net/68344
+ * @global string $cfg['Servers'][$i]['ssl_verify']
+ */
+$cfg['Servers'][$i]['ssl_verify'] = true;
 
 /**
  * How to connect to MySQL server ('tcp' or 'socket')
@@ -697,13 +689,6 @@ $cfg['OBGzip'] = 'auto';
  * @global boolean $cfg['PersistentConnections']
  */
 $cfg['PersistentConnections'] = false;
-
-/**
- * whether to force using HTTPS
- *
- * @global boolean $cfg['ForceSSL']
- */
-$cfg['ForceSSL'] = false;
 
 /**
  * maximum execution time in seconds (0 for no limit)

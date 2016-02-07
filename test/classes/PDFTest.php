@@ -11,8 +11,6 @@
  */
 use PMA\libraries\PDF;
 
-require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/core.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -71,7 +69,7 @@ class PDFTest extends PMATestCase
         $pdf->Open();
         $pdf->SetAutoPageBreak('auto');
         $pdf->Addpage();
-        $pdf->SetFont(PMA_PDF_FONT, 'B', 14);
+        $pdf->SetFont(PDF::PMA_PDF_FONT, 'B', 14);
         $pdf->Cell(0, 6, 'Cell', 'B', 1, 'C');
         $pdf->Ln();
         $pdf->Addpage();

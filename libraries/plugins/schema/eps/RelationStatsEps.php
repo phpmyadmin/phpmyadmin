@@ -47,30 +47,12 @@ class RelationStatsEps extends RelationStats
      * draws relation links and arrows
      * shows foreign key relations
      *
-     * @param boolean $showColor Whether to use one color per relation or not
-     *
      * @see PMA_EPS
      *
      * @return void
      */
-    public function relationDraw($showColor)
+    public function relationDraw()
     {
-        /* Commented because $color unused.
-        if ($showColor) {
-            $listOfColors = array(
-                'red',
-                'grey',
-                'black',
-                'yellow',
-                'green',
-                'cyan',
-                'orange'
-            );
-            shuffle($listOfColors);
-            $color =  $listOfColors[0];
-        } else {
-            $color = 'black';
-        }*/
         // draw a line like -- to foreign field
         $this->diagram->line(
             $this->xSrc,

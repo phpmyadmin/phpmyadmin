@@ -17,7 +17,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 
-if (!/*overload*/mb_strlen($GLOBALS['db'])) { /* Can't do server export */
+if (!mb_strlen($GLOBALS['db'])) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -80,65 +80,124 @@ class ExportXml extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup("general_opts");
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem();
-        $leaf->setName("structure_or_data");
+        $leaf = new HiddenPropertyItem("structure_or_data");
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
         // export structure main group
-        $structure = new OptionsPropertyMainGroup();
-        $structure->setName("structure");
-        $structure->setText(__('Object creation options (all are recommended)'));
+        $structure = new OptionsPropertyMainGroup(
+            "structure", __('Object creation options (all are recommended)')
+        );
 
         // create primary items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("export_events");
-        $leaf->setText(__('Events'));
+        $leaf = new BoolPropertyItem(
+            "export_events",
+            __('Events')
+        );
         $structure->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("export_functions");
-        $leaf->setText(__('Functions'));
+        $leaf = new BoolPropertyItem(
+            "export_functions",
+            __('Functions')
+        );
         $structure->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("export_procedures");
-        $leaf->setText(__('Procedures'));
+        $leaf = new BoolPropertyItem(
+            "export_procedures",
+            __('Procedures')
+        );
         $structure->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("export_tables");
-        $leaf->setText(__('Tables'));
+        $leaf = new BoolPropertyItem(
+            "export_tables",
+            __('Tables')
+        );
         $structure->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("export_triggers");
-        $leaf->setText(__('Triggers'));
+        $leaf = new BoolPropertyItem(
+            "export_triggers",
+            __('Triggers')
+        );
         $structure->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("export_views");
-        $leaf->setText(__('Views'));
+        $leaf = new BoolPropertyItem(
+            "export_views",
+            __('Views')
+        );
         $structure->addProperty($leaf);
         $exportSpecificOptions->addProperty($structure);
 
         // data main group
-        $data = new OptionsPropertyMainGroup();
-        $data->setName("data");
-        $data->setText(__('Data dump options'));
+        $data = new OptionsPropertyMainGroup(
+            "data", __('Data dump options')
+        );
         // create primary items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("export_contents");
-        $leaf->setText(__('Export contents'));
+        $leaf = new BoolPropertyItem(
+            "export_contents",
+            __('Export contents')
+        );
         $data->addProperty($leaf);
         $exportSpecificOptions->addProperty($data);
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
         $this->properties = $exportPluginProperties;
+    }
+
+    /**
+     * Generates output for SQL defintions of routines
+     *
+     * @param string $db      Database name
+     * @param string $type    Item type to be used in XML output
+     * @param string $dbitype Item type used in DBI qieries
+     *
+     * @return string XML with definitions
+     */
+    private function _exportRoutines($db, $type, $dbitype)
+    {
+        // Export routines
+        $routines = $GLOBALS['dbi']->getProceduresOrFunctions(
+            $db,
+            $dbitype
+        );
+        return $this->_exportDefinitions($db, $type, $dbitype, $routines);
+    }
+
+    /**
+     * Generates output for SQL defintions
+     *
+     * @param string $db      Database name
+     * @param string $type    Item type to be used in XML output
+     * @param string $dbitype Item type used in DBI qieries
+     * @param array  $names   Names of items to export
+     *
+     * @return string XML with definitions
+     */
+    private function _exportDefinitions($db, $type, $dbitype, $names)
+    {
+        global $crlf;
+
+        $head = '';
+
+        if ($names) {
+            foreach ($names as $name) {
+                $head .= '            <pma:' . $type . ' name="'
+                    . $name . '">' . $crlf;
+
+                // Do some formatting
+                $sql = $GLOBALS['dbi']->getDefinition($db, $dbitype, $name);
+                $sql = htmlspecialchars(rtrim($sql));
+                $sql = str_replace("\n", "\n                ", $sql);
+
+                $head .= "                " . $sql . $crlf;
+                $head .= '            </pma:' . $type . '>' . $crlf;
+            }
+        }
+
+        return $head;
     }
 
     /**
@@ -258,9 +317,7 @@ class ExportXml extends ExportPlugin
                                 . $trigger['name'] . '">' . $crlf;
 
                             // Do some formatting
-                            $code
-                                = /*overload*/
-                                mb_substr(rtrim($code), 0, -3);
+                            $code = mb_substr(rtrim($code), 0, -3);
                             $code = "                " . htmlspecialchars($code);
                             $code = str_replace("\n", "\n                ", $code);
 
@@ -277,65 +334,13 @@ class ExportXml extends ExportPlugin
             if (isset($GLOBALS['xml_export_functions'])
                 && $GLOBALS['xml_export_functions']
             ) {
-                // Export functions
-                $functions = $GLOBALS['dbi']->getProceduresOrFunctions(
-                    $db,
-                    'FUNCTION'
-                );
-                if ($functions) {
-                    foreach ($functions as $function) {
-                        $head .= '            <pma:function name="'
-                            . $function . '">' . $crlf;
-
-                        // Do some formatting
-                        $sql = $GLOBALS['dbi']->getDefinition(
-                            $db,
-                            'FUNCTION',
-                            $function
-                        );
-                        $sql = rtrim($sql);
-                        $sql = "                " . htmlspecialchars($sql);
-                        $sql = str_replace("\n", "\n                ", $sql);
-
-                        $head .= $sql . $crlf;
-                        $head .= '            </pma:function>' . $crlf;
-                    }
-
-                    unset($function);
-                    unset($functions);
-                }
+                $head .= $this->_exportRoutines($db, 'function', 'FUNCTION');
             }
 
             if (isset($GLOBALS['xml_export_procedures'])
                 && $GLOBALS['xml_export_procedures']
             ) {
-                // Export procedures
-                $procedures = $GLOBALS['dbi']->getProceduresOrFunctions(
-                    $db,
-                    'PROCEDURE'
-                );
-                if ($procedures) {
-                    foreach ($procedures as $procedure) {
-                        $head .= '            <pma:procedure name="'
-                            . $procedure . '">' . $crlf;
-
-                        // Do some formatting
-                        $sql = $GLOBALS['dbi']->getDefinition(
-                            $db,
-                            'PROCEDURE',
-                            $procedure
-                        );
-                        $sql = rtrim($sql);
-                        $sql = "                " . htmlspecialchars($sql);
-                        $sql = str_replace("\n", "\n                ", $sql);
-
-                        $head .= $sql . $crlf;
-                        $head .= '            </pma:procedure>' . $crlf;
-                    }
-
-                    unset($procedure);
-                    unset($procedures);
-                }
+                $head .= $this->_exportRoutines($db, 'procedure', 'PROCEDURE');
             }
 
             if (isset($GLOBALS['xml_export_events'])
@@ -347,27 +352,9 @@ class ExportXml extends ExportPlugin
                     . "WHERE EVENT_SCHEMA='" . Util::sqlAddslashes($db)
                     . "'"
                 );
-                if ($events) {
-                    foreach ($events as $event) {
-                        $head .= '            <pma:event name="'
-                            . $event . '">' . $crlf;
-
-                        $sql = $GLOBALS['dbi']->getDefinition(
-                            $db,
-                            'EVENT',
-                            $event
-                        );
-                        $sql = rtrim($sql);
-                        $sql = "                " . htmlspecialchars($sql);
-                        $sql = str_replace("\n", "\n                ", $sql);
-
-                        $head .= $sql . $crlf;
-                        $head .= '            </pma:event>' . $crlf;
-                    }
-
-                    unset($event);
-                    unset($events);
-                }
+                $head .= $this->_exportDefinitions(
+                    $db, 'event', 'EVENT', $events
+                );
             }
 
             unset($result);

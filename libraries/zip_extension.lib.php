@@ -135,8 +135,8 @@ function PMA_getNoOfFilesInZip($file)
             $count++;
             $entry = zip_read($zip_handle);
         }
+        zip_close($zip_handle);
     }
-    zip_close($zip_handle);
     return $count;
 }
 

@@ -45,11 +45,6 @@ var sql_autocomplete = false;
 var sql_autocomplete_default_table = '';
 
 /**
- * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
- */
-var chart_activeTimeouts = {};
-
-/**
  * @var central_column_list array to hold the columns in central list per db.
  */
 var central_column_list = [];
@@ -91,6 +86,129 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
         options.data = $.extend(originalOptions.data, {'_nocache' : nocache});
     }
 });
+
+/*
+ * Adds a date/time picker to an element
+ *
+ * @param object  $this_element   a jQuery object pointing to the element
+ */
+function PMA_addDatepicker($this_element, type, options)
+{
+    var showTimepicker = true;
+    if (type=="date") {
+        showTimepicker = false;
+    }
+
+    var defaultOptions = {
+        showOn: 'button',
+        buttonImage: themeCalendarImage, // defined in js/messages.php
+        buttonImageOnly: true,
+        stepMinutes: 1,
+        stepHours: 1,
+        showSecond: true,
+        showMillisec: true,
+        showMicrosec: true,
+        showTimepicker: showTimepicker,
+        showButtonPanel: false,
+        dateFormat: 'yy-mm-dd', // yy means year with four digits
+        timeFormat: 'HH:mm:ss.lc',
+        constrainInput: false,
+        altFieldTimeOnly: false,
+        showAnim: '',
+        beforeShow: function (input, inst) {
+            // Remember that we came from the datepicker; this is used
+            // in tbl_change.js by verificationsAfterFieldChange()
+            $this_element.data('comes_from', 'datepicker');
+            if ($(input).closest('.cEdit').length > 0) {
+                setTimeout(function () {
+                    inst.dpDiv.css({
+                        top: 0,
+                        left: 0,
+                        position: 'relative'
+                    });
+                }, 0);
+            }
+            // Fix wrong timepicker z-index, doesn't work without timeout
+            setTimeout(function () {
+                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
+            }, 0);
+        },
+        onSelect: function() {
+            $this_element.data('datepicker').inline = true;
+        },
+        onClose: function (dateText, dp_inst) {
+            // The value is no more from the date picker
+            $this_element.data('comes_from', '');
+            if (typeof $this_element.data('datepicker') !== 'undefined') {
+                $this_element.data('datepicker').inline = false;
+            }
+        }
+    };
+    if (type == "datetime" || type == "timestamp") {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
+    }
+    else if (type == "date") {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
+    }
+    else if (type == "time") {
+        $this_element.timepicker($.extend(defaultOptions, options));
+    }
+}
+
+/**
+ * Add a date/time picker to each element that needs it
+ * (only when jquery-ui-timepicker-addon.js is loaded)
+ */
+function addDateTimePicker() {
+    if ($.timepicker !== undefined) {
+        $('input.timefield, input.datefield, input.datetimefield').each(function () {
+
+            var decimals = $(this).parent().attr('data-decimals');
+            var type = $(this).parent().attr('data-type');
+
+            var showMillisec = false;
+            var showMicrosec = false;
+            var timeFormat = 'HH:mm:ss';
+            // check for decimal places of seconds
+            if (decimals > 0 && type.indexOf('time') != -1){
+                if (decimals > 3) {
+                    showMillisec = true;
+                    showMicrosec = true;
+                    timeFormat = 'HH:mm:ss.lc';
+                } else {
+                    showMillisec = true;
+                    timeFormat = 'HH:mm:ss.l';
+                }
+            }
+            PMA_addDatepicker($(this), type, {
+                showMillisec: showMillisec,
+                showMicrosec: showMicrosec,
+                timeFormat: timeFormat
+            });
+        });
+    }
+}
+
+/**
+ * Handle redirect and reload flags sent as part of AJAX requests
+ *
+ * @param data ajax response data
+ */
+function PMA_handleRedirectAndReload(data) {
+    if (parseInt(data.redirect_flag) == 1) {
+        // add one more GET param to display session expiry msg
+        if (window.location.href.indexOf('?') === -1) {
+            window.location.href += '?session_expired=1';
+        } else {
+            window.location.href += '&session_expired=1';
+        }
+        window.location.reload();
+    } else if (parseInt(data.reload_flag) == 1) {
+        // remove the token param and reload
+        window.location.href = window.location.href.replace(/&?token=[^&#]*/g, "");
+        window.location.reload();
+    }
+}
 
 /**
  * Creates an SQL editor which supports auto completing etc.
@@ -298,14 +416,31 @@ function suggestPassword(passwd_form)
     // restrict the password to just letters and numbers to avoid problems:
     // "editors and viewers regard the password as multiple words and
     // things like double click no longer work"
-    var pwchars = "abcdefhjmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWYXZ";
+    var pwchars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWYXZ";
     var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
     var passwd = passwd_form.generated_pw;
+    var randomWords = new Int32Array(passwordlength);
+
     passwd.value = '';
 
-    for (var i = 0; i < passwordlength; i++) {
-        passwd.value += pwchars.charAt(Math.floor(Math.random() * pwchars.length));
+    // First we're going to try to use a built-in CSPRNG
+    if (window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(randomWords);
     }
+    // Because of course IE calls it msCrypto instead of being standard
+    else if (window.msCrypto && window.msCrypto.getRandomValues) {
+        window.msCrypto.getRandomValues(randomWords);
+    } else {
+        // Fallback to Math.random
+        for (var i = 0; i < passwordlength; i++) {
+            randomWords[i] = Math.floor(Math.random() * pwchars.length);
+        }
+    }
+
+    for (var i = 0; i < passwordlength; i++) {
+        passwd.value += pwchars.charAt(Math.abs(randomWords[i]) % pwchars.length);
+    }
+
     passwd_form.text_pma_pw.value = passwd.value;
     passwd_form.text_pma_pw2.value = passwd.value;
     return true;
@@ -411,71 +546,6 @@ function displayPasswordGenerateButton()
 {
     $('#tr_element_before_generate_password').parent().append('<tr class="vmiddle"><td>' + PMA_messages.strGeneratePassword + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages.strGenerate + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
     $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages.strGeneratePassword + ':</label><span class="options"><input type="button" class="button" id="button_generate_password" value="' + PMA_messages.strGenerate + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
-}
-
-/*
- * Adds a date/time picker to an element
- *
- * @param object  $this_element   a jQuery object pointing to the element
- */
-function PMA_addDatepicker($this_element, type, options)
-{
-    var showTimepicker = true;
-    if (type=="date") {
-        showTimepicker = false;
-    }
-
-    var defaultOptions = {
-        showOn: 'button',
-        buttonImage: themeCalendarImage, // defined in js/messages.php
-        buttonImageOnly: true,
-        stepMinutes: 1,
-        stepHours: 1,
-        showSecond: true,
-        showMillisec: true,
-        showMicrosec: true,
-        showTimepicker: showTimepicker,
-        showButtonPanel: false,
-        dateFormat: 'yy-mm-dd', // yy means year with four digits
-        timeFormat: 'HH:mm:ss.lc',
-        constrainInput: false,
-        altFieldTimeOnly: false,
-        showAnim: '',
-        beforeShow: function (input, inst) {
-            // Remember that we came from the datepicker; this is used
-            // in tbl_change.js by verificationsAfterFieldChange()
-            $this_element.data('comes_from', 'datepicker');
-            if ($(input).closest('.cEdit').length > 0) {
-                setTimeout(function () {
-                    inst.dpDiv.css({
-                        top: 0,
-                        left: 0,
-                        position: 'relative'
-                    });
-                }, 0);
-            }
-            // Fix wrong timepicker z-index, doesn't work without timeout
-            setTimeout(function () {
-                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
-            }, 0);
-        },
-        onSelect: function() {
-            $this_element.data('datepicker').inline = true;
-        },
-        onClose: function (dateText, dp_inst) {
-            // The value is no more from the date picker
-            $this_element.data('comes_from', '');
-        }
-    };
-    if (type == "datetime" || type == "timestamp") {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    }
-    else if (type == "date") {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    }
-    else if (type == "time") {
-        $this_element.timepicker($.extend(defaultOptions, options));
-    }
 }
 
 /**
@@ -1202,40 +1272,6 @@ function updateQueryParameters() {
         });
     } else {
         $('#parametersDiv').empty();
-    }
-}
-
-/**
- * Add a date/time picker to each element that needs it
- * (only when jquery-ui-timepicker-addon.js is loaded)
- */
-function addDateTimePicker() {
-    if ($.timepicker !== undefined) {
-        $('input.timefield, input.datefield, input.datetimefield').each(function () {
-
-            var decimals = $(this).parent().attr('data-decimals');
-            var type = $(this).parent().attr('data-type');
-
-            var showMillisec = false;
-            var showMicrosec = false;
-            var timeFormat = 'HH:mm:ss';
-            // check for decimal places of seconds
-            if (decimals > 0 && type.indexOf('time') != -1){
-                if (decimals > 3) {
-                    showMillisec = true;
-                    showMicrosec = true;
-                    timeFormat = 'HH:mm:ss.lc';
-                } else {
-                    showMillisec = true;
-                    timeFormat = 'HH:mm:ss.l';
-                }
-            }
-            PMA_addDatepicker($(this), type, {
-                showMillisec: showMillisec,
-                showMicrosec: showMicrosec,
-                timeFormat: timeFormat
-            });
-        });
     }
 }
 
@@ -4250,48 +4286,6 @@ AJAX.registerOnload('functions.js', function () {
         $(this).data('val-hash', AJAX.hash($(this).is(":checked")));
     });
 });
-/**
- * jQuery plugin to cancel selection in HTML code.
- */
-(function ($) {
-    $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
-        var prevent = (p === null) ? true : p;
-        var is_msie = navigator.userAgent.indexOf('MSIE') > -1 || !!window.navigator.userAgent.match(/Trident.*rv\:11\./);
-        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
-        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
-        var is_opera = navigator.userAgent.indexOf("Presto") > -1;
-        if (prevent) {
-            return this.each(function () {
-                if (is_msie || is_safari) {
-                    $(this).bind('selectstart', function () {
-                        return false;
-                    });
-                } else if (is_firefox) {
-                    $(this).css('MozUserSelect', 'none');
-                    $('body').trigger('focus');
-                } else if (is_opera) {
-                    $(this).bind('mousedown', function () {
-                        return false;
-                    });
-                } else {
-                    $(this).attr('unselectable', 'on');
-                }
-            });
-        } else {
-            return this.each(function () {
-                if (is_msie || is_safari) {
-                    $(this).unbind('selectstart');
-                } else if (is_firefox) {
-                    $(this).css('MozUserSelect', 'inherit');
-                } else if (is_opera) {
-                    $(this).unbind('mousedown');
-                } else {
-                    $(this).removeAttr('unselectable');
-                }
-            });
-        }
-    }; //end noSelect
-})(jQuery);
 
 /**
  * jQuery plugin to correctly filter input fields by value, needed

@@ -140,19 +140,18 @@ class ShapeRecord extends \ShapeRecord
         }
 
         $readPoints = 0;
-        reset($this->SHPData["parts"]);
-        while (list($partIndex,) = each($this->SHPData["parts"])) {
-            if (!isset($this->SHPData["parts"][$partIndex]["points"])
-                || !is_array($this->SHPData["parts"][$partIndex]["points"])
+        foreach ($this->SHPData["parts"] as &$partData) {
+            if (!isset($partData["points"])
+                || !is_array($partData["points"])
             ) {
-                $this->SHPData["parts"][$partIndex] = array();
-                $this->SHPData["parts"][$partIndex]["points"] = array();
+                $partData = array(
+                    'points' => array()
+                );
             }
             while (!in_array($readPoints, $this->SHPData["parts"])
                 && ($readPoints < ($this->SHPData["numpoints"]))
             ) {
-                $this->SHPData["parts"][$partIndex]["points"][]
-                    = $this->_loadPoint();
+                $partData["points"][] = $this->_loadPoint();
                 $readPoints++;
             }
         }

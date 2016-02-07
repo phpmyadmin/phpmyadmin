@@ -627,7 +627,7 @@ class DisplayResults
             $the_total = $unlim_num_rows;
         } elseif ((($displayParts['nav_bar'] == '1')
             || ($displayParts['sort_lnk'] == '1'))
-            && (/*overload*/mb_strlen($db) && !empty($table))
+            && (mb_strlen($db) && !empty($table))
         ) {
             $the_total = $GLOBALS['dbi']->getTable($db, $table)->countRecords();
         }
@@ -1904,8 +1904,8 @@ class DisplayResults
             $comments = '<span class="tblcomment" title="'
                 . $sanitized_comments . '">';
             $limitChars = $GLOBALS['cfg']['LimitChars'];
-            if (/*overload*/mb_strlen($sanitized_comments) > $limitChars) {
-                $sanitized_comments = /*overload*/mb_substr(
+            if (mb_strlen($sanitized_comments) > $limitChars) {
+                $sanitized_comments = mb_substr(
                     $sanitized_comments, 0, $limitChars
                 ) . '…';
             }
@@ -1952,7 +1952,7 @@ class DisplayResults
         // FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
         $sort_tbl = (isset($fields_meta->table)
-            && /*overload*/mb_strlen($fields_meta->table)
+            && mb_strlen($fields_meta->table)
             && $fields_meta->orgname == $fields_meta->name)
             ? Util::backquote(
                 $fields_meta->table
@@ -2070,7 +2070,7 @@ class DisplayResults
             $sort_tbl_new = $sort_tbl;
             // Test to detect if the column name is a standard name
             // Standard name has the table name prefixed to the column name
-            if (/*overload*/mb_strpos($name_to_use_in_sort, '.') !== false) {
+            if (mb_strpos($name_to_use_in_sort, '.') !== false) {
                 $matches = explode('.', $name_to_use_in_sort);
                 // Matches[0] has the table name
                 // Matches[1] has the column name
@@ -2089,10 +2089,10 @@ class DisplayResults
             // order by clause to the  column name
             $query_head = $is_first_clause ? "\nORDER BY " : "";
             // Again a check to see if the given column is a aggregate column
-            if (/*overload*/mb_strpos($name_to_use_in_sort, '(') !== false) {
+            if (mb_strpos($name_to_use_in_sort, '(') !== false) {
                 $sort_order .=  $query_head  . $name_to_use_in_sort . ' ' ;
             } else {
-                if (/*overload*/mb_strlen($sort_tbl_new) > 0) {
+                if (mb_strlen($sort_tbl_new) > 0) {
                     $sort_tbl_new .= ".";
                 }
                 $sort_order .=  $query_head  . $sort_tbl_new
@@ -2106,7 +2106,7 @@ class DisplayResults
             $sort_order = preg_replace("/\.\./", ".", $sort_order);
             // Incase this is the current column save $single_sort_order
             if ($current_name == $name_to_use_in_sort) {
-                if (/*overload*/mb_strpos($current_name, '(') !== false) {
+                if (mb_strpos($current_name, '(') !== false) {
                     $single_sort_order = "\n" . 'ORDER BY ' . $current_name . ' ';
                 } else {
                     $single_sort_order = "\n" . 'ORDER BY ' . $sort_tbl
@@ -2140,10 +2140,10 @@ class DisplayResults
         }
         // remove the comma from the last column name in the newly
         // constructed clause
-        $sort_order = /*overload*/mb_substr(
+        $sort_order = mb_substr(
             $sort_order,
             0,
-            /*overload*/mb_strlen($sort_order)-2
+            mb_strlen($sort_order)-2
         );
         if (empty($order_img)) {
             $order_img = '';
@@ -2173,7 +2173,7 @@ class DisplayResults
         $index_in_expression = 0;
 
         foreach ($sort_expression_nodirection as $index => $clause) {
-            if (/*overload*/mb_strpos($clause, '.') !== false) {
+            if (mb_strpos($clause, '.') !== false) {
                 $fragments = explode('.', $clause);
                 $clause2 = $fragments[0] . "." . str_replace('`', '', $fragments[1]);
             } else {
@@ -2196,10 +2196,10 @@ class DisplayResults
             // Another query to test this:
             // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
             // (and try clicking on each column's header twice)
-            $noSortTable = empty($sort_tbl) || /*overload*/mb_strpos(
+            $noSortTable = empty($sort_tbl) || mb_strpos(
                 $sort_expression_nodirection[$index_in_expression], $sort_tbl
             ) === false;
-            $noOpenParenthesis = /*overload*/mb_strpos(
+            $noOpenParenthesis = mb_strpos(
                 $sort_expression_nodirection[$index_in_expression], '('
             ) === false;
             if (! empty($sort_tbl) && $noSortTable && $noOpenParenthesis) {
@@ -2292,10 +2292,10 @@ class DisplayResults
     ) {
         $order_link_params = array();
         if (isset($order_img) && ($order_img != '')) {
-            if (/*overload*/mb_strstr($order_img, 'asc')) {
+            if (mb_strstr($order_img, 'asc')) {
                 $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
                 $order_link_params['onmouseout']  = "$('.soimg$col_index').toggle()";
-            } elseif (/*overload*/mb_strstr($order_img, 'desc')) {
+            } elseif (mb_strstr($order_img, 'desc')) {
                 $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
                 $order_link_params['onmouseout']  = "$('.soimg$col_index').toggle()";
             }
@@ -2625,12 +2625,12 @@ class DisplayResults
         );
 
         foreach ($matches as $key => $value) {
-            if (/*overload*/mb_strpos($meta->flags, $key) !== false) {
+            if (mb_strpos($meta->flags, $key) !== false) {
                 $classes[] = $value;
             }
         }
 
-        if (/*overload*/mb_strpos($meta->type, 'bit') !== false) {
+        if (mb_strpos($meta->type, 'bit') !== false) {
             $classes[] = 'bit';
         }
 
@@ -3070,9 +3070,9 @@ class DisplayResults
 
             // Check whether the field needs to display with syntax highlighting
 
-            $dbLower = /*overload*/mb_strtolower($this->__get('db'));
-            $tblLower = /*overload*/mb_strtolower($meta->orgtable);
-            $nameLower = /*overload*/mb_strtolower($meta->orgname);
+            $dbLower = mb_strtolower($this->__get('db'));
+            $tblLower = mb_strtolower($meta->orgtable);
+            $nameLower = mb_strtolower($meta->orgname);
             if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
                 && (trim($row[$i]) != '')
                 && ! $_SESSION['tmpval']['hide_transformation']
@@ -3091,8 +3091,8 @@ class DisplayResults
                 $meta->mimetype = str_replace(
                     '_', '/',
                     $this->transformation_info[$dbLower]
-                    [/*overload*/mb_strtolower($meta->orgtable)]
-                    [/*overload*/mb_strtolower($meta->orgname)][2]
+                    [mb_strtolower($meta->orgtable)]
+                    [mb_strtolower($meta->orgname)][2]
                 );
 
             }
@@ -3105,7 +3105,7 @@ class DisplayResults
             ) {
 
                 $linking_url = $this->_getSpecialLinkUrl(
-                    $row[$i], $row_info, /*overload*/mb_strtolower($meta->orgname)
+                    $row[$i], $row_info, mb_strtolower($meta->orgname)
                 );
                 $transformation_plugin = new Text_Plain_Link();
 
@@ -3252,8 +3252,8 @@ class DisplayResults
 
         $linking_url_params = array();
         $link_relations = $GLOBALS['special_schema_links']
-            [/*overload*/mb_strtolower($this->__get('db'))]
-            [/*overload*/mb_strtolower($this->__get('table'))]
+            [mb_strtolower($this->__get('db'))]
+            [mb_strtolower($this->__get('table'))]
             [$field_name];
 
         if (! is_array($link_relations['link_param'])) {
@@ -3284,7 +3284,7 @@ class DisplayResults
             }
 
             $linking_url_params[$new_param['param_info']]
-                = $row_info[/*overload*/mb_strtolower($new_param['column_name'])];
+                = $row_info[mb_strtolower($new_param['column_name'])];
 
             // Special case 1 - when executing routines, according
             // to the type of the routine, url param changes
@@ -3314,7 +3314,7 @@ class DisplayResults
 
         for ($n = 0; $n < $this->__get('fields_cnt'); ++$n) {
             $m = $col_order ? $col_order[$n] : $n;
-            $row_info[/*overload*/mb_strtolower($fields_meta[$m]->name)]
+            $row_info[mb_strtolower($fields_meta[$m]->name)]
                 = $row[$m];
         }
 
@@ -3336,7 +3336,7 @@ class DisplayResults
     private function _getUrlSqlQuery($analyzed_sql_results)
     {
         if (($analyzed_sql_results['querytype'] != 'SELECT')
-            || (/*overload*/mb_strlen($this->__get('sql_query')) < 200)
+            || (mb_strlen($this->__get('sql_query')) < 200)
         ) {
             return $this->__get('sql_query');
         }
@@ -4336,7 +4336,7 @@ class DisplayResults
         }
 
         // 2.3 Prepare the navigation bars
-        if (!/*overload*/mb_strlen($this->__get('table'))) {
+        if (!mb_strlen($this->__get('table'))) {
 
             if ($analyzed_sql_results['querytype'] == 'SELECT') {
                 // table does not always contain a real table name,
@@ -4387,7 +4387,7 @@ class DisplayResults
             }
         }
 
-        if (/*overload*/mb_strlen($this->__get('table'))) {
+        if (mb_strlen($this->__get('table'))) {
             // This method set the values for $map array
             $this->_setParamForLinkForeignKeyRelatedTables($map);
 
@@ -4527,7 +4527,7 @@ class DisplayResults
             return null;
         }
 
-        if (/*overload*/mb_strpos($sort_expression_nodirection, '.') === false) {
+        if (mb_strpos($sort_expression_nodirection, '.') === false) {
             $sort_table = $this->__get('table');
             $sort_column = $sort_expression_nodirection;
         } else {
@@ -4578,8 +4578,8 @@ class DisplayResults
             $column_for_first_row = $row[$sorted_column_index];
         }
 
-        $column_for_first_row = /*overload*/mb_strtoupper(
-            /*overload*/mb_substr(
+        $column_for_first_row = mb_strtoupper(
+            mb_substr(
                 $column_for_first_row, 0, $GLOBALS['cfg']['LimitChars']
             ) . '...'
         );
@@ -4604,8 +4604,8 @@ class DisplayResults
             $column_for_last_row = $row[$sorted_column_index];
         }
 
-        $column_for_last_row = /*overload*/mb_strtoupper(
-            /*overload*/mb_substr(
+        $column_for_last_row = mb_strtoupper(
+            mb_substr(
                 $column_for_last_row, 0, $GLOBALS['cfg']['LimitChars']
             ) . '...'
         );
@@ -5243,7 +5243,7 @@ class DisplayResults
 
         if (isset($content)) {
 
-            $size = /*overload*/mb_strlen($content, '8bit');
+            $size = mb_strlen($content, '8bit');
             $display_size = Util::formatByteDown($size, 3, 1);
             $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
 
@@ -5361,7 +5361,7 @@ class DisplayResults
             $dispval = __('Link not found!');
         }
 
-        @$GLOBALS['dbi']->freeResult($dispresult);
+        $GLOBALS['dbi']->freeResult($dispresult);
 
         return $dispval;
     }
@@ -5435,7 +5435,7 @@ class DisplayResults
 
             // Field to display from the foreign table?
             if (isset($map[$meta->name][2])
-                && /*overload*/mb_strlen($map[$meta->name][2])
+                && mb_strlen($map[$meta->name][2])
             ) {
                 $dispval = $this->_getFromForeign(
                     $map, $meta, $where_comparison
@@ -5807,11 +5807,11 @@ class DisplayResults
      */
     private function _getPartialText($str)
     {
-        $original_length = /*overload*/mb_strlen($str);
+        $original_length = mb_strlen($str);
         if ($original_length > $GLOBALS['cfg']['LimitChars']
             && $_SESSION['tmpval']['pftext'] === self::DISPLAY_PARTIAL_TEXT
         ) {
-            $str = /*overload*/mb_substr(
+            $str = mb_substr(
                 $str, 0, $GLOBALS['cfg']['LimitChars']
             ) . '...';
             $truncated = true;

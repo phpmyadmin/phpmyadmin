@@ -203,7 +203,7 @@ class EpsRelationSchema extends ExportRelationSchema
     private function _drawRelations()
     {
         foreach ($this->_relations as $relation) {
-            $relation->relationDraw($this->showColor);
+            $relation->relationDraw();
         }
     }
 

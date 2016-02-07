@@ -1,10 +1,10 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/Console.js
+ * @requires OpenLayers/BaseTypes/Class.js
  */
 
 /**
@@ -27,17 +27,25 @@ OpenLayers.LonLat = OpenLayers.Class({
 
     /**
      * Constructor: OpenLayers.LonLat
-     * Create a new map location.
+     * Create a new map location. Coordinates can be passed either as two
+     * arguments, or as a single argument.
      *
-     * Parameters:
+     * Parameters (two arguments):
      * lon - {Number} The x-axis coordinate in map units.  If your map is in
      *     a geographic projection, this will be the Longitude.  Otherwise,
      *     it will be the x coordinate of the map location in your map units.
      * lat - {Number} The y-axis coordinate in map units.  If your map is in
      *     a geographic projection, this will be the Latitude.  Otherwise,
      *     it will be the y coordinate of the map location in your map units.
+     *
+     * Parameters (single argument):
+     * location - {Array(Float)} [lon, lat]
      */
     initialize: function(lon, lat) {
+        if (OpenLayers.Util.isArray(lon)) {
+            lat = lon[1];
+            lon = lon[0];
+        }
         this.lon = OpenLayers.Util.toFloat(lon);
         this.lat = OpenLayers.Util.toFloat(lat);
     },
@@ -48,7 +56,7 @@ OpenLayers.LonLat = OpenLayers.Class({
      *
      * Returns:
      * {String} String representation of OpenLayers.LonLat object. 
-     *           (ex. <i>"lon=5,lat=42"</i>)
+     *           (e.g. <i>"lon=5,lat=42"</i>)
      */
     toString:function() {
         return ("lon=" + this.lon + ",lat=" + this.lat);
@@ -59,7 +67,7 @@ OpenLayers.LonLat = OpenLayers.Class({
      * 
      * Returns:
      * {String} Shortened String representation of OpenLayers.LonLat object. 
-     *         (ex. <i>"5, 42"</i>)
+     *         (e.g. <i>"5, 42"</i>)
      */
     toShortString:function() {
         return (this.lon + ", " + this.lat);
@@ -89,9 +97,7 @@ OpenLayers.LonLat = OpenLayers.Class({
      */
     add:function(lon, lat) {
         if ( (lon == null) || (lat == null) ) {
-            var msg = OpenLayers.i18n("lonlatAddError");
-            OpenLayers.Console.error(msg);
-            return null;
+            throw new TypeError('LonLat.add cannot receive null values');
         }
         return new OpenLayers.LonLat(this.lon + OpenLayers.Util.toFloat(lon), 
                                      this.lat + OpenLayers.Util.toFloat(lat));
@@ -178,7 +184,7 @@ OpenLayers.LonLat = OpenLayers.Class({
  * 
  * Parameters:
  * str - {String} Comma-separated Lon,Lat coordinate string. 
- *                 (ex. <i>"5,40"</i>)
+ *                 (e.g. <i>"5,40"</i>)
  * 
  * Returns:
  * {<OpenLayers.LonLat>} New <OpenLayers.LonLat> object built from the 
@@ -187,4 +193,23 @@ OpenLayers.LonLat = OpenLayers.Class({
 OpenLayers.LonLat.fromString = function(str) {
     var pair = str.split(",");
     return new OpenLayers.LonLat(pair[0], pair[1]);
+};
+
+/** 
+ * Function: fromArray
+ * Alternative constructor that builds a new <OpenLayers.LonLat> from an 
+ *     array of two numbers that represent lon- and lat-values.
+ * 
+ * Parameters:
+ * arr - {Array(Float)} Array of lon/lat values (e.g. [5,-42])
+ * 
+ * Returns:
+ * {<OpenLayers.LonLat>} New <OpenLayers.LonLat> object built from the 
+ *                       passed-in array.
+ */
+OpenLayers.LonLat.fromArray = function(arr) {
+    var gotArr = OpenLayers.Util.isArray(arr),
+        lon = gotArr && arr[0],
+        lat = gotArr && arr[1];
+    return new OpenLayers.LonLat(lon, lat);
 };

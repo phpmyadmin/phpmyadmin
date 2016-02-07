@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 if (empty($is_db)) {
-    if (/*overload*/mb_strlen($db)) {
+    if (mb_strlen($db)) {
         $is_db = @$GLOBALS['dbi']->selectDb($db);
     } else {
         $is_db = false;
@@ -41,7 +41,7 @@ if (empty($is_db)) {
                     $url_params['show_as_php'] = $show_as_php;
                 }
                 PMA_sendHeaderLocation(
-                    $cfg['PmaAbsoluteUri'] . 'index.php'
+                    './index.php'
                     . PMA_URL_getCommon($url_params, 'text')
                 );
             }
@@ -56,8 +56,8 @@ if (empty($is_table)
 ) {
     // Not a valid table name -> back to the db_sql.php
 
-    if (/*overload*/mb_strlen($table)) {
-        $is_table = $GLOBALS['dbi']->getCachedTableContent("${db}.${table}", false);
+    if (mb_strlen($table)) {
+        $is_table = $GLOBALS['dbi']->getCachedTableContent(array($db, $table), false);
 
         if (! $is_table) {
             $_result = $GLOBALS['dbi']->tryQuery(
@@ -74,7 +74,7 @@ if (empty($is_table)
 
     if (! $is_table) {
         if (!defined('IS_TRANSFORMATION_WRAPPER')) {
-            if (/*overload*/mb_strlen($table)) {
+            if (mb_strlen($table)) {
                 // SHOW TABLES doesn't show temporary tables, so try select
                 // (as it can happen just in case temporary table, it should be
                 // fast):

@@ -14,23 +14,13 @@
  */
 OpenLayers.Lang["is"] = OpenLayers.Util.applyDefaults({
 
-    'permalink': "Varanlegur tengill",
+    'Permalink': "Varanlegur tengill",
 
-    'overlays': "Þekjur",
+    'Overlays': "Þekjur",
 
-    'baseLayer': "Grunnlag",
+    'Base Layer': "Grunnlag",
 
-    'sameProjection': "Yfirlitskortið virkar aðeins ef það er í sömu vörpun og aðalkortið",
-
-    'readNotImplemented': "Skrifun er óútfærð.",
-
-    'writeNotImplemented': "Lestur er óútfærður.",
-
-    'errorLoadingGML': "Villa kom upp við að hlaða inn GML skránni ${url}",
-
-    'scale': "Skali = 1 : ${scaleDenom}",
-
-    'layerAlreadyAdded': "Þú reyndir að bæta laginu ${layerName} á kortið en það er þegar búið að bæta því við",
+    'Scale = 1 : ${scaleDenom}': "Skali = 1 : ${scaleDenom}",
 
     'methodDeprecated': "Þetta fall hefur verið úrelt og verður fjarlægt í 3.0. Notaðu ${newMethod} í staðin."
 

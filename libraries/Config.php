@@ -69,11 +69,6 @@ class Config
     var $error_config_default_file = false;
 
     /**
-     * @var boolean
-     */
-    var $error_pma_uri = false;
-
-    /**
      * @var array
      */
     var $default_server = array();
@@ -101,8 +96,6 @@ class Config
         // other settings, independent from config file, comes in
         $this->checkSystem();
 
-        $this->isHttps();
-
         $this->base_settings = $this->settings;
     }
 
@@ -123,7 +116,6 @@ class Config
          */
         $this->set('PMA_THEME_GENERATION', 2);
 
-        $this->checkPhpVersion();
         $this->checkWebServerOs();
         $this->checkWebServer();
         $this->checkGd2();
@@ -168,15 +160,15 @@ class Config
      */
     private function _setClientPlatform($user_agent)
     {
-        if (/*overload*/mb_strstr($user_agent, 'Win')) {
+        if (mb_strstr($user_agent, 'Win')) {
             $this->set('PMA_USR_OS', 'Win');
-        } elseif (/*overload*/mb_strstr($user_agent, 'Mac')) {
+        } elseif (mb_strstr($user_agent, 'Mac')) {
             $this->set('PMA_USR_OS', 'Mac');
-        } elseif (/*overload*/mb_strstr($user_agent, 'Linux')) {
+        } elseif (mb_strstr($user_agent, 'Linux')) {
             $this->set('PMA_USR_OS', 'Linux');
-        } elseif (/*overload*/mb_strstr($user_agent, 'Unix')) {
+        } elseif (mb_strstr($user_agent, 'Unix')) {
             $this->set('PMA_USR_OS', 'Unix');
-        } elseif (/*overload*/mb_strstr($user_agent, 'OS/2')) {
+        } elseif (mb_strstr($user_agent, 'OS/2')) {
             $this->set('PMA_USR_OS', 'OS/2');
         } else {
             $this->set('PMA_USR_OS', 'Other');
@@ -271,7 +263,7 @@ class Config
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
-        } elseif (! /*overload*/mb_strstr($HTTP_USER_AGENT, 'compatible')
+        } elseif (! mb_strstr($HTTP_USER_AGENT, 'compatible')
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
@@ -314,7 +306,7 @@ class Config
 
         if (@function_exists('gd_info')) {
             $gd_nfo = gd_info();
-            if (/*overload*/mb_strstr($gd_nfo["GD Version"], '2.')) {
+            if (mb_strstr($gd_nfo["GD Version"], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
             } else {
                 $this->set('PMA_IS_GD2', 0);
@@ -362,42 +354,6 @@ class Config
                 $this->set('PMA_IS_WINDOWS', 1);
             }
         }
-    }
-
-    /**
-     * detects PHP version
-     *
-     * @return void
-     */
-    public function checkPhpVersion()
-    {
-        $match = array();
-        if (! preg_match(
-            '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
-            phpversion(),
-            $match
-        )) {
-            preg_match(
-                '@([0-9]{1,2}).([0-9]{1,2})@',
-                phpversion(),
-                $match
-            );
-        }
-        if (isset($match) && ! empty($match[1])) {
-            if (! isset($match[2])) {
-                $match[2] = 0;
-            }
-            if (! isset($match[3])) {
-                $match[3] = 0;
-            }
-            $this->set(
-                'PMA_PHP_INT_VERSION',
-                (int) sprintf('%d%02d%02d', $match[1], $match[2], $match[3])
-            );
-        } else {
-            $this->set('PMA_PHP_INT_VERSION', 0);
-        }
-        $this->set('PMA_PHP_STR_VERSION', phpversion());
     }
 
     /**
@@ -449,10 +405,10 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (/*overload*/mb_strstr($ref_head, '/')) {
-            $ref_head = /*overload*/mb_substr(trim($ref_head), 5);
+        if (mb_strstr($ref_head, '/')) {
+            $ref_head = mb_substr(trim($ref_head), 5);
             if (substr($ref_head, 0, 11) === 'refs/heads/') {
-                $branch = /*overload*/mb_substr($ref_head, 11);
+                $branch = mb_substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
             }
@@ -907,7 +863,6 @@ class Config
         }
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
-        $this->checkPmaAbsoluteUri();
 
         // Handling of the collation must be done after merging of $cfg
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
@@ -1176,7 +1131,7 @@ class Config
             $handle = @fopen($this->getSource(), 'r');
             if ($handle !== false) {
                 $contents = @fread($handle, 1); // reading 1 byte is enough to test
-                @fclose($handle);
+                fclose($handle);
             }
             if ($contents === false) {
                 $this->source_mtime = 0;
@@ -1293,187 +1248,6 @@ class Config
     }
 
     /**
-     * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
-     * set properly and, depending on browsers, inserting or updating a
-     * record might fail
-     *
-     * @return void
-     */
-    public function checkPmaAbsoluteUri()
-    {
-        // Setup a default value to let the people and lazy sysadmins work anyway,
-        // they'll get an error if the autodetect code doesn't work
-        $pma_absolute_uri = $this->get('PmaAbsoluteUri');
-        $is_https = $this->detectHttps();
-
-        if (/*overload*/mb_strlen($pma_absolute_uri) < 5) {
-            $url = array();
-
-            // If we don't have scheme, we didn't have full URL so we need to
-            // dig deeper
-            if (empty($url['scheme'])) {
-                // Scheme
-                if ($is_https) {
-                    $url['scheme'] = 'https';
-                } else {
-                    $url['scheme'] = 'http';
-                }
-
-                // Host and port
-                if (PMA_getenv('HTTP_HOST')) {
-                    // Prepend the scheme before using parse_url() since this
-                    // is not part of the RFC2616 Host request-header
-                    $parsed_url = parse_url(
-                        $url['scheme'] . '://' . PMA_getenv('HTTP_HOST')
-                    );
-                    if (!empty($parsed_url['host'])) {
-                        $url = $parsed_url;
-                    } else {
-                        $url['host'] = PMA_getenv('HTTP_HOST');
-                    }
-                } elseif (PMA_getenv('SERVER_NAME')) {
-                    $url['host'] = PMA_getenv('SERVER_NAME');
-                } else {
-                    $this->error_pma_uri = true;
-                    return;
-                }
-
-                if ($this->get('force_protocol')) {
-                    // CloudFlare Flexible SSL port
-                    $url['port'] = PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'http' ? 80 : 443;
-                } elseif (empty($url['port']) && PMA_getenv('SERVER_PORT')) {
-                    // If we didn't set port yet...
-                    $url['port'] = PMA_getenv('SERVER_PORT');
-                }
-
-                // And finally the path could be already set from REQUEST_URI
-                if (empty($url['path'])) {
-                    // we got a case with nginx + php-fpm where PHP_SELF
-                    // was not set, so PMA_PHP_SELF was not set as well
-                    if (isset($GLOBALS['PMA_PHP_SELF'])) {
-                        $path = parse_url($GLOBALS['PMA_PHP_SELF']);
-                    } else {
-                        $path = parse_url(PMA_getenv('REQUEST_URI'));
-                    }
-                    $url['path'] = $path['path'];
-                }
-            }
-
-            // Make url from parts we have
-            $pma_absolute_uri = $url['scheme'] . '://';
-            // Was there user information?
-            if (!empty($url['user'])) {
-                $pma_absolute_uri .= $url['user'];
-                if (!empty($url['pass'])) {
-                    $pma_absolute_uri .= ':' . $url['pass'];
-                }
-                $pma_absolute_uri .= '@';
-            }
-            // Add hostname
-            $pma_absolute_uri .= $url['host'];
-            // Add port, if it not the default one
-            // (or 80 for https which is most likely a bug)
-            if (!empty($url['port'])
-                && (($url['scheme'] == 'http' && $url['port'] != 80)
-                || ($url['scheme'] == 'https' && $url['port'] != 80)
-                || ($url['scheme'] == 'https' && $url['port'] != 443))
-            ) {
-                $pma_absolute_uri .= ':' . $url['port'];
-            }
-            // And finally path, without script name, the 'a' is there not to
-            // strip our directory, when path is only /pmadir/ without filename.
-            // Backslashes returned by Windows have to be changed.
-            // Only replace backslashes by forward slashes if on Windows,
-            // as the backslash could be valid on a non-Windows system.
-            $this->checkWebServerOs();
-            if ($this->get('PMA_IS_WINDOWS') == 1) {
-                $path = str_replace("\\", "/", dirname($url['path'] . 'a'));
-            } else {
-                $path = dirname($url['path'] . 'a');
-            }
-
-            // To work correctly within javascript
-            if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../') {
-                if ($this->get('PMA_IS_WINDOWS') == 1) {
-                    $path = str_replace("\\", "/", dirname($path));
-                } else {
-                    $path = dirname($path);
-                }
-            }
-
-            // PHP's dirname function would have returned a dot
-            // when $path contains no slash
-            if ($path == '.') {
-                $path = '';
-            }
-            // in vhost situations, there could be already an ending slash
-            if (/*overload*/mb_substr($path, -1) != '/') {
-                $path .= '/';
-            }
-            $pma_absolute_uri .= $path;
-
-            // This is to handle the case of a reverse proxy
-            if ($this->get('ForceSSL')) {
-                $this->set('PmaAbsoluteUri', $pma_absolute_uri);
-                $pma_absolute_uri = $this->getSSLUri();
-                $this->isHttps();
-            }
-
-            // We used to display a warning if PmaAbsoluteUri wasn't set, but now
-            // the autodetect code works well enough that we don't display the
-            // warning at all. The user can still set PmaAbsoluteUri manually.
-
-        } else {
-            // The URI is specified, however users do often specify this
-            // wrongly, so we try to fix this.
-
-            // Adds a trailing slash et the end of the phpMyAdmin uri if it
-            // does not exist.
-            if (/*overload*/mb_substr($pma_absolute_uri, -1) != '/') {
-                $pma_absolute_uri .= '/';
-            }
-
-            // If URI doesn't start with http:// or https://, we will add
-            // this.
-            if (/*overload*/mb_substr($pma_absolute_uri, 0, 7) != 'http://'
-                && /*overload*/mb_substr($pma_absolute_uri, 0, 8) != 'https://'
-            ) {
-                $pma_absolute_uri
-                    = ($is_https ? 'https' : 'http')
-                    . ':'
-                    . (
-                        /*overload*/mb_substr($pma_absolute_uri, 0, 2) == '//'
-                        ? ''
-                        : '//'
-                    )
-                    . $pma_absolute_uri;
-            }
-        }
-        $this->set('PmaAbsoluteUri', $pma_absolute_uri);
-    }
-
-    /**
-     * Converts currently used PmaAbsoluteUri to SSL based variant.
-     *
-     * @return String witch adjusted URI
-     */
-    public function getSSLUri()
-    {
-        // grab current URL
-        $url = $this->get('PmaAbsoluteUri');
-        // Parse current URL
-        $parsed = parse_url($url);
-        // In case parsing has failed do stupid string replacement
-        if ($parsed === false) {
-            // Replace http protocol
-            return preg_replace('@^http:@', 'https:', $url);
-        }
-
-        // Reconstruct URL using parsed parts
-        return 'https://' . $parsed['host'] . ':443' . $parsed['path'];
-    }
-
-    /**
      * Sets collation_connection based on user preference. First is checked
      * value from request, then cookies with fallback to default.
      *
@@ -1571,9 +1345,7 @@ class Config
     /**
      * Checks if protocol is https
      *
-     * This function checks if the https protocol is used in the PmaAbsoluteUri
-     * configuration setting, as opposed to detectHttps() which checks if the
-     * https protocol is used on the active connection.
+     * This function checks if the https protocol on the active connection.
      *
      * @return bool
      */
@@ -1584,78 +1356,27 @@ class Config
             return $this->get('is_https');
         }
 
-        $url = parse_url($this->get('PmaAbsoluteUri'));
-
-        // CloudFlare Flexible SSL compatibility
-        $this->set('force_protocol', in_array(PMA_getenv('HTTP_X_FORWARDED_PROTO'), array('http', 'https'), true));
-        
-        $is_https = $this->get('force_protocol') ? PMA_getenv('HTTP_X_FORWARDED_PROTO') : isset($url['scheme']) && $url['scheme'] == 'https';
+        $is_https = false;
+        if (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTPS')) == 'on') {
+            $is_https = true;
+        } elseif (substr(strtolower(PMA_getenv('REQUEST_URI')), 0, 6) == 'https:') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
+            // A10 Networks load balancer
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
+            $is_https = true;
+        } elseif (PMA_getenv('SERVER_PORT') == 443) {
+            $is_https = true;
+        }
 
         $this->set('is_https', $is_https);
 
         return $is_https;
-    }
-
-    /**
-     * Detects whether https appears to be used.
-     *
-     * This function checks if the https protocol is used in the current connection
-     * with the webserver, based on environment variables.
-     * Please note that this just detects what we see, so
-     * it completely ignores things like reverse proxies.
-     *
-     * @return bool
-     */
-    public function detectHttps()
-    {
-        $url = array();
-
-        // At first we try to parse REQUEST_URI, it might contain full URL,
-        if (PMA_getenv('REQUEST_URI')) {
-            // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
-            $url = @parse_url(PMA_getenv('REQUEST_URI'));
-            if ($url === false) {
-                $url = array();
-            }
-        }
-
-        // If we don't have scheme, we didn't have full URL so we need to
-        // dig deeper
-        if (empty($url['scheme'])) {
-            // Scheme
-            if (PMA_getenv('HTTP_SCHEME')) {
-                $url['scheme'] = PMA_getenv('HTTP_SCHEME');
-            } elseif (PMA_getenv('HTTPS') && strtolower(PMA_getenv('HTTPS')) == 'on') {
-                $url['scheme'] = 'https';
-                // A10 Networks load balancer:
-            } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB') && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
-                $url['scheme'] = 'https';
-            } elseif ($this->get('force_protocol')) {
-                $url['scheme'] = PMA_getenv('HTTP_X_FORWARDED_PROTO');
-            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS') && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
-                $url['scheme'] = 'https';
-            } else {
-                $url['scheme'] = 'http';
-            }
-        }
-
-        if (PMA_getenv('HTTP_X_FORWARDED_PROTO') === 'https' || isset($url['scheme']) && $url['scheme'] == 'https') {
-            $is_https = true;
-        } else {
-            $is_https = false;
-        }
-
-        return $is_https;
-    }
-
-    /**
-     * detect correct cookie path
-     *
-     * @return void
-     */
-    public function checkCookiePath()
-    {
-        $this->set('cookie_path', $this->getCookiePath());
     }
 
     /**
@@ -1671,9 +1392,13 @@ class Config
             return $cookie_path;
         }
 
-        $parsed_url = parse_url($this->get('PmaAbsoluteUri'));
+        if (isset($GLOBALS['PMA_PHP_SELF'])) {
+            $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
+        } else {
+            $parsed_url = parse_url(PMA_getenv('REQUEST_URI'));
+        }
 
-        $cookie_path   = $parsed_url['path'];
+        $cookie_path = $parsed_url['path'];
 
         return $cookie_path;
     }
@@ -1691,15 +1416,12 @@ class Config
         $GLOBALS['collation_connection'] = $this->get('collation_connection');
         $GLOBALS['is_upload']       = $this->get('enable_upload');
         $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
-        $GLOBALS['cookie_path']     = $this->get('cookie_path');
         $GLOBALS['is_https']        = $this->get('is_https');
 
         $defines = array(
             'PMA_VERSION',
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
-            'PMA_PHP_STR_VERSION',
-            'PMA_PHP_INT_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_IIS',
             'PMA_IS_GD2',
@@ -1864,7 +1586,7 @@ class Config
     public function setCookie($cookie, $value, $default = null,
         $validity = null, $httponly = true
     ) {
-        if (/*overload*/mb_strlen($value) && null !== $default && $value === $default
+        if (mb_strlen($value) && null !== $default && $value === $default
         ) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
@@ -1874,7 +1596,7 @@ class Config
             return false;
         }
 
-        if (!/*overload*/mb_strlen($value) && isset($_COOKIE[$cookie])) {
+        if (!mb_strlen($value) && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }

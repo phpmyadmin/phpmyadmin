@@ -22,6 +22,50 @@ use PMA\libraries\properties\options\items\TextPropertyItem;
 class PropertyItemsTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * Test for PMA\libraries\properties\options\items\BoolPropertyItem::getText
+     *
+     * @return void
+     */
+    public function testBoolText()
+    {
+        $object = new BoolPropertyItem(null, 'Text');
+
+        $this->assertEquals(
+            "Text",
+            $object->getText()
+        );
+
+        $object->setText('xtext2');
+
+        $this->assertEquals(
+            "xtext2",
+            $object->getText()
+        );
+    }
+
+    /**
+     * Test for PMA\libraries\properties\options\items\BoolPropertyItem::getName
+     *
+     * @return void
+     */
+    public function testBoolName()
+    {
+        $object = new BoolPropertyItem('xname');
+
+        $this->assertEquals(
+            "xname",
+            $object->getName()
+        );
+
+        $object->setName('xname2');
+
+        $this->assertEquals(
+            "xname2",
+            $object->getName()
+        );
+    }
+
+    /**
      * Test for PMA\libraries\properties\options\items\BoolPropertyItem::getItemType
      *
      * @return void

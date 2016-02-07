@@ -31,7 +31,7 @@ function PMA_getDirContent($dir, $expression = '')
             $result[] = $file;
         }
     }
-    @closedir($handle);
+    closedir($handle);
     asort($result);
     return $result;
 }

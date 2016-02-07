@@ -168,7 +168,10 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var $this_function = $("select[name='funcs[multi_edit][" + multi_edit + "][" +
         urlField + "]']");
     var function_selected = false;
-    if (typeof $this_function.val() !== 'undefined' && $this_function.val().length > 0) {
+    if (typeof $this_function.val() !== 'undefined' &&
+        $this_function.val() !== null &&
+        $this_function.val().length > 0
+    ) {
         function_selected = true;
     }
 
@@ -345,9 +348,9 @@ AJAX.registerOnload('tbl_change.js', function () {
                 return false;
             }
 
-            return !(value.substring(0, 3) === "MD5"
-            && typeof options.data('maxlength') !== 'undefined'
-            && options.data('maxlength') < 32);
+            return !(value.substring(0, 3) === "MD5" &&
+                typeof options.data('maxlength') !== 'undefined' &&
+                options.data('maxlength') < 32);
         });
 
         jQuery.validator.addMethod("validationFunctionForDateTime", function(value, element, options) {
@@ -376,8 +379,8 @@ AJAX.registerOnload('tbl_change.js', function () {
                     return isDate(dt_value, tmstmp);
                 }
 
-                return isDate(dt_value.substring(0, dv), tmstmp)
-                    && isTime(dt_value.substring(dv + 1));
+                return isDate(dt_value.substring(0, dv), tmstmp) &&
+                    isTime(dt_value.substring(dv + 1));
             }
         });
         /*

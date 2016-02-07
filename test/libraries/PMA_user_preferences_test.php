@@ -12,8 +12,6 @@
 use PMA\libraries\config\ConfigFile;
 
 require_once 'libraries/user_preferences.lib.php';
-require_once 'libraries/core.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/sanitizing.lib.php';
@@ -362,7 +360,6 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             );
         }
 
-        $GLOBALS['cfg']['PmaAbsoluteUri'] = 'http://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = '';
 
@@ -381,7 +378,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'Location: http://www.phpmyadmin.netfile.html?a=b&saved=1&server=0&' .
+            'Location: ./file.html?a=b&saved=1&server=0&' .
             'token=token#h+ash',
             $GLOBALS['header'][0]
         );

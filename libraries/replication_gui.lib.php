@@ -686,7 +686,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
         = PMA_replicationGetUsernameHostnameLength();
 
     if (isset($_REQUEST['username'])
-        && /*overload*/mb_strlen($_REQUEST['username']) === 0
+        && mb_strlen($_REQUEST['username']) === 0
     ) {
         $GLOBALS['pred_username'] = 'any';
     }
@@ -711,9 +711,9 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
         $thishost = str_replace(
             "'",
             '',
-            /*overload*/mb_substr(
+            mb_substr(
                 $_current_user,
-                (/*overload*/mb_strrpos($_current_user, '@') + 1)
+                (mb_strrpos($_current_user, '@') + 1)
             )
         );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
@@ -735,7 +735,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($_REQUEST['hostname'])) {
-        switch (/*overload*/mb_strtolower($_REQUEST['hostname'])) {
+        switch (mb_strtolower($_REQUEST['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';
@@ -961,7 +961,7 @@ function PMA_handleControlRequest()
                 );
             } else {
                 PMA_sendHeaderLocation(
-                    $GLOBALS['cfg']['PmaAbsoluteUri'] . 'server_replication.php'
+                    './server_replication.php'
                     . PMA_URL_getCommon($GLOBALS['url_params'], 'text')
                 );
             }

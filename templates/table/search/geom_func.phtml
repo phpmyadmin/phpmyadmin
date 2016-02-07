@@ -10,7 +10,7 @@
      */
     if (in_array($columnTypes[$column_index], $geom_types)): ?>
         <select class="geom_func"
-                name="geom_func[<?php echo $column_index; ?>]">
+                name="geom_func[<?= $column_index; ?>]">
 
             <?php
             // get the relevant list of GIS functions
@@ -28,8 +28,8 @@
                 <?php $name = htmlspecialchars(
                     isset($func['display']) ? $func['display'] : $func_name
                 ); ?>
-                <option value="<?php echo $name; ?>">
-                    <?php echo $name; ?>
+                <option value="<?= $name; ?>">
+                    <?= $name; ?>
                 </option>
             <?php endforeach; ?>
         </select>

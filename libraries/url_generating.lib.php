@@ -36,10 +36,10 @@ function PMA_URL_getHiddenInputs($db = '', $table = '',
         $skip    =& $_skip;
     } else {
         $params = array();
-        if (/*overload*/mb_strlen($db)) {
+        if (mb_strlen($db)) {
             $params['db'] = $db;
         }
-        if (/*overload*/mb_strlen($table)) {
+        if (mb_strlen($table)) {
             $params['table'] = $table;
         }
     }
@@ -226,9 +226,9 @@ function PMA_URL_getArgSeparator($encode = 'none')
         // (see http://www.w3.org/TR/1999/REC-html401-19991224/appendix
         // /notes.html#h-B.2.2)
         $arg_separator = ini_get('arg_separator.input');
-        if (/*overload*/mb_strpos($arg_separator, ';') !== false) {
+        if (mb_strpos($arg_separator, ';') !== false) {
             $separator = ';';
-        } elseif (/*overload*/mb_strlen($arg_separator) > 0) {
+        } elseif (mb_strlen($arg_separator) > 0) {
             $separator = $arg_separator{0};
         } else {
             $separator = '&';

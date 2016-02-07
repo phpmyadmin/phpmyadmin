@@ -6,6 +6,31 @@
  */
 
 /**
+ * updates the tree state in sessionStorage
+ *
+ * @returns void
+ */
+function navTreeStateUpdate() {
+    // update if session storage is supported
+    if (isStorageSupported('sessionStorage')) {
+        var storage = window.sessionStorage;
+        // try catch necessary here to detect whether
+        // content to be stored exceeds storage capacity
+        try {
+            storage.setItem('navTreePaths', JSON.stringify(traverseNavigationForPaths()));
+            storage.setItem('server', PMA_commonParams.get('server'));
+            storage.setItem('token', PMA_commonParams.get('token'));
+        } catch(error) {
+            // storage capacity exceeded & old navigation tree
+            // state is no more valid, so remove it
+            storage.removeItem('navTreePaths');
+            storage.removeItem('server');
+            storage.removeItem('token');
+        }
+    }
+}
+
+/**
  * Loads child items of a node and executes a given callback
  *
  * @param isNode
@@ -516,7 +541,9 @@ $(function () {
             }
         });
     });
+});
 
+AJAX.registerOnload('navigation.js', function () {
     // Check if session storage is supported
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
@@ -537,31 +564,6 @@ $(function () {
         }
     }
 });
-
-/**
- * updates the tree state in sessionStorage
- *
- * @returns void
- */
-function navTreeStateUpdate() {
-    // update if session storage is supported
-    if (isStorageSupported('sessionStorage')) {
-        var storage = window.sessionStorage;
-        // try catch necessary here to detect whether
-        // content to be stored exceeds storage capacity
-        try {
-            storage.setItem('navTreePaths', JSON.stringify(traverseNavigationForPaths()));
-            storage.setItem('server', PMA_commonParams.get('server'));
-            storage.setItem('token', PMA_commonParams.get('token'));
-        } catch(error) {
-            // storage capacity exceeded & old navigation tree
-            // state is no more valid, so remove it
-            storage.removeItem('navTreePaths');
-            storage.removeItem('server');
-            storage.removeItem('token');
-        }
-    }
-}
 
 /**
  * Expands a node in navigation tree.
@@ -960,8 +962,8 @@ function PMA_navigationTreePagination($this) {
         }
     }
     $.post(url, params, function (data) {
-        PMA_ajaxRemoveMessage($msgbox);
         if (typeof data !== 'undefined' && data.success) {
+            PMA_ajaxRemoveMessage($msgbox);
             if (isDbSelector) {
                 var val = PMA_fastFilter.getSearchClause();
                 $('#pma_navigation_tree')
@@ -991,6 +993,7 @@ function PMA_navigationTreePagination($this) {
             }
         } else {
             PMA_ajaxShowMessage(data.error);
+            PMA_handleRedirectAndReload(data);
         }
         navTreeStateUpdate();
     });

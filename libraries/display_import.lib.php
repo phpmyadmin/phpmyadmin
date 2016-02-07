@@ -176,7 +176,6 @@ function PMA_getHtmlForImportCharset()
     if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
         $html .= '<label for="charset_of_file">' . __('Character set of the file:')
             . '</label>';
-        reset($cfg['AvailableCharsets']);
         $html .= '<select id="charset_of_file" name="charset_of_file" size="1">';
         foreach ($cfg['AvailableCharsets'] as $temp_charset) {
             $html .= '<option value="' . htmlentities($temp_charset) .  '"';

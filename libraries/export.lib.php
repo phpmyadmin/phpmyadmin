@@ -19,9 +19,7 @@ use PMA\libraries\ZipFile;
 function PMA_shutdownDuringExport()
 {
     $a = error_get_last();
-    if ($a != null
-        && /*overload*/mb_strpos($a['message'], "execution time")
-    ) {
+    if ($a != null && mb_strpos($a['message'], "execution time")) {
         //write in partially downloaded file for future reference of user
         print_r($a);
         //set session variable to check if there was error while exporting
@@ -96,7 +94,7 @@ function PMA_exportOutputHandler($line)
         $dump_buffer .= $line;
         if ($GLOBALS['onfly_compression']) {
 
-            $dump_buffer_len += /*overload*/mb_strlen($line);
+            $dump_buffer_len += mb_strlen($line);
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
@@ -146,7 +144,7 @@ function PMA_exportOutputHandler($line)
                     $line
                 );
             }
-            if ($GLOBALS['save_on_server'] && /*overload*/mb_strlen($line) > 0) {
+            if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
@@ -287,14 +285,14 @@ function PMA_getExportFilenameAndMimetype(
     // Grab basic dump extension and mime type
     // Check if the user already added extension;
     // get the substring where the extension would be if it was included
-    $extension_start_pos = /*overload*/mb_strlen($filename) - /*overload*/mb_strlen(
+    $extension_start_pos = mb_strlen($filename) - mb_strlen(
         $export_plugin->getProperties()->getExtension()
     ) - 1;
-    $user_extension = /*overload*/mb_substr(
-        $filename, $extension_start_pos, /*overload*/mb_strlen($filename)
+    $user_extension = mb_substr(
+        $filename, $extension_start_pos, mb_strlen($filename)
     );
     $required_extension = "." . $export_plugin->getProperties()->getExtension();
-    if (/*overload*/mb_strtolower($user_extension) != $required_extension) {
+    if (mb_strtolower($user_extension) != $required_extension) {
         $filename  .= $required_extension;
     }
     $mime_type  = $export_plugin->getProperties()->getMimeType();
@@ -374,7 +372,7 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
     fclose($file_handle);
     // Here, use strlen rather than mb_strlen to get the length
     // in bytes to compare against the number of bytes written.
-    if (/*overload*/mb_strlen($dump_buffer) > 0
+    if (mb_strlen($dump_buffer) > 0
         && (! $write_result || $write_result != strlen($dump_buffer))
     ) {
         $message = new Message(
@@ -555,7 +553,7 @@ function PMA_exportServer(
     // Walk over databases
     foreach ($GLOBALS['dblist']->databases as $current_db) {
         if (isset($tmp_select)
-            && /*overload*/mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
+            && mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
             $tables = $GLOBALS['dbi']->getTables($current_db);
             PMA_exportDatabase(

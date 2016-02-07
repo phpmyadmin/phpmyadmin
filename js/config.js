@@ -711,7 +711,7 @@ AJAX.registerOnload('config.js', function () {
         });
 
     // detect localStorage state
-    var ls_supported = window.localStorage || false;
+    var ls_supported = isStorageSupported('localStorage');
     var ls_exists = ls_supported ? (window.localStorage.config || false) : false;
     $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
     $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
@@ -811,7 +811,7 @@ function updatePrefsDate()
  */
 function offerPrefsAutoimport()
 {
-    var has_config = (window.localStorage || false) && (window.localStorage.config || false);
+    var has_config = (isStorageSupported('localStorage')) && (window.localStorage.config || false);
     var $cnt = $('#prefs_autoload');
     if (!$cnt.length || !has_config) {
         return;

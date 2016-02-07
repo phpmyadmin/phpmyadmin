@@ -81,11 +81,9 @@ function PMA_getHtmlForRenameDatabase($db)
         . 'maxlength="64" size="30" class="textfield" required="required" '
         . 'value="' . htmlspecialchars($db) . '"/>';
 
-    if (isset($GLOBALS['db_priv']) && $GLOBALS['db_priv']
-        && isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
+        && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $html_output .= '<input type="checkbox" name="adjust_privileges" '
             . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
@@ -227,11 +225,9 @@ function PMA_getHtmlForCopyDatabase($db)
         . __('Add constraints') . '</label><br />';
     $html_output .= '<br />';
 
-    if (isset($GLOBALS['db_priv']) && $GLOBALS['db_priv']
-        && isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
+        && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $html_output .= '<input type="checkbox" name="adjust_privileges" '
             . 'value="1" id="checkbox_privileges" checked="checked" />';
@@ -361,7 +357,7 @@ function PMA_createDbBeforeCopy()
         'SELECT @@lower_case_table_names'
     );
     if ($lowerCaseTableNames === '1') {
-        $_REQUEST['newname'] = /*overload*/mb_strtolower(
+        $_REQUEST['newname'] = mb_strtolower(
             $_REQUEST['newname']
         );
     }
@@ -579,13 +575,13 @@ function PMA_handleTheViews($views, $move, $db)
  */
 function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
 {
-    if (isset($GLOBALS['db_priv']) && $GLOBALS['db_priv']
-        && isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
+        && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $GLOBALS['dbi']->selectDb('mysql');
+        $newname = str_replace("_", "\_", $newname);
+        $oldDb = str_replace("_", "\_", $oldDb);
 
         // For Db specific privileges
         $query_db_specific = 'UPDATE ' . Util::backquote('db')
@@ -627,13 +623,13 @@ function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
  */
 function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
 {
-    if (isset($GLOBALS['db_priv']) && $GLOBALS['db_priv']
-        && isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
+        && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $GLOBALS['dbi']->selectDb('mysql');
+        $newname = str_replace("_", "\_", $newname);
+        $oldDb = str_replace("_", "\_", $oldDb);
 
         $query_db_specific_old = 'SELECT * FROM '
             . Util::backquote('db') . ' WHERE '
@@ -848,9 +844,8 @@ function PMA_getHtmlForMoveTable()
         . __('Add AUTO_INCREMENT value')
         . '</label><br />';
 
-    if (isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $html_output .= '<input type="checkbox" name="adjust_privileges" '
             . 'value="1" id="checkbox_privileges_tables_move" '
@@ -940,9 +935,8 @@ function PMA_getHtmlForRenameTable()
         . '</td></tr>'
         . '<tr><td></td><td>';
 
-    if (isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $html_output .= '<input type="checkbox" name="adjust_privileges" '
             . 'value="1" id="checkbox_privileges_table_options" '
@@ -1114,7 +1108,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (/*overload*/mb_strlen($auto_increment) > 0
+    if (mb_strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td class="vmiddle">'
@@ -1135,7 +1129,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     if (isset($possible_row_formats[$tbl_storage_engine])) {
         $current_row_format
-            = /*overload*/mb_strtoupper($GLOBALS['showtable']['Row_format']);
+            = mb_strtoupper($GLOBALS['showtable']['Row_format']);
         $html_output .= '<tr><td class="vmiddle">'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
@@ -1296,9 +1290,8 @@ function PMA_getHtmlForCopytable()
 
     $html_output .= '<br />';
 
-    if (isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $html_output .= '<input type="checkbox" name="adjust_privileges" '
             . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
@@ -1778,7 +1771,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     }
 
     if (! empty($newTblStorageEngine)
-        && /*overload*/mb_strtolower($newTblStorageEngine) !== /*overload*/mb_strtolower($GLOBALS['tbl_storage_engine'])
+        && mb_strtolower($newTblStorageEngine) !== mb_strtolower($GLOBALS['tbl_storage_engine'])
     ) {
         $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
     }
@@ -1838,10 +1831,10 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     if (! empty($_REQUEST['new_row_format'])) {
         $newRowFormat = $_REQUEST['new_row_format'];
-        $newRowFormatLower = /*overload*/mb_strtolower($newRowFormat);
+        $newRowFormatLower = mb_strtolower($newRowFormat);
         if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-            && (!/*overload*/mb_strlen($row_format)
-            || $newRowFormatLower !== /*overload*/mb_strtolower($row_format))
+            && (!mb_strlen($row_format)
+            || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
             $table_alters[] = 'ROW_FORMAT = '
                 . PMA\libraries\Util::sqlAddSlashes($newRowFormat);
@@ -1943,9 +1936,8 @@ function PMA_getQueryAndResultForPartition()
  */
 function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newTable)
 {
-    if (isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $GLOBALS['dbi']->selectDb('mysql');
 
@@ -1981,9 +1973,8 @@ function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newT
  */
 function PMA_AdjustPrivileges_copyTable($oldDb, $oldTable, $newDb, $newTable)
 {
-    if (isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
-        && isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
-        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
     ) {
         $GLOBALS['dbi']->selectDb('mysql');
 

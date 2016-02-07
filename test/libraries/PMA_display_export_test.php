@@ -12,7 +12,6 @@
 use PMA\libraries\Theme;
 
 
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/display_export.lib.php';
@@ -138,7 +137,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $num_tables_str = "10";
         $unlim_num_rows_str = "unlim_num_rows_str";
         $single_table = "single_table";
-        $GLOBALS['dbi']->cacheTableContent("${db}.${table}.ENGINE", 'MERGE');
+        $GLOBALS['dbi']->cacheTableContent(array($db, $table, 'ENGINE'), 'MERGE');
 
         $columns_info = array(
             'test_column1' => array(
@@ -327,7 +326,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         );
 
         $name_attr =  'aliases[test\'_db][tables][test_&lt;b&gt;table][alias]';
-        $id_attr = /*overload*/mb_substr(md5($name_attr), 0, 12);
+        $id_attr = mb_substr(md5($name_attr), 0, 12);
 
         $this->assertContains(
             '<input type="text" value="" name="' . $name_attr . '" '

@@ -55,23 +55,24 @@ class ExportOds extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup("general_opts");
         // create primary items and add them to the group
-        $leaf = new TextPropertyItem();
-        $leaf->setName("null");
-        $leaf->setText(__('Replace NULL with:'));
+        $leaf = new TextPropertyItem(
+            "null",
+            __('Replace NULL with:')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("columns");
-        $leaf->setText(__('Put columns names in the first row'));
+        $leaf = new BoolPropertyItem(
+            "columns",
+            __('Put columns names in the first row')
+        );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem();
-        $leaf->setName("structure_or_data");
+        $leaf = new HiddenPropertyItem("structure_or_data");
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

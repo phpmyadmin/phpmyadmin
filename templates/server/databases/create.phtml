@@ -4,32 +4,32 @@
             <form method="post" action="server_databases.php" id="create_database_form" class="ajax">
                 <strong>
                     <label for="text_create_db">
-                        <?php echo \PMA\libraries\Util::getImage('b_newdb.png') , ' ' , __('Create database'); ?>
-                    </label>&nbsp;<?php echo \PMA\libraries\Util::showMySQLDocu('CREATE_DATABASE'); ?>
+                        <?= \PMA\libraries\Util::getImage('b_newdb.png') , ' ' , __('Create database'); ?>
+                    </label>&nbsp;<?= \PMA\libraries\Util::showMySQLDocu('CREATE_DATABASE'); ?>
                 </strong>
                 <br />
 
-                <?php echo PMA_URL_getHiddenInputs('', '', 5); ?>
+                <?= PMA_URL_getHiddenInputs('', '', 5); ?>
                 <input type="hidden" name="reload" value="1" />
                 <?php if (! empty($dbstats)): ?>
                     <input type="hidden" name="dbstats" value="1" />
                 <?php endif; ?>
 
-                <input type="text" name="new_db" value="<?php echo $GLOBALS['db_to_create']; ?>"
+                <input type="text" name="new_db" value="<?= $GLOBALS['db_to_create']; ?>"
                        maxlength="64" class="textfield" id="text_create_db" required
-                       placeholder="<?php echo __('Database name'); ?>" />
-                <?php echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, true); ?>
-                <input type="submit" value="<?php echo __('Create'); ?>" id="buttonGo" />
+                       placeholder="<?= __('Database name'); ?>" />
+                <?= PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, true); ?>
+                <input type="submit" value="<?= __('Create'); ?>" id="buttonGo" />
             </form>
         <?php else: ?>
             <!-- db creation no privileges message -->
             <strong>
-                <?php echo \PMA\libraries\Util::getImage('b_newdb.png') , ' ' , __('Create database'); ?>&nbsp;<?php echo \PMA\libraries\Util::showMySQLDocu('CREATE_DATABASE'); ?>
+                <?= \PMA\libraries\Util::getImage('b_newdb.png') , ' ' , __('Create database'); ?>&nbsp;<?= \PMA\libraries\Util::showMySQLDocu('CREATE_DATABASE'); ?>
             </strong>
             <br />
 
             <span class="noPrivileges">
-                <?php echo \PMA\libraries\Util::getImage('s_error2.png', '', array('hspace' => 2, 'border' => 0, 'align' => 'middle')) , ' ' , __('No Privileges'); ?>
+                <?= \PMA\libraries\Util::getImage('s_error2.png', '', array('hspace' => 2, 'border' => 0, 'align' => 'middle')) , ' ' , __('No Privileges'); ?>
             </span>
         <?php endif; ?>
     </li>

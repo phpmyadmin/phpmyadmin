@@ -78,7 +78,7 @@ class Tracker
      */
     static protected function getTableName($string)
     {
-        if (/*overload*/mb_strstr($string, '.')) {
+        if (mb_strstr($string, '.')) {
             $temp = explode('.', $string);
             $tablename = $temp[1];
         } else {
@@ -530,15 +530,15 @@ class Tracker
         // For each log entry we want to get date, username and statement
         foreach ($log_schema_entries as $log_entry) {
             if (trim($log_entry) != '') {
-                $date      = /*overload*/mb_substr($log_entry, 0, 19);
-                $username  = /*overload*/mb_substr(
-                    $log_entry, 20, /*overload*/mb_strpos($log_entry, "\n") - 20
+                $date      = mb_substr($log_entry, 0, 19);
+                $username  = mb_substr(
+                    $log_entry, 20, mb_strpos($log_entry, "\n") - 20
                 );
                 if ($first_iteration) {
                     $ddl_date_from = $date;
                     $first_iteration = false;
                 }
-                $statement = rtrim(/*overload*/mb_strstr($log_entry, "\n"));
+                $statement = rtrim(mb_strstr($log_entry, "\n"));
 
                 $ddlog[] = array( 'date' => $date,
                                   'username'=> $username,
@@ -558,15 +558,15 @@ class Tracker
         // For each log entry we want to get date, username and statement
         foreach ($log_data_entries as $log_entry) {
             if (trim($log_entry) != '') {
-                $date      = /*overload*/mb_substr($log_entry, 0, 19);
-                $username  = /*overload*/mb_substr(
-                    $log_entry, 20, /*overload*/mb_strpos($log_entry, "\n") - 20
+                $date      = mb_substr($log_entry, 0, 19);
+                $username  = mb_substr(
+                    $log_entry, 20, mb_strpos($log_entry, "\n") - 20
                 );
                 if ($first_iteration) {
                     $dml_date_from = $date;
                     $first_iteration = false;
                 }
-                $statement = rtrim(/*overload*/mb_strstr($log_entry, "\n"));
+                $statement = rtrim(mb_strstr($log_entry, "\n"));
 
                 $dmlog[] = array( 'date' => $date,
                                   'username' => $username,
@@ -628,11 +628,11 @@ class Tracker
 
         $tokens = explode(" ", $query);
         foreach ($tokens as $key => $value) {
-            $tokens[$key] = /*overload*/mb_strtoupper($value);
+            $tokens[$key] = mb_strtoupper($value);
         }
 
         // Parse USE statement, need it for SQL dump imports
-        if (/*overload*/mb_substr($query, 0, 4) == 'USE ') {
+        if (mb_substr($query, 0, 4) == 'USE ') {
             $prefix = explode('USE ', $query);
             $GLOBALS['db'] = self::getTableName($prefix[1]);
         }
@@ -653,7 +653,7 @@ class Tracker
 
             $index = array_search('VIEW', $tokens);
 
-            $result['tablename'] = /*overload*/mb_strtolower(
+            $result['tablename'] = mb_strtolower(
                 self::getTableName($tokens[$index + 1])
             );
         }
@@ -668,7 +668,7 @@ class Tracker
 
             $index = array_search('VIEW', $tokens);
 
-            $result['tablename'] = /*overload*/mb_strtolower(
+            $result['tablename'] = mb_strtolower(
                 self::getTableName($tokens[$index + 1])
             );
         }
@@ -844,7 +844,7 @@ class Tracker
     static public function handleQuery($query)
     {
         // If query is marked as untouchable, leave
-        if (/*overload*/mb_strstr($query, "/*NOTRACK*/")) {
+        if (mb_strstr($query, "/*NOTRACK*/")) {
             return;
         }
 

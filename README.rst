@@ -26,6 +26,10 @@ Code status
     :alt: Buildtime Trend badge
     :target: https://buildtimetrend.herokuapp.com/dashboard/phpmyadmin/phpmyadmin
 
+.. image:: https://todofy.org/b/phpmyadmin/phpmyadmin
+    :alt: todofy badge
+    :target: https://todofy.org/r/phpmyadmin/phpmyadmin
+
 Download
 --------
 

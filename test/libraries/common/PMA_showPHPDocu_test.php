@@ -12,10 +12,8 @@
  */
 use PMA\libraries\Theme;
 
-require_once 'libraries/core.lib.php';
 
 
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  ** Test for PMA\libraries\Util::showPHPDocu from Util.php

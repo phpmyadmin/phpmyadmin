@@ -27,7 +27,8 @@ require_once 'libraries/common.inc.php';
 $sql_query = !empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 
 // Disabling standard response.
-$response = PMA\libraries\Response::getInstance();
-$response->disable();
+PMA\libraries\Response::getInstance()->disable();
+
+PMA_headerJSON();
 
 echo json_encode(Linter::lint($sql_query));

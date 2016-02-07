@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 
@@ -10,7 +10,7 @@
 
 /**
  * Class: OpenLayers.Control.ArgParser
- * The ArgParser control adds location bar querystring parsing functionality 
+ * The ArgParser control adds location bar query string parsing functionality 
  * to an OpenLayers Map.
  * When added to a Map control, on a page load/refresh, the Map will 
  * automatically take the href string and parse it for lon, lat, zoom, and 
@@ -22,20 +22,21 @@
 OpenLayers.Control.ArgParser = OpenLayers.Class(OpenLayers.Control, {
 
     /**
-     * Parameter: center
+     * Property: center
      * {<OpenLayers.LonLat>}
      */
     center: null,
     
     /**
-     * Parameter: zoom
+     * Property: zoom
      * {int}
      */
     zoom: null,
 
     /**
-     * Parameter: layers 
-     * {Array(<OpenLayers.Layer>)}
+     * Property: layers
+     * {String} Each character represents the state of the corresponding layer 
+     *     on the map.
      */
     layers: null,
     
@@ -43,7 +44,6 @@ OpenLayers.Control.ArgParser = OpenLayers.Class(OpenLayers.Control, {
      * APIProperty: displayProjection
      * {<OpenLayers.Projection>} Requires proj4js support. 
      *     Projection used when reading the coordinates from the URL. This will
-     *
      *     reproject the map coordinates from the URL into the map's
      *     projection.
      *
@@ -60,10 +60,26 @@ OpenLayers.Control.ArgParser = OpenLayers.Class(OpenLayers.Control, {
      * Parameters:
      * options - {Object}
      */
-    initialize: function(options) {
-        OpenLayers.Control.prototype.initialize.apply(this, arguments);
-    },
 
+    /**
+     * Method: getParameters
+     */    
+    getParameters: function(url) {
+        url = url || window.location.href;
+        var parameters = OpenLayers.Util.getParameters(url);
+
+        // If we have an anchor in the url use it to split the url
+        var index = url.indexOf('#');
+        if (index > 0) {
+            // create an url to parse on the getParameters
+            url = '?' + url.substring(index + 1, url.length);
+
+            OpenLayers.Util.extend(parameters,
+                    OpenLayers.Util.getParameters(url));
+        }
+        return parameters;
+    },
+    
     /**
      * Method: setMap
      * Set the map property for the control. 
@@ -92,7 +108,7 @@ OpenLayers.Control.ArgParser = OpenLayers.Class(OpenLayers.Control, {
         }
         if (i == this.map.controls.length) {
 
-            var args = OpenLayers.Util.getParameters();
+            var args = this.getParameters();
             // Be careful to set layer first, to not trigger unnecessary layer loads
             if (args.layers) {
                 this.layers = args.layers;
@@ -106,7 +122,7 @@ OpenLayers.Control.ArgParser = OpenLayers.Class(OpenLayers.Control, {
                 this.center = new OpenLayers.LonLat(parseFloat(args.lon),
                                                     parseFloat(args.lat));
                 if (args.zoom) {
-                    this.zoom = parseInt(args.zoom);
+                    this.zoom = parseFloat(args.zoom);
                 }
     
                 // when we add a new baselayer to see when we can set the center

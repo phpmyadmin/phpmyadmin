@@ -11,7 +11,6 @@
  * Include to test.
  */
 
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  ** Test for PMA\libraries\Util::getTitleForTarget from common.lib

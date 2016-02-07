@@ -691,9 +691,9 @@ class NavigationTree
             foreach ($node->children as $child) {
                 $prefix_pos = false;
                 foreach ($separators as $separator) {
-                    $sep_pos = /*overload*/mb_strpos($child->name, $separator);
+                    $sep_pos = mb_strpos($child->name, $separator);
                     if ($sep_pos != false
-                        && $sep_pos != /*overload*/mb_strlen($child->name)
+                        && $sep_pos != mb_strlen($child->name)
                         && $sep_pos != 0
                         && ($prefix_pos == false || $sep_pos < $prefix_pos)
                     ) {
@@ -701,9 +701,7 @@ class NavigationTree
                     }
                 }
                 if ($prefix_pos !== false) {
-                    $prefix
-                        = /*overload*/
-                        mb_substr($child->name, 0, $prefix_pos);
+                    $prefix = mb_substr($child->name, 0, $prefix_pos);
                     if (!isset($prefixes[$prefix])) {
                         $prefixes[$prefix] = 1;
                     } else {
@@ -782,14 +780,12 @@ class NavigationTree
                     $separatorLength = strlen($separator);
                     // FIXME: this could be more efficient
                     foreach ($node->children as $child) {
-                        $keySeparatorLength
-                            = /*overload*/mb_strlen($key) + $separatorLength;
-                        $name_substring
-                            = /*overload*/mb_substr(
-                                $child->name,
-                                0,
-                                $keySeparatorLength
-                            );
+                        $keySeparatorLength = mb_strlen($key) + $separatorLength;
+                        $name_substring = mb_substr(
+                            $child->name,
+                            0,
+                            $keySeparatorLength
+                        );
                         if (($name_substring != $key . $separator
                             && $child->name != $key)
                             || $child->type != Node::OBJECT
@@ -801,7 +797,6 @@ class NavigationTree
                         unset($class);
                         $new_child = NodeFactory::getInstance(
                             $className,
-                            /*overload*/
                             mb_substr(
                                 $child->name,
                                 $keySeparatorLength

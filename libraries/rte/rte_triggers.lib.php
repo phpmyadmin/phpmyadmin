@@ -174,7 +174,7 @@ function PMA_TRI_handleEditor()
                     $response->addJSON(
                         'name',
                         htmlspecialchars(
-                            /*overload*/mb_strtoupper(
+                            mb_strtoupper(
                                 $_REQUEST['item_name']
                             )
                         )
@@ -292,7 +292,7 @@ function PMA_TRI_getEditorForm($mode, $item)
 {
     global $db, $table, $event_manipulations, $action_timings;
 
-    $modeToUpper = /*overload*/mb_strtoupper($mode);
+    $modeToUpper = mb_strtoupper($mode);
 
     // Escape special characters
     $need_escape = array(
@@ -415,7 +415,7 @@ function PMA_TRI_getQueryFromRequest()
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
-        if (/*overload*/mb_strpos($_REQUEST['item_definer'], '@') !== false
+        if (mb_strpos($_REQUEST['item_definer'], '@') !== false
         ) {
             $arr = explode('@', $_REQUEST['item_definer']);
             $query .= 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);

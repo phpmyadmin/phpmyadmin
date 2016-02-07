@@ -10,10 +10,8 @@
 /*
  * Include to test.
  */
-require_once 'libraries/core.lib.php';
 
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Test for PMA_getDbLink_test from Util.php
@@ -31,7 +29,6 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
     function setUp()
     {
         global $cfg;
-        include_once 'libraries/vendor_config.php';
         include 'libraries/config.default.php';
         $GLOBALS['server'] = 99;
     }
