@@ -1400,6 +1400,20 @@ class Config
 
         $cookie_path = $parsed_url['path'];
 
+        /* Remove filename */
+        if (substr($cookie_path, -4) == '.php') {
+            $cookie_path = dirname($cookie_path);
+        }
+
+        /* Remove extra path from javascript calls */
+        if (defined('PMA_PATH_TO_BASEDIR')) {
+            $cookie_path = dirname($cookie_path);
+        }
+
+        if (substr($cookie_path, -1) != '/') {
+            $cookie_path = $cookie_path . '/';
+        }
+
         return $cookie_path;
     }
 
