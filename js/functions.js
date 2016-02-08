@@ -901,6 +901,9 @@ AJAX.registerOnload('functions.js', function () {
                             updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
                         }
                     } else { //timeout occurred
+                        if(isStorageSupported('sessionStorage')){
+                            window.sessionStorage.clear();
+                        }
                         window.location.reload(true);
                         clearInterval(IncInterval);
                     }
