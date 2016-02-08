@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-08 09:38+0100\n"
-"PO-Revision-Date: 2016-02-08 14:35+0000\n"
+"PO-Revision-Date: 2016-02-08 14:36+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/sl/>\n"
@@ -11095,7 +11095,7 @@ msgstr "Omogočeno"
 
 #: libraries/relation.lib.php:101
 msgid "Configuration of pmadb…"
-msgstr "Konfiguracija pmadb ... "
+msgstr "Konfiguracija pmadb …"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
 msgid "General relation features"
