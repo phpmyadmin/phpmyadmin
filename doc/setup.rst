@@ -112,7 +112,7 @@ download it using:
 
     docker pull phpmyadmin/phpmyadmin
 
-The phpMyAdmin will be executed on port 8080. It supports several ways of
+The phpMyAdmin will be executed on port 80. It supports several ways of
 configuring link to the database server, which you can configure using
 environment variables:
 
@@ -154,25 +154,25 @@ To connect phpMyAdmin to given server use:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d -e PMA_HOST=dbhost -p 8080:8080 phpmyadmin/phpmyadmin
+    docker run --name myadmin -d -e PMA_HOST=dbhost -p 8080:80 phpmyadmin/phpmyadmin
 
 To connect phpMyAdmin to more servers use:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:8080 phpmyadmin/phpmyadmin
+    docker run --name myadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:80 phpmyadmin/phpmyadmin
 
 To use arbitrary server option:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d --link mysql_db_server:db -p 8080:8080 -e PMA_ARBITRARY=1 phpmyadmin/phpmyadmin
+    docker run --name myadmin -d --link mysql_db_server:db -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin/phpmyadmin
 
 You can also link the database container using Docker:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:8080 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
 
 Using docker-compose
 --------------------
