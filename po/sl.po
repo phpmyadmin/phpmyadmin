@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-08 09:38+0100\n"
-"PO-Revision-Date: 2016-01-16 01:16+0000\n"
+"PO-Revision-Date: 2016-02-08 14:35+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:33
@@ -767,6 +767,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Razširitve curl nismo našli in allow_url_fopen je onemogočen. Zaradi tega "
+"smo nekatere zmožnosti, kot je poročanje o napakah in preverjanje različice, "
+"onemogočili."
 
 #: index.php:499
 msgid ""
@@ -3224,10 +3227,9 @@ msgid "Switch to dark theme"
 msgstr "Preklopi na temno emo"
 
 #: libraries/DatabaseInterface.php:1528
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Ne morem prebrati konfiguracijske datoteke!"
+msgstr "Ne morem nastaviti povezave konfiguriranega razvrščanja znakov!"
 
 #: libraries/DatabaseInterface.php:2139
 msgid ""
