@@ -47,6 +47,7 @@ phpMyAdmin - ChangeLog
 - issue #11874 Validate version information before further processing it
 - issue #11881 Full processlist lost on refresh
 - issue #11834 Adjust privileges fails if database name contains underscores
+- issue #11906 'Loading...' banner shows on login screen
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
