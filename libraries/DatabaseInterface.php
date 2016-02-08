@@ -1417,80 +1417,37 @@ class DatabaseInterface
     public function postConnect($link)
     {
         if (! defined('PMA_MYSQL_INT_VERSION')) {
-            if (Util::cacheExists('PMA_MYSQL_INT_VERSION')) {
+            $version = $this->fetchSingleRow(
+                'SELECT @@version, @@version_comment',
+                'ASSOC',
+                $link
+            );
+
+            if ($version) {
+                $match = explode('.', $version['@@version']);
+                define('PMA_MYSQL_MAJOR_VERSION', (int)$match[0]);
                 define(
                     'PMA_MYSQL_INT_VERSION',
-                    Util::cacheGet('PMA_MYSQL_INT_VERSION')
+                    (int) sprintf(
+                        '%d%02d%02d', $match[0], $match[1], intval($match[2])
+                    )
                 );
-                define(
-                    'PMA_MYSQL_MAJOR_VERSION',
-                    Util::cacheGet('PMA_MYSQL_MAJOR_VERSION')
-                );
-                define(
-                    'PMA_MYSQL_STR_VERSION',
-                    Util::cacheGet('PMA_MYSQL_STR_VERSION')
-                );
+                define('PMA_MYSQL_STR_VERSION', $version['@@version']);
                 define(
                     'PMA_MYSQL_VERSION_COMMENT',
-                    Util::cacheGet('PMA_MYSQL_VERSION_COMMENT')
-                );
-                define(
-                    'PMA_MARIADB',
-                    Util::cacheGet('PMA_MARIADB')
+                    $version['@@version_comment']
                 );
             } else {
-                $version = $this->fetchSingleRow(
-                    'SELECT @@version, @@version_comment',
-                    'ASSOC',
-                    $link
-                );
-
-                if ($version) {
-                    $match = explode('.', $version['@@version']);
-                    define('PMA_MYSQL_MAJOR_VERSION', (int)$match[0]);
-                    define(
-                        'PMA_MYSQL_INT_VERSION',
-                        (int) sprintf(
-                            '%d%02d%02d', $match[0], $match[1], intval($match[2])
-                        )
-                    );
-                    define('PMA_MYSQL_STR_VERSION', $version['@@version']);
-                    define(
-                        'PMA_MYSQL_VERSION_COMMENT',
-                        $version['@@version_comment']
-                    );
-                } else {
-                    define('PMA_MYSQL_INT_VERSION', 50501);
-                    define('PMA_MYSQL_MAJOR_VERSION', 5);
-                    define('PMA_MYSQL_STR_VERSION', '5.05.01');
-                    define('PMA_MYSQL_VERSION_COMMENT', '');
-                }
-                Util::cacheSet(
-                    'PMA_MYSQL_INT_VERSION',
-                    PMA_MYSQL_INT_VERSION
-                );
-                Util::cacheSet(
-                    'PMA_MYSQL_MAJOR_VERSION',
-                    PMA_MYSQL_MAJOR_VERSION
-                );
-                Util::cacheSet(
-                    'PMA_MYSQL_STR_VERSION',
-                    PMA_MYSQL_STR_VERSION
-                );
-                Util::cacheSet(
-                    'PMA_MYSQL_VERSION_COMMENT',
-                    PMA_MYSQL_VERSION_COMMENT
-                );
-                /* Detect MariaDB */
-                if (mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false) {
-                    define('PMA_MARIADB', true);
-                } else {
-                    define('PMA_MARIADB', false);
-                }
-                Util::cacheSet(
-                    'PMA_MARIADB',
-                    PMA_MARIADB
-                );
+                define('PMA_MYSQL_INT_VERSION', 50501);
+                define('PMA_MYSQL_MAJOR_VERSION', 5);
+                define('PMA_MYSQL_STR_VERSION', '5.05.01');
+                define('PMA_MYSQL_VERSION_COMMENT', '');
+            }
+            /* Detect MariaDB */
+            if (mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false) {
+                define('PMA_MARIADB', true);
+            } else {
+                define('PMA_MARIADB', false);
             }
         }
 
