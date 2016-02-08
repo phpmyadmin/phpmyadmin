@@ -538,6 +538,11 @@ AJAX.registerOnload('navigation.js', function () {
         }
     }
 });
+AJAX.registerTeardown('navigation.js', function () {
+    if (isStorageSupported('sessionStorage')) {
+        $(document).off('submit', 'form.config-form');
+    }
+});
 
 /**
  * updates the tree state in sessionStorage
