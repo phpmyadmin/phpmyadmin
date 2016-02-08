@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-08 09:42+0100\n"
-"PO-Revision-Date: 2016-01-22 18:42+0000\n"
+"PO-Revision-Date: 2016-02-08 12:25+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -767,6 +767,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Curl uzantısı bulunamadı ve allow_url_fopen etkisizleştirildi. Bu nedenle "
+"hata raporlama veya sürüm kontrolü gibi bazı özellikler etkisizleştirildi."
 
 #: index.php:499
 msgid ""
@@ -3227,10 +3229,9 @@ msgid "Switch to dark theme"
 msgstr "Koyu temaya değiştir"
 
 #: libraries/DatabaseInterface.php:1528
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Yapılandırma dosyasını okuma başarısız!"
+msgstr "Yapılandırılmış karşılaştırma bağlantısı ayarlama başarısız!"
 
 #: libraries/DatabaseInterface.php:2139
 msgid ""
