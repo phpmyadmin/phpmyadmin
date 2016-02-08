@@ -488,7 +488,7 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    if (PMA_IS_IIS && mb_strlen($uri) > 600) {
+    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();
 
@@ -525,7 +525,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     // bug #1523784: IE6 does not like 'Refresh: 0', it
     // results in a blank page
     // but we need it when coming from the cookie login panel)
-    if (PMA_IS_IIS && $use_refresh) {
+    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && $use_refresh) {
         $response->header('Refresh: 0; ' . $uri);
     } else {
         $response->header('Location: ' . $uri);
