@@ -564,6 +564,11 @@ AJAX.registerOnload('navigation.js', function () {
         }
     }
 });
+AJAX.registerTeardown('navigation.js', function () {
+    if (isStorageSupported('sessionStorage')) {
+        $(document).off('submit', 'form.config-form');
+    }
+});
 
 /**
  * Expands a node in navigation tree.

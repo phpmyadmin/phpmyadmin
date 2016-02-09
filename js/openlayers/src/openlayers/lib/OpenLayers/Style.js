@@ -1,10 +1,11 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 
 /**
+ * @requires OpenLayers/BaseTypes/Class.js
  * @requires OpenLayers/Util.js
  * @requires OpenLayers/Feature/Vector.js
  */
@@ -60,7 +61,7 @@ OpenLayers.Style = OpenLayers.Class({
     rules: null,
     
     /**
-     * Property: context
+     * APIProperty: context
      * {Object} An optional object with properties that symbolizers' property
      * values should be evaluated against. If no context is specified,
      * feature.attributes will be used
@@ -110,7 +111,7 @@ OpenLayers.Style = OpenLayers.Class({
      * rules - {Array(<OpenLayers.Rule>)} List of rules to be added to the
      *     style.
      * 
-     * Return:
+     * Returns:
      * {<OpenLayers.Style>}
      */
     initialize: function(style, options) {
@@ -190,6 +191,10 @@ OpenLayers.Style = OpenLayers.Class({
             style.display = "none";
         }
         
+        if (style.label != null && typeof style.label !== "string") {
+            style.label = String(style.label);
+        }
+        
         return style;
     },
     
@@ -197,7 +202,7 @@ OpenLayers.Style = OpenLayers.Class({
      * Method: applySymbolizer
      *
      * Parameters:
-     * rule - {OpenLayers.Rule}
+     * rule - {<OpenLayers.Rule>}
      * style - {Object}
      * feature - {<OpenLayer.Feature.Vector>}
      *
@@ -363,7 +368,7 @@ OpenLayers.Style = OpenLayers.Class({
      * geometry type of the passed geometry
      * 
      * Parameters:
-     * geometry {<OpenLayers.Geometry>}
+     * geometry - {<OpenLayers.Geometry>}
      * 
      * Returns:
      * {String} key of the according symbolizer

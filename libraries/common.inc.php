@@ -67,6 +67,11 @@ if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
 define('PHPMYADMIN', true);
 
 /**
+ * Load vendor configuration.
+ */
+require_once './libraries/vendor_config.php';
+
+/**
  * Activate autoloader
  */
 require_once './libraries/autoloader.php';
@@ -218,10 +223,6 @@ date_default_timezone_set(@date_default_timezone_get());
  */
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
-if (!defined('PMA_MINIMUM_COMMON')) {
-    $GLOBALS['PMA_Config']->checkPmaAbsoluteUri();
-}
-
 /**
  * BC - enable backward compatibility
  * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
@@ -245,24 +246,6 @@ if (isset($_COOKIE)) {
         $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
     }
 }
-
-
-/**
- * check HTTPS connection
- */
-if ($GLOBALS['PMA_Config']->get('ForceSSL')
-    && ! $GLOBALS['PMA_Config']->detectHttps()
-) {
-    require './libraries/select_lang.lib.php';
-    // grab SSL URL
-    $url = $GLOBALS['PMA_Config']->getSSLUri();
-    // Actually redirect
-    PMA_sendHeaderLocation($url . PMA_URL_getCommon($_GET, 'text'));
-    // delete the current session, otherwise we get problems (see bug #2397877)
-    $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
-    exit;
-}
-
 
 /**
  * include session handling after the globals, to prevent overwriting
@@ -518,15 +501,6 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
         $GLOBALS['PMA_Config']->default_source
     );
     trigger_error($error, E_USER_ERROR);
-}
-if ($GLOBALS['PMA_Config']->error_pma_uri) {
-    trigger_error(
-        __(
-            'The [code]$cfg[\'PmaAbsoluteUri\'][/code]'
-            . ' directive MUST be set in your configuration file!'
-        ),
-        E_USER_ERROR
-    );
 }
 
 

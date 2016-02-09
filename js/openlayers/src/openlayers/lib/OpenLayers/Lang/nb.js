@@ -12,32 +12,16 @@ OpenLayers.Lang["nb"] = {
 
     'unhandledRequest': "Ubehandlet forespørsel returnerte ${statusText}",
 
-    'permalink': "Kobling til denne siden",
+    'Permalink': "Kobling til denne siden",
 
-    'overlays': "Kartlag",
+    'Overlays': "Kartlag",
 
-    'baseLayer': "Bakgrunnskart",
-
-    'sameProjection':
-        "Oversiktskartet fungerer bare når det har samme projeksjon som hovedkartet",
-
-    'readNotImplemented': "Lesing er ikke implementert.",
-
-    'writeNotImplemented': "Skriving er ikke implementert.",
+    'Base Layer': "Bakgrunnskart",
 
     'noFID': "Kan ikke oppdatere et feature (et objekt) som ikke har FID.",
 
-    'errorLoadingGML': "Feil under lasting av GML-fil ${url}",
-
     'browserNotSupported':
         "Din nettleser støtter ikke vektortegning. Tegnemetodene som støttes er:\n${renderers}",
-
-    'componentShouldBe': "addFeatures : komponenten må være en ${geomType}",
-
-    // console message
-    'getFeatureError':
-        "getFeatureFromEvent har blitt kjørt mot et lag uten noen tegnemetode. Dette betyr som regel at du " +
-        "fjernet et lag uten å fjerne alle håndterere tilknyttet laget.",
 
     // console message
     'minZoomLevelError':
@@ -77,11 +61,7 @@ OpenLayers.Lang["nb"] = {
         "<a href='http://trac.openlayers.org/wiki/${layerLib}' " +
         "target='_blank'>her</a>.",
 
-    'scale': "<strong>Skala</strong> 1 : ${scaleDenom}",
-
-    // console message
-    'layerAlreadyAdded':
-        "Du forsøkte å legge til laget ${layerName} på kartet, men det er allerede lagt til",
+    'Scale = 1 : ${scaleDenom}': "<strong>Skala</strong> 1 : ${scaleDenom}",
 
     // console message
     'reprojectDeprecated':
@@ -96,22 +76,6 @@ OpenLayers.Lang["nb"] = {
         "Denne metoden er markert som foreldet og vil bli fjernet i 3.0. " +
         "Vennligst bruk ${newMethod} i stedet.",
 
-    // console message
-    'boundsAddError': "Du må gi både x- og y-verdier til funksjonen add.",
-
-    // console message
-    'lonlatAddError': "Du må gi både lon- og lat-verdier til funksjonen add.",
-
-    // console message
-    'pixelAddError': "Du må gi både x- og y-verdier til funksjonen add.",
-
-    // console message
-    'unsupportedGeometryType': "Geometritypen ${geomType} er ikke støttet",
-
-    // console message
-    'pagePositionFailed':
-        "OpenLayers.Util.pagePosition feilet: elementet med id ${elemId} kan være feilplassert.",
-                    
     'end': ''
 };
 

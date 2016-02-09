@@ -1,16 +1,27 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 
 /**
  * @requires OpenLayers/Layer/Grid.js
- * @requires OpenLayers/Tile/Image.js
  */
 
 /**
  * Class: OpenLayers.Layer.TMS
+ * Create a layer for accessing tiles from services that conform with the 
+ *     Tile Map Service Specification 
+ *     (http://wiki.osgeo.org/wiki/Tile_Map_Service_Specification).
+ *
+ * Example:
+ * (code)
+ *     var layer = new OpenLayers.Layer.TMS(
+ *         "My Layer", // name for display in LayerSwitcher
+ *         "http://tilecache.osgeo.org/wms-c/Basic.py/", // service endpoint
+ *         {layername: "basic", type: "png"} // required properties
+ *     );
+ * (end)
  * 
  * Inherits from:
  *  - <OpenLayers.Layer.Grid>
@@ -19,26 +30,73 @@ OpenLayers.Layer.TMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
 
     /**
      * APIProperty: serviceVersion
-     * {String}
+     * {String} Service version for tile requests.  Default is "1.0.0".
      */
     serviceVersion: "1.0.0",
 
     /**
+     * APIProperty: layername
+     * {String} The identifier for the <TileMap> as advertised by the service.  
+     *     For example, if the service advertises a <TileMap> with 
+     *    'href="http://tms.osgeo.org/1.0.0/vmap0"', the <layername> property 
+     *     would be set to "vmap0".
+     */
+    layername: null,
+
+    /**
+     * APIProperty: type
+     * {String} The format extension corresponding to the requested tile image
+     *     type.  This is advertised in a <TileFormat> element as the 
+     *     "extension" attribute.  For example, if the service advertises a 
+     *     <TileMap> with <TileFormat width="256" height="256" mime-type="image/jpeg" extension="jpg" />,
+     *     the <type> property would be set to "jpg".
+     */
+    type: null,
+
+    /**
      * APIProperty: isBaseLayer
-     * {Boolean}
+     * {Boolean} Make this layer a base layer.  Default is true.  Set false to
+     *     use the layer as an overlay.
      */
     isBaseLayer: true,
 
     /**
      * APIProperty: tileOrigin
-     * {<OpenLayers.Pixel>}
+     * {<OpenLayers.LonLat>} Optional origin for aligning the grid of tiles.
+     *     If provided, requests for tiles at all resolutions will be aligned
+     *     with this location (no tiles shall overlap this location).  If
+     *     not provided, the grid of tiles will be aligned with the bottom-left
+     *     corner of the map's <maxExtent>.  Default is ``null``.
+     *
+     * Example:
+     * (code)
+     *     var layer = new OpenLayers.Layer.TMS(
+     *         "My Layer",
+     *         "http://tilecache.osgeo.org/wms-c/Basic.py/",
+     *         {
+     *             layername: "basic", 
+     *             type: "png",
+     *             // set if different than the bottom left of map.maxExtent
+     *             tileOrigin: new OpenLayers.LonLat(-180, -90)
+     *         }
+     *     );
+     * (end)
      */
     tileOrigin: null,
 
     /**
      * APIProperty: serverResolutions
-     * {Array} A list of all resolutions available on the server.  Only set this 
-     *     property if the map resolutions differs from the server.
+     * {Array} A list of all resolutions available on the server.  Only set this
+     *     property if the map resolutions differ from the server. This
+     *     property serves two purposes. (a) <serverResolutions> can include
+     *     resolutions that the server supports and that you don't want to
+     *     provide with this layer; you can also look at <zoomOffset>, which is
+     *     an alternative to <serverResolutions> for that specific purpose.
+     *     (b) The map can work with resolutions that aren't supported by
+     *     the server, i.e. that aren't in <serverResolutions>. When the
+     *     map is displayed in such a resolution data for the closest
+     *     server-supported resolution is loaded and the layer div is
+     *     stretched as necessary.
      */
     serverResolutions: null,
 
@@ -60,9 +118,11 @@ OpenLayers.Layer.TMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * Constructor: OpenLayers.Layer.TMS
      * 
      * Parameters:
-     * name - {String}
-     * url - {String}
-     * options - {Object} Hashtable of extra options to tag onto the layer
+     * name - {String} Title to be displayed in a <OpenLayers.Control.LayerSwitcher>
+     * url - {String} Service endpoint (without the version number).  E.g.
+     *     "http://tms.osgeo.org/".
+     * options - {Object} Additional properties to be set on the layer.  The
+     *     <layername> and <type> properties must be set here.
      */
     initialize: function(name, url, options) {
         var newArguments = [];
@@ -71,19 +131,12 @@ OpenLayers.Layer.TMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
     },    
 
     /**
-     * APIMethod:destroy
-     */
-    destroy: function() {
-        // for now, nothing special to do here. 
-        OpenLayers.Layer.Grid.prototype.destroy.apply(this, arguments);  
-    },
-
-    
-    /**
      * APIMethod: clone
-     * 
+     * Create a complete copy of this layer.
+     *
      * Parameters:
-     * obj - {Object}
+     * obj - {Object} Should only be provided by subclasses that call this
+     *     method.
      * 
      * Returns:
      * {<OpenLayers.Layer.TMS>} An exact clone of this <OpenLayers.Layer.TMS>
@@ -117,38 +170,20 @@ OpenLayers.Layer.TMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      */
     getURL: function (bounds) {
         bounds = this.adjustBounds(bounds);
-        var res = this.map.getResolution();
+        var res = this.getServerResolution();
         var x = Math.round((bounds.left - this.tileOrigin.lon) / (res * this.tileSize.w));
         var y = Math.round((bounds.bottom - this.tileOrigin.lat) / (res * this.tileSize.h));
-        var z = this.serverResolutions != null ?
-            OpenLayers.Util.indexOf(this.serverResolutions, res) :
-            this.map.getZoom() + this.zoomOffset;
+        var z = this.getServerZoom();
         var path = this.serviceVersion + "/" + this.layername + "/" + z + "/" + x + "/" + y + "." + this.type; 
         var url = this.url;
-        if (url instanceof Array) {
+        if (OpenLayers.Util.isArray(url)) {
             url = this.selectUrl(path, url);
         }
         return url + path;
     },
 
-    /**
-     * Method: addTile
-     * addTile creates a tile, initializes it, and adds it to the layer div. 
-     * 
-     * Parameters:
-     * bounds - {<OpenLayers.Bounds>}
-     * position - {<OpenLayers.Pixel>}
-     * 
-     * Returns:
-     * {<OpenLayers.Tile.Image>} The added OpenLayers.Tile.Image
-     */
-    addTile:function(bounds,position) {
-        return new OpenLayers.Tile.Image(this, position, bounds, 
-                                         null, this.tileSize);
-    },
-
     /** 
-     * APIMethod: setMap
+     * Method: setMap
      * When the layer is added to a map, then we can fetch our origin 
      *    (if we don't have one.) 
      * 

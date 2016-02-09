@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
@@ -77,7 +77,7 @@ OpenLayers.Layer.FixedZoomLevels = OpenLayers.Class({
      */
     initResolutions: function() {
 
-        var props = new Array('minZoomLevel', 'maxZoomLevel', 'numZoomLevels');
+        var props = ['minZoomLevel', 'maxZoomLevel', 'numZoomLevels'];
           
         for(var i=0, len=props.length; i<len; i++) {
             var property = props[i];
@@ -213,25 +213,19 @@ OpenLayers.Layer.FixedZoomLevels = OpenLayers.Class({
      *                       bounds of the current viewPort.
      */
     getExtent: function () {
-        var extent = null;
-        
-        
         var size = this.map.getSize();
+        var tl = this.getLonLatFromViewPortPx({
+            x: 0, y: 0
+        });
+        var br = this.getLonLatFromViewPortPx({
+            x: size.w, y: size.h
+        });
         
-        var tlPx = new OpenLayers.Pixel(0,0);
-        var tlLL = this.getLonLatFromViewPortPx(tlPx);
-
-        var brPx = new OpenLayers.Pixel(size.w, size.h);
-        var brLL = this.getLonLatFromViewPortPx(brPx);
-        
-        if ((tlLL != null) && (brLL != null)) {
-            extent = new OpenLayers.Bounds(tlLL.lon, 
-                                       brLL.lat, 
-                                       brLL.lon, 
-                                       tlLL.lat);
+        if ((tl != null) && (br != null)) {
+            return new OpenLayers.Bounds(tl.lon, br.lat, br.lon, tl.lat);
+        } else {
+            return null;
         }
-
-        return extent;
     },
 
     /**
@@ -287,6 +281,11 @@ OpenLayers.Layer.FixedZoomLevels = OpenLayers.Class({
         var zoom = null;
         if (moZoom != null) {
             zoom = moZoom - this.minZoomLevel;
+            if (this.map.baseLayer !== this) {
+                zoom = this.map.baseLayer.getZoomForResolution(
+                    this.getResolutionForZoom(zoom)
+                );
+            }
         }
         return zoom;
     },
@@ -306,6 +305,11 @@ OpenLayers.Layer.FixedZoomLevels = OpenLayers.Class({
         var zoom = null; 
         if (olZoom != null) {
             zoom = olZoom + this.minZoomLevel;
+            if (this.map.baseLayer !== this) {
+                zoom = this.getZoomForResolution(
+                    this.map.baseLayer.getResolutionForZoom(zoom)
+                );
+            }
         }
         return zoom;
     },

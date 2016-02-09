@@ -57,7 +57,7 @@ if (! isset($is_db) || ! $is_db) {
         $is_db = false;
     }
     // Not a valid db name -> back to the welcome page
-    $uri = $cfg['PmaAbsoluteUri'] . 'index.php'
+    $uri = './index.php'
         . PMA_URL_getCommon(array(), 'text')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (!mb_strlen($db) || ! $is_db) {

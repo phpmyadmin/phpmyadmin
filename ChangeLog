@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.0.0 (not yet released)
+- issue #11924 Remove caching of server information
+
 4.6.0.0 (not yet released)
 + issue #11456 Disabled storage engines
 + issue #11479 Allow setting routine wise privileges
@@ -37,6 +40,11 @@ phpMyAdmin - ChangeLog
 + issue #11874 Show more used PHP extensions
 - issue #11874 Report when version check and error reporting are disabled
 - issue #11849 Fix PDF schema export
+- issue #11412 Remove ForceSSL configuration directive
+- issue        Remove support for Mozilla Prism
+- issue #11412 Remove PmaAbsoluteUri configuration directive
+- issue #11914 Fix autoloading of phpseclib
+- issue #11880 Fixed rendering of missing extension error
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
@@ -44,6 +52,8 @@ phpMyAdmin - ChangeLog
 - issue #11874 Validate version information before further processing it
 - issue #11881 Full processlist lost on refresh
 - issue #11834 Adjust privileges fails if database name contains underscores
+- issue #11906 'Loading...' banner shows on login screen
+- issue #11930 Fixed changing of table parameters, eg. AUTO_INCREMENT
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
