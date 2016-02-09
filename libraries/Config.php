@@ -67,7 +67,7 @@ class Config
      * @var array
      */
     var $default_server = array();
-
+    var $pma_data_settings=array();
     /**
      * @var boolean whether init is done or not
      * set this to false to force some initial checks
