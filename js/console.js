@@ -68,11 +68,11 @@ var PMA_console = {
         // Cookie var checks and init
         if (! $.cookie('console_info')) {
             console_info.pma_console_height=92;
-          
+
         }
         if (! $.cookie('console_info')) {
             console_info.pma_console_mode="info";
-            
+
         }
         $.cookie('console_info', JSON.stringify(console_info));
         //console.log(JSON.parse($.cookie('pma_data')));
@@ -284,18 +284,18 @@ var PMA_console = {
      * @return void
      */
     collapse: function() {
-        var cookieObj = JSON.parse($.cookie('console_info')); 
-      
+        var cookieObj = JSON.parse($.cookie('console_info'));
+
         var console_json_info = {};
         console_json_info.pma_console_mode = "collapse";
         var pmaConsoleHeight = cookieObj.pma_console_height;
-       
+
         if (pmaConsoleHeight < 32) {
-           
+
            console_json_info.pma_console_height=92;
         }
-        console_json_info.pma_console_height = 92;    
-       
+        console_json_info.pma_console_height = 92;
+
         $.cookie('console_info',JSON.stringify(console_json_info));
         PMA_console.$consoleToolbar.addClass('collapsed');
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
@@ -314,7 +314,7 @@ var PMA_console = {
      * @return void
      */
     show: function(inputFocus) {
-        var cookieObj = JSON.parse($.cookie('console_info')); 
+        var cookieObj = JSON.parse($.cookie('console_info'));
          var pmaConsoleHeight = cookieObj.pma_console_height;
 
         if (pmaConsoleHeight < 32) {

@@ -615,7 +615,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $username,
                 $this->_getEncryptionSecret()
             ),'pma_User'. $GLOBALS['server'],$pma_data,'pma_data');
-         $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data); 
+         $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
     }
 
     /**
@@ -633,7 +633,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     ! empty($password) ? $password : "\xff(blank)",
                     $this->_getSessionEncryptionSecret()
                 ),'pma_pass',$this->pma_auth,'pma_auth',null);
-           
+
              $GLOBALS['PMA_Config']->set_json_cookie('pma_auth',$this->pma_auth,null, $GLOBALS['cfg']['LoginCookieStore']);
 
         }
@@ -810,9 +810,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             );
         }
          if(isset($this->pma_auth)){
-           
+
             $this->pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json( base64_encode($this->_cookie_iv),'pma_iv',$this->pma_auth,'pma_auth');
-           
+
         }
     }
 

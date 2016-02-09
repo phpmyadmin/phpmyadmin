@@ -913,7 +913,7 @@ class Config
                 $GLOBALS[$collation]
                     = $config_data[$collation];
                  if(isset($pma_data_settings))
-                    $pma_data_settings['pma_collation_connection']=$this->check_json($GLOBALS[$collation],'pma_collation_connection',$pma_data_settings,'pma_data');    
+                    $pma_data_settings['pma_collation_connection']=$this->check_json($GLOBALS[$collation],'pma_collation_connection',$pma_data_settings,'pma_data');
             }
         }
     }
@@ -1873,7 +1873,7 @@ class Config
 
     public function set_json_Cookie($cookie,$arr,$default = null,$validity = null,$httponly=true){
         if(isset($_COOKIE[$cookie])){
-            
+
              unset($_COOKIE[$cookie]);
             /* if ($validity === null) {
                 $validity = time() + 2592000;
@@ -1898,7 +1898,7 @@ class Config
             } else {
                 $validity = time() + $validity;
             }
-            
+
             return setcookie(
                 $cookie,
                 json_encode($arr),$validity,
@@ -1907,21 +1907,21 @@ class Config
                 $this->isHttps(),
                 $httponly);
         }
-            return false;   
-        
+            return false;
+
     }
 
     public function check_json($value,$key,$arr,$cookie,$default = null){
-        
+
         if(!empty($arr)){
 
             if (/*overload*/mb_strlen($value) && null !== $default && $value === $default
             ) {
-                   
+
                     // default value is used
                 if (isset($_COOKIE[$cookie])) {
                     // remove cookie
-                    
+
                     return $this->removeCookie($cookie);
                 }
                 return false;
@@ -1929,10 +1929,10 @@ class Config
 
                 if (!/*overload*/mb_strlen($value) && isset($_COOKIE[$cookie])) {
                     // remove cookie, value is empty
-                   
+
                     return $this->removeCookie($cookie);
                 }else{
-                   
+
                     $arr[$key]=$value;
                     return $arr[$key];
                 }
