@@ -326,7 +326,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $GLOBALS['PMA_Config']->removeCookie(
                     'pma_auth'
                 );
-                if (isset($_COOKIE['pma_auth']) {
+                if (isset($_COOKIE['pma_auth'])) {
                     unset($_COOKIE['pma_auth']);
                 }
             }
