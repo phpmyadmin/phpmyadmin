@@ -67,6 +67,11 @@ if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
 define('PHPMYADMIN', true);
 
 /**
+ * Load vendor configuration.
+ */
+require_once './libraries/vendor_config.php';
+
+/**
  * Activate autoloader
  */
 require_once './libraries/autoloader.php';
