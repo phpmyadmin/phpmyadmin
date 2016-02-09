@@ -7,12 +7,7 @@
  */
 namespace PMA\libraries;
 
-/**
- * Load vendor configuration.
- */
 use DirectoryIterator;
-
-require_once './libraries/vendor_config.php';
 
 /**
  * Indication for error handler (see end of this file).

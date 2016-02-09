@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - issue #11412 Remove ForceSSL configuration directive
 - issue        Remove support for Mozilla Prism
 - issue #11412 Remove PmaAbsoluteUri configuration directive
+- issue #11914 Fix autoloading of phpseclib
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
