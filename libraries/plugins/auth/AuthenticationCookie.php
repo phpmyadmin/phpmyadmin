@@ -318,16 +318,16 @@ class AuthenticationCookie extends AuthenticationPlugin
             if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
                 foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
                     $GLOBALS['PMA_Config']->removeCookie('pma_auth');
-                    if (isset($_COOKIE['pma_auth')) {
-                        unset($_COOKIE['pma_auth');
+                    if (isset($_COOKIE['pma_auth'])) {
+                        unset($_COOKIE['pma_auth']);
                     }
                 }
             } else {
                 $GLOBALS['PMA_Config']->removeCookie(
                     'pma_auth'
                 );
-                if (isset($_COOKIE['pma_auth') {
-                    unset($_COOKIE['pma_auth');
+                if (isset($_COOKIE['pma_auth']) {
+                    unset($_COOKIE['pma_auth']);
                 }
             }
         }
@@ -609,12 +609,12 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
-        $pma_data=array('pma_User-'.$GLOBALS['server']=>'');
+        $pma_data=array('pma_User-' .$GLOBALS['server']=>'');
         if (isset($pma_data))
-        $pma_data['pma_User-'. $GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json($this->cookieEncrypt(
+        $pma_data['pma_User-' . $GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json($this->cookieEncrypt(
                 $username,
                 $this->_getEncryptionSecret()
-            ),'pma_User'. $GLOBALS['server'],$pma_data,'pma_data');
+            ),'pma_User-' . $GLOBALS['server'],$pma_data,'pma_data');
          $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
     }
 
