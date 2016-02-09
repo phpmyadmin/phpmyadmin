@@ -114,6 +114,7 @@ if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
     include_once './libraries/url_generating.lib.php';
 }
 
+$pma_data=array('pma_lang'=>" ",'pma_collation_connection'=>" ");
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
@@ -676,12 +677,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * save some settings in cookies
      * @todo should be done in PMA\libraries\Config
      */
-    $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
+    if(isset($_COOKIE['pma_data']))
+    $pma_data=json_decode($_COOKIE['pma_data'],true);
+   
+    if(isset($pma_data))
+    $pma_data['pma_lang']=$GLOBALS['PMA_Config']->check_json($GLOBALS['lang'],'pma_lang',$pma_data,'pma_data');
+
     if (isset($GLOBALS['collation_connection'])) {
-        $GLOBALS['PMA_Config']->setCookie(
-            'pma_collation_connection',
-            $GLOBALS['collation_connection']
-        );
+       if(isset($pma_data))
+       $pma_data['pma_collation_connection']=$GLOBALS['PMA_Config']->check_json($GLOBALS['collation_connection'],'pma_collation_connection',$pma_data,'pma_data');
+        if(isset($pma_data))
+        $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
+        
     }
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
