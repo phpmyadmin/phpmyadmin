@@ -131,6 +131,8 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         '[/sup]'    => '</sup>',
          // used in common.inc.php:
         '[conferr]' => '<iframe src="show_config_errors.php" />',
+         // used in libraries/Util.php
+        '[dochelpicon]' => PMA\libraries\Util::getImage('b_help.png', __('Documentation')),
     );
 
     $message = strtr($message, $replace_pairs);
