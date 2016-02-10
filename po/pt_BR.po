@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-08 09:38+0100\n"
-"PO-Revision-Date: 2016-02-03 19:50+0000\n"
-"Last-Translator: Pedro Moreira <ikkinet@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2016-02-10 16:51+0000\n"
+"Last-Translator: Rodrigo Moreira <digaumsmile@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -772,6 +772,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"A extensão curl não foi encontrada, sendo assim allow_url_fopen está "
+"desabilitado. Devido a isto, alguns comportamentos tais como relatório de "
+"erro ou verificação de versão estão desabilitadas."
 
 #: index.php:499
 msgid ""
@@ -1122,7 +1125,7 @@ msgstr "Fechar"
 #, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "O número de páginas criadas."
+msgstr "Template foi criado."
 
 #: js/messages.php:153
 msgid "Template was loaded."
@@ -1132,13 +1135,13 @@ msgstr "O template foi carregado."
 #, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "O perfil foi atualizado."
+msgstr "Template foi atualizado."
 
 #: js/messages.php:155
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Registro eliminado."
+msgstr "Template foi excluído."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:130
@@ -1709,7 +1712,6 @@ msgid "Formatting SQL…"
 msgstr "Formatando SQL…"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "Parâmetros incorretos!"
@@ -1740,10 +1742,9 @@ msgid "Loading…"
 msgstr "Carregando…"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
-msgstr "Pedido abortado!!"
+msgstr "Requisição abortada!!"
 
 #: js/messages.php:359
 #, fuzzy
@@ -1752,10 +1753,9 @@ msgid "Processing request"
 msgstr "Processando a requisição"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
-msgstr "Pedido Falhou!!"
+msgstr "Requisição falhou!!"
 
 #: js/messages.php:361
 msgid "Error in processing request"
@@ -1784,10 +1784,9 @@ msgid "Dropping column"
 msgstr "Excluindo coluna"
 
 #: js/messages.php:366
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Adicionar chave primária"
+msgstr "Adicionando chave primária"
 
 #: js/messages.php:367
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1804,22 +1803,19 @@ msgid "Click to dismiss this notification"
 msgstr "Clique para fechar este aviso"
 
 #: js/messages.php:371
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Renomeando o banco de dados"
+msgstr "Renomeando banco de dados"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Copiando o banco de dados"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
-msgstr "Mudando o conjunto de caracteres"
+msgstr "Alterando o conjunto de caracteres"
 
 #: js/messages.php:377 libraries/Util.php:3284
 msgid "Enable foreign key checks"
@@ -2215,10 +2211,9 @@ msgid "Inner ring"
 msgstr "Anel interno"
 
 #: js/messages.php:516
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Anel externo:"
+msgstr "Anel externo"
 
 #: js/messages.php:520
 msgid "Do you want to copy encryption key?"
@@ -2479,7 +2474,6 @@ msgid "Show panel"
 msgstr "Mostrar painel"
 
 #: js/messages.php:632
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Ocultar painel"
@@ -2525,16 +2519,14 @@ msgid "Create view"
 msgstr "Criar view"
 
 #: js/messages.php:653
-#, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Enviar relatório de erros"
 
 #: js/messages.php:654
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
-msgstr "Cadastrar Relatório de Erro"
+msgstr "Cadastrar relatório de erro"
 
 #: js/messages.php:656
 msgid ""
