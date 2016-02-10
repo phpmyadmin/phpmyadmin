@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-08 09:38+0100\n"
-"PO-Revision-Date: 2016-02-10 16:51+0000\n"
+"PO-Revision-Date: 2016-02-10 17:03+0000\n"
 "Last-Translator: Rodrigo Moreira <digaumsmile@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
@@ -2537,16 +2537,14 @@ msgstr ""
 "erros?"
 
 #: js/messages.php:658
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
-msgstr "Alterar configurações de Relatórios"
+msgstr "Alterar configurações de relatórios"
 
 #: js/messages.php:659
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Exibir Detalhes de Relatório"
+msgstr "Exibir detalhes de relatório"
 
 #: js/messages.php:662
 msgid ""
@@ -2601,7 +2599,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Consultas executadas"
+msgstr "%s consultas executadas %s vezes em %s segundos"
 
 #: js/messages.php:705
 #, php-format
@@ -2609,10 +2607,9 @@ msgid "%s argument(s) passed"
 msgstr "%s parâmetro(s) passado(s)"
 
 #: js/messages.php:706
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show arguments"
-msgstr "Mostrar comentários da tabela"
+msgstr "Mostrar comentários"
 
 #: js/messages.php:707
 #, fuzzy
@@ -2640,22 +2637,20 @@ msgstr ""
 "normalmente causado pelo \"Navegação Privada\"."
 
 #: js/messages.php:711
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Copiar banco de dados para"
+msgstr "Copiar tabelas para"
 
 #: js/messages.php:712
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Adicionar prefixo de tabelas:"
+msgstr "Adicionar prefixo de tabela"
 
 #: js/messages.php:713
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Substituir o prefixo de tabelas"
+msgstr "Substituir tabela com o prefixo"
 
 #: js/messages.php:714 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -2982,10 +2977,9 @@ msgid "Please enter a valid date or time"
 msgstr "Por favor, digite um data válida ou um tempo"
 
 #: js/messages.php:941
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Por favor, digite um número válido!"
+msgstr "Por favor, digite um número HEXADECIMAL válido"
 
 #: js/messages.php:946 libraries/Message.php:200 libraries/Util.php:673
 #: libraries/core.lib.php:245 libraries/import.lib.php:99
@@ -3205,72 +3199,65 @@ msgid "Press Enter to execute query"
 msgstr "Pressione Enter para executar consulta"
 
 #: libraries/Console.php:280
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Ascendente"
+msgstr "ascendente"
 
 #: libraries/Console.php:283
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Descendente"
+msgstr "descendente"
 
 #: libraries/Console.php:286
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Ordem"
+msgstr "Ordem:"
 
 #: libraries/Console.php:292 templates/table/search/replace_preview.phtml:17
 msgid "Count"
 msgstr "Contagem"
 
 #: libraries/Console.php:295
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Executar sempre"
+msgstr "Ordem de execução"
 
 #: libraries/Console.php:298
 msgid "Time taken"
 msgstr "Tempo gasto"
 
 #: libraries/Console.php:301
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Ordem"
+msgstr "Ordenar por:"
 
 #: libraries/Console.php:304
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Queries SQL"
+msgstr "Agrupar consultas"
 
 #: libraries/Console.php:307
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Queries SQL"
+msgstr "Desagrupar consultas"
 
 #: libraries/Console.php:318
 #, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Mostrar create"
+msgstr "Mostrar rastro"
 
 #: libraries/Console.php:320
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Ocultar painel"
+msgstr "Ocultar rastro"
 
 #: libraries/Console.php:322
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Contagem"
+msgstr "Contagem:"
 
 #: libraries/Console.php:339 libraries/Util.php:1292
 #: libraries/config/messages.inc.php:898
