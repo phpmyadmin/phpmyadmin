@@ -36,6 +36,7 @@ class Parser
 
         // MySQL Utility Statements
         'DESCRIBE'          => 'SqlParser\\Statements\\ExplainStatement',
+        'DESC'              => 'SqlParser\\Statements\\ExplainStatement',
         'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
         'FLUSH'             => '',
         'GRANT'             => '',

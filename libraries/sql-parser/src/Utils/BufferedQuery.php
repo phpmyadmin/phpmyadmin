@@ -29,12 +29,18 @@ class BufferedQuery
 {
 
     // Constants that describe the current status of the parser.
-    const STATUS_STRING_SINGLE_QUOTES   = 1;
-    const STATUS_STRING_DOUBLE_QUOTES   = 2;
-    const STATUS_STRING_BACKTICK        = 3;
-    const STATUS_COMMENT_BASH           = 4;
-    const STATUS_COMMENT_C              = 5;
-    const STATUS_COMMENT_SQL            = 6;
+
+    // A string is being parsed.
+    const STATUS_STRING                 = 16; // 0001 0000
+    const STATUS_STRING_SINGLE_QUOTES   = 17; // 0001 0001
+    const STATUS_STRING_DOUBLE_QUOTES   = 18; // 0001 0010
+    const STATUS_STRING_BACKTICK        = 20; // 0001 0100
+
+    // A comment is being parsed.
+    const STATUS_COMMENT                = 32; // 0010 0000
+    const STATUS_COMMENT_BASH           = 33; // 0010 0001
+    const STATUS_COMMENT_C              = 34; // 0010 0010
+    const STATUS_COMMENT_SQL            = 36; // 0010 0100
 
     /**
      * The query that is being processed.
@@ -193,7 +199,7 @@ class BufferedQuery
              * treated differently, because of the preceding backslash, it will
              * be ignored.
              */
-            if ($this->query[$i] === '\\') {
+            if (($this->status & static::STATUS_COMMENT == 0) && ($this->query[$i] === '\\')) {
                 $this->current .= $this->query[$i] . $this->query[++$i];
                 continue;
             }
