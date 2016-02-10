@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 - issue #11412 Remove PmaAbsoluteUri configuration directive
 - issue #11914 Fix autoloading of phpseclib
 - issue #11880 Fixed rendering of missing extension error
+- issue #11923 Errors on Structure tab when user only has select access on certain columns
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
