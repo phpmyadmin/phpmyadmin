@@ -1278,6 +1278,13 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
             $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data_type
         );
 
+        $virtual = array(
+            'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+        );
+        if (in_array($column['Extra'], $virtual)) {
+            $html_output .= '<input type="hidden" name="virtual'
+                . $column_name_appendix . '" value="1" />';
+        }
         if ($column['Extra'] == 'auto_increment') {
             $html_output .= '<input type="hidden" name="auto_increment'
                 . $column_name_appendix . '" value="1" />';
