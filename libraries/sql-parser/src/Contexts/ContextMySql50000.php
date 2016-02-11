@@ -37,8 +37,8 @@ class ContextMySql50000 extends Context
     public static $KEYWORDS = array(
 
         'DO' => 1, 'IO' => 1, 'NO' => 1, 'XA' => 1,
-        'ANY' => 1, 'BDB' => 1, 'BIT' => 1, 'CPU' => 1, 'END' => 1, 'IPC' => 1,
-        'NDB' => 1, 'NEW' => 1, 'ONE' => 1, 'ROW' => 1,
+        'ANY' => 1, 'BDB' => 1, 'CPU' => 1, 'END' => 1, 'IPC' => 1, 'NDB' => 1,
+        'NEW' => 1, 'ONE' => 1, 'ROW' => 1,
         'BOOL' => 1, 'BYTE' => 1, 'CODE' => 1, 'CUBE' => 1, 'DATA' => 1, 'FAST' => 1,
         'FILE' => 1, 'FULL' => 1, 'HASH' => 1, 'HELP' => 1, 'LAST' => 1, 'LOGS' => 1,
         'MODE' => 1, 'NAME' => 1, 'NEXT' => 1, 'NONE' => 1, 'OPEN' => 1, 'PAGE' => 1,
@@ -162,7 +162,7 @@ class ContextMySql50000 extends Context
         'DEFAULT CHARACTER SET' => 7,
         'WITH CONSISTENT SNAPSHOT' => 7,
 
-        'XML' => 9,
+        'BIT' => 9, 'XML' => 9,
         'ENUM' => 9, 'JSON' => 9, 'TEXT' => 9,
         'ARRAY' => 9,
         'SERIAL' => 9,

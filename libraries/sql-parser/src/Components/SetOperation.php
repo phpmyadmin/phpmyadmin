@@ -92,7 +92,7 @@ class SetOperation extends Component
             if ($state === 0) {
                 if ($token->token === '=') {
                     $state = 1;
-                } else if ($token->value !== ',') {
+                } elseif ($token->value !== ',') {
                     $expr->column .= $token->token;
                 }
             } elseif ($state === 1) {
