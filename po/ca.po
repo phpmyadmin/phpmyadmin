@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-08 09:42+0100\n"
-"PO-Revision-Date: 2016-01-08 10:34+0000\n"
+"PO-Revision-Date: 2016-02-11 23:09+0000\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -771,6 +771,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"No s'ha trobat l'extensió -curl- i s'ha desactivat -allow_url_fopen-. Degut "
+"a aixó, s'han desactivat algunes caracteristiques, com l'informe d'errors o "
+"la comprovació de la versió."
 
 #: index.php:499
 msgid ""
@@ -2570,22 +2573,27 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Hi hi havia un problema accedint a l'emmagatzematge local del teu navegador, "
+"algunes característiques poden no treballar correctament. Probablement pot "
+"ser que el navegador no doni suport a l'emmagatzematge o que s'ha assolit el "
+"límit de quota. En Firefox, també pot causar el problema que s'hagi "
+"corromput l'emmagatzematge, netejar les teves \"Dades de Pàgina web sense "
+"connexió\" podria ajudar. En Safari, tal problema és generalment causat pel "
+"\"Mode Privat de Navegació\"."
 
 #: js/messages.php:711
 msgid "Copy tables to"
 msgstr "Còpia taules a"
 
 #: js/messages.php:712
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Afegir prefix de taula:"
+msgstr "Afegir prefix de taula"
 
 #: js/messages.php:713
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Canvia el prefix de la taula"
+msgstr "Reemplaçar taula amb prefix"
 
 #: js/messages.php:714 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -3236,10 +3244,9 @@ msgid "Switch to dark theme"
 msgstr "Canvia al tema <<dark>>"
 
 #: libraries/DatabaseInterface.php:1528
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "No es pot llegir l'arxiu de configuració!"
+msgstr "No es pot establir el joc de caracters de connexió configurat!"
 
 #: libraries/DatabaseInterface.php:2139
 msgid ""
@@ -9111,10 +9118,9 @@ msgid "Data only"
 msgstr "Només dades"
 
 #: libraries/mult_submits.lib.php:349
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Afegeix valor AUTO_INCREMENT"
+msgstr "Afegeix valor AUTO INCREMENT"
 
 #: libraries/mult_submits.lib.php:351 libraries/operations.lib.php:225
 #: libraries/operations.lib.php:1288
@@ -10527,10 +10533,9 @@ msgstr ""
 "bolquin i recarreguin entre servidors de diferents zones horàries)</i>"
 
 #: libraries/plugins/export/ExportSql.php:508
-#, fuzzy
 #| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
-msgstr "Sembla que la teva base de dades fa servir funcions;"
+msgstr "Sembla que la teva base de dades fa servir rutines;"
 
 #: libraries/plugins/export/ExportSql.php:511
 #: libraries/plugins/export/ExportSql.php:1526
