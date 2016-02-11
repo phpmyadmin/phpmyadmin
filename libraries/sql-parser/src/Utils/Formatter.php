@@ -305,8 +305,8 @@ class Formatter
                     && (!$formattedOptions)
                     && (empty(self::$INLINE_CLAUSES[$lastClause]))
                     && (($curr->type !== Token::TYPE_KEYWORD)
-                        || (($curr->type === Token::TYPE_KEYWORD)
-                            && ($curr->flags & Token::FLAG_KEYWORD_FUNCTION)))
+                    || (($curr->type === Token::TYPE_KEYWORD)
+                    && ($curr->flags & Token::FLAG_KEYWORD_FUNCTION)))
                 ) {
                     $formattedOptions = true;
                     $lineEnded = true;

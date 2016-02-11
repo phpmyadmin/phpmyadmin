@@ -76,8 +76,8 @@ class AlterStatement extends Statement
             $parser,
             $list,
             array(
-            'noAlias' => true,
-            'noBrackets' => true,
+                'noAlias' => true,
+                'noBrackets' => true,
             )
         );
         ++$list->idx; // Skipping field.
