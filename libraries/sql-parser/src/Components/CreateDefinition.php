@@ -43,7 +43,7 @@ class CreateDefinition extends Component
 
         'NOT NULL'                      => 1,
         'NULL'                          => 1,
-        'DEFAULT'                       => array(2, 'var'),
+        'DEFAULT'                       => array(2, 'expr'),
         'AUTO_INCREMENT'                => 3,
         'PRIMARY'                       => 4,
         'PRIMARY KEY'                   => 4,
