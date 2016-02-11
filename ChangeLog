@@ -55,6 +55,13 @@ phpMyAdmin - ChangeLog
 - issue #11834 Adjust privileges fails if database name contains underscores
 - issue #11906 'Loading...' banner shows on login screen
 - issue #11930 Fixed changing of table parameters, eg. AUTO_INCREMENT
+- issue #11885 Call to undefined function SqlParser\ctype_alnum()
+- issue #11879 4.5.3.1 - NOW() function not recognized by parser
+- issue #11867 Gracefully handle the DESC statement
+- issue #11843 Fractional timestamp causes corrupted SQL export
+- issue #11836 Static analysis error for valid WHERE condition with IF keyword
+- issue #11800 Syntax Verifier error using REGEXP in SQL statement
+- issue #11799 Backslashes in comments are being interpreted as escape characters
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
