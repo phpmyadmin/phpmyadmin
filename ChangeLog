@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue #11836 Static analysis error for valid WHERE condition with IF keyword
 - issue #11800 Syntax Verifier error using REGEXP in SQL statement
 - issue #11799 Backslashes in comments are being interpreted as escape characters
+- issue #11909 Can't insert row into table that contains generated column
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
