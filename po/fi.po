@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-08 09:42+0100\n"
-"PO-Revision-Date: 2016-01-25 09:44+0000\n"
-"Last-Translator: Daniel Iltanen <daniel.iltanen@gmail.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"PO-Revision-Date: 2016-02-11 19:47+0000\n"
+"Last-Translator: Jouni Kähkönen <kajomppa@gmail.com>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -767,6 +767,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Laajennusta curl ei löytynyt, ja allow_url_fopen on pois päältä. Tämän takia "
+"jotkin toiminnot, kuten virheraportointi tai versiontarkistus, ovat poissa "
+"käytöstä."
 
 #: index.php:499
 msgid ""
@@ -971,7 +974,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Oletko varma että haluat vaihtaa kollaatiota ja kääntää datan?"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -987,12 +989,12 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Tässä operaatiossa MySQL yrittää kartoittaa data-arvot kollaatioiden "
-"välillä. Mikäli merkistöt eivät ole yhteensopivia, saattaa seurauksena olla "
-"datan menettäminen ja tätä menetettyädataa <b>EI</b> voi palauttaa "
-"vaihtamalla takaisin sarakekollaatioon. <b> Kääntääksesi olemassa olevan "
-"datan on ehdotettu että käytät sarakkeen muokkausominaisuutta  taulun "
-"rakennesivulla. </b>"
+"Tällä toiminnolla MySQL yrittää muuntaa tietoarvot aakkosjärjestyksestä "
+"toiseen. Mikäli merkistöt eivät ole yhteensopivia, saattaa seurauksena olla "
+"tietojen katoaminen, jolloin kadonneita tietoja <b>EI</b> voi palauttaa "
+"vaihtamalla takaisin sarakeaakkosjärjestykseen. <b> Olemassa olevien "
+"tietojen muuntamiseen suositellaan käytettävän sarakkeen "
+"muokkausominaisuutta (\"Muuta\"-linkki) taulun rakennesivulla. </b>"
 
 #: js/messages.php:107
 msgid ""
@@ -1679,10 +1681,9 @@ msgid "Formatting SQL…"
 msgstr "Formatoidaan SQL-kyselyä…"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Virheelliset parametrit!"
+msgstr "Parametrit puuttuvat!"
 
 #: js/messages.php:350
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -2564,18 +2565,22 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Selainmuistin käytössä on ongelmia, jonka vuoksi jotkin ominaisuudet eivät "
+"välttämättä toimi oikein. Selaimessa ei ehkä ole tukea muistin käytölle tai "
+"muistin kiintiöraja on ylitetty. Firefox-selaimessa viallinen muistipaikka "
+"voi aiheuttaa tällaisen ongelman. \"Verkkosivujen offline-tietojen\" "
+"tyhjennys voi auttaa. Safari-selaimella tällaisen ongelman aiheuttaa yleensä "
+"\"yksityisen tilan selaus\"."
 
 #: js/messages.php:711
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Luo tietokannasta toinen tietokanta nimellä"
+msgstr "Kopioi taulut tietokantaan"
 
 #: js/messages.php:712
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add table prefix"
-msgstr "Käytä indeksiä/indeksejä"
+msgstr "Lisää tauluun etuliite"
 
 #: js/messages.php:713
 #, fuzzy
@@ -3232,10 +3237,9 @@ msgid "Switch to dark theme"
 msgstr "Vaihda tummaan teemaan"
 
 #: libraries/DatabaseInterface.php:1528
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Asetustiedoston lukeminen epäonnistui!"
+msgstr "Konfiguroidun lajitteluyhteyden asettaminen epäonnistui!"
 
 #: libraries/DatabaseInterface.php:2139
 msgid ""
@@ -3624,7 +3628,7 @@ msgstr "Valitse kaikki"
 
 #: libraries/DisplayResults.php:5006
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopioi leikepöydälle"
 
 #: libraries/DisplayResults.php:5062
 msgid "Query results operations"
@@ -3844,7 +3848,7 @@ msgstr "Sivunumero:"
 
 #: libraries/LanguageManager.php:778
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Tukematon kielikoodi ohitettiin."
 
 #: libraries/Linter.php:99
 msgid ""
@@ -4612,6 +4616,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Mahdollistaa tehokkaan pääsyn JSON-tiedostojen (JavaScript Object Notation) "
+"tietoihin"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4673,13 +4679,11 @@ msgid "Analyze Explain at %s"
 msgstr "Analyysin selostus %s"
 
 #: libraries/Util.php:1250
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Ilman PHP-koodia"
 
 #: libraries/Util.php:1262
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Suorita kysely"
@@ -5604,14 +5608,13 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Mikäli taulun rakenteiden toiminnot pitäisi olla piilossa."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Taulun kommentit"
+msgstr "Näytä sarakekommentit"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Pitääkö sarakekommentit näyttää taulurakennenäkymässä"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -7368,13 +7371,15 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Muokattavien valikoiden sallimiseksi tarvitaan sekä tätä taulua että "
+"käyttäjätaulua; jos jompi kumpi näistä jätetään tyhjäksi, poistuu tämä "
+"toiminto käytöstä, ehdotus: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:823
 msgid "User groups table"
 msgstr "Käyttäjäryhmät taulukko"
 
 #: libraries/config/messages.inc.php:825
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable the feature to hide and show navigation items, "
 #| "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -7382,12 +7387,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Jätä tyhjäksi jos haluat poistaa käytöstä, piilota ja näytä navigointi "
-"kohteet, oletusarvo: [kbd]pma_history[/kbd]"
+"Jätä tyhjäksi, jos haluat poistaa käytöstä navigointikohteiden piilotus- ja "
+"näyttötoiminnon, ehdotus: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:828
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Piilotettujen navigointikohteiden taulu"
 
 #: libraries/config/messages.inc.php:830
 msgid "User for config auth"
@@ -7406,17 +7411,15 @@ msgid "Verbose name of this server"
 msgstr "Tämän palvelimen yksityiskohtainen nimi"
 
 #: libraries/config/messages.inc.php:837
-#, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "Näyttääkö käyttäjälle \"Näytä kaikki (rivit)\"-painike"
+msgstr "Näytetäänkö käyttäjälle \"Näytä kaikki (rivit)\" -painike."
 
 #: libraries/config/messages.inc.php:839
 msgid "Allow to display all the rows"
 msgstr "Salli kaikkien rivien näyttäminen"
 
 #: libraries/config/messages.inc.php:841
-#, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
 #| "authentication mode because the password is hard coded in the "
@@ -7427,9 +7430,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
-"Huomaa, että tämän käyttöönotolla ei ole vaikutusta [kbd]config[/kbd]-"
-"todennusta käytettäessä, koska salasana lukee suoraan asetustiedostossa; "
-"tämä ei estä saman komennon suorittamista suoraan."
+"Huomaa, että tämän käytöllä ei ole vaikutusta [kbd]config[/kbd]-todennusta "
+"käytettäessä, koska salasana lukee suoraan asetustiedostossa; tämä ei "
+"rajoita saman komennon suoraan suorittamisen mahdollisuutta."
 
 #: libraries/config/messages.inc.php:845
 msgid "Show password change form"
@@ -7444,31 +7447,31 @@ msgid "Show or hide a column displaying the comments for all tables."
 msgstr "Näytä tai piilota kommentti -sarake kaikista tauluista."
 
 #: libraries/config/messages.inc.php:850
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Taulun kommentit"
+msgstr "Näytä taulun kommentit"
 
 #: libraries/config/messages.inc.php:852
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
+"Näytä tai piilota sarake, joka näyttää kaikkien taulujen luontiajankohdan."
 
 #: libraries/config/messages.inc.php:854
-#, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
-msgstr "Näytä luonnin aikaleima"
+msgstr "Näytä luontiajankohta"
 
 #: libraries/config/messages.inc.php:856
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
+"Näytä tai piilota sarake, joka näyttää kaikkien taulujen viime päivityksen "
+"ajankohdan."
 
 #: libraries/config/messages.inc.php:858
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last update timestamp"
-msgstr "Näytä viimeisin tarkastus aikaleima"
+msgstr "Näytä viime päivityksen ajankohta"
 
 #: libraries/config/messages.inc.php:860
 msgid ""
@@ -7476,10 +7479,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:862
-#, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
-msgstr "Näytä viimeisin tarkastus aikaleima"
+msgstr "Näytä viime tarkistuksen ajankohta"
 
 #: libraries/config/messages.inc.php:864
 msgid ""
@@ -7492,27 +7494,24 @@ msgid "Show field types"
 msgstr "Näytä kenttätyypit"
 
 #: libraries/config/messages.inc.php:869
-#, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
-msgstr "Näytä funktiokentät muokkaus- ja liäsystilassa"
+msgstr "Näytä funktiokentät muokkaus- ja lisäystilassa."
 
 #: libraries/config/messages.inc.php:871
 msgid "Show function fields"
 msgstr "Näytä funktiokentät"
 
 #: libraries/config/messages.inc.php:872
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not."
-msgstr "Tässä näytetään taulukon rivien linkit"
+msgstr "Näytetäänkö vihjeet."
 
 #: libraries/config/messages.inc.php:873
 msgid "Show hint"
 msgstr "Näytä vihje"
 
 #: libraries/config/messages.inc.php:875
-#, fuzzy
 #| msgid ""
 #| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 #| "output"
@@ -7520,8 +7519,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Näyät linkki [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]-"
-"käskyn tulosteeseen"
+"Näyttää linkin [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]-"
+"käskyn tulosteeseen."
 
 #: libraries/config/messages.inc.php:878
 msgid "Show phpinfo() link"
@@ -7532,12 +7531,11 @@ msgid "Show detailed MySQL server information"
 msgstr "Näytä MySQL-palvelimen tarkat tiedot"
 
 #: libraries/config/messages.inc.php:881
-#, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
-msgstr "Määrittele, pitääkö phpMyAdminin luomat SQL-kyselyt näyttää"
+msgstr "Määrittelee pitääkö phpMyAdminin luomat SQL-kyselyt näyttää."
 
 #: libraries/config/messages.inc.php:883
 msgid "Show SQL queries"
@@ -7553,24 +7551,22 @@ msgid "Retain query box"
 msgstr "Säilytä SQL-kyselylaatikko"
 
 #: libraries/config/messages.inc.php:889
-#, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
-msgstr "Salli tietokannan ja taulun tilastojen (eli tilankäytön) näyttäminen"
+msgstr "Salli tietokannan ja taulun tilastojen (eli tilankäytön) näyttäminen."
 
 #: libraries/config/messages.inc.php:891
 msgid "Show statistics"
 msgstr "Näytä tilastot"
 
 #: libraries/config/messages.inc.php:893
-#, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Merkitse käytetyt taulut ja mahdollista lukittuja tauluja sisältävien "
-"tietokantojen näyttäminen"
+"tietokantojen näyttäminen."
 
 #: libraries/config/messages.inc.php:895
 msgid "Skip locked tables"
