@@ -82,15 +82,26 @@ class PMA_Error_Test extends PHPUnit_Framework_TestCase
      * Test for setFile
      *
      * @return void
+     *
+     * @dataProvider filePathProvider
      */
-    public function testSetFile()
+    public function testSetFile($file, $expected)
     {
-        $this->object->setFile('./pma.txt');
-        $this->assertStringStartsWith(
-            implode(
-                DIRECTORY_SEPARATOR,
-                array('.', '..', '..')
-            ), $this->object->getFile()
+        $this->object->setFile($file);
+        $this->assertEquals($expected, $this->object->getFile());
+    }
+
+    /**
+     * Data provider for setFile
+     *
+     * @return array
+     */
+    public function filePathProvider()
+    {
+        return array(
+            array('./ChangeLog', './ChangeLog'),
+            array(__FILE__, './test/classes/PMA_Error_test.php'),
+            array('./NONEXISTING', './NONEXISTING'),
         );
     }
 
