@@ -62,8 +62,6 @@ class FooterTest extends PMATestCase
         $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler();
         unset($_POST);
 
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -183,15 +181,15 @@ class FooterTest extends PMATestCase
 
         $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemeImage'] = 'image';
 
         $this->assertEquals(
             '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
             . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
             . 'utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" '
-            . 'target="_blank"><img src="imagewindow-new.png" title="Open new '
-            . 'phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
+            . 'target="_blank"><img src="themes/dot.gif" title="Open new '
+            . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
+            . 'class="icon ic_window-new" /></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(

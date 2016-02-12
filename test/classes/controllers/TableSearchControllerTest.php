@@ -40,7 +40,6 @@ class TableSearchControllerTest extends PMATestCase
         /**
          * SET these to avoid undefined index error
          */
-        $_SESSION['PMA_Theme'] = new Theme();
         $_POST['zoom_submit'] = 'zoom';
 
         $GLOBALS['server'] = 1;

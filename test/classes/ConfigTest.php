@@ -771,7 +771,6 @@ class ConfigTest extends PMATestCase
     public function testGetThemeUniqueValue()
     {
 
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
         $partial_sum = (
             PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +

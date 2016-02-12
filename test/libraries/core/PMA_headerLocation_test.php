@@ -75,7 +75,6 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             }
 
         }
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();

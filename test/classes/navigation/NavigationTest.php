@@ -40,8 +40,6 @@ class NavigationTest extends PMATestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
         $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

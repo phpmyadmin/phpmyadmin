@@ -56,7 +56,6 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             'tracking' => 'tracking',
             'trackingwork' => true
         );
-        $_SESSION['PMA_Theme'] = new Theme();
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 

@@ -80,8 +80,6 @@ class TableIndexesControllerTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

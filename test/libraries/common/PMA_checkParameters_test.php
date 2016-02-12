@@ -31,7 +31,6 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
     function setup()
     {
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['cfg'] = array('ServerDefault' => 1);
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['text_dir'] = 'ltr';

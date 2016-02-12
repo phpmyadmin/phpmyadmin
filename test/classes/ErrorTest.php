@@ -39,8 +39,6 @@ class ErrorTest extends PMATestCase
         $this->object = new PMA\libraries\Error('2', 'Compile Error', 'error.txt', 15);
 
         $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

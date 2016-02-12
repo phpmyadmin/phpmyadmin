@@ -40,7 +40,6 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['ZeroConf'] = true;
         $_SESSION['relation'][$GLOBALS['server']] = "PMA_relation";
-        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'] = array();
 
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();

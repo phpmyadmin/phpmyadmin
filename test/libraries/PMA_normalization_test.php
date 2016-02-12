@@ -51,8 +51,6 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')

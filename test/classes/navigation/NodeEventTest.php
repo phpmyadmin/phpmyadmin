@@ -27,7 +27,6 @@ class NodeEventTest extends PMATestCase
     public function setup()
     {
         $GLOBALS['server'] = 0;
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**

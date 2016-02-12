@@ -46,7 +46,6 @@ class PMA_FatalError_Test extends PHPUnit_Framework_TestCase
             'verbose' => 'verbose',
         );
         $GLOBALS['cfg']['OBGzip'] = false;
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['server'] = 1;
