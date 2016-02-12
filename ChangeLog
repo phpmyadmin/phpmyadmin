@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #11799 Backslashes in comments are being interpreted as escape characters
 - issue #11909 Can't insert row into table that contains generated column
 - issue #11677 sql-parser and php-gettext collide.
+- issue #11920 Can't disable backquotes in export
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
