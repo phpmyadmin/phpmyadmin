@@ -439,25 +439,25 @@ class PMA_Error extends PMA_Message
         }
 
         $Ahere = explode(
-            PATH_SEPARATOR,
-            realpath(__DIR__ . PATH_SEPARATOR . '..')
+            DIRECTORY_SEPARATOR,
+            realpath(__DIR__ . DIRECTORY_SEPARATOR . '..')
         );
-        $Adest = explode(PATH_SEPARATOR, $dest);
+        $Adest = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
         // && count ($Adest)>0 && count($Ahere)>0 )
-        while (implode(PATH_SEPARATOR, $Adest) != implode(PATH_SEPARATOR, $Ahere)) {
+        while (implode(DIRECTORY_SEPARATOR, $Adest) != implode(DIRECTORY_SEPARATOR, $Ahere)) {
             if (count($Ahere) > count($Adest)) {
                 array_pop($Ahere);
-                $result .= PATH_SEPARATOR . '..';
+                $result .= DIRECTORY_SEPARATOR . '..';
             } else {
                 array_pop($Adest);
             }
         }
-        $path = $result . str_replace(implode(PATH_SEPARATOR, $Adest), '', $dest);
+        $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $Adest), '', $dest);
         return str_replace(
-            PATH_SEPARATOR . PATH_SEPARATOR,
-            PATH_SEPARATOR,
+            DIRECTORY_SEPARATOR . PATH_SEPARATOR,
+            DIRECTORY_SEPARATOR,
             $path
         );
     }
