@@ -254,7 +254,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $current_value, $multi_edit_auto_increment,
             $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
             $multi_edit_columns_null_prev, $is_insert,
-            $using_key, $where_clause, $table
+            $using_key, $where_clause, $table, $multi_edit_funcs
         );
 
         $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit(

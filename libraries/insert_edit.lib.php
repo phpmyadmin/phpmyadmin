@@ -2292,13 +2292,15 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
  * @param boolean      $using_key                    whether editing or new row
  * @param string       $where_clause                 where clause
  * @param string       $table                        table name
+ * @param array        $multi_edit_funcs             multiple edit functions array
  *
  * @return string $current_value  current column value in the form
  */
 function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
     $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
-    $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table
+    $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table,
+    $multi_edit_funcs
 ) {
     // Fetch the current values of a row to use in case we have a protected field
     if ($is_insert
@@ -2313,6 +2315,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
 
     if (false !== $possibly_uploaded_val) {
         $current_value = $possibly_uploaded_val;
+    } else if (! empty($multi_edit_funcs[$key])) {
+        $current_value = "'" . PMA_Util::sqlAddSlashes($current_value) . "'";
     } else {
         // c o l u m n    v a l u e    i n    t h e    f o r m
         if (isset($multi_edit_columns_type[$key])) {
