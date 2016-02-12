@@ -119,6 +119,31 @@ class Expression extends Component
     }
 
     /**
+     * Possible options:
+     *
+     *      `field`
+     *
+     *          First field to be filled.
+     *          If this is not specified, it takes the value of `parseField`.
+     *
+     *      `parseField`
+     *
+     *          Specifies the type of the field parsed. It may be `database`,
+     *          `table` or `column`. These expressions may not include
+     *          parentheses.
+     *
+     *      `breakOnAlias`
+     *
+     *          If not empty, breaks when the alias occurs (it is not included).
+     *
+     *      `breakOnParentheses`
+     *
+     *          If not empty, breaks when the first parentheses occurs.
+     *
+     *      `parenthesesDelimited`
+     *
+     *          If not empty, breaks after last parentheses occurred.
+     *
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -164,6 +189,12 @@ class Expression extends Component
          */
         $prev = array(null, null);
 
+        // When a field is parsed, no parentheses are expected.
+        if (!empty($options['parseField'])) {
+            $options['breakOnParentheses'] = true;
+            $options['field'] = $options['parseField'];
+        }
+
         for (; $list->idx < $list->count; ++$list->idx) {
 
             /**
@@ -195,7 +226,9 @@ class Expression extends Component
                     // A `(` was previously found and this keyword is the
                     // beginning of a statement, so this is a subquery.
                     $ret->subquery = $token->value;
-                } elseif ($token->flags & Token::FLAG_KEYWORD_FUNCTION) {
+                } elseif (($token->flags & Token::FLAG_KEYWORD_FUNCTION)
+                    && (empty($options['parseField']))
+                ) {
                     $isExpr = true;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED)
                     && ($brackets === 0)
@@ -207,7 +240,7 @@ class Expression extends Component
                         break;
                     }
                     if ($token->value === 'AS') {
-                        if (!empty($options['noAlias'])) {
+                        if (!empty($options['breakOnAlias'])) {
                             break;
                         }
                         if (!empty($ret->alias)) {
@@ -224,8 +257,24 @@ class Expression extends Component
                 }
             }
 
+            if (($token->type === Token::TYPE_NUMBER)
+                || ($token->type === Token::TYPE_BOOL)
+                || (($token->type === Token::TYPE_SYMBOL)
+                && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
+                || (($token->type === Token::TYPE_OPERATOR)
+                && ($token->value !== '.'))
+            ) {
+                if (!empty($options['parseField'])) {
+                    break;
+                }
+
+                // Numbers, booleans and operators (except dot) are usually part
+                // of expressions.
+                $isExpr = true;
+            }
+
             if ($token->type === Token::TYPE_OPERATOR) {
-                if ((!empty($options['noBrackets']))
+                if ((!empty($options['breakOnParentheses']))
                     && (($token->value === '(') || ($token->value === ')'))
                 ) {
                     // No brackets were expected.
@@ -244,7 +293,7 @@ class Expression extends Component
                 } elseif ($token->value === ')') {
                     --$brackets;
                     if ($brackets === 0) {
-                        if (!empty($options['bracketsDelimited'])) {
+                        if (!empty($options['parenthesesDelimited'])) {
                             // The current token is the last bracket, the next
                             // one will be outside the expression.
                             $ret->expr .= $token->token;
@@ -264,19 +313,7 @@ class Expression extends Component
                 }
             }
 
-            if (($token->type === Token::TYPE_NUMBER)
-                || ($token->type === Token::TYPE_BOOL)
-                || (($token->type === Token::TYPE_SYMBOL)
-                && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
-                || (($token->type === Token::TYPE_OPERATOR)
-                && ($token->value !== '.'))
-            ) {
-                // Numbers, booleans and operators (except dot) are usually part
-                // of expressions.
-                $isExpr = true;
-            }
-
-            // Saving the previous token.
+            // Saving the previous tokens.
             $prev[0] = $prev[1];
             $prev[1] = $token;
 
@@ -323,14 +360,14 @@ class Expression extends Component
                     $dot = true;
                     $ret->expr .= $token->token;
                 } else {
-                    $field = (!empty($options['skipColumn'])) ? 'table' : 'column';
+                    $field = empty($options['field']) ? 'column' : $options['field'];
                     if (empty($ret->$field)) {
                         $ret->$field = $token->value;
                         $ret->expr .= $token->token;
                         $dot = false;
                     } else {
                         // No alias is expected.
-                        if (!empty($options['noAlias'])) {
+                        if (!empty($options['breakOnAlias'])) {
                             break;
                         }
                         if (!empty($ret->alias)) {

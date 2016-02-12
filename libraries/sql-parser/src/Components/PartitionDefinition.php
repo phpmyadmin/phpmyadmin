@@ -169,8 +169,8 @@ class PartitionDefinition extends Component
                         $parser,
                         $list,
                         array(
-                            'bracketsDelimited' => true,
-                            'noAlias' => true,
+                            'parenthesesDelimited' => true,
+                            'breakOnAlias' => true,
                         )
                     );
                 }

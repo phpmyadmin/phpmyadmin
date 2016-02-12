@@ -100,7 +100,7 @@ class SetOperation extends Component
                     $parser,
                     $list,
                     array(
-                        'noAlias' => true,
+                        'breakOnAlias' => true,
                     )
                 );
                 if ($tmp == null) {
