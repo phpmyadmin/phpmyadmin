@@ -425,17 +425,17 @@ class PMA_Error extends PMA_Message
      * prevent path disclosure in error message,
      * and make users feel safe to submit error reports
      *
-     * @param string $dest path to be shorten
+     * @param string $path path to be shorten
      *
      * @return string shortened path
      */
-    public static function relPath($dest)
+    public static function relPath($path)
     {
-        $dest = @realpath($dest);
+        $dest = @realpath($path);
 
         /* Probably affected by open_basedir */
         if ($dest === FALSE) {
-            return $dest;
+            return $path;
         }
 
         $Ahere = explode(
