@@ -38,7 +38,6 @@ class TableRelationControllerTest extends PMATestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         //$_SESSION
 
         $_REQUEST['foreignDb'] = 'db';

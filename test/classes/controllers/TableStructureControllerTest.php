@@ -48,7 +48,6 @@ class TableStructureControllerTest extends PMATestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
 

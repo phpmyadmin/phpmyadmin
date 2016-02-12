@@ -39,7 +39,6 @@ class DBIMysqliTest extends PMATestCase
     {
         $GLOBALS['cfg']['Server']['ssl'] = false;
         $GLOBALS['cfg']['Server']['compress'] = true;
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
         $this->object = new DBIMysqli();

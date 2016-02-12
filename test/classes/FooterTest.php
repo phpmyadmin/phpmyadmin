@@ -48,7 +48,6 @@ class FooterTest extends PMATestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
@@ -181,7 +180,6 @@ class FooterTest extends PMATestCase
 
         $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         $this->assertEquals(
             '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'

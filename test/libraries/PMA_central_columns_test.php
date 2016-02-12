@@ -81,7 +81,6 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['cfg']['CharEditing'] = '';
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['db'] = 'PMA_db';

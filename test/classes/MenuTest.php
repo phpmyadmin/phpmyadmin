@@ -39,7 +39,6 @@ class MenuTest extends PMATestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';

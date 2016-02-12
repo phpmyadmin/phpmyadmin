@@ -40,7 +40,6 @@ class HeaderTest extends PMATestCase
         $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';

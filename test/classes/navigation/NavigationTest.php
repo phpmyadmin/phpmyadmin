@@ -39,7 +39,6 @@ class NavigationTest extends PMATestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
-        $GLOBALS['pmaThemeImage'] = 'image';
     }
 
     /**

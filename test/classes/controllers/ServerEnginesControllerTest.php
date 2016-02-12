@@ -39,7 +39,6 @@ class ServerEnginesControllerTest extends PMATestCase
         //$GLOBALS
         $GLOBALS['server'] = 0;
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
     }

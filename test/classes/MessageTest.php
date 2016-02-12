@@ -37,7 +37,6 @@ class MessageTest extends PMATestCase
     protected function setUp()
     {
         $this->object = new PMA\libraries\Message;
-        $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
     /**

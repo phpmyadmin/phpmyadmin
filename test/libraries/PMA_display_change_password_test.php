@@ -52,7 +52,6 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['PMA_PHP_SELF'] = "server_privileges.php";
         $GLOBALS['server'] = 0;
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = "relation";

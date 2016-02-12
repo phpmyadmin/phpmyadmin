@@ -43,7 +43,6 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             'usergroups' => 'usergroups'
         );
 
-        $GLOBALS['pmaThemeImage'] = 'image';
     }
 
     /**

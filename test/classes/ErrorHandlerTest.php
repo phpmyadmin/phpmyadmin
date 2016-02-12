@@ -37,7 +37,6 @@ class ErrorHandlerTest extends PMATestCase
     {
         $this->object = new PMA\libraries\ErrorHandler();
 
-        $GLOBALS['pmaThemeImage'] = 'image';
     }
 
     /**

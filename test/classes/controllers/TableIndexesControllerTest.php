@@ -46,7 +46,6 @@ class TableIndexesControllerTest extends PMATestCase
          */
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['url_params'] = array(
             'db' => 'db',
             'server' => 1

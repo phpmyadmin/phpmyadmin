@@ -62,7 +62,6 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['replication_info']['slave']['status'] = false;
 
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
 

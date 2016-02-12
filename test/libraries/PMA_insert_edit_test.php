@@ -39,7 +39,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';

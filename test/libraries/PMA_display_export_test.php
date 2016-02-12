@@ -61,7 +61,6 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
 
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['db'] = "PMA";
 
         //$_SESSION

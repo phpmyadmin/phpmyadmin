@@ -194,7 +194,6 @@ class DbSearchTest extends PMATestCase
      */
     public function testGetSelectionForm()
     {
-        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $this->assertEquals(
             '<a id="db_search"></a><form id="db_search_form" class="ajax lock-page" '
             . 'method="post" action="db_search.php" name="db_search">'

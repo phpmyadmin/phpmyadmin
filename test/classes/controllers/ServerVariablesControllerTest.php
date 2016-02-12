@@ -45,7 +45,6 @@ class ServerVariablesControllerTest extends PMATestCase
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server'] = 1;
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
 

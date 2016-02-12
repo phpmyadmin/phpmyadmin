@@ -142,7 +142,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Cannot modify constant');
         }
 
-        $GLOBALS['pmaThemeImage'] = 'testImage';
         $GLOBALS['_FormDislayGroup'] = 1;
         $opts = array();
         $opts['errors'] = array('e1');

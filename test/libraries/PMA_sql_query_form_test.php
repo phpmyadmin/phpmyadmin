@@ -47,7 +47,6 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['text_dir'] = "text_dir";
 
         $GLOBALS['cfg']['GZipDump'] = false;

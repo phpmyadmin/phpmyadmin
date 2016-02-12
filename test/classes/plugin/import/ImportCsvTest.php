@@ -61,7 +61,6 @@ class ImportCsvTest extends PMATestCase
         $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Xml';
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
 
         //separator for csv

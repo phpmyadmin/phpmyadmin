@@ -57,7 +57,6 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['table'] = "table";
         $GLOBALS['url_params'] = array();
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
 

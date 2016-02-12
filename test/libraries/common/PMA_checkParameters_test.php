@@ -32,7 +32,6 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['cfg'] = array('ServerDefault' => 1);
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['text_dir'] = 'ltr';
     }
 
