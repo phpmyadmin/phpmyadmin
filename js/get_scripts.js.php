@@ -45,7 +45,7 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
         $script_name = 'js';
 
         $path = explode("/", $script);
-        foreach ($path as $index => $filename) {
+        foreach ($path as $filename) {
             // Allow alphanumeric, "." and "-" chars only, no files starting
             // with .
             if (preg_match("@^[\w][\w\.-]+$@", $filename)) {
