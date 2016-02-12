@@ -1166,12 +1166,12 @@ class PMA_Config
             return false;
         }
 
-        if (! file_exists($this->getSource())) {
+        if (! @file_exists($this->getSource())) {
             $this->source_mtime = 0;
             return false;
         }
 
-        if (! is_readable($this->getSource())) {
+        if (! @is_readable($this->getSource())) {
             // manually check if file is readable
             // might be bug #3059806 Supporting running from CIFS/Samba shares
 

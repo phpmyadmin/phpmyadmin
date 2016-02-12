@@ -450,7 +450,7 @@ if ($import_file != 'none' && ! $error) {
             $tmp_subdir = sys_get_temp_dir();
         }
         $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
-        if (is_writable($tmp_subdir)) {
+        if (@is_writable($tmp_subdir)) {
             $import_file_new = $tmp_subdir . DIRECTORY_SEPARATOR
                 . basename($import_file) . uniqid();
             if (move_uploaded_file($import_file, $import_file_new)) {
