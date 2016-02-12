@@ -69,6 +69,8 @@ phpMyAdmin - ChangeLog
 - issue #11946 Correctly store and report file upload errors
 - issue #11948 Avoid javascript errors on invalid location hash
 - issue #11950 Fix PHP warning on configuration errors
+- issue #11951 Silent errors on checking for writable folders
+- issue #11952 Silent warning on invalid file upload
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
