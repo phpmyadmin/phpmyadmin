@@ -64,6 +64,8 @@ if (isset($_REQUEST['console_bookmark_add'])) {
     }
 }
 
+$format = '';
+
 /**
  * Sets globals from $_POST
  */
