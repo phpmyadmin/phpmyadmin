@@ -115,7 +115,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $header->disableMenuAndConsole();
         $header->disableWarnings();
 
-        if (file_exists(CUSTOM_HEADER_FILE)) {
+        if (@file_exists(CUSTOM_HEADER_FILE)) {
             include CUSTOM_HEADER_FILE;
         }
         echo '
@@ -263,7 +263,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
         echo '</div>';
-        if (file_exists(CUSTOM_FOOTER_FILE)) {
+        if (@file_exists(CUSTOM_FOOTER_FILE)) {
             include CUSTOM_FOOTER_FILE;
         }
         if (! defined('TESTSUITE')) {

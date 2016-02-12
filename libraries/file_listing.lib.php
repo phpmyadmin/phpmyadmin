@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getDirContent($dir, $expression = '')
 {
-    if (!file_exists($dir) || !($handle = @opendir($dir))) {
+    if (!@file_exists($dir) || !($handle = @opendir($dir))) {
         return false;
     }
 
