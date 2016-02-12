@@ -22,7 +22,7 @@ function Swekey_Auth_check()
         $_SESSION['SWEKEY'] = array();
     }
 
-    $_SESSION['SWEKEY']['ENABLED'] = (! empty($confFile) && file_exists($confFile));
+    $_SESSION['SWEKEY']['ENABLED'] = (! empty($confFile) && @file_exists($confFile));
 
     // Load the swekey.conf file the first time
     if ($_SESSION['SWEKEY']['ENABLED']
@@ -167,7 +167,7 @@ function Swekey_Auth_error()
         //            echo "<!-- exists -->\n";
     }
 
-    if (file_exists($caFile)) {
+    if (@file_exists($caFile)) {
         Swekey_SetCAFile($caFile);
     } elseif (! empty($caFile)
         && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")
