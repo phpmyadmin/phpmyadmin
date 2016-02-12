@@ -31,15 +31,17 @@ class FilesTest extends PHPUnit_Framework_TestCase
 
     public function testJsMessages()
     {
-        ob_start();
         $GLOBALS['pmaThemeImage'] = '';
         $cfg = array(
             'AllowUserDropDatabase' => true,
             'GridEditing' => 'click',
+            'OBGzip' => false,
+            'ServerDefault' => 1,
         );
+        $GLOBALS['cfg'] = $cfg;
         require 'js/messages.php';
-        $out = ob_get_contents();
-        ob_end_clean();
+        $buffer->stop();
+        $out = $buffer->getContents();
         $this->assertContains('var PMA_messages = new Array();', $out);
     }
 
