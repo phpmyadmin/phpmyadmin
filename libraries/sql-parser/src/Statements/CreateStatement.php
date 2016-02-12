@@ -342,9 +342,8 @@ class CreateStatement extends Statement
             $parser,
             $list,
             array(
-                'noAlias' => true,
-                'noBrackets' => true,
-                'skipColumn' => true,
+                'parseField' => 'table',
+                'breakOnAlias' => true,
             )
         );
 
@@ -538,9 +537,8 @@ class CreateStatement extends Statement
                 $parser,
                 $list,
                 array(
-                    'noAlias' => true,
-                    'noBrackets' => true,
-                    'skipColumn' => true,
+                    'parseField' => 'table',
+                    'breakOnAlias' => true,
                 )
             );
             ++$list->idx;
