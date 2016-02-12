@@ -26,13 +26,8 @@ register_shutdown_function(
 );
 
 // Get the data for the sprites, if it's available
-if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
-    include $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
-}
-$sprites = array();
-if (function_exists('PMA_sprites')) {
-    $sprites = PMA_sprites();
-}
+$sprites = $_SESSION['PMA_Theme']->getSpriteData();
+
 // We only need the keys from the array of sprites data,
 // since they contain the (partial) class names
 $keys = array();

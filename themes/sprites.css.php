@@ -11,10 +11,11 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     exit();
 }
 
-$bg = $theme->getImgPath() . 'sprites.png?v=' . urlencode(PMA_VERSION);
+$sprites = $theme->getSpriteData();
 /* Check if there is a valid data file for sprites */
-if (is_readable($theme->getPath() . '/sprites.lib.php')) {
+if (count($sprites) > 0) {
 
+    $bg = $theme->getImgPath() . 'sprites.png?v=' . urlencode(PMA_VERSION);
     ?>
     /* Icon sprites */
     .icon {
@@ -29,11 +30,6 @@ if (is_readable($theme->getPath() . '/sprites.lib.php')) {
     }
     <?php
 
-    $sprites = array();
-    include_once $theme->getPath() . '/sprites.lib.php';
-    if (function_exists('PMA_sprites')) {
-        $sprites = PMA_sprites();
-    }
     $template = ".ic_%s { background-position: 0 -%upx !important;%s%s }\n";
     foreach ($sprites as $name => $data) {
         // generate the CSS code for each icon
