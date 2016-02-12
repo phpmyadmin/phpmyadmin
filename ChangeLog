@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue #11677 sql-parser and php-gettext collide.
 - issue #11920 Can't disable backquotes in export
 - issue #11911 Inserts via tbl_change.php in VARBINARY columns does not allow using HEX() and MD5()
+- issue #11939 Correct content type for uploaded error reports
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
