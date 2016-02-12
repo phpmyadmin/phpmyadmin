@@ -418,34 +418,33 @@ class Error extends Message
      */
     public static function relPath($dest)
     {
-        $dest = realpath($dest);
+        $dest = @realpath($dest);
 
-        if (substr(PHP_OS, 0, 3) == 'WIN') {
-            $separator = '\\';
-        } else {
-            $separator = '/';
+        /* Probably affected by open_basedir */
+        if ($dest === FALSE) {
+            return $dest;
         }
 
         $Ahere = explode(
-            $separator,
-            realpath(__DIR__ . $separator . '..')
+            PATH_SEPARATOR,
+            realpath(__DIR__ . PATH_SEPARATOR . '..')
         );
-        $Adest = explode($separator, $dest);
+        $Adest = explode(PATH_SEPARATOR, $dest);
 
         $result = '.';
         // && count ($Adest)>0 && count($Ahere)>0 )
-        while (implode($separator, $Adest) != implode($separator, $Ahere)) {
+        while (implode(PATH_SEPARATOR, $Adest) != implode(PATH_SEPARATOR, $Ahere)) {
             if (count($Ahere) > count($Adest)) {
                 array_pop($Ahere);
-                $result .= $separator . '..';
+                $result .= PATH_SEPARATOR . '..';
             } else {
                 array_pop($Adest);
             }
         }
-        $path = $result . str_replace(implode($separator, $Adest), '', $dest);
+        $path = $result . str_replace(implode(PATH_SEPARATOR, $Adest), '', $dest);
         return str_replace(
-            $separator . $separator,
-            $separator,
+            PATH_SEPARATOR . PATH_SEPARATOR,
+            PATH_SEPARATOR,
             $path
         );
     }
