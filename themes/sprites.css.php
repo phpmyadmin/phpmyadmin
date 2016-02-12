@@ -11,9 +11,9 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     exit();
 }
 
-$bg = $_SESSION['PMA_Theme']->getImgPath() . 'sprites.png?v=' . urlencode(PMA_VERSION);
+$bg = $theme->getImgPath() . 'sprites.png?v=' . urlencode(PMA_VERSION);
 /* Check if there is a valid data file for sprites */
-if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
+if (is_readable($theme->getPath() . '/sprites.lib.php')) {
 
     ?>
     /* Icon sprites */
@@ -29,7 +29,7 @@ if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
     }
     <?php
 
-    include_once $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
+    include_once $theme->getPath() . '/sprites.lib.php';
     $sprites = array();
     if (function_exists('PMA_sprites')) {
         $sprites = PMA_sprites();

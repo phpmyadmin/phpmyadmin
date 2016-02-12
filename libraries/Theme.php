@@ -365,6 +365,7 @@ class Theme
             }
         }
 
+        $theme = $this;
         include './themes/sprites.css.php';
 
         return $success;
