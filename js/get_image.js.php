@@ -6,24 +6,29 @@
  *
  * @package PhpMyAdmin
  */
-chdir('..');
 
-// Send correct type:
-header('Content-Type: text/javascript; charset=UTF-8');
-header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+if (!defined('TESTSUITE')) {
+    chdir('..');
 
-// Avoid loading the full common.inc.php because this would add many
-// non-js-compatible stuff like DOCTYPE
-define('PMA_MINIMUM_COMMON', true);
-require_once './libraries/common.inc.php';
+    // Send correct type:
+    header('Content-Type: text/javascript; charset=UTF-8');
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+
+    // Avoid loading the full common.inc.php because this would add many
+    // non-js-compatible stuff like DOCTYPE
+    define('PMA_MINIMUM_COMMON', true);
+    require_once './libraries/common.inc.php';
+}
 
 $buffer = PMA\libraries\OutputBuffering::getInstance();
 $buffer->start();
-register_shutdown_function(
-    function () {
-        echo PMA\libraries\OutputBuffering::getInstance()->getContents();
-    }
-);
+if (!defined('TESTSUITE')) {
+    register_shutdown_function(
+        function () {
+            echo PMA\libraries\OutputBuffering::getInstance()->getContents();
+        }
+    );
+}
 
 // Get the data for the sprites, if it's available
 $sprites = $_SESSION['PMA_Theme']->getSpriteData();
