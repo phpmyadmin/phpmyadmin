@@ -412,39 +412,39 @@ class Error extends Message
      * prevent path disclosure in error message,
      * and make users feel safe to submit error reports
      *
-     * @param string $dest path to be shorten
+     * @param string $path path to be shorten
      *
      * @return string shortened path
      */
-    public static function relPath($dest)
+    public static function relPath($path)
     {
-        $dest = @realpath($dest);
+        $dest = @realpath($path);
 
         /* Probably affected by open_basedir */
         if ($dest === FALSE) {
-            return $dest;
+            return $path;
         }
 
         $Ahere = explode(
-            PATH_SEPARATOR,
-            realpath(__DIR__ . PATH_SEPARATOR . '..')
+            DIRECTORY_SEPARATOR,
+            realpath(__DIR__ . DIRECTORY_SEPARATOR . '..')
         );
-        $Adest = explode(PATH_SEPARATOR, $dest);
+        $Adest = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
         // && count ($Adest)>0 && count($Ahere)>0 )
-        while (implode(PATH_SEPARATOR, $Adest) != implode(PATH_SEPARATOR, $Ahere)) {
+        while (implode(DIRECTORY_SEPARATOR, $Adest) != implode(DIRECTORY_SEPARATOR, $Ahere)) {
             if (count($Ahere) > count($Adest)) {
                 array_pop($Ahere);
-                $result .= PATH_SEPARATOR . '..';
+                $result .= DIRECTORY_SEPARATOR . '..';
             } else {
                 array_pop($Adest);
             }
         }
-        $path = $result . str_replace(implode(PATH_SEPARATOR, $Adest), '', $dest);
+        $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $Adest), '', $dest);
         return str_replace(
-            PATH_SEPARATOR . PATH_SEPARATOR,
-            PATH_SEPARATOR,
+            DIRECTORY_SEPARATOR . PATH_SEPARATOR,
+            DIRECTORY_SEPARATOR,
             $path
         );
     }
