@@ -774,3 +774,21 @@ are always ways to make your installation more secure:
 * If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.
+
+Known issues
+++++++++++++
+
+Users with column-specific privileges are unable to "Browse"
+------------------------------------------------------------
+
+If a user has only column-specific privileges on some (but not all) columns in a table, "Browse"
+will fail with an error message.
+
+As a workaround, a bookmarked query with the same name as the table can be created, this will
+run when using the "Browse" link instead. `Issue 11922 <https://github.com/phpmyadmin/phpmyadmin/issues/11922>`_.
+
+Trouble logging back in after logging out using 'http' authentication
+----------------------------------------------------------------------
+
+When using the 'http' ``auth_type``, it can be impossible to log back in (when the logout comes
+manually or after a period of inactivity). `Issue 11898 <https://github.com/phpmyadmin/phpmyadmin/issues/11898>`_.
