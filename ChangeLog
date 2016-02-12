@@ -66,6 +66,7 @@ phpMyAdmin - ChangeLog
 - issue #11939 Correct content type for uploaded error reports
 - issue #11940 Silent errors from checking local documentation
 - issue #11944 Fixed error on servers with disabled php_uname
+- issue #11946 Correctly store and report file upload errors
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3

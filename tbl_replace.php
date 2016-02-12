@@ -244,7 +244,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         }
 
         if ($file_to_insert->isError()) {
-            $message .= $file_to_insert->getError();
+            $insert_errors[] = $file_to_insert->getError();
         }
         // delete $file_to_insert temporary variable
         $file_to_insert->cleanUp();
