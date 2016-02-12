@@ -431,7 +431,12 @@ class PMA_Error extends PMA_Message
      */
     public static function relPath($dest)
     {
-        $dest = realpath($dest);
+        $dest = @realpath($dest);
+
+        /* Probably affected by open_basedir */
+        if ($dest === FALSE) {
+            return $dest;
+        }
 
         $Ahere = explode(
             PATH_SEPARATOR,
