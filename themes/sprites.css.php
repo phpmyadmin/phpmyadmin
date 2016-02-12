@@ -29,8 +29,8 @@ if (is_readable($theme->getPath() . '/sprites.lib.php')) {
     }
     <?php
 
-    include_once $theme->getPath() . '/sprites.lib.php';
     $sprites = array();
+    include_once $theme->getPath() . '/sprites.lib.php';
     if (function_exists('PMA_sprites')) {
         $sprites = PMA_sprites();
     }
