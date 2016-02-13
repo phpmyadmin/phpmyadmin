@@ -444,6 +444,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         json_decode($_COOKIE['pma_auth-0'])['pma_pass'] = 'test';
 
+
         $this->object->authCheck();
 
         $this->assertFalse(
