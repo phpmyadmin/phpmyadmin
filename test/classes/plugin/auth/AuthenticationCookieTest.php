@@ -442,13 +442,13 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
         $GLOBALS['cfg']['Servers'] = array(1);
 
-        json_decode($_COOKIE['pma_auth-0'])['pma_pass'] = 'test';
+        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'test';
 
 
         $this->object->authCheck();
 
         $this->assertFalse(
-            isset($_COOKIE['pma_auth-0'])
+            isset($_COOKIE['pma_auth-'.$GLOBALS['server']])
         );
 
         // case 5
@@ -460,12 +460,12 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['server'] = 1;
 
-        json_decode($_COOKIE['pma_auth-1'])['pma_pass'] = 'test';
+        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'test';
 
         $this->object->authCheck();
 
         $this->assertFalse(
-            isset($_COOKIE['pma_auth-1'])
+            isset($_COOKIE['pma_auth-'.$GLOBALS['server']])
         );
 
         // case 6
@@ -498,7 +498,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertFalse(
-            isset($_COOKIE['pma_auth-1'])
+            isset($_COOKIE['pma_auth-'.$GLOBALS['server']])
         );
 
         // case 7
@@ -506,8 +506,7 @@ class AuthenticationCookieTest extends PMATestCase
         $_REQUEST['pma_username'] = '';
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
-        json_decode($_COOKIE['pma_data'])['pma_User-1'] = '';
-        json_decode($_COOKIE['pma_auth-1'])['pma_iv'] = base64_encode('testiv09testiv09');
+        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server1']])['pma_iv'] = base64_encode('testiv09testiv09');
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -523,8 +522,8 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         json_decode($_COOKIE['pma_data'])['pma_User-1'] = 'pmaUser1';
-        json_decode($_COOKIE['pma_auth-1'])['pma_iv'] = base64_encode('testiv09testiv09');
-        json_decode($_COOKIE['pma_auth-1'])['pma_pass'] = '';
+        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'] = base64_encode('testiv09testiv09');
+        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = '';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
