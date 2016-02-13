@@ -43,9 +43,7 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $cfg['ServerDefault'] = 1;
 
         $GLOBALS['PMA_Types'] = new TypesMySQL();
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
 
     }
 

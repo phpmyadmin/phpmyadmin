@@ -142,8 +142,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Cannot modify constant');
         }
 
-        $_SESSION['PMA_Theme'] = new Theme();
-        $GLOBALS['pmaThemeImage'] = 'testImage';
         $GLOBALS['_FormDislayGroup'] = 1;
         $opts = array();
         $opts['errors'] = array('e1');
@@ -174,8 +172,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<img src="testImageb_help.png" title="Documentation" ' .
-            'alt="Documentation" /',
+            '<img src="themes/dot.gif" title="Documentation" ' .
+            'alt="Documentation" class="icon ic_b_help" /',
             $result
         );
 

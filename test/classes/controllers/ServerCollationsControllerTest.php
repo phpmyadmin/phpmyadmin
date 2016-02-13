@@ -25,7 +25,6 @@ $GLOBALS['cfg']['Server'] = array(
 );
 //$_SESSION
 
-$_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
 
 require_once 'libraries/url_generating.lib.php';
@@ -59,7 +58,6 @@ class ServerCollationsControllerTest extends PMATestCase
         //$GLOBALS
         $GLOBALS['is_ajax_request'] = true;
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
     }
 
     /**

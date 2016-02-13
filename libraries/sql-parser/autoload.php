@@ -63,6 +63,12 @@ class AutoloaderInit
     }
 }
 
+// php-gettext is used to translate error messages.
+// This must be included before any class of the parser is loaded because
+// if there is no `__` function defined, the library defines a dummy one
+// in `common.php`.
+require_once './libraries/php-gettext/gettext.inc';
+
 // Initializing the autoloader.
 return AutoloaderInit::getLoader(
     array(

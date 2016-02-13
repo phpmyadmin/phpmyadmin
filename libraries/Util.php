@@ -192,14 +192,7 @@ class Util
         // If it's the first time this function is called
         if (! isset($sprites)) {
             // Try to load the list of sprites
-            $sprite_file = $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
-            if (is_readable($sprite_file)) {
-                include_once $sprite_file;
-                $sprites = PMA_sprites();
-            } else {
-                // No sprites are available for this theme
-                $sprites = array();
-            }
+            $sprites = $_SESSION['PMA_Theme']->getSpriteData();
         }
 
         // Check if we have the requested image as a sprite
@@ -432,18 +425,23 @@ class Util
     /**
      * Displays a link to the documentation as an icon
      *
-     * @param string $link   documentation link
-     * @param string $target optional link target
+     * @param string  $link   documentation link
+     * @param string  $target optional link target
+     * @param boolean $bbcode optional flag indicating whether to output bbcode
      *
      * @return string the html link
      *
      * @access public
      */
-    public static function showDocLink($link, $target = 'documentation')
+    public static function showDocLink($link, $target = 'documentation', $bbcode = false)
     {
-        return '<a href="' . $link . '" target="' . $target . '">'
-            . self::getImage('b_help.png', __('Documentation'))
-            . '</a>';
+        if($bbcode){
+            return "[a@$link@$target][dochelpicon][/a]";
+        }else{
+            return '<a href="' . $link . '" target="' . $target . '">'
+                . self::getImage('b_help.png', __('Documentation'))
+                . '</a>';
+        }
     } // end of the 'showDocLink()' function
 
     /**
@@ -534,7 +532,7 @@ class Util
         if (defined('TESTSUITE')) {
             /* Provide consistent URL for testsuite */
             return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
-        } elseif (file_exists('doc/html/index.html')) {
+        } elseif (@file_exists('doc/html/index.html')) {
             if (defined('PMA_SETUP')) {
                 return '../doc/html/' . $url;
             } else {
@@ -549,16 +547,17 @@ class Util
     /**
      * Displays a link to the phpMyAdmin documentation
      *
-     * @param string $page   Page in documentation
-     * @param string $anchor Optional anchor in page
+     * @param string  $page   Page in documentation
+     * @param string  $anchor Optional anchor in page
+     * @param boolean $bbcode Optional flag indicating whether to output bbcode
      *
      * @return string  the html link
      *
      * @access  public
      */
-    public static function showDocu($page, $anchor = '')
+    public static function showDocu($page, $anchor = '', $bbcode = false)
     {
-        return self::showDocLink(self::getDocuLink($page, $anchor));
+        return self::showDocLink(self::getDocuLink($page, $anchor), 'documentation', $bbcode);
     } // end of the 'showDocu()' function
 
     /**
@@ -2180,8 +2179,8 @@ class Util
                 $error_message .= $reported_script_name
                     . ': ' . __('Missing parameter:') . ' '
                     . $param
-                    . self::showDocu('faq', 'faqmissingparameters')
-                    . '<br />';
+                    . self::showDocu('faq', 'faqmissingparameters',true)
+                    . '[br]';
                 $found_error = true;
             }
         }

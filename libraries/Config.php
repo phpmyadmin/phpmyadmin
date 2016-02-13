@@ -7,12 +7,7 @@
  */
 namespace PMA\libraries;
 
-/**
- * Load vendor configuration.
- */
 use DirectoryIterator;
-
-require_once './libraries/vendor_config.php';
 
 /**
  * Indication for error handler (see end of this file).
@@ -106,7 +101,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.6.0-dev');
+        $this->set('PMA_VERSION', '4.7.0-dev');
         /**
          * @deprecated
          */
@@ -768,7 +763,7 @@ class Config
     public function loadDefaults()
     {
         $cfg = array();
-        if (! file_exists($this->default_source)) {
+        if (! @file_exists($this->default_source)) {
             $this->error_config_default_file = true;
             return false;
         }
@@ -1118,12 +1113,12 @@ class Config
             return false;
         }
 
-        if (! file_exists($this->getSource())) {
+        if (! @file_exists($this->getSource())) {
             $this->source_mtime = 0;
             return false;
         }
 
-        if (! is_readable($this->getSource())) {
+        if (! @is_readable($this->getSource())) {
             // manually check if file is readable
             // might be bug #3059806 Supporting running from CIFS/Samba shares
 
@@ -1400,6 +1395,20 @@ class Config
 
         $cookie_path = $parsed_url['path'];
 
+        /* Remove filename */
+        if (substr($cookie_path, -4) == '.php') {
+            $cookie_path = dirname($cookie_path);
+        }
+
+        /* Remove extra path from javascript calls */
+        if (defined('PMA_PATH_TO_BASEDIR')) {
+            $cookie_path = dirname($cookie_path);
+        }
+
+        if (substr($cookie_path, -1) != '/') {
+            $cookie_path = $cookie_path . '/';
+        }
+
         return $cookie_path;
     }
 
@@ -1423,7 +1432,6 @@ class Config
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',
-            'PMA_IS_IIS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',

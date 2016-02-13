@@ -67,6 +67,11 @@ if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
 define('PHPMYADMIN', true);
 
 /**
+ * Load vendor configuration.
+ */
+require_once './libraries/vendor_config.php';
+
+/**
  * Activate autoloader
  */
 require_once './libraries/autoloader.php';
@@ -146,6 +151,20 @@ foreach (get_defined_vars() as $key => $value) {
     }
 }
 unset($key, $value, $variables_whitelist);
+
+/**
+ * @global boolean $GLOBALS['is_ajax_request']
+ * @todo should this be moved to the variables init section above?
+ *
+ * Check if the current request is an AJAX request, and set is_ajax_request
+ * accordingly.  Suppress headers, footers and unnecessary output if set to
+ * true
+ */
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+    $GLOBALS['is_ajax_request'] = true;
+} else {
+    $GLOBALS['is_ajax_request'] = false;
+}
 
 
 /**
@@ -987,20 +1006,6 @@ $GLOBALS['PMA_Config']->set('default_server', '');
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
-
-/**
- * @global boolean $GLOBALS['is_ajax_request']
- * @todo should this be moved to the variables init section above?
- *
- * Check if the current request is an AJAX request, and set is_ajax_request
- * accordingly.  Suppress headers, footers and unnecessary output if set to
- * true
- */
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    $GLOBALS['is_ajax_request'] = true;
-} else {
-    $GLOBALS['is_ajax_request'] = false;
-}
 
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
     PMA_fatalError(__("GLOBALS overwrite attempt"));

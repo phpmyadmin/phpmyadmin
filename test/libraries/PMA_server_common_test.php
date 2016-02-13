@@ -32,7 +32,6 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**

@@ -626,7 +626,6 @@ class ConfigTest extends PMATestCase
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',
-            'PMA_IS_IIS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
@@ -663,6 +662,10 @@ class ConfigTest extends PMATestCase
     public function cookieUris()
     {
         return array(
+            array(
+                '/foo/bar/phpmyadmin/index.php',
+                '/foo/bar/phpmyadmin/',
+            ),
             array(
                 '/foo/bar/phpmyadmin/',
                 '/foo/bar/phpmyadmin/',
@@ -768,7 +771,6 @@ class ConfigTest extends PMATestCase
     public function testGetThemeUniqueValue()
     {
 
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
         $partial_sum = (
             PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +

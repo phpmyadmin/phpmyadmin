@@ -365,9 +365,32 @@ class Theme
             }
         }
 
+        $theme = $this;
         include './themes/sprites.css.php';
 
         return $success;
+    }
+
+    /**
+     * Loads sprites data
+     *
+     * @return array with sprites
+     */
+    public function getSpriteData()
+    {
+        $sprites = array();
+        $filename = $this->getPath() . '/sprites.lib.php';
+        if (is_readable($filename)) {
+
+            // This defines sprites array
+            include $filename;
+
+            // Backwards compatibility for themes from 4.6 and older
+            if (function_exists('PMA_sprites')) {
+                $sprites = PMA_sprites();
+            }
+        }
+        return $sprites;
     }
 
     /**

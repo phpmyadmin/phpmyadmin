@@ -44,8 +44,6 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['table'] = 'table';
         $this->object = new AuthenticationCookie();
 
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
