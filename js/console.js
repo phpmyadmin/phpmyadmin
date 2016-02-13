@@ -221,7 +221,7 @@ var PMA_console = {
                 break;
             /* jshint -W086 */// no break needed in default section
             default:
-                $.cookie('pma_console_mode', 'info');
+                $.cookie('console_info', JSON.stringify(console_info));
             case 'info':
             /* jshint +W086 */
                 PMA_console.info();

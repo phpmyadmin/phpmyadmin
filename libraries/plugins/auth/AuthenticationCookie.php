@@ -297,9 +297,9 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         if (defined('PMA_CLEAR_COOKIES')) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
+                $GLOBALS['PMA_Config']->removeCookie('pma_auth-' . $key);
                 $GLOBALS['PMA_Config']->removeCookie('pmaServer-' . $key);
-                $GLOBALS['PMA_Config']->removeCookie('pmaUser-' . $key);
+                $GLOBALS['PMA_Config']->removeCookie('pma_data');
             }
             return false;
         }
@@ -317,17 +317,17 @@ class AuthenticationCookie extends AuthenticationPlugin
             // -> delete password cookie(s)
             if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
                 foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                    $GLOBALS['PMA_Config']->removeCookie('pma_auth');
-                    if (isset($_COOKIE['pma_auth'])) {
-                        unset($_COOKIE['pma_auth']);
+                    $GLOBALS['PMA_Config']->removeCookie('pma_auth-'.$GLOBALS['server']);
+                    if (isset($_COOKIE['pma_auth-'.$GLOBALS['server']])) {
+                        unset($_COOKIE['pma_auth-'.$GLOBALS['server']]);
                     }
                 }
             } else {
                 $GLOBALS['PMA_Config']->removeCookie(
-                    'pma_auth'
+                    'pma_auth-'.$GLOBALS['server']
                 );
-                if (isset($_COOKIE['pma_auth'])) {
-                    unset($_COOKIE['pma_auth']);
+                if (isset($_COOKIE['pma_auth-'.$GLOBALS['server']])) {
+                    unset($_COOKIE['pma_auth-'.$GLOBALS['server']]);
                 }
             }
         }
@@ -406,7 +406,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // check cookies
         if (empty(json_decode($_COOKIE['pma_data'])['pmaUser-' . $GLOBALS['server']])
-            || empty(json_decode($_COOKIE['pma_auth'])['pma_iv'])
+            || empty(json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'])
         ) {
             return false;
         }
@@ -444,12 +444,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check password cookie
-        if (empty(json_decode($_COOKIE['pma_auth'])['pma_pass'])) {
+        if (empty(json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'])) {
             return false;
         }
 
         $GLOBALS['PHP_AUTH_PW'] = $this->cookieDecrypt(
-            json_decode($_COOKIE['pma_auth'])['pma_pass'],
+            json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'],
             $this->_getSessionEncryptionSecret()
         );
 
@@ -632,9 +632,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json( $this->cookieEncrypt(
                     ! empty($password) ? $password : "\xff(blank)",
                     $this->_getSessionEncryptionSecret()
-                ),'pma_pass',$this->pma_auth,'pma_auth',null);
+                ),'pma_pass',$this->pma_auth,'pma_auth-'.$GLOBALS['server'],null);
 
-             $GLOBALS['PMA_Config']->set_json_cookie('pma_auth',$this->pma_auth,null, $GLOBALS['cfg']['LoginCookieStore']);
+             $GLOBALS['PMA_Config']->set_json_cookie('pma_auth-'.$GLOBALS['server'],$this->pma_auth,null, $GLOBALS['cfg']['LoginCookieStore']);
 
         }
     }
@@ -754,7 +754,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         if (is_null($this->_cookie_iv)) {
             $this->_cookie_iv = base64_decode(
-                json_decode($_COOKIE['pma_auth'])['pma_iv'],
+                json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'],
                 true
             );
         }
@@ -813,7 +813,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
          if(isset($this->pma_auth)){
 
-            $this->pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json( base64_encode($this->_cookie_iv),'pma_iv',$this->pma_auth,'pma_auth');
+            $this->pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json( base64_encode($this->_cookie_iv),'pma_iv',$this->pma_auth,'pma_auth-'.$GLOBALS['server']);
 
         }
     }
