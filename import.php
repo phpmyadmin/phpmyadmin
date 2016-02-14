@@ -772,7 +772,12 @@ if ($go_sql) {
         ) = PMA_parseAnalyze($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
-
+        if(empty($analyzed_sql_results)){
+               $analyzed_sql_results['is_export']=' ';
+               $analyzed_sql_results['is_analyse']=' ';
+               $analyzed_sql_results['select_from']=' ';
+               $analyzed_sql_results['is_count']=' ';
+        }
         $html_output .= PMA_executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
             false, // is_gotofile
