@@ -487,11 +487,6 @@ class ConfigFile
      */
     public function getFilePath()
     {
-        // Load paths
-        if (!defined('SETUP_CONFIG_FILE')) {
-            include_once './libraries/vendor_config.php';
-        }
-
         return SETUP_CONFIG_FILE;
     }
 

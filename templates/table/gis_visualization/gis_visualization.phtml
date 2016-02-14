@@ -26,7 +26,6 @@
                     <?php endforeach; ?>
                 </select>
                 <input type="hidden" name="displayVisualization" value="redraw">
-                <?php if (! $GLOBALS['PMA_Config']->isHttps()): ?>
                     <tr>
                         <td class="choice" colspan="2">
                             <input type="checkbox"
@@ -40,7 +39,6 @@
                             </label>
                         </td>
                     </tr>
-                <?php endif; ?>
                 <?= PMA\libraries\Util::getStartAndNumberOfRowsPanel($sql_query); ?>
             </form>
 
@@ -75,9 +73,7 @@
         <script language="javascript" type="text/javascript">
             function drawOpenLayers()
             {
-                <?php if (! $GLOBALS['PMA_Config']->isHttps()): ?>
                     <?= $drawOl; ?>
-                <?php endif; ?>
             }
         </script>
     </fieldset>

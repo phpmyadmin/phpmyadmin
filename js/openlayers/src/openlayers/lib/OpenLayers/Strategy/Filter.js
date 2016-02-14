@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
@@ -45,15 +45,8 @@ OpenLayers.Strategy.Filter = OpenLayers.Class(OpenLayers.Strategy, {
      *
      * Parameters:
      * options - {Object} Optional object whose properties will be set on the
-     *     instance.  Strategy must be constructed with at least a <filter> 
-     *     property.
+     *     instance.
      */
-    initialize: function(options) {
-        OpenLayers.Strategy.prototype.initialize.apply(this, [options]);
-        if (!this.filter || !(this.filter instanceof OpenLayers.Filter)) {
-            throw new Error("Filter strategy must be constructed with a filter");
-        }
-    },
 
     /**
      * APIMethod: activate
@@ -102,7 +95,7 @@ OpenLayers.Strategy.Filter = OpenLayers.Class(OpenLayers.Strategy, {
      * Method: handleAdd
      */
     handleAdd: function(event) {
-        if (!this.caching) {
+        if (!this.caching && this.filter) {
             var features = event.features;
             event.features = [];
             var feature;
@@ -134,7 +127,7 @@ OpenLayers.Strategy.Filter = OpenLayers.Class(OpenLayers.Strategy, {
      *     added to the layer.  Others will be cached by the strategy.
      *
      * Parameters:
-     * filter - <OpenLayers.Filter> A filter for evaluating features.
+     * filter - {<OpenLayers.Filter>} A filter for evaluating features.
      */
     setFilter: function(filter) {
         this.filter = filter;
@@ -145,17 +138,19 @@ OpenLayers.Strategy.Filter = OpenLayers.Class(OpenLayers.Strategy, {
         // cache now contains features to remove from layer
         if (this.cache.length > 0) {
             this.caching = true;
-            this.layer.removeFeatures(this.cache.slice(), {silent: true});
+            this.layer.removeFeatures(this.cache.slice());
             this.caching = false;
         }
         // now look through previous cache for features to add to layer
         if (previousCache.length > 0) {
             var event = {features: previousCache};
             this.handleAdd(event);
-            // event has features to add to layer
-            this.caching = true;
-            this.layer.addFeatures(event.features, {silent: true});
-            this.caching = false;
+            if (event.features.length > 0) {
+                // event has features to add to layer
+                this.caching = true;
+                this.layer.addFeatures(event.features);
+                this.caching = false;
+            }
         }
     },
 

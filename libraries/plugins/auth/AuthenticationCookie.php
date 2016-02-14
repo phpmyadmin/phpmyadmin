@@ -101,7 +101,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $header->disableMenuAndConsole();
         $header->disableWarnings();
 
-        if (file_exists(CUSTOM_HEADER_FILE)) {
+        if (@file_exists(CUSTOM_HEADER_FILE)) {
             include CUSTOM_HEADER_FILE;
         }
         echo '
@@ -249,7 +249,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
         echo '</div>';
-        if (file_exists(CUSTOM_FOOTER_FILE)) {
+        if (@file_exists(CUSTOM_FOOTER_FILE)) {
             include CUSTOM_FOOTER_FILE;
         }
         if (! defined('TESTSUITE')) {
@@ -559,7 +559,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
 
             // URL where to go:
-            $redirect_url = $cfg['PmaAbsoluteUri'] . 'index.php';
+            $redirect_url = './index.php';
 
             // any parameters to pass?
             $url_params = array();
@@ -659,9 +659,11 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $conn_error = $this->getErrorMessage();
 
+        $response = Response::getInstance();
+
         // needed for PHP-CGI (not need for FastCGI or mod-php)
-        header('Cache-Control: no-store, no-cache, must-revalidate');
-        header('Pragma: no-cache');
+        $response->header('Cache-Control: no-store, no-cache, must-revalidate');
+        $response->header('Pragma: no-cache');
 
         $this->auth();
     }

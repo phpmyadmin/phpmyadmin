@@ -42,7 +42,6 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['CharEditing'] = '';
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
@@ -51,8 +50,6 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')

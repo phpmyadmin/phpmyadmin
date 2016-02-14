@@ -1,12 +1,13 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 
 /**
  * @requires OpenLayers/Control.js
  * @requires OpenLayers/Control/ArgParser.js
+ * @requires OpenLayers/Lang.js
  */
 
 /**
@@ -15,7 +16,7 @@
  * current map view. By default it is drawn in the lower right corner of the
  * map. The href is updated as the map is zoomed, panned and whilst layers
  * are switched.
- * `
+ * 
  * Inherits from:
  *  - <OpenLayers.Control>
  */
@@ -34,6 +35,16 @@ OpenLayers.Control.Permalink = OpenLayers.Class(OpenLayers.Control, {
      */
     element: null,
     
+    /** 
+     * APIProperty: anchor
+     * {Boolean} This option changes 3 things:
+     *     the character '#' is used in place of the character '?',
+     *     the window.href is updated if no element is provided.
+     *     When this option is set to true it's not recommend to provide
+     *     a base without provide an element.
+     */
+    anchor: false,
+
     /** 
      * APIProperty: base
      * {String}
@@ -58,24 +69,38 @@ OpenLayers.Control.Permalink = OpenLayers.Class(OpenLayers.Control, {
      * Parameters: 
      * element - {DOMElement} 
      * base - {String} 
-     * options - {Object} options to the control. 
+     * options - {Object} options to the control.
+     *
+     * Or for anchor:
+     * options - {Object} options to the control.
      */
     initialize: function(element, base, options) {
-        OpenLayers.Control.prototype.initialize.apply(this, [options]);
-        this.element = OpenLayers.Util.getElement(element);        
-        this.base = base || document.location.href;
+        if (element !== null && typeof element == 'object' && !OpenLayers.Util.isElement(element)) {
+            options = element;
+            this.base = document.location.href;
+            OpenLayers.Control.prototype.initialize.apply(this, [options]);
+            if (this.element != null) {
+                this.element = OpenLayers.Util.getElement(this.element);
+            }
+        }
+        else {
+            OpenLayers.Control.prototype.initialize.apply(this, [options]);
+            this.element = OpenLayers.Util.getElement(element);
+            this.base = base || document.location.href;
+        }
     },
-
+    
     /**
      * APIMethod: destroy
      */
     destroy: function()  {
-        if (this.element.parentNode == this.div) {
+        if (this.element && this.element.parentNode == this.div) {
             this.div.removeChild(this.element);
+            this.element = null;
         }
-        this.element = null;
-
-        this.map.events.unregister('moveend', this, this.updateLink);
+        if (this.map) {
+            this.map.events.unregister('moveend', this, this.updateLink);
+        }
 
         OpenLayers.Control.prototype.destroy.apply(this, arguments); 
     },
@@ -121,10 +146,9 @@ OpenLayers.Control.Permalink = OpenLayers.Class(OpenLayers.Control, {
     draw: function() {
         OpenLayers.Control.prototype.draw.apply(this, arguments);
           
-        if (!this.element) {
-            this.div.className = this.displayClass;
+        if (!this.element && !this.anchor) {
             this.element = document.createElement("a");
-            this.element.innerHTML = OpenLayers.i18n("permalink");
+            this.element.innerHTML = OpenLayers.i18n("Permalink");
             this.element.href="";
             this.div.appendChild(this.element);
         }
@@ -146,13 +170,26 @@ OpenLayers.Control.Permalink = OpenLayers.Class(OpenLayers.Control, {
      * Method: updateLink 
      */
     updateLink: function() {
+        var separator = this.anchor ? '#' : '?';
         var href = this.base;
-        if (href.indexOf('?') != -1) {
-            href = href.substring( 0, href.indexOf('?') );
+        var anchor = null;
+        if (href.indexOf("#") != -1 && this.anchor == false) {
+            anchor = href.substring( href.indexOf("#"), href.length);
         }
-
-        href += '?' + OpenLayers.Util.getParameterString(this.createParams());
-        this.element.href = href;
+        if (href.indexOf(separator) != -1) {
+            href = href.substring( 0, href.indexOf(separator) );
+        }
+        var splits = href.split("#");
+        href = splits[0] + separator+ OpenLayers.Util.getParameterString(this.createParams());
+        if (anchor) {
+            href += anchor;
+        }
+        if (this.anchor && !this.element) {
+            window.location.href = href;
+        }
+        else {
+            this.element.href = href;
+        }
     }, 
     
     /**

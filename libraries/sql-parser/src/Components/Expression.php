@@ -29,6 +29,15 @@ class Expression extends Component
 {
 
     /**
+     * List of allowed reserved keywords in expressions.
+     *
+     * @var array
+     */
+    private static $ALLOWED_KEYWORDS = array(
+        'AS' => 1, 'DUAL' => 1, 'NULL' => 1, 'REGEXP' => 1
+    );
+
+    /**
      * The name of this database.
      *
      * @var string
@@ -110,6 +119,31 @@ class Expression extends Component
     }
 
     /**
+     * Possible options:
+     *
+     *      `field`
+     *
+     *          First field to be filled.
+     *          If this is not specified, it takes the value of `parseField`.
+     *
+     *      `parseField`
+     *
+     *          Specifies the type of the field parsed. It may be `database`,
+     *          `table` or `column`. These expressions may not include
+     *          parentheses.
+     *
+     *      `breakOnAlias`
+     *
+     *          If not empty, breaks when the alias occurs (it is not included).
+     *
+     *      `breakOnParentheses`
+     *
+     *          If not empty, breaks when the first parentheses occurs.
+     *
+     *      `parenthesesDelimited`
+     *
+     *          If not empty, breaks after last parentheses occurred.
+     *
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -137,9 +171,9 @@ class Expression extends Component
         /**
          * Whether an alias is expected. Is 2 if `AS` keyword was found.
          *
-         * @var int $alias
+         * @var bool $alias
          */
-        $alias = 0;
+        $alias = false;
 
         /**
          * Counts brackets.
@@ -149,17 +183,20 @@ class Expression extends Component
         $brackets = 0;
 
         /**
-         * Keeps track of the previous token.
-         * Possible values:
-         *     string, if function was previously found;
-         *     true, if opening bracket was previously found;
-         *     null, in any other case.
+         * Keeps track of the last two previous tokens.
          *
-         * @var string|bool $prev
+         * @var Token[] $prev
          */
-        $prev = null;
+        $prev = array(null, null);
+
+        // When a field is parsed, no parentheses are expected.
+        if (!empty($options['parseField'])) {
+            $options['breakOnParentheses'] = true;
+            $options['field'] = $options['parseField'];
+        }
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
              *
@@ -173,59 +210,92 @@ class Expression extends Component
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
-                if (($isExpr) && (!$alias)) {
+            if (($token->type === Token::TYPE_WHITESPACE)
+                || ($token->type === Token::TYPE_COMMENT)
+            ) {
+                if ($isExpr) {
                     $ret->expr .= $token->token;
-                }
-                if (($alias === 0) && (empty($options['noAlias'])) && (!$isExpr) && (!$dot) && (!empty($ret->expr))) {
-                    $alias = 1;
                 }
                 continue;
             }
 
-            if (($token->type === Token::TYPE_KEYWORD)
-                && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
-                && ($token->value !== 'DUAL')
-                && ($token->value !== 'NULL')
-            ) {
-                // Keywords may be found only between brackets.
-                if ($brackets === 0) {
-                    if ((empty($options['noAlias'])) && ($token->value === 'AS')) {
-                        $alias = 2;
-                        continue;
-                    }
-                    if (!($token->flags & Token::FLAG_KEYWORD_FUNCTION)) {
+            if ($token->type === Token::TYPE_KEYWORD) {
+                if (($brackets > 0) && (empty($ret->subquery))
+                    && (!empty(Parser::$STATEMENT_PARSERS[$token->value]))
+                ) {
+                    // A `(` was previously found and this keyword is the
+                    // beginning of a statement, so this is a subquery.
+                    $ret->subquery = $token->value;
+                } elseif (($token->flags & Token::FLAG_KEYWORD_FUNCTION)
+                    && (empty($options['parseField']))
+                ) {
+                    $isExpr = true;
+                } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED)
+                    && ($brackets === 0)
+                ) {
+                    if (empty(self::$ALLOWED_KEYWORDS[$token->value])) {
+                        // A reserved keyword that is not allowed in the
+                        // expression was found so the expression must have
+                        // ended and a new clause is starting.
                         break;
                     }
-                } elseif ($prev === true) {
-                    if ((empty($ret->subquery) && (!empty(Parser::$STATEMENT_PARSERS[$token->value])))) {
-                        // A `(` was previously found and this keyword is the
-                        // beginning of a statement, so this is a subquery.
-                        $ret->subquery = $token->value;
+                    if ($token->value === 'AS') {
+                        if (!empty($options['breakOnAlias'])) {
+                            break;
+                        }
+                        if (!empty($ret->alias)) {
+                            $parser->error(
+                                __('An alias was previously found.'),
+                                $token
+                            );
+                            break;
+                        }
+                        $alias = true;
+                        continue;
                     }
+                    $isExpr = true;
                 }
             }
 
+            if (($token->type === Token::TYPE_NUMBER)
+                || ($token->type === Token::TYPE_BOOL)
+                || (($token->type === Token::TYPE_SYMBOL)
+                && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
+                || (($token->type === Token::TYPE_OPERATOR)
+                && ($token->value !== '.'))
+            ) {
+                if (!empty($options['parseField'])) {
+                    break;
+                }
+
+                // Numbers, booleans and operators (except dot) are usually part
+                // of expressions.
+                $isExpr = true;
+            }
+
             if ($token->type === Token::TYPE_OPERATOR) {
-                if ((!empty($options['noBrackets']))
+                if ((!empty($options['breakOnParentheses']))
                     && (($token->value === '(') || ($token->value === ')'))
                 ) {
+                    // No brackets were expected.
                     break;
                 }
                 if ($token->value === '(') {
                     ++$brackets;
-                    if ((empty($ret->function)) && ($prev !== null) && ($prev !== true)) {
-                        // A function name was previously found and now an open
-                        // bracket, so this is a function call.
-                        $ret->function = $prev;
+                    if ((empty($ret->function)) && ($prev[1] !== null)
+                        && (($prev[1]->type === Token::TYPE_NONE)
+                        || ($prev[1]->type === Token::TYPE_SYMBOL)
+                        || (($prev[1]->type === Token::TYPE_KEYWORD)
+                        && ($prev[1]->flags & Token::FLAG_KEYWORD_FUNCTION)))
+                    ) {
+                        $ret->function = $prev[1]->value;
                     }
-                    $isExpr = true;
                 } elseif ($token->value === ')') {
                     --$brackets;
                     if ($brackets === 0) {
-                        if (!empty($options['bracketsDelimited'])) {
-                            // The current token is the last brackets, the next
-                            // one will be outside.
+                        if (!empty($options['parenthesesDelimited'])) {
+                            // The current token is the last bracket, the next
+                            // one will be outside the expression.
                             $ret->expr .= $token->token;
                             ++$list->idx;
                             break;
@@ -236,109 +306,88 @@ class Expression extends Component
                         break;
                     }
                 } elseif ($token->value === ',') {
+                    // Expressions are comma-delimited.
                     if ($brackets === 0) {
                         break;
                     }
                 }
             }
 
-            if (($token->type === Token::TYPE_NUMBER) || ($token->type === Token::TYPE_BOOL)
-                || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
-                || (($token->type === Token::TYPE_OPERATOR)) && ($token->value !== '.')
-            ) {
-                // Numbers, booleans and operators are usually part of expressions.
-                $isExpr = true;
-            }
+            // Saving the previous tokens.
+            $prev[0] = $prev[1];
+            $prev[1] = $token;
 
             if ($alias) {
                 // An alias is expected (the keyword `AS` was previously found).
                 if (!empty($ret->alias)) {
                     $parser->error(__('An alias was previously found.'), $token);
+                    break;
                 }
                 $ret->alias = $token->value;
-                $alias = 0;
-            } else {
-                if (!$isExpr) {
-                    if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '.')) {
-                        // Found a `.` which means we expect a column name and
-                        // the column name we parsed is actually the table name
-                        // and the table name is actually a database name.
-                        if ((!empty($ret->database)) || ($dot)) {
-                            $parser->error(__('Unexpected dot.'), $token);
-                        }
-                        $ret->database = $ret->table;
-                        $ret->table = $ret->column;
-                        $ret->column = null;
-                        $dot = true;
-                    } else {
-                        // We found the name of a column (or table if column
-                        // field should be skipped; used to parse table names).
-                        $field = (!empty($options['skipColumn'])) ? 'table' : 'column';
-                        if (!empty($ret->$field)) {
-                            // No alias is expected.
-                            if (!empty($options['noAlias'])) {
-                                break;
-                            }
-
-                            // Parsing aliases without `AS` keyword and any
-                            // whitespace.
-                            // Example: SELECT 1`foo`
-                            if (($token->type === Token::TYPE_STRING)
-                                || (($token->type === Token::TYPE_SYMBOL)
-                                && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
-                            ) {
-                                if (!empty($ret->alias)) {
-                                    $parser->error(
-                                        __('An alias was previously found.'),
-                                        $token
-                                    );
-                                }
-                                $ret->alias = $token->value;
-                            }
-                        } else {
-                            $ret->$field = $token->value;
-                        }
-                        $dot = false;
+                $alias = false;
+            } elseif ($isExpr) {
+                // Handling aliases.
+                if (/* (empty($ret->alias)) && */ ($brackets === 0)
+                    && (($prev[0] === null)
+                    || ((($prev[0]->type !== Token::TYPE_OPERATOR)
+                    || ($prev[0]->token === ')'))
+                    && (($prev[0]->type !== Token::TYPE_KEYWORD)
+                    || (!($prev[0]->flags & Token::FLAG_KEYWORD_RESERVED)))))
+                    && (($prev[1]->type === Token::TYPE_STRING)
+                    || (($prev[1]->type === Token::TYPE_SYMBOL)
+                    && (!($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE)))
+                    || ($prev[1]->type === Token::TYPE_NONE))
+                ) {
+                    if (!empty($ret->alias)) {
+                        $parser->error(__('An alias was previously found.'), $token);
+                        break;
                     }
+                    $ret->alias = $prev[1]->value;
                 } else {
-                    // Parsing aliases without `AS` keyword.
-                    // Example: SELECT 'foo' `bar`
-                    if (($brackets === 0) && (empty($options['noAlias']))) {
-                        if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING)
-                            || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
-                        ) {
-                            if (!empty($ret->alias)) {
-                                $parser->error(
-                                    __('An alias was previously found.'),
-                                    $token
-                                );
-                            }
-                            $ret->alias = $token->value;
-                            continue;
+                    $ret->expr .= $token->token;
+                }
+            } elseif (!$isExpr) {
+                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '.')) {
+                    // Found a `.` which means we expect a column name and
+                    // the column name we parsed is actually the table name
+                    // and the table name is actually a database name.
+                    if ((!empty($ret->database)) || ($dot)) {
+                        $parser->error(__('Unexpected dot.'), $token);
+                    }
+                    $ret->database = $ret->table;
+                    $ret->table = $ret->column;
+                    $ret->column = null;
+                    $dot = true;
+                    $ret->expr .= $token->token;
+                } else {
+                    $field = empty($options['field']) ? 'column' : $options['field'];
+                    if (empty($ret->$field)) {
+                        $ret->$field = $token->value;
+                        $ret->expr .= $token->token;
+                        $dot = false;
+                    } else {
+                        // No alias is expected.
+                        if (!empty($options['breakOnAlias'])) {
+                            break;
                         }
+                        if (!empty($ret->alias)) {
+                            $parser->error(__('An alias was previously found.'), $token);
+                            break;
+                        }
+                        $ret->alias = $token->value;
                     }
                 }
-
-                $ret->expr .= $token->token;
-            }
-
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_FUNCTION)) {
-                $prev = strtoupper($token->value);
-            } elseif (($token->type === Token::TYPE_OPERATOR) || ($token->value === '(')) {
-                $prev = true;
-            } else {
-                $prev = null;
             }
         }
 
-        if ($alias === 2) {
+        if ($alias) {
             $parser->error(
                 __('An alias was expected.'),
                 $list->tokens[$list->idx - 1]
             );
         }
 
-        // Whitespaces might be added at the end.
+        // White-spaces might be added at the end.
         $ret->expr = trim($ret->expr);
 
         if (empty($ret->expr)) {

@@ -71,18 +71,20 @@ class AuthenticationHttp extends AuthenticationPlugin
         } else {
             $realm_message = $GLOBALS['cfg']['Server']['auth_http_realm'];
         }
+
+        $response = Response::getInstance();
+
         // remove non US-ASCII to respect RFC2616
         $realm_message = preg_replace('/[^\x20-\x7e]/i', '', $realm_message);
-        header('WWW-Authenticate: Basic realm="' . $realm_message . '"');
-        header('HTTP/1.0 401 Unauthorized');
+        $response->header('WWW-Authenticate: Basic realm="' . $realm_message . '"');
+        $response->header('HTTP/1.0 401 Unauthorized');
         if (php_sapi_name() !== 'cgi-fcgi') {
-            header('status: 401 Unauthorized');
+            $response->header('status: 401 Unauthorized');
         }
 
         /* HTML header */
-        $response = Response::getInstance();
-        $response->getFooter()
-            ->setMinimal();
+        $footer = $response->getFooter();
+        $footer->setMinimal();
         $header = $response->getHeader();
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();
@@ -99,7 +101,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         );
         $response->addHTML('</h3>');
 
-        if (file_exists(CUSTOM_FOOTER_FILE)) {
+        if (@file_exists(CUSTOM_FOOTER_FILE)) {
             include CUSTOM_FOOTER_FILE;
         }
 

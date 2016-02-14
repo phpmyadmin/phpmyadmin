@@ -183,7 +183,7 @@ function PMA_sendErrorReport($report)
             array(
                 'method'  => 'POST',
                 'content' => $data_string,
-                'header' => "Content-Type: multipart/form-data\r\n",
+                'header' => "Content-Type: application/json\r\n",
             )
         );
         $context = PMA\libraries\Util::handleContext($context);
@@ -205,7 +205,10 @@ function PMA_sendErrorReport($report)
     }
     $curl_handle = PMA\libraries\Util::configureCurl($curl_handle);
     curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
+    curl_setopt(
+        $curl_handle, CURLOPT_HTTPHEADER,
+        array('Expect:', 'Content-Type: application/json')
+    );
     curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
     curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
     $response = curl_exec($curl_handle);

@@ -16,46 +16,22 @@ OpenLayers.Lang["hr"] = OpenLayers.Util.applyDefaults({
 
     'unhandledRequest': "Nepodržani zahtjev ${statusText}",
 
-    'permalink': "Permalink",
+    'Permalink': "Permalink",
 
-    'overlays': "Overlays",
+    'Overlays': "Overlays",
 
-    'baseLayer': "Osnovna karta",
-
-    'sameProjection': "Pregledna karta radi jedino kao je u istoj projekciji kao i glava karta",
-
-    'readNotImplemented': "Čitanje nije implementirano.",
-
-    'writeNotImplemented': "Pisanje nije implementirano.",
+    'Base Layer': "Osnovna karta",
 
     'noFID': "Ne mogu ažurirati značajku za koju ne postoji FID.",
 
-    'errorLoadingGML': "Greška u učitavanju GML datoteke ${url}",
-
     'browserNotSupported': "Vaš preglednik ne podržava vektorsko renderiranje. Trenutno podržani rendereri su: ${renderers}",
-
-    'componentShouldBe': "addFeatures : komponenta bi trebala biti ${geomType}",
-
-    'getFeatureError': "getFeatureFromEvent je pozvao Layer bez renderera. Ovo obično znači da ste uništiili Layer, a ne neki Handler koji je povezan s njim.",
 
     'commitSuccess': "WFS Transakcija: USPJEŠNA ${response}",
 
     'commitFailed': "WFS Transakcija: NEUSPJEŠNA ${response}",
 
-    'scale': "Mjerilo = 1 : ${scaleDenom}",
+    'Scale = 1 : ${scaleDenom}': "Mjerilo = 1 : ${scaleDenom}",
 
-    'layerAlreadyAdded': "Pokušali ste dodati layer:  ${layerName} na kartu, ali je već dodan",
-
-    'methodDeprecated': "Ova metoda nije odobrena i biti će maknuta u 3.0. Koristite ${newMethod}.",
-
-    'boundsAddError': "Morate dati obje vrijednosti ,  x i y  da bi dodali funkciju.",
-
-    'lonlatAddError': "Morate dati obje vrijednosti , (lon i lat) da bi dodali funkciju.",
-
-    'pixelAddError': "Morate dati obje vrijednosti ,  x i y  da bi dodali funkciju.",
-
-    'unsupportedGeometryType': "Nepodržani tip geometrije: ${geomType}",
-
-    'pagePositionFailed': "OpenLayers.Util.pagePosition nije uspjelo: element sa id ${elemId} može biti krivo smješten."
+    'methodDeprecated': "Ova metoda nije odobrena i biti će maknuta u 3.0. Koristite ${newMethod}."
 
 });
