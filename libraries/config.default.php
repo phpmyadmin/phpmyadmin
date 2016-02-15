@@ -3133,3 +3133,10 @@ $cfg['MysqlMinVersion'] = array(
     'internal' => 50500,
     'human' => '5.5.0'
 );
+
+/**
+ * Disable shortcuts
+ *
+ * @global array $cfg['DisableShortcutKeys']
+ */
+$cfg['DisableShortcutKeys'] = false;
