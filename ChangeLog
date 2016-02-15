@@ -74,6 +74,7 @@ phpMyAdmin - ChangeLog
 - issue #11953 Do not fail getting filename with open_basedir limitations
 - issue #11956 unrecognized keyword interval
 - issue        Field names and aliases are being correctly parsed now.
+- issue #11959 Fix javascript error in setup
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
