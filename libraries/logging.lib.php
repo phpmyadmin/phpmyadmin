@@ -22,5 +22,11 @@ function PMA_logUser($user, $status = 'ok')
         apache_note('userID', $user);
         apache_note('userStatus', $status);
     }
+    if (function_exists('syslog')) {
+        @syslog(
+            LOG_AUTHPRIV,
+            'phpMyAdmin: ' . $user . ' (' . $status . ') from ' . $_SERVER['REMOTE_ADDR']
+        );
+    }
 }
 
