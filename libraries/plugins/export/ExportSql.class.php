@@ -1627,7 +1627,9 @@ class ExportSql extends ExportPlugin
                             $indexes_fulltext[] = $field->build($field);
                             unset($statement->fields[$key]);
                         } else if (empty($GLOBALS['sql_if_not_exists'])) {
-                            $indexes[] = $field->build($field);
+                            $indexes[] = str_replace(
+                                'COMMENT=\'', 'COMMENT \'', $field::build($field)
+                            );
                             unset($statement->fields[$key]);
                         }
                     }
