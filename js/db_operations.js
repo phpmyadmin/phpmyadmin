@@ -133,7 +133,7 @@ AJAX.registerOnload('db_operations.js', function () {
         var question = PMA_messages.strDropDatabaseStrongWarning + ' ';
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
-            'DROP DATABASE ' + escapeHtml(PMA_commonParams.get('db'))
+            'DROP DATABASE `' + escapeHtml(PMA_commonParams.get('db') + '`')
         );
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
