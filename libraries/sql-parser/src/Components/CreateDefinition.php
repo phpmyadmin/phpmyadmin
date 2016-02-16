@@ -55,7 +55,7 @@ class CreateDefinition extends Component
 
         // Generated columns options.
         'GENERATED ALWAYS'              => 8,
-        'AS'                            => array(9, 'expr', array('bracketsDelimited' => true)),
+        'AS'                            => array(9, 'expr', array('parenthesesDelimited' => true)),
         'VIRTUAL'                       => 10,
         'PERSISTENT'                    => 11,
         'STORED'                        => 11,

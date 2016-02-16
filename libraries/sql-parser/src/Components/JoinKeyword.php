@@ -128,7 +128,7 @@ class JoinKeyword extends Component
                     break;
                 }
             } elseif ($state === 1) {
-                $expr->expr = Expression::parse($parser, $list, array('skipColumn' => true));
+                $expr->expr = Expression::parse($parser, $list, array('field' => 'table'));
                 $state = 2;
             } elseif ($state === 2) {
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'ON')) {

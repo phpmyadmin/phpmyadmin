@@ -425,40 +425,39 @@ class PMA_Error extends PMA_Message
      * prevent path disclosure in error message,
      * and make users feel safe to submit error reports
      *
-     * @param string $dest path to be shorten
+     * @param string $path path to be shorten
      *
      * @return string shortened path
      */
-    public static function relPath($dest)
+    public static function relPath($path)
     {
-        $dest = realpath($dest);
+        $dest = @realpath($path);
 
-        if (substr(PHP_OS, 0, 3) == 'WIN') {
-            $separator = '\\';
-        } else {
-            $separator = '/';
+        /* Probably affected by open_basedir */
+        if ($dest === FALSE) {
+            return $path;
         }
 
         $Ahere = explode(
-            $separator,
-            realpath(__DIR__ . $separator . '..')
+            DIRECTORY_SEPARATOR,
+            realpath(__DIR__ . DIRECTORY_SEPARATOR . '..')
         );
-        $Adest = explode($separator, $dest);
+        $Adest = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
         // && count ($Adest)>0 && count($Ahere)>0 )
-        while (implode($separator, $Adest) != implode($separator, $Ahere)) {
+        while (implode(DIRECTORY_SEPARATOR, $Adest) != implode(DIRECTORY_SEPARATOR, $Ahere)) {
             if (count($Ahere) > count($Adest)) {
                 array_pop($Ahere);
-                $result .= $separator . '..';
+                $result .= DIRECTORY_SEPARATOR . '..';
             } else {
                 array_pop($Adest);
             }
         }
-        $path = $result . str_replace(implode($separator, $Adest), '', $dest);
+        $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $Adest), '', $dest);
         return str_replace(
-            $separator . $separator,
-            $separator,
+            DIRECTORY_SEPARATOR . PATH_SEPARATOR,
+            DIRECTORY_SEPARATOR,
             $path
         );
     }

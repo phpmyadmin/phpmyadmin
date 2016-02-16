@@ -454,7 +454,7 @@ function PMA_langList()
         $path = $GLOBALS['lang_path'] . '/' . $file . '/LC_MESSAGES/phpmyadmin.mo';
         if ($file != "."
             && $file != ".."
-            && file_exists($path)
+            && @file_exists($path)
         ) {
             $result[$file] = PMA_langDetails($file);
         }
