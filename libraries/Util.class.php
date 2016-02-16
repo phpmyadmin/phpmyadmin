@@ -4897,6 +4897,7 @@ class PMA_Util
                             'ENGINE' => '',
                             'TABLE_TYPE' => '',
                             'TABLE_ROWS' => 0,
+                            'TABLE_COMMENT' => '',
                         );
                     }
                 } // end while
