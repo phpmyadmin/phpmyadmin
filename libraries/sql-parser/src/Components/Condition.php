@@ -43,6 +43,7 @@ class Condition extends Component
         'EXISTS'                        => 1,
         'IF'                            => 1,
         'IN'                            => 1,
+        'INTERVAL'                      => 1,
         'IS'                            => 1,
         'LIKE'                          => 1,
         'MATCH'                         => 1,

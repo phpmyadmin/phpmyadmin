@@ -4856,30 +4856,6 @@ function PMA_ignorePhpErrors(clearPrevErrors){
 }
 
 /**
- * checks whether browser supports web storage
- *
- * @param type the type of storage i.e. localStorage or sessionStorage
- *
- * @returns bool
- */
-function isStorageSupported(type)
-{
-    try {
-        window[type].setItem('PMATest', 'test');
-        // Check whether key-value pair was set successfully
-        if (window[type].getItem('PMATest') === 'test') {
-            // Supported, remove test variable from storage
-            window[type].removeItem('PMATest');
-            return true;
-        }
-    } catch(error) {
-        // Not supported
-        PMA_ajaxShowMessage(PMA_messages.strNoLocalStorage, false);
-    }
-    return false;
-}
-
-/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function(){
