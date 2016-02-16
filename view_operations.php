@@ -19,6 +19,14 @@ $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 require_once 'libraries/operations.lib.php';
 
 /**
+ * Load JavaScript files
+ */
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('tbl_operations.js');
+
+/**
  * Runs common work
  */
 require './libraries/tbl_common.inc.php';
