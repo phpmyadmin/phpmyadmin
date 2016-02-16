@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
+use PMA\libraries\Response;
 
 /**
  *
@@ -22,7 +23,7 @@ require_once 'libraries/operations.lib.php';
 /**
  * Load JavaScript files
  */
-$response = PMA_Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_operations.js');
