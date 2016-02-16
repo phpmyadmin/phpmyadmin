@@ -23,6 +23,11 @@ class ThemeTest extends PMATestCase
     protected $object;
 
     /**
+     * @var backup for session theme
+     */
+    protected $backup;
+
+    /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
@@ -31,6 +36,7 @@ class ThemeTest extends PMATestCase
     protected function setUp()
     {
         $this->object = new Theme();
+        $this->backup = $_SESSION['PMA_Theme'];
         $_SESSION['PMA_Theme'] = $this->object;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -48,6 +54,7 @@ class ThemeTest extends PMATestCase
      */
     protected function tearDown()
     {
+        $_SESSION['PMA_Theme'] = $this->backup;
     }
 
     /**
@@ -140,6 +147,7 @@ class ThemeTest extends PMATestCase
         ob_end_clean();
         $this->assertTrue($ret);
         $this->assertContains('FILE: navigation.css.php', $out);
+        $this->assertContains('.ic_b_bookmark', $out);
     }
 
     /**

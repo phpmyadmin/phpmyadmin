@@ -31,7 +31,6 @@ class AdvisorTest extends PMATestCase
      */
     public function setup()
     {
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 1;
     }
 
