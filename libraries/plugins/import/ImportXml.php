@@ -16,15 +16,6 @@ use PMA\libraries\plugins\ImportPlugin;
 use SimpleXMLElement;
 
 /**
- * We need way to disable external XML entities processing.
- */
-if (!function_exists('libxml_disable_entity_loader')) {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
-/**
  * Handles the import for the XML format
  *
  * @package    PhpMyAdmin-Import
@@ -104,7 +95,7 @@ class ImportXml extends ImportPlugin
          * result in increased performance without the need to
          * alter the code in any way. It's basically a freebee.
          */
-        $xml = simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
+        $xml = @simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
 
         unset($buffer);
 
