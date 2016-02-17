@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 - issue #11880 Fixed rendering of missing extension error
 - issue #11923 Errors on Structure tab when user only has select access on certain columns
 - issue #11972 Missing documentation for $cfg['Servers'][$i]['favorite'] and $cfg['NumFavoriteTables']
+- issue #11907 Avoid displaying UPDATE query twice
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
