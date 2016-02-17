@@ -15,12 +15,11 @@ use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\plugins\export\PMA_ExportPdf;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
-use PMA\libraries\Util;
 
 /**
  * Skip the plugin if TCPDF is not available.
  */
-if (! Util::checkClass('TCPDF')) {
+if (! class_exists('TCPDF')) {
     $GLOBALS['skip_import'] = true;
     return;
 }

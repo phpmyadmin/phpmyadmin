@@ -8,7 +8,6 @@
 namespace PMA\libraries\navigation;
 
 use PMA\libraries\navigation\nodes\Node;
-use PMA\libraries\Util;
 
 /**
  * Node factory - instantiates Node objects or objects derived from the Node class
@@ -55,7 +54,7 @@ class NodeFactory
     {
         $class = sprintf(self::$_namespace, $class);
 
-        if (! Util::checkClass($class)) {
+        if (! class_exists($class)) {
             $class = sprintf(self::$_namespace, 'Node');
             trigger_error(
                 sprintf(

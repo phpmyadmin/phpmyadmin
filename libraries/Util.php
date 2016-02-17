@@ -14,7 +14,6 @@ use SqlParser\Parser;
 use SqlParser\Token;
 use stdClass;
 use SqlParser\Utils\Error as ParserError;
-use Composer;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -4983,20 +4982,4 @@ class Util
 
         return $result;
     }
-
-    /**
-     * Checks whether given class exists or can be auto loaded.
-     */
-    public static function checkClass($class)
-    {
-        if (class_exists($class)) {
-            return true;
-        }
-        $loader = new Composer\Autoload\ClassLoader();
-        if ($loader->loadClass($class)) {
-            return true;
-        }
-        return false;
-    }
 }
-

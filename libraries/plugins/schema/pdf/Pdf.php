@@ -13,7 +13,7 @@ use PMA\libraries\Util;
 /**
  * Skip the plugin if TCPDF is not available.
  */
-if (! Util::checkClass('TCPDF')) {
+if (! class_exists('TCPDF')) {
     $GLOBALS['skip_import'] = true;
     return;
 }
