@@ -41,6 +41,8 @@
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">.</directory>
             <exclude>
+                <!-- composer packages -->
+                <directory>vendor/</directory>
                 <!-- excluding the tests from the coverage -->
                 <directory>test/</directory>
                 <!-- we don't care about coverage of embedded libraries -->
