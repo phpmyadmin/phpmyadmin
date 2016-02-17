@@ -100,9 +100,11 @@ class ImportSql extends ImportPlugin
     /**
      * Handles the whole import logic
      *
+     * @param array &$sql_data 2-element array with sql data
+     *
      * @return void
      */
-    public function doImport()
+    public function doImport(&$sql_data = array())
     {
         global $error, $timeout_passed;
 
@@ -153,19 +155,19 @@ class ImportSql extends ImportPlugin
             }
 
             // Executing the query.
-            PMA_importRunQuery($statement, $statement);
+            PMA_importRunQuery($statement, $statement, $sql_data);
         }
 
         // Extracting remaining statements.
         while ((!$error) && (!$timeout_passed) && (!empty($bq->query))) {
             $statement = $bq->extract(true);
             if (!empty($statement)) {
-                PMA_importRunQuery($statement, $statement);
+                PMA_importRunQuery($statement, $statement, $sql_data);
             }
         }
 
         // Finishing.
-        PMA_importRunQuery('', '');
+        PMA_importRunQuery('', '', $sql_data);
     }
 
     /**
