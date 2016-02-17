@@ -670,9 +670,9 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
         htmlspecialchars($_POST['bkm_label'])
     );
 } elseif ($finished && ! $error) {
+    // Do not display the query with message, we do it separately
+    $display_query = ';';
     if ($import_type != 'query') {
-        // Do not display the query with message, we do it separately
-        $display_query = ';';
         $message = PMA\libraries\Message::success(
             '<em>'
             . _ngettext(
