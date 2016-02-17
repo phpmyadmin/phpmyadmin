@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-17 11:39+0100\n"
+"POT-Creation-Date: 2016-02-17 11:55+0100\n"
 "PO-Revision-Date: 2015-10-15 11:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1954,7 +1954,7 @@ msgstr "অনুসন্ধান বক্সটি লুকাও"
 msgid "Show query box"
 msgstr "অনুসন্ধান বক্সটি দেখাও"
 
-#: js/messages.php:409 libraries/Console.php:88 libraries/Console.php:217
+#: js/messages.php:409 libraries/Console.php:88 libraries/Console.php:199
 #: libraries/DisplayResults.php:3472 libraries/DisplayResults.php:4838
 #: libraries/Index.php:721 libraries/Util.php:732 libraries/Util.php:1242
 #: libraries/Util.php:3710 libraries/Util.php:3711
@@ -2725,7 +2725,7 @@ msgstr "টেবলের মন্তব্য"
 msgid "Hide arguments"
 msgstr "খোজাঁর ফলাফল লুকাও"
 
-#: js/messages.php:708 libraries/Console.php:324
+#: js/messages.php:708 libraries/Console.php:306
 msgid "Time taken:"
 msgstr ""
 
@@ -3179,21 +3179,21 @@ msgstr "কনফিগারেশন ফাইলে ভুল অনুমত
 msgid "Font size"
 msgstr "অক্ষরের আকার"
 
-#: libraries/Console.php:85 libraries/Console.php:213 libraries/Console.php:316
+#: libraries/Console.php:85 libraries/Console.php:195 libraries/Console.php:298
 msgid "Collapse"
 msgstr ""
 
-#: libraries/Console.php:86 libraries/Console.php:215 libraries/Console.php:317
+#: libraries/Console.php:86 libraries/Console.php:197 libraries/Console.php:299
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.php:87 libraries/Console.php:216
+#: libraries/Console.php:87 libraries/Console.php:198
 #, fuzzy
 #| msgid "subquery"
 msgid "Requery"
 msgstr "সহ-অনুসন্ধান"
 
-#: libraries/Console.php:91 libraries/Console.php:223 libraries/Menu.php:220
+#: libraries/Console.php:91 libraries/Console.php:205 libraries/Menu.php:220
 #: libraries/config/messages.inc.php:926 libraries/mult_submits.lib.php:334
 #: libraries/plugins/export/ExportHtmlword.php:149
 #: libraries/plugins/export/ExportOdt.php:197
@@ -3212,93 +3212,74 @@ msgid "Database"
 msgstr "ডাটাবেইজ"
 
 #: libraries/Console.php:100
-#, fuzzy, php-format
-#| msgid "Delete relation"
-msgid "Total %d bookmark"
-msgid_plural "Total %d bookmarks"
-msgstr[0] "সর্ম্পক মুছা"
-msgstr[1] "সর্ম্পক মুছা"
+#, php-format
+msgid "Showing %1$d bookmark (both private and shared)"
+msgid_plural "Showing %1$d bookmarks (both private and shared)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: libraries/Console.php:108
-msgid "private"
-msgstr ""
-
-#: libraries/Console.php:112 libraries/bookmark.lib.php:94
-msgid "shared"
-msgstr "উন্মুক্ত"
-
-#. l10n: First parameter will be replaced with the translation
-#. for Total and the number of bookmarks, second one with the
-#. translation for private and the third one, with the translation
-#. for shared
-#: libraries/Console.php:119
-#, fuzzy, php-format
-#| msgid "The bookmark has been deleted."
-msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "বুকর্মাকটি মুছা হয়েছে।"
-
-#: libraries/Console.php:125
+#: libraries/Console.php:107
 #, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.php:186
+#: libraries/Console.php:168
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "বর্তমান ভুলটি এড়িয়ে যাও"
 
-#: libraries/Console.php:218
+#: libraries/Console.php:200
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
 msgstr "SQL এর ব্যাখা"
 
-#: libraries/Console.php:219 libraries/Util.php:1328 libraries/sql.lib.php:228
+#: libraries/Console.php:201 libraries/Util.php:1328 libraries/sql.lib.php:228
 msgid "Profiling"
 msgstr "প্রোফাইলিং"
 
-#: libraries/Console.php:221
+#: libraries/Console.php:203
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
 msgstr "বুকর্মাক টেবল"
 
-#: libraries/Console.php:222
+#: libraries/Console.php:204
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "অনুসন্ধান ক্যাশ"
 
-#: libraries/Console.php:226
+#: libraries/Console.php:208
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "অনুসন্ধানের সম্পাদনের সময়"
 
-#: libraries/Console.php:233
+#: libraries/Console.php:215
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "SQL অনুসন্ধান বক্স"
 
-#: libraries/Console.php:234
+#: libraries/Console.php:216
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.php:237 libraries/sql_query_form.lib.php:244
+#: libraries/Console.php:219 libraries/sql_query_form.lib.php:244
 #: setup/frames/index.inc.php:300
 msgid "Clear"
 msgstr "পরিস্কার"
 
-#: libraries/Console.php:240
+#: libraries/Console.php:222
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "এসকিউএল ইতিহাস"
 
-#: libraries/Console.php:243 libraries/Console.php:373
+#: libraries/Console.php:225 libraries/Console.php:355
 #: libraries/DisplayResults.php:1711 libraries/import.lib.php:1268
 #: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:339
 #: libraries/plugins/export/ExportCodegen.php:84
@@ -3328,162 +3309,162 @@ msgstr "এসকিউএল ইতিহাস"
 msgid "Options"
 msgstr "অপশনস"
 
-#: libraries/Console.php:247 libraries/Console.php:335
+#: libraries/Console.php:229 libraries/Console.php:317
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "বুকর্মাক টেবল"
 
-#: libraries/Console.php:251 libraries/Console.php:289
+#: libraries/Console.php:233 libraries/Console.php:271
 #: libraries/config/messages.inc.php:99
 msgid "Debug SQL"
 msgstr "SQL ত্রুটিমুক্ত করন"
 
-#: libraries/Console.php:260
+#: libraries/Console.php:242
 #, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "সবগুলো নির্বাহ কর"
 
-#: libraries/Console.php:262
+#: libraries/Console.php:244
 #, fuzzy
 #| msgid "Execute every"
 msgid "Press Enter to execute query"
 msgstr "সবগুলো নির্বাহ কর"
 
-#: libraries/Console.php:280
+#: libraries/Console.php:262
 #, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
 msgstr "উর্ধ্ব মূখী"
 
-#: libraries/Console.php:283
+#: libraries/Console.php:265
 #, fuzzy
 #| msgid "Descending"
 msgid "descending"
 msgstr "অধ মুখী"
 
-#: libraries/Console.php:286
+#: libraries/Console.php:268
 #, fuzzy
 #| msgid "Order"
 msgid "Order:"
 msgstr "বিন্যাস"
 
-#: libraries/Console.php:292 templates/table/search/replace_preview.phtml:17
+#: libraries/Console.php:274 templates/table/search/replace_preview.phtml:17
 msgid "Count"
 msgstr "অংক"
 
-#: libraries/Console.php:295
+#: libraries/Console.php:277
 #, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
 msgstr "সবগুলো নির্বাহ কর"
 
-#: libraries/Console.php:298
+#: libraries/Console.php:280
 msgid "Time taken"
 msgstr ""
 
-#: libraries/Console.php:301
+#: libraries/Console.php:283
 #, fuzzy
 #| msgid "Order"
 msgid "Order by:"
 msgstr "বিন্যাস"
 
-#: libraries/Console.php:304
+#: libraries/Console.php:286
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL অনুসন্ধান"
 
-#: libraries/Console.php:307
+#: libraries/Console.php:289
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
 msgstr "SQL অনুসন্ধান"
 
-#: libraries/Console.php:318
+#: libraries/Console.php:300
 #, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
 msgstr "রং দেখাও"
 
-#: libraries/Console.php:320
+#: libraries/Console.php:302
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
 msgstr "ইনডেক্স প্যানেল"
 
-#: libraries/Console.php:322
+#: libraries/Console.php:304
 #, fuzzy
 #| msgid "Count"
 msgid "Count:"
 msgstr "অংক"
 
-#: libraries/Console.php:339 libraries/Util.php:1298
+#: libraries/Console.php:321 libraries/Util.php:1298
 #: libraries/config/messages.inc.php:898
 #: libraries/server_status_processes.lib.php:235
 #: libraries/server_status_variables.lib.php:39
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
-#: libraries/Console.php:342
+#: libraries/Console.php:324
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "এবং"
 
-#: libraries/Console.php:351
+#: libraries/Console.php:333
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.php:355
+#: libraries/Console.php:337
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "লেবেল:"
 
-#: libraries/Console.php:357
+#: libraries/Console.php:339
 #, fuzzy
 msgid "Target database"
 msgstr "ডাটাবে এ খুজুঁনSearch in database"
 
-#: libraries/Console.php:360
+#: libraries/Console.php:342
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.php:377
+#: libraries/Console.php:359
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "স্বাভাবিকে রিসেট কর"
 
-#: libraries/Console.php:381
+#: libraries/Console.php:363
 #, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
 msgstr "সবসময় ভুলের প্রতিবেদন পাঠাবে"
 
-#: libraries/Console.php:383
+#: libraries/Console.php:365
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL অনুসন্ধানের হিস্টোরী টেবল"
 
-#: libraries/Console.php:385
+#: libraries/Console.php:367
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/Console.php:388
+#: libraries/Console.php:370
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
 
-#: libraries/Console.php:392
+#: libraries/Console.php:374
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
@@ -5071,6 +5052,10 @@ msgstr "প্রতি ঘন্টায়"
 #: libraries/advisor.lib.php:29
 msgid "per day"
 msgstr "প্রতি দিন"
+
+#: libraries/bookmark.lib.php:94
+msgid "shared"
+msgstr "উন্মুক্ত"
 
 #: libraries/browse_foreigners.lib.php:133
 msgid "Search:"
@@ -17498,6 +17483,18 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Delete relation"
+#~ msgid "Total %d bookmark"
+#~ msgid_plural "Total %d bookmarks"
+#~ msgstr[0] "সর্ম্পক মুছা"
+#~ msgstr[1] "সর্ম্পক মুছা"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "%1$s, %2$s and %3$s bookmarks included"
+#~ msgstr "বুকর্মাকটি মুছা হয়েছে।"
 
 #~ msgid ""
 #~ "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "

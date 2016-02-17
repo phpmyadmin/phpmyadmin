@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-17 11:39+0100\n"
+"POT-Creation-Date: 2016-02-17 11:55+0100\n"
 "PO-Revision-Date: 2016-02-08 12:25+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
@@ -1861,7 +1861,7 @@ msgstr "Sorgu kutusunu gizle"
 msgid "Show query box"
 msgstr "Sorgu kutusunu göster"
 
-#: js/messages.php:409 libraries/Console.php:88 libraries/Console.php:217
+#: js/messages.php:409 libraries/Console.php:88 libraries/Console.php:199
 #: libraries/DisplayResults.php:3472 libraries/DisplayResults.php:4838
 #: libraries/Index.php:721 libraries/Util.php:732 libraries/Util.php:1242
 #: libraries/Util.php:3710 libraries/Util.php:3711
@@ -2556,7 +2556,7 @@ msgstr "Bağımsız değişkenleri göster"
 msgid "Hide arguments"
 msgstr "Bağımsız değişkenleri gizle"
 
-#: js/messages.php:708 libraries/Console.php:324
+#: js/messages.php:708 libraries/Console.php:306
 msgid "Time taken:"
 msgstr "Aldığı süre:"
 
@@ -2983,19 +2983,19 @@ msgstr ""
 msgid "Font size"
 msgstr "Yazı tipi boyutu"
 
-#: libraries/Console.php:85 libraries/Console.php:213 libraries/Console.php:316
+#: libraries/Console.php:85 libraries/Console.php:195 libraries/Console.php:298
 msgid "Collapse"
 msgstr "Daralt"
 
-#: libraries/Console.php:86 libraries/Console.php:215 libraries/Console.php:317
+#: libraries/Console.php:86 libraries/Console.php:197 libraries/Console.php:299
 msgid "Expand"
 msgstr "Genişlet"
 
-#: libraries/Console.php:87 libraries/Console.php:216
+#: libraries/Console.php:87 libraries/Console.php:198
 msgid "Requery"
 msgstr "Yeniden sorgula"
 
-#: libraries/Console.php:91 libraries/Console.php:223 libraries/Menu.php:220
+#: libraries/Console.php:91 libraries/Console.php:205 libraries/Menu.php:220
 #: libraries/config/messages.inc.php:926 libraries/mult_submits.lib.php:334
 #: libraries/plugins/export/ExportHtmlword.php:149
 #: libraries/plugins/export/ExportOdt.php:197
@@ -3015,74 +3015,57 @@ msgstr "Veritabanı"
 
 #: libraries/Console.php:100
 #, php-format
-msgid "Total %d bookmark"
-msgid_plural "Total %d bookmarks"
-msgstr[0] "Toplam %d yer imi"
-msgstr[1] "Toplam %d yer imi"
+msgid "Showing %1$d bookmark (both private and shared)"
+msgid_plural "Showing %1$d bookmarks (both private and shared)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: libraries/Console.php:108
-msgid "private"
-msgstr "özel"
-
-#: libraries/Console.php:112 libraries/bookmark.lib.php:94
-msgid "shared"
-msgstr "paylaşılmış"
-
-#. l10n: First parameter will be replaced with the translation
-#. for Total and the number of bookmarks, second one with the
-#. translation for private and the third one, with the translation
-#. for shared
-#: libraries/Console.php:119
-#, php-format
-msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "%1$s, %2$s ve %3$s yer imleri dahil edildi"
-
-#: libraries/Console.php:125
+#: libraries/Console.php:107
 msgid "No bookmarks"
 msgstr "Yer imleri yok"
 
-#: libraries/Console.php:186
+#: libraries/Console.php:168
 msgid "During current session"
 msgstr "Şu anki oturum sırasında"
 
-#: libraries/Console.php:218
+#: libraries/Console.php:200
 msgid "Explain"
 msgstr "Açıkla"
 
-#: libraries/Console.php:219 libraries/Util.php:1328 libraries/sql.lib.php:228
+#: libraries/Console.php:201 libraries/Util.php:1328 libraries/sql.lib.php:228
 msgid "Profiling"
 msgstr "Profil çıkart"
 
-#: libraries/Console.php:221
+#: libraries/Console.php:203
 msgid "Bookmark"
 msgstr "Yer imi"
 
-#: libraries/Console.php:222
+#: libraries/Console.php:204
 msgid "Query failed"
 msgstr "Sorgu başarısız oldu"
 
-#: libraries/Console.php:226
+#: libraries/Console.php:208
 msgid "Queried time"
 msgstr "Sorgu süresi"
 
-#: libraries/Console.php:233
+#: libraries/Console.php:215
 msgid "SQL Query Console"
 msgstr "SQL Sorgu Konsolu"
 
-#: libraries/Console.php:234
+#: libraries/Console.php:216
 msgid "Console"
 msgstr "Konsol"
 
-#: libraries/Console.php:237 libraries/sql_query_form.lib.php:244
+#: libraries/Console.php:219 libraries/sql_query_form.lib.php:244
 #: setup/frames/index.inc.php:300
 msgid "Clear"
 msgstr "Temizle"
 
-#: libraries/Console.php:240
+#: libraries/Console.php:222
 msgid "History"
 msgstr "Geçmiş"
 
-#: libraries/Console.php:243 libraries/Console.php:373
+#: libraries/Console.php:225 libraries/Console.php:355
 #: libraries/DisplayResults.php:1711 libraries/import.lib.php:1268
 #: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:339
 #: libraries/plugins/export/ExportCodegen.php:84
@@ -3112,115 +3095,115 @@ msgstr "Geçmiş"
 msgid "Options"
 msgstr "Seçenekler"
 
-#: libraries/Console.php:247 libraries/Console.php:335
+#: libraries/Console.php:229 libraries/Console.php:317
 msgid "Bookmarks"
 msgstr "Yer imleri"
 
-#: libraries/Console.php:251 libraries/Console.php:289
+#: libraries/Console.php:233 libraries/Console.php:271
 #: libraries/config/messages.inc.php:99
 msgid "Debug SQL"
 msgstr "SQL Hata Ayıklama"
 
-#: libraries/Console.php:260
+#: libraries/Console.php:242
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Sorguyu çalıştırmak için Ctrl+Enter tuşlarına basın"
 
-#: libraries/Console.php:262
+#: libraries/Console.php:244
 msgid "Press Enter to execute query"
 msgstr "Sorguyu çalıştırmak için Enter tuşuna basın"
 
-#: libraries/Console.php:280
+#: libraries/Console.php:262
 msgid "ascending"
 msgstr "küçükten büyüğe"
 
-#: libraries/Console.php:283
+#: libraries/Console.php:265
 msgid "descending"
 msgstr "büyükten küçüğe"
 
-#: libraries/Console.php:286
+#: libraries/Console.php:268
 msgid "Order:"
 msgstr "Sıra:"
 
-#: libraries/Console.php:292 templates/table/search/replace_preview.phtml:17
+#: libraries/Console.php:274 templates/table/search/replace_preview.phtml:17
 msgid "Count"
 msgstr "Sayı"
 
-#: libraries/Console.php:295
+#: libraries/Console.php:277
 msgid "Execution order"
 msgstr "Çalıştırma sırası"
 
-#: libraries/Console.php:298
+#: libraries/Console.php:280
 msgid "Time taken"
 msgstr "Aldığı süre"
 
-#: libraries/Console.php:301
+#: libraries/Console.php:283
 msgid "Order by:"
 msgstr "Sıralama:"
 
-#: libraries/Console.php:304
+#: libraries/Console.php:286
 msgid "Group queries"
 msgstr "Sorguları grupla"
 
-#: libraries/Console.php:307
+#: libraries/Console.php:289
 msgid "Ungroup queries"
 msgstr "Sorguların grubunu kaldır"
 
-#: libraries/Console.php:318
+#: libraries/Console.php:300
 msgid "Show trace"
 msgstr "İzi göster"
 
-#: libraries/Console.php:320
+#: libraries/Console.php:302
 msgid "Hide trace"
 msgstr "İzi gizle"
 
-#: libraries/Console.php:322
+#: libraries/Console.php:304
 msgid "Count:"
 msgstr "Sayı:"
 
-#: libraries/Console.php:339 libraries/Util.php:1298
+#: libraries/Console.php:321 libraries/Util.php:1298
 #: libraries/config/messages.inc.php:898
 #: libraries/server_status_processes.lib.php:235
 #: libraries/server_status_variables.lib.php:39
 msgid "Refresh"
 msgstr "Yenile"
 
-#: libraries/Console.php:342
+#: libraries/Console.php:324
 msgid "Add"
 msgstr "Ekle"
 
-#: libraries/Console.php:351
+#: libraries/Console.php:333
 msgid "Add bookmark"
 msgstr "Yer imi ekle"
 
-#: libraries/Console.php:355
+#: libraries/Console.php:337
 msgid "Label"
 msgstr "Etiket"
 
-#: libraries/Console.php:357
+#: libraries/Console.php:339
 msgid "Target database"
 msgstr "Hedef veritabanı"
 
-#: libraries/Console.php:360
+#: libraries/Console.php:342
 msgid "Share this bookmark"
 msgstr "Bu yer imini paylaş"
 
-#: libraries/Console.php:377
+#: libraries/Console.php:359
 msgid "Set default"
 msgstr "Varsayılana ayarla"
 
-#: libraries/Console.php:381
+#: libraries/Console.php:363
 msgid "Always expand query messages"
 msgstr "Her zaman sorgu mesajlarını genişlet"
 
-#: libraries/Console.php:383
+#: libraries/Console.php:365
 msgid "Show query history at start"
 msgstr "Başlangıçta sorgu geçmişini göster"
 
-#: libraries/Console.php:385
+#: libraries/Console.php:367
 msgid "Show current browsing query"
 msgstr "Şu anki gözatılan sorguyu göster"
 
-#: libraries/Console.php:388
+#: libraries/Console.php:370
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
@@ -3228,7 +3211,7 @@ msgstr ""
 "Enter tuşuna basıldığında sorguları çalıştır ve Shift + Enter tuşları ile "
 "yeni satır ekle. Bunu kalıcı yapmak için ayarlara bakın."
 
-#: libraries/Console.php:392
+#: libraries/Console.php:374
 msgid "Switch to dark theme"
 msgstr "Koyu temaya değiştir"
 
@@ -4774,6 +4757,10 @@ msgstr "saat başına"
 #: libraries/advisor.lib.php:29
 msgid "per day"
 msgstr "gün başına"
+
+#: libraries/bookmark.lib.php:94
+msgid "shared"
+msgstr "paylaşılmış"
 
 #: libraries/browse_foreigners.lib.php:133
 msgid "Search:"
@@ -16884,6 +16871,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "Total %d bookmark"
+#~ msgid_plural "Total %d bookmarks"
+#~ msgstr[0] "Toplam %d yer imi"
+#~ msgstr[1] "Toplam %d yer imi"
+
+#~ msgid "private"
+#~ msgstr "özel"
+
+#~ msgid "%1$s, %2$s and %3$s bookmarks included"
+#~ msgstr "%1$s, %2$s ve %3$s yer imleri dahil edildi"
 
 #~ msgid "A comma or a closing bracket was expected"
 #~ msgstr "Bir virgül ya da kapalı bir köşeli parantez beklenmekte"

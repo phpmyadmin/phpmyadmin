@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-17 11:39+0100\n"
+"POT-Creation-Date: 2016-02-17 11:55+0100\n"
 "PO-Revision-Date: 2016-02-04 11:09+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1874,7 +1874,7 @@ msgstr "Nascondi riquadro query SQL"
 msgid "Show query box"
 msgstr "Mostra riquadro query SQL"
 
-#: js/messages.php:409 libraries/Console.php:88 libraries/Console.php:217
+#: js/messages.php:409 libraries/Console.php:88 libraries/Console.php:199
 #: libraries/DisplayResults.php:3472 libraries/DisplayResults.php:4838
 #: libraries/Index.php:721 libraries/Util.php:732 libraries/Util.php:1242
 #: libraries/Util.php:3710 libraries/Util.php:3711
@@ -2578,7 +2578,7 @@ msgstr "Mostra argomenti"
 msgid "Hide arguments"
 msgstr "Nascondi argomenti"
 
-#: js/messages.php:708 libraries/Console.php:324
+#: js/messages.php:708 libraries/Console.php:306
 msgid "Time taken:"
 msgstr "Tempo utilizzato:"
 
@@ -3019,19 +3019,19 @@ msgstr ""
 msgid "Font size"
 msgstr "Dimensione font"
 
-#: libraries/Console.php:85 libraries/Console.php:213 libraries/Console.php:316
+#: libraries/Console.php:85 libraries/Console.php:195 libraries/Console.php:298
 msgid "Collapse"
 msgstr "Riduci"
 
-#: libraries/Console.php:86 libraries/Console.php:215 libraries/Console.php:317
+#: libraries/Console.php:86 libraries/Console.php:197 libraries/Console.php:299
 msgid "Expand"
 msgstr "Espandi"
 
-#: libraries/Console.php:87 libraries/Console.php:216
+#: libraries/Console.php:87 libraries/Console.php:198
 msgid "Requery"
 msgstr "Re-query"
 
-#: libraries/Console.php:91 libraries/Console.php:223 libraries/Menu.php:220
+#: libraries/Console.php:91 libraries/Console.php:205 libraries/Menu.php:220
 #: libraries/config/messages.inc.php:926 libraries/mult_submits.lib.php:334
 #: libraries/plugins/export/ExportHtmlword.php:149
 #: libraries/plugins/export/ExportOdt.php:197
@@ -3051,74 +3051,57 @@ msgstr "Database"
 
 #: libraries/Console.php:100
 #, php-format
-msgid "Total %d bookmark"
-msgid_plural "Total %d bookmarks"
-msgstr[0] "Totale %d segnalibro"
-msgstr[1] "Totale %d segnalibri"
+msgid "Showing %1$d bookmark (both private and shared)"
+msgid_plural "Showing %1$d bookmarks (both private and shared)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: libraries/Console.php:108
-msgid "private"
-msgstr "privato"
-
-#: libraries/Console.php:112 libraries/bookmark.lib.php:94
-msgid "shared"
-msgstr "condiviso"
-
-#. l10n: First parameter will be replaced with the translation
-#. for Total and the number of bookmarks, second one with the
-#. translation for private and the third one, with the translation
-#. for shared
-#: libraries/Console.php:119
-#, php-format
-msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "%1$s, %2$s e %3$s segnalibri inclusi"
-
-#: libraries/Console.php:125
+#: libraries/Console.php:107
 msgid "No bookmarks"
 msgstr "Nessun segnalibro"
 
-#: libraries/Console.php:186
+#: libraries/Console.php:168
 msgid "During current session"
 msgstr "Durante la sessione corrente"
 
-#: libraries/Console.php:218
+#: libraries/Console.php:200
 msgid "Explain"
 msgstr "Spiega"
 
-#: libraries/Console.php:219 libraries/Util.php:1328 libraries/sql.lib.php:228
+#: libraries/Console.php:201 libraries/Util.php:1328 libraries/sql.lib.php:228
 msgid "Profiling"
 msgstr "Profiling"
 
-#: libraries/Console.php:221
+#: libraries/Console.php:203
 msgid "Bookmark"
 msgstr "Segnalibro"
 
-#: libraries/Console.php:222
+#: libraries/Console.php:204
 msgid "Query failed"
 msgstr "Query fallita"
 
-#: libraries/Console.php:226
+#: libraries/Console.php:208
 msgid "Queried time"
 msgstr "Tempo in coda"
 
-#: libraries/Console.php:233
+#: libraries/Console.php:215
 msgid "SQL Query Console"
 msgstr "Console per Query SQL"
 
-#: libraries/Console.php:234
+#: libraries/Console.php:216
 msgid "Console"
 msgstr "Console"
 
-#: libraries/Console.php:237 libraries/sql_query_form.lib.php:244
+#: libraries/Console.php:219 libraries/sql_query_form.lib.php:244
 #: setup/frames/index.inc.php:300
 msgid "Clear"
 msgstr "Cancella"
 
-#: libraries/Console.php:240
+#: libraries/Console.php:222
 msgid "History"
 msgstr "History"
 
-#: libraries/Console.php:243 libraries/Console.php:373
+#: libraries/Console.php:225 libraries/Console.php:355
 #: libraries/DisplayResults.php:1711 libraries/import.lib.php:1268
 #: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:339
 #: libraries/plugins/export/ExportCodegen.php:84
@@ -3148,115 +3131,115 @@ msgstr "History"
 msgid "Options"
 msgstr "Opzioni"
 
-#: libraries/Console.php:247 libraries/Console.php:335
+#: libraries/Console.php:229 libraries/Console.php:317
 msgid "Bookmarks"
 msgstr "Segnalibri"
 
-#: libraries/Console.php:251 libraries/Console.php:289
+#: libraries/Console.php:233 libraries/Console.php:271
 #: libraries/config/messages.inc.php:99
 msgid "Debug SQL"
 msgstr "Debug SQL"
 
-#: libraries/Console.php:260
+#: libraries/Console.php:242
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Premere Ctrl+Enter per eseguire la query"
 
-#: libraries/Console.php:262
+#: libraries/Console.php:244
 msgid "Press Enter to execute query"
 msgstr "Premere INVIO per eseguire query"
 
-#: libraries/Console.php:280
+#: libraries/Console.php:262
 msgid "ascending"
 msgstr "crescente"
 
-#: libraries/Console.php:283
+#: libraries/Console.php:265
 msgid "descending"
 msgstr "decrescente"
 
-#: libraries/Console.php:286
+#: libraries/Console.php:268
 msgid "Order:"
 msgstr "Ordine:"
 
-#: libraries/Console.php:292 templates/table/search/replace_preview.phtml:17
+#: libraries/Console.php:274 templates/table/search/replace_preview.phtml:17
 msgid "Count"
 msgstr "Conteggio"
 
-#: libraries/Console.php:295
+#: libraries/Console.php:277
 msgid "Execution order"
 msgstr "Ordine di esecuzione"
 
-#: libraries/Console.php:298
+#: libraries/Console.php:280
 msgid "Time taken"
 msgstr "Tempo utilizzato"
 
-#: libraries/Console.php:301
+#: libraries/Console.php:283
 msgid "Order by:"
 msgstr "Ordine per:"
 
-#: libraries/Console.php:304
+#: libraries/Console.php:286
 msgid "Group queries"
 msgstr "Raggruppa query"
 
-#: libraries/Console.php:307
+#: libraries/Console.php:289
 msgid "Ungroup queries"
 msgstr "Dividi Query"
 
-#: libraries/Console.php:318
+#: libraries/Console.php:300
 msgid "Show trace"
 msgstr "Mostra traccia"
 
-#: libraries/Console.php:320
+#: libraries/Console.php:302
 msgid "Hide trace"
 msgstr "Nascondi traccia"
 
-#: libraries/Console.php:322
+#: libraries/Console.php:304
 msgid "Count:"
 msgstr "Conteggio:"
 
-#: libraries/Console.php:339 libraries/Util.php:1298
+#: libraries/Console.php:321 libraries/Util.php:1298
 #: libraries/config/messages.inc.php:898
 #: libraries/server_status_processes.lib.php:235
 #: libraries/server_status_variables.lib.php:39
 msgid "Refresh"
 msgstr "Aggiorna"
 
-#: libraries/Console.php:342
+#: libraries/Console.php:324
 msgid "Add"
 msgstr "Aggiungi"
 
-#: libraries/Console.php:351
+#: libraries/Console.php:333
 msgid "Add bookmark"
 msgstr "Aggiungi segnalibro"
 
-#: libraries/Console.php:355
+#: libraries/Console.php:337
 msgid "Label"
 msgstr "Etichetta"
 
-#: libraries/Console.php:357
+#: libraries/Console.php:339
 msgid "Target database"
 msgstr "Database di destinazione"
 
-#: libraries/Console.php:360
+#: libraries/Console.php:342
 msgid "Share this bookmark"
 msgstr "Condividi questo segnalibro"
 
-#: libraries/Console.php:377
+#: libraries/Console.php:359
 msgid "Set default"
 msgstr "Imposta i valori predefiniti"
 
-#: libraries/Console.php:381
+#: libraries/Console.php:363
 msgid "Always expand query messages"
 msgstr "Espandi sempre i messaggi delle query"
 
-#: libraries/Console.php:383
+#: libraries/Console.php:365
 msgid "Show query history at start"
 msgstr "Mostra la cronologia delle query all'inizio"
 
-#: libraries/Console.php:385
+#: libraries/Console.php:367
 msgid "Show current browsing query"
 msgstr "Mostra navigazione della query corrente"
 
-#: libraries/Console.php:388
+#: libraries/Console.php:370
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
@@ -3264,7 +3247,7 @@ msgstr ""
 "Esegui le query con INVIO e inserisci la nuova riga con MAIUSC + INVIO. Per "
 "rendere questo permanente, vedi le impostazioni."
 
-#: libraries/Console.php:392
+#: libraries/Console.php:374
 msgid "Switch to dark theme"
 msgstr "Passare al tema scuro"
 
@@ -4820,6 +4803,10 @@ msgstr "all'ora"
 #: libraries/advisor.lib.php:29
 msgid "per day"
 msgstr "al giorno"
+
+#: libraries/bookmark.lib.php:94
+msgid "shared"
+msgstr "condiviso"
 
 #: libraries/browse_foreigners.lib.php:133
 msgid "Search:"
@@ -17109,6 +17096,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert è impostato a 0"
+
+#~ msgid "Total %d bookmark"
+#~ msgid_plural "Total %d bookmarks"
+#~ msgstr[0] "Totale %d segnalibro"
+#~ msgstr[1] "Totale %d segnalibri"
+
+#~ msgid "private"
+#~ msgstr "privato"
+
+#~ msgid "%1$s, %2$s and %3$s bookmarks included"
+#~ msgstr "%1$s, %2$s e %3$s segnalibri inclusi"
 
 #~ msgid "A comma or a closing bracket was expected"
 #~ msgstr "Era attesa una virgola o una parentesi chiusa"
