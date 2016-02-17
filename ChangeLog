@@ -47,6 +47,7 @@ phpMyAdmin - ChangeLog
 - issue #11914 Fix autoloading of phpseclib
 - issue #11880 Fixed rendering of missing extension error
 - issue #11923 Errors on Structure tab when user only has select access on certain columns
+- issue #11972 Missing documentation for $cfg['Servers'][$i]['favorite'] and $cfg['NumFavoriteTables']
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
