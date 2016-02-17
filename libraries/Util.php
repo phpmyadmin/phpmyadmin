@@ -1099,14 +1099,18 @@ class Util
             }
         }
 
+        $render_sql = $cfg['ShowSQL'] == true && ! empty($sql_query) && $sql_query !== ';';
+
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
             unset($GLOBALS['using_bookmark_message']);
         }
 
-        $retval .= '<div class="result_query"'
-            . ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
-            . '>' . "\n";
+        if ($render_sql) {
+            $retval .= '<div class="result_query"'
+                . ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
+                . '>' . "\n";
+        }
 
         if ($message instanceof Message) {
             if (isset($GLOBALS['special_message'])) {
@@ -1124,7 +1128,7 @@ class Util
             $retval .= '</div>';
         }
 
-        if ($cfg['ShowSQL'] == true && ! empty($sql_query) && $sql_query !== ';') {
+        if ($render_sql) {
             // Html format the query to be displayed
             // If we want to show some sql code it is easiest to create it here
             /* SQL-Parser-Analyzer */
@@ -1345,9 +1349,10 @@ class Util
             $retval .= $inline_edit_link . $edit_link . $explain_link . $php_link
                 . $refresh_link;
             $retval .= '</div>';
+
+            $retval .= '</div>';
         }
 
-        $retval .= '</div>';
 
         return $retval;
     } // end of the 'getMessage()' function
