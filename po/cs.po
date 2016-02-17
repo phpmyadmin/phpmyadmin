@@ -2986,11 +2986,11 @@ msgstr[2] "Celkem %d záložek"
 
 #: libraries/Console.php:108
 msgid "private"
-msgstr "soukromé"
+msgstr "soukromá"
 
 #: libraries/Console.php:112 libraries/bookmark.lib.php:94
 msgid "shared"
-msgstr "sdílený"
+msgstr "sdílená"
 
 #. l10n: First parameter will be replaced with the translation
 #. for Total and the number of bookmarks, second one with the
