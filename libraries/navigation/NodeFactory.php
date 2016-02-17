@@ -8,7 +8,7 @@
 namespace PMA\libraries\navigation;
 
 use PMA\libraries\navigation\nodes\Node;
-use Composer;
+use PMA\libraries\Util;
 
 /**
  * Node factory - instantiates Node objects or objects derived from the Node class
@@ -55,18 +55,15 @@ class NodeFactory
     {
         $class = sprintf(self::$_namespace, $class);
 
-        if (!class_exists($class)) {
-            $loader = new Composer\Autoload\ClassLoader();
-            if (!$loader->loadClass($class)) {
-                $class = sprintf(self::$_namespace, 'Node');
-                trigger_error(
-                    sprintf(
-                        __('Could not load class "%1$s"'),
-                        $class
-                    ),
-                    E_USER_ERROR
-                );
-            }
+        if (! Util::checkClass($class)) {
+            $class = sprintf(self::$_namespace, 'Node');
+            trigger_error(
+                sprintf(
+                    __('Could not load class "%1$s"'),
+                    $class
+                ),
+                E_USER_ERROR
+            );
         }
 
         return $class;
