@@ -29,7 +29,8 @@
         "php": ">=5.5.0",
         "phpmyadmin/sql-parser": "~3.3",
         "tecnickcom/tcpdf": "~6.2",
-        "phpseclib/phpseclib": "~2.0"
+        "phpseclib/phpseclib": "~2.0",
+        "recaptcha-lib/recaptcha": "~0.1"
     },
     "suggest": {
         "tecnickcom/tcpdf": "For PDF support"
