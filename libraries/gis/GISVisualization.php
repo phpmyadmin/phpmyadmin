@@ -9,7 +9,7 @@
 namespace PMA\libraries\gis;
 
 use PMA\libraries\Util;
-use \TCPDF;
+use TCPDF;
 
 require_once 'libraries/sql.lib.php';
 
@@ -467,7 +467,6 @@ class GISVisualization
     public function toFileAsPdf($file_name)
     {
         $this->init();
-
 
         // create pdf
         $pdf = new TCPDF(
