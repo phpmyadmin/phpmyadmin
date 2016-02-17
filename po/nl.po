@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-02-17 16:24+0000\n"
+"PO-Revision-Date: 2016-02-17 16:26+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-6/nl/>"
 "\n"
@@ -3235,7 +3235,7 @@ msgstr "Wissel naar donker thema"
 
 #: libraries/DatabaseInterface.php:1528
 msgid "Failed to set configured collation connection!"
-msgstr "Instellen van de configuratie voor vergelijkingen is mislukt!"
+msgstr "Instellen van geconfigureerde vergelijking verbinding mislukt!"
 
 #: libraries/DatabaseInterface.php:2139
 msgid ""
