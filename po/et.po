@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:57+0100\n"
-"PO-Revision-Date: 2016-02-08 14:54+0000\n"
+"PO-Revision-Date: 2016-02-17 13:22+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -588,11 +588,11 @@ msgid "Bookmark %s has been created."
 msgstr "Loodi järjehoidja %s."
 
 #: import.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importimine lõpetati edukalt, teostati %d päringut."
+msgstr[0] "Importimine lõpetati edukalt, teostati %d päring."
 msgstr[1] "Importimine lõpetati edukalt, teostati %d päringut."
 
 #: import.php:710
@@ -2999,8 +2999,8 @@ msgstr "Andmebaas"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kuvatakse %1$d järjehoidja (isiklikud ja ühised)"
+msgstr[1] "Kuvatakse %1$d järjehoidjat (isiklikud ja ühised)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
