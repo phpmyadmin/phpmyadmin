@@ -213,7 +213,7 @@ function PMA_importRunQuery($sql = '', $full = '')
         } else {
             $executed_queries++;
 
-            if ($run_query && $executed_queries < 50) {
+            if ($run_query && $executed_queries < 50 && empty($sql)) {
                 $go_sql = true;
                 if (! $sql_query_disabled) {
                     $complete_query = $sql_query;
