@@ -21,7 +21,10 @@
     },
     "non-feature-branches": ["RELEASE_.*"],
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.0",
+        "phpmyadmin/sql-parser": "~3.3",
+        "phpseclib/phpseclib": "~2.0",
+        "tecnickcom/tcpdf": "~6.2"
     },
     "require-dev": {
         "satooshi/php-coveralls": "~0.6",
