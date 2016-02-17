@@ -1104,12 +1104,8 @@ class Util
             unset($GLOBALS['using_bookmark_message']);
         }
 
-        // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
-        // check for it's presence before using it
         $retval .= '<div class="result_query"'
-            . ( isset($GLOBALS['cell_align_left'])
-                ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
-                : '' )
+            . ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
             . '>' . "\n";
 
         if ($message instanceof Message) {
