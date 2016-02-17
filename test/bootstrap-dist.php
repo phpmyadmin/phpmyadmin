@@ -55,7 +55,6 @@ $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
-require_once 'libraries/sql-parser/autoload.php';
 
 /* Ensure default langauge is active */
 require_once 'libraries/php-gettext/gettext.inc';
