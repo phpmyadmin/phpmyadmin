@@ -74,7 +74,7 @@ require_once './libraries/vendor_config.php';
 /**
  * Activate autoloader
  */
-require_once './libraries/autoloader.php';
+require_once './vendor/autoload.php';
 
 /**
  * initialize the error handler
@@ -908,11 +908,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $mysql_charsets = array();
             $mysql_collations_flat = array();
         }
-
-        /**
-         * Initializes the SQL parsing library.
-         */
-        include_once SQL_PARSER_AUTOLOAD;
 
         // Loads closest context to this version.
         SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);

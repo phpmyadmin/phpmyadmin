@@ -49,7 +49,7 @@ foreach ($test_defaults as $varname => $defvalue) {
 }
 
 require_once 'libraries/vendor_config.php';
-require_once 'libraries/autoloader.php';
+require_once 'vendor/autoload.php';
 require_once 'libraries/core.lib.php';
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable

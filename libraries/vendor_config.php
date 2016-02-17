@@ -80,16 +80,6 @@ define('GETTEXT_INC', './libraries/php-gettext/gettext.inc');
 define('TCPDF_INC', './libraries/tcpdf/tcpdf.php');
 
 /**
- * Path to the phpseclib. Useful when you want to use system phpseclib.
- */
-define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
-
-/**
- * Path to the udan11/sql-parser. Useful when you want to use system version.
- */
-define('SQL_PARSER_AUTOLOAD', './libraries/sql-parser/autoload.php');
-
-/**
  * Path to files with compiled locales (*.mo)
  */
 define('LOCALE_PATH', './locale/');
