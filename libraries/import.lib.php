@@ -156,16 +156,13 @@ function PMA_executeQuery($sql, $full, &$sql_data)
  *
  * @param string $sql       query to run
  * @param string $full      query to display, this might be commented
+ * @param array  &$sql_data SQL parse data storage
  *
  * @return void
  * @access public
  */
-function PMA_importRunQuery($sql = '', $full = '')
+function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
 {
-    /**
-     * @var $sql_data SQL parse data storage
-     */
-    static $sql_data = array();
     global $import_run_buffer, $go_sql, $complete_query, $display_query,
         $sql_query, $error, $reload, $result, $msg,
         $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
