@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-08 09:42+0100\n"
+"POT-Creation-Date: 2016-02-17 11:39+0100\n"
 "PO-Revision-Date: 2016-02-16 10:08+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech "
@@ -2981,11 +2981,11 @@ msgstr[2] "Celkem %d záložek"
 
 #: libraries/Console.php:108
 msgid "private"
-msgstr "soukromé"
+msgstr "soukromá"
 
 #: libraries/Console.php:112 libraries/bookmark.lib.php:94
 msgid "shared"
-msgstr "sdílený"
+msgstr "sdílená"
 
 #. l10n: First parameter will be replaced with the translation
 #. for Total and the number of bookmarks, second one with the
