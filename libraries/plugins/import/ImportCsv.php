@@ -90,9 +90,11 @@ class ImportCsv extends AbstractImportCsv
     /**
      * Handles the whole import logic
      *
+     * @param array &$sql_data 2-element array with sql data
+     *
      * @return void
      */
-    public function doImport()
+    public function doImport(&$sql_data = array())
     {
         global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
                $csv_new_line, $csv_columns, $err_url;
@@ -569,7 +571,7 @@ class ImportCsv extends AbstractImportCsv
                          * @todo maybe we could add original line to verbose
                          * SQL in comment
                          */
-                        PMA_importRunQuery($sql, $sql);
+                        PMA_importRunQuery($sql, $sql, $sql_data);
                     }
 
                     $line++;
@@ -645,14 +647,14 @@ class ImportCsv extends AbstractImportCsv
             $create = null;
 
             /* Created and execute necessary SQL statements from data */
-            PMA_buildSQL($db_name, $tables, $analyses, $create, $options);
+            PMA_buildSQL($db_name, $tables, $analyses, $create, $options, $sql_data);
 
             unset($tables);
             unset($analyses);
         }
 
         // Commit any possible data in buffers
-        PMA_importRunQuery();
+        PMA_importRunQuery('', '', $sql_data);
 
         if (count($values) != 0 && !$error) {
             $message = PMA\libraries\Message::error(

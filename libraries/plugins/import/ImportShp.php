@@ -57,9 +57,11 @@ class ImportShp extends ImportPlugin
     /**
      * Handles the whole import logic
      *
+     * @param array &$sql_data 2-element array with sql data
+     *
      * @return void
      */
-    public function doImport()
+    public function doImport(&$sql_data = array())
     {
         global $db, $error, $finished, $compression,
                $import_file, $local_import_file, $message;
@@ -287,7 +289,7 @@ class ImportShp extends ImportPlugin
 
         // Created and execute necessary SQL statements from data
         $null_param = null;
-        PMA_buildSQL($db_name, $tables, $analyses, $null_param, $options);
+        PMA_buildSQL($db_name, $tables, $analyses, $null_param, $options, $sql_data);
 
         unset($tables);
         unset($analyses);
@@ -296,7 +298,7 @@ class ImportShp extends ImportPlugin
         $error = false;
 
         // Commit any possible data in buffers
-        PMA_importRunQuery();
+        PMA_importRunQuery('', '', $sql_data);
     }
 
     /**
