@@ -37,10 +37,9 @@ while [ $# -gt 0 ] ; do
         --ci)
             do_test=1
             do_ci=1
-            if [ -z "$TRAVIS_BRANCH" ] ; then
-                branch=`git rev-parse --abbrev-ref HEAD`
-            else
-                branch=$TRAVIS_BRANCH
+            if [ -z "$branch" ] ; then
+                git branch ci
+                branch="ci"
             fi
             version="ci"
             ;;
@@ -228,6 +227,9 @@ if [ $do_test -eq 1 ] ; then
         cd ../..
         rm -rf $workdir
         git worktree prune
+        if [ "$branch" = "ci" ] ; then
+            git branch -D ci
+        fi
         exit $test_ret
     fi
     if [ $test_ret -ne 0 ] ; then
