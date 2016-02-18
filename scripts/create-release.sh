@@ -210,7 +210,9 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
-        vendor/tecnickcom/tcpdf/fonts/freefont-*/
+        vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
+        vendor/google/recaptcha/examples/ \
+        vendor/google/recaptcha/tests/
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm
 fi
 
