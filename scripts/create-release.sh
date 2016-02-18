@@ -196,6 +196,22 @@ find . -name .gitignore -print0 | xargs -0 -r rm -f
 if [ ! -d libraries/tcpdf ] ; then
     echo "* Running composer"
     composer update --no-dev
+    echo "* Cleanup of composer packages"
+    rm -rf \
+        vendor/phpmyadmin/sql-parser/tests/ \
+        vendor/phpmyadmin/sql-parser/tools/ \
+        vendor/phpseclib/phpseclib/phpseclib/File/ \
+        vendor/phpseclib/phpseclib/phpseclib/Math/ \
+        vendor/phpseclib/phpseclib/phpseclib/Net/ \
+        vendor/phpseclib/phpseclib/phpseclib/System/ \
+        vendor/phpseclib/phpseclib/phpseclib/Crypt/{Blowfish.php,DES.php,Hash.php,RC2.php,RC4.php,RSA.php,TripleDES.php,Twofish.php} \
+        vendor/phpseclib/phpseclib/phpseclib/*.* \
+        vendor/tecnickcom/tcpdf/examples/ \
+        vendor/tecnickcom/tcpdf/tools/ \
+        vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
+        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
+        vendor/tecnickcom/tcpdf/fonts/freefont-*/
+    find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm
 fi
 
 if [ $do_test -eq 1 ] ; then
