@@ -37,7 +37,11 @@ while [ $# -gt 0 ] ; do
         --ci)
             do_test=1
             do_ci=1
-            branch=`git rev-parse --abbrev-ref HEAD`
+            if [ -z "$TRAVIS_BRANCH" ] ; then
+                branch=`git rev-parse --abbrev-ref HEAD`
+            else
+                branch=$TRAVIS_BRANCH
+            fi
             version="ci"
             ;;
         --help)
