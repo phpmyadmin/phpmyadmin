@@ -4,4 +4,4 @@ ant locales
 
 export PHPUNIT_ARGS="--group selenium"
 
-ant phpunit-nocoverage
+ant phpunit
