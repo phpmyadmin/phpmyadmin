@@ -184,7 +184,7 @@ rm -rf .github
 rm -rf PMAStandard
 
 # Testsuite setup
-rm -f .travis.yml
+rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc
 
 # Remove readme for github
 rm -f README.rst
