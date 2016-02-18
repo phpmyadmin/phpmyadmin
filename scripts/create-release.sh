@@ -110,6 +110,7 @@ fi
 
 # Create working copy
 mkdir -p release
+git worktree prune
 workdir=release/phpMyAdmin-$version
 if [ -d $workdir ] ; then
     echo "Working directory '$workdir' already exists, please move it out of way"
@@ -117,7 +118,7 @@ if [ -d $workdir ] ; then
 fi
 
 # Add worktree with chosen branch
-git worktree add $workdir $branch
+git worktree add --force $workdir $branch
 cd $workdir
 
 # Check release version
