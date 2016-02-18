@@ -77,3 +77,5 @@ addons:
   apt:
     packages:
     - git
+    sources:
+    - git-core
