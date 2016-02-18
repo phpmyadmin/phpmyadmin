@@ -56,6 +56,10 @@ while [ $# -gt 0 ] ; do
     shift
 done
 
+if [ -z "$version" -o -z "$branch" ] ; then
+    echo "Branch and version have to be specified!"
+    exit 1
+fi
 
 # Checks whether remote branch has local tracking branch
 ensure_local_branch() {
