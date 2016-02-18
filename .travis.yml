@@ -73,3 +73,7 @@ cache:
 notifications:
   webhooks:
     - https://buildtimetrend.herokuapp.com/travis
+addons:
+  apt:
+    packages:
+    - git
