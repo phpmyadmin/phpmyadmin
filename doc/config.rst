@@ -41,7 +41,7 @@ Basic settings
     :type: string
     :default: ``''``
 
-    .. versionremoved:: 4.6.0
+    .. deprecated:: 4.6.0
         
         This setting is no longer available since phpMyAdmin 4.6.0. Please
         adjust your webserver instead.
@@ -1306,7 +1306,7 @@ Generic settings
     :type: boolean
     :default: false
 
-    .. versionremoved:: 4.6.0
+    .. deprecated:: 4.6.0
         
         This setting is no longer available since phpMyAdmin 4.6.0. Please
         adjust your webserver instead.
