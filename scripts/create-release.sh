@@ -28,6 +28,34 @@ then
   exit 65
 fi
 
+# Process parameters
+
+version=""
+branch=""
+do_tag=0
+do_stable=0
+
+while [ $# -gt 0 ] ; do
+    case "$1" in
+        --tag)
+            do_tag=1
+            ;;
+        --stable)
+            do_stable=1
+            ;;
+        *)
+            if [ -z "$version" ] ; then
+                version="$1"
+            elif [ -z "$branch" ] ; then
+                branch="$1"
+            else
+                echo "Unknown parameter: $1!"
+                exit 1
+            fi
+    esac
+    shift
+done
+
 
 # Checks whether remote branch has local tracking branch
 ensure_local_branch() {
@@ -45,13 +73,8 @@ mark_as_release() {
     ensure_local_branch $rel_branch
     git checkout $rel_branch
     git merge -s recursive -X theirs $branch
+    git checkout master
 }
-
-# Read required parameters
-version=$1
-shift
-branch=$1
-shift
 
 # Ensure we have tracking branch
 ensure_local_branch $branch
@@ -243,30 +266,19 @@ ls -la *.gz *.zip *.xz *.bz2 *.7z
 
 cd ..
 
-
-if [ $# -gt 0 ] ; then
+# Tag as release
+if [ $do_tag -eq 1 ] ; then
     echo
     echo "Additional tasks:"
-    while [ $# -gt 0 ] ; do
-        param=$1
-        case $1 in
-            --tag)
-                tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
-                echo "* Tagging release as $tagname"
-                git tag -a -m "Released $version" $tagname $branch
-                echo "   Dont forget to push tags using: git push --tags"
-                ;;
-            --stable)
-                mark_as_release $branch STABLE
-                git checkout master
-                ;;
-            *)
-                echo "Unknown parameter: $1!"
-                exit 1
-        esac
-        shift
-    done
-    echo
+    tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
+    echo "* Tagging release as $tagname"
+    git tag -a -m "Released $version" $tagname $branch
+    echo "   Dont forget to push tags using: git push --tags"
+fi
+
+# Mark as stable release
+if [ $do_stable -eq 1 ] ; then
+    mark_as_release $branch STABLE
 fi
 
 cat <<END
