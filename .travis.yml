@@ -39,8 +39,8 @@ before_script:
 
 script:
   - ant clean
-  - ant locales
-  - ant lint
+  - if [ $CI_MODE != release ] ; then ant locales ; fi
+  - if [ $CI_MODE = test -o $CI_MODE = hhvm ] ; then ant lint; fi
   - case $CI_MODE in
     hhvm) ant phpunit-hhvm ;;
     test) ant phpunit ;;
