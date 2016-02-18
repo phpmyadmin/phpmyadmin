@@ -53,13 +53,15 @@ shift
 branch=$1
 shift
 
-git checkout $branch
-if [ -f libraries/Config.php ] ; then
+# Ensure we have tracking branch
+ensure_local_branch $branch
+
+# Check if we're releasing older
+if [ -n "`git ls-files $branch -- libraries/Config.class.php`" ] ; then
     CONFIG_LIB=libraries/Config.php
 else
     CONFIG_LIB=libraries/Config.class.php
 fi
-git checkout master
 
 cat <<END
 
@@ -78,9 +80,6 @@ read do_release
 if [ "$do_release" != 'y' ]; then
     exit 100
 fi
-
-# Ensure we have tracking branch
-ensure_local_branch $branch
 
 # Create working copy
 mkdir -p release
