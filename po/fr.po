@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:57+0100\n"
-"PO-Revision-Date: 2016-02-17 12:53+0000\n"
-"Last-Translator: Marc-Antoine Thevenet <mat@idimweb.com>\n"
+"PO-Revision-Date: 2016-02-18 12:28+0000\n"
+"Last-Translator: Adam Magnier <adam@magnier.io>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -595,7 +595,7 @@ msgid "Bookmark %s has been created."
 msgstr "Signet %s créé."
 
 #: import.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
