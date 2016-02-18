@@ -77,5 +77,6 @@ addons:
   apt:
     packages:
     - git
+    - python-sphinx
     sources:
     - git-core
