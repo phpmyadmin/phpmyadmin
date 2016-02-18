@@ -15,18 +15,18 @@ sudo: false
 
 env:
   matrix:
-    - PHPUNIT_ARGS="--exclude-group selenium"
+    - CI_MODE=test
+    - CI_MODE=lint
   global:
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
     - TESTSUITE_URL=http://127.0.0.1:8000
-    - CI_MODE=test
 
 install:
   - pip install --user codecov
   - ./test/install-runkit
   - ./test/install-browserstack
-  - composer install --dev --no-interaction
+  - if [ $CI_MODE = "test" -o $CI_MODE = "selenium" ] ; then composer install --dev --no-interaction ; fi
 
 before_script:
   - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then phpenv config-add test/php-noprofile.ini ; fi
@@ -35,18 +35,10 @@ before_script:
   - mysql -uroot < sql/create_tables.sql
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
   - ./test/start-local-server
-  - if [ $TRAVIS_PHP_VERSION == "hhvm" ] ; then CI_MODE="hhvm" ; fi
 
 script:
   - ant clean
-  - if [ $CI_MODE != release ] ; then ant locales ; fi
-  - if [ $CI_MODE = test -o $CI_MODE = hhvm ] ; then ant lint; fi
-  - case $CI_MODE in
-    hhvm) ant phpunit-hhvm ;;
-    test) ant phpunit ;;
-    selenium) ant phpunit-nocoverage ;;
-    release) ./scripts/create-release.sh --ci ;;
-    esac
+  - ./test/ci-$CI_MODE
 
 after_script:
   - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
@@ -56,14 +48,14 @@ after_script:
 
 matrix:
   allow_failures:
-    - php: "5.6"
-      env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes" CI_MODE="selenium"
+    - php: "7.0"
+      env: CI_MODE=selenium
   fast_finish: true
   include:
-    - php: "5.6"
-      env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes" CI_MODE="selenium"
     - php: "7.0"
-      env: CI_MODE="release"
+      env: CI_MODE=selenium
+    - php: "7.0"
+      env: CI_MODE=release
 cache:
   directories:
     - $HOME/.composer/cache/
