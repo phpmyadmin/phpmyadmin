@@ -23,13 +23,10 @@ env:
     - TESTSUITE_URL=http://127.0.0.1:8000
 
 install:
-  - pip install --user codecov
-  - ./test/install-runkit
-  - ./test/install-browserstack
-  - if [ $CI_MODE = "test" -o $CI_MODE = "selenium" ] ; then composer install --dev --no-interaction ; fi
+  - ./test/ci-install-$CI_MODE
+  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then phpenv config-add test/php-noprofile.ini ; fi
 
 before_script:
-  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then phpenv config-add test/php-noprofile.ini ; fi
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "CREATE DATABASE test"
   - mysql -uroot < sql/create_tables.sql
@@ -43,7 +40,7 @@ script:
 after_script:
   - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
-  - codecov
+  - if [ -f ~/.local/bin/codecov ] ; then ~/.local/bin/codecov ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
 
 matrix:
@@ -69,6 +66,7 @@ addons:
   apt:
     packages:
     - git
-    - python-sphinx
     sources:
     - git-core
+    - python-coverage
+    - python-requests
