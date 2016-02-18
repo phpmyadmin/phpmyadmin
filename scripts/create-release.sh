@@ -204,7 +204,6 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
         vendor/phpseclib/phpseclib/phpseclib/System/ \
-        vendor/phpseclib/phpseclib/phpseclib/Crypt/{Blowfish.php,DES.php,Hash.php,RC2.php,RC4.php,RSA.php,TripleDES.php,Twofish.php} \
         vendor/phpseclib/phpseclib/phpseclib/*.* \
         vendor/tecnickcom/tcpdf/examples/ \
         vendor/tecnickcom/tcpdf/tools/ \
@@ -213,6 +212,7 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
+    find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm
 fi
 
