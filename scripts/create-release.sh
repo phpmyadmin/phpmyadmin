@@ -148,6 +148,9 @@ echo "* Removing unneeded files"
 # if someone runs /test/wui.php and there are test failures
 rm -rf test
 
+# Remove developer information
+rm -rf .github
+
 # Remove phpcs coding standard definition
 rm -rf PMAStandard
 
