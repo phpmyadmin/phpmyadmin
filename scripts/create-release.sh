@@ -14,26 +14,14 @@ set -e
 KITS="all-languages english"
 COMPRESSIONS="zip-7z tbz txz tgz 7z"
 
-if [ $# -lt 2 ]
-then
-  echo "Usages:"
-  echo "  create-release.sh <version> <from_branch> [--tag] [--stable]"
-  echo ""
-  echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
-  echo "If --stable is specified, the STABLE branch is updated with this release"
-  echo ""
-  echo "Examples:"
-  echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
-  exit 65
-fi
-
 # Process parameters
 
 version=""
 branch=""
 do_tag=0
 do_stable=0
+do_test=0
+do_ci=0
 
 while [ $# -gt 0 ] ; do
     case "$1" in
@@ -42,6 +30,29 @@ while [ $# -gt 0 ] ; do
             ;;
         --stable)
             do_stable=1
+            ;;
+        --test)
+            do_test=1
+            ;;
+        --ci)
+            do_test=1
+            do_ci=1
+            branch=`git rev-parse --abbrev-ref HEAD`
+            version="ci"
+            ;;
+        --help)
+            echo "Usages:"
+            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci]"
+            echo ""
+            echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
+            echo "If --stable is specified, the STABLE branch is updated with this release"
+            echo "If --test is specified, the testsuite is executed before creating the release"
+            echo "If --ci is specified, the testsuite is executed and no actual release is crated"
+            echo ""
+            echo "Examples:"
+            echo "  create-release.sh 2.9.0-rc1 QA_2_9"
+            echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
+            exit 65
             ;;
         *)
             if [ -z "$version" ] ; then
@@ -90,7 +101,8 @@ else
     CONFIG_LIB=libraries/Config.class.php
 fi
 
-cat <<END
+if [ $do_ci -eq 0 ] ; then
+    cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
      - in $CONFIG_LIB PMA\libraries\Config::__constructor() the line
@@ -102,10 +114,11 @@ Please ensure you have incremented rc count or version in the repository :
 
 Continue (y/n)?
 END
-read do_release
+    read do_release
 
-if [ "$do_release" != 'y' ]; then
-    exit 100
+    if [ "$do_release" != 'y' ]; then
+        exit 100
+    fi
 fi
 
 # Create working copy
@@ -122,17 +135,19 @@ git worktree add --force $workdir $branch
 cd $workdir
 
 # Check release version
-if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
-    echo "There seems to be wrong version in $CONFIG_LIB!"
-    exit 2
-fi
-if ! grep -q "version = '$version'" doc/conf.py ; then
-    echo "There seems to be wrong version in doc/conf.py"
-    exit 2
-fi
-if ! grep -q "Version $version\$" README ; then
-    echo "There seems to be wrong version in README"
-    exit 2
+if [ $do_ci -eq 0 ] ; then
+    if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
+        echo "There seems to be wrong version in $CONFIG_LIB!"
+        exit 2
+    fi
+    if ! grep -q "version = '$version'" doc/conf.py ; then
+        echo "There seems to be wrong version in doc/conf.py"
+        exit 2
+    fi
+    if ! grep -q "Version $version\$" README ; then
+        echo "There seems to be wrong version in README"
+        exit 2
+    fi
 fi
 
 # Cleanup release dir
@@ -162,10 +177,6 @@ fi
 
 echo "* Removing unneeded files"
 
-# Remove test directory from package to avoid Path disclosure messages
-# if someone runs /test/wui.php and there are test failures
-rm -rf test
-
 # Remove developer information
 rm -rf .github
 
@@ -173,14 +184,35 @@ rm -rf .github
 rm -rf PMAStandard
 
 # Testsuite setup
-rm -f build.xml phpunit.xml.dist .travis.yml .jshintrc
+rm -f .travis.yml
 
 # Remove readme for github
 rm -f README.rst
 
 # Remove git metadata
-rm -rf .git
+rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
+
+if [ ! -d libraries/tcpdf ] ; then
+    echo "* Running composer"
+    composer update --no-dev
+fi
+
+if [ $do_test -eq 1 ] ; then
+    composer update
+    ant phpunit-nocoverage
+    if [ $do_ci -eq 1 ] ; then
+        cd ../..
+        rm -rf $workdir
+        git worktree prune
+        exit 0
+    fi
+    # Remove libs installed for testing
+    if [ ! -d libraries/tcpdf ] ; then
+        composer update --no-dev
+    fi
+fi
+
 
 cd ..
 
