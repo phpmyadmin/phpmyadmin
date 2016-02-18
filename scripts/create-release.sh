@@ -201,11 +201,15 @@ fi
 if [ $do_test -eq 1 ] ; then
     composer update
     ant phpunit-nocoverage
+    test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
         rm -rf $workdir
         git worktree prune
-        exit 0
+        exit $test_ret
+    fi
+    if [ $test_ret -ne 0 ] ; then
+        exit $test_ret
     fi
     # Remove libs installed for testing
     if [ ! -d libraries/tcpdf ] ; then
