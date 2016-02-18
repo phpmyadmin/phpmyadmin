@@ -88,12 +88,10 @@ if [ -d $workdir ] ; then
     echo "Working directory '$workdir' already exists, please move it out of way"
     exit 1
 fi
-git clone --local . $workdir
-cd $workdir
 
-# Checkout branch
-ensure_local_branch $branch
-git checkout $branch
+# Add worktree with chosen branch
+git worktree add $workdir $branch
+cd $workdir
 
 # Check release version
 if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
@@ -240,6 +238,7 @@ done
 
 # Cleanup
 rm -rf phpMyAdmin-${version}
+git worktree prune
 
 # Signing of files with default GPG key
 echo "* Signing files"
