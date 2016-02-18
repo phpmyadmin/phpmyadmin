@@ -98,10 +98,7 @@ if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
     echo "There seems to be wrong version in $CONFIG_LIB!"
     exit 2
 fi
-if test -f Documentation.html && ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
-    echo "There seems to be wrong version in Documentation.html"
-fi
-if test -f doc/conf.py && ! grep -q "version = '$version'" doc/conf.py ; then
+if ! grep -q "version = '$version'" doc/conf.py ; then
     echo "There seems to be wrong version in doc/conf.py"
     exit 2
 fi
@@ -115,12 +112,8 @@ LC_ALL=C date -u > RELEASE-DATE-${version}
 
 # Building documentation
 echo "* Generating documentation"
-if [ -f doc/conf.py ] ; then
-    LC_ALL=C make -C doc html
-    find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
-else
-    LC_ALL=C w3m -dump Documentation.html > Documentation.txt
-fi
+LC_ALL=C make -C doc html
+find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
 
 # Check for gettext support
 if [ -d po ] ; then
