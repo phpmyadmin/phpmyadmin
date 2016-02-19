@@ -14,6 +14,8 @@
  *
  * @return string
  */
+use PMA\libraries\URL;
+
 function PMA_selectServer($not_only_options, $omit_fieldset)
 {
     $retval = '';
@@ -86,7 +88,7 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
                     . PMA\libraries\Util::getScriptNameForOption(
                         $GLOBALS['cfg']['DefaultTabServer'], 'server'
                     )
-                    . PMA_URL_getCommon(array('server' => $key))
+                    . URL::getCommon(array('server' => $key))
                     . '" >' . htmlspecialchars($label) . '</a>';
             }
             $retval .= '</li>';

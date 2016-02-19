@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -337,13 +338,13 @@ function PMA_getErrorReportForm()
 {
     $datas = array(
         'report_data' => PMA_getPrettyReportData(),
-        'hidden_inputs' => PMA_URL_getHiddenInputs(),
+        'hidden_inputs' => URL::getHiddenInputs(),
         'hidden_fields' => null,
     );
 
     $reportData = PMA_getReportData();
     if (!empty($reportData)) {
-        $datas['hidden_fields'] = PMA_getHiddenFields($reportData);
+        $datas['hidden_fields'] = URL::getHiddenFields($reportData);
     }
 
     return PMA\libraries\Template::get('error/report_form')

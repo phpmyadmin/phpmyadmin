@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * Class for generating the top menu
  *
@@ -196,7 +198,7 @@ class Menu
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             ),
-            PMA_URL_getCommon(),
+            URL::getCommon(),
             htmlspecialchars($server_info),
             __('Server')
         );
@@ -215,7 +217,7 @@ class Menu
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 ),
-                PMA_URL_getCommon(array('db' => $this->_db)),
+                URL::getCommon(array('db' => $this->_db)),
                 htmlspecialchars($this->_db),
                 __('Database')
             );
@@ -240,7 +242,7 @@ class Menu
                     Util::getScriptNameForOption(
                         $GLOBALS['cfg']['DefaultTabTable'], 'table'
                     ),
-                    PMA_URL_getCommon(
+                    URL::getCommon(
                         array(
                             'db' => $this->_db, 'table' => $this->_table
                         )

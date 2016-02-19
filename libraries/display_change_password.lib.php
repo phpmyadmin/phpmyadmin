@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\URL;
 
 /**
   * Get HTML for the Change password dialog
@@ -36,7 +37,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . 'name="chgPassword" '
         . 'class="' . ($is_privileges ? 'submenu-item' : '') . '">';
 
-    $html .= PMA_URL_getHiddenInputs();
+    $html .= URL::getHiddenInputs();
 
     if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
         $html .= '<input type="hidden" name="username" '

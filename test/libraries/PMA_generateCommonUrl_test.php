@@ -1,18 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA_URL_getCommon()
+ * tests for URL::getCommon()
  *
  * @package PhpMyAdmin-test
  */
-
 /*
- * Include to test.
+ * Include to text.
  */
-require_once 'libraries/url_generating.lib.php';
+use PMA\libraries\URL;
 
 /**
- * tests for PMA_URL_getCommon()
+ * tests for URL::getCommon()
  *
  * @package PhpMyAdmin-test
  */
@@ -32,7 +31,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_URL_getCommon for DB only
+     * Test for URL::getCommon for DB only
      *
      * @return void
      */
@@ -42,7 +41,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
@@ -52,11 +51,11 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $expected = '?db=db'
             . htmlentities($separator) . $expected;
 
-        $this->assertEquals($expected, PMA_URL_getCommon(array('db' => 'db')));
+        $this->assertEquals($expected, URL::getCommon(array('db' => 'db')));
     }
 
     /**
-     * Test for PMA_URL_getCommon with new style
+     * Test for URL::getCommon with new style
      *
      * @return void
      */
@@ -66,7 +65,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
@@ -77,11 +76,11 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
             . htmlentities($separator) . 'table=table'
             . htmlentities($separator) . $expected;
         $params = array('db' => 'db', 'table' => 'table');
-        $this->assertEquals($expected, PMA_URL_getCommon($params));
+        $this->assertEquals($expected, URL::getCommon($params));
     }
 
     /**
-     * Test for PMA_URL_getCommon with alternate divider
+     * Test for URL::getCommon with alternate divider
      *
      * @return void
      */
@@ -91,7 +90,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         $expected = 'server=x' . $separator
             . 'lang=en' . $separator
             . 'collation_connection=x' . $separator
@@ -102,14 +101,14 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
             . $expected;
         $this->assertEquals(
             $expected,
-            PMA_URL_getCommon(
+            URL::getCommon(
                 array('db' => 'db', 'table' => 'table'), 'text', '#ABC#'
             )
         );
     }
 
     /**
-     * Test for PMA_URL_getCommon
+     * Test for URL::getCommon
      *
      * @return void
      */
@@ -119,12 +118,12 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         $expected = '?server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=token'
             ;
-        $this->assertEquals($expected, PMA_URL_getCommon());
+        $this->assertEquals($expected, URL::getCommon());
     }
 }

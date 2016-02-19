@@ -1,6 +1,6 @@
 <?php use PMA\libraries\Template; ?>
 <form class="submenu-item" action="server_privileges.php" id="<?= $formId; ?>" method="post">
-    <?= PMA_URL_getHiddenInputs(); ?>
+    <?= PMA\libraries\URL::getHiddenInputs(); ?>
     <input type="hidden" name="username" value="<?= htmlspecialchars($userName); ?>" />
     <input type="hidden" name="hostname" value="<?= htmlspecialchars($hostName); ?>" />
 

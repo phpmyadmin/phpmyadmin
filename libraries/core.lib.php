@@ -8,6 +8,8 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\URL;
+
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -504,7 +506,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         if (mb_strpos($uri, '?') === false) {
             $response->header('Location: ' . $uri . '?' . SID);
         } else {
-            $separator = PMA_URL_getArgSeparator();
+            $separator = URL::getArgSeparator();
             $response->header('Location: ' . $uri . $separator . SID);
         }
         return;
@@ -728,13 +730,10 @@ function PMA_linkURL($url)
         return $url;
     }
 
-    if (!function_exists('PMA_URL_getCommon')) {
-        include_once './libraries/url_generating.lib.php';
-    }
     $params = array();
     $params['url'] = $url;
 
-    $url = PMA_URL_getCommon($params);
+    $url = URL::getCommon($params);
     //strip off token and such sensitive information. Just keep url.
     $arr = parse_url($url);
     parse_str($arr["query"], $vars);

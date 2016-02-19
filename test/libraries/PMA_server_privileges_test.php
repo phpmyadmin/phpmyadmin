@@ -10,9 +10,8 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
-
-require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -391,9 +390,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             '<form class="ajax" id="changeUserGroupForm"',
             $html
         );
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $params = array('username' => $username);
-        $html_output = PMA_URL_getHiddenInputs($params);
+        $html_output = URL::getHiddenInputs($params);
         $this->assertContains(
             $html_output,
             $html
@@ -420,9 +419,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             '<form class="ajax" id="changeUserGroupForm"',
             $html
         );
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $params = array('username' => $username);
-        $html_output = PMA_URL_getHiddenInputs($params);
+        $html_output = URL::getHiddenInputs($params);
         $this->assertContains(
             $html_output,
             $html
@@ -1193,9 +1192,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlForAddUser($dbname);
 
-        //validate 1: PMA_URL_getHiddenInputs
+        //validate 1: URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs('', ''),
+            URL::getHiddenInputs('', ''),
             $html
         );
 
@@ -1260,9 +1259,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlForSpecificDbPrivileges($db);
 
-        //validate 1: PMA_URL_getCommon
+        //validate 1: URL::getCommon
         $this->assertContains(
-            PMA_URL_getCommon(array('db' => $db)),
+            URL::getCommon(array('db' => $db)),
             $html
         );
 
@@ -1304,7 +1303,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PMA_URL_getCommon(array('checkprivsdb' => $db)),
+            URL::getCommon(array('checkprivsdb' => $db)),
             $html
         );
 
@@ -1342,8 +1341,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 2: PMA_URL_getCommon
-        $item = PMA_URL_getCommon(
+        //validate 2: URL::getCommon
+        $item = URL::getCommon(
             array(
                 'db' => $db,
                 'table' => $table,
@@ -1386,7 +1385,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PMA_URL_getCommon(
+            URL::getCommon(
                 array('checkprivsdb' => $db, 'checkprivstable' => $table)
             ),
             $html
@@ -1482,7 +1481,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'edit', $username, $hostname, $dbname, $tablename, ''
         );
 
-        $url_html = PMA_URL_getCommon(
+        $url_html = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1504,7 +1503,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'revoke', $username, $hostname, $dbname, $tablename, ''
         );
 
-        $url_html = PMA_URL_getCommon(
+        $url_html = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1525,7 +1524,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getUserLink('export', $username, $hostname);
 
-        $url_html = PMA_URL_getCommon(
+        $url_html = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1639,9 +1638,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //PMA_getChangeLoginInformationHtmlForm
         $html = PMA_getChangeLoginInformationHtmlForm($username, $hostname);
 
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs('', ''),
+            URL::getHiddenInputs('', ''),
             $html
         );
 
@@ -1694,7 +1693,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ),
             $html
         );
-        $item = PMA_URL_getCommon(
+        $item = URL::getCommon(
             array(
                 'db' => $url_dbname,
                 'reload' => 1
@@ -1720,7 +1719,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ),
             $html
         );
-        $item = PMA_URL_getCommon(
+        $item = URL::getCommon(
             array(
                 'db' => $url_dbname,
                 'table' => $tablename,
@@ -1761,9 +1760,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $result, $db_rights, $pmaThemeImage, $text_dir
         );
 
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs('', ''),
+            URL::getHiddenInputs('', ''),
             $html
         );
 
@@ -1843,9 +1842,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $result, $db_rights, $pmaThemeImage, $text_dir
         );
 
-        //PMA_URL_getCommon
+        //URL::getCommon
         $this->assertContains(
-            PMA_URL_getCommon(array('adduser' => 1)),
+            URL::getCommon(array('adduser' => 1)),
             $html
         );
 
@@ -1916,7 +1915,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $html = PMA_getAddUserHtmlFieldset();
 
         $this->assertContains(
-            PMA_URL_getCommon(array('adduser' => 1)),
+            URL::getCommon(array('adduser' => 1)),
             $html
         );
         $this->assertContains(
@@ -1959,8 +1958,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_URL_getCommon
-        $item = PMA_URL_getCommon(
+        //URL::getCommon
+        $item = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1995,8 +1994,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_URL_getCommon
-        $item = PMA_URL_getCommon(
+        //URL::getCommon
+        $item = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,

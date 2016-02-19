@@ -10,9 +10,8 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
-
-require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/display_export.lib.php';
 
@@ -99,7 +98,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $sql_query_str
         );
 
-        //validate 1: PMA_URL_getHiddenInputs
+        //validate 1: URL::getHiddenInputs
         //$single_table
         $this->assertContains(
             '<input type="hidden" name="single_table" value="TRUE"',

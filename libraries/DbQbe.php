@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * Class to handle database QBE search
  *
@@ -1828,7 +1830,7 @@ class DbQbe
         $url_params['db'] = $this->_db;
         $url_params['criteriaColumnCount'] = $this->_new_column_count;
         $url_params['rows'] = $this->_new_row_count;
-        $html_output .= PMA_URL_getHiddenInputs($url_params);
+        $html_output .= URL::getHiddenInputs($url_params);
         $html_output .= '</fieldset>';
         // get footers
         $html_output .= $this->_getTableFooters();
@@ -1836,7 +1838,7 @@ class DbQbe
         $html_output .= $this->_getTablesList();
         $html_output .= '</form>';
         $html_output .= '<form action="db_qbe.php" method="post" class="lock-page">';
-        $html_output .= PMA_URL_getHiddenInputs(array('db' => $this->_db));
+        $html_output .= URL::getHiddenInputs(array('db' => $this->_db));
         // get SQL query
         $html_output .= '<div class="floatleft" style="width:50%">';
         $html_output .= '<fieldset>';

@@ -14,6 +14,7 @@ use SqlParser\Parser;
 use SqlParser\Token;
 use stdClass;
 use SqlParser\Utils\Error as ParserError;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -711,14 +712,14 @@ class Util
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
+                        . URL::getCommon($_url_params) . '">';
                 } elseif (mb_strlen($db)) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
+                        . URL::getCommon($_url_params) . '">';
                 } else {
                     $doedit_goto = '<a href="server_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
+                        . URL::getCommon($_url_params) . '">';
                 }
 
                 $error_msg .= $doedit_goto
@@ -1195,7 +1196,7 @@ class Util
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $explain_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($explain_params),
+                            'import.php' . URL::getCommon($explain_params),
                             __('Explain SQL')
                         ) . ']';
                 } elseif (preg_match(
@@ -1206,7 +1207,7 @@ class Util
                         = mb_substr($sql_query, 8);
                     $explain_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($explain_params),
+                            'import.php' . URL::getCommon($explain_params),
                             __('Skip Explain SQL')
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
@@ -1230,7 +1231,7 @@ class Util
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($cfg['SQLQuery']['Edit'])) {
-                $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
+                $edit_link .= URL::getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton($edit_link, __('Edit'))
                     . ']';
@@ -1245,7 +1246,7 @@ class Util
                 if (! empty($GLOBALS['show_as_php'])) {
                     $php_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($url_params),
+                            'import.php' . URL::getCommon($url_params),
                             __('Without PHP code'),
                             array(),
                             true,
@@ -1257,7 +1258,7 @@ class Util
 
                     $php_link .= ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($url_params),
+                            'import.php' . URL::getCommon($url_params),
                             __('Submit query'),
                             array(),
                             true,
@@ -1272,7 +1273,7 @@ class Util
                     $_message = __('Create PHP code');
                     $php_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($php_params),
+                            'import.php' . URL::getCommon($php_params),
                             $_message
                         )
                         . ']';
@@ -1286,7 +1287,7 @@ class Util
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = 'import.php' . PMA_URL_getCommon($url_params);
+                $refresh_link = 'import.php' . URL::getCommon($url_params);
                 $refresh_link = ' ['
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
@@ -1308,7 +1309,7 @@ class Util
 
             $retval .= '<div class="tools print_ignore">';
             $retval .= '<form action="sql.php" method="post">';
-            $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+            $retval .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '" />';
 
@@ -1773,10 +1774,10 @@ class Util
         // build the link
         if (! empty($tab['link'])) {
             $tab['link'] = htmlentities($tab['link']);
-            $tab['link'] = $tab['link'] . PMA_URL_getCommon($url_params);
+            $tab['link'] = $tab['link'] . URL::getCommon($url_params);
             if (! empty($tab['args'])) {
                 foreach ($tab['args'] as $param => $value) {
-                    $tab['link'] .= PMA_URL_getArgSeparator('html')
+                    $tab['link'] .= URL::getArgSeparator('html')
                         . urlencode($param) . '=' . urlencode($value);
                 }
             }
@@ -2036,7 +2037,7 @@ class Util
     public static function splitURLQuery($url)
     {
         // decode encoded url separators
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         // on most places separator is still hard coded ...
         if ($separator !== '&') {
             // ... so always replace & with $separator
@@ -2605,19 +2606,19 @@ class Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '">' . $caption1
+                    . URL::getCommon($_url_params) . '">' . $caption1
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= ' <a' . $class . $title2
-                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '">'
+                    . ' href="' . $script . URL::getCommon($_url_params) . '">'
                     . $caption2 . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script)
                 . '" method="post">';
 
-            $list_navigator_html .= PMA_URL_getHiddenInputs($_url_params);
+            $list_navigator_html .= URL::getHiddenInputs($_url_params);
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
@@ -2644,7 +2645,7 @@ class Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '" >' . $caption3
+                    . URL::getCommon($_url_params) . '" >' . $caption3
                     . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
@@ -2653,7 +2654,7 @@ class Util
                 }
 
                 $list_navigator_html .= ' <a' . $class . $title4
-                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '" >'
+                    . ' href="' . $script . URL::getCommon($_url_params) . '" >'
                     . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
@@ -2707,7 +2708,7 @@ class Util
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
-            . PMA_URL_getCommon(array('db' => $database)) . '" title="'
+            . URL::getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database "%s".'),

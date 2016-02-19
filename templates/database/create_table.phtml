@@ -6,7 +6,7 @@
         <?php endif; ?>
         <?= __('Create table'); ?>
         </legend>
-        <?= PMA_URL_getHiddenInputs($db); ?>
+        <?= PMA\libraries\URL::getHiddenInputs($db); ?>
         <div class="formelement">
             <?= __('Name'); ?>:
             <input type="text" name="table" maxlength="64" size="30" required="required" />

@@ -9,8 +9,7 @@
 use PMA\libraries\StorageEngine;
 use PMA\libraries\Theme;
 use PMA\libraries\controllers\server\ServerEnginesController;
-
-require_once 'libraries/url_generating.lib.php';
+use PMA\libraries\URL;
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -143,7 +142,7 @@ class ServerEnginesControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            PMA_URL_getCommon(
+            URL::getCommon(
                 array('engine' => $_REQUEST['engine'], 'page' => "Documentation")
             ),
             $html
@@ -151,7 +150,7 @@ class ServerEnginesControllerTest extends PMATestCase
 
         //validate 5: other items
         $this->assertContains(
-            PMA_URL_getCommon(array('engine' => $_REQUEST['engine'])),
+            URL::getCommon(array('engine' => $_REQUEST['engine'])),
             $html
         );
         $this->assertContains(

@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use Traversable;
+use PMA\libraries\URL;
 
 /**
  * Class used to output the footer
@@ -134,7 +135,7 @@ class Footer
     /**
      * Returns the url of the current page
      *
-     * @param string|null $encode See PMA_URL_getCommon()
+     * @param string|null $encode See URL::getCommon()
      *
      * @return string
      */
@@ -178,7 +179,7 @@ class Footer
         ) {
             $params['single_table'] = $_REQUEST['single_table'];
         }
-        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
+        return basename(PMA_getenv('SCRIPT_NAME')) . URL::getCommon(
             $params,
             $encode
         );

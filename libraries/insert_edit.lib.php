@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\plugins\TransformationsPlugin;
+use PMA\libraries\URL;
 
 /**
  * Retrieve form parameters for insert/edit form
@@ -222,12 +223,12 @@ function PMA_showTypeOrFunction($which, $url_params, $is_show)
 
     if (! $is_show) {
         return ' : <a href="tbl_change.php'
-            . PMA_URL_getCommon($this_url_params) . '">'
+            . URL::getCommon($this_url_params) . '">'
             . PMA_showTypeOrFunctionLabel($which)
             . '</a>';
     }
     return '<th><a href="tbl_change.php'
-        . PMA_URL_getCommon($this_url_params)
+        . URL::getCommon($this_url_params)
         . '" title="' . __('Hide') . '">'
         . PMA_showTypeOrFunctionLabel($which)
         . '</a></th>';
@@ -675,7 +676,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
         . 'value="' . htmlspecialchars($data) . '" />';
 
     $html_output .= '<a class="ajax browse_foreign" href="browse_foreigners.php'
-        . PMA_URL_getCommon(
+        . URL::getCommon(
             array(
                 'db' => $db,
                 'table' => $table,
@@ -1377,7 +1378,7 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
 {
     $html_output = '<form id="continueForm" method="post"'
         . ' action="tbl_replace.php" name="continueForm">'
-        . PMA_URL_getHiddenInputs($db, $table)
+        . URL::getHiddenInputs($db, $table)
         . '<input type="hidden" name="goto"'
         . ' value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
         . '<input type="hidden" name="err_url"'
@@ -1890,7 +1891,7 @@ function PMA_getErrorUrl($url_params)
     if (isset($_REQUEST['err_url'])) {
         return $_REQUEST['err_url'];
     } else {
-        return 'tbl_change.php' . PMA_URL_getCommon($url_params);
+        return 'tbl_change.php' . URL::getCommon($url_params);
     }
 }
 
@@ -2084,7 +2085,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
             . $where_comparison
     );
     $output = '<a href="sql.php'
-        . PMA_URL_getCommon($_url_params) . '"' . $title . '>';
+        . URL::getCommon($_url_params) . '"' . $title . '>';
 
     if ('D' == $_SESSION['tmpval']['relational_display']) {
         // user chose "relational display field" in the
@@ -2131,7 +2132,7 @@ function PMA_transformEditedValues($db, $table,
             : ''
         );
         $transform_options['wrapper_link']
-            = PMA_URL_getCommon($_url_params);
+            = URL::getCommon($_url_params);
         $class_name = PMA_getTransformationClassName($include_file);
         /** @var TransformationsPlugin $transformation_plugin */
         $transformation_plugin = new $class_name();
@@ -2846,7 +2847,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
                 'where_clause'  => $where_clause
             );
             $transformation_options['wrapper_link']
-                = PMA_URL_getCommon($_url_params);
+                = URL::getCommon($_url_params);
             $current_value = '';
             if (isset($current_row[$column['Field']])) {
                 $current_value = $current_row[$column['Field']];

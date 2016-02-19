@@ -16,6 +16,7 @@ use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Template;
 use PMA\libraries\Tracker;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/display_create_table.lib.php';
@@ -343,7 +344,7 @@ class DatabaseStructureController extends DatabaseController
     public function multiSubmitAction()
     {
         $action = 'db_structure.php';
-        $err_url = 'db_structure.php' . PMA_URL_getCommon(
+        $err_url = 'db_structure.php' . URL::getCommon(
             array('db' => $this->db)
         );
 
