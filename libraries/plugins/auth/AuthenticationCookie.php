@@ -405,14 +405,16 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check cookies
-        if (empty(json_decode($_COOKIE['pma_data'])['pmaUser-' . $GLOBALS['server']])
-            || empty(json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'])
-        ) {
+
+        if(isset($_COOKIE['pma_data']) && isset($_COOKIE['pma_auth-'.$GLOBALS['server']])){
+            return true;
+        }else{
             return false;
         }
 
+
         $GLOBALS['PHP_AUTH_USER'] = $this->cookieDecrypt(
-            json_decode($_COOKIE['pma_data'])['pmaUser-' . $GLOBALS['server']],
+            json_decode($_COOKIE['pma_data'],true)['pmaUser-' . $GLOBALS['server']],
             $this->_getEncryptionSecret()
         );
 
@@ -444,12 +446,14 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check password cookie
-        if (empty(json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'])) {
+        if(isset($_COOKIE['pma_auth-'.$GLOBALS['server']])){
+            return true;
+        }else{
             return false;
         }
 
         $GLOBALS['PHP_AUTH_PW'] = $this->cookieDecrypt(
-            json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'],
+            json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']],true)['pma_pass'],
             $this->_getSessionEncryptionSecret()
         );
 
@@ -754,7 +758,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         if (is_null($this->_cookie_iv)) {
             $this->_cookie_iv = base64_decode(
-                json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'],
+                json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']],true)['pma_iv'],
                 true
             );
         }

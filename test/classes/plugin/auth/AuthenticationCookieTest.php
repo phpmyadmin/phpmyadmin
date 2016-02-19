@@ -397,6 +397,8 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheck()
     {
+        $pma_auth=array();
+        $pma_data=array();
         $defineAgain = 'PMA_TEST_NO_DEFINE';
 
         if (defined('PMA_CLEAR_COOKIES')) {
@@ -441,8 +443,13 @@ class AuthenticationCookieTest extends PMATestCase
         $_REQUEST['old_usr'] = 'pmaolduser';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
         $GLOBALS['cfg']['Servers'] = array(1);
+        $GLOBALS['server']=0;
+        if(isset($pma_auth)){
 
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'test';
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('test','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
 
 
         $this->object->authCheck();
@@ -460,7 +467,13 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['server'] = 1;
 
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'test';
+        if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('test','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
+
 
         $this->object->authCheck();
 
@@ -506,7 +519,16 @@ class AuthenticationCookieTest extends PMATestCase
         $_REQUEST['pma_username'] = '';
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server1']])['pma_iv'] = base64_encode('testiv09testiv09');
+        if(isset($_pma_data)){
+            $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
+        }
+        if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('test','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -521,9 +543,16 @@ class AuthenticationCookieTest extends PMATestCase
 
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
-        json_decode($_COOKIE['pma_data'])['pma_User-1'] = 'pmaUser1';
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'] = base64_encode('testiv09testiv09');
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = '';
+        if(isset($_pma_data)){
+            $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
+        }
+        if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
@@ -544,6 +573,8 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckWithConstants()
     {
+        $pma_auth=array();
+        $pma_data=array();
         if (!defined('PMA_CLEAR_COOKIES') && !PMA_HAS_RUNKIT) {
             $this->markTestSkipped(
                 'Cannot redefine constant/function - missing runkit extension'
@@ -559,9 +590,19 @@ class AuthenticationCookieTest extends PMATestCase
 
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['cfg']['Servers'] = array(1);
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 1;
+        $GLOBALS['server']=0;
         $_COOKIE['pmaServer-0'] = 1;
-        json_decode($_COOKIE['pma_data'])['pma_User-'.$GLOBALS['server']] = 1;
+        if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json(1,'pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
+        if(isset($_pma_data)){
+            $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json(1,'pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
+        }
+
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -591,13 +632,23 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckDecryptUser()
     {
+        $pma_auth=array();
+        $pma_data=array();
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
-        json_decode($_COOKIE['pma_data'])['pma_User-'.$GLOBALS['server']] = 'pmaUser1';
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'] = base64_encode('testiv09testiv09');
+        if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json(1,'pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
+        if(isset($_pma_data)){
+            $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('pmaUser1','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
+        }
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
@@ -630,14 +681,23 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckDecryptPassword()
     {
+        $pma_auth=array();
+        $pma_data=array();
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
-        json_decode($_COOKIE['pma_data'])['pma_User-'.$GLOBALS['server']] = 'pmaUser1';
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'pmaPass1';
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'] = base64_encode('testiv09testiv09');
+         if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pma_pass1','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
+        if(isset($_pma_data)){
+            $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('pmaUser1','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
+        }
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
@@ -676,13 +736,23 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckAuthFails()
     {
+        $pma_auth=array();
+        $pma_data=array();
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
-        json_decode($_COOKIE['pma_data'])['pma_User-'.$GLOBALS['server']] = 'pmaUser1';
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_iv'] = base64_encode('testiv09testiv09');
+        if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pma_pass1','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
+        if(isset($_pma_data)){
+            $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('pmaUser1','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
+        }
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = 1;
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
@@ -868,13 +938,19 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthFailsNoPass()
     {
+        $pma_auth=array();
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();
 
         $GLOBALS['server'] = 2;
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'pass';
+         if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
 
         // case 1
 
@@ -895,6 +971,7 @@ class AuthenticationCookieTest extends PMATestCase
 
     public function testAuthFailsDeny()
     {
+        $pma_auth=array();
         // case 2
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
@@ -902,7 +979,12 @@ class AuthenticationCookieTest extends PMATestCase
             ->getMock();
 
         $GLOBALS['server'] = 2;
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'pass';
+        if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
 
         $GLOBALS['login_without_password_is_forbidden'] = '';
         $GLOBALS['allowDeny_forbidden'] = '1';
@@ -920,6 +1002,7 @@ class AuthenticationCookieTest extends PMATestCase
 
     public function testAuthFailsActivity()
     {
+        $pma_auth=array();
         // case 3
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
@@ -927,8 +1010,12 @@ class AuthenticationCookieTest extends PMATestCase
             ->getMock();
 
         $GLOBALS['server'] = 2;
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'pass';
+        if(isset($pma_auth)){
 
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
 
         $GLOBALS['allowDeny_forbidden'] = '';
         $GLOBALS['no_activity'] = '1';
@@ -947,6 +1034,7 @@ class AuthenticationCookieTest extends PMATestCase
 
     public function testAuthFailsDBI()
     {
+        $pma_auth=array();
         // case 4
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
@@ -954,8 +1042,12 @@ class AuthenticationCookieTest extends PMATestCase
             ->getMock();
 
         $GLOBALS['server'] = 2;
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'pass';
+        if(isset($pma_auth)){
 
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -982,6 +1074,7 @@ class AuthenticationCookieTest extends PMATestCase
 
     public function testAuthFailsErrno()
     {
+        $pma_auth=array();
         // case 5
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
@@ -998,8 +1091,12 @@ class AuthenticationCookieTest extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['server'] = 2;
-        json_decode($_COOKIE['pma_auth-'.$GLOBALS['server']])['pma_pass'] = 'pass';
+        if(isset($pma_auth)){
 
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+        }
         unset($GLOBALS['errno']);
 
         $this->doMockResponse(
