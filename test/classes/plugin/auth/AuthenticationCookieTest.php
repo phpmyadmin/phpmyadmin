@@ -927,7 +927,6 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaPass-2'] = 'pass';
 
-
         $GLOBALS['allowDeny_forbidden'] = '';
         $GLOBALS['no_activity'] = '1';
         $GLOBALS['cfg']['LoginCookieValidity'] = 10;
@@ -953,7 +952,6 @@ class AuthenticationCookieTest extends PMATestCase
 
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaPass-2'] = 'pass';
-
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()

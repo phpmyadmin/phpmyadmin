@@ -213,7 +213,6 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['table_priv']
         );
 
-
         // re-initialise the privileges
         $this->setUp();
 
@@ -254,7 +253,6 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             true,
             $GLOBALS['table_priv']
         );
-
 
         // re-initialise the privileges
         $this->setUp();

@@ -1346,7 +1346,6 @@ class Util
             $retval .= '</div>';
         }
 
-
         return $retval;
     } // end of the 'getMessage()' function
 
