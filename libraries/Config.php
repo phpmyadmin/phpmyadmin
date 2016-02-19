@@ -67,7 +67,7 @@ class Config
      * @var array
      */
     var $default_server = array();
-
+    var $pma_data_settings=array();
     /**
      * @var boolean whether init is done or not
      * set this to false to force some initial checks
@@ -899,10 +899,8 @@ class Config
             if (isset($config_data[$collation])) {
                 $GLOBALS[$collation]
                     = $config_data[$collation];
-                $this->setCookie(
-                    'pma_collation_connection',
-                    $GLOBALS[$collation]
-                );
+                 if(isset($pma_data_settings))
+                    $pma_data_settings['pma_collation_connection']=$this->check_json($GLOBALS[$collation],'pma_collation_connection',$pma_data_settings,'pma_data');
             }
         }
     }
@@ -1019,7 +1017,11 @@ class Config
         } else {
             // read language from settings
             if (isset($config_data['lang']) && PMA_langSet($config_data['lang'])) {
-                $this->setCookie('pma_lang', $GLOBALS['lang']);
+                $pma_data_settings['lang']=$GLOBALS['lang'];
+                //setcookie('settings_lang',$GLOBALS['lang']);
+                if(isset($pma_data_settings))
+                $pma_data_settings['pma_lang']=$this->check_json($GLOBALS['lang'],'pma_lang',$pma_data_settings,'pma_data');
+                $this->set_json_Cookie('pma_data',$pma_data_settings);
             }
         }
 
@@ -1638,6 +1640,79 @@ class Config
         return true;
     }
 
+    public function set_json_Cookie($cookie,$arr,$default = null,$validity = null,$httponly=true){
+        if(isset($_COOKIE[$cookie])){
+
+             unset($_COOKIE[$cookie]);
+            /* if ($validity === null) {
+                $validity = time() + 2592000;
+            } elseif ($validity == 0) {
+                $validity = 0;
+            } else {
+                $validity = time() + $validity;
+            }*/
+            return setcookie($cookie,
+                json_encode($arr),$validity,
+                $this->getCookiePath(),
+                '',
+                $this->isHttps(),
+                $httponly);
+        }
+        if((!isset($_COOKIE[$cookie]))){
+
+            if ($validity === null) {
+                $validity = time() + 2592000;
+            } elseif ($validity == 0) {
+                $validity = 0;
+            } else {
+                $validity = time() + $validity;
+            }
+
+            return setcookie(
+                $cookie,
+                json_encode($arr),$validity,
+                $this->getCookiePath(),
+                '',
+                $this->isHttps(),
+                $httponly);
+        }
+            return false;
+
+    }
+
+    public function check_json($value,$key,$arr,$cookie,$default = null){
+
+        if(!empty($arr)){
+
+            if (/*overload*/mb_strlen($value) && null !== $default && $value === $default
+            ) {
+
+                    // default value is used
+                if (isset($_COOKIE[$cookie])) {
+                    // remove cookie
+
+                    return $this->removeCookie($cookie);
+                }
+                return false;
+            }else{
+
+                if (!/*overload*/mb_strlen($value) && isset($_COOKIE[$cookie])) {
+                    // remove cookie, value is empty
+
+                    return $this->removeCookie($cookie);
+                }else{
+
+                    $arr[$key]=$value;
+                    return $arr[$key];
+                }
+            }
+
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
     /**
      * Error handler to catch fatal errors when loading configuration
