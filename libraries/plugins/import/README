@@ -96,9 +96,11 @@ class Import[Name] extends PMA\libraries\plugins\ImportPlugin
     /**
      * Handles the whole import logic
      *
+     * @param array &$sql_data 2-element array with sql data
+     *
      * @return void
      */
-    public function doImport()
+    public function doImport(&$sql_data = array())
     {
         // get globals (others are optional)
         global $error, $timeout_passed, $finished;
@@ -117,10 +119,10 @@ class Import[Name] extends PMA\libraries\plugins\ImportPlugin
                 $buffer .= $data;
             }
             // PARSE $buffer here, post sql queries using:
-            PMA_importRunQuery($sql, $verbose_sql_with_comments);
+            PMA_importRunQuery($sql, $verbose_sql_with_comments, $sql_data);
         } // End of import loop
         // Commit any possible data in buffers
-        PMA_importRunQuery();
+        PMA_importRunQuery('', '', $sql_data);
     }
 
 

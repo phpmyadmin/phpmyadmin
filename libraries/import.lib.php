@@ -974,6 +974,7 @@ $import_notice = null;
  * @param array  &$analyses       Analyses of the tables
  * @param array  &$additional_sql Additional SQL statements to be executed
  * @param array  $options         Associative array of options
+ * @param array  &$sql_data       2-element array with sql data
  *
  * @return void
  * @access  public
@@ -981,7 +982,7 @@ $import_notice = null;
  * @link http://wiki.phpmyadmin.net/pma/Import
  */
 function PMA_buildSQL($db_name, &$tables, &$analyses = null,
-    &$additional_sql = null, $options = null
+    &$additional_sql = null, $options = null, &$sql_data
 ) {
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
@@ -1021,7 +1022,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     /* Execute the SQL statements create above */
     $sql_len = count($sql);
     for ($i = 0; $i < $sql_len; ++$i) {
-        PMA_importRunQuery($sql[$i], $sql[$i]);
+        PMA_importRunQuery($sql[$i], $sql[$i], $sql_data);
     }
 
     /* No longer needed */
@@ -1056,7 +1057,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                 $additional_sql[$i]
             );
             /* Execute the resulting statements */
-            PMA_importRunQuery($additional_sql[$i], $additional_sql[$i]);
+            PMA_importRunQuery($additional_sql[$i], $additional_sql[$i], $sql_data);
         }
     }
 
@@ -1108,7 +1109,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
              * after it is formed so that we don't have
              * to store them in a (possibly large) buffer
              */
-            PMA_importRunQuery($tempSQLStr, $tempSQLStr);
+            PMA_importRunQuery($tempSQLStr, $tempSQLStr, $sql_data);
         }
     }
 
@@ -1199,7 +1200,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
          * after it is formed so that we don't have
          * to store them in a (possibly large) buffer
          */
-        PMA_importRunQuery($tempSQLStr, $tempSQLStr);
+        PMA_importRunQuery($tempSQLStr, $tempSQLStr, $sql_data);
     }
 
     /* No longer needed */

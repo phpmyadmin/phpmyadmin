@@ -670,12 +670,16 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
         htmlspecialchars($_POST['bkm_label'])
     );
 } elseif ($finished && ! $error) {
-    if ($import_type == 'query') {
-        $message = PMA\libraries\Message::success();
-    } else {
+    // Do not display the query with message, we do it separately
+    $display_query = ';';
+    if ($import_type != 'query') {
         $message = PMA\libraries\Message::success(
             '<em>'
-            . __('Import has been successfully finished, %d queries executed.')
+            . _ngettext(
+                'Import has been successfully finished, %d query executed.',
+                'Import has been successfully finished, %d queries executed.',
+                $executed_queries
+            )
             . '</em>'
         );
         $message->addParam($executed_queries);

@@ -293,6 +293,11 @@ function PMA_analyseShowGrant()
         $GLOBALS['dbs_where_create_table_allowed']
     );
     PMA\libraries\Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
+
+    PMA\libraries\Util::cacheSet('proc_priv', $GLOBALS['proc_priv']);
+    PMA\libraries\Util::cacheSet('table_priv', $GLOBALS['table_priv']);
+    PMA\libraries\Util::cacheSet('col_priv', $GLOBALS['col_priv']);
+    PMA\libraries\Util::cacheSet('db_priv', $GLOBALS['db_priv']);
 } // end function
 
 $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
