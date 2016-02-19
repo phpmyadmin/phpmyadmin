@@ -72,6 +72,11 @@ define('PHPMYADMIN', true);
 require_once './libraries/vendor_config.php';
 
 /**
+ * Load gettext functions.
+ */
+require_once GETTEXT_INC;
+
+/**
  * Activate autoloader
  */
 require_once './vendor/autoload.php';
@@ -470,11 +475,6 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 
 /******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
-
-/**
- * Load gettext functions.
- */
-require_once GETTEXT_INC;
 
 /**
  * lang detection is done here
