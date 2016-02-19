@@ -14,21 +14,14 @@
 define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
 
-// MSIE 6 (at least some unpatched versions) has problems loading CSS
-// when zlib_compression is on
-if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER == '6'
-    && (ini_get('zlib.output_compression'))
-) {
-    @ini_set('zlib.output_compression', 'Off');
-} else {
-    $buffer = OutputBuffering::getInstance();
-    $buffer->start();
-    register_shutdown_function(
-        function () {
-            echo OutputBuffering::getInstance()->getContents();
-        }
-    );
-}
+
+$buffer = OutputBuffering::getInstance();
+$buffer->start();
+register_shutdown_function(
+    function () {
+        echo OutputBuffering::getInstance()->getContents();
+    }
+);
 
 // Send correct type:
 header('Content-Type: text/css; charset=UTF-8');

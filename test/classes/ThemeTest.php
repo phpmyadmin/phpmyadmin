@@ -332,19 +332,6 @@ class ThemeTest extends PMATestCase
     }
 
     /**
-     * Test for getCssIEClearFilter
-     *
-     * @return void
-     */
-    public function testGetCssIEClearFilter()
-    {
-        $this->assertEquals(
-            $this->object->getCssIEClearFilter(),
-            ''
-        );
-    }
-
-    /**
      * Test for getFontSize
      *
      * @return void

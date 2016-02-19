@@ -569,18 +569,6 @@ function PMA_noCacheHeader()
         'Cache-Control: no-store, no-cache, must-revalidate,'
         . '  pre-check=0, post-check=0, max-age=0'
     );
-    if (PMA_USR_BROWSER_AGENT == 'IE') {
-        /* On SSL IE sometimes fails with:
-         *
-         * Internet Explorer was not able to open this Internet site. The
-         * requested site is either unavailable or cannot be found. Please
-         * try again later.
-         *
-         * Adding Pragma: public fixes this.
-         */
-        header('Pragma: public');
-        return;
-    }
 
     header('Pragma: no-cache'); // HTTP/1.0
     // test case: exporting a database into a .gz file with Safari

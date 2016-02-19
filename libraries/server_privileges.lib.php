@@ -2509,7 +2509,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
         );
         $html_output .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_export',
+            'submit_mult', 'mult_submit',
             __('Export'), 'b_tblexport.png', 'export'
         );
 
@@ -2588,7 +2588,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
         );
         $html_output .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_export',
+            'submit_mult', 'mult_submit',
             __('Export'), 'b_tblexport.png', 'export'
         );
 
@@ -3604,7 +3604,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . Util::getWithSelected($pmaThemeImage, $text_dir, "usersForm") . "\n";
 
     $html_output .= Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_export',
+        'submit_mult', 'mult_submit',
         __('Export'), 'b_tblexport.png', 'export'
     );
     $html_output .= '<input type="hidden" name="initial" '

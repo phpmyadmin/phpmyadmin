@@ -383,7 +383,6 @@ class ServerDatabasesController extends Controller
         $html .= Util::getButtonOrImage(
             '',
             'mult_submit' . ' ajax',
-            'drop_selected_dbs',
             __('Drop'), 'b_deltbl.png'
         );
 

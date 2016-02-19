@@ -430,20 +430,6 @@ class Theme
     }
 
     /**
-     * Remove filter for IE.
-     *
-     * @return string CSS code.
-     */
-    function getCssIEClearFilter()
-    {
-        return PMA_USR_BROWSER_AGENT == 'IE'
-            && PMA_USR_BROWSER_VER >= 6
-            && PMA_USR_BROWSER_VER <= 8
-            ? 'filter: none'
-            : '';
-    }
-
-    /**
      * Gets currently configured font size.
      *
      * @return String with font size.
@@ -491,15 +477,6 @@ class Theme
         // Opera 11.10
         $result[] = 'background: -o-linear-gradient(top, #'
             . $start_color . ', #' . $end_color . ');';
-        // IE 6-8
-        if (PMA_USR_BROWSER_AGENT == 'IE'
-            && PMA_USR_BROWSER_VER >= 6
-            && PMA_USR_BROWSER_VER <= 8
-        ) {
-            $result[] = 'filter: '
-                . 'progid:DXImageTransform.Microsoft.gradient(startColorstr="#'
-                . $start_color . '", endColorstr="#' . $end_color . '");';
-        }
         return implode("\n", $result);
     }
 }

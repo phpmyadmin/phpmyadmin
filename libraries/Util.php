@@ -2374,7 +2374,6 @@ class Util
      *
      * @param string $button_name  name of button element
      * @param string $button_class class of button or image element
-     * @param string $image_name   name of image element
      * @param string $text         text to display
      * @param string $image        image to display
      * @param string $value        value
@@ -2384,36 +2383,21 @@ class Util
      * @access  public
      */
     public static function getButtonOrImage(
-        $button_name, $button_class, $image_name, $text, $image, $value = ''
+        $button_name, $button_class, $text, $image, $value = ''
     ) {
         if ($value == '') {
             $value = $text;
         }
-
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
             return ' <input type="submit" name="' . $button_name . '"'
                 . ' value="' . htmlspecialchars($value) . '"'
                 . ' title="' . htmlspecialchars($text) . '" />' . "\n";
         }
-
-        /* Opera has trouble with <input type="image"> */
-        /* IE (before version 9) has trouble with <button> */
-        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-            return '<input type="image" name="' . $image_name
-                . '" class="' . $button_class
-                . '" value="' . htmlspecialchars($value)
-                . '" title="' . htmlspecialchars($text)
-                . '" src="' . $GLOBALS['pmaThemeImage'] . $image . '" />'
-                . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
-                    ? '&nbsp;' . htmlspecialchars($text)
-                    : '') . "\n";
-        } else {
-            return '<button class="' . $button_class . '" type="submit"'
-                . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
-                . '" title="' . htmlspecialchars($text) . '">' . "\n"
-                . self::getIcon($image, $text)
-                . '</button>' . "\n";
-        }
+        return '<button class="' . $button_class . '" type="submit"'
+            . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
+            . '" title="' . htmlspecialchars($text) . '">' . "\n"
+            . self::getIcon($image, $text)
+            . '</button>' . "\n";
     } // end function
 
     /**
@@ -4983,4 +4967,3 @@ class Util
         return $result;
     }
 }
-

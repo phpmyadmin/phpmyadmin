@@ -1188,11 +1188,10 @@ function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
     );
     $html_output .= Util::getButtonOrImage(
         'edit_central_columns', 'mult_submit change_central_columns',
-        'submit_mult_change', __('Edit'), 'b_edit.png', 'edit central columns'
+        __('Edit'), 'b_edit.png', 'edit central columns'
     );
     $html_output .= Util::getButtonOrImage(
         'delete_central_columns', 'mult_submit',
-        'submit_mult_central_columns_remove',
         __('Delete'), 'b_drop.png',
         'remove_from_central_columns'
     );
