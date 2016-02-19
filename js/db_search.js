@@ -57,6 +57,7 @@ function loadResult(result_path, table_name, link)
                     PMA_makegrid(this, true, true, true, true);
                 });
                 $('#browse-results').show();
+                PMA_highlightSQL($('#browse-results'));
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
