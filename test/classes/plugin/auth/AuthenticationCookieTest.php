@@ -714,7 +714,7 @@ class AuthenticationCookieTest extends PMATestCase
             ->method('cookieDecrypt')
             ->will($this->returnValue("\xff(blank)"));
 
-        $this->assertTrue(
+        $this->assertFalse(
             $this->object->authCheck()
         );
 
@@ -759,6 +759,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 0;
         $_SESSION['last_access_time'] = -1;
+        $GLOBALS['no_activity']='1'
         // mock for blowfish function
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
@@ -803,6 +804,16 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = true;
+        if(isset($pma_auth)){
+
+             $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pma_pass1','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
+        }
+        if(isset($_pma_data)){
+            $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('pmaUser1','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_data',$pma_data);
+        }
 
         $this->object->authSetUser();
 
