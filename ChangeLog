@@ -46,6 +46,7 @@ phpMyAdmin - ChangeLog
 - issue #11972 Missing documentation for $cfg['Servers'][$i]['favorite'] and $cfg['NumFavoriteTables']
 - issue #11907 Avoid displaying UPDATE query twice
 - issue #11850 Fixed CSV import
+- issue        Fix SQL syntax highlighting in database search page
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
