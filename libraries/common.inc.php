@@ -148,6 +148,12 @@ $variables_whitelist = array (
     'PMA_PHP_SELF',
     'variables_whitelist',
     'key',
+    # following are set by gettext.inc
+    'text_domains',
+    'default_domain',
+    'LC_CATEGORIES',
+    'EMULATEGETTEXT',
+    'CURRENTLOCALE',
 );
 
 foreach (get_defined_vars() as $key => $value) {
