@@ -86,13 +86,35 @@ which include phpMyAdmin together with a database and web server such as
 
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
 
+Installing from Git
++++++++++++++++++++
+
+You can clone current phpMyAdmin source from
+``https://github.com/phpmyadmin/phpmyadmin.git``:
+
+.. code-block:: sh
+
+    git clone https://github.com/phpmyadmin/phpmyadmin.git
+
+Additionally you need to install dependencies using `Composer`_:
+
+.. code-block:: sh
+
+    composer update
+
+If you do not intend to develop, you can skip installation of developer tools
+by invoking:
+
+.. code-block:: sh
+
+    composer update --no-dev
+
 
 Installing using Composer
 +++++++++++++++++++++++++
 
-You can install phpMyAdmin using `Composer <https://getcomposer.org/>`_,
-however it's currently not available in the default
-`Packagist <https://packagist.org/>`_ repository due to its technical
+You can install phpMyAdmin using `Composer`_, however it's currently not
+available in the default `Packagist`_ repository due to its technical
 limitations.
 
 The installation is possible by adding our own repository
@@ -768,3 +790,7 @@ Trouble logging back in after logging out using 'http' authentication
 
 When using the 'http' ``auth_type``, it can be impossible to log back in (when the logout comes
 manually or after a period of inactivity). `Issue 11898 <https://github.com/phpmyadmin/phpmyadmin/issues/11898>`_.
+
+
+.. _Composer: https://getcomposer.org/
+.. _Packagist: https://packagist.org/
