@@ -448,7 +448,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('test','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
 
 
@@ -471,7 +471,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('test','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
 
 
@@ -527,7 +527,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('test','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
 
         $this->assertFalse(
@@ -551,7 +551,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
@@ -596,7 +596,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json(1,'pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
         if(isset($_pma_data)){
             $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json(1,'pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
@@ -643,7 +643,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json(1,'pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
         if(isset($_pma_data)){
             $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('pmaUser1','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
@@ -692,7 +692,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pma_pass1','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
         if(isset($_pma_data)){
             $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('pmaUser1','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
@@ -747,7 +747,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pma_pass1','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
         if(isset($_pma_data)){
             $pma_data['pma_User-'.$GLOBALS['server']]=$GLOBALS['PMA_Config']->check_json('pmaUser1','pma_User-'.$GLOBALS['server'],$pma_data,'pma_data');
@@ -949,7 +949,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
 
         // case 1
@@ -983,7 +983,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
 
         $GLOBALS['login_without_password_is_forbidden'] = '';
@@ -1014,7 +1014,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
 
         $GLOBALS['allowDeny_forbidden'] = '';
@@ -1046,7 +1046,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -1095,7 +1095,7 @@ class AuthenticationCookieTest extends PMATestCase
 
              $pma_auth['pma_iv']=$GLOBALS['PMA_Config']->check_json(base64_encode('testiv09testiv09'),'pma_iv',$pma_auth,'pma_auth-'.$GLOBALS['server']);
              $pma_auth['pma_pass']=$GLOBALS['PMA_Config']->check_json('pass','pma_pass',$pma_auth,'pma_auth-'.$GLOBALS['server']);
-             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$_GLOBALS['server'],$pma_auth);
+             $GLOBALS['PMA_Config']->set_json_Cookie('pma_auth-'.$GLOBALS['server'],$pma_auth);
         }
         unset($GLOBALS['errno']);
 
