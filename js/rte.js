@@ -15,6 +15,8 @@ var RTE = {
      */
     object: function (type) {
         $.extend(this, RTE.COMMON);
+        this.editorType = type;
+
         switch (type) {
         case 'routine':
             $.extend(this, RTE.ROUTINE);
@@ -58,6 +60,10 @@ RTE.COMMON = {
      *                    the jQueryUI dialog buttons
      */
     buttonOptions: {},
+    /**
+     * @var editorType Type of the editor
+     */
+    editorType: null,
     /**
      * Validate editor form fields.
      */
@@ -360,7 +366,9 @@ RTE.COMMON = {
                  *                 the Definition textarea.
                  */
                 var $elm = $('textarea[name=item_definition]').last();
-                that.syntaxHiglighter = PMA_getSQLEditor($elm);
+                var linterOptions = {};
+                linterOptions[that.editorType + '_editor'] = true;
+                that.syntaxHiglighter = PMA_getSQLEditor($elm, {}, null, linterOptions);
 
                 // Execute item-specific code
                 that.postDialogShow(data);
