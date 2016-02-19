@@ -83,6 +83,7 @@ phpMyAdmin - ChangeLog
 - issue #11967 Fix PHP error on loading invalid XML or ODS file
 - issue #11969 Missing confirmation while dropping a view in view_operations.php
 - issue #11968 Fix export of index comments in SQL
+- issue #11979 DECLARE not accepted as valid SQL
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3
