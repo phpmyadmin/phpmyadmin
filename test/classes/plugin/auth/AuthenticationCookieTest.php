@@ -759,7 +759,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 0;
         $_SESSION['last_access_time'] = -1;
-        //$GLOBALS['no_activity']='1'
+
         // mock for blowfish function
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
