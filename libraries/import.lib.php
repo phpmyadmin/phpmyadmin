@@ -239,8 +239,6 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
                     $sql_data['valid_queries'] = 0;
                     unset($sql_data['valid_full']);
                     for ($i = 0; $i < $count; $i++) {
-                        print_r($queries[$i]);
-
                         PMA_executeQuery(
                             $queries[$i],
                             $fulls[$i],
