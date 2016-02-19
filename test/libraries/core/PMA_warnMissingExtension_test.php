@@ -11,10 +11,6 @@
  */
 use PMA\libraries\Theme;
 
-
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/sanitizing.lib.php';
-
 /**
  * PMA_warnMissingExtension warns or fails on missing extension.
  *

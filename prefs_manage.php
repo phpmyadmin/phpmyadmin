@@ -11,6 +11,7 @@ use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -228,7 +229,7 @@ if ($error) {
 ?>
 <script type="text/javascript">
 <?php
-PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
+Sanitize::printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
 ?>
 </script>
 <div id="maincontainer">

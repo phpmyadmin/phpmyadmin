@@ -17,6 +17,7 @@ use PMA\libraries\Template;
 use PMA\libraries\Tracker;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/display_create_table.lib.php';
@@ -755,7 +756,7 @@ class DatabaseStructureController extends DatabaseController
             ) {
                 $approx_rows = true;
                 $show_superscript = Util::showHint(
-                    PMA_sanitize(
+                    Sanitize::sanitize(
                         sprintf(
                             __(
                                 'This view has at least this number of '

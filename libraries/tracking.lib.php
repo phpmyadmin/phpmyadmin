@@ -9,6 +9,7 @@ use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Tracker;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Filters tracking entries
@@ -658,7 +659,7 @@ function PMA_getHtmlForTrackingReportExportForm2(
         . '</option>'
         . '<option value="sqldump">' . __('SQL dump') . '</option>'
         . '<option value="execution" onclick="alert(\''
-        . PMA_escapeJsString(
+        . Sanitize::escapeJsString(
             __('This option will replace your table and contained data.')
         )
         . '\')">' . __('SQL execution') . '</option>' . '</select>';

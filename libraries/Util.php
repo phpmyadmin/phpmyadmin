@@ -15,6 +15,7 @@ use SqlParser\Token;
 use stdClass;
 use SqlParser\Utils\Error as ParserError;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -1114,9 +1115,9 @@ class Util
             $retval .= $message->getDisplay();
         } else {
             $retval .= '<div class="' . $type . '">';
-            $retval .= PMA_sanitize($message);
+            $retval .= Sanitize::sanitize($message);
             if (isset($GLOBALS['special_message'])) {
-                $retval .= PMA_sanitize($GLOBALS['special_message']);
+                $retval .= Sanitize::sanitize($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
             $retval .= '</div>';
@@ -1902,7 +1903,7 @@ class Util
             $tag_params = array();
             if (! empty($tmp)) {
                 $tag_params['onclick'] = 'return confirmLink(this, \''
-                    . PMA_escapeJsString($tmp) . '\')';
+                    . Sanitize::escapeJsString($tmp) . '\')';
             }
             unset($tmp);
         }

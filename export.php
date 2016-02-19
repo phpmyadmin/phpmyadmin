@@ -7,6 +7,7 @@
  */
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Get the variables sent or posted to this script and a core script
@@ -372,7 +373,7 @@ if (!defined('TESTSUITE')) {
             // (avoid rewriting data containing HTML with anchors and forms;
             // this was reported to happen under Plesk)
             @ini_set('url_rewriter.tags', '');
-            $filename = PMA_sanitizeFilename($filename);
+            $filename = Sanitize::sanitizeFilename($filename);
 
             PMA_downloadHeader($filename, $mime_type);
         } else {

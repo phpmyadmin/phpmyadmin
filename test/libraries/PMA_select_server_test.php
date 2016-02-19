@@ -16,9 +16,6 @@ require_once 'libraries/select_server.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
-
 /**
  * PMA_SelectServer_Test class
  *

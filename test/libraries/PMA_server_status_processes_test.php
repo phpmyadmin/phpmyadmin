@@ -16,10 +16,6 @@ use PMA\libraries\URL;
 require_once 'libraries/server_status_processes.lib.php';
 require_once 'libraries/database_interface.inc.php';
 
-
-
-require_once 'libraries/sanitizing.lib.php';
-
 /**
  * class PMA_ServerStatusProcesses_Test
  *

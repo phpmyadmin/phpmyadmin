@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Index manipulation class
@@ -729,7 +730,7 @@ class Index
                         . ' DROP PRIMARY KEY;';
                     $this_params['message_to_show']
                         = __('The primary key has been dropped.');
-                    $js_msg = PMA_jsFormat(
+                    $js_msg = Sanitize::jsFormat(
                         'ALTER TABLE ' . $table . ' DROP PRIMARY KEY'
                     );
                 } else {
@@ -740,7 +741,7 @@ class Index
                         __('Index %s has been dropped.'), $index->getName()
                     );
 
-                    $js_msg = PMA_jsFormat(
+                    $js_msg = Sanitize::jsFormat(
                         'ALTER TABLE ' . $table . ' DROP INDEX '
                         . $index->getName() . ';'
                     );

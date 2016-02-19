@@ -17,8 +17,6 @@ require_once 'libraries/mult_submits.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/sql.lib.php';

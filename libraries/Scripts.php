@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Collects information about which JavaScript
@@ -239,7 +240,7 @@ class Scripts
         foreach ($this->_files as $file) {
             $code .= sprintf(
                 '.add("%s",%d)',
-                PMA_escapeJsString($file['filename']),
+                Sanitize::escapeJsString($file['filename']),
                 $file['has_onload'] ? 1 : 0
             );
         }
@@ -250,7 +251,7 @@ class Scripts
         foreach ($this->_files as $file) {
             if ($file['has_onload']) {
                 $code .= 'AJAX.fireOnload("';
-                $code .= PMA_escapeJsString($file['filename']);
+                $code .= Sanitize::escapeJsString($file['filename']);
                 $code .= '");';
             }
         }

@@ -3,6 +3,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 $js_msg = '';
 $this_params = null;
@@ -18,7 +19,7 @@ if (isset($one_key['constraint'])) {
         __('Foreign key constraint %s has been dropped'),
         $one_key['constraint']
     );
-    $js_msg = PMA_jsFormat(
+    $js_msg = Sanitize::jsFormat(
         'ALTER TABLE ' . $GLOBALS['table']
         . ' DROP FOREIGN KEY '
         . $one_key['constraint'] . ';'

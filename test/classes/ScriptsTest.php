@@ -12,7 +12,6 @@
 
 use PMA\libraries\Scripts;
 
-require_once 'libraries/js_escape.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

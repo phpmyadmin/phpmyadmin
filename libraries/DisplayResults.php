@@ -10,6 +10,7 @@ namespace PMA\libraries;
 use SqlParser\Utils\Query;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 require_once './libraries/transformations.lib.php';
 
@@ -3535,8 +3536,8 @@ class DisplayResults
                 );
             $del_url  = 'sql.php' . URL::getCommon($_url_params);
 
-            $js_conf  = 'DELETE FROM ' . PMA_jsFormat($this->__get('table'))
-                . ' WHERE ' . PMA_jsFormat($where_clause, false)
+            $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->__get('table'))
+                . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
             $del_str = $this->_getActionLinkContent('b_drop.png', __('Delete'));
@@ -4257,7 +4258,7 @@ class DisplayResults
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
             $after_count = Util::showHint(
-                PMA_sanitize(
+                Sanitize::sanitize(
                     __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
                 )
             );

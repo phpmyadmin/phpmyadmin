@@ -7,6 +7,7 @@
  */
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -608,7 +609,7 @@ if (isset($GLOBALS['dbi'])
         )
     ) {
         trigger_error(
-            PMA_sanitize(
+            Sanitize::sanitize(
                 sprintf(
                     __(
                         'Your PHP MySQL library version %s differs from your ' .

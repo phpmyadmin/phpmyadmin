@@ -13,9 +13,6 @@ require_once 'libraries/mysql_charsets.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
-
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
 

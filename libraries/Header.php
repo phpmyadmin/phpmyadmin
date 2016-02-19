@@ -9,8 +9,8 @@ namespace PMA\libraries;
 
 use PMA\libraries\navigation\Navigation;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -272,7 +272,7 @@ class Header
     {
         $params = $this->getJsParams();
         foreach ($params as $key => $value) {
-            $params[$key] = $key . ':"' . PMA_escapeJsString($value) . '"';
+            $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
         }
         return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
     }

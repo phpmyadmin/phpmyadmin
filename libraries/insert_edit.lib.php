@@ -8,6 +8,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\plugins\TransformationsPlugin;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Retrieve form parameters for insert/edit form
@@ -467,7 +468,7 @@ function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
     $html_output .= '<input type="hidden" class="hashed_field" name="hashed_field'
         . $column_name_appendix . '" value="' .  $column['Field_md5'] . '" />';
     $html_output .= '<input type="hidden" class="multi_edit" name="multi_edit'
-        . $column_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
+        . $column_name_appendix . '" value="' . Sanitize::escapeJsString($vkey) . '" />';
     $html_output .= '</td>' . "\n";
 
     return $html_output;
@@ -2727,8 +2728,8 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     //Call validation when the form submitted...
     $onChangeClause = $chg_evt_handler
         . "=\"return verificationsAfterFieldChange('"
-        . PMA_escapeJsString($column['Field_md5']) . "', '"
-        . PMA_escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
+        . Sanitize::escapeJsString($column['Field_md5']) . "', '"
+        . Sanitize::escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
 
     // Use an MD5 as an array index to avoid having special characters
     // in the name attribute (see bug #1746964 )

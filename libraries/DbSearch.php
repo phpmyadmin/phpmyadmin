@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Class to handle database search
@@ -342,7 +343,7 @@ class DbSearch
             $html_output .= '<td><a name="browse_search" class="ajax" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
                 . $browse_result_path . '\',\''
-                . PMA_escapeJsString(htmlspecialchars($each_table)) . '\',\''
+                . Sanitize::escapeJsString(htmlspecialchars($each_table)) . '\',\''
                 . URL::getCommon(
                     array(
                         'db' => $GLOBALS['db'], 'table' => $each_table

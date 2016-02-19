@@ -11,6 +11,7 @@ use PMA\libraries\config\FormDisplay;
 use PMA\libraries\config\ServerConfigChecks;
 use PMA\libraries\LanguageManager;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -56,7 +57,7 @@ PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
 if (!$config_writable || !$config_readable) {
     PMA_messagesSet(
         'error', 'config_rw', __('Cannot load or save configuration'),
-        PMA_sanitize(
+        Sanitize::sanitize(
             __(
                 'Please create web server writable folder [em]config[/em] in '
                 . 'phpMyAdmin top level directory as described in '
@@ -82,7 +83,7 @@ if (!$is_https) {
             'https://' .  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']
         );
         $text .= ' ';
-        $text .= PMA_sanitize(
+        $text .= Sanitize::sanitize(
             sprintf(
                 __(
                     'If your server is also configured to accept HTTPS requests '
@@ -121,7 +122,7 @@ case 'config_saved':
     /* Use uniqid to display this message every time configuration is saved */
     PMA_messagesSet(
         'notice', uniqid('config_saved'), __('Configuration saved.'),
-        PMA_sanitize(
+        Sanitize::sanitize(
             __(
                 'Configuration saved to file config/config.inc.php in phpMyAdmin '
                 . 'top level directory, copy it to top level one and delete '

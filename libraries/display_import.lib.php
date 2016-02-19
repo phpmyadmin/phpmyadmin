@@ -11,6 +11,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Prints Html For Display Import Hidden Input
@@ -65,7 +66,7 @@ function PMA_getHtmlForImportJS($upload_id)
     } else { // no plugin available
         $image_tag = '<img src="' . $GLOBALS['pmaThemeImage']
             . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
-            . PMA_jsFormat(
+            . Sanitize::jsFormat(
                 __(
                     'Please be patient, the file is being uploaded. '
                     . 'Details about the upload are not available.'
@@ -476,7 +477,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     //some variable for javascript
     $ajax_url = "import_status.php?id=" . $upload_id . "&"
         . URL::getCommon(array('import_status'=>1), 'text');
-    $promot_str = PMA_jsFormat(
+    $promot_str = Sanitize::jsFormat(
         __(
             'The file being uploaded is probably larger than '
             . 'the maximum allowed size or this is a known bug in webkit '
@@ -484,12 +485,12 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
         ),
         false
     );
-    $statustext_str = PMA_escapeJsString(__('%s of %s'));
-    $upload_str = PMA_jsFormat(__('Uploading your import file…'), false);
-    $second_str = PMA_jsFormat(__('%s/sec.'), false);
-    $remaining_min = PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false);
-    $remaining_second = PMA_jsFormat(__('About %SEC sec. remaining.'), false);
-    $processed_str = PMA_jsFormat(
+    $statustext_str = Sanitize::escapeJsString(__('%s of %s'));
+    $upload_str = Sanitize::jsFormat(__('Uploading your import file…'), false);
+    $second_str = Sanitize::jsFormat(__('%s/sec.'), false);
+    $remaining_min = Sanitize::jsFormat(__('About %MIN min. %SEC sec. remaining.'), false);
+    $remaining_second = Sanitize::jsFormat(__('About %SEC sec. remaining.'), false);
+    $processed_str = Sanitize::jsFormat(
         __('The file is being processed, please be patient.'),
         false
     );

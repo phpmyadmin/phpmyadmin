@@ -18,7 +18,6 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 
 
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * Tests for libraries/tracking.lib.php

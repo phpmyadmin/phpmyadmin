@@ -9,12 +9,6 @@
 
 const PMA_IS_WINDOWS = false;
 
-/*
- * Include to test.
- */
-
-
-require_once 'libraries/js_escape.lib.php';
 
 /**
  ** Test for PMA\libraries\Util::getMessage from common.lib

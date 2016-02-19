@@ -9,6 +9,7 @@ namespace PMA\libraries;
 
 use Traversable;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Class used to output the footer
@@ -327,9 +328,9 @@ class Footer
                             . ' scripts: %s,'
                             . ' menuHash: "%s"'
                             . '};',
-                            PMA_escapeJsString($url),
+                            Sanitize::escapeJsString($url),
                             json_encode($scripts),
-                            PMA_escapeJsString($menuHash)
+                            Sanitize::escapeJsString($menuHash)
                         )
                     );
                 }

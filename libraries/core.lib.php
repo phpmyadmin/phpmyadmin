@@ -9,6 +9,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 
 if (! defined('PHPMYADMIN')) {
@@ -480,7 +481,6 @@ function PMA_getenv($var_name)
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
     if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
-        include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();
 
         echo PMA\libraries\Template::get('header_location')
@@ -792,7 +792,7 @@ function PMA_addJSCode($str)
  */
 function PMA_addJSVar($key, $value, $escape = true)
 {
-    PMA_addJSCode(PMA_getJsValue($key, $value, $escape));
+    PMA_addJSCode(Sanitize::getJsValue($key, $value, $escape));
 }
 
 /**
