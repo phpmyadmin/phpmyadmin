@@ -213,11 +213,12 @@ function PMA_handleRedirectAndReload(data) {
 /**
  * Creates an SQL editor which supports auto completing etc.
  *
- * @param $textarea jQuery object wrapping the textarea to be made the editor
- * @param options   optional options for CodeMirror
- * @param resize    optional resizing ('vertical', 'horizontal', 'both')
+ * @param $textarea   jQuery object wrapping the textarea to be made the editor
+ * @param options     optional options for CodeMirror
+ * @param resize      optional resizing ('vertical', 'horizontal', 'both')
+ * @param lintOptions additional options for lint
  */
-function PMA_getSQLEditor($textarea, options, resize) {
+function PMA_getSQLEditor($textarea, options, resize, lintOptions) {
     if ($textarea.length > 0 && typeof CodeMirror !== 'undefined') {
 
         // merge options for CodeMirror
@@ -237,6 +238,7 @@ function PMA_getSQLEditor($textarea, options, resize) {
                 lint: {
                     "getAnnotations": CodeMirror.sqlLint,
                     "async": true,
+                    "lintOptions": lintOptions
                 }
             });
         }
