@@ -41,7 +41,7 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
 
-    public function testPMA_getItemsFromShowGrantsRow()
+    public function testGetItemsFromShowGrantsRow()
     {
         // TEST CASE 1
         $show_grants_full_row = "GRANT ALL PRIVILEGES ON *.* "
@@ -132,7 +132,7 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_checkRequiredPrivilegesForAdjust()
+    public function testCheckRequiredPrivilegesForAdjust()
     {
         // TEST CASE 1
         $show_grants_full_row = "GRANT ALL PRIVILEGES ON *.* "
@@ -295,5 +295,4 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['table_priv']
         );
     }
-
 }
