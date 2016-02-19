@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Displays top part of the form
@@ -37,8 +38,8 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
         $htmlOutput .= '<input type="hidden" name="check_page_refresh" '
             . ' id="check_page_refresh" value="" />' . "\n";
     }
-    $htmlOutput .= PMA_URL_getHiddenInputs('', '', 0, 'server') . "\n";
-    $htmlOutput .= PMA_getHiddenFields((array)$hidden_fields);
+    $htmlOutput .= URL::getHiddenInputs('', '', 0, 'server') . "\n";
+    $htmlOutput .= URL::getHiddenFields((array)$hidden_fields);
     return $htmlOutput;
 }
 

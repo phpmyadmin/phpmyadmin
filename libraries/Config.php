@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use DirectoryIterator;
+use PMA\libraries\URL;
 
 /**
  * Indication for error handler (see end of this file).
@@ -1549,7 +1550,7 @@ class Config
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="get" action="index.php" class="disableAjax">' . "\n"
-            . PMA_URL_getHiddenInputs() . "\n"
+            . URL::getHiddenInputs() . "\n"
             . Config::getFontsizeSelection() . "\n"
             . '</form>';
     }

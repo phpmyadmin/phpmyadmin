@@ -10,8 +10,6 @@
  * Include to test
  */
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/url_generating.lib.php';
-
 
 /**
  * tests for PMA_sanitize()

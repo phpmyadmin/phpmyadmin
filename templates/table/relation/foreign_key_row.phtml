@@ -2,6 +2,7 @@
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 $js_msg = '';
 $this_params = null;
@@ -71,7 +72,7 @@ if ($foreign_db) {
                    class="drop_foreign_key_msg"
                    value="<?= $js_msg; ?>" />
             <a class="drop_foreign_key_anchor ajax"
-               href="sql.php<?= PMA_URL_getCommon($this_params); ?>" >
+               href="sql.php<?= URL::getCommon($this_params); ?>" >
                 <?= PMA\libraries\Util::getIcon('b_drop.png', __('Drop')); ?>
             </a>
         <?php endif; ?>

@@ -5,7 +5,7 @@
       class="ajax"
       onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') this.elements['index[Key_name]'].disabled = false;">
 
-    <?= PMA_URL_getHiddenInputs($form_params); ?>
+    <?= PMA\libraries\URL::getHiddenInputs($form_params); ?>
 
     <fieldset id="index_edit_fields">
         <div class="index_info">

@@ -10,13 +10,11 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
-
-require_once 'libraries/url_generating.lib.php';
-
 
 
 
@@ -113,7 +111,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('SID', md5('test_hash'));
 
             $testUri = 'http://testurl.com/test.php?test=test';
-            $separator = PMA_URL_getArgSeparator();
+            $separator = URL::getArgSeparator();
 
             $header = array('Location: ' . $testUri . $separator . SID);
 

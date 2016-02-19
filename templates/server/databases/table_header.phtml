@@ -4,7 +4,7 @@
             <th></th>
         <?php endif; ?>
         <th>
-            <a href="server_databases.php<?= PMA_URL_getCommon($_url_params); ?>">
+            <a href="server_databases.php<?= \PMA\libraries\URL::getCommon($_url_params); ?>">
                 <?= __('Database'); ?>
                 <?= ($sort_by == 'SCHEMA_NAME' ?  \PMA\libraries\Util::getImage('s_' . $sort_order . '.png', $sort_order_text) : ''); ?>
             </a>
@@ -17,7 +17,7 @@
             $_url_params['sort_order'] = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc'; ?>
 
             <th <?php if ($stat['format'] === 'byte'): ?>colspan="2"<?php endif; ?>>
-                <a href="server_databases.php<?= PMA_URL_getCommon($_url_params); ?>">
+                <a href="server_databases.php<?= \PMA\libraries\URL::getCommon($_url_params); ?>">
                     <?= $stat['disp_name']; ?>
                     <?= ($sort_by == $stat_name ?  \PMA\libraries\Util::getImage('s_' . $sort_order . '.png', $sort_order_text) : ''); ?>
                 </a>

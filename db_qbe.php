@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\SavedSearches;
+use PMA\libraries\URL;
 
 /**
  * requirements
@@ -131,7 +132,7 @@ unset($message_to_display);
 // create new qbe search instance
 $db_qbe = new PMA\libraries\DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
-$url = 'db_designer.php' . PMA_URL_getCommon(
+$url = 'db_designer.php' . URL::getCommon(
     array_merge(
         $url_params,
         array('query' => 1)

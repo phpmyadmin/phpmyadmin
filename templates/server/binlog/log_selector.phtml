@@ -1,5 +1,5 @@
 <form action="server_binlog.php" method="get">
-    <?= PMA_URL_getHiddenInputs($url_params); ?>
+    <?= PMA\libraries\URL::getHiddenInputs($url_params); ?>
     <fieldset>
         <legend>
             <?= __('Select binary log to view'); ?>

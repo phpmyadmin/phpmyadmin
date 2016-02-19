@@ -13,6 +13,7 @@ use PMA\libraries\controllers\Controller;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Handles viewing and editing server variables
@@ -254,7 +255,7 @@ class ServerVariablesController extends Controller
      */
     private function _getHtmlForLinkTemplates()
     {
-        $url = 'server_variables.php' . PMA_URL_getCommon();
+        $url = 'server_variables.php' . URL::getCommon();
         return Template::get('server/variables/link_template')
             ->render(array('url' => $url));
     }

@@ -7,10 +7,10 @@
  */
 
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -145,7 +145,7 @@ class NavigationTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php' . PMA_URL_getCommon()
+            '<a href="navigation.php' . URL::getCommon()
             . '&unhideNavItem=true&itemType=table&itemName=tableName&dbName=db"'
             . ' class="unhideNavItem ajax">',
             $html
