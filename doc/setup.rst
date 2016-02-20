@@ -378,9 +378,9 @@ for it. Once you have both of them in the same folder, you can verify the signat
 
 .. code-block:: console
 
-    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
-    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
-    gpg: Can't check signature: No public key
+    $ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+    gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+    gpg: Can't check signature: public key not found
 
 As you can see gpg complains that it does not know the public key. At this
 point you should do one of the following steps:
@@ -395,9 +395,9 @@ point you should do one of the following steps:
 
 .. code-block:: console
 
-    $ gpg --keyserver hkp://pgp.mit.edu --recv-keys 81AF644A
-    gpg: requesting key 81AF644A from hkp server pgp.mit.edu
-    gpg: key 81AF644A: public key "Marc Delisle <marc@infomarc.info>" imported
+    $ gpg --keyserver hkp://pgp.mit.edu --recv-keys 8259BD92
+    gpg: requesting key 8259BD92 from hkp server pgp.mit.edu
+    gpg: key 8259BD92: public key "Isaac Bennetch <bennetch@gmail.com>" imported
     gpg: no ultimately trusted keys found
     gpg: Total number processed: 1
     gpg:               imported: 1  (RSA: 1)
@@ -408,12 +408,13 @@ in the key:
 
 .. code-block:: console
 
-    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
-    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
-    gpg: Good signature from "Marc Delisle <marc@infomarc.info>" [unknown]
+    $ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+    gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+    gpg: Good signature from "Isaac Bennetch <bennetch@gmail.com>"
+    gpg:                 aka "Isaac Bennetch <isaac@bennetch.org>"
     gpg: WARNING: This key is not certified with a trusted signature!
     gpg:          There is no indication that the signature belongs to the owner.
-    Primary key fingerprint: 436F F188 4B1A 0C3F DCBF  0D79 FEFC 65D1 81AF 644A
+    Primary key fingerprint: 3D06 A59E CE73 0EB7 1B51  1C17 CE75 2F17 8259 BD92
 
 The problem here is that anybody could issue the key with this name.  You need to
 ensure that the key is actually owned by the mentioned person.  The GNU Privacy
@@ -421,29 +422,29 @@ Handbook covers this topic in the chapter `Validating other keys on your public
 keyring`_. The most reliable method is to meet the developer in person and
 exchange key fingerprints, however you can also rely on the web of trust. This way
 you can trust the key transitively though signatures of others, who have met
-the developer in person. For example you can see how `Marc's key links to
+the developer in person. For example you can see how `Isaac's key links to
 Linus's key`_.
 
 Once the key is trusted, the warning will not occur:
 
 .. code-block:: console
 
-    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
-    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
-    gpg: Good signature from "Marc Delisle <marc@infomarc.info>" [full]
+    $ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+    gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+    gpg: Good signature from "Isaac Bennetch <bennetch@gmail.com>" [full]
 
 Should the signature be invalid (the archive has been changed), you would get a
 clear error regardless of the fact that the key is trusted or not:
 
 .. code-block:: console
 
-    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
-    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
-    gpg: BAD signature from "Marc Delisle <marc@infomarc.info>" [unknown]
+    $ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+    gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+    gpg: BAD signature from "Isaac Bennetch <bennetch@gmail.com>" [unknown]
 
 .. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
 
-.. _Marc's key links to Linus's key: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=81AF644A
+.. _Isaac's key links to Linus's key: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=8259BD92
 
 
 .. index::
