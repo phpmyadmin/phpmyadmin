@@ -18,7 +18,6 @@ require_once './libraries/vendor_config.php';
  * Indication for error handler (see end of this file).
  */
 $GLOBALS['pma_config_loading'] = false;
-//chintanzaveri issue11688
 
 /**
  * Configuration class
