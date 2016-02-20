@@ -19,15 +19,6 @@ use PMA\libraries\plugins\ImportPlugin;
 use SimpleXMLElement;
 
 /**
- * We need way to disable external XML entities processing.
- */
-if (!function_exists('libxml_disable_entity_loader')) {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
-/**
  * Handles the import for the ODS format
  *
  * @package    PhpMyAdmin-Import
@@ -104,9 +95,11 @@ class ImportOds extends ImportPlugin
     /**
      * Handles the whole import logic
      *
+     * @param array &$sql_data 2-element array with sql data
+     *
      * @return void
      */
-    public function doImport()
+    public function doImport(&$sql_data = array())
     {
         global $db, $error, $timeout_passed, $finished;
 
@@ -147,7 +140,7 @@ class ImportOds extends ImportPlugin
          * result in increased performance without the need to
          * alter the code in any way. It's basically a freebee.
          */
-        $xml = simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
+        $xml = @simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
 
         unset($buffer);
 
@@ -380,13 +373,13 @@ class ImportOds extends ImportPlugin
         $create = null;
 
         /* Created and execute necessary SQL statements from data */
-        PMA_buildSQL($db_name, $tables, $analyses, $create, $options);
+        PMA_buildSQL($db_name, $tables, $analyses, $create, $options, $sql_data);
 
         unset($tables);
         unset($analyses);
 
         /* Commit any possible data in buffers */
-        PMA_importRunQuery();
+        PMA_importRunQuery('', '', $sql_data);
     }
 
     /**

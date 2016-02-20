@@ -61,9 +61,11 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Handles the whole import logic
      *
+     * @param array &$sql_data 2-element array with sql data
+     *
      * @return void
      */
-    public function doImport()
+    public function doImport(&$sql_data = array())
     {
         global $error, $timeout_passed, $finished;
 
@@ -231,7 +233,7 @@ class ImportMediawiki extends ImportPlugin
                         );
 
                         // Import the current table data into the database
-                        $this->_importDataOneTable($current_table);
+                        $this->_importDataOneTable($current_table, $sql_data);
 
                         // Reset table name
                         $cur_table_name = "";
@@ -282,18 +284,20 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Imports data from a single table
      *
-     * @param array $table containing all table info:
-     *                     <code>
-     *                     $table[0] - string containing table name
-     *                     $table[1] - array[]   of table headers
-     *                     $table[2] - array[][] of table content rows
-     *                     </code>
+     * @param array $table     containing all table info:
+     *                         <code>
+     *                         $table[0] - string containing table name
+     *                         $table[1] - array[]   of table headers
+     *                         $table[2] - array[][] of table content rows
+     *                         </code>
+     *
+     * @param array &$sql_data 2-element array with sql data
      *
      * @global bool $analyze whether to scan for column types
      *
      * @return void
      */
-    private function _importDataOneTable($table)
+    private function _importDataOneTable($table, &$sql_data)
     {
         $analyze = $this->_getAnalyze();
         if ($analyze) {
@@ -311,11 +315,11 @@ class ImportMediawiki extends ImportPlugin
             $analyses = array();
             $analyses [] = PMA_analyzeTable($tables[0]);
 
-            $this->_executeImportTables($tables, $analyses);
+            $this->_executeImportTables($tables, $analyses, $sql_data);
         }
 
         // Commit any possible data in buffers
-        PMA_importRunQuery();
+        PMA_importRunQuery('', '', $sql_data);
     }
 
     /**
@@ -368,12 +372,13 @@ class ImportMediawiki extends ImportPlugin
      *                         $analyses = array(
      *                         array(array() column_types, array() column_sizes)
      *                         )
+     * @param array &$sql_data 2-element array with sql data
      *
      * @global string $db      name of the database to import in
      *
      * @return void
      */
-    private function _executeImportTables(&$tables, &$analyses)
+    private function _executeImportTables(&$tables, &$analyses, &$sql_data)
     {
         global $db;
 
@@ -387,7 +392,7 @@ class ImportMediawiki extends ImportPlugin
         $create = null;
 
         // Create and execute necessary SQL statements from data
-        PMA_buildSQL($db_name, $tables, $analyses, $create, $options);
+        PMA_buildSQL($db_name, $tables, $analyses, $create, $options, $sql_data);
 
         unset($tables);
         unset($analyses);

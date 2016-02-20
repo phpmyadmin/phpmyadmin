@@ -95,31 +95,13 @@ class Console
             $output .= '<div class="message welcome"><span>';
             $count_bookmarks = count($bookmarks);
             if ($count_bookmarks > 0) {
-                $bookmarks_message = sprintf(
+                $output .= sprintf(
                     _ngettext(
-                        'Total %d bookmark',
-                        'Total %d bookmarks',
+                        'Showing %1$d bookmark (both private and shared)',
+                        'Showing %1$d bookmarks (both private and shared)',
                         $count_bookmarks
                     ),
                     $count_bookmarks
-                );
-                $private_message = sprintf(
-                    '<span class="bookmark_label">%1$s</span>',
-                    __('private')
-                );
-                $shared_message = sprintf(
-                    '<span class="bookmark_label shared">%1$s</span>',
-                    __('shared')
-                );
-                $output .= sprintf(
-                    /* l10n: First parameter will be replaced with the translation
-                    for Total and the number of bookmarks, second one with the
-                    translation for private and the third one, with the translation
-                    for shared */
-                    __('%1$s, %2$s and %3$s bookmarks included'),
-                    $bookmarks_message,
-                    $private_message,
-                    $shared_message
                 );
             } else {
                 $output .= __('No bookmarks');

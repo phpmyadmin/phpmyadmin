@@ -541,9 +541,6 @@ $(function () {
             }
         });
     });
-});
-
-AJAX.registerOnload('navigation.js', function () {
     // Check if session storage is supported
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
@@ -562,11 +559,6 @@ AJAX.registerOnload('navigation.js', function () {
             // Reload the tree to the state before page refresh
             PMA_reloadNavigation(null, JSON.parse(storage.navTreePaths));
         }
-    }
-});
-AJAX.registerTeardown('navigation.js', function () {
-    if (isStorageSupported('sessionStorage')) {
-        $(document).off('submit', 'form.config-form');
     }
 });
 

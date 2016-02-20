@@ -393,6 +393,8 @@ class Response
     /**
      * Wrapper around PHP's header() function.
      *
+     * @param string $text header string
+     *
      * @return void
      */
     public function header($text)

@@ -146,6 +146,14 @@ environment variables:
     The fully-qualified path (``https://pma.example.net/``) where the reverse
     proxy makes phpMyAdmin available.
 
+.. envvar:: PHP_UPLOAD_MAX_FILESIZE
+   
+    Define upload_max_filesize and post_max_size PHP settings.
+
+.. envvar:: PHP_MAX_INPUT_VARS
+   
+    Define max_input_vars PHP setting.
+
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
@@ -774,6 +782,8 @@ are always ways to make your installation more secure:
 * If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.
+* Alternative approach might be using using fail2ban as phpMyAdmin logs failed
+  authentication attempts to syslog (if available)
 
 Known issues
 ++++++++++++
